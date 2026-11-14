@@ -35,6 +35,8 @@ class Dbcsr < Formula
     resolves "https://github.com/cp2k/dbcsr/pull/1027"
   end
 
+  allow_network_access! :test
+
   def install
     rm_r("tools/build_utils/fypp")
 

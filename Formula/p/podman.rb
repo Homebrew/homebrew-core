@@ -1,36 +1,11 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
+  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.2.0.tar.gz"
+  sha256 "cb182273c5c5e3ea079f8f88a9a30a574d247f80e0b9dd9c02df1d2e6f6f3705"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
-  revision 1
   compatibility_version 1
   head "https://github.com/podman-container-tools/podman.git", branch: "main"
-
-  stable do
-    url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.1.4.tar.gz"
-    sha256 "200fd9b4b6d820cae24fc99d8e290ec945512365cf3cda8283b3905c0c284ea8"
-
-    patch do
-      url "https://github.com/podman-container-tools/podman/commit/379f3205cae2cf6242b9aa697a827a569beacc1a.patch?full_index=1"
-      sha256 "db15962e8bce4b4e1fa556b30ff87d23971077a9eb890b0e15130930e79e8e0e"
-      type :backport
-      resolves "https://github.com/podman-container-tools/podman/pull/29900"
-    end
-
-    patch do
-      url "https://github.com/podman-container-tools/podman/commit/c49605df323f8e5ed447bd25c6e553c7976a065f.patch?full_index=1"
-      sha256 "01eaa02f0d41b620f90e0ce73593e21ba08fee1264d421afbe6e95f24481ea6b"
-      type :backport
-      resolves "https://github.com/podman-container-tools/podman/pull/29900"
-    end
-
-    patch do
-      url "https://github.com/podman-container-tools/podman/commit/7c8b70047be1d919b4343e8945ee5eb80fc531fa.patch?full_index=1"
-      sha256 "6283077d985011d28eb80c99802e686b2be854eb872011740d1cfc90bba04d7f"
-      type :backport
-      resolves "https://github.com/podman-container-tools/podman/pull/29900"
-    end
-  end
 
   # There can be a notable gap between when a version is tagged and a
   # corresponding release is created and upstream uses GitHub releases to
@@ -43,11 +18,11 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "246809d498dca59bb7d90c2c7c06b1dfdf7b38bc0f56dd51ff4422b2eb59b1b2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5781d11ca8e6f097b6d5124b82483f808ed64b36269328158baa9f9cf358648f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b5f81376943283b7d83d361e47074388640508a69dc04619e10a229cae12f6b"
-    sha256                               arm64_linux:       "fe406925ef64a7fac5ca04c0f760c126c0a01fac456c4e17c7067409400b5882"
-    sha256                               x86_64_linux:      "74eab4b2edfa350d0e2613cacc4ab77aa39ea21226a6caaaf2cb4e3d7fdd1687"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c21a88c10a7ccf879f3e7bddd71d75677816fc77487e23b7af6ae39b97a97cce"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "829a33f0a739006b65a7b226d17da3f1d6c6faa13194990ac1d345c8df700ca1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1b75338a8432d7804d9035553ff88f5629f70ab9246c1614e19bb54abe5ceb4"
+    sha256                               arm64_linux:       "3f29947d4a0e655f102d7bb3c237b362dc9321c72c1d5b94cc1aa1eb78650cb7"
+    sha256                               x86_64_linux:      "5d2c4f5436570e47e8784e97b3a68c4cda46403f92b7debc9251e531986b5744"
   end
 
   depends_on "go" => :build

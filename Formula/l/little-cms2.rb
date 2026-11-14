@@ -1,10 +1,10 @@
 class LittleCms2 < Formula
   desc "Color management engine supporting ICC profiles"
   homepage "https://www.littlecms.com/"
-  # Ensure release is announced at https://www.littlecms.com/categories/releases/
-  # (or https://www.littlecms.com/blog/)
-  url "https://downloads.sourceforge.net/project/lcms/lcms/2.19.1/lcms2-2.19.1.tar.gz"
-  sha256 "bfc54f7bab59fbc921012014a8032e4cba4abd46db47d46b76416a8c0b2815c8"
+  # Ensure release is announced at https://sourceforge.net/p/lcms/mailman/lcms-user/
+  # Ref: https://github.com/mm2/Little-CMS/issues/569#issuecomment-4414911319
+  url "https://downloads.sourceforge.net/project/lcms/lcms/2.20/lcms2-2.20.tar.gz"
+  sha256 "18ff5504fa9cc8a2b1f3591180d90ead16c8a2ea78e530523b46eab70e1ca6b9"
   license "MIT"
   version_scheme 1
   compatibility_version 1
@@ -19,13 +19,11 @@ class LittleCms2 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "7bb337d2d9d577c7295721ba602ed5b49673f5285fbd359918b102ed363b3af9"
-    sha256 cellar: :any, arm64_tahoe:       "11f9fcdcbbe77b186777196971d8ba2c41526d2d96fbd02d411461df73313dce"
-    sha256 cellar: :any, arm64_sequoia:     "f68c3c93b9ee63891388f6485b27c5bc2605638df36b4806bdc52f0636e8254b"
-    sha256 cellar: :any, arm64_sonoma:      "823125475a9f5bfd1f2ddda2910143aa47c018c4cd6c55867b7461553d1719e1"
-    sha256 cellar: :any, arm64_linux:       "552eb0eadd3bf6059bdf16961bc30027ea11cf1d42a75f56f06403f10d14914b"
-    sha256 cellar: :any, x86_64_linux:      "16489b671db41055ab7066193482ef9812f5eb970110eec86bd0a40620a48c49"
+    sha256 cellar: :any, arm64_golden_gate: "95b216343a5dce73473576b9ac02283944cf293b0817b48be2d8c19ba78b4cc9"
+    sha256 cellar: :any, arm64_tahoe:       "c434b974c1afdc696c5475a743081cda752c842a7645eed54235b874df2b8175"
+    sha256 cellar: :any, arm64_sequoia:     "e04ebf2fc43c8ea39680a2255da8b6a7060ee38e5e1f159c8182c6344dd4c679"
+    sha256 cellar: :any, arm64_linux:       "40bdf93dd4ade58a731077ee1d75e4962c0b60814270e3dd5722bf7d69eba422"
+    sha256 cellar: :any, x86_64_linux:      "32f90320c436dae548b670e659b7108d3a8d508e833d79a77614e9ecd669ce08"
   end
 
   depends_on "jpeg-turbo"

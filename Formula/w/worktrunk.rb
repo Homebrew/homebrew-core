@@ -1,17 +1,17 @@
 class Worktrunk < Formula
   desc "CLI for Git worktree management, designed for parallel AI agent workflows"
   homepage "https://worktrunk.dev"
-  url "https://github.com/max-sixty/worktrunk/archive/refs/tags/v0.81.0.tar.gz"
-  sha256 "ab5cbc30f9b07b2ccb2133813f100deda77731dad0ce440332a34090de165d2d"
+  url "https://github.com/max-sixty/worktrunk/archive/refs/tags/v0.82.0.tar.gz"
+  sha256 "c4ecdcbd05236bc5455c203813c73ab4598e231e6deecbd00961d3c9b04a1dc5"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/max-sixty/worktrunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "923c679f92cd4333a0d5799dc312a3a89bfc57c84862cd9bb247f4cd95f44a3a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "943e60352f796ed3236ba6c90c05d317aa4bb34abba09fbad789d3b22ddf0399"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16a66cef69d1c092e3caa0c56325c14df39106b230456c3a4204479f71cf7bfb"
-    sha256 cellar: :any,                 arm64_linux:       "97db01f3def017662d9bb3224bffb5a668266ea4fa49398850787b3ecbcd48da"
-    sha256 cellar: :any,                 x86_64_linux:      "9a9e9b909fbfbbc85af57a1519c7176213bc65324cefd04dd18673f782016653"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54a8cbf2c4816d398e04acdc1720fb520126c794385ae0d47a65ef50b2d7f76e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d95eaaf5b23a9024a294cba46a78a5f5ab969e2ec9820c87449daac6b6da1692"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5665f9139c1a4bdfed5ef42ae7e58c5a466ac31f0a2869f6d6f1deadc5a64dbd"
+    sha256 cellar: :any,                 arm64_linux:       "7f6c0a3b742cdb4f8ca25e135d54a32cd51ed162bbb2f98c81d779bc64673991"
+    sha256 cellar: :any,                 x86_64_linux:      "8913e851cce42cde15b4b7c2bd8a4c11bbb0f756ac94d39ce3599e4cc7285fce"
   end
 
   depends_on "rust" => :build

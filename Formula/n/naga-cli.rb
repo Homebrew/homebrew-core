@@ -1,19 +1,17 @@
 class NagaCli < Formula
   desc "Shader translation command-line tool"
   homepage "https://wgpu.rs/"
-  url "https://static.crates.io/crates/naga-cli/naga-cli-30.0.1.crate"
-  sha256 "45283c11b8b1da1936214eefc9caf9c1bc74ae5c090023eaea84ba317a194c8c"
+  url "https://static.crates.io/crates/naga-cli/naga-cli-30.0.2.crate"
+  sha256 "473dda3f32f3e73239cc348210f8ad88e52995749f0a7c0ce14093039534b140"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/gfx-rs/wgpu.git", branch: "trunk"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2776ff4940b0777cd7ee59e00c943ed049ee73ad5d54fe88b39992cb1405c53"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d44465b0a33c75c47bd023035a46f4bd498f4cfc0ccf780d79f4c8d52a58115e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5237159b728073fc30f6cffcfff69082d2b699d70915b493687f809daee449a4"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8f39f0fb1ec58bb96a6b6cdf5d8ebf0c65057bb568f3369fbe4cd4403c02981e"
-    sha256 cellar: :any_skip_relocation, sonoma:            "c3acb2a0212acc143e4a4b03ad8cb9287af86251c0ded5443629308ab7bd28ac"
-    sha256 cellar: :any,                 arm64_linux:       "8ae808cead6861030360b53cb4fe19add216135bf87b0adebf80621030111d5e"
-    sha256 cellar: :any,                 x86_64_linux:      "2108881f0cfa71a0451fa471e7f1da1e8f3c4b4c4b513de11447e4594a453940"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61a51981367ac9e931239f66cb5421b57e25806704666d95213e8b6ac8b39d83"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18205ddf1be0fd9c7bad1c3c34d7207ea6a89b47d67bbdbfc528424d5048354e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef305a85f7f190f0f4efffb01db7bf6cd5e38971feddd0d4ad05583e34288371"
+    sha256 cellar: :any,                 arm64_linux:       "e7bd8696a3360ca017ee16c2ddc4bd5af148f02c91e089b98964ae2baaac5957"
+    sha256 cellar: :any,                 x86_64_linux:      "4788bac76c22dbb75b2c707ef302d351dcb415d7f2e40bbaf46d264820d67daf"
   end
 
   depends_on "rust" => :build

@@ -3,12 +3,12 @@ class McpProxy < Formula
 
   desc "Bridge between Streamable HTTP and stdio MCP transports"
   homepage "https://github.com/sparfenyuk/mcp-proxy"
-  url "https://files.pythonhosted.org/packages/f8/51/22df0ca8541a81bcad74796c5d02c4def086af0d9c7690c53a2508398770/mcp_proxy-0.14.0.tar.gz"
-  sha256 "72ea8795d3f572d22fe43878d69b088e88ff366d268f40ccc631cda13adc2e47"
+  url "https://files.pythonhosted.org/packages/de/e7/688b3a38d9d23799f2aa7d938f2c2f967861d265a4875893f149dfc9505b/mcp_proxy-0.15.0.tar.gz"
+  sha256 "f1f51cf1166af1a0928098b3b9fff77b165104d271c6e9e0c2d4a00852e73baa"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "7a6bacc6c4e0ffc8b53fbf24099c1926f6d421fcfb65331d350e607347863540"
+    sha256 cellar: :any_skip_relocation, all: "92f61a19273e176623a7c035144c84f70a94bb43e72403db35a5cbcd318284fa"
   end
 
   depends_on "certifi" => :no_linkage
@@ -17,9 +17,7 @@ class McpProxy < Formula
   depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
-  # TODO: Remove the MCP 1.x pin when upstream supports MCP 2.x: https://github.com/sparfenyuk/mcp-proxy/issues/235
-  pypi_packages extra_packages:   "mcp<2",
-                exclude_packages: %w[certifi cryptography pydantic rpds-py]
+  pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
@@ -32,8 +30,8 @@ class McpProxy < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "h11" do
@@ -107,8 +105,8 @@ class McpProxy < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/71/7f/3b8ec4f27833f7b8c270a3ef960b6d435e1065439847bc0fcd1e58ae898b/sse_starlette-3.6.0.tar.gz"
-    sha256 "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440a88b3a"
+    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
+    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
   end
 
   resource "starlette" do

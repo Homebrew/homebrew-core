@@ -1,17 +1,17 @@
 class CloudSqlProxy < Formula
   desc "Utility for connecting securely to your Cloud SQL instances"
   homepage "https://github.com/GoogleCloudPlatform/cloud-sql-proxy"
-  url "https://github.com/GoogleCloudPlatform/cloud-sql-proxy/archive/refs/tags/v2.27.0.tar.gz"
-  sha256 "ee430dd14b6f64a973239464d115a74a6eb6570fd4390bc064bf29555df95f5d"
+  url "https://github.com/GoogleCloudPlatform/cloud-sql-proxy/archive/refs/tags/v2.28.0.tar.gz"
+  sha256 "dbbc06dafca12d3d080efb4eb60e13c8405d1282260d235364c78cae705a3cf4"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/cloud-sql-proxy.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6640c731a8a535a67c69f4b3ded7344210634d8fd11e4126003658d8fa2434c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e92abd894ad31393ca8b75afa0c02bbecc7f53c58ebdae27db2e0e60673bbb7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6107dc917bf5729cfc0af5264f601393a13060be3aa6cd696b1fe0b18d64a9ca"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c499b4fd4b7e7097bb51b17f7e201ad3c6bd9ba0d8cef6665fc9114d7b3eec71"
-    sha256 cellar: :any,                 x86_64_linux:      "4de402a8715df41dbb7b74bf2774edff2a70ba94997099fb2c22edfb772a3897"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "099f16643d83ed0f07e962549d2b297fff2323737481c8e48fa71bd3351445a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9017cbb29dcd8378b8202a7b16c4326a31be6ca1368fe7c2aceae85cfe320421"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e919a099a87554420ad4f3391dbd6b10c5a1f334e0d1fe4245d8cc4c95a20eed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "cb3bc483e9b0c2cf7cc8385e870705d4b1571d7b13f1945a927efe8d4f37a60a"
+    sha256 cellar: :any,                 x86_64_linux:      "a368d2391db504faa012f99c48c4218ed1633d26c26698810a70699c0b97b3a0"
   end
 
   # TODO: unpin go@1.26 when Go 1.27's ML-DSA ClientHello no longer gets reset by TLS middleboxes

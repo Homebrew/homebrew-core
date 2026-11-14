@@ -1,18 +1,16 @@
 class Vcfanno < Formula
   desc "Annotate a VCF with other VCFs/BEDs/tabixed files"
   homepage "https://genomebiology.biomedcentral.com/articles/10.1186/s13059-016-0973-5"
-  url "https://github.com/brentp/vcfanno/archive/refs/tags/v0.3.9.tar.gz"
-  sha256 "a5119f39a70a3872067e00be2f20ac69ec8c2688fc9f4cf603b3de12c90cba4d"
+  url "https://github.com/brentp/vcfanno/archive/refs/tags/v0.3.10.tar.gz"
+  sha256 "6a13fc9fe247f2726b6294e55e713281e62e4a5c279501e60763c52c4c921d45"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "805728eb23441a52964eddeaf1814f9ea2b45316942c86121daee4efcbdc639e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92ecbff32912d88fe4b60fac125195702db65a0a439d9851d9345f291216aed5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92ecbff32912d88fe4b60fac125195702db65a0a439d9851d9345f291216aed5"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "92ecbff32912d88fe4b60fac125195702db65a0a439d9851d9345f291216aed5"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e3101f95a09f8e9ec483e97c8845e960873c19be0154ea2c2c95dc6608e19d47"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "68741a8fd0fd105b58eb3622ca6020ec586a46fbe8dccc5e16b2b05d9d0e1439"
-    sha256 cellar: :any,                 x86_64_linux:      "99d5735c73a80171cc9e4763542be0bd5c8724717dce86491d903152e1bf7348"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "add49d2935e062ec8e5124edc49a76dfb9ebc14ae64f8f40f7eca6038812018c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "add49d2935e062ec8e5124edc49a76dfb9ebc14ae64f8f40f7eca6038812018c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "add49d2935e062ec8e5124edc49a76dfb9ebc14ae64f8f40f7eca6038812018c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6430d2b52aacfa8e659e8dd13ab228f8e85da6dfb60fcea4234bd7a9923c5f11"
+    sha256 cellar: :any,                 x86_64_linux:      "15277a0405113949f916a5ff6c5b839878ccfca5f4bfe5d41c6eb999116a0709"
   end
 
   depends_on "go" => :build

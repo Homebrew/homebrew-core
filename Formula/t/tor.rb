@@ -1,9 +1,9 @@
 class Tor < Formula
   desc "Anonymizing overlay network for TCP"
   homepage "https://www.torproject.org/"
-  url "https://dist.torproject.org/tor-0.4.9.16.tar.gz"
-  mirror "https://fossies.org/linux/misc/tor-0.4.9.16.tar.gz"
-  sha256 "6180e193152f4525bdca5475168419b2a2035b963c3c60162a187f86e6160e48"
+  url "https://dist.torproject.org/tor-0.4.9.17.tar.gz"
+  mirror "https://fossies.org/linux/misc/tor-0.4.9.17.tar.gz"
+  sha256 "ff372c41ee7013557fe5b7acd96c909950b27a7959c59fcb87c02591682fabe2"
   # Complete list of licenses:
   # https://gitweb.torproject.org/tor.git/plain/LICENSE
   license all_of: [
@@ -20,11 +20,11 @@ class Tor < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "85982c1568c3f7a71e0fdbbdf2264f06113cb6248d16dd8c576c6fc45bd0dd00"
-    sha256 arm64_tahoe:       "8a0e06a45e1cb2e66134214affce18fa10217581d1b5de1355fbafe17ed50798"
-    sha256 arm64_sequoia:     "e5390510b15843786f7ee8321cc44d5fb98dcacfcd77cbed133b0eb056819066"
-    sha256 arm64_linux:       "429ce6ecb4f5ca7547969d3f1e4e2f3861108b2da25a1233ef564fd9ea262c7d"
-    sha256 x86_64_linux:      "abe0bdf406eeaeddd184ab52695a1ab43f67c28ae5bfa96d679e255486d310a5"
+    sha256 arm64_golden_gate: "6a2c803b6dc0bfdf4596e9d7a53e9bafc5a46a1fe6a92deaa7e5f0de7dbeb9d2"
+    sha256 arm64_tahoe:       "fa68f18066ea0309400af8bd6e23a91fd0c5540c1ae16869e3756ad28eb94931"
+    sha256 arm64_sequoia:     "9364972fd66247bde591aa1d3207d07091d484a0aa30c9e887cbe074f18c783e"
+    sha256 arm64_linux:       "354b196ee42406b4b87a7eccf94e4248f54819c473daffac3f05a99cb1668290"
+    sha256 x86_64_linux:      "138432c430142b405833f102a1cff8d4dec83865e3064292e1a92d5c58114a5f"
   end
 
   depends_on "pkgconf" => :build

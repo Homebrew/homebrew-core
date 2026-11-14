@@ -4,6 +4,7 @@ class Openshell < Formula
   url "https://github.com/NVIDIA/OpenShell/archive/refs/tags/v0.1.8.tar.gz"
   sha256 "ea6c2dcb50b3ecb3c7bf3d8b5ae4ada71eee838a1a2b12f7a1d2ada76b0837b9"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/NVIDIA/OpenShell.git", branch: "main"
 
   livecheck do
@@ -12,11 +13,11 @@ class Openshell < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0ec3b9b0afd570410ac7e049f95b44a9773f0a51fbbea00a38aa9f21559e8f0b"
-    sha256 cellar: :any, arm64_tahoe:       "3a422dd94ed62873650251068225222b3a22027f873971fca88ee285718f9429"
-    sha256 cellar: :any, arm64_sequoia:     "3b3e6c0ae9991df91335fa51ddd1ca46fff01983af39e2567fd6e4067363d856"
-    sha256 cellar: :any, arm64_linux:       "1144ecdb542313271507c6e289ca9f4b1eead8f64b0c1ac223ed1e974cbf5c70"
-    sha256 cellar: :any, x86_64_linux:      "c94fa47b3a1d38bfe8535420aa7d89cd6652b30691760a1a3ac895f87c514a18"
+    sha256 cellar: :any, arm64_golden_gate: "6575c46b25acdcdb68350a37c7b3829c6fa2e6164abf96df867adc67d192fde4"
+    sha256 cellar: :any, arm64_tahoe:       "2dd09644ccfbf1cf2975e6322e586cc76b69c16e358dd1f7ed04e22d135345eb"
+    sha256 cellar: :any, arm64_sequoia:     "8937c3046b7dfc3339ae080a1fb5828b2bd11c0ba7e63ecf71571e146ec9d0ce"
+    sha256 cellar: :any, arm64_linux:       "6c8d082d425e0d1192b9350d7fbac3137cb7cfec8ebde8b3a8511689163e5cd0"
+    sha256 cellar: :any, x86_64_linux:      "f4b79a4bbec80f6016a3e2690aa162e31c2f2a82df4d5f78f3be1129e171dfa4"
   end
 
   depends_on "pkgconf" => :build

@@ -1,18 +1,17 @@
 class ParquetCli < Formula
   desc "Apache Parquet command-line tools and utilities"
   homepage "https://parquet.apache.org/"
-  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.18.1.tar.gz"
-  sha256 "8c93ac92bd76f2167154ededcdb79b32d4725d9d940f9fedc84bef5103912546"
+  url "https://github.com/apache/parquet-java/archive/refs/tags/apache-parquet-1.18.2.tar.gz"
+  sha256 "713252b84a1a1efb19bdaef1a36e8c2f49b7f2b4edc881f63f37e081a31c0938"
   license "Apache-2.0"
   head "https://github.com/apache/parquet-java.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "640e1ff30cd9de6f90dfea5e500f610c179bb5534e38d8714247250172085c44"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "640e1ff30cd9de6f90dfea5e500f610c179bb5534e38d8714247250172085c44"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "640e1ff30cd9de6f90dfea5e500f610c179bb5534e38d8714247250172085c44"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "640e1ff30cd9de6f90dfea5e500f610c179bb5534e38d8714247250172085c44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fb1a7c3d2e5b1ad48fbd06c7e83554d1a9e2cc9b773c13abbbb321353ea7859a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fb1a7c3d2e5b1ad48fbd06c7e83554d1a9e2cc9b773c13abbbb321353ea7859a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8713f55ba235584eaf9f96d63bbb247307bd466c35f8c23cd79d352649f64b94"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8713f55ba235584eaf9f96d63bbb247307bd466c35f8c23cd79d352649f64b94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8713f55ba235584eaf9f96d63bbb247307bd466c35f8c23cd79d352649f64b94"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "dce068d0bbfed40a698766c0d9fd393eb1f43044ee4caff0d60e9067f6d10d9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dce068d0bbfed40a698766c0d9fd393eb1f43044ee4caff0d60e9067f6d10d9e"
   end
 
   depends_on "maven" => :build

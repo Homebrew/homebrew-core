@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.10.tar.gz"
-  sha256 "aacefccc5025c5d42b581c7cfecfb49981941b30941a692021e73186d15ceec7"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.12.tar.gz"
+  sha256 "3612acc1f1dfcaa3e97def393a408b7ccd071cdd2c1b375389bdf42f537c0648"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,11 @@ class Garnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7ded978e95337af95e794c1ee0e0f335f0aa5898ca99d17e7ad326fb5321a393"
-    sha256 cellar: :any, arm64_tahoe:       "521014438ac4c42a626d216d0c583b2537db1b5d0eba78d5a6e1c539dc36b983"
-    sha256 cellar: :any, arm64_sequoia:     "63e6a09e53ed5d72ee7d4314fcbb168a08e9b7fb2218ce0ebc859c8c39778a07"
-    sha256 cellar: :any, arm64_linux:       "ed6c2bcb8cd181e318754820c7e5f0f1e4c906962e31f7c79e259a603f031264"
-    sha256 cellar: :any, x86_64_linux:      "591b2c8e1a6bc1b93b41e47a2c45cb17cdc84ca83b5af34b3135884f5cca2e6b"
+    sha256 cellar: :any, arm64_golden_gate: "ef8249ad7859d6be0c70a63ce51baf6a2042b590a03f56a8f3dfcbaef8ab435a"
+    sha256 cellar: :any, arm64_tahoe:       "b5131cffa7ed33a05ca22d45b49cdf90fe9a38a6e90cebe332b5f7ec61e8ba4a"
+    sha256 cellar: :any, arm64_sequoia:     "80ab3f9e48400b6708fb80384fc94f2d338f3f0757c9c0967118f3ef3ee9d5e0"
+    sha256 cellar: :any, arm64_linux:       "4c1788f6cca34016cb0f551f303260d8701181309e279b8a0d5289bf4e16cb53"
+    sha256 cellar: :any, x86_64_linux:      "966712c9d5012f0c39e9bff11fbe5e9ef031331e5a80b4aae8299a0bb62050b6"
   end
 
   depends_on "rust" => :build
@@ -28,6 +28,14 @@ class Garnet < Formula
     depends_on "libaio"
   end
 
+  # Keep using Garnet's stream adapter when .NET defines the same type name.
+  patch do
+    url "https://github.com/microsoft/garnet/commit/3b7fa55c398b396d6eaf26c8b22df57d2475936a.patch?full_index=1"
+    sha256 "5ac2fdce31dc5e47add3694993459c287f5dece20c26d951185ed3e5cefac26c"
+    type :unofficial
+    resolves "https://github.com/microsoft/garnet/pull/2385"
+  end
+
   allow_network_access! :test
 
   def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
@@ -36,9 +44,11 @@ class Garnet < Formula
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
+    # Restore the same framework and single-file analyzer dependencies used by publish.
     system "dotnet", "restore", "main/GarnetServer/GarnetServer.csproj",
                                 "--use-current-runtime",
-                                "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+                                "-p:TargetFrameworks=net#{dotnet.version.major_minor}",
+                                "-p:PublishSingleFile=true"
     cd "libs/native/bftree-garnet" do
       system "cargo", "fetch", *std_cargo_fetch_args
     end
@@ -79,6 +89,7 @@ class Garnet < Formula
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      -p:TargetFrameworks=net#{dotnet.version.major_minor}
       -p:PublishSingleFile=true
       -p:WarningsNotAsErrors=IL3000
       -p:EnableSourceLink=false

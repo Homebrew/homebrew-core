@@ -17,7 +17,6 @@ class Votca < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "python@3.15" => :build
   depends_on "boost"
   depends_on "eigen" => :no_linkage
   depends_on "fftw"
@@ -27,6 +26,7 @@ class Votca < Formula
   depends_on "libint"
   depends_on "libxc"
 
+  uses_from_macos "python" => :build
   uses_from_macos "expat"
 
   on_macos do

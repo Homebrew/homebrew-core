@@ -23,7 +23,7 @@ class Swiftgen < Formula
 
   uses_from_macos "ruby" => :build
 
-  resource("testdata", :test) do
+  resource "testdata", :test do
     url "https://github.com/SwiftGen/SwiftGen/archive/refs/tags/6.6.3.tar.gz"
     sha256 "f529be194f0ffcc85a76a6770fe3578b49e7e56ba872ce1e3aaba75982b09d32"
   end

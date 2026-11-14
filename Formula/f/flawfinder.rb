@@ -1,6 +1,4 @@
 class Flawfinder < Formula
-  include Language::Python::Shebang
-
   desc "Examines code and reports possible security weaknesses"
   homepage "https://dwheeler.com/flawfinder/"
   url "https://dwheeler.com/flawfinder/flawfinder-2.0.20.tar.gz"
@@ -14,14 +12,13 @@ class Flawfinder < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4f7e464f8d42bfbcfb5594c7fed90da8cf538ed88a7490d66fad1df09f5f8925"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "aa87731edffcda8ecab4d8338635f5dff27567eab1bea3ec4e2c8f56f5153d9b"
   end
 
-  depends_on "python@3.15"
+  uses_from_macos "python"
 
   def install
-    rewrite_shebang detected_python_shebang, "flawfinder.py"
     system "make", "prefix=#{prefix}", "install"
   end
 

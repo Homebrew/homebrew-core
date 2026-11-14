@@ -1,19 +1,17 @@
 class Fetch < Formula
   desc "Download assets from a commit, branch, or tag of GitHub repositories"
   homepage "https://www.gruntwork.io/"
-  url "https://github.com/gruntwork-io/fetch/archive/refs/tags/v0.4.8.tar.gz"
-  sha256 "8192dddb375e2a8765e54e27c65b544068b35bd349f9ad669d6269734f3b5f76"
+  url "https://github.com/gruntwork-io/fetch/archive/refs/tags/v0.4.9.tar.gz"
+  sha256 "4d0a62de2afe4519324815570fbf0eea75edb7b29734844f403d91f13b32e034"
   license "MIT"
   head "https://github.com/gruntwork-io/fetch.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebdde898098614e6ba578944180b53e77b59250cab6aa5e4ae9771b8493c4959"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16084f167de5082df4b3ce7198fcf44672bd2039929c2e61e2a1118710e3debc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16084f167de5082df4b3ce7198fcf44672bd2039929c2e61e2a1118710e3debc"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "16084f167de5082df4b3ce7198fcf44672bd2039929c2e61e2a1118710e3debc"
-    sha256 cellar: :any_skip_relocation, sonoma:            "06a16319c84b85d5e26f0586a344f9f95572ff3afff275ff494846e98794ed5b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "930d8ca1b12f0cc94cce20a1b637ffb956499bc0f515882fb4780c5e3892bf88"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "10b5de8d86085f6b4b75c5dc54e38301f452adfc9de38b49d0cb907acb8929bb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e37b4a1556f7e21331afe8de0320659a42d8a06fa7cdae07b0a135d43034e85d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e37b4a1556f7e21331afe8de0320659a42d8a06fa7cdae07b0a135d43034e85d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e37b4a1556f7e21331afe8de0320659a42d8a06fa7cdae07b0a135d43034e85d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9deb395b21f32a24472a809c0641fd70107ca6e63afc123f4eb2e887ce8d6b4c"
+    sha256 cellar: :any,                 x86_64_linux:      "aaba3cc83c63b333e5f10d0fb2fe73c573cd8518d2a9911625874ecaacb5d361"
   end
 
   depends_on "go" => :build

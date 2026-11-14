@@ -1,25 +1,26 @@
 class Officecli < Formula
   desc "Read, edit, and automate Office documents (.docx, .xlsx, .pptx)"
   homepage "https://github.com/iOfficeAI/OfficeCLI"
-  url "https://github.com/iOfficeAI/OfficeCLI/archive/refs/tags/v1.0.160.tar.gz"
-  sha256 "c3ef85d2d759abdc8514a459113941827254f9e495611f16fb930325ef44e0cb"
+  url "https://github.com/iOfficeAI/OfficeCLI/archive/refs/tags/v1.0.161.tar.gz"
+  sha256 "87d6954541e25fdbe56dce3328d497e6b397108f11ad0f1979818f4bd8a44201"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f5df536f5d85b77c49b2b62d319f7647516398d5e0553ebaacd086d9533fc86"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf2404288fd0b595e876c40b5dd436d63eabd83c351170624479b290c581dbbb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0b0bc8372e8f69ecfa369db67578508611b758a32ea81bc6ec9c210133d3dcd"
-    sha256 cellar: :any,                 arm64_linux:       "42785e3c0f707ff8a3577104cc6694c6c88c92e204a95ed7d412639e49607572"
-    sha256 cellar: :any,                 x86_64_linux:      "6bc6fd559051e698f23cb70d95b66cd20193481c0030f1390e7c5af3b47e967c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f3c9f2e88311c0febe28f189ef20494345f238c5a404162db9b3dea98194904"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ffc4f1182f81cb4d0490cece3e58eb3b7c62b27fd15d14562310fea19516868"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10d23ca2d560aef06b430f8a41c0e2cc7e0acc8f2e594ff46f64833040089364"
+    sha256 cellar: :any,                 arm64_linux:       "387c5e01ad751ab2ae7a9227734d083cd0f84dc6a09028e69800e0d7b921d21b"
+    sha256 cellar: :any,                 x86_64_linux:      "0fb7726024fd3b69583d6f312cab7a507e6b0c4ebe93eaa3b1c82cdfbc993aec"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   def install
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = Formula["dotnet"]
+    dotnet = Formula["dotnet@10"]
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}

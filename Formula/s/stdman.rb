@@ -1,14 +1,14 @@
 class Stdman < Formula
   desc "Formatted C++ stdlib man pages from cppreference.com"
   homepage "https://github.com/jeaye/stdman"
-  url "https://github.com/jeaye/stdman/archive/refs/tags/2024.07.05.tar.gz"
-  sha256 "3cd652cb76c4fc7604c2b961a726788550c01065032bcff0a706b44f2eb0f75a"
+  url "https://github.com/jeaye/stdman/archive/refs/tags/2026.11.13.tar.gz"
+  sha256 "deb29cc1df1ff34618f2cd4b222295db68428c462d7526aed92bd13400019740"
   license "MIT"
   version_scheme 1
   head "https://github.com/jeaye/stdman.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f963ae3a734ab713133b59a52853c12fc92aee8d2c572c8eeaba96db2ebcd249"
+    sha256 cellar: :any_skip_relocation, all: "32e372fa9a6781f4c6314b63bea66cdba18b8547bad9bbff657564217a3e1643"
   end
 
   on_linux do

@@ -1,8 +1,8 @@
 class Rofi < Formula
   desc "Window switcher, application launcher and dmenu replacement"
   homepage "https://davatorium.github.io/rofi/"
-  url "https://github.com/davatorium/rofi/releases/download/2.1.0/rofi-2.1.0.tar.gz"
-  sha256 "f093e6e1c99d78902d1f63ebe6d22c4d1440ce08dc303e60eca1a1a5353951e3"
+  url "https://github.com/davatorium/rofi/releases/download/2.1.1/rofi-2.1.1.tar.gz"
+  sha256 "5fe33afce841994eebfc0302ba869e7b9c035b97c26858fb0142a54a1627d3e4"
   license "MIT"
   head "https://github.com/davatorium/rofi.git", branch: "next"
 
@@ -12,11 +12,11 @@ class Rofi < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "3f7e5d593c586b89cf9040b012e2a06ff867dd250bedd0d7079d5961f99e0c0e"
-    sha256 arm64_tahoe:       "5e4370e5629d6e689603fa92f1d638673e6f2da0086b867463e0142682d1fd7a"
-    sha256 arm64_sequoia:     "aba0c508a865803a915310f4d26229502b54c404ed323e3bfa76f7dabebcb65d"
-    sha256 arm64_linux:       "f8be91ab0d17ecb880ff4fa1a1640577a7897b98b6f8f118f14cb6e4ccfcb587"
-    sha256 x86_64_linux:      "ce477a194ed6f2b2014dc6749b41ae705a3f40e068d65178f7c37078fc898819"
+    sha256 arm64_golden_gate: "e805d21f6c7e84f04666d70ad1f024c52782717771e38c24a58a1fc36a81c52c"
+    sha256 arm64_tahoe:       "c40c67a1afdd8c62c0fbcc51ff980a68dd353e236154894484e4bb8e1e9c12a1"
+    sha256 arm64_sequoia:     "c9e40bf4c510310374b7b875b771c73d3937ccd1c775acd7c6c39dd4e2439c7e"
+    sha256 arm64_linux:       "c567c739ed8186bd3decb07020ae55222a5bef553900690b9b0262b2d1840761"
+    sha256 x86_64_linux:      "f707ed49ecc6c3bcba1c5d347860e019af27ccff21cdec99d4f91271fc773e03"
   end
 
   depends_on "bison" => :build
@@ -38,14 +38,6 @@ class Rofi < Formula
   depends_on "xorg-server"
 
   uses_from_macos "flex" => :build
-
-  # Preserve drun's command launcher when GLib lacks its desktop-app-info backend.
-  patch do
-    url "https://github.com/davatorium/rofi/commit/6af0379a8dcb8dd3824b9806065825e43a75182f.patch?full_index=1"
-    sha256 "59c5003ae656ae69ce391ff9eb02fe3f5ac9501e1e371bd6f3c2bdc9a3f18c16"
-    type :unofficial
-    resolves "https://github.com/davatorium/rofi/pull/2350"
-  end
 
   def install
     system "meson", "setup", "build", *std_meson_args

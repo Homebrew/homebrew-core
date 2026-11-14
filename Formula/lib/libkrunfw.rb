@@ -3,18 +3,17 @@ class Libkrunfw < Formula
 
   desc "Dynamic library bundling the guest payload consumed by libkrun"
   homepage "https://github.com/libkrun/libkrunfw"
-  url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.2.tar.gz"
-  sha256 "df45d649fcbd07a4d0ca03fa836b2f640fdcf9b40187f3eb7023259c6e83d582"
+  url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.4.tar.gz"
+  sha256 "5b92b6f2a5ee6a16583bd37014a37794451a00d120fceee104f84404118757d0"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "53c6c0476b5e26fd1b76719a6ee88fa5aeab2b39031180180609e65e5edfe882"
-    sha256 cellar: :any, arm64_tahoe:       "56aa900085e33205c9072d6736f32060f22471b0199b1f51b6f8acd672cef874"
-    sha256 cellar: :any, arm64_sequoia:     "efa37bf44ae5684de5b97041c75c66609fa92664cafa783a935a7f8425cf60bf"
-    sha256 cellar: :any, arm64_linux:       "6fbfaedd8ce0aa551c6afa175f7107f9589d76eac3b254c5705390a6265be8f7"
-    sha256 cellar: :any, x86_64_linux:      "998b611b60d8debe34b1f814755f816007d8495cf52ed3ec250653561dd0f0ea"
+    sha256 cellar: :any, arm64_golden_gate: "4aff0cffbad00d7db8bfc8740884eac1c2cf04d219a108f4786919fa983d69f0"
+    sha256 cellar: :any, arm64_tahoe:       "b35cbe5f251df243be82e1a32ebe7a2c563d2218c53582ddd292e319930903a3"
+    sha256 cellar: :any, arm64_sequoia:     "d48135d2fe214387aedc924654c54dadd7278db5a495f67b5ceb0fc8b6b026f5"
+    sha256 cellar: :any, arm64_linux:       "4a7e9225a4a9105c40c4c0a3571bd94a2922d1468fe513822ff782c3c435e5dd"
+    sha256 cellar: :any, x86_64_linux:      "0b9d3ad80fa343edcd5833a0a311c725182982df3a6a169c3488581510093aa5"
   end
 
   depends_on "python@3.15" => :build
@@ -41,8 +40,19 @@ class Libkrunfw < Formula
   end
 
   resource "kernel" do
-    url "https://cdn.kernel.org/pub/linux/kernel/v6.x/linux-6.12.109.tar.xz", using: :nounzip
-    sha256 "5484e552a334e15019f4aeba89e5b58f04651cf2f4e24e04de9f152f1c38e3fa"
+    url "https://github.com/libkrun/linux/archive/refs/tags/v5.6.4-6.12.115.tar.gz", using: :nounzip
+    sha256 "050fcea96b607e49f135f270472bc95346c172c9d6df5f9256aeb6f7972675d5"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/libkrun/libkrunfw/refs/tags/v#{LATEST_VERSION}/Makefile"
+      regex(/^KERNEL_VERSION\s*=\s*(\d+(:?\.\d+)+)$/i)
+      strategy :page_match do |page, regex|
+        full_version = page.match(/^FULL_VERSION\s*=\s*(\d+(:?\.\d+)+)$/i)[1]
+        page.scan(regex).map do |match|
+          "#{full_version}-#{match.first}"
+        end
+      end
+    end
   end
 
   resource "pyelftools" do
@@ -54,13 +64,14 @@ class Libkrunfw < Formula
   allow_network_access! :build
 
   def install
-    resource("kernel").stage buildpath/"tarballs"
     kernel_sources = "linux-#{resource("kernel").version}"
     kernel_binary = if Hardware::CPU.arm64?
       "#{kernel_sources}/arch/arm64/boot/Image"
     else
       "#{kernel_sources}/vmlinux"
     end
+    resource("kernel").stage buildpath/"tarballs"
+    mv buildpath/"tarballs/#{kernel_sources}.tar.gz", buildpath/"tarballs/v#{resource("kernel").version}.tar.gz"
 
     make_args = []
     make_args << "MACOS_BUILDER=native" if OS.mac?
@@ -107,29 +118,29 @@ class Libkrunfw < Formula
   end
 
   test do
-    (testpath/"test.c").write <<~C
+    (testpath/"test.c").write <<~'C'
       #include <dlfcn.h>
       #include <stdio.h>
       #include <stdlib.h>
 
-      int main(void) {
-        void *handle = dlopen("#{lib/shared_library("libkrunfw")}", RTLD_LAZY);
+      int main(int argc, char** argv) {
+        void *handle = dlopen(argv[1], RTLD_LAZY);
         if (!handle) {
-          fprintf(stderr, "dlopen: %s\\n", dlerror());
+          fprintf(stderr, "dlopen: %s\n", dlerror());
           return 1;
         }
         void *sym = dlsym(handle, "krunfw_get_kernel");
         if (!sym) {
-          fprintf(stderr, "dlsym: %s\\n", dlerror());
+          fprintf(stderr, "dlsym: %s\n", dlerror());
           dlclose(handle);
           return 1;
         }
-        printf("krunfw_get_kernel found at %p\\n", sym);
+        printf("krunfw_get_kernel found at %p\n", sym);
         dlclose(handle);
         return 0;
       }
     C
     system ENV.cc, "test.c", "-o", "test"
-    system "./test"
+    system "./test", lib/shared_library("libkrunfw")
   end
 end

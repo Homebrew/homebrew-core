@@ -4,7 +4,7 @@ class Esbmc < Formula
   url "https://github.com/esbmc/esbmc/archive/refs/tags/v8.6.tar.gz"
   sha256 "a691bbf63a51da753a24b59027dd603c91bc2e90fcdd1abc042e241453164f5a"
   license "Apache-2.0"
-  revision 1
+  revision 3
   head "https://github.com/esbmc/esbmc.git", branch: "master"
 
   livecheck do
@@ -13,11 +13,11 @@ class Esbmc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0020fe66e37d0233a9471d5ac085299dd6bd4bc97de4a3b80f1126e77eb3b8ce"
-    sha256 cellar: :any, arm64_tahoe:       "4c28f7a1c1668e0eadee5019308fc8e46388ead31e9039cbe8afe96676655a82"
-    sha256 cellar: :any, arm64_sequoia:     "8c6dbffd9547418c3651c3b37649e6fbe31f06bcd1b9e20e195de41dc608285a"
-    sha256 cellar: :any, arm64_linux:       "742b99d2696114f88817909bb03661cc280ad45a81224b20d8653067757b9883"
-    sha256 cellar: :any, x86_64_linux:      "623987a5773f09c96bd6d89191f10b06fab0c4f58f619e3ab67513a83ece0f2b"
+    sha256 cellar: :any, arm64_golden_gate: "3526fd81893921f517847e9121cc057615a0313060bd39d8c33290e13fddf21c"
+    sha256 cellar: :any, arm64_tahoe:       "d0e051e0c6136ccfeb96a2da9de563c93836d30f2502be8f4c1dde8d03a1ff00"
+    sha256 cellar: :any, arm64_sequoia:     "fdcb199965f8c2c78cd3cf5d85bf8a50330babe95d1d184fef28551c5d3cfdda"
+    sha256 cellar: :any, arm64_linux:       "1eb1735bbcd187377d15590f9ea29760ddb36d51d5ff9793fc13dbad00fbe317"
+    sha256 cellar: :any, x86_64_linux:      "f13eac51b0c54c73f4542e0f6899763a9bcdd3226bedee59bfd12f185d74a4d6"
   end
 
   depends_on "bison" => :build # macOS ships 2.3; esbmc requires >= 2.6.1

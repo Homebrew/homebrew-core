@@ -18,6 +18,14 @@ class Gbox < Formula
   depends_on "go" => :build
   depends_on "frpc"
 
+  deny_network_access!
+
+  def fetch
+    cd "packages/cli" do
+      system "go", "mod", "download"
+    end
+  end
+
   def install
     system "make", "install", "prefix=#{prefix}", "VERSION=#{version}", "COMMIT_ID=#{File.read("COMMIT")}", "BUILD_TIME=#{time.iso8601}"
     generate_completions_from_executable(bin/"gbox", shell_parameter_format: :cobra)

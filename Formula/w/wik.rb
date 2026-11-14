@@ -6,12 +6,11 @@ class Wik < Formula
   url "https://files.pythonhosted.org/packages/ee/93/4a221efc5995f8ee24731a145277de0beb68477f30cdf76954355cd6c62f/wik-2.0.1.tar.gz"
   sha256 "a12141d06967a7c21dee62fdd6d6086e4cb3f14ea18fae4aa294e39dfd5f23e2"
   license "MIT"
-  revision 4
+  revision 5
   head "https://github.com/yashsinghcodes/wik.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4d205fa873423ece78c8fbd2ad8057f8ed46b925830041e0f750231d5dd0e4b9"
+    sha256 cellar: :any_skip_relocation, all: "63845707dfbf00dec4cf02a6917347eb093ec2e3fff1fb7970f08202fe4605cc"
   end
 
   depends_on "certifi" => :no_linkage
@@ -40,8 +39,8 @@ class Wik < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do

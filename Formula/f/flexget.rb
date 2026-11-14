@@ -3,21 +3,23 @@ class Flexget < Formula
 
   desc "Multipurpose automation tool for content"
   homepage "https://www.flexget.com"
-  url "https://files.pythonhosted.org/packages/ec/72/dbe0e8a04a321a03d720b0d78cca8268ff325880f4bbe9a48a53f02db6b0/flexget-3.22.11.tar.gz"
-  sha256 "d3b183acaf320f2b5d9267cd7002fa40ef5907462ae7fb759d12134564859a4d"
+  url "https://files.pythonhosted.org/packages/c2/fb/d3e77010cc7e52a1b36ed9f8007ef3c6292612111139e1e5bc7df76484ea/flexget-3.22.12.tar.gz"
+  sha256 "c2468aedfd5ec3ed9ec78c741e90c0c37f794495db9379b1ac93443d1ca44f95"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "74c04d7b3faa3dff222b210fa5b4cfa9988f4b968c25cecba262eae0ca1f3e5a"
-    sha256 cellar: :any, arm64_tahoe:       "715bf9e340311efa362036b5cf3f93b88075db747bbd7fb04c829137e20de90e"
-    sha256 cellar: :any, arm64_sequoia:     "bb25b20a321aac7f2e366c71e4d662476e60ab8836284b673b9e1035da7f01e4"
-    sha256 cellar: :any, arm64_linux:       "1930334a8a4d4f7b1f352560d5e0972674719d7340798a57cbe01349dcbf0afa"
-    sha256 cellar: :any, x86_64_linux:      "c9e14703d1cc1a60594a6aa4a159ffd5669c4810e76dddffd3f8a487a6414574"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e27d570bfb91c6ca00a822449d5b995ab313d5879ea6e26266f23f0d4ee60498"
+    sha256 cellar: :any, arm64_tahoe:       "2247f843177c605b14a18eb01d1354255a43cfd9a6d7bf434eb23d46faea1796"
+    sha256 cellar: :any, arm64_sequoia:     "973effb2b25c854aecf9646c321ce887e1adb2279279fed7c462adbfc88ff749"
+    sha256 cellar: :any, arm64_linux:       "6f1a1d026040ea060d66f13e2c154545919f0d9373b33d01168aecb1a1a13cb0"
+    sha256 cellar: :any, x86_64_linux:      "6d87b4796f3f53f97ae315cf21a71027d9082e0cb648fd50caaed3e545588ffb"
   end
 
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "libyaml"
   depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
@@ -34,6 +36,11 @@ class Flexget < Formula
   resource "annotated-doc" do
     url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
     sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+  end
+
+  resource "annotated-types" do
+    url "https://files.pythonhosted.org/packages/5f/56/a8120250d128bed162cd73c76d45f6ef9991f3e068f62a8ee060afa3104a/annotated_types-0.8.0.tar.gz"
+    sha256 "13b2beaad985e05e2d6407ee4c4f35590b11f8d693a258a561055cac8f64cab7"
   end
 
   resource "apscheduler" do
@@ -257,6 +264,16 @@ class Flexget < Formula
     sha256 "0746f5f8d406af344fd547f1c8daa5f5c33dbc293bb8d6a16d80b4bb88f59372"
   end
 
+  resource "pydantic" do
+    url "https://files.pythonhosted.org/packages/b4/fc/1203d011145c98ddce3cd2f505bb54375ef8d43223053df6bfcf3c746f46/pydantic-2.14.3.tar.gz"
+    sha256 "1054f237f4d4733e5a30e1e2333bd33a2004ab9ab1510bd053a9a31bb48e232d"
+  end
+
+  resource "pydantic-core" do
+    url "https://files.pythonhosted.org/packages/9c/0f/34f9ce4ba701dd0b815033ef94d99b56f66200e578ee6052aa3ac26f064e/pydantic_core-2.50.4.tar.gz"
+    sha256 "aead3b74b68396bf0feab5d57e050b730ded7df55853c1e048a87e00aaf033c6"
+  end
+
   resource "pygments" do
     url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
     sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
@@ -328,8 +345,8 @@ class Flexget < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/01/7c/a64eedae0b7776cb9602d2da9cb8f8caae8e1b4c1da5e8e87bf1e68121ec/soupsieve-4.0.1.tar.gz"
-    sha256 "7621e3c5f6b371ed2c5eabaac5de300ac3d66d05e6d7f34783e31b63c4f90c75"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "sqlalchemy" do
@@ -348,8 +365,8 @@ class Flexget < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
-    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
+    url "https://files.pythonhosted.org/packages/ed/db/401793a0d5345409a28de2c571d4ef8bea9a08700c20ea7f7b6af3b050d2/typer-0.29.0.tar.gz"
+    sha256 "6871960a1603fba66af2ff751be48a6735af6480a67660afaf2fab2f7e008ed4"
   end
 
   resource "typer-slim" do
@@ -360,6 +377,11 @@ class Flexget < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
+  resource "typing-inspection" do
+    url "https://files.pythonhosted.org/packages/ff/50/0195198eb1d75bab716bb0a813abea4cc394bfa17a92a189f021a34859af/typing_inspection-0.4.5.tar.gz"
+    sha256 "7f16c411e7930dc79596d42ab44672a3fe5f60eb34b781a1647e7872363120c7"
   end
 
   resource "tzdata" do
@@ -399,6 +421,8 @@ class Flexget < Formula
 
   def install
     ENV["BUNDLE_WEBUI"] = "true"
+    ENV["IMPERSONATE_BUILD_DIR"] = formula_opt_lib("curl-impersonate")
+    ENV["IMPERSONATE_LINK_TYPE"] = "dynamic"
     # `pendulum` builds a PyO3 extension through maturin.
     ENV.append_to_rustflags "-C link-arg=-Wl,-undefined,dynamic_lookup" if OS.mac?
     virtualenv_install_with_resources
@@ -424,5 +448,10 @@ class Flexget < Formula
           transmission: yes
     YAML
     system bin/"flexget", "-c", testpath/"config.yml", "check"
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end

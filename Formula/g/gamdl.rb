@@ -3,30 +3,26 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/f5/29/909a6423a026ec770e911a6479217fb2dc7e60f32b89c7a5e40b228c1f8b/gamdl-3.9.1.tar.gz"
-  sha256 "9b119e26a337b3b51ebd0af302cbf80586ec9317d7eefa493eca4d87360bc92b"
+  url "https://files.pythonhosted.org/packages/b1/cd/1ccdbacf26d731f38c0f81ef7ad38fc45af0a4dd0a7a12e74f8468a4db63/gamdl-4.0.1.tar.gz"
+  sha256 "2f9fc0ce5f3e80244a0a11b284c160754eb229c2cc745b88c8b1450c029e2ad2"
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f9f6b3d7486b52d3afbea89a23f09eb6e78d0c6ecd610c390f7fadda691dbf77"
-    sha256 cellar: :any, arm64_tahoe:       "af1b0f9efa251bde48d3d7dd7c559a7713c9afbd63501fb3bd36f0212c3989ef"
-    sha256 cellar: :any, arm64_sequoia:     "6875a55f077c751ddd410ff726a235a918f51933f738a6a8a61f7f47aa859802"
-    sha256 cellar: :any, arm64_linux:       "22fb25127e74ee81c72935b3652f7e5f59fc81de84f062c072e555cab8886ea1"
-    sha256 cellar: :any, x86_64_linux:      "b10b4ac55deba9317d636ab6bd460d0d0efc64ce35d4386110c93a28f97426b8"
+    sha256 cellar: :any, arm64_golden_gate: "432c5072ba858201f1c6b5574cd4df84b2124626b812875b083e9cfd24f4c8c7"
+    sha256 cellar: :any, arm64_tahoe:       "95fd434ecd06fd9b29f3354691c1110ac7fd807b13c4e4fdcc96bc35eb9ce2d7"
+    sha256 cellar: :any, arm64_sequoia:     "213a796814b61cbcacda23b7b67e7fe63ddba51eb7ee7e702ebe09a5f1d2ee24"
+    sha256 cellar: :any, arm64_linux:       "72482a2bd0a121be8dd57e08290976f0d2b6c4ad26bf457390e0505809be549e"
+    sha256 cellar: :any, x86_64_linux:      "1048f5d027dddc974a041029cfc62cf667f79ea0910da381593e86a77a6b0286"
   end
 
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
   depends_on "libyaml"
-  depends_on "pillow" => :no_linkage
   depends_on "python@3.15"
 
-  # With click 8.5 gamdl enables `use_wrapper` by default, so it skips cookie login and fails to start
-  # https://github.com/glomatico/gamdl/issues/354
-  pypi_packages exclude_packages: %w[certifi cryptography pillow],
-                extra_packages:   "click==8.4.2"
+  pypi_packages package_name:     "gamdl[widevine,playready]",
+                exclude_packages: %w[certifi cryptography]
 
   resource "aiohappyeyeballs" do
     url "https://files.pythonhosted.org/packages/ce/f4/eec0465c2f67b2664688d0240b3212d5196fd89e741df67ddb81f8d35658/aiohappyeyeballs-2.7.1.tar.gz"
@@ -44,13 +40,13 @@ class Gamdl < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "async-lru" do
-    url "https://files.pythonhosted.org/packages/e8/1f/989ecfef8e64109a489fff357450cb73fa73a865a92bd8c272170a6922c2/async_lru-2.3.0.tar.gz"
-    sha256 "89bdb258a0140d7313cf8f4031d816a042202faa61d0ab310a0a538baa1c24b6"
+    url "https://files.pythonhosted.org/packages/8f/43/9d22679e8dd0ed965182cca990d32c68b150730cce8046ad61b3179b5b7a/async_lru-2.4.0.tar.gz"
+    sha256 "b0b0077d9b7596615b3c12d0aad4f6aeccaaa0ac75ceae472608ede89e764c08"
   end
 
   resource "attrs" do
@@ -64,13 +60,8 @@ class Gamdl < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
-    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
-  end
-
-  resource "colorama" do
-    url "https://files.pythonhosted.org/packages/d8/53/6f443c9a4a8358a93a6792e2acffb9d9d5cb0a5cfd8802644b7b1c9a02e4/colorama-0.4.6.tar.gz"
-    sha256 "08695f5cb7ed6e0531a20572697297273c47b8cae5a63ffc6d6ed5c201be6e44"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "construct" do
@@ -118,34 +109,29 @@ class Gamdl < Formula
     sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
   end
 
-  resource "inquirerpy" do
-    url "https://files.pythonhosted.org/packages/64/73/7570847b9da026e07053da3bbe2ac7ea6cde6bb2cbd3c7a5a950fa0ae40b/InquirerPy-0.3.4.tar.gz"
-    sha256 "89d2ada0111f337483cb41ae31073108b2ec1e618a49d7110b0d7ade89fc197e"
-  end
-
   resource "m3u8" do
     url "https://files.pythonhosted.org/packages/9b/a5/73697aaa99bb32b610adc1f11d46a0c0c370351292e9b271755084a145e6/m3u8-6.0.0.tar.gz"
     sha256 "7ade990a1667d7a653bcaf9413b16c3eb5cd618982ff46aaff57fe6d9fa9c0fd"
   end
 
+  resource "markdown-it-py" do
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
+  end
+
+  resource "mdurl" do
+    url "https://files.pythonhosted.org/packages/d6/54/cfe61301667036ec958cb99bd3efefba235e65cdeb9c84d24a8293ba1d90/mdurl-0.1.2.tar.gz"
+    sha256 "bb413d29f5eea38f31dd4754dd7377d4465116fb207585f97bf925588687c1ba"
+  end
+
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
-    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
-  end
-
-  resource "mutagen" do
-    url "https://files.pythonhosted.org/packages/df/70/1675da133ea92227da41bf5b24e1c66be597ff736a1533ade41da986852f/mutagen-1.48.1.tar.gz"
-    sha256 "8f95637ab9f6f305cec6bd1294e197debe207998e3e068596563c74f86b0a173"
-  end
-
-  resource "pfzy" do
-    url "https://files.pythonhosted.org/packages/d9/5a/32b50c077c86bfccc7bed4881c5a2b823518f5450a30e639db5d3711952e/pfzy-0.3.4.tar.gz"
-    sha256 "717ea765dd10b63618e7298b2d98efd819e0b30cd5905c9707223dceeb94b3f1"
+    url "https://files.pythonhosted.org/packages/7b/6b/29ef8e752f5854dcc267ded0652c475bec99b86f255957a0d4fcad657b18/multidict-7.2.1.tar.gz"
+    sha256 "e8af3e6f1bdbc31fd762b094133b478b89988eaebc63cbe82b1d9e3bbd15cede"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "prompt-toolkit" do
@@ -164,8 +150,13 @@ class Gamdl < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz"
-    sha256 "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
+    url "https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz"
+    sha256 "3f9e74444c0ecbec7af232a95d282c74b114d53212ce075ed17b7fd7dca32bb3"
+  end
+
+  resource "pygments" do
+    url "https://files.pythonhosted.org/packages/49/2e/ced460408999b33da6b31b0021b0f37d329e202d4169aeb164493778f25b/pygments-2.21.0.tar.gz"
+    sha256 "610ca751c9bc2492b38eb9a38a7fbc93edbbb2d7182edaf34e66ae493dee5c8c"
   end
 
   resource "pymp4" do
@@ -188,9 +179,19 @@ class Gamdl < Formula
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
+  resource "questionary" do
+    url "https://files.pythonhosted.org/packages/f6/45/eafb0bba0f9988f6a2520f9ca2df2c82ddfa8d67c95d6625452e97b204a5/questionary-2.1.1.tar.gz"
+    sha256 "3d7e980292bb0107abaa79c68dd3eee3c561b83a0f89ae482860b181c8bd412d"
+  end
+
   resource "requests" do
     url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
     sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
+  end
+
+  resource "rich" do
+    url "https://files.pythonhosted.org/packages/c0/8f/0722ca900cc807c13a6a0c696dacf35430f72e0ec571c4275d2371fca3e9/rich-15.0.0.tar.gz"
+    sha256 "edd07a4824c6b40189fb7ac9bc4c52536e9780fbbfbddf6f1e2502c31b068c36"
   end
 
   resource "structlog" do
@@ -209,18 +210,13 @@ class Gamdl < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   resource "yarl" do
     url "https://files.pythonhosted.org/packages/75/16/e8be8e2fb175bbf41a0680381a319f1199fae256588241a2ac8677eafb49/yarl-1.25.1.tar.gz"
     sha256 "03dd38de09bc213e9a8b29761eec33ee1d5318dac0e49d8af36e4d27830e23a7"
-  end
-
-  resource "yt-dlp" do
-    url "https://files.pythonhosted.org/packages/1e/e0/832fa4ca334b766a06933a196066edc3dba37cdb6f14cd98d59bcc69a4b4/yt_dlp-2026.8.19.tar.gz"
-    sha256 "9e213e48cea35c66b378e4447903f118f6392a5fa380a2b6d7070ec86f4e0af1"
   end
 
   def install
@@ -231,9 +227,17 @@ class Gamdl < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/gamdl --version")
+    # Without the DRM extras downloads fail with "Widevine backend not installed"
+    system libexec/"bin/python", "-c", "import pywidevine, pyplayready"
 
-    touch testpath/"cookies.txt"
-    assert_match "cookies.txt' does not look like a Netscape format cookies file",
-                 shell_output("#{bin}/gamdl fake_url 2>&1", 1)
+    system bin/"gamdl", "config", "init"
+    config = YAML.load_file(testpath/".gamdl/config.yml")
+    system bin/"gamdl", "config", "validate"
+
+    config["download"]["concurrent_downloads"] = 3
+    config_file = testpath/"custom.yml"
+    config_file.write(config.to_yaml)
+    output = shell_output("#{bin}/gamdl --config #{config_file} config show")
+    assert_equal 3, YAML.safe_load(output).dig("download", "concurrent_downloads")
   end
 end

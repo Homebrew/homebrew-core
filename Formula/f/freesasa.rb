@@ -1,18 +1,16 @@
 class Freesasa < Formula
   desc "Solvent Accessible Surface Area calculations"
   homepage "https://freesasa.github.io/"
-  url "https://github.com/mittinatten/freesasa/archive/refs/tags/2.1.3.tar.gz"
-  sha256 "dc4fe377352569299d69329d9ded2f141e527da325960b20d2e30b5335c2b3ff"
+  url "https://github.com/mittinatten/freesasa/archive/refs/tags/2.1.4.tar.gz"
+  sha256 "1bc79b06985c868f76ccc5ff8fea6a1687c7d4d4b21e5c3636b52106b653807c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "d555b22baec5d1ba594ce83b168839047c4be5ebb8b79ba34bbf97f2a593071e"
-    sha256 cellar: :any,                 arm64_tahoe:       "e99b8ac2d7a1662531a39c4aaa741ee30209d386aa985c1aa007aa1f81f08753"
-    sha256 cellar: :any,                 arm64_sequoia:     "d1111081344ac1f897843cbf71d1f61143948097c70de7b2bb815264c99e923b"
-    sha256 cellar: :any,                 arm64_sonoma:      "b7d36d3748640472fcd7fc357e50839df9305242384f8b197ded7f254ef0e199"
-    sha256 cellar: :any,                 sonoma:            "a272197b6d73c572b70c94a79d02e085561e94f22839ee474340cd0bd9b9fa0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "433e178d16d2d4612ebb7279379a7d5bda63351c2953ebcb3445e6a42786c3f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0c1c32cf2ad2cd5b37eaf71a5fd45b7775a76e42b4e9954a4a6252c07ecc68a9"
+    sha256 cellar: :any, arm64_golden_gate: "3ace0796c7285dbc23e161e13e5dbc95e2bb0ad141bd7941d4bb341a8d0755f7"
+    sha256 cellar: :any, arm64_tahoe:       "a1625588f5e46a454620a3fa86c26afd07a1426a7b633fd3228ecb00cf201fb0"
+    sha256 cellar: :any, arm64_sequoia:     "a12b834e8c80fafa40c8c8c59ef750250a237ceb24614cb18055277021806ac3"
+    sha256 cellar: :any, arm64_linux:       "a65e7d352e1e3e903035b1a69c8b17bd96edc47bd20f66e6e43e69a1c897c57b"
+    sha256 cellar: :any, x86_64_linux:      "310c887f6d500a1f26b40948520e5b142da67a09a93ee16128b85b5665894767"
   end
 
   depends_on "autoconf" => :build

@@ -4,14 +4,19 @@ class Arturo < Formula
   url "https://github.com/arturo-lang/arturo/archive/refs/tags/v0.10.0.tar.gz"
   sha256 "408646496895753608ad9dc6ddfbfa25921c03c4c7356f2832a9a63f4a7dc351"
   license "MIT"
-  revision 1
+  revision 2
+
+  # TODO: remove if undeprecated
+  livecheck do
+    url :stable
+  end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6b1c3b757f0f08a102426ff62459c80886e7333b829ffbeba13b941b270c4844"
-    sha256 cellar: :any, arm64_tahoe:       "d26c05685142a1f3f38bc8e93b30e6e7bed671a7f73219f191e62863b354c441"
-    sha256 cellar: :any, arm64_sequoia:     "d59f8df9298dccbb14d97e27f97f2837d04c23cb1db172150fe77d03fa5c93fa"
-    sha256 cellar: :any, arm64_linux:       "691ccd432fcb433ea59611816d14081070e184f529af3b0f7c8c3e1e6dde34c9"
-    sha256 cellar: :any, x86_64_linux:      "203904c48c4b5e4e208bad2390d49c436e992fac68451adf62f63ac38acea15c"
+    sha256 cellar: :any, arm64_golden_gate: "d3d392a781457f57fbe5126ebe1914f2e84039a7cc6ba188c5c3a56346522c72"
+    sha256 cellar: :any, arm64_tahoe:       "b899df59b8b96cd710949593ec374ffdddbb7f2281b7aef184a9c213e5e49fca"
+    sha256 cellar: :any, arm64_sequoia:     "76cf334701487a8f5a5f98b66a3695a59bc032f90b6f87be80f1748f47236925"
+    sha256 cellar: :any, arm64_linux:       "7ac8e03716bbb0f3422a570d3b45041df2885dedb4cfc80d4d0389241533b9be"
+    sha256 cellar: :any, x86_64_linux:      "ddd067b4a6f5de5a27bd60b2fc7c56fc915483a97aa1e5cdc73782ca6033604d"
   end
 
   depends_on "nim" => :build
@@ -19,14 +24,14 @@ class Arturo < Formula
   depends_on "mpfr"
   depends_on "openssl@4"
 
-  # accessed via dlsym
-  depends_on "pcre2" => :no_linkage
-
   on_linux do
+    disable! date: "2027-11-13", because: "needs EOL `pcre`"
+
     depends_on "pkgconf" => :build
     depends_on "glib"
     depends_on "gtk+3"
     depends_on "libxcb"
+    depends_on "pcre" # https://github.com/arturo-lang/arturo/issues/2027
     depends_on "webkitgtk"
   end
 
@@ -37,6 +42,8 @@ class Arturo < Formula
     type :backport
   end
 
+  deny_network_access!
+
   def install
     # Remove bundled libraries
     rm_r("src/deps")
@@ -46,10 +53,9 @@ class Arturo < Formula
               /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
               "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@4")} -lssl -lcrypto\".}"
 
-    # Workaround to use pcre2 after patching `nimble`
     inreplace "src/vm/values/custom/vregex.nim",
               /\{\.passL: "[^"]*(-lpcre|libpcre\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("pcre2")}\"}"
+              "{.passL: \"-lpcre\"}"
 
     # Adjust installation path to homebrew one
     inreplace "build.nims", 'targetDir = getHomeDir()/".arturo"', "targetDir=\"#{prefix}\""

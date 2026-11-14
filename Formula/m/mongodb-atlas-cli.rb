@@ -1,8 +1,8 @@
 class MongodbAtlasCli < Formula
   desc "Atlas CLI enables you to manage your MongoDB Atlas"
   homepage "https://www.mongodb.com/docs/atlas/cli/stable/"
-  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/v1.59.4.tar.gz"
-  sha256 "cbdb56ccd1e27e1cb67021ab41a2e50ecac563cc1a0fc20fac829de81af9c074"
+  url "https://github.com/mongodb/mongodb-atlas-cli/archive/refs/tags/v1.60.0.tar.gz"
+  sha256 "99a0b1d65cb30f6ee095c7a46dce70c41546e324084285f1b5cb47bd5074b60e"
   license "Apache-2.0"
   head "https://github.com/mongodb/mongodb-atlas-cli.git", branch: "master"
 
@@ -12,11 +12,11 @@ class MongodbAtlasCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13967e412157e49d5e2f9b2c4d9a5f8475b774f500032ee064eeb3a3895c8d90"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6efd6b90cce2f14d4984f2d3944e747f5d9540028e9b3b6f292e5b625ca095f4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2545702e502c27d5b9dd269090c0e8291fa4e6021c58e169d5c7e2cd3b46439f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1eb9af74772c85d19ec108c7b1fa3bef958d84263c67f566395cc093b0675aa6"
-    sha256 cellar: :any,                 x86_64_linux:      "659422b715ca8e988105a0db73198a1cabfe18fce8ab79f7fc78fdedcb55dccf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eef92aff70cfea74c65565ff740916fc0ed595ac449a34f609e9fdc62832d367"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b674d50658fef055f96a19aafeaffe826d6a76d27178c40656d7706fcb6a2aee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa1476f3875f8a9b575cb2655d8ddd6e5dd2dc8425f6ff8e65336cf240834dd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "56b779f6a48be5a152e8ae9064f3fdd7c28f55d6c0e1495ef74eaefb13eb9910"
+    sha256 cellar: :any,                 x86_64_linux:      "9520102c28f932c8ac46bc6d1ddcbed8eac1c75028d58d84a084937c3e4b11ac"
   end
 
   depends_on "go" => :build

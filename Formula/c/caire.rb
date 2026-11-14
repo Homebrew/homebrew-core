@@ -1,21 +1,17 @@
 class Caire < Formula
   desc "Content aware image resize tool"
   homepage "https://github.com/esimov/caire"
-  url "https://github.com/esimov/caire/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "d63c5edff4f12bc14e787c0a8f3acb456119e1a03d4bd8bfcf70114abd44f941"
+  url "https://github.com/esimov/caire/archive/refs/tags/v1.6.0.tar.gz"
+  sha256 "98fd9cd213b2e08abd5e9542b3149dfcb67827c8dc21fab9d3deabe1575537fe"
   license "MIT"
   head "https://github.com/esimov/caire.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2facfd1a0210f6b63732fe0897478d359f74272ea2191f712d459f9bfab03166"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "413a46b531e0f7f0fd954c70d65ca5158a8b01ae7748b56859eb07cf4eb97d31"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3aa63b8d899dde73b2137eb9bf77b51e970eaf124523887bb6db25a40fb8c6ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "18a7667e7b36e996206c910087a5e667945d1bf7a111fd033e2934c915303237"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "5e03f494a7f6fa1411aa724859f27f555f3ba850d5b0a3f9dc76810e314e43a0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "70d79acf65528d8c7b30ef658380fac4d0c9cd6cf8ebdfe2a75d6e1e9ef2fb87"
-    sha256 cellar: :any_skip_relocation, ventura:           "93d0172823e84beee86f213dfd1738de678668778bfd48d6ece7a73892cd8070"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3054ab90f891eee21ac084564e33c4b280c99870f66bae2beb1f198edd665f72"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9d6d577c0674569e1ec5951618888fff00373551779eeacbfa2712b95fe936d2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99f6434b982cdf099a8b29957d1e586851fc19c87c6c05de6100fc2d9335b295"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e395c6bcbbaea4139779f6b3ecb1291588abfed80349dea13a40c1d7214a969f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "89aaf1ceb434d86617f9395dde2af02de81c5665218520d6b87a7617b06cf451"
+    sha256 cellar: :any,                 arm64_linux:       "68570fdaa64dff88ffb6eca4702912bdb9f85d0ff26785527bb2d6a466522cec"
+    sha256 cellar: :any,                 x86_64_linux:      "6d540e0940711294949d1fe943d910c78f95a97b42c5cd6767064507ff95f2e7"
   end
 
   depends_on "go" => :build

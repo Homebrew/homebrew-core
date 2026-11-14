@@ -3,16 +3,16 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/6f/cc/f327a00c4e7f1eb241a27078ee12503cc31fcce1b018639441d2bd7b46d2/ocrmypdf-17.14.0.tar.gz"
-  sha256 "834c51d1f91110e5e7b9ab83818c445a3336343d7f61acdf38db88272b0016ab"
+  url "https://files.pythonhosted.org/packages/9b/ce/a2d548a7977237128d843872fac67ccf9f5d708a5e9a12ca0912730f0547/ocrmypdf-17.14.1.tar.gz"
+  sha256 "77412e62f621f1d1dbf4a333b4ef76c7f70977b1cb2d1d1f2d8d1e85939c0bf7"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "73c3e21393a60eedeab1dbf8f866d47ebf92d44d15535ff8f31e276c6dcfc7c5"
-    sha256 cellar: :any, arm64_tahoe:       "c2fa1ee351893a0d257b91dc60e1ad73c98e3eab0dfb3576c4701be0f706c2ba"
-    sha256 cellar: :any, arm64_sequoia:     "4827213d4e37b1bb3c8b52a434b2e3780817d802e8671a6ef4a7af7e3471658a"
-    sha256 cellar: :any, arm64_linux:       "bd0768c2465db983ca096b3ed03a7c9bd01e058f172568f79f1e23a5d3fa0dc1"
-    sha256 cellar: :any, x86_64_linux:      "3b838fc26460c98aa9b970bf371a39acffa3fc0dabd16dda85f4cd11740bf89d"
+    sha256 cellar: :any, arm64_golden_gate: "4ebe62a34fde5d4ee9eb5ba058da9f25237859e017415d152dca75203897a691"
+    sha256 cellar: :any, arm64_tahoe:       "288c92ad1232dffaddeeb6c63843cf13841ecbd262eb22e57879716c529568d8"
+    sha256 cellar: :any, arm64_sequoia:     "15bac0ff5ec94a1e2bc5390653fdd57a327b643b462557dd203428ebb4ccf7b9"
+    sha256 cellar: :any, arm64_linux:       "4ce789dad5c71c532ae9d33b51131e75f58a29e125c183bddd743f5d5b2d489f"
+    sha256 cellar: :any, x86_64_linux:      "005f48a7506c5e5f5c0a2ef561b6b910d2bfef417b0f731319f8f5ecd2cda594"
   end
 
   depends_on "cmake" => :build # for pikepdf
@@ -116,8 +116,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pypdfium2" do
-    url "https://files.pythonhosted.org/packages/7c/7d/c1761532c87e2da867a1049bf9142a17efec0b00c6326a51964bec2388ea/pypdfium2-5.15.0.tar.gz"
-    sha256 "150f71bc385fe66d82fc59514b31d00dcfc97a1143d6b4cb09aa6f532f3f3510"
+    url "https://files.pythonhosted.org/packages/fb/47/8555ff96dd676dd7b2029b8c98a8afd255f5f9eef4a2f4a0445566a323bb/pypdfium2-5.15.2.tar.gz"
+    sha256 "0185193bbdf0cc39f0bf31954c25f12edb81048bcb628ea4fc3dccf8d2ce2aef"
   end
 
   resource "referencing" do

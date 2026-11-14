@@ -3,16 +3,16 @@ class Humanbound < Formula
 
   desc "Adversarial security testing engine, SDK, and CLI for AI agents"
   homepage "https://docs.humanbound.ai/"
-  url "https://files.pythonhosted.org/packages/f9/b8/abbe5561953a94ca4116b99242d7d1dc1460f8020d9e3fe9779a78f54083/humanbound-2.14.0.tar.gz"
-  sha256 "83dee3be5237e104a9c106a64428c59a4fedb0fa861166e4c7bf1eb0310fe932"
+  url "https://files.pythonhosted.org/packages/4b/a8/38596151beae38b24b02fae5a924747f84f6f0fb36c1997886dd1f9656e7/humanbound-2.15.0.tar.gz"
+  sha256 "e5a1db20fe318602adcea6dbd55edf4794d689d6c45d8e9b5acdb2e094a28722"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4f0af39147e6e4240647faabb0b3e8c6162c9830d47bce3a447a499463be27fe"
-    sha256 cellar: :any, arm64_tahoe:       "1cf9113bad2a81f2f134f4c400d15ff24d8775a7c9ddf945766a057108f3aee6"
-    sha256 cellar: :any, arm64_sequoia:     "9ba38beca7a22cc922118d3049185437fd962a43e0e38f84c31a4d301c762da8"
-    sha256 cellar: :any, arm64_linux:       "c4bffed4e4107133ac547854af754aa45736ef31b6567a56d692a2bc2c49e39b"
-    sha256 cellar: :any, x86_64_linux:      "1d376e1827e76adbf29a7bd38c2223d2f2a9f7ce12d2003df52755fb0ae4f347"
+    sha256 cellar: :any, arm64_golden_gate: "5ade92027e0aba5c34526be9fae2a3857a19d82ec1f861495faed51ddcb7deb9"
+    sha256 cellar: :any, arm64_tahoe:       "9c7f019d4b81c40bb11a485cff714bdd9ed8c75071ff1d6c32a7ed4adb70fc1f"
+    sha256 cellar: :any, arm64_sequoia:     "b1f5309e4bf805d0743f49468cdf22b9f39fabcc1d9982770f45380b2b327ee0"
+    sha256 cellar: :any, arm64_linux:       "98cf28f5c0bbc1867c33088f0472e09a6f10362f1d12dcb995c543eb2b540c5e"
+    sha256 cellar: :any, x86_64_linux:      "0f76bdc177981638c373bdd22c80e857db71807f6ef384c5b327561aa8fb9508"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,8 +23,8 @@ class Humanbound < Formula
   pypi_packages exclude_packages: %w[certifi pydantic]
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "backoff" do
@@ -38,8 +38,8 @@ class Humanbound < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "distro" do
@@ -68,8 +68,8 @@ class Humanbound < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdurl" do
@@ -83,8 +83,8 @@ class Humanbound < Formula
   end
 
   resource "posthog" do
-    url "https://files.pythonhosted.org/packages/0e/f5/21477c4d7868129ce839a4a768a51225da9df3b54c4775d73d04d769c1d8/posthog-7.81.1.tar.gz"
-    sha256 "6d1d7846c4be791d8e91b474a6dd6b73ba994ef52f9ad86ad78e42d8d07ee085"
+    url "https://files.pythonhosted.org/packages/1e/b8/82452353335f4d183b7f8bd572e4899b65d99c0ded3b832f7c210fb24fd8/posthog-7.87.2.tar.gz"
+    sha256 "ccbb9e5e152c34ee383efa469f454c7bd6d1caee1c658be124aa499817b593a5"
   end
 
   resource "pygments" do

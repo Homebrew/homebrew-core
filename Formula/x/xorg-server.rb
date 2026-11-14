@@ -1,10 +1,9 @@
 class XorgServer < Formula
   desc "X Window System display server"
   homepage "https://www.x.org"
-  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.25.tar.xz"
-  sha256 "6ad4e3c7b59a309b32c92e5c15ce1267110f9e13f1ac78da62361a628da1a0eb"
+  url "https://www.x.org/releases/individual/xserver/xorg-server-21.1.26.tar.xz"
+  sha256 "c8609f9cdafde14de7ec7cb406dac9507add1d536df8d3c3e3d3d9c1cd864066"
   license all_of: ["MIT", "APSL-2.0"]
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,11 +12,11 @@ class XorgServer < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c2b6d8dd41f009e5bacac7a9999b367d03bcedb91e9bccd39f7be495d806de12"
-    sha256 arm64_tahoe:       "c6738cea442e5fdaae03d0714082e941c06bc421ed63b392987a8f8c5b5010d6"
-    sha256 arm64_sequoia:     "2d5e9090c04d1684b10f906a2c384ed746c5f928f0474d85dbc9fa24516cf9b8"
-    sha256 arm64_linux:       "551f053e60b0b4aab463f5bcc8ecac5c3188b7f05d49f0b98b8fc60f2108614d"
-    sha256 x86_64_linux:      "d202efb7b174727504576cdcd89eba9e1a758047a4778cf3fd0c6c581d03af62"
+    sha256 arm64_golden_gate: "922de97e843c2e71284312cb1fa37a89d296932629ccb0aa46f4044198292cbe"
+    sha256 arm64_tahoe:       "ab2bb8bc44572c96888b3a27cc6471130d8c23301e827b2bf0b761f13aa628a9"
+    sha256 arm64_sequoia:     "3b40ba7aa4d4ce84cb782c82ed2aa02188a20f77edb3a507d5c4cff881b201f0"
+    sha256 arm64_linux:       "ea45c1138a74868d0a4ed3990666027ebb0f561a78db7efd93ee48f5dd16f87e"
+    sha256 x86_64_linux:      "1a3adaa3335656b2f3561eedc92869225ccbdc63bcdf8f7bae85915c44834149"
   end
 
   depends_on "font-util"   => :build

@@ -2,17 +2,17 @@ class BeszelAgent < Formula
   desc "Agent for the Beszel lightweight server monitoring platform"
   homepage "https://beszel.dev"
   url "https://github.com/henrygd/beszel.git",
-      tag:      "v0.21.1",
-      revision: "e2ed147a5aa6472e6462521632ccc7101668132c"
+      tag:      "v0.21.2",
+      revision: "c97759f0ca4badc824ab0ff43f1571cc3c8f3a72"
   license "MIT"
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15db9b3e4cc882485997bb7eb828a91c3a0f094a994e85b2c03b07b92e126a8c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c87a530fc256f430c45b77c3686ad41444106055f5f5ed45a90ed157d096c03e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "96fd10a673740ee3a5e8ef257addd942bb39f19f5f5ebb207236274266ee7210"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe9c5eecad2bad92924633afa7cbb90af81314d54b57dbfa4b9572d039b71162"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe9c5eecad2bad92924633afa7cbb90af81314d54b57dbfa4b9572d039b71162"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe9c5eecad2bad92924633afa7cbb90af81314d54b57dbfa4b9572d039b71162"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a30085320ce5eebbdf48b48515675e5eeb14d4e2eb9f3220e74c7581f307d097"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "771087efd4334dd66ae60284b2f0a64db884ea81c0bcac11175655cc5223d5d0"
   end
 
   depends_on "go" => :build
@@ -24,18 +24,9 @@ class BeszelAgent < Formula
   end
 
   def install
-    # Homebrew manages upgrades, so replace self-update with a notice
-    # TODO: switch to `no_self_update` tag in the next release
-    inreplace "internal/cmd/agent/agent.go" do |s|
-      s.gsub! "\tchinaMirrors := pflag.BoolP(\"china-mirrors\", \"c\", false, " \
-              "\"Use mirror for update (gh.beszel.dev) instead of GitHub\")\n", ""
-      s.gsub! "\t\tagent.Update(*chinaMirrors)\n",
-              "\t\tfmt.Println(\"Run `brew upgrade beszel-agent` to update.\")\n"
-    end
-
     ENV["CGO_ENABLED"] = "0"
     ENV["GOPROXY"] = "off"
-    system "go", "build", *std_go_args, "./internal/cmd/agent"
+    system "go", "build", *std_go_args(tags: "no_self_update"), "./internal/cmd/agent"
 
     (var/"lib/beszel-agent").mkpath
   end
@@ -51,7 +42,8 @@ class BeszelAgent < Formula
   end
 
   test do
-    assert_match "brew upgrade beszel-agent", shell_output("#{bin}/beszel-agent update")
+    assert_match "self-update is disabled in this build; use your package manager to update",
+                 shell_output("#{bin}/beszel-agent update 2>&1", 1)
 
     data_dir = testpath/"data"
     data_dir.mkpath

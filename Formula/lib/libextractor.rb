@@ -1,20 +1,18 @@
 class Libextractor < Formula
   desc "Library to extract meta data from files"
   homepage "https://www.gnu.org/software/libextractor/"
-  url "https://ftpmirror.gnu.org/libextractor/libextractor-1.19.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libextractor/libextractor-1.19.tar.gz"
-  sha256 "2d5b33cbdb21c88ae9360994d4e216627413ee9cb11b31b033c2d0cf42ef2700"
+  url "https://ftpmirror.gnu.org/libextractor/libextractor-1.20.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libextractor/libextractor-1.20.tar.gz"
+  sha256 "f4fd6c67076e04e907a3032e42bbaa7c0b35aa3a503393c5d74e303ec3eb84b4"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "3b12a01931e57f35ea8b491c20e7f6e75bf94e2cf32995e01006f075716a6bb0"
-    sha256 arm64_tahoe:       "564174280de333db8510933759534e69021b82f17f1be0689b82e155451ed76c"
-    sha256 arm64_sequoia:     "8114de877b24ceec1b99fa25a63d88220595146c6f2782a407d1dc4252364938"
-    sha256 arm64_sonoma:      "79bf379f9180159cde5736457d053ee98bd59ec48817e80e9846909cce44873e"
-    sha256 sonoma:            "3f12e1073655ca34499d7f51bb0d24eab1de57b44aa32b05254494e48a35da98"
-    sha256 arm64_linux:       "cdd86c28507ed9b56d66d5e31107822e2f94cf35cac0792c92d23712eb1da019"
-    sha256 x86_64_linux:      "8648235d51ff13e908e9078653ebd7f5b8a0f325a629ac2653b8759a3083156c"
+    sha256 arm64_golden_gate: "6b4f3dfd054c316e7f54a1b6d5bee13d96063fc57b795fbc0c6727299e96e60b"
+    sha256 arm64_tahoe:       "3117b6f4404da2f184146ca6472b46635983430bd5a37079f806d14c9ef9cad9"
+    sha256 arm64_sequoia:     "6824f4de236a442a273e1363dc40bb8a95a2e50d0d7bcb6e729ed89e3d829758"
+    sha256 arm64_linux:       "866349c001137b555b147ea84dcfe1ba81f9d57a6a04a777184168dce06d7b77"
+    sha256 x86_64_linux:      "26a7ed9531f1de6fa9d481a1d056138ce7f74f4da1e3e4248f00d5136005f8fb"
   end
 
   depends_on "pkgconf" => :build

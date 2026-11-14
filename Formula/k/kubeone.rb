@@ -1,17 +1,17 @@
 class Kubeone < Formula
   desc "Automate cluster operations on all your environments"
   homepage "https://kubeone.io"
-  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.14.4.tar.gz"
-  sha256 "420b7d729702617e2c6070aafd280843af3d58f3be025fe743f49b16454f582b"
+  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.15.0.tar.gz"
+  sha256 "f7614214f85da4c652e1aa6882ae9e1edae8d6d558e7eb93306dc37c2c5515c2"
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f71aa0773e287d37e6358557347b087e4c076e6dc51ae960f47b68e41097d5b2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1d3a0285b51d0587dcfad8cb1ee9c28a210f69644322889f9b3461ff018bb56"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f9814456c1cdb322f3eb8604a49a435783b356a6173bdfe9c0b68d2680633bb3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0d2ab730f99b33d6aeb203027be9032460388fe6be896b8d3cdd8a7895efe25d"
-    sha256 cellar: :any,                 x86_64_linux:      "144802e69e18d9731882f025c28b8796eb7d0c285213cf492a90dd078139dcc2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5fea206381ac9e6677117bfc75212d373b69792d9ba9ad5ab91cfdc39da4f054"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "76d52db9b2d1f37e4a5609e1ee65db6d8fce1cd94da9f53aaa966c4755f555e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6deb54f773082e87be726b96d4187e065bbd92f68a059c429303071c8123b813"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5b5d03e759a80621e8b0a43b923965790d707a7bfa40d591bcd73ea6736ca62d"
+    sha256 cellar: :any,                 x86_64_linux:      "104bde5a936f63aa605f645705df0e3c7ee4fe71764832a03c60b666631d5991"
   end
 
   depends_on "go" => :build

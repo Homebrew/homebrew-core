@@ -1,19 +1,18 @@
 class Precice < Formula
   desc "Coupling library for partitioned multi-physics simulations"
   homepage "https://precice.org/"
-  url "https://github.com/precice/precice/archive/refs/tags/v3.4.1.tar.gz"
-  sha256 "ef4713c938a1b2000d0b071175e1b45f9ec55c7aec4bbe7b65c3992edcc74ac7"
+  url "https://github.com/precice/precice/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "cf60ae64b5f738a45c5bc06e39321c3b3a987f4115b401a30246222194797e99"
   license "LGPL-3.0-or-later"
-  revision 5
+  revision 1
   head "https://github.com/precice/precice.git", branch: "develop"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "de2a825c6ad45bd3b091169e23eabee1119a348ccda4a38b2a0882249d38c755"
-    sha256 cellar: :any, arm64_tahoe:       "3bdad1f6a19415ce4058c2ef61bad6c7f624e7b96252a621d7540c910fc7dcca"
-    sha256 cellar: :any, arm64_sequoia:     "f1834452ae249e05a6a8e60acc98eaea1264407b211fd7fe59d2badf7b2140bf"
-    sha256 cellar: :any, arm64_linux:       "a75bf4c901dd22082eea0a9804b4fab69cc594de8d7085917fc7107f52d45a52"
-    sha256 cellar: :any, x86_64_linux:      "ab85fe9e56fe9b9a9f6b43b87555e6417bd32df30978fab6cf2eab61a9bd2ca6"
+    sha256 cellar: :any, arm64_golden_gate: "73e96fe42575da52b7253d3821d5d243b0db01ae8bf5ffaaac455cca3419d2c3"
+    sha256 cellar: :any, arm64_tahoe:       "106d1ff72b107c9b724d97e77426471f29e5deda55ae5d613302953191d29769"
+    sha256 cellar: :any, arm64_sequoia:     "f0e4712c87ea7b64ac223e8ae12d120d5165c38bb0ca2749174e347b831f03cb"
+    sha256 cellar: :any, arm64_linux:       "6d62f5878a286d804de288b0d5dbe43b92a22d3ea8b9fd742a15451b696dbf9a"
+    sha256 cellar: :any, x86_64_linux:      "cb7bf5e9495f8a25ce6840c90da810ad84096bb595ee522431cbb821d26de224"
   end
 
   depends_on "cmake" => :build

@@ -1,16 +1,16 @@
 class Pgrx < Formula
   desc "Build Postgres Extensions with Rust"
   homepage "https://github.com/pgcentralfoundation/pgrx"
-  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.19.3.tar.gz"
-  sha256 "3b6e931400c5bd40cd65e100155227e02b670a5e776d8649a776101a52f70f82"
+  url "https://github.com/pgcentralfoundation/pgrx/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "7c309fbd64ab6510f87346b7d6aaeb18e51b5c766af1dcfa895087dfe5652cd8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b46a4876a5217c3a265b3837c85667166b9edaf57a0ca636443371d5688bb0f3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b9c37ffb2d49f7a0efd228d9a218debb1b446548847955f049ff046571d225c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b6795022ab3731347c283f0350f0c52a093c6d56627d2552a05f508025854f8"
-    sha256 cellar: :any,                 arm64_linux:       "96afbf76650c41cfc17a7aa927b1a4aaf97ca48029e8440f7d42cc78fbc93fd9"
-    sha256 cellar: :any,                 x86_64_linux:      "c034102f19d6cec702413df6fcf5ff27961a9b58e648698b946edf506a1a3c42"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ca9497d8546531fa0b508a4a7902bfe39cff958f18c86e08d567d961726a02c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9cc15e84881e3f1e46fe92dc6e0a05f19278ec68a9abc08bd22b74cac1565ecf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3ad471230c24925aeddd4c55e41c8e278937c3d758d0bca5e053301f5c4d4c2"
+    sha256 cellar: :any,                 arm64_linux:       "2965e354d29a8dc20ddf850f8d3a3ac62a128034e72c4a8ca926df6da53adc4e"
+    sha256 cellar: :any,                 x86_64_linux:      "21acce6ede0317b6496ed3444275f22e3b2c7579323f4b6bbd31620701962e34"
   end
 
   depends_on "pkgconf" => :build

@@ -1,8 +1,8 @@
 class Orbiton < Formula
   desc "Fast and config-free text editor and IDE limited by VT100"
   homepage "https://roboticoverlords.org/orbiton/"
-  url "https://github.com/xyproto/orbiton/archive/refs/tags/v2.74.6.tar.gz"
-  sha256 "c3eb0dec81895873f3d49e9f4c4a572b85e7a9f0ee697a934f3897ca876af1e0"
+  url "https://github.com/xyproto/orbiton/archive/refs/tags/v2.75.0.tar.gz"
+  sha256 "12fcbe320917f41c389146ece50e9627554da4023e15cf01a1516cc90ec19b29"
   license "BSD-3-Clause"
   head "https://github.com/xyproto/orbiton.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Orbiton < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cde5a2fa058fd6935a813760ccaf428999e307c9bd7babadd5112b7dd75c2866"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cde5a2fa058fd6935a813760ccaf428999e307c9bd7babadd5112b7dd75c2866"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cde5a2fa058fd6935a813760ccaf428999e307c9bd7babadd5112b7dd75c2866"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "03e3bf683c55f6f74296a01d1679f45f6261c339e9ac691f250bfe2604d988ce"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9c44fb041c23b1b0e56169e7984bae6fa83d3cd38b77e4d1a041db5f41fa8d89"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ad4f96db963fc062dc521b0354629481ca514d96db9ab45875d21808b54afee1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7fbe712831b6b3ddcc34c12c16c3f9eaf50fc816b075d1fa25899af23671883f"
   end
 
   depends_on "go" => :build

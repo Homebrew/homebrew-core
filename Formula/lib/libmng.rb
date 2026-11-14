@@ -25,7 +25,7 @@ class Libmng < Formula
     depends_on "zlib-ng-compat"
   end
 
-  resource "sample" do
+  resource "sample", :test do
     url "https://sembiance.com/fileFormatSamples/image/mng/abydos.mng"
     sha256 "4819310da1bbee591957185f55983798a0f8631c32c72b6029213c67071caf8d"
   end
@@ -33,12 +33,13 @@ class Libmng < Formula
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     file "Patches/libtool/configure-pre-0.4.2.418-big_sur.diff"
+    type :unofficial
   end
 
   deny_network_access!
 
   def install
-    system "./configure", *std_configure_args, "--disable-silent-rules"
+    system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"
 
     # Keep an example for test purposes, but fix header location to use system-level includes

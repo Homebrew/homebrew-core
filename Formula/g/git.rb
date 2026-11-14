@@ -1,8 +1,8 @@
 class Git < Formula
   desc "Distributed revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.56.0.tar.xz"
-  sha256 "26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.56.1.tar.xz"
+  sha256 "f0b0bf89264b9bd2e1c640363e7529643989da76281600473c50745cd34a607f"
   license all_of: [
     "GPL-2.0-only",
     "GPL-2.0-or-later",  # imap-send.c; trace.c; ...
@@ -10,7 +10,6 @@ class Git < Formula
     "BSD-3-Clause",      # xdiff/xhistogram.c; reftable/
     "MIT",               # khash.h; sha1dc/
   ]
-  revision 2
   compatibility_version 1
   head "https://github.com/git/git.git", branch: "master"
 
@@ -20,19 +19,19 @@ class Git < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a974c47b8f63bbc98389df7e942aae13fb881f05f9cd94c2bdca0767a19e2554"
-    sha256 arm64_tahoe:       "ae0057867c6fc57d89f7b141e095f084a39bb30dc5fd1fd81ab984de5a74740c"
-    sha256 arm64_sequoia:     "6106c08b84b66b28800b2b837a77a855b7b600bc922f6999d1980e8d78b53294"
-    sha256 arm64_linux:       "a01aed6fe7b7f9e8c4f1a97f42006cdc0539babe58e5daadc4b4b8eb11e5b3cc"
-    sha256 x86_64_linux:      "1f39b14814e57cae3556d3cee9a84cce6d6d0be87a7d0d64b4e4383fc653a2a9"
+    rebuild 1
+    sha256 arm64_golden_gate: "8caaa00047a7ca648393c4f4d2903c847803af37d0ee62cec2108889d1d80b6d"
+    sha256 arm64_tahoe:       "af9b2944636a6e8652de99fb695822c2ef0a71d022959e2601eab9853a02fa91"
+    sha256 arm64_sequoia:     "a564068b6421007b7140189381ff070270964669b2128be09e8110e7f9327516"
+    sha256 arm64_linux:       "cfd7672ea738aa6a03cd934959dd155080c83536fcb4f03ef66795c3c63e1078"
+    sha256 x86_64_linux:      "35689124b38ec283646c1ff25836b119c1c73a72aa797614cd9699d472ba7637"
   end
 
   depends_on "gettext" => :build
   depends_on "pkgconf" => :build
-  # TODO: Replace with `uses_from_macos` once Apple fixes their CA bundle.
-  depends_on "curl"
   depends_on "pcre2"
 
+  uses_from_macos "curl"
   uses_from_macos "expat"
 
   # Don't try to add a libiconv dependency without reading this PR first:
@@ -53,8 +52,8 @@ class Git < Formula
   end
 
   resource "html" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.56.0.tar.xz"
-    sha256 "c20a04cffce877e29ec532c5453f3fd2ce1f3daaf7f3b65d1f2fa73e95986d11"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-htmldocs-2.56.1.tar.xz"
+    sha256 "e4ef5070b48658d72a301a69c72c7a227e6444258663ee8f93ddfa5ae9d6ff02"
 
     livecheck do
       formula :parent
@@ -62,8 +61,8 @@ class Git < Formula
   end
 
   resource "man" do
-    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.56.0.tar.xz"
-    sha256 "1f62a7fabaa36a0469c4d51fe247d12e7e246b890d2b8b49aec91df610f417c7"
+    url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-manpages-2.56.1.tar.xz"
+    sha256 "6ea093f15745a9ac85fe1b1d4fe488413d54e68d0fcb10bab62f047f362cf6de"
 
     livecheck do
       formula :parent

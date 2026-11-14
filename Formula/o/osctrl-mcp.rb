@@ -1,29 +1,35 @@
 class OsctrlMcp < Formula
   desc "Fast and efficient osquery management"
   homepage "https://docs.osctrl.net/components/osctrl-mcp/"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.6.2.tar.gz"
-  sha256 "81e8ae96525845d56ac98c4a1c3764f6bb59993f50d0d6011ba1d5979173c26c"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.6.3.tar.gz"
+  sha256 "7f6e4a260f24d37f19bc955d42bb0babfc1224af43e8db7d017f21c326404df0"
   license "MIT"
   head "https://github.com/jmpsec/osctrl.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39c6aa0a921b5ae0524933399f2f5ce049c6af5881c9d6866edbe05be5fb3923"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ba1c62378c522bd2a80c2e53e355aabb3634baa5c91520d4e806972ae502778"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b526e829adc4423ced5269a8504f949b168c949bd6bd8aae716e868162c5c9c2"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e7f6009b76592626dcaef2da176bbb339120f1f128c9958fd780a29946198305"
-    sha256 cellar: :any,                 x86_64_linux:      "5c761627799ad41e27e80701778becf1bee08bf774b090fe0290890844005be6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd92c3a19787a7e9c238a28ded4c32de2ae5ab8d899a5e4f05abd22bda8a2306"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6593952b8dbd02da13ffa61af0a5bba6734412b170131ee6cc7abbc9b91ed8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2daaf48606101b5bd93300b95c73989d8346178a1100fa57f2e297790413f28a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4dbae2e77fed5af363e327af97937defe9f368fc11f1cd465a7dc8d27031475"
+    sha256 cellar: :any,                 x86_64_linux:      "2943c3e643f541cc5b4ed988d0a9276c6456dcd486a5c8f67de8517de28fdc26"
   end
 
   depends_on "go" => :build
 
-  deny_network_access! :build
+  allow_network_access! :test
 
   def fetch
     system "go", "mod", "download"
   end
 
   def install
-    system "go", "build", *std_go_args, "./cmd/mcp"
+    commit = build.head? ? Utils.git_head : Utils::Git.get_tar_commit_id(cached_download)
+    ldflags = %W[
+      -X main.buildVersion=#{version}
+      -X main.buildCommit=#{commit}
+      -X main.buildDate=#{time.iso8601}
+    ]
+    system "go", "build", *std_go_args(ldflags:), "./cmd/mcp"
   end
 
   test do

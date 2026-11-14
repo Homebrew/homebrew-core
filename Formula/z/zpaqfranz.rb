@@ -1,8 +1,8 @@
 class Zpaqfranz < Formula
   desc "Deduplicating command-line archiver and backup tool"
   homepage "https://github.com/fcorbelli/zpaqfranz"
-  url "https://github.com/fcorbelli/zpaqfranz/archive/refs/tags/65.19.tar.gz"
-  sha256 "0c97c26d34ae5437e30ed528607d0b47adb2685b40b6d8883c94ea24c81adea8"
+  url "https://github.com/fcorbelli/zpaqfranz/archive/refs/tags/65.20.tar.gz"
+  sha256 "9c2e2267e1630d1eb842abea4932404c056f6be55926c534099e61cda3d72502"
   license all_of: [:public_domain, "MIT", "Zlib", "Unlicense", "BSD-2-Clause", "Apache-2.0"]
   head "https://github.com/fcorbelli/zpaqfranz.git", branch: "main"
 
@@ -14,11 +14,11 @@ class Zpaqfranz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26efab7afe01b68ec705a68a32cb2c5578180875bac677eb29d0381b21a7e6c3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1db88e848a2559cf41c3dcf4924ef4705638fa70e0e560569a4371a6615ee9fa"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43a3db68bb916dd84ca9d2a9170ee77c13d04b3dc62b5f6765db1f7a7f913ecf"
-    sha256 cellar: :any,                 arm64_linux:       "daf5636962b9cf52bce38b45765c5274fe50b62895ec94b46290e588d990ffad"
-    sha256 cellar: :any,                 x86_64_linux:      "c915f80319867b1734e46dd2a881f8b00ebb1925b524216eebde833e03d35313"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3a7f7697976050c9d57c10ecbad883645aedf2ceb199862c9ef840cb6389957"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a07f8b341b1b6ff33639cb7fe78573b2eae82b6ba60e54b1ad480c2bd0d13eb9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a8453ce2a43af13b5f1418f4211d1095bacd2e57aeee41dca942dba85a8a336c"
+    sha256 cellar: :any,                 arm64_linux:       "cc1c2792f1c672ff1edfd888fb2feefa89c6dfe7d4a4bb6ed11f3868bb8d211f"
+    sha256 cellar: :any,                 x86_64_linux:      "549ede42c93b66b76fbdfb041c4bd419c57200d13443bca088643048dbed5fdb"
   end
 
   deny_network_access!

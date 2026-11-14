@@ -13,18 +13,26 @@ class Fish < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "178bdd28d5b888253d95cd9f09749ec5b0786e38ffb2b29c5e9c883d0eba5434"
-    sha256 cellar: :any, arm64_tahoe:       "c530bd62ac9277e7e1ae3de9ff5e0a83fdb5f49d39f456ce8f61dce6f56dd8c3"
-    sha256 cellar: :any, arm64_sequoia:     "bfea5c0b0764de2965bb201d2803d51e6f898da0253c2e5934fc0db1333a0543"
-    sha256 cellar: :any, arm64_sonoma:      "9ce8b1dc8f20c724221dd3c351355c8a306edfef30d292401cb4fc9d67c0d90b"
-    sha256 cellar: :any, arm64_linux:       "101c8ae43f26503c872bfde4cabc3388ad7078304c7572e9ffb4fbd29bea5a77"
-    sha256 cellar: :any, x86_64_linux:      "0660e70e2312ebf32bf858e89842efc511a475b88f292aeadca90f4893186975"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "fff30eb9cfc4c346addafecbd79a361078c5fc3ac3a1145336f116aa1f2dcad3"
+    sha256 cellar: :any, arm64_tahoe:       "9ba271b9578b67538c408c488680b31d9e9c4cc55e2b00970913bd9b7bf91f89"
+    sha256 cellar: :any, arm64_sequoia:     "e0b4f919892ab14edfb938750f65ef688e1613fae672d7f1fcaeaa6db5478a1e"
+    sha256 cellar: :any, arm64_linux:       "af68b390a09718effdc4d2ac1a835375749416cb80b6d363495fbe96f942fa12"
+    sha256 cellar: :any, x86_64_linux:      "679fdd4401aea3b419d4991dc7c78d30ee23a2a681864e6edc09738896641822"
   end
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "sphinx-doc" => :build
   depends_on "pcre2"
+
+  # Fix inline install code parsing with CMake 4.5.
+  patch do
+    url "https://github.com/chenrui333/fish-shell/commit/33502c2cc0c38ccfea820dbe364858273ef70fa8.patch?full_index=1"
+    sha256 "63f6db1de990fec0d60dcb8b1365c96fa09dd39e40fd649e33358373ec3474f6"
+    type :unofficial
+    resolves "https://github.com/fish-shell/fish-shell/pull/13097"
+  end
 
   deny_network_access!
 

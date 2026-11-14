@@ -3,16 +3,16 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b4/55/ecae3e8374f7bad565254a917c678d96bea95cea9bf5914df89290a0491a/schemathesis-4.33.1.tar.gz"
-  sha256 "610f2027ef2e60bf287971d5b299e6d25ab9725e2933f4425c41858593b06d79"
+  url "https://files.pythonhosted.org/packages/8e/73/7a691f6088a8bf9e1f67010b9cca84e03376d42b356f8c37e2287bff4910/schemathesis-4.33.4.tar.gz"
+  sha256 "6b9b2f17d12e6474d5a53d8a61d0d8e10620c259249cb30a2d7cf2cd6688b56d"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8a3fe366f159b18754054ade6a55c2bfd4fc5299ad58c62a1549f9b9533b1154"
-    sha256 cellar: :any, arm64_tahoe:       "2a8e6a6959eef9192efa8ee7dd216fd50ec43878c46cba1476a332b1a74a6712"
-    sha256 cellar: :any, arm64_sequoia:     "75a5f53ba71c7089fa53a85ee3963537e4397b52e46f10196819956d2412e542"
-    sha256 cellar: :any, arm64_linux:       "be438bae4868f3f5a8ceb73f068175d9bff89f49c431a76427047e2bbcb92273"
-    sha256 cellar: :any, x86_64_linux:      "3c53dcebd320608d4bf2c616dc1db2e204ac1369361749865a28a4b791d5336e"
+    sha256 cellar: :any, arm64_golden_gate: "6547d21bc0032089033edde15ca93790b0b2843c976ec3dcd80bc7b3bf2b8a6f"
+    sha256 cellar: :any, arm64_tahoe:       "6c616c660e5dab0e6bbc5abfee4bbb27923663b41d1fb264fa2cf8c618d901f9"
+    sha256 cellar: :any, arm64_sequoia:     "ecb76db1d16b1c990c828c5abd545b78a56d0f53d3e98332d2d327c63e06e85a"
+    sha256 cellar: :any, arm64_linux:       "823eb85e0be80a6ab2c98b0022ab885249a7c8adc8ae5143d937fc9c611fc1aa"
+    sha256 cellar: :any, x86_64_linux:      "ce52705114c65182b7656d8458357bb94417a50818bbbd020911ad10e7e2ac97"
   end
 
   depends_on "rust" => :build # for jsonschema-rs
@@ -36,13 +36,13 @@ class Schemathesis < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "graphql-core" do
-    url "https://files.pythonhosted.org/packages/a4/91/223fbace7c8648690d7fb77855e29bd248c9ed1e0833ed3002ab29bc1441/graphql_core-3.3.1.tar.gz"
-    sha256 "8d9b6f95fb66b58b260904cf9e191f422782620533ec8fa0c96ab941b6659a2a"
+    url "https://files.pythonhosted.org/packages/0d/11/511b9487dd338a9cd98a8040a1f20feaa99b2f2e4921c049cb9cbbff2870/graphql_core-3.3.2.tar.gz"
+    sha256 "15d6eee7d4364fbc202833bc6bd0d504004d8ae7c0aaf620fa884d8e437622f2"
   end
 
   resource "harfile" do
@@ -51,8 +51,8 @@ class Schemathesis < Formula
   end
 
   resource "hypothesis" do
-    url "https://files.pythonhosted.org/packages/d6/0f/10b2076a1314c554eee58c26e1dbe630fd26a32773df2a63bd5dba5d9947/hypothesis-6.170.14.tar.gz"
-    sha256 "8272913eb34c4399a88cf8a9ecdb351c9ef8f621c061f2ac323362d4a66b755d"
+    url "https://files.pythonhosted.org/packages/96/ec/59f14eb701087710888b66bfef2dc8bee9dd4a364c69a732db0cc1d3d2dc/hypothesis-6.170.15.tar.gz"
+    sha256 "a4a57e5fb106ecb29cad37e22e411d957e20d933bfb9fb029e1999b1deb8a0b6"
   end
 
   resource "hypothesis-graphql" do
@@ -71,13 +71,13 @@ class Schemathesis < Formula
   end
 
   resource "jsonschema-rs" do
-    url "https://files.pythonhosted.org/packages/36/17/383e687f63ba7c8c730ff770cb5ff70df32bd7f5114bfdcbd4387b19af54/jsonschema_rs-0.60.3.tar.gz"
-    sha256 "1d831d8eeb775af547aec0e9f75da51122a9c3563486d02e43db88d425b32c86"
+    url "https://files.pythonhosted.org/packages/30/d3/fedab55fadf17359ed45d7c347e13839b79aa5c85c083c417b6a0e8b12a9/jsonschema_rs-0.61.2.tar.gz"
+    sha256 "8ea236493450c013f095d5d4d9d3b8e56fa0153fb305107f9a7134ea16bcf56b"
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markupsafe" do

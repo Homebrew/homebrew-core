@@ -1,17 +1,17 @@
 class SbomTools < Formula
   desc "SBOM multi-tool: diff, quality, compliance, vulnerability tracking, VEXes, etc."
   homepage "https://sbom.tools"
-  url "https://github.com/sbom-tool/sbom-tools/archive/refs/tags/v0.3.0.tar.gz"
-  sha256 "0d5594bb6c4698afce319c62a09198df8826cc701dbbe522ef0a5ef09cc1649e"
+  url "https://github.com/sbom-tool/sbom-tools/archive/refs/tags/v0.4.0.tar.gz"
+  sha256 "249607a385ae5feeb91637c047827480983b6580fd56cdbeae605de0640b9582"
   license "MIT"
   head "https://github.com/sbom-tool/sbom-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70661b3a3a7883b5bdb5f23401430e74d2f331aeecdfcdee909aa61cf553fe5a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10161501c7fa2102f0418cbfdffdf9f10251f005c978ea6698b054e29608eff8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfb6ffa028471bc80ff6df8fdbaae4adb71e2e93036e35c09e02e4df556f0a87"
-    sha256 cellar: :any,                 arm64_linux:       "756acbd2d71b40f6f4f927a5393d5da9633c0dc3d014b5ab7ecd8f7affe031c2"
-    sha256 cellar: :any,                 x86_64_linux:      "b2605fe242ee44b08e314c6ea74ca52ab13fac990c81e197e61f10898abd2749"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec4f93834feef291420ce786cbfd3c2bd979ae3b1dc26b9d24042efcaf66ee43"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16e47546e1be8f788f880c17c01eb4b7b655d7f2f89c98879966a496fe20fafa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd262e5b19b4c73ce402c345afa08047348f4c5ac5b2f5647a5a2b9f37712448"
+    sha256 cellar: :any,                 arm64_linux:       "9dbcbc3101387e29e3f85f8d3c20fb2a95dd1d7f7a32a99aa9bc2215343aaa52"
+    sha256 cellar: :any,                 x86_64_linux:      "54756796bc4accc036e6c067de800792c85b94212a332e06c1f6b234ef62ba47"
   end
 
   depends_on "rust" => :build

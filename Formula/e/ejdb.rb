@@ -2,17 +2,17 @@ class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
   url "https://github.com/Softmotions/ejdb.git",
-      tag:      "v2.98",
-      revision: "d4c75c48f2bbd685b5d92c4f25a0f0318a10cb1a"
+      tag:      "v2.100",
+      revision: "995c74a536bcc544c91123f18a21c8d4d96b2f51"
   license "MIT"
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "13cbefe006aaef3709339b570aedade88ecf33114cce9ac48d5917e226700ccf"
-    sha256 cellar: :any, arm64_tahoe:       "14f22210d739c885db397e6badc374ed565e09b55420609fa4a1b0f8516b6700"
-    sha256 cellar: :any, arm64_sequoia:     "e9c1b3794e4905f1bd2b99ccaa75bdb9d1408745046ea62ca6fdae72d83d2c00"
-    sha256 cellar: :any, arm64_linux:       "dd2dd6fd181191b87d3f9acbfc0e80baca9daf4708d59e1fc301f33caf793b3e"
-    sha256 cellar: :any, x86_64_linux:      "0a9a8eb9961aca37ae0c974c98b9155e617afd894a2b2c805eb9b67255c90196"
+    sha256 cellar: :any, arm64_golden_gate: "2fec081779acb69030d92eda768032b5d8dd8c4b214dec35937a929f7963d87a"
+    sha256 cellar: :any, arm64_tahoe:       "e2920717bf53a62d7e7a1df58a1e0abfca1df286e5d0bc4f03a6a9d1ec048c60"
+    sha256 cellar: :any, arm64_sequoia:     "381faabf5cbc029fecc0676980ca760e5eb7da0a5d6760b4d5f754d959ddf1d4"
+    sha256 cellar: :any, arm64_linux:       "e394d4f2e374220c2b88c56e20151af22e6088803c6ba3fe5987d580744eb577"
+    sha256 cellar: :any, x86_64_linux:      "d905c2700a8a2ac00fc9bec31ca9fd541554a012e31e2e444eb578a951005a38"
   end
 
   depends_on "pkgconf" => :build
@@ -26,8 +26,8 @@ class Ejdb < Formula
   end
 
   resource "iwnet" do
-    url "https://github.com/Softmotions/iwnet/archive/refs/tags/v1.6.0.tar.gz"
-    sha256 "f7acd2625f3327bb854c8eae199ac59d9816f9678f3f4b3712b818231ae1185c"
+    url "https://github.com/Softmotions/iwnet/archive/refs/tags/v1.6.2.tar.gz"
+    sha256 "a374434039fb9ecb40dbcbdd6f09b0996894df5935837755fe09660604dd826a"
 
     livecheck do
       url "https://raw.githubusercontent.com/Softmotions/ejdb/refs/tags/v#{LATEST_VERSION}/Autark"

@@ -1,9 +1,9 @@
 class Krb5 < Formula
   desc "Network authentication protocol"
   homepage "https://web.mit.edu/kerberos/"
-  url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.2.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/krb5-1.22.2.tar.gz"
-  sha256 "3243ffbc8ea4d4ac22ddc7dd2a1dc54c57874c40648b60ff97009763554eaf13"
+  url "https://kerberos.org/dist/krb5/1.22/krb5-1.22.3.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/krb5-1.22.3.tar.gz"
+  sha256 "fe90af8441ad9fa9b064b8e53077cefb782a96f8a68276b031dc54af1789ff0b"
   # From Fedora: https://src.fedoraproject.org/rpms/krb5/blob/rawhide/f/krb5.spec
   license all_of: [
     "BSD-2-Clause",
@@ -25,7 +25,6 @@ class Krb5 < Formula
     "OpenVision",
     any_of: ["BSD-2-Clause", "GPL-2.0-or-later"],
   ]
-  revision 2
   compatibility_version 1
 
   livecheck do
@@ -34,11 +33,11 @@ class Krb5 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "678c05de46229f5b35631196808a7f6e4a32f9a18bc9574ec447f6c8290dfff7"
-    sha256 arm64_tahoe:       "8fc14b442b666d56a994cfddb47cd86071b6408905be70f10f7fcf668fc9e1cf"
-    sha256 arm64_sequoia:     "8bc2adf379fd6e0d0dd3bbe663effe87f625f25b9aa5a1bac71aef4b450ccc23"
-    sha256 arm64_linux:       "ac8557d7c89e6ee7e4d736baf925469fefe3837b1aa804623b0638a227f5567d"
-    sha256 x86_64_linux:      "587ada42216850382fedbfa4707b7aed405fb6934d8ed0650567a7a488162d1c"
+    sha256 arm64_golden_gate: "9ee71115230780fcf77473cbe412f3abea1b7ec672b0d9c34c70b59d39902dbc"
+    sha256 arm64_tahoe:       "4827d11086d9f6d699be5403572eb6e9fbef3699c2f8c7001947eb78f2d6b384"
+    sha256 arm64_sequoia:     "465873b2f5bb5751fc01e086648cb54fc30a4b975e3bc00e393e00e763931015"
+    sha256 arm64_linux:       "aa9e5353cb1afed5c356c3741005707f7658ba5062f8cdbe3f094cce09af5a08"
+    sha256 x86_64_linux:      "6bea50f9570bb1e8e9fb3d9e8a2eab31c5ee01edb700b347e63679e0659ee61b"
   end
 
   keg_only :provided_by_macos
@@ -51,17 +50,20 @@ class Krb5 < Formula
     depends_on "keyutils"
   end
 
-  # Add support for OpenSSL 4
-  patch do
-    url "https://github.com/krb5/krb5/commit/ceee5d558a2be93a9b2df717be1ea42c5d83ee51.patch?full_index=1"
-    sha256 "f7af91992fa6c825a4d42bcc138cd521aa8b98d723f9301c3d39acc4e780d249"
-    type :backport
-  end
-
   deny_network_access!
 
   def install
     cd "src" do
+      # libgssrpc calls secure_getenv, which falls back to k5_secure_getenv
+      # from libkrb5support where libc lacks it (e.g. macOS).
+      inreplace "lib/rpc/Makefile.in", "-lk5crypto $(COM_ERR_LIB)", "-lk5crypto $(SUPPORT_LIB) $(COM_ERR_LIB)"
+
+      # OpenSSL 4.1 returns const pointers from X509_get_ext() and X509_get_subject_name().
+      inreplace "plugins/tls/k5tls/openssl.c" do |s|
+        s.sub! "    X509_EXTENSION *san_ext;", "    const X509_EXTENSION *san_ext;"
+        s.sub! "    X509_NAME *name;", "    const X509_NAME *name;"
+      end
+
       system "./configure", "--disable-nls",
                             "--disable-silent-rules",
                             "--without-system-verto",

@@ -6,15 +6,15 @@ class Gptline < Formula
   url "https://files.pythonhosted.org/packages/5b/28/d15a9a5b349c77a051a633e13141151314f352067ec7d516220bd6b20fcf/gptline-1.0.8.tar.gz"
   sha256 "4a0a0b5fa4f23e5f2ad7ac5bf44a9143e5de3757b0b8eefe5d78a7757d1d34bb"
   license "GPL-3.0-only"
-  revision 25
+  revision 26
   head "https://github.com/gnachman/gptline.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c36943c235972820364dc3f4e86654669d23377ae8883fcdff4021b946debd29"
-    sha256 cellar: :any, arm64_tahoe:       "9ab17314f6f724178d0097b0d88cfe0e7d1f6b42effc6fab743d1d4836ae6a94"
-    sha256 cellar: :any, arm64_sequoia:     "61a3694f22da8b78c00dfdb0c34a35a8d101749b2a679659d21b535a8bfbcdca"
-    sha256 cellar: :any, arm64_linux:       "55adb062ae6a1a87de631ddaaa61b200d10adadfd9fe8dd98ed6e7245f4075c2"
-    sha256 cellar: :any, x86_64_linux:      "daeed9ece13c9a2281989f9bf9e9da898be453ed90f35014d69c17267c66be4a"
+    sha256 cellar: :any, arm64_golden_gate: "185374c1fd8c61c3e1371b9bbba5b0d9badd488ac2c77ddff2341788b8f1a566"
+    sha256 cellar: :any, arm64_tahoe:       "abf0b7e8837693e74f6e044429d23807632097d39ece5cfcc347589f17cf6404"
+    sha256 cellar: :any, arm64_sequoia:     "ef2f330f87339b4aa2d5f375ede77a92478c806add56c7473e63e22c24fd8de9"
+    sha256 cellar: :any, arm64_linux:       "dcd398a42455110df037c0acb53811325260b365e48341f3e7e66e10e057471e"
+    sha256 cellar: :any, x86_64_linux:      "5c952bcfa621603108c3783cce78041a9fbf1cf3190b84f4b6e5fd5297289f03"
   end
 
   depends_on "pkgconf" => :build
@@ -42,8 +42,8 @@ class Gptline < Formula
                 extra_packages:   "lxml-html-clean"
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "beautifulsoup4" do
@@ -62,8 +62,8 @@ class Gptline < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "cloudpickle" do
@@ -105,8 +105,8 @@ class Gptline < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
-    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
+    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
+    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
   end
 
   resource "h11" do
@@ -140,8 +140,8 @@ class Gptline < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/9c/1f/8176d92e001f86505424b41664032ae26a882bc9ca41a32c803f373f9195/jiter-0.17.0.tar.gz"
-    sha256 "03e432f226a453851079fb84cd17c6da9991eab723e28d716f14ae3d906e0c12"
+    url "https://files.pythonhosted.org/packages/67/de/8dfd06a2153d8ab6a83a8ca8f8ae3ff860ce2fe324ee6a5d05294b621c2a/jiter-0.19.0.tar.gz"
+    sha256 "ba3064f8be276d7cfb83c2fb85c858be533da2c2f80f9b048c3781b45a57a195"
   end
 
   resource "joblib" do
@@ -155,8 +155,8 @@ class Gptline < Formula
   end
 
   resource "lxml-html-clean" do
-    url "https://files.pythonhosted.org/packages/0a/63/195dfdde380a84df309e3bccf4384b034b745dba43426886f7ae623b4fba/lxml_html_clean-0.4.5.tar.gz"
-    sha256 "e2a4c7d5beedd17cd7b484d848a0571e54baa239a4f9df5546e3acba7f990560"
+    url "https://files.pythonhosted.org/packages/ac/7e/2b7118b28d5bb69dfc4f349e1ca92334cf986601d3c809caa62cfa3bfab6/lxml_html_clean-0.4.6.tar.gz"
+    sha256 "ea9db067c3053854fd87f8d5a1cf01221dc893b54dbf6019c689052e05c64f22"
   end
 
   resource "newspaper3k" do
@@ -170,8 +170,8 @@ class Gptline < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/e4/5e/a7c7e6f565950764214fb13e2b72076e5957ce80c37eb1b0ddda2102e4f4/openai-3.36.1.tar.gz"
-    sha256 "ad8e5d56f20198915d98726ac1edb12ae38e7ecfa9bd560057e84642168b20c9"
+    url "https://files.pythonhosted.org/packages/83/8f/adc3e9f7077c16a2417eebb219df2f5933f4fa532fab143c6bbb1c287c67/openai-3.49.0.tar.gz"
+    sha256 "44badf2bea9bcd643dafa0bc4d5a109a14395889219fd68b8560322288196e96"
   end
 
   resource "prompt-toolkit" do
@@ -185,8 +185,8 @@ class Gptline < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/0e/df/f15f80383f152452d8985b36d95cb8751f901a3e0ff4cd27f7e118f168e2/python_dateutil-3.0.0.tar.gz"
-    sha256 "7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
   resource "pyyaml" do
@@ -195,8 +195,8 @@ class Gptline < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
+    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
   end
 
   resource "requests" do
@@ -210,8 +210,8 @@ class Gptline < Formula
   end
 
   resource "simplejson" do
-    url "https://files.pythonhosted.org/packages/2f/f0/ea064bba6c9afda0168ddb834f1c75a93351031e25aee35c046108e7f292/simplejson-4.2.0.tar.gz"
-    sha256 "55b121b70a560f4610bd3a355ab2015aca4f39978f6a82353f24d2013fe85861"
+    url "https://files.pythonhosted.org/packages/8c/c1/33e537d655a55e983c247cd794378d8206228621f1420f889f4643315adc/simplejson-4.3.0.tar.gz"
+    sha256 "ffe34ab51a0d37e6d1c661a5672df00d2d5e18804e38eac07abffb83fa5ec3d7"
   end
 
   resource "six" do
@@ -225,8 +225,8 @@ class Gptline < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "tiktoken" do
@@ -255,8 +255,8 @@ class Gptline < Formula
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
-    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "urllib3" do
@@ -265,8 +265,8 @@ class Gptline < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/69/4a/82d61476a1ccc20d43d0805724c5de4baa4971131a8db1816705ef53fe16/wcwidth-0.9.3.tar.gz"
-    sha256 "dfe7cfbd4cb59db9fe0931bd6091ab4a95b3acc5d56bfb50fa9fef0ccba5dc5c"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   def install

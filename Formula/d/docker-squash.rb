@@ -3,14 +3,12 @@ class DockerSquash < Formula
 
   desc "Docker image squashing tool"
   homepage "https://github.com/goldmann/docker-squash"
-  url "https://files.pythonhosted.org/packages/77/ef/45dc63f3f0f3fba18306dac34d9be26f9dd0d1a0742a7f0ca39cf1a98b15/docker_squash-1.2.2.tar.gz"
-  sha256 "74dd70412ddcf570bcd322567929062342793d1ec70c63b5371cc9e2808ae2ef"
+  url "https://files.pythonhosted.org/packages/c7/36/386848865540aa3e60b83575b0c955a29d454bc117b22dbf2fcc1405e478/docker_squash-1.3.0.tar.gz"
+  sha256 "728023ffedaab424d15c3f97d11c6c9f43eb45c49d735c399e074377229242b7"
   license "MIT"
-  revision 8
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "055ca10faa3f790a33e7d7acd2d1d7d4a73bca981289d7b30b09cfe7c6bc3064"
+    sha256 cellar: :any_skip_relocation, all: "1b43f5d5a4af98262b217c49fad55d560d2ec97da126753e7cfd6e847b292a41"
   end
 
   depends_on "certifi"

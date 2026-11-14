@@ -1,16 +1,16 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.16.2.tgz"
-  sha256 "e96fd5fc99c2d2754c3d42817ede895ab54512209506ea8d7af7821f99eed0f5"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.19.0.tgz"
+  sha256 "a1eb4de6f14a675ebb2f00b17652cecb19ccc77d6f6efbbb3bab89dff2d4c0c3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "208714b4503ba662a3d49d93fdd0b021b1c2386a481d2620ff34968c73aecc6b"
-    sha256 cellar: :any, arm64_tahoe:       "1d3fd774ba00868d2ce4bda76dee88b496f6b64d01481ab7367a54ca8bbf92e7"
-    sha256 cellar: :any, arm64_sequoia:     "7e683c2c5bcafa663c4f6dd014732ac86ec4a4b7b090066aa05b9fda53c7a5d4"
-    sha256 cellar: :any, arm64_linux:       "a9fd432e59807981ca07956e9cb7557babdc0e5841a26af5cc38a98dc1ce0b49"
-    sha256 cellar: :any, x86_64_linux:      "39cfcdb50011fd663be925b66c12301cb27152af5c46b6820eb27a801db8f8f6"
+    sha256 cellar: :any, arm64_golden_gate: "0786fd3ed7105842406de9899b574d5fc810a6468dfd8f913c6bb6fcf5c99f29"
+    sha256 cellar: :any, arm64_tahoe:       "27b6249a4cd67f0f9057fb33191b43a6091b6441e6aa19c7fb6d238f88f1f71a"
+    sha256 cellar: :any, arm64_sequoia:     "a6b55df4707a968cb5faf5ba9e3f5f0c9ec67ef1f20cb3bd4387979395f6a4ab"
+    sha256 cellar: :any, arm64_linux:       "3f03f0d570c1ade6111f53b990221458227ad0969434df3067ed7b823c15aca8"
+    sha256 cellar: :any, x86_64_linux:      "50a46a04b1df72fe3607e10c4e41b5c9d2c2ad5f7647672fffbd3d43d139fd45"
   end
 
   depends_on "pkgconf" => :build
@@ -67,7 +67,7 @@ class NetlifyCli < Formula
     # Remove incompatible pre-built `bare-fs`/`bare-os`/`bare-url` binaries
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
-    node_modules.glob("{bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
+    node_modules.glob("{bare-buffer,bare-fs,bare-os,bare-path,bare-url}/prebuilds/*")
                 .each { |dir| rm_r(dir) if dir.basename.to_s != "#{os}-#{arch}" }
   end
 

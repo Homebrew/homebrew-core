@@ -6,15 +6,15 @@ class Aqtinstall < Formula
   url "https://files.pythonhosted.org/packages/76/19/24a588de6c25d43169d172dab47e63a63cd0d8f90e98cf86487acbf00ac7/aqtinstall-3.3.0.tar.gz"
   sha256 "9c7d85fbe7258be2d7d23fda33f8aff2e8b7536817255eaeaaf4226da8546a31"
   license "MIT"
-  revision 11
+  revision 12
   head "https://github.com/miurahr/aqtinstall.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b0e7c860f3b18f378dae9748bafe015ea440054d799e49aa24fc8ef8890013a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8e262041b8c147049f7de349943024b28c74d30f03bfa1edef3a03f3c77e361b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "47cfd2fa75c13aeb45cd7948ce0f8d9e2a6161cbbd6ea606b9caccb6cb33e86f"
-    sha256 cellar: :any,                 arm64_linux:       "b21341543497d1b90eaf9c10a2fef32459955ddf11adfca20b9aed31fb4341c8"
-    sha256 cellar: :any,                 x86_64_linux:      "6fa802df0f0b5926a6a39bd7b069d7917f755d22714451cbc8d199d250738f88"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e80f215edd2cb27ba076a73d083c89b1f697a07356420940c86319dc7c0f167"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8918e19c16866b7c6888d82f43d5d9b6832143a521d0c9f4d9ea1b81cd4ab37"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a5ea813be1b89db60b8a755acdc3e24274e2699b94638f36772b29e358ed729"
+    sha256 cellar: :any,                 arm64_linux:       "3664df9f4272587eb7162fa0d017a1e4145799b6daf9b4b7ca5a281be0e120b5"
+    sha256 cellar: :any,                 x86_64_linux:      "bac91af61b58974586f108f9f8acd155c5be92bcca0bff95d427ec826cd7583a"
   end
 
   depends_on "certifi" => :no_linkage
@@ -88,8 +88,8 @@ class Aqtinstall < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz"
-    sha256 "09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356"
+    url "https://files.pythonhosted.org/packages/f3/c2/f5855412372e47d635599a97c00cfcf9fc40accac9436a11bf9ded19f859/pycryptodomex-3.24.2.tar.gz"
+    sha256 "e4dbc29e2575365d15e272f769329106277649aea081e2119cf43d66950f8f8f"
   end
 
   resource "pyppmd" do
@@ -108,8 +108,8 @@ class Aqtinstall < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "texttable" do

@@ -44,7 +44,7 @@ jobs:
     steps:
       - name: Set up Homebrew
         id: setup-homebrew
-        uses: Homebrew/actions/setup-homebrew@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
+        uses: Homebrew/actions/setup-homebrew@63a2d4d8d4193eab3e62b1b782ff3ab8408f5b29 # 2026.11.09.1
         with:
           core: true
           cask: false
@@ -77,7 +77,7 @@ jobs:
         if: >
           github.actor != 'BrewTestBot' &&
           !contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits')
-        uses: Homebrew/actions/check-commit-format@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
+        uses: Homebrew/actions/check-commit-format@63a2d4d8d4193eab3e62b1b782ff3ab8408f5b29 # 2026.11.09.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           check_package_commit_format: >-
@@ -93,7 +93,7 @@ jobs:
         run: echo "regex=($(seq -s '|' 2020 "$(date -u +%Y)"))" >>"${GITHUB_OUTPUT}"
 
       - name: Label pull request
-        uses: Homebrew/actions/label-pull-requests@c262868c096d909fc278daa87ed9772967331ea3 # 2026.11.02.1
+        uses: Homebrew/actions/label-pull-requests@63a2d4d8d4193eab3e62b1b782ff3ab8408f5b29 # 2026.11.09.1
         if: always()
         with:
           token: ${{secrets.GITHUB_TOKEN}}

@@ -2,10 +2,9 @@ class Powershell < Formula
   desc "Command-line shell and scripting language"
   homepage "https://github.com/PowerShell/PowerShell"
   url "https://github.com/PowerShell/PowerShell.git",
-      tag:      "v7.6.9",
-      revision: "bf5fc434120666e5f1a8d1dfd6ecac7efc17a4be"
+      tag:      "v7.7.0",
+      revision: "5c95ed61735c05eb99543aabf196529b5f267602"
   license "MIT"
-  revision 1
 
   livecheck do
     url :stable
@@ -13,11 +12,11 @@ class Powershell < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "216d4ce7e7a6699cf11234e9e60d3f824197d10d2a93f73426e6d452cd092109"
-    sha256 cellar: :any, arm64_tahoe:       "249ef884eb83aabfea5f75dbac91bf2bfb0df03ed476e37cff708953af3a99e1"
-    sha256 cellar: :any, arm64_sequoia:     "6f3212289afd3b0723e1bc21e8ff280ed7d8d3afb5b53524a9825e5c3de6015f"
-    sha256 cellar: :any, arm64_linux:       "b1b5cbbe6cfc41b24375e5af55a73f93dd88bbe5006a0e47204762d8db109566"
-    sha256 cellar: :any, x86_64_linux:      "71c7a7058e074066ea5d13f688decd80d0b88302f1f6d0f327ffbf16beb249cb"
+    sha256 cellar: :any, arm64_golden_gate: "ce2df10df0a1cd31d271f4237e9020a0bb1150b5759fa66c50712ff99a11e6a3"
+    sha256 cellar: :any, arm64_tahoe:       "b8ebaf8a76f974ffb39ee3644ebcfe7b0e22af724b48d693e7b604ca3821c282"
+    sha256 cellar: :any, arm64_sequoia:     "2cbcfd2ccc2fbeaa328cac4e36d19b8242052b570d0343cfa759a265b27aba8c"
+    sha256 cellar: :any, arm64_linux:       "7cd5e3c8c1c2f87ddccd259200e585875f8153be6a757284a5abe563ea0e8705"
+    sha256 cellar: :any, x86_64_linux:      "42143fde435f7ea113e53b612c6aa26698fab1d1bdf62a478774da425b1c4961"
   end
 
   depends_on "dotnet"
@@ -187,7 +186,7 @@ class Powershell < Formula
 
     # If this produces an error try compiling powershell from source and increment revision
     refute_match(/InternalWebProxy/, module_output,
-                                     "Probbably newer .NET runtime version than last build. Try recompiling")
+                                     "Probably newer .NET runtime version than last build. Try recompiling")
     module_output = module_output.lines.last.chomp
     assert_equal "True", module_output
   end

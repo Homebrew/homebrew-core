@@ -1,11 +1,10 @@
 class Libodfgen < Formula
   desc "ODF export library for projects using librevenge"
   homepage "https://sourceforge.net/p/libwpd/wiki/libodfgen/"
-  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.8.tar.xz"
-  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.8/libodfgen-0.1.8.tar.xz"
-  sha256 "55200027fd46623b9bdddd38d275e7452d1b0ff8aeddcad6f9ae6dc25f610625"
+  url "https://dev-www.libreoffice.org/src/libodfgen-0.1.9.tar.xz"
+  mirror "https://downloads.sourceforge.net/project/libwpd/libodfgen/libodfgen-0.1.9/libodfgen-0.1.9.tar.xz"
+  sha256 "b68ec10c23b8ac7abed8dfeb181b8592714c1e5bd33997ced0ee8bd6c4612bc5"
   license any_of: ["MPL-2.0", "LGPL-2.1-or-later"]
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -14,13 +13,11 @@ class Libodfgen < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "ae06b794217eb2819b7082f468ff1014058a82f1b80f7b56446e167c0c721855"
-    sha256 cellar: :any,                 arm64_tahoe:       "f322394dcaf548a6c82e55f4d39ddc2c35aced9c316a07c8ddf491f2735be66f"
-    sha256 cellar: :any,                 arm64_sequoia:     "c1c268be3d7429eef8c2dee45c01e2879270b04c85380ee2c7bd7f64283ccfd2"
-    sha256 cellar: :any,                 arm64_sonoma:      "8a6f092b8f4f3dde336f3c6aa803e4992356b0b42540fe18fd8fb0f20dcea521"
-    sha256 cellar: :any,                 sonoma:            "b826aea071dcf4ede7649c6c0c0eeca0f16cac90196f66572fa7373e33fca2e0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "404a532810b4c156d28f6c297037a9cf60110bfc435101e8a9a6b2e7405e9eb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "334e33d8a2c52579f1aafd79f4b27b57d50bc8f663b88d884e8725f69bc849e5"
+    sha256 cellar: :any, arm64_golden_gate: "21de7b0286b5f16a232fbb4456b4ccddc335e12b80ef1df9a7aa318c4fa6c1e2"
+    sha256 cellar: :any, arm64_tahoe:       "e5ac413589685636fca66be3533d82b03871f6212b7b3ffa07ea79247ba86407"
+    sha256 cellar: :any, arm64_sequoia:     "c5139571193f9ce15055aef6f5ce47184987a813f8b7bb65ba2dbb1cf853362e"
+    sha256 cellar: :any, arm64_linux:       "aff3f9f9a20f03a91c2467fd1d1397e10efeb78ba94468d18e5d96f19729fd47"
+    sha256 cellar: :any, x86_64_linux:      "779e70f0677f2d6e66953eaa0583dda710fb3eff341c7d1cdce83fec5ac93afb"
   end
 
   depends_on "pkgconf" => :build

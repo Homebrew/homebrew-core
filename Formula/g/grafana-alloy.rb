@@ -1,8 +1,8 @@
 class GrafanaAlloy < Formula
   desc "OpenTelemetry Collector distribution with programmable pipelines"
   homepage "https://grafana.com/oss/alloy-opentelemetry-collector/"
-  url "https://github.com/grafana/alloy/archive/refs/tags/v1.21.3.tar.gz"
-  sha256 "223af8a4aa2cdec113f093080b1713cafcd235b2d0f15114aed0d311a5ad8099"
+  url "https://github.com/grafana/alloy/archive/refs/tags/v1.22.0.tar.gz"
+  sha256 "26c103c3ab10ee3b67d3e9a6245b1bed29f48bc846eb6a1e7ccda393e4568fdd"
   license "Apache-2.0"
   head "https://github.com/grafana/alloy.git", branch: "main"
 
@@ -12,11 +12,11 @@ class GrafanaAlloy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d280858c67f85e23ce43d90859918ccb2331698771ea4e0dc9db967d2e98e405"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "49f018fbcc74f904f63abe0823a66572fdb4a3306eff94755ff0cfa3fc283f32"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39665f9b24af14245b4612d5346b96836abedc5c33a90a7b1abfcfc3150c488b"
-    sha256 cellar: :any,                 arm64_linux:       "d7e92536c5663f9035033abe3d9a5c469541b05b513d1fc8a897187799771d5b"
-    sha256 cellar: :any,                 x86_64_linux:      "4e6dc331ef2cfa90250a83edfc99a0c4109388c116eef811c3381feb19c29b85"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe2101b5a738bb9ae5dbc800a03c54870505ae4ce821bc051a20f11c2966e358"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "17604d424e5ae143f5fd65bb30405b11ac2b5923e6f1e3866994496d1c7540d9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c100b8395f53bb6e5bd7ecdcaff7edb61dd13d0a89bdbbbbd0046229bf4d863"
+    sha256 cellar: :any,                 arm64_linux:       "eab7cc75b51e9a1c3482ca776a267312fa35b546c9d39b51bccc5fdfd568bb01"
+    sha256 cellar: :any,                 x86_64_linux:      "4cfbe69111c3f1d6bdf9c929281b38a116bc2601dfdaf64aa9cd979116192326"
   end
 
   depends_on "go" => :build

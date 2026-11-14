@@ -3,18 +3,17 @@ class SigmaCli < Formula
 
   desc "CLI based on pySigma"
   homepage "https://github.com/SigmaHQ/sigma-cli"
-  url "https://files.pythonhosted.org/packages/ec/37/3eef8688ca933f29b21eff6d9de4ddebe39b4521b62f17a51720d036d53e/sigma_cli-4.0.0.tar.gz"
-  sha256 "161a84ea5fabd649701cedd5e49fd16f2debecbac43c56917d6180f32ac15d8d"
+  url "https://files.pythonhosted.org/packages/c5/98/8c1bf0c78f5ea2a3014f4192c5794fa5e9f1331646f4dea60c1a3bfbe169/sigma_cli-4.0.1.tar.gz"
+  sha256 "24eb7213fc2d8d9b0577cda7188f256382beba0e9adc7de8907bafd62fd475f9"
   license "LGPL-2.1-or-later"
-  revision 1
   head "https://github.com/SigmaHQ/sigma-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e71fbb4c1723c23b628df3d941c94cd38a8b84604ab12cbfdf63d0fd2d6c2740"
-    sha256 cellar: :any, arm64_tahoe:       "970f3f90080407251849b301cf6590e083810c6b97ac33cc346db38540cbc42d"
-    sha256 cellar: :any, arm64_sequoia:     "67f2b1d9616b79d4c9c918af955efcbfd145bcf5abb074760a51e1f036e028e8"
-    sha256 cellar: :any, arm64_linux:       "02cc5b50cc68a9d6f4ed17e6fb9b40425586fabed4bb211cbfc0482132bae288"
-    sha256 cellar: :any, x86_64_linux:      "98ab5a1f4d22e000d79c9496e4ef1b23256a00ee93beea395cc65186aae3ce71"
+    sha256 cellar: :any, arm64_golden_gate: "5b920044d1adac95a0357c03aa79bce885929fc482226313ab3e66c249ead778"
+    sha256 cellar: :any, arm64_tahoe:       "113c07ef11920f17c10bfc9c8f4c537b8ecebf43432b7aa82f2b621b944c679f"
+    sha256 cellar: :any, arm64_sequoia:     "f2b4810f30756e9bfa99170442ceec7b3bbd51272af19862118a4400ac23eef8"
+    sha256 cellar: :any, arm64_linux:       "452809276aabde7c474250797540db1b9284ae836a23edb922807423924f513b"
+    sha256 cellar: :any, x86_64_linux:      "11c08b0f007d38a632299b0418938b6f4f6da1b9a9ace60ab946875d5363170d"
   end
 
   depends_on "pybind11" => :build # for `google-re2`
@@ -34,8 +33,8 @@ class SigmaCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "colorama" do
@@ -44,8 +43,8 @@ class SigmaCli < Formula
   end
 
   resource "diskcache-community" do
-    url "https://files.pythonhosted.org/packages/9a/b1/ef17a29956f0208c5acbc30247c742739d37135531a0facf26a5752f9382/diskcache_community-5.8.1.tar.gz"
-    sha256 "b780ed4b8381487c53cc778599f745784391c4c7af23c528ece049e008be6197"
+    url "https://files.pythonhosted.org/packages/37/be/7d958592a9b2867896a464e5d9cfe7110b7f53ffa4bcfba330364fbbda06/diskcache_community-5.8.5.tar.gz"
+    sha256 "f9d771b4ab53606cd9a4111d6dd065370e6a42eb2a6c22ea22d6558b85e62f12"
   end
 
   resource "google-re2" do
@@ -89,8 +88,8 @@ class SigmaCli < Formula
   end
 
   resource "pysigma" do
-    url "https://files.pythonhosted.org/packages/67/94/2463945ca70f2d5135768c1898545a0df85586d1b0e66cc1842a649134b7/pysigma-2.0.2.tar.gz"
-    sha256 "c8fac45d24adfa14aeebcbab95929066116b2dbcc0816498066af56dda039832"
+    url "https://files.pythonhosted.org/packages/f9/1e/4d5d0bac0fba32895222f0d01217629b0057e983f3ebd2bd3b9eeb6a8ae9/pysigma-2.1.0.tar.gz"
+    sha256 "b800923786ace5bc90bd35f488d81b7a2b86e04856f213f5de52c05f876901d1"
   end
 
   resource "pysigma-backend-sqlite" do
@@ -109,8 +108,8 @@ class SigmaCli < Formula
   end
 
   resource "types-pyyaml" do
-    url "https://files.pythonhosted.org/packages/c7/0c/72b85bc2e3a3cf23419a7f8861c1855893f02080e202b631e33cc0d1a94a/types_pyyaml-6.0.12.20261030.tar.gz"
-    sha256 "9123d707aa31a3883eeb2cb290537c75246dfcb1c00abed7a70f5419d3bd31ae"
+    url "https://files.pythonhosted.org/packages/80/49/96041fdb54de08a5b47bcfcbb4881873b25bae367d1e4dec79d19dfeb84b/types_pyyaml-6.0.12.20261111.tar.gz"
+    sha256 "c511f563eaf820b948c4ff6f43fe0b9d48b227be442a69058d9f68f139cae1fb"
   end
 
   resource "urllib3" do

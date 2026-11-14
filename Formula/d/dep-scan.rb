@@ -3,16 +3,16 @@ class DepScan < Formula
 
   desc "Security and risk audit tool for project dependencies and container images"
   homepage "https://github.com/owasp-dep-scan/dep-scan"
-  url "https://files.pythonhosted.org/packages/31/ae/8835e551a4acb07e2e8513211ad2ca501f6654b96d9887238c9c6889d4ec/owasp_depscan-6.3.1.tar.gz"
-  sha256 "b7bd36f9fb83be60838704dbb474a61623c199535140178e5004c7832e861017"
+  url "https://files.pythonhosted.org/packages/db/3d/a296ae232f0e911617e2b7ef5dad49bdbebf1ff6a6bf66fdfdc4441e33b9/owasp_depscan-6.3.2.tar.gz"
+  sha256 "fa35ab1b6cbcf8ade312edd8e8d5ed87b5f599938253eb413b5372e8ade4bf2e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a2f02aefe46263f8126c6a019c68e584c328bdbd1eef594d20d553fb7c985413"
-    sha256 cellar: :any, arm64_tahoe:       "6baf48d9be138eac769017f45d696ef5593822b1b4734bfe3de3688ae39bbf55"
-    sha256 cellar: :any, arm64_sequoia:     "e8a1433e5e78032a2f1ffde5d02fbfdbf1b50ff07beda4aee95e11cfbc37c516"
-    sha256 cellar: :any, arm64_linux:       "3e74d360d2372721a5bbeee59b706d7bcadee85948b56b5de2be4080ae366303"
-    sha256 cellar: :any, x86_64_linux:      "1336c6c7f16792d6643285b00196919f8e20e322cf6d420dfc143300721982cc"
+    sha256 cellar: :any, arm64_golden_gate: "97068f229d4396bede760ba474b0f764ff0a1e15279080bcace05c590f2633f7"
+    sha256 cellar: :any, arm64_tahoe:       "a65ec6c1fdfb4f2244150d17d1a52b9c92b8317836ac7eb48d0d015cc02e6776"
+    sha256 cellar: :any, arm64_sequoia:     "acda365609ab5f994c5271cbed021762beae1f475415da9d780ef76450e56721"
+    sha256 cellar: :any, arm64_linux:       "ca249a4df14bc0f699faba029a790c1f26c50665f7638761615b09d41e7898fc"
+    sha256 cellar: :any, x86_64_linux:      "76e99b11041362431b00ca70f9cdda91033f60bb8c8a0bd3a9424c1216c24ab8"
   end
 
   depends_on "rust" => :build
@@ -42,8 +42,8 @@ class DepScan < Formula
   end
 
   resource "appthreat-vulnerability-db" do
-    url "https://files.pythonhosted.org/packages/fa/a8/4513a9c3ddf51c2958c930a6cc1ba97797fbf08066bb414eb7d70970265d/appthreat_vulnerability_db-6.7.6.tar.gz"
-    sha256 "bb849c56c61d28a1df1258f5803830550bb449dc5d268dd762491db97245a800"
+    url "https://files.pythonhosted.org/packages/b0/06/a11fb38afa25fe72301b3f4397259b141d541b74073b9bebae4465ead86b/appthreat_vulnerability_db-6.7.7.tar.gz"
+    sha256 "3647041b5647f36aa33ad91869f12f4b6c644bd38b4c2d26998d49d120c31f7a"
   end
 
   resource "apsw" do
@@ -92,23 +92,23 @@ class DepScan < Formula
   end
 
   resource "ds-analysis-lib" do
-    url "https://files.pythonhosted.org/packages/e6/ec/d95d3e31958f3b357e45e525ae2f05c33a77dd9b9068d018c675e932c1af/ds_analysis_lib-6.3.1.tar.gz"
-    sha256 "eb24db1167111a4644be25c7dd2f7f3156990958d86b62f36db0efbf5a52f9f5"
+    url "https://files.pythonhosted.org/packages/67/5f/f5c81eab03bd1808beffa714a13f32acf81d4c190153451c7c70e70f6102/ds_analysis_lib-6.3.2.tar.gz"
+    sha256 "20961e0dbb847c64994db593a8a5c4d7f1af5223179a9ab1eadf262c13963ebc"
   end
 
   resource "ds-reporting-lib" do
-    url "https://files.pythonhosted.org/packages/d0/aa/d6ed96b1c3ab18912e23fb27aa1f2284de6fd5ad09fc6bb7560266892f25/ds_reporting_lib-6.3.1.tar.gz"
-    sha256 "a79f99d15890fedd6c87ec3a1c73e5644990b05f01109c96774baea94764d8c9"
+    url "https://files.pythonhosted.org/packages/32/34/a0bd488dfe90ead8e388cd981f6334a22a7902ead03cd984d040f3246f04/ds_reporting_lib-6.3.2.tar.gz"
+    sha256 "8b8490006c22a25ad20c193332c4ab36d34eda08676f14996507f359dd9e0267"
   end
 
   resource "ds-server-lib" do
-    url "https://files.pythonhosted.org/packages/c4/c6/781c4de56f07a82945f523f00db710e4755d0eb86b5e7945f5de0355b21e/ds_server_lib-6.3.1.tar.gz"
-    sha256 "f9e41739b739804e7ea90235fd1ff34c9f0e67d4d87468662cc777fc5e21976e"
+    url "https://files.pythonhosted.org/packages/6a/9e/4ca6619b24d26f24db312d294ed52e5406571497f13679e296da50e8ad74/ds_server_lib-6.3.2.tar.gz"
+    sha256 "e143c7c92210b6ae61fc90031c70092542cbfc90dc5fb7f5616b13366ace2b64"
   end
 
   resource "ds-xbom-lib" do
-    url "https://files.pythonhosted.org/packages/0e/9b/2249812cd747ca03fd1eec84337fad5c3a8c089cbdb60332bddc41e64af5/ds_xbom_lib-6.3.1.tar.gz"
-    sha256 "209bd8f1dfdd6c0e4c7131f8da2ea6568c1472a283eb532b7e0dd7f6ea3d7554"
+    url "https://files.pythonhosted.org/packages/3e/02/c025969730e27dca44d1e4c5079a643b6dc10139b14dcf6f0054084d835b/ds_xbom_lib-6.3.2.tar.gz"
+    sha256 "ae102241d83de815c56faec092b898de80208931c3621bec06e2698b24fc6a36"
   end
 
   resource "email-validator" do
@@ -187,8 +187,8 @@ class DepScan < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markupsafe" do
@@ -252,8 +252,8 @@ class DepScan < Formula
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/92/f5/e1dfe8e1d91c54ce212fd93916eb01fd1c590f413be0a0978c39a97aa1bb/semver-3.1.0.tar.gz"
-    sha256 "14bc073439513d7773662a338f4db9829cf16c12b74b9568e2d2689975fbd7fc"
+    url "https://files.pythonhosted.org/packages/0e/50/2932d6434608c7d954d0d4f4b71b697260e3b40c802425fc84c1eed12440/semver-3.1.1.tar.gz"
+    sha256 "149b26cabada6f63212f97e94505d21578cb1d280cf714827f328d5e70765fea"
   end
 
   resource "toml" do

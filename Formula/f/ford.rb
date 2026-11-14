@@ -6,17 +6,16 @@ class Ford < Formula
   url "https://files.pythonhosted.org/packages/7e/22/c9688672022dc47456a0dd0a51e0f4310e5c69ef4cd8243c141420421dc9/ford-7.0.13.tar.gz"
   sha256 "482a75b34b9f2b1975cbae9aa1c533a62d63e0c1861b5b772d25aa52fb1ce809"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
   compatibility_version 1
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95a62faabfbea8f46fcf815798d8957e02f71cd85e1b256745bfa8e580e4c3c7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3061d762054d1666c30e5e0b590e0697ac91b2846efda0db599cba044a3cf52b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c06cadef2364a7f7bc293d4fbfae52a76f08eeda7c36a821a375022bbe5e3670"
-    sha256 cellar: :any,                 arm64_linux:       "ddde2d52432e8900fac2c00926215a1417bee80e1867c44424b288f230d09fb0"
-    sha256 cellar: :any,                 x86_64_linux:      "ac83aa744e9a42bad5be6d8bbd7c997e64ffb939fbdb7715218df268a36ae05b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad8247861bcd56db9cb4d606578a002b30a75d8ee0b042e4e3fe91dc0b273c2b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1adc854981264e0521e401fd9b598d19338b73ef18002e2ac5867a4ca966e5a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e623195fff3d0f8978aeffd37c835a998d1b0582185ec263f6d966b5cfd6599a"
+    sha256 cellar: :any,                 arm64_linux:       "a5541797df28f0383ab897b5f028b9e6e866985e0e75f40a513d7b07ae8a789d"
+    sha256 cellar: :any,                 x86_64_linux:      "d590f7aaacfd1a949d49ec74abbb00b2e169b9c04c398ab867d5cb964cd91124"
   end
 
   depends_on "graphviz"
@@ -48,8 +47,8 @@ class Ford < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markupsafe" do
@@ -83,8 +82,8 @@ class Ford < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "toposort" do

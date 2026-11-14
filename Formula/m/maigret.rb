@@ -10,17 +10,18 @@ class Maigret < Formula
   head "https://github.com/soxoj/maigret.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9908bf78750a347ca6ac45e5baf612d9b0a50649240b1c3516a7d22b96701246"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad8810105aaa1ea7d2a6c6d332c6c39f8850fba2c6ffbf0fc1babb136b0bf250"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2228c3b972d87051e3179878f415b9219bcd003ea91c771e71a9f07651c9d18c"
-    sha256 cellar: :any,                 arm64_linux:       "efd8a214b3eb83afcca56492df9a54fd8645b5bcc632e8e50c7078c84831d82c"
-    sha256 cellar: :any,                 x86_64_linux:      "888026c7d7e03c4a52535f78e4d00f0e0190746a1dbc71a224efa8ca45b21e5d"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "9f267a103e5d9876679226bbe8bac773f600ddfd9a6da2f4766cb413e7fe94e9"
+    sha256 cellar: :any, arm64_tahoe:       "bba8048d1d4e58897300cbd1d9bd11af17320707d495c236590d7274aa25d4bc"
+    sha256 cellar: :any, arm64_sequoia:     "9b39037d5b2ac0c817981943aa0ac062a68f97de6ee8a9c45f6ad7b0be79050f"
+    sha256 cellar: :any, arm64_linux:       "128ec9a199a381ed26f3ee1cb22c53e863cc235a7c23acb2cce7a5fe741797c9"
+    sha256 cellar: :any, x86_64_linux:      "b28104e01b7485309a06b85ed5cf253033876f2be5d6c0c9e9417ba853b32efc"
   end
 
   depends_on "cmake" => :build # for pycares
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "pillow" => :no_linkage
   depends_on "python@3.15"
 
@@ -70,8 +71,8 @@ class Maigret < Formula
   end
 
   resource "asgiref" do
-    url "https://files.pythonhosted.org/packages/e6/26/3b59f2bdae5f640389becb1f673cded775287f5fc4f816309d9ca9a3f93d/asgiref-3.12.1.tar.gz"
-    sha256 "59dcb51c272ad209d59bed5708a64a333083e86017d7fcdd67498eeab7784340"
+    url "https://files.pythonhosted.org/packages/6b/90/f5fce14e95fccf53b58e8e2c47cd84d40d105d64073ae1ac75166db150e0/asgiref-3.13.0.tar.gz"
+    sha256 "034cc8cbf72d00553b4be256703ac545120b4e50af13b49dec99da899aeeecb4"
   end
 
   resource "asttokens" do
@@ -105,8 +106,8 @@ class Maigret < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "colorama" do
@@ -115,8 +116,8 @@ class Maigret < Formula
   end
 
   resource "curl-cffi" do
-    url "https://files.pythonhosted.org/packages/82/e1/730125c43e3e331d98e17af3cb310ba526b3f1101b7635ca23d976ebfcf5/curl_cffi-0.16.3.tar.gz"
-    sha256 "d15d0c2a35f2d75bec430c28946c2a833f421c85773bdb0795182cc5c515665b"
+    url "https://files.pythonhosted.org/packages/96/4c/69074f9797d83a5401b3c6bc58c5de5aad6d1a085d0497b87a093a152e87/curl_cffi-0.17.0.tar.gz"
+    sha256 "31ee8500d06d6502ce1ec0b7ded1c5aa8e8f3401bbe37ccd78d6153d859d8f3c"
   end
 
   resource "executing" do
@@ -166,8 +167,8 @@ class Maigret < Formula
   end
 
   resource "ipython" do
-    url "https://files.pythonhosted.org/packages/b9/32/99451b1283ec5d92ad77073f12e1c667dc10775384d8f15c2914207149dd/ipython-9.17.1.tar.gz"
-    sha256 "8919be8c27f20a6f4423145028063f6637b42a03ce57665bb12015ee1f073529"
+    url "https://files.pythonhosted.org/packages/38/04/0d945c72d5b77527273ecb4c66aa2436de7a3b3bbe3da345bf053232b886/ipython-9.18.1.tar.gz"
+    sha256 "6319c0f5372c196397899479e6db1783dd7937abae06815d1317e8d5d51aaaaf"
   end
 
   resource "ipython-pygments-lexers" do
@@ -181,8 +182,8 @@ class Maigret < Formula
   end
 
   resource "jedi" do
-    url "https://files.pythonhosted.org/packages/46/b7/a3635f6a2d7cf5b5dd98064fc1d5fbbafcb25477bcea204a3a92145d158b/jedi-0.20.0.tar.gz"
-    sha256 "c3f4ccbd276696f4b19c54618d4fb18f9fc24b0aef02acf704b23f487daa1011"
+    url "https://files.pythonhosted.org/packages/a3/a4/4692ecd7fa700ac1066b1c1f6cadef60aa2e01e5e364710235137d823e0a/jedi-0.20.1.tar.gz"
+    sha256 "2f71208c3f9c1bca057c0e90d3f272aba44ace88fc4067d7587e9e069331b7e5"
   end
 
   resource "jinja2" do
@@ -191,8 +192,8 @@ class Maigret < Formula
   end
 
   resource "jsonpickle" do
-    url "https://files.pythonhosted.org/packages/d7/65/8b589546fe473fd262aebdfead994c7ba237caaa8fa4ca8855d0888933b7/jsonpickle-4.1.3.tar.gz"
-    sha256 "de234c1d1ed2c5313833e608e2a2467202f48ae24ea7a2afa2d238d8999aa4b5"
+    url "https://files.pythonhosted.org/packages/c2/37/95fb728a57b0b17864041daea006bbedd9765e8030755e4ca84ba20ae137/jsonpickle-4.1.4.tar.gz"
+    sha256 "8adf24cca611809b55ff5ed2ace850e1a3e4370dad5d363df71569b8f46c9645"
   end
 
   resource "lxml" do
@@ -211,8 +212,8 @@ class Maigret < Formula
   end
 
   resource "multidict" do
-    url "https://files.pythonhosted.org/packages/f9/79/84ddb5ba16c4eb2c69c71db76ae3c579fe546e511f7170c7e27eedbab7c1/multidict-7.1.0.tar.gz"
-    sha256 "61a4e5d81b8d4e4ad61964b230129e7a2b914793d96289029078fc9009f074ec"
+    url "https://files.pythonhosted.org/packages/7b/6b/29ef8e752f5854dcc267ded0652c475bec99b86f255957a0d4fcad657b18/multidict-7.2.1.tar.gz"
+    sha256 "e8af3e6f1bdbc31fd762b094133b478b89988eaebc63cbe82b1d9e3bbd15cede"
   end
 
   resource "networkx" do
@@ -231,8 +232,8 @@ class Maigret < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "prompt-toolkit" do
@@ -261,8 +262,8 @@ class Maigret < Formula
   end
 
   resource "pycares" do
-    url "https://files.pythonhosted.org/packages/3f/b9/8f8389df1dfe3c9f6b5b02cfab60781685d146bee529e7628b77a1df7e9c/pycares-5.1.0.tar.gz"
-    sha256 "4ae0712df072773a3193b23f124d9458d6b2054a22c9ea0059c9dff6b8f91050"
+    url "https://files.pythonhosted.org/packages/c9/f3/4df974f2f902fdcec81087773f37eaedc7c8308291fb3f15da7ff21a5b88/pycares-5.2.1.tar.gz"
+    sha256 "3e89edc56a3745046676207958bf3dbf2971c5df0d64de9f7a893eba8bf255b4"
   end
 
   resource "pycountry" do
@@ -271,8 +272,8 @@ class Maigret < Formula
   end
 
   resource "pycparser" do
-    url "https://files.pythonhosted.org/packages/da/a8/c5fdbeee588bb8ada9458774f43adf1bdd30bd59157055142183e769a024/pycparser-3.11.tar.gz"
-    sha256 "d875f09c3507d00e1aba0eecc6dcadc1352f30fff09dc6bff2f1c2935e97c2bc"
+    url "https://files.pythonhosted.org/packages/cb/27/eeb9f307bf07060f3d9f9aa0fb8c15b01bdfded0a941e4b2719c7f94cacd/pycparser-3.12.tar.gz"
+    sha256 "f03387877eab82ce01bbdfd0ba7252ee55a90b1c708d5129e2ce915475cf1db6"
   end
 
   resource "pygments" do
@@ -291,8 +292,8 @@ class Maigret < Formula
   end
 
   resource "python-socks" do
-    url "https://files.pythonhosted.org/packages/04/ad/484ffb79532517b11a90af38647c38652224650b31a7ae1cedd5a418d8ab/python_socks-3.1.1.tar.gz"
-    sha256 "8d3e817cdbe858dc0bb8c8fdc8e79b6ce37acce110d33374c6f57a675cc9029e"
+    url "https://files.pythonhosted.org/packages/bb/5d/57f4f34cba6cd33dabc557096225487bfd977f8831d789b2b81a885f9ed3/python_socks-3.2.1.tar.gz"
+    sha256 "d21618ae6c6734d357be83263b3791666d12af59480ace8f48f2b5fcc8edc987"
   end
 
   resource "pyvis" do
@@ -301,8 +302,8 @@ class Maigret < Formula
   end
 
   resource "reportlab" do
-    url "https://files.pythonhosted.org/packages/4a/51/dbe28534ae12c852f61be91f039f343305fd1f34f1c66b8de75afae7a525/reportlab-5.0.1.tar.gz"
-    sha256 "ebd13154be1c8515e665de70bd2d303ae9ddc3ef47e44afd5116441ca0283a26"
+    url "https://files.pythonhosted.org/packages/89/22/c18474be40b9bbb52fdb7051177d4d25f1ea59fada17eb181026411e93b1/reportlab-5.1.0.tar.gz"
+    sha256 "6878200464527e87672d19e9f7cfc6bb890e3a6931e74ac6a1a8d1754aa55671"
   end
 
   resource "requests" do
@@ -346,8 +347,8 @@ class Maigret < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   resource "webencodings" do
@@ -371,6 +372,8 @@ class Maigret < Formula
   end
 
   def install
+    ENV["IMPERSONATE_BUILD_DIR"] = formula_opt_lib("curl-impersonate")
+    ENV["IMPERSONATE_LINK_TYPE"] = "dynamic"
     virtualenv_install_with_resources
   end
 
@@ -409,6 +412,11 @@ class Maigret < Formula
 
     expected_output = "Search by username google returned 1 accounts."
     assert_match expected_output, shell_output("#{bin}/maigret google --db #{testpath}/data.json")
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
 

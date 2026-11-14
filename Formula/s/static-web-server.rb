@@ -1,17 +1,17 @@
 class StaticWebServer < Formula
   desc "High-performance and asynchronous web server for static files-serving"
   homepage "https://static-web-server.net"
-  url "https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.44.1.tar.gz"
-  sha256 "448f20b95e4a7e08fdaad372544bfa6faeeb7a37709658f80fcd81b9b8b80345"
+  url "https://github.com/static-web-server/static-web-server/archive/refs/tags/v2.44.2.tar.gz"
+  sha256 "b6d9f670960c4127ff83c3b5cdd0bb64dd086b5b7753054c2bb650e564c95de7"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/static-web-server/static-web-server.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "edd9d9301a51532517448557e7a91343a5ea6aeba07ba02b4ddb434ecd6606fa"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50d1f756ce6b85960f631506112165e3349d46d5e4f6b1a745a434cf49a4a705"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a312d81a21afe609ee6d7551abc5a25855a05da754816dbd6bdfa475651853e4"
-    sha256 cellar: :any,                 arm64_linux:       "f3ce3b348aab5ada7250b7d7918f1a3ad2a881aa3a3b51280414ca014fcf8df6"
-    sha256 cellar: :any,                 x86_64_linux:      "dcf5647edf810048c0775fcd41efe2b63bbf557c1b5863bab9196adec15bf917"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c2e6b4eb4c895b010fa2f010963733965b298a5926aae476d741cf48d59c196"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "594cc151155d78b09a66f0731f086354abab1c7317b7e144b93bfb9ccfd42f91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2b102b44025a4af66a98ea34ce668df12a459a4489abcbb149d4760399b070f"
+    sha256 cellar: :any,                 arm64_linux:       "f3ac9e9b119b5a8412a1a13ceba3582046dbfde58c8ac16db3e45bee65436bf7"
+    sha256 cellar: :any,                 x86_64_linux:      "44e240e803e5b82beb2cc1d26d33dbea00e1bbe3cce496aae12033226a0e9b45"
   end
 
   depends_on "rust" => :build

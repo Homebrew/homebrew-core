@@ -6,15 +6,14 @@ class AdrViewer < Formula
   url "https://files.pythonhosted.org/packages/1b/72/0f787da38d0f9d69c06b31d8f412735ed4fad383edd7f7d2286f4fc7b5b0/adr_viewer-1.4.0.tar.gz"
   sha256 "9a2f02a9feb3a6d03d055dd8599b20d34126f8e755b4b4ee1a353ecbbd590cef"
   license "MIT"
-  revision 7
+  revision 8
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5d8bb1382787cd123f00930ebfef8eafc21b9da10898920b9d7a0ed88cf935fe"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "255c4cc409a6ecacdebbc53744ebe5b522279ef3acb14e7bb6f70638ac2cf89d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c48e2fc75221815f5f59fab4193bd0cff6608de141b2beaf22f5087d0b259579"
-    sha256 cellar: :any,                 arm64_linux:       "6e2830998c66c73e948d886a50d41f894b0d35e0f8bb008626486c11d12ed4d0"
-    sha256 cellar: :any,                 x86_64_linux:      "726a47c0caf0eb548c6e0457130d1c820fa426f206d8ae8b57d41677049172db"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c7dd7b39d030d47e8b60cf129b36eda9222db3571fd29ce5d99c5cf9966bc04"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0723fdc0c58e5f0332c5f88b5e9a6b8a747b444e85b54a3b5fe73b3db4b14ce7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83b9194259570a51ac4e2c5137753932aecc30d89d28885d7ff3659b995338c5"
+    sha256 cellar: :any,                 arm64_linux:       "c6c921dbd030772367ab575d2c2341acc036fea28f7ea1b6498143755e315f26"
+    sha256 cellar: :any,                 x86_64_linux:      "3bf6a71b8fa789f8a53046dd208229ae592343e8722c2228e5401f6718d04b73"
   end
 
   depends_on "python@3.15"
@@ -35,8 +34,8 @@ class AdrViewer < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "jinja2" do
@@ -50,13 +49,13 @@ class AdrViewer < Formula
   end
 
   resource "mistune" do
-    url "https://files.pythonhosted.org/packages/7b/92/328a294a6de83bacb95bed01f04e0eaff4e3616ee359fc821a5dfc539b02/mistune-3.3.4.tar.gz"
-    sha256 "58b5c96d6fcb61190dfe5fae498d2b2065f99cf61e9649418fd54cf1ada86dfe"
+    url "https://files.pythonhosted.org/packages/96/eb/749a4e69bf7396e751ae37444abe997eff2254e695a8095b84d1c89c1181/mistune-3.4.0.tar.gz"
+    sha256 "2eaf7952af928ca8d33b779762effc1da517b62c6ad85ec8ca957e3b07b9782a"
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/71/c3/1b817965ac12dc002d7c9cd7dfffdd7d4fbf9b45763ef2ffe7b86ee94670/soupsieve-2.10.tar.gz"
-    sha256 "49e9380d7d2905463583bafe285e818c7366a9ed7b3aee221c1ac79c905d8bc0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do

@@ -1,17 +1,17 @@
 class Pomerium < Formula
   desc "Identity and context-aware access proxy"
   homepage "https://www.pomerium.com"
-  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "75ef0eaa60d7e7bdc8a0b9173953a1b8fd2ec233fc7238813cd745dd4fbc47ec"
+  url "https://github.com/pomerium/pomerium/archive/refs/tags/v0.34.1.tar.gz"
+  sha256 "edcde54671715fce9428c94bce98c55f204ed83e5206a002793501034e1d3938"
   license "Apache-2.0"
   head "https://github.com/pomerium/pomerium.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b2cabfafad372a54467f4e66ae9bc59fa2aea5731f7f802668c05cfebb10493"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f298e910886f6f228d480fb42f2da9e5dcb0ecdb171331d1596c7aa9356bec6f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43cd4dec34276d221f04e8ac1d9321c78029384a3062481ef34075d697e83421"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c464bc6a6ecb8a5c43bf7329e8f931b9b9f14d04e07a9a6d12bf2f07d265580"
-    sha256 cellar: :any,                 x86_64_linux:      "ae812b6863dd5ee225f9767c66667f5351782773aa27118cb4e0d74b86d47c94"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12b85a0d1f23c90a7cea389a0b0473fffbaac8eb3e4712bdfbf7e17cf948f10b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56e2dd0c9e3b32e9ceefab87b910dbabf242a3a672b958e278c4ebac4872f3d3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1dd049c7d5eb0972e9f167611b35dcb3e3e459137d061fdc583e17f27ed8b2c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "dcd665cc03aecffceec64b594bb559f3f77f12def24bb28c4c20b7b5da214296"
+    sha256 cellar: :any,                 x86_64_linux:      "762bb1aec90bcd38170040abaf1923e2e8f4635b53552bbd5b465bb55fad3fa3"
   end
 
   depends_on "go" => :build

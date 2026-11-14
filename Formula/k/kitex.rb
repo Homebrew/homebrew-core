@@ -10,7 +10,7 @@ class Kitex < Formula
 
     # Fix the reported version, upstream PR ref, https://github.com/cloudwego/kitex/pull/2009
     patch do
-      url "https://github.com/chenrui333/kitex/commit/e136273bd4fce56882cc3f59efa5cbf55170892f.patch?full_index=1"
+      url "https://github.com/cloudwego/kitex/commit/e136273bd4fce56882cc3f59efa5cbf55170892f.patch?full_index=1"
       sha256 "17bb2821c34139f8111e921b261f696d80aab95888abc44beee3158c59aee9d9"
       type :unofficial
       resolves "https://github.com/cloudwego/kitex/pull/2009"

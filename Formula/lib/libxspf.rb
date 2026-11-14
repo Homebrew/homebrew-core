@@ -26,7 +26,7 @@ class Libxspf < Formula
 
   uses_from_macos "expat"
 
-  resource "check.cpp" do
+  resource "check.cpp", :test do
     url "https://gitlab.xiph.org/xiph/libxspf/-/raw/master/examples/check/check.cpp"
     sha256 "fdd1e586c4f5b724890eb2ce6a3cd3b9910a8e74ee454fe462ba8eb802f7c4b9"
   end
@@ -34,6 +34,7 @@ class Libxspf < Formula
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
     file "Patches/libtool/configure-big_sur.diff"
+    type :unofficial
   end
 
   deny_network_access!

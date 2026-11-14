@@ -2,9 +2,9 @@ class Libressl < Formula
   desc "Version of the SSL/TLS protocol forked from OpenSSL"
   homepage "https://www.libressl.org/"
   # Please ensure when updating version the release is from stable branch.
-  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-4.4.0.tar.gz"
-  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-4.4.0.tar.gz"
-  sha256 "7d02522ad5070b9adb32eb253ecabce181184a3750cf65abac0675ee908687c1"
+  url "https://ftp.openbsd.org/pub/OpenBSD/LibreSSL/libressl-4.4.1.tar.gz"
+  mirror "https://mirrorservice.org/pub/OpenBSD/LibreSSL/libressl-4.4.1.tar.gz"
+  sha256 "290cdf1b53c086255dc302f118b98602a444e9ae6d11e9bfdd8c9b1b60aa3a22"
   license "OpenSSL"
   compatibility_version 1
 
@@ -14,11 +14,11 @@ class Libressl < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c0dda927805d08ea89502b99d4092ffd09b9c114e9fdcf767bd0b314e2931b95"
-    sha256 arm64_tahoe:       "ec1b95783fc21d74bd56baa970fdc6df85e302dc3d98a8448c1d2fb4c296b234"
-    sha256 arm64_sequoia:     "04c060748da3a1272e8dc9db38178b33efab594fe8a8a31f984bded0abb29d84"
-    sha256 arm64_linux:       "83161ba4f54b82f3df8c76147347e459dd8168d7d80a5333728224930beb8e8d"
-    sha256 x86_64_linux:      "b85eb1d2192951263b5eb4dcbb98a3fd01d8530a214e491995c085b10b8b92da"
+    sha256 arm64_golden_gate: "e349a8c3490ae8d9119467135c2e068f6fec359d196b809fdb1d6623677bae61"
+    sha256 arm64_tahoe:       "aebf532e1c5a0a09848bc0908c32146df91868b610c3fbe05367b27a4261e1b5"
+    sha256 arm64_sequoia:     "ffb499a0617f07c4390820afc1e075861e058fc0acd66c3041ef1c4669c0ec6a"
+    sha256 arm64_linux:       "386316ba49a6dcb5e483af7b3472a34e8ea0b797eb433727b40ad6eb957db9ec"
+    sha256 x86_64_linux:      "c0761706ff693594ddd6e25324808ccb54eb39f3c9fa07c0004175c5e923bd94"
   end
 
   head do

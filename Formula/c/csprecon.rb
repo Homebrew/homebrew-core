@@ -1,18 +1,17 @@
 class Csprecon < Formula
   desc "Discover new target domains using Content Security Policy"
   homepage "https://edoardottt.com/"
-  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.4.7.tar.gz"
-  sha256 "93f448d1c8b9f4b45e066fb84665410f554fc815cad75c9cb8aa1b0df2cceab5"
+  url "https://github.com/edoardottt/csprecon/archive/refs/tags/v0.5.0.tar.gz"
+  sha256 "d5ac261e9afa4a5d84bcacf8583fbbe9e7ced73b4de9f40558b6e046d7e1f258"
   license "MIT"
   head "https://github.com/edoardottt/csprecon.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9159861259e33c7119caf64fea93917082f65865046137e3344b68706cf199b6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5ba92dfd06ad1e654c7c67d6247ca151d8eac8339da43e40cdf64297e4fdc0d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc2137259f0cf7ef65d465d9cab3317b7971e0bb888031c5f26ef2123a8a2ffb"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b50c09be1d471d1ca93b698df46bffe9eec0acdabfd4c5f20b0f2e4da5527e67"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ad668b02c5b5c5c906fdad9b55c2d98fb29a77c339ca583fe9df2d9ad680c96d"
-    sha256 cellar: :any,                 x86_64_linux:      "d4db4557167efb9404980eea98b53ad21f038eee6901a977115a8c9a0daeddf3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f4bbd561d08266d3e7bacfbc8ade81aa238217d2c40eef108acf4ccc8aa5e44"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abaadc597e0e78a010594e72ec35f6881f365247e3171cc03b880672cde2a08d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15d3b4918b2e69a607ae6368ab81e9745db0da85a7ea986204424995ee9a2b76"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "feaa83e3128522214ce6baf0c59208bc6065b1264e569264d212f70636539ae5"
+    sha256 cellar: :any,                 x86_64_linux:      "893cae38a997822d46b1a1243a68e4ca9f699d04e21d94f435f3ccb5be87c3ae"
   end
 
   depends_on "go" => :build

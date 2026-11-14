@@ -1,8 +1,8 @@
 class Msdfgen < Formula
   desc "Multi-channel signed distance field generator"
   homepage "https://github.com/Chlumsky/msdfgen"
-  url "https://github.com/Chlumsky/msdfgen/archive/refs/tags/v1.13.tar.gz"
-  sha256 "93cd1ad8918c1a78c5c96e82d4f4c77f0eb86c2e7e8579a0967e54196c4b7167"
+  url "https://github.com/Chlumsky/msdfgen/archive/refs/tags/v1.13.1.tar.gz"
+  sha256 "ad381b09ef61af235690ea96eefafd01fd35f5163bcb6ad73db7904997675b71"
   license "MIT"
   compatibility_version 1
   head "https://github.com/Chlumsky/msdfgen.git", branch: "master"
@@ -13,13 +13,11 @@ class Msdfgen < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4d83d5e49dc1f60afda4222c7ca9dd1f01c6b82415dde80127aeffa2db9ec34e"
-    sha256 cellar: :any, arm64_tahoe:       "d035596570fd1be46d3479bf5de7ce23384810298a0fe8124b695eec1d639d2e"
-    sha256 cellar: :any, arm64_sequoia:     "dc56c5e609f387e28efa0eac84c13670b4f6cb6c3ec4b09655053cec315b9c7e"
-    sha256 cellar: :any, arm64_sonoma:      "90005d7e93f45792c82ed28c74a3c8386b18a574973691e877f2f97cbb0ac129"
-    sha256 cellar: :any, sonoma:            "c6178719aeb5131fd0a9837de68c5ec3e88ebfa81b3c16046f5b988d93de99ba"
-    sha256 cellar: :any, arm64_linux:       "a5be6c4953bdbf5f72e9ebf47c8b739e1587b3fbaa609a6c009545905655e2fb"
-    sha256 cellar: :any, x86_64_linux:      "eab7df1301d127cb14743010b4e7843172c5d9b197a6b00a8e227a2e155e1818"
+    sha256 cellar: :any, arm64_golden_gate: "1e062d0c6f7a4cfb50ebee6ef8488324b5b889ac260129e2fd299ac1777aa0c2"
+    sha256 cellar: :any, arm64_tahoe:       "e4e81ae6c9cc6e617d568268e02fc975c264d57385049f54e0cd971d7c6ad9a7"
+    sha256 cellar: :any, arm64_sequoia:     "09e4e0f299d7f11bdd9d460d898ee3df043547209ec820c283299df4479be913"
+    sha256 cellar: :any, arm64_linux:       "67a1b8bee4924298f5cbd6ea4e6c89ecaef0b1a26490181e6a809c1d85595a84"
+    sha256 cellar: :any, x86_64_linux:      "777bd9b56964995e56fcdc4dc4186fbe792126350d67a011a9cb57074c8c9832"
   end
 
   depends_on "cmake" => :build

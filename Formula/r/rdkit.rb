@@ -42,20 +42,14 @@ class Rdkit < Formula
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
 
-  # Workaround for https://github.com/Homebrew/brew/issues/19315
-  on_sequoia :or_newer do
-    on_intel do
-      depends_on "expat"
-    end
-  end
-
   resource "better_enums" do
     url "https://github.com/aantron/better-enums/archive/refs/tags/0.11.3.tar.gz"
     sha256 "1b1597f0aa5452b971a94ab13d8de3b59cce17d9c43c8081aa62f42b3376df96"
   end
 
   def postgresqls
-    deps.filter_map { |f| f.to_formula if f.name.start_with?("postgresql@") }
+    deps.select { |d| d.name.match? Version.formula_optionally_versioned_regex(:postgresql) }
+        .map(&:to_formula)
         .sort_by(&:version)
   end
 

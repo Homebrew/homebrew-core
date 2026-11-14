@@ -1,17 +1,17 @@
 class Pvetui < Formula
   desc "Terminal UI for Proxmox VE"
   homepage "https://pvetui.org"
-  url "https://github.com/devnullvoid/pvetui/releases/download/v1.4.4/pvetui_1.4.4_source.tar.gz"
-  sha256 "08e41536f1185d8900de20e74d7c2ca10e92ee6136d8fc1640c4dce816f3d022"
+  url "https://github.com/devnullvoid/pvetui/releases/download/v1.4.5/pvetui_1.4.5_source.tar.gz"
+  sha256 "1cd5ead5cb9f2ed1177044cef7e22f7766f393e6f02adc0f19d841d62e546709"
   license "MIT"
   head "https://github.com/devnullvoid/pvetui.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "44bba77b81dc0fdb466327c754e90e5d369367608282911cfb10b5e1eb0c28fc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44bba77b81dc0fdb466327c754e90e5d369367608282911cfb10b5e1eb0c28fc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "44bba77b81dc0fdb466327c754e90e5d369367608282911cfb10b5e1eb0c28fc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4485f2e101a3139a5a617c9abab8a3867f0ad68a4b3aa81a40653816ac668027"
-    sha256 cellar: :any,                 x86_64_linux:      "dd2621848e4f682ef73b726942f2a97a5bf1a686435583f98de7f05c0b3874fd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "edbe5f7a77e16aa0b1e949f12619ecd2a5747e5bba5b2909641357cf55ed62fe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edbe5f7a77e16aa0b1e949f12619ecd2a5747e5bba5b2909641357cf55ed62fe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edbe5f7a77e16aa0b1e949f12619ecd2a5747e5bba5b2909641357cf55ed62fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "717457072516be9a79ffff251e9961321811a4b034ec40044c4f902b46f54120"
+    sha256 cellar: :any,                 x86_64_linux:      "52874e7acb571eb75e16df94ae126a1e7ebdf63a45894327208162a0c73dc8ba"
   end
 
   depends_on "go" => :build

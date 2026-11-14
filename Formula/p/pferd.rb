@@ -6,13 +6,14 @@ class Pferd < Formula
   url "https://files.pythonhosted.org/packages/bb/03/59a09dd9370d9e5dc360f93b1a1895819e69fa0bc73968333bd59365a563/pferd-3.10.1.tar.gz"
   sha256 "69fe20f2243fd194b96b98ef3af9759a04ac907c1d37c04f5929ec2ce79f5806"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "909f5694b75e666789a8468bbade2c23a3eb780b005112a7e645c5f7c65b79dc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f539e670a89f48b9e08590bb059fd29eedecc7133b33e91cc75aca6d132b0782"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f7bb7811fa80b38db3047db5b828fbd75d2b67a73058a4d0543bff449b065c7"
-    sha256 cellar: :any,                 arm64_linux:       "b369a65b6e87f9479b4b94335a4a9dc97242496dc9dff3186351d5a571de5b82"
-    sha256 cellar: :any,                 x86_64_linux:      "cc19f70be14bf9a74c39d972e5d471d6a3d84b33b7a5e188cf25258fb3991c64"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c6cb35165a3d64bd3c46329a1e383e243dea7cff94096d9a8de5323e709a440"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2ee0f9ef60e084040b939fcd60d9a988fd9d88084c036251103a27ac102c6bb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c37cb8fd5ebaaab3124bea3df76c5845c09a4a5708613d570427b824a8101ce7"
+    sha256 cellar: :any,                 arm64_linux:       "74805e26f4164eee3f6a23d628592f0a0bcf6da230a58c69027d77b612cb981d"
+    sha256 cellar: :any,                 x86_64_linux:      "8c9c14098b0ef011fb24f0576d25c05750fb2a00bc4aafe310f1d885f4036aa8"
   end
 
   depends_on "certifi" => :no_linkage
@@ -83,8 +84,8 @@ class Pferd < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdurl" do
@@ -123,8 +124,8 @@ class Pferd < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/19/63/0b6bae54546aed98d72f12d09df57b19a287f01c84d22047fa2e23772ab9/soupsieve-3.0.4.tar.gz"
-    sha256 "924fab84ae21604c19e175e1f39815eb6fa83ba23836e09e9de180925e5bc4c0"
+    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
+    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
   end
 
   resource "typing-extensions" do

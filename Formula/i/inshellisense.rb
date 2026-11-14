@@ -1,16 +1,16 @@
 class Inshellisense < Formula
   desc "IDE style command-line auto complete"
   homepage "https://github.com/microsoft/inshellisense"
-  url "https://registry.npmjs.org/@microsoft/inshellisense/-/inshellisense-0.0.4.tgz"
-  sha256 "413c9a1657bb5b31353dbb372e25934a712c57857bd09199889f6cb64c441fb7"
+  url "https://registry.npmjs.org/@microsoft/inshellisense/-/inshellisense-0.1.0.tgz"
+  sha256 "60bcadcf98084e73e8ec40f566afe524aa7601363d88f72b08bd20c363065d8a"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1585e5f227d1cf95c81b37329a7f36b7167dd056bfa455c3d034f88c6499f88"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1585e5f227d1cf95c81b37329a7f36b7167dd056bfa455c3d034f88c6499f88"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1585e5f227d1cf95c81b37329a7f36b7167dd056bfa455c3d034f88c6499f88"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c1b13788021aa1ce15389fdf8fa81348041059eff0ac3fee7f5e4debfd5d4fea"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fd80c8ced83382e565265d99f655e7f1ceff58851fbe2cd48d2f72c19802e197"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d271335967351d5ced28094811a7934304a825f920ef911c21bd92a22ab7ade"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d271335967351d5ced28094811a7934304a825f920ef911c21bd92a22ab7ade"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d271335967351d5ced28094811a7934304a825f920ef911c21bd92a22ab7ade"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ae151d3c4de4241580f2472516e3ae0ccc67b0f9c0855219fe42410454408938"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "84c934e9024a34aa9bd4633779dc5631340444b337a2ceb83aa0f626d3a37f6c"
   end
 
   depends_on "node"

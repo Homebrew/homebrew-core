@@ -1,8 +1,8 @@
 class Proto < Formula
   desc "Pluggable multi-language version manager"
   homepage "https://moonrepo.dev/proto"
-  url "https://github.com/moonrepo/proto/archive/refs/tags/v0.63.2.tar.gz"
-  sha256 "7907070b4f6a8660943f346448c538a1b2dbdf76991e0c4a517fb2154f4d4e74"
+  url "https://github.com/moonrepo/proto/archive/refs/tags/v0.64.0.tar.gz"
+  sha256 "01ad55d1373ff310411e3d9ae05e4fde9646d137844976e808e9a81a5132b093"
   license "MIT"
   head "https://github.com/moonrepo/proto.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Proto < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8efeb272d397ba82e1c210d3ffb7be29385a8468f463e664ebab2468e8efa015"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a5598b74db76d49161ced484a4eb41bc80a0121159096884c11f0cfb95c8960"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8370a18be055af991a11790fb1b2d20ee52298f68c0ee332ba6b778ea191b0f9"
-    sha256 cellar: :any,                 arm64_linux:       "c49adf0100f49ab70e966c747b0be7aa347e826fa3f06c9114eefce22844a3aa"
-    sha256 cellar: :any,                 x86_64_linux:      "a8d632a1eb8c80ece3632712506510a23fab642c8d40d31dc582115f3a9df60f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7cbdc312265db1e48189f8726c21ffdd28f05bfd82cef861fe5a9a37a1996d9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "68af5e251bb9c3b29f7081366ff42e52fbaa69edbe5cd60354e0f22d3cc0fb5a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36431bf9cdd3c6f5652a4a6af64e5b0b814895acb33a7f1153c44a35691f655c"
+    sha256 cellar: :any,                 arm64_linux:       "094c7388087b4ca3122866fdff688a6e00561f2f2bdbbbcfaef7c94432b968d8"
+    sha256 cellar: :any,                 x86_64_linux:      "78a6a5e9125c239c8bd21b0052137135279065eea9043ceb250cfddb24cab2c6"
   end
 
   depends_on "pkgconf" => :build

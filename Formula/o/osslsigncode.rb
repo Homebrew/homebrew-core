@@ -1,16 +1,16 @@
 class Osslsigncode < Formula
   desc "OpenSSL based Authenticode signing for PE/MSI/Java CAB files"
   homepage "https://github.com/mtrojnar/osslsigncode"
-  url "https://github.com/mtrojnar/osslsigncode/archive/refs/tags/2.15.tar.gz"
-  sha256 "799e708fca0bcbd2e10ff61e9d7b8f04e1d2a558e118717b459206ede17b0046"
+  url "https://github.com/mtrojnar/osslsigncode/archive/refs/tags/2.16.tar.gz"
+  sha256 "c8fce7cdb0f1643d98a6689cb3106fda8265f17014fd7912856c9473f9b141a7"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4cfbedffb917025ea1dcc5aecc8d3fd25e1e8a32bc580f3b82284343ddb14b63"
-    sha256 cellar: :any, arm64_tahoe:       "036ef921d91718e80760d34494c6b1263c1685121d85d17ebd46c00f06d4c228"
-    sha256 cellar: :any, arm64_sequoia:     "60a8ab9d41b2579e685442c8d22f6cbde6c4a2fce6e3f07dfb2387eb0e4f2237"
-    sha256 cellar: :any, arm64_linux:       "48310ddfdf8c93fae163eb2c35ce536f304cdf43a79c0bd995da0663542af1ec"
-    sha256 cellar: :any, x86_64_linux:      "5ff48de5b0ea0c4551b9b1b76b42fa344c0de15d7a5ce3f32f911a97c46e07e6"
+    sha256 cellar: :any, arm64_golden_gate: "2d9d1bcd279a494195c38dce1c3c2585cb8239f5da38a49cb2aa2fc35569e788"
+    sha256 cellar: :any, arm64_tahoe:       "91c6620c876665a0b56a703181e8abf1bd71dc882eae6a03bb893162b34b78df"
+    sha256 cellar: :any, arm64_sequoia:     "4f2440ddd206b5965ac9966a005049ea7fc26b720b8db344bd2a22fd892d77f8"
+    sha256 cellar: :any, arm64_linux:       "f1054b19cc4adaad8a2810c782709440bba87065fee999466266bd4e357b2689"
+    sha256 cellar: :any, x86_64_linux:      "afedd659d3f917faa012a5e4cab22cd732d3cbff29cc20921c8bd4a7beb62f3e"
   end
 
   depends_on "cmake" => :build

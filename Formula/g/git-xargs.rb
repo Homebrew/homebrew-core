@@ -1,8 +1,8 @@
 class GitXargs < Formula
   desc "CLI for making updates across multiple Github repositories with a single command"
   homepage "https://github.com/gruntwork-io/git-xargs"
-  url "https://github.com/gruntwork-io/git-xargs/archive/refs/tags/v0.1.16.tar.gz"
-  sha256 "baf43133e9b361860982f2c13e6edbe193f825af864ea3fe81ec54464eda1857"
+  url "https://github.com/gruntwork-io/git-xargs/archive/refs/tags/v0.1.17.tar.gz"
+  sha256 "817ac170a5edd7ac392aeeb5aff3cb491699d78d702f4960fa2aa67eb87fc6b4"
   license "Apache-2.0"
   head "https://github.com/gruntwork-io/git-xargs.git", branch: "master"
 
@@ -12,15 +12,11 @@ class GitXargs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8fdb4634a609021cf916d7ae5df4c2953e8773c783dbd078ccb1aa147d2553af"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "792b290c1a85159a481d5ea219c3b3e5356d82a7431353fa0ce52918b316e971"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6bc4e8e5eb6319a5d70c81c6a87f66fa20d55890b395e5d8a829c84c17cf36a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e6bc4e8e5eb6319a5d70c81c6a87f66fa20d55890b395e5d8a829c84c17cf36a"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "e6bc4e8e5eb6319a5d70c81c6a87f66fa20d55890b395e5d8a829c84c17cf36a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "7e638bfc967c4b2216e20dcaf486033b03a54be584b0bcff1751cbb5f5530344"
-    sha256 cellar: :any_skip_relocation, ventura:           "7e638bfc967c4b2216e20dcaf486033b03a54be584b0bcff1751cbb5f5530344"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dce9d2b03709399f636e6163278acd6f178e9556ce207810e904bb4001e2f7b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3c79ef94b3c3a848f5e1265ed5a155b153d18f9a746b04f490899521f995d06c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6516344745ff1ac9cc100973695cc6d5686f410198553c2c3f81d4261f3d1239"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6516344745ff1ac9cc100973695cc6d5686f410198553c2c3f81d4261f3d1239"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6516344745ff1ac9cc100973695cc6d5686f410198553c2c3f81d4261f3d1239"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4103b1256e2345f4e04b24be2e7154415e39ebbf22188df7fce54143073d18e"
+    sha256 cellar: :any,                 x86_64_linux:      "d6911e19bb0ad29f7a9c744de61021c206aa72413988786dde6e3e252fbfe611"
   end
 
   depends_on "go" => :build

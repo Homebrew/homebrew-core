@@ -4,6 +4,7 @@ class WhisperCpp < Formula
   url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.5.tar.gz"
   sha256 "ff1a9053feb509ff9d7729703355541ae9690073a6b1c40eb692c962e0dc1720"
   license "MIT"
+  revision 2
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
@@ -13,11 +14,11 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4960b2068b6c9820ab0e686fc4fe58e2edeb19c58c9613751b417a4ea9ab7ec3"
-    sha256 cellar: :any, arm64_tahoe:       "8c72ed8b6624aab6d9058ae4de65e73190265fdaeb3a7cd3f7d96417dc67325b"
-    sha256 cellar: :any, arm64_sequoia:     "a6691f811f613d79d1e508a89c7523e69f5b13a58c10e26083e77f8909b6db1e"
-    sha256 cellar: :any, arm64_linux:       "da1155a46b4d2e8ede1d4bd9da94d17b3b5aeeff473701a4859d7de3ffb5c507"
-    sha256 cellar: :any, x86_64_linux:      "f4d28a5d683ad92571dc089d1e2ce0168ebd0dcfaef117311742714e61b2bd1b"
+    sha256 cellar: :any, arm64_golden_gate: "d1b38766f30e6eb78c502ec9fab921b39838fcd10fe084b9bff4d335ed592557"
+    sha256 cellar: :any, arm64_tahoe:       "7ac257aafd3586b79ed3be9cf150b3650c2f94a097c9dce9a75139914cc4a429"
+    sha256 cellar: :any, arm64_sequoia:     "5a28079052309e287e3f7d98ddc74f3f5ee2f2a31bce193f6e1ac068de79dcf5"
+    sha256 cellar: :any, arm64_linux:       "0d8d7ade355581a9bb7dff7c9306e7e3c52252f0276aedee19227f2315d33cde"
+    sha256 cellar: :any, x86_64_linux:      "dccee89fee5df5013d5cb8008a38142cfeb3f4d3f924786667ea77fa71981940"
   end
 
   depends_on "cmake" => :build
@@ -25,6 +26,14 @@ class WhisperCpp < Formula
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
   depends_on "llama.cpp"
   depends_on "sdl2-compat"
+
+  # Support new llama.cpp
+  patch do
+    url "https://github.com/ggml-org/whisper.cpp/commit/63ae1b5f55b5d56622b39b3c01a4710feb57d844.patch?full_index=1"
+    sha256 "4422ba043e70622ba20c5c8dfb614680fb7c88229c9e398dffea098b5d12d65c"
+    type :unofficial
+    resolves "https://github.com/ggml-org/whisper.cpp/pull/4173"
+  end
 
   deny_network_access!
 

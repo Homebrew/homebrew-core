@@ -1,8 +1,8 @@
 class Infracost < Formula
   desc "Cost estimates for Terraform, Terragrunt, and CloudFormation"
   homepage "https://www.infracost.io/docs/"
-  url "https://github.com/infracost/cli/archive/refs/tags/v2.18.3.tar.gz"
-  sha256 "1e3cea2ed00d07a5be1450a43a302acbb72a427ec56800c23a207b37e6d2ae47"
+  url "https://github.com/infracost/cli/archive/refs/tags/v2.19.1.tar.gz"
+  sha256 "922b4e01f59e23eca8679a88bd85c9317b60777fe3f8f0199ffcd58eaeac320a"
   license "Apache-2.0"
   head "https://github.com/infracost/cli.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Infracost < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6848f8225e5311f2638980dd7f2766fe6b6da7214c6e30c5d91602a9826593a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6848f8225e5311f2638980dd7f2766fe6b6da7214c6e30c5d91602a9826593a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6848f8225e5311f2638980dd7f2766fe6b6da7214c6e30c5d91602a9826593a7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3880063d884bb494509dfecdcb7df826941a3841d91f1091d6192b16e93dc422"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bdb6975da0360728986bfda95b85604a29b8e52c25eb81e6980f136500c93a58"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cd9729aa76d34adefb60b0b94829103e3e95610508de5a22744746439b62a859"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd9729aa76d34adefb60b0b94829103e3e95610508de5a22744746439b62a859"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd9729aa76d34adefb60b0b94829103e3e95610508de5a22744746439b62a859"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d74553805a0ea89d37030c4e5d9f9c3a5a12ec2f6a07c4a43d4d505d48add4ea"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5cd66e72d9918d87e38dcd0d30b73331173608b8239591dac1a9439b25d88208"
   end
 
   depends_on "go" => :build

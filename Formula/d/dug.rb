@@ -4,6 +4,7 @@ class Dug < Formula
   url "https://github.com/unfrl/dug/archive/refs/tags/0.0.100.tar.gz"
   sha256 "bc7df36788cc4bb1ee01cfbaa670e4f8f97280d1906710360b5702764dcbda28"
   license "MIT"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,17 +12,14 @@ class Dug < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41a7f6f4d340f53402d1f29394a0f2b608397d7e5a853dfa6b05ac1681679e3e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "68651322918983c7b3e0e1c1131fd2dfaf18bcc54410dd3a088b14aaac890dc8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8a09c77a720e84d5977a0a2a6e7d5362d915adbb23a77df37ced1e3a74423a3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9791a61fc43b2d7d38d0b25ec810263b76fbaf541fb964c26d6766e9c10a38b2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9450c5733e42eacaf2a929ab39d89d6218146245aa6618e9b1ebaf856e314816"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b9c006bc67d14e2e367b1d1783cc842571ecd099850e73ba3cf84ad1cb7b353c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "da85a1f5e058349b15af0b48d9dd17b2ae3e8654f2f5f4170959cf3657c3e4d9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "196ecc1a710beb5353c86d725cdfa6b85e7d5e77944c2471f1eb5c968739f053"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "962ec5aaf7431c9b43562dd54615b68ba1afb569856ca78142200c43eb310870"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f0a47a7a0e8b2de0cf945c3e762dca3d1bf45cbfb300ca02277ace6eb2afe8c"
+    sha256 cellar: :any,                 arm64_linux:       "5d250e69cf65d7df01d5cce51a250d0ea2623a887d2ee15ba8fdde43099637ad"
+    sha256 cellar: :any,                 x86_64_linux:      "1cb00b2307b6d4870108e11471008b31cbbada2d67eede004aca79c49aec5503"
   end
 
-  depends_on "dotnet"
+  depends_on "dotnet@10"
 
   on_linux do
     depends_on "zlib-ng-compat"

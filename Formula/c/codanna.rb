@@ -4,14 +4,14 @@ class Codanna < Formula
   url "https://github.com/bartolli/codanna/archive/refs/tags/v0.17.1.tar.gz"
   sha256 "ea3cbe407e92395f670f990bd4be875685791e768a65eba1895dfd41f35b28b2"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "100a39f74fb3e8e17cdb169d598cf7fd3d1c3a23e6d9cd48c9cc974b48e1096d"
-    sha256 cellar: :any, arm64_tahoe:       "3cef99bc6abc1b9d61cc977969eacc9dbce3004062bbd50795f06a4be04a6cd4"
-    sha256 cellar: :any, arm64_sequoia:     "e14d57e637e7eb8b88c0915df107b9939455c3bb0cea7c2a2558e257ba4d92fb"
-    sha256 cellar: :any, arm64_linux:       "68cb6c732f1b89a694966250dc14d34e6786b09f07949e2f85d717c9c81be4e0"
-    sha256 cellar: :any, x86_64_linux:      "07cc8b41fd198eeccb4cac1452a4eaf941fa7b8c7936c2eee66f460fe942b8a2"
+    sha256 cellar: :any, arm64_golden_gate: "ccdccde7a98094db3a73ed3f38fa16fd83ac9642f1766c0a2dfe9ac370712ac0"
+    sha256 cellar: :any, arm64_tahoe:       "75cb961c938a3ec975bf86450027b23e48c42a20ef8266eb471f90817979b4bd"
+    sha256 cellar: :any, arm64_sequoia:     "825c09ed3ffe0659ab8577b6e995fd3549df6bbcb42b2f2a0afdc402a016787a"
+    sha256 cellar: :any, arm64_linux:       "99afabc0f7e285559c1ff847b3cef64ee922848cfad6f5ba78e0cacadf2dad79"
+    sha256 cellar: :any, x86_64_linux:      "e113e0ef6ce26f8e66cdce21ab9c74aa7930ec43e674055381cc26cc2ff004ba"
   end
 
   depends_on "pkgconf" => :build

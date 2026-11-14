@@ -13,16 +13,17 @@ class Botan < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "71c89d76ef109ad7eb1af4c7ff2bfb4a45594ad6642f46530d84d0ac2c282ae2"
-    sha256 arm64_tahoe:       "54de75c5085c7cb53e1dbd60d4942f933d6a99c3ffeef31bdfe53811a509e4f1"
-    sha256 arm64_sequoia:     "9abc6beedca224c8dd2759e65587ceea67614df645810f6272ee47f0b058e635"
-    sha256 arm64_linux:       "5fb1ffd5b8b05896ff9ce42f8dcca7bb274c9f06b06c751f340b986cb1ada711"
-    sha256 x86_64_linux:      "16452aad4ecf9bc4bbaae5a3172ccc9f0712fe81516edb0f6407bcd792a26aac"
+    rebuild 1
+    sha256 arm64_golden_gate: "49fbebcc201dafbb3e69a9f9c3f1f0f201ad23483959c617571ab2848ab1c8b7"
+    sha256 arm64_tahoe:       "72b1c1c5aeba3f20e6ce13d54bc6b22427827976c20c747b9228bd066f9f9628"
+    sha256 arm64_sequoia:     "bcdee762b2a0e8a901cd041c754ab6198b7c8b54cc33877a668b447f48cc41db"
+    sha256 arm64_linux:       "f4af003a0926688c332b3a12c0cbfee658b05271f4dc4ed7988245397dbe1b07"
+    sha256 x86_64_linux:      "928063c7cc99d6be7e4fdbf06f20392fa7498777929ecfc404d60039b0dfe3b3"
   end
 
   depends_on "pkgconf" => :build
-  depends_on "ca-certificates"
-  depends_on "python@3.15"
+  depends_on "python@3.15" => [:build, :test]
+  depends_on "ca-certificates" => :no_linkage
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -40,14 +41,20 @@ class Botan < Formula
     cause "Requires C++20"
   end
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
+
+    python_formula = Keg.for(python3).to_formula
+    python_versions = [python_formula, *python_formula.versioned_formulae].map(&:version).select { |v| v >= "3.12" }
 
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
       --with-zlib
       --with-bzip2
+      --with-python-versions=#{python_versions.map(&:major_minor).join(",")}
       --with-sqlite3
       --system-cert-bundle=#{Formula["ca-certificates"].pkgetc}/cert.pem
     ]
@@ -71,5 +78,12 @@ class Botan < Formula
     base64_enc = pipe_output("#{bin}/botan base64_enc -", text)
     refute_empty base64_enc
     assert_equal text, pipe_output("#{bin}/botan base64_dec -", base64_enc).chomp
+    system python3, "-c", <<~PYTHON
+      import botan3 as botan
+      r = botan.RandomNumberGenerator()
+      phash = botan.bcrypt('testing', r)
+      assert(phash.startswith("$2a$"))
+      assert(botan.check_bcrypt('testing', phash))
+    PYTHON
   end
 end

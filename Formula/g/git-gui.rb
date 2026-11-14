@@ -1,8 +1,8 @@
 class GitGui < Formula
   desc "Tcl/Tk UI for the git revision control system"
   homepage "https://git-scm.com"
-  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.56.0.tar.xz"
-  sha256 "26c56c296b38c0695b26fa95f475f1d01704d2d38e73465ca30b0b2f5dc789d3"
+  url "https://mirrors.edge.kernel.org/pub/software/scm/git/git-2.56.1.tar.xz"
+  sha256 "f0b0bf89264b9bd2e1c640363e7529643989da76281600473c50745cd34a607f"
   license "GPL-2.0-only"
   compatibility_version 1
   head "https://github.com/git/git.git", branch: "master"
@@ -12,7 +12,7 @@ class GitGui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "86660f4ccb36a593623b899a228cee6748f05545fe3fcfb204c701f108f76cb0"
+    sha256 cellar: :any_skip_relocation, all: "0be414352f3d9bfed6b5137abb4333a9754fe1b6b7f664cd42877878c37c77d1"
   end
 
   depends_on "tcl-tk"

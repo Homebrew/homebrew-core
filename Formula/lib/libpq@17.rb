@@ -1,10 +1,9 @@
 class LibpqAT17 < Formula
   desc "Postgres C API library"
   homepage "https://www.postgresql.org/docs/17/libpq.html"
-  url "https://ftp.postgresql.org/pub/source/v17.11/postgresql-17.11.tar.bz2"
-  sha256 "dd27f2b3c59e73ed14aa3324901242bf69a032a6347805f274e6260322d42979"
+  url "https://ftp.postgresql.org/pub/source/v17.12/postgresql-17.12.tar.bz2"
+  sha256 "9cf136a703d8ee2f83465c43be4e9e8e7930c82b0bfba13be7e2537be769ac55"
   license "PostgreSQL"
-  revision 1
 
   livecheck do
     url "https://ftp.postgresql.org/pub/source/"
@@ -12,12 +11,11 @@ class LibpqAT17 < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "0cf6ab557efef7d5797f701fc4626e3977f12aeb28a31db24d60a096fb7d7e83"
-    sha256 arm64_tahoe:       "22e57ccd02f55654ea27faa7a8bcb26dfb3ba14d542e496cf4642b2698e3ad6a"
-    sha256 arm64_sequoia:     "4ea8b94482c35a957d8b88c1505ae6eb03e8519d6d93772c59162dafa779144a"
-    sha256 arm64_linux:       "98803f07f9f66ebdf775fab244cd11c7962d1be84281d13db9fa8e6edc647b08"
-    sha256 x86_64_linux:      "2e4a8a02aee0716e197cbac518902d6625b8a3af34a0021843a9249b0bf02c31"
+    sha256 arm64_golden_gate: "1c59e474b739b3122c236a9e4e7f98dc61dc3083bcfb5b89cd9aba09262ad539"
+    sha256 arm64_tahoe:       "cf4e955e989a86a74531f13f42d66efb4e39f02606b248c802c36b131850ac7e"
+    sha256 arm64_sequoia:     "6385e1b88a67dcdb3a718b90a7dcd1c83d1f0000621868b3ab79e91c99a0a244"
+    sha256 arm64_linux:       "430108c3acaa49b8d547d41a71497d8a65b726abe58d5fbc564fb9682b90d62e"
+    sha256 x86_64_linux:      "56c5d4927f9c75f39e84bf7d39d646608a1206bf0ee85dece6a859aa72e1b5fe"
   end
 
   keg_only :versioned_formula

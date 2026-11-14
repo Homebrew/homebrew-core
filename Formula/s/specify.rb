@@ -3,16 +3,16 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.github.com/spec-kit/"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v1.3.3.tar.gz"
-  sha256 "cdb3f0a3947b6514c6e8a270cdaab46d4b330c1ab4b29dbcee33a56b8bff3948"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "862bf3f51c3a312b18a5c07c1abf912117faeb05ccfab000f436c861e53f39d8"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bd06f0fa6d0e04a4e9c86a633787af85cfde30d047d381cb43ecd99a65c2641e"
-    sha256 cellar: :any, arm64_tahoe:       "ec7a00e4a641cb2fed7c6ca311a9cf0d062a8504df9eb52cf3829146e023eb24"
-    sha256 cellar: :any, arm64_sequoia:     "031efe9113f9186e32e5ebda3345c3c240b5bdb416d41e5d5f4012580b734873"
-    sha256 cellar: :any, arm64_linux:       "a5c1a5b1bb511c9618dac3ba429a656cf38eef48d4ad7887016e88e24a52fda8"
-    sha256 cellar: :any, x86_64_linux:      "b40f67e9ae3d75f62827db579edfe7f3a9217da127dab85fb5dfc2909f28b597"
+    sha256 cellar: :any, arm64_golden_gate: "90ebe0c41283159c160e280de788ba07bb940211d908cf914ba890d8666a9e31"
+    sha256 cellar: :any, arm64_tahoe:       "eb3ed2f50f2477fa656ea776ee41899170c4eec582d0181fc19bdec3b808c6b1"
+    sha256 cellar: :any, arm64_sequoia:     "6bd27024a2cdb8de0c51ec2afba63f670bbd8844949c22d760607329c9717124"
+    sha256 cellar: :any, arm64_linux:       "e255836ec76c2d24f8db459b3a87643a129191d8b9c8050d9531a1fda790808e"
+    sha256 cellar: :any, x86_64_linux:      "d8bb3db001536e697790efbdecc73fcaa8be18af7270a9857d3c5be1bdb7e3dd"
   end
 
   depends_on "certifi" => :no_linkage
@@ -175,8 +175,8 @@ class Specify < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ad/8f/21021859316f44289101638dc74d82e13d722d8533e4b8708a3ab7c8461a/typer-0.28.0.tar.gz"
-    sha256 "69ab84ef79fd601cff071bbd2566d855ecadfd93adbc4b3360b9924359bdd857"
+    url "https://files.pythonhosted.org/packages/ed/db/401793a0d5345409a28de2c571d4ef8bea9a08700c20ea7f7b6af3b050d2/typer-0.29.0.tar.gz"
+    sha256 "6871960a1603fba66af2ff751be48a6735af6480a67660afaf2fab2f7e008ed4"
   end
 
   resource "uvicorn" do

@@ -1,17 +1,17 @@
 class Moor < Formula
   desc "Nice to use pager for humans"
   homepage "https://github.com/walles/moor"
-  url "https://github.com/walles/moor/archive/refs/tags/v2.19.6.tar.gz"
-  sha256 "739da85d8755802ddc21905f4d6c7731c4b0581fab686a2ea56c8af1bb392f5f"
+  url "https://github.com/walles/moor/archive/refs/tags/v2.19.7.tar.gz"
+  sha256 "940547b19cd7307b93572739fbc9b71dcb196a191f05fb941e472295d9389f3a"
   license "BSD-2-Clause"
   head "https://github.com/walles/moor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e49863af56645075d42102e02287971b23c3b63618e5479ae18ba5719efffde"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e49863af56645075d42102e02287971b23c3b63618e5479ae18ba5719efffde"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3e49863af56645075d42102e02287971b23c3b63618e5479ae18ba5719efffde"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2274d85d998e7afa1942ba969343440961192e8f020b7cf06c6951a3afe832d1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9bf493ca9905e2385cc7c5cfebec83014d20914a231a6d046eb1ad188fa5a88a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09d521c0b4b22d5b2dbc99e4e342b4fb3f39ef9d96403a61c70c0de62c9273da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09d521c0b4b22d5b2dbc99e4e342b4fb3f39ef9d96403a61c70c0de62c9273da"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09d521c0b4b22d5b2dbc99e4e342b4fb3f39ef9d96403a61c70c0de62c9273da"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "de65fb498ce95eef61f52721b5eb4f219a02740b15bcf27e60e7ec7387774179"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a1c8d698db00856fe056148e4f7d53dad7726bcf32563d785bdc36c4dfffef97"
   end
 
   depends_on "go" => :build

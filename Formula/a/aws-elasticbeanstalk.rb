@@ -3,16 +3,16 @@ class AwsElasticbeanstalk < Formula
 
   desc "Client for Amazon Elastic Beanstalk web service"
   homepage "https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/eb-cli3.html"
-  url "https://files.pythonhosted.org/packages/6c/11/8d9177a1450f804c92903bf924feecfe14a59a5b06134ea9070d528a479b/awsebcli-3.27.6.tar.gz"
-  sha256 "2090a005e90dda43411c0e13165f2d098da5e37902978dbb25d24e14f4eb021e"
+  url "https://files.pythonhosted.org/packages/77/cf/337076f03bc577e41fb55729b7d849132c168411313e542d31cbb53f5a76/awsebcli-3.27.7.tar.gz"
+  sha256 "2e4d2b21a30b81526bab21f1ccfb80ac75a128b9cefa79b24c8544cac9f655ce"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bd410f951af7a0131e6573652e9ae51c1e52ec5f9856d077aa58a1616174128b"
-    sha256 cellar: :any, arm64_tahoe:       "07ab8aece1beda2ef3a7bdbfc2f04246380db6e97327931bf2e7af44939095cf"
-    sha256 cellar: :any, arm64_sequoia:     "1bdaa9e6ff08a7e550a1dbc79031430b8af085d7c6b71a0821bb187cec3c4a78"
-    sha256 cellar: :any, arm64_linux:       "1d6dc97ab7710e5595dc81026e06d04b591a17e06a3e08bff897b638d5f117f3"
-    sha256 cellar: :any, x86_64_linux:      "21f25b8cc9999d920ec5471d9c3bcefd77f6cfee3e3b95fe2f4f245a02d8e05a"
+    sha256 cellar: :any, arm64_golden_gate: "f2063a22d73b8835663d1007bc77451611740744d5522b6ba4e4e133cd758a4f"
+    sha256 cellar: :any, arm64_tahoe:       "48767dcc989fd438b534a96138e5aa93273e594192858f589677941bc09b93e2"
+    sha256 cellar: :any, arm64_sequoia:     "642c25245508801f321793b0cee318abfe191a0aa465c97ce34392d33cd9290c"
+    sha256 cellar: :any, arm64_linux:       "1c6d2184dd6bcc3501b3ff19c24c241f9797334538763baf2fbeda910b30bf20"
+    sha256 cellar: :any, x86_64_linux:      "cdb5ab8304f1e4e2547595eaa06270239f1bd079b9252106ea0bd924c0301bfc"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -39,8 +39,8 @@ class AwsElasticbeanstalk < Formula
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/69/3d/c76e2be7d71ed9e47d5b27f735443fca7bdbb330bae3c8da88fd19846495/botocore-1.43.126.tar.gz"
-    sha256 "96996af07d8b703c3cdf44863f69c0b4b8b2d1cb6976c641986ced3e38c072f3"
+    url "https://files.pythonhosted.org/packages/b1/61/07918ec258ab7131dd601cb1aaffcd7fa008fa8bb0143fd195ecc4b4435d/botocore-1.44.1.tar.gz"
+    sha256 "e71f6249be2a7324899ba81c5958ac1809a78498ea2c8f60e00fc0e62262ab83"
   end
 
   resource "cement" do

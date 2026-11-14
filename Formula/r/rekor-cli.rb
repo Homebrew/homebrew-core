@@ -1,8 +1,8 @@
 class RekorCli < Formula
   desc "CLI for interacting with Rekor"
   homepage "https://docs.sigstore.dev/logging/overview/"
-  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "9d66a05ed9b4460471e372fe452183c53e40b5c0beef5a685a7b75082d33fa07"
+  url "https://github.com/sigstore/rekor/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "deb15da4a3e05d090656c35a520fe5dfb63976c13bdffa4263f48ce98cac84d6"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class RekorCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f533367a81e0a1aac27a9965bae0d4e294ab6fcc56c557b0a4e88297161deb6b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f941fb908110abacb851e9f81f3cda9b17f858f53cd7c6fefc887f14b3aa13b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a0e4875c888c60c288d0ccd826841e83630128823b51cb8ae6953a5720483c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b53f9220997c332da8f26043cd6e496d1a1829f8a01fbf6e1600ad6660556b74"
-    sha256 cellar: :any,                 x86_64_linux:      "ee466f27d0660763406899c2a978e5df0c1cff5bdbcd99d9c07799101a74b52c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5789bea22adafea9bfe4c1c305eed319af532586c13e6c55bfbcc584e15ce28a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "865601bcabd08a26cdc9008a5f2e26e9350a46c2dee2160097644c02caf51c28"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f63b65ba7effd273bd66f0fd785c759990a9565b933db583badabc8e9da27d61"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ed23ed9a2822b9b7d0d12cd91bbfd644d79e27f201f0c0ee8d3b1dc7cb312092"
+    sha256 cellar: :any,                 x86_64_linux:      "5710f716436987ade13c060c9966337b8071b515d6b8c07c828183292686e2ea"
   end
 
   depends_on "go" => :build
