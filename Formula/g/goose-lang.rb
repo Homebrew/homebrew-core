@@ -6,6 +6,14 @@ class GooseLang < Formula
   license all_of: ["Apache-2.0", "LGPL-2.0-or-later"]
   head "https://github.com/aardappel/goose.git", branch: "master"
 
+  bottle do
+    sha256 arm64_golden_gate: "28a9e5fee8c539aa2c7737ccfce3f5d3dac632f45a05665b3d2868fa975a28f9"
+    sha256 arm64_tahoe:       "54a2bb55837e0e800801836da97109175855e94e4dc7e5e71dc838d3bd3f429e"
+    sha256 arm64_sequoia:     "c3ab0cae845f314248cd6116f5ad49d52f9b13c5032a4ea7cd8e3b6083b17215"
+    sha256 arm64_linux:       "af6715deb202646c6e0fdaefc85526ba66270809b430fa6992d176a2b02082b7"
+    sha256 x86_64_linux:      "f3c32cd23fd97a2f097318aa18006542fa9bd0fe65c1357d1a47352f5ec89290"
+  end
+
   depends_on "cmake" => :build
 
   # TODO: add `conflicts_with "goose", "block-goose-cli", because: "both install `goose` binaries"`
