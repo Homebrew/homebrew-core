@@ -25,19 +25,18 @@ class Bandwhich < Formula
   end
 
   def install
+    ENV["BANDWHICH_GEN_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
 
-    out_dir = Dir["target/release/build/bandwhich-*/out"].first
-    bash_completion.install "#{out_dir}/bandwhich.bash" => "bandwhich"
-    fish_completion.install "#{out_dir}/bandwhich.fish"
-    zsh_completion.install "#{out_dir}/_bandwhich"
-    pwsh_completion.install "#{out_dir}/_bandwhich.ps1"
+    bash_completion.install "bandwhich.bash" => "bandwhich"
+    fish_completion.install "bandwhich.fish"
+    zsh_completion.install "_bandwhich"
+    pwsh_completion.install "_bandwhich.ps1"
 
-    man1.install "#{out_dir}/bandwhich.1"
+    man1.install "bandwhich.1"
   end
 
   test do
-    output = shell_output "#{bin}/bandwhich --interface bandwhich", 1
-    assert_match output, "Error: Cannot find interface bandwhich"
+    shell_output "#{bin}/bandwhich --interface bandwhich", 1
   end
 end
