@@ -7,11 +7,11 @@ class EnpassCli < Formula
   head "https://github.com/hazcod/enpass-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7f5bc5117b499b0d5a3c37542d5c810597dc3ed5243ebdb0f6b2d575209bbf81"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e2d55619788054a43e3058efdaf3db60c7fa979c77bb1e73935c6cd55dc1a2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "abb8245a4ac77d1990d1949043c2d1b8baf0162d03814ca0b81c29ae7851c889"
-    sha256 cellar: :any,                 arm64_linux:       "9a33794d9d1c440aea0a457d87a25bb76575b3c0f1886359a90e9ca51f0394e5"
-    sha256 cellar: :any,                 x86_64_linux:      "ca7f359344c4f97e6e7f27d798bfa464296b581c78cf5f3aef779b049294578f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a375d30cafba65e9b79703aa433917a784b0ac61366516c1ce0babfaf81c3914"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02d53ac1384605a8a36ab338f0af5ce36f43f4fcae82e99f27da398ea71ebecb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e18c6896fda816a53d59f48739a134d37931cc1bcf58447ae720f30e57a025c"
+    sha256 cellar: :any,                 arm64_linux:       "19224a412234e9d7fe0c51bb167d44997def39d0bd6b442ce9c687548e78ed91"
+    sha256 cellar: :any,                 x86_64_linux:      "cd21525870632503bcbc274b4c3b33da20eb4c107bd2c624121361ce2fd7be64"
   end
 
   depends_on "go" => :build
