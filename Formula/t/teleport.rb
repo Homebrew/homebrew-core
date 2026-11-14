@@ -1,22 +1,12 @@
 class Teleport < Formula
   desc "Modern SSH server for teams managing distributed infrastructure"
   homepage "https://goteleport.com/"
+  # Check https://goteleport.com/download/ for valid versions as some git tags
+  # aren't marked as GitHub releases but they correspond to official release
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.10.tar.gz"
+  sha256 "59462f339440cda54cef30e554e0e1322a05eadbff84d062d1085e4a8ed7eb6d"
   license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
   head "https://github.com/gravitational/teleport.git", branch: "master"
-
-  stable do
-    # Check https://goteleport.com/download/ for valid versions as some git tags
-    # aren't marked as GitHub releases but they correspond to official release
-    url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.1.tar.gz"
-    sha256 "a95bddd445dc3f93d91493b48e73d39959bbc4d4d00cd93fea34b3d02c3ba1da"
-
-    # Update strcase for Go 1.27's Unicode tables.
-    patch do
-      file "Patches/teleport/go-1.27-strcase.diff"
-      type :backport
-      resolves "https://github.com/gravitational/teleport/pull/68801"
-    end
-  end
 
   # Teleport first does a commercial release and then has a delayed open-source
   # git tag. Not all tags are marked as GitHub releases so we check that the
@@ -33,12 +23,11 @@ class Teleport < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "e467353f7492839e20bada38b49c16181f2c98e7a589be7038f2cfb59e9395a4"
-    sha256 cellar: :any, arm64_tahoe:       "8d2b1e769746886ca5d8ab5467146fd2faeff14b7e8b26451e2a2951df4f06d2"
-    sha256 cellar: :any, arm64_sequoia:     "fd3497af9102de6bbf247e3ef4fbfaddb2ddae4c7bbff840187d1f406bd9266f"
-    sha256 cellar: :any, arm64_linux:       "b43fcd1d420f0eecff70d04ff20342e2e89b118b41873bd43fbd2ca15c0b0458"
-    sha256 cellar: :any, x86_64_linux:      "6eb31f71ad067c8b8b2e9cd5a5b638ed832da2dd265f39dc3e504fedab973298"
+    sha256 cellar: :any, arm64_golden_gate: "9cb4711e5240aa51cfc3ffa4519a0d274189085ea57f43174171b2ec02007f27"
+    sha256 cellar: :any, arm64_tahoe:       "4bd92304878fcdd59275b244e0544e113a3f16a44760797bba102fe32f6cbe3a"
+    sha256 cellar: :any, arm64_sequoia:     "b6d0795370e95947875a2f542358a971186aaf7ab745e3130b8091bdb8aebd40"
+    sha256 cellar: :any, arm64_linux:       "67b8c6909491245edafaa58f104350047dc8121ac96ee6e2cf216d3608115327"
+    sha256 cellar: :any, x86_64_linux:      "95426cd2d0e556af209348735b57f46b25c0ee187eb8fc48dd2ce6c7d12e8b0c"
   end
 
   depends_on "binaryen" => :build
@@ -63,6 +52,14 @@ class Teleport < Formula
       url "https://raw.githubusercontent.com/gravitational/teleport/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
       regex(/name\s*=\s*"wasm-bindgen".*?version\s*=\s*["'](\d+(?:\.\d+)+)["']/im)
     end
+  end
+
+  # Use native-only Rust archives with Go's linker-input validation.
+  patch do
+    url "https://github.com/gravitational/teleport/commit/16490c6cdc8b3846aa71a4ba893643072bca0663.patch?full_index=1"
+    sha256 "18b85d1c3f65875b903bd7b9f9d79f47e85e4efc307605caa03ff0cf822be9ea"
+    type :unofficial
+    resolves "https://github.com/gravitational/teleport/pull/69975"
   end
 
   def install
@@ -91,6 +88,7 @@ class Teleport < Formula
     # Build C code in wasm crates with LLVM as the host `CC` (GCC on Linux) cannot target wasm
     ENV["CC_wasm32_unknown_unknown"] = formula_opt_bin("llvm")/"clang"
     ENV["AR_wasm32_unknown_unknown"] = formula_opt_bin("llvm")/"llvm-ar"
+    ENV["OBJCOPY"] = formula_opt_bin("llvm")/"llvm-objcopy"
 
     # Workaround for error: The CPU Jitter random number generator must not be compiled with optimizations.
     # Issue ref: https://github.com/aws/aws-lc-rs/issues/1097
