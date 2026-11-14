@@ -9,12 +9,11 @@ class Certsync < Formula
   revision 13
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12ada15a918169f495887d3e3fbde78fd7dfa4323d3bcebbf0f1a77712e34da9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdb7043e8f69256c5c10388082737af2401341bd3f9134a8c457712973c2d079"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f9eb20edcc9d0637ba1f93f0a3f7f3617af4207eadb21c756bfbc23a3f42486"
-    sha256 cellar: :any,                 arm64_linux:       "d42140b44c726c0cc32ab51d48e0b7cb58cc29925cfa2ed51d137ecf82f213ca"
-    sha256 cellar: :any,                 x86_64_linux:      "ee76737c1ad99763cd1b17fbf7880a63dc144c326e5b44d0bec8cc1ded92241f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4d35428a0d3a980e05a06eb29a6af4c9027fbd49b3f4dd3bec1d80c62ca63031"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7a84414d390d521dde8b9e4f8302b74d5ca4e07c56b1d50976a69f06a855260"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8224b2da2399974b09528d59d26d8fa61ef0231382a7acdf3fd71515ab26ffb"
+    sha256 cellar: :any,                 arm64_linux:       "f71e31ce36ca8cfabcf5a376537a153edc6e8ff4e2dfebea6f4b5cf3550b41e3"
+    sha256 cellar: :any,                 x86_64_linux:      "6c4b2765f26ee231556453106cc20f5727e66563d5cabfe63e0f5b742d696856"
   end
 
   depends_on "rust" => :build # for dnspython > uv_build > maturin
