@@ -12,11 +12,11 @@ class Temporal < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4559cd9f93df839524a83417bd6d17725f2c7b3553346aadc6e6d11e186ed73c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b189e001a6a92744f478d29fd858e26362b56f1782d297f6da78d1c8371c3581"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e16d33fcd7780e608fa520a0cd056dcfd9db6552b85a8520b00dbb1f290bca29"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "01a3f945e035239abe85a733e4b1c2c7d11492aaac61a0f070996c9a7b37891d"
-    sha256 cellar: :any,                 x86_64_linux:      "e9d8771287163b2a35f54e451d4457255b6a1c8a5936051fab6953a54c16e7d9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "644715afb2425964713dc8aab4f14eff42d2829bcdd8dfd0a406138f3cc16842"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb44f310792d63b00e9614fe635e8dc6c355bb6ae00c5d2379184f5fbe233f55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb033f64c884dd01f37ade1fce53d11614384b6a3c8fca0acb17c3880d956304"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e471dc2735fd3fffabe89648638e41bc6a53320843e1095b56d089522be67211"
+    sha256 cellar: :any,                 x86_64_linux:      "b41b77ca8ac275936466adf1e9359b8beae8121478ad420aee900655ba3127cb"
   end
 
   depends_on "go" => :build
