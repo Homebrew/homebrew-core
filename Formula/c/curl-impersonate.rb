@@ -17,6 +17,14 @@ class CurlImpersonate < Formula
   ]
   compatibility_version 1
 
+  bottle do
+    sha256 arm64_golden_gate: "5f474d82fffe482f77670bd20c35e59a5f952a5f0b0a2555fe1fa9d0733fd229"
+    sha256 arm64_tahoe:       "75b4b7479d54341f51ded9a64ca0496d762700c964f8dcdd6b14a9d71154da3c"
+    sha256 arm64_sequoia:     "df1ee235b951383a376db272081c1b181e177ff81fb9b145c28677cdbdfaa4bf"
+    sha256 arm64_linux:       "8dd1da087f977884e42124f368cfc5b154d78b3467d4fccac7a826685d30017c"
+    sha256 x86_64_linux:      "7ada8493ff09ae6864f826e11b780132b5a821143095a28bbf62a8cd9d1336f0"
+  end
+
   depends_on "cmake" => :build
   depends_on "ninja" => :build
   depends_on "python@3.15" => :test
