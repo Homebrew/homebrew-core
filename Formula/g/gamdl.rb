@@ -9,11 +9,11 @@ class Gamdl < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d08cc3a9a40be5097cc0ecb9363a77e2d3f5112196acb4588636d4de568488ab"
-    sha256 cellar: :any, arm64_tahoe:       "d4e1e88dc2eb6f0b90d0adc1b0fd5bbf5091fce6cd43bd0bdb62a8d3309afac4"
-    sha256 cellar: :any, arm64_sequoia:     "a343d467efad6e23a25c6d7b0a99178a00e9c9f434c99e6f4d950e49c43c47ef"
-    sha256 cellar: :any, arm64_linux:       "345df2a53eaab9a3076eae9bc1dfce8034b7747b934572d2580da9356f5b7a78"
-    sha256 cellar: :any, x86_64_linux:      "ed40ad260df840a38c23fb277c4fe751a0c558e4936a8d0a4a4908a61d00159d"
+    sha256 cellar: :any, arm64_golden_gate: "42a21df2655f5ec60d640ad6959d037a938368f07b68d32fa791bdc648078fd7"
+    sha256 cellar: :any, arm64_tahoe:       "2dc54dea0d1fb95bfebc3fca7d6e2d1ca5a24a15de1433fd92c19f278b170cfb"
+    sha256 cellar: :any, arm64_sequoia:     "0dc911e46bd7262d3b367ee64f8d29880e8147ee80c5995411d0c0794830ae06"
+    sha256 cellar: :any, arm64_linux:       "ea9822c297e4beb811ea987c6952ed4fa9b01a9851a043549e57bc15c8055f7e"
+    sha256 cellar: :any, x86_64_linux:      "ef956f4738669cf7c4677b7496f42c2c37bdd6d86e9445754f5a41cf9dbbc4d6"
   end
 
   depends_on "rust" => :build
