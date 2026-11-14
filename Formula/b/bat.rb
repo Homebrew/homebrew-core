@@ -8,13 +8,12 @@ class Bat < Formula
   head "https://github.com/sharkdp/bat.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "53da9c2c1c766e168461eddad9c5ba73726abaa376582e4b2eb4f8cb5a686797"
-    sha256 cellar: :any,                 arm64_tahoe:       "d209bb9f1f7eab77b65f9b5573007ce52f39fb90b379ffefeffc2181119991aa"
-    sha256 cellar: :any,                 arm64_sequoia:     "072537d409b056879cb735bcbc0454562b8bae732fbbfac9242afea736410f88"
-    sha256 cellar: :any,                 arm64_sonoma:      "9492e6fd0b1ee200e279476da087bf1cb6b2202c5e4c2507336c583b836c5049"
-    sha256 cellar: :any,                 sonoma:            "033b483e2d1b96c314365048f59a80a83c1827a82bcad99d7b7bc5ef90aa0f77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d0211b0cbe32b5b14b76a02a1a15f47c96f677c35102739a3789fb376183b5e4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3d5a088fbd751c14317ee725a3b9751b835bf0a5ecbd4cfa7671ef90ce8ca922"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "4f85c0855e391d5622c0dba97474ce7cf617ea43f9bb264e6ce4f2edd682091d"
+    sha256 cellar: :any, arm64_tahoe:       "19c6976b3466dadae4cc2538dd9f5795d0b1eb9c65136aa7f58cf1e3852ce7c7"
+    sha256 cellar: :any, arm64_sequoia:     "e1acf0a602a2b067552610139abd0957bdb9aec8cb54ad883e0c318331300007"
+    sha256 cellar: :any, arm64_linux:       "e35f1a60200c599fba9b777bb06806459bf06b230617efb92979cab02b974ead"
+    sha256 cellar: :any, x86_64_linux:      "cbd6b9347f601e48ca2301a28d9d269829b8deb4f2780fb6e640182a51325f2e"
   end
 
   depends_on "pkgconf" => :build
