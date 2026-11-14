@@ -7,6 +7,7 @@ class PythonPackaging < Formula
   sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
   revision 1
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, all: "58715fc706578d585033b5c41ef23ea5f33e3fcc0e1637431055a880bfc50bbd"
