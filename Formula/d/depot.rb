@@ -14,11 +14,11 @@ class Depot < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9359c27faa5c8f2dfa7e03d66e387a6de6c3e77b223d0fad6721f06f97171f1d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9359c27faa5c8f2dfa7e03d66e387a6de6c3e77b223d0fad6721f06f97171f1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9359c27faa5c8f2dfa7e03d66e387a6de6c3e77b223d0fad6721f06f97171f1d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "27ca504da73bfb02109ed8276c6e3cf88931986509267cbb3832f908db23fe81"
-    sha256 cellar: :any,                 x86_64_linux:      "0609687cb61254a69a4e49c0d022a5d1432fef7baa6190844d0b4bc01c797625"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8aaffc3e504c2a238d6bcd100ff928ebee0edd8629f652cc373c0877fb096c63"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8aaffc3e504c2a238d6bcd100ff928ebee0edd8629f652cc373c0877fb096c63"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8aaffc3e504c2a238d6bcd100ff928ebee0edd8629f652cc373c0877fb096c63"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c3e402f104bdb3f220fc008a799a060dca5d038f75b554f38b0c403f4a2ecaf6"
+    sha256 cellar: :any,                 x86_64_linux:      "e1eb10f3a3a0583f38774dab901d3cd4e078d4b8fbea8579ddc5a9ee8a11f68c"
   end
 
   depends_on "go" => :build
