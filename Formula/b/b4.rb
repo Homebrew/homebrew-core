@@ -9,12 +9,11 @@ class B4 < Formula
   revision 2
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "a57ede8fe668caa46a2cc68466cd36fd0e70403b2a10fa05e99286ed028e9772"
-    sha256 cellar: :any, arm64_tahoe:       "aa55d006c18c119faa52cc0ad06eb1167ec839b5a26f13a287b96e1952c69d22"
-    sha256 cellar: :any, arm64_sequoia:     "62f84a99e4a36dbe85039c44c8ef2c5d95ba00d3db42640c7918966c5905341d"
-    sha256 cellar: :any, arm64_linux:       "e30a22bf630d86dde4f0b3203b0627e3eae51e0bb8ec990a1758c782eecf28ff"
-    sha256 cellar: :any, x86_64_linux:      "26335f590cbbf9a5cf6873c930a2cea53ebf80dca9edb22dab64af363bad21c0"
+    sha256 cellar: :any, arm64_golden_gate: "dd072156124bc9c700880f10eb01623d9cc9b3c040712ae113cb53e7eea36a58"
+    sha256 cellar: :any, arm64_tahoe:       "c6853f7e1dd8a4ab8f80a129abdde3d4e0f6d1b6b4285d24d39adaa58e7a30cb"
+    sha256 cellar: :any, arm64_sequoia:     "38cd88716b99493139c95595682ed5b4d1701e251cdb1f2acd7d25b1756122af"
+    sha256 cellar: :any, arm64_linux:       "661b9bc7807292dcbbdf600ecd706a120a9006fee87b7310c1262f5d041fd12e"
+    sha256 cellar: :any, x86_64_linux:      "8aa1956af8a553cbbb53909017493e898b654908384fd0bfbf6d0c4095b79ca2"
   end
 
   depends_on "rust" => :build # for `dnspython`
