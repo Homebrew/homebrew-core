@@ -6,7 +6,7 @@ class Cspell < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3402833267fa061e7793429d74230b2254833a18ef35010a9319c9c82f6e468b"
+    sha256 cellar: :any_skip_relocation, all: "2f897138c8ac77fac0c83d9b51efd498a3fb3ed77e271cd75e1fa11dd8006aae"
   end
 
   depends_on "node"
