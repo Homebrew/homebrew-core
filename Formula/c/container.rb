@@ -4,7 +4,7 @@ class Container < Formula
   url "https://github.com/apple/container/archive/refs/tags/1.7.1.tar.gz"
   sha256 "ef497b524624048ee45d57b0f7fdd675d6d420fcb30ab4a039779d752d9dea66"
   license "Apache-2.0"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://github.com/apple/container.git", branch: "main"
 
@@ -52,7 +52,7 @@ class Container < Formula
                                      binary: "container-builder" },
     }
     plugins.each do |bin_name, opts|
-      plugin_dir = libexec/"container-plugins/#{bin_name}"
+      plugin_dir = libexec/"container/plugins/#{bin_name}"
       (plugin_dir/"bin").install release_dir/(opts[:binary] || bin_name) => bin_name
       plugin_dir.install "Sources/Plugins/#{opts[:source]}/config.toml"
       opts[:resources]&.each do |resource|
@@ -68,14 +68,13 @@ class Container < Formula
 
     generate_completions_from_executable bin/"container", "--generate-completion-script"
 
-    # Relocate the binaries under libexec and replace them in bin with shim
-    # wrappers. The CLI resolves its install root as the lexical grandparent
-    # of the running executable (see Sources/ContainerPlugin/InstallRoot.swift),
-    # so the binaries must live one directory below the keg root for the
-    # bundled plugins under libexec/container-plugins/ to be discovered.
-    # CONTAINER_INSTALL_ROOT is also exported by the wrappers for the code
-    # paths that honour the environment variable.
-    bin.env_script_all_files libexec, CONTAINER_INSTALL_ROOT: opt_prefix
+    # Shims export CONTAINER_INSTALL_ROOT: the lexical fallback breaks under symlinked bin.
+    # Binaries live in cli/ because libexec/container is now the plugin tree.
+    bin.env_script_all_files prefix/"cli", CONTAINER_INSTALL_ROOT: opt_prefix
+
+    # Upstream's third-party plugin dir (apple/container#1617), symlinked outside
+    # the keg so user-installed plugins survive upgrades.
+    libexec.install_symlink HOMEBREW_PREFIX/"libexec/container-plugins" => "container-plugins"
   end
 
   def codesign(*args)
@@ -94,6 +93,13 @@ class Container < Formula
       When starting container with `brew services`, no kernel is installed
       automatically. Install the recommended kernel before running containers:
         container system kernel set --recommended
+
+      Third-party CLI plugins now live in:
+        #{HOMEBREW_PREFIX}/libexec/container-plugins
+      and persist across upgrades (create the directory when installing your
+      first plugin). Plugins installed into an earlier keg's
+      libexec/container-plugins were removed with that keg; reinstall them
+      into the new location.
     EOS
   end
 
