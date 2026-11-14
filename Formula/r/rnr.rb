@@ -24,10 +24,9 @@ class Rnr < Formula
   end
 
   def install
-    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
 
-    deploy_dir = Dir["target/release/build/rnr-*/out"].first
+    deploy_dir = Pathname.glob("target/release/**/rnr.bash").first.dirname
     zsh_completion.install "#{deploy_dir}/_rnr"
     bash_completion.install "#{deploy_dir}/rnr.bash" => "rnr"
     fish_completion.install "#{deploy_dir}/rnr.fish"
