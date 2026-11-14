@@ -8,7 +8,7 @@ class Stdman < Formula
   head "https://github.com/jeaye/stdman.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "f963ae3a734ab713133b59a52853c12fc92aee8d2c572c8eeaba96db2ebcd249"
+    sha256 cellar: :any_skip_relocation, all: "32e372fa9a6781f4c6314b63bea66cdba18b8547bad9bbff657564217a3e1643"
   end
 
   on_linux do
