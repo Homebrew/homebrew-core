@@ -6,7 +6,7 @@ class B4 < Formula
   url "https://files.pythonhosted.org/packages/3b/89/70da0dcb6a75833a388aeb15aef12d859950793f8ce68faff757df97d1e3/b4-0.16.0.tar.gz"
   sha256 "071823a1e904508a6fd9aaf8cc2f9a92697e1dfa270000b4d1130015b56f4137"
   license "GPL-2.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     rebuild 1
@@ -37,8 +37,8 @@ class B4 < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "ezgb" do
@@ -62,8 +62,8 @@ class B4 < Formula
   end
 
   resource "pygit2" do
-    url "https://files.pythonhosted.org/packages/9c/11/592cc7854795830a7257ab6025a1fc803b58b0e7bf7d31f619bc7288ed4d/pygit2-1.20.1.tar.gz"
-    sha256 "36dff84d237f2b8f18b0b146d6e7c3f99a7bce2da98cc4103a14387f53319f95"
+    url "https://files.pythonhosted.org/packages/6a/13/f61226355815c93a2aad4f70b0d5a4df54d043a963bc51e81146623424c2/pygit2-1.21.0.tar.gz"
+    sha256 "1e987fbef899d1bf12aecc10b33acc917d60266ca114428dfc260df4451a555f"
   end
 
   resource "pynacl" do
