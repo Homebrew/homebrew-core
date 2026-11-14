@@ -4,7 +4,7 @@ class Codanna < Formula
   url "https://github.com/bartolli/codanna/archive/refs/tags/v0.17.1.tar.gz"
   sha256 "ea3cbe407e92395f670f990bd4be875685791e768a65eba1895dfd41f35b28b2"
   license "Apache-2.0"
-  revision 2
+  revision 3
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "100a39f74fb3e8e17cdb169d598cf7fd3d1c3a23e6d9cd48c9cc974b48e1096d"
