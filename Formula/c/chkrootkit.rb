@@ -12,13 +12,11 @@ class Chkrootkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0c59eb19095a5caa551fd9556edde59227317814921560526d90d709c650f94"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7dfbdc5f745b2a66bbd345dc028c0d57a08dc2aa9b4067a35d7567692d17246"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa5e193ab4b1a2bb28299ae2d89b96b22eeec68a2f63f312108fd2074461a779"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "34657f62987ff4a1fa3097a336fd102c095d0a911ac9854d39e9afe62b4971e8"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0b9645b0781169092d043005462f7b2e181b897df6815a11ddeaceb1aa139a58"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5f5f417e6d16ded63588606860a06f97d548cd331b0f5528f985a12df76a2363"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6414b28b97256b17b3c61214abc02f07d5613e42efbc26cb881620a12f33f29d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ecdd225da39eb887395d57428b3c20ed56ba3c8642ddb82b175cab6b054d73d8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd6e47897737217c4f55a31317b69f47acb3a4a8c101e88acd087c9904f36e8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70f2394b2ef2303faf7a2cb5b117e4b14876edcbe8403941ce30c0280a81174d"
+    sha256 cellar: :any,                 arm64_linux:       "142c2f512e850f2305ef89191a1396e3a97474c6c0107dbd73920ee30055ab4d"
+    sha256 cellar: :any,                 x86_64_linux:      "eb514c894f14385a006309cc4c1fef86fe76a893f8b73ec2fd98b88ca843d5e8"
   end
 
   def install
