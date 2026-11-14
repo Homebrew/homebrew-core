@@ -21,6 +21,7 @@ class Riscv64ElfGdb < Formula
   end
 
   depends_on "pkgconf" => :build
+  depends_on "texinfo" => :build
   depends_on "riscv64-elf-gcc" => :test
   depends_on "gmp"
   depends_on "mpfr"
@@ -31,17 +32,6 @@ class Riscv64ElfGdb < Formula
 
   uses_from_macos "expat", since: :sequoia # minimum macOS due to python
   uses_from_macos "ncurses"
-
-  # Workaround for https://github.com/Homebrew/brew/issues/19315
-  on_sequoia :or_newer do
-    on_intel do
-      depends_on "expat"
-    end
-  end
-
-  on_system :linux, macos: :ventura_or_newer do
-    depends_on "texinfo" => :build
-  end
 
   on_linux do
     depends_on "zlib-ng-compat"
