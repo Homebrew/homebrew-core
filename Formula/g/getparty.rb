@@ -1,8 +1,8 @@
 class Getparty < Formula
   desc "Multi-part HTTP download manager"
   homepage "https://github.com/vbauerster/getparty"
-  url "https://github.com/vbauerster/getparty/archive/refs/tags/v1.29.0.tar.gz"
-  sha256 "37906bd07ac29776699e4ecc0e5e7192744ae13ad19a35b0ed956b0893f4589b"
+  url "https://github.com/vbauerster/getparty/archive/refs/tags/v1.29.1.tar.gz"
+  sha256 "ef51a575fe9ef544dab84559ddd3adb9450c02f919e842a1e618cea854380c10"
   license "BSD-3-Clause"
   head "https://github.com/vbauerster/getparty.git", branch: "master"
 
