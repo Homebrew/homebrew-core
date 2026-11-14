@@ -1,8 +1,8 @@
 class Xberg < Formula
   desc "Extract text, tables and metadata from documents and images"
   homepage "https://xberg.io"
-  url "https://github.com/xberg-io/xberg/releases/download/v1.3.10/xberg-1.3.10.tar.gz"
-  sha256 "d38be1f2984ef2861597c1398cf0d98ec661f506cd1fb21d801071e8a67b0b30"
+  url "https://github.com/xberg-io/xberg/archive/refs/tags/v1.4.0.tar.gz"
+  sha256 "1a40d1e64dd684af8cbc002448fc7ae42338cb0a149a066bf15df9d3031724ce"
   license "MIT"
   head "https://github.com/xberg-io/xberg.git", branch: "main"
 
@@ -21,8 +21,8 @@ class Xberg < Formula
   # The tree-sitter-language-pack crate builds its query registry from this bundle
   # and would otherwise download it at build time; keep it at the version in Cargo.lock.
   resource "tree-sitter-parser-sources" do
-    url "https://github.com/xberg-io/tree-sitter-language-pack/releases/download/v1.22.1/parser-sources-1.22.1.tar.zst"
-    sha256 "2e7fbeac46ca5cfb685c53cd8a92bb606a2724b124d28c5ac7d04ef9a913d756"
+    url "https://github.com/xberg-io/tree-sitter-language-pack/releases/download/v1.25.0/parser-sources-1.25.0.tar.zst"
+    sha256 "e4872183c3758f8955c623c6103bc07261bb51553e0cd13b04e3192beb8c71f6"
 
     livecheck do
       url "https://raw.githubusercontent.com/xberg-io/xberg/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
@@ -60,7 +60,7 @@ class Xberg < Formula
   end
 
   test do
-    # xberg 1.3.10 does not search the Linuxbrew prefix for tessdata.
+    # xberg 1.4.0 does not search the Linuxbrew prefix for tessdata.
     ENV["TESSDATA_PREFIX"] = Formula["tesseract"].opt_share/"tessdata" if OS.linux?
 
     (testpath/"test.html").write <<~HTML
