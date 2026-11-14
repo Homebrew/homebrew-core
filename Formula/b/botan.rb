@@ -21,8 +21,8 @@ class Botan < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "ca-certificates"
-  depends_on "python@3.15"
+  depends_on "python@3.15" => [:build, :test]
+  depends_on "ca-certificates" => :no_linkage
   depends_on "sqlite"
 
   uses_from_macos "bzip2"
@@ -40,14 +40,20 @@ class Botan < Formula
     cause "Requires C++20"
   end
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
+
+    python_formula = Keg.for(python3).to_formula
+    python_versions = [python_formula, *python_formula.versioned_formulae].map(&:version).select { |v| v >= "3.12" }
 
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
       --with-zlib
       --with-bzip2
+      --with-python-versions=#{python_versions.map(&:major_minor).join(",")}
       --with-sqlite3
       --system-cert-bundle=#{Formula["ca-certificates"].pkgetc}/cert.pem
     ]
@@ -71,5 +77,12 @@ class Botan < Formula
     base64_enc = pipe_output("#{bin}/botan base64_enc -", text)
     refute_empty base64_enc
     assert_equal text, pipe_output("#{bin}/botan base64_dec -", base64_enc).chomp
+    system python3, "-c", <<~PYTHON
+      import botan3 as botan
+      r = botan.RandomNumberGenerator()
+      phash = botan.bcrypt('testing', r)
+      assert(phash.startswith("$2a$"))
+      assert(botan.check_bcrypt('testing', phash))
+    PYTHON
   end
 end
