@@ -9,15 +9,17 @@ class Scdl < Formula
   head "https://github.com/scdl-org/scdl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6c6295c78af2cd0d9b0a34d84a7e49fe6b740a8d4fa44fe70583bbfac25910e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "638f36ed6ed4a655cf3fc98f3e96c5d4abb05ca93dc560dfd6bed60e3f13ca4d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d763746d92bceaebaeb6d3b11e841b17cd0be86ea3c1b2397dc027e6cd9f6d32"
-    sha256 cellar: :any,                 arm64_linux:       "2c4d9334eaecee9d59b6c93cec1c4a278e32192831f284607d870dd706937c69"
-    sha256 cellar: :any,                 x86_64_linux:      "9cd7f6af1bd5f1075d77980703078ec60f5d5265ce1fe638d478926397065be9"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "8429aeee05abb6897e240abaf639ad7b5fde4294e464895ed10c49768e353848"
+    sha256 cellar: :any, arm64_tahoe:       "37ef92c2304e945065d538f60607789f1db7fa53c569ebac52a1df5152228d6a"
+    sha256 cellar: :any, arm64_sequoia:     "30c4f4ea97c2953f936e0b0ae8163574215d46955720eae25d082df2c1498e5c"
+    sha256 cellar: :any, arm64_linux:       "d04565c76a9492b45e748827ed4d064940444a6000cd06e4bb4fffe1a133002d"
+    sha256 cellar: :any, x86_64_linux:      "1fed117647c82772715475d960b0ed9506b303a3de9a94e63bf309b14ae7754b"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cffi" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "ffmpeg"
   depends_on "python@3.15"
 
@@ -89,7 +91,16 @@ class Scdl < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "curl-cffi"
+    resource("curl-cffi").stage do
+      # TODO: replace following with IMPERSONATE_BUILD_DIR / IMPERSONATE_LINK_TYPE when curl-cffi >= 0.16
+      inreplace "scripts/build.py" do |s|
+        s.gsub! 'link_type = arch.get("link_type")', 'link_type = "dynamic"'
+        s.gsub! 'libdir = Path(arch["libdir"])', "libdir = Path(\"#{formula_opt_lib("curl-impersonate")}\")"
+        s.gsub!(/^download_libcurl\(\)$/, "")
+      end
+      venv.pip_install Pathname.pwd
+    end
   end
 
   test do
@@ -98,5 +109,10 @@ class Scdl < Formula
     output = shell_output("#{bin}/scdl -l https://soundcloud.com/forss/city-ports 2>&1")
     assert_match "[download] Destination: #{testpath}/[290] Forss - City Ports.m4a", output
     assert_match "[download] 100%", output
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
