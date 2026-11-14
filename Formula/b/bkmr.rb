@@ -1,8 +1,8 @@
 class Bkmr < Formula
   desc "Unified CLI Tool for Bookmark, Snippet, and Knowledge Management"
   homepage "https://github.com/sysid/bkmr"
-  url "https://github.com/sysid/bkmr/archive/refs/tags/v8.5.0.tar.gz"
-  sha256 "5c896c16d103f3461eb1188db0cb48dbdee03c17532e4c1fc9b4b51515e68592"
+  url "https://github.com/sysid/bkmr/archive/refs/tags/v8.6.0.tar.gz"
+  sha256 "8ed0494fdc7556817b7c79a70bc5799a41ece09553812f6d6962a187c0cfe9c1"
   license "BSD-3-Clause"
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
@@ -44,7 +44,12 @@ class Bkmr < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/bkmr --version")
 
-    expected_output = "The configured database does not exist"
-    assert_match expected_output, shell_output("#{bin}/bkmr info 2>&1", 1)
+    db_url = testpath/"bkmr.db"
+    ENV["BKMR_DB_URL"] = db_url
+    system bin/"bkmr", "create-db", db_url
+    system bin/"bkmr", "add", "https://brew.sh", "homebrew", "--title", "Homebrew", "--no-web", "--no-embed"
+
+    bookmarks = JSON.parse(shell_output("#{bin}/bkmr search --json --np Homebrew"))
+    assert_equal ["https://brew.sh"], bookmarks.map { |bookmark| bookmark.fetch("url") }
   end
 end
