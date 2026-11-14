@@ -1,8 +1,8 @@
 class Maki < Formula
   desc "Efficient AI coding agent extendable by neovim-like Lua plugins"
   homepage "https://maki.sh"
-  url "https://github.com/tontinton/maki/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "f2bde26015dccddd8c5a38424959248be16fd0a5ace0944724808f5df18fad6e"
+  url "https://github.com/tontinton/maki/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "5767b6a8db7e0603834ca673a5245a080e7081e42b5f94b238a647a580425a5f"
   license "MIT"
   head "https://github.com/tontinton/maki.git", branch: "main"
 
