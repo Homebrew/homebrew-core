@@ -23,7 +23,8 @@ class Bento4 < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.15"
+
+  uses_from_macos "python"
 
   conflicts_with "mp4v2", because: "both install `mp4extract` and `mp4info` binaries"
 
@@ -35,10 +36,8 @@ class Bento4 < Formula
     system "cmake", "--install", "cmakebuild"
 
     rm Dir["Source/Python/wrappers/*.bat"]
-    inreplace Dir["Source/Python/wrappers/*"],
-              "BASEDIR=$(dirname $0)", "BASEDIR=#{libexec}/Python/wrappers"
     libexec.install "Source/Python"
-    bin.install_symlink Dir[libexec/"Python/wrappers/*"]
+    bin.write_exec_script Dir[libexec/"Python/wrappers/*"]
   end
 
   test do
