@@ -17,11 +17,11 @@ class Librsvg < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2dbc139d7818331910bf82baa442b687bbcdc0ac02d926d8e68df5e108e8ac8f"
-    sha256 cellar: :any, arm64_tahoe:       "d0ada3f1ce3dfa7308a5b9b1b3275ebe0ae58e53e5d95e4060bd2d98f657204d"
-    sha256 cellar: :any, arm64_sequoia:     "f1cd5ed8f4b70d0aaa8254735e5d60dd00216f60ce76aac9c6e3c28c4eab6089"
-    sha256 cellar: :any, arm64_linux:       "ea982f9a5d415794684a1a304ec0b75518ace7855f3ee71695784734ce344e51"
-    sha256 cellar: :any, x86_64_linux:      "1a2e5b590022e21316fb448ecaa73431c6f18de147e94141412a2cf75419f635"
+    sha256 cellar: :any, arm64_golden_gate: "4bf727a10083f030348c98b94bd1589092527c42fc119efd9b622f37287b5e33"
+    sha256 cellar: :any, arm64_tahoe:       "9e66074a308d2245eb81886bc5648dc22acbb113d80a5076bf45dd5212034239"
+    sha256 cellar: :any, arm64_sequoia:     "7cec71ffb43c1515ab1407fbc4ebee727653d71f9e5b152aa752f3e3d7a4f226"
+    sha256 cellar: :any, arm64_linux:       "efc74b2e1998f5aec882fbd293a878ba19410159d0572392fa4401e7851db27e"
+    sha256 cellar: :any, x86_64_linux:      "f7d77a97b046c52717a3247fd23ec816a44da19b8f03e50453ba4b6d7ebbec6c"
   end
 
   depends_on "cargo-c" => :build
