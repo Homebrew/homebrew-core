@@ -7,11 +7,11 @@ class Sslscan < Formula
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b27802f53be5a3c30f4fdc5fd9a6f8c3855ecc40db3bdc2040b7be04fc896dbd"
-    sha256 cellar: :any, arm64_tahoe:       "f294f2eac70d48a2bcc734d1bfddecf480e16a7be63dbd697c369bc682db51da"
-    sha256 cellar: :any, arm64_sequoia:     "07565b20f02f9bf4ad0456d1b545d0613c522baf2d8b0d7d5f632216badb2ffa"
-    sha256 cellar: :any, arm64_linux:       "7708758f152c9d20a4d637f1f292677024add1f64e25f9f909e9b4e10e249cf1"
-    sha256 cellar: :any, x86_64_linux:      "d43bfdf4fdb8dfe72c475005a9486709d41a3bd031944e86bc57798c25c0b6a1"
+    sha256 cellar: :any, arm64_golden_gate: "5affa86ca299cf3baf966cd8db948146ab031aedec56d6602682be0714c8f862"
+    sha256 cellar: :any, arm64_tahoe:       "1876b6c059d4dbb162e7461215aaf849b1e9cd85d0fb27ddda329b5b1f345cf8"
+    sha256 cellar: :any, arm64_sequoia:     "96ed176e6d46c69085bb57badaf1eebb1cc19a4b4b60630e3965a2f8e578a2da"
+    sha256 cellar: :any, arm64_linux:       "c854adf8b2d6d4e822f5555bcc8aedf964d63c499b589ca722e17f2cb5db8dfd"
+    sha256 cellar: :any, x86_64_linux:      "1afed49f567a604c638cff4b9828570add06febe8305a924aa7e374ab00c9b00"
   end
 
   depends_on "openssl@3" # TODO: OpenSSL 4 issue - https://github.com/rbsec/sslscan/issues/361
