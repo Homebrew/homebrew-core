@@ -1,8 +1,8 @@
 class Streamvbyte < Formula
   desc "Fast integer compression in C"
   homepage "https://fast-pack.github.io/streamvbyte/"
-  url "https://github.com/fast-pack/streamvbyte/archive/refs/tags/v3.2.0.tar.gz"
-  sha256 "7a9b180ef7385c023260786f3521f761066dd0eb1ea1a21890e9dce00f9c85cf"
+  url "https://github.com/fast-pack/streamvbyte/archive/refs/tags/v3.2.1.tar.gz"
+  sha256 "838195fd3347c52735f9c44922fb6e2a509fd31db40fdf892b42347548a1fe3a"
   license "Apache-2.0"
   head "https://github.com/fast-pack/streamvbyte.git", branch: "master"
 
