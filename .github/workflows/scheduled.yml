@@ -143,7 +143,9 @@ jobs:
       - name: Check formula for missing sources.
         id: fetch
         if: always() && steps.archived.conclusion != 'failure'
-        run: brew fetch --build-from-source "$FORMULA"
+        run: |
+          if [[ "$FORMULA" == portable-* ]]; then export HOMEBREW_NO_INSTALL_FROM_API=1; fi
+          brew fetch --build-from-source "$FORMULA"
 
       - name: Report fetch issues
         if: failure() && steps.fetch.conclusion == 'failure'
