@@ -10,11 +10,11 @@ class MongoOrchestration < Formula
   head "https://github.com/mongodb-labs/mongo-orchestration.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70bf33e68dbd8117c4a46adfa4ae12fa431cb302a61eb64c6ff68dd34e99d796"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b656f8b598f39ef443a9e6f0be64c2b64ddf82f1b6af2cf3df59ba12d777573"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a1c0638c5f49bf773de2feec2ee9a245f568746efff11692bd20b229a1b7f65"
-    sha256 cellar: :any,                 arm64_linux:       "5743f2477761b914f5efed3bba1a123e7f4e31efcc0ba3d06b58b035248c51a5"
-    sha256 cellar: :any,                 x86_64_linux:      "2567c35b27f20154a504f3962b4f3e2f11a3cd366839b35ac093c474fa00bb03"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9175f1e4989bb76d59c117abfb28049913917c19e8e455bb09bb35d81de7d4d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a51d6913444ee1328b36a0d5c1069d56c37fd4ce5bc4316506b555cf4e5fe91"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9134e2d7bceed0b22a94a86b9844686d6ede82809f35b0417ac5ae32539c4529"
+    sha256 cellar: :any,                 arm64_linux:       "9718d77ee7267a28df10234078881653f14a64be8fd0e7b782579ffcbd05dc49"
+    sha256 cellar: :any,                 x86_64_linux:      "2f6d9f85172ab2e98e0184a6b63bb503f8d001708b4204c406a7a63b0b18d0b2"
   end
 
   depends_on "rust" => :build
