@@ -7,6 +7,10 @@ class GlobusCli < Formula
   sha256 "44881798eeeff7c41a56997c48c7d0de4ba9ac3149cbdd5125f4dfea43d6375a"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "89ca8b216e03917813554bbda7b4e3d27ae22e6a7fee9478d9a61beb06d4a939"
+  end
+
   depends_on "certifi"
   depends_on "cryptography"
   depends_on "python@3.15"
