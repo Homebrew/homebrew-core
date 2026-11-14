@@ -4,8 +4,8 @@ class DosboxStaging < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.83.0.tar.gz"
-    sha256 "9b36be5a666784adaeffa560bd0950691f851a76bdb97e7ae3c989561e91caf3"
+    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.83.1.tar.gz"
+    sha256 "14c3703369e56125a425aea8ebb1a425823df58f9769f3e48b1b8ebbf2c6cf09"
 
     depends_on "sdl2-compat"
     depends_on "sdl2_image"
