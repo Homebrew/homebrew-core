@@ -6,12 +6,11 @@ class Findomain < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13657fc94b60b68fa80b2d393b81c93b5d9a7d975fb9205e4d5e6ab84b5a34bf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d74ab905a19e5eb0aae6e1495eb4248bc5738b246592e8a252ea3c2c53a18e12"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb6018f90ef362ab606375f48eb14516c5f7db69131aa0ff32a1de64e4d1e3b4"
-    sha256 cellar: :any,                 arm64_linux:       "fe80de3650973d0fcb15d36e2c842f0d7e2e3a2f227a7be84c6a2096ea8cbe65"
-    sha256 cellar: :any,                 x86_64_linux:      "6344045ce12069850d94066dace6654b38e044c4c028366cdc9e162254fc8eba"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3321a65a560efa9801056d89881b9662cc75bad21a992025bbbbc7b9930de505"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9541c07dd2376b7868b42b8a3ab8ca42ed54ac83aa3131113a16cba58a299ea0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a1d4a583b73e43f77cc80821d7c3e215d0d5f571b91ec548eceedd33307593c0"
+    sha256 cellar: :any,                 arm64_linux:       "8abbe284f76a9e4b071505cf6b9d1238a8e5a97901cea73b04183ee6bac71872"
+    sha256 cellar: :any,                 x86_64_linux:      "91a850e0c8f9e23ef35c7010106a5a254d54d1b978e4b2eefc630d0c39315988"
   end
 
   depends_on "openssl@4" => :build
