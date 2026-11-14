@@ -32,9 +32,7 @@ class Broot < Formula
     end
     man1.install "man/page" => "broot.1"
 
-    # Completion scripts are generated in the crate's build directory,
-    # which includes a fingerprint hash. Try to locate it first
-    out_dir = Dir["target/release/build/broot-*/out"].first
+    out_dir = Pathname.glob("target/release/**/broot.bash").first.dirname
     fish_completion.install "#{out_dir}/broot.fish"
     fish_completion.install "#{out_dir}/br.fish"
     zsh_completion.install "#{out_dir}/_broot"
