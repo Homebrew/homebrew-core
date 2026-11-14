@@ -6,7 +6,7 @@ class GraphqlInspector < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c1d39a24f90d6f2fece91d3eb7592cba73223f586b18598f233b7a9872bce092"
+    sha256 cellar: :any_skip_relocation, all: "f56281f8281e30e178570e83721a7e762f142da2b107fc40bbd9c2cbaf508994"
   end
 
   depends_on "node"
