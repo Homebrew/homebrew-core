@@ -29,7 +29,7 @@ class Ripsecrets < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    out_dir = Dir["target/release/build/ripsecrets-*/out"].first
+    out_dir = Pathname.glob("target/release/**/ripsecrets.bash").first.dirname
     bash_completion.install "#{out_dir}/ripsecrets.bash" => "ripsecrets"
     fish_completion.install "#{out_dir}/ripsecrets.fish"
     zsh_completion.install "#{out_dir}/_ripsecrets"
