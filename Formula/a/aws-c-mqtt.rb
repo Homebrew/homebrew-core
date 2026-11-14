@@ -13,11 +13,11 @@ class AwsCMqtt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6df04fc9dbd5702e0c68a6e7accb0d00b02f950fbed688dcd8e97652940c3561"
-    sha256 cellar: :any, arm64_tahoe:       "d26778a778841ca6f466e9ba0b28940a204b1949d70e7f9534a91733f7b1247d"
-    sha256 cellar: :any, arm64_sequoia:     "3b3e93d6bd065a792742aabf989f2d59b5d2dd263edc9d3229422b04bcdb4ae1"
-    sha256 cellar: :any, arm64_linux:       "2a0c7ae38527e71172beaee070be797c820271ac0a510e2cf5c9148ff269f154"
-    sha256 cellar: :any, x86_64_linux:      "eebbd1b74f491a41a757afae94065607710a07b72c5ad1f1f851bd12377e01d5"
+    sha256 cellar: :any, arm64_golden_gate: "12861229e5032c021709f27ec9772b3cc92b0f44e098ded1d41259e455cabe92"
+    sha256 cellar: :any, arm64_tahoe:       "c7fa8442bf50bbd1f62005f902910749d75d13815b957168d52e4124b75fccbf"
+    sha256 cellar: :any, arm64_sequoia:     "907510ac98e9e738e0126ccee6eec457583ae5d9cc2c58eab5977737fa9b434d"
+    sha256 cellar: :any, arm64_linux:       "1718dce9451409aa4633ef1e0acb6b06fea3da86d0af35c4d49904612b8a7a4a"
+    sha256 cellar: :any, x86_64_linux:      "d8396d06a2f1f8779f880ad9f3e875573d8b7dd0f2ed73f889b98163063ba05f"
   end
 
   depends_on "cmake" => :build
