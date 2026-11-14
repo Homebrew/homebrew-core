@@ -10,12 +10,11 @@ class Octodns < Formula
   head "https://github.com/octodns/octodns.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "0e0149174e989daba28ef155f86e6900db3a260fec5bb72dc0928b29a8fe49ed"
-    sha256 cellar: :any, arm64_tahoe:       "deb426dc5ff850c1432d15a72578894680371462b1925aa00a1dbb18a2ea77c4"
-    sha256 cellar: :any, arm64_sequoia:     "e3d2f7d1040cd2b8f38dce3da43fbadeb9ad06a760261bc511fe946f6d7a6295"
-    sha256 cellar: :any, arm64_linux:       "6e375fe6bc5f66c2b5843a0a3b27d88196190ff07c4228e98f1e7d87adb4e3e7"
-    sha256 cellar: :any, x86_64_linux:      "f38acc5f9cfa938a553887047edf78a19fd39fbf0745ae759d2dd17e6cc3bbf0"
+    sha256 cellar: :any, arm64_golden_gate: "a607178fb1a7aaced381219620ad9071fa884bf8f6a902e49051a1ef0a9bd835"
+    sha256 cellar: :any, arm64_tahoe:       "e11effc2a17845539fabc8276b03b4b5f03e21ed2867dfb68370e596396fd08e"
+    sha256 cellar: :any, arm64_sequoia:     "70f594d225c9b4026ee02cf6c39c7aff64893847368931a78e210403396c7796"
+    sha256 cellar: :any, arm64_linux:       "2290656400a7b312f06e1dd73810a1b2846d234b96930af46a788292849b539c"
+    sha256 cellar: :any, x86_64_linux:      "cf06ef0095f8e086a3c3987a383559458e25b7e4a12cc72114f73e8ce88eb3b1"
   end
 
   depends_on "rust" => :build # for dnspython > uv_build > maturin
