@@ -9,11 +9,11 @@ class Tubeup < Formula
   revision 4
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3c97bb5ad286010905db69e9088cf8dbed7f788c7f450fcd84af86c197cb88c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52ec32dde267a6b5b4d71e1fa7f237be9b863dc4be98fa49b2bd27cfbb73e7f5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f110f568b590461c5d7235fcb9dcbe876d9e73ac52c6effa0553d9650419445e"
-    sha256 cellar: :any,                 arm64_linux:       "93038067c961f273b19cc179bbbb4197b7d209406ede52c061bc736633a3f5e5"
-    sha256 cellar: :any,                 x86_64_linux:      "331aa02cebf59bc76548740f29b5e1122ef228d516afc5c71a3f073097ab560e"
+    sha256 cellar: :any, arm64_golden_gate: "7dfd819f4da560d642739a5765cce82afd5c637ebe4c9e07ab7a7789426ca84d"
+    sha256 cellar: :any, arm64_tahoe:       "f9f9e19e2e703eb739a554fb8eee01829c23fdfb20f7accc5dca875700350e26"
+    sha256 cellar: :any, arm64_sequoia:     "f6e7352e045199021a42e204d101c551477831db84d783f3bd13a19ddfe9cbaf"
+    sha256 cellar: :any, arm64_linux:       "c1e5f8c823e035f3cc4457be22aae5efeaf7afe79bc8a1f3673cabe1d89e9023"
+    sha256 cellar: :any, x86_64_linux:      "01bdb98f1c601d2c38e3850c36af718ae1e2b7c4b250d5784d5c8c3a37d101e7"
   end
 
   depends_on "node" => :build
