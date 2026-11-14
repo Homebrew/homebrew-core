@@ -26,6 +26,14 @@ class Fish < Formula
   depends_on "sphinx-doc" => :build
   depends_on "pcre2"
 
+  # Fix inline install code parsing with CMake 4.5.
+  patch do
+    url "https://github.com/chenrui333/fish-shell/commit/33502c2cc0c38ccfea820dbe364858273ef70fa8.patch?full_index=1"
+    sha256 "63f6db1de990fec0d60dcb8b1365c96fa09dd39e40fd649e33358373ec3474f6"
+    type :unofficial
+    resolves "https://github.com/fish-shell/fish-shell/pull/13097"
+  end
+
   deny_network_access!
 
   def fetch
