@@ -10,11 +10,11 @@ class Sigstore < Formula
   head "https://github.com/sigstore/sigstore-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "53397ffcaeb12ffd2f6f049d96dea189b3151bc736a9fd5858ce3e968bf5dfe4"
-    sha256 cellar: :any, arm64_tahoe:       "25e434e85a8461aa7ddad24f4027169ada16dd9e6859341a71895831beab6a13"
-    sha256 cellar: :any, arm64_sequoia:     "e5c0f93c9c5e2d1e7d1aa5f0d11ff46085d66099f1b83e6f8a1f517b4f015ed9"
-    sha256 cellar: :any, arm64_linux:       "386e5f16a81809a06c081b6c87db012df3a887b266431eb9be634cb5e06b5001"
-    sha256 cellar: :any, x86_64_linux:      "ad0637b7291604210834a13d71fd0adf5a56f39acaa28e201c00358a1605da6a"
+    sha256 cellar: :any, arm64_golden_gate: "b9c83c1e6d60a398c3fd8f7257a8cbc299ef5addb8915bcd1cc07b1665796110"
+    sha256 cellar: :any, arm64_tahoe:       "92695912ecad75ce9aa06d23f13e758c6a477867ee2732f07ed34284b03ef8a5"
+    sha256 cellar: :any, arm64_sequoia:     "5ecd75fb6ddc3e82c37bc7d43da38db5dbe1158e955b9ed71cab2d1a87f4d31f"
+    sha256 cellar: :any, arm64_linux:       "0c55b65ad5418771d8888faf077f9e83e78811903528f49cb8afe046362bef98"
+    sha256 cellar: :any, x86_64_linux:      "62c2458588b8e8dc82fb71e807f1c26d11d1141455c67673a62a97ec38d2be77"
   end
 
   depends_on "pkgconf" => :build # for rfc3161-client
