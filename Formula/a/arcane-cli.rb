@@ -1,8 +1,8 @@
 class ArcaneCli < Formula
   desc "Command-line client for the Arcane Docker management platform"
   homepage "https://getarcane.app"
-  url "https://github.com/getarcaneapp/arcane/archive/refs/tags/v2.17.3.tar.gz"
-  sha256 "03c2d51bc4db6e512612dd39220f0a7003cffff2c6b151cb4f1fe633d5f24c5a"
+  url "https://github.com/getarcaneapp/arcane/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "ecd7ed6b9650e121712187dc88788a4f9cece6413216084d917482a48b4771b0"
   license "BSD-3-Clause"
   head "https://github.com/getarcaneapp/arcane.git", branch: "main"
 
