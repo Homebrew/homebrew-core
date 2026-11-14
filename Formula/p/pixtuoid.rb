@@ -7,11 +7,11 @@ class Pixtuoid < Formula
   head "https://github.com/IvanWng97/pixtuoid.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eafbcb1f07367672bf9c9d8f459ad58489f0254747d8032afe396652d46f112f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0853c8bf2c552b3fc5c0c2d680adb970b9f56784129f2e60f5c8c95b1aed2d00"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2639c09bbbbd1c94550fb56937a37f86cfc9786488e710c1e8c90fea673a1b2b"
-    sha256 cellar: :any,                 arm64_linux:       "290e8549ca81076f871a0f6eaa0e4a4a661a34a845bd3dcb15f3ea9b7efdf8f6"
-    sha256 cellar: :any,                 x86_64_linux:      "44dc5f45cc8f22aa6f0c179a871e15ec4fa90e1b7ae5a1cc491161bcc40ed319"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78a5b627934836eced24c5ef93313bbb2e1740f4b84fb8cff18fb7e87faf2b08"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "84713a894c0a5479b576a095171c6cf2b57531723ceb24ef3b2e504df5b47b5f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5dedcdb33bb7c14212c0232b1a5d9ce8298c3f0b2767f78f498d721a27bf9fa4"
+    sha256 cellar: :any,                 arm64_linux:       "dbf45f8ccf4926c545949e131ebe88d69c3c2921613d8d3186030c5dd41101bd"
+    sha256 cellar: :any,                 x86_64_linux:      "7ba2216f36a9cb0ad11ebf605a27115a1a051f61f78e2fcb0c6ba0a5ad1f1efb"
   end
 
   depends_on "pkgconf" => :build
