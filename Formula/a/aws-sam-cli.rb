@@ -6,14 +6,15 @@ class AwsSamCli < Formula
   url "https://files.pythonhosted.org/packages/3e/de/0dbaf8ad33f527fcfa03602e8c4d428f94ae2b9c9c806bb30b4a65c4d11f/aws_sam_cli-1.172.1.tar.gz"
   sha256 "621988d1ce586dde0edd2531cd7d9e797a48f1d6336700a2e5d0a5d7f136e63b"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/aws/aws-sam-cli.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ba2da666b9510a7aee714b4f4230d827efbedd1b04c34ab51d8e576d5d4b0c8c"
-    sha256 cellar: :any, arm64_tahoe:       "88f482db8c6751fa01b4d67eaabb3c3f6a617b696f7fb125308d3da692e7c512"
-    sha256 cellar: :any, arm64_sequoia:     "7c33621ed8a35a264dfe9370a99501fbb92d44b0a3b2f5ebc36e6bf3d177204e"
-    sha256 cellar: :any, arm64_linux:       "e470770f3acf3782e2f8ac2739eff05223724f37d3032ab2d6f80e485e53f9d3"
-    sha256 cellar: :any, x86_64_linux:      "5338a8c26ff9cc830d737836bc048be9ca49b7663bcb2f8e720fb5d01a37cb2f"
+    sha256 cellar: :any, arm64_golden_gate: "905e3dd525e0770f96bf754a1dfcb1f1f891cc48e91c1811b4cb71f47784fc04"
+    sha256 cellar: :any, arm64_tahoe:       "90b88ab4b340ae726fcff013f35e7c2ee19f2e34d5ac1216aa6ac1474eb836e7"
+    sha256 cellar: :any, arm64_sequoia:     "47da6854cf0d8fad16d1de9ee65741bbd62ac40949fe0736d2405b6885edbc83"
+    sha256 cellar: :any, arm64_linux:       "3ef1f250863e63160a5fa5b190d991b10b655a06c0b1e0a067edb0795270fbe5"
+    sha256 cellar: :any, x86_64_linux:      "4d554089b1c27c7e4740c625bae4552ff7895f8e44f33effacabb2f2d31ceb92"
   end
 
   depends_on "go" => :build
