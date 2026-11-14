@@ -12,8 +12,8 @@ class Flawfinder < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "4f7e464f8d42bfbcfb5594c7fed90da8cf538ed88a7490d66fad1df09f5f8925"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "aa87731edffcda8ecab4d8338635f5dff27567eab1bea3ec4e2c8f56f5153d9b"
   end
 
   uses_from_macos "python"
