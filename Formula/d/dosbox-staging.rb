@@ -4,8 +4,8 @@ class DosboxStaging < Formula
   license "GPL-2.0-or-later"
 
   stable do
-    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.83.0.tar.gz"
-    sha256 "9b36be5a666784adaeffa560bd0950691f851a76bdb97e7ae3c989561e91caf3"
+    url "https://github.com/dosbox-staging/dosbox-staging/archive/refs/tags/v0.83.1.tar.gz"
+    sha256 "14c3703369e56125a425aea8ebb1a425823df58f9769f3e48b1b8ebbf2c6cf09"
 
     depends_on "sdl2-compat"
     depends_on "sdl2_image"
@@ -38,12 +38,11 @@ class DosboxStaging < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256               arm64_golden_gate: "2bf1cf1ffac1ac74860404bd384a5fbdd4ea5e83c27c1324aa9fdce8e9c805d7"
-    sha256               arm64_tahoe:       "e3abf6810ce748014c281388af63c0fa24a6ce494ec67e0f752054563245b04e"
-    sha256               arm64_sequoia:     "c466cd01624d5b416a0205783c8d5c50d8ffcc93501ff8a5e5a397ded8c42d8b"
-    sha256               arm64_linux:       "38271f126184b3824f19574085623128b8081eb4f3383e4ab3fc6d29d88c7906"
-    sha256 cellar: :any, x86_64_linux:      "d38d15d8d2ee472b83bb102b9c813f8ca37cdcad8726e40f37db44a2683ba77a"
+    sha256               arm64_golden_gate: "93b9bd92c7182805a4911405e98506a9545ddd467be6fcc8869c921f3fd81958"
+    sha256               arm64_tahoe:       "30ad9bc41600692e66ceb028a6bc3f89c69ec1a5460a5f676487cd2e8fa9e989"
+    sha256               arm64_sequoia:     "dc81c0f9d57b86249c4f2791a673193f3e91f211e5f2d88b934f0ca92c408c00"
+    sha256               arm64_linux:       "5710e350f973467687852c393ee0a7799f8bdabd791ba3dca19bf69755566869"
+    sha256 cellar: :any, x86_64_linux:      "3f5363d60b86a0daa908417805b513ee00ff05339b4f4e7285c0ba6e202514b7"
   end
 
   head do
