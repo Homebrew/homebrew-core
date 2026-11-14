@@ -8,11 +8,11 @@ class PandocCrossref < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "40055739827ce7268fb094e894dd6c717df224a5d7f14db76ea3ffbaa256e26c"
-    sha256 cellar: :any, arm64_tahoe:       "cc2d2cc96012d76a2df53d51e0cdb06eedf205745055ba6e2b88d2f9b9cdfcb7"
-    sha256 cellar: :any, arm64_sequoia:     "16d3ba470cdb85d60094be727ee974391a852fa35f37c5d1750ae1aa6b4c20e7"
-    sha256 cellar: :any, arm64_linux:       "dc949778c90c942fe81fd7e04fd2ba957ab7180cada566637d00f55d056b11a6"
-    sha256 cellar: :any, x86_64_linux:      "95bb6da0527fa0c6ce287c828ee21e5e60a2d020b9577b9265c01d1df6ec917d"
+    sha256 cellar: :any, arm64_golden_gate: "74cd8696e6620b2aaaec1849704b3f9ce7d8f67eaaca7793b099cf4b56615ee0"
+    sha256 cellar: :any, arm64_tahoe:       "8d7f71cb31f0e0546588b280f84cde52adbcf911e8403aa725bf0119bcbb7993"
+    sha256 cellar: :any, arm64_sequoia:     "0c4f7d51ea1cc61510da16c51da816dc844854027d28901424ab5894ca844c28"
+    sha256 cellar: :any, arm64_linux:       "2fd8e9550cb579cadc6125de944fd34865c4f95593bed765c76bf44ef3c1c3fc"
+    sha256 cellar: :any, x86_64_linux:      "c9c3f0b0d59789d55f3df6e1d8eba8d668821b30062e944388028e6b241acc2d"
   end
 
   depends_on "cabal-install" => :build
