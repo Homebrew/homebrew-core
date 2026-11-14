@@ -6,13 +6,12 @@ class Rnr < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3e7fd3dbf0f94e87345df10b74f78576fc293cb757cfae859693e014f898bb5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ead696a12421df3d41baad88405def5ace489769f59ca597146b27bf5a3b9f07"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ffd7d93cb60c90658d09a1c81981b1e37d4e196e432bf771b349de3c1edbbe3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "de6e20a87a8b0319cf786bf22beb5b85b2462a54d1047ee08414700402a8de8c"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3dc55b0e9239aada148995c0ddb203e1fa8d1e2688e621893bb6b3cd67216dcd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9908bcc18e433a4ac843f67803728012f0b7aee2ea270c8551122fe63ce73074"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "bbfe77cc0171480691cfda7170ece2125a3ea477f766e9aa7a0dd82d69745390"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b02c6eb19e40e1f7e4b36bc0faf1d1f77592258b89dcb0ba15563a6aa0d31fdc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "35316f34e9c60a278d5179f0d05d729b2c9ae5cf85bb43223898467b3a41f177"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2264df39b495fb1648d1713ce8948d7a9c6465371b87734d458108a45f2a9c03"
+    sha256 cellar: :any,                 arm64_linux:       "fc01a3bf8d09ef3988e800d60ed5d30d44d4201bfc2eabc55c561c7e95c12ef4"
+    sha256 cellar: :any,                 x86_64_linux:      "eb115bed9abf5c8d80eb866202660e120eaeedd4d2e63455b291afead6dc3afb"
   end
 
   depends_on "rust" => :build
@@ -24,10 +23,9 @@ class Rnr < Formula
   end
 
   def install
-    ENV["SHELL_COMPLETIONS_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
 
-    deploy_dir = Dir["target/release/build/rnr-*/out"].first
+    deploy_dir = Pathname.glob("target/release/**/rnr.bash").first.dirname
     zsh_completion.install "#{deploy_dir}/_rnr"
     bash_completion.install "#{deploy_dir}/rnr.bash" => "rnr"
     fish_completion.install "#{deploy_dir}/rnr.fish"

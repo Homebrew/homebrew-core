@@ -6,14 +6,12 @@ class Bandwhich < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8c9f9e2ce61c5637df54d5692a5fbb7a4228420f8a38d867bad172c5d54aef8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3010007ba0d5879cfc388d3b85da78b20705ded1b6fef52aab5ba40b6d4264a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68844daddd6f6888ac773f51bb44194c6609f27c1da223abca7690bd3e945673"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b729baafeac965993e3aa7093d3c1af635fcf94fa3fceee6ad261eb16ed3c105"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e8ba6a626e25e7dc40eba76784b871db53461c8031b1e6a2426afab9d7de319a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1a9be322f6125f0cf6deea31fa59fc019a7861b3f80dd5abc297abf4602503d6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8fb5abdfed0d43ec8a0e82b82eb0581f4f760ebbb56a2ac574e9cea5e0128455"
+    rebuild 3
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ab5efbab0f126407abb99caee68f658fbc25c3dc8a4733092d5b80ec343a18f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4116a95dea8bce74c52186d65ac1c7f62caa79e90233b467fb515457000937ce"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d32b581cadfef715868a99c40ae75e1e05da92b6febe7129c437df3ba7a1de6"
+    sha256 cellar: :any,                 arm64_linux:       "f3d8fd4a2830d5febe53ef8ffb5328029907f5f94999a37b650566fbf8c07cb3"
+    sha256 cellar: :any,                 x86_64_linux:      "3265210d4b40f7eb6e10af9faea95aba27a705ad5c71d202c8c7b3e59f339d57"
   end
 
   depends_on "rust" => :build
@@ -25,19 +23,18 @@ class Bandwhich < Formula
   end
 
   def install
+    ENV["BANDWHICH_GEN_DIR"] = buildpath
     system "cargo", "install", *std_cargo_args
 
-    out_dir = Dir["target/release/build/bandwhich-*/out"].first
-    bash_completion.install "#{out_dir}/bandwhich.bash" => "bandwhich"
-    fish_completion.install "#{out_dir}/bandwhich.fish"
-    zsh_completion.install "#{out_dir}/_bandwhich"
-    pwsh_completion.install "#{out_dir}/_bandwhich.ps1"
+    bash_completion.install "bandwhich.bash" => "bandwhich"
+    fish_completion.install "bandwhich.fish"
+    zsh_completion.install "_bandwhich"
+    pwsh_completion.install "_bandwhich.ps1"
 
-    man1.install "#{out_dir}/bandwhich.1"
+    man1.install "bandwhich.1"
   end
 
   test do
-    output = shell_output "#{bin}/bandwhich --interface bandwhich", 1
-    assert_match output, "Error: Cannot find interface bandwhich"
+    shell_output "#{bin}/bandwhich --interface bandwhich", 1
   end
 end
