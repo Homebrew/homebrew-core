@@ -14,11 +14,11 @@ class GitAnnex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4e3ed64d5582d8a73ad222660c3910ba40e5a3cbe6b5fb37edbc89cdd78844c7"
-    sha256 cellar: :any, arm64_tahoe:       "839897bf215b26c66da439dcb97b0d6d9190c697fd0e55eea5f4b1c3064ebc69"
-    sha256 cellar: :any, arm64_sequoia:     "e04a6e5708540a71fd32b45a5f6a2e87ef60a1b1ac10f450b96dd63ea78f0d26"
-    sha256 cellar: :any, arm64_linux:       "446e318dcc3fa2469d398c896792b1edb52bc363ec7fd3e4a9ed5286232a87ae"
-    sha256 cellar: :any, x86_64_linux:      "9ed32ab3ca84b6d0728d5d835336185d8af39d88eb408abac52dfc5a1fc23af2"
+    sha256 cellar: :any, arm64_golden_gate: "5870628a5177615b720b4e1b1102b934ac140aec215716528a8d608652938097"
+    sha256 cellar: :any, arm64_tahoe:       "1ee06c09237ee1978fa8fd531bd12037b166f263a9a5530965732b404eea5756"
+    sha256 cellar: :any, arm64_sequoia:     "67e2b9fb3dfe3bf0a682a94d4438480024bb4aed0ce173e0af8abb261387b548"
+    sha256 cellar: :any, arm64_linux:       "63270c366167b5267521fc94878d9f0adabca972e9cd5c60d8559eae82025001"
+    sha256 cellar: :any, x86_64_linux:      "e3246fe345ee194002df73c6d924b9803ba54b40cebceef74ba732da898df4b8"
   end
 
   depends_on "cabal-install" => :build
