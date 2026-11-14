@@ -50,6 +50,11 @@ class Watchman < Formula
   end
 
   def install
+    # Match the F14 ABI in bottled Folly instead of compiling for the host CPU.
+    if OS.linux? && Hardware::CPU.intel? && Tab.for_formula(Formula["folly"]).built_as_bottle
+      ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}"
+    end
+
     # Drop the `GlobPath` C++ type as its GPL-2.0 header is not mirrored to this repository
     # https://github.com/facebook/watchman/issues/1355
     inreplace "eden/fs/service/eden.thrift" do |s|
