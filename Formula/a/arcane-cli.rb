@@ -1,8 +1,8 @@
 class ArcaneCli < Formula
   desc "Command-line client for the Arcane Docker management platform"
   homepage "https://getarcane.app"
-  url "https://github.com/getarcaneapp/arcane/archive/refs/tags/v2.17.3.tar.gz"
-  sha256 "03c2d51bc4db6e512612dd39220f0a7003cffff2c6b151cb4f1fe633d5f24c5a"
+  url "https://github.com/getarcaneapp/arcane/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "ecd7ed6b9650e121712187dc88788a4f9cece6413216084d917482a48b4771b0"
   license "BSD-3-Clause"
   head "https://github.com/getarcaneapp/arcane.git", branch: "main"
 
@@ -29,14 +29,14 @@ class ArcaneCli < Formula
 
     # Homebrew manages upgrades, so drop the self-update command
     inreplace "cli/pkg/root.go" do |s|
-      s.gsub! "\t\"github.com/getarcaneapp/arcane/cli/v2/pkg/selfupdate\"\n", ""
+      s.gsub! "\t\"getarcane.dev/cli/v3/pkg/selfupdate\"\n", ""
       s.gsub! "selfupdate.Command(), ", ""
     end
 
     cd "cli" do
       ldflags = %W[
-        -X github.com/getarcaneapp/arcane/cli/v2/internal/config.Version=#{version}
-        -X github.com/getarcaneapp/arcane/cli/v2/internal/config.Revision=#{tap.user}
+        -X getarcane.dev/cli/v3/internal/config.Version=#{version}
+        -X getarcane.dev/cli/v3/internal/config.Revision=#{tap.user}
       ]
       system "go", "build", *std_go_args(ldflags:)
     end
@@ -54,6 +54,6 @@ class ArcaneCli < Formula
     output = shell_output("#{bin}/arcane-cli --config #{config} version 2>&1")
     assert_match "authentication is not configured", output
 
-    assert_match(/^ENCRYPTION_KEY=\h{64}$/, shell_output("#{bin}/arcane-cli generate secret --format hex"))
+    assert_match(/^ARCANE_ENCRYPTION_KEY=\h{64}$/, shell_output("#{bin}/arcane-cli generate secret --format hex"))
   end
 end
