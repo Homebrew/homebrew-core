@@ -4,6 +4,7 @@ class Libxc < Formula
   url "https://gitlab.com/libxc/libxc/-/archive/7.1.2/libxc-7.1.2.tar.bz2"
   sha256 "3915fac94416e4c415534223ea492ad2663f928acf27e98662c861b094a6c306"
   license "MPL-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -22,8 +23,7 @@ class Libxc < Formula
   def install
     args = %w[
       -DENABLE_FORTRAN=ON
-      -DDISABLE_KXC=OFF
-      -DDISABLE_LXC=OFF
+      -DMAXORDER=4
       -DBUILD_SHARED_LIBS=ON
     ]
     # Workaround to build with CMake 4
