@@ -18,6 +18,7 @@ class Scdl < Formula
 
   depends_on "certifi" => :no_linkage
   depends_on "cffi" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "ffmpeg"
   depends_on "python@3.15"
 
@@ -89,7 +90,16 @@ class Scdl < Formula
   end
 
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_install_with_resources without: "curl-cffi"
+    resource("curl-cffi").stage do
+      # TODO: replace following with IMPERSONATE_BUILD_DIR / IMPERSONATE_LINK_TYPE when curl-cffi >= 0.16
+      inreplace "scripts/build.py" do |s|
+        s.gsub! 'link_type = arch.get("link_type")', 'link_type = "dynamic"'
+        s.gsub! 'libdir = Path(arch["libdir"])', "libdir = Path(\"#{formula_opt_lib("curl-impersonate")}\")"
+        s.gsub!(/^download_libcurl\(\)$/, "")
+      end
+      venv.pip_install Pathname.pwd
+    end
   end
 
   test do
@@ -98,5 +108,10 @@ class Scdl < Formula
     output = shell_output("#{bin}/scdl -l https://soundcloud.com/forss/city-ports 2>&1")
     assert_match "[download] Destination: #{testpath}/[290] Forss - City Ports.m4a", output
     assert_match "[download] 100%", output
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
