@@ -1,8 +1,8 @@
 class Dockerfmt < Formula
   desc "Dockerfile format and parser. a modern dockfmt"
   homepage "https://github.com/reteps/dockerfmt"
-  url "https://github.com/reteps/dockerfmt/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "9e631544b9cdc1fda8c0380749ecb37a45574762b0e2ccbb17d7d93d66f46cd0"
+  url "https://github.com/reteps/dockerfmt/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "3bbed8d06a049bac352cbb06b7a369439578896f63a6995d1ac6b52c7b7fed52"
   license "MIT"
   head "https://github.com/reteps/dockerfmt.git", branch: "main"
 
@@ -31,10 +31,13 @@ class Dockerfmt < Formula
     assert_match version.to_s, shell_output("#{bin}/dockerfmt version")
 
     (testpath/"Dockerfile").write <<~DOCKERFILE
-      FROM alpine:latest
+      from alpine:latest
+      run   echo hi
     DOCKERFILE
 
-    output = shell_output("#{bin}/dockerfmt --check Dockerfile 2>&1", 1)
-    assert_match "Dockerfile is not formatted", output
+    shell_output("#{bin}/dockerfmt --check Dockerfile", 1)
+    system bin/"dockerfmt", "--write", "Dockerfile"
+    assert_equal "FROM alpine:latest\nRUN echo hi\n", (testpath/"Dockerfile").read
+    system bin/"dockerfmt", "--check", "Dockerfile"
   end
 end
