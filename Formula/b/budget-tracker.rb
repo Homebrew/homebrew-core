@@ -7,11 +7,11 @@ class BudgetTracker < Formula
   head "https://github.com/Feromond/budget-tracker-tui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25b6dd0b8d9db5c84048cc9ac0888801d653fccd53fbd4ec85f92a6b64724a44"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4cb472fa4dd475a4d679943be3d735548e496a52a5ca7c0e3d7a92b52bc3682"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e75eac56c4b3fc457460cd76e9cb6f3f003483e8df443f9f624035c5efb93fbd"
-    sha256 cellar: :any,                 arm64_linux:       "9be48669061adc2d1c917f2418b73bc0ea26b055bd345e56bbcf3c1b9459c2a6"
-    sha256 cellar: :any,                 x86_64_linux:      "ce0086ca597ea2c52c34a2d441c682efa69beee2a2fc8dd8e8bd20f835e7fe99"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "466d09481ea98e1fb853183ac34d7dd5660f5dad15360976e888b8b7b85415e1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a78c44f92c20db8fa11120ad83a4a5311deb2e27da2b2ba426ead9b3d4a072fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "193f228724eb8f383b65f2209708eef997f62748a6e6f302a46f4109ef4142f0"
+    sha256 cellar: :any,                 arm64_linux:       "c01fa0f215a4d2ca6e2c364341a5d71e7678c1ad29e9f1f2530d4e706d1c5e5f"
+    sha256 cellar: :any,                 x86_64_linux:      "a2d0c9e1ad40f2b5a6805bbfeda23f5a3f7059d3a8f46e479f27fc4ea5e1a801"
   end
 
   depends_on "rust" => :build
