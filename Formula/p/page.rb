@@ -30,7 +30,7 @@ class Page < Formula
   def install
     system "cargo", "install", *std_cargo_args
 
-    asset_dir = Dir["target/release/build/page-*/out/assets"].first
+    asset_dir = Pathname.glob("target/release/**/page.bash").first.dirname
     bash_completion.install "#{asset_dir}/page.bash" => "page"
     zsh_completion.install "#{asset_dir}/_page"
     fish_completion.install "#{asset_dir}/page.fish"
