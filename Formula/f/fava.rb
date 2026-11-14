@@ -49,7 +49,7 @@ class Fava < Formula
 
     # Avoid a scanner helper collision with newer Flex releases.
     patch do
-      url "https://github.com/chenrui333/beancount/commit/8839ae63bef0e42204c0447cc083e10fd0bf8300.patch?full_index=1"
+      url "https://github.com/beancount/beancount/commit/8839ae63bef0e42204c0447cc083e10fd0bf8300.patch?full_index=1"
       sha256 "5626eb7e2473d6d153b374f697210107225aa926096139be2c888a94e18b0fe5"
       type :unofficial
       resolves "https://github.com/beancount/beancount/pull/1072"
