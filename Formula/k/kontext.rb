@@ -7,7 +7,7 @@ class Kontext < Formula
   head "https://github.com/kontext-security/kontext.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "efeecc129170bb0dd07c10cc737f17b66484099f0dc598185a1a221722934107"
+    sha256 cellar: :any_skip_relocation, all: "bd9bf4660edb5bab760d057569429f8c30c5731b7cbbaedc5d53d251c6ea180e"
   end
 
   depends_on "go" => :build
