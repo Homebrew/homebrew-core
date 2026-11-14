@@ -3,16 +3,16 @@ class Fastapi < Formula
 
   desc "CLI for FastAPI framework"
   homepage "https://fastapi.tiangolo.com/"
-  url "https://files.pythonhosted.org/packages/77/f6/d4b619efeaeaf7209a89142217c9d4f1c583520905257332aa5b2a499152/fastapi-0.162.6.tar.gz"
-  sha256 "a530213b59ad47d96d1b64fcf8b7bf9317128a6bdddde9d9ad05f9ae75d57ca9"
+  url "https://files.pythonhosted.org/packages/ea/82/6b9764e52f89a8aaf68a5005093bcb8fdcadcb6ba30571def786c0d3bfc0/fastapi-0.162.7.tar.gz"
+  sha256 "b7503029c8ef2d2d5fea9049294cf8d0f2805c6621f4677ede269fce19f01efb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e33cf5ea04adae8adf1d6e9295630d69fd08055ab8b4ff6e66e332677bfb44d3"
-    sha256 cellar: :any, arm64_tahoe:       "8f80a8bc0435de117a495be9c10909eb6eef400c432257b98562c5680390999f"
-    sha256 cellar: :any, arm64_sequoia:     "b6fd5f5e2aa10f65c593e7576f319c4965eb0ca9a2a1e87d49322ddd285915d7"
-    sha256 cellar: :any, arm64_linux:       "9b0c99bc15f47794b0438dcee64cb9d00b1f8e8207e09265b1ca98bfc63954aa"
-    sha256 cellar: :any, x86_64_linux:      "5aa7b3b193ad3985fbf437bf4ba211926e9d518d71c016c4f73befc2f13f8ce8"
+    sha256 cellar: :any, arm64_golden_gate: "947477fd1bcc96ec26c9681fec41a20fabff8946614cfec737416d12a2c70d35"
+    sha256 cellar: :any, arm64_tahoe:       "bfe4556144a16574e7796c6e5608599a54c669e9fc84815b0b06c6494747b6c8"
+    sha256 cellar: :any, arm64_sequoia:     "8d56d9a465bfb6bb6a3415d0c168515b39e596c39d8fdaed4c06a40597d56d78"
+    sha256 cellar: :any, arm64_linux:       "7d187d220a9536d373eac2c0b44bab42dcb86693c9c9be99962636c5b92a75c2"
+    sha256 cellar: :any, x86_64_linux:      "041637c0d0a70133a2bc4edaaa250559cc5a1558e4a0c6a5e298394c91969b0d"
   end
 
   depends_on "rust" => :build # for annotated-doc
@@ -65,8 +65,8 @@ class Fastapi < Formula
   end
 
   resource "fastapi-cli" do
-    url "https://files.pythonhosted.org/packages/41/8c/d2fe2da44fe68a442bbfea5e6436e2de7829c0c2d419a7c314e2e91ae95f/fastapi_cli-0.0.33.tar.gz"
-    sha256 "94f19bcde4bd6ae26328292ac864082543262b7ee9f5d11bd7224614c22fb958"
+    url "https://files.pythonhosted.org/packages/d8/5e/3a9e46c4cd730cfe564a86553772b00e5bcebf773da470941ea862ca0b2b/fastapi_cli-0.0.34.tar.gz"
+    sha256 "7eeb74cf83edd75d22a9289713db03d8a0be3ed7a8daa48a3703a12d4f2a4615"
   end
 
   resource "fastapi-cloud-cli" do
