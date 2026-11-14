@@ -1,8 +1,8 @@
 class Freesasa < Formula
   desc "Solvent Accessible Surface Area calculations"
   homepage "https://freesasa.github.io/"
-  url "https://github.com/mittinatten/freesasa/archive/refs/tags/2.1.3.tar.gz"
-  sha256 "dc4fe377352569299d69329d9ded2f141e527da325960b20d2e30b5335c2b3ff"
+  url "https://github.com/mittinatten/freesasa/archive/refs/tags/2.1.4.tar.gz"
+  sha256 "1bc79b06985c868f76ccc5ff8fea6a1687c7d4d4b21e5c3636b52106b653807c"
   license "MIT"
 
   bottle do
