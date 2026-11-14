@@ -3,17 +3,16 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/92/52/718e7219c5b8f4063e148734ab7b80531ee8319c8460affa412d321dc3e2/gamdl-4.0.0.tar.gz"
-  sha256 "d4fed3c5dc9b62bbc756ee4644252b13cf2b3c97fb752054eeb9c50fb33f3486"
+  url "https://files.pythonhosted.org/packages/b1/cd/1ccdbacf26d731f38c0f81ef7ad38fc45af0a4dd0a7a12e74f8468a4db63/gamdl-4.0.1.tar.gz"
+  sha256 "2f9fc0ce5f3e80244a0a11b284c160754eb229c2cc745b88c8b1450c029e2ad2"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "42a21df2655f5ec60d640ad6959d037a938368f07b68d32fa791bdc648078fd7"
-    sha256 cellar: :any, arm64_tahoe:       "2dc54dea0d1fb95bfebc3fca7d6e2d1ca5a24a15de1433fd92c19f278b170cfb"
-    sha256 cellar: :any, arm64_sequoia:     "0dc911e46bd7262d3b367ee64f8d29880e8147ee80c5995411d0c0794830ae06"
-    sha256 cellar: :any, arm64_linux:       "ea9822c297e4beb811ea987c6952ed4fa9b01a9851a043549e57bc15c8055f7e"
-    sha256 cellar: :any, x86_64_linux:      "ef956f4738669cf7c4677b7496f42c2c37bdd6d86e9445754f5a41cf9dbbc4d6"
+    sha256 cellar: :any, arm64_golden_gate: "432c5072ba858201f1c6b5574cd4df84b2124626b812875b083e9cfd24f4c8c7"
+    sha256 cellar: :any, arm64_tahoe:       "95fd434ecd06fd9b29f3354691c1110ac7fd807b13c4e4fdcc96bc35eb9ce2d7"
+    sha256 cellar: :any, arm64_sequoia:     "213a796814b61cbcacda23b7b67e7fe63ddba51eb7ee7e702ebe09a5f1d2ee24"
+    sha256 cellar: :any, arm64_linux:       "72482a2bd0a121be8dd57e08290976f0d2b6c4ad26bf457390e0505809be549e"
+    sha256 cellar: :any, x86_64_linux:      "1048f5d027dddc974a041029cfc62cf667f79ea0910da381593e86a77a6b0286"
   end
 
   depends_on "rust" => :build
