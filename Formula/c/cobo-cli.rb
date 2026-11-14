@@ -6,15 +6,15 @@ class CoboCli < Formula
   url "https://files.pythonhosted.org/packages/a4/78/6ce4772eac6acfdf58c1b2f51c4a074e7abf8ab44bb3c6e37ff998ef888a/cobo_cli-0.1.10.tar.gz"
   sha256 "fc631b4b51346941fcde398080e23cace14afb922ed9754777d2e0bb3e9763d6"
   license "MIT"
-  revision 1
+  revision 2
   head "https://github.com/CoboGlobal/cobo-cli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5731c491caeb8bc3bce4fc25579f5887e93b0b5e188e268e6b2d9f9d0d1024ff"
-    sha256 cellar: :any, arm64_tahoe:       "24274d23f632bdcb879213f58ba08bf19b6c90485f742f999e69289e57f82089"
-    sha256 cellar: :any, arm64_sequoia:     "40f5463507350c8c89983e93e7eff1441f4f56297214f6d17c1ac8ff68af67f3"
-    sha256 cellar: :any, arm64_linux:       "f1c8ee0c81527befa1376001401dd1ffb72e3c272376d4dc3d83783f3c5b8eae"
-    sha256 cellar: :any, x86_64_linux:      "20226587aecb8291ad6b670df826b07f13a3841596b887e53944b3a4bcdd5162"
+    sha256 cellar: :any, arm64_golden_gate: "addcd50b7fe1e588c36ca5f1babe2ed50b432ddb0682f94d7992957a93c23986"
+    sha256 cellar: :any, arm64_tahoe:       "7d197f1eaa311cb10e365cf271e266104bc58358491db26cce2add6a96f530c0"
+    sha256 cellar: :any, arm64_sequoia:     "35337c24c2a9d6fe55042acd59dd6e5d722740a0b0644560c7d2a43d490824be"
+    sha256 cellar: :any, arm64_linux:       "7b656093f3b5b2e2ec4128784904cfff92afc785b69d39100570103522bf0f10"
+    sha256 cellar: :any, x86_64_linux:      "365b5749e42ec5aaa3026af19c37cd387de90dbcf906d885877572174ab7279f"
   end
 
   depends_on "rust" => :build # for dnspython > uv_build > maturin
@@ -36,8 +36,8 @@ class CoboCli < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "dataclasses-json" do
@@ -46,8 +46,8 @@ class CoboCli < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "email-validator" do
@@ -76,8 +76,8 @@ class CoboCli < Formula
   end
 
   resource "mypy-extensions" do
-    url "https://files.pythonhosted.org/packages/a2/6e/371856a3fb9d31ca8dac321cda606860fa4548858c0cc45d9d1d4ca2628b/mypy_extensions-1.1.0.tar.gz"
-    sha256 "52e68efc3284861e772bbcd66823fde5ae21fd2fdb51c62a211403730b916558"
+    url "https://files.pythonhosted.org/packages/d0/6f/43edf3be2748d0e40974a5ee046a8bb4c9961a4bdd3e7d5c6dcbf32d1af6/mypy_extensions-1.2.0.tar.gz"
+    sha256 "c6e275a07f1c2fc096b62940452d0eaa3f3af7de45d704787866240a7c6d5a51"
   end
 
   resource "packaging" do
@@ -131,8 +131,8 @@ class CoboCli < Formula
   end
 
   resource "typing-inspection" do
-    url "https://files.pythonhosted.org/packages/a3/26/b09b8010994eccc3c09092e6b34058f36a460eea2d4c3e8b910c695975a0/typing_inspection-0.4.4.tar.gz"
-    sha256 "547274fa6b0a561ccf549cc9524b999a578e737d015d8709d021f9d0d13bea47"
+    url "https://files.pythonhosted.org/packages/ff/50/0195198eb1d75bab716bb0a813abea4cc394bfa17a92a189f021a34859af/typing_inspection-0.4.5.tar.gz"
+    sha256 "7f16c411e7930dc79596d42ab44672a3fe5f60eb34b781a1647e7872363120c7"
   end
 
   resource "urllib3" do
@@ -152,6 +152,14 @@ class CoboCli < Formula
     sha256 "3239df9f44da632f96012472805d40a23281a991027ce11d2f45a6f24ac4c3da"
   end
 
+  # Make the removed OpenAPI spec optional
+  patch do
+    url "https://github.com/CoboGlobal/cobo-cli/commit/576d1f6a77565ee7823d1c1c2ab28ed6dda4c48d.patch?full_index=1"
+    sha256 "92eb35be25c6b0d17855157f4bdb4d1d7c2eff34250c0b681649a2cb0eb141b6"
+    type :backport
+    resolves "https://github.com/CoboGlobal/cobo-cli/pull/23"
+  end
+
   def install
     urllib3 = resource("urllib3")
     odie "Remove urllib3 check as version is now >= 2.8.0!" if urllib3.version >= "2.8.0"
@@ -163,8 +171,13 @@ class CoboCli < Formula
   end
 
   test do
-    assert_match "Available webhook event types:", shell_output("#{bin}/cobo webhook events")
-
     assert_match version.to_s, shell_output("#{bin}/cobo version")
+
+    output = shell_output("#{bin}/cobo keys generate --key-type API --file #{testpath}/keys.env")
+    pubkey = output[/Public key: (\h{64})/, 1]
+    secret = (testpath/"keys.env").read[/^COBO_API_SECRET=(\h+)$/, 1]
+    system bin/"cobo", "keys", "validate", "--secret", secret, "--pubkey", pubkey
+    assert_match "Public key does not match",
+                 shell_output("#{bin}/cobo keys validate --secret #{secret} --pubkey #{"0" * 64} 2>&1", 1)
   end
 end
