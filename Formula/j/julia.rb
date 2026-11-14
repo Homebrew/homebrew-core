@@ -1,11 +1,22 @@
 class Julia < Formula
   desc "Fast, Dynamic Programming Language"
   homepage "https://julialang.org/"
-  # Use the `-full` tarball to avoid having to download during the build.
-  url "https://github.com/JuliaLang/julia/releases/download/v1.13.4/julia-1.13.4-full.tar.gz"
-  sha256 "55bb4442c887a3e99f287b53c467fdd5e78e376344ea2a84865742d13a27d71c"
   license all_of: ["MIT", "BSD-3-Clause", "Apache-2.0", "BSL-1.0"]
   head "https://github.com/JuliaLang/julia.git", branch: "master"
+
+  stable do
+    # Use the `-full` tarball to avoid having to download during the build.
+    url "https://github.com/JuliaLang/julia/releases/download/v1.13.4/julia-1.13.4-full.tar.gz"
+    sha256 "55bb4442c887a3e99f287b53c467fdd5e78e376344ea2a84865742d13a27d71c"
+
+    # Handle dynamic vector indices during GC root lowering.
+    patch do
+      url "https://github.com/JuliaLang/julia/commit/9b0103b846bfd5c9b2830b33a36ae785149e49b7.patch?full_index=1"
+      sha256 "19730773a2d57790d9fde57ee920573aeaa719a6a581bf35dba578916e172865"
+      type :backport
+      resolves "https://github.com/JuliaLang/julia/pull/62933"
+    end
+  end
 
   # Upstream creates GitHub releases for both stable and LTS versions, so the
   # "latest" release on GitHub may be an LTS version instead of a "stable"
@@ -197,6 +208,15 @@ class Julia < Formula
 
     system "make", *args, "install"
     if OS.linux?
+      # Julia resets rpaths during installation; restore Homebrew's non-system library path.
+      %w[libjulia-internal libjulia-codegen libLLVM].each do |library|
+        system "patchelf", "--page-size", "65536", "--add-rpath", HOMEBREW_PREFIX/"lib",
+                          lib/"julia"/shared_library(library)
+      end
+      (libexec/"julia").children.reject(&:symlink?).each do |tool|
+        system "patchelf", "--page-size", "65536", "--add-rpath", HOMEBREW_PREFIX/"lib", tool
+      end
+
       # Replace symlinks referencing Cellar paths with ones using opt paths
       deps.reject(&:build?).map(&:to_formula).map(&:opt_lib).each do |libdir|
         libdir.glob(shared_library("*")) do |so|
