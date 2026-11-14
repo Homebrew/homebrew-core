@@ -1,8 +1,8 @@
 class NetlifyCli < Formula
   desc "Netlify command-line tool"
   homepage "https://www.netlify.com/docs/cli"
-  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.18.0.tgz"
-  sha256 "ca1d70247976e3691acf8708d87135dbbf9fe9c8bb61936fdae173db44096d55"
+  url "https://registry.npmjs.org/netlify-cli/-/netlify-cli-27.19.0.tgz"
+  sha256 "a1eb4de6f14a675ebb2f00b17652cecb19ccc77d6f6efbbb3bab89dff2d4c0c3"
   license "MIT"
 
   bottle do
