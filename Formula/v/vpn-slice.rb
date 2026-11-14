@@ -21,12 +21,11 @@ class VpnSlice < Formula
   end
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac9642ff144376786d388e5c6fff9878fcd3deb8824bc5a51ce55a24e21ccb47"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63a59e08e18ef99640b47a974eb0cc661290245313afd12d57f8b8ad17abcc91"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ed4fa105e33889fcafd5991c60ba8b0e4ab1c41a2b948b575bb8dd8b7c53523"
-    sha256 cellar: :any,                 arm64_linux:       "3896832542a83a18ea9bb2db7070a2a8cb7923ea71933ed43f8e864094567d8a"
-    sha256 cellar: :any,                 x86_64_linux:      "8cd019337e9fcbb01145f958b43fa0191878915acddbd268290c63107bf62e1a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4940f0aa2942c4528d2412daf1044b4efdc62bfe238bf0433a43eb1325d26081"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14ab313adbf2086856f2012c43e4d2d2ec24e76b2bd0f851fb85579f1aa5a9d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54e93c64876a671be0d2be9325b660ecc65c7a75433cd065ac32147784f2e95e"
+    sha256 cellar: :any,                 arm64_linux:       "7f9213fb3ab5f6ba1b0144b915b866b9eec45d59758a6e8ea871177eca697f7b"
+    sha256 cellar: :any,                 x86_64_linux:      "df52ad2c6a38d6241038286051d1cfee4d74d477f942a90a1a531521f1b7c106"
   end
 
   depends_on "rust" => :build # dnspython > uv_build
