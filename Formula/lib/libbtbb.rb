@@ -21,7 +21,10 @@ class Libbtbb < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15"
+
+  deny_network_access!
 
   def install
     args = %w[-DENABLE_PYTHON=OFF]
@@ -31,7 +34,7 @@ class Libbtbb < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "./python/pcaptools"
+    system python3, "-m", "pip", "install", *std_pip_args, "./python/pcaptools"
     bin.install "python/pcaptools/btaptap"
     rewrite_shebang detected_python_shebang, bin/"btaptap"
   end
