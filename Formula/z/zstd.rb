@@ -44,6 +44,8 @@ class Zstd < Formula
   deny_network_access!
 
   def install
+    ENV.O3
+
     # Legacy support is the default after
     # https://github.com/facebook/zstd/commit/db104f6e839cbef94df4df8268b5fecb58471274
     # Set it to `ON` to be explicit about the configuration.
