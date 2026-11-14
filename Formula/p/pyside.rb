@@ -101,8 +101,7 @@ class Pyside < Formula
                     "-DPython_EXECUTABLE=#{python3}",
                     "-DBUILD_TESTS=OFF",
                     "-DNO_QT_TOOLS=yes",
-                    # Limited API (maybe combined with keg relocation) breaks the Linux bottle
-                    "-DFORCE_LIMITED_API=#{OS.mac? ? "yes" : "no"}",
+                    "-DFORCE_LIMITED_API=yes",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
