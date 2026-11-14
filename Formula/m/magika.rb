@@ -13,11 +13,11 @@ class Magika < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cd7658a3f2696ece09629627b7fd7953b20b3dec41bed24fb51fbb653f9d0234"
-    sha256 cellar: :any, arm64_tahoe:       "cf634d0f8e53d31ab6ce59f36e02320ef04939ce402afca1d37c8271fdf543db"
-    sha256 cellar: :any, arm64_sequoia:     "c1857280a7557860c9977d938e6dc9322f89ea2f32b35e28cd9c02179ed9172f"
-    sha256 cellar: :any, arm64_linux:       "1790bd9fcb20066cc91bd0a1f8e238536815578c04987c656e102628a2b42bf3"
-    sha256 cellar: :any, x86_64_linux:      "937b70d06afa0e7e73f1ae9594fef74810fb845e15bb4dc619ecd31f0f879105"
+    sha256 cellar: :any, arm64_golden_gate: "60f23f9dbafc87a6930d80d28fed3580073385ef228e6471a111a9968534ecd1"
+    sha256 cellar: :any, arm64_tahoe:       "7cd47bdd1337fa961b886edf9a83b40c5776a097f949e2b44e5cd625732e76f5"
+    sha256 cellar: :any, arm64_sequoia:     "f66dfaecd742cb60aa90d076ca3264a4ea6cccd99bcc1c3d6cfba28045a52049"
+    sha256 cellar: :any, arm64_linux:       "a882a4b8c88c87a93aa1a96f41dee85da1bb271a0578c61a9359ef07e389490f"
+    sha256 cellar: :any, x86_64_linux:      "65ed26a0fd0a0726dd78a6bb36cdb4a5b7a1da1b600c2d4f47d76c036f71da1f"
   end
 
   depends_on "pkgconf" => :build
