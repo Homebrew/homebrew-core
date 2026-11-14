@@ -6,11 +6,11 @@ class Varlock < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f453216f8b56e384441d5630b0b1509167b880821ea1ab1c69f56234b126586b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f453216f8b56e384441d5630b0b1509167b880821ea1ab1c69f56234b126586b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f453216f8b56e384441d5630b0b1509167b880821ea1ab1c69f56234b126586b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b6641717e92269f641552f47803c2b6c63002b8e04c6ca45b1b81b300b431412"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f06aa6f86e3f7a0b54373d6c3b80a7a024d5a374b54003b2b08e9adb4bfcc134"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37c8cce37f428c5ab8c8cbbd9beec9aa82330fe0e3635e3dea3f415394671a10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37c8cce37f428c5ab8c8cbbd9beec9aa82330fe0e3635e3dea3f415394671a10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37c8cce37f428c5ab8c8cbbd9beec9aa82330fe0e3635e3dea3f415394671a10"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "de0a89377af3a5cb78806395f07db919487362240c4f738ec2cdb0c31bfb5333"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f5d7727e836198afacb7f656440fc2bed695e7bdb3a3f0f0a6c81fcb0efdaf9e"
   end
 
   depends_on "node"
