@@ -50,6 +50,8 @@ class ApacheArrow < Formula
     cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
   end
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
 
