@@ -1,0 +1,14 @@
+Formula/a/awscurl.rb
+  h_9df9c32c3f321d 9
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d391b308df5d0ebe93a3fbeb72cf53648cc068a8",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
