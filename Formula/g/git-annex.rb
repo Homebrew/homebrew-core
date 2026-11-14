@@ -1,8 +1,8 @@
 class GitAnnex < Formula
   desc "Manage files with git without checking in file contents"
   homepage "https://git-annex.branchable.com/"
-  url "https://hackage.haskell.org/package/git-annex-10.20261026/git-annex-10.20261026.tar.gz"
-  sha256 "fc080a8a556d364e3e9e6255e4ec1540cc53d568df01de30d93d4322e311d028"
+  url "https://hackage.haskell.org/package/git-annex-10.20261113/git-annex-10.20261113.tar.gz"
+  sha256 "af4add021bac4e9e9bc3087529837bb2291509dd1aae116b5dec754b36ebdf6b"
   license all_of: ["AGPL-3.0-or-later", "BSD-2-Clause", "BSD-3-Clause",
                    "GPL-2.0-only", "GPL-3.0-or-later", "MIT"]
   compatibility_version 1
@@ -14,30 +14,31 @@ class GitAnnex < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4e3ed64d5582d8a73ad222660c3910ba40e5a3cbe6b5fb37edbc89cdd78844c7"
-    sha256 cellar: :any, arm64_tahoe:       "839897bf215b26c66da439dcb97b0d6d9190c697fd0e55eea5f4b1c3064ebc69"
-    sha256 cellar: :any, arm64_sequoia:     "e04a6e5708540a71fd32b45a5f6a2e87ef60a1b1ac10f450b96dd63ea78f0d26"
-    sha256 cellar: :any, arm64_linux:       "446e318dcc3fa2469d398c896792b1edb52bc363ec7fd3e4a9ed5286232a87ae"
-    sha256 cellar: :any, x86_64_linux:      "9ed32ab3ca84b6d0728d5d835336185d8af39d88eb408abac52dfc5a1fc23af2"
+    sha256 cellar: :any, arm64_golden_gate: "5870628a5177615b720b4e1b1102b934ac140aec215716528a8d608652938097"
+    sha256 cellar: :any, arm64_tahoe:       "1ee06c09237ee1978fa8fd531bd12037b166f263a9a5530965732b404eea5756"
+    sha256 cellar: :any, arm64_sequoia:     "67e2b9fb3dfe3bf0a682a94d4438480024bb4aed0ce173e0af8abb261387b548"
+    sha256 cellar: :any, arm64_linux:       "63270c366167b5267521fc94878d9f0adabca972e9cd5c60d8559eae82025001"
+    sha256 cellar: :any, x86_64_linux:      "e3246fe345ee194002df73c6d924b9803ba54b40cebceef74ba732da898df4b8"
   end
 
   depends_on "cabal-install" => :build
   depends_on "ghc" => :build
   depends_on "pkgconf" => :build
+  depends_on "botan"
   depends_on "gmp"
   depends_on "libmagic"
+  depends_on "sqlite"
 
   uses_from_macos "libffi"
-  uses_from_macos "sqlite"
 
   on_linux do
     depends_on "zlib-ng-compat"
   end
 
-  allow_network_access! :build
+  deny_network_access!
 
-  def install
-    args = [
+  def args
+    [
       # Workaround to build with GHC 9.14
       "--allow-newer=base,template-haskell",
       # Workaround build failing if memory flag falls back to negated resolution
@@ -45,8 +46,14 @@ class GitAnnex < Formula
       # Unbundle sqlite
       "--constraint=persistent-sqlite +systemlib +use-pkgconfig",
     ]
+  end
 
+  def fetch
     system "cabal", "v2-update"
+    system "cabal", "v2-install", "--only-download", *args, *std_cabal_v2_args
+  end
+
+  def install
     system "cabal", "v2-install", *args, *std_cabal_v2_args
     bin.install_symlink "git-annex" => "git-annex-shell"
     bin.install_symlink "git-annex" => "git-remote-annex"
