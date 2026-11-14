@@ -6,15 +6,15 @@ class Octodns < Formula
   url "https://files.pythonhosted.org/packages/d7/dc/7459cfb9f3bf85aa541b1b3283f0d9749e82be3d70b03129409b72b4f0e2/octodns-1.22.0.tar.gz"
   sha256 "b880ece209a19f33edc05ec13db55abee844e4a851978a19c48b4e3ef317bbf0"
   license "MIT"
+  revision 1
   head "https://github.com/octodns/octodns.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "0e0149174e989daba28ef155f86e6900db3a260fec5bb72dc0928b29a8fe49ed"
-    sha256 cellar: :any, arm64_tahoe:       "deb426dc5ff850c1432d15a72578894680371462b1925aa00a1dbb18a2ea77c4"
-    sha256 cellar: :any, arm64_sequoia:     "e3d2f7d1040cd2b8f38dce3da43fbadeb9ad06a760261bc511fe946f6d7a6295"
-    sha256 cellar: :any, arm64_linux:       "6e375fe6bc5f66c2b5843a0a3b27d88196190ff07c4228e98f1e7d87adb4e3e7"
-    sha256 cellar: :any, x86_64_linux:      "f38acc5f9cfa938a553887047edf78a19fd39fbf0745ae759d2dd17e6cc3bbf0"
+    sha256 cellar: :any, arm64_golden_gate: "a607178fb1a7aaced381219620ad9071fa884bf8f6a902e49051a1ef0a9bd835"
+    sha256 cellar: :any, arm64_tahoe:       "e11effc2a17845539fabc8276b03b4b5f03e21ed2867dfb68370e596396fd08e"
+    sha256 cellar: :any, arm64_sequoia:     "70f594d225c9b4026ee02cf6c39c7aff64893847368931a78e210403396c7796"
+    sha256 cellar: :any, arm64_linux:       "2290656400a7b312f06e1dd73810a1b2846d234b96930af46a788292849b539c"
+    sha256 cellar: :any, x86_64_linux:      "cf06ef0095f8e086a3c3987a383559458e25b7e4a12cc72114f73e8ce88eb3b1"
   end
 
   depends_on "rust" => :build # for dnspython > uv_build > maturin
@@ -22,8 +22,8 @@ class Octodns < Formula
   depends_on "python@3.15"
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "fqdn" do
@@ -42,8 +42,8 @@ class Octodns < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
   resource "pyyaml" do
@@ -51,9 +51,9 @@ class Octodns < Formula
     sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   def install
