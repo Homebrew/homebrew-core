@@ -1,10 +1,10 @@
 class GhosttyTerminal < Formula
   desc "Terminal emulator that uses platform-native UI and GPU acceleration"
   homepage "https://ghostty.org/"
-  # Upstream's source tarball rather than the GitHub tag archive: it ships
-  # pre-generated files so blueprint-compiler is not needed. See PACKAGING.md.
-  url "https://release.files.ghostty.org/1.3.1/ghostty-1.3.1.tar.gz"
-  sha256 "3349d25600ffbda281197a18314f7d18791969cffe9474f0ff16a45a9ebfccdb"
+  # Unlike GitHub's tag archive, this tarball ships compiled GTK resources,
+  # so blueprint-compiler is not needed. See PACKAGING.md.
+  url "https://release.files.ghostty.org/1.4.0/ghostty-1.4.0.tar.gz"
+  sha256 "cb188ac6c3a8278d5fd7bfef15d8c017104c87f638b5560eb38024a71ae0f005"
   license "MIT"
 
   livecheck do
@@ -15,9 +15,8 @@ class GhosttyTerminal < Formula
   depends_on "gettext" => :build
   depends_on "ncurses" => :build
   depends_on "pandoc" => :build
-  depends_on "patchelf" => :build
   depends_on "pkgconf" => :build
-  depends_on "zig@0.15" => :build
+  depends_on "zig" => :build
   depends_on "fontconfig"
   depends_on "freetype"
   depends_on "glib"
@@ -25,7 +24,7 @@ class GhosttyTerminal < Formula
   depends_on "harfbuzz"
   depends_on "libadwaita"
   depends_on "libx11"
-  # The macOS app is native SwiftUI and is distributed as the `ghostty` cask.
+  # On macOS the build system produces a .app bundle.
   depends_on :linux
   depends_on "oniguruma"
   depends_on "wayland"
@@ -40,30 +39,25 @@ class GhosttyTerminal < Formula
   end
 
   def install
-    # Zig's own clang bypasses Homebrew's compiler shims, so the bundled
-    # gtk4-layer-shell cannot find the Wayland headers without this.
-    ENV.prepend_path "CPATH", HOMEBREW_PREFIX/"include"
-
-    # `--system` is upstream's packaging mode: it forbids fetching and defaults
-    # to system libraries. gtk4-layer-shell is not in Homebrew, so build the
-    # bundled copy. See PACKAGING.md.
+    # gtk4-layer-shell isn't in Homebrew, so build the bundled copy, which
+    # needs Wayland's headers on Zig's include path.
+    ENV.prepend_path "CPATH", formula_opt_include("wayland")
     system "zig", "build", *std_zig_args,
            "--system", "#{ENV.fetch("ZIG_GLOBAL_CACHE_DIR")}/p",
            "-Dversion-string=#{version}",
+           "-Dinstalled-exe-path=#{opt_bin}/ghostty",
            "-fno-sys=gtk4-layer-shell"
 
-    # Zig also bypasses the shims that set Homebrew's dynamic linker, so the
-    # binary gets the host's one and a RUNPATH of host and build-tree paths.
-    system "patchelf", "--set-interpreter", HOMEBREW_PREFIX/"lib/ld.so",
-                       "--set-rpath", "#{opt_lib}:#{HOMEBREW_PREFIX}/lib", bin/"ghostty"
+    # `--system` puts the systemd user unit in `lib`, which systemd never
+    # searches under Homebrew's prefix. `share` can be found via $XDG_DATA_DIRS.
+    (share/"systemd").install lib/"systemd/user"
+  end
 
-    # `--system` puts the user unit in lib/, which systemd only searches under
-    # /usr; like upstream's non-system builds, use share/ (via XDG_DATA_DIRS).
-    share.install lib/"systemd"
-
-    # Upstream writes the build prefix into these, which breaks on upgrade.
-    inreplace share.glob("{applications/*.desktop,dbus-1/services/*.service,systemd/user/*.service}"),
-              prefix, opt_prefix
+  def caveats
+    <<~EOS
+      Ghostty's D-Bus activation and systemd user service require $XDG_DATA_DIRS
+      to contain "#{HOMEBREW_PREFIX}/share".
+    EOS
   end
 
   test do
