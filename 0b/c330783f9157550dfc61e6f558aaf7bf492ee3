@@ -1,0 +1,16 @@
+Formula/a/aws-c-http.rb
+  h_9df9c32c3f321d 7
+Formula/a/aws-c-auth.rb
+  h_9df9c32c3f321d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "0bc330783f9157550dfc61e6f558aaf7bf492ee3",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
