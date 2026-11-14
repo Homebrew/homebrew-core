@@ -4,7 +4,7 @@ class Magika < Formula
   url "https://github.com/google/magika/archive/refs/tags/cli/v1.1.0.tar.gz"
   sha256 "87fd85f33d2c644d657de024b83cdc36bbdcf4a2961be5e93fe74e081477076c"
   license "Apache-2.0"
-  revision 2
+  revision 3
   head "https://github.com/google/magika.git", branch: "main"
 
   livecheck do
