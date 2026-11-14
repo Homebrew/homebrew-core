@@ -9,16 +9,17 @@ class Pytr < Formula
   revision 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3a8a86c8613d923b6b8e7ae8e217dd5fa1ef073fb0e0a7ed829f7d818adf72a7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "521b3f2fc0edcf6124a99f5b7739b63043b3376e6e1aa3c5228129fee6eb1926"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbb821d3fdbe391956d3d1a9d23adc4e45c2bc30a0eaea1e9c3aa14e10eb458d"
-    sha256 cellar: :any,                 arm64_linux:       "4e56954c66a25ecda0b765a48cfdbd2190313d62f495a105b28ccaa212bf3c82"
-    sha256 cellar: :any,                 x86_64_linux:      "636b851ba1a25bd46dda6cd826fe0e9dddd863bdfbe6227310b2b6228bea19ae"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "b8eb009b3585f7933ab5e9b5b9710dd0822f9f94546a99375625959ffb74d0a4"
+    sha256 cellar: :any, arm64_tahoe:       "299ff6898875a190d22154d25881a3570a8bf9e9c7e4936d9c7f78695e9189e0"
+    sha256 cellar: :any, arm64_sequoia:     "1c39f7e3e83f081a18590b7a5b127e66f8c45555ffe508d77df54b67915e7e96"
+    sha256 cellar: :any, arm64_linux:       "5b25812d875e6e4ba1b892c122cccaf21e49e0178339fd2890edae1cb497c81d"
+    sha256 cellar: :any, x86_64_linux:      "f97ebdf22805b760b621b4419fff9be6faf14d87cb91f7aae95659190e2e8c46"
   end
 
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "node"
   depends_on "python@3.15"
 
@@ -52,8 +53,8 @@ class Pytr < Formula
   end
 
   resource "curl-cffi" do
-    url "https://files.pythonhosted.org/packages/82/e1/730125c43e3e331d98e17af3cb310ba526b3f1101b7635ca23d976ebfcf5/curl_cffi-0.16.3.tar.gz"
-    sha256 "d15d0c2a35f2d75bec430c28946c2a833f421c85773bdb0795182cc5c515665b"
+    url "https://files.pythonhosted.org/packages/96/4c/69074f9797d83a5401b3c6bc58c5de5aad6d1a085d0497b87a093a152e87/curl_cffi-0.17.0.tar.gz"
+    sha256 "31ee8500d06d6502ce1ec0b7ded1c5aa8e8f3401bbe37ccd78d6153d859d8f3c"
   end
 
   resource "greenlet" do
@@ -82,8 +83,8 @@ class Pytr < Formula
   end
 
   resource "pyee" do
-    url "https://files.pythonhosted.org/packages/1d/f1/fdedc2c75c3e31a330659c85e5793bb18b3397981fbf0844c6dee5b18926/pyee-14.0.0.tar.gz"
-    sha256 "76dd0f4314ecd27f02dc73589dea7fd3853f9b6176d8ef9b122860657e3602de"
+    url "https://files.pythonhosted.org/packages/50/34/69e6daeca6b9f7417c3d67bd419215aa76cae56f317e479df7cbff8de882/pyee-16.0.2.tar.gz"
+    sha256 "31cb31131df7757f2a54fbd98ea5d37e736dc8a9f41ec4bdce40892a32474ec8"
   end
 
   resource "pygments" do
@@ -102,8 +103,8 @@ class Pytr < Formula
   end
 
   resource "shtab" do
-    url "https://files.pythonhosted.org/packages/ef/71/ddb3c0a7a86db44d2fb3f9cbac162f7ddbcbf563b4a174963ba2b3d4d819/shtab-1.12.1.tar.gz"
-    sha256 "0637338723a8fc08ed1c2fd826d8432229924649c26e3247bb48c53d60ca3bf9"
+    url "https://files.pythonhosted.org/packages/ff/dd/e58588cf2d02266d504f4399979740b8b2b61fbd7719a89578afaa6558a3/shtab-1.13.0.tar.gz"
+    sha256 "0a5be9d7ab2b4549e9a38252abcd5ecf5ec6813ecd80c6b06fa851bff55a5085"
   end
 
   resource "typing-extensions" do
@@ -117,11 +118,13 @@ class Pytr < Formula
   end
 
   resource "websockets" do
-    url "https://files.pythonhosted.org/packages/01/89/3f825ab71c242fffb62ea8fe638741c290f62f8d7aadf8125ff897747af3/websockets-17.2.tar.gz"
-    sha256 "36c2fb94c990cc2545143b12690e2de6c16300f9dbe5b4f33fa300cf57dc8792"
+    url "https://files.pythonhosted.org/packages/75/79/590c5f0cc7d1661195aeefccb0e342b79f4c77d368d526d028821a390332/websockets-17.4.tar.gz"
+    sha256 "09d3939b70df0c8ad2da145ebd50978bccaee1d565e838b0e7921a34d38571eb"
   end
 
   def install
+    ENV["IMPERSONATE_BUILD_DIR"] = formula_opt_lib("curl-impersonate")
+    ENV["IMPERSONATE_LINK_TYPE"] = "dynamic"
     ENV["SETUPTOOLS_SCM_PRETEND_VERSION_FOR_PLAYWRIGHT"] = resource("playwright").version
     venv = virtualenv_install_with_resources
 
@@ -162,5 +165,10 @@ class Pytr < Formula
     assert_equal "Deposit", transaction["Type"]
     assert_equal 200.0, transaction["Value"]
     assert_equal "Test deposit", transaction["Note"]
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end

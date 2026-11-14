@@ -8,16 +8,18 @@ class Flexget < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9d1c783d23a02d2f3cc79c2e3a89124c055e1c4e6a3265824e3b48c315cbaf95"
-    sha256 cellar: :any, arm64_tahoe:       "dc59a9b6d5b592ba7a2c4f45e5ccde72fbc39ce7c8268a549c83522da41dae45"
-    sha256 cellar: :any, arm64_sequoia:     "b518a3b6696189fe7e5781c76067ec4b22d36339c6e9566a450eed2cf2fb82fd"
-    sha256 cellar: :any, arm64_linux:       "890301d8a5e0818a4482d5b4062d616d4eece1891b0c82ee69f30c9084cdf2db"
-    sha256 cellar: :any, x86_64_linux:      "5b8e81d30c18d86848cb19f4c656e6871e1c2faf8b9be0c081924f7c28f23913"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e27d570bfb91c6ca00a822449d5b995ab313d5879ea6e26266f23f0d4ee60498"
+    sha256 cellar: :any, arm64_tahoe:       "2247f843177c605b14a18eb01d1354255a43cfd9a6d7bf434eb23d46faea1796"
+    sha256 cellar: :any, arm64_sequoia:     "973effb2b25c854aecf9646c321ce887e1adb2279279fed7c462adbfc88ff749"
+    sha256 cellar: :any, arm64_linux:       "6f1a1d026040ea060d66f13e2c154545919f0d9373b33d01168aecb1a1a13cb0"
+    sha256 cellar: :any, x86_64_linux:      "6d87b4796f3f53f97ae315cf21a71027d9082e0cb648fd50caaed3e545588ffb"
   end
 
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
+  depends_on "curl-impersonate"
   depends_on "libyaml"
   depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
@@ -419,6 +421,8 @@ class Flexget < Formula
 
   def install
     ENV["BUNDLE_WEBUI"] = "true"
+    ENV["IMPERSONATE_BUILD_DIR"] = formula_opt_lib("curl-impersonate")
+    ENV["IMPERSONATE_LINK_TYPE"] = "dynamic"
     # `pendulum` builds a PyO3 extension through maturin.
     ENV.append_to_rustflags "-C link-arg=-Wl,-undefined,dynamic_lookup" if OS.mac?
     virtualenv_install_with_resources
@@ -444,5 +448,10 @@ class Flexget < Formula
           transmission: yes
     YAML
     system bin/"flexget", "-c", testpath/"config.yml", "check"
+
+    require "utils/linkage"
+    curl_cffi = (libexec/Language::Python.site_packages(python3)).glob("curl_cffi/_wrapper.abi3-*.so").first
+    curl_impersonate = formula_opt_lib("curl-impersonate")/shared_library("libcurl-impersonate")
+    assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
