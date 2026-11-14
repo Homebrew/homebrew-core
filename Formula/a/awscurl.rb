@@ -10,11 +10,11 @@ class Awscurl < Formula
   head "https://github.com/okigan/awscurl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "da2cf39169205f2442422f2067ac8c5c3a1aeebe59239437506a567126d8e28e"
-    sha256 cellar: :any, arm64_tahoe:       "3c33831d2af5de5778e0d4da3febe294f4c34acc9e7b5cc109438cbee069070e"
-    sha256 cellar: :any, arm64_sequoia:     "78f327746edb12d30480066129bf0ccc8e3b5452d8f9236e6c2c8bbb08297585"
-    sha256 cellar: :any, arm64_linux:       "a179d6889c0cb10449094f931c5d1c5b8717f9684a59e17a41c2db2b06bb08da"
-    sha256 cellar: :any, x86_64_linux:      "e17b43956b363bf3f6394e90e072ac11fce92fa2bf591a3a1933460bed01133e"
+    sha256 cellar: :any, arm64_golden_gate: "90aa68059d976eb58213b7914f2b641ac3796766c2ebc2fb8b16835f8a1b40d1"
+    sha256 cellar: :any, arm64_tahoe:       "dbdb6316aa5bf03d375fffe659e22369aa1678bf3ebfb6bf554e15e56b5061b7"
+    sha256 cellar: :any, arm64_sequoia:     "9557f1eec4e96fea36b1a9ff85f9e4dc2d92a1ef5a3e0c56de8288045fbc9100"
+    sha256 cellar: :any, arm64_linux:       "ea33f0cfb8553bb2ce6f5509e26301bcd8ec7d7632dc755f30ed23e337d9a42c"
+    sha256 cellar: :any, x86_64_linux:      "3ef9531d26e4a72ae4db3ef67e3f6bd281479f32b7cfca051b7555dcf09f0783"
   end
 
   depends_on "aws-c-auth"
