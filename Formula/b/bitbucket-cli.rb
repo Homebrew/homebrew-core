@@ -1,8 +1,8 @@
 class BitbucketCli < Formula
   desc "CLI for Bitbucket Cloud and Data Center"
   homepage "https://github.com/avivsinai/bitbucket-cli"
-  url "https://github.com/avivsinai/bitbucket-cli/archive/refs/tags/v0.38.1.tar.gz"
-  sha256 "a4faf80f10042f6a48411d8573fdb9e13035b84bfd1bd0b76ca2c79be4bd08df"
+  url "https://github.com/avivsinai/bitbucket-cli/archive/refs/tags/v0.39.0.tar.gz"
+  sha256 "dbe6edc43dff2196e24988cf3032e0fd94707324c283961acd370d934bb2fc8c"
   license "MIT"
   head "https://github.com/avivsinai/bitbucket-cli.git", branch: "master"
 
