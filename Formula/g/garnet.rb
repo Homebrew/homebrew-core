@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.11.tar.gz"
-  sha256 "bb01c3ed896f25ea1580a31e6d1ff65d0cf11bb12f2dfe76d485d0f02ad4e836"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.12.tar.gz"
+  sha256 "3612acc1f1dfcaa3e97def393a408b7ccd071cdd2c1b375389bdf42f537c0648"
   license "MIT"
 
   livecheck do
@@ -28,6 +28,14 @@ class Garnet < Formula
     depends_on "libaio"
   end
 
+  # Keep using Garnet's stream adapter when .NET defines the same type name.
+  patch do
+    url "https://github.com/microsoft/garnet/commit/3b7fa55c398b396d6eaf26c8b22df57d2475936a.patch?full_index=1"
+    sha256 "5ac2fdce31dc5e47add3694993459c287f5dece20c26d951185ed3e5cefac26c"
+    type :unofficial
+    resolves "https://github.com/microsoft/garnet/pull/2385"
+  end
+
   allow_network_access! :test
 
   def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
@@ -36,9 +44,11 @@ class Garnet < Formula
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
+    # Restore the same framework and single-file analyzer dependencies used by publish.
     system "dotnet", "restore", "main/GarnetServer/GarnetServer.csproj",
                                 "--use-current-runtime",
-                                "-p:TargetFrameworks=net#{dotnet.version.major_minor}"
+                                "-p:TargetFrameworks=net#{dotnet.version.major_minor}",
+                                "-p:PublishSingleFile=true"
     cd "libs/native/bftree-garnet" do
       system "cargo", "fetch", *std_cargo_fetch_args
     end
@@ -79,6 +89,7 @@ class Garnet < Formula
       --output #{libexec}
       --no-self-contained
       --use-current-runtime
+      -p:TargetFrameworks=net#{dotnet.version.major_minor}
       -p:PublishSingleFile=true
       -p:WarningsNotAsErrors=IL3000
       -p:EnableSourceLink=false
