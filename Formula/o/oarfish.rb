@@ -1,8 +1,8 @@
 class Oarfish < Formula
   desc "Long read RNA-seq quantification"
   homepage "https://github.com/COMBINE-lab/oarfish"
-  url "https://github.com/COMBINE-lab/oarfish/releases/download/v0.12.1/source.tar.gz"
-  sha256 "c7ede79d378be20d8d802fdc26642622b3e01bcae75115887708c2fa30574161"
+  url "https://static.crates.io/crates/oarfish/oarfish-0.13.0.crate"
+  sha256 "9395a23b206f9bd5e6c3eda72208641c58ce76f97f10cc42f4a9554d623e280c"
   license "BSD-3-Clause"
   head "https://github.com/COMBINE-lab/oarfish.git", branch: "main"
 
@@ -25,22 +25,22 @@ class Oarfish < Formula
   deny_network_access!
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
     system "cargo", "install", *std_cargo_args
-    pkgshare.install "test_data"
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/oarfish --version")
 
-    cp_r pkgshare/"test_data/SIRV_isoforms_multi-fasta_170612a.fasta", testpath/"test.fasta"
+    random = Random.new(1)
+    transcripts = (1..3).map { |i| ">tx#{i}\n#{Array.new(1000) { "ACGT"[random.rand(4)] }.join}\n" }
+    (testpath/"test.fasta").write transcripts.join
     system bin/"oarfish", "--reads", "test.fasta", "--annotated", "test.fasta",
                           "--seq-tech", "ont-cdna", "--output", "sample"
-    assert_path_exists "sample.quant"
+    assert_match "tx1\t1000\t1", (testpath/"sample.quant").read
   end
 end
