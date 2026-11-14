@@ -7,11 +7,11 @@ class Tuicr < Formula
   head "https://github.com/agavra/tuicr.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e7b2e9350a1723819c72bd22757883667adbfd24219cb904a79998fc8a31be83"
-    sha256 cellar: :any, arm64_tahoe:       "caa4ed17abc7f9e7139256d0dda83c21cf9805decfab288a4931eb9bf84ac429"
-    sha256 cellar: :any, arm64_sequoia:     "5ebb5a952ef058d32196ce43842073fbf3f1c721814c65bcdcaf1f25ec93fbf4"
-    sha256 cellar: :any, arm64_linux:       "db0932acfa74f940bfddf788e4ee1c5ddc9603be0353e3f891d6782e6721cb1f"
-    sha256 cellar: :any, x86_64_linux:      "966e096224246e0ffdab687e602e228c532e77e74d87ccab177c2906b2247005"
+    sha256 cellar: :any, arm64_golden_gate: "cdc7ec595b6a669fcf30eac26af3d4070bad093578d3cf1f8f5e63ac652d358f"
+    sha256 cellar: :any, arm64_tahoe:       "71648f1cf0822d1075c74a29af7c8367a7617ada5c93e149105505c1ab2bafba"
+    sha256 cellar: :any, arm64_sequoia:     "9486acb5d23395f7f8c506d6efc98bf1b7a7a51a120e64c9f281bed0e5b8d753"
+    sha256 cellar: :any, arm64_linux:       "6df7e0f44348215e11ba65c2a43d8b6d8b8150c7c94139f0f3661574a109a92a"
+    sha256 cellar: :any, x86_64_linux:      "5f217954ca3c534b2fd89d56ecd74f5ad58d8c6bd7c64b14901e8fd0a90d63da"
   end
 
   depends_on "pkgconf" => :build
