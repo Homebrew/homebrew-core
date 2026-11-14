@@ -6,7 +6,7 @@ class CyclonedxNpm < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "ec05539fcdaea18a0d69ff99b9d1d74aed54992c1c7753f123c3fc0cabf5db07"
+    sha256 cellar: :any_skip_relocation, all: "d5377c6571ed4e5a7f278eb2b9cdf944c300ca0aa525bf0695fe9e41aea2429b"
   end
 
   depends_on "node"
