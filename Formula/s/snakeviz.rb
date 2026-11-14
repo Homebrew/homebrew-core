@@ -6,21 +6,21 @@ class Snakeviz < Formula
   url "https://files.pythonhosted.org/packages/04/06/82f56563b16d33c2586ac2615a3034a83a4ff1969b84c8d79339e5d07d73/snakeviz-2.2.2.tar.gz"
   sha256 "08028c6f8e34a032ff14757a38424770abb8662fb2818985aeea0d9bc13a7d83"
   license "BSD-3-Clause"
-  revision 7
+  revision 8
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b263d7c98aefa3778790b90e566b7c3e1c4ad7b0d9e91797017bfa754237747"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ecd705ee68e34213f4cb56a22cd8c6165b44983ee9e2d86466ebf9470f80b59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7ef9f42158ea67377185cca4a890774f64b847a72d74fe2f9f35fbe7ccd94d0"
-    sha256 cellar: :any,                 arm64_linux:       "032d789891df01750e85d39befd34e8ad50ad48fb8ebe1a4d56943a0a72ff4fd"
-    sha256 cellar: :any,                 x86_64_linux:      "29feea25efcd3831a3afe5af1995c31f4abd60f8f56df97441010c6084c47dfe"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc2ba725cce1aa3b3cda0615c358300f1883f2909884afeb59c433e176b2d1af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "66a1f65d1e8986240638e587bba4c04a9baf896c9b980e926acb2646062a3df1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e810bc1c4857ce699045640cf75d1d56bc8a5ae51d1d58429a32c138e0e2b523"
+    sha256 cellar: :any,                 arm64_linux:       "6d475c8e426158ee69a49b159a88df5020b1e9d6bfddd0da95d5fb1969b22cb9"
+    sha256 cellar: :any,                 x86_64_linux:      "b818262bc200f6535e97a03516fbdec52c813fdbd74148a756b07f873ef6f4f1"
   end
 
   depends_on "python@3.15"
 
   resource "tornado" do
-    url "https://files.pythonhosted.org/packages/d0/02/5f549b1ad5da6267ed1e1fac2eef69257b1979cc812497002499b7895ff9/tornado-6.6.tar.gz"
-    sha256 "34c4aa916d7f2b2d5cadee2c6850f5a4a7f3d688cbf58399ea9bd3057af4abd5"
+    url "https://files.pythonhosted.org/packages/64/2b/8ff2b41620cbba0eeb0862fed21dcaa5a2ad36c6dd9bb465f9ff7a147be2/tornado-6.6.1.tar.gz"
+    sha256 "28e6311402af59c8b02e3fa0f5e7d8eb465b25081381803b127d97e6a4395d5a"
   end
 
   def install
