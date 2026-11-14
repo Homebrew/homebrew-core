@@ -12,11 +12,11 @@ class Asymptote < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "ff611b42ed0d2e997e636cc8f35f9d210fd2c2ad50745b66857eeeab0105e82e"
-    sha256 arm64_tahoe:       "2e1ca1a23ddf2c4247cdad26aedefa0eded54661b8ee60c2332fba2bdd2b8774"
-    sha256 arm64_sequoia:     "4a05b43ae7683ab1864b11497d762e8b154f2c91ffd502ee275a2f0d8756dfd5"
-    sha256 arm64_linux:       "e7c9914a3f5df0152248999c600289fc16ba1671f3e428adbf842e3337f34053"
-    sha256 x86_64_linux:      "140b6dd260413d7d17de8984b98d3b2255256ca0642c257226ed1f8fcfbb0111"
+    sha256 arm64_golden_gate: "15f2e324377f4f3c8cf2ccdf645a2fc1df4e4ae836c21a01592e242b25f83760"
+    sha256 arm64_tahoe:       "cc599f37c6eedeee835f0ac1778faae4483f7b755e2c1eaf5668f8e374877372"
+    sha256 arm64_sequoia:     "b7d28ddb24746f7a1733f09a1fbb6d27f3bb4f75deac0cf6f95a39ced47de009"
+    sha256 arm64_linux:       "f7a39373b7c72b7e0d1404782ddbe735aa5e42b6a6ec9869779fe738b1dc095e"
+    sha256 x86_64_linux:      "3ad371288a96f51ec82f04169353123fd7eac5bff42dc02b36710634f71d5988"
   end
 
   depends_on "cmake" => :build
