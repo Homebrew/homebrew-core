@@ -1,8 +1,8 @@
 class Nickle < Formula
   desc "Desk calculator language"
   homepage "https://www.nickle.org/"
-  url "https://nickle.org/release/nickle-2.111.tar.xz"
-  sha256 "e1f41c6a08aaf9fc283c282dfba6520fb621b02aaa58b40740d7b87bdad17870"
+  url "https://nickle.org/release/nickle-2.113.tar.xz"
+  sha256 "994e5658cab6aa9525a52ac38d220d26854808b4afdfec0beac0840325433d17"
   license "MIT"
 
   livecheck do
