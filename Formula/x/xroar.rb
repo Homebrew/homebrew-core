@@ -6,13 +6,11 @@ class Xroar < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "99d86fca28d79a0217a5d0548c77c76e774de188278f3e150de5e6f3ade63543"
-    sha256 cellar: :any, arm64_tahoe:       "45fc17a5ef64c9f5d03568ab92be47a74f2e063445e22ea7b080216c10616b02"
-    sha256 cellar: :any, arm64_sequoia:     "3ce570ced666937ec8de3b7cd32a1365cf1856954e4ab7c9eb518ff000ea83bb"
-    sha256 cellar: :any, arm64_sonoma:      "e73e983da1247571d0d820fff89dcb0838992c0b902becc7b6cdb72453bc8a83"
-    sha256 cellar: :any, sonoma:            "0541fa0834dfdbcf8a72f3dbf1367b0649b335a32e03f6a5600f9e4bb33f5660"
-    sha256 cellar: :any, arm64_linux:       "f21256affa2a7f37611b453f19249adce26768f650eee897d64f722d66b3617f"
-    sha256 cellar: :any, x86_64_linux:      "db0cc1aeeaa264958470c4da85d1a17bbee5a28068510fb7a6f399e2c3a62b41"
+    sha256 cellar: :any, arm64_golden_gate: "526193c1cca92e7201881581a81b946573ab77e04adf0edaec564d33d168fd59"
+    sha256 cellar: :any, arm64_tahoe:       "cddf9fbd9d1dff6b41b3a5abfb3dfebb5def5170efbf55e7eb2ef988700b82c6"
+    sha256 cellar: :any, arm64_sequoia:     "839a20b7c3de18a075f6a161f8d3cf371c89df618797f660016c708dce988385"
+    sha256 cellar: :any, arm64_linux:       "5a8c2be852a7d30a7436e4e35fb7539de32138d3f3d5d9f20b68a819b9f01140"
+    sha256 cellar: :any, x86_64_linux:      "0c45c11cf44219cf8f733fac8b4ffb2ce9209a3507c66df70539790ea7886de8"
   end
 
   head do
