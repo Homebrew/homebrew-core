@@ -1,8 +1,8 @@
 class Anyzig < Formula
   desc "Universal zig executable that runs any version of zig"
   homepage "https://github.com/marler8997/anyzig"
-  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_11_03.tar.gz"
-  sha256 "487939d1b2f81b08477ba133a706a0194e67f9a27ef7ed97451b02c9cdf31dc2"
+  url "https://github.com/marler8997/anyzig/archive/refs/tags/v2026_11_12.tar.gz"
+  sha256 "5403be7549905990e98f036f920536cbf5948008a818cfb1587e408029333133"
   license "MIT"
 
   livecheck do
@@ -14,11 +14,11 @@ class Anyzig < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4a7b9611e0e5a3ad8358e21d71eaad27f0b34c8bd15380927e187b77d15ceaf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3662964bd5b89a8d2879002d4ffac4155fb6fcf3e9caa3515429614fc05f8dcf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ed236213836d3f1185077dde2817ffd21d1339c1396fb114e06bb1e10d85013"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "53f797212f335711a0cecf9acb462f17c7b1ca58dfea72ffc3e2ff6a28cbca03"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "50ae08f6ce3bd06cf87bb16b3fd67d616d4ce85ebc755029b1e8d88229d8df41"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6004e78570797f615903092c18a3f5e8ba15ef1894514f0ebc2b528418179880"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c85a54f13e90b84484c214ad3413723c828c414aabbf41f08a7103c6db9cbe6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63a2f299e178d499dbce83ae53551ec92de8926585fd0f29ce8987d97813c306"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fb9566d6579255093365e7e67c4c70081299ba9c92e2daca1a8ee22a439640af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a65799eb719b1d60b83dfe63ade4ed967dce2979687f86c9c7bf1143ca407f98"
   end
 
   keg_only "it conflicts with zig"
@@ -28,10 +28,15 @@ class Anyzig < Formula
   deny_network_access!
 
   def fetch
-    system "zig", "build", "--fetch"
+    system "zig", "build", "--fetch=all"
   end
 
   def install
+    # zig-patch preserves the read-only permissions of Homebrew's Zig standard library.
+    cp_r formula_opt_lib("zig")/"zig", buildpath/"zig-lib"
+    chmod_R "u+w", buildpath/"zig-lib"
+    ENV["ZIG_LIB_DIR"] = buildpath/"zig-lib"
+
     args = %W[-Dforce-version=v#{version.to_s.tr(".", "_")}]
     system "zig", "build", *args, *std_zig_args
   end
