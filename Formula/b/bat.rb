@@ -32,11 +32,12 @@ class Bat < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
+    # Generate assets outside Cargo's version-dependent build directories.
+    ENV["BAT_ASSETS_GEN_DIR"] = buildpath
 
     system "cargo", "install", *std_cargo_args
 
-    assets = buildpath.glob("target/release/build/bat-*/out/assets").first
-    man1.install assets/"manual/bat.1"
+    man1.install buildpath/"assets/manual/bat.1"
     generate_completions_from_executable(bin/"bat", "--completion")
   end
 
