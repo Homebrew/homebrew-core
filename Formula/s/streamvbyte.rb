@@ -7,11 +7,11 @@ class Streamvbyte < Formula
   head "https://github.com/fast-pack/streamvbyte.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fec5e86afd20837abdc1364867a34c9f7f7f7ffb862374a703762da93975c351"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "353e3a7f646d910663bb267f54da58b91b7102ea736989d01d48ea806b0c43df"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f13e3e2d0e234232e237c51dbdf439b9df2cab4c2215dada0f985d3198b3cd4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3cc0107f479b10da0e5a1a481995105b24ed53d6996bcc320c60844ba62da388"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b280e61ed8af73f55b2ee46913e838a491d0c4d0aeda2ab973666c9daa234796"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a36b4ece621e040bce3841ba2de2ee0477692daea0c711a2f212305002402bea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23b1620773a57e0cc53a232d18af0370ead421e8c98afe47720c4abc53e82c2d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ee9820d762603a5e1f05a6999b1a507ebe1c8b5cfd14edf55f9ffbb0641773f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "af27b5306bc0f0e863f2bc93c4b96b73ad003b8d54be34f5a046687cbe2caab7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8612ea063d21a7d4f7d1680485ad349ab56598ccd3fd6773aceadd6dd2e33073"
   end
 
   depends_on "cmake" => :build
