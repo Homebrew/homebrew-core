@@ -4,6 +4,7 @@ class Librsvg < Formula
   url "https://download.gnome.org/sources/librsvg/2.63/librsvg-2.63.4.tar.xz"
   sha256 "31f07d9350dad3f8964fd613c31309ac160fdef13dfac59df6fd082de78d6e8f"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/librsvg.git", branch: "main"
 
