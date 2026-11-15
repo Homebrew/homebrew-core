@@ -1,8 +1,8 @@
 class Lisette < Formula
   desc "Language inspired by Rust that compiles to Go"
   homepage "https://lisette.run"
-  url "https://github.com/ivov/lisette/archive/refs/tags/lisette-v0.13.0.tar.gz"
-  sha256 "b44d00a0f9b4d0ee4cdf8b7874285ef47876651847ac4b26e28b07ed1338e185"
+  url "https://github.com/ivov/lisette/archive/refs/tags/lisette-v0.13.1.tar.gz"
+  sha256 "87a479e2bb6c70da7cc9321bfd48a41cf85bab9c052a60ecba1633cb92fe8b45"
   license "MIT"
   head "https://github.com/ivov/lisette.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Lisette < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2827f3b5584f0d2c2eb4f76fadef7b93518bb899063f717739a2ce0804ce064"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "87cfb31ded9a7c75a3325ef7b56b8dfa3c2c14c653f11bcd2dd147b39e621a59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0dc94fe4dd8ad9b2982a1a0859cd7f8216c2c62ea31b45f71bf5684b6ecc507f"
-    sha256 cellar: :any,                 arm64_linux:       "46cfb089f3667b12db29cc9a26916a9aa7c589057f1cdb50647d46f6e50b7199"
-    sha256 cellar: :any,                 x86_64_linux:      "e36ee9b5a244e6d5f43b925efcaf1179bd46af0acca1a7de0ca026f65f40040b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d69a449e1dae49ce8a4cef64debd0ed8ccab9db77ccb6dcd08c7d2e69f819af"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61453a0ea15805fb6bd7c7587b469db8008d1fb57c52413943277067af28d4f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce2934b9810bf086903efcdea44a8d7252af646e7491d9a9cc1aaea8d5fbbcb3"
+    sha256 cellar: :any,                 arm64_linux:       "c362211f041d0b7754d59d31a32257fd276c2d0e299e0208a8300a2949b3f89b"
+    sha256 cellar: :any,                 x86_64_linux:      "69157927d5664081fe00afca4700815767e3fe77678ec491ab9b84afef4e8d07"
   end
 
   depends_on "rust" => :build
