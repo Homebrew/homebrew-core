@@ -3,7 +3,6 @@ class Qt < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/md5sums.txt"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/md5sums.txt"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/md5sums.txt"
   version "6.12.0"
   sha256 "f82126a39b6e93da4f986f846addfe21082fd4a314bbcec69d5cf64b86cb348e"
   license all_of: [
