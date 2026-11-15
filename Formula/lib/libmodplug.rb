@@ -1,8 +1,8 @@
 class Libmodplug < Formula
   desc "Library from the Modplug-XMMS project"
   homepage "https://modplug-xmms.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.9.0/libmodplug-0.8.9.0.tar.gz"
-  sha256 "457ca5a6c179656d66c01505c0d95fafaead4329b9dbaa0f997d00a3508ad9de"
+  url "https://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.9.2/libmodplug-0.8.9.2.tar.gz"
+  sha256 "e4d9cb46da78a639d6eadb4ff3ab955f68c3099579b5310af64b37091e28957e"
   license :public_domain
   compatibility_version 1
 
@@ -12,20 +12,11 @@ class Libmodplug < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any,                 arm64_golden_gate: "0184999600d6708d6ab7da10296ecfc47a567248e13d749cbacbea2e01b80a30"
-    sha256 cellar: :any,                 arm64_tahoe:       "1143c79498400dd323ef1a5e5c5e6ee7b6e1d6efc8cb742c63fa46b8cf7505b9"
-    sha256 cellar: :any,                 arm64_sequoia:     "586ee0ddb6205b40860132f0f8dfdb74fdef762fb32ec0e9f2d3147db7229c63"
-    sha256 cellar: :any,                 arm64_sonoma:      "8e1f55e5d02306627f7aba2c819f4432c3d96ef049da3e51a0163827558c0003"
-    sha256 cellar: :any,                 arm64_ventura:     "169759bd85dac1257b3abc1f9690893711c64db8d8341278ecf10c155c4e8652"
-    sha256 cellar: :any,                 arm64_monterey:    "44f9536bdd1d88445e94cfef5c13a40ee07a965db04804824c438746f3d3db00"
-    sha256 cellar: :any,                 arm64_big_sur:     "8f59c19b920e04fd0b2b71cab151e62358e1c8ff00bea83b3e40081f941c13d3"
-    sha256 cellar: :any,                 sonoma:            "119d6db16f150a7398bd8209a230a13d47e0ab693b11c7671abf55be08e20f4d"
-    sha256 cellar: :any,                 ventura:           "c5d06183c6979cfeca5ad1b02ae6303f4cf0949b064847f6d33529567fa9a4ac"
-    sha256 cellar: :any,                 monterey:          "f773d6e23b5a2b84304c91c740b050c7364e3102714d4b1ccc3985e64f97d98e"
-    sha256 cellar: :any,                 big_sur:           "2411526634753034b19df000bf941383eac622926cc50c31ff80dc5a484c7abe"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0209868506e112abe52575b8604d3aa1ac4f804ef2fec00937ca15711a24ce7c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d166a7f4a737de154ada685c9af4f82d22238a1b6cb323ce49a4496a3e9b2911"
+    sha256 cellar: :any, arm64_golden_gate: "9014a2a4c7cfb30c08910e745fb0ae00d7ce7d1d157c2315a07e26649e4c919d"
+    sha256 cellar: :any, arm64_tahoe:       "6efb09badf5149ba9de2a95478a7368d0b5a0cb15cfab76ce8b8411c582892a2"
+    sha256 cellar: :any, arm64_sequoia:     "3ad7489e3a52048affa2e92b215ea7ac643647aa4503966d73b288f109165100"
+    sha256 cellar: :any, arm64_linux:       "704a9e65b80b4fa457f4bb1002a8868e283a8fe80ddbdc381bb39aed5a7b51c9"
+    sha256 cellar: :any, x86_64_linux:      "9c6801f8f9b31f5f1c6563f695b7b05841a7196d0540794f63833ceb20d8642c"
   end
 
   resource "testmod", :test do
@@ -33,11 +24,6 @@ class Libmodplug < Formula
     # https://modarchive.org/index.php?request=view_by_moduleid&query=212083
     url "https://api.modarchive.org/downloads.php?moduleid=212083#2nd_pm.s3m"
     sha256 "b869c3e70c66010eda066452791cc3f1536bd3ad0bc01b98924c79765b03ceb2"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    file "Patches/libtool/configure-big_sur.diff"
   end
 
   deny_network_access!
