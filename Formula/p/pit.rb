@@ -50,7 +50,7 @@ class Pit < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "d9d22e313984a6d20930041fd3cbb5896826e0be8a687992866ceef0e79152c7"
   end
 
-  uses_from_macos "ruby"
+  uses_from_macos "ruby" => :build
 
   def install
     ENV.deparallelize
