@@ -4,7 +4,7 @@ class LibgeditTepl < Formula
   url "https://gitlab.gnome.org/World/gedit/libgedit-tepl/-/archive/6.15.0/libgedit-tepl-6.15.0.tar.bz2"
   sha256 "23126d33b0016e5823351c4845cfdc074f7c232a85288a73d00468d003bebbe1"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://gitlab.gnome.org/World/gedit/libgedit-tepl.git", branch: "main"
 
@@ -35,19 +35,12 @@ class LibgeditTepl < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", "-Dgtk_doc=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-
-    # `pkg-config --libs libgedit-tepl-6` includes icu-uc and icu-i18n but modules
-    # are from keg-only `icu4c@75` so pkg-config needs to look in the opt path.
-    # TODO: Remove after https://github.com/Homebrew/brew/pull/18229
-    icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-    icu4c_pc_dir = icu4c_dep.to_formula.opt_lib/"pkgconfig"
-    inreplace lib/"pkgconfig/libgedit-tepl-6.pc",
-              /^(Requires\.private:.*) icu-uc, icu-i18n,/,
-              "\\1 #{icu4c_pc_dir}/icu-uc.pc, #{icu4c_pc_dir}/icu-i18n.pc,"
   end
 
   test do
@@ -60,6 +53,8 @@ class LibgeditTepl < Formula
       }
     C
 
+    icu4c_dep = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:icu4c) }
+    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib(icu4c_dep.name)/"pkgconfig"
     flags = shell_output("pkgconf --cflags --libs libgedit-tepl-6").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
