@@ -16,7 +16,7 @@ class Goose < Formula
 
   depends_on "go" => :build
 
-  conflicts_with "block-goose-cli", because: "both install `goose` binaries"
+  conflicts_with "block-goose-cli", "goose-lang", because: "both install `goose` binaries"
 
   deny_network_access!
 
