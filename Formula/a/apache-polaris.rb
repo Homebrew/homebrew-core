@@ -1,8 +1,8 @@
 class ApachePolaris < Formula
   desc "Interoperable, open source catalog for Apache Iceberg"
   homepage "https://polaris.apache.org/"
-  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.8.0.tar.gz"
-  sha256 "c7addba31ff553a49a1b6b6c77b253a519d37da3eee82b90e5321cdc08b76f2d"
+  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.9.0.tar.gz"
+  sha256 "272cca5ea964339a48fc9cf2e6d5548107ce2160e26bc048695020fe39706089"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class ApachePolaris < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f791831e7282a9b53f78a3e590deae0d2e03af1dda645e7c7b537ccd2f9a476"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efa5308e053328888f518435737cc476b6af384f814307a4f2c7d17f247d5d51"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cb1d9c2ef4b5849ec6f67a5000eb1de27015825433b24ec4341fc77d573e9bb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "21255ccd106d2f9c5fd64e085696261267edd4d9986e6f9a27ac01ff4dedf312"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7d31554514b827f1948e4c28799fe9300ac94af02a490498808673ff03cf3945"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ac5bec114d12a4f0b6e942823f6f166062a99bb0384d4257460682f3f7ce3e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb9e0aa6bb8b2fdc360ad34cdc16e489f7f6c3a03d1905a61d6673a0fd15cf10"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31ad1440589b42e3b985dfa1ae18a6da5557f3ed7ff4c29de7539325dbd9f176"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "da502dfc18d4619cb9455ded9cdcce58ec703eb7cde3e40b0551a2632aa44704"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c971aed910476b6617b947895ed9c735c4f7056729e41cd68c755fc7b9440a78"
   end
 
   depends_on "gradle" => :build
@@ -32,7 +32,7 @@ class ApachePolaris < Formula
               'implementation("io.quarkiverse.amazonservices:quarkus-amazon-rds")',
               'implementation("io.quarkiverse.amazonservices:quarkus-amazon-rds")' \
               "\n  " \
-              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-apache-client-internal")'
+              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-apache5-client-internal")'
 
     system "gradle", "assemble", "--no-daemon"
 
