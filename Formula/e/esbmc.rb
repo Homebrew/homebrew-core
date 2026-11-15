@@ -39,9 +39,9 @@ class Esbmc < Formula
   # Avoid std::atomic<double> arithmetic, which needs libc++ 18 or newer.
   patch :DATA
 
-  def python = deps.map(&:name).find { |d| d.match?(/^python(@\d+(\.\d+)*)?$/) }
+  def python = versioned_dependency("python")
 
-  def llvm = deps.map(&:name).find { |d| d.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+  def llvm = versioned_dependency("llvm")
 
   def install
     args = %W[
