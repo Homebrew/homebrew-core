@@ -6,11 +6,11 @@ class Ccusage < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10a8588b915ae28a575cf32eaf86ceed90bf23f1f71e8c1e3f96e5142e6f8977"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edfc83e1db60105b3474d10a715326f41976511c9476967e804a350c22b8a23f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9dff40b1f511d688ddf8f329c11bb8950f6a7691675cff93fdb9572b40173db9"
-    sha256 cellar: :any,                 arm64_linux:       "f59a5265eac28e6a6db8faff636eb2304f4dbe6382930e03e69612c863c9ae69"
-    sha256 cellar: :any,                 x86_64_linux:      "ca3c83070d6e9b55ef98e026e90b7ed9c74817c7c6e9621d04ae2817f6959a0a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a275be65581ed04679bdc27f3bd47f2ca5a0074769a15ea607866755281db318"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "486138504f904ad641ce70ed99eac935460278b8fae3a65d368886dab7c045fa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "741f4be3e53fec443c3f5aa4ca01351f1ebb6bb55134a818980d14547d6d00de"
+    sha256 cellar: :any,                 arm64_linux:       "fc39fc0f9465b87a03515b2612cba5224a23daf4f316a2cd8d29bb56f1df118c"
+    sha256 cellar: :any,                 x86_64_linux:      "e4b466b86dcccf454bf184c9381d0b49c9e9c1f51e7f5162a3682a3ff5645b8a"
   end
 
   depends_on "rust" => :build
