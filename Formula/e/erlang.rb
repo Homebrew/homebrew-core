@@ -82,7 +82,7 @@ class Erlang < Formula
     args = %W[
       --enable-dynamic-ssl-lib
       --with-odbc=#{formula_opt_prefix("unixodbc")}
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{formula_opt_prefix(versioned_dependency("openssl"))}
       --without-javac
     ]
 
