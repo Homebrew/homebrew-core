@@ -1,17 +1,17 @@
 class Chainsaw < Formula
   desc "Rapidly Search and Hunt through Windows Forensic Artefacts"
   homepage "https://github.com/WithSecureLabs/chainsaw"
-  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.17.1.tar.gz"
-  sha256 "62b6a7a624400f9d038f784ce67d894c033bac9ff9279e658ea960623cb38502"
+  url "https://github.com/WithSecureLabs/chainsaw/archive/refs/tags/v2.18.0.tar.gz"
+  sha256 "2f30875fac34ca8482ddf3de888949f94a5983cda35e4ee81abe78e19175c87e"
   license "GPL-3.0-only"
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "490b8abd20a01e957c982c18f25c9eac7574d5307ec7e38199a94c97a99ddbdf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc21e84f42a810c7087988407650ad6a2205c24811a3dad1870d5b9b9d559d18"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e8f14b922a8e9cba884a5a0701e0d05f0543ceda9b7b5912bb3fc5f94224e8f"
-    sha256 cellar: :any,                 arm64_linux:       "ff0aa8a1c66a0d7c40332a21e691d07c751e30c20418d54e077364056e8eed3e"
-    sha256 cellar: :any,                 x86_64_linux:      "aac7af871e29594223ba4deec8b6786c9e587f412ee43b68fd26ba3b2bbe67d6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b728684fcfe4e10716e1ef2272dc2f447eec097db3be31ce458f6d386d9bb9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6cb643a20618d755be4009ff058fd2ab766cdc995ba5622f608881b332624d55"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc4fd5a7f779623eac609143daa376704da1b3c82276d2ae8cd84baecd07446e"
+    sha256 cellar: :any,                 arm64_linux:       "0f6c1282c4b9192bdc1e333cacd331c78bcfd414726b6cee1b09cd03ccb41f74"
+    sha256 cellar: :any,                 x86_64_linux:      "30c3fa969b93fea3bad35efed4c5c2fb421ba2bf1778c15cd7f3ec3194797a1d"
   end
 
   depends_on "rust" => :build
