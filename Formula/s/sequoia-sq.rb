@@ -33,7 +33,7 @@ class SequoiaSq < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
     ENV["ASSET_OUT_DIR"] = buildpath
 
     path = build.head? ? "tool" : "."
