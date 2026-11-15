@@ -130,7 +130,7 @@ class PerconaXtrabackupAT84 < Formula
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix(versioned_dependency("openssl"))}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
