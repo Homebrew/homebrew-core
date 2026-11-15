@@ -7,15 +7,12 @@ class Bao < Formula
   head "https://github.com/oconnor663/bao.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6a57a5185a5cebb1ef79ac85bd41ac23cb518b064c1e6a15a61fc7aa9916f8b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9825859095cd723bb032520fe1548c694f4a413a42e874525c7dd5e16d0340f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e72ccd2883d2cca743e0436eae25cee929d330d0238df74a7bfa1a48d48cf9ce"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "7ee092a0750ef69e210081b7bb3d1143365755d330711ce42bfa9ce2c4774b98"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "2b7ca0bd24b20763777ef735beabb064f068174b3f4ac3c76b86d33834cc37ed"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3f56a2a03eb3c7c5087b44266136a6f90f868f1f312731811fcb2866d421113e"
-    sha256 cellar: :any_skip_relocation, ventura:           "c1be9491ec695e53a1e9d94391081618451b25f6da26bea453faf7791cc34e48"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e61983b766ac21aadef6a9afa6d4bea203c87dea271b180be9a2fe9554e81bd2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "02ccf54ad8acabb8b7504b3b9e6ba699a50f96cd487f89a2859ba565b6476de2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d536920c98ba7cdc59be1e52cf4efeb312d8d24817bca8efc38c91d86f3e555c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b7036473864fd7fc885910aae5c8b43404d5ddb208c13259c9b94aa8f3957d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0834b21ae3308c428a8f600306d8df40d983c281fc64cc11303bedfba5e9c474"
+    sha256 cellar: :any,                 arm64_linux:       "4b6358378f3448609c17a8b7d52305f7bb9df3358267421fcbc92f40149bb7e1"
+    sha256 cellar: :any,                 x86_64_linux:      "d5d91c4984c6db2cf6d787eb5a9ed1946ccfe67ba1df0d8b8dcbd311e624d2d7"
   end
 
   depends_on "rust" => :build
