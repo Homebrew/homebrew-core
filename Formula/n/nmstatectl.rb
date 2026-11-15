@@ -1,15 +1,10 @@
 class Nmstatectl < Formula
   desc "Command-line tool that manages host networking settings in a declarative manner"
   homepage "https://nmstate.io/"
-  url "https://github.com/nmstate/nmstate/releases/download/v2.2.62/nmstate-2.2.62.tar.gz"
-  sha256 "37564cf14526037befcc919b72a715427ba3cb029e7d2de41f15b00268febc23"
+  url "https://static.crates.io/crates/nmstatectl/nmstatectl-2.2.62.crate"
+  sha256 "3ad5a2d991e13dbdad1d0dbb6d8694cb6004712744dea38ba31d41392a0647bd"
   license "Apache-2.0"
   head "https://github.com/nmstate/nmstate.git", branch: "base"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d7f2e25f60804ff0d78eeadb6ecf08047b37b78f967322853ecd40979878930"
@@ -26,20 +21,19 @@ class Nmstatectl < Formula
   allow_network_access! :test
 
   def fetch
-    cd "rust" do
-      # `rust/Cargo.lock` is ignored
-      system "cargo", "generate-lockfile"
+    cd(build.head? ? "rust" : ".") do
+      system "cargo", "generate-lockfile" if build.head?
       system "cargo", "fetch", *std_cargo_fetch_args
     end
   end
 
   def install
-    cd "rust" do
+    cd(build.head? ? "rust" : ".") do
       if OS.mac?
         args = ["--no-default-features"]
         features = ["gen_conf"]
       end
-      system "cargo", "install", *args, *std_cargo_args(path: "src/cli", features:)
+      system "cargo", "install", *args, *std_cargo_args(path: build.head? ? "src/cli" : ".", features:)
     end
   end
 
