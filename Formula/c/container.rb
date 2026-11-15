@@ -9,8 +9,8 @@ class Container < Formula
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7014505d31e6a115beff8719713bbe26da76d95dcb33baa8b6e2d2cf52839d8c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fc6e937a659dd42d807fd4badfc7ca2ccf95b2f9cdc7744adf626037490699e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c4ea95904c6d746848e2b499a89b9154e52ba9d4a48b7cb1eee06edd9676b71"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63f7ed909bd54deb08d5fb86a537d07ba9b94abb326d9194a66657b7e804221f"
   end
 
   depends_on xcode: ["26.0", :build]
