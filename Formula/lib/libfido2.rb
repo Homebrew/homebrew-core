@@ -4,15 +4,15 @@ class Libfido2 < Formula
   url "https://github.com/Yubico/libfido2/archive/refs/tags/1.17.0.tar.gz"
   sha256 "ace062d14a482ff9325410ff63d06c8b5fe87e79ebc18dda07add2bc0188c77f"
   license "BSD-2-Clause"
-  revision 1
+  revision 2
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b679492d42f008427e7646538e1b12744a0793a8532ac1d946088781a8981edd"
-    sha256 cellar: :any, arm64_tahoe:       "e00d6b923b4c560c04b6bda73cecacfaada8f1c0597ad765e3535ab9e7d1fe94"
-    sha256 cellar: :any, arm64_sequoia:     "b404a7b93781536080839a6c16c23b757f540e1a0895ea8344bc39c34cea5edb"
-    sha256 cellar: :any, arm64_linux:       "a49777a64ffc7dfe1752ec844a474896b696faf9c7a3d5d81c95273144ecc321"
-    sha256 cellar: :any, x86_64_linux:      "cf69e18e0fad21c5b5f8c1b2bb76eddcd6636268b860d90457f28e886d997ff0"
+    sha256 cellar: :any, arm64_golden_gate: "6407a5715cc67b0c0acf715ba34c8c15001e6f2b49959477ccf4dc08d4c27020"
+    sha256 cellar: :any, arm64_tahoe:       "9612687aaa341d338f0f71a18a45e5399ecb2a5cd04664ee0f9e04dcc9460aab"
+    sha256 cellar: :any, arm64_sequoia:     "cd56a071ed3cca968ac12a94cd8f9e9b73ded9a53f68a9439c1173e8c3fd6212"
+    sha256 cellar: :any, arm64_linux:       "af3ca0a6bd18489865e7a492011917fb913baa90cafd2a07d48917b1c8b0cd5c"
+    sha256 cellar: :any, x86_64_linux:      "7c3b0fc7503c444499d5ebdd2584512ef2a93d3e4f5193fd0211394109510afb"
   end
 
   depends_on "cmake" => :build
