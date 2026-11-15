@@ -44,7 +44,7 @@ class Gerust < Formula
 
   def install
     if build.stable?
-      ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+      ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
     else
       ENV["AWS_LC_SYS_USE_SYSTEM"] = "1"
     end
@@ -62,8 +62,8 @@ class Gerust < Formula
     assert_match "Could not generate project!", output
 
     [
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libssl"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"gerust", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
