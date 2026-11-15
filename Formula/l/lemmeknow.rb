@@ -1,8 +1,8 @@
 class Lemmeknow < Formula
   desc "Fastest way to identify anything!"
   homepage "https://github.com/swanandx/lemmeknow"
-  url "https://github.com/swanandx/lemmeknow/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "46f42e80cf2c142641fc52826bcf73e00e26dbb93f20397a282e04b786a7cfe8"
+  url "https://static.crates.io/crates/lemmeknow/lemmeknow-0.8.0.crate"
+  sha256 "6a84dc3c9c3aba3b43b2bccec7ff9ca15ee94e6644eac129fef1ffd13d9e4733"
   license "MIT"
   head "https://github.com/swanandx/lemmeknow.git", branch: "main"
 
@@ -27,8 +27,7 @@ class Lemmeknow < Formula
   deny_network_access!
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
