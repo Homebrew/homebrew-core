@@ -1,8 +1,8 @@
 class Qsv < Formula
   desc "Ultra-fast CSV data-wrangling toolkit"
   homepage "https://qsv.dathere.com/"
-  url "https://github.com/dathere/qsv/archive/refs/tags/28.0.0.tar.gz"
-  sha256 "7a0efbab2d7cd7923ac4d8613d3eff4b4aa6383993f5e1d8edc393208265348f"
+  url "https://github.com/dathere/qsv/archive/refs/tags/29.0.0.tar.gz"
+  sha256 "0220154ed1ef58e0124f47cd96f9c6dfe00ab133f8a187c9eaec9e3258000693"
   license any_of: ["MIT", "Unlicense"]
   head "https://github.com/dathere/qsv.git", branch: "master"
 
@@ -42,11 +42,8 @@ class Qsv < Formula
     # see discussion at https://github.com/briansmith/ring/discussions/2528#discussioncomment-13196576
     ENV.append_to_rustflags "-C target-cpu=apple-m1" if OS.mac? && Hardware::CPU.arm?
 
-    # Work around SIGKILL on arm64 linux runner from fat LTO
-    github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
-                         ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
-                         ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
-    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if github_arm64_linux
+    # Keep the large Polars-enabled build within CI time and memory limits.
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin"
 
     # Build `viz_static` without plotly's build-time webdriver download and default the
     # runtime driver to the `chromedriver` cask (`WEBDRIVER_PATH` overrides it)
@@ -54,7 +51,7 @@ class Qsv < Formula
     ENV["WEBDRIVER_DOWNLOAD_PATH"] = HOMEBREW_PREFIX/"bin/chromedriver"
 
     features = %w[distrib_features lens]
-    system "cargo", "install", *std_cargo_args(features:)
+    system "cargo", "install", "--profile", "release-luau", *std_cargo_args(features:)
 
     bash_completion.install "contrib/completions/examples/qsv.bash" => "qsv"
     fish_completion.install "contrib/completions/examples/qsv.fish"
@@ -77,5 +74,10 @@ class Qsv < Formula
       first header,NULL,,,,,,,,,,,,,,,,,,,,,,0,,,,,
       second header,NULL,,,,,,,,,,,,,,,,,,,,,,0,,,,,
     CSV
+
+    # Luau callbacks must report errors rather than aborting across the FFI boundary.
+    (testpath/"overflow.csv").write("value\n1e308\n1e308\n")
+    output = shell_output("#{bin}/qsv luau map total 'qsv_cumsum(value)' overflow.csv 2>&1", 1)
+    assert_match "Luau errors encountered: 1", output
   end
 end
