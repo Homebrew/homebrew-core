@@ -7,11 +7,11 @@ class ZshPatina < Formula
   head "https://github.com/michel-kraemer/zsh-patina.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "861f2afced77ffb59aa10625e7c4a590ef74a835fb1bcf537b98d31a714a546b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "078ffebc9bb91ab83c5a258d60e9531932482be45e6903537d4971225b63e56f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "59d6f3bb18a539220787f4fe7bfee079e2c28713e3247cb03208556509ddb595"
-    sha256 cellar: :any,                 arm64_linux:       "711776d6c4d48109a0546163a50a69d487219ee32baa8511e2958065871a84f2"
-    sha256 cellar: :any,                 x86_64_linux:      "eab7aaa48130ece2954d860c36aedf336aa5198428c41314a3fe5a391fac8881"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddd1ab6eb70ddf8c4ac55a3a847538104bb8b9e1e9ee2afc7f40d2b3b2abbec0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "510d187fdf47acb53715cb28435ecdae69effc5728a380428e8f9feeddb30b6c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af51432cda28da136ae201bb5f9eed7bb07cce11ed7c786d1bbd56c559b8c161"
+    sha256 cellar: :any,                 arm64_linux:       "77d35a8e72205726adc2a0d472dc51ecc8d1b35e78d3652b0b9a51361061476a"
+    sha256 cellar: :any,                 x86_64_linux:      "fa4fe13392d2ea7bf290e7065289c0021dce6b5b06700063b957d76fa1f0de19"
   end
 
   depends_on "rust" => :build
