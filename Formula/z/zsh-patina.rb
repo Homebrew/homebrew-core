@@ -1,8 +1,8 @@
 class ZshPatina < Formula
   desc "Blazingly fast Zsh syntax highlighter"
   homepage "https://github.com/michel-kraemer/zsh-patina"
-  url "https://github.com/michel-kraemer/zsh-patina/archive/refs/tags/1.11.0.tar.gz"
-  sha256 "08577fdb5bc2dcc4ee5ebec6c0511afb6ff0f5f9b3a18bdfa94ae2d35765e56d"
+  url "https://github.com/michel-kraemer/zsh-patina/archive/refs/tags/1.12.0.tar.gz"
+  sha256 "fb9e04ac4d10c0a5e136bf51d84a756367615a1864de16d272379dc07901fff6"
   license "MIT"
   head "https://github.com/michel-kraemer/zsh-patina.git", branch: "main"
 
