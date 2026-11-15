@@ -1,8 +1,8 @@
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-3.9.0.tgz"
-  sha256 "9157726cb1dbc86090168b7fd559a80313151d28bb31ee115c73c8bc4ac601d1"
+  url "https://registry.npmjs.org/appium/-/appium-3.9.1.tgz"
+  sha256 "7cd07536f196d4c1431be18d88f5e9fb9a8aefc5cd9b8606705ae11a298e719d"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
@@ -44,7 +44,7 @@ class Appium < Formula
     bin.install_symlink libexec.glob("bin/*")
 
     node_modules = libexec/"lib/node_modules/appium/node_modules"
-    rm_r(node_modules.glob("bare-{path,fs,os,url}/prebuilds/*"))
+    rm_r(node_modules.glob("bare-{buffer,path,fs,os,url}/prebuilds/*"))
 
     # Build `sharp` from source against brewed `vips`
     rm_r(node_modules.glob("@img/sharp-*"))
