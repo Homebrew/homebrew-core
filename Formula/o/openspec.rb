@@ -6,11 +6,8 @@ class Openspec < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93ff671c03690b0804a7ee702518d4ea5fda3d3d7312f4eae436c65712de1a72"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93ff671c03690b0804a7ee702518d4ea5fda3d3d7312f4eae436c65712de1a72"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "93ff671c03690b0804a7ee702518d4ea5fda3d3d7312f4eae436c65712de1a72"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1080a86ba2fac87023f6ba0e7aef62625d7ce15e0e82f356084909804d53d912"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1080a86ba2fac87023f6ba0e7aef62625d7ce15e0e82f356084909804d53d912"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "16f72f20bac22d0c2e116e0289577d7838a9059ca2ec5b6f3beb65ab44b67000"
   end
 
   depends_on "node"
@@ -18,6 +15,11 @@ class Openspec < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    # Build an `:all` bottle
+    inreplace libexec/"lib/node_modules/@fission-ai/openspec/dist/core/completions/installers/bash-installer.js",
+              "/opt/homebrew", HOMEBREW_PREFIX
+
     generate_completions_from_executable(bin/"openspec", "completion", "generate")
   end
 
