@@ -13,11 +13,11 @@ class Librealsense < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "45e4dce261bdb612fe6fe9b8823113e877301191fd948c0edf04a05edd453a9c"
-    sha256 cellar: :any, arm64_tahoe:       "57fc4e872d3f24b250eaa59affbe27e2e6b7ce49ca53971ae3be8d2fd6a0776f"
-    sha256 cellar: :any, arm64_sequoia:     "7ebb20dd5d8aba1a1d4dc233608c899fe8faaed59262a78d40d66229fda60f07"
-    sha256 cellar: :any, arm64_linux:       "4b1a1c0766ce44e6e205d55bd85eaa34fc79a652272e927e63b90d1580dc371d"
-    sha256 cellar: :any, x86_64_linux:      "a8d5812ff6d0ff70f76fea6ef240166e2ad36e8b86f721f1282188c5c095b02b"
+    sha256 cellar: :any, arm64_golden_gate: "5a6495f8932eee2712d7476c894e6cc245ab16c79c48837e7b4e82feaf9f918f"
+    sha256 cellar: :any, arm64_tahoe:       "f05dcc00148f5cf7a5c9db9684272d71b3691cb47e7608778c73663f7f2749ac"
+    sha256 cellar: :any, arm64_sequoia:     "69a3fd8b5f56abb4dda234f842b872a70db9f17ab986e7813a0f68ca0424d630"
+    sha256 cellar: :any, arm64_linux:       "70fdb9234e65aebfa7ca5307bd38ed51da90ac376c592e8466b33ad46a67d3a8"
+    sha256 cellar: :any, x86_64_linux:      "d3497952f29c627365a7e452d14fc6721d0397d0642ea2071c642b436276ec0d"
   end
 
   depends_on "cmake" => :build
