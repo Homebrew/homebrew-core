@@ -1,8 +1,8 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "http://miniupnp.free.fr/"
-  url "https://github.com/miniupnp/miniupnp/releases/download/miniupnpc_2_3_3/miniupnpc-2.3.3.tar.gz"
-  sha256 "d52a0afa614ad6c088cc9ddff1ae7d29c8c595ac5fdd321170a05f41e634bd1a"
+  url "https://github.com/miniupnp/miniupnp/releases/download/miniupnpc_2_3_4/miniupnpc-2.3.4.tar.gz"
+  sha256 "2c5457d5bc5723a03f0f961a062f27ab2da5b2be51b20bb62b7267f19b74f4e4"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/miniupnp/miniupnp.git", branch: "master"
