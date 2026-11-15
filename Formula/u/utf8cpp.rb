@@ -1,14 +1,14 @@
 class Utf8cpp < Formula
   desc "UTF-8 with C++ in a Portable Way"
   homepage "https://github.com/nemtrif/utfcpp"
-  url "https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.2.1.tar.gz"
-  sha256 "6d6a5493a111884cc085ee31babfe6d9960c8fb08fc80a64852eaeea8323dbc1"
+  url "https://github.com/nemtrif/utfcpp/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "42c36e1ef1307b1186996e4644f9999970e26325670b99019f3408bf0d3c952a"
   license "BSL-1.0"
   version_scheme 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "91979507787b320aa978b9fe793d1d72b5c50c7e73529897dbe5f09c75fb0e90"
+    sha256 cellar: :any_skip_relocation, all: "6c905c42482c85254be51d84768c382c5a5a200e326447e3bbbebe9e7c8f5c50"
   end
 
   depends_on "cmake" => [:build, :test]
