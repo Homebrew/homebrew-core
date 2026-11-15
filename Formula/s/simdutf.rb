@@ -1,10 +1,10 @@
 class Simdutf < Formula
   desc "Unicode conversion routines, fast"
   homepage "https://simdutf.github.io/simdutf/"
-  url "https://github.com/simdutf/simdutf/archive/refs/tags/v9.3.3.tar.gz"
-  sha256 "441e374e8629bd8469f6d5cde9f0fa17ef3ad158aeb077791606d8aa73b565ef"
+  url "https://github.com/simdutf/simdutf/archive/refs/tags/v9.4.0.tar.gz"
+  sha256 "361555059c963a1e5d78f3c7d42f35a19722b0333e6385994ff0fe7d80a5786a"
   license any_of: ["Apache-2.0", "MIT"]
-  compatibility_version 7
+  compatibility_version 8
   head "https://github.com/simdutf/simdutf.git", branch: "master"
 
   livecheck do
