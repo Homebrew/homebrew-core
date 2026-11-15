@@ -13,13 +13,11 @@ class Dlib < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "2c4b8ec822d69c7a2079246afcbb6ded405de46679c747571f316551fbac8ca3"
-    sha256 cellar: :any,                 arm64_tahoe:       "4f4d8d0c1c9c9f4d3d14efebb75b32d4cc826bc4eb78bf8325e45197b4db38cf"
-    sha256 cellar: :any,                 arm64_sequoia:     "ca7da3df10bb9bddb30c9a9a8f3d127148d602bfbd95fb839b44fc45df67d153"
-    sha256 cellar: :any,                 arm64_sonoma:      "b6228c729790576a6dd785125528a547017531941c45560877bf64bddcdf9129"
-    sha256 cellar: :any,                 sonoma:            "44dc2983b9544e2ba43cece99e7cb410d3e3ff605df6946f49ae4120f3df62d8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6fad7734cdad16a072ad4134a8c5ee14c031627a89fde3d6f51e866b589f32df"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "83a6c33227e47dfa2207a9d9125e76c3ae689955f7d33e1e51b9e2bd45495fcc"
+    sha256 cellar: :any, arm64_golden_gate: "b6f6b2ed845eda910d5b67434ea9909cb70a5cc08fd5f1e70f04fe2e0e48b27e"
+    sha256 cellar: :any, arm64_tahoe:       "c06e88b703bd85b9c2909ce4c683972ea65eb5361f2f00c96bc2f7a5b13bc687"
+    sha256 cellar: :any, arm64_sequoia:     "e429fc1cbf6dcc70f37abb4d99b42e53f40724880d4145a29e6bdbd296087534"
+    sha256 cellar: :any, arm64_linux:       "cf54d2a5a4d922981183c0f803e3ae6ee195835a9a5d720dbb559a25c8ca7ab6"
+    sha256 cellar: :any, x86_64_linux:      "f910d266fe85af8dbbad6a504075db4cdeab6e3c8ee52723f6c5d8af88d28065"
   end
 
   depends_on "cmake" => :build
