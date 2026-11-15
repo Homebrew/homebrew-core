@@ -1,8 +1,8 @@
 class ApachePolaris < Formula
   desc "Interoperable, open source catalog for Apache Iceberg"
   homepage "https://polaris.apache.org/"
-  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.8.0.tar.gz"
-  sha256 "c7addba31ff553a49a1b6b6c77b253a519d37da3eee82b90e5321cdc08b76f2d"
+  url "https://github.com/apache/polaris/archive/refs/tags/apache-polaris-1.9.0.tar.gz"
+  sha256 "272cca5ea964339a48fc9cf2e6d5548107ce2160e26bc048695020fe39706089"
   license "Apache-2.0"
 
   livecheck do
@@ -32,7 +32,7 @@ class ApachePolaris < Formula
               'implementation("io.quarkiverse.amazonservices:quarkus-amazon-rds")',
               'implementation("io.quarkiverse.amazonservices:quarkus-amazon-rds")' \
               "\n  " \
-              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-apache-client-internal")'
+              'implementation("io.quarkiverse.amazonservices:quarkus-amazon-apache5-client-internal")'
 
     system "gradle", "assemble", "--no-daemon"
 
