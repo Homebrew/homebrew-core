@@ -1,17 +1,17 @@
 class ArcaneCli < Formula
   desc "Command-line client for the Arcane Docker management platform"
   homepage "https://getarcane.app"
-  url "https://github.com/getarcaneapp/arcane/archive/refs/tags/v3.0.0.tar.gz"
-  sha256 "ecd7ed6b9650e121712187dc88788a4f9cece6413216084d917482a48b4771b0"
+  url "https://github.com/getarcaneapp/arcane/archive/refs/tags/v3.0.1.tar.gz"
+  sha256 "0766dd76b3d2f5d31fc1991c2684cac3810cdb169c74f09d64e4766c8b0ed409"
   license "BSD-3-Clause"
   head "https://github.com/getarcaneapp/arcane.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37dfbf375786e64457995ecb0671d76d9799b891feee042a1e9088120fa1760d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37dfbf375786e64457995ecb0671d76d9799b891feee042a1e9088120fa1760d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37dfbf375786e64457995ecb0671d76d9799b891feee042a1e9088120fa1760d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3d2855f7ecf44c57b0c0fafaf2eb0183df071718d998395e2c75d89122b3e31"
-    sha256 cellar: :any,                 x86_64_linux:      "2e4664a2ee59c54569b5d3c83e581b0410d390030809c09f35a609c940761ca4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bdee727d8993213ca3bde6460b74c1cc0a2a2d773947a8e26b7dd5968e60ece"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bdee727d8993213ca3bde6460b74c1cc0a2a2d773947a8e26b7dd5968e60ece"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bdee727d8993213ca3bde6460b74c1cc0a2a2d773947a8e26b7dd5968e60ece"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6b315783419d833f7e1dae868e9b784798b89d188b32f7546d03220394495ec8"
+    sha256 cellar: :any,                 x86_64_linux:      "eb5d8e8954bd9df96237ed4e19dc639b8fd19c986d48bde9166505dd5eb9c346"
   end
 
   depends_on "go" => :build
