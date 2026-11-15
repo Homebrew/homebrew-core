@@ -1,0 +1,45 @@
+diff --git a/libUseful-2.8/ConnectionChain.c b/libUseful-2.8/ConnectionChain.c
+index 1475dba..ac0cbdf 100755
+--- a/libUseful-2.8/ConnectionChain.c
++++ b/libUseful-2.8/ConnectionChain.c
+@@ -363,8 +363,8 @@ if (Type==CONNECT_HOP_SSHTUNNEL)
+ 	//Host will be Token, and port Token2
+ 	ParseConnectDetails(NextHop, NULL, &Token, &Token2, NULL, NULL, NULL);
+ 	Tempstr=FormatStr(Tempstr,"tunnel:%d:%s:%s ",TunnelPort,Token,Token2);
+-	tmpS=SSHConnect(Host, Port, User, Pass, Tempstr);
+-	if (tmpS)
++	int sshConnectResult=SSHConnect(Host, Port, User, Pass, Tempstr);
++	if (sshConnectResult)
+ 	{
+ 	for (i=0; i < 30; i++)
+ 	{
+diff --git a/libUseful-2.8/Terminal.c b/libUseful-2.8/Terminal.c
+index 78db6d7..faf2028 100755
+--- a/libUseful-2.8/Terminal.c
++++ b/libUseful-2.8/Terminal.c
+@@ -304,7 +304,11 @@ char *Tempstr=NULL;
+ if (Char <= 0x7f) 
+ {
+ 	if (S) STREAMWriteChar(S, Char);
+-	else write(1, Char, 1);
++	else
++	{
++		char ch = Char;
++		write(1, &ch, 1);
++	}
+ }
+ else
+ {
+diff --git a/main.c b/main.c
+index 8bb3912..edbb4a4 100755
+--- a/main.c
++++ b/main.c
+@@ -36,7 +36,7 @@ int Type=TYPE_NONE;
+ 
+ 
+ 
+-main(int argc, char *argv[])
++int main(int argc, char *argv[])
+ {
+ ListNode *Curr, *Next;
+ int OverrideType=TYPE_NONE;

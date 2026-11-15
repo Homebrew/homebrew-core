@@ -1,0 +1,296 @@
+diff --git a/fades/cache.py b/fades/cache.py
+index 45add13..efde6a1 100644
+--- a/fades/cache.py
++++ b/fades/cache.py
+@@ -1,4 +1,4 @@
+-# Copyright 2015-2016 Facundo Batista, Nicolás Demarchi
++# Copyright 2015-2024 Facundo Batista, Nicolás Demarchi
+ #
+ # This program is free software: you can redistribute it and/or modify
+ # it under the terms of the GNU General
+@@ -23,11 +23,8 @@
+ import time
+ 
+ from fades import REPO_VCS
+-
+-from pkg_resources import Distribution
+-
+ from fades.multiplatform import filelock
+-from fades.parsing import VCSDependency
++from fades.parsing import VCSDependency, NameVerDependency
+ 
+ logger = logging.getLogger(__name__)
+ 
+@@ -44,9 +41,10 @@ def __init__(self, filepath):
+     def _venv_match(self, installed, requirements):
+         """Return True if what is installed satisfies the requirements.
+ 
+-        This method has multiple exit-points, but only for False (because
++        This method has multiple exit-points, but only for None (because
+         if *anything* is not satisified, the venv is no good). Only after
+-        all was checked, and it didn't exit, the venv is ok so return True.
++        all was checked, and it didn't exit, the venv is ok and it so
++        returns the satisfying dependencies.
+         """
+         if not requirements:
+             # special case for no requirements, where we can't actually
+@@ -61,22 +59,28 @@ def _venv_match(self, installed, requirements):
+                 return None
+ 
+             if repo == REPO_VCS:
+-                inst_deps = {VCSDependency(url) for url in installed[repo].keys()}
++                inst_namevers = {(url, None) for url in installed[repo].keys()}
+             else:
+-                inst_deps = {Distribution(project_name=dep, version=ver)
+-                             for (dep, ver) in installed[repo].items()}
++                inst_namevers = {(dep, ver) for (dep, ver) in installed[repo].items()}
++
+             for req in req_deps:
+-                for inst in inst_deps:
+-                    if inst in req:
+-                        useful_inst.add(inst)
++                for inst_name, inst_ver in inst_namevers:
++                    if req.name == inst_name and req.specifier.contains(inst_ver):
++                        useful_inst.add((inst_name, inst_ver))
+                         break
+                 else:
+                     # nothing installed satisfied that requirement
+                     return None
+ 
+             # assure *all* that is installed is useful for the requirements
+-            if useful_inst == inst_deps:
+-                satisfying_deps.extend(inst_deps)
++            if useful_inst == inst_namevers:
++                inst_reqs = set()
++                for name, ver in inst_namevers:
++                    if ver is None:
++                        inst_reqs.add(VCSDependency(name))
++                    else:
++                        inst_reqs.add(NameVerDependency(name, ver))
++                satisfying_deps.extend(inst_reqs)
+             else:
+                 return None
+ 
+@@ -106,7 +110,7 @@ def _select_better_fit(self, matching_venvs):
+         # position of the winner
+         scores = [0] * len(venvs)
+         for dependencies in zip(*to_compare):
+-            if not isinstance(dependencies[0], Distribution):
++            if not isinstance(dependencies[0], NameVerDependency):
+                 # only distribution URLs can be compared
+                 continue
+ 
+diff --git a/fades/envbuilder.py b/fades/envbuilder.py
+index 2c12388..57a19aa 100644
+--- a/fades/envbuilder.py
++++ b/fades/envbuilder.py
+@@ -1,4 +1,4 @@
+-# Copyright 2014-2016 Facundo Batista, Nicolás Demarchi
++# Copyright 2014-2024 Facundo Batista, Nicolás Demarchi
+ #
+ # This program is free software: you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License version 3, as published
+@@ -169,7 +169,7 @@ def create_venv(requested_deps, interpreter, is_current, options, pip_options, a
+                 # always store the installed dependency, as in the future we'll select the venv
+                 # based on what is installed, not what used requested (remember that user may
+                 # request >, >=, etc!)
+-                project = dependency.project_name
++                project = dependency.name
+                 version = mgr.get_version(project)
+             installed[repo][project] = version
+ 
+diff --git a/fades/helpers.py b/fades/helpers.py
+index 941ea09..035b4ba 100644
+--- a/fades/helpers.py
++++ b/fades/helpers.py
+@@ -1,4 +1,4 @@
+-# Copyright 2014-2015 Facundo Batista, Nicolás Demarchi
++# Copyright 2014-2024 Facundo Batista, Nicolás Demarchi
+ #
+ # This program is free software: you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License version 3, as published
+@@ -22,11 +22,11 @@
+ import logging
+ import subprocess
+ import tempfile
+-
+ from urllib import request, parse
+ from urllib.error import HTTPError
+ 
+-import pkg_resources
++from packaging.requirements import Requirement
++from packaging.version import Version
+ 
+ from fades import FadesError, HTTP_STATUS_NOT_FOUND, HTTP_STATUS_OK, _version
+ 
+@@ -183,32 +183,32 @@ def check_pypi_updates(dependencies):
+     for dependency in dependencies.get('pypi', []):
+         # get latest version from PyPI api
+         try:
+-            latest_version = get_latest_version_number(dependency.project_name)
++            latest_version = Version(get_latest_version_number(dependency.name))
+         except Exception as error:
+             logger.warning("--check-updates command will be aborted. Error: %s", error)
+             return dependencies
+         # get required version
+-        required_version = None
+-        if dependency.specs:
+-            _, required_version = dependency.specs[0]
+ 
+-        if required_version:
++        if dependency.specifier:
++            spec = list(dependency.specifier)[0]
++            required_version = Version(spec.version)
++
+             dependencies_up_to_date.append(dependency)
+             if latest_version > required_version:
+                 logger.info("There is a new version of %s: %s",
+-                            dependency.project_name, latest_version)
++                            dependency.name, latest_version)
+             elif latest_version < required_version:
+                 logger.warning("The requested version for %s is greater "
+                                "than latest found in PyPI: %s",
+-                               dependency.project_name, latest_version)
++                               dependency.name, latest_version)
+             else:
+                 logger.info("The requested version for %s is the latest one in PyPI: %s",
+-                            dependency.project_name, latest_version)
++                            dependency.name, latest_version)
+         else:
+-            project_name_plus = "{}=={}".format(dependency.project_name, latest_version)
+-            dependencies_up_to_date.append(pkg_resources.Requirement.parse(project_name_plus))
++            name_plus = "{}=={}".format(dependency.name, latest_version)
++            dependencies_up_to_date.append(Requirement(name_plus))
+             logger.info("The latest version of %r is %s and will use it.",
+-                        dependency.project_name, latest_version)
++                        dependency.name, latest_version)
+ 
+     dependencies["pypi"] = dependencies_up_to_date
+     return dependencies
+@@ -216,11 +216,12 @@ def check_pypi_updates(dependencies):
+ 
+ def _pypi_head_package(dependency):
+     """Hit pypi with a http HEAD to check if pkg_name exists."""
+-    if dependency.specs:
+-        _, version = dependency.specs[0]
+-        url = BASE_PYPI_URL_WITH_VERSION.format(name=dependency.project_name, version=version)
++    if dependency.specifier:
++        spec = list(dependency.specifier)[0]
++        version = spec.version
++        url = BASE_PYPI_URL_WITH_VERSION.format(name=dependency.name, version=version)
+     else:
+-        url = BASE_PYPI_URL.format(name=dependency.project_name)
++        url = BASE_PYPI_URL.format(name=dependency.name)
+     logger.debug("Doing HEAD requests against %s", url)
+     req = request.Request(url, method='HEAD')
+     try:
+diff --git a/fades/parsing.py b/fades/parsing.py
+index 230f576..b0c1f64 100644
+--- a/fades/parsing.py
++++ b/fades/parsing.py
+@@ -1,4 +1,4 @@
+-# Copyright 2014-2019 Facundo Batista, Nicolás Demarchi
++# Copyright 2014-2024 Facundo Batista, Nicolás Demarchi
+ #
+ # This program is free software: you can redistribute it and/or modify it
+ # under the terms of the GNU General Public License version 3, as published
+@@ -20,7 +20,8 @@
+ import os
+ import re
+ 
+-from pkg_resources import parse_requirements
++from packaging.requirements import Requirement
++from packaging.version import Version
+ 
+ from fades import REPO_PYPI, REPO_VCS
+ from fades.pkgnamesdb import MODULE_TO_PACKAGE
+@@ -28,6 +29,14 @@
+ logger = logging.getLogger(__name__)
+ 
+ 
++class _VCSSpecifier:
++    """A simple specifier that works with VCSDependency."""
++
++    def contains(self, other):
++        """VCS dependency does not handle versions."""
++        return other is None
++
++
+ class VCSDependency:
+     """A dependency object for VCS urls (git, bzr, etc.).
+ 
+@@ -39,7 +48,8 @@ class VCSDependency:
+ 
+     def __init__(self, url):
+         """Init."""
+-        self.url = url
++        self.url = self.name = self.project_name = self.version = url
++        self.specifier = _VCSSpecifier()
+ 
+     def __str__(self):
+         """Return the URL as this is the interface to get what pip will use."""
+@@ -49,10 +59,6 @@ def __repr__(self):
+         """Repr."""
+         return "<VCSDependency: {!r}>".format(self.url)
+ 
+-    def __contains__(self, other):
+-        """Tell if requirement is satisfied."""
+-        return other.url == self.url
+-
+     def __eq__(self, other):
+         """Tell if one VCSDependency is equal to other."""
+         if not isinstance(other, VCSDependency):
+@@ -64,6 +70,24 @@ def __hash__(self):
+         return hash(self.url)
+ 
+ 
++class NameVerDependency:
++    """A dependency indicated by name and version."""
++
++    def __init__(self, name, version):
++        self.name = name
++        self.version = Version(version)
++
++    def __eq__(self, other):
++        return self.name == other.name and self.version == other.version
++
++    def __hash__(self):
++        return hash((self.name, self.version))
++
++    def __lt__(self, other):
++        assert not isinstance(self.version, str)
++        return (self.name, self.version) < (other.name, other.version)
++
++
+ def parse_fade_requirement(text):
+     """Return a requirement and repo from the given text, already parsed and converted."""
+     text = text.strip()
+@@ -85,7 +109,7 @@ def parse_fade_requirement(text):
+     if repo == REPO_VCS:
+         dependency = VCSDependency(requirement)
+     else:
+-        dependency = list(parse_requirements(requirement))[0]
++        dependency = Requirement(requirement)
+     return repo, dependency
+ 
+ 
+@@ -147,7 +171,7 @@ def _parse_content(fh):
+         else:
+             package = module
+ 
+-        # To match the "safe" name that pkg_resources creates:
++        # To match the "safe" name
+         package = package.replace('_', '-')
+ 
+         # get the fades info after 'fades' mark, if any
+@@ -218,7 +242,9 @@ def _parse_requirement(iterable):
+     deps = {}
+     for line in iterable:
+         line = line.strip()
+-        if not line or line[0] == '#':
++        if "#" in line:
++            line = line[:line.index("#")]
++        if not line:
+             continue
+ 
+         parsed_req = parse_fade_requirement(line)

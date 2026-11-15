@@ -1,0 +1,106 @@
+--- a/compiler/include/baseAST.h
++++ b/compiler/include/baseAST.h
+@@ -444,69 +444,6 @@
+ 
+ #undef def_to_ast
+ 
+-#define def_less_ast(SomeType) \
+-  namespace std { \
+-    template<> struct less<SomeType*> { \
+-      bool operator()(const SomeType* lhs, const SomeType* rhs) const { \
+-        if (lhs == NULL && rhs != NULL) return true; \
+-        if (lhs != NULL && rhs == NULL) return false; \
+-        if (lhs == NULL && rhs == NULL) return false; \
+-        return ((const BaseAST*)lhs)->id < ((const BaseAST*)rhs)->id; \
+-      } \
+-    }; \
+-  }
+-
+-def_less_ast(TemporaryConversionThunk)
+-def_less_ast(SymExpr)
+-def_less_ast(UnresolvedSymExpr)
+-def_less_ast(DefExpr)
+-def_less_ast(ContextCallExpr)
+-def_less_ast(LoopExpr)
+-def_less_ast(NamedExpr)
+-def_less_ast(IfcConstraint)
+-def_less_ast(IfExpr)
+-def_less_ast(UseStmt)
+-def_less_ast(ImportStmt)
+-def_less_ast(BlockStmt)
+-def_less_ast(CondStmt)
+-def_less_ast(GotoStmt)
+-def_less_ast(DeferStmt)
+-def_less_ast(ForallStmt)
+-def_less_ast(TryStmt)
+-def_less_ast(ForwardingStmt)
+-def_less_ast(CatchStmt)
+-def_less_ast(ImplementsStmt)
+-def_less_ast(ExternBlockStmt)
+-def_less_ast(Expr)
+-def_less_ast(ModuleSymbol)
+-def_less_ast(VarSymbol)
+-def_less_ast(ArgSymbol)
+-def_less_ast(ShadowVarSymbol)
+-def_less_ast(TypeSymbol)
+-def_less_ast(FnSymbol)
+-def_less_ast(InterfaceSymbol)
+-def_less_ast(EnumSymbol)
+-def_less_ast(LabelSymbol)
+-def_less_ast(TemporaryConversionSymbol)
+-def_less_ast(Symbol)
+-def_less_ast(PrimitiveType)
+-def_less_ast(ConstrainedType)
+-def_less_ast(EnumType)
+-def_less_ast(AggregateType)
+-def_less_ast(TemporaryConversionType)
+-def_less_ast(DecoratedClassType)
+-def_less_ast(Type)
+-
+-def_less_ast(LoopStmt);
+-def_less_ast(WhileStmt);
+-def_less_ast(WhileDoStmt);
+-def_less_ast(DoWhileStmt);
+-def_less_ast(ForLoop);
+-def_less_ast(CForLoop);
+-def_less_ast(ParamForLoop);
+-
+-#undef def_less_ast
+-
+ static inline LcnSymbol* toLcnSymbol(BaseAST* a)
+ {
+   return isLcnSymbol(a) ? (LcnSymbol*) a : NULL;
+--- a/frontend/include/chpl/uast/AstNode.h
++++ b/frontend/include/chpl/uast/AstNode.h
+@@ -606,31 +606,4 @@
+ };
+ } // end namespace chpl
+ 
+-/// \cond DO_NOT_DOCUMENT
+-namespace std {
+-
+-// define std::less for the various AST types
+-// using macros and uast-classes-list.h
+-/// \cond DO_NOT_DOCUMENT
+-#define AST_NODE(NAME) \
+-  template<> struct less<chpl::uast::NAME*> { \
+-    bool operator()(const chpl::uast::NAME* lhs, \
+-                    const chpl::uast::NAME* rhs) const { \
+-      if (lhs == nullptr && rhs != nullptr) return true; \
+-      if (rhs == nullptr) return false; \
+-      std::less<chpl::ID> lessID; \
+-      /* cast in the next line is so it compiles with only forward decls */ \
+-      return lessID(((const chpl::uast::AstNode*)lhs)->id(), \
+-                    ((const chpl::uast::AstNode*)rhs)->id()); \
+-    } \
+-  };
+-/// \endcond
+-// Additionally, apply the macro to AstNode
+-AST_NODE(AstNode)
+-// Apply the above macros to uast-classes-list.h
+-#include "chpl/uast/uast-classes-list-adapter.h"
+-/// \endcond
+-
+-} // end namespace std
+-
+ #endif

@@ -1,0 +1,26 @@
+From cc7851323d5fe46ec1f34d854ca6bfc2ab77f6f3 Mon Sep 17 00:00:00 2001
+From: Will Cosgrove <will@panic.com>
+Date: Thu, 2 Jul 2026 11:00:23 -0700
+Subject: [PATCH] Prevent dangling pointer by nullifying data (#2180)
+
+Set data to NULL after freeing it to avoid dangling pointer. fixes
+GHSA-px3w-7g75-hg7w.
+
+Credit: VladimirEliTokarev
+(cherry picked from commit 5e4776146552d898b9c0e1b313cd093fa8dc92d0)
+---
+ src/sftp.c | 1 +
+ 1 file changed, 1 insertion(+)
+
+diff --git a/src/sftp.c b/src/sftp.c
+index baac5080..d421c01f 100644
+--- a/src/sftp.c
++++ b/src/sftp.c
+@@ -1279,6 +1279,7 @@ sftp_open(LIBSSH2_SFTP *sftp, const char *filename,
+                                "got HANDLE FXOK"));
+ 
+                 LIBSSH2_FREE(session, data);
++                data = NULL;
+ 
+                 /* silly situation, but check for a HANDLE */
+                 rc = sftp_packet_require(sftp, SSH_FXP_HANDLE,

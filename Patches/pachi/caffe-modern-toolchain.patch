@@ -1,0 +1,71 @@
+diff -urN a/cmake/Dependencies.cmake b/cmake/Dependencies.cmake
+--- a/cmake/Dependencies.cmake	2017-04-16 01:17:48
++++ b/cmake/Dependencies.cmake	2026-04-21 20:21:45
+@@ -5,7 +5,7 @@
+ set(Caffe_COMPILE_OPTIONS "")
+ 
+ # ---[ Boost
+-find_package(Boost 1.55 REQUIRED COMPONENTS system thread filesystem)
++find_package(Boost 1.55 REQUIRED COMPONENTS thread filesystem)
+ list(APPEND Caffe_INCLUDE_DIRS PUBLIC ${Boost_INCLUDE_DIRS})
+ list(APPEND Caffe_LINKER_LIBS PUBLIC ${Boost_LIBRARIES})
+ 
+diff -urN a/src/caffe/layers/hdf5_data_layer.cpp b/src/caffe/layers/hdf5_data_layer.cpp
+--- a/src/caffe/layers/hdf5_data_layer.cpp	2017-04-16 01:17:48
++++ b/src/caffe/layers/hdf5_data_layer.cpp	2026-04-21 20:21:45
+@@ -16,6 +16,7 @@
+ 
+ #include "caffe/layers/hdf5_data_layer.hpp"
+ #include "caffe/util/hdf5.hpp"
++#include "caffe/util/rng.hpp"
+ 
+ namespace caffe {
+ 
+@@ -61,7 +62,7 @@
+ 
+   // Shuffle if needed.
+   if (this->layer_param_.hdf5_data_param().shuffle()) {
+-    std::random_shuffle(data_permutation_.begin(), data_permutation_.end());
++    caffe::shuffle(data_permutation_.begin(), data_permutation_.end());
+     DLOG(INFO) << "Successfully loaded " << hdf_blobs_[0]->shape(0)
+                << " rows (shuffled)";
+   } else {
+@@ -104,7 +105,7 @@
+ 
+   // Shuffle if needed.
+   if (this->layer_param_.hdf5_data_param().shuffle()) {
+-    std::random_shuffle(file_permutation_.begin(), file_permutation_.end());
++    caffe::shuffle(file_permutation_.begin(), file_permutation_.end());
+   }
+ 
+   // Load the first HDF5 file and initialize the line counter.
+@@ -143,7 +144,7 @@
+       if (current_file_ == num_files_) {
+         current_file_ = 0;
+         if (this->layer_param_.hdf5_data_param().shuffle()) {
+-          std::random_shuffle(file_permutation_.begin(),
++          caffe::shuffle(file_permutation_.begin(),
+                               file_permutation_.end());
+         }
+         DLOG(INFO) << "Looping around to first file.";
+@@ -153,7 +154,7 @@
+     }
+     current_row_ = 0;
+     if (this->layer_param_.hdf5_data_param().shuffle())
+-      std::random_shuffle(data_permutation_.begin(), data_permutation_.end());
++      caffe::shuffle(data_permutation_.begin(), data_permutation_.end());
+   }
+   offset_++;
+ }
+diff -urN a/src/caffe/util/io.cpp b/src/caffe/util/io.cpp
+--- a/src/caffe/util/io.cpp	2017-04-16 01:17:48
++++ b/src/caffe/util/io.cpp	2026-04-21 20:21:45
+@@ -54,7 +54,7 @@
+   CHECK_NE(fd, -1) << "File not found: " << filename;
+   ZeroCopyInputStream* raw_input = new FileInputStream(fd);
+   CodedInputStream* coded_input = new CodedInputStream(raw_input);
+-  coded_input->SetTotalBytesLimit(kProtoReadBytesLimit, 536870912);
++  coded_input->SetTotalBytesLimit(kProtoReadBytesLimit);
+ 
+   bool success = proto->ParseFromCodedStream(coded_input);
+ 

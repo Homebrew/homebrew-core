@@ -1,0 +1,80 @@
+diff --git a/gcc/c-family/c-common.cc b/gcc/c-family/c-common.cc
+index 6e12551..0bd65d4 100644
+--- a/gcc/c-family/c-common.cc
++++ b/gcc/c-family/c-common.cc
+@@ -384,8 +384,8 @@ static bool nonnull_check_p (tree, unsigned HOST_WIDE_INT);
+ */
+ const struct c_common_resword c_common_reswords[] =
+ {
+-  { "_Alignas",		RID_ALIGNAS,   D_CONLY },
+-  { "_Alignof",		RID_ALIGNOF,   D_CONLY },
++  { "_Alignas",		RID_ALIGNAS,   D_EXT_C_IN_CXX },
++  { "_Alignof",		RID_ALIGNOF,   D_EXT_C_IN_CXX },
+   { "_Atomic",		RID_ATOMIC,    D_CONLY },
+   { "_Bool",		RID_BOOL,      D_CONLY },
+   { "_Complex",		RID_COMPLEX,	0 },
+diff --git a/gcc/c-family/c-common.h b/gcc/c-family/c-common.h
+--- a/gcc/c-family/c-common.h
++++ b/gcc/c-family/c-common.h
+@@ -404,7 +404,7 @@ struct c_common_resword
+ {
+   const char *const word;
+   ENUM_BITFIELD(rid) const rid : 16;
+-  const unsigned int disable   : 16;
++  const unsigned int disable   : 32;
+ };
+ 
+ /* Mode used to build pointers (VOIDmode means ptr_mode).  */
+@@ -455,6 +455,8 @@ extern machine_mode c_default_pointer_mode;
+ #define D_CXX20		0x2000  /* In C++, C++20 only.  */
+ #define D_CXX_COROUTINES 0x4000  /* In C++, only with coroutines.  */
+ #define D_CXX_MODULES	0x8000  /* In C++, only with modules.  */
++#define D_EXT_C_IN_CXX	0x10000  /* In C++, allow additional C keywords.  */
++#define D_EXT_CXX_IN_C	0x20000  /* In C, allow additional C++ keywords.  */
+ 
+ #define D_CXX_CONCEPTS_FLAGS D_CXXONLY | D_CXX_CONCEPTS
+ #define D_CXX_CHAR8_T_FLAGS D_CXXONLY | D_CXX_CHAR8_T
+diff --git a/gcc/c-family/c.opt b/gcc/c-family/c.opt
+index 79bdb1a..1c134e8 100644
+--- a/gcc/c-family/c.opt
++++ b/gcc/c-family/c.opt
+@@ -1606,6 +1606,10 @@ fallow-extended-attribute-placement
+ C ObjC C++ ObjC++ LTO Var(flag_allow_ext_attr_placement) Init(0)
+ Allow placement of attributes on function definitions.
+ 
++fallow-extra-keywords
++C ObjC C++ ObjC++ LTO Var(flag_allow_extra_keywords) Init(0)
++Allow additional C keywords in C++ and vice versa.
++
+ fcilkplus
+ C ObjC C++ ObjC++ LTO Undocumented Ignore
+ Removed in GCC 8.  This switch has no effect.
+diff --git a/gcc/config/darwin.cc b/gcc/config/darwin.cc
+index 896bb20..6b38a44 100644
+--- a/gcc/config/darwin.cc
++++ b/gcc/config/darwin.cc
+@@ -3925,6 +3925,10 @@ darwin_override_options (void)
+      headers.  */
+   if (!OPTION_SET_P (flag_allow_ext_attr_placement))
+     flag_allow_ext_attr_placement = true;
++
++  /* We need to consume some C keywords in C++.  */
++  if (!OPTION_SET_P (flag_allow_extra_keywords))
++    flag_allow_extra_keywords = true;
+ }
+ 
+ #if DARWIN_PPC
+diff --git a/gcc/cp/lex.cc b/gcc/cp/lex.cc
+index 739f089..f70da40 100644
+--- a/gcc/cp/lex.cc
++++ b/gcc/cp/lex.cc
+@@ -253,6 +253,9 @@ init_reswords (void)
+     {
+       if (c_common_reswords[i].disable & D_CONLY)
+	continue;
++      if (!flag_allow_extra_keywords
++	  && c_common_reswords[i].disable & D_EXT_C_IN_CXX)
++	continue;
+       id = get_identifier (c_common_reswords[i].word);
+       C_SET_RID_CODE (id, c_common_reswords[i].rid);
+       ridpointers [(int) c_common_reswords[i].rid] = id;

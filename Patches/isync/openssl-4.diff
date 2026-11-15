@@ -1,0 +1,23 @@
+diff --git a/src/socket.c b/src/socket.c
+index 1ef0e95..69cf9cb 100644
+--- a/src/socket.c
++++ b/src/socket.c
+@@ -24,6 +24,7 @@
+ 	|| (defined(LIBRESSL_VERSION_NUMBER) && LIBRESSL_VERSION_NUMBER < 0x2070100fL)
+ #  define X509_OBJECT_get0_X509(o) ((o)->data.x509)
+ #  define X509_STORE_get0_objects(o) ((o)->objs)
++#  define ASN1_STRING_get0_data(s) ((const unsigned char *)ASN1_STRING_data(s))
+ # endif
+ #endif
+ 
+@@ -141,8 +142,8 @@ verify_hostname( X509 *cert, const char *hostname )
+ 		for (i = 0; i < num_subj_alt_names; i++) {
+ 			GENERAL_NAME *subj_alt_name = sk_GENERAL_NAME_value( subj_alt_names, i );
+ 			if (subj_alt_name->type == GEN_DNS &&
+-			    strlen( (const char *)subj_alt_name->d.ia5->data ) == (size_t)subj_alt_name->d.ia5->length &&
+-			    host_matches( hostname, (const char *)(subj_alt_name->d.ia5->data) ))
++			    strlen( (const char *)ASN1_STRING_get0_data( subj_alt_name->d.ia5 ) ) == (size_t)ASN1_STRING_length( subj_alt_name->d.ia5 ) &&
++			    host_matches( hostname, (const char *)ASN1_STRING_get0_data( subj_alt_name->d.ia5 ) ))
+ 			{
+ 				found = 1;
+ 				break;

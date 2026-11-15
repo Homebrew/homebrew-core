@@ -1,0 +1,53 @@
+class Raptor < Formula
+  desc "RDF parser toolkit"
+  homepage "https://librdf.org/raptor/"
+  url "https://download.librdf.org/source/raptor2-2.0.16.tar.gz"
+  sha256 "089db78d7ac982354bdbf39d973baf09581e6904ac4c92a98c5caadb3de44680"
+  license any_of: ["LGPL-2.1-or-later", "GPL-2.0-or-later", "Apache-2.0"]
+  revision 1
+  compatibility_version 1
+
+  livecheck do
+    url :homepage
+    regex(/href=.*?raptor2[._-]v?(\d+(?:\.\d+)+)\.t/i)
+  end
+
+  bottle do
+    sha256 cellar: :any,                 arm64_golden_gate: "0277f1d8e644e9702667efe0bbfd1679e0165c491086330ddc66584b5d7f679b"
+    sha256 cellar: :any,                 arm64_tahoe:       "1bfb13b805a48dff3dabd1424ffdccda68a6862eb2b245f544e8cf9b1a02c0d8"
+    sha256 cellar: :any,                 arm64_sequoia:     "d912659b927b80b53f507ae55e23bd3761c500f1e93d076b150f07b4b72ab9c9"
+    sha256 cellar: :any,                 arm64_sonoma:      "7ac8f488fd862d5430615e09904b0557067827f5295609a7c1484362bac6f0f8"
+    sha256 cellar: :any,                 sonoma:            "3497318f771ce19a3c8184d9497ddee0e20fd9255507a7004d4d48c47c48c096"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "3a740a47101fb3c218cb991c1e0a17171d581fe40065550ba25f50c325466e3f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ef7db540be1c6410ffe3fe285641fa07a3eb71f81908de7f36f801c16484f333"
+  end
+
+  uses_from_macos "curl"
+  uses_from_macos "libxml2"
+
+  resource "test-pdf", :test do
+    url "https://raw.githubusercontent.com/dajobe/raptor/b5e91dfdf7e1ea5ca5a5f7b48c428dd3da1219e0/tests/feeds/test01.rdf"
+    sha256 "d23e50335ba29c86a9724bdc6ed7c58f8c94e859abef2e39fe4ebc161bbd92c9"
+  end
+
+  # Fix compilation with libxml2 2.11.0 or later. Patch is already applied upstream, remove on next release.
+  patch do
+    url "https://github.com/dajobe/raptor/commit/ac914399b9013c54572833d4818e6ce008136dc9.patch?full_index=1"
+    sha256 "d527fb9ad94f22acafcec9f3b626fb876b7fb1b722e6999cf46a158172bb0992"
+    type :backport
+    resolves "https://github.com/dajobe/raptor/pull/58"
+  end
+
+  deny_network_access!
+
+  def install
+    system "./configure", *std_configure_args
+    system "make", "install"
+  end
+
+  test do
+    testpath.install resource("test-pdf")
+    output = shell_output("#{bin}/rapper --output ntriples test01.rdf")
+    assert_match '_:genid2 <http://purl.org/dc/elements/1.1/title> "Example"', output
+  end
+end

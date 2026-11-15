@@ -1,0 +1,21 @@
+--- a/gdb/gdb_curses.h
++++ b/gdb/gdb_curses.h
+@@ -63,6 +63,18 @@
+ extern "C" int tgetnum (const char *);
+ #endif
+ 
++/* The function forms of mvwaddstr and mvwaddnstr in macOS's system
++   ncurses do not write anything, so expand them as the ncurses macros
++   would.  */
++#if defined (__APPLE__) && defined (NCURSES_SUF_ABI60)
++#undef mvwaddstr
++#define mvwaddstr(w, y, x, s) \
++  (wmove ((w), (y), (x)) == ERR ? ERR : waddnstr ((w), (s), -1))
++#undef mvwaddnstr
++#define mvwaddnstr(w, y, x, s, n) \
++  (wmove ((w), (y), (x)) == ERR ? ERR : waddnstr ((w), (s), (n)))
++#endif
++
+ /* SunOS's curses.h has a '#define reg register' in it.  Thank you Sun.  */
+ /* Ditto for:
+    -bash-4.2$ uname -a

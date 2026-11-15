@@ -1,0 +1,124 @@
+From d199231d34c9a32a52077a9e502edbd23db4a832 Mon Sep 17 00:00:00 2001
+From: Rui Chen <rui@chenrui.dev>
+Date: Mon, 10 Feb 2025 09:36:44 -0500
+Subject: [PATCH] Include `<inttypes.h>` to fix missing printf format macros
+
+Signed-off-by: Rui Chen <rui@chenrui.dev>
+---
+ src/liboggz/metric_internal.c |  2 +-
+ src/liboggz/oggz_auto.c       |  2 +-
+ src/liboggz/oggz_seek.c       | 13 +++++++------
+ src/tools/oggz-basetime.c     |  1 +
+ 4 files changed, 10 insertions(+), 8 deletions(-)
+
+diff --git a/src/liboggz/metric_internal.c b/src/liboggz/metric_internal.c
+index b4a15d3..e20a59e 100644
+--- a/src/liboggz/metric_internal.c
++++ b/src/liboggz/metric_internal.c
+@@ -31,6 +31,7 @@
+ */
+ 
+ #include "config.h"
++#include <inttypes.h>
+ 
+ #include "oggz_private.h"
+ 
+@@ -301,4 +302,3 @@ oggz_set_metric_linear (OGGZ * oggz, long serialno,
+ 
+   return oggz_metric_update (oggz, serialno);
+ }
+-
+diff --git a/src/liboggz/oggz_auto.c b/src/liboggz/oggz_auto.c
+index ad3652a..6795c06 100644
+--- a/src/liboggz/oggz_auto.c
++++ b/src/liboggz/oggz_auto.c
+@@ -37,6 +37,7 @@
+  */
+ 
+ #include "config.h"
++#include <inttypes.h>
+ 
+ #include <stdlib.h>
+ #include <string.h>
+@@ -1517,4 +1518,3 @@ oggz_auto_read_comments (OGGZ * oggz, oggz_stream_t * stream, long serialno,
+ 
+   return 0;
+ }
+-
+diff --git a/src/liboggz/oggz_seek.c b/src/liboggz/oggz_seek.c
+index 9e12b20..087832f 100644
+--- a/src/liboggz/oggz_seek.c
++++ b/src/liboggz/oggz_seek.c
+@@ -37,6 +37,7 @@
+  */
+ 
+ #include "config.h"
++#include <inttypes.h>
+ 
+ #if OGGZ_CONFIG_READ
+ 
+@@ -119,7 +120,7 @@ oggz_seek_raw (OGGZ * oggz, oggz_off_t offset, int whence)
+   ogg_sync_reset (&reader->ogg_sync);
+ 
+   oggz_vector_foreach(oggz->streams, oggz_seek_reset_stream);
+-  
++
+   return offset_at;
+ }
+ 
+@@ -256,7 +257,7 @@ oggz_get_next_page (OGGZ * oggz, ogg_page * og)
+     /* didn't need to do any reading -- accumulate the page_offset */
+     oggz->offset += page_offset;
+   }
+-  
++
+   ret = oggz->offset + more;
+ 
+   return ret;
+@@ -443,7 +444,7 @@ oggz_scan_for_page (OGGZ * oggz, ogg_page * og, ogg_int64_t unit_target,
+       serialno = ogg_page_serialno (og);
+       granule_at = ogg_page_granulepos (og);
+       unit_at = oggz_get_unit (oggz, serialno, granule_at);
+-      
++
+       return offset_at;
+ #endif
+     }
+@@ -523,11 +524,11 @@ guess (ogg_int64_t unit_at, ogg_int64_t unit_target,
+   printf ("oggz_seek::guess: guess_ratio %" PRId64 " = (%" PRId64 " - %" PRId64 ") / (%" PRId64 " - %" PRId64 ")\n",
+ 	  guess_ratio, unit_target, unit_begin, unit_at, unit_begin);
+ #endif
+-  
++
+   offset_guess = offset_begin +
+     (oggz_off_t)(((offset_end - offset_begin) * guess_ratio) /
+ 		 GUESS_MULTIPLIER);
+-  
++
+   return offset_guess;
+ }
+ 
+@@ -637,7 +638,7 @@ oggz_bounded_seek_set (OGGZ * oggz,
+ #endif
+     return -1;
+   }
+-  
++
+   if (offset_end == -1 && (offset_end = oggz_offset_end (oggz)) == -1) {
+ #ifdef DEBUG
+     printf ("oggz_bounded_seek_set: oggz_offset_end == -1, FAIL\n");
+diff --git a/src/tools/oggz-basetime.c b/src/tools/oggz-basetime.c
+index b0696ef..d9f63eb 100644
+--- a/src/tools/oggz-basetime.c
++++ b/src/tools/oggz-basetime.c
+@@ -31,6 +31,7 @@
+ */
+ 
+ #include "config.h"
++#include <inttypes.h>
+ 
+ #include <stdio.h>
+ #include <stdlib.h>
+-- 
+2.48.1
+

@@ -1,0 +1,215 @@
+Subject: use debian libs
+Description: upstream makes use of embedded libs, use debian ones.
+Author: Olivier Sallou <osallou@debian.org>
+Last-Update: 2017-01-13
+Forwarded: no
+--- a/system.mk/Makefile.linux
++++ b/system.mk/Makefile.linux
+@@ -64,14 +64,14 @@
+ 
+ support: $(LIBS)
+ 
+-${PARTY3}/jansson/lib/libjansson.a: $(WHICHJANSSON).tar.bz2
+-	bzcat $^ | tar -x -C ${PARTY3}
+-	cd ${PARTY3}/${JANSSONVERSION} && ./configure --prefix=${WDIR}/${PARTY3}/${JANSSONVERSION} && $(MAKE) && $(MAKE) install && cd ${WDIR} && rm -f jansson && ln -sf ${JANSSONVERSION} ${PARTY3}/jansson
++${PARTY3}/jansson/lib/libjansson.a:
++	#bzcat $^ | tar -x -C ${PARTY3}
++	#cd ${PARTY3}/${JANSSONVERSION} && ./configure --prefix=${WDIR}/${PARTY3}/${JANSSONVERSION} && $(MAKE) && $(MAKE) install && cd ${WDIR} && rm -f jansson && ln -sf ${JANSSONVERSION} ${PARTY3}/jansson
+ 
+-$(PARTY3)/bzip2/libbz2.a: $(WHICHBZIP2).tar.bz2
+-	bzcat $^ | tar -x -C ${PARTY3}
+-	cd ${PARTY3}/${BZIP2VERSION} && $(MAKE) libbz2.a && cd ${WDIR} && rm -f bzip2 && ln -sf ${BZIP2VERSION} ${PARTY3}/bzip2
++$(PARTY3)/bzip2/libbz2.a:
++	#bzcat $^ | tar -x -C ${PARTY3}
++	#cd ${PARTY3}/${BZIP2VERSION} && $(MAKE) libbz2.a && cd ${WDIR} && rm -f bzip2 && ln -sf ${BZIP2VERSION} ${PARTY3}/bzip2
+ 
+-${PARTY3}/zlib/libz.a: $(WHICHZLIB).tar.bz2
+-	bzcat $^ | tar -x -C ${PARTY3}
+-	cd ${PARTY3}/${ZLIBVERSION} && ./configure --static && $(MAKE) && cd ${WDIR} && rm -f zlib && ln -sf ${ZLIBVERSION} ${PARTY3}/zlib
++${PARTY3}/zlib/libz.a:
++	#bzcat $^ | tar -x -C ${PARTY3}
++	#cd ${PARTY3}/${ZLIBVERSION} && ./configure --static && $(MAKE) && cd ${WDIR} && rm -f zlib && ln -sf ${ZLIBVERSION} ${PARTY3}/zlib
+--- a/applications/bed/conversion/src/Makefile
++++ b/applications/bed/conversion/src/Makefile
+@@ -13,7 +13,7 @@
+ WRAPPERDIR                = wrappers
+ PROG                      = convert2bed
+ SOURCE                    = convert2bed.c
+-SFLAGS                    = -static
++SFLAGS                    =
+ 
+ all: build
+ 
+--- a/applications/bed/sort-bed/src/Makefile
++++ b/applications/bed/sort-bed/src/Makefile
+@@ -4,7 +4,7 @@
+ LIB2                = $(MAIN)/interfaces/src/utility
+ LIB3                = $(MAIN)/interfaces/src/data/starch
+ THISDIR             = ${shell pwd}
+-INCLUDES            = -iquote$(HEAD) -I${LOCALJANSSONINCDIR} -I${LOCALBZIP2INCDIR} -I${LOCALZLIBINCDIR}
++INCLUDES            = -iquote$(HEAD)
+ 
+ PARTY3              = ${THISDIR}/$(MAIN)/third-party
+ LIBJANSSON          = libjansson.a
+@@ -22,15 +22,15 @@
+ LOCALZLIBLIB        = ${LOCALZLIBDIR}/${LIBZLIB}
+ LOCALZLIBINCDIR     = ${LOCALZLIBDIR}
+ 
+-LIBLOCATION         = -L${LOCALJANSSONLIBDIR} -L${LOCALBZIP2LIBDIR} -L${LOCALZLIBDIR}
+-LIBRARIES           = ${LOCALJANSSONLIB} ${LOCALBZIP2LIB} ${LOCALZLIBLIB}
++LIBLOCATION         = 
++LIBRARIES           = -ljansson -lz -lbz2
+ 
+ PROG                = sort-bed-${BINARY_TYPE}
+ BINDIR              = ../bin
+ OBJDIR              = objects-${BINARY_TYPE}
+ WARNINGS            = -Wall -Wextra -pedantic
+ BLDFLAGS            = ${WARNINGS} -O3 -std=c++11 ${MEGAFLAGS}
+-SFLAGS              = -static
++SFLAGS              = 
+ 
+ dependency_names    = starchConstants starchFileHelpers starchHelpers starchMetadataHelpers unstarchHelpers starchSha1Digest starchBase64Coding SortDetails Sort CheckSort
+ dependencies        = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(dependency_names)))
+--- a/applications/bed/starch/src/Makefile
++++ b/applications/bed/starch/src/Makefile
+@@ -29,15 +29,15 @@
+ LOCALZLIBINCDIR           = ${LOCALZLIBDIR}
+ OBJDIR                    = ${INTERFACES}/src/data/starch
+ LOCALOBJDIR               = objects${POSTFIX}
+-INCLUDES                  = -iquote${MAIN} -iquote${HEAD} -iquote${PARTY3} -I${LOCALJANSSONINCDIR} -I${LOCALBZIP2INCDIR} -I${LOCALZLIBINCDIR}
+-LIBRARIES                 = ${LOCALJANSSONLIB} ${LOCALBZIP2LIB} ${LOCALZLIBLIB}
++INCLUDES                  = -iquote${MAIN} -iquote${HEAD}
++LIBRARIES                 = -ljansson -lz -lbz2
+ ARCH_VERSION              = v2.2
+ BIN_VERSION               = v2.4.40
+ TEST                      = ../test
+ TEST_LINUX_BINDIR         = ${TEST}/binaries/linux/${ARCH_VERSION}/bin
+ TEST_OSX_BINDIR           = ${TEST}/binaries/osx/${ARCH_VERSION}/bin
+ AR                        = ar
+-SFLAGS                    = -static
++SFLAGS                    =
+ STARCH_CXXFLAGS           = -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE=1 -DUSE_ZLIB -DUSE_BZLIB -O2 -Wformat -Wall -Wextra -Wswitch-enum -std=c++11 ${SFLAGS} -s
+ STARCH_CXXDFLAGS          = -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE=1 -DUSE_ZLIB -DUSE_BZLIB -O0 -g -Wformat -Wall -Wextra -Wswitch-enum -std=c++11 -DDEBUG_VERBOSE=1 ${SFLAGS} -DDEBUG=1
+ STARCH_CXXGFLAGS          = -D__STDC_CONSTANT_MACROS -D_FILE_OFFSET_BITS=64 -D_LARGEFILE64_SOURCE=1 -DUSE_ZLIB -DUSE_BZLIB -O -Wformat -Wall -Wextra -Wswitch-enum -std=c++11 -DDEBUG_VERBOSE=1 ${SFLAGS} -DDEBUG=1 -pg
+@@ -65,7 +65,7 @@
+ starch-diff: $(BINDIR)/starch-diff-$(BINARY_TYPE)
+ starchstrip: $(BINDIR)/starchstrip-$(BINARY_TYPE)
+ 
+-$(BINDIR)/%-$(BINARY_TYPE) : %.c $(LOCALSTARCHLIB) $(LIBRARIES)
++$(BINDIR)/%-$(BINARY_TYPE) : %.c $(LOCALSTARCHLIB)
+ 	mkdir -p $(BINDIR)
+ 	${CXX} ${CXXFLAGS} ${STARCH_CXXFLAGS} ${MEGAFLAGS} -c $*.c -o $(LOCALOBJDIR)/$*.o ${INCLUDES}
+ 	${CXX} ${CXXFLAGS} ${STARCH_CXXFLAGS} ${MEGAFLAGS} $(LOCALOBJDIR)/$*.o -o $@ ${LOCALSTARCHLIB} ${LIBRARIES}
+@@ -102,7 +102,7 @@
+ 	mkdir -p $(LOCALSTARCHLIBDIR)
+ 	${AR} rcs $@ $^
+ 
+-$(LOCALOBJDIR)/%.o : $(OBJDIR)/%.c $(LIBRARIES)
++$(LOCALOBJDIR)/%.o : $(OBJDIR)/%.c
+ 	mkdir -p $(LOCALOBJDIR)
+ 	${CXX} ${CXXFLAGS} ${STARCH_CXXFLAGS} ${MEGAFLAGS} -c $< -o $@ ${INCLUDES}
+ 
+--- a/docs/conf.py
++++ b/docs/conf.py
+@@ -12,7 +12,6 @@
+ # serve to show the default.
+ 
+ import sys, os
+-from better import better_theme_path
+ 
+ # If extensions (or modules to document with autodoc) are in another directory,
+ # add these directories to sys.path here. If the directory is relative to the
+@@ -96,8 +95,8 @@
+ 
+ # The theme to use for HTML and HTML Help pages.  See the documentation for
+ # a list of builtin themes.
+-#html_theme = 'default'
+-html_theme = 'better'
++html_theme = 'default'
++#html_theme = 'better'
+ 
+ # Theme options are theme-specific and customize the look and feel of a theme
+ # further.  For a list of options available for each theme, see the
+@@ -110,8 +109,8 @@
+ }
+ 
+ # Add any paths that contain custom themes here, relative to this directory.
+-#html_theme_path = []
+-html_theme_path = [better_theme_path]
++html_theme_path = []
++#html_theme_path = [better_theme_path]
+ 
+ # The name for this set of Sphinx documents.  If None, it defaults to
+ # "<project> v<release> documentation".
+--- a/applications/bed/bedops/src/Makefile
++++ b/applications/bed/bedops/src/Makefile
+@@ -22,11 +22,11 @@
+ LOCALZLIBLIB        = ${LOCALZLIBDIR}/${LIBZLIB}
+ LOCALZLIBINCDIR     = ${LOCALZLIBDIR}
+ OBJDIR              = objects_${BINARY_TYPE}
+-INCLUDES            = -iquote$(HEAD) -I${LOCALJANSSONINCDIR} -I${LOCALBZIP2INCDIR} -I${LOCALZLIBINCDIR}
+-LIBLOCATION         = -L${LOCALJANSSONLIBDIR} -L${LOCALBZIP2LIBDIR} -L${LOCALZLIBDIR}
+-LIBRARIES           = ${LOCALJANSSONLIB} ${LOCALBZIP2LIB} ${LOCALZLIBLIB}
++INCLUDES            = -iquote$(HEAD)
++LIBLOCATION         = 
++LIBRARIES           = -ljansson -lz -lbz2
+ BLDFLAGS            = -Wall -pedantic -O3 -std=c++11
+-SFLAGS              = -static
++SFLAGS              = 
+ 
+ dependency_names    = NaN starchConstants starchFileHelpers starchHelpers starchMetadataHelpers unstarchHelpers starchSha1Digest starchBase64Coding
+ dependencies        = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(dependency_names)))
+--- a/applications/bed/bedextract/src/Makefile
++++ b/applications/bed/bedextract/src/Makefile
+@@ -21,11 +21,11 @@
+ LOCALZLIBDIR            = ${PARTY3}/zlib
+ LOCALZLIBLIB            = ${LOCALZLIBDIR}/${LIBZLIB}
+ LOCALZLIBINCDIR         = ${LOCALZLIBDIR}
+-INCLUDES                = -iquote$(HEAD) -I${LOCALJANSSONINCDIR} -I${LOCALBZIP2INCDIR} -I${LOCALZLIBINCDIR}
+-LIBLOCATION             = -L${LOCALJANSSONLIBDIR} -L${LOCALBZIP2LIBDIR} -L${LOCALZLIBDIR}
+-LIBRARIES               = ${LOCALJANSSONLIB} ${LOCALBZIP2LIB} ${LOCALZLIBLIB}
++INCLUDES                = -iquote$(HEAD)
++LIBLOCATION             = 
++LIBRARIES               = -ljansson -lz -lbz2
+ BLDFLAGS                = -Wall -pedantic -O3 -std=c++11
+-SFLAGS                  = -static ${MEGAFLAGS}
++SFLAGS                  = ${MEGAFLAGS}
+ 
+ dependency_names        = NaN starchConstants starchFileHelpers starchHelpers starchMetadataHelpers unstarchHelpers starchSha1Digest starchBase64Coding
+ dependencies            = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(dependency_names)))
+--- a/applications/bed/bedmap/src/Makefile
++++ b/applications/bed/bedmap/src/Makefile
+@@ -20,11 +20,11 @@
+ LOCALZLIBLIB        = ${LOCALZLIBDIR}/${LIBZLIB}
+ LOCALZLIBINCDIR     = ${LOCALZLIBDIR}
+ OBJDIR              = objects_${BINARY_TYPE}
+-INCLUDES            = -iquote${HEAD} -I${PARTY3} -I${LOCALJANSSONINCDIR} -I${LOCALBZIP2INCDIR} -I${LOCALZLIBINCDIR}
+-LIBLOCATION         = -L${LOCALJANSSONLIBDIR} -L${LOCALBZIP2LIBDIR} -L${LOCALZLIBDIR}
+-LIBRARIES           = ${LOCALJANSSONLIB} ${LOCALBZIP2LIB} ${LOCALZLIBLIB}
++INCLUDES            = -iquote${HEAD}
++LIBLOCATION         = 
++LIBRARIES           = -ljansson -lz -lbz2
+ BLDFLAGS            = -Wall -pedantic -O3 -std=c++11 
+-SFLAGS              = -static
++SFLAGS              =
+ 
+ dependency_names    = NaN starchConstants starchFileHelpers starchHelpers starchMetadataHelpers unstarchHelpers starchSha1Digest starchBase64Coding
+ dependencies        = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(dependency_names)))
+--- a/applications/bed/closestfeats/src/Makefile
++++ b/applications/bed/closestfeats/src/Makefile
+@@ -20,11 +20,11 @@
+ LOCALZLIBLIB        = ${LOCALZLIBDIR}/${LIBZLIB}
+ LOCALZLIBINCDIR     = ${LOCALZLIBDIR}
+ OBJDIR              = objects_${BINARY_TYPE}
+-INCLUDES            = -iquote$(HEAD) -I${LOCALJANSSONINCDIR} -I${LOCALBZIP2INCDIR} -I${LOCALZLIBINCDIR}
+-LIBLOCATION         = -L${LOCALJANSSONLIBDIR} -L${LOCALBZIP2LIBDIR} -L${LOCALZLIBDIR}
+-LIBRARIES           = ${LOCALJANSSONLIB} ${LOCALBZIP2LIB} ${LOCALZLIBLIB}
++INCLUDES            = -iquote$(HEAD)
++LIBLOCATION         = 
++LIBRARIES           = -ljansson -lz -lbz2
+ BLDFLAGS            = -Wall -pedantic -O3 -std=c++11
+-SFLAGS              = -static
++SFLAGS              = 
+ 
+ dependency_names    = NaN starchConstants starchFileHelpers starchHelpers starchMetadataHelpers unstarchHelpers starchSha1Digest starchBase64Coding
+ dependencies        = $(addprefix $(OBJDIR)/, $(addsuffix .o, $(dependency_names)))

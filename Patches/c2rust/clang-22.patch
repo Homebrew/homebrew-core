@@ -1,0 +1,249 @@
+From 8d294d2437be8e3dd202637be36c9338b5af2c9e Mon Sep 17 00:00:00 2001
+From: akourne <Crocodoctopus@gmail.com>
+Date: Wed, 29 Apr 2026 14:20:36 -0800
+Subject: [PATCH 1/2] transpile: add guards to stop cycles when build w/
+ clang-22
+
+---
+ c2rust-transpile/src/c_ast/iterators.rs | 12 ++++++++++--
+ 1 file changed, 10 insertions(+), 2 deletions(-)
+
+diff --git a/c2rust-transpile/src/c_ast/iterators.rs b/c2rust-transpile/src/c_ast/iterators.rs
+index a332634f79898adae1ed7de36b05e3f91c5456a8..f2e8cc1d558824b497a4c2e95f369a67a743d9d8 100644
+--- a/c2rust-transpile/src/c_ast/iterators.rs
++++ b/c2rust-transpile/src/c_ast/iterators.rs
+@@ -377,6 +377,7 @@ impl<'context> Iterator for DFExpr<'context> {
+ pub struct DFNodes<'context> {
+     context: &'context TypedAstContext,
+     stack: Vec<SomeId>,
++    visited: HashSet<SomeId>,
+ }
+ 
+ impl<'context> DFNodes<'context> {
+@@ -384,6 +385,7 @@ impl<'context> DFNodes<'context> {
+         DFNodes {
+             context,
+             stack: vec![start],
++            visited: <_>::from([start]),
+         }
+     }
+     pub fn prune(&mut self, n: usize) {
+@@ -401,7 +403,12 @@ impl<'context> Iterator for DFNodes<'context> {
+             // Compute list of immediate children
+             let children = immediate_children_all_types(self.context, i);
+             // Add children in reverse order since we visit the end of the stack first
+-            self.stack.extend(children.into_iter().rev())
++            self.stack.extend(
++                children
++                    .into_iter()
++                    .rev()
++                    .filter(|child| self.visited.insert(*child)),
++            )
+         }
+ 
+         result
+@@ -437,8 +444,9 @@ pub trait NodeVisitor {
+     /// method afterward.
+     fn visit_tree(&mut self, root: SomeId) {
+         let mut stack = vec![VisitNode::new(root)];
++        let mut visited = HashSet::new();
+         while let Some(mut node) = stack.pop() {
+-            if !node.seen {
++            if !node.seen && visited.insert(node.id) {
+                 let id = node.id;
+                 node.seen = true;
+                 stack.push(node);
+
+From 2bb54a49fcc5e4ce5fa405d847b3a4da39992fde Mon Sep 17 00:00:00 2001
+From: akourne <Crocodoctopus@gmail.com>
+Date: Mon, 11 May 2026 13:13:22 -0800
+Subject: [PATCH 2/2] transpile, ast-exporter: fix compat with Clang 22
+
+Clang 22 removes `ElaboratedType` and now represents `size_t`/`ssize_t`/`ptrdiff_t` using `PredefinedSugarType` (see llvm PR #143653).
+Snapshots are now appended a tag w/ the earliest clang version they pass with; ie clang-22 still tests against `.clang15` snapshots if the
+snapshot doesn't change between versions. Overriding a test to use a different `.clangX` tag can be done by appending the test to
+a table in `snapshots.rs`.
+---
+ .github/workflows/ci.yml                      |   4 +
+ README.md                                     |   2 +-
+ c2rust-ast-exporter/build.rs                  |  14 ++
+ c2rust-ast-exporter/src/AstExporter.cpp       |  16 +-
+ c2rust-ast-exporter/src/ast_tags.hpp          |   1 +
+ c2rust-build-paths/src/lib.rs                 |   3 +
+ c2rust-transpile/src/c_ast/conversion.rs      |  15 ++
+ 136 files changed, 795 insertions(+), 112 deletions(-)
+
+diff --git a/.github/workflows/ci.yml b/.github/workflows/ci.yml
+index 4eae8737d656ece99a6aa309cdbe54e8a0c35d82..95e618b487a2fc00cec14644ac8e6536c8dda4f3 100644
+--- a/.github/workflows/ci.yml
++++ b/.github/workflows/ci.yml
+@@ -18,6 +18,10 @@ jobs:
+             os: Linux
+             arch: x86_64
+             clang-version: 15
++          - runner: macos-15
++            os: macOS
++            arch: aarch64
++            clang-version: 22
+           - runner: macos-15
+             os: macOS
+             arch: aarch64
+diff --git a/README.md b/README.md
+index b38798c38791cc978d9182065aa60a3cc70c4e7f..38df843cc1ec86924bce5671a7ae146c07273e1f 100644
+--- a/README.md
++++ b/README.md
+@@ -118,7 +118,7 @@ LLVM_CONFIG_PATH="$(brew --prefix)/opt/llvm/bin/llvm-config" cargo install --loc
+ or for a specific LLVM version,
+ 
+ ```sh
+-LLVM_CONFIG_PATH="$(brew --prefix)/opt/llvm@21/bin/llvm-config" cargo install --locked c2rust
++LLVM_CONFIG_PATH="$(brew --prefix)/opt/llvm@22/bin/llvm-config" cargo install --locked c2rust
+ ```
+ 
+ On Gentoo, you need to point the build system to
+diff --git a/c2rust-ast-exporter/build.rs b/c2rust-ast-exporter/build.rs
+index e9eebfd9553f4f5f8ce78deb02601812c5e0b863..fe64988672ccff37573dc55dbf8651b07ee187e1 100644
+--- a/c2rust-ast-exporter/build.rs
++++ b/c2rust-ast-exporter/build.rs
+@@ -217,6 +217,20 @@ fn build_native(llvm_info: &LLVMInfo) {
+                 .unwrap();
+             clang_libs.insert(sema_pos + 1, "clangAPINotes");
+         }
++        if llvm_info.llvm_major_version >= 22 {
++            // clang 22+ moved option parsing helpers into a separate library.
++            // Keep this after users like clangFrontend/clangDriver.
++            let driver_pos = clang_libs.iter().position(|&r| r == "clangDriver").unwrap();
++            clang_libs.insert(driver_pos + 1, "clangOptions");
++
++            // clang 22+ split lifetime safety analysis from clangAnalysis.
++            // Keep this after users like clangSema.
++            let analysis_pos = clang_libs
++                .iter()
++                .position(|&r| r == "clangAnalysis")
++                .unwrap();
++            clang_libs.insert(analysis_pos + 1, "clangAnalysisLifetimeSafety");
++        }
+ 
+         for lib in &clang_libs {
+             println!("cargo:rustc-link-lib={}", lib);
+diff --git a/c2rust-ast-exporter/src/AstExporter.cpp b/c2rust-ast-exporter/src/AstExporter.cpp
+index 68d1f6db3098b99cb0e775b2f803183fc586cbcb..b63241315c74daae8e184da18c6d7456f648c169 100644
+--- a/c2rust-ast-exporter/src/AstExporter.cpp
++++ b/c2rust-ast-exporter/src/AstExporter.cpp
+@@ -657,6 +657,7 @@ class TypeEncoder final : public TypeVisitor<TypeEncoder> {
+         VisitQualType(t);
+     }
+ 
++#if CLANG_VERSION_MAJOR < 22
+     void VisitElaboratedType(const ElaboratedType *T) {
+         auto t = T->desugar();
+         auto qt = encodeQualType(t);
+@@ -665,6 +666,7 @@ class TypeEncoder final : public TypeVisitor<TypeEncoder> {
+ 
+         VisitQualType(t);
+     }
++#endif
+ 
+     void VisitDecayedType(const DecayedType *T) {
+         auto t = T->desugar();
+@@ -690,6 +692,16 @@ class TypeEncoder final : public TypeVisitor<TypeEncoder> {
+ 
+         VisitQualType(t);
+     }
++
++#if CLANG_VERSION_MAJOR >= 22
++    void VisitPredefinedSugarType(const clang::PredefinedSugarType *T) {
++        auto t = T->desugar();
++        auto k = T->getKind();
++        encodeType(T, TagPredefinedSugarType,
++                   [k](CborEncoder *local) { cbor_encode_uint(local, uint64_t(k)); });
++        VisitQualType(t);
++    }
++#endif
+ };
+ 
+ class TranslateASTVisitor final
+@@ -2267,8 +2279,6 @@ class TranslateASTVisitor final
+         auto recordAlignment = 0;
+         auto byteSize = 0;
+ 
+-        auto t = D->getTypeForDecl();
+-
+         auto loc = D->getSourceRange();
+         std::vector<void *> childIds;
+         if (def) {
+@@ -2348,8 +2358,6 @@ class TranslateASTVisitor final
+         // They are used in actual code and accepted by compilers, so we cannot
+         // exit early via code like `if (!D->isCompleteDefinition()) return true;`.
+ 
+-        auto t = D->getTypeForDecl();
+-
+         std::vector<void *> childIds;
+         for (auto x : D->enumerators()) {
+             childIds.push_back(x->getCanonicalDecl());
+diff --git a/c2rust-ast-exporter/src/ast_tags.hpp b/c2rust-ast-exporter/src/ast_tags.hpp
+index caa2e8f7aec61ed0c6dc85a3fb1cf86c7446408c..1e6d8b8b3a6a98b93dac26502dd4cbfdded9724b 100644
+--- a/c2rust-ast-exporter/src/ast_tags.hpp
++++ b/c2rust-ast-exporter/src/ast_tags.hpp
+@@ -154,6 +154,7 @@ enum TypeTag {
+     TagAtomicType,
+ 
+     TagAutoType,
++    TagPredefinedSugarType,
+ };
+ 
+ enum StringTypeTag {
+diff --git a/c2rust-build-paths/src/lib.rs b/c2rust-build-paths/src/lib.rs
+index 2362a46b9bb70bde0374c87a90fbf88ca537ddd8..049ee9e64631f590e2f0eb38ed043f80bbbccce7 100644
+--- a/c2rust-build-paths/src/lib.rs
++++ b/c2rust-build-paths/src/lib.rs
+@@ -91,6 +91,7 @@ pub fn find_llvm_config() -> Option<PathBuf> {
+         .or_else(|| {
+             // In PATH
+             [
++                "llvm-config-22",
+                 "llvm-config-21",
+                 "llvm-config-20",
+                 "llvm-config-19",
+@@ -109,6 +110,7 @@ pub fn find_llvm_config() -> Option<PathBuf> {
+                 "llvm-config-7.0",
+                 "llvm-config",
+                 // Homebrew install locations on Intel macOS
++                "/usr/local/opt/llvm@22/bin/llvm-config",
+                 "/usr/local/opt/llvm@21/bin/llvm-config",
+                 "/usr/local/opt/llvm@20/bin/llvm-config",
+                 "/usr/local/opt/llvm@19/bin/llvm-config",
+@@ -125,6 +127,7 @@ pub fn find_llvm_config() -> Option<PathBuf> {
+                 "/usr/local/opt/llvm@8/bin/llvm-config",
+                 "/usr/local/opt/llvm/bin/llvm-config",
+                 // Homebrew install locations on Apple Silicon macOS
++                "/opt/homebrew/opt/llvm@22/bin/llvm-config",
+                 "/opt/homebrew/opt/llvm@21/bin/llvm-config",
+                 "/opt/homebrew/opt/llvm@20/bin/llvm-config",
+                 "/opt/homebrew/opt/llvm@19/bin/llvm-config",
+diff --git a/c2rust-transpile/src/c_ast/conversion.rs b/c2rust-transpile/src/c_ast/conversion.rs
+index 401347b7aabeaa4e12d247564c11a786261c5dd7..f260f9e7f5bc57f5b3c85040c02c39d51bef8278 100644
+--- a/c2rust-transpile/src/c_ast/conversion.rs
++++ b/c2rust-transpile/src/c_ast/conversion.rs
+@@ -813,6 +813,21 @@ impl ConversionContext {
+                     self.processed_nodes.insert(new_id, expected_ty);
+                 }
+ 
++                TypeTag::TagPredefinedSugarType => {
++                    let kind = from_value(ty_node.extras[0].clone())
++                        .expect("Predefined sugar type kind not found");
++
++                    // See `clang::PredefinedSugarKind`.
++                    let predef_sugar_ty = match kind {
++                        0 => CTypeKind::Size,
++                        1 => CTypeKind::SSize,
++                        2 => CTypeKind::PtrDiff,
++                        _ => panic!("Predefined sugar type kind {kind} not known"),
++                    };
++                    self.add_type(new_id, not_located(predef_sugar_ty));
++                    self.processed_nodes.insert(new_id, expected_ty);
++                }
++
+                 TypeTag::TagEnumType if expected_ty & OTHER_TYPE != 0 => {
+                     let decl = from_value(ty_node.extras[0].clone()).expect("Enum decl not found");
+                     let decl_new = CDeclId(self.visit_node_type(decl, ENUM_DECL));

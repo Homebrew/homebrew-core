@@ -1,0 +1,120 @@
+class Container < Formula
+  desc "Create and run Linux containers using lightweight virtual machines"
+  homepage "https://apple.github.io/container/documentation/"
+  url "https://github.com/apple/container/archive/refs/tags/1.7.1.tar.gz"
+  sha256 "ef497b524624048ee45d57b0f7fdd675d6d420fcb30ab4a039779d752d9dea66"
+  license "Apache-2.0"
+  revision 2
+  compatibility_version 1
+  head "https://github.com/apple/container.git", branch: "main"
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c4ea95904c6d746848e2b499a89b9154e52ba9d4a48b7cb1eee06edd9676b71"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63f7ed909bd54deb08d5fb86a537d07ba9b94abb326d9194a66657b7e804221f"
+  end
+
+  depends_on xcode: ["26.0", :build]
+  depends_on arch: :arm64
+  depends_on macos: :tahoe
+
+  def install
+    if build.head?
+      ENV["GIT_COMMIT"] = Utils.git_head
+    else
+      ENV["RELEASE_VERSION"] = version
+    end
+
+    system "swift", "build", *std_swift_args
+
+    release_dir = buildpath/".build/release"
+
+    bin.install release_dir/"container"
+    bin.install release_dir/"container-apiserver"
+    libexec.install "scripts/ensure-container-stopped.sh"
+
+    # Container requires binaries and plugins to be signed with specific entitlements
+    codesign "--identifier=com.apple.container.cli", bin/"container"
+    codesign "--identifier=com.apple.container.apiserver", bin/"container-apiserver"
+
+    plugins = {
+      "container-core-images"   => { source: "CoreImages",       entitlements: false },
+      "container-core-clusters" => { source: "CoreClusters",     entitlements: false },
+      "cluster-hoststore"       => { source: "ClusterHostStore", entitlements: false },
+      "container-network-vmnet" => { source: "NetworkVMNet",     entitlements: true  },
+      "container-runtime-linux" => { source: "RuntimeLinux",     entitlements: true  },
+      "machine-apiserver"       => { source: "MachineAPIServer", entitlements: false,
+                                     resources: ["init"] },
+      "cluster"                 => { source: "Cluster",          entitlements: false,
+                                     resources: ["kindnet.yaml"] },
+      "build"                   => { source: "ContainerBuild",   entitlements: false,
+                                     binary: "container-build" },
+      "builder"                 => { source: "ContainerBuilder", entitlements: false,
+                                     binary: "container-builder" },
+    }
+    plugins.each do |bin_name, opts|
+      plugin_dir = libexec/"container/plugins/#{bin_name}"
+      (plugin_dir/"bin").install release_dir/(opts[:binary] || bin_name) => bin_name
+      plugin_dir.install "Sources/Plugins/#{opts[:source]}/config.toml"
+      opts[:resources]&.each do |resource|
+        (plugin_dir/"resources").install "Sources/Plugins/#{opts[:source]}/Resources/#{resource}"
+      end
+
+      entitlement_args = []
+      entitlement_args << "--entitlements=signing/#{bin_name}.entitlements" if opts[:entitlements]
+
+      codesign "--prefix=com.apple.container.", *entitlement_args,
+               plugin_dir/"bin/#{bin_name}"
+    end
+
+    generate_completions_from_executable bin/"container", "--generate-completion-script"
+
+    # Shims export CONTAINER_INSTALL_ROOT: the lexical fallback breaks under symlinked bin.
+    # Binaries live in cli/ because libexec/container is now the plugin tree.
+    bin.env_script_all_files prefix/"cli", CONTAINER_INSTALL_ROOT: opt_prefix
+
+    # Upstream's third-party plugin dir (apple/container#1617), symlinked outside
+    # the keg so user-installed plugins survive upgrades.
+    libexec.install_symlink HOMEBREW_PREFIX/"libexec/container-plugins" => "container-plugins"
+  end
+
+  def codesign(*args)
+    system "/usr/bin/codesign", "-f", "-s", "-", *args
+  end
+
+  # container APIs aren't guaranteed to be backward compatible,
+  # so we stop the system service to ensure no components are out of sync.
+  # Ref: https://github.com/apple/container/issues/551#issuecomment-3246928923
+  post_install_steps do
+    run "ensure-container-stopped.sh", args: ["-a"], base: :libexec
+  end
+
+  def caveats
+    <<~EOS
+      When starting container with `brew services`, no kernel is installed
+      automatically. Install the recommended kernel before running containers:
+        container system kernel set --recommended
+
+      Third-party CLI plugins now live in:
+        #{HOMEBREW_PREFIX}/libexec/container-plugins
+      and persist across upgrades (create the directory when installing your
+      first plugin). Plugins installed into an earlier keg's
+      libexec/container-plugins were removed with that keg; reinstall them
+      into the new location.
+    EOS
+  end
+
+  service do
+    run [opt_bin/"container", "system", "start", "--disable-kernel-install"]
+    working_dir var
+    log_path var/"log/container.log"
+    error_log_path var/"log/container.log"
+  end
+
+  test do
+    # Cannot fully test, as it needs to write outside testpath
+    assert_match version.to_s, shell_output("#{bin}/container --version")
+
+    assert_match(/Error: (?:(?:interrupted: ")?internalError: ")?failed to list containers/,
+                 shell_output("#{bin}/container list 2>&1", 1))
+  end
+end

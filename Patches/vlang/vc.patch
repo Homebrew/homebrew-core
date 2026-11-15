@@ -1,0 +1,14 @@
+Include sys/types.h for Big Sur or earlier.
+
+diff --git a/v.c b/v.c
+index 5d089d60..e3cb2645 100644
+--- a/v.c
++++ b/v.c
+@@ -1982,6 +1982,7 @@ static inline unsigned char atomic_fetch_xor_byte(unsigned char* x, unsigned cha
+ #if defined(__has_include)
+ 
+ #if __has_include(<sys/ptrace.h>)
++#include <sys/types.h>
+ #include <sys/ptrace.h>
+ #else
+ #error VERROR_MESSAGE Header file <sys/ptrace.h>, needed for module `os` was not found. Please install the corresponding development headers.

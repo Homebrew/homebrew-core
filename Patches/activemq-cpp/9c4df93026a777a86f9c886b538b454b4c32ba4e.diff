@@ -1,0 +1,170 @@
+diff --git a/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.cpp b/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.cpp
+index ffa39c791..25947aaa6 100644
+--- a/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.cpp
++++ b/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.cpp
+@@ -356,6 +356,12 @@ void OpenSSLSocket::startHandshake() {
+                 // Since we are a client we want to enforce peer verification, we set a
+                 // callback so we can collect data on why a verify failed for debugging.
+                 if (!peerVerifyDisabled) {
++                                        // Check host https://wiki.openssl.org/index.php/Hostname_validation
++                                        X509_VERIFY_PARAM *param = SSL_get0_param(this->parameters->getSSL());
++
++                                        X509_VERIFY_PARAM_set_hostflags(param, X509_CHECK_FLAG_NO_PARTIAL_WILDCARDS);
++                                        X509_VERIFY_PARAM_set1_host(param, this->data->commonName.c_str(), 0);
++
+                     SSL_set_verify(this->parameters->getSSL(), SSL_VERIFY_PEER, SocketData::verifyCallback);
+                 } else {
+                     SSL_set_verify(this->parameters->getSSL(), SSL_VERIFY_NONE, NULL);
+@@ -369,19 +375,14 @@ void OpenSSLSocket::startHandshake() {
+ 
+                 int result = SSL_connect(this->parameters->getSSL());
+ 
+-                // Checks the error status, when things go right we still perform a deeper
+-                // check on the provided certificate to ensure that it matches the host name
+-                // that we connected to, this prevents someone from using any certificate
+-                // signed by a signing authority that we trust.
++                // Checks the error status
+                 switch (SSL_get_error(this->parameters->getSSL(), result)) {
+                 case SSL_ERROR_NONE:
+-                    if (!peerVerifyDisabled) {
+-                        verifyServerCert(this->data->commonName);
+-                    }
+                     break;
+                 case SSL_ERROR_SSL:
+                 case SSL_ERROR_ZERO_RETURN:
+                 case SSL_ERROR_SYSCALL:
++                               default:
+                     SSLSocket::close();
+                     throw OpenSSLSocketException(__FILE__, __LINE__);
+                 }
+@@ -611,113 +612,3 @@ int OpenSSLSocket::available() {
+     DECAF_CATCH_RETHROW(IOException)
+     DECAF_CATCHALL_THROW(IOException)
+ }
+-
+-////////////////////////////////////////////////////////////////////////////////
+-void OpenSSLSocket::verifyServerCert(const std::string& serverName) {
+-
+-#ifdef HAVE_OPENSSL
+-    X509* cert = SSL_get_peer_certificate(this->parameters->getSSL());
+-
+-    if (cert == NULL) {
+-        this->close();
+-        throw OpenSSLSocketException(__FILE__, __LINE__, "No server certificate for verify for host: %s", serverName.c_str());
+-    }
+-
+-    class Finalizer {
+-    private:
+-
+-        Finalizer(const Finalizer&);
+-        Finalizer& operator=(const Finalizer&);
+-
+-    private:
+-
+-        X509* cert;
+-
+-    public:
+-
+-        Finalizer(X509* cert) : cert(cert) {}
+-        ~Finalizer() {
+-            if (cert != NULL) {
+-                X509_free(cert);
+-            }
+-        }
+-    };
+-
+-    // Store the Certificate to be cleaned up when the method returns
+-    Finalizer final(cert);
+-
+-    // We check the extensions first since newer x509v3 Certificates are recommended
+-    // to store the FQDN in the dsnName field of the subjectAltName extension.  If we
+-    // don't find it there then we can check the commonName field which is where older
+-    // Certificates placed the FQDN.
+-    int extensions = X509_get_ext_count(cert);
+-
+-    for (int ix = 0; ix < extensions; ix++) {
+-
+-        X509_EXTENSION* extension = X509_get_ext(cert, ix);
+-        const char* extensionName = OBJ_nid2sn(OBJ_obj2nid(X509_EXTENSION_get_object(extension)));
+-
+-        if (StringUtils::compare("subjectAltName", extensionName) == 0) {
+-            X509V3_EXT_METHOD* method = (X509V3_EXT_METHOD*) X509V3_EXT_get(extension);
+-            if (method == NULL) {
+-                break;
+-            }
+-
+-            bool found = false;
+-            const unsigned char* data = ASN1_STRING_data(X509_EXTENSION_get_data(extension));
+-            long length = ASN1_STRING_length(X509_EXTENSION_get_data(extension));
+-            void* ext_data;
+-
+-            if (method->it) {
+-                ext_data = ASN1_item_d2i(NULL, &data, length, ASN1_ITEM_ptr(method->it));
+-            } else {
+-                ext_data = method->d2i(NULL, &data, length);
+-            }
+-            STACK_OF(CONF_VALUE)* confValue = method->i2v(method, ext_data, NULL);
+-
+-            CONF_VALUE* value = NULL;
+-
+-            for (int iy = 0; iy < sk_CONF_VALUE_num( confValue ); iy++) {
+-                value = sk_CONF_VALUE_value(confValue, iy);
+-                if ((StringUtils::compare(value->name, "DNS") == 0) && StringUtils::compare(value->value, serverName.c_str()) == 0) {
+-                    found = true;
+-                    break;
+-                }
+-            }
+-
+-            sk_CONF_VALUE_pop_free(confValue, X509V3_conf_free);
+-            if (method->it) {
+-                ASN1_item_free((ASN1_VALUE*)ext_data, ASN1_ITEM_ptr(method->it));
+-            } else {
+-                method->ext_free(ext_data);
+-            }
+-
+-            if (found) {
+-                return;
+-            }
+-        }
+-    }
+-
+-    X509_NAME* subject = X509_get_subject_name(cert);
+-    X509_NAME_ENTRY *entry;
+-    int lastpos = -1;
+-
+-    if (subject != NULL) {
+-       for (;;) {
+-           lastpos = X509_NAME_get_index_by_NID(subject, NID_commonName, lastpos);
+-           if (lastpos == -1) {
+-               break;
+-           }
+-           entry = X509_NAME_get_entry(subject, lastpos);
+-           const char * entryText = (const char *) ASN1_STRING_data(X509_NAME_ENTRY_get_data(entry));
+-            if (StringUtils::compare(entryText , serverName.c_str()) == 0) {
+-                return;
+-            }
+-       }
+-    }
+-
+-    // We got here so no match to serverName in the Certificate
+-    throw OpenSSLSocketException(__FILE__, __LINE__,
+-        "Server Certificate Name doesn't match the URI Host Name value.");
+-#endif
+-}
+diff --git a/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.h b/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.h
+index 509efcb8f..a124dbf37 100644
+--- a/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.h
++++ b/activemq-cpp/src/main/decaf/internal/net/ssl/openssl/OpenSSLSocket.h
+@@ -242,12 +242,6 @@ namespace openssl {
+          */
+         int available();
+ 
+-    private:
+-
+-        // Perform some additional checks on the Server's Certificate to ensure that
+-        // its really valid.
+-        void verifyServerCert(const std::string& serverName);
+-
+     public:
+ 
+         using decaf::net::Socket::connect;

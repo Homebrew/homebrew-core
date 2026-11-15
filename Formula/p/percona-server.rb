@@ -1,0 +1,231 @@
+class PerconaServer < Formula
+  desc "Drop-in MySQL replacement"
+  homepage "https://www.percona.com"
+  url "https://downloads.percona.com/downloads/Percona-Server-9.7/Percona-Server-9.7.2-3/source/tarball/percona-server-9.7.2-3.tar.gz"
+  sha256 "df8dee9cdcfbb57c65aae864e6878aec43bf841c28b5c1fba60a12237351a053"
+  license "BSD-3-Clause"
+  compatibility_version 1
+
+  livecheck do
+    url "https://www.percona.com/wp-admin/admin-ajax.php", post_form: {
+      action:     "percona_downloads",
+      product_id: "Percona-Server-#{version.major_minor}",
+    }
+    regex(/^Percona-Server-v?(\d+(?:[.-]\d+)+)$/i)
+    strategy :json do |json, regex|
+      json.dig("data", "versions")&.filter_map do |version|
+        # Convert a version like 1.2.3-4.0 to 1.2.3-4 (but leave a version like
+        # 1.2.3-4.5 as-is).
+        version[regex, 1]&.sub(/(-\d+)\.0$/, '\1')
+      end
+    end
+  end
+
+  bottle do
+    sha256 arm64_golden_gate: "ae0b47be8e9d412638196a528c6dd4d5eb4e08bcdba5c720d589b6582177e87c"
+    sha256 arm64_tahoe:       "9566af6e35a5cc63a3f77b9d51839c378cb3499fc972e31405d7d05b5fb776f1"
+    sha256 arm64_sequoia:     "008c4b37d4438429890b6bfce865c65eb8c8077d86b280530d3208a33b445ae0"
+    sha256 arm64_linux:       "0b6251e0a59c5301a227c25cfa1db0ffeaafa1869c078595c98c39ddc0567422"
+    sha256 x86_64_linux:      "99b048a80b3190dce683d21571c294314766fbf90f978824604f255f9a346555"
+  end
+
+  depends_on "bison" => :build
+  depends_on "cmake" => :build
+  depends_on "pkgconf" => :build
+  depends_on "abseil"
+  depends_on "icu4c@79"
+  depends_on "libfido2"
+  depends_on "lz4"
+  depends_on "openldap" # Needs `ldap_set_urllist_proc`, not provided by LDAP.framework
+  depends_on "openssl@4"
+  depends_on "protobuf"
+  depends_on "zlib-ng-compat" # Zlib 1.2.13+
+  depends_on "zstd"
+
+  uses_from_macos "curl"
+  uses_from_macos "cyrus-sasl"
+  uses_from_macos "krb5"
+  uses_from_macos "libedit"
+
+  on_linux do
+    depends_on "patchelf" => :build
+    depends_on "libtirpc"
+  end
+
+  conflicts_with "mariadb", "mysql", because: "percona, mariadb, and mysql install the same binaries"
+
+  # https://github.com/percona/percona-server/blob/8.4/cmake/os/Linux.cmake
+  fails_with :gcc do
+    version "9"
+    cause "Requires GCC 10 or newer"
+  end
+
+  # Apply Debian's MySQL 9.7 patch to fix build with OpenSSL 4
+  patch do
+    url "https://salsa.debian.org/mariadb-team/mysql/-/raw/ac6576612c0afddccebf939fccedacc3b97db567/debian/patches/support-openssl4.patch"
+    sha256 "fd0eb6d47ce5aaef43e58240d9884d04b1ee30fd3c57395b405d9400ae136a02"
+    type :unofficial
+  end
+
+  # Patch out check for Homebrew `boost`.
+  # This should not be necessary when building inside `brew`.
+  # https://github.com/Homebrew/homebrew-test-bot/pull/820
+  patch do
+    file "Patches/mysql/remove-boost-check.diff"
+    type :unofficial
+  end
+
+  def datadir
+    var/"mysql"
+  end
+
+  def install
+    # Remove bundled libraries other than explicitly allowed below.
+    # `boost` and `rapidjson` must use bundled copy due to patches.
+    # `lz4` is still needed due to xxhash.c used by mysqlgcs
+    keep = %w[
+      boost coredumper duktape jwt-cpp libbacktrace libcno
+      libkmip lz4 opensslpp rapidjson unordered_dense xxhash
+    ]
+    (buildpath/"extra").each_child { |dir| rm_r(dir) unless keep.include?(dir.basename.to_s) }
+
+    # Find Homebrew OpenLDAP instead of the macOS framework
+    inreplace "cmake/ldap.cmake", "NAMES ldap_r ldap", "NAMES ldap"
+
+    # `pthread_self` is only pulled in by a `HAVE_SCHED_GETCPU`-guarded include
+    inreplace "storage/rocksdb/ib_ut0counter.h", "#include <cstdint>", "#include <cstdint>\n#include <pthread.h>"
+
+    # Disable ABI checking
+    inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
+
+    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
+                .to_formula
+    # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
+    args = %W[
+      -DCOMPILATION_COMMENT=Homebrew
+      -DDEFAULT_CHARSET=utf8mb4
+      -DDEFAULT_COLLATION=utf8mb4_0900_ai_ci
+      -DINSTALL_DOCDIR=share/doc/#{name}
+      -DINSTALL_INCLUDEDIR=include/mysql
+      -DINSTALL_INFODIR=share/info
+      -DINSTALL_MANDIR=share/man
+      -DINSTALL_MYSQLSHAREDIR=share/mysql
+      -DINSTALL_PLUGINDIR=lib/percona-server/plugin
+      -DMYSQL_DATADIR=#{datadir}
+      -DSYSCONFDIR=#{etc}
+      -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DWITH_ICU=#{icu4c.opt_prefix}
+      -DWITH_SYSTEM_LIBS=ON
+      -DWITH_EDITLINE=system
+      -DWITH_FIDO=system
+      -DWITH_LZ4=system
+      -DWITH_PROTOBUF=system
+      -DWITH_SSL=system
+      -DWITH_ZLIB=system
+      -DWITH_ZSTD=system
+      -DWITH_MYSQL_SERVER_TELEMETRY=OFF
+      -DWITH_MYSQL_CLIENT_TELEMETRY=OFF
+      -DWITH_UNIT_TESTS=OFF
+      -DROCKSDB_BUILD_ARCH=#{ENV.effective_arch}
+      -DALLOW_NO_ARMV81A_CRYPTO=ON
+      -DALLOW_NO_SSE42=ON
+    ]
+    args << "-DROCKSDB_DISABLE_AVX2=ON" if build.bottle?
+    args << "-DWITH_KERBEROS=system" unless OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
+
+    cd prefix/"mysql-test" do
+      test_args = ["--vardir=#{buildpath}/mysql-test-vardir"]
+      # For Linux, disable failing on warning: "Setting thread 31563 nice to 0 failed"
+      # Docker containers lack CAP_SYS_NICE capability by default.
+      test_args << "--nowarnings" if OS.linux?
+      system "./mysql-test-run.pl", "check", *test_args
+    ensure
+      status_log_file = buildpath/"mysql-test-vardir/log/main.status/status.log"
+      logs.install status_log_file if status_log_file.exist?
+    end
+
+    # Remove the tests directory
+    rm_r(prefix/"mysql-test")
+
+    # Fix up the control script and link into bin.
+    inreplace prefix/"support-files/mysql.server",
+              /^(PATH=".*)(")/,
+              "\\1:#{HOMEBREW_PREFIX}/bin\\2"
+    bin.install_symlink prefix/"support-files/mysql.server"
+
+    # Install my.cnf that binds to 127.0.0.1 by default
+    (buildpath/"my.cnf").write <<~INI
+      # Default Homebrew MySQL server config
+      [mysqld]
+      # Only allow connections from localhost
+      bind-address = 127.0.0.1
+      mysqlx-bind-address = 127.0.0.1
+    INI
+    etc.install "my.cnf"
+  end
+
+  post_install_steps do
+    if_path_exists "/etc/{my.cnf,mysql/my.cnf}" do
+      warn "A system my.cnf may interfere with a Homebrew-built server starting correctly."
+    end
+    init_data_dir "mysql", using: :mysql, base: :var
+  end
+
+  def caveats
+    <<~EOS
+      We've installed your MySQL database without a root password. To secure it run:
+          mysql_secure_installation
+
+      MySQL is configured to only allow connections from localhost by default
+
+      To connect run:
+          mysql -u root
+    EOS
+  end
+
+  service do
+    run [opt_bin/"mysqld_safe", "--datadir=#{var}/mysql"]
+    keep_alive true
+    working_dir var/"mysql"
+  end
+
+  test do
+    (testpath/"mysql").mkpath
+    (testpath/"tmp").mkpath
+
+    port = free_port
+    socket = testpath/"mysql.sock"
+    mysqld_args = %W[
+      --no-defaults
+      --mysqlx=OFF
+      --user=#{ENV["USER"]}
+      --port=#{port}
+      --socket=#{socket}
+      --basedir=#{prefix}
+      --datadir=#{testpath}/mysql
+      --tmpdir=#{testpath}/tmp
+    ]
+    client_args = %W[
+      --port=#{port}
+      --socket=#{socket}
+      --user=root
+      --password=
+    ]
+
+    system bin/"mysqld", *mysqld_args, "--initialize-insecure"
+    pid = spawn(bin/"mysqld", *mysqld_args)
+    begin
+      sleep 5
+      output = shell_output("#{bin}/mysql #{client_args.join(" ")} --execute='show databases;'")
+      assert_match "information_schema", output
+    ensure
+      system bin/"mysqladmin", *client_args, "shutdown"
+      Process.kill "TERM", pid
+    end
+  end
+end

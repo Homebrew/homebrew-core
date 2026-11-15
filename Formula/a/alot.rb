@@ -1,0 +1,168 @@
+class Alot < Formula
+  include Language::Python::Virtualenv
+
+  desc "Text mode MUA using notmuch mail"
+  homepage "https://github.com/pazz/alot"
+  url "https://github.com/pazz/alot.git",
+      tag:      "v0.12",
+      revision: "40a190f4c5f18c1283fdb3186393c4a778f865a5"
+  license "GPL-3.0-only"
+  revision 4
+  head "https://github.com/pazz/alot.git", branch: "main"
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "950e7bfd59a2336e80c88938d6391e907d36ada6fa70ba277fdab4115bfd16df"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2d4c3b50d87bd8a1cb07d597b7233105aae73e071487a7efa5a0cd51e192a1b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5eca46b580869353b7ad41f997021ad23c87e182a59a5ba5805d931555eaaa1d"
+    sha256 cellar: :any,                 arm64_linux:       "4f36986f60984088fce65e7c61be2f4419fc55059279d5f4118ed46854ad5bc9"
+    sha256 cellar: :any,                 x86_64_linux:      "b23d4a9fd081d19667aaabca7f3b6b5881ee0268428f2128e176e2db44de3c2a"
+  end
+
+  depends_on "sphinx-doc" => :build
+  depends_on "swig" => :build
+  depends_on "gpgmepy" => :no_linkage
+  depends_on "libmagic" => :no_linkage
+  depends_on "notmuch"
+  depends_on "python@3.15"
+
+  # Dependencies include non-PyPI packages so cannot use Homebrew's default resolver
+  pypi_packages package_name:   "",
+                extra_packages: %w[configobj python-magic standard-mailcap twisted urwid urwidtrees]
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
+  end
+
+  resource "automat" do
+    url "https://files.pythonhosted.org/packages/e3/0f/d40bbe294bbf004d436a8bcbcfaadca8b5140d39ad0ad3d73d1a8ba15f14/automat-25.4.16.tar.gz"
+    sha256 "0017591a5477066e90d26b0e696ddc143baafd87b588cfac8100bc6be9634de0"
+  end
+
+  resource "configobj" do
+    url "https://files.pythonhosted.org/packages/f5/c4/c7f9e41bc2e5f8eeae4a08a01c91b2aea3dfab40a3e14b25e87e7db8d501/configobj-5.0.9.tar.gz"
+    sha256 "03c881bbf23aa07bccf1b837005975993c4ab4427ba57f959afdd9d1a2386848"
+  end
+
+  resource "constantly" do
+    url "https://files.pythonhosted.org/packages/4d/6f/cb2a94494ff74aa9528a36c5b1422756330a75a8367bf20bd63171fc324d/constantly-23.10.4.tar.gz"
+    sha256 "aa92b70a33e2ac0bb33cd745eb61776594dc48764b06c35e0efd050b7f1c7cbd"
+  end
+
+  resource "hyperlink" do
+    url "https://files.pythonhosted.org/packages/3a/51/1947bd81d75af87e3bb9e34593a4cf118115a8feb451ce7a69044ef1412e/hyperlink-21.0.0.tar.gz"
+    sha256 "427af957daa58bc909471c6c40f74c5450fa123dd093fc53efd2e91d2705a56b"
+  end
+
+  resource "idna" do
+    url "https://files.pythonhosted.org/packages/f5/08/8eea9d4b8302028f3abb2c0813953f7aec26d33b7a8960ed760e65ff29fa/idna-3.20.tar.gz"
+    sha256 "a7db850025b95ded1eae8a46181a1a6c56c92c96f0e2b005d9ff8dc0210cab44"
+  end
+
+  resource "incremental" do
+    url "https://files.pythonhosted.org/packages/ef/3c/82e84109e02c492f382c711c58a3dd91badda6d746def81a1465f74dc9f5/incremental-24.11.0.tar.gz"
+    sha256 "87d3480dbb083c1d736222511a8cf380012a8176c2456d01ef483242abbbcf8c"
+  end
+
+  resource "packaging" do
+    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
+    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+  end
+
+  resource "python-magic" do
+    url "https://files.pythonhosted.org/packages/da/db/0b3e28ac047452d079d375ec6798bf76a036a08182dbb39ed38116a49130/python-magic-0.4.27.tar.gz"
+    sha256 "c1ba14b08e4a5f5c31a302b7721239695b2f0f058d125bd5ce1ee36b9d9d3c3b"
+  end
+
+  resource "standard-mailcap" do
+    url "https://files.pythonhosted.org/packages/53/e8/672bd621c146b89667a2bfaa58a1384db13cdd62bb7722ddb8d672bf7a75/standard_mailcap-3.13.0.tar.gz"
+    sha256 "19ed7955dbeaccb35e8bb05b2b5443ce55c1f932a8cbe7a5c13d42f9db4f499a"
+  end
+
+  resource "twisted" do
+    url "https://files.pythonhosted.org/packages/fe/31/a5f99ae7f1550914b0702b8f78118d95a79da20525d26fbc1b2ab42bc8ae/twisted-26.10.0.tar.gz"
+    sha256 "5f0355403e507fc23ceea85e9dbb4bc59335aabde41dd324e8b8cea180dd38de"
+  end
+
+  resource "typing-extensions" do
+    url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
+    sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
+  resource "urwid" do
+    url "https://files.pythonhosted.org/packages/ee/16/8d5b79d05dc960ec6527bb58c773b1bfe68ac90c8ee551771765e87a3971/urwid-5.0.1.tar.gz"
+    sha256 "338d6a0f8e7c58c205dd823b9c777b0f7a290c7ea661fcf81b12c42e4072ca24"
+  end
+
+  resource "urwidtrees" do
+    url "https://files.pythonhosted.org/packages/9f/a9/d98891fd9c143fb42277cb9a396aad5db76ed64bf747cb32ac19baaf04fa/urwidtrees-1.0.4.tar.gz"
+    sha256 "e693a0292e03092ba00abcfa2fa2537233be3696c4313d285b1eff94a4a45d4d"
+  end
+
+  resource "wcwidth" do
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
+  end
+
+  resource "zope-interface" do
+    url "https://files.pythonhosted.org/packages/de/ff/a1f0021a26033da0df223fd05a7455d6d2881b67daf2c6dc897b4fe0a427/zope_interface-8.7.tar.gz"
+    sha256 "0b47b62e8d0d99b24bcdd32f4f2120425e5019c3bee2ad69a0e1d75737487a96"
+  end
+
+  # Python 3.15 removed `glob.glob1`
+  patch do
+    url "https://github.com/pazz/alot/commit/1632613bf03a20d0d81b6e1cb0e5b8fc96e6c16e.patch?full_index=1"
+    sha256 "4f4826967eaae447aca7fae399fcc4e89af37f14bc8bf5a89aeba752471d743e"
+    type :backport
+    resolves "https://github.com/pazz/alot/pull/1713"
+  end
+
+  allow_network_access! :build
+
+  # Check for any changes needed in `extra_packages`
+  def check_pypi_extra_packages
+    pypi_deps = File.read("pyproject.toml")[/^dependencies\s*=\s*\[\s*"([^\]]*)"\s*,?\s*\]/, 1]
+    odie "Failed to parse PyPI dependencies from pyproject.toml!" if pypi_deps.nil?
+
+    pypi_deps = pypi_deps.split(/"\s*,\s*"/).map { |pypi_dep| pypi_dep[/^([a-z0-9._-]+)/i, 1] }
+    pypi_deps -= %w[gpg notmuch2]
+    pypi_deps.sort!
+    odie "Parsed extra_packages: #{pypi_deps.inspect}" if pypi_packages_info.extra_packages != pypi_deps
+  end
+
+  def install
+    check_pypi_extra_packages if build.stable?
+    venv = virtualenv_install_with_resources
+
+    pkgshare.install Pathname("extra").children - [Pathname("extra/completion")]
+    zsh_completion.install "extra/completion/alot-completion.zsh" => "_alot"
+
+    ENV["LC_ALL"] = "en_US.UTF-8"
+    ENV["SPHINXBUILD"] = formula_opt_bin("sphinx-doc")/"sphinx-build"
+    ENV.prepend_path "PYTHONPATH", venv.site_packages
+    cd "docs" do
+      system "make", "pickle"
+      system "make", "man", "html"
+      man1.install "build/man/alot.1"
+      doc.install Pathname("build/html").children
+    end
+  end
+
+  test do
+    (testpath/".notmuch-config").write <<~EOS
+      [database]
+      path=#{testpath}/Mail
+    EOS
+    (testpath/"Mail").mkpath
+    system formula_opt_bin("notmuch")/"notmuch", "new"
+
+    require "pty"
+    PTY.spawn(bin/"alot", "--logfile", testpath/"out.log") do |_r, _w, pid|
+      sleep 10
+      Process.kill 9, pid
+    end
+
+    assert_path_exists testpath/"out.log", "out.log file should exist"
+    assert_match "setup gui", (testpath/"out.log").read
+  end
+end

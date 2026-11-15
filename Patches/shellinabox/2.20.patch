@@ -1,0 +1,341 @@
+diff --git a/configure.ac b/configure.ac
+index 05ab1bb..5fa918d 100644
+--- a/configure.ac
++++ b/configure.ac
+@@ -138,6 +138,17 @@ AC_ARG_ENABLE(runtime-loading,
+                             these libraries into the binary, thus making them a
+                             hard dependency, then disable runtime-loading.])
+ 
++dnl This changes the order of the top ciphersuites
++AC_ARG_ENABLE(prefer-chacha,
++              [  --enable-prefer-chacha    Prefer ChaCha20-Poly1305 ciphersuites over
++                            AES256-GCM.  For processors without AES-NI or
++			    similar capabilities, ChaCha20-Poly1305 is 3 times
++			    faster than AES, with an equivalent strength.])
++if test "x$enable_prefer_chacha" == xyes; then
++  AC_DEFINE(SHELLINABOX_USE_CHACHA_FIRST, 1,
++                                Set if you want to prefer Chacha20-Poly1305 over AES-GCM)
++fi
++
+ dnl This is feature is not suported in some standard C libs. So users can use
+ dnl this switch to avoid compile and runtime problems. Note that utmp must
+ dnl disabled on systems with musl libc.
+diff --git a/libhttp/ssl.c b/libhttp/ssl.c
+index 6d09035..609d4e5 100644
+--- a/libhttp/ssl.c
++++ b/libhttp/ssl.c
+@@ -117,6 +117,9 @@ SSL_CTX *     (*SSL_CTX_new)(SSL_METHOD *);
+ int           (*SSL_CTX_set_cipher_list)(SSL_CTX *, const char *);
+ void          (*SSL_CTX_set_info_callback)(SSL_CTX *,
+                                            void (*)(const SSL *, int, int));
++#if OPENSSL_VERSION_NUMBER >= 0x10100000L
++unsigned long (*SSL_CTX_set_options)(SSL_CTX *, unsigned long);
++#endif
+ int           (*SSL_CTX_use_PrivateKey_file)(SSL_CTX *, const char *, int);
+ int           (*SSL_CTX_use_PrivateKey_ASN1)(int, SSL_CTX *,
+                                              const unsigned char *, long);
+@@ -130,7 +133,9 @@ void *        (*SSL_get_ex_data)(const SSL *, int);
+ BIO *         (*SSL_get_rbio)(const SSL *);
+ const char *  (*SSL_get_servername)(const SSL *, int);
+ BIO *         (*SSL_get_wbio)(const SSL *);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ int           (*SSL_library_init)(void);
++#endif
+ SSL *         (*SSL_new)(SSL_CTX *);
+ int           (*SSL_read)(SSL *, void *, int);
+ SSL_CTX *     (*SSL_set_SSL_CTX)(SSL *, SSL_CTX *);
+@@ -139,10 +144,16 @@ void          (*SSL_set_bio)(SSL *, BIO *, BIO *);
+ int           (*SSL_set_ex_data)(SSL *, int, void *);
+ int           (*SSL_shutdown)(SSL *);
+ int           (*SSL_write)(SSL *, const void *, int);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ SSL_METHOD *  (*SSLv23_server_method)(void);
++#else
++SSL_METHOD *  (*TLS_server_method)(void);
++#endif
+ X509 *        (*d2i_X509)(X509 **px, const unsigned char **in, int len);
+ void          (*X509_free)(X509 *a);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ void          (*x_sk_zero)(void *st);
++#endif
+ void *        (*x_SSL_COMP_get_compression_methods)(void);
+ #endif
+ 
+@@ -208,7 +219,7 @@ static int maybeLoadCrypto(void) {
+   // The feature is currently disabled.
+   const char* path_libcrypto = NULL; // getenv ("SHELLINABOX_LIBCRYPTO_SO");
+   if (path_libcrypto == NULL)
+-    path_libcrypto = "libcrypto.so";
++    path_libcrypto = DEFAULT_LIBCRYPTO_SO;
+ 
+   if (!crypto++) {
+ #ifdef RTLD_NOLOAD
+@@ -267,8 +278,8 @@ static void loadSSL(void) {
+   // The feature is currently disabled.
+   const char* path_libssl = NULL; // = getenv ("SHELLINABOX_LIBSSL_SO");
+   if (path_libssl == NULL)
+-    path_libssl = "libssl.so";
+-  check(!SSL_library_init);
++    path_libssl = DEFAULT_LIBSSL_SO;
++  check(!SSL_CTX_new);
+   struct {
+     union {
+       void *avoid_gcc_warning_about_type_punning;
+@@ -299,6 +310,9 @@ static void loadSSL(void) {
+     { { &SSL_CTX_new },                 "SSL_CTX_new" },
+     { { &SSL_CTX_set_cipher_list },     "SSL_CTX_set_cipher_list" },
+     { { &SSL_CTX_set_info_callback },   "SSL_CTX_set_info_callback" },
++#if OPENSSL_VERSION_NUMBER > 0x10100000L
++    { { &SSL_CTX_set_options },         "SSL_CTX_set_options" },
++#endif
+     { { &SSL_CTX_use_PrivateKey_file }, "SSL_CTX_use_PrivateKey_file" },
+     { { &SSL_CTX_use_PrivateKey_ASN1 }, "SSL_CTX_use_PrivateKey_ASN1" },
+     { { &SSL_CTX_use_certificate_file },"SSL_CTX_use_certificate_file"},
+@@ -312,7 +326,9 @@ static void loadSSL(void) {
+     { { &SSL_get_servername },          "SSL_get_servername" },
+ #endif
+     { { &SSL_get_wbio },                "SSL_get_wbio" },
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+     { { &SSL_library_init },            "SSL_library_init" },
++#endif
+     { { &SSL_new },                     "SSL_new" },
+     { { &SSL_read },                    "SSL_read" },
+ #ifdef HAVE_TLSEXT
+@@ -323,10 +339,16 @@ static void loadSSL(void) {
+     { { &SSL_set_ex_data },             "SSL_set_ex_data" },
+     { { &SSL_shutdown },                "SSL_shutdown" },
+     { { &SSL_write },                   "SSL_write" },
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+     { { &SSLv23_server_method },        "SSLv23_server_method" },
++#else
++    { { &TLS_server_method },           "TLS_server_method" },
++#endif
+     { { &d2i_X509 },                    "d2i_X509" },
+     { { &X509_free },                   "X509_free" },
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+     { { &x_sk_zero },                   "sk_zero" }
++#endif
+   };
+   for (unsigned i = 0; i < sizeof(symbols)/sizeof(symbols[0]); i++) {
+     if (!(*symbols[i].var = loadSymbol(path_libssl, symbols[i].fn))) {
+@@ -343,7 +365,9 @@ static void loadSSL(void) {
+   // ends
+ 
+ 
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+   SSL_library_init();
++#endif
+   dcheck(!ERR_peek_error());
+   debug("[ssl] Loaded SSL suppport...");
+ }
+@@ -351,7 +375,11 @@ static void loadSSL(void) {
+ 
+ int serverSupportsSSL(void) {
+ #if defined(HAVE_OPENSSL) && !defined(HAVE_DLOPEN)
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+   return SSL_library_init();
++#else
++  return 1;
++#endif
+ #else
+ #if defined(HAVE_OPENSSL)
+   // We want to call loadSSL() exactly once. For single-threaded applications,
+@@ -372,7 +400,11 @@ int serverSupportsSSL(void) {
+       loadSSL();
+     }
+   }
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+   return !!SSL_library_init;
++#else
++  return 1;
++#endif
+ #else
+   return 0;
+ #endif
+@@ -623,7 +655,11 @@ static void sslInfoCallback(const SSL *sslHndl, int type, int val) {
+ static SSL_CTX *sslMakeContext(void) {
+ 
+   SSL_CTX *context;
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+   check(context = SSL_CTX_new(SSLv23_server_method()));
++#else
++  check(context = SSL_CTX_new(TLS_server_method()));
++#endif
+ 
+   long options  = SSL_OP_ALL;
+   options      |= SSL_OP_NO_SSLv2;
+@@ -641,6 +677,7 @@ static SSL_CTX *sslMakeContext(void) {
+   // Set default SSL options.
+   SSL_CTX_set_options(context, options);
+ 
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+   // Workaround for SSL_OP_NO_COMPRESSION with older OpenSSL versions.
+ #ifdef HAVE_DLOPEN
+   if (SSL_COMP_get_compression_methods) {
+@@ -648,6 +685,7 @@ static SSL_CTX *sslMakeContext(void) {
+   }
+ #elif OPENSSL_VERSION_NUMBER >= 0x00908000L
+   sk_SSL_COMP_zero(SSL_COMP_get_compression_methods());
++#endif
+ #endif
+ 
+   // For Perfect Forward Secrecy (PFS) support we need to enable some additional
+@@ -657,21 +695,39 @@ static SSL_CTX *sslMakeContext(void) {
+   SSL_CTX_set_options(context, SSL_OP_SINGLE_ECDH_USE);
+   SSL_CTX_set_options(context, SSL_OP_CIPHER_SERVER_PREFERENCE);
+ 
++#if OPENSSL_VERSION_NUMBER < 0x10100000L /* openssl 1.1 does this automatically */
+   EC_KEY *ecKey;
+   check(ecKey   = EC_KEY_new_by_curve_name(NID_X9_62_prime256v1));
+   SSL_CTX_set_tmp_ecdh(context, ecKey);
+   EC_KEY_free(ecKey);
++#endif
+ 
+   debug("[ssl] Support for PFS enabled...");
+ #endif
+ 
+   check(SSL_CTX_set_cipher_list(context,
++#ifdef SHELLINABOX_USE_CHACHA_FIRST
++    "ECDHE-ECDSA-CHACHA20-POLY1305:"
++    "ECDHE-RSA-CHACHA20-POLY1305:"
++    "ECDHE-ECDSA-AES256-GCM-SHA384:"
+     "ECDHE-RSA-AES256-GCM-SHA384:"
++#else
++    "ECDHE-ECDSA-AES256-GCM-SHA384:"
++    "ECDHE-RSA-AES256-GCM-SHA384:"
++    "ECDHE-ECDSA-CHACHA20-POLY1305:"
++    "ECDHE-RSA-CHACHA20-POLY1305:"
++#endif
++    "ECDHE-ECDSA-AES128-GCM-SHA256:"
+     "ECDHE-RSA-AES128-GCM-SHA256:"
++    "ECDHE-ECDSA-AES256-SHA384:"
+     "ECDHE-RSA-AES256-SHA384:"
++    "ECDHE-ECDSA-AES128-SHA256:"
+     "ECDHE-RSA-AES128-SHA256:"
++    "ECDHE-ECDSA-AES256-SHA:"
+     "ECDHE-RSA-AES256-SHA:"
++    "ECDHE-ECDSA-AES128-SHA:"
+     "ECDHE-RSA-AES128-SHA:"
++    "ECDHE-ECDSA-DES-CBC3-SHA:"
+     "ECDHE-RSA-DES-CBC3-SHA:"
+     "HIGH:MEDIUM:!RC4:!aNULL:!MD5"));
+ 
+diff --git a/libhttp/ssl.h b/libhttp/ssl.h
+index 9fbac63..7c3a23d 100644
+--- a/libhttp/ssl.h
++++ b/libhttp/ssl.h
+@@ -57,6 +57,7 @@
+ #include <openssl/bio.h>
+ #include <openssl/err.h>
+ #include <openssl/ssl.h>
++#include <openssl/safestack.h>
+ #else
+ #undef HAVE_OPENSSL
+ typedef struct BIO        BIO;
+@@ -77,6 +78,17 @@ typedef struct X509       X509;
+ #endif
+ 
+ #if defined(HAVE_DLOPEN)
++#if !defined(DEFAULT_LIBCRYPTO_SO) || !defined(DEFAULT_LIBSSL_SO)
++#undef DEFAULT_LIBCRYPTO_SO
++#undef DEFAULT_LIBSSL_SO
++#ifdef SHLIB_VERSION_NUMBER
++#define DEFAULT_LIBCRYPTO_SO "libcrypto.so." SHLIB_VERSION_NUMBER
++#define DEFAULT_LIBSSL_SO "libssl.so." SHLIB_VERSION_NUMBER
++#else
++#define DEFAULT_LIBCRYPTO_SO "libcrypto.so"
++#define DEFAULT_LIBSSL_SO "libssl.so"
++#endif
++#endif
+ extern long    (*x_BIO_ctrl)(BIO *, int, long, void *);
+ extern BIO_METHOD *(*x_BIO_f_buffer)(void);
+ extern void    (*x_BIO_free_all)(BIO *);
+@@ -99,6 +111,9 @@ extern SSL_CTX*(*x_SSL_CTX_new)(SSL_METHOD *);
+ extern int     (*x_SSL_CTX_set_cipher_list)(SSL_CTX *, const char *);
+ extern void    (*x_SSL_CTX_set_info_callback)(SSL_CTX *,
+                                               void (*)(const SSL *, int, int));
++#if OPENSSL_VERSION_NUMBER >= 0x10100000L
++extern unsigned long (*x_SSL_CTX_set_options)(SSL_CTX *, unsigned long);
++#endif
+ extern int     (*x_SSL_CTX_use_PrivateKey_file)(SSL_CTX *, const char *, int);
+ extern int     (*x_SSL_CTX_use_PrivateKey_ASN1)(int, SSL_CTX *,
+                                                 const unsigned char *, long);
+@@ -112,7 +127,9 @@ extern void   *(*x_SSL_get_ex_data)(const SSL *, int);
+ extern BIO    *(*x_SSL_get_rbio)(const SSL *);
+ extern const char *(*x_SSL_get_servername)(const SSL *, int);
+ extern BIO    *(*x_SSL_get_wbio)(const SSL *);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ extern int     (*x_SSL_library_init)(void);
++#endif
+ extern SSL    *(*x_SSL_new)(SSL_CTX *);
+ extern int     (*x_SSL_read)(SSL *, void *, int);
+ extern SSL_CTX*(*x_SSL_set_SSL_CTX)(SSL *, SSL_CTX *);
+@@ -121,10 +138,16 @@ extern void    (*x_SSL_set_bio)(SSL *, BIO *, BIO *);
+ extern int     (*x_SSL_set_ex_data)(SSL *, int, void *);
+ extern int     (*x_SSL_shutdown)(SSL *);
+ extern int     (*x_SSL_write)(SSL *, const void *, int);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ extern SSL_METHOD *(*x_SSLv23_server_method)(void);
++#else
++extern SSL_METHOD *(*x_TLS_server_method)(void);
++#endif
+ extern X509 *  (*x_d2i_X509)(X509 **px, const unsigned char **in, int len);
+ extern void    (*x_X509_free)(X509 *a);
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ extern void    (*x_sk_zero)(void *st);
++#endif
+ extern void   *(*x_SSL_COMP_get_compression_methods)(void);
+ 
+ #define BIO_ctrl                     x_BIO_ctrl
+@@ -146,6 +169,9 @@ extern void   *(*x_SSL_COMP_get_compression_methods)(void);
+ #define SSL_CTX_new                  x_SSL_CTX_new
+ #define SSL_CTX_set_cipher_list      x_SSL_CTX_set_cipher_list
+ #define SSL_CTX_set_info_callback    x_SSL_CTX_set_info_callback
++#if OPENSSL_VERSION_NUMBER >= 0x10100000L
++#define SSL_CTX_set_options          x_SSL_CTX_set_options
++#endif
+ #define SSL_CTX_use_PrivateKey_file  x_SSL_CTX_use_PrivateKey_file
+ #define SSL_CTX_use_PrivateKey_ASN1  x_SSL_CTX_use_PrivateKey_ASN1
+ #define SSL_CTX_use_certificate_file x_SSL_CTX_use_certificate_file
+@@ -157,7 +183,9 @@ extern void   *(*x_SSL_COMP_get_compression_methods)(void);
+ #define SSL_get_rbio                 x_SSL_get_rbio
+ #define SSL_get_servername           x_SSL_get_servername
+ #define SSL_get_wbio                 x_SSL_get_wbio
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ #define SSL_library_init             x_SSL_library_init
++#endif
+ #define SSL_new                      x_SSL_new
+ #define SSL_read                     x_SSL_read
+ #define SSL_set_SSL_CTX              x_SSL_set_SSL_CTX
+@@ -166,10 +194,16 @@ extern void   *(*x_SSL_COMP_get_compression_methods)(void);
+ #define SSL_set_ex_data              x_SSL_set_ex_data
+ #define SSL_shutdown                 x_SSL_shutdown
+ #define SSL_write                    x_SSL_write
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ #define SSLv23_server_method         x_SSLv23_server_method
++#else
++#define TLS_server_method            x_TLS_server_method
++#endif
+ #define d2i_X509                     x_d2i_X509
+ #define X509_free                    x_X509_free
++#if OPENSSL_VERSION_NUMBER < 0x10100000L
+ #define sk_zero                      x_sk_zero
++#endif
+ #define SSL_COMP_get_compression_methods    x_SSL_COMP_get_compression_methods
+ 
+ #undef  BIO_set_buffer_read_data
+diff --git a/shellinabox/service.c b/shellinabox/service.c
+index cdf946e..aa44798 100644
+--- a/shellinabox/service.c
++++ b/shellinabox/service.c
+@@ -175,8 +175,8 @@ void initService(struct Service *service, const char *arg) {
+           "-oHostbasedAuthentication=no -oIdentitiesOnly=yes "
+           "-oKbdInteractiveAuthentication=yes -oPasswordAuthentication=yes "
+           "-oPreferredAuthentications=keyboard-interactive,password "
+-          "-oPubkeyAuthentication=no -oRhostsRSAAuthentication=no "
+-          "-oRSAAuthentication=no -oStrictHostKeyChecking=no -oTunnel=no "
++          "-oPubkeyAuthentication=no "
++          "-oStrictHostKeyChecking=no -oTunnel=no "
+           "-oUserKnownHostsFile=/dev/null -oVerifyHostKeyDNS=no "
+ // beewoolie-2012.03.30: while it would be nice to disable this
+ //          feature, we cannot be sure that it is available on the

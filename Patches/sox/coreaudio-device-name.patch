@@ -1,0 +1,32 @@
+From bf2afa54a7dec731832e487a546966be24ed74ae Mon Sep 17 00:00:00 2001
+From: Eric Wong <e@80x24.org>
+Date: Thu, 16 Jun 2016 02:38:00 +0000
+Subject: coreaudio: fix device name truncation
+
+Not tested by me.
+
+Thanks to gqrxzy8974@ftml.net on the sox-devel mailing list.
+
+ref:
+http://mid.gmane.org/1465929413.3110479.637612809.34A344C0@webmail.messagingengine.com
+http://mid.gmane.org/1465999771.747479.638486129.3DC41500@webmail.messagingengine.com
+---
+ src/coreaudio.c | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/src/coreaudio.c b/src/coreaudio.c
+index f6f20c13..27623922 100644
+--- a/src/coreaudio.c
++++ b/src/coreaudio.c
+@@ -152,6 +152,8 @@ static int setup(sox_format_t *ft, int is_input)
+               for (i = 0; i < device_count; i++)
+               {
+                   char name[256];
++
++                  property_size = sizeof(name);
+                   status = AudioDeviceGetProperty(devices[i],0,false,kAudioDevicePropertyDeviceName,&property_size,&name);
+ 
+                   lsx_report("Found Audio Device \"%s\"\n",name);
+-- 
+cgit v1.2.3-24-ge0c7
+

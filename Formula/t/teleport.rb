@@ -1,0 +1,143 @@
+class Teleport < Formula
+  desc "Modern SSH server for teams managing distributed infrastructure"
+  homepage "https://goteleport.com/"
+  # Check https://goteleport.com/download/ for valid versions as some git tags
+  # aren't marked as GitHub releases but they correspond to official release
+  url "https://github.com/gravitational/teleport/archive/refs/tags/v18.11.10.tar.gz"
+  sha256 "59462f339440cda54cef30e554e0e1322a05eadbff84d062d1085e4a8ed7eb6d"
+  license all_of: ["AGPL-3.0-or-later", "Apache-2.0"]
+  head "https://github.com/gravitational/teleport.git", branch: "master"
+
+  # Teleport first does a commercial release and then has a delayed open-source
+  # git tag. Not all tags are marked as GitHub releases so we check that the
+  # tag has a corresponding official release version.
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :git do |tags, regex|
+      data = JSON.parse(Homebrew::Livecheck::Strategy.page_content("https://rlz.teleport.sh/versions")[:content])
+      released_versions = data.fetch("supportedMajors", []).flat_map { |major| data.dig("versions", major) }
+      tagged_versions = tags.filter_map { |tag| tag[regex, 1] }
+      tagged_versions & released_versions
+    end
+  end
+
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "9cb4711e5240aa51cfc3ffa4519a0d274189085ea57f43174171b2ec02007f27"
+    sha256 cellar: :any, arm64_tahoe:       "4bd92304878fcdd59275b244e0544e113a3f16a44760797bba102fe32f6cbe3a"
+    sha256 cellar: :any, arm64_sequoia:     "b6d0795370e95947875a2f542358a971186aaf7ab745e3130b8091bdb8aebd40"
+    sha256 cellar: :any, arm64_linux:       "67b8c6909491245edafaa58f104350047dc8121ac96ee6e2cf216d3608115327"
+    sha256 cellar: :any, x86_64_linux:      "95426cd2d0e556af209348735b57f46b25c0ee187eb8fc48dd2ce6c7d12e8b0c"
+  end
+
+  depends_on "binaryen" => :build
+  depends_on "go" => :build
+  depends_on "lld" => :build
+  depends_on "llvm" => :build
+  depends_on "node" => :build
+  depends_on "pkgconf" => :build
+  depends_on "pnpm" => :build
+  depends_on "rust" => :build
+  depends_on "rust-wasm" => :build
+  depends_on "libfido2"
+
+  conflicts_with "etsh", because: "both install `tsh` binaries"
+  conflicts_with "tctl", because: "both install `tctl` binaries"
+
+  resource "wasm-bindgen" do
+    url "https://static.crates.io/crates/wasm-bindgen-cli/wasm-bindgen-cli-0.2.122.crate"
+    sha256 "c1686f9fe038f84b892c10d3b7489b291eb110537450159eb97e5f846b3045bc"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/gravitational/teleport/refs/tags/v#{LATEST_VERSION}/Cargo.lock"
+      regex(/name\s*=\s*"wasm-bindgen".*?version\s*=\s*["'](\d+(?:\.\d+)+)["']/im)
+    end
+  end
+
+  # Use native-only Rust archives with Go's linker-input validation.
+  patch do
+    url "https://github.com/gravitational/teleport/commit/16490c6cdc8b3846aa71a4ba893643072bca0663.patch?full_index=1"
+    sha256 "18b85d1c3f65875b903bd7b9f9d79f47e85e4efc307605caa03ff0cf822be9ea"
+    type :unofficial
+    resolves "https://github.com/gravitational/teleport/pull/69975"
+  end
+
+  def install
+    # Workaround to avoid patchelf corruption when cgo is required
+    if OS.linux? && Hardware::CPU.arm64?
+      ENV["GO_EXTLINK_ENABLED"] = "1"
+      ENV.append "GOFLAGS", "-buildmode=pie"
+    end
+
+    # Prevent pnpm from downloading another copy due to `packageManager` feature
+    (buildpath/"pnpm-workspace.yaml").append_lines <<~YAML
+      managePackageManagerVersions: false
+    YAML
+
+    resource("wasm-bindgen").stage do
+      system "cargo", "install", *std_cargo_args(root: buildpath)
+    end
+    ENV.prepend_path "PATH", buildpath/"bin"
+
+    # Reduce overlinking with OpenSSL
+    ENV.append "CGO_LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
+
+    # Avoid passing incorrect target-cpu to wasm
+    ENV.delete "HOMEBREW_RUSTFLAGS"
+
+    # Build C code in wasm crates with LLVM as the host `CC` (GCC on Linux) cannot target wasm
+    ENV["CC_wasm32_unknown_unknown"] = formula_opt_bin("llvm")/"clang"
+    ENV["AR_wasm32_unknown_unknown"] = formula_opt_bin("llvm")/"llvm-ar"
+    ENV["OBJCOPY"] = formula_opt_bin("llvm")/"llvm-objcopy"
+
+    # Workaround for error: The CPU Jitter random number generator must not be compiled with optimizations.
+    # Issue ref: https://github.com/aws/aws-lc-rs/issues/1097
+    ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
+
+    # Linux-only `teleport-update` needs Teleport's signing keys; without them it refuses all updates
+    ENV["TELEPORT_UPDATE_DEV_BUILD"] = "1" if OS.linux?
+
+    inreplace "Makefile" do |s|
+      # Workaround for Homebrew's installation layout as rust cannot find rust-wasm
+      s.gsub! %q(RUSTFLAGS='--cfg getrandom_backend="wasm_js"'),
+              %Q(RUSTFLAGS='--cfg getrandom_backend="wasm_js" --sysroot #{HOMEBREW_PREFIX} --codegen linker=wasm-ld')
+
+      # avoid building another wasm-opt
+      s.gsub!(/^(ensure-wasm-deps: .*) ensure-wasm-opt( .*)?$/, "\\1\\2")
+    end
+
+    # TODO: Makefile expects git clone but not possible while private enterprise submodule is referenced:
+    # https://github.com/gravitational/teleport/commit/dbf752d73b99639cd9b64cfd9fef047806f61863
+    inreplace "integrations/terraform-modules/gen/docs.sh",
+              "$(git rev-parse --show-prefix)",
+              "integrations/terraform-modules/gen/"
+
+    ENV.deparallelize { system "make", "full", "FIDO2=dynamic", "LLVM_DIR=#{formula_opt_prefix("llvm")}" }
+    bin.install Dir["build/*"]
+  end
+
+  test do
+    assert_match version.to_s, shell_output("#{bin}/teleport version")
+    assert_match version.to_s, shell_output("#{bin}/tsh version")
+    assert_match version.to_s, shell_output("#{bin}/tctl version")
+
+    mkdir testpath/"data"
+    (testpath/"config.yml").write <<~YAML
+      version: v2
+      teleport:
+        nodename: testhost
+        data_dir: #{testpath}/data
+        log:
+          output: stderr
+          severity: WARN
+    YAML
+
+    spawn bin/"teleport", "start", "--roles=proxy,node,auth", "--config=#{testpath}/config.yml"
+    sleep 10
+    system "curl", "--insecure", "https://localhost:3080"
+
+    status = shell_output("#{bin}/tctl status --config=#{testpath}/config.yml")
+    assert_match(/Cluster:\s*testhost/, status)
+    assert_match(/Version:\s*#{version}/, status)
+  end
+end

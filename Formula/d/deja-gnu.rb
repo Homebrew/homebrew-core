@@ -1,0 +1,42 @@
+class DejaGnu < Formula
+  desc "Framework for testing other programs"
+  homepage "https://www.gnu.org/software/dejagnu/"
+  url "https://ftpmirror.gnu.org/dejagnu/dejagnu-1.6.3.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/dejagnu/dejagnu-1.6.3.tar.gz"
+  sha256 "87daefacd7958b4a69f88c6856dbd1634261963c414079d0c371f589cd66a2e3"
+  license "GPL-3.0-or-later"
+
+  bottle do
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "8b7481a7c316dd293ddffc9a58fcfbd5289be84f4c2d39d6f4e69da6dd36bd80"
+  end
+
+  head do
+    url "https://git.savannah.gnu.org/git/dejagnu.git", branch: "master"
+
+    depends_on "autoconf" => :build
+    depends_on "automake" => :build
+  end
+
+  on_linux do
+    deprecate! date: "2026-10-12", because: "needs deprecated `expect`"
+    disable! date: "2028-01-01", because: "needs deprecated `expect`"
+
+    depends_on "expect" # TODO: switch to uses_from_macos if undeprecated
+  end
+
+  deny_network_access!
+
+  def install
+    ENV.deparallelize # Or fails on Mac Pro
+    system "autoreconf", "--force", "--install", "--verbose" if build.head?
+    system "./configure", "--mandir=#{man}", *std_configure_args
+    # DejaGnu has no compiled code, so go directly to "make check"
+    system "make", "check"
+    system "make", "install"
+  end
+
+  test do
+    system bin/"runtest"
+  end
+end

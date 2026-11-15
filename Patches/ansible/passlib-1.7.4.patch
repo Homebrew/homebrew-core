@@ -1,0 +1,12 @@
+diff --git a/passlib/handlers/bcrypt.py b/passlib/handlers/bcrypt.py
+--- a/passlib/handlers/bcrypt.py
++++ b/passlib/handlers/bcrypt.py
+@@ -644,7 +644,7 @@
+         config = self._get_config(ident)
+         if isinstance(config, str):
+             config = config.encode("ascii")
+-        hash = _bcrypt.hashpw(secret, config)
++        hash = _bcrypt.hashpw(secret[:72], config)
+         assert isinstance(hash, bytes)
+         if not hash.startswith(config) or len(hash) != len(config)+31:
+             raise uh.exc.CryptBackendError(self, config, hash, source="`bcrypt` package")

@@ -1,0 +1,12 @@
+diff --git a/src/runtime/Directory.Build.props b/src/runtime/Directory.Build.props
+index bd23050dc43..7d476252132 100644
+--- a/src/runtime/Directory.Build.props
++++ b/src/runtime/Directory.Build.props
+@@ -397,4 +397,7 @@
+     <BeforeMicrosoftNETSdkTargets Condition="'$(MSBuildProjectExtension)' == '.ilproj'">$(BeforeMicrosoftNETSdkTargets);$(RepositoryEngineeringDir)ILSdk.BeforeTargets.targets</BeforeMicrosoftNETSdkTargets>
+   </PropertyGroup>
+ 
++  <PropertyGroup>
++    <SkipInstallerBuild>true</SkipInstallerBuild>
++  </PropertyGroup>
+ </Project>

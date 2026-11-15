@@ -1,0 +1,20 @@
+diff --git a/build.zig b/build.zig
+--- a/build.zig
++++ b/build.zig
+@@ -859,7 +859,15 @@
+                 mod.linkSystemLibrary("unwind", .{});
+             },
+             .driverkit, .ios, .maccatalyst, .macos, .tvos, .visionos, .watchos => {
+-                mod.link_libcpp = true;
++                const io = b.graph.io;
++                if (static or !std.zig.system.darwin.isSdkInstalled(b.allocator, io)) {
++                    mod.link_libcpp = true;
++                } else {
++                    const sdk = std.zig.system.darwin.getSdk(b.allocator, io, target) orelse
++                        return error.SdkDetectFailed;
++                    const libcpp_tbd = b.pathJoin(&.{ sdk, "usr/lib/libc++.tbd" });
++                    mod.addObjectFile(.{ .cwd_relative = libcpp_tbd });
++                }
+             },
+             .windows => {
+                 if (target.abi != .msvc) mod.link_libcpp = true;

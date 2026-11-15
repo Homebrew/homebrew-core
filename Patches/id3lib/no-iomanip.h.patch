@@ -1,0 +1,10 @@
+--- a/configure.in	2013-01-13 00:13:22.000000000 -0800
++++ b/configure.in	2013-01-13 00:14:14.000000000 -0800
+@@ -228,7 +228,6 @@ AC_CHECK_HEADERS(fstream iostream iomani
+ )
+ AC_CHECK_HEADERS(               \
+   string                        \
+-  iomanip.h                     \
+   ,,AC_MSG_ERROR([Missing a vital header file for id3lib])
+ )
+ 

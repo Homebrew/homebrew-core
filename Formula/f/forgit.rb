@@ -1,0 +1,49 @@
+class Forgit < Formula
+  desc "Interactive git commands in the terminal"
+  homepage "https://github.com/wfxr/forgit"
+  url "https://github.com/wfxr/forgit/releases/download/26.11.0/forgit-26.11.0.tar.gz"
+  sha256 "6f5eb2c473ac6b06c869e4fc920d299e0aca5fc05d9212232acce14e27a5aa33"
+  license "MIT"
+
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
+  bottle do
+    sha256 cellar: :any_skip_relocation, all: "63eac29d0f9b839e9cf9e6b003f026439e655f7b7fbd8400c88e70d7e81b528c"
+  end
+
+  depends_on "fzf"
+
+  deny_network_access!
+
+  def install
+    bin.install "bin/git-forgit"
+    bash_completion.install "completions/git-forgit.bash" => "git-forgit"
+    zsh_completion.install "completions/_git-forgit"
+    fish_completion.install "completions/git-forgit.fish"
+    inreplace "forgit.plugin.zsh", 'FORGIT="$FORGIT_INSTALL_DIR', "FORGIT=\"#{opt_prefix}"
+    inreplace "conf.d/forgit.plugin.fish",
+              'set -x FORGIT "$FORGIT_INSTALL_DIR/bin/git-forgit"',
+              "set -x FORGIT \"#{opt_prefix}/bin/git-forgit\""
+    pkgshare.install "conf.d/forgit.plugin.fish"
+    pkgshare.install "forgit.plugin.zsh"
+    pkgshare.install_symlink "forgit.plugin.zsh" => "forgit.plugin.sh"
+  end
+
+  def caveats
+    <<~EOS
+      A shell plugin has been installed to:
+        #{opt_pkgshare}/forgit.plugin.zsh
+        #{opt_pkgshare}/forgit.plugin.sh
+        #{opt_pkgshare}/forgit.plugin.fish
+    EOS
+  end
+
+  test do
+    system "git", "init"
+    (testpath/"foo").write "bar"
+    system "git", "forgit", "add", "foo"
+  end
+end

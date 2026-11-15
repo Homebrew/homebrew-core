@@ -1,0 +1,226 @@
+diff --git a/test/suites/base.bash b/test/suites/base.bash
+index 1aa3fb95..f95e5c20 100644
+--- a/test/suites/base.bash
++++ b/test/suites/base.bash
+@@ -1830,7 +1830,7 @@ if ! $COMPILER_USES_MSVC; then
+             cp test1.c build
+             $CCACHE_COMPILE -c -MMD $src -o $obj
+             dep=$(echo $obj | sed 's/\.o$/.d/')
+-            expect_content $dep "$obj: $src"
++            expect_content_pattern $dep "$obj:* $src"
+         done
+     done
+ fi
+diff --git a/test/suites/direct.bash b/test/suites/direct.bash
+index a6bd146f..0a40f378 100644
+--- a/test/suites/direct.bash
++++ b/test/suites/direct.bash
+@@ -198,13 +198,13 @@ if ! $COMPILER_USES_MSVC; then
+     touch a/source.c b/source.c
+     backdate a/source.h b/source.h
+     $CCACHE_COMPILE -MMD -c a/source.c -o a/source.o
+-    expect_content a/source.d "a/source.o: a/source.c"
++    expect_content_pattern a/source.d "a/source.o:* a/source.c"
+ 
+     $CCACHE_COMPILE -MMD -c b/source.c -o b/source.o
+-    expect_content b/source.d "b/source.o: b/source.c"
++    expect_content_pattern b/source.d "b/source.o:* b/source.c"
+ 
+     $CCACHE_COMPILE -MMD -c a/source.c -o a/source.o
+-    expect_content a/source.d "a/source.o: a/source.c"
++    expect_content_pattern a/source.d "a/source.o:* a/source.c"
+ fi
+     # -------------------------------------------------------------------------
+     dep_args_combinations=(
+@@ -314,7 +314,7 @@ fi
+ 
+             $CCACHE_COMPILE -MMD -c $src -o $obj
+             dep=$(echo $obj | sed 's/\.o$/.d/')
+-            expect_content $dep "$obj: $src"
++            expect_content_pattern $dep "$obj:* $src"
+             expect_stat direct_cache_hit $hit
+             expect_stat cache_miss 1
+             hit=$((hit + 1))
+@@ -336,7 +336,7 @@ if ! $COMPILER_USES_MSVC; then
+         for obj in test1.o build/test1.o; do
+             $CCACHE_COMPILE -c -MMD $src -o $obj
+             dep=$(echo $obj | sed 's/\.o$/.d/')
+-            expect_content $dep "$obj: $src"
++            expect_content_pattern $dep "$obj:* $src"
+         done
+     done
+ fi
+@@ -349,13 +349,13 @@ if ! $COMPILER_USES_MSVC; then
+     backdate a/source.h b/source.h
+     echo '#include <source.h>' >source.c
+     $CCACHE_COMPILE -MMD -Ia -c source.c
+-    expect_content source.d "source.o: source.c a/source.h"
++    expect_content_pattern source.d "source.o:* source.c a/source.h"
+ 
+     $CCACHE_COMPILE -MMD -Ib -c source.c
+-    expect_content source.d "source.o: source.c b/source.h"
++    expect_content_pattern source.d "source.o:* source.c b/source.h"
+ 
+     $CCACHE_COMPILE -MMD -Ia -c source.c
+-    expect_content source.d "source.o: source.c a/source.h"
++    expect_content_pattern source.d "source.o:* source.c a/source.h"
+ fi
+     # -------------------------------------------------------------------------
+     TEST "-Wp,-MD"
+@@ -496,13 +496,13 @@ fi
+     expect_stat direct_cache_hit 0
+     expect_stat preprocessed_cache_hit 0
+     expect_stat cache_miss 1
+-    expect_content source.d "source.o: source.c"
++    expect_content_pattern source.d "source.o:* source.c"
+ 
+     $CCACHE_COMPILE -c -Wp,-MMD,source.d,-MT,source.o source.c 2>/dev/null
+     expect_stat direct_cache_hit 0
+     expect_stat preprocessed_cache_hit 1
+     expect_stat cache_miss 1
+-    expect_content source.d "source.o: source.c"
++    expect_content_pattern source.d "source.o:* source.c"
+ 
+     # -------------------------------------------------------------------------
+ if ! $COMPILER_USES_MSVC; then
+@@ -511,13 +511,13 @@ if ! $COMPILER_USES_MSVC; then
+     mkdir a b
+     touch a/source.c b/source.c
+     $CCACHE_COMPILE -MMD -c a/source.c
+-    expect_content source.d "source.o: a/source.c"
++    expect_content_pattern source.d "source.o:* a/source.c"
+ 
+     $CCACHE_COMPILE -MMD -c b/source.c
+-    expect_content source.d "source.o: b/source.c"
++    expect_content_pattern source.d "source.o:* b/source.c"
+ 
+     $CCACHE_COMPILE -MMD -c a/source.c
+-    expect_content source.d "source.o: a/source.c"
++    expect_content_pattern source.d "source.o:* a/source.c"
+ fi
+     # -------------------------------------------------------------------------
+     TEST "Multiple object entries in manifest"
+@@ -1037,36 +1037,36 @@ fi
+     $CCACHE_COMPILE -MMD -c test.c
+     expect_stat direct_cache_hit 0
+     expect_stat cache_miss 1
+-    expect_content test.d "test.o: test.c test3.h"
++    expect_content_pattern test.d "test.o:* test.c test3.h"
+ 
+     $CCACHE_COMPILE -MMD -c test.c
+     expect_stat direct_cache_hit 1
+     expect_stat cache_miss 1
+-    expect_content test.d "test.o: test.c test3.h"
++    expect_content_pattern test.d "test.o:* test.c test3.h"
+ 
+     # -MQ
+ 
+     $CCACHE_COMPILE -MMD -MQ '$mq1' -c test.c
+     expect_stat direct_cache_hit 1
+     expect_stat cache_miss 2
+-    expect_content test.d '$$mq1: test.c test3.h'
++    expect_content_pattern test.d '$$mq1:* test.c test3.h'
+ 
+     $CCACHE_COMPILE -MMD -MQ '$mq2' -c test.c
+     expect_stat direct_cache_hit 2 # New dependency target but still a cache hit
+     expect_stat cache_miss 2
+-    expect_content test.d '$$mq2: test.c test3.h'
++    expect_content_pattern test.d '$$mq2:* test.c test3.h'
+ 
+     # -MT
+ 
+     $CCACHE_COMPILE -MMD -MT '$mt1' -c test.c
+     expect_stat direct_cache_hit 2
+     expect_stat cache_miss 3
+-    expect_content test.d '$mt1: test.c test3.h'
++    expect_content_pattern test.d '$mt1:* test.c test3.h'
+ 
+     $CCACHE_COMPILE -MMD -MT '$mt2' -c test.c
+     expect_stat direct_cache_hit 3 # New dependency target but still a cache hit
+     expect_stat cache_miss 3
+-    expect_content test.d '$mt2: test.c test3.h'
++    expect_content_pattern test.d '$mt2:* test.c test3.h'
+ 
+     # -MQ -MT
+ 
+@@ -1074,9 +1074,9 @@ fi
+     expect_stat direct_cache_hit 3
+     expect_stat cache_miss 4
+     content=$(<test.d)
+-    expected_1='$$mq1 $mt1: test.c test3.h'
+-    expected_2='$mt1 $$mq1: test.c test3.h'
+-    if [[ $content != "${expected_1}" && $content != "${expected_2}" ]]; then
++    expected_1='$$mq1 $mt1:* test.c test3.h'
++    expected_2='$mt1 $$mq1:* test.c test3.h'
++    if [[ $content != ${expected_1} && $content != ${expected_2} ]]; then
+         test_failed "Bad content of test.d\nExpected: ${expected_1} or ${expected_2}\nActual: ${content}"
+     fi
+ 
+@@ -1084,9 +1084,9 @@ fi
+     expect_stat direct_cache_hit 4 # New dependency targets but still a cache hit
+     expect_stat cache_miss 4
+     content=$(<test.d)
+-    expected_1='$$mq2 $mt2: test.c test3.h'
+-    expected_2='$mt2 $$mq2: test.c test3.h'
+-    if [[ $content != "${expected_1}" && $content != "${expected_2}" ]]; then
++    expected_1='$$mq2 $mt2:* test.c test3.h'
++    expected_2='$mt2 $$mq2:* test.c test3.h'
++    if [[ $content != ${expected_1} && $content != ${expected_2} ]]; then
+         test_failed "Bad content of test.d\nExpected: ${expected_1} or ${expected_2}\nActual: ${content}"
+     fi
+ 
+@@ -1096,9 +1096,9 @@ fi
+     expect_stat direct_cache_hit 4
+     expect_stat cache_miss 5
+     content=$(<foo.d)
+-    expected_1='$$mq1 $mt1: test.c test3.h'
+-    expected_2='$mt1 $$mq1: test.c test3.h'
+-    if [[ $content != "${expected_1}" && $content != "${expected_2}" ]]; then
++    expected_1='$$mq1 $mt1:* test.c test3.h'
++    expected_2='$mt1 $$mq1:* test.c test3.h'
++    if [[ $content != ${expected_1} && $content != ${expected_2} ]]; then
+         test_failed "Bad content of foo.d\nExpected: ${expected_1} or ${expected_2}\nActual: ${content}"
+     fi
+ 
+@@ -1106,9 +1106,9 @@ fi
+     expect_stat direct_cache_hit 5 # New dependency targets but still a cache hit
+     expect_stat cache_miss 5
+     content=$(<foo.d)
+-    expected_1='$$mq2 $mt2: test.c test3.h'
+-    expected_2='$mt2 $$mq2: test.c test3.h'
+-    if [[ $content != "${expected_1}" && $content != "${expected_2}" ]]; then
++    expected_1='$$mq2 $mt2:* test.c test3.h'
++    expected_2='$mt2 $$mq2:* test.c test3.h'
++    if [[ $content != ${expected_1} && $content != ${expected_2} ]]; then
+         test_failed "Bad content of test.d\nExpected: ${expected_1} or ${expected_2}\nActual: ${content}"
+     fi
+ 
+diff --git a/test/suites/hardlink.bash b/test/suites/hardlink.bash
+index a49c9356..743e8de6 100644
+--- a/test/suites/hardlink.bash
++++ b/test/suites/hardlink.bash
+@@ -117,7 +117,7 @@ if $RUN_WIN_XFAIL; then
+     $CCACHE_COMPILE -c -MMD test1.c
+     expect_stat direct_cache_hit 0
+     expect_stat cache_miss 1
+-    expect_content test1.d "test1.o: test1.c"
++    expect_content_pattern test1.d "test1.o:* test1.c"
+ 
+     touch test1.h
+     echo '#include "test1.h"' >>test1.c
+@@ -125,13 +125,13 @@ if $RUN_WIN_XFAIL; then
+     $CCACHE_COMPILE -c -MMD test1.c
+     expect_stat direct_cache_hit 0
+     expect_stat cache_miss 2
+-    expect_content test1.d "test1.o: test1.c test1.h"
++    expect_content_pattern test1.d "test1.o:* test1.c test1.h"
+ 
+     echo "int x;" >test1.c
+ 
+     $CCACHE_COMPILE -c -MMD test1.c
+     expect_stat direct_cache_hit 1
+     expect_stat cache_miss 2
+-    expect_content test1.d "test1.o: test1.c"
++    expect_content_pattern test1.d "test1.o:* test1.c"
+ fi
+ }

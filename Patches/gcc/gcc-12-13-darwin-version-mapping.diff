@@ -1,0 +1,37 @@
+diff --git a/gcc/config/darwin-driver.cc b/gcc/config/darwin-driver.cc
+--- a/gcc/config/darwin-driver.cc
++++ b/gcc/config/darwin-driver.cc
+@@ -64,7 +64,7 @@ validate_macosx_version_min (const char *version_str)
+ 
+   major = strtoul (version_str, &end, 10);
+ 
+-  /* macOS 10, 11, and 12 are known. clang accepts up to 99.  */
++  /* macOS 10 to 15 and 26 upwards are known. clang accepts up to 99.  */
+   if (major < 10 || major > 99)
+     return NULL;
+ 
+@@ -162,7 +162,13 @@ darwin_find_version_from_kernel (void)
+   /* Darwin20 sees a transition to macOS 11.  In this, it seems that the
+      mapping to macOS minor version and patch level is now always 0, 0
+      (at least for macOS 11 and 12).  */
+-  if (major_vers >= 20)
++  /* macOS 27 aligned version number with Darwin27.  */
++  if (major_vers >= 27)
++    asprintf (&new_flag, "%d.00.00", major_vers);
++  /* Darwin25 saw a transition to macOS 26.  */
++  else if (major_vers >= 25)
++    asprintf (&new_flag, "%d.00.00", major_vers + 1);
++  else if (major_vers >= 20)
+     {
+       /* Apple clang doesn't include the minor version or the patch level
+ 	 in the object file, nor does it pass it to ld  */
+diff --git a/gcc/testsuite/gcc.dg/darwin-minversion-link.c b/gcc/testsuite/gcc.dg/darwin-minversion-link.c
+--- a/gcc/testsuite/gcc.dg/darwin-minversion-link.c
++++ b/gcc/testsuite/gcc.dg/darwin-minversion-link.c
+@@ -20,6 +20,7 @@
+ /* { dg-additional-options "-mmacosx-version-min=013.000.00 -DCHECK=130000" { target *-*-darwin22* } } */
+ /* { dg-additional-options "-mmacosx-version-min=014.000.00 -DCHECK=140000" { target *-*-darwin23* } } */
++/* { dg-additional-options "-mmacosx-version-min=027.000.00 -DCHECK=270000" { target *-*-darwin27* } } */
+ 
+ int
+ main ()

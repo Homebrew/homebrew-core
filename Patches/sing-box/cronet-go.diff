@@ -1,0 +1,36 @@
+diff --git a/cmd/build-naive/cmd_build.go b/cmd/build-naive/cmd_build.go
+index 4f34d22..c2ff376 100644
+--- a/cmd/build-naive/cmd_build.go
++++ b/cmd/build-naive/cmd_build.go
+@@ -228,14 +228,14 @@ func runGetClang(t Target) {
+ }
+ 
+ func buildTarget(t Target) {
+-	runGetClang(t)
+-
+ 	outputDirectory := getOutputDirectory(t)
+ 
+ 	args := []string{
+ 		"is_official_build=true",
+ 		"is_debug=false",
+ 		"is_clang=true",
++		"clang_base_path=\"@@HOMEBREW_PREFIX@@/opt/llvm\"",
++		"clang_use_chrome_plugins=false",
+ 		"use_clang_modules=false",
+ 		"use_thin_lto=false", // Disable ThinLTO so static lib can be linked with system clang
+ 		"fatal_linker_warnings=false",
+@@ -265,12 +265,10 @@ func buildTarget(t Target) {
+ 
+ 	switch t.OS {
+ 	case "mac":
++		args = append(args, "use_lld=false")
+ 		args = append(args, "use_sysroot=false")
+ 	case "linux":
+-		// Sysroot is handled by get-clang.sh, use the naiveproxy path
+-		sysrootPath := getSysrootPath(t)
+-		sysrootDirectory := strings.TrimPrefix(sysrootPath, srcRoot+string(filepath.Separator))
+-		args = append(args, "use_sysroot=true", fmt.Sprintf("target_sysroot=\"//%s\"", sysrootDirectory))
++		args = append(args, "use_sysroot=false")
+ 		if t.CPU == "x64" {
+ 			args = append(args, "use_cfi_icall=false", "is_cfi=false")
+ 		}

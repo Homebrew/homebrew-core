@@ -1,0 +1,81 @@
+diff -u a/daemontools-0.76/src/lock_ex.c b/daemontools-0.76/src/lock_ex.c
+--- a/daemontools-0.76/src/lock_ex.c
++++ b/daemontools-0.76/src/lock_ex.c
+@@ -1,5 +1,6 @@
+ /* Public domain. */
+ 
++#include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/file.h>
+ #include <fcntl.h>
+diff -u a/daemontools-0.76/src/lock_exnb.c b/daemontools-0.76/src/lock_exnb.c
+--- a/daemontools-0.76/src/lock_exnb.c
++++ b/daemontools-0.76/src/lock_exnb.c
+@@ -1,5 +1,6 @@
+ /* Public domain. */
+ 
++#include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/file.h>
+ #include <fcntl.h>
+diff -u a/daemontools-0.76/src/matchtest.c b/daemontools-0.76/src/matchtest.c
+--- a/daemontools-0.76/src/matchtest.c
++++ b/daemontools-0.76/src/matchtest.c
+@@ -1,3 +1,4 @@
++#include <unistd.h>
+ #include "match.h"
+ #include "buffer.h"
+ #include "str.h"
+diff -u a/daemontools-0.76/src/multilog.c b/daemontools-0.76/src/multilog.c
+--- a/daemontools-0.76/src/multilog.c
++++ b/daemontools-0.76/src/multilog.c
+@@ -1,6 +1,7 @@
+ #include <unistd.h>
+ #include <sys/types.h>
+ #include <sys/stat.h>
++#include <stdio.h>
+ #include "direntry.h"
+ #include "alloc.h"
+ #include "buffer.h"
+diff -u a/daemontools-0.76/src/pathexec_run.c b/daemontools-0.76/src/pathexec_run.c
+--- a/daemontools-0.76/src/pathexec_run.c
++++ b/daemontools-0.76/src/pathexec_run.c
+@@ -1,5 +1,6 @@
+ /* Public domain. */
+ 
++#include <unistd.h>
+ #include "error.h"
+ #include "stralloc.h"
+ #include "str.h"
+diff -u a/daemontools-0.76/src/prot.c b/daemontools-0.76/src/prot.c
+--- a/daemontools-0.76/src/prot.c
++++ b/daemontools-0.76/src/prot.c
+@@ -1,5 +1,6 @@
+ /* Public domain. */
+ 
++#include <unistd.h>
+ #include "hasshsgr.h"
+ #include "prot.h"
+ 
+diff -u a/daemontools-0.76/src/seek_set.c b/daemontools-0.76/src/seek_set.c
+--- a/daemontools-0.76/src/seek_set.c
++++ b/daemontools-0.76/src/seek_set.c
+@@ -1,6 +1,7 @@
+ /* Public domain. */
+ 
+ #include <sys/types.h>
++#include <unistd.h>
+ #include "seek.h"
+ 
+ #define SET 0 /* sigh */
+diff -u a/daemontools-0.76/src/supervise.c b/daemontools-0.76/src/supervise.c
+--- a/daemontools-0.76/src/supervise.c
++++ b/daemontools-0.76/src/supervise.c
+@@ -2,6 +2,7 @@
+ #include <sys/types.h>
+ #include <sys/stat.h>
+ #include <signal.h>
++#include <stdio.h>
+ #include "sig.h"
+ #include "strerr.h"
+ #include "error.h"

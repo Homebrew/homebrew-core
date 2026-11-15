@@ -1,0 +1,11 @@
+--- pgrep/Makefile.orig	2008-06-01 22:41:24.000000000 -0700
++++ pgrep/Makefile	2008-06-01 22:36:08.000000000 -0700
+@@ -1,6 +1,6 @@
+ PROG= pgrep
+ DPADD+= ../proctools/libproctools.a
+-LDADD= -L${MAKEOBJDIR} -lproctools -lkvm
++LDADD= -L${MAKEOBJDIR} -lproctools
+ CLEANFILES+= pgrep.cat1
+ 
+ .if defined(OLDKVM)
+

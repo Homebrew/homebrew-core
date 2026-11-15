@@ -1,0 +1,28 @@
+--- a/scripts/airodump-ng-oui-update
++++ b/scripts/airodump-ng-oui-update
+@@ -20,25 +20,6 @@ fi
+
+ AIRODUMP_NG_OUI="${OUI_PATH}/airodump-ng-oui.txt"
+ OUI_IEEE="${OUI_PATH}/oui.txt"
+-USERID=""
+-
+-
+-# Make sure the user is root
+-if [ x"`which id 2> /dev/null`" != "x" ]
+-then
+-	USERID="`id -u 2> /dev/null`"
+-fi
+-
+-if [ x$USERID = "x" -a x$(id -ru) != "x" ]
+-then
+-	USERID=$(id -ru)
+-fi
+-
+-if [ x$USERID != "x" -a x$USERID != "x0" ]
+-then
+-	echo Run it as root ; exit ;
+-fi
+-
+
+ if [ ! -d "${OUI_PATH}" ]; then
+ 	mkdir -p ${OUI_PATH}

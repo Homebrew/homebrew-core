@@ -1,0 +1,67 @@
+diff --git a/Makefile b/Makefile
+index 388fa17..839324d 100644
+--- a/Makefile
++++ b/Makefile
+@@ -52,7 +52,7 @@ R= $V.0
+ all:	$(PLAT)
+ 
+ $(PLATS) help test clean:
+-	@cd src && $(MAKE) $@
++	@cd src && $(MAKE) $@ V=$(V) R=$(R)
+ 
+ install: dummy
+ 	cd src && $(MKDIR) $(INSTALL_BIN) $(INSTALL_INC) $(INSTALL_LIB) $(INSTALL_MAN) $(INSTALL_LMOD) $(INSTALL_CMOD)
+diff --git a/src/Makefile b/src/Makefile
+index acf33e0..98af81b 100644
+--- a/src/Makefile
++++ b/src/Makefile
+@@ -37,6 +37,18 @@ CORE_O=	lapi.o lcode.o lctype.o ldebug.o ldo.o ldump.o lfunc.o lgc.o llex.o lmem
+ LIB_O=	lauxlib.o lbaselib.o lcorolib.o ldblib.o liolib.o lmathlib.o loadlib.o loslib.o lstrlib.o ltablib.o lutf8lib.o linit.o
+ BASE_O= $(CORE_O) $(LIB_O) $(MYOBJS)
+ 
++ifeq ($(shell uname -s),Darwin)
++	LUA_SO=liblua.dylib
++	LUA_SO_V=liblua.$(V).dylib
++	LUA_SO_R=liblua.$(R).dylib
++	LUA_SO_FLAGS=-dynamiclib -install_name @OPT_LIB@/$(LUA_SO_V) -compatibility_version $(V) -current_version $(R)
++else
++	LUA_SO=liblua.so
++	LUA_SO_V=liblua.so.$(V)
++	LUA_SO_R=liblua.so.$(R)
++	LUA_SO_FLAGS=-shared -Wl,-soname,$(LUA_SO_V)
++endif
++
+ LUA_T=	lua
+ LUA_O=	lua.o
+ 
+@@ -44,7 +56,7 @@ LUAC_T=	luac
+ LUAC_O=	luac.o
+ 
+ ALL_O= $(BASE_O) $(LUA_O) $(LUAC_O)
+-ALL_T= $(LUA_A) $(LUA_T) $(LUAC_T)
++ALL_T= $(LUA_A) $(LUA_T) $(LUAC_T) $(LUA_SO) $(LUA_SO_V)
+ ALL_A= $(LUA_A)
+ 
+ # Targets start here.
+@@ -60,11 +72,17 @@ $(LUA_A): $(BASE_O)
+ 	$(AR) $@ $(BASE_O)
+ 	$(RANLIB) $@
+ 
+-$(LUA_T): $(LUA_O) $(LUA_A)
+-	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_A) $(LIBS)
++$(LUA_T): $(LUA_O) $(LUA_SO)
++	$(CC) -o $@ $(LDFLAGS) $(LUA_O) $(LUA_SO) $(LIBS)
++
++$(LUAC_T): $(LUAC_O) $(LUA_SO) $(LUA_A)
++	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_SO) $(LUA_A) $(LIBS)
++
++$(LUA_SO_R): $(BASE_O)
++	$(CC) -o $@ $(LUA_SO_FLAGS) $^ $(LDFLAGS) $(LIBS)
+ 
+-$(LUAC_T): $(LUAC_O) $(LUA_A)
+-	$(CC) -o $@ $(LDFLAGS) $(LUAC_O) $(LUA_A) $(LIBS)
++$(LUA_SO_V) $(LUA_SO): $(LUA_SO_R)
++	ln -sf $< $@
+ 
+ test:
+ 	./$(LUA_T) -v

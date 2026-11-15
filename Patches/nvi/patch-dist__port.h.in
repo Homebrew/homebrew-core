@@ -1,0 +1,13 @@
+--- dist/port.h.in.orig	2009-09-14 11:37:02.000000000 -0700
++++ dist/port.h.in	2009-09-14 11:37:12.000000000 -0700
+@@ -184,10 +184,6 @@
+ #endif
+ #endif
+ 
+-#ifndef HAVE_MEMCPY
+-#define memcpy memmove
+-#endif
+-
+ #ifdef NEED_FPRINTF_PROTO
+ extern  int     fprintf( FILE *, const char *, ... );
+ #endif

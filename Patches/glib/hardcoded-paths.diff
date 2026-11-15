@@ -1,0 +1,39 @@
+diff --git a/gio/xdgmime/xdgmime.c b/gio/xdgmime/xdgmime.c
+index 0909581eb..04518ad88 100644
+--- a/gio/xdgmime/xdgmime.c
++++ b/gio/xdgmime/xdgmime.c
+@@ -228,7 +228,7 @@ xdg_init_dirs (void)
+   xdg_data_dirs = getenv ("XDG_DATA_DIRS");
+ 
+   if (xdg_data_dirs == NULL)
+-    xdg_data_dirs = "/usr/local/share/:/usr/share/";
++    xdg_data_dirs = "@@HOMEBREW_PREFIX@@/share/:/usr/share/";
+ 
+   /* Work out how many dirs we’re dealing with. */
+   if (xdg_data_home != NULL || home != NULL)
+diff --git a/girepository/girepository.c b/girepository/girepository.c
+index a6a81716d..63bf2ec9e 100644
+--- a/girepository/girepository.c
++++ b/girepository/girepository.c
+@@ -300,6 +300,8 @@ gi_repository_init (GIRepository *repository)
+       typelib_dir = g_build_filename (libdir, "girepository-1.0", NULL);
+ 
+       g_ptr_array_add (repository->typelib_search_path, g_steal_pointer (&typelib_dir));
++
++      g_ptr_array_add (repository->typelib_search_path, g_strdup ("@@HOMEBREW_PREFIX@@/lib/girepository-1.0"));
+     }
+ 
+   repository->library_paths = g_ptr_array_new_null_terminated (1, g_free, TRUE);
+diff --git a/glib/gutils.c b/glib/gutils.c
+index 8628a568d..6d54f3c7f 100644
+--- a/glib/gutils.c
++++ b/glib/gutils.c
+@@ -2698,7 +2698,7 @@ g_build_system_data_dirs (void)
+    */
+ #ifndef G_OS_WIN32
+   if (!data_dirs || !data_dirs[0])
+-    data_dirs = "/usr/local/share/:/usr/share/";
++    data_dirs = "@@HOMEBREW_PREFIX@@/share/:/usr/share/";
+ 
+   data_dir_vector = g_strsplit (data_dirs, G_SEARCHPATH_SEPARATOR_S, 0);
+ #else
