@@ -3,7 +3,6 @@ class Qtquick3dphysics < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquick3dphysics-everywhere-src-6.12.0.tar.xz"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtquick3dphysics-everywhere-src-6.12.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtquick3dphysics-everywhere-src-6.12.0.tar.xz"
   sha256 "8ddb23147e4677c759d36a65ae50f6b0d0d79fa8590ac89576b91f572918b481"
   license all_of: [
     "GPL-3.0-only",
