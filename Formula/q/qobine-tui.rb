@@ -13,11 +13,11 @@ class QobineTui < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17d21ab302640a38d4ef8934ca261dfc743d3dd5d46040080b6359b695c8285b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2de375fa7657ffdf9a6b2f90e5222f65eb3548523109aa5642e8b6ebb1d103f0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ba0c590bd273b64c2bca9c108a5073d36f67a9761cecd6595be4227b30f0c8b"
-    sha256 cellar: :any,                 arm64_linux:       "3eafad1248e7cda07a19d240bf362d8f068c90425f6138583413b2d1a7addc45"
-    sha256 cellar: :any,                 x86_64_linux:      "44dc4fb5f53b5d6db8961458eb4059f6b16f42612b20d151bdfdde4e4a5aaa7a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6aacb96833e40b2a8a46a091244e4ec3c863954bf51e795c929ac9bc2ab04aa4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee067442a3756e9ceecb77b978d0a9baea71519928ccff38dee588376babcec5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "991febc3879ba5b33af056128a4334a16a3a88b922f0841e6e2a8051a1dab896"
+    sha256 cellar: :any,                 arm64_linux:       "47f36e823d64388e2b5441fcaa311c5363b0d380d3921dde2d0871904786b2e9"
+    sha256 cellar: :any,                 x86_64_linux:      "3cd99f121c6d1d911d687877992deb8f2573ef250c0ad51e6ad2253403b84456"
   end
 
   depends_on "pkgconf" => :build
