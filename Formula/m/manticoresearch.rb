@@ -101,10 +101,9 @@ class Manticoresearch < Formula
     # Avoid statically linking to boost
     inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
 
-    ENV["ICU_ROOT"] = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                          .to_formula.opt_prefix.to_s
-    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@4").to_s
-    ENV["PostgreSQL_ROOT"] = formula_opt_prefix("libpq").to_s
+    ENV["ICU_ROOT"] = formula_opt_prefix(versioned_dependency("icu4c"))
+    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
+    ENV["PostgreSQL_ROOT"] = formula_opt_prefix("libpq")
 
     args = %W[
       -DDISTR_BUILD=homebrew
