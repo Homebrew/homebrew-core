@@ -1,19 +1,18 @@
 class Svlint < Formula
   desc "SystemVerilog linter"
   homepage "https://github.com/dalance/svlint"
-  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "1ffa212d571eabf57fb2b32c648760a0aff301dff8282a5a2b8e653d4657d3fe"
+  url "https://static.crates.io/crates/svlint/svlint-0.9.5.crate"
+  sha256 "211e5b1c7318d29882248f3073b65d2d478693903a0ed8764231269d465812e3"
   license "MIT"
   head "https://github.com/dalance/svlint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93d7c1dafda7d1e5f774fcf8df81f96a66230786e7467b7479dac924a0d5437b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c7f5d699c98ce1810f10f1341ddb6be404ef7bbb78f1691e54b1b30ca7ab11d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f304dfea7f9fa13a5ad184799901d98b97fb3d63e0fcb29f47b493c472c8ab2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "45535bbe0f59b90e30295c90ab9501417562413e8142fc5db1c04c79945e318c"
-    sha256 cellar: :any_skip_relocation, sonoma:            "60542d776cd14eacbda668e5071821fd3afb3f46307c58fad1b3fb5e174bed0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cb5f9fe1851248d81df1f8a116a6091cf818265bd85d80978f7a3a99f3fbe623"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6335fa6a65a382040f5c71d8a377c97f65a0637771d955282303bbda39da9ea8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96d82c4e20a82bd080beea579bf022a7b3fa90d81f8bd7aa854f9233353d6f31"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "594c7da5ccc947555a915789ce5ec36c7e0a233f76b9c6220368bd33b5c99aad"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "da54138563d1a7adcac56310d131b4f35f1205d5ff4ee0b6a2ea4a189f00c14b"
+    sha256 cellar: :any,                 arm64_linux:       "68b2c16e2b9da6a4ce25878a04118e78c769fe87c9da8878db5925cd4f9290d1"
+    sha256 cellar: :any,                 x86_64_linux:      "fa3108fe30d3a43652eece8658995b669a5b9d1924e1c3e39e5f0689588ad8d3"
   end
 
   depends_on "rust" => :build
@@ -21,8 +20,7 @@ class Svlint < Formula
   deny_network_access!
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
