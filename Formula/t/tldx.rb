@@ -1,18 +1,16 @@
 class Tldx < Formula
   desc "Domain Availability Research Tool"
   homepage "https://brandonyoung.dev/blog/introducing-tldx/"
-  url "https://github.com/brandonyoungdev/tldx/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "dde3467c300872e0bfcafe472419d5c1152a30d29731f1e9ee7a9982f85074e8"
+  url "https://github.com/brandonyoungdev/tldx/archive/refs/tags/v1.6.1.tar.gz"
+  sha256 "b0e90ffe2ccc6d7175fdac8ad7fa9c289cd22c3655219b873b4ad7f1010af248"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a262edd820c6a4002c15b10de07f1ca299232264cb5abe2215c35da064c7277b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d96a7979e2ebc00c5d405321e0f6d0c4b578a6da13fa9ac52e53c8b11a83aed"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d96a7979e2ebc00c5d405321e0f6d0c4b578a6da13fa9ac52e53c8b11a83aed"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "2d96a7979e2ebc00c5d405321e0f6d0c4b578a6da13fa9ac52e53c8b11a83aed"
-    sha256 cellar: :any_skip_relocation, sonoma:            "00858ec307fc0527a439811f40f049f0f2941e8f7f434131050e11561caa5857"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a89ae4fa36082949479c206ec2db630a2b522ef14972850b448414976f45142f"
-    sha256 cellar: :any,                 x86_64_linux:      "c56108174a82639b23b5edc1b56f22379105e3cacfed365b484633ed0afe7ed9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d44a663ef699c960834486193e166e37149f7c421d1440365549ea9b9420807d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d44a663ef699c960834486193e166e37149f7c421d1440365549ea9b9420807d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d44a663ef699c960834486193e166e37149f7c421d1440365549ea9b9420807d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d19cea7241cb4d7cf3cb3c62a50d0f3952f4ddff53acad8d231ade94b3417499"
+    sha256 cellar: :any,                 x86_64_linux:      "8af4f5590e817403bcaa431e7871ba1ce143b9014ff76140e2e447390300a145"
   end
 
   depends_on "go" => :build
