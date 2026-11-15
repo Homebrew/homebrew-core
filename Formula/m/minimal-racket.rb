@@ -37,7 +37,7 @@ class MinimalRacket < Formula
   # Formula needs to download bootstrap resources
   allow_network_access! :build
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def racket_config = etc/"racket/config.rktd"
 
