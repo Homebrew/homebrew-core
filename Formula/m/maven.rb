@@ -13,7 +13,7 @@ class Maven < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4db96ce799e4e3fc07db18e44ddd21f7ee342e9ca412a12636c4efee0fbc87e5"
+    sha256 cellar: :any_skip_relocation, all: "b4a0ffc245bee96a9635a59179e6e527520d2d11a4d63ad3ae6af37710f1c9fe"
   end
 
   depends_on "openjdk"
