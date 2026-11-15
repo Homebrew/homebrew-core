@@ -1,17 +1,18 @@
 class CargoHack < Formula
   desc "Cargo subcommand to provide options for testing and continuous integration"
   homepage "https://github.com/taiki-e/cargo-hack"
-  url "https://github.com/taiki-e/cargo-hack/archive/refs/tags/v0.6.46.tar.gz"
-  sha256 "8d7b96cf5c9e57c615b514c42df034235b65fdcf2c6e285ec375065294e930be"
+  url "https://static.crates.io/crates/cargo-hack/cargo-hack-0.6.46.crate"
+  sha256 "610b45cb5e6170800c3cf7cedc020af3b8008dc1596633761f75436aa38cd051"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/taiki-e/cargo-hack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8bfb3e486d8648054d8b2f6d1d6973d29469e65ac52c7bb57f811a4e0a405200"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b61aaefdead7fb3ed166b76e07c030aad11d86f2b971cf38295c1a082f05128"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fea2d1266cc9eb68d769dfac2ca86a3e7a89c24de74b5c0d29b7af541654a89c"
-    sha256 cellar: :any,                 arm64_linux:       "b24fbe1dfa3271ad3babdb9c6cc94791b05daf39ee8d5a1cac76e886a02c2d25"
-    sha256 cellar: :any,                 x86_64_linux:      "fd8c7c1bbc8e1b38f843b976696065325b2924b27a2261b508f6c084dff77413"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4832ba24b16b7ba02004adf2dca0a8906111b83dd45487cb9423b73cb70d3de"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08c833bcfd850546eaa9ab41ba0808aa8943b1df7ba7f313dcc324c19c656b29"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5369b22798c58c87944f6ca3ed3d6523e706f1d2f9b1efbab4ce938230c95b21"
+    sha256 cellar: :any,                 arm64_linux:       "0a9a21ff368a1ff64d8c3f9ed354dcbb247f144d545c75381adacb377f108223"
+    sha256 cellar: :any,                 x86_64_linux:      "a3493e79bd6f6589179b9554be8a8b0f534d2104311fb020288f1545abff679b"
   end
 
   depends_on "rust" => :build
@@ -21,8 +22,7 @@ class CargoHack < Formula
   allow_network_access! :test
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
