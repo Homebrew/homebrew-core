@@ -1,17 +1,17 @@
 class Hysteria < Formula
   desc "Feature-packed proxy & relay tool optimized for lossy, unstable connections"
   homepage "https://hysteria.network/"
-  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.13.0.tar.gz"
-  sha256 "dfde427a93a0dc5ff65ddc1e239df3b1def54bf33f8b137c571daa7b27ecddd0"
+  url "https://github.com/apernet/hysteria/archive/refs/tags/app/v2.14.0.tar.gz"
+  sha256 "2808da83ef2f4f76be91f7ae0df7518f1cc185d5410cd6d174e738527cf5545e"
   license "MIT"
   head "https://github.com/apernet/hysteria.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec0a06ba1440d6d96028a33f5925eee9044669b13d9d0d319994cf36fa74d316"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8533b741108f98aafb2fde18ee5ed3de31d97630db481c58f7cb204c1c2a01f8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4f804cd82d363bf3e4088ddd11a2628d22f1e887039e12e5b710ba389f19223"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6976e2a33f9235a6483374d06d46d37b0d321dbea9f8b41f40e84b9c4239b8aa"
-    sha256 cellar: :any,                 x86_64_linux:      "9305749be5e10ddfda0485efd1be4e19fb3d06d67aaaff5b8f079341f8203aee"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "154c1089f27ea041a062f955dcbbb50cdb1afa99ef6787ec03e5f1d0a9bc2174"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58439b7cadff9f84cc8e6e06f2d090f50c71e3ed5f5999eedb6fac6ee902aef2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "27c5d763c11e7179f6f8f6497f349bf28f27babd2bb68651c683304f47cb9bd4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6c7369bca31b102395a829fec9fb064a5315538a56b7352208e170d643f65cec"
+    sha256 cellar: :any,                 x86_64_linux:      "38c7c1d4bf103c1f32a6cab8f90f47d74aecdd911f5bb06a752e5f21c7c8eebe"
   end
 
   depends_on "go" => :build
