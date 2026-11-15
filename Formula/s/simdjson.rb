@@ -8,11 +8,11 @@ class Simdjson < Formula
   head "https://github.com/simdjson/simdjson.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2524043d1d666933592be91aa5b49b465e49e7839ca46b7f1b46f328da54720c"
-    sha256 cellar: :any, arm64_tahoe:       "815b127045b034116907aad0e88edff6719168fd3d6351a9832392f96a13b0f0"
-    sha256 cellar: :any, arm64_sequoia:     "c9b1f4a0f4dae44ffc0b3cf914e7b2f2d9a071c94e0e39808d178c8bacb1f4d1"
-    sha256 cellar: :any, arm64_linux:       "c0e255fc760513a5d8554072af049e2601f5d29dfeb97941bd673420b086461d"
-    sha256 cellar: :any, x86_64_linux:      "5bcd4587e9cfba7e1123587b38b14117ebf3101b1780a3ed1378bad2780b1571"
+    sha256 cellar: :any, arm64_golden_gate: "c51faa51fe676376cddb2a4f824e36bf93c05e287462a15428c3a7048be0928b"
+    sha256 cellar: :any, arm64_tahoe:       "35f74ec4be7df5e6095c295c2d4494d8d4dc0e3fd016b7c88ccae1a1b4fd80f4"
+    sha256 cellar: :any, arm64_sequoia:     "d8df05622e29b5399fd4724ac08e9a969444bcab93908aa1620c1f6c5212127f"
+    sha256 cellar: :any, arm64_linux:       "536149e525765f5a45aa08b73035d1c3dce2d40d689285c8f6a5f8c8b106594e"
+    sha256 cellar: :any, x86_64_linux:      "8ed30d39e2a12ba6d658ef42c4f741431c63d31f175bf9f39f49418ac5f8fa81"
   end
 
   depends_on "cmake" => :build
