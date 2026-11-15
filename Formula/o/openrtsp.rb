@@ -32,8 +32,8 @@ class Openrtsp < Formula
 
     # Avoid linkage to system OpenSSL
     libs = [
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libcrypto"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libssl"),
     ]
 
     os_flag = OS.mac? ? "macosx-bigsur" : "linux"
