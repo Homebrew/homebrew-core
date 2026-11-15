@@ -64,7 +64,7 @@ class Mutt < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
