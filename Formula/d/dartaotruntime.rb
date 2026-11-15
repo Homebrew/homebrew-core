@@ -12,11 +12,11 @@ class Dartaotruntime < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a197db36d9b1ff12056ddd153fdbc4c2ca68c14ff94622bc1bbc6748dae18cb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0a344f901c7f88195628eeda138bbd0b915d00e81ee254e98437fd45b0a46c89"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "874b941afb759d70cfc78a841660d30bd7d60377544083740d5fa12d2d01a2f0"
-    sha256 cellar: :any,                 arm64_linux:       "dfdd7704c20d2af5c486ff911ccbb3b66130df68bbf0451f1df987d3f8a27b36"
-    sha256 cellar: :any,                 x86_64_linux:      "6056c0b807df47fb25b3113eac4a39cd4d35b90b1cf401a61ce1ad6b441b1024"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5c60fe4ac61abf52518ea014cdc42d832d5f475603bcb28383a2d274f9bbeb24"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f59445a168d588e4061dc1a87f1c5782ae539089e62917792aaa48c9d2d66231"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "749b8f5b23140a5913c0f93b3417ad125393dfbd3f742e99588af51a23c03bb8"
+    sha256 cellar: :any,                 arm64_linux:       "f430a80581fba78197cb30557fa582d07d60664071a8243a37d9b8cf3b99c348"
+    sha256 cellar: :any,                 x86_64_linux:      "4133f74a8383d861306a1167b6d3f30f32c255152bf30b881017e0729cb74ab5"
   end
 
   depends_on "ninja" => :build
