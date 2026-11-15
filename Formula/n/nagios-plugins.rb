@@ -31,7 +31,7 @@ class NagiosPlugins < Formula
   # `configure` script uses `ping6`
   deny_network_access! :postinstall
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     args = %W[
