@@ -1,8 +1,8 @@
 class Utf8cpp < Formula
   desc "UTF-8 with C++ in a Portable Way"
   homepage "https://github.com/nemtrif/utfcpp"
-  url "https://github.com/nemtrif/utfcpp/archive/refs/tags/v4.2.1.tar.gz"
-  sha256 "6d6a5493a111884cc085ee31babfe6d9960c8fb08fc80a64852eaeea8323dbc1"
+  url "https://github.com/nemtrif/utfcpp/archive/refs/tags/v5.0.0.tar.gz"
+  sha256 "42c36e1ef1307b1186996e4644f9999970e26325670b99019f3408bf0d3c952a"
   license "BSL-1.0"
   version_scheme 1
   compatibility_version 1
