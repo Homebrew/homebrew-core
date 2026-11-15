@@ -36,7 +36,7 @@ class Nagios < Formula
 
   def htdocs = pkgshare/"htdocs"
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def user
     Utils.safe_popen_read("id", "-un").chomp
