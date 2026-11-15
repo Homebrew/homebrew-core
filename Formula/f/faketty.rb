@@ -1,19 +1,17 @@
 class Faketty < Formula
   desc "Wrapper to exec a command in a pty, even if redirecting the output"
   homepage "https://github.com/dtolnay/faketty"
-  url "https://github.com/dtolnay/faketty/archive/refs/tags/1.0.20.tar.gz"
-  sha256 "40a4d1cfa3f265f94895cb1430e9100df43ba0b04c551349cac2973e033a7775"
+  url "https://static.crates.io/crates/faketty/faketty-1.0.21.crate"
+  sha256 "66f9bcc24fbfb012d64e77e7197c42e1f45ea03810ca72630e24a5479736bf5f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/faketty.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "591cbb51d95b0b04851a9835999968e3d4df21bc7c0f3bee4de39baafb2f9785"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a86caecd28c8fad74d1454ea7843974a03fc16341564bef4320aad1d865693c0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52f36ccefed5e98d700837c7d72add3b35ebd96118730875c5e919441758eb9c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "2bbb88d91f41f836daf40ab26ae264fb4fec30371c40a0a094be0748af26185c"
-    sha256 cellar: :any_skip_relocation, sonoma:            "65f0f924b5db899f619d126b38ee38cd47aa1e04b425fdac44b5a3b41caf535a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3c1416b7cdfb26821b8602c1a71cc5cd0e2ca31966d2cb4255832b578fb3d598"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e7ad352b95eb94a89baf8441410dcecbad6c33fbe4b77e8d55253f3c662e0307"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e4b0dad03c2d9eb7d099d2fe3016d2caaa28dbdaaf6b8400c639dc248553d91"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92820ac01d85d1939292145678ee3c0660ebaa419a1f47e5f217a52b33a83056"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4956cb6cf1169269b944ff90babb618991430de400c5c2da869d81800ac1016"
+    sha256 cellar: :any,                 arm64_linux:       "645f11d29ee918246797fb256f3905924d497982cc4054eb976678e7df9d8120"
+    sha256 cellar: :any,                 x86_64_linux:      "4e3eb5140b7a42f3685e673fe6029042a33ee1cc9537d3381902d7e8a0067695"
   end
 
   depends_on "rust" => :build
@@ -21,8 +19,7 @@ class Faketty < Formula
   deny_network_access!
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
