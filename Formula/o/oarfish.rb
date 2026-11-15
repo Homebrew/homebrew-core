@@ -1,17 +1,17 @@
 class Oarfish < Formula
   desc "Long read RNA-seq quantification"
   homepage "https://github.com/COMBINE-lab/oarfish"
-  url "https://github.com/COMBINE-lab/oarfish/releases/download/v0.12.1/source.tar.gz"
-  sha256 "c7ede79d378be20d8d802fdc26642622b3e01bcae75115887708c2fa30574161"
+  url "https://static.crates.io/crates/oarfish/oarfish-0.13.0.crate"
+  sha256 "9395a23b206f9bd5e6c3eda72208641c58ce76f97f10cc42f4a9554d623e280c"
   license "BSD-3-Clause"
   head "https://github.com/COMBINE-lab/oarfish.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51fa51ce2171f22c8f0eaf8427303e5be029b0d6277e4a848e1ae8dd777635bb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "658c270cb1debfebf92f32a984140c289869943889173b1a4d668e34200663d2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5eb00275aff717e240fd5b7e70f6fa8dc4fb29e6509865ed921e9af90f93bd6"
-    sha256 cellar: :any,                 arm64_linux:       "8685a95b29c787ba14f8edc5670e32fd4f6a5641653cbff6c5b58c514e31a4cf"
-    sha256 cellar: :any,                 x86_64_linux:      "36f8fcdeb8f79b1d4d78ff5823352b957520234f68fcb7281cebaeeac54d3b01"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b33adb595d5d6d4f4d8c0c383946ef4a1fca7f63865c254949b1d41a1066d39c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "543199a1bdb47683f17b928b46c826a0fa570ecd762168a5b31b74a2ab47c8b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2de7f9d2a4980e58dbc978278bae2e8c922010ce6540c5675eeb740d44a375e"
+    sha256 cellar: :any,                 arm64_linux:       "0d997e4b6338c9175f17b7bb402c3bf8e5047c018512dedd34c5625a6d2f6946"
+    sha256 cellar: :any,                 x86_64_linux:      "f0628b2696754fe386519d38f5518dfbee8cf128ef824657fcb432643a45d9c0"
   end
 
   depends_on "rust" => :build
@@ -25,22 +25,22 @@ class Oarfish < Formula
   deny_network_access!
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
     system "cargo", "install", *std_cargo_args
-    pkgshare.install "test_data"
   end
 
   test do
     assert_match version.to_s, shell_output("#{bin}/oarfish --version")
 
-    cp_r pkgshare/"test_data/SIRV_isoforms_multi-fasta_170612a.fasta", testpath/"test.fasta"
+    random = Random.new(1)
+    transcripts = (1..3).map { |i| ">tx#{i}\n#{Array.new(1000) { "ACGT"[random.rand(4)] }.join}\n" }
+    (testpath/"test.fasta").write transcripts.join
     system bin/"oarfish", "--reads", "test.fasta", "--annotated", "test.fasta",
                           "--seq-tech", "ont-cdna", "--output", "sample"
-    assert_path_exists "sample.quant"
+    assert_match "tx1\t1000\t1", (testpath/"sample.quant").read
   end
 end
