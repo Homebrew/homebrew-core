@@ -1,19 +1,19 @@
 class Boring < Formula
   desc "Simple command-line SSH tunnel manager that just works"
   homepage "https://alebeck.github.io/boring/"
-  url "https://github.com/alebeck/boring/archive/refs/tags/v0.17.0.tar.gz"
-  sha256 "ca1c6616ba9536b4d90f62e47c7b72bc7914d10fd5db2b14087b2774d29db0ca"
+  url "https://github.com/alebeck/boring/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "2e9b07032a242d7bd3ff92a712c6ae04875afc9f99dcb72f649dde4925aa119f"
   license "MIT"
   head "https://github.com/alebeck/boring.git", branch: "main"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "752c597c1b0842381eaf28035689c765d676da6a73452685d7e7960bce7aaa3c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "752c597c1b0842381eaf28035689c765d676da6a73452685d7e7960bce7aaa3c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "752c597c1b0842381eaf28035689c765d676da6a73452685d7e7960bce7aaa3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "66cb1b07605b88d91693d59619d979ad2a2b99398921acac75a7118fe8a2bf1a"
-    sha256 cellar: :any,                 x86_64_linux:      "afed65ef59fe4106b69b7528770472c65869acb7d79cb404775b921977e0908e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b47dd1aa5e28c3f6a77c369a4635ee169c3d7d8835f278fdc8311bb6c479e54b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b47dd1aa5e28c3f6a77c369a4635ee169c3d7d8835f278fdc8311bb6c479e54b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b47dd1aa5e28c3f6a77c369a4635ee169c3d7d8835f278fdc8311bb6c479e54b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ac883f49524f39e2d56711f8fd5a8a3d2c730d8f0dca9dcc89c8963d664203bd"
+    sha256 cellar: :any,                 x86_64_linux:      "c7fedff28f89686921a73289dd5e639df6248e7704781338e3de5cf483c557cf"
   end
 
   depends_on "go" => :build
