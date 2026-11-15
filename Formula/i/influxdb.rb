@@ -47,15 +47,12 @@ class Influxdb < Formula
   end
 
   service do
-    run [
-      opt_bin/"influxdb3",
-      "serve",
-      "--node-id", "default",
-      "--object-store", "file",
-      "--data-dir", var/"lib/influxdb"
-    ]
+    run [opt_bin/"influxdb3", "serve"]
     keep_alive true
     working_dir var
+    environment_variables INFLUXDB3_NODE_ID:      "default",
+                          INFLUXDB3_OBJECT_STORE: "file",
+                          INFLUXDB3_DATA_DIR:     var/"lib/influxdb"
     log_path var/"log/influxdb/influxdb3.log"
     error_log_path var/"log/influxdb/influxdb3.log"
   end
