@@ -1,17 +1,18 @@
 class Rhai < Formula
   desc "Embedded scripting language for Rust"
   homepage "https://rhai.rs/"
-  url "https://github.com/rhaiscript/rhai/archive/refs/tags/v1.27.0.tar.gz"
-  sha256 "27f8b34917a778116bd5959a1b3064f1c4cdb2e3153cf31d13c8ea2cbd30e937"
+  url "https://static.crates.io/crates/rhai/rhai-1.27.0.crate"
+  sha256 "c3925b784c0bee6542637e425ed7511a63257bf11b7ecf51ffd845e2d24d9163"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rhaiscript/rhai.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "543010de189b974c7ae67fd0e31b3b8b2016de36449bfd16a5a9e6148c166bb9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54004377055f06a9411e4a2e6e9f032b884d5ed510401ad0c6e88957a68e427f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b5b014995c2cb48e78bb90834e87dcee4d2349955a1785f422cf582b63bb88c"
-    sha256 cellar: :any,                 arm64_linux:       "7817f283fbf740098aa4c17e91c70191e349575fe30aa5db99b60e384e1152a1"
-    sha256 cellar: :any,                 x86_64_linux:      "8c0a623f747ce0a96e89275c74b9a375993e3dc25b95590d82e9be8b1be8afd2"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b1abe4b3a611f6bd5dc408739b0e71d13263f3f7b1327e4e8a4f54b7da59c8a0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "337684035438f1c490b7ac949ba0644676dad3da2bf91873087bce302beea1cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72f34da687a7bb61775dc4376e89e6e1813e9218688d9b942d06a758314e6788"
+    sha256 cellar: :any,                 arm64_linux:       "7b8df198f6dab96c331bbbf021e9a74be8d4829d4560fbe906f23736a85fb422"
+    sha256 cellar: :any,                 x86_64_linux:      "0013ac592d128ecac47ab28ddcb46414d0240f8aa180fb8e41accb3c02553598"
   end
 
   depends_on "rust" => :build
@@ -19,8 +20,7 @@ class Rhai < Formula
   deny_network_access!
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
