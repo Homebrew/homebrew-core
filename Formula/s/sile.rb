@@ -147,7 +147,7 @@ class Sile < Formula
   # `luarocks unpack` needs network access
   allow_network_access! :build
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     lua = "luajit"
