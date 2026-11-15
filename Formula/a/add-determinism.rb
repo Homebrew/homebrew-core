@@ -1,8 +1,8 @@
 class AddDeterminism < Formula
   desc "Build postprocessor to reset metadata fields for build reproducibility"
   homepage "https://github.com/keszybz/add-determinism"
-  url "https://github.com/keszybz/add-determinism/archive/refs/tags/v0.7.3.tar.gz"
-  sha256 "d1f5eac303807fa31e25b4f8ccb08fed23d15f4ffdbe3bb4ee35a29504c766b2"
+  url "https://static.crates.io/crates/add-determinism/add-determinism-0.7.3.crate"
+  sha256 "c4e7290ec7ac71e8292fc71657e173ad4f50745b196391c648be2d994e3501b5"
   license "GPL-3.0-or-later"
   head "https://github.com/keszybz/add-determinism.git", branch: "main"
 
@@ -30,8 +30,7 @@ class AddDeterminism < Formula
   deny_network_access!
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
