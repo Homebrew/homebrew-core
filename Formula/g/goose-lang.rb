@@ -16,7 +16,7 @@ class GooseLang < Formula
 
   depends_on "cmake" => :build
 
-  # TODO: add `conflicts_with "goose", "block-goose-cli", because: "both install `goose` binaries"`
+  conflicts_with "goose", "block-goose-cli", because: "both install `goose` binaries"
 
   deny_network_access!
 
