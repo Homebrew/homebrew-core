@@ -21,11 +21,11 @@ class Libimobiledevice < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bd24e96b92bdb9ea209c4231630bdbbbd087627555987cdebaf6ccfe8d0aaa3a"
-    sha256 cellar: :any, arm64_tahoe:       "967bd0bdccbd984f218e08c60fc3777def033a62252bd2b61ec6a37a77ad25cd"
-    sha256 cellar: :any, arm64_sequoia:     "7d80544bfe2cc2cc0f34865ffdb19d741b61d5162d520ade2a11e1e3999c630c"
-    sha256 cellar: :any, arm64_linux:       "94f1ff2abef7d2a468375c125f2e106b9d24631a1c5226bfff8215372a2c43bb"
-    sha256 cellar: :any, x86_64_linux:      "0cf6b1d55bd0dbb4c1cf7114cac78c0607e53e811e9c693f2ebb51a411bd2a43"
+    sha256 cellar: :any, arm64_golden_gate: "bc7cae16faf4ddedf0d6c75652bf0c82dd674fe96ed601917aaa3e70a714b549"
+    sha256 cellar: :any, arm64_tahoe:       "2d6452378134837c5948786665ae1084b73e26cc63ca7038775b8c8a63f0587e"
+    sha256 cellar: :any, arm64_sequoia:     "0dbe0bb370482fac0ab4198e5b0bf8b12dd81aebdfcd5bea9245987cf8054a9f"
+    sha256 cellar: :any, arm64_linux:       "4b58c01ae36e0a0ec96ed195ae542a3e495b3b4818b4940a8dfa4447a61ba02a"
+    sha256 cellar: :any, x86_64_linux:      "4ea9919dd1a53b560232ad9e9c8a955b4c6735dc2e24bcde616dc52342aec0df"
   end
 
   depends_on "autoconf" => :build
