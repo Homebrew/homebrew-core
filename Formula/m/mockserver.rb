@@ -1,8 +1,8 @@
 class Mockserver < Formula
   desc "Mock HTTP server and proxy"
   homepage "https://www.mock-server.com/"
-  url "https://search.maven.org/remotecontent?filepath=org/mock-server/mockserver-netty/9.2.0/mockserver-netty-9.2.0-brew-tar.tar"
-  sha256 "d007994b6afa506e965515dc265a9aeb30ce69b7185d110560631226d51ef5a6"
+  url "https://search.maven.org/remotecontent?filepath=org/mock-server/mockserver-netty/9.3.0/mockserver-netty-9.3.0-brew-tar.tar"
+  sha256 "001da73fe5696ad74dde94bbb9ff22bafed46b15de6d9db7f29c04190626640f"
   license "Apache-2.0"
 
   livecheck do
