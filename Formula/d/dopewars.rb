@@ -1,24 +1,16 @@
 class Dopewars < Formula
   desc 'Free rewrite of a game originally based on "Drug Wars"'
   homepage "https://dopewars.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.2/dopewars-1.6.2.tar.gz"
-  sha256 "623b9d1d4d576f8b1155150975308861c4ec23a78f9cc2b24913b022764eaae1"
+  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.7.0/dopewars-1.7.0.tar.gz"
+  sha256 "106dfea6a019b00b69a26044c82d6977296c0c7c684c0c9c256a04ed8adfb20f"
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_golden_gate: "8d8a3573f05abbb9f2671d055aae8fbe9c6238c74d0dc6f6e34b885accf19f41"
-    sha256 arm64_tahoe:       "e8059b057bea2eb7a0c33542aebc0be5dfb26ba9f681594af77f6584accd328f"
-    sha256 arm64_sequoia:     "5e19478fc233eac61d8c45e6b671f1853c0b4f95777a4a2d99ad1ed6eac6d38a"
-    sha256 arm64_sonoma:      "8cb9bfd69260ceae6ce8a5062fcba8ee7aa4edcb7191dc048c0d03ca13a783aa"
-    sha256 arm64_ventura:     "f6c44772360736b7f1aabbee2da0371fcef2435309a4a632d870e53af1e0729b"
-    sha256 arm64_monterey:    "076caa9d67e4e4f3fd0067ae16097631c0b0eaf6e243f9a78c48c70214b915f8"
-    sha256 arm64_big_sur:     "2ebf3c275304427354f21de5426b2b9a1262ad60cb6e8d53b181114e2d56156a"
-    sha256 sonoma:            "e6982cf7073199453e1aeca1fd7b0fa6ec852ad5162c45579baac9fec3d46a59"
-    sha256 ventura:           "4f6d47cccb1c3ac186e1292963386355f28bd865f0d957275df20a9955266a8e"
-    sha256 monterey:          "e321eb969358620d608a6021255cfc4f3a749779c2d307c09104d0f74e68613a"
-    sha256 big_sur:           "32b55701ab1ec3a70bbd9b27b7fedca2e0cecf7e78877e39338c71b6eb810f3e"
-    sha256 arm64_linux:       "bed017e7392dec34e43b0c79583de05fe42da19359046dbae1e5f8ea46144c38"
-    sha256 x86_64_linux:      "7a543edc764a62a6b9c5e9884acb00b034e4631248f9c6b44e4c0cd8483f4e50"
+    sha256 arm64_golden_gate: "9124b36e81ce76fead891d1ef8e21b4a72909286e66000a8d16083418d7b0c10"
+    sha256 arm64_tahoe:       "32b1b72f03015a87d1f859a9f739ca8cb9918f8cfae668d1de4317cbef5bc626"
+    sha256 arm64_sequoia:     "8aeafadcc264e12349d8a85fd5f4524a2345b5802397878b5e8c8f83fe7b4692"
+    sha256 arm64_linux:       "1a76b9b191b543f432b549f9aa3182bfdbf67039c683b9c445050cea53752ff5"
+    sha256 x86_64_linux:      "cb1cc09dd5cefd70012cb61dbb6020331dcd627fd23f15ea03c145a84e7f303d"
   end
 
   depends_on "pkgconf" => :build
@@ -35,7 +27,6 @@ class Dopewars < Formula
   deny_network_access!
 
   def install
-    inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
     inreplace "src/Makefile.in", "chmod", "true"
     inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
     inreplace "src/plugins/Makefile.in", "LIBADD =", "LIBADD = -module -avoid-version"
