@@ -1,17 +1,17 @@
 class Srgn < Formula
   desc "Code surgeon for precise text and code transplantation"
   homepage "https://github.com/alexpovel/srgn"
-  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.14.3.tar.gz"
-  sha256 "10b26f3c28b25ab2adcd5a43b4dabf59109f370f60b6e65948fb8c006da49f68"
+  url "https://github.com/alexpovel/srgn/archive/refs/tags/srgn-v0.14.4.tar.gz"
+  sha256 "ea870ebff82a994271cba5d044e664095c9c8810178864e6938eb7aaf643b495"
   license "MIT"
   head "https://github.com/alexpovel/srgn.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad1ef4732e87045ce0dcadd96ee930769e0f12d7d216b8f9e94d6e48eb981a56"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db362ce0319620f975fdc345de6b70de9b43ae87a9ea7d2b1a557cde9e9dd0ba"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4ddc812d04334f9b9567d13afbfb9e7ed463ce4e957fdc26b1503889ee9ac72"
-    sha256 cellar: :any,                 arm64_linux:       "c0d73b191cce8908e70e65d0f5183ed3f6db29b20f0a636648f1707a66bd2933"
-    sha256 cellar: :any,                 x86_64_linux:      "e6b69e2bdaddd485fa29bc68598008f9fb45ddd3f2d196f60f8299a4221bbcb2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df75c95e31fbc290501640f06e2d464dbd5b89cb393b2fc745e0be60023ebe1b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2ddab5db938acd5b2ec33e4e6c57b0798dca3ce13c15c04ece36a7a6c321fff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c64e9f6b8b0763c4d21d87c889c7131c37b6e114b00e5d207f0ef754d53787a"
+    sha256 cellar: :any,                 arm64_linux:       "edee2221e81ad033f8c67f571e0fce9a1c483af11004460a39336cc8420e70f8"
+    sha256 cellar: :any,                 x86_64_linux:      "4f28e5ae32d13e4fca9dacb3705f10beb1eb71f40fed7590b3e2bfa22e93d245"
   end
 
   depends_on "rust" => :build
