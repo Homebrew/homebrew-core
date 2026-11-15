@@ -14,11 +14,11 @@ class Groonga < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "66f84cba495c04fb206cd2a19ae6051e2e21708d846942f0931e0842a59ef581"
-    sha256 arm64_tahoe:       "a73e4d20f2588bf6ef2ba023509343b4bf453fcfb1ac97e5396e4916fc2ea4f1"
-    sha256 arm64_sequoia:     "d82fcff9ac0ead7de13017e0ad737f2fdadaf688f54af6c391f193721eeaf46f"
-    sha256 arm64_linux:       "480e83cdc7dfe5828c8162802949e7c6f1ea4192f962c58b5f670a18dd92ae5d"
-    sha256 x86_64_linux:      "4e012cd5a2e083fbd030d8caf151681edd67115205a70dc7e5a26046337f0004"
+    sha256 arm64_golden_gate: "e6cbb8524355b6383dd1dd8e2d038a1a22e31c9d14f080a2f29360a5adbadf17"
+    sha256 arm64_tahoe:       "313c13e8e947ecf8614d81f511b179c7f808ce0e7c021d2a4c67ace1cf574495"
+    sha256 arm64_sequoia:     "1b48a00f7ab96fa28e2aacd7cc5b2a79bb50eb0d26af1cdecc5aebaa7f52ef92"
+    sha256 arm64_linux:       "826553aadbfe663ff3ea338f9020d42bf33aade1cbddcbdf1fd0d7ef306977bb"
+    sha256 x86_64_linux:      "ddfe1a61a2cc635795d11b45899406385128975d4afbb678eca0a16bfad7f431"
   end
 
   depends_on "cmake" => :build
