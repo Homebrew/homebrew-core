@@ -21,7 +21,7 @@ class Rabbitmq < Formula
 
   allow_network_access! :test
 
-  def erlang = deps.map(&:name).find { |d| d.match?(/^erlang(@\d+(\.\d+)*)?$/) }
+  def erlang = versioned_dependency("erlang")
 
   def install
     # Install the base files
