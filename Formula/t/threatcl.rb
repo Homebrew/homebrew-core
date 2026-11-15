@@ -7,11 +7,11 @@ class Threatcl < Formula
   head "https://github.com/threatcl/threatcl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b36d0039018f5c2596503113ccce894749c8fcb23c9cbdabafe313242e2c2c6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b36d0039018f5c2596503113ccce894749c8fcb23c9cbdabafe313242e2c2c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b36d0039018f5c2596503113ccce894749c8fcb23c9cbdabafe313242e2c2c6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "610c44a545d1db570fbcdadbf793c9c8b6032d45921965dccd2083cee8ea7fd3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0f327a03caa968f761ee2a95871e0d81cfcb872265ff20d19ac2efed43b51542"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "72337ab6c63942c8740a92f1ce52e2b60ac5cafb2ebb161d7ae9c8613d23ff0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "72337ab6c63942c8740a92f1ce52e2b60ac5cafb2ebb161d7ae9c8613d23ff0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72337ab6c63942c8740a92f1ce52e2b60ac5cafb2ebb161d7ae9c8613d23ff0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7f254ae524e39657b276627bbf33066234d5bda4645ab3749b953ea2671bdb9c"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "08271161a1d8070578f005e3b823268ab433ba4423639fd6a654dd54220d9be0"
   end
 
   depends_on "go" => :build
