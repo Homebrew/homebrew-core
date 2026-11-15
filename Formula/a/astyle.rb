@@ -1,8 +1,8 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.24.tar.bz2"
-  sha256 "972034b036e387de23639b796a06826d78a2c8646be3454b60e48af138e90336"
+  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.25.tar.bz2"
+  sha256 "eb3d5d799cd204183896800b2186aa87131eb144c0e8df7a5e00c5efe4def037"
   license "MIT"
   compatibility_version 1
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
@@ -13,11 +13,11 @@ class Astyle < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01ee5d719dc22619e7875e553b7ac447520a7c359bbea002149c87c530017247"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c9148250f71df7db51c5b17815455252b1d38df58c22a6e37084570e555f1ec"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d5997036d1d610fa13018de8f58d2eddfe099aad923bdfd0d24d272f2b1e4610"
-    sha256 cellar: :any,                 arm64_linux:       "bd8d858ef661713f182d498fd4b7320be1dcd8bee0ce3cd14bf5faaf14d7093e"
-    sha256 cellar: :any,                 x86_64_linux:      "b4c6dbc81998bb124ba692e5192bc08286a30858172339367da25095347c61ee"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "874975c952c2e66ee04ddfd8d1c49976f9f338a0b759652ab82e1941a6b84a1a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47118d9a35f78035f16c13c620945dd6930ad0e78a8835b78dd32cd9be6bc1b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4601955f1483ea3923576bc2b0290df6a93fb8712d5bbd38238eac103eb1f9d2"
+    sha256 cellar: :any,                 arm64_linux:       "d94e5992422bed8b9780837ad9d2faa6775305aae2370a1d059d721b358195ef"
+    sha256 cellar: :any,                 x86_64_linux:      "31455e1cae5b9f3512154e6c9b21a3f80c29f052a253fa7a050602061ead1220"
   end
 
   depends_on "cmake" => :build
