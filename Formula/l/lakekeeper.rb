@@ -1,17 +1,17 @@
 class Lakekeeper < Formula
   desc "Apache Iceberg REST Catalog"
   homepage "https://docs.lakekeeper.io"
-  url "https://github.com/lakekeeper/lakekeeper/archive/refs/tags/v0.15.0.tar.gz"
-  sha256 "e7f9ddb3a41a836f71652ab5c847b79cb4d8e463b871b1b94153bf37a011f1d3"
+  url "https://github.com/lakekeeper/lakekeeper/archive/refs/tags/v0.15.1.tar.gz"
+  sha256 "8d8e0bd868aa718d1a0e10d1d2ce6ab6dde363ecaf781ab25c512e67ce895e67"
   license "Apache-2.0"
   head "https://github.com/lakekeeper/lakekeeper.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a27d73b362edf4044b399174955706d24694744c43bd8dc8e0ec1051f2123b91"
-    sha256 cellar: :any, arm64_tahoe:       "873d1bcb83e1349cd9077f345d928da6bfe456342d709e83839c5c09cfc5016e"
-    sha256 cellar: :any, arm64_sequoia:     "8886491bb0217902af839a86e0a8e39e8a4b4841705e91a99bd25534b08f3549"
-    sha256 cellar: :any, arm64_linux:       "95aa1f5f75cc2502b7113c26f7382a37ffb82be4351029e511cb163c4f17125a"
-    sha256 cellar: :any, x86_64_linux:      "191a30fd10aaa13689f293d392fd933349d2b8605e3ff945dd8cb8d09364af1f"
+    sha256 cellar: :any, arm64_golden_gate: "670d579105e528ae2a378100d099cfa6eb1bdffd621511f466c9a5df8a8230cc"
+    sha256 cellar: :any, arm64_tahoe:       "42a6633dc8a60f166b2d6766a1cd0787092a92bb0b567c2fc682ac91d34d5460"
+    sha256 cellar: :any, arm64_sequoia:     "9c8e736fde43dad0f93174e5a0f2024e3cd93d2b3608c7ac962c485195ffb955"
+    sha256 cellar: :any, arm64_linux:       "f5f90265e4afefab1d4035df18cef765f724ab9651619d459b0aad40f2d3a36e"
+    sha256 cellar: :any, x86_64_linux:      "536c222737d9a45201215948e15dcd5306e34b132fa56a373fbb2d8e5027f268"
   end
 
   depends_on "cmake" => :build
