@@ -1,8 +1,8 @@
 class Bkmr < Formula
   desc "Unified CLI Tool for Bookmark, Snippet, and Knowledge Management"
   homepage "https://github.com/sysid/bkmr"
-  url "https://github.com/sysid/bkmr/archive/refs/tags/v8.6.0.tar.gz"
-  sha256 "8ed0494fdc7556817b7c79a70bc5799a41ece09553812f6d6962a187c0cfe9c1"
+  url "https://github.com/sysid/bkmr/archive/refs/tags/v8.7.1.tar.gz"
+  sha256 "13de7912d31e88ea13521609b2dae7fa9ef9ea7b9946cae807c98e706fecdde9"
   license "BSD-3-Clause"
   head "https://github.com/sysid/bkmr.git", branch: "main"
 
