@@ -1,17 +1,17 @@
 class Iodine < Formula
   desc "Tunnel IPv4 traffic through a DNS server"
   homepage "https://code.kryo.se/iodine"
-  url "https://github.com/yarrick/iodine/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "0294de30815abaacdc1cc5ce0539a3214a902c4f7d93d6fbabee7a0ef5cc5239"
+  url "https://github.com/yarrick/iodine/archive/refs/tags/v0.9.1.tar.gz"
+  sha256 "9c1017dc9ede3a4300ce3026d98b502897e76ae93072ae5045d97b169516f84b"
   license "ISC"
   head "https://github.com/yarrick/iodine.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c23d061dc129cf30f6cdcdf2758904f08291da21d3310dfc659f18928d328e12"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dca30894391b99f3d335c8cb9f7250c6ea721bda437f7b11efe238057dbe2254"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96d12e4e2462963d731ae4774c5376d554d2278550816228d9e1bfafac5f5ece"
-    sha256 cellar: :any,                 arm64_linux:       "28b91fd060c383e4335adc2ee159e8a3d8bc92ae1d3d41b0c9c520e152f5e874"
-    sha256 cellar: :any,                 x86_64_linux:      "997a362cbade1270b400c7fead51055de11fbf0e9fb9b2ff5fa669196339462d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fe4405a1a0581ad167dde750fa8d10563247b95a6b939715c950328f7695c2b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3dfbdd4a60cd1e1b8fd1b40690e70ef559a39602c1e7f5b098746ebe1704842"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f48b20fbb015a1e342b58a61b2296298cf44c5a8508c8330ebde7238a5f164ba"
+    sha256 cellar: :any,                 arm64_linux:       "53e4519e844d319a4e2ca48c5bac06d39717989db5099571e23a4e8cabec1d2e"
+    sha256 cellar: :any,                 x86_64_linux:      "9b137f9a738afc4411d82915684362f4a448e66bc9ee8b33e8422503443e3e6c"
   end
 
   depends_on "meson" => :build
