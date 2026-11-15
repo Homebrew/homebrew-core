@@ -12,12 +12,11 @@ class Yek < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "6fcf250b11638459e68b989b76165c74d94d261e9a6edd4832f825b32ba31548"
-    sha256 cellar: :any, arm64_tahoe:       "7f1277d480988802856ba9e76836116096454fac31bef4004dd955e2a5a8d451"
-    sha256 cellar: :any, arm64_sequoia:     "52d7d4c969a389d1a9d83d3888419da4e6b972570d737b0f6d0d3c300eae61ae"
-    sha256 cellar: :any, arm64_linux:       "919a7a231412e95d3c92eb581ca015deda92e94e624423ba96b84becf42694b3"
-    sha256 cellar: :any, x86_64_linux:      "9e8787a06408825a5086419e44784359cbe6d31a1111c3d3170c087366ffe809"
+    sha256 cellar: :any, arm64_golden_gate: "6d25e43b54e733dfacd3fe1ec12cd82aa4a6a607de1ec58be23aa8c9e2adcbf7"
+    sha256 cellar: :any, arm64_tahoe:       "9e22a2a0ff0e0fefd30d4c3f7e3c1c2776b763c11e8ed4c992beba350eb01eb5"
+    sha256 cellar: :any, arm64_sequoia:     "9e168e801f4a5c2ed746f965ec1f08145c286c2563e4d0bd8a6ceef65c2c2ab7"
+    sha256 cellar: :any, arm64_linux:       "9c863fc47070b448bb779a822bfc502a4d40890c934280f67ba5890beb896080"
+    sha256 cellar: :any, x86_64_linux:      "a930f21cb19c8ccba39e24a73fc395348dc42a4f3cd81e8f47d63784584d3c31"
   end
 
   depends_on "pkgconf" => :build
