@@ -32,7 +32,7 @@ class Passenger < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     if OS.mac? && MacOS::CLT.installed?
