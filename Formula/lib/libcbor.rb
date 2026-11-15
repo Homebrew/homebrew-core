@@ -1,10 +1,10 @@
 class Libcbor < Formula
   desc "CBOR protocol implementation for C and others"
   homepage "https://github.com/PJK/libcbor"
-  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.14.1.tar.gz"
-  sha256 "a8f3aa5c75a4e1e2c639a4928036a3a53fd1682037033db0964935965bd5f5da"
+  url "https://github.com/PJK/libcbor/archive/refs/tags/v0.15.0.tar.gz"
+  sha256 "c94145d3c22e67cff9a3325dc036b4545a49a42231553995be4947d52cf2ef57"
   license "MIT"
-  compatibility_version 2
+  compatibility_version 3
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "09abf44954c029007bfde9232cc16157bc27fa04910520f2672df2947e175317"
