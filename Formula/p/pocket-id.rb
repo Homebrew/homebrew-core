@@ -7,11 +7,11 @@ class PocketId < Formula
   head "https://github.com/pocket-id/pocket-id.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "19b55ce3fb157873bc1aa62969fc3301e95017e5cd71749c12203deb29488fa4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04f117a97ad47ffd2bacb0221bd003fc312c84cd7aa966c76e47d328f87101ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02a1100352b44b6d65d0a44d7035ab0f940a16b4815b013f0b1bb4d66210cc2c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8693353c9c93ba1a8d4d41e91b9afc7f5fc5753d618ad7f8a254128d3d91ac1e"
-    sha256 cellar: :any,                 x86_64_linux:      "7b6ffc734c1faf39f4601b6e9baeb3d64f8044afae820999b9773ced75bbbab6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5db29c8746544f321bdc6585df7990d3b60e0849081520e8bc2e28b4c1a7e46d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "583c06c29a31e14b392d23ac187981714d70f65871d3769de8b23ce502125f65"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eafec707e4c3c59dca51c914bebd1689dd39491a003b6ea7b77862f09e7c5253"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "31797edb1c574bee13b7c2df24ad7f841b40381f731ef6c15decd2aecc33f539"
+    sha256 cellar: :any,                 x86_64_linux:      "2657b1afe6f5ef987ebb10201902d69747e897a49f8003f6be043c195959a211"
   end
 
   depends_on "go" => :build
