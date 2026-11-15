@@ -65,5 +65,6 @@
   "wiredtiger",
   "x265",
   "xxhash",
-  "zlib-ng-compat"
+  "zlib-ng-compat",
+  "zvec-grep"
 ]
