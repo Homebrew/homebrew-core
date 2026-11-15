@@ -1,8 +1,8 @@
 class Overtls < Formula
   desc "Simple proxy tunnel for bypassing the GFW"
   homepage "https://github.com/ShadowsocksR-Live/overtls"
-  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.3.17.tar.gz"
-  sha256 "62e5f363758958c5034f0a8c5a907f9c76c37f7498f0817726d9b8cb21eadc87"
+  url "https://static.crates.io/crates/overtls/overtls-0.3.17.crate"
+  sha256 "a34f8961c2f58ace0a34917149f8ea25211f35821f4bf5326b8ea2d2bb81ffbe"
   license "MIT"
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
@@ -19,8 +19,7 @@ class Overtls < Formula
   allow_network_access! :test
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
