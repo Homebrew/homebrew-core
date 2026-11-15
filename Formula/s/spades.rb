@@ -1,6 +1,4 @@
 class Spades < Formula
-  include Language::Python::Shebang
-
   desc "De novo genome sequence assembly"
   homepage "https://ablab.github.io/spades/"
   url "https://github.com/ablab/spades/releases/download/v4.3.0/SPAdes-4.3.0.tar.gz"
@@ -14,18 +12,18 @@ class Spades < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "9b10dd3d6fb5e845b8ec7d6c82ef6dd5429215939080f971991958e6bcc3df12"
-    sha256 cellar: :any, arm64_tahoe:       "6f043968584261307908fa06256d777c2d24afac9c8b2aea09cb9a86299d0eab"
-    sha256 cellar: :any, arm64_sequoia:     "a6c2383c796a629e2bf18a42c495351c6e4efa834c82dd765d94fd15a8301fad"
-    sha256 cellar: :any, arm64_linux:       "127fd223b1eca5ec7a6e3513b93ce1f26c8b37427c9703357c648114ea8cfa2f"
-    sha256 cellar: :any, x86_64_linux:      "2ca5c3b8032572072be3a889c7b357c3f518a3ecca2dd7d34a6e824b59bd3788"
+    rebuild 2
+    sha256 cellar: :any, arm64_golden_gate: "bc023cc6a6e515dd2e5b5335c6c13279895b52008a1ae5d58682eb4ed6599be4"
+    sha256 cellar: :any, arm64_tahoe:       "23f74bb027e00eb1c5bf5bb12a71f9ea4228257f0d980e7f462d16db686b4324"
+    sha256 cellar: :any, arm64_sequoia:     "64032958f2f0b98b745dbee488462fcfdca052272174d35928e5a16810b3c531"
+    sha256 cellar: :any, arm64_linux:       "e3cb82ef812c93aac69829c1fe953dedb870a5bef711dd3ef962e77a60d36f0e"
+    sha256 cellar: :any, x86_64_linux:      "4381febf9c5cd6ad5f280e647a8c55966b88911b5e536a9b66d9b4d90c96d397"
   end
 
   depends_on "cmake" => :build
-  depends_on "python@3.15"
 
   uses_from_macos "bzip2" => :build
+  uses_from_macos "python"
 
   on_macos do
     depends_on "libomp"
@@ -40,7 +38,6 @@ class Spades < Formula
     end
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    rewrite_shebang detected_python_shebang, *bin.children
   end
 
   test do
