@@ -3,17 +3,17 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://codeberg.org/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/1a/71/f233d60f40e37381f33590907f0884da453e46963112fb22f352dc1def26/gallery_dl-1.32.19.tar.gz"
-  sha256 "63323bc1bc37b8ba25c19d2ef7a86158d1f79cccaee8d69dda907986f3f3e824"
+  url "https://files.pythonhosted.org/packages/6c/ed/0499729ee864503256e3892843f990a5785160b05ad3510f62fd426648dc/gallery_dl-1.32.20.tar.gz"
+  sha256 "335792dc3af065dd70ec2908f28e46a5653ff66e35a447326be620e990d7c0f3"
   license "GPL-2.0-only"
   head "https://codeberg.org/mikf/gallery-dl.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "28cbd69b3959920c6ef6e533e8941e149eea1e3626f2b9b2dbb7a1c1428ae212"
-    sha256 cellar: :any, arm64_tahoe:       "281ed6566af11a1e329e8547c903f41f8e384dfda0dff4a1bcea9157fa4c2541"
-    sha256 cellar: :any, arm64_sequoia:     "8fce47a01f20c60c03974803fb29c860e37bf799344c16ba53f458b0964282f0"
-    sha256 cellar: :any, arm64_linux:       "f8db8554bb133ce08246ca34e27977290e729ed1213d8c05b22f970aff4315e9"
-    sha256 cellar: :any, x86_64_linux:      "b46d13bb3c0c0b99902f8e293d62634eb887b22387cf02880bb50377634639ee"
+    sha256 cellar: :any, arm64_golden_gate: "366ade69161e29e1268f30e0d874607192f626941859db9731f9554dbbced241"
+    sha256 cellar: :any, arm64_tahoe:       "8a2e52fc23f74b2bef5319035b1c2660df52feac702f047128cece4cbc9f194a"
+    sha256 cellar: :any, arm64_sequoia:     "1282f78c3a4f600a8af0e78564a5ec6840669809369ee2919daaf2dcf18146eb"
+    sha256 cellar: :any, arm64_linux:       "b144cf45e2c75cce6b4fd3e80b4d65d54530cbc225da1904ab47272b39cb955a"
+    sha256 cellar: :any, x86_64_linux:      "a546c10e98fe861be804de640ae56ec43372ad56a24fda7e9a1ee81f4518a01a"
   end
 
   depends_on "certifi" => :no_linkage
@@ -62,8 +62,8 @@ class GalleryDl < Formula
   end
 
   resource "pycryptodomex" do
-    url "https://files.pythonhosted.org/packages/f4/e7/50e72301e32acb73a314e663c2014e1ddefc019d5f434ff14ec89861d664/pycryptodomex-3.24.1.tar.gz"
-    sha256 "09081666ffc599976c0b8b29caf2cf82212c0f05bed233c8f8ed53e4f6e1d356"
+    url "https://files.pythonhosted.org/packages/f3/c2/f5855412372e47d635599a97c00cfcf9fc40accac9436a11bf9ded19f859/pycryptodomex-3.24.2.tar.gz"
+    sha256 "e4dbc29e2575365d15e272f769329106277649aea081e2119cf43d66950f8f8f"
   end
 
   resource "pysocks" do
