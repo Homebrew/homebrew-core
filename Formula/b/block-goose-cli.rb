@@ -32,7 +32,7 @@ class BlockGooseCli < Formula
     depends_on "zlib-ng-compat"
   end
 
-  conflicts_with "goose", because: "both install `goose` binaries"
+  conflicts_with "goose", "goose-lang", because: "both install `goose` binaries"
 
   # Remove when goose's `llama-cpp-sys-2` pin ships cpp-httplib >= 0.43.1
   resource "llama-cpp-sys-2" do
