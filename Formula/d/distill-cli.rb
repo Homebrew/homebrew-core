@@ -33,7 +33,7 @@ class DistillCli < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl")) if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 
