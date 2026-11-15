@@ -6,11 +6,11 @@ class Libsail < Formula
   license "MIT"
 
   bottle do
-    sha256 arm64_golden_gate: "b6c0379133ed0777a036a396ac8943e4356be192d605423cdc42a55daa5e4854"
-    sha256 arm64_tahoe:       "ca6e628223807e265f5c2db8f42936b0e27b72d120cd7b09a8e1de41965d6588"
-    sha256 arm64_sequoia:     "2bef5c187f9d81948cc2ffb9603dec48be725d08657fcf75780f27f776556142"
-    sha256 arm64_linux:       "528555c125fc4bdd971fcb580df238e96d4b0c156c0e45330722437df509be94"
-    sha256 x86_64_linux:      "532ddb04c8c26ec5a1b64cf61a9000fa5f5753a7e09f5302bc6aedaa39ba32d4"
+    sha256 arm64_golden_gate: "5d9234aa13a9ae3af643f6cc3e651fe02ec40913f80bf059bb5c0108e58a1ce0"
+    sha256 arm64_tahoe:       "c1811b00c767ac93d55ef94c9aa7d90b596b667a7e71071157a02805220e01ab"
+    sha256 arm64_sequoia:     "7ff5ba41dd881cc9cacff7ea2031241647279369d59d12a9b958d0a3d6e4db0a"
+    sha256 arm64_linux:       "caba9cf7345fa612e8ca64d4aed17af7951f37a7f8e70e0016633ae638849074"
+    sha256 x86_64_linux:      "2266fe20959e65742b99d47f5e711cdccde3ed6330bbf6896016e14dca11a01a"
   end
 
   depends_on "cmake" => :build
