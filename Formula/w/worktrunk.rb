@@ -6,6 +6,11 @@ class Worktrunk < Formula
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/max-sixty/worktrunk.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54a8cbf2c4816d398e04acdc1720fb520126c794385ae0d47a65ef50b2d7f76e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d95eaaf5b23a9024a294cba46a78a5f5ab969e2ec9820c87449daac6b6da1692"
