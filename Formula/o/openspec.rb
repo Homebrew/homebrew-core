@@ -18,6 +18,11 @@ class Openspec < Formula
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
+
+    # Build an `:all` bottle
+    inreplace libexec/"lib/node_modules/@fission-ai/openspec/dist/core/completions/installers/bash-installer.js",
+              "/opt/homebrew", HOMEBREW_PREFIX
+
     generate_completions_from_executable(bin/"openspec", "completion", "generate")
   end
 
