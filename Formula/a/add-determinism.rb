@@ -7,14 +7,12 @@ class AddDeterminism < Formula
   head "https://github.com/keszybz/add-determinism.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11299bdf57911b2f73d5df159efbed05a8dcc5bd09453c5e01916d856e2f793b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5d281e4f15e96d4606740e527799c7450430928e88ffdca11a511148fd6fa13"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76ff0f034490afe0dcfd9ede927a82df63edc8bcb5a5ed7b8a7720d55420c8a9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "049e1501ac4a7e8f706ecc796b9e3ae99eec3f02d97b32336e4a9ce0b3858268"
-    sha256 cellar: :any_skip_relocation, sonoma:            "459744163fb5d530b3d30e1dca2186d8a90cfaf4c56a7736da8245959b81354f"
-    sha256 cellar: :any,                 arm64_linux:       "c5cfefa351739bb541a5323f575ba9f2f64ab56f350e882f5d15623a2cdf74f5"
-    sha256 cellar: :any,                 x86_64_linux:      "ff1cd4d20bc9e232344102e664a5a540ad9e53178bb23fceae4aedf9fb8ce5e0"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "502754d857be8def74ac72a629fd740e70eda83cc94fd2fc006c8b976aea7f0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5112c9697dce39b82608d86eaee231d3ea2b9aef4089042bbd25d2cddfd34609"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88bba9a7d573d49125884507b22aecf7795fc4df8d1df723561d736c4fb6e77a"
+    sha256 cellar: :any,                 arm64_linux:       "6995310f00a1bcd0d1978395af2f589c9fa8e634b70d01ecab080a6e8dae8ca5"
+    sha256 cellar: :any,                 x86_64_linux:      "f6a0886443e7757b02e8f42f68ca9a7cb515172d64a5293b4801ea48a32bc60b"
   end
 
   depends_on "pkgconf" => :build
