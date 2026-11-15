@@ -3,7 +3,6 @@ class Qtwayland < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtwayland-everywhere-src-6.12.0.tar.xz"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtwayland-everywhere-src-6.12.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtwayland-everywhere-src-6.12.0.tar.xz"
   sha256 "ae14d9bcf1bb3c300a3ab2e6a53f50284e5c6c966a4ac4cc5aedcb1bc74e4d02"
   license all_of: [
     "GPL-3.0-only", # WaylandCompositor
