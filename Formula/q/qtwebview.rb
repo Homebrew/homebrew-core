@@ -3,7 +3,6 @@ class Qtwebview < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtwebview-everywhere-src-6.12.0.tar.xz"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtwebview-everywhere-src-6.12.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtwebview-everywhere-src-6.12.0.tar.xz"
   sha256 "bee0642225614d7fc9486a2ca6db7d2c82a28c311404d1503185a360792c504e"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },

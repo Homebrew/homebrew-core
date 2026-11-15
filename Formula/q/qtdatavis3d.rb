@@ -3,7 +3,6 @@ class Qtdatavis3d < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtdatavis3d-everywhere-src-6.12.0.tar.xz"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtdatavis3d-everywhere-src-6.12.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtdatavis3d-everywhere-src-6.12.0.tar.xz"
   sha256 "5f79b948eb1e81ff7f69e335b075c1b48953d88f5d97970b537e348dbbaa98dc"
   license all_of: [
     "GPL-3.0-only",

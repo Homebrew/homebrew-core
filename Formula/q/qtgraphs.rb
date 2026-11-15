@@ -3,7 +3,6 @@ class Qtgraphs < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtgraphs-everywhere-src-6.12.0.tar.xz"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtgraphs-everywhere-src-6.12.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qtgraphs-everywhere-src-6.12.0.tar.xz"
   sha256 "18c4e968785447051d94b01f8e3c975e31ddc46065c0777443cecc50753a4d8c"
   license all_of: [
     "GPL-3.0-only",
