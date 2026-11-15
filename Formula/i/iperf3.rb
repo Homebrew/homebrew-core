@@ -34,7 +34,7 @@ class Iperf3 < Formula
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--disable-profiling",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{formula_opt_prefix(versioned_dependency("openssl"))}",
                           *std_configure_args
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
