@@ -16,11 +16,12 @@ class Influxdb < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bf0d0a438df8a6e8031b4be30edda0da413156785bcf665db733e22fb86b1063"
-    sha256 cellar: :any, arm64_tahoe:       "4282ad6ff2919791ddc7e056dfb5306d26cef7a819a4ae9a095987d25a2d521a"
-    sha256 cellar: :any, arm64_sequoia:     "1c23dfb3c9eed7d644064f9e2ee7b158469fff9b41d5f48897f2a2527c294952"
-    sha256 cellar: :any, arm64_linux:       "78b0c577759548fe420830634d6eb2708b5da163de352c46df6d5144fb1b88a5"
-    sha256 cellar: :any, x86_64_linux:      "6b1cc4fa8aa460857ffcc172127abe4b086c09287844fed3fa3f46c2ec319dd0"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "5d70e8fb679351a6a30574d045bbeacfce84fd5c336b5073a31a70737ed48d95"
+    sha256 cellar: :any, arm64_tahoe:       "d8394147a6d110aecb8220f7949d7ff5d8bf3e22ebc3cdb080fbf2c65c8ed656"
+    sha256 cellar: :any, arm64_sequoia:     "695ed1ea168cbaf4f30a2475561ec4d823bbcd1238fbce3429c5e2ca0f273740"
+    sha256 cellar: :any, arm64_linux:       "a624e087b9e377d8ca6795abca559cb3b5ab07008f2d7760bb89af3f9871d815"
+    sha256 cellar: :any, x86_64_linux:      "5b1aa88793ac868b27c344bbb203ec7f919e5d0771d995418f943f92aeee579a"
   end
 
   depends_on "pkgconf" => :build
@@ -47,15 +48,12 @@ class Influxdb < Formula
   end
 
   service do
-    run [
-      opt_bin/"influxdb3",
-      "serve",
-      "--node-id", "default",
-      "--object-store", "file",
-      "--data-dir", var/"lib/influxdb"
-    ]
+    run [opt_bin/"influxdb3", "serve"]
     keep_alive true
     working_dir var
+    environment_variables INFLUXDB3_NODE_ID:      "default",
+                          INFLUXDB3_OBJECT_STORE: "file",
+                          INFLUXDB3_DATA_DIR:     var/"lib/influxdb"
     log_path var/"log/influxdb/influxdb3.log"
     error_log_path var/"log/influxdb/influxdb3.log"
   end
