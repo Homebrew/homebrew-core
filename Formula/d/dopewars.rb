@@ -1,8 +1,8 @@
 class Dopewars < Formula
   desc 'Free rewrite of a game originally based on "Drug Wars"'
   homepage "https://dopewars.sourceforge.io"
-  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.6.2/dopewars-1.6.2.tar.gz"
-  sha256 "623b9d1d4d576f8b1155150975308861c4ec23a78f9cc2b24913b022764eaae1"
+  url "https://downloads.sourceforge.net/project/dopewars/dopewars/1.7.0/dopewars-1.7.0.tar.gz"
+  sha256 "106dfea6a019b00b69a26044c82d6977296c0c7c684c0c9c256a04ed8adfb20f"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -35,7 +35,6 @@ class Dopewars < Formula
   deny_network_access!
 
   def install
-    inreplace "src/Makefile.in", "$(dopewars_DEPENDENCIES)", ""
     inreplace "src/Makefile.in", "chmod", "true"
     inreplace "auxbuild/ltmain.sh", "need_relink=yes", "need_relink=no"
     inreplace "src/plugins/Makefile.in", "LIBADD =", "LIBADD = -module -avoid-version"
