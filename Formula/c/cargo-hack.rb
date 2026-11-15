@@ -1,8 +1,8 @@
 class CargoHack < Formula
   desc "Cargo subcommand to provide options for testing and continuous integration"
   homepage "https://github.com/taiki-e/cargo-hack"
-  url "https://github.com/taiki-e/cargo-hack/archive/refs/tags/v0.6.46.tar.gz"
-  sha256 "8d7b96cf5c9e57c615b514c42df034235b65fdcf2c6e285ec375065294e930be"
+  url "https://static.crates.io/crates/cargo-hack/cargo-hack-0.6.46.crate"
+  sha256 "610b45cb5e6170800c3cf7cedc020af3b8008dc1596633761f75436aa38cd051"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/taiki-e/cargo-hack.git", branch: "main"
 
@@ -21,8 +21,7 @@ class CargoHack < Formula
   allow_network_access! :test
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
