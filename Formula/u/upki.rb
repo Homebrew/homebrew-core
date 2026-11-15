@@ -7,11 +7,12 @@ class Upki < Formula
   head "https://github.com/rustls/upki.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c3ee3ade7fc849f324a34da79a486d7371a7da0bea6986965ee1dfba2a8bb8a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "72e0eb1e4bec36eb8c31ff9752965a208dee3ab343cd20d8de20ff07e03159d1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e542a600c109e763e337e70427b5ac9cda40dd541f0212a053b0597ba9688f3"
-    sha256 cellar: :any,                 arm64_linux:       "87bd58548c68535f802574b892bd422d33471d724389b146aa11c968fc8f5390"
-    sha256 cellar: :any,                 x86_64_linux:      "8604d1722b5c8f65bafe51ee6af81fe46de2d5fd28a83c89c6a283136bff812f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a1451a966e2287b846125e9428613a129d6680ff8cdbe4cfba6b252aeb9482da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f486d5c08225a1b04a1eb702338dd5459dbbb1841bba61782694970e8e1582fc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "df2f20442632ef3194621f66bf0d0ef7adf77eb6481ee2f5ecf9e50450e2c7ad"
+    sha256 cellar: :any,                 arm64_linux:       "dfa4a99b846d9a095a28d49a406839539558e3fe291b33bf2091800794c67890"
+    sha256 cellar: :any,                 x86_64_linux:      "f4e1c45d0d4939d96e2105d38b3071422514c6ba250e81283e7b3f118b200083"
   end
 
   depends_on "rust" => :build
