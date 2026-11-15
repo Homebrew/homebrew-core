@@ -58,8 +58,8 @@ class Libks < Formula
     C
 
     system ENV.cc, "test.c", "-o", "test",
-           "-I#{include}/libks2", "-I#{formula_opt_include("openssl@4")}",
-           "-L#{lib}", "-L#{formula_opt_lib("openssl@4")}", "-lks2"
+           "-I#{include}/libks2", "-I#{formula_opt_include(versioned_dependency("openssl"))}",
+           "-L#{lib}", "-L#{formula_opt_lib(versioned_dependency("openssl"))}", "-lks2"
     system "./test"
   end
 end
