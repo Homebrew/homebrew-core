@@ -7,11 +7,11 @@ class B4n < Formula
   head "https://github.com/fioletoven/b4n.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f7653b5efea8ba1e5362ae9608b02e4700aea8a4031b7e5c2ba645d012f16074"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4ff94fd8087e3945774f722ff77b9ccc23ac88f299e9a0b7e99d70d8d849646a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff20811066e3af989c40d5361f21c90e2b31ddcfa19edaaff586b56d78ce2f21"
-    sha256 cellar: :any,                 arm64_linux:       "537c71ddc3e4b130dccca49aa73443a463b16578246c756b939555e6ce2a27cd"
-    sha256 cellar: :any,                 x86_64_linux:      "d3605d6bb1a6af4803dddef2c831dfeb7c029c1e5ff65f6dd11573efee3bffa0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "595f7ea8364ce79bb46c113095ceef2318828224317d45e46a9f2037d8ef0962"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3a90b1478ba38ceeb02943962062c74e32b40bd2df0adfab248f3d1de39c447"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9039961d191c6c4acf680cbea0d0fea974082445fbbfed81f5507821a44bf034"
+    sha256 cellar: :any,                 arm64_linux:       "16f0140ec298680f0194be72538f2d59ae81d68efae7af0a9554619e06b5c757"
+    sha256 cellar: :any,                 x86_64_linux:      "d8bb773068c81eb45bd93ed12341fbc3326fe7ea806ebe9f680facbf6d3450b4"
   end
 
   depends_on "rust" => :build
