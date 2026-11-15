@@ -1,8 +1,8 @@
 class Tun2proxy < Formula
   desc "Tunnel (TUN) interface for SOCKS and HTTP proxies"
   homepage "https://github.com/tun2proxy/tun2proxy"
-  url "https://github.com/tun2proxy/tun2proxy/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "6264bdd7fbede43fb74fa1f0c3eb19d3f5b5ba4628ba8efedaf3ba2d3eaae622"
+  url "https://static.crates.io/crates/tun2proxy/tun2proxy-0.8.7.crate"
+  sha256 "62fe12ec15b4555ef3068d1082e5fab7d366bd65ba59127990cb917ed5a1f2e0"
   license "MIT"
   head "https://github.com/tun2proxy/tun2proxy.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Tun2proxy < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11733ff9174654c2580116261c5524a4af1c79448f76a2c5f971c2bdc56c2b7e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4edb3597f32ba25b14bfa6c44d0bdf0f118f3b9b6197f8966302c0fba8dea100"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8505e0fc3465a2250fd418508a75f05696db72d7eddaf7e8d0c3f2cd35d1fb62"
-    sha256 cellar: :any,                 arm64_linux:       "2e8467ba41834e45550ed93a8f760657185cff8eadb45a429ee2cb3b51c0eeca"
-    sha256 cellar: :any,                 x86_64_linux:      "69b863ab9b16d9ce36b8b181448f9d315c3334a205a94b014a48d08fe9890cf4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a14b27d9ce0204f60052714ba992da88e76f974d35c22e3eb66d2c06ba5ffadc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd928d889203c515849ead18944ba560cba0e5d0539175092188bb891c9fb948"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc620b66cdd4d3c3c40f513f76a238e5a336aedadee90fc2ed5b28cf1f9d6692"
+    sha256 cellar: :any,                 arm64_linux:       "97f36bc4656e121e8da3d769e0ceb36b3e9eabbc19c5da9ccd02bc92017b29bc"
+    sha256 cellar: :any,                 x86_64_linux:      "611a3d7bc8dd73619734e0d472045d0df258c78a1ed6e915444d191126338f48"
   end
 
   depends_on "rust" => :build
@@ -24,8 +25,7 @@ class Tun2proxy < Formula
   allow_network_access! :test
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
