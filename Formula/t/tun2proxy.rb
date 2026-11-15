@@ -1,8 +1,8 @@
 class Tun2proxy < Formula
   desc "Tunnel (TUN) interface for SOCKS and HTTP proxies"
   homepage "https://github.com/tun2proxy/tun2proxy"
-  url "https://github.com/tun2proxy/tun2proxy/archive/refs/tags/v0.8.7.tar.gz"
-  sha256 "6264bdd7fbede43fb74fa1f0c3eb19d3f5b5ba4628ba8efedaf3ba2d3eaae622"
+  url "https://static.crates.io/crates/tun2proxy/tun2proxy-0.8.7.crate"
+  sha256 "62fe12ec15b4555ef3068d1082e5fab7d366bd65ba59127990cb917ed5a1f2e0"
   license "MIT"
   head "https://github.com/tun2proxy/tun2proxy.git", branch: "master"
 
@@ -24,8 +24,7 @@ class Tun2proxy < Formula
   allow_network_access! :test
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
