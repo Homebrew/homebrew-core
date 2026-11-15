@@ -43,8 +43,9 @@ class PostgresqlAT13 < Formula
 
   def install
     ENV.runtime_cpu_detection
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include("openssl@3")} -I#{formula_opt_include("readline")}"
+    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib(versioned_dependency("openssl"))} -L#{formula_opt_lib("readline")}"
+    ENV.prepend "CPPFLAGS",
+"-I#{formula_opt_include(versioned_dependency("openssl"))} -I#{formula_opt_include("readline")}"
 
     args = %W[
       --disable-debug
