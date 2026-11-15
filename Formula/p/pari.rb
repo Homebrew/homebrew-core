@@ -1,8 +1,8 @@
 class Pari < Formula
   desc "Computer algebra system designed for fast computations in number theory"
   homepage "https://pari.math.u-bordeaux.fr/"
-  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.19.0.tar.gz"
-  sha256 "f317b9722eb5d9094a60303774f066f3a83e3ec1f170be8546c44d7583f30b6d"
+  url "https://pari.math.u-bordeaux.fr/pub/pari/unix/pari-2.19.1.tar.gz"
+  sha256 "419553b11ff8c3ecb8e9031b7d91d7cee003a5d721e685fcb499565c96fe2943"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -12,11 +12,11 @@ class Pari < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "0a49c819b6b84db0e85efc42adcae727b33f69b89bcbf30daa02964cc61c1a6a"
-    sha256 arm64_tahoe:       "95d6c9c4f0cb47a1f2fbf4e912fbc933ede9d1db7b8b5ceca17960c34dc56b25"
-    sha256 arm64_sequoia:     "27c908dd5522bfce2da8ef7d5a3c1d3171681c1096194a03b0ab70363fbb2392"
-    sha256 arm64_linux:       "cb2468e532d3ddfb2f306621e25482ede877acd3e8a47805c068ad84e1b59999"
-    sha256 x86_64_linux:      "20247275ac1f5537edc70f20613137906ef2d5a2b5e27eedf8c2b41057e14275"
+    sha256 arm64_golden_gate: "a03865fe7af505f8c0160920f78f19aea5fde67dc582e748f3649668014b02c7"
+    sha256 arm64_tahoe:       "623ae5e33125fae3d5ee61504964333961bbf00add579dec9cff08d9a009750b"
+    sha256 arm64_sequoia:     "d9d1cd586b3499a1bc8750745487e90f3bbe1a4ce98d1fca0dc156e2c891c438"
+    sha256 arm64_linux:       "907cd39b53b8e598587893c20ed97da3cdea9f2026102e2223ea7c87bf3d4f99"
+    sha256 x86_64_linux:      "ed1a87e02b58bfd4329dc6c35238f5281ff460a3a4dda85049c1e3599ea14ee9"
   end
 
   depends_on "gmp"
