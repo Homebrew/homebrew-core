@@ -1,8 +1,8 @@
 class Yek < Formula
   desc "Fast Rust based tool to serialize text-based files for LLM consumption"
   homepage "https://github.com/mohsen1/yek"
-  url "https://github.com/mohsen1/yek/archive/refs/tags/v0.25.5.tar.gz"
-  sha256 "e74cdfc577bdfb6577324afc086546ff306c7c43053f526e7ae30031c4433ab4"
+  url "https://github.com/mohsen1/yek/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "1010f804ac6e535e0b626d6e4d947dde707d0d972398ab200e966c7f922378f4"
   license "MIT"
   head "https://github.com/mohsen1/yek.git", branch: "main"
 
@@ -22,6 +22,7 @@ class Yek < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
+  depends_on "libgit2"
   depends_on "libssh2"
   depends_on "openssl@4"
 
@@ -29,8 +30,13 @@ class Yek < Formula
     depends_on "zlib-ng-compat"
   end
 
-  # `cargo update --precise 0.9.114 openssl-sys` for minimum needed to use OpenSSL 4
-  patch :DATA
+  # Support system libgit2 1.9 and OpenSSL 4.
+  patch do
+    url "https://github.com/prooflinedev/yek/commit/9588c24b24fbf9f1724eee598d46823fdbf222ad.patch?full_index=1"
+    sha256 "c3c2b5cde9a705d686e5f0952865752c0d2899ab54379ccc3e5e558a3d6c2573"
+    type :unofficial
+    resolves "https://github.com/prooflinedev/yek/pull/259"
+  end
 
   deny_network_access!
 
@@ -39,7 +45,7 @@ class Yek < Formula
   end
 
   def install
-    # TODO: ENV["LIBGIT2_NO_VENDOR"] = "1"
+    ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
 
@@ -62,21 +68,3 @@ class Yek < Formula
     assert_match ">>>> main.c", expected_file
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 509c30b..f64f229 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -1525,9 +1525,9 @@ dependencies = [
- 
- [[package]]
- name = "openssl-sys"
--version = "0.9.109"
-+version = "0.9.114"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "90096e2e47630d78b7d1c20952dc621f957103f8bc2c8359ec81290d75238571"
-+checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
- dependencies = [
-  "cc",
-  "libc",
