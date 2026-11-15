@@ -34,7 +34,7 @@ class Links < Formula
 
   def install
     system "./configure", "--mandir=#{man}",
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{formula_opt_prefix(versioned_dependency("openssl"))}",
                           "--without-lzma",
                           *std_configure_args
     system "make", "install"
