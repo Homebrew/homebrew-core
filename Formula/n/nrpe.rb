@@ -35,9 +35,9 @@ class Nrpe < Formula
                           "--with-nrpe-group=#{group}",
                           "--with-nagios-user=#{user}",
                           "--with-nagios-group=#{group}",
-                          "--with-ssl=#{formula_opt_prefix("openssl@3")}",
+                          "--with-ssl=#{formula_opt_prefix(versioned_dependency("openssl"))}",
                           # Set both or it still looks for /usr/lib
-                          "--with-ssl-lib=#{formula_opt_lib("openssl@3")}",
+                          "--with-ssl-lib=#{formula_opt_lib(versioned_dependency("openssl"))}",
                           "--enable-ssl",
                           "--enable-command-args"
 
