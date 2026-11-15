@@ -1,8 +1,8 @@
 class Svlint < Formula
   desc "SystemVerilog linter"
   homepage "https://github.com/dalance/svlint"
-  url "https://github.com/dalance/svlint/archive/refs/tags/v0.9.5.tar.gz"
-  sha256 "1ffa212d571eabf57fb2b32c648760a0aff301dff8282a5a2b8e653d4657d3fe"
+  url "https://static.crates.io/crates/svlint/svlint-0.9.5.crate"
+  sha256 "211e5b1c7318d29882248f3073b65d2d478693903a0ed8764231269d465812e3"
   license "MIT"
   head "https://github.com/dalance/svlint.git", branch: "master"
 
@@ -21,8 +21,7 @@ class Svlint < Formula
   deny_network_access!
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
