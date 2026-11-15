@@ -1,9 +1,9 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.tar.gz"
-  sha256 "a46cc51bc74fa23fd267c7a0b9132b146dcf526da60d31aa5174e565632e9e0e"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz"
+  sha256 "810b8348f0a40f9116c202093fae007ebeabf67699bf34d81ee7e272289e085a"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -13,7 +13,7 @@ class Maven < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4db96ce799e4e3fc07db18e44ddd21f7ee342e9ca412a12636c4efee0fbc87e5"
+    sha256 cellar: :any_skip_relocation, all: "b4a0ffc245bee96a9635a59179e6e527520d2d11a4d63ad3ae6af37710f1c9fe"
   end
 
   depends_on "openjdk"
@@ -23,9 +23,6 @@ class Maven < Formula
   def install
     # Remove windows files
     rm(Dir["bin/*.cmd"])
-
-    # Native libraries remain available in the JLine JAR.
-    rm_r "lib/jline-native"
 
     # Fix the permissions on the global settings file.
     chmod 0644, "conf/settings.xml"
