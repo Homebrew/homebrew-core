@@ -38,7 +38,7 @@ class H2o < Formula
 
     args = %W[
       -DWITH_BUNDLED_SSL=OFF
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix(versioned_dependency("openssl"))}
     ]
 
     # Workaround to build with CMake 4
