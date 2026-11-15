@@ -1,18 +1,18 @@
 class Reshape < Formula
   desc "Easy-to-use, zero-downtime schema migration tool for Postgres"
   homepage "https://github.com/fabianlindfors/reshape"
-  url "https://github.com/fabianlindfors/reshape/archive/refs/tags/v0.11.2.tar.gz"
-  sha256 "9d8e73a54ac8fe5b23f938da0a1522e8e057cfdb11f8bc4af7ef0a76558984d5"
+  url "https://static.crates.io/crates/reshape/reshape-0.11.2.crate"
+  sha256 "17c0680e957ab12c43da0c55741ca7c1dd1003b20216ca7f84ca1d3aff57391c"
   license "MIT"
   head "https://github.com/fabianlindfors/reshape.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4d6e990d4bbdcd0188ced49903ae60a49e18811673c48f2bf398426c4f1d50ae"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "afdc2c1eb053b84222f0ed8ccb0daa5e7d83f2a1ced840f455dfba9f01f1f2a6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "410283dc09dd4c3f4b0056121b65e48b6ce3714f0148d9c3def16acfe0dac061"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "f43be9e08b3eb949f4c0dc466d2f440d886e0a3990aa38dda01f9b5b863fefd6"
-    sha256 cellar: :any,                 arm64_linux:       "e6e5782510700bf7245b67891fed8f5d85cae5639508ce74ece11ebfbf026701"
-    sha256 cellar: :any,                 x86_64_linux:      "cc31c5c4eb41fcfc9eebc2dcf832ad2696152c0ab8caef3ed86db9a2d41f36f8"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "919a72c78fec6d8aeecbd0c2eb836a957dd18ed6b7bcb12db06f420e4b4e59b6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "051c88ed0a4bf73cf812a04ea754fc8ea9838c8ecd26e305f57552ef06a93b7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7fe005ae39d7393fe28fc3fb9e659f352f96bec9c33af198397ba80aae2b8f1"
+    sha256 cellar: :any,                 arm64_linux:       "88ae091a68d41d958d288b4333462514883454241f605ed14f6c95d421194f8d"
+    sha256 cellar: :any,                 x86_64_linux:      "4f70aeaf0bf835eb149294d5d8c3d6368526597ced08d273ef9b873d31e81496"
   end
 
   depends_on "pkgconf" => :build
@@ -29,8 +29,7 @@ class Reshape < Formula
   def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
