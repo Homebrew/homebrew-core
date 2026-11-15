@@ -3,7 +3,6 @@ class Qt3d < Formula
   homepage "https://www.qt.io/"
   url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qt3d-everywhere-src-6.12.0.tar.xz"
   mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qt3d-everywhere-src-6.12.0.tar.xz"
-  mirror "https://mirrors.ukfast.co.uk/sites/qt.io/archive/qt/6.12/6.12.0/submodules/qt3d-everywhere-src-6.12.0.tar.xz"
   sha256 "d16f7489945c6c9e971cedd4362202a2681f3c10393461e1f5e74425f7fef59a"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
