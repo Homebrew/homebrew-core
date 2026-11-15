@@ -7,11 +7,11 @@ class Libcbor < Formula
   compatibility_version 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "09abf44954c029007bfde9232cc16157bc27fa04910520f2672df2947e175317"
-    sha256 cellar: :any, arm64_tahoe:       "d3860e4628644762bda9abbf8532e5014bc9d4344b937e5b7a9b56782f216be1"
-    sha256 cellar: :any, arm64_sequoia:     "82c464b084c14c94db0f4ad51a40ad5a169e8aa7389e01ec1444eeecda54b3e6"
-    sha256 cellar: :any, arm64_linux:       "6ed5474ee6cc3ca4614106952a81704f298b3e0ad753d4d1707a7d32d23f0d18"
-    sha256 cellar: :any, x86_64_linux:      "08abbbdc58596b08c87231c4d7d52b9aaeafdd955ec90983d639538fddc5d299"
+    sha256 cellar: :any, arm64_golden_gate: "3f8eec24c56884c2cf6b5ca3749cef68d71e94277a97be05b24fd942b3d63fe3"
+    sha256 cellar: :any, arm64_tahoe:       "4a39325b18be5ce01f57a27618141a70b2887cd9cd0e824e857ca0439aa95f91"
+    sha256 cellar: :any, arm64_sequoia:     "2f4c156c3a23ef829ce56b6a696bd0fec01fb081f56a461ec22170ec5b17fe7e"
+    sha256 cellar: :any, arm64_linux:       "8f41e4a7ca665dbe2238d3dfb66dd18914013c16ba8fe2ef0210e9923854f0f1"
+    sha256 cellar: :any, x86_64_linux:      "01eee0ee578f2e9df1b056125c79ccd24477826c193438d81eeeba8442fccdf9"
   end
 
   depends_on "cmake" => :build
