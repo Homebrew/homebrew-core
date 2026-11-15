@@ -1,8 +1,8 @@
 class Openkermit < Formula
   desc "Scriptable network and serial communication for UNIX and VMS"
   homepage "https://www.openkermit.org/"
-  url "https://github.com/openkermit/ckermit/archive/refs/tags/v11.1.517.tar.gz"
-  sha256 "d691e0b6cceaf9c072f0b1003770ddab2cc5fe01ad2cf7365c4b5513991b509b"
+  url "https://github.com/openkermit/ckermit/archive/refs/tags/v11.1.518.tar.gz"
+  sha256 "25a349adbdd37ce79de003a9f0b1ac16e5a3c61a55e9d03bd6e54df5a2292087"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,11 @@ class Openkermit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "abd5181ffe057fc01a4d7de9a456d54624b6ef0ebca70f66b57d6070fb5921ea"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a727d0d6d4f60ae6fedd4f90bd5d4e7bfeb3b667cc546e2a8988a3b8f3e37279"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15b8bf3c59b13a76866ca7aee33daa177253ac0226a573fc93347020f60d70d3"
-    sha256 cellar: :any,                 arm64_linux:       "9edb7edcb8ddb755503316180695eecd3d759a0eec3c99304a177e95384eb507"
-    sha256 cellar: :any,                 x86_64_linux:      "dbe73aa2f29e52179b4eb872878f9a85a52fa23617f215de269529c1cf23c4a3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec0af4a57e3c0974157bfd82ccee4a636088efaa335f57cdeb4787c3ae1a6b03"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdfebb939cf66e4f66ccf08d832dbf597b3be8cf1e81716633aaa5ac56a33549"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef4869f1e6fa8b360ed61b877ecbdf64401e01ad61018a1af6ea4de22e1df9b3"
+    sha256 cellar: :any,                 arm64_linux:       "e8e6b00964aff00c0de8b1fafdea111e0578deb1f80c232042c0b304f7ed2264"
+    sha256 cellar: :any,                 x86_64_linux:      "3cfaab508f908230294cf6c24a15510bcd5196cb6e0019aee291dc60c423b6a4"
   end
 
   uses_from_macos "libxcrypt"
