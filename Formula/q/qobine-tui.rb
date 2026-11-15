@@ -1,9 +1,8 @@
 class QobineTui < Formula
   desc "Tui player for Qobuz"
   homepage "https://github.com/SofusA/qobine"
-  url "https://github.com/sofusA/qobine/archive/refs/tags/v2026-11-03-1.tar.gz"
-  version "2026-11-03-1"
-  sha256 "16e0e4da3b1e38af5bbab9e504a4af6774fc535016970f57690cd23753ef7745"
+  url "https://github.com/SofusA/qobine/archive/refs/tags/v2026-11-13.tar.gz"
+  sha256 "8f87b4d742487f625e897cd506a8e792f5840ccd113cb91743b6c89e7369ee1c"
   license "GPL-3.0-only"
   head "https://github.com/sofusa/qobine.git", branch: "main"
 
