@@ -1,8 +1,8 @@
 class Yutu < Formula
   desc "CLI, MCP server, and AI agent to automate YouTube workflows"
   homepage "https://yutu.ifor.dev"
-  url "https://github.com/eat-pray-ai/yutu/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "456affd706e72cdcc96c23bc3394b9011b9c1c2564054a155c081b70d05fcfb5"
+  url "https://github.com/eat-pray-ai/yutu/archive/refs/tags/v0.11.1.tar.gz"
+  sha256 "ed7606328bd4012d50417f4611076d9a908f07f4d3e5e7f81d032301d21aeda6"
   license "Apache-2.0"
   head "https://github.com/eat-pray-ai/yutu.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Yutu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78d61be41f5335b50a823a049d2347ab9bee7b2247eb08c39b168e20188da1ce"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78d61be41f5335b50a823a049d2347ab9bee7b2247eb08c39b168e20188da1ce"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78d61be41f5335b50a823a049d2347ab9bee7b2247eb08c39b168e20188da1ce"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cf58cc05c88a05f96febfed3f9c9b7b3b986812ba05ef7eefb3bf9d907bdf1ff"
-    sha256 cellar: :any,                 x86_64_linux:      "49c018715fe87054bb7fc2426e5bb643df0430bda53164cd8a90a8154e93de20"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f279444072c630dfa6f1b6f758e79dff252b9443f1c450bdf28c55dcf0515c7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f279444072c630dfa6f1b6f758e79dff252b9443f1c450bdf28c55dcf0515c7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f279444072c630dfa6f1b6f758e79dff252b9443f1c450bdf28c55dcf0515c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "df7257f692bec2ac0e2586d2d49cadf88a6cafa9d8bf9223605cb6d887f1ad5e"
+    sha256 cellar: :any,                 x86_64_linux:      "d1d665077293ec6571e6c5324e158889a6e0c278a25082ff17196c88053ade5e"
   end
 
   depends_on "go" => :build
