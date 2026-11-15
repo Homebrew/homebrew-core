@@ -1,8 +1,8 @@
 class Xroar < Formula
   desc "Dragon and Tandy 8-bit computer emulator"
   homepage "https://www.6809.org.uk/xroar/"
-  url "https://www.6809.org.uk/xroar/dl/xroar-1.13.tar.gz"
-  sha256 "e2708af6d819387714752669136c63016498b63df31bf3214f4b3dfa6188d27c"
+  url "https://www.6809.org.uk/xroar/dl/xroar-1.13.1.tar.gz"
+  sha256 "75251696df8053d2fd6c02c30fc6f02506f074dbf9cc2fc6eaf2183a3739be7c"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -22,6 +22,7 @@ class Xroar < Formula
     depends_on "texinfo" => :build
   end
 
+  depends_on "pkgconf" => :build
   depends_on "libpng"
   depends_on "libsndfile"
   depends_on "sdl2-compat"
@@ -40,7 +41,8 @@ class Xroar < Formula
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     system "./autogen.sh" if build.head?
-    system "./configure", "--disable-silent-rules", "--without-x", *std_configure_args
+    # Keep SDL3 from being selected through sdl2-compat's transitive dependency.
+    system "./configure", "--disable-silent-rules", "--without-x", "--with-sdl2", *std_configure_args
     system "make", "install"
   end
 
