@@ -1,9 +1,9 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.10.0/binaries/apache-maven-3.10.0-bin.tar.gz"
-  sha256 "a46cc51bc74fa23fd267c7a0b9132b146dcf526da60d31aa5174e565632e9e0e"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz"
+  sha256 "810b8348f0a40f9116c202093fae007ebeabf67699bf34d81ee7e272289e085a"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -23,9 +23,6 @@ class Maven < Formula
   def install
     # Remove windows files
     rm(Dir["bin/*.cmd"])
-
-    # Native libraries remain available in the JLine JAR.
-    rm_r "lib/jline-native"
 
     # Fix the permissions on the global settings file.
     chmod 0644, "conf/settings.xml"
