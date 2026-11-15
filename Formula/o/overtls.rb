@@ -1,17 +1,18 @@
 class Overtls < Formula
   desc "Simple proxy tunnel for bypassing the GFW"
   homepage "https://github.com/ShadowsocksR-Live/overtls"
-  url "https://github.com/ShadowsocksR-Live/overtls/archive/refs/tags/v0.3.17.tar.gz"
-  sha256 "62e5f363758958c5034f0a8c5a907f9c76c37f7498f0817726d9b8cb21eadc87"
+  url "https://static.crates.io/crates/overtls/overtls-0.3.17.crate"
+  sha256 "a34f8961c2f58ace0a34917149f8ea25211f35821f4bf5326b8ea2d2bb81ffbe"
   license "MIT"
   head "https://github.com/ShadowsocksR-Live/overtls.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9fa3174816e578e1c6f5e4801d3047ee7130ebb646dfc71990ae8d1eb120305"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0d63c1b1027602a6da7448a24307595dd567a24618368c2165ba26ee7ffc1b6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ebb529f5868af0f6fa053cdbbd1fd21ce55f63642230ca26a766452479780740"
-    sha256 cellar: :any,                 arm64_linux:       "e07d680be915403fa69559ec9fa2a56ef647523221933124b993a1ffd0cafc04"
-    sha256 cellar: :any,                 x86_64_linux:      "ba2e22dc7bb23979de34a43308f9ce04b50f06f14d2dbc1c0f93cf25a56d1d62"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "360c274cdd6dd4215f806131bec1934f001c8a05c5a0e6fb850b19e596077862"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "065e7d0736a2db609a48caf061b6db48ae3a5f47350ec52afa7e056204e58776"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39685514004ffde5d28e6881697b1634238cc3bbb3a201b46731f4700f9a771e"
+    sha256 cellar: :any,                 arm64_linux:       "533583b75c4d152bec25f0fd42a81368638dafe03f3bea2328ffdb23a85019ad"
+    sha256 cellar: :any,                 x86_64_linux:      "bf1cab0e70570e1cd79657acc98e5a7564c0a30d7b725a07f7145c5b377d4944"
   end
 
   depends_on "rust" => :build
@@ -19,8 +20,7 @@ class Overtls < Formula
   allow_network_access! :test
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
