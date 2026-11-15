@@ -12,11 +12,11 @@ class Bkmr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab926e4a4161c1d6c76860b8fdd8929935040ad95718aef4a7098de541f86d2c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5b742ffffc3f552cda700c0bec08bf315f4b9a9e3695b6adc64b98644c18977"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "def7c7f019f4f9bd69e95b86952ad219df9e21d3e7530dd4a5aa17f7a7b4e8b3"
-    sha256 cellar: :any,                 arm64_linux:       "524852a9f31f21b3526303a18e3dc397d01eb6d9f6f9c90123561701355da74a"
-    sha256 cellar: :any,                 x86_64_linux:      "2731d069743498778b0775d869805b3210151d828834e4a051e0603a9587ba3b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90e8b3d25f0435001d0663c42191a7935b7ac2d347b06e191ccb0728d5c85520"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2076f11dbee46093f59a763da3bb955c3b4f246bf148d9abd903a7634075a46f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fab09a44b84d0317a0c14024971c09326d0cc9fc9925b3ccbc06180986d6b795"
+    sha256 cellar: :any,                 arm64_linux:       "6497a4c32e5c98eb9675ea16d7f9e30d4680706f6441c0e24061661441e15d0d"
+    sha256 cellar: :any,                 x86_64_linux:      "6abcfe1428d7554423305816c09d71096b4c430c4b231bfcba682a8956434c37"
   end
 
   depends_on "rust" => :build
