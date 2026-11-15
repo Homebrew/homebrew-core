@@ -1,8 +1,8 @@
 class Libmodplug < Formula
   desc "Library from the Modplug-XMMS project"
   homepage "https://modplug-xmms.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.9.0/libmodplug-0.8.9.0.tar.gz"
-  sha256 "457ca5a6c179656d66c01505c0d95fafaead4329b9dbaa0f997d00a3508ad9de"
+  url "https://downloads.sourceforge.net/project/modplug-xmms/libmodplug/0.8.9.2/libmodplug-0.8.9.2.tar.gz"
+  sha256 "e4d9cb46da78a639d6eadb4ff3ab955f68c3099579b5310af64b37091e28957e"
   license :public_domain
   compatibility_version 1
 
@@ -33,11 +33,6 @@ class Libmodplug < Formula
     # https://modarchive.org/index.php?request=view_by_moduleid&query=212083
     url "https://api.modarchive.org/downloads.php?moduleid=212083#2nd_pm.s3m"
     sha256 "b869c3e70c66010eda066452791cc3f1536bd3ad0bc01b98924c79765b03ceb2"
-  end
-
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    file "Patches/libtool/configure-big_sur.diff"
   end
 
   deny_network_access!
