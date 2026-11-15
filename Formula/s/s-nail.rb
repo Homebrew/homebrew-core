@@ -39,8 +39,8 @@ class SNail < Formula
 
   def install
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{formula_opt_include("openssl@3")}",
-                   "LDFLAGS=-L#{formula_opt_lib("openssl@3")}",
+                   "C_INCLUDE_PATH=#{formula_opt_include(versioned_dependency("openssl"))}",
+                   "LDFLAGS=-L#{formula_opt_lib(versioned_dependency("openssl"))}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"
