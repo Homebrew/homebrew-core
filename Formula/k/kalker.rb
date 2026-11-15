@@ -1,8 +1,8 @@
 class Kalker < Formula
   desc "Full-featured calculator with math syntax"
   homepage "https://kalker.strct.net"
-  url "https://github.com/PaddiM8/kalker/archive/refs/tags/v2.2.3.tar.gz"
-  sha256 "91749c767e345094a2c2057cfcf722d9aed24583381c175bdbd838a5ec00d1ec"
+  url "https://static.crates.io/crates/kalker/kalker-2.2.3.crate"
+  sha256 "b61611a29ed9fe8f1889439d531d39bbb10d96b82756c89e77d4808fd541cd91"
   license "MIT"
 
   bottle do
@@ -22,17 +22,11 @@ class Kalker < Formula
   deny_network_access!
 
   def fetch
-    cd "cli" do
-      # The release's `Cargo.lock` needs to be regenerated.
-      system "cargo", "generate-lockfile"
-      system "cargo", "fetch", *std_cargo_fetch_args
-    end
+    system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
-    cd "cli" do
-      system "cargo", "install", *std_cargo_args
-    end
+    system "cargo", "install", *std_cargo_args
   end
 
   test do
