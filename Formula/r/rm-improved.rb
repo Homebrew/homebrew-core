@@ -1,15 +1,10 @@
 class RmImproved < Formula
   desc "Command-line deletion tool focused on safety, ergonomics, and performance"
   homepage "https://github.com/nivekuil/rip"
-  url "https://github.com/nivekuil/rip/archive/refs/tags/0.13.1.tar.gz"
-  sha256 "73acdc72386242dced117afae43429b6870aa176e8cc81e11350e0aaa95e6421"
+  url "https://static.crates.io/crates/rm-improved/rm-improved-0.13.1.crate"
+  sha256 "6964bbdb1633b3af61aa3488175d111bb5cc84e56cd668255e0fb7dce4008722"
   license "GPL-3.0-or-later"
   head "https://github.com/nivekuil/rip.git", branch: "master"
-
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
 
   bottle do
     rebuild 1
@@ -35,8 +30,7 @@ class RmImproved < Formula
   deny_network_access!
 
   def fetch
-    # The release's `Cargo.lock` needs to be regenerated.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
