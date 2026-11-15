@@ -39,7 +39,6 @@
   "opencv",
   "opencv@4",
   "open-mpi",
-  "postgresql@12",
   "postgresql@13",
   "postgresql@14",
   "postgresql@15",
