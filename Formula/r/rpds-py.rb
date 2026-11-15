@@ -1,6 +1,4 @@
 class RpdsPy < Formula
-  include Language::Python::Virtualenv
-
   desc "Python bindings to Rust's persistent data structures"
   homepage "https://rpds.readthedocs.io/en/latest/"
   url "https://files.pythonhosted.org/packages/42/68/3bd46b8a5e01d3c2ebdf9c5e9497912e3fe0cde02bac21a7130ca866e403/rpds_py-2026.9.1.tar.gz"
@@ -22,10 +20,16 @@ class RpdsPy < Formula
   depends_on "python@3.15" => [:build, :test]
   depends_on "rust" => :build
 
+  deny_network_access!
+
+  def fetch
+    # Maturin needs all targets fetched
+    system "cargo", "fetch", "--locked"
+  end
+
   def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.start_with?("python@") }
-        .map { |f| f.opt_libexec/"bin/python" }
+    deps.select { |d| d.name.match? Version.formula_optionally_versioned_regex(:python) }
+        .map { |d| formula_opt_libexec(d.name)/"bin/python" }
   end
 
   def install
