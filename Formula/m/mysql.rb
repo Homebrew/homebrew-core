@@ -77,9 +77,9 @@ class Mysql < Formula
     var/"mysql"
   end
 
-  def icu4c = deps.map(&:name).find { |dep| dep.start_with?("icu4c@") }
+  def icu4c = versioned_dependency("icu4c")
 
-  def openssl = deps.map(&:name).find { |dep| dep.start_with?("openssl@") }
+  def openssl = versioned_dependency("openssl")
 
   def install
     # Remove bundled libraries other than explicitly allowed below.
