@@ -5,6 +5,11 @@ class Osslsigncode < Formula
   sha256 "c8fce7cdb0f1643d98a6689cb3106fda8265f17014fd7912856c9473f9b141a7"
   license "GPL-3.0-or-later"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "2d9d1bcd279a494195c38dce1c3c2585cb8239f5da38a49cb2aa2fc35569e788"
     sha256 cellar: :any, arm64_tahoe:       "91c6620c876665a0b56a703181e8abf1bd71dc882eae6a03bb893162b34b78df"
