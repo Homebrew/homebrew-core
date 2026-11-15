@@ -1,8 +1,8 @@
 class Morphe < Formula
   desc "Desktop app and CLI for patching Android apps with Morphe"
   homepage "https://github.com/MorpheApp/morphe-desktop"
-  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.1.1.tar.gz"
-  sha256 "11534bd0919d9b23ca193b4f5d63b83c08323cbb2c9ed5e07f426b19ac5b75e5"
+  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.2.0.tar.gz"
+  sha256 "69b16993b83e3f682f80980118f655d82cf84befc133217c166bcca244798b18"
   license "GPL-3.0-only"
 
   bottle do
@@ -18,8 +18,8 @@ class Morphe < Formula
   depends_on "openjdk"
 
   resource "morphe-patcher" do
-    url "https://github.com/MorpheApp/morphe-patcher/archive/refs/tags/v2.3.0.tar.gz"
-    sha256 "adcfdae82f619ced0cc7f44ce54a61da15461096f7fa5891810f0972646a6241"
+    url "https://github.com/MorpheApp/morphe-patcher/archive/refs/tags/v2.4.0.tar.gz"
+    sha256 "a29224da1c91d727f75672b495b69ddd87429ae9dcf54bf30228f78602df4065"
 
     livecheck do
       url "https://raw.githubusercontent.com/MorpheApp/morphe-desktop/refs/tags/v#{LATEST_VERSION}/gradle/libs.versions.toml"
