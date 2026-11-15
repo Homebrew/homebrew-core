@@ -1,31 +1,18 @@
 class RmImproved < Formula
   desc "Command-line deletion tool focused on safety, ergonomics, and performance"
   homepage "https://github.com/nivekuil/rip"
-  url "https://github.com/nivekuil/rip/archive/refs/tags/0.13.1.tar.gz"
-  sha256 "73acdc72386242dced117afae43429b6870aa176e8cc81e11350e0aaa95e6421"
+  url "https://static.crates.io/crates/rm-improved/rm-improved-0.13.1.crate"
+  sha256 "6964bbdb1633b3af61aa3488175d111bb5cc84e56cd668255e0fb7dce4008722"
   license "GPL-3.0-or-later"
   head "https://github.com/nivekuil/rip.git", branch: "master"
 
-  livecheck do
-    url :stable
-    strategy :github_latest
-  end
-
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b07f1b8f317624ef4760a974b195b4c439ed90d4f6a2e7741f717cf3194878b3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "359402f5080c82f120e5acc163d030297d937245584604c5f0a8b4a7c55b6f33"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45fb60809e7c4e6c71f683aa81087c2985f92347819adbadad6d736a65efd62c"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6083f4ee2469cd0f33a01815804822cf30f3b0184e62b4c3d256040aec36b51d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "2294e77a9e860f573daf64e25bc53b6e2b32b6a565e0c727aa26321bb883c924"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "afd393bdf6a0c370043d56d35787e4cc3f1d022bf4108a9f0684ba170586bebb"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "cb348c7717ce6f299ca8b051eb425f9f2f07d9b436b81403e6098d61c3cb1549"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2ae91f3e94a1df8dce11ff17712d83c086cac214944586e60cf072e4c2162400"
-    sha256 cellar: :any_skip_relocation, ventura:           "072828a5ca46aaf0a0d8bc69ad769f9b9c6b89e4bfcd2a8ef83e0f48577f3847"
-    sha256 cellar: :any_skip_relocation, monterey:          "a7f0bf8bd18d8408cf671da609422a5a8fa683f876ab641082b07933f7770756"
-    sha256 cellar: :any_skip_relocation, big_sur:           "3a80043be18665c37508e3f028ceeb0ec68cfba556ce5461d4f6575ec6b50076"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e56ee338ef4aa487f6faccb3d08025df5ed64f60e25fc0137aeb2eb1d4b852cf"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "944efe35afd78abf0184654d4fbcc84b081d38c704021b5e964292016c917593"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "660e12ba9009e18e8a0bfd2be915afb5ba712523fe14461f26556889a5f09dc1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e73f26e21be0940c1377902b1c9c4497cc372327d56478b4cc54e3520be44b45"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d100fb8045d0e637caf2931dc7c6acf352d8ebfdebbd2bc879c7668885f9b879"
+    sha256 cellar: :any,                 arm64_linux:       "e4016ae8654dd0ecae41b76a12a0b52c24b22d13a1e6b0b7e2b8d91cb6720b54"
+    sha256 cellar: :any,                 x86_64_linux:      "cfd9efdfdfce21846028dd84435094a50dffb5a6411751a79c20e1f6d3e88985"
   end
 
   depends_on "rust" => :build
@@ -35,8 +22,7 @@ class RmImproved < Formula
   deny_network_access!
 
   def fetch
-    # The release's `Cargo.lock` needs to be regenerated.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
