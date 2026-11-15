@@ -1,8 +1,8 @@
 class Faketty < Formula
   desc "Wrapper to exec a command in a pty, even if redirecting the output"
   homepage "https://github.com/dtolnay/faketty"
-  url "https://github.com/dtolnay/faketty/archive/refs/tags/1.0.20.tar.gz"
-  sha256 "40a4d1cfa3f265f94895cb1430e9100df43ba0b04c551349cac2973e033a7775"
+  url "https://static.crates.io/crates/faketty/faketty-1.0.21.crate"
+  sha256 "66f9bcc24fbfb012d64e77e7197c42e1f45ea03810ca72630e24a5479736bf5f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/dtolnay/faketty.git", branch: "master"
 
@@ -21,8 +21,7 @@ class Faketty < Formula
   deny_network_access!
 
   def fetch
-    # The release does not include a `Cargo.lock`.
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
