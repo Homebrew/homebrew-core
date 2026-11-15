@@ -31,7 +31,7 @@ class Hydra < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     # macOS auto-detects Homebrew library paths but not the system curses headers;
