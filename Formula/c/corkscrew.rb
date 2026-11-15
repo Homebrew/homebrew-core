@@ -1,8 +1,8 @@
 class Corkscrew < Formula
   desc "Tunnel SSH through HTTP proxies"
   homepage "https://packages.debian.org/sid/corkscrew"
-  url "https://deb.debian.org/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
-  sha256 "0d0fcbb41cba4a81c4ab494459472086f377f9edb78a2e2238ed19b58956b0be"
+  url "https://deb.debian.org/debian/pool/main/c/corkscrew/corkscrew_3.1.orig.tar.gz"
+  sha256 "0f9c62466b4cbb13e3384eda2e00eb5e793acf82a5c2980d81a334151d202255"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -26,15 +26,14 @@ class Corkscrew < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "aad5bc0cad7686b7741300366d92107ed90c84eabc8868d309a2f61c96b3135d"
   end
 
-  depends_on "libtool" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   allow_network_access! :test
 
   def install
-    # Workaround for newer Clang
-    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
-
-    cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
+    # Generated Autotools files are not shipped in the source tarball
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
