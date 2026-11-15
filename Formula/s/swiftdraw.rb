@@ -1,8 +1,8 @@
 class Swiftdraw < Formula
   desc "Convert SVG into PDF, PNG, JPEG or SF Symbol"
   homepage "https://github.com/swhitty/SwiftDraw"
-  url "https://github.com/swhitty/SwiftDraw/archive/refs/tags/0.29.0.tar.gz"
-  sha256 "ef7e15f62101c58551493a501476192e8342332549c6def40fa2b2cf59d074a0"
+  url "https://github.com/swhitty/SwiftDraw/archive/refs/tags/0.30.0.tar.gz"
+  sha256 "a4684015c0dcb7cf220c7d8aa16cd86a4143c23521f51496e7eae7f3e04e3d16"
   license "Zlib"
   head "https://github.com/swhitty/SwiftDraw.git", branch: "main"
 
@@ -23,8 +23,22 @@ class Swiftdraw < Formula
     depends_on xcode: ["16.0", :build]
   end
 
+  deny_network_access!
+
+  def fetch
+    # SwiftPM tries to apply its own sandbox, which cannot nest inside the
+    # build sandbox; Homebrew's sandbox still confines the whole process.
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
-    system "swift", "build", *std_swift_args
+    args = std_swift_args
+    if OS.linux?
+      # Swift 6.4+ bypasses Homebrew's linker shim.
+      args += ENV["HOMEBREW_LIBRARY_PATHS"].to_s.split(":").flat_map { ["-Xlinker", "-L#{it}"] } +
+              ENV["HOMEBREW_RPATH_PATHS"].to_s.split(":").flat_map { ["-Xlinker", "-rpath", "-Xlinker", it] }
+    end
+    system "swift", "build", *args
     bin.install ".build/release/swiftdrawcli" => "swiftdraw"
   end
 
