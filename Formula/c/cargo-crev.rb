@@ -41,7 +41,7 @@ class CargoCrev < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "cargo-crev")
   end
 
@@ -57,8 +57,8 @@ class CargoCrev < Formula
     system "cargo", "crev", "config", "dir"
 
     [
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libssl"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"cargo-crev", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
