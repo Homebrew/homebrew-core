@@ -9,7 +9,8 @@ class Sqlmap < Formula
   head "https://github.com/sqlmapproject/sqlmap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9adc5ce04786cd1d4352ee255a4d00d8625f228a245090f8f244fdaad3ae2e4f"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "1bebfbf5f08ba60849c40869b4c7d72f1184e5e44f70c9da064def17a547d3ec"
   end
 
   uses_from_macos "sqlite" => :test
