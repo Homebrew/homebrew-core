@@ -1,12 +1,24 @@
 class Libimobiledevice < Formula
   desc "Library to communicate with iOS devices natively"
   homepage "https://www.libimobiledevice.org/"
-  url "https://github.com/libimobiledevice/libimobiledevice/releases/download/1.4.0/libimobiledevice-1.4.0.tar.bz2"
-  sha256 "23cc0077e221c7d991bd0eb02150a0d49199bcca1ddf059edccee9ffd914939d"
   license "LGPL-2.1-or-later"
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/libimobiledevice/libimobiledevice.git", branch: "master"
+
+  stable do
+    url "https://github.com/libimobiledevice/libimobiledevice/releases/download/1.4.0/libimobiledevice-1.4.0.tar.bz2"
+    sha256 "23cc0077e221c7d991bd0eb02150a0d49199bcca1ddf059edccee9ffd914939d"
+
+    # Backport fix for an unbounded memory leak in the ostrace code path.
+    # https://github.com/libimobiledevice/libimobiledevice/issues/1677
+    patch do
+      url "https://github.com/libimobiledevice/libimobiledevice/commit/5ca453f9e3950b1f24b51e4cdf255236e34254c4.patch?full_index=1"
+      sha256 "f77230cd1be4b483e0e0bc1273c25a273fb3845d7e65831f0b62d1a5f0f01a83"
+      type :backport
+      resolves "https://github.com/libimobiledevice/libimobiledevice/issues/1677"
+    end
+  end
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "bd24e96b92bdb9ea209c4231630bdbbbd087627555987cdebaf6ccfe8d0aaa3a"
