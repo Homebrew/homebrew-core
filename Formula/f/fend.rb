@@ -35,7 +35,7 @@ class Fend < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "cli", features: "native-tls")
     system "./documentation/build.sh"
