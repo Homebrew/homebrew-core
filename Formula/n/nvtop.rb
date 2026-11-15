@@ -1,8 +1,8 @@
 class Nvtop < Formula
   desc "Interactive GPU process monitor"
   homepage "https://github.com/Syllo/nvtop"
-  url "https://github.com/Syllo/nvtop/archive/refs/tags/3.3.2.tar.gz"
-  sha256 "bfcf24a4bbc763c92a630900f1679f05cce3c9d5f4d1f4a95bdb9230ef562665"
+  url "https://github.com/Syllo/nvtop/archive/refs/tags/3.4.0.tar.gz"
+  sha256 "7979f425dc2b748ff191e3999a0994af6154795e0e8640fae1e177684a296e08"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -14,11 +14,6 @@ class Nvtop < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:  "d59233a29922c798943bb0c5706aa7be60ae2237c513b7e926055e9e913062b1"
   end
 
-  # TODO: Can be undeprecated if upstream responds:
-  # https://github.com/Syllo/nvtop/issues/490
-  deprecate! date: "2026-09-17", because: :checksum_mismatch
-  disable! date: "2027-09-17", because: :checksum_mismatch
-
   depends_on "cmake" => :build
   uses_from_macos "ncurses"
 
@@ -26,6 +21,8 @@ class Nvtop < Formula
     depends_on "libdrm"
     depends_on "systemd"
   end
+
+  deny_network_access!
 
   def install
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
