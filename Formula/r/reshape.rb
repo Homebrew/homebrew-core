@@ -1,8 +1,8 @@
 class Reshape < Formula
   desc "Easy-to-use, zero-downtime schema migration tool for Postgres"
   homepage "https://github.com/fabianlindfors/reshape"
-  url "https://github.com/fabianlindfors/reshape/archive/refs/tags/v0.11.2.tar.gz"
-  sha256 "9d8e73a54ac8fe5b23f938da0a1522e8e057cfdb11f8bc4af7ef0a76558984d5"
+  url "https://static.crates.io/crates/reshape/reshape-0.11.2.crate"
+  sha256 "17c0680e957ab12c43da0c55741ca7c1dd1003b20216ca7f84ca1d3aff57391c"
   license "MIT"
   head "https://github.com/fabianlindfors/reshape.git", branch: "main"
 
@@ -29,8 +29,7 @@ class Reshape < Formula
   def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
 
   def fetch
-    # `Cargo.lock` is ignored
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
