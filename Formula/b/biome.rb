@@ -1,8 +1,8 @@
 class Biome < Formula
   desc "Toolchain of the web"
   homepage "https://biomejs.dev/"
-  url "https://github.com/biomejs/biome/archive/refs/tags/@biomejs/biome@2.6.7.tar.gz"
-  sha256 "4a17edfe38a4437040d1f12ebd41a78bebec056522351c446c451b856b7e9cf4"
+  url "https://github.com/biomejs/biome/archive/refs/tags/@biomejs/biome@2.6.8.tar.gz"
+  sha256 "14e8a90df2b74e24bcee56065fc076c672deacc26b31767983f3df0860abcc1e"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/biomejs/biome.git", branch: "main"
 
@@ -32,7 +32,8 @@ class Biome < Formula
     github_arm64_linux = OS.linux? && Hardware::CPU.arm? &&
                          ENV["HOMEBREW_GITHUB_ACTIONS"].present? &&
                          ENV["GITHUB_ACTIONS_HOMEBREW_SELF_HOSTED"].blank?
-    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if github_arm64_linux
+    # Use thin LTO on macOS to reduce build time.
+    ENV["CARGO_PROFILE_RELEASE_LTO"] = "thin" if OS.mac? || github_arm64_linux
     ENV["BIOME_VERSION"] = version.to_s
     system "cargo", "install", *std_cargo_args(path: "crates/biome_cli")
   end
