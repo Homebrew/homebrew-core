@@ -1,19 +1,18 @@
 class StarlarkRust < Formula
   desc "Rust implementation of the Starlark language"
   homepage "https://github.com/facebook/starlark-rust"
-  url "https://github.com/facebook/starlark-rust/archive/refs/tags/v0.14.0.tar.gz"
-  sha256 "3a0030b4fe1becf62698a6aed0dbbbd68397e7406fa0eca078849622b93d56e4"
+  url "https://static.crates.io/crates/starlark_bin/starlark_bin-0.14.0.crate"
+  sha256 "0c33c0ca1ebd9da2f735029e3815a49a593273567315a0e5b22dff4d2899f196"
   license "Apache-2.0"
   head "https://github.com/facebook/starlark-rust.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2565540bd3443574bae0dceb2c863f4d7196907a1fe381f535ca5370a5925158"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "825e07ddc6c08fa50a71d051b66a59fd8cd38e4ca53b38acc968dc11bfe0bdfe"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae98c072625fe0df9231a0543b6028af938b9a6f1f395969517f9d029a62f1c3"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "4024a552892c5ab4011f796df1c34e14082f19f339ca0c831111d7f8d1de92d7"
-    sha256 cellar: :any_skip_relocation, sonoma:            "eef8634a3026531eb4377653efb039870a4441d4c4ab744c051d2e7f82a9167b"
-    sha256 cellar: :any,                 arm64_linux:       "d269181238dc68785e98d63bf661e3a556ac39e68f280f3129dfebd87e82a3a9"
-    sha256 cellar: :any,                 x86_64_linux:      "11eb8954790dd2831b2eac2c8b48b7133319f33dd09abf70010c8a601b7a4069"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "450b0a8c5459c48edfbf882f6cde9a829b775787503486f20e75fefe43a38122"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00e5c0d465eaef8c5d2d392077961684fdaf7f5b9fe1844ca0e5042d6e2f7e26"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cb4a08924c38a31e71e7d74e4fd63c9eede1c908ccc39f7410c0a9ee3195ffb"
+    sha256 cellar: :any,                 arm64_linux:       "306781472f332709f88d6ae1db83a3743be1de5c955787ab57a80cf66b460249"
+    sha256 cellar: :any,                 x86_64_linux:      "7b9a1b99ddba0a450592444aa4be473ed471baf451edb55920703fd6b68e29a3"
   end
 
   depends_on "rust" => :build
@@ -21,13 +20,12 @@ class StarlarkRust < Formula
   deny_network_access!
 
   def fetch
-    # `https://github.com/facebookexperimental/rust-shed.git` does not have `Cargo.lock`
-    system "cargo", "generate-lockfile"
+    system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
-    system "cargo", "install", *std_cargo_args(path: "starlark_bin")
+    system "cargo", "install", *std_cargo_args(path: build.head? ? "starlark_bin" : ".")
   end
 
   test do
