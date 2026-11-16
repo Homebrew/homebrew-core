@@ -1,8 +1,8 @@
 class Nextdns < Formula
   desc "CLI for NextDNS's DNS-over-HTTPS (DoH)"
   homepage "https://nextdns.io"
-  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.49.0.tar.gz"
-  sha256 "71acde630e1941f5e520ce71d6eab0fc2d655e5d1769b22930a73ff354d78069"
+  url "https://github.com/nextdns/nextdns/archive/refs/tags/v1.50.2.tar.gz"
+  sha256 "46ab8b64c36bb1db8fe6cd3b6ded9fbbd2af7c3ab4960c01e566ff2969fe97ee"
   license "MIT"
   head "https://github.com/nextdns/nextdns.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Nextdns < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c633cd083afd187ac0dc5e4e60c8ee83971f73b8c39414745421fccf1dee3cbb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9f653f91d0e23958b0fb229a5dd508adfee01eb96bc1e132bcb45a0f3ff1f49"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80883e168dec66fd24555d953217b79205b9d878ecd599729bef78fd630019cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cddd49421d3d268cd930eff5d7a2e7e744437cd05be1121e5089b3650a10382f"
-    sha256 cellar: :any,                 x86_64_linux:      "903d5a0ef3e8978dccdfaf0c80091cf9316c3d0de16511f9cccc48b3f539496d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2daf3f9593a8622cee095e2f0686a09a3206749a2bebbefc615226787f2a025e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41269034e2b8263f1e3185ee3f0bc8010fb85f8c8694cb97be396fecd96d8295"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b1c922b306a564759d0256bf459d19f8b93a26c73d49a2c2a313315f8476253"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "186ab7e24f8d6ce927cdc05ba1319846d495fede498c278c260a30b04983fe50"
+    sha256 cellar: :any,                 x86_64_linux:      "e2dc92fde1f0d15fc25e9d8ea475bf23648f4fae317e8f41ada41d5426df33b0"
   end
 
   depends_on "go" => :build
