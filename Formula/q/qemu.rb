@@ -48,6 +48,10 @@ class Qemu < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "bzip2"
 
+  on_macos do
+    depends_on "llvm" => :build if DevelopmentTools.clang_build_version <= 1499
+  end
+
   on_linux do
     depends_on "attr"
     depends_on "cairo"
@@ -62,6 +66,11 @@ class Qemu < Formula
     depends_on "mesa"
     depends_on "systemd"
     depends_on "zlib-ng-compat"
+  end
+
+  fails_with :clang do
+    build 1499
+    cause "Requires Xcode Clang 15 or newer"
   end
 
   deny_network_access!
