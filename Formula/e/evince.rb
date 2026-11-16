@@ -1,8 +1,8 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://apps.gnome.org/Evince/"
-  url "https://download.gnome.org/sources/evince/48/evince-48.4.tar.xz"
-  sha256 "f296c5c662886635d4cd597e8ac0afcde7982be4486533c2b7f095b268be8668"
+  url "https://download.gnome.org/sources/evince/48/evince-48.5.tar.xz"
+  sha256 "0c7aba9485d0b6fb9f3e0ee75be916544744dc2ed9d58a2f9936a2e0434ac4a6"
   license "GPL-2.0-or-later"
 
   bottle do
@@ -52,7 +52,13 @@ class Evince < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
+    # `test-ev-spawn` needs `gio/gdesktopappinfo.h`, which macOS GLib does not install.
+    inreplace "shell/meson.build", "if gio_unix_dep.found()",
+              "if gio_unix_dep.found() and cc.has_header('gio/gdesktopappinfo.h', dependencies: gio_unix_dep)"
+
     ENV["DESTDIR"] = "/"
 
     args = %w[
