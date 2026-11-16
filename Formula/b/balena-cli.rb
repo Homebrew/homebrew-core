@@ -1,8 +1,8 @@
 class BalenaCli < Formula
   desc "Command-line tool for interacting with the balenaCloud and balena API"
   homepage "https://docs.balena.io/reference/balena-cli/latest/"
-  url "https://registry.npmjs.org/balena-cli/-/balena-cli-25.2.17.tgz"
-  sha256 "ece46b2d044f90a33432491eef0217b2661c55fe333c3ecb025db1a3555cf330"
+  url "https://registry.npmjs.org/balena-cli/-/balena-cli-25.2.18.tgz"
+  sha256 "0fd42f8fdbe48069b520c7d370d8063cbdca10cbe0971025ffd3b815c6e54e4b"
   license "Apache-2.0"
 
   livecheck do
@@ -13,11 +13,11 @@ class BalenaCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1f07b8977369c2454b9616a41f8ff1e5949f935278e9b38b520d85a9dee47ad6"
-    sha256 cellar: :any, arm64_tahoe:       "1f07b8977369c2454b9616a41f8ff1e5949f935278e9b38b520d85a9dee47ad6"
-    sha256 cellar: :any, arm64_sequoia:     "1f07b8977369c2454b9616a41f8ff1e5949f935278e9b38b520d85a9dee47ad6"
-    sha256 cellar: :any, arm64_linux:       "0135aa0fe49c53c06dd2258b580b1a851c8fc2fbb65881774d3e1b2989d591c7"
-    sha256 cellar: :any, x86_64_linux:      "4a461bbf0f19337d63063f38e44cc90453707bc4fc75288002807bf18fc2ba7c"
+    sha256 cellar: :any, arm64_golden_gate: "9b32196458d30648c27a625ee00db26828b9c777d94b075eab08d6bb1d299967"
+    sha256 cellar: :any, arm64_tahoe:       "9b32196458d30648c27a625ee00db26828b9c777d94b075eab08d6bb1d299967"
+    sha256 cellar: :any, arm64_sequoia:     "9b32196458d30648c27a625ee00db26828b9c777d94b075eab08d6bb1d299967"
+    sha256 cellar: :any, arm64_linux:       "ac8d19bee5ff0ff2adbcdc06c28c541652035786d54c3717c194e844bca3b22e"
+    sha256 cellar: :any, x86_64_linux:      "966009db9529bf3dde727535ea4f74f8785609e361b2714adb986af1697e4861"
   end
 
   depends_on "go" => :build
