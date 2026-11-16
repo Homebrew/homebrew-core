@@ -3,17 +3,17 @@ class ErlangLanguagePlatform < Formula
   homepage "https://whatsapp.github.io/erlang-language-platform/"
   # We require the submodules, so we fetch via git
   url "https://github.com/WhatsApp/erlang-language-platform.git",
-      tag:      "2026-10-14",
-      revision: "b36ba37346a8e6122fd309420cb67886ccc5871c"
+      tag:      "2026-11-16",
+      revision: "45a9286a9ebb09c04b1daa77834ca9833fb4b0dd"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/WhatsApp/erlang-language-platform.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2907e167307d05d14666da74a05bd97be56d8a23d9fc2e75deeac085c41f4218"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03512730f60a7f9e66bb45b41ee8f7bd6c6135707e689224a6591db209f51f6c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2baa898529b33d2a367e653d7b3c520e57cdd21adfd479db3d2c41611cc81c9e"
-    sha256 cellar: :any,                 arm64_linux:       "01bb4d8f0198c645d66fe80b4526427a46fd8a89e4ce202480279d697d6d305d"
-    sha256 cellar: :any,                 x86_64_linux:      "df0d32c1f7e59320d0f8d51cd37f0249f62ef4ba64c0a15b2c8fe120532ccf50"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ea879b43c7d2810771761d3ea78ae65fb8018acc9cf18e721cdaaf3888832a32"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b41116217b86d74514cd5260f0f38e622e8175deefeade798647e57e0c5fef60"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "48fe01dbb0ef63ff96a5d4d30b345fe4b4a3c5780ab23b194846c6b316ef34da"
+    sha256 cellar: :any,                 arm64_linux:       "8f12b87ae4f245cb9e7d9c8ddd10ed7b2a7e40f5045af33fdbac03bab8346eef"
+    sha256 cellar: :any,                 x86_64_linux:      "436f81cab85ef9001ebbd131864b624c3cbcc9fbffc94b69403e809646c19aeb"
   end
 
   depends_on "rust" => :build
