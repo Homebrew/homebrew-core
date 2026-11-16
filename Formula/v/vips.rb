@@ -4,7 +4,7 @@ class Vips < Formula
   url "https://github.com/libvips/libvips/releases/download/v8.18.7/vips-8.18.7.tar.xz"
   sha256 "5baaead3b0bb20ffdb9e9ff09aa9fda08620923df77b63b436654cb5e0b3bf94"
   license "LGPL-2.1-or-later"
-  revision 1
+  revision 2
   compatibility_version 1
 
   livecheck do
@@ -71,17 +71,6 @@ class Vips < Formula
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
-
-    if OS.mac?
-      # `pkg-config --libs vips` includes libarchive, but that package is
-      # keg-only so it needs to look for the pkgconfig file in libarchive's opt
-      # path.
-      libarchive = formula_opt_prefix("libarchive")
-      inreplace [lib/"pkgconfig/vips.pc", lib/"pkgconfig/vips-cpp.pc"] do |s|
-        s.gsub!(/^Requires\.private:(.*)\blibarchive\b(.*?)(,.*)?$/,
-                "Requires.private:\\1#{libarchive}/lib/pkgconfig/libarchive.pc\\3")
-      end
-    end
   end
 
   test do
@@ -96,9 +85,5 @@ class Vips < Formula
     # [palette] requires libimagequant, vips warns if it's not present
     cmd = "#{bin}/vips copy #{test_fixtures("test.png")} #{testpath}/test.png[palette] 2>&1"
     assert_empty shell_output(cmd)
-
-    # Make sure `pkg-config` can parse `vips.pc` and `vips-cpp.pc` after the `inreplace`.
-    system "pkgconf", "--print-errors", "vips"
-    system "pkgconf", "--print-errors", "vips-cpp"
   end
 end
