@@ -1,8 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://github.com/podofo/podofo"
-  url "https://github.com/podofo/podofo/archive/refs/tags/1.1.2.tar.gz"
-  sha256 "d6ffe6fc173ac6d6e5b00f5cb9db01990cab1bdf7cc03bdeffce3013bc9ec63a"
+  url "https://github.com/podofo/podofo/archive/refs/tags/1.1.3.tar.gz"
+  sha256 "9fe13b87148cd9691dc7f5b40dca9ce789576c131fe65e90a09e163a4fb25c31"
   license all_of: [
     { any_of: ["LGPL-2.0-or-later", "MPL-2.0"] },
     "GPL-2.0-or-later", # tools/
@@ -23,12 +23,11 @@ class Podofo < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "d6110a28fbd1626014a943c2a41cc41e413edce77241cd18c15cff5f4a86b4d1"
-    sha256 cellar: :any, arm64_tahoe:       "8012b1323ebcdc73b741cf8dbe24c1189de436d52d636ae70d5bd216c029b5cc"
-    sha256 cellar: :any, arm64_sequoia:     "3214b3f3a9c123e89c28cd6c6d4393f0ac9e3730bccef82f7dd787a8105a8023"
-    sha256 cellar: :any, arm64_linux:       "1420f955d6c25f75cb54e828ac8d43b1e9114aeb9acbbf0c49a4ad0720bdf5f7"
-    sha256 cellar: :any, x86_64_linux:      "676339aa4c473a3924bb3cc5364f539dfec8e67ee728abbaac36af7a9b5dda64"
+    sha256 cellar: :any, arm64_golden_gate: "9e11b51e2e308ca45fb0c483d8adbaaf8272043bb7bd631c12762e92494ce977"
+    sha256 cellar: :any, arm64_tahoe:       "f22d4674d26b4f003513bd2a6e44567e71cd0645f356defffe5d71ed03da07d2"
+    sha256 cellar: :any, arm64_sequoia:     "369f6c7df2f1be6a619ca173743da48a3a80522de1fe12908d26c6e9641d1b83"
+    sha256 cellar: :any, arm64_linux:       "b078619aafb24a3a58c73d02df87614bcc0725db98b6b124ecf670626cb585a8"
+    sha256 cellar: :any, x86_64_linux:      "09772d6811fd33b614e42a5a80b9a13bff7add415117f311b13fd7e50051639a"
   end
 
   depends_on "cmake" => :build
