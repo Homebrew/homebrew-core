@@ -5,6 +5,14 @@ class Libpkl < Formula
   sha256 "b232e7149705f4f4922dd27d4693c9ea97fa32b3fec9d45ef6f3297dccf2858c"
   license "Apache-2.0"
 
+  bottle do
+    sha256 cellar: :any, arm64_golden_gate: "df75bfe73dd3c8ae1482467bfadfb78eba69fb0d3528818afc08f863fc147556"
+    sha256 cellar: :any, arm64_tahoe:       "cc509280766edeb6ec0961079c793289d84b06f7df9998ed82ab5d3aee752dae"
+    sha256 cellar: :any, arm64_sequoia:     "241d65492170ff67b31a60c7f436909d12e386db2106b91cc9a68192f08c45b9"
+    sha256 cellar: :any, arm64_linux:       "4171bac15424ee4de38ac0e0a309e8ae08f85da1bf76eaa202e9e477bb0a1566"
+    sha256 cellar: :any, x86_64_linux:      "0e952d7e69337a9c994e30d06f1f012337894516a41f31aad5def7b161bbefd5"
+  end
+
   depends_on "gradle" => :build
   depends_on "openjdk" => :build
   depends_on "pkgconf" => :test
