@@ -6,11 +6,11 @@ class DuoUnix < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 arm64_golden_gate: "3b5935a2638a5cf6fa4d7e6b554c89309b4730feae7f73ac3c4dcbca256b68dd"
-    sha256 arm64_tahoe:       "dfd6d7b03700aac925bde99493389f29c2b3435cef5ed6549355ca67ae242a55"
-    sha256 arm64_sequoia:     "09cff1b97c12ddef8fc7e996a82685afea8add1f01199cdfd612ec8eb9cf8ee1"
-    sha256 arm64_linux:       "12220e60c2d461a5b1ade8d65a950adcf51236c084779f69e398c4ee0d273da1"
-    sha256 x86_64_linux:      "2cb8d0014fff06baa054842fc2be74e80336ed20d80ae69d0a6cdee2abcc921b"
+    sha256 arm64_golden_gate: "c96422b355aee7a106152b8814cb5eb63c8e30bf24809d747fab3f3ab27707ad"
+    sha256 arm64_tahoe:       "2a8b171bb538ad09eb8cd138e66f63440e46fe321417a986400acdfcf8f661d8"
+    sha256 arm64_sequoia:     "138d70cb765c13071f07c27aa4a29e20f69e53a60402436f0111373a8eef8af0"
+    sha256 arm64_linux:       "9352118f9732aaba7070e5842990f8041c587eb690a99f7a0ce8256749d92603"
+    sha256 x86_64_linux:      "844305881fdb956899339963617a3098f32b08efa10ed6ef7e797d0c022f26a2"
   end
 
   depends_on "autoconf" => :build
