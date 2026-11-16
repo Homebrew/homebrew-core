@@ -75,10 +75,6 @@ class PerconaServer < Formula
     type :unofficial
   end
 
-  def datadir
-    var/"mysql"
-  end
-
   def install
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
@@ -111,7 +107,7 @@ class PerconaServer < Formula
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DINSTALL_PLUGINDIR=lib/percona-server/plugin
-      -DMYSQL_DATADIR=#{datadir}
+      -DMYSQL_DATADIR=#{var}/mysql
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
       -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}

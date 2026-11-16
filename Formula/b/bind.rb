@@ -91,16 +91,7 @@ class Bind < Formula
       system "make", "install"
     end
 
-    (buildpath/"named.conf").write named_conf
-    system sbin/"rndc-confgen", "-a", "-c", "#{buildpath}/rndc.key"
-    pkgetc.install "named.conf", "rndc.key"
-
-    (var/"log/named").mkpath
-    (var/"named").mkpath
-  end
-
-  def named_conf
-    <<~EOS
+    (buildpath/"named.conf").write <<~EOS
       logging {
           category default {
               _default_log;
@@ -116,6 +107,11 @@ class Bind < Formula
           directory "#{var}/named";
       };
     EOS
+    system sbin/"rndc-confgen", "-a", "-c", "#{buildpath}/rndc.key"
+    pkgetc.install "named.conf", "rndc.key"
+
+    (var/"log/named").mkpath
+    (var/"named").mkpath
   end
 
   service do

@@ -42,40 +42,38 @@ class Xinit < Formula
 
   allow_network_access! :test
 
-  def install_xquartz_resource
-    resource("xquartz").stage do
-      prefix.install Dir["base/opt/X11/*"]
-      (share/"fonts/X11").install share/"fonts/TTF"
-
-      (prefix.glob "**/*").each do |f|
-        inreplace f, "/opt/X11", HOMEBREW_PREFIX, audit_result: false if f.file?
-      end
-
-      inreplace bin/"font_cache" do |s|
-        # provided by formula `procmail`
-        s.gsub! %r{/usr/bin(?=/lockfile)}, HOMEBREW_PREFIX
-        # set `X11FONTDIR`, align with formula `font-util`
-        s.gsub! "share/fonts", "share/fonts/X11"
-      end
-
-      # align with formula `font-util`
-      font_paths = %w[misc TTF OTF Type1 75dpi 100dpi].map do |f|
-        p = HOMEBREW_PREFIX/"share/fonts/X11"/f
-        %Q(    [ -e #{p}/fonts.dir ] && fontpath="$fontpath,#{p}#{",#{p}/:unscaled" if /\d+dpi/.match? p}"\n)
-      end
-      lines = File.readlines prefix/"etc/X11/xinit/xinitrc.d/10-fontdir.sh"
-      lines[1] = %Q(    fontpath="built-ins"\n) + font_paths.join
-      File.write(prefix/"etc/X11/xinit/xinitrc.d/10-fontdir.sh", lines.join)
-
-      # /System/Library/Fonts is protected by SIP
-      mkdir_p share/"system_fonts"
-      system formula_opt_bin("lndir")/"lndir", "/System/Library/Fonts", share/"system_fonts"
-      system formula_opt_bin("mkfontscale")/"mkfontdir", share/"system_fonts"
-    end
-  end
-
   def install
-    install_xquartz_resource if OS.mac?
+    if OS.mac?
+      resource("xquartz").stage do
+        prefix.install Dir["base/opt/X11/*"]
+        (share/"fonts/X11").install share/"fonts/TTF"
+
+        (prefix.glob "**/*").each do |f|
+          inreplace f, "/opt/X11", HOMEBREW_PREFIX, audit_result: false if f.file?
+        end
+
+        inreplace bin/"font_cache" do |s|
+          # provided by formula `procmail`
+          s.gsub! %r{/usr/bin(?=/lockfile)}, HOMEBREW_PREFIX
+          # set `X11FONTDIR`, align with formula `font-util`
+          s.gsub! "share/fonts", "share/fonts/X11"
+        end
+
+        # align with formula `font-util`
+        font_paths = %w[misc TTF OTF Type1 75dpi 100dpi].map do |f|
+          p = HOMEBREW_PREFIX/"share/fonts/X11"/f
+          %Q(    [ -e #{p}/fonts.dir ] && fontpath="$fontpath,#{p}#{",#{p}/:unscaled" if /\d+dpi/.match? p}"\n)
+        end
+        lines = File.readlines prefix/"etc/X11/xinit/xinitrc.d/10-fontdir.sh"
+        lines[1] = %Q(    fontpath="built-ins"\n) + font_paths.join
+        File.write(prefix/"etc/X11/xinit/xinitrc.d/10-fontdir.sh", lines.join)
+
+        # /System/Library/Fonts is protected by SIP
+        mkdir_p share/"system_fonts"
+        system formula_opt_bin("lndir")/"lndir", "/System/Library/Fonts", share/"system_fonts"
+        system formula_opt_bin("mkfontscale")/"mkfontdir", share/"system_fonts"
+      end
+    end
 
     configure_args = %W[
       --bindir=#{HOMEBREW_PREFIX}/bin

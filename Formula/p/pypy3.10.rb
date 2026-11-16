@@ -56,10 +56,6 @@ class Pypy310 < Formula
     stable.url[/pypy(\d+\.\d+)/, 1]
   end
 
-  def newest_abi_version?
-    self == Formula["pypy3"]
-  end
-
   def install
     # Avoid statically linking to libffi
     inreplace "rpython/rlib/clibffi.py", '"libffi.a"', "\"#{shared_library("libffi")}\""
@@ -121,7 +117,7 @@ class Pypy310 < Formula
     lib.install_symlink libexec/"bin"/shared_library("libpypy#{abi_version}-c")
     include.install_symlink libexec/"include/pypy#{abi_version}"
 
-    if newest_abi_version?
+    if self == Formula["pypy3"]
       bin.install_symlink "pypy#{abi_version}" => "pypy3"
       lib.install_symlink shared_library("libpypy#{abi_version}-c") => shared_library("libpypy3-c")
     end
@@ -161,11 +157,6 @@ class Pypy310 < Formula
     EOS
   end
 
-  # The HOMEBREW_PREFIX location of site-packages
-  def site_packages(root)
-    root/"lib/pypy#{abi_version}/site-packages"
-  end
-
   # Where setuptools will install executable scripts
   def scripts_folder
     HOMEBREW_PREFIX/"share/pypy#{abi_version}"
@@ -173,7 +164,7 @@ class Pypy310 < Formula
 
   # The Cellar location of distutils
   def distutils
-    site_packages(libexec).parent/"distutils"
+    libexec/"lib/pypy#{abi_version}/distutils"
   end
 
   test do

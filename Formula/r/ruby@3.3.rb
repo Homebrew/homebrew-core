@@ -134,11 +134,7 @@ class RubyAT33 < Formula
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.write rubygems_config
-  end
-
-  def rubygems_config
-    <<~RUBY
+    config_file.write <<~RUBY
       module Gem
         class << self
           alias :old_default_dir :default_dir

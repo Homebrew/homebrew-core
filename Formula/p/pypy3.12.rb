@@ -82,8 +82,6 @@ class Pypy312 < Formula
 
   def abi_version = stable.url[/pypy(\d+\.\d+)/, 1]
 
-  def newest_abi_version? = self == Formula["pypy3"]
-
   def site_packages(root) = root/"lib/pypy#{abi_version}/site-packages"
 
   # Where pip will install executable scripts
@@ -201,7 +199,7 @@ class Pypy312 < Formula
     site_packages(prefix).parent.install libexec_site_packages
     libexec_site_packages.parent.install_symlink site_packages(HOMEBREW_PREFIX)
 
-    return unless newest_abi_version?
+    return if self != Formula["pypy3"]
 
     bin.install_symlink "pip_pypy#{abi_version}" => "pip_pypy3"
     bin.install_symlink "pypy#{abi_version}" => "pypy3"

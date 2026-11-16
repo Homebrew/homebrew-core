@@ -89,14 +89,6 @@ class Neovide < Formula
     end
   end
 
-  def nvim_ui_count(socket)
-    Utils.safe_popen_read(
-      "nvim", "--headless",
-              "--server", socket,
-              "--remote-expr", 'luaeval("vim.tbl_count(vim.api.nvim_list_uis())")'
-    ).chomp.to_i
-  end
-
   test do
     assert_match version.to_s, shell_output("#{bin}/neovide --version")
     return if OS.mac? # unable to start neovide within macOS sandbox
@@ -118,7 +110,11 @@ class Neovide < Formula
       ohai neovide_cmd.join(" ")
       neovide_pid = spawn(*neovide_cmd)
 
-      sleep 1 until nvim_ui_count(socket).positive?
+      sleep 1 until Utils.safe_popen_read(
+        "nvim", "--headless",
+                "--server", socket,
+                "--remote-expr", 'luaeval("vim.tbl_count(vim.api.nvim_list_uis())")'
+      ).chomp.to_i.positive?
       system "nvim", "--server", socket, "--remote-send", ":q<CR>"
 
       Process.wait nvim_pid

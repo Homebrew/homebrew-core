@@ -155,16 +155,9 @@ class Gcc < Formula
     lib.install_symlink lib.glob("gcc/current/libgfortran.*") if OS.linux?
 
     # Rename man7 to avoid conflicts between GCC formulae
-    man7.glob("*.7") { |file| add_suffix file, version_suffix }
+    man7.glob("*.7") { |file| file.rename file.sub_ext("-#{version_suffix}.7") }
     # Even when we disable building info pages some are still installed.
     rm_r(info)
-  end
-
-  def add_suffix(file, suffix)
-    dir = File.dirname(file)
-    ext = File.extname(file)
-    base = File.basename(file, ext)
-    File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
   post_install_steps do

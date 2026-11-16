@@ -61,7 +61,40 @@ class Dbus < Formula
     system "meson", "install", "-C", "build"
 
     # Manually create plist for system bus service
-    (prefix/"org.freedesktop.dbus-system.plist").write system_plist if OS.mac?
+    if OS.mac?
+      (prefix/"org.freedesktop.dbus-system.plist").write <<~PLIST
+        <?xml version="1.0" encoding="UTF-8"?>
+        <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+        <plist version="1.0">
+        <dict>
+          <key>Label</key>
+          <string>org.freedesktop.dbus-system</string>
+          <key>KeepAlive</key>
+          <dict>
+            <key>SuccessfulExit</key>
+            <false/>
+          </dict>
+          <key>ProgramArguments</key>
+          <array>
+            <string>#{opt_bin}/dbus-daemon</string>
+            <string>--nofork</string>
+            <string>--system</string>
+            <string>--nopidfile</string>
+          </array>
+          <key>Sockets</key>
+          <dict>
+            <key>unix_domain_listener</key>
+            <dict>
+              <key>SockPathName</key>
+              <string>#{var}/run/dbus/system_bus_socket</string>
+              <key>SockPathMode</key>
+              <integer>511</integer>
+            </dict>
+          </dict>
+        </dict>
+        </plist>
+      PLIST
+    end
     mkdir etc/"dbus-1/system.d"
     mkdir etc/"dbus-1/session.d"
   end
@@ -91,41 +124,6 @@ class Dbus < Formula
 
   service do
     name macos: "org.freedesktop.dbus-session"
-  end
-
-  def system_plist
-    <<~PLIST
-      <?xml version="1.0" encoding="UTF-8"?>
-      <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-      <plist version="1.0">
-      <dict>
-        <key>Label</key>
-        <string>org.freedesktop.dbus-system</string>
-        <key>KeepAlive</key>
-        <dict>
-          <key>SuccessfulExit</key>
-          <false/>
-        </dict>
-        <key>ProgramArguments</key>
-        <array>
-          <string>#{opt_bin}/dbus-daemon</string>
-          <string>--nofork</string>
-          <string>--system</string>
-          <string>--nopidfile</string>
-        </array>
-        <key>Sockets</key>
-        <dict>
-          <key>unix_domain_listener</key>
-          <dict>
-            <key>SockPathName</key>
-            <string>#{var}/run/dbus/system_bus_socket</string>
-            <key>SockPathMode</key>
-            <integer>511</integer>
-          </dict>
-        </dict>
-      </dict>
-      </plist>
-    PLIST
   end
 
   test do

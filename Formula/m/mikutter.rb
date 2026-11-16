@@ -236,11 +236,17 @@ class Mikutter < Formula
     sha256 "891fa1de2cdccad5f9e03936569c3c15d413d8c6658e2edfe439d9386d169b62"
   end
 
-  # This is annoying - if the gemfile lists test group gems at all,
-  # even if we've explicitly requested to install without them,
-  # bundle install --cache will fail because it can't find those gems.
-  # Handle this by modifying the gemfile to remove these gems.
-  def gemfile_remove_test!
+  def install
+    (lib/"mikutter/vendor").mkpath
+    (buildpath/"vendor/cache").mkpath
+    resources.each do |r|
+      r.unpack buildpath/"vendor/cache"
+    end
+
+    # This is annoying - if the gemfile lists test group gems at all,
+    # even if we've explicitly requested to install without them,
+    # bundle install --cache will fail because it can't find those gems.
+    # Handle this by modifying the gemfile to remove these gems.
     gemfile_lines = []
     test_group = false
     File.read("Gemfile").each_line do |line|
@@ -270,16 +276,6 @@ class Mikutter < Formula
       # Unmarked dependency of atk
       gemfile.puts "gem 'rake','>= 13.0.1'"
     end
-  end
-
-  def install
-    (lib/"mikutter/vendor").mkpath
-    (buildpath/"vendor/cache").mkpath
-    resources.each do |r|
-      r.unpack buildpath/"vendor/cache"
-    end
-
-    gemfile_remove_test!
     # mikutter's plugin Gemfile hard-pins gtk3 4.2.1, so Bundler will ignore
     # the updated vendored ruby-gnome resources unless we rewrite that pin.
     inreplace "plugin/gtk3/Gemfile", "'4.2.1'", "'4.3.6'"

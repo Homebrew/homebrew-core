@@ -30,8 +30,10 @@ class Gom < Formula
   depends_on "glib"
   depends_on "sqlite" # indirect dependency via glib
 
-  # Help find `gdk-pixbuf` as superenv doesn't add dependencies of build dependencies
-  def gdk_pixbuf_add_pkgconfig_paths!
+  def install
+    site_packages = prefix/Language::Python.site_packages(python3)
+
+    # Help find `gdk-pixbuf` as superenv doesn't add dependencies of build dependencies
     deps_set = Set.new
     Formula["gdk-pixbuf"].recursive_dependencies do |_, dep|
       next Dependable::PRUNE if !dep.required? || deps_set.include?(dep)
@@ -41,11 +43,6 @@ class Gom < Formula
       ENV.append_path "PKG_CONFIG_PATH", dep_f.opt_lib/"pkgconfig" if (dep_f.opt_lib/"pkgconfig").exist?
       ENV.append_path "PKG_CONFIG_PATH", dep_f.opt_share/"pkgconfig" if (dep_f.opt_share/"pkgconfig").exist?
     end
-  end
-
-  def install
-    site_packages = prefix/Language::Python.site_packages(python3)
-    gdk_pixbuf_add_pkgconfig_paths!
 
     system "meson", "setup", "build", "-Dpygobject-override-dir=#{site_packages}", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

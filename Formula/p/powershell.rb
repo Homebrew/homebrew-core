@@ -123,7 +123,23 @@ class Powershell < Formula
     inreplace "build.psm1", /^\$environment = Get-EnvironmentInformation$/, mock_environment.chomp
     system publish_path/"pwsh", "-NoLogo", "-NoProfile", "-File", module_copy_script
 
-    clear_native_dependencies(publish_path, runtime, dotnet)
+    # See https://github.com/PowerShell/PowerShell/blob/v7.5.4/build.psm1#L3804
+    diasym_suffix = runtime.end_with?("-x64") ? "amd64" : "arm64"
+    diasym_file = "microsoft.diasymreader.native.#{diasym_suffix}.dll"
+    deps_path = publish_path/"pwsh.deps.json"
+    deps_json = JSON.parse(deps_path.read)
+    target = ".NETCoreApp,Version=v#{dotnet.version.major_minor}/#{runtime}"
+
+    # Find the runtime pack for the specified target framework
+    pack = deps_json.dig("targets", target)&.keys&.find do |k|
+      k.start_with?("runtimepack.Microsoft.NETCore.App.Runtime")
+    end
+    deps_json.dig("targets", target, pack, "native")&.delete(diasym_file)
+
+    # Replace place the dependency file with the clean one
+    rm deps_path
+    deps_path.write(JSON.pretty_generate(deps_json))
+    rm publish_path/diasym_file, force: true
 
     libexec.install publish_path.glob("*")
 
@@ -137,24 +153,6 @@ class Powershell < Formula
 
     man1.install buildpath/"assets/manpage/pwsh.1"
     deuniversalize_machos libexec/"libpsl-native.dylib" if OS.mac?
-  end
-
-  # See https://github.com/PowerShell/PowerShell/blob/v7.5.4/build.psm1#L3804
-  def clear_native_dependencies(publish_path, runtime, dotnet)
-    diasym_suffix = runtime.end_with?("-x64") ? "amd64" : "arm64"
-    diasym_file = "microsoft.diasymreader.native.#{diasym_suffix}.dll"
-    deps_path = publish_path/"pwsh.deps.json"
-    deps = JSON.parse(deps_path.read)
-    target = ".NETCoreApp,Version=v#{dotnet.version.major_minor}/#{runtime}"
-
-    # Find the runtime pack for the specified target framework
-    pack = deps.dig("targets", target)&.keys&.find { |k| k.start_with?("runtimepack.Microsoft.NETCore.App.Runtime") }
-    deps.dig("targets", target, pack, "native")&.delete(diasym_file)
-
-    # Replace place the dependency file with the clean one
-    rm deps_path
-    deps_path.write(JSON.pretty_generate(deps))
-    rm publish_path/diasym_file, force: true
   end
 
   test do

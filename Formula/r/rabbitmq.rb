@@ -44,7 +44,13 @@ class Rabbitmq < Formula
 
     # Create the rabbitmq-env.conf file
     rabbitmq_env_conf = etc/"rabbitmq/rabbitmq-env.conf"
-    rabbitmq_env_conf.write rabbitmq_env unless rabbitmq_env_conf.exist?
+    rabbitmq_env_conf.write <<~ENV unless rabbitmq_env_conf.exist?
+      CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
+      NODE_IP_ADDRESS=127.0.0.1
+      NODENAME=rabbit@localhost
+      RABBITMQ_LOG_BASE=#{var}/log/rabbitmq
+      PLUGINS_DIR="#{opt_prefix}/plugins:#{HOMEBREW_PREFIX}/share/rabbitmq/plugins"
+    ENV
 
     # Enable plugins - management web UI; STOMP, MQTT, AMQP 1.0 protocols
     enabled_plugins_path = etc/"rabbitmq/enabled_plugins"
@@ -59,16 +65,6 @@ class Rabbitmq < Formula
       Management UI: http://localhost:15672
       Homebrew-specific docs: https://rabbitmq.com/install-homebrew.html
     EOS
-  end
-
-  def rabbitmq_env
-    <<~ENV
-      CONFIG_FILE=#{etc}/rabbitmq/rabbitmq
-      NODE_IP_ADDRESS=127.0.0.1
-      NODENAME=rabbit@localhost
-      RABBITMQ_LOG_BASE=#{var}/log/rabbitmq
-      PLUGINS_DIR="#{opt_prefix}/plugins:#{HOMEBREW_PREFIX}/share/rabbitmq/plugins"
-    ENV
   end
 
   service do

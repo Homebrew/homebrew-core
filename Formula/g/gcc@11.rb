@@ -125,20 +125,13 @@ class GccAT11 < Formula
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
     # Rename man7.
-    man7.glob("*.7") { |file| add_suffix file, version.major }
+    man7.glob("*.7") { |file| file.rename file.sub_ext("-#{version.major}.7") }
     # Even when we disable building info pages some are still installed.
     rm_r(info)
 
     # Work around GCC install bug
     # https://gcc.gnu.org/bugzilla/show_bug.cgi?id=105664
     rm_r(bin.glob("*-gcc-tmp"))
-  end
-
-  def add_suffix(file, suffix)
-    dir = File.dirname(file)
-    ext = File.extname(file)
-    base = File.basename(file, ext)
-    File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
   post_install_steps do

@@ -159,28 +159,7 @@ class Ruby < Formula
     # Customize rubygems to look/install in the global gem directory
     # instead of in the Cellar, making gems last across reinstalls
     config_file = lib/"ruby/#{api_version}/rubygems/defaults/operating_system.rb"
-    config_file.write rubygems_config
-  end
-
-  # Since Gem ships Bundle we want to provide that full/expected installation
-  # but to do so we need to handle the case where someone has previously
-  # installed bundle manually via `gem install`.
-  # TODO: remove the `remove` step when enabling default_user_install
-  post_install_steps do
-    remove "{{HOMEBREW_PREFIX}}/lib/ruby/gems/{{version.major_minor}}.0/gems/bundler-*", recursive: true
-    on_macos do
-      if_path_exists "opt/ruby@{{version.major_minor}}/lib/libruby.{{version.major_minor}}.dylib",
-                     base: :homebrew_prefix do
-        change_dylib_id "lib/libruby.dylib",
-                        "{{HOMEBREW_PREFIX}}/opt/ruby@{{version.major_minor}}/" \
-                        "lib/libruby.{{version.major_minor}}.dylib",
-                        resolve_source: true
-      end
-    end
-  end
-
-  def rubygems_config
-    <<~RUBY
+    config_file.write <<~RUBY
       module Gem
         class << self
           alias :old_default_dir :default_dir
@@ -258,6 +237,23 @@ class Ruby < Formula
         end
       end
     RUBY
+  end
+
+  # Since Gem ships Bundle we want to provide that full/expected installation
+  # but to do so we need to handle the case where someone has previously
+  # installed bundle manually via `gem install`.
+  # TODO: remove the `remove` step when enabling default_user_install
+  post_install_steps do
+    remove "{{HOMEBREW_PREFIX}}/lib/ruby/gems/{{version.major_minor}}.0/gems/bundler-*", recursive: true
+    on_macos do
+      if_path_exists "opt/ruby@{{version.major_minor}}/lib/libruby.{{version.major_minor}}.dylib",
+                     base: :homebrew_prefix do
+        change_dylib_id "lib/libruby.dylib",
+                        "{{HOMEBREW_PREFIX}}/opt/ruby@{{version.major_minor}}/" \
+                        "lib/libruby.{{version.major_minor}}.dylib",
+                        resolve_source: true
+      end
+    end
   end
 
   def caveats
