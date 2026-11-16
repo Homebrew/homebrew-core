@@ -11,7 +11,7 @@ class Psalm < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "94a47b2c0b4f4c26cdceef1a44f689f19f0671885c8c68a57447da26cac8be47"
+    sha256 cellar: :any_skip_relocation, all: "be65bacbae9d60098489473b33a06668aec5af04b0fc5cddef54a450bb713713"
   end
 
   depends_on "composer" => :test
