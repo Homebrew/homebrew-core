@@ -23,12 +23,6 @@ class Alluxio < Formula
 
   deny_network_access!
 
-  def default_alluxio_conf
-    <<~EOS
-      alluxio.master.hostname=localhost
-    EOS
-  end
-
   def install
     libexec.install Dir["*"]
     bin.install libexec.glob("bin/*")
@@ -41,7 +35,11 @@ class Alluxio < Formula
     ln_sf "#{etc}/alluxio/alluxio-env.sh", "#{libexec}/conf/alluxio-env.sh"
 
     defaults = etc/"alluxio/alluxio-site.properties"
-    defaults.write(default_alluxio_conf) unless defaults.exist?
+    unless defaults.exist?
+      defaults.write <<~EOS
+        alluxio.master.hostname=localhost
+      EOS
+    end
     ln_sf "#{etc}/alluxio/alluxio-site.properties", "#{libexec}/conf/alluxio-site.properties"
 
     # Build `:all` bottle.
