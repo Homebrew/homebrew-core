@@ -1,16 +1,16 @@
 class Cx < Formula
   desc "CLI for querying and managing Coralogix observability data"
   homepage "https://github.com/coralogix/cx-cli"
-  url "https://github.com/coralogix/cx-cli/archive/refs/tags/v0.1.33.tar.gz"
-  sha256 "4b4e88c2208806d545eccb5a5abc72b1ca9e3f0f585613c984fe23c4d7d6b212"
+  url "https://github.com/coralogix/cx-cli/archive/refs/tags/v0.1.34.tar.gz"
+  sha256 "1fedcb9f723893c85222fbb2681e83c638b78a1d2999fb28258471b0987bfd1b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cf51ee6d6ccffa56540e95eea3af11ecabaed2fd5d62cafc6a889248e7f7b1a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5cedbece4ad42547bc4270ee532f90d9743df83c3b5ed88afc402fdb7e6169e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7cf6d85ed14c5151b6236f63d39e00bfe7e746cca02e9ecbfbbbb0857e351f46"
-    sha256 cellar: :any,                 arm64_linux:       "7d32544274f1385a60e89c343aea3d5831b7ae72491681d6d56eaacfdd1ffdec"
-    sha256 cellar: :any,                 x86_64_linux:      "c9a955478ae8e665328cdbf77294a2329ab193910f5239bda964248ca20da407"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dcc41b34e7a966ba0fa24bbf3b0817ed0918237eacced8ca9981385e73c2e851"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e678b6786d1d0abf513e78f45263e2b3e722239d2296f63dfd840b4159d5efb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d116f03337613c3a4d710b1f53e46efc349e1c4843ce4dba1224e846bb5afee8"
+    sha256 cellar: :any,                 arm64_linux:       "907549d8b7a6a8ac0b85ed8a047aba8794a93f9d417fed5001c3dc072cb3d5b8"
+    sha256 cellar: :any,                 x86_64_linux:      "fba7f4b9227101956e73399f5dad6ad9944d60a5a2d86f0b1759848b788b8166"
   end
 
   depends_on "rust" => :build
