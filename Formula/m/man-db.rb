@@ -1,9 +1,9 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://man-db.gitlab.io/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz"
-  sha256 "8afebb6f7eb6bb8542929458841f5c7e6f240e30c86358c1fbcefbea076c87d9"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.2.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.2.tar.xz"
+  sha256 "881df6b370b40cd73db8c543c02c94af5fc5a7c96189a7e2e9af12481f611d8b"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -13,14 +13,11 @@ class ManDb < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "3e38a10053058f273746d66c55e7e59feecbf8f2d349ad729a6d0867c3481438"
-    sha256 arm64_tahoe:       "7dc229cef4b93ffab9ab1e0915128e0f82bfc97e07f5b2db18d0e97125b7ceb7"
-    sha256 arm64_sequoia:     "20328186ff7f4a29fd029d966fb8bb7ab57e3878023a480f362e6821bb035eba"
-    sha256 arm64_sonoma:      "3d091053cb022d2aec755c6820db73d90cfee5cee8e87c554c05ce15d940f495"
-    sha256 sonoma:            "7ab7d61c5d34832f182a5d43814aedafc83ee39935515dea044914b5fe9e914b"
-    sha256 arm64_linux:       "89bb5bab792be06d435eecaa9f485283fd4dcca1881992eec2d3b492fe238862"
-    sha256 x86_64_linux:      "381c521219f42b0b19f06ccfef76cfd89ce762cac6d30ddccb696b9219748135"
+    sha256 arm64_golden_gate: "123aa166978cfed749bc7e32ca42dda5870770c8ec5e44fe5d644e5764ae8caf"
+    sha256 arm64_tahoe:       "c74fbf054a85dbca64c322e31e807ac0932498a08cafd056b47be65496ef959c"
+    sha256 arm64_sequoia:     "cf461ebb6ab6fd107b5f4428e6dca28443de69249326087d989a25b114c435d4"
+    sha256 arm64_linux:       "497eeabd99f14092bdf1534e2a807b29d5581d483679f647392be74937e12fb3"
+    sha256 x86_64_linux:      "d17bfeb7c297364767df4300a2093ec26123b56e507ed3dba66398aeb83d5ab1"
   end
 
   depends_on "pkgconf" => :build
