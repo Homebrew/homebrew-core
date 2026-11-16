@@ -1,10 +1,9 @@
 class Camlp5 < Formula
   desc "Preprocessor and pretty-printer for OCaml"
   homepage "https://camlp5.github.io/"
-  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.05.03.tar.gz"
-  sha256 "a56ef4afe3eb81ab3d8371f887779f8c0cee3b82c0ada7e066b723e51590f78c"
+  url "https://github.com/camlp5/camlp5/archive/refs/tags/8.05.04.tar.gz"
+  sha256 "bb82054e68bdb6343736a7ec0c29964341b3a3cb6c183b21479bbe4fb9d8dd45"
   license "BSD-3-Clause"
-  revision 1
   compatibility_version 1
   head "https://github.com/camlp5/camlp5.git", branch: "master"
 
