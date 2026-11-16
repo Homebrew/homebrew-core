@@ -1,16 +1,16 @@
 class Snapraid < Formula
   desc "Backup program for disk arrays"
   homepage "https://www.snapraid.it/"
-  url "https://github.com/amadvance/snapraid/releases/download/v15.1/snapraid-15.1.tar.gz"
-  sha256 "fb2d6a9cf9c8ea30c6962f4a48764dc9012fe61d6e23f40a8d959dadea02278b"
+  url "https://github.com/amadvance/snapraid/releases/download/v15.2/snapraid-15.2.tar.gz"
+  sha256 "0740169f66c506c29846a5aef57d2b11ffe5c354c5bb0ba260f2b5f328f985c5"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f1549882ba69916f9c7f3c7ddb277749c18bc751886646579f41ae491b39769"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a047eb8dd44f9112fa502ad748024bf72c00378db124b704d26216c681f52dfb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d25ed0988612d2afd8d4d11256ba71de192e58afe81c1df2c5822bf120506738"
-    sha256 cellar: :any,                 arm64_linux:       "c1237237bc7e96f1a921e0e7647e55f27aa441897c63155569896de94e697b50"
-    sha256 cellar: :any,                 x86_64_linux:      "39bf5d385bccd753c14b86a3fdda0a60b092602b51ac72f97f9e3945c78bd4bf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f64ea3fac81ce492afc84f9f11908b13d2ee840264b7fad60c2dfceb8422843"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5061ccc0b54119eafca236e7d785d6862eb414ac6354f843ae369e6864cc34c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ffa9f5a29ede49280602d252896d5508a9897be65914d8c82631e8e6f639e039"
+    sha256 cellar: :any,                 arm64_linux:       "60283ee633221dcd64c1e3b3e74f9d2f358fa2e84fb04be15737ab8db415a3b0"
+    sha256 cellar: :any,                 x86_64_linux:      "5e2ddeb564d2ad1f0f75039816278098ec984e463c3fbba3ff46c7ade1c44cc2"
   end
 
   head do
