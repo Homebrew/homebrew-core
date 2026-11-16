@@ -4,6 +4,7 @@ class Mpv < Formula
   url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.42.0.tar.gz"
   sha256 "bcfebbfa2b65a6d88dc97ea18117831072373e38b5785a2afb874ed4df5070dd"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   compatibility_version 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
@@ -83,16 +84,6 @@ class Mpv < Formula
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     bash_completion.install share/"bash-completion/completions/mpv"
-
-    return unless OS.mac?
-
-    # `pkg-config --libs mpv` includes libarchive, but that package is
-    # keg-only so it needs to look for the pkgconfig file in libarchive's opt
-    # path.
-    libarchive = formula_opt_prefix("libarchive")
-    inreplace lib/"pkgconfig/mpv.pc",
-              /^Requires\.private:(.*)\blibarchive\b(.*?)(,.*)?$/,
-              "Requires.private:\\1#{libarchive}/lib/pkgconfig/libarchive.pc\\3"
   end
 
   def caveats
@@ -105,8 +96,5 @@ class Mpv < Formula
   test do
     system bin/"mpv", "--ao=null", "--vo=null", test_fixtures("test.wav")
     assert_match "vapoursynth", shell_output("#{bin}/mpv --vf=help")
-
-    # Make sure `pkgconf` can parse `mpv.pc` after the `inreplace`.
-    system "pkgconf", "--print-errors", "mpv"
   end
 end
