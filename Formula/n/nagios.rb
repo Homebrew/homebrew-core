@@ -28,12 +28,6 @@ class Nagios < Formula
 
   deny_network_access!
 
-  def nagios_sbin = prefix/"cgi-bin"
-
-  def nagios_etc = etc/"nagios"
-
-  def nagios_var = var/"lib/nagios"
-
   def htdocs = pkgshare/"htdocs"
 
   def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
@@ -42,21 +36,17 @@ class Nagios < Formula
     Utils.safe_popen_read("id", "-un").chomp
   end
 
-  def group
-    Utils.safe_popen_read("id", "-gn").chomp
-  end
-
   def install
     args = [
-      "--sbindir=#{nagios_sbin}",
-      "--sysconfdir=#{nagios_etc}",
-      "--localstatedir=#{nagios_var}",
+      "--sbindir=#{prefix}/cgi-bin",
+      "--sysconfdir=#{etc}/nagios",
+      "--localstatedir=#{var}/lib/nagios",
       "--datadir=#{htdocs}",
       "--libexecdir=#{HOMEBREW_PREFIX}/sbin", # Plugin dir
       "--with-cgiurl=/nagios/cgi-bin",
       "--with-htmurl=/nagios",
       "--with-nagios-user=#{user}",
-      "--with-nagios-group='#{group}'",
+      "--with-nagios-group='#{Utils.safe_popen_read("id", "-gn").chomp}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
       "--with-ssl=#{formula_opt_prefix(openssl)}",
