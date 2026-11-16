@@ -1,8 +1,8 @@
 class Iccdev < Formula
   desc "Developer tools for interacting with and manipulating ICC profiles"
   homepage "https://github.com/InternationalColorConsortium/iccDEV"
-  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.4.2.5.tar.gz"
-  sha256 "aecf543f58b61bf3dd86c87674960d99ec0a7949b81d247106831945eb78ed34"
+  url "https://github.com/InternationalColorConsortium/iccDEV/archive/refs/tags/v2.4.2.6.tar.gz"
+  sha256 "78b05fe86a3bdf2dbacf9453a20f81e9ccac8f278d767a6e3e38efbbe8a4bb1e"
   license "BSD-3-Clause"
 
   # Skip `wasm-` tags
@@ -12,11 +12,11 @@ class Iccdev < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f13b5d063d893ce4a42ba11ac1f063283e752b500447053a9e8bd7fe7a401fee"
-    sha256 cellar: :any, arm64_tahoe:       "fe765fbb0d7f40bfe0f5b94ba5fd34a978a3fe320996829a29bc0cecadb199db"
-    sha256 cellar: :any, arm64_sequoia:     "2791bfada55a547bae60795bc49fe1bded9c8f2f90346d79a489ccb642943218"
-    sha256 cellar: :any, arm64_linux:       "a40711fd28be03613603b27295d2f8a81a13f5d957f53818253d2f884acb48b8"
-    sha256 cellar: :any, x86_64_linux:      "c67ce19f97a51de32ddad40ede38cacfec20026d6493ebf75a15955dc0fe1af8"
+    sha256 cellar: :any, arm64_golden_gate: "896f7bb0936bd8bca5698a2ff348e042b55e98b64f98fda29a51be77f8f7fd24"
+    sha256 cellar: :any, arm64_tahoe:       "dc066f3caf74c0a80bca4173af88f163e0256bac7512403a41bfbfc906639a72"
+    sha256 cellar: :any, arm64_sequoia:     "e459f822eead20a77b2896e23fd5e01582a58f5c706b7ae728ec9e88ce2aef8f"
+    sha256 cellar: :any, arm64_linux:       "b4bc865d94cffcf69a14ddc82f11bcd143d7cd43592a154e1456d6b688049e0f"
+    sha256 cellar: :any, x86_64_linux:      "ca71f9635399e947ed1642490de7ea4f51736309b433c1d17bd71262ee2438af"
   end
 
   depends_on "cmake" => :build
