@@ -52,8 +52,8 @@ class Watchman < Formula
 
   def install
     # Match the F14 ABI in bottled Folly instead of compiling for the host CPU.
-    if OS.linux? && Hardware::CPU.intel? && Tab.for_formula(Formula["folly"]).built_as_bottle
-      ENV["HOMEBREW_OPTFLAGS"] = "-march=#{Hardware.oldest_cpu}"
+    if OS.linux? && Tab.for_formula(Formula["folly"]).built_as_bottle
+      ENV["HOMEBREW_OPTFLAGS"] = Hardware::CPU.optimization_flags.fetch(Hardware.oldest_cpu)
     end
 
     # Drop the `GlobPath` C++ type as its GPL-2.0 header is not mirrored to this repository
