@@ -3,17 +3,16 @@ class Pdfly < Formula
 
   desc "CLI tool to extract (meta)data from PDF and manipulate PDF files"
   homepage "https://pdfly.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/48/ae/70f161c80b3f39d8fe4ff784c78045225820d10375c81c2097c0e85ac0fc/pdfly-0.5.1.tar.gz"
-  sha256 "636e9736ca3296ed69ad7e14d997813ea5a662ba7a86c77d155e343494dcc3d7"
+  url "https://files.pythonhosted.org/packages/91/2a/b69aed6c37c8cf593fee55bb4ac104fab7e266f7694c1db76799e5db4a73/pdfly-0.6.0.tar.gz"
+  sha256 "20db6b5334139245424144ab8ee3ddaac67d5e47a206af48e057c64c0fcb151b"
   license "BSD-3-Clause"
-  revision 29
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "195c372516aeaac2eb7f7d33a0f14c3cf339f072d305de0db50907536ed4be88"
-    sha256 cellar: :any, arm64_tahoe:       "c57b27d5ff28e00d4e051017ceae72927e27401a87f8aaf6d7d3adcbda729f53"
-    sha256 cellar: :any, arm64_sequoia:     "4411e8ead3b37a9a7252a0dd5a51219d1fc926d6e9390a767ba64184b176a190"
-    sha256 cellar: :any, arm64_linux:       "276d21b0fda670eec9a9de684c1577f6eec183987fdd16bc690b70c74ce09fd6"
-    sha256 cellar: :any, x86_64_linux:      "883ee138f2ae128a40000e477dcc439ea17f373c3134cbcfebbadbc7fa130095"
+    sha256 cellar: :any, arm64_golden_gate: "2ffd61c559888bc70f73aca0fa874e341e72b7c05c5fb66ce8e1875f5e19b315"
+    sha256 cellar: :any, arm64_tahoe:       "c1be61cd135869e5cb1ab470386c01d81766a8facfde591a950b448d50ea1449"
+    sha256 cellar: :any, arm64_sequoia:     "d72591d3b7587412ec0dcf35445b99ff9dbbe80d4cdeafd23ca11894a528c458"
+    sha256 cellar: :any, arm64_linux:       "b3b231e2d1bfb2da008630fbfd159913ceda177bc6496c304622cee4a5baa48c"
+    sha256 cellar: :any, x86_64_linux:      "d948b5e7e8b92914a9e31cfee5cdaf026eeb24ee3d2591beb767579e9a4f0c12"
   end
 
   # `pkgconf` and `rust` are for bcrypt
@@ -30,23 +29,26 @@ class Pdfly < Formula
   uses_from_macos "libxml2"
   uses_from_macos "libxslt"
 
-  # TODO: Remove `endesive<3` once `pdfly` supports the `endesive` v3 `verify` API
-  pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic],
-                extra_packages:   %w[endesive<3]
+  pypi_packages exclude_packages: %w[certifi cryptography pillow pydantic]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
-    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+    url "https://files.pythonhosted.org/packages/0f/6e/a61e86e43bb6039b31a33a8f5fba76fe1cdacf3661e7b9756d4ff1b28cdc/annotated_doc-0.0.6.tar.gz"
+    sha256 "7969bb69912085b2285849c0dcac0b4b374fd180c13cf10a87f284ffcf347bbf"
   end
 
   resource "arabic-reshaper" do
-    url "https://files.pythonhosted.org/packages/f2/6c/6be41c689bd2f6e9274c77bf45be820e41ff1ecb9ab0a1d23964b6d04606/arabic_reshaper-3.0.1.tar.gz"
-    sha256 "a0d9b2a9fa29b5f2c1d705f407adf6ca4242405b9cac0e5cc09e6c4f3f8fb68c"
+    url "https://files.pythonhosted.org/packages/b6/e6/2c143bb2f25322d051da9ab6cf6f4ab79d9476ce668caca8741d81b1a47e/arabic_reshaper-3.1.0.tar.gz"
+    sha256 "87f9a3634ca64f67a18d04593eadb3a148794233ba408fbb625649feedcdd0e0"
   end
 
   resource "asn1crypto" do
     url "https://files.pythonhosted.org/packages/de/cf/d547feed25b5244fcb9392e288ff9fdc3280b10260362fc45d37a798a6ee/asn1crypto-1.5.1.tar.gz"
     sha256 "13ae38502be632115abf8a24cbe5f4da52e3b5231990aff31123c805306ccb9c"
+  end
+
+  resource "attrs" do
+    url "https://files.pythonhosted.org/packages/9a/8e/82a0fe20a541c03148528be8cac2408564a6c9a0cc7e9171802bc1d26985/attrs-26.1.0.tar.gz"
+    sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
   resource "bcrypt" do
@@ -65,8 +67,8 @@ class Pdfly < Formula
   end
 
   resource "endesive" do
-    url "https://files.pythonhosted.org/packages/a0/c3/a0dcae019de40816352462371c473b22639cd8e68f33a5f23f07faf330fd/endesive-2.19.3-py3-none-any.whl"
-    sha256 "e5e09c1011b1977fbb9d563d672de7f17f5638304ce57a35bf7d00f3b7a3972e"
+    url "https://files.pythonhosted.org/packages/c3/60/9b77c718a1cc454fe5792dea18221b99a27857fb331e713e8ed99d53ed33/endesive-3.0.4-py3-none-any.whl"
+    sha256 "ab60113966f13a7206413ec5ae1a1307b3032a105bcb2634dc188a7c5978c3a2"
   end
 
   resource "fonttools" do
@@ -95,8 +97,8 @@ class Pdfly < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdurl" do
@@ -115,8 +117,8 @@ class Pdfly < Formula
   end
 
   resource "pykcs11" do
-    url "https://files.pythonhosted.org/packages/9a/7f/caf69dafa28ce1d255bf719c0d5e38edc448b08d9847c8b1143fa2d6e503/pykcs11-1.5.20.tar.gz"
-    sha256 "1f7a7c8164fac636382aa7b0d70279ad5581379748fc17a20bc0be8fe574c259"
+    url "https://files.pythonhosted.org/packages/d3/2d/7fab1e9eb4e43831931a5cc8a202862b095a3a4e8c8cf992972535709057/pykcs11-1.5.21.tar.gz"
+    sha256 "581a52edd29d333a420b5b422dda0b88a14c5ec7fa898b58eb6969445a3e4554"
   end
 
   resource "pynacl" do
@@ -125,8 +127,8 @@ class Pdfly < Formula
   end
 
   resource "pypdf" do
-    url "https://files.pythonhosted.org/packages/1e/e1/ec8f4d155c997c45917153a5521e60d6ee6389d68abdcbc8e44e564caffc/pypdf-6.21.4.tar.gz"
-    sha256 "c8817e3f888d47a087872ded69812c1ef30cacb871d6e053e0c00bbaf0bc2163"
+    url "https://files.pythonhosted.org/packages/60/d3/367aa9baefaededd3321cde46bbcb9f008bb51cef3a6b745608352a99534/pypdf-7.1.0.tar.gz"
+    sha256 "ca3fa902369e98a6d2cb7b56396de902b72ef9bb3c1e8706c1bfc7d8bd0cf0d7"
   end
 
   resource "python-bidi" do
@@ -150,8 +152,8 @@ class Pdfly < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/6c/aa/0de7986aa1fa856adb961c67345189b97d13f6e250b34ba68884df865f07/typer-0.29.1.tar.gz"
+    sha256 "ab6eb3880bf67ce96147734717f9ec333c06f66e361f3ea947d0be43da39f242"
   end
 
   resource "urllib3" do
