@@ -5,6 +5,11 @@ class SshTpmAgent < Formula
   sha256 "74682d750b3dfa97388d9334fd9f48b797c688642bec0f30d192bb5085c12577"
   license "MIT"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_linux:  "da6db2dd2ad2cee583de59d02f4b3913871b7666ecc6c0e7e17e44a80575d6d0"
+    sha256 cellar: :any,                 x86_64_linux: "e5f42eace6a0666da95b20ef5c3269d53b4369d5457da6bd51c292e1eedb393c"
+  end
+
   depends_on "asciidoctor" => :build
   depends_on "go" => :build
   depends_on :linux
