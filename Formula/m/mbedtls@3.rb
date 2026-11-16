@@ -1,8 +1,8 @@
 class MbedtlsAT3 < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://www.trustedfirmware.org/projects/mbed-tls/"
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.7/mbedtls-3.6.7.tar.bz2"
-  sha256 "a7e8bcbec0e6f761b4af24f25677626b35f762f68eef79c08677a363212d11f6"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-3.6.8/mbedtls-3.6.8.tar.bz2"
+  sha256 "bc54b818e87f49c0b3281dd85d24adaede0e63b4e822e3fbd49c005a38b9595b"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -12,13 +12,11 @@ class MbedtlsAT3 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1a3f3c867bcbc93122a9e6a95159a47fcd2cccc7b3eb6416daca89751e81a815"
-    sha256 cellar: :any, arm64_tahoe:       "fd7f0577e006f5d4b7bae70773a1eb13d55dc00d7aac524d021ea72619b71da5"
-    sha256 cellar: :any, arm64_sequoia:     "7cd64fbb7ffb94fd34123f4afcebcb312d38a3d2f1d00b14ed6500291173545a"
-    sha256 cellar: :any, arm64_sonoma:      "c68f39491b22e489486cdca7ce952f937e2ab4d8b80aea4ad4265a15a8d73b62"
-    sha256 cellar: :any, sonoma:            "ab8e98482d1b2709f0de75d57efd496b755e8e81ad07f9c86f2a0a8249de3230"
-    sha256 cellar: :any, arm64_linux:       "6464bb53f579d74a0d25f494487a6dd0f38f202a537e77ce74610b62c750f071"
-    sha256 cellar: :any, x86_64_linux:      "f86301caf03146665db16c0877b10c1423275f3ba40f18f7ee024fb3138cb83a"
+    sha256 cellar: :any, arm64_golden_gate: "fd87eb9ce5612a9510d85130b036d8c2b34798d3128f53d992702c2f8276e5f5"
+    sha256 cellar: :any, arm64_tahoe:       "962810743b805cd8ddadc42b8e3c202463d521557a23b7ea972fa9ee2375989f"
+    sha256 cellar: :any, arm64_sequoia:     "4f12bfd22f62f27d11001294032c6e5fc6fa0ff4e2709c8bee29680765ffe787"
+    sha256 cellar: :any, arm64_linux:       "43a259f6d0dad1e677718e88b5a53e96f254a7bb3a9263890f368020e6098157"
+    sha256 cellar: :any, x86_64_linux:      "b9d85d0e42808636ae73d62a8a3245e9b97ebc4dcc6391b5a9a53bad3d34f327"
   end
 
   keg_only :versioned_formula
