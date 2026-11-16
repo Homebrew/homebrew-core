@@ -119,19 +119,18 @@ class Alot < Formula
 
   allow_network_access! :build
 
-  # Check for any changes needed in `extra_packages`
-  def check_pypi_extra_packages
-    pypi_deps = File.read("pyproject.toml")[/^dependencies\s*=\s*\[\s*"([^\]]*)"\s*,?\s*\]/, 1]
-    odie "Failed to parse PyPI dependencies from pyproject.toml!" if pypi_deps.nil?
-
-    pypi_deps = pypi_deps.split(/"\s*,\s*"/).map { |pypi_dep| pypi_dep[/^([a-z0-9._-]+)/i, 1] }
-    pypi_deps -= %w[gpg notmuch2]
-    pypi_deps.sort!
-    odie "Parsed extra_packages: #{pypi_deps.inspect}" if pypi_packages_info.extra_packages != pypi_deps
-  end
-
   def install
-    check_pypi_extra_packages if build.stable?
+    # Check for any changes needed in `extra_packages`
+    if build.stable?
+      pypi_deps = File.read("pyproject.toml")[/^dependencies\s*=\s*\[\s*"([^\]]*)"\s*,?\s*\]/, 1]
+      odie "Failed to parse PyPI dependencies from pyproject.toml!" if pypi_deps.nil?
+
+      pypi_deps = pypi_deps.split(/"\s*,\s*"/).map { |pypi_dep| pypi_dep[/^([a-z0-9._-]+)/i, 1] }
+      pypi_deps -= %w[gpg notmuch2]
+      pypi_deps.sort!
+      odie "Parsed extra_packages: #{pypi_deps.inspect}" if pypi_packages_info.extra_packages != pypi_deps
+    end
+
     venv = virtualenv_install_with_resources
 
     pkgshare.install Pathname("extra").children - [Pathname("extra/completion")]
