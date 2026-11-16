@@ -6,11 +6,11 @@ class Cdxgen < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256               arm64_golden_gate: "81e0d3798bec7bebe3200372a514e58f1238e3cfc58f01f45bbb56fc8e1ca0ab"
-    sha256               arm64_tahoe:       "73bcd50d6b955c9d685aacae58b522275ee94327e0aa17ed20b16567f8276fde"
-    sha256               arm64_sequoia:     "f8eb4251f9ced60c6f05cb62b6f9f8a0d5fb72148d74736d7f1f378b6a3bd9cd"
-    sha256 cellar: :any, arm64_linux:       "3c1fad323793afaacdbc81a92b1d825541a1363e18ad16f554c5807cda1bfb5c"
-    sha256 cellar: :any, x86_64_linux:      "6be41293152c964c884ce1d269e22f4585041bf7099785a48356789fafa43848"
+    sha256               arm64_golden_gate: "e9444ae6319836c56c6dba6007dd7b31db8331acb27328f8b3f73b2a683b96ae"
+    sha256               arm64_tahoe:       "b47705f154c7ed813cb246350db71934e4eed82e1e9e94eb9bdbc8546871896f"
+    sha256               arm64_sequoia:     "07568f162e43b75395d7bd69e7753090383a55b9ad9e754069c61ec8dc80bc6d"
+    sha256 cellar: :any, arm64_linux:       "bb36aed1cb4d20fd5e2380583f677ea5c8a904f0bf374bdd9fbddd4c0691aa86"
+    sha256 cellar: :any, x86_64_linux:      "f9fb0b48dd7735dcb8aba296433af844ecbd8d19373522545d971def21819cae"
   end
 
   depends_on "dotnet" # for dosai
