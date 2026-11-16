@@ -9,8 +9,7 @@ class GitBigPicture < Formula
   head "https://github.com/git-big-picture/git-big-picture.git", branch: "main"
 
   bottle do
-    rebuild 6
-    sha256 cellar: :any_skip_relocation, all: "a6cf32be8a82d9bde4c15d16212748953a6624f8f92cff6a73735299e2585412"
+    sha256 cellar: :any_skip_relocation, all: "77b72994c9726d745e8a8c7e75e25be1be9279789c0adc7acbfd170bce7c6f1c"
   end
 
   depends_on "graphviz"
