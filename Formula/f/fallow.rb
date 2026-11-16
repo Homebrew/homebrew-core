@@ -20,10 +20,12 @@ class Fallow < Formula
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
+    system "cargo", "fetch", *std_cargo_fetch_args, "--manifest-path", "tools/similar-code-sidecar/Cargo.toml"
   end
 
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
+    system "cargo", "install", *std_cargo_args(path: "tools/similar-code-sidecar")
   end
 
   test do
@@ -53,5 +55,8 @@ class Fallow < Formula
     assert_kind_of Hash, output.fetch("dupes")
     assert_kind_of Numeric, output.dig("health", "vital_signs", "dead_file_pct")
     assert_match version.to_s, shell_output("#{bin}/fallow --version")
+
+    status = JSON.parse(shell_output("#{bin}/fallow similar-code status --format json"))
+    assert_equal version.to_s, status.fetch("companion_version")
   end
 end
