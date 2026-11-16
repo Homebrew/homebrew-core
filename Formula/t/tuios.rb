@@ -7,11 +7,11 @@ class Tuios < Formula
   head "https://github.com/Gaurav-Gosain/tuios.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "582ac02e93cf2640274cc8f5112cbdce320688cf9d5b4897c187d8761778746a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4bb478f3f2aded8964b8477064e0c8ea6806f65b32582a7a6dc9e119185e22a7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c9e0f437479d5b01106efa8e7632e678e68fb60eaa47c45557d7092dfdcee80"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "49069e36cb6e4ab7daeadfd77ef675dc5a150fa78aeb020562f33820ca13e0d7"
-    sha256 cellar: :any,                 x86_64_linux:      "69ea7f61a1dbb4fb6259a51038d93400e882fa4e36ea5ffb23e393806e3057b5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f5c4ce89d00e42edf78401fcd6bc0fcd6ea6f7b8c423b864e429618cd603615"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "beffbd548dfc11b0e5ebbb420db9e5c720bf1367bdcf1656a6ea928e5dbd91ba"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f76cf206b307791d48638769e1b468839d03211249b65bedb4b8c11b0195f34b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b19265ef329dc75acb570d1a787cfec726cc4ccfaeaf0ac87bc49767784aa49b"
+    sha256 cellar: :any,                 x86_64_linux:      "105966aea7918bab73553ebb162e2e5ea630739cfcd0be7a2b747b3138320a6a"
   end
 
   depends_on "go" => :build
