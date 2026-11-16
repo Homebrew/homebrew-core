@@ -49,22 +49,7 @@ class Icecream < Formula
     system "make", "install"
 
     # Manually install scheduler property list
-    (prefix/"#{plist_name}-scheduler.plist").write scheduler_plist
-  end
-
-  def caveats
-    <<~EOS
-      To override the toolset with icecc, add to your path:
-        #{opt_libexec}/icecc/bin
-    EOS
-  end
-
-  service do
-    run opt_sbin/"iceccd"
-  end
-
-  def scheduler_plist
-    <<~XML
+    (prefix/"#{plist_name}-scheduler.plist").write <<~XML
       <?xml version="1.0" encoding="UTF-8"?>
       <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
       <plist version="1.0">
@@ -80,6 +65,17 @@ class Icecream < Formula
       </dict>
       </plist>
     XML
+  end
+
+  def caveats
+    <<~EOS
+      To override the toolset with icecc, add to your path:
+        #{opt_libexec}/icecc/bin
+    EOS
+  end
+
+  service do
+    run opt_sbin/"iceccd"
   end
 
   test do
