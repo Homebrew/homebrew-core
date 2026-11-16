@@ -150,6 +150,7 @@ jobs:
               path: Formula/.+@.+
               except:
                 - Formula/b/bash-completion@2.rb
+                - Formula/g/go@1.27.rb
                 - Formula/i/icu4c@79.rb
                 - Formula/lib/libxml++@5.rb
                 - Formula/o/openssl@4.rb
@@ -296,7 +297,7 @@ jobs:
                 gettext|\
                 ghc|\
                 glib|\
-                go|\
+                go(@[0-9.]+)?|\
                 libx11|\
                 libxml2|\
                 ocaml|\
