@@ -1,8 +1,8 @@
 class Skopeo < Formula
   desc "Work with remote images registries"
   homepage "https://github.com/podman-container-tools/skopeo"
-  url "https://github.com/podman-container-tools/skopeo/archive/refs/tags/v1.25.1.tar.gz"
-  sha256 "8e889df322ec3d9457a2e3b61ba9fa77759dd81dac857514333fb3b837e98b65"
+  url "https://github.com/podman-container-tools/skopeo/archive/refs/tags/v1.25.2.tar.gz"
+  sha256 "d2ebe154195934908e2dd8d992bfda5dc554e1f5d8586c49b6a931fd69563d24"
   license "Apache-2.0"
 
   bottle do
