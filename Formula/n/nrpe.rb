@@ -56,15 +56,6 @@ class Nrpe < Formula
     run [opt_bin/"nrpe", "-c", etc/"nrpe.cfg", "-d"]
   end
 
-  def port_open?(ip_address, port, seconds = 1)
-    Timeout.timeout(seconds) do
-      TCPSocket.new(ip_address, port).close
-    end
-    true
-  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
-    false
-  end
-
   test do
     port = free_port
     cp etc/"nrpe.cfg", testpath
@@ -74,8 +65,12 @@ class Nrpe < Formula
     sleep 2
 
     begin
-      assert port_open?("localhost", port), "nrpe did not start"
+      Timeout.timeout(1) do
+        TCPSocket.new("localhost", port).close
+      end
       pid_nrpe = shell_output("pgrep nrpe").to_i
+    rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
+      flunk "nrpe did not start"
     ensure
       Process.kill("SIGINT", pid_nrpe) if pid_nrpe
       Process.kill("SIGINT", pid)
