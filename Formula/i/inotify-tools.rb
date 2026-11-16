@@ -1,14 +1,14 @@
 class InotifyTools < Formula
   desc "C library and command-line programs providing a simple interface to inotify"
   homepage "https://github.com/inotify-tools/inotify-tools"
-  url "https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.26.277.tar.gz"
-  sha256 "13a62e1287de19d3553a379c65cf8519d9cb9fc0acb3ac4eadcc13fee686dde0"
+  url "https://github.com/inotify-tools/inotify-tools/archive/refs/tags/4.26.282.tar.gz"
+  sha256 "19e8db0825186e116c37401fafc63dee3f251a98a9697817c7a8ba75c8ff54aa"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "83eaa25de0bd16346a4ceb99f5c6a88c32c5ea3983f9de88c491e78e239051d1"
-    sha256 cellar: :any, x86_64_linux: "c862396fa3b1814921a73d15bb3c90f235dbdb78c07247624d97fd457de48f78"
+    sha256 cellar: :any, arm64_linux:  "383081d25b3b66361bb12f08c0440275d2391a03277cbc5eff04bdf65dfdde4f"
+    sha256 cellar: :any, x86_64_linux: "26c6e9c70c9bf46d96002f4370f821716c53db67b730266dbe7642e8bd384cd2"
   end
 
   depends_on "rust" => :build
