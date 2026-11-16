@@ -3,8 +3,8 @@ class GitDeleteMergedBranches < Formula
 
   desc "Command-line tool to delete merged Git branches"
   homepage "https://github.com/hartwork/git-delete-merged-branches"
-  url "https://files.pythonhosted.org/packages/38/c8/da076635e5b5002b8bb5c47add8c91e0e1a96f3e0bfa5772b75782388962/git_delete_merged_branches-7.7.0.tar.gz"
-  sha256 "56b539a72fe856014a0ca0ab1430d612285fd8dd54fff67e1350bb37431cc264"
+  url "https://files.pythonhosted.org/packages/a4/33/1e405ab4476d848521c9e8003d71c3def188843c9a385c5d546c651c5724/git_delete_merged_branches-7.7.1.tar.gz"
+  sha256 "927b7a5fd43da974a233451bbbebf6ce630b1da3cfda7f69fe8905bac284e7d5"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -30,8 +30,8 @@ class GitDeleteMergedBranches < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   def install
