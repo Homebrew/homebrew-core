@@ -1,17 +1,17 @@
 class Ytt < Formula
   desc "YAML templating tool that works on YAML structure instead of text"
   homepage "https://carvel.dev/ytt/"
-  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.55.4.tar.gz"
-  sha256 "4a970198c479330c49019be4ccb56513a58623e1e10300d1d188f30e14935a61"
+  url "https://github.com/carvel-dev/ytt/archive/refs/tags/v0.56.0.tar.gz"
+  sha256 "1501389183ba44046e55ae76b4d6b4bff9a162f0c74ddbafbfce7723930217af"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/ytt.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26c958b6072705f2b5f99736988c66512ad1d683816103803654b69ffc413647"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26c958b6072705f2b5f99736988c66512ad1d683816103803654b69ffc413647"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26c958b6072705f2b5f99736988c66512ad1d683816103803654b69ffc413647"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "974da88c012968da79751db594567434b1b8c7e1f4ed00b1f297b86de1971525"
-    sha256 cellar: :any,                 x86_64_linux:      "3e5bc79a3b442accacc7f026b0978d45862c2031009b8258cb4c408208ae37a8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed3eac89c8f22af057743593217a71e41048da6aac63b097518d3950f7611f1f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed3eac89c8f22af057743593217a71e41048da6aac63b097518d3950f7611f1f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed3eac89c8f22af057743593217a71e41048da6aac63b097518d3950f7611f1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5450b0fe661ec257f8b415e7899a1c3d19b00d480ffb072086ded911f5143116"
+    sha256 cellar: :any,                 x86_64_linux:      "c79eb38e462840f93cb882c66199d46a4c53b2a18c07008a29bc0c60b7a20964"
   end
 
   depends_on "go" => :build
