@@ -4,6 +4,7 @@ class FluidSynth < Formula
   url "https://github.com/FluidSynth/fluidsynth/archive/refs/tags/v2.6.2.tar.gz"
   sha256 "ca376b42a3c1b186a4c8c248931789a455ac94a89b777394969d678010c2f91f"
   license "LGPL-2.1-or-later"
+  revision 1
   compatibility_version 1
   head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
 
@@ -79,16 +80,6 @@ class FluidSynth < Formula
       -Denable-winmidi=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-
-    # On macOS, readline is keg-only so use the absolute path to its pc file
-    # uses_from_macos "readline" produces another error
-    # Related error: Package 'readline', required by 'fluidsynth', not found
-    if OS.mac?
-      inreplace "build/fluidsynth.pc",
-                "readline",
-                "#{formula_opt_lib("readline")}/pkgconfig/readline.pc"
-    end
-
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "sf2"
@@ -102,7 +93,8 @@ class FluidSynth < Formula
     assert_path_exists wavout
 
     # Check the pkg-config module
-    ENV.append_path "PKG_CONFIG_PATH", Formula["systemd"].lib/"pkgconfig" if OS.linux?
+    ENV.append_path "PKG_CONFIG_PATH", formula_opt_lib("systemd")/"pkgconfig" if OS.linux?
+    ENV.append_path "PKG_CONFIG_PATH", formula_opt_lib("readline")/"pkgconfig" if OS.mac?
     system "pkgconf", "--cflags", "--libs", "--static", lib/"pkgconfig/fluidsynth.pc"
   end
 end
