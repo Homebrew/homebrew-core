@@ -1,11 +1,10 @@
 class Sdl2Gfx < Formula
   desc "SDL2 graphics drawing primitives and other support functions"
   homepage "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
-  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.4.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/sdl2gfx/SDL2_gfx-1.0.4.tar.gz"
-  sha256 "63e0e01addedc9df2f85b93a248f06e8a04affa014a835c2ea34bfe34e576262"
+  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.1.0.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/sdl2gfx/SDL2_gfx-1.1.0.tar.gz"
+  sha256 "9843924d46eacbabba685a239cf2284b948766a20ef2caa48cb18462a3295caf"
   license "Zlib"
-  revision 1
   compatibility_version 1
 
   livecheck do
