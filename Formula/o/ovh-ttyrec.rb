@@ -1,8 +1,8 @@
 class OvhTtyrec < Formula
   desc "Enhanced (but compatible) version of the classic ttyrec"
   homepage "https://github.com/ovh/ovh-ttyrec"
-  url "https://github.com/ovh/ovh-ttyrec/archive/refs/tags/v1.2.0.0.tar.gz"
-  sha256 "74a474ea33090a9a814c186429c2f725c0bfa1f9d3ceee03caf999daf047eb41"
+  url "https://github.com/ovh/ovh-ttyrec/archive/refs/tags/v1.2.0.1.tar.gz"
+  sha256 "d6b841c8d01f8d8a744f585ac765f2837054ed0a190cc0985d81e74972becc3a"
   license all_of: ["BSD-3-Clause", "BSD-4-Clause-UC"]
   compatibility_version 1
 
