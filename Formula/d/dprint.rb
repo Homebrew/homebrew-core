@@ -1,8 +1,8 @@
 class Dprint < Formula
   desc "Pluggable and configurable code formatting platform written in Rust"
   homepage "https://dprint.dev/"
-  url "https://github.com/dprint/dprint/archive/refs/tags/0.64.3.tar.gz"
-  sha256 "5aca2a32a9a69fa2a6d0abf7732f1ce394a93d239fbd0e3e82982b90f77d8f19"
+  url "https://github.com/dprint/dprint/archive/refs/tags/0.65.0.tar.gz"
+  sha256 "e38e5725b171e6b80e213e278e8e929c672a466f83ea20c68829ab4fdd0b8380"
   license "MIT"
   head "https://github.com/dprint/dprint.git", branch: "main"
 
