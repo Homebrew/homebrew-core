@@ -1,8 +1,8 @@
 class Corkscrew < Formula
   desc "Tunnel SSH through HTTP proxies"
   homepage "https://packages.debian.org/sid/corkscrew"
-  url "https://deb.debian.org/debian/pool/main/c/corkscrew/corkscrew_2.0.orig.tar.gz"
-  sha256 "0d0fcbb41cba4a81c4ab494459472086f377f9edb78a2e2238ed19b58956b0be"
+  url "https://deb.debian.org/debian/pool/main/c/corkscrew/corkscrew_3.1.orig.tar.gz"
+  sha256 "0f9c62466b4cbb13e3384eda2e00eb5e793acf82a5c2980d81a334151d202255"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -11,30 +11,21 @@ class Corkscrew < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c681a95d2fc48605fcc588fddb412f4aa028daa23ce1024bffe9d5604d1edfff"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ddf9f9bccfc3f8abdac5ab156b3adebb82d263eec75503ca53b657dba4e310f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d17faa8d3e8eb0fe11107515daf53fd0f9d22caaaa0d32993ca6e961ee9559cf"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8f7a6be3731dfae7b92f6da9091b3e4665473c77b58c6f4d21d2cf6c6c511750"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "1bd52cc5c72e9ca3461dc63fdfb584ac3622a57effae88f14a8e7eab146a57b8"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "d1add42728d114c019b0621bbd8aa9f3f95c433e006f38bdba71d9387e667357"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "7882ab8fa538eb9eee596f56fa6f65c14f1f3e467a822ce7a39ea197d2fe08a5"
-    sha256 cellar: :any_skip_relocation, sonoma:            "58a7a24041d6103063a3f4f8c96e1729afc175370aa27df66d0604a887fb61c3"
-    sha256 cellar: :any_skip_relocation, ventura:           "16b81ff2ca5d308f0eb953399f4ec771870ff1019d93b69630f1218fbd185dc5"
-    sha256 cellar: :any_skip_relocation, monterey:          "51bb3c53d276f9abc51f7b6338ef96f3b2bd7686d8b331eb0ffdb52b51bdf9f1"
-    sha256 cellar: :any_skip_relocation, big_sur:           "af93a7005479f2004b385e484c633f42577d7cd99272d5e7ec4c17e3d0239a7b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6961a98bcd314dd0590a00dcddf7101d673b5c6933b938b271e4f93a82d22c78"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "aad5bc0cad7686b7741300366d92107ed90c84eabc8868d309a2f61c96b3135d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62b0ee031c60f51caa016df4dcf6142422a3f1fe843c471fa9a509117db7f107"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fb1637fe7c64ef0780be509b1882ef5607b92f5773a3cf0992455b4b8d6f7a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60b43c6123028edd4951e90bbe16241142cfb4c84a2f2e4db96eef2d802d31b4"
+    sha256 cellar: :any,                 arm64_linux:       "2885bc238c073fa4f35dfbee77d99715c78b9d38b2ec4f064f1c67b608472e69"
+    sha256 cellar: :any,                 x86_64_linux:      "796908dd8289874d957995c0d749ce6f7a36abebb263029e07fb6cc084ecda22"
   end
 
-  depends_on "libtool" => :build
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
 
   allow_network_access! :test
 
   def install
-    # Workaround for newer Clang
-    ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
-
-    cp Dir["#{Formula["libtool"].opt_share}/libtool/*/config.{guess,sub}"], buildpath
+    # Generated Autotools files are not shipped in the source tarball
+    system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-debug",
                           "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
