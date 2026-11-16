@@ -4,6 +4,7 @@ class Hashlink < Formula
   url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.16.tar.gz"
   sha256 "c392ce6e1d3670bcb60c85d83a161591707de9cdb6b00b48e79f9ea7807fc5a9"
   license "MIT"
+  revision 1
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   bottle do
