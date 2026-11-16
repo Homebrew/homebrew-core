@@ -1,18 +1,16 @@
 class CcConnect < Formula
   desc "Bridges local AI coding agents to messaging platforms"
   homepage "https://github.com/chenhg5/cc-connect"
-  url "https://github.com/chenhg5/cc-connect/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "23904ca3c3d73dcc84316a039c30ff87448fcbb33f4170633ffd32cf3eea599d"
+  url "https://github.com/chenhg5/cc-connect/archive/refs/tags/v1.5.2.tar.gz"
+  sha256 "3edbccd5c66848f14239f9778cdd7e0941f0d5d3b276bb424472e2c975dcb5fd"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb04d1fb8d1ad51e898d119cc659bd10538afaf40a329442811d375356867488"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27cdce6fc16b6bc75a22a7b2158ce3d7ff0747c885fa4fe5d4e5de02bf19db18"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "27cdce6fc16b6bc75a22a7b2158ce3d7ff0747c885fa4fe5d4e5de02bf19db18"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "27cdce6fc16b6bc75a22a7b2158ce3d7ff0747c885fa4fe5d4e5de02bf19db18"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d13532caf2cb94ea70f453d1704c871841080d1fdf63e484541e7e651431f2f5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e29b824eb1cc5f57fcffed836a5d0b41c3da53ef646571f19789f67f9bec4fdf"
-    sha256 cellar: :any,                 x86_64_linux:      "b89d982451e283ed2437f93c6b11aeaee9a571dca65c3de622ad147013705297"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85ee53685016266995812330136390666bb8bbcd16c0ff4e5b9a710609f14810"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "85ee53685016266995812330136390666bb8bbcd16c0ff4e5b9a710609f14810"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85ee53685016266995812330136390666bb8bbcd16c0ff4e5b9a710609f14810"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "dd6ff31da1cf9a46e3341a7062b51512bd4684937f118933073843d7908f2d1b"
+    sha256 cellar: :any,                 x86_64_linux:      "2f6867669b756e725971fa4d18a3d41a4c049dcaf0518157cc71bab1b2acbd2c"
   end
 
   depends_on "go" => :build
