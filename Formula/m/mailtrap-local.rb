@@ -1,8 +1,8 @@
 class MailtrapLocal < Formula
   desc "Local email sandbox with SMTP server, web UI, and JSON API"
   homepage "https://github.com/mailtrap/mailtrap-local"
-  url "https://github.com/mailtrap/mailtrap-local/archive/refs/tags/v0.5.0.tar.gz"
-  sha256 "91d30439b3420d72939900d604e0a232504f1fca77546d46cae2b8ca77e7bba6"
+  url "https://github.com/mailtrap/mailtrap-local/archive/refs/tags/v0.5.1.tar.gz"
+  sha256 "15fc6a2ef722fd3d97bebd36dee91d72ea2c9e2d54b04f580d276c0ae15ebe90"
   license "MIT"
 
   bottle do
