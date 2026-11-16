@@ -1,16 +1,16 @@
 class Cdxgen < Formula
   desc "Creates CycloneDX Software Bill-of-Materials (SBOM) for projects"
   homepage "https://github.com/cdxgen/cdxgen"
-  url "https://registry.npmjs.org/@cdxgen/cdxgen/-/cdxgen-13.7.0.tgz"
-  sha256 "47b1ff1c7277a5c620495d4731fe2d63368fa28896039201ea8abfcbc94d9b82"
+  url "https://registry.npmjs.org/@cdxgen/cdxgen/-/cdxgen-13.8.0.tgz"
+  sha256 "c18f07296aecd7f957f0986a5407919810c4290de0ca011e0da8a97cb82c706a"
   license "Apache-2.0"
 
   bottle do
-    sha256               arm64_golden_gate: "81e0d3798bec7bebe3200372a514e58f1238e3cfc58f01f45bbb56fc8e1ca0ab"
-    sha256               arm64_tahoe:       "73bcd50d6b955c9d685aacae58b522275ee94327e0aa17ed20b16567f8276fde"
-    sha256               arm64_sequoia:     "f8eb4251f9ced60c6f05cb62b6f9f8a0d5fb72148d74736d7f1f378b6a3bd9cd"
-    sha256 cellar: :any, arm64_linux:       "3c1fad323793afaacdbc81a92b1d825541a1363e18ad16f554c5807cda1bfb5c"
-    sha256 cellar: :any, x86_64_linux:      "6be41293152c964c884ce1d269e22f4585041bf7099785a48356789fafa43848"
+    sha256               arm64_golden_gate: "e9444ae6319836c56c6dba6007dd7b31db8331acb27328f8b3f73b2a683b96ae"
+    sha256               arm64_tahoe:       "b47705f154c7ed813cb246350db71934e4eed82e1e9e94eb9bdbc8546871896f"
+    sha256               arm64_sequoia:     "07568f162e43b75395d7bd69e7753090383a55b9ad9e754069c61ec8dc80bc6d"
+    sha256 cellar: :any, arm64_linux:       "bb36aed1cb4d20fd5e2380583f677ea5c8a904f0bf374bdd9fbddd4c0691aa86"
+    sha256 cellar: :any, x86_64_linux:      "f9fb0b48dd7735dcb8aba296433af844ecbd8d19373522545d971def21819cae"
   end
 
   depends_on "dotnet" # for dosai
@@ -20,8 +20,8 @@ class Cdxgen < Formula
   depends_on "trivy"
 
   resource "dosai" do
-    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v4.1.0.tar.gz"
-    sha256 "f988bda63f1fd6b648f4bd177bb8b1526b953434735a75d9590b9ebfcaca98f9"
+    url "https://github.com/owasp-dep-scan/dosai/archive/refs/tags/v5.0.0.tar.gz"
+    sha256 "e2c431ef8ca2e6bbac8a2c1325a856e7ec8a38c3f0155817ed409589d68bdaa8"
   end
 
   # For `npm` and `dotnet`
@@ -55,11 +55,14 @@ class Cdxgen < Formula
     # Remove pre-built osquery plugins for macOS arm builds
     paths_to_remove << (cdxgen_plugins/"osquery") if OS.mac? && Hardware::CPU.arm?
 
+    rm_r(paths_to_remove)
+
     resource("dosai").stage do
       ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
       # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
       ENV["XDG_RUNTIME_DIR"] = buildpath
       dosai_cmd = "dosai-#{os}-#{arch}"
+      # .NET 11 SDK fails to bundle a single-file app with `AppHostRelativeDotNet`
       args = %W[
         --configuration Release
         --framework net#{dotnet.version.major_minor}
@@ -69,12 +72,10 @@ class Cdxgen < Formula
         -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(cdxgen_plugins/"dosai")}
         -p:AssemblyName=#{dosai_cmd}
         -p:DebugType=None
-        -p:PublishSingleFile=true
+        -p:PublishSingleFile=false
       ]
       system "dotnet", "publish", "Dosai", *args
     end
-
-    rm_r(paths_to_remove)
 
     # Reinstall for native dependencies
     cd node_modules/"@appthreat/atom-parsetools/plugins/rubyastgen" do
