@@ -3,8 +3,8 @@ class Cogapp < Formula
 
   desc "Small bits of Python computation for static files"
   homepage "https://cog.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/64/ea/4ffa8095e0b675e9961cbdcad002c09d35d4ab76ff99d61a014e9e6bcd53/cogapp-3.6.0.tar.gz"
-  sha256 "ec2a9170bfa644bf0d91996fdb5576c13d7e5e848bb2378a6f92727b48f92604"
+  url "https://files.pythonhosted.org/packages/e6/d0/27e6f75da2566cbd1de24def03e035b619a5ab4fc41e9a8dbfa6b5d4f5e0/cogapp-3.6.1.tar.gz"
+  sha256 "e32bc61abe21406bfc1be6559ba97cebcedf99f290742914bd0817b6e3d80bb1"
   license "MIT"
   compatibility_version 1
 
