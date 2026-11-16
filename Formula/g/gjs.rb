@@ -19,11 +19,11 @@ class Gjs < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f93b65ca60e52b8833344bda506df19997c32d8a34e422548748bde277c89788"
-    sha256 arm64_tahoe:       "a9e1b42017122494a80d4fce0d44f77cd88bf222bba5e179228228ffef1c3957"
-    sha256 arm64_sequoia:     "4c7508614bf734d99e4cfab1c4f70869e871f641dd63de0761dd835e443db2d0"
-    sha256 arm64_linux:       "b9e5d298a3204a855d54e3fac66c4a7e51cce1174c0043940e139581081b838f"
-    sha256 x86_64_linux:      "81109de506c5915ba9e6884037aae5e25421bdf464b2d6220863917c89824172"
+    sha256 arm64_golden_gate: "dac6814353d5aa4867f37e007a2efb5906eafefe7b9f43bf66592c97e76fd0f5"
+    sha256 arm64_tahoe:       "067f6d6975f0c99543a333890d39e26810e587d9d7fa819e1783bfe1afcdf834"
+    sha256 arm64_sequoia:     "fd873f01f7508ecea864049ef226f0123926055d6e19f6058b5a97fd44c5548a"
+    sha256 arm64_linux:       "02327fa4f9a3a8c5c07c63c962b613464d16b6e76748352fefae7bc93cca21ff"
+    sha256 x86_64_linux:      "0dc866c495788a3dd7f67db35bf19c425e262b716f47bac636f8cb869d6aecba"
   end
 
   depends_on "gobject-introspection" => :build # for generate_gir
