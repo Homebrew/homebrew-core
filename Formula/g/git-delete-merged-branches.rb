@@ -3,16 +3,16 @@ class GitDeleteMergedBranches < Formula
 
   desc "Command-line tool to delete merged Git branches"
   homepage "https://github.com/hartwork/git-delete-merged-branches"
-  url "https://files.pythonhosted.org/packages/38/c8/da076635e5b5002b8bb5c47add8c91e0e1a96f3e0bfa5772b75782388962/git_delete_merged_branches-7.7.0.tar.gz"
-  sha256 "56b539a72fe856014a0ca0ab1430d612285fd8dd54fff67e1350bb37431cc264"
+  url "https://files.pythonhosted.org/packages/a4/33/1e405ab4476d848521c9e8003d71c3def188843c9a385c5d546c651c5724/git_delete_merged_branches-7.7.1.tar.gz"
+  sha256 "927b7a5fd43da974a233451bbbebf6ce630b1da3cfda7f69fe8905bac284e7d5"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3be33f56aa1a810e2acd2af9f167bc45ccace4de9d82be49ef9d56ed9c68c8ba"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e49484beb977c01039ede0acfe52b41e52f7070d57b741a570761beee76dd030"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f8cbdd496861d1800b00353183ba20a6c63f6e66ac7249051ca82f25c455128f"
-    sha256 cellar: :any,                 arm64_linux:       "e5c25528cf9709f16b1db8b63589a27285f577c9c99cff96e26c4f4edf03c2ea"
-    sha256 cellar: :any,                 x86_64_linux:      "d7d2941dd363f3a33722424a67aa60c747fd38c7b33c993a999761016b088540"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48d119d3ba7d7554005f6cc2bc5fb8e405fc08e6f5b817b5c26d292fa39d177d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7276eb47e4a2d72bd714b39b10ef73d0f2332c5370d1daaa3fc17c833c5f6cb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6351012a1dc76f15ee3c1308bbdcf5bdda2c36c043deb08ae3b2bf6f411c911c"
+    sha256 cellar: :any,                 arm64_linux:       "ad5d6a27229eeeb8f0993f7511044feaa2547eac5f6d984f5b8d8704fd5eeb8f"
+    sha256 cellar: :any,                 x86_64_linux:      "32d5839f994dde606fa3c6db31e92386f47ed8d32e87a7325d6d07dc2d3398e1"
   end
 
   depends_on "python@3.15"
@@ -30,8 +30,8 @@ class GitDeleteMergedBranches < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/f0/b4/7830542634bb2d3e62aa3b586a72d5b3b6c91c3168929e7000ef3fed041d/wcwidth-0.9.2.tar.gz"
-    sha256 "ae0ef90b90f6af38b54f1fe6d58662ec33b3cb4b8391958a62416d654231727b"
+    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
+    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
   def install
