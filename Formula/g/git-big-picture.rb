@@ -3,8 +3,8 @@ class GitBigPicture < Formula
 
   desc "Visualization tool for Git repositories"
   homepage "https://github.com/git-big-picture/git-big-picture"
-  url "https://files.pythonhosted.org/packages/0e/d1/32f316a79c1d4becb1f9855637ebe91e3ac987a46b1511bb4e3c93769bb5/git_big_picture-1.4.0.tar.gz"
-  sha256 "9d4f5163252a2ad838b5261316132064ef3bd23dacffb616b8b95a6ccc315c41"
+  url "https://files.pythonhosted.org/packages/be/db/ccd8e2c699a6d2b1f98e56ad5fce4f193b0a64554f0d7016afc42c90f909/git_big_picture-1.4.1.tar.gz"
+  sha256 "ed3e30fe43ee35b5fb6116fedffc12d1b98900e0984367016b177906bbeea2a8"
   license "GPL-3.0-or-later"
   head "https://github.com/git-big-picture/git-big-picture.git", branch: "main"
 
