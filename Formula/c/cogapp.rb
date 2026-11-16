@@ -9,8 +9,7 @@ class Cogapp < Formula
   compatibility_version 1
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "b73ade25b3b055d47463fbc6f937bf61fb074c5af1976b96039c373d4971d44a"
+    sha256 cellar: :any_skip_relocation, all: "15c3c54cde04811f64cbd87de1954cf9d2e298a3cb607a8aea373b0f10ea00cc"
   end
 
   depends_on "python@3.15"
