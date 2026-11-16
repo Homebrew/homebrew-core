@@ -84,21 +84,9 @@ class Nss < Formula
     # resolves conflict with openssl, see legacy-homebrew#28258
     rm lib/"libssl.a"
 
-    (bin/"nss-config").write config_file
-    (lib/"pkgconfig/nss.pc").write pc_file
-  end
-
-  test do
-    # See: https://developer.mozilla.org/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil
-    (testpath/"passwd").write("It's a secret to everyone.")
-    system bin/"certutil", "-N", "-d", pwd, "-f", "passwd"
-    system bin/"certutil", "-L", "-d", pwd
-  end
-
-  # A very minimal nss-config for configuring firefox etc. with this nss,
-  # see https://bugzil.la/530672 for the progress of upstream inclusion.
-  def config_file
-    <<~SH
+    # A very minimal nss-config for configuring firefox etc. with this nss,
+    # see https://bugzil.la/530672 for the progress of upstream inclusion.
+    (bin/"nss-config").write <<~SH
       #!/bin/sh
       for opt; do :; done
       case "$opt" in
@@ -108,10 +96,7 @@ class Nss < Formula
       esac
       pkg-config "$opt" nss
     SH
-  end
-
-  def pc_file
-    <<~PC
+    (lib/"pkgconfig/nss.pc").write <<~PC
       prefix=#{prefix}
       exec_prefix=${prefix}
       libdir=${exec_prefix}/lib
@@ -124,5 +109,12 @@ class Nss < Formula
       Libs: -L${libdir} -lnss3 -lnssutil3 -lsmime3 -lssl3
       Cflags: -I${includedir}
     PC
+  end
+
+  test do
+    # See: https://developer.mozilla.org/docs/Mozilla/Projects/NSS/tools/NSS_Tools_certutil
+    (testpath/"passwd").write("It's a secret to everyone.")
+    system bin/"certutil", "-N", "-d", pwd, "-f", "passwd"
+    system bin/"certutil", "-L", "-d", pwd
   end
 end
