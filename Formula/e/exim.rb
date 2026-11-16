@@ -120,12 +120,8 @@ class Exim < Formula
     system "make"
     system "make", "INSTALL_ARG=-no_chown", "install"
     man8.install "doc/exim.8"
-    (bin/"exim_ctl").write startup_script
-  end
-
-  # Inspired by MacPorts startup script. Fixes restart issue due to missing setuid.
-  def startup_script
-    <<~SH
+    # Inspired by MacPorts startup script. Fixes restart issue due to missing setuid.
+    (bin/"exim_ctl").write <<~SH
       #!/bin/sh
       PID=#{var}/spool/exim/exim-daemon.pid
       case "$1" in
