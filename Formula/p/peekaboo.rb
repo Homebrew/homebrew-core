@@ -2,15 +2,15 @@ class Peekaboo < Formula
   desc "macOS screen capture, accessibility inspection and UI automation"
   homepage "https://peekaboo.sh/"
   url "https://github.com/openclaw/Peekaboo.git",
-      tag:      "v4.9.8",
-      revision: "70dbc4183f390a5a72d5dc01d8a77eb672217070"
+      tag:      "v4.9.9",
+      revision: "4fed4e3043afcae890807103e6effab815a7c18c"
   license "MIT"
   head "https://github.com/openclaw/Peekaboo.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17230b6c166608a6438860dcfe6647cf2ba553b3a4c3e2505dbf8dea88a8def4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7ecca78f9f21fb8b36334047a2c58b61cce125fdeeded7ec01fa7568bd67e23"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a8bf5c2b06a8fde56aa7a042e2a590a81fd70f37e5de9db7130d1d70a209970"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df2a9b22a97747a538381311721d5659f3bd32acaa2ea61e5da8ec45bc7c3f5c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71f586b9424d0d6129cbec2501de1559703f07947e26bfa7322d7e8fd2e60c3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a432988b1edb15c8c2fbfdd85e6ca9c65723ca6490c2610227b7614935511e13"
   end
 
   depends_on xcode: ["26.0", :build]
