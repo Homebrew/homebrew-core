@@ -11,12 +11,11 @@ class Libvisio < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f6c46631395a9695cf7240e38290ebe11e4932ae6f569d1ebf0925e888d64f6d"
-    sha256 cellar: :any, arm64_tahoe:       "536572b5add38a100515efc8e55de85eaedfba4736a9121eaa7307bd52891a5c"
-    sha256 cellar: :any, arm64_sequoia:     "7b612c0a6c487ac18f4665d020a5df3c2f62f5b4414d1daf65f80f3e94a17557"
-    sha256 cellar: :any, arm64_linux:       "209a7ab01a37b20cc8067759e0cc3ad150826a7dbecb18ddcaa643d15b25ce03"
-    sha256 cellar: :any, x86_64_linux:      "b4ef239f44233e716211b36fc5eebb8d5abb664edcee44d12734f80ed2b17e66"
+    sha256 cellar: :any, arm64_golden_gate: "1ba55bc6d363dfb65454fd5f2ef269b6164ac924136f67554ab0f204fc34abb6"
+    sha256 cellar: :any, arm64_tahoe:       "2e6e55f0f80404a0239a22f61f424b28cd377312e1ca87b0a02e0a6fd5ac0423"
+    sha256 cellar: :any, arm64_sequoia:     "f1c5ef54bd6dd1f0e8b0aaab02b0aa2eb7595fd2e8c0c5a8663420fb2dd6a9f4"
+    sha256 cellar: :any, arm64_linux:       "9526fa22207e87c93999a3edb687c335929b0c5ff1c74b9d0812aea43f24ae11"
+    sha256 cellar: :any, x86_64_linux:      "ad180b002f535be0fdc631db0f738442e250b6286b903f0edb4889fc6fdb2116"
   end
 
   depends_on "boost" => :build
