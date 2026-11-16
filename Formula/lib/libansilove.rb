@@ -1,17 +1,17 @@
 class Libansilove < Formula
   desc "Library for converting ANSI, ASCII, and other formats to PNG"
   homepage "https://www.ansilove.org"
-  url "https://github.com/ansilove/libansilove/releases/download/1.4.5/libansilove-1.4.5.tar.gz"
-  sha256 "ac9d8233255c34da1b4fe426feb046089fa616d1245fb86341e90873d37407fd"
+  url "https://github.com/ansilove/libansilove/releases/download/1.4.6/libansilove-1.4.6.tar.gz"
+  sha256 "0d445622356d4aa9766c32c8696ff073e3d2449fae85c57fc3f0862cb59fab3a"
   license "BSD-2-Clause"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1fdcc579de05c1fea4f30b1b13444c447b4f05479c60bb60ab8a3ecf7a29e228"
-    sha256 cellar: :any, arm64_tahoe:       "9dc28f40a061ddcbd239866f2c2ad3c7c7697f9a4a5bb4d16a3f86303e9815e8"
-    sha256 cellar: :any, arm64_sequoia:     "57d657904b98a7b338ba474817ec01ca9d54c5ef3147e3a02f6f80f7283d52d0"
-    sha256 cellar: :any, arm64_linux:       "645447daebe7cecf40eca3c750d99809a1199f28948e13e6e0e92b495e90fadd"
-    sha256 cellar: :any, x86_64_linux:      "308220070e59779c5cf6dccbad0a96c4dcdddbf8992f3f9b184c0d7961655e9b"
+    sha256 cellar: :any, arm64_golden_gate: "dab456cf1b3505bd59869c907199f9c98e5d1097142321c35569cbcaf67122d5"
+    sha256 cellar: :any, arm64_tahoe:       "1d32ed0dd03e77883a4ae323c45e21c1a75551d5bae0d6f84f320263a866a77a"
+    sha256 cellar: :any, arm64_sequoia:     "6a58d659fef62b378338a971410e7753de4297131e35892b4e606e875c80c056"
+    sha256 cellar: :any, arm64_linux:       "4f0e2fdf8101256df0bcaae3c3aa89a86b559da6d57db8cd6baef5d434cc69a0"
+    sha256 cellar: :any, x86_64_linux:      "8d2989ccf5f4e7b120a03a714709f66dd90ec45acd6f47197ebf7d632af0d5b8"
   end
 
   depends_on "cmake" => :build
