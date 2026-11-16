@@ -1,8 +1,8 @@
 class Podofo < Formula
   desc "Library to work with the PDF file format"
   homepage "https://github.com/podofo/podofo"
-  url "https://github.com/podofo/podofo/archive/refs/tags/1.1.2.tar.gz"
-  sha256 "d6ffe6fc173ac6d6e5b00f5cb9db01990cab1bdf7cc03bdeffce3013bc9ec63a"
+  url "https://github.com/podofo/podofo/archive/refs/tags/1.1.3.tar.gz"
+  sha256 "9fe13b87148cd9691dc7f5b40dca9ce789576c131fe65e90a09e163a4fb25c31"
   license all_of: [
     { any_of: ["LGPL-2.0-or-later", "MPL-2.0"] },
     "GPL-2.0-or-later", # tools/
