@@ -106,14 +106,10 @@ class RustWasm < Formula
     end
 
     # Cargo configuration that selects this sysroot and the right wasm linker.
-    (pkgshare/"cargo-config.toml").write cargo_config
-  end
-
-  # Points cargo at this sysroot per target. `--sysroot` in per-target
-  # `rustflags` applies only when compiling for wasm, so host build scripts and
-  # proc-macros keep using `rust`'s own sysroot.
-  def cargo_config
-    <<~TOML
+    # Points cargo at this sysroot per target. `--sysroot` in per-target
+    # `rustflags` applies only when compiling for wasm, so host build scripts and
+    # proc-macros keep using `rust`'s own sysroot.
+    (pkgshare/"cargo-config.toml").write <<~TOML
       [target.wasm32-unknown-unknown]
       rustflags = ["--sysroot", "#{HOMEBREW_PREFIX}"]
       linker = "wasm-ld"
