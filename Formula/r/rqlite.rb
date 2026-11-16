@@ -1,17 +1,17 @@
 class Rqlite < Formula
   desc "Lightweight, distributed relational database built on SQLite"
   homepage "https://www.rqlite.io/"
-  url "https://github.com/rqlite/rqlite/archive/refs/tags/v10.7.1.tar.gz"
-  sha256 "36e21568c1b2f34b7749a2fbb862e63f0fb9f084116d77316f2dbba72c3e227b"
+  url "https://github.com/rqlite/rqlite/archive/refs/tags/v10.7.2.tar.gz"
+  sha256 "b81679960cdee788e4bb859cd76bf5a7a6007dd15d71ed85bd3c2598f898af9f"
   license "MIT"
   head "https://github.com/rqlite/rqlite.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "178d153221c4c639c838f9f7ad2ca1df7a0578d1803d98185b5d47af257496c1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3854f1a1ee1ed0a1a8518a393718f8d8e6c6a480c55c16817b9d6bf30b28bd20"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b67d2c83ede326d8aab3c8471c70fef603b6f2d13739f5e7ac3d5f25db09b249"
-    sha256 cellar: :any,                 arm64_linux:       "5551220ba3d40cbdb906e7feefdf448f343199dc1baff9de1782afd7d44085b6"
-    sha256 cellar: :any,                 x86_64_linux:      "cea7e18983fcc5935ad8e3c21f8401f2a824aabd2bcbc18e059570bd7e4ff943"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "439bf4a0cb158276132dad71c7db1a0ab509a478d016b7f0a8ba105f7e0027a6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af98065dace4990da8de6563caebd3522633ae8ac5209209381d94772db39791"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29410d13c0caa8b6f6d6496e7561f245297ef9d0aa6b3060d128d0d92629a058"
+    sha256 cellar: :any,                 arm64_linux:       "22734395cd39a42ba8cbb6d4e71713606b808c15342b0cea800b483fb43db8aa"
+    sha256 cellar: :any,                 x86_64_linux:      "de2a8f661d1dd4320527eeaba45cd45741b24519af37772808d1e49e1ccf72ce"
   end
 
   depends_on "go" => :build
