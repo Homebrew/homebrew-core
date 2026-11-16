@@ -1,22 +1,18 @@
 class Hidapi < Formula
   desc "Library for communicating with USB and Bluetooth HID devices"
   homepage "https://libusb.info/hidapi/"
-  url "https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.15.0.tar.gz"
-  sha256 "5d84dec684c27b97b921d2f3b73218cb773cf4ea915caee317ac8fc73cef8136"
+  url "https://github.com/libusb/hidapi/archive/refs/tags/hidapi-0.16.0.tar.gz"
+  sha256 "bc599d295792fe515778f19ce86a49760b0ea5fc114e5258245d470609632bbf"
   license any_of: ["GPL-3.0-only", "BSD-3-Clause", "HIDAPI"]
   compatibility_version 1
   head "https://github.com/libusb/hidapi.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "010b34fbb98006676bcedbb95a1db490405fc5eee6e7ddca847f33b019c7c8cd"
-    sha256 cellar: :any,                 arm64_tahoe:       "0839953f6566e9d44dcde4714cf3bb8fe8455eb8cf978bb5fb0fbfc595f5f16b"
-    sha256 cellar: :any,                 arm64_sequoia:     "7124104d00b05a26d69388fe5d451b8a9f684b01ed9a6ccea1c8265ba6586bfe"
-    sha256 cellar: :any,                 arm64_sonoma:      "19e9592cabf7d3f5bd080c8ff3904afeceacbb0509b281ea4912e754854eaa26"
-    sha256 cellar: :any,                 arm64_ventura:     "95960cc384758cb3e3afb414718bb8ad02ace684bc5b103e7a5875071c36f062"
-    sha256 cellar: :any,                 sonoma:            "a8e65cb302c9ddc9c44a2bcb2348ffb26be23e8d946261775acecc5a38b9ce7a"
-    sha256 cellar: :any,                 ventura:           "7c3be7a7e5e21e5d84da1ed2f1fe86d0f47342f794583e12590f980b5a2004cb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a42600180cd8daace07f984a2463a5d017b3548a911e0f659c8d036aa5e08e74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c532bf111617b2ccaf54649208d01aea0eaf4b53ba6b3270dee5455b4c9679bb"
+    sha256 cellar: :any, arm64_golden_gate: "adf377bac31b67f0b3aad40d7567610ba159ae6e4b503c09232f78683a4de2df"
+    sha256 cellar: :any, arm64_tahoe:       "44f19f17ac637c9ff3e24fd442205c674ec8f5fcf9f7a06e0135e2091a1bc367"
+    sha256 cellar: :any, arm64_sequoia:     "fbfed806633cd2477bdd6055b7306fbcbf84227a0bccb35cdec4017889371fee"
+    sha256 cellar: :any, arm64_linux:       "2c86ebca0eab2dc5ad6693b4b5e4e02cb82add3743b983443f828e29766fedf4"
+    sha256 cellar: :any, x86_64_linux:      "0a5dd57fe4d72a980f17a65aede0b623cb8cd1eba64f2a503b060c572227729d"
   end
 
   depends_on "cmake" => :build
