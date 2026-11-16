@@ -422,53 +422,51 @@ class Llvm < Formula
 
     return unless lto_build
 
-    lib.glob("*.a").each { |static_archive| convert_lto_archive(static_archive) }
-  end
+    # Convert LTO-generated bitcode in our static archives to Mach-O.
+    # Archives with unique member names keep flat extraction and replacement.
+    # Only archives containing duplicate names require per-occurrence extraction
+    # and rebuilding: flat extraction overwrites same-named members, while
+    # `llvm-ar r` replaces only the first matching member.
+    #
+    # Adapted from Fedora:
+    # https://src.fedoraproject.org/rpms/redhat-rpm-config/blob/1c5e204554732b224956618610a990e7acd74f62/f/brp-llvm-compile-lto-elf
+    lib.glob("*.a").each do |static_archive|
+      mktemp do
+        members = Utils.safe_popen_read(bin/"llvm-ar", "t", static_archive).split("\n")
+        has_duplicates = members.uniq.length != members.length
 
-  # Convert LTO-generated bitcode in our static archives to Mach-O.
-  # Archives with unique member names keep flat extraction and replacement.
-  # Only archives containing duplicate names require per-occurrence extraction
-  # and rebuilding: flat extraction overwrites same-named members, while
-  # `llvm-ar r` replaces only the first matching member.
-  #
-  # Adapted from Fedora:
-  # https://src.fedoraproject.org/rpms/redhat-rpm-config/blob/1c5e204554732b224956618610a990e7acd74f62/f/brp-llvm-compile-lto-elf
-  def convert_lto_archive(static_archive)
-    mktemp do
-      members = Utils.safe_popen_read(bin/"llvm-ar", "t", static_archive).split("\n")
-      has_duplicates = members.uniq.length != members.length
-
-      member_files = if has_duplicates
-        occurrences = Hash.new(0)
-        members.each_with_index.map do |member, index|
-          member_dir = Pathname.pwd/index.to_s
-          member_dir.mkpath
-          occurrences[member] += 1
-          system bin/"llvm-ar", "xN", occurrences[member].to_s, static_archive, member,
-                 "--output=#{member_dir}"
-          member_dir/member
+        member_files = if has_duplicates
+          occurrences = Hash.new(0)
+          members.each_with_index.map do |member, index|
+            member_dir = Pathname.pwd/index.to_s
+            member_dir.mkpath
+            occurrences[member] += 1
+            system bin/"llvm-ar", "xN", occurrences[member].to_s, static_archive, member,
+                   "--output=#{member_dir}"
+            member_dir/member
+          end
+        else
+          system bin/"llvm-ar", "x", static_archive
+          Pathname.glob("*.o")
         end
-      else
-        system bin/"llvm-ar", "x", static_archive
-        Pathname.glob("*.o")
-      end
 
-      converted_files = member_files.select do |bc_file|
-        file_type = Utils.safe_popen_read("file", "--brief", bc_file)
-        next false unless file_type.match?(/^LLVM (IR )?bitcode/)
+        converted_files = member_files.select do |bc_file|
+          file_type = Utils.safe_popen_read("file", "--brief", bc_file)
+          next false unless file_type.match?(/^LLVM (IR )?bitcode/)
 
-        system bin/"clang", "-fno-lto", "-Wno-unused-command-line-argument",
-                            "-x", "ir", bc_file, "-c", "-o", bc_file
-        true
-      end
-      next if converted_files.empty?
+          system bin/"clang", "-fno-lto", "-Wno-unused-command-line-argument",
+                              "-x", "ir", bc_file, "-c", "-o", bc_file
+          true
+        end
+        next if converted_files.empty?
 
-      if has_duplicates
-        rebuilt_archive = Pathname.pwd/static_archive.basename
-        system bin/"llvm-ar", "qcs", rebuilt_archive, *member_files
-        mv rebuilt_archive, static_archive
-      else
-        system bin/"llvm-ar", "r", static_archive, *converted_files
+        if has_duplicates
+          rebuilt_archive = Pathname.pwd/static_archive.basename
+          system bin/"llvm-ar", "qcs", rebuilt_archive, *member_files
+          mv rebuilt_archive, static_archive
+        else
+          system bin/"llvm-ar", "r", static_archive, *converted_files
+        end
       end
     end
   end
