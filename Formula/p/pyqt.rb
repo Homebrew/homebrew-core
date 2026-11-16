@@ -1,18 +1,17 @@
 class Pyqt < Formula
   desc "Python bindings for v6 of Qt"
   homepage "https://www.riverbankcomputing.com/software/pyqt/intro"
-  url "https://files.pythonhosted.org/packages/8b/77/73ae0fd2ce7915ce87269743fd11f14f009b8db60a58759afc1c402327f2/pyqt6-6.12.0.tar.gz"
-  sha256 "d3e021b716bae880224422f9d1b894d2d53de7e60e60dbc43f860723f9cc300b"
+  url "https://files.pythonhosted.org/packages/61/5f/39d2cf3eabc36006a5c87df6e1ed34928025b4a1768d752859bf404ec341/pyqt6-6.12.1.tar.gz"
+  sha256 "17bb18b3ae953ab54b23026291ecea2579b028597b56c281a752c8ed66dd1a58"
   license "GPL-3.0-only"
-  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f975ee0c94a3fa4eaac19655ff7bb46fe1b598b000f84d2efb4fd722faf1c072"
-    sha256 cellar: :any, arm64_tahoe:       "acfa6cdcdf77f26f2f6bd94f153a81f0112f8a2cab452e7ed078736871dd4da7"
-    sha256 cellar: :any, arm64_sequoia:     "8cfb9c238b970be44f7b461b96e340f7413b8a6c35919e45a7231cf4f5d0a2cf"
-    sha256 cellar: :any, arm64_linux:       "6dc1bfcb5d8212f73cd13aab856175c8bc310f6db98af1b28a2a71a6990a484f"
-    sha256 cellar: :any, x86_64_linux:      "307388a644fc895cc62490e401d8b31edc1c1546c0b17635261fea182b46c2b9"
+    sha256 cellar: :any, arm64_golden_gate: "ebbaf635f04ee0d982073b74ff93df0ec66c70c2609226b2bdf93f99a0c5b474"
+    sha256 cellar: :any, arm64_tahoe:       "26c1908f1bbc5e0cb6aa641cead0e037ee011a6cd0836714548457a41bb6a8ba"
+    sha256 cellar: :any, arm64_sequoia:     "206b7eb0aebd7ce610639f90ead792a61eafe5cbaeef2dd88edba3aa52a4ef5d"
+    sha256 cellar: :any, arm64_linux:       "6f0c03d219e25d4c8937782d5c20ff8fbd49df53fd116c8fafb4905f382f29a5"
+    sha256 cellar: :any, x86_64_linux:      "3a8a12c3798999423437b685dce3114c0bfcc3f6441117b91b3f9710ef355763"
   end
 
   depends_on "pyqt-builder" => :build
@@ -53,33 +52,33 @@ class Pyqt < Formula
 
   # extra components
   resource "pyqt6-3d" do
-    url "https://files.pythonhosted.org/packages/fd/3f/6fbd34357734b7915b3a293582654c07be51dab553bcddf11d03446dbf53/pyqt6_3d-6.12.0.tar.gz"
-    sha256 "be72460ed5e2429fc6e905fd0ff4cbc8431a56bc2d19d315ce792bfa1c0c838f"
+    url "https://files.pythonhosted.org/packages/2a/5a/019661ce285b1c8c77475d8032d58e5a4fc02e6768a4b1a77a1bb023e6b1/pyqt6_3d-6.12.1.tar.gz"
+    sha256 "a108137f846cad90a3cc8ffd0908e73aa3eefc08f3ad0e257391799bbce1fa88"
   end
 
   resource "pyqt6-charts" do
-    url "https://files.pythonhosted.org/packages/ae/ae/38466ca9f9da954c9dc72438e12bd671102cabb473b6dfc8382e92531f3a/pyqt6_charts-6.12.0.tar.gz"
-    sha256 "856d0c8228fbdcff62bfeb9512f6c884965503c742ced9943f242bd5b67fdcec"
+    url "https://files.pythonhosted.org/packages/91/69/be4c6ac8bc3e0d6700535291623ec846ef8c2f13710b22cd75bd9a3fe0a3/pyqt6_charts-6.12.1.tar.gz"
+    sha256 "ec36de59ef4806d6140ed2f7670c8d769f8cedf88bbcda911753c3accae05216"
   end
 
   resource "pyqt6-datavisualization" do
-    url "https://files.pythonhosted.org/packages/e0/c5/154b8896d79d55536ea39c55b08fd47be1e681d7fe23e14d1acd56ae78d0/pyqt6_datavisualization-6.12.0.tar.gz"
-    sha256 "29052958ee5c4573ce11d484e05a3d13a25b19ae6bac67235b3a6e121253eed7"
+    url "https://files.pythonhosted.org/packages/b0/97/45736d791c3b6607fd061018a3d59b7889f1b4454becf2f7aa6a1389dee5/pyqt6_datavisualization-6.12.1.tar.gz"
+    sha256 "7f8d449ed9877081f636cc4c4e4c15554c8a08bccd00e47e85c5da3524ca0f00"
   end
 
   resource "pyqt6-networkauth" do
-    url "https://files.pythonhosted.org/packages/14/51/855ed92ce904ba430ad6f6cca9745957f785fb4391588cbd4b4537a5d594/pyqt6_networkauth-6.12.0.tar.gz"
-    sha256 "e2c5fd09a8eb2a536199203ae97d7b42b9ae1578b3db20fd46e8c4f7ec117803"
+    url "https://files.pythonhosted.org/packages/f1/72/7aa765a7013c7e2c230b2d49d2364dedadf3fb86cc9f2480fd2e764c0d33/pyqt6_networkauth-6.12.1.tar.gz"
+    sha256 "a96a227f933a80ef02c5ac029b3955d1f01c3a222059d4390d32e96aa6200262"
   end
 
   resource "pyqt6-sip" do
-    url "https://files.pythonhosted.org/packages/78/35/bed43ff7cf040ced6b62a17b272abecb94914755284b54e8d06844e1ed23/pyqt6_sip-13.13.0.tar.gz"
-    sha256 "2cd55f575cde208c398d6cfdecc5a13394ed2afb54226210c50e3a6df7c3a997"
+    url "https://files.pythonhosted.org/packages/03/da/164fe6759acbd04c4523a9471c4d11f4b3c744182cb7bbd87faf249ce172/pyqt6_sip-13.13.1.tar.gz"
+    sha256 "83c3c9cb93b6c631af7048084fb0f234b610a01edbf9b2b44c4ee4bda4197efe"
   end
 
   resource "pyqt6-webengine" do
-    url "https://files.pythonhosted.org/packages/9a/c6/b4f777c46ff42a759180dc65ad49a207748ea2e83ac4df21e89eaf4834c3/pyqt6_webengine-6.11.0.tar.gz"
-    sha256 "15cf49efbbbd4c6bc87653b2c4ae80d6049f800e31620b336734ae2e37cbedae"
+    url "https://files.pythonhosted.org/packages/9b/e3/f527f46fdbdaac9c3e4947e7426552f16ad0a1f53b1417176198b296c72c/pyqt6_webengine-6.140.1.tar.gz"
+    sha256 "7e8b228d2f35806b50135b8fdc7572f3deea09263d2fe878d2fcae8c47c30f72"
   end
 
   def webengine_supported?
