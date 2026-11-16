@@ -9,7 +9,7 @@ class GitBigPicture < Formula
   head "https://github.com/git-big-picture/git-big-picture.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "77b72994c9726d745e8a8c7e75e25be1be9279789c0adc7acbfd170bce7c6f1c"
+    sha256 cellar: :any_skip_relocation, all: "d5c3dfe39a79111d7a852aeb8b6b406e28a2fc888b6a21391292b47fbd572df9"
   end
 
   depends_on "graphviz"
