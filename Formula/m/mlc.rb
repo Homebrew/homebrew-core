@@ -1,17 +1,17 @@
 class Mlc < Formula
   desc "Check for broken links in markup files"
   homepage "https://github.com/becheran/mlc"
-  url "https://github.com/becheran/mlc/archive/refs/tags/v1.3.0.tar.gz"
-  sha256 "d9e31137952c96230876f690bf7fb236e67c13fa3cd98eb505dbd98ffe2ad2bb"
+  url "https://github.com/becheran/mlc/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "202d44b983f1046cb0cbb45250c2ec815f038f8a35a79e425b05168bab1a5823"
   license "MIT"
   head "https://github.com/becheran/mlc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b11420c64f09652972ac4beaf38c15943ffdcd418a2548df45b2cd3951ee2a1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dfec3208f0d0c65da4169e24ec02c1a39d136bbd073648549dde6ddd62c191de"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d5656545c43ca5cb1ecc2db3299daa3f6015bfe63c289e701c056250086e7e3"
-    sha256 cellar: :any,                 arm64_linux:       "845d67958063517d80af01b5498fdf10495e368cb853d03be8df25a106564473"
-    sha256 cellar: :any,                 x86_64_linux:      "5378f4d6f65781acd847c8a68495131412bbc7f6135727d6e29d73267f900742"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad24725817d686ebec7b4b2d4779d0f19869c1f8285720512888baaccdf5929e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "80a82ddd10ba7faf10e672e2e7f512c38e966758f00f3ca0a1aa1c7ea9c93da3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02b8c027057921525641d5d18ef318eea53678f138f20c7780db8413aeb86572"
+    sha256 cellar: :any,                 arm64_linux:       "68664b6f94e66f5e44c416802b1dd0b867d5313f693bfaec077588fbfdba6bbe"
+    sha256 cellar: :any,                 x86_64_linux:      "98b8ab6939e6535d93b6600f51ec9568502d6e9a2068fd57153fa647bcb9270e"
   end
 
   depends_on "pkgconf" => :build
