@@ -31,7 +31,7 @@ class Ntp < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.start_with?("openssl@") }
+  def openssl = versioned_dependency("openssl")
 
   def install
     args = %W[

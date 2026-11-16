@@ -30,7 +30,7 @@ class Monit < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     system "./configure", "--prefix=#{prefix}",

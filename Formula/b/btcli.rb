@@ -216,7 +216,7 @@ class Btcli < Formula
     sha256 "9ac374123c6fd7abf64d1fec93962b0bd4ee2c19751755a762a72dd96c0378f8"
   end
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)

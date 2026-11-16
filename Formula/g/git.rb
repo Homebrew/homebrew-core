@@ -119,7 +119,7 @@ class Git < Formula
     args += if OS.mac?
       %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
     else
-      openssl_prefix = formula_opt_prefix("openssl@4")
+      openssl_prefix = formula_opt_prefix(versioned_dependency("openssl"))
 
       %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
     end

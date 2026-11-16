@@ -24,7 +24,7 @@ class Modules < Formula
 
   deny_network_access!
 
-  def tcltk = deps.map(&:name).find { |d| d.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }
+  def tcltk = versioned_dependency("tcl-tk")
 
   def install
     args = %W[

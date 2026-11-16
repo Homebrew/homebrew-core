@@ -35,7 +35,7 @@ class Wrk < Formula
     ENV.append_to_cflags "-I#{formula_opt_include("luajit")}/luajit-2.1"
     args = %W[
       WITH_LUAJIT=#{formula_opt_prefix("luajit")}
-      WITH_OPENSSL=#{formula_opt_prefix("openssl@4")}
+      WITH_OPENSSL=#{formula_opt_prefix(versioned_dependency("openssl"))}
     ]
     args << "VER=#{version}" if build.stable?
     system "make", *args

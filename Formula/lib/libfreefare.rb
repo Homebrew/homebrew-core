@@ -39,7 +39,7 @@ class Libfreefare < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     ENV.append_to_cflags "-I#{formula_opt_include(openssl)}"

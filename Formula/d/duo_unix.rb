@@ -42,7 +42,7 @@ class DuoUnix < Formula
     system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--includedir=#{include}/duo",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{formula_opt_prefix(versioned_dependency("openssl"))}",
                           "--with-pam=#{lib}/pam/",
                           *std_configure_args
     system "make", "install"

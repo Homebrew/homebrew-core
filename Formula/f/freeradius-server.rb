@@ -61,8 +61,8 @@ class FreeradiusServer < Formula
     args = %W[
       --sbindir=#{bin}
       --localstatedir=#{var}
-      --with-openssl-includes=#{formula_opt_include("openssl@4")}
-      --with-openssl-libraries=#{formula_opt_lib("openssl@4")}
+      --with-openssl-includes=#{formula_opt_include(versioned_dependency("openssl"))}
+      --with-openssl-libraries=#{formula_opt_lib(versioned_dependency("openssl"))}
       --with-talloc-lib-dir=#{formula_opt_lib("talloc")}
       --with-talloc-include-dir=#{formula_opt_include("talloc")}
     ]

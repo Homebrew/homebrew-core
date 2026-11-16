@@ -26,7 +26,7 @@ class Liboqs < Formula
 
   deny_network_access!
 
-  def openssl = "openssl@4"
+  def openssl = versioned_dependency("openssl")
 
   def install
     args = %W[

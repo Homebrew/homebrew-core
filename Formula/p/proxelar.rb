@@ -26,7 +26,7 @@ class Proxelar < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
     features = ["scripting"]
     inreplace "proxyapi/Cargo.toml", "lua54", "lua55" # Allow bindings for the latest Lua version
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "proxelar-cli", features:)

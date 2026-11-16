@@ -37,9 +37,9 @@ class Urweb < Formula
 
   deny_network_access!
 
-  def icu4c = deps.map(&:name).find { |d| d.match?(/^icu4c(@\d+)?$/) }
+  def icu4c = versioned_dependency("icu4c")
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = versioned_dependency("openssl")
 
   def install
     system "./configure", *std_configure_args,

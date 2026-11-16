@@ -106,7 +106,7 @@ class MysqlAT84 < Formula
       -DMYSQL_DATADIR=#{datadir}
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix(versioned_dependency("openssl"))}
       -DWITH_ICU=#{icu4c.opt_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system

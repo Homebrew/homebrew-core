@@ -28,7 +28,7 @@ class Trunk < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
 
     # For features, we disable update_check and replace rustls with native-tls
     system "cargo", "install", "--no-default-features", *std_cargo_args(features: "native-tls")

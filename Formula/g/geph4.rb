@@ -40,7 +40,7 @@ class Geph4 < Formula
   def install
     ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
 
     rm_r(buildpath/".cargo")
     system "cargo", "install", *std_cargo_args

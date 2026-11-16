@@ -89,8 +89,10 @@ class Ice < Formula
     CPP
 
     system bin/"slice2cpp", "Hello.ice"
-    system ENV.cxx, "-std=c++20", "-c", "-I#{include}", "-I#{formula_opt_include("openssl@4")}", "Hello.cpp"
-    system ENV.cxx, "-std=c++20", "-c", "-I#{include}", "-I#{formula_opt_include("openssl@4")}", "Test.cpp"
+    system ENV.cxx, "-std=c++20", "-c", "-I#{include}", "-I#{formula_opt_include(versioned_dependency("openssl"))}",
+"Hello.cpp"
+    system ENV.cxx, "-std=c++20", "-c", "-I#{include}", "-I#{formula_opt_include(versioned_dependency("openssl"))}",
+"Test.cpp"
     system ENV.cxx, "-L#{lib}", "-o", "test", "Test.o", "Hello.o", "-lIce", "-lpthread"
     system "./test"
   end

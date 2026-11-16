@@ -1253,7 +1253,7 @@ class Prowler < Formula
     sha256 "6d8684c69009be49e1b18ec251a5eb0d7e24f93624990a8a124a1da66a92fc8a"
   end
 
-  def openssl = deps.map(&:name).find { |dep| dep.start_with?("openssl@") }
+  def openssl = versioned_dependency("openssl")
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

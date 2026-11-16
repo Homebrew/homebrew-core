@@ -41,9 +41,9 @@ class Nuraft < Formula
     system ENV.cxx, "-std=c++11", "-o", "test",
                     "quick_start.cxx", "logger.cc", "in_memory_log_store.cxx",
                     "-I#{include}/libnuraft", "-I#{testpath}/echo",
-                    "-I#{formula_opt_include("openssl@4")}",
+                    "-I#{formula_opt_include(versioned_dependency("openssl"))}",
                     "-L#{lib}", "-lnuraft",
-                    "-L#{formula_opt_lib("openssl@4")}", "-lcrypto", "-lssl"
+                    "-L#{formula_opt_lib(versioned_dependency("openssl"))}", "-lcrypto", "-lssl"
     assert_match "hello world", shell_output("./test")
   end
 end

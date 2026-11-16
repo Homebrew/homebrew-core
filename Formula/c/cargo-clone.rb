@@ -47,7 +47,7 @@ class CargoClone < Formula
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
 
     system "cargo", "install", *std_cargo_args(path: "cargo-clone")
   end
@@ -65,8 +65,8 @@ class CargoClone < Formula
     assert_path_exists "git2/Cargo.lock"
 
     dylibs = [
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libcrypto"),
+      formula_opt_lib(versioned_dependency("openssl"))/shared_library("libssl"),
     ]
     dylibs << (formula_opt_lib("curl")/shared_library("libcurl")) if OS.linux?
 

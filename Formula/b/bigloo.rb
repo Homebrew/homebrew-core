@@ -57,8 +57,8 @@ class Bigloo < Formula
       pcre2
     ])
 
-    ENV.append_to_cflags "-I#{formula_opt_include("openssl@4")}"
-    ENV.append "LDFLAGS", "-L#{formula_opt_lib("openssl@4")}"
+    ENV.append_to_cflags "-I#{formula_opt_include(versioned_dependency("openssl"))}"
+    ENV.append "LDFLAGS", "-L#{formula_opt_lib(versioned_dependency("openssl"))}"
 
     # These need to be passed after --prefix
     install_args = %W[

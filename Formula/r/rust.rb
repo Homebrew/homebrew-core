@@ -108,9 +108,9 @@ class Rust < Formula
   # These used to belong in `rustfmt`.
   link_overwrite "bin/cargo-fmt", "bin/git-rustfmt", "bin/rustfmt", "bin/rustfmt-*"
 
-  def llvm = deps.map(&:name).find { |dep| dep.match?(/^llvm(@\d+)?$/) }
+  def llvm = versioned_dependency("llvm")
 
-  def openssl = deps.map(&:name).find { |dep| dep.start_with?("openssl@") }
+  def openssl = versioned_dependency("openssl")
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.

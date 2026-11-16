@@ -34,7 +34,7 @@ class Rqbit < Formula
   def install
     # Ensure the declared `openssl@4` dependency will be picked up.
     # https://docs.rs/openssl/latest/openssl/#manual
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(versioned_dependency("openssl"))
 
     system "cargo", "install", *std_cargo_args(path: "crates/rqbit")
 
@@ -49,8 +49,8 @@ class Rqbit < Formula
     if OS.linux?
       require "utils/linkage"
       [
-        formula_opt_lib("openssl@4")/shared_library("libssl"),
-        formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+        formula_opt_lib(versioned_dependency("openssl"))/shared_library("libssl"),
+        formula_opt_lib(versioned_dependency("openssl"))/shared_library("libcrypto"),
       ].each do |library|
         assert Utils.binary_linked_to_library?(bin/"rqbit", library),
                "No linkage with #{library.basename}! Cargo is likely using a vendored version."

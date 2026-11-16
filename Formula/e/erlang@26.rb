@@ -71,7 +71,7 @@ class ErlangAT26 < Formula
       --enable-threads
       --enable-wx
       --with-odbc=#{formula_opt_prefix("unixodbc")}
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{formula_opt_prefix(versioned_dependency("openssl"))}
       --without-javac
       --with-wx-config=#{wx_config}
     ]

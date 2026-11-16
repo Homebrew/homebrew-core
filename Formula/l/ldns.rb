@@ -33,7 +33,7 @@ class Ldns < Formula
     args = %W[
       --with-drill
       --with-examples
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{formula_opt_prefix(versioned_dependency("openssl"))}
       --with-pyldns
       PYTHON_PLATFORM_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
       top_builddir=#{buildpath}

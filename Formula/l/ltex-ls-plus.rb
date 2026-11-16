@@ -19,7 +19,7 @@ class LtexLsPlus < Formula
   depends_on "python@3.15" => :build
   depends_on "openjdk"
 
-  def python = deps.map(&:name).find { |d| d.match?(/^python(@\d+(\.\d+)*)?$/) }
+  def python = versioned_dependency("python")
 
   def install
     ENV.prepend_path "PATH", formula_opt_libexec(python)/"bin"
