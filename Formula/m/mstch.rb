@@ -32,11 +32,7 @@ class Mstch < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    (lib/"pkgconfig/mstch.pc").write pc_file
-  end
-
-  def pc_file
-    <<~EOS
+    (lib/"pkgconfig/mstch.pc").write <<~EOS
       prefix=#{HOMEBREW_PREFIX}
       exec_prefix=${prefix}
       libdir=${exec_prefix}/lib
