@@ -2,7 +2,7 @@ class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
   license "MPL-2.0"
-  revision 1
+  revision 2
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   stable do
