@@ -1,9 +1,9 @@
 class ManDb < Formula
   desc "Unix documentation system"
   homepage "https://man-db.gitlab.io/man-db/"
-  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz"
-  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.1.tar.xz"
-  sha256 "8afebb6f7eb6bb8542929458841f5c7e6f240e30c86358c1fbcefbea076c87d9"
+  url "https://download.savannah.gnu.org/releases/man-db/man-db-2.13.2.tar.xz"
+  mirror "https://download-mirror.savannah.gnu.org/releases/man-db/man-db-2.13.2.tar.xz"
+  sha256 "881df6b370b40cd73db8c543c02c94af5fc5a7c96189a7e2e9af12481f611d8b"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
