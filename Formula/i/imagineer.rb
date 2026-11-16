@@ -1,8 +1,8 @@
 class Imagineer < Formula
   desc "Image processing and conversion from the terminal"
   homepage "https://github.com/foresterre/imagineer"
-  url "https://github.com/foresterre/imagineer/archive/refs/tags/v0.24.0.tar.gz"
-  sha256 "2511068e1919ee67af1fb9203a1bbcfc9f24894cd3b2e341c52d493e79535e93"
+  url "https://github.com/foresterre/imagineer/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "16ed8ebe47f7af676b333a8abc11bf60b0ab490bbda0de9cf8a04cbf50d5f8c9"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/foresterre/imagineer.git", branch: "main"
 
