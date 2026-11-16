@@ -1,17 +1,17 @@
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-3.9.0.tgz"
-  sha256 "9157726cb1dbc86090168b7fd559a80313151d28bb31ee115c73c8bc4ac601d1"
+  url "https://registry.npmjs.org/appium/-/appium-3.9.1.tgz"
+  sha256 "7cd07536f196d4c1431be18d88f5e9fb9a8aefc5cd9b8606705ae11a298e719d"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0abebe647cf45cb03fad84f3d722f7d3e07022d6214f2b19c671de5c50ccaa73"
-    sha256 cellar: :any, arm64_tahoe:       "6cd6c780504bb1080634c84cd9d2a24ca9aaa7528255a5b40a82cbaa28630820"
-    sha256 cellar: :any, arm64_sequoia:     "a472cf674e01b79126b83b69a4f820b7c7a8e65ed221b11d631dc75276b29f70"
-    sha256 cellar: :any, arm64_linux:       "e2e937077983dfebc391863ab513218dc139eab085ff6cd7ef6b5c0b17f3aae5"
-    sha256 cellar: :any, x86_64_linux:      "ade0ae26726db48d80d725c472feb481677dc5e9ff4db0a4f738caf3105abf8d"
+    sha256 cellar: :any, arm64_golden_gate: "23e51546a450d3e0f4f8a28f65d596ca23bffc68652d6b665d8080c722f19576"
+    sha256 cellar: :any, arm64_tahoe:       "ae69961ac2cd2e31df8fd9316d28a54cd0a59ef91dcf7aa971d4173373294e02"
+    sha256 cellar: :any, arm64_sequoia:     "0138956ee0a71a93f5e42a48028ee8a9bda6387824a97a166b1c73755f976df9"
+    sha256 cellar: :any, arm64_linux:       "f9d45d37761f3b1fb68c539fdb4abd539b3184687bac9e3c284fa735f65e3e1b"
+    sha256 cellar: :any, x86_64_linux:      "c6199c4359d159d208062a25c749a2219a461fe877170e5b88611eec7541840b"
   end
 
   depends_on "pkgconf" => :build
@@ -44,7 +44,7 @@ class Appium < Formula
     bin.install_symlink libexec.glob("bin/*")
 
     node_modules = libexec/"lib/node_modules/appium/node_modules"
-    rm_r(node_modules.glob("bare-{path,fs,os,url}/prebuilds/*"))
+    rm_r(node_modules.glob("bare-{buffer,path,fs,os,url}/prebuilds/*"))
 
     # Build `sharp` from source against brewed `vips`
     rm_r(node_modules.glob("@img/sharp-*"))
