@@ -1,17 +1,17 @@
 class Kbld < Formula
   desc "Tool for building and pushing container images in development workflows"
   homepage "https://carvel.dev/kbld/"
-  url "https://github.com/carvel-dev/kbld/archive/refs/tags/v0.49.2.tar.gz"
-  sha256 "b6e5c4438d37dc0f034e58854948351f397000468b59deb50c00765f0ab1bd3f"
+  url "https://github.com/carvel-dev/kbld/archive/refs/tags/v0.50.0.tar.gz"
+  sha256 "cf22e37617bc01022e7032ce1eb45cc8c58a56c8a083b590b4cf3854382f8b1b"
   license "Apache-2.0"
   head "https://github.com/carvel-dev/kbld.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a5018acec4b842f03416925318e190b620b747a03595c6923db85e34e8be0da"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a5018acec4b842f03416925318e190b620b747a03595c6923db85e34e8be0da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a5018acec4b842f03416925318e190b620b747a03595c6923db85e34e8be0da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "20680407743c8ee0069d1c11186234a110eb66b824493ed8f30143f60b330ed7"
-    sha256 cellar: :any,                 x86_64_linux:      "ad7501bdd45b952b544f87d50c17cb35178e2679cde2b4d203b63a3851b767b0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37d91a8fbfa8e39b49273fc19ef879ffff8b74e1b15a43908864dc669706b41e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37d91a8fbfa8e39b49273fc19ef879ffff8b74e1b15a43908864dc669706b41e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37d91a8fbfa8e39b49273fc19ef879ffff8b74e1b15a43908864dc669706b41e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d9a4a0c6bd8e14127766e818386b5fd6cc20fa61dea9bf46464e024ee145eb08"
+    sha256 cellar: :any,                 x86_64_linux:      "7875993b266344dd0849db99fb452ac203a98b987d48706334b2ba6bfe7789ee"
   end
 
   depends_on "go" => :build
