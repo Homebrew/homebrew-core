@@ -2,9 +2,10 @@ class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://www.trustedfirmware.org/projects/mbed-tls/"
   # TODO: undeprecate if upstream finds new maintainers to continue development
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.2.0/mbedtls-4.2.0.tar.bz2"
-  sha256 "2bed9d713b4668f76553b097e72b8aa30bc8f112a940d7ae228d524bbde6ffea"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.3.0/mbedtls-4.3.0.tar.bz2"
+  sha256 "1c87cba094cb40f097ebe0eba440a74939b71dab4e1d0d566bc90749ff381d18"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
   livecheck do
