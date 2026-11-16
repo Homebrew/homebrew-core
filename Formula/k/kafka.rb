@@ -61,12 +61,6 @@ class Kafka < Formula
     end
   end
 
-  def generate_log_dir(path)
-    uuid = Utils.safe_popen_read(bin/"kafka-storage", "random-uuid").strip
-    system bin/"kafka-storage", "format", "--standalone",
-           "-t", uuid, "-c", path
-  end
-
   service do
     run [opt_bin/"kafka-server-start", etc/"kafka/server.properties"]
     keep_alive true
@@ -97,7 +91,9 @@ class Kafka < Formula
               "advertised.listeners=PLAINTEXT://localhost:#{kafka_port},CONTROLLER://localhost:#{controller_port}"
     end
 
-    generate_log_dir(testpath/"kafka/server.properties")
+    uuid = Utils.safe_popen_read(bin/"kafka-storage", "random-uuid").strip
+    system bin/"kafka-storage", "format", "--standalone",
+           "-t", uuid, "-c", testpath/"kafka/server.properties"
 
     begin
       fork do
