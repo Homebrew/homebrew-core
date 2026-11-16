@@ -1,8 +1,8 @@
 class Kingfisher < Formula
   desc "MongoDB's blazingly fast secret scanning and validation tool"
   homepage "https://mongodb.github.io/kingfisher/"
-  url "https://github.com/mongodb/kingfisher/archive/refs/tags/v2.18.1.tar.gz"
-  sha256 "db51ea67d4d8de7917b286b3ede43ddd9eda333438d70ec0a582718f84cd7069"
+  url "https://github.com/mongodb/kingfisher/archive/refs/tags/v2.19.0.tar.gz"
+  sha256 "a3e733e0fffa9145768aef886b6629b7938998b99d2c013302912967963a0d6c"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -19,7 +19,7 @@ class Kingfisher < Formula
   depends_on "vectorscan" => :build # kingfisher-vectorscan uses static library
   depends_on "aws-lc"
 
-  uses_from_macos "sqlite"
+  uses_from_macos "sqlite", since: :tahoe # requires sqlite3_set_clientdata
 
   allow_network_access! :test
 
