@@ -6,7 +6,7 @@ class Gjs < Formula
   license all_of: ["LGPL-2.0-or-later", "MIT"]
   # TODO: Move to latest `spidermonkey` once gjs supports mozjs-153.
   # Also set deprecation date on `spidermonkey@140`.
-  revision 1
+  revision 2
   compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
@@ -49,8 +49,8 @@ class Gjs < Formula
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
 
-    # work around "Failed to load shared library 'libgobject-2.0.0.dylib'"
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: formula_opt_lib("glib"))}" if OS.mac?
+    # allow GJS to find and load shared libraries
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.mac?
 
     args = %w[
       -Dprofiler=disabled
@@ -74,7 +74,10 @@ class Gjs < Formula
     (testpath/"test.js").write <<~JS
       #!/usr/bin/env gjs
       const GLib = imports.gi.GLib;
+      const Gio = imports.gi.Gio;
       if (31 != GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
+        imports.system.exit(1)
+      if (!Gio.File.new_for_path("/").query_exists(null))
         imports.system.exit(1)
     JS
     system bin/"gjs", "test.js"
