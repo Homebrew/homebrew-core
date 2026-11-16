@@ -1,19 +1,17 @@
 class OvhTtyrec < Formula
   desc "Enhanced (but compatible) version of the classic ttyrec"
   homepage "https://github.com/ovh/ovh-ttyrec"
-  url "https://github.com/ovh/ovh-ttyrec/archive/refs/tags/v1.2.0.0.tar.gz"
-  sha256 "74a474ea33090a9a814c186429c2f725c0bfa1f9d3ceee03caf999daf047eb41"
+  url "https://github.com/ovh/ovh-ttyrec/archive/refs/tags/v1.2.0.1.tar.gz"
+  sha256 "d6b841c8d01f8d8a744f585ac765f2837054ed0a190cc0985d81e74972becc3a"
   license all_of: ["BSD-3-Clause", "BSD-4-Clause-UC"]
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bf3f94f223e68a3813d1c6363d1264996532370bda70e46800864a9286a62164"
-    sha256 cellar: :any, arm64_tahoe:       "a230c45574d67b74fa0fa4bf2fb756cacebb3bc8ab83d3167db999c542e49e36"
-    sha256 cellar: :any, arm64_sequoia:     "20a97830384deca10281cf7ad0f23e1bfebb835a134eefcf2a279ad52cb69554"
-    sha256 cellar: :any, arm64_sonoma:      "4dbe262314355b29ef3aaa4a4c22434ce9f6ad16bef5e10fe2c39d73c452cb71"
-    sha256 cellar: :any, sonoma:            "a306c3d4ce9a5813ea869c351ba18a077ec99dd77fd1a2f134454fca8c60be63"
-    sha256 cellar: :any, arm64_linux:       "a05d2af513ccc1705cc444442998940c77f8ebc205d5d279bcdca193a3b9c30b"
-    sha256 cellar: :any, x86_64_linux:      "fb32053d1909df6d7b2f6e7deb847dff5ee1028cb9018ee7356923fdcb6d5d38"
+    sha256 cellar: :any, arm64_golden_gate: "49c76ef839781713412995467ac6eb9b13cb53a921572c2e23141022e1c54da3"
+    sha256 cellar: :any, arm64_tahoe:       "eef33b07caa38cf80d5c3e9d985697b1d8308e8c42b6717721cdb013f3ba36e7"
+    sha256 cellar: :any, arm64_sequoia:     "a9cd3deebf729a009eb87270b33e6f634bddb5116ab2e444a54ea8dedd70ea46"
+    sha256 cellar: :any, arm64_linux:       "2c4804ba637ed8cc4580503d0a681cd06dc8c5e1ce432d9675b294ff8f533a86"
+    sha256 cellar: :any, x86_64_linux:      "daf275236fc6323c4596d54a5d8724392ba6fb38f96c1cb1069541d9923b24fd"
   end
 
   depends_on "zstd"
