@@ -3,8 +3,8 @@ class Fwupd < Formula
 
   desc "Firmware update daemon"
   homepage "https://github.com/fwupd/fwupd"
-  url "https://github.com/fwupd/fwupd/releases/download/2.1.9/fwupd-2.1.9.tar.xz"
-  sha256 "d45f3cbac06f1f6da300fb7c148237ff15c12df9981824e925bc2f3722bff233"
+  url "https://github.com/fwupd/fwupd/releases/download/2.1.10/fwupd-2.1.10.tar.xz"
+  sha256 "cb23ab505cabaf616dacfc199f710f883329e8782ca3aa67548bdb7181d62fab"
   license "LGPL-2.1-or-later"
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
@@ -68,6 +68,7 @@ class Fwupd < Formula
       "-Dbuild=standalone", # this is used as PolicyKit is not available on macOS
       "-Dpython=#{python3}",
       "-Dsupported_build=enabled",
+      "-Dopenssl=disabled", # GnuTLS already provides crypto; avoid linking an indirect `openssl@4`
       "-Dplugin_modem_manager=disabled",
       "-Dplugin_uefi_capsule_splash=false",
       "-Dtests=false",
