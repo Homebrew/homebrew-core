@@ -3,16 +3,16 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.github.com/spec-kit/"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "862bf3f51c3a312b18a5c07c1abf912117faeb05ccfab000f436c861e53f39d8"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.1.tar.gz"
+  sha256 "903ee3834fca8588735868dce751b3aef4a1e954c9ec69fb2ae07813e161be5c"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "90ebe0c41283159c160e280de788ba07bb940211d908cf914ba890d8666a9e31"
-    sha256 cellar: :any, arm64_tahoe:       "eb3ed2f50f2477fa656ea776ee41899170c4eec582d0181fc19bdec3b808c6b1"
-    sha256 cellar: :any, arm64_sequoia:     "6bd27024a2cdb8de0c51ec2afba63f670bbd8844949c22d760607329c9717124"
-    sha256 cellar: :any, arm64_linux:       "e255836ec76c2d24f8db459b3a87643a129191d8b9c8050d9531a1fda790808e"
-    sha256 cellar: :any, x86_64_linux:      "d8bb3db001536e697790efbdecc73fcaa8be18af7270a9857d3c5be1bdb7e3dd"
+    sha256 cellar: :any, arm64_golden_gate: "15450d081060e5d9d40be51fcb354abbb71747530e7d52a510959b5560c93435"
+    sha256 cellar: :any, arm64_tahoe:       "cb9882e97b16aa9403ee3b71efaebb982465aa53839b0df9fd8b3a331b108976"
+    sha256 cellar: :any, arm64_sequoia:     "fceb7e6d35dd3f85a64613bb20891ff25a06eb76b8681dbb09f5688141e4d1c0"
+    sha256 cellar: :any, arm64_linux:       "3334f962495d24a5508885de35a07400f8dde3ac395551c2577e150bb08a8af7"
+    sha256 cellar: :any, x86_64_linux:      "b182406b6ae9c319073d1c23fd5b5ed27b9feb541aabccfd663059a9a5b693d9"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,8 +25,8 @@ class Specify < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
-    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+    url "https://files.pythonhosted.org/packages/0f/6e/a61e86e43bb6039b31a33a8f5fba76fe1cdacf3661e7b9756d4ff1b28cdc/annotated_doc-0.0.6.tar.gz"
+    sha256 "7969bb69912085b2285849c0dcac0b4b374fd180c13cf10a87f284ffcf347bbf"
   end
 
   resource "anyio" do
@@ -85,8 +85,8 @@ class Specify < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mcp" do
@@ -175,8 +175,8 @@ class Specify < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/ed/db/401793a0d5345409a28de2c571d4ef8bea9a08700c20ea7f7b6af3b050d2/typer-0.29.0.tar.gz"
-    sha256 "6871960a1603fba66af2ff751be48a6735af6480a67660afaf2fab2f7e008ed4"
+    url "https://files.pythonhosted.org/packages/6c/aa/0de7986aa1fa856adb961c67345189b97d13f6e250b34ba68884df865f07/typer-0.29.1.tar.gz"
+    sha256 "ab6eb3880bf67ce96147734717f9ec333c06f66e361f3ea947d0be43da39f242"
   end
 
   resource "uvicorn" do
