@@ -58,13 +58,7 @@ class Knot < Formula
     system "make", "install"
     system "make", "install-singlehtml"
 
-    (buildpath/"knot.conf").write(knot_conf)
-    etc.install "knot.conf"
-    (var/"knot").mkpath
-  end
-
-  def knot_conf
-    <<~YAML
+    (buildpath/"knot.conf").write <<~YAML
       server:
         rundir: "#{var}/knot"
         listen: [ "127.0.0.1@53", "::@53" ]
@@ -80,6 +74,8 @@ class Knot < Formula
         - id: "default"
           storage: "#{var}/knot"
     YAML
+    etc.install "knot.conf"
+    (var/"knot").mkpath
   end
 
   service do
