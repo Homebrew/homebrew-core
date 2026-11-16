@@ -1,11 +1,10 @@
 class Sdl2Gfx < Formula
   desc "SDL2 graphics drawing primitives and other support functions"
   homepage "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
-  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.0.4.tar.gz"
-  mirror "https://downloads.sourceforge.net/project/sdl2gfx/SDL2_gfx-1.0.4.tar.gz"
-  sha256 "63e0e01addedc9df2f85b93a248f06e8a04affa014a835c2ea34bfe34e576262"
+  url "https://www.ferzkopp.net/Software/SDL2_gfx/SDL2_gfx-1.1.0.tar.gz"
+  mirror "https://downloads.sourceforge.net/project/sdl2gfx/SDL2_gfx-1.1.0.tar.gz"
+  sha256 "9843924d46eacbabba685a239cf2284b948766a20ef2caa48cb18462a3295caf"
   license "Zlib"
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -14,13 +13,11 @@ class Sdl2Gfx < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "702261a0dc2dc6dd34678d751be030f70fd40c171a5a38979875601685989ca7"
-    sha256 cellar: :any, arm64_tahoe:       "656d8e9d2503d3e176165c70e240c4acd3d8fb6d8845a5da300439c9c4c92990"
-    sha256 cellar: :any, arm64_sequoia:     "4495c158a58866ad66a946ba06222a9041a1b670dc255c62cae1a6251981e87c"
-    sha256 cellar: :any, arm64_sonoma:      "726280db5aa92a0ace6d293c1b6b807ee6eb34fd76665208d85b562445dff99b"
-    sha256 cellar: :any, sonoma:            "8efc5bff6b68d8598d6097bd16f62360452415d294a22c30f81132c4a0f64480"
-    sha256 cellar: :any, arm64_linux:       "d6c4321fa7c217877cad6c6815f5bc671b5fd3f390aef62061018f03dfbbbab3"
-    sha256 cellar: :any, x86_64_linux:      "63a286ac8e097c5048702a8b88c70a04f33148e0d98e1ba9aeb52a631538e53c"
+    sha256 cellar: :any, arm64_golden_gate: "80639812b07f240ef48da0aaca069316b96b48e04cbf3c90b64a63f662d71285"
+    sha256 cellar: :any, arm64_tahoe:       "a65576e4fdf58778efc41d07d7609983831ded53618fba9cfcdb9e4323781ab9"
+    sha256 cellar: :any, arm64_sequoia:     "629f1fd2011ad495bc0ba4355ba87bb49f9847de49a9920c17b17da7041bbd72"
+    sha256 cellar: :any, arm64_linux:       "742efb6e69f9d575e250b88cef8c9789f7207c2c99279e3977ecfb40db9cc032"
+    sha256 cellar: :any, x86_64_linux:      "1ca71792c0fdfa294d6af652934e4f7e9ac61c3792070ca1d6354c3a6b5e9cb3"
   end
 
   depends_on "sdl2-compat"
