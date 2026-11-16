@@ -101,6 +101,10 @@ class Node < Formula
     ENV["PYTHON"] = python3
     # simdjson 5 `key_selector` uses `throw` in consteval, which clang <= 20 rejects with -fno-exceptions
     ENV.append "CXXFLAGS", "-DSIMDJSON_CONCEPT_DISABLED"
+    # highway's SVE code fails to compile with GCC when building for the host CPU
+    if OS.linux? && Hardware::CPU.arm?
+      ENV["HOMEBREW_OPTFLAGS"] = Hardware::CPU.optimization_flags.fetch(Hardware.oldest_cpu)
+    end
 
     # Ensure Homebrew deps are used
     rm_r(["deps/icu-small", "deps/npm"])
