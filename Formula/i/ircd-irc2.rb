@@ -28,27 +28,6 @@ class IrcdIrc2 < Formula
     sha256 x86_64_linux:   "524aef733a367cce6eb115c4453ec851ffe7ac7d731c3d5ce91195be201bddb1"
   end
 
-  def default_ircd_conf
-    <<~EOS
-      # M-Line
-      M:irc.localhost::Darwin ircd default configuration::000A
-
-      # A-Line
-      A:This is Darwin's default ircd configurations:Please edit your /usr/local/etc/ircd.conf file:Contact <root@localhost> for questions::ExampleNet
-
-      # Y-Lines
-      Y:1:90::100:512000:5.5:100.100
-      Y:2:90::300:512000:5.5:250.250
-
-      # I-Line
-      I:*:::0:1
-      I:127.0.0.1/32:::0:1
-
-      # P-Line
-      P::::6667:
-    EOS
-  end
-
   # Last release on 2010-08-13 and site is down
   deprecate! date: "2025-04-06", because: :unmaintained
   disable! date: "2026-04-06", because: :unmaintained
@@ -98,7 +77,24 @@ class IrcdIrc2 < Formula
     # The directory is something like `i686-apple-darwin13.0.2'
     system "make", "install", "-C", build_dir
 
-    (buildpath/"ircd.conf").write default_ircd_conf
+    (buildpath/"ircd.conf").write <<~EOS
+      # M-Line
+      M:irc.localhost::Darwin ircd default configuration::000A
+
+      # A-Line
+      A:This is Darwin's default ircd configurations:Please edit your /usr/local/etc/ircd.conf file:Contact <root@localhost> for questions::ExampleNet
+
+      # Y-Lines
+      Y:1:90::100:512000:5.5:100.100
+      Y:2:90::300:512000:5.5:250.250
+
+      # I-Line
+      I:*:::0:1
+      I:127.0.0.1/32:::0:1
+
+      # P-Line
+      P::::6667:
+    EOS
     etc.install "ircd.conf"
   end
 
