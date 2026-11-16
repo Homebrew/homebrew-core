@@ -11,11 +11,11 @@ class Megatools < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a558fd59a2bc6dda63704386585f2cfd8b59c5457fa345206daa087e9533ec74"
-    sha256 cellar: :any, arm64_tahoe:       "ea8d0afde706bd78b7ca8650bfcd7c91f9c68de7bec314148a0fb091eda4516b"
-    sha256 cellar: :any, arm64_sequoia:     "9b4aa9f649ca34303ddb843f76c3f6851f1d610e7fadd80341bbde0899a3dc77"
-    sha256 cellar: :any, arm64_linux:       "ad9043fd8e6a1151340b5e1cf6bafe0848806459148b19f6c664a90abce6dbf3"
-    sha256 cellar: :any, x86_64_linux:      "76afb86498cbb3a42671ead4447bda03fa41f34cbd38b246df9b7d6b1c3beea2"
+    sha256 cellar: :any, arm64_golden_gate: "b8de0384ada644416dcab2cb3a8f716ac97264fd3a04fbdf8087fc546c236462"
+    sha256 cellar: :any, arm64_tahoe:       "4bd6ff739b042cdee5e6b516af1b0ef91dc57375f5ca40d7bc788aea4c2c1a95"
+    sha256 cellar: :any, arm64_sequoia:     "1025d6bd6f7e94990ac89856ce9ff9a35414d5335103ad56f9856cbc0d18f4fb"
+    sha256 cellar: :any, arm64_linux:       "bbbe5411eb2552e0310bbf2b0015feb41eeae556e789387c171c3660ffd6f1ca"
+    sha256 cellar: :any, x86_64_linux:      "b955b4b4301d1c111b3b025073978442bd27ad276bf51f590f175d303d418bbb"
   end
 
   depends_on "meson" => :build
