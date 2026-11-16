@@ -1,8 +1,8 @@
 class Sping < Formula
   desc "Real-time connectivity monitor with network diagnostics"
   homepage "https://github.com/LambdaBytes/sping"
-  url "https://github.com/LambdaBytes/sping/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "ba8508109bab003b5d5fd3333f188ab4ecb46a2d281ef78767fbea7c4a6a8ad4"
+  url "https://github.com/LambdaBytes/sping/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "e12d45373ca42c3af9adb63370b3a53881aef62bb80990a002cf8da566e957be"
   license "MIT"
   head "https://github.com/LambdaBytes/sping.git", branch: "main"
 
