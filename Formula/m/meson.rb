@@ -4,6 +4,7 @@ class Meson < Formula
   url "https://github.com/mesonbuild/meson/releases/download/1.12.1/meson-1.12.1.tar.gz"
   sha256 "ab0a6ca09f8ef70c564c8241fb5a23957886a0b53fb58412b5e07eaf07dba743"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
