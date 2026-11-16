@@ -1,8 +1,8 @@
 class AwsLc < Formula
   desc "General-purpose cryptographic library"
   homepage "https://github.com/aws/aws-lc"
-  url "https://github.com/aws/aws-lc/archive/refs/tags/v5.14.0.tar.gz"
-  sha256 "8895a9d2434e875e009e652a1015f9c2c275261634c7132253ca5aa60d266888"
+  url "https://github.com/aws/aws-lc/archive/refs/tags/v5.15.0.tar.gz"
+  sha256 "66e7132566cf2356b16ae79a9b57ea7a75ad6d65a41408753b08569c7db02921"
   license all_of: ["Apache-2.0", "ISC", "OpenSSL", "MIT", "BSD-3-Clause"]
   compatibility_version 1
 
@@ -12,11 +12,11 @@ class AwsLc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9d2f2bfd79f39f35b57e597468f0370429d011aad363bbac70bbaec93df1922e"
-    sha256 cellar: :any, arm64_tahoe:       "d5e96ab2c70697ae453c09e75bfe529247646709e6c5371898a0bc2882d966fd"
-    sha256 cellar: :any, arm64_sequoia:     "031e18f9477556c6093b66b0519c671f1368ba43ea35a223c7756cc019e994ef"
-    sha256 cellar: :any, arm64_linux:       "0635451e79c5474c4f0aec44dd055b63ede4c2591f8295397862de6ce05b9424"
-    sha256 cellar: :any, x86_64_linux:      "4feab6e37389ab1b4570f9e2a0997dd89819bf5262e0571ff642849575ed8568"
+    sha256 cellar: :any, arm64_golden_gate: "59632bccc84feabde9759d332b5679143b343b1df281ab06a8bc508a9bacbc32"
+    sha256 cellar: :any, arm64_tahoe:       "355e1f40ea38f5f42a8131be28e02cd1a36d119c8c0e2994125c3ce56f890bbf"
+    sha256 cellar: :any, arm64_sequoia:     "f8384ef6d3e74a99ef2e483f58bd1d89ef9c00bbfaa7aa6b1ebb44799f8549da"
+    sha256 cellar: :any, arm64_linux:       "c9624ca564a58725fce40582b0879d83dcabffd5830dfa127aa35b7c77ae6d43"
+    sha256 cellar: :any, x86_64_linux:      "42123fdac2be3b76ebbd4ac4be73b5117a07d3d195fd109fce575c65de4d2f93"
   end
 
   depends_on "bindgen" => :build
