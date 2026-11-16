@@ -85,10 +85,6 @@ class PythonAT39 < Formula
     end
   end
 
-  def site_packages_cellar
-    lib_cellar/"site-packages"
-  end
-
   # The HOMEBREW_PREFIX location of site-packages.
   def site_packages
     HOMEBREW_PREFIX/"lib/python#{version.major_minor}/site-packages"
@@ -258,7 +254,7 @@ class PythonAT39 < Formula
     end
 
     # Remove the site-packages that Python created in its Cellar.
-    rm_r(site_packages_cellar)
+    rm_r(lib_cellar/"site-packages")
 
     # Prepare a wheel of wheel to install later.
     common_pip_args = %w[
