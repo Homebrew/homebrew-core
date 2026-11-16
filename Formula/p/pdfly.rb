@@ -3,8 +3,8 @@ class Pdfly < Formula
 
   desc "CLI tool to extract (meta)data from PDF and manipulate PDF files"
   homepage "https://pdfly.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/91/2a/b69aed6c37c8cf593fee55bb4ac104fab7e266f7694c1db76799e5db4a73/pdfly-0.6.0.tar.gz"
-  sha256 "20db6b5334139245424144ab8ee3ddaac67d5e47a206af48e057c64c0fcb151b"
+  url "https://files.pythonhosted.org/packages/84/ab/62fa07b7ba6cf2e4a1a89f31df690277939b17cba54a8c17a89ad578fe48/pdfly-0.7.0.tar.gz"
+  sha256 "10b2562ab76f0f9ed4977676c2c25069b8bc726db2bbcb17f31cd3ac62126997"
   license "BSD-3-Clause"
 
   bottle do
@@ -175,20 +175,21 @@ class Pdfly < Formula
 
     test_pdf = test_fixtures("test.pdf")
     assert_match <<~EOS, shell_output("#{bin}/pdfly meta #{test_pdf}")
-      ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┓
-      ┃          Attribute ┃ Value              ┃
-      ┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━┩
-      │              Pages │ 1                  │
-      │          Encrypted │ None               │
-      │   PDF File Version │ %PDF-1.6           │
-      │        Page Layout │                    │
-      │          Page Mode │                    │
-      │             PDF ID │ ID1=None ID2=None  │
-      │ Fonts (unembedded) │ /Helvetica         │
-      │   Fonts (embedded) │                    │
-      │        Attachments │ []                 │
-      │             Images │ 0 images (0 bytes) │
-      └────────────────────┴────────────────────┘
+      ┏━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━┓
+      ┃          Attribute ┃ Value               ┃
+      ┡━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━┩
+      │              Pages │ 1                   │
+      │          Encrypted │ no                  │
+      │        Permissions │ all (not encrypted) │
+      │   PDF File Version │ %PDF-1.6            │
+      │        Page Layout │                     │
+      │          Page Mode │                     │
+      │             PDF ID │ ID1=None ID2=None   │
+      │ Fonts (unembedded) │ /Helvetica          │
+      │   Fonts (embedded) │                     │
+      │        Attachments │ []                  │
+      │             Images │ 0 images (0 bytes)  │
+      └────────────────────┴─────────────────────┘
     EOS
   end
 end
