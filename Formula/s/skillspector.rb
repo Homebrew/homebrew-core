@@ -3,8 +3,8 @@ class Skillspector < Formula
 
   desc "Security scanner for AI agent skills"
   homepage "https://github.com/NVIDIA/SkillSpector"
-  url "https://github.com/NVIDIA/SkillSpector/archive/refs/tags/v2.13.5.tar.gz"
-  sha256 "b4864f8774bd1f5c56747068c7a2d0aeb714f5e074972d1c48723dc21535427e"
+  url "https://github.com/NVIDIA/SkillSpector/archive/refs/tags/v2.13.6.tar.gz"
+  sha256 "758b8d04ee6300d76242bfca1ea7e17c33faa7500f49640dbcceb5d23c3322e9"
   license "Apache-2.0"
   head "https://github.com/NVIDIA/SkillSpector.git", branch: "main"
 
@@ -141,8 +141,8 @@ class Skillspector < Formula
   end
 
   resource "langchain-core" do
-    url "https://files.pythonhosted.org/packages/de/1e/ce7b06cecfc41a8f179571f9e228ae9d2f7d090492d2c312322fd4f4380f/langchain_core-1.8.0.tar.gz"
-    sha256 "8c571299ae83acec89599cbbb6890018f54225da336a6e315c9e882dd5da6502"
+    url "https://files.pythonhosted.org/packages/70/22/b8823f7cad862d07aec9fe41d1bd61c1129fcde0879fcde4de5482c31896/langchain_core-1.8.1.tar.gz"
+    sha256 "778b9bf1d18d4b7a716311defa230db190006ef75fe175930e00012d82df603b"
   end
 
   resource "langchain-openai" do
