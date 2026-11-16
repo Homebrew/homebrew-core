@@ -28,15 +28,6 @@ class Fabio < Formula
     system "go", "build", *std_go_args
   end
 
-  def port_open?(ip_address, port, seconds = 1)
-    Timeout.timeout(seconds) do
-      TCPSocket.new(ip_address, port).close
-    end
-    true
-  rescue Errno::ECONNREFUSED, Errno::EHOSTUNREACH, Timeout::Error
-    false
-  end
-
   test do
     require "socket"
     require "timeout"
@@ -62,7 +53,9 @@ class Fabio < Formula
     pid_fabio = spawn bin/"fabio", "-cfg", testpath/"fabio.properties"
     sleep 10
 
-    assert_equal true, port_open?(localhost_ip, fabio_default_port)
+    Timeout.timeout(1) do
+      TCPSocket.new(localhost_ip, fabio_default_port).close
+    end
   ensure
     Process.kill("TERM", pid_etcd)
     Process.kill("TERM", pid_fabio)
