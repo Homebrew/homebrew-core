@@ -1,8 +1,8 @@
 class Ktop < Formula
   desc "Top-like tool for your Kubernetes clusters"
   homepage "https://ktop.app/"
-  url "https://github.com/vladimirvivien/ktop/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "23c87ec4a5e60aa7c4d38b8d0aca2a8191825f2275850fc0910440544ac6517c"
+  url "https://github.com/vladimirvivien/ktop/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "de9a63dd35c0dd586a460cd1cd09f7b3463da330d781778f7694846f937da7e8"
   license "Apache-2.0"
   head "https://github.com/vladimirvivien/ktop.git", branch: "main"
 
@@ -31,7 +31,7 @@ class Ktop < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ktop --all-namespaces 2>&1", 1)
+    output = shell_output("#{bin}/ktop --all-namespaces 2>&1", 3)
     assert_match "connection refused", output
   end
 end
