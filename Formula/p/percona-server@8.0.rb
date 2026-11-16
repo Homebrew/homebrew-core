@@ -69,10 +69,6 @@ class PerconaServerAT80 < Formula
   # https://github.com/Homebrew/homebrew-test-bot/pull/820
   patch :DATA
 
-  def datadir
-    var/"mysql"
-  end
-
   def install
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
@@ -105,7 +101,7 @@ class PerconaServerAT80 < Formula
       -DINSTALL_MANDIR=share/man
       -DINSTALL_MYSQLSHAREDIR=share/mysql
       -DINSTALL_PLUGINDIR=lib/percona-server/plugin
-      -DMYSQL_DATADIR=#{datadir}
+      -DMYSQL_DATADIR=#{var}/mysql
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
       -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
