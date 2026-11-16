@@ -8,11 +8,7 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81e14d31863356f77bf4ba015e33cab5e1f60e58ac442e116ece12b57b600f09"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "81e14d31863356f77bf4ba015e33cab5e1f60e58ac442e116ece12b57b600f09"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "81e14d31863356f77bf4ba015e33cab5e1f60e58ac442e116ece12b57b600f09"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d75da858c50dfceba718649e91bedb33b983f80c1e9bd4cc5574f35b8708ceda"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d75da858c50dfceba718649e91bedb33b983f80c1e9bd4cc5574f35b8708ceda"
+    sha256 cellar: :any_skip_relocation, all: "d5a9e5535f98f2135ecdfd347a4fca59ba7768cab7fe293223706a938782664e"
   end
 
   depends_on "rust" => :build # for `isort`
