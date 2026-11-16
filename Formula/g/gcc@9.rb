@@ -119,7 +119,7 @@ class GccAT9 < Formula
     # Handle conflicts between GCC formulae and avoid interfering
     # with system compilers.
     # Rename man7.
-    Dir.glob(man7/"*.7") { |file| add_suffix file, version_suffix }
+    man7.glob("*.7") { |file| file.rename file.sub_ext("-#{version_suffix}.7") }
     # Even when we disable building info pages some are still installed.
     rm_r(info)
 
@@ -130,13 +130,6 @@ class GccAT9 < Formula
 
   post_install_steps do
     configure_gcc_runtime
-  end
-
-  def add_suffix(file, suffix)
-    dir = File.dirname(file)
-    ext = File.extname(file)
-    base = File.basename(file, ext)
-    File.rename file, "#{dir}/#{base}-#{suffix}#{ext}"
   end
 
   test do
