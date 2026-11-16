@@ -1,8 +1,8 @@
 class PvMigrate < Formula
   desc "CLI tool to migrate or backup/restore Kubernetes persistent volumes"
   homepage "https://github.com/utkuozdemir/pv-migrate"
-  url "https://github.com/utkuozdemir/pv-migrate/archive/refs/tags/v3.7.0.tar.gz"
-  sha256 "f69a7d025369542544a438c0b5ea24227405c47e0c64a565605d77d290e72dea"
+  url "https://github.com/utkuozdemir/pv-migrate/archive/refs/tags/v3.8.0.tar.gz"
+  sha256 "7727a832439d75933d7ee92c8863a0c1f93299bfea0e7e6e744ce16b64f2c629"
   license "Apache-2.0"
   head "https://github.com/utkuozdemir/pv-migrate.git", branch: "main"
 
@@ -12,11 +12,11 @@ class PvMigrate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb5d1d90f2dc1fe444bc67018d59797a05df490f3900e1774b3c096d0d2ebf43"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "65f7cd1102f66dd709c24b4e3c863ffad8ddfdd05db12d007ce19fe2efcab3eb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6cd45b90daadf92db74c818ed1ceb2478d6093698333e92045a4cc0e29865c95"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f1f4c7cce8db102960019011cf4451a59ac614eea60faed64f351b3e6637f314"
-    sha256 cellar: :any,                 x86_64_linux:      "241a8846bc73f44b19056aa986dc32160ccab478b0ad1b7883843815e20a5f8e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c1905a809addd3bfa106b3d41f34d227e058156aa9327ef7fb3862d867ef701"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19e42b48e40bd800b3ff5d579ab7fa217c96da32996b05367f869e498906c5c6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c049cc8bf9b76819c3e5f2f13a6ff6ecbfda6241ed0ebd8da117b6598906eeb2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "22945f0eaa538170233c4397796d0daf33b7076a471031ca55ebc2dd2eff9f5b"
+    sha256 cellar: :any,                 x86_64_linux:      "fd308d090ce4b6dc070047ab0bde39cbf749cd4b69e1f8d5a50e6d62c27a1daf"
   end
 
   depends_on "go" => :build
