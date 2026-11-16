@@ -12,13 +12,11 @@ class Goctl < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a106b1f28915d5ccf6bd5f8b57fc6c76846d76028fae3ed522784f15008e706e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac133e6737c55cc2d810d17e5681a26048d1516e59ad1adf40a2cef017e4b865"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "110199234560c845a99331ddc5fc6820da167446aab4a285a75138948d22b6ad"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b7054384a5dafadca373f0c6d7c87c77acc96d09106c64d006b1261c349aa229"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b432c4aae1288217e9b11b9dbf808a714a38c7cb1d1a28012d043f441735a48e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9175d06fbe63cbba873b3e98c8c4fd285c2ff9756e5cc242b1cdf49c0439f28c"
-    sha256 cellar: :any,                 x86_64_linux:      "8aa69852a0771b76b0481d5be5b31de30b8c07390e87acd3901e1f8b3644850e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30b815a0f05963c7813d0df72bf92f4940a48096160f2af4f854db70bbfde108"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47c5587b97bc94cc6310d67f0991c268b3fdb44eed6d55093867f2f7a51ae32e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bee67440bbf36e46481e028a338bafdd04e239d4686049102b794068adcab5ab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ffe6ac7df754566c89186dab5adc6554ff9aaea6b6a9d4d9e9dc23d1b161444a"
+    sha256 cellar: :any,                 x86_64_linux:      "6b2b981b8e457d2328effa7d102ab89c3b75196282718c51e0afb5409a47f565"
   end
 
   depends_on "go" => :build
