@@ -1,17 +1,17 @@
 class Sping < Formula
   desc "Real-time connectivity monitor with network diagnostics"
   homepage "https://github.com/LambdaBytes/sping"
-  url "https://github.com/LambdaBytes/sping/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "ba8508109bab003b5d5fd3333f188ab4ecb46a2d281ef78767fbea7c4a6a8ad4"
+  url "https://github.com/LambdaBytes/sping/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "e12d45373ca42c3af9adb63370b3a53881aef62bb80990a002cf8da566e957be"
   license "MIT"
   head "https://github.com/LambdaBytes/sping.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb925e96c9942a1ae0c733e62b0cde52df56b668ad1a479ccc3f6dead821319"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70ba163ac3bef70a4cefa7d8a6a48316697a6572b6f354f8b4967af0a6e753c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92d99ef7fd3e4f94ecabd399d95774c79339d64f17717edcdbddc057d2c47d6b"
-    sha256 cellar: :any,                 arm64_linux:       "99a32251365bee58e27f77de53ff0ea648a8afaaea694a83c0713f20db8f4713"
-    sha256 cellar: :any,                 x86_64_linux:      "216ab52ae6cc7a0c4738ddcf811b0854acdcbcedefff9137138d8c128cec7d33"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "668696d209b033797a618726829eefe83e5f68a7f1294bed71376f895bdd863a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f090e9863eb20f6bb80a44b5081761fefbb9a4bd082a0d3396c6df39eaca7335"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17ea27ea61586226517c6b361936f5f665a677ecaac7e611779969a7e354df7b"
+    sha256 cellar: :any,                 arm64_linux:       "20c69ba9fc648289f4198aaddb1bc704dfebc34a00d18478282b73ccb1a1e726"
+    sha256 cellar: :any,                 x86_64_linux:      "3c31573cbfbe4133c8282d7c6c12d37a8ee37ee3dc55920d3d08bc642a5497c6"
   end
 
   depends_on "rust" => :build
