@@ -20,12 +20,6 @@ class UutilsFindutils < Formula
 
   uses_from_macos "llvm" => :build
 
-  def unwanted_bin_link?(cmd)
-    %w[
-      testing-commandline
-    ].include? cmd
-  end
-
   deny_network_access!
 
   def fetch
@@ -39,7 +33,7 @@ class UutilsFindutils < Formula
     system "cargo", "install", *std_cargo_args(root: libexec)
     mv libexec/"bin", libexec/"uubin"
     Dir.children(libexec/"uubin").each do |cmd|
-      next if unwanted_bin_link? cmd
+      next if cmd == "testing-commandline"
 
       bin.install_symlink libexec/"uubin"/cmd => "uu-#{cmd}"
     end
