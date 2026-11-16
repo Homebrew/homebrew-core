@@ -13,11 +13,11 @@ class ImagemagickFull < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "4aec755bf08bb164ac093d8afcf935bc5526c478f152d92a4db1e7269bd31357"
-    sha256 arm64_tahoe:       "69805e36b1b224c683e0b92c28b1068e4c629aa0230469a71450861329c00955"
-    sha256 arm64_sequoia:     "a020be67666057f580b84da18b0446715c311edc7bd834ed879575639e7d9c63"
-    sha256 arm64_linux:       "6c9500a5912ad2e4f533528416787f7ca94e0c111c7f5d3003a263fda61f448a"
-    sha256 x86_64_linux:      "21800a11d045afd52c4e81f8b57077c9ef248d8be83f328ef192a57a0dc8b487"
+    sha256 arm64_golden_gate: "4d00557a2d2cc14395caa1e15b8fa0b05e985da0f7e916a5403bee85cc70bceb"
+    sha256 arm64_tahoe:       "314b767f4a4ba22c5ae30f78247831ce1aaa5240dc3ebd7d28e667b56fbb905b"
+    sha256 arm64_sequoia:     "e1ab4189e078510392d39af7d8ca3c9eaa369bd29d5fbf242ce098e06f0e8619"
+    sha256 arm64_linux:       "1ba81340fffef39150023199b72ff827598c1c8461e57700174a5365764ce4da"
+    sha256 x86_64_linux:      "de97edb4c4938ec6c78c80fd066800f541c3606b732b2a2bbba7c47bc93915d9"
   end
 
   keg_only :versioned_formula
