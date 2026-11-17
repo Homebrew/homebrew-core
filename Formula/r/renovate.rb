@@ -17,9 +17,11 @@ class Renovate < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "43585e1df758e00a1cd1fc9cbd8b24d4f2bc4d85f98bea04798c516e25594b85"
   end
 
-  depends_on "node@24"
+  depends_on "node"
 
   uses_from_macos "git", since: :monterey # needs git >= 2.33.0 (Apple Git-136)
+
+  allow_network_access! :build
 
   def install
     system "npm", "install", *std_npm_args
