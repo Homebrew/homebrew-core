@@ -1,23 +1,22 @@
 class Mailpit < Formula
   desc "Web and API based SMTP testing"
   homepage "https://mailpit.axllent.org/"
-  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.33.1.tar.gz"
-  sha256 "db2b71b4b1a535e379c62db72f1bc302346fde2dfecbf90ed0780ea2de1b8798"
+  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.34.0.tar.gz"
+  sha256 "82e31ccc0069685f8794ea0d781cbf147f717633d3bd0f442883ab36ee6308c3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5021e8018c9d0cac9e86cab6a3d733f5b96230085c8f93002700752eed442803"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6fe77071d6f105bb4f59a2e21b067a162efed1a3e53104d97faadea3143008a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "844449664896a77688c3a0baf165b52d380ab92dff8804a4bfd07a5a2e758c30"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "52f7a14eec00633db7a88999183c25fd907754b9450cf69ae8449702c9ae42c4"
-    sha256 cellar: :any,                 x86_64_linux:      "63ddb1c8b844eae109a76c835583dd08008cd1be406f40f4faf83d7359ce6597"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63fa51c460c47e0d57d953318c4d89bb2f58e2367790f2911935cc2b33bd6f53"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d0bf9105570ef31c3ec4bedd9b16d2450ca151369540fa46c74f10aef1c8e61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f52aef205338d79c555673aee0e7af8ddffe6353a431487005aaa1d5ea1a6ea8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7c2dc3887bc29a2281d1e83e9333fa56445e664221e875bfd939825c5f4c33c1"
+    sha256 cellar: :any,                 x86_64_linux:      "8f24cd7186059c7e38e0fc34332a905c9acf5feed12f5ce8825977394e9174db"
   end
 
   depends_on "go" => :build
   depends_on "node" => :build
 
-  # `mailpit version` in the `test do` block checks GitHub for updates
-  allow_network_access! :test
+  deny_network_access!
 
   def fetch
     system "go", "mod", "download"
@@ -46,6 +45,6 @@ class Mailpit < Formula
     output = pipe_output("#{bin}/mailpit sendmail 2>&1", test_email, 11)
     assert_match "error parsing message body: malformed header line", output
 
-    assert_match "mailpit v#{version}", shell_output("#{bin}/mailpit version")
+    assert_match "mailpit v#{version}", shell_output("#{bin}/mailpit version --no-release-check")
   end
 end
