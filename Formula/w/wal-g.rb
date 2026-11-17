@@ -1,8 +1,8 @@
 class WalG < Formula
   desc "Archival restoration tool for databases"
   homepage "https://github.com/wal-g/wal-g"
-  url "https://github.com/wal-g/wal-g/archive/refs/tags/v3.0.9.tar.gz"
-  sha256 "b06bc26c4865c07d0c269101910f63c7eedd03790b7c054a7da0980a7a9cc31d"
+  url "https://github.com/wal-g/wal-g/archive/refs/tags/v3.0.10.tar.gz"
+  sha256 "e7ad190500da1eb7cc7fdbe7e86543ce5b884992e99491042c5b2592caacf5fe"
   license "Apache-2.0"
 
   bottle do
