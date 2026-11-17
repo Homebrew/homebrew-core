@@ -1,10 +1,9 @@
 class Openshell < Formula
   desc "Safe, private runtime for autonomous AI agents"
   homepage "https://docs.nvidia.com/openshell/latest/"
-  url "https://github.com/NVIDIA/OpenShell/archive/refs/tags/v0.1.8.tar.gz"
-  sha256 "ea6c2dcb50b3ecb3c7bf3d8b5ae4ada71eee838a1a2b12f7a1d2ada76b0837b9"
+  url "https://github.com/NVIDIA/OpenShell/archive/refs/tags/v0.1.9.tar.gz"
+  sha256 "b23e5620f6cef35f0f72932a054d97fa0bd8f8f4ef4e7c9c90a293e17b9790d6"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/NVIDIA/OpenShell.git", branch: "main"
 
   livecheck do
