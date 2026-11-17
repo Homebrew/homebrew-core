@@ -2,8 +2,8 @@ class Apt < Formula
   desc "Advanced Package Tool"
   homepage "https://wiki.debian.org/Apt"
   # Using git tarball as Debian does not retain old versions at deb.debian.org
-  url "https://salsa.debian.org/apt-team/apt/-/archive/3.3.7/apt-3.3.7.tar.bz2"
-  sha256 "998616c53f861d96f316f2fcee900a56f2fce4e8120827a9c06622af83903772"
+  url "https://salsa.debian.org/apt-team/apt/-/archive/3.3.8/apt-3.3.8.tar.bz2"
+  sha256 "c61e7ae1117d6be89464a78e1f70bde5f181d086c50fe1df1f79b8f9ac12eb3d"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
@@ -13,8 +13,8 @@ class Apt < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "5de3cb1698d4b015b313444a450e35202925f4c9cbe84729da289bf20c8bd406"
-    sha256 x86_64_linux: "1762f7a63e11de1111414d8b4c575cdb298bc37c9e66e2fcf3068d685888ed9d"
+    sha256 arm64_linux:  "a38552f18278f1dc10f6e1e16f3b9377898bdbd8f88798849eae5452e6f72cdb"
+    sha256 x86_64_linux: "f4c938beacdbf3f2e082c903f29552a86ac4b3346bb17a514e7d34be8c67f8d5"
   end
 
   keg_only "it conflicts with system apt"
