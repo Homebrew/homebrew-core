@@ -4,15 +4,16 @@ class Mpv < Formula
   url "https://github.com/mpv-player/mpv/archive/refs/tags/v0.42.0.tar.gz"
   sha256 "bcfebbfa2b65a6d88dc97ea18117831072373e38b5785a2afb874ed4df5070dd"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
+  revision 1
   compatibility_version 1
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "0d9ff71b2875fd4e816285816338399f6532f86e721c50fd369fb588f01fcce6"
-    sha256 arm64_tahoe:       "f5d6799317ea1d88a5339e318c335938b37615d1e1ae2cc1a048d7705bb2f79f"
-    sha256 arm64_sequoia:     "8b25fdd54ea368d97283e17f0ceab4ce713d670ebd8d410e5064da8dd6e9d891"
-    sha256 arm64_linux:       "054c749069bf73de193dc274d5bc6a89592ec0083debacea155d1d370d92b40e"
-    sha256 x86_64_linux:      "5b160ea629e2a143338c5292d2ba7ccaa5a5f70e820b918ccf9f1f54cd3661a3"
+    sha256 arm64_golden_gate: "20f3540339b3d73a174c3661d9388e2c7bc9f972acbfc3b6e771f7042b47745d"
+    sha256 arm64_tahoe:       "6a1b54f165edafb7b4a7b3d09b5e88097d6fcfb1dd91f94a1bea9dc1803f2d2d"
+    sha256 arm64_sequoia:     "05850494459b51fee48c8b5c394257b616318cf226d58a108a2eb0232b233601"
+    sha256 arm64_linux:       "925ff4382a3289fc919924ffa8796dba503d48b99c4026a40ab40c3c039c5f7a"
+    sha256 x86_64_linux:      "6ce1761d1f9a30bf856bfa370f79ecf0c4ef009d72c54fb369557c8b8257461d"
   end
 
   depends_on "docutils" => :build
@@ -83,16 +84,6 @@ class Mpv < Formula
     system "meson", "compile", "-C", "build", "--verbose"
     system "meson", "install", "-C", "build"
     bash_completion.install share/"bash-completion/completions/mpv"
-
-    return unless OS.mac?
-
-    # `pkg-config --libs mpv` includes libarchive, but that package is
-    # keg-only so it needs to look for the pkgconfig file in libarchive's opt
-    # path.
-    libarchive = formula_opt_prefix("libarchive")
-    inreplace lib/"pkgconfig/mpv.pc",
-              /^Requires\.private:(.*)\blibarchive\b(.*?)(,.*)?$/,
-              "Requires.private:\\1#{libarchive}/lib/pkgconfig/libarchive.pc\\3"
   end
 
   def caveats
@@ -105,8 +96,5 @@ class Mpv < Formula
   test do
     system bin/"mpv", "--ao=null", "--vo=null", test_fixtures("test.wav")
     assert_match "vapoursynth", shell_output("#{bin}/mpv --vf=help")
-
-    # Make sure `pkgconf` can parse `mpv.pc` after the `inreplace`.
-    system "pkgconf", "--print-errors", "mpv"
   end
 end
