@@ -7,11 +7,11 @@ class VitePlus < Formula
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "58ac93701b598d71e966bf112958f6994b446734585bab787b376dcda9037586"
-    sha256 cellar: :any, arm64_tahoe:       "f4f58c9b727ec0d843387f48a185e8ad9915f1f5de51c3cf0a7c910e0285a625"
-    sha256 cellar: :any, arm64_sequoia:     "f690b5b2cafc59a8a80adbd8c0f9f39b9d78c646657d94f4e7c9a2b8da53c028"
-    sha256               arm64_linux:       "58562cd6476547ccea85cd7eae19053eb4f4e2b7fbeb1b2829797f47c4a256d8"
-    sha256               x86_64_linux:      "ab98b0921364b7c1c54b80e88c56b2af2a178f10ee527e2c624892e00d2ff7bc"
+    sha256 cellar: :any, arm64_golden_gate: "091ef5814dfefbac9de99ff0a96a50cc83c7f8ea1604619c889fb320371de51a"
+    sha256 cellar: :any, arm64_tahoe:       "123eff351bb0fb8822036aa7a2aae7d819ec0857444ed53fc29912225d9be383"
+    sha256 cellar: :any, arm64_sequoia:     "79ae8fb1b6556f05ecc263c21a4996a528fa15caa4330ab2fc5d60744df8c4ad"
+    sha256               arm64_linux:       "6e29d8b4a1824676ffd543d033f49c9391e018eff4446518da30cd8c758723f4"
+    sha256               x86_64_linux:      "314df4c0ce0e210cd40fde7e7a078448e605b78e7e7cdbad2c1178f454cdb432"
   end
 
   depends_on "cmake" => :build
