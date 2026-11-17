@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.6.0.tar.gz"
-  sha256 "8bb73c2ff33523675c66e9d87d8694754e4def7d7bbaff2ee95f274fb48de946"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.7.0.tar.gz"
+  sha256 "badbb6809618cba01ae311a4cb89591e35d15dfe6fee01efbfff8cc3d1dec04d"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
@@ -24,8 +24,8 @@ class VitePlus < Formula
 
   resource "rolldown" do
     url "https://github.com/rolldown/rolldown.git",
-        revision: "f9a49d6adff486e21b3cec60db4d291f1fa4d8f2"
-    version "f9a49d6adff486e21b3cec60db4d291f1fa4d8f2"
+        revision: "b9c75ddc8bd50f2c1a4c7be0b548bdab5cba85ab"
+    version "b9c75ddc8bd50f2c1a4c7be0b548bdab5cba85ab"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -37,8 +37,8 @@ class VitePlus < Formula
 
   resource "vite" do
     url "https://github.com/vitejs/vite.git",
-        revision: "5def936009d2637a48d056e197aebc6242ac27c6"
-    version "5def936009d2637a48d056e197aebc6242ac27c6"
+        revision: "b39e6e63dcbfc3cf4be871acf3554efbd6d0e268"
+    version "b39e6e63dcbfc3cf4be871acf3554efbd6d0e268"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
@@ -50,8 +50,8 @@ class VitePlus < Formula
 
   resource "oxc-node" do
     url "https://github.com/oxc-project/oxc-node.git",
-        revision: "7ff14c3b1d15e2ef12310ee209d0b72b58fa880e"
-    version "7ff14c3b1d15e2ef12310ee209d0b72b58fa880e"
+        revision: "16c0f340aebd927b72d941b693e51dd6f5264f17"
+    version "16c0f340aebd927b72d941b693e51dd6f5264f17"
 
     livecheck do
       url "https://raw.githubusercontent.com/voidzero-dev/vite-plus/refs/tags/v#{LATEST_VERSION}/packages/tools/.upstream-versions.json"
