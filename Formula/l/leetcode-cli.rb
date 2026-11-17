@@ -1,8 +1,8 @@
 class LeetcodeCli < Formula
   desc "May the code be with you"
   homepage "https://github.com/clearloop/leetcode-cli"
-  url "https://github.com/clearloop/leetcode-cli/archive/refs/tags/v0.5.5.tar.gz"
-  sha256 "52bc5bac21dc52a0d498c8b817f9e04c7267ba9febb08d4ed0a158e91893d6cf"
+  url "https://github.com/clearloop/leetcode-cli/archive/refs/tags/v0.5.6.tar.gz"
+  sha256 "1b60013476f00e8a9ebc9ffc15837880d7a1bf582a2430922d9b70bcecc9977f"
   license "MIT"
   head "https://github.com/clearloop/leetcode-cli.git", branch: "main"
 
@@ -41,6 +41,8 @@ class LeetcodeCli < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/leetcode --version")
-    assert_match "[INFO  leetcode_cli::config] Generate root dir", shell_output("#{bin}/leetcode list 2>&1")
+    output = shell_output("#{bin}/leetcode list 2>&1", 1)
+    assert_match "[INFO  leetcode_cli::config] Generate root dir", output
+    assert_match "No LeetCode cookies found", output
   end
 end
