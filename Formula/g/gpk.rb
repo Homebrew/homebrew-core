@@ -1,17 +1,17 @@
 class Gpk < Formula
   desc "TUI and CLI that unifies every package manager on the system"
   homepage "https://github.com/neur0map/glazepkg"
-  url "https://github.com/neur0map/glazepkg/archive/refs/tags/v0.6.10.tar.gz"
-  sha256 "0c7f708564e2e35613161ebba7ae9c980493cce667c0a5f8946ace75eb08c100"
+  url "https://github.com/neur0map/glazepkg/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "2571f6005046d77dee9d5f0f4d2e5981887988d43c3cf6c8d1da5e8aa7d91c48"
   license "GPL-3.0-or-later"
   head "https://github.com/neur0map/glazepkg.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4578d42d4012d021fd5c0457ce05fb351c6c8610b993f6f8d784974b81e504f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4578d42d4012d021fd5c0457ce05fb351c6c8610b993f6f8d784974b81e504f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4578d42d4012d021fd5c0457ce05fb351c6c8610b993f6f8d784974b81e504f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "05e849b49a51962e1cacec3ccd56a4355b821c91ccafbaba25ff2b584f0d7deb"
-    sha256 cellar: :any,                 x86_64_linux:      "0d6868c5713fb22c4725a32d962c08d09724a2bdacebdefd553e26ab120a25d9"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41a72a1e8c838bac6af7d62d97cfcefbcd6ae919ab0a95c20a39cc3fc2151b3a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41a72a1e8c838bac6af7d62d97cfcefbcd6ae919ab0a95c20a39cc3fc2151b3a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41a72a1e8c838bac6af7d62d97cfcefbcd6ae919ab0a95c20a39cc3fc2151b3a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4f04575cb1e711b08bb33dd4b763f4961213d4c1b9852fc68cb56fbfc076975b"
+    sha256 cellar: :any,                 x86_64_linux:      "6e144cc51c20f0e0091316cb5c9bc7019041d7c74ff23603fe4e49c3a23c5ce8"
   end
 
   depends_on "go" => :build
