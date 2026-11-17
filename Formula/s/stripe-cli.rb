@@ -5,6 +5,12 @@ class StripeCli < Formula
   sha256 "8c24a8d5e9033a1d063b035988ccb11ba5c0e1163ee5a4ad6207861b65da959d"
   license "Apache-2.0"
 
+  # Upstream creates releases as pre-releases before promoting them
+  livecheck do
+    url :stable
+    strategy :github_latest
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "021ce5ff77b674cfb3d2068cc34876e1cfde3efde094f505ecd8adc9b37a4abd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "021ce5ff77b674cfb3d2068cc34876e1cfde3efde094f505ecd8adc9b37a4abd"
