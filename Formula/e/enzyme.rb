@@ -6,6 +6,11 @@ class Enzyme < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
   head "https://github.com/EnzymeAD/Enzyme.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "28bb200c7749051ddf70241c06c75857c44336102ec574cfa98c4ac04a762d58"
     sha256 cellar: :any, arm64_tahoe:       "909053b4616ae6ef0e3517694ac0e254bb6d2022d909255f583aa5439d1c70cc"
