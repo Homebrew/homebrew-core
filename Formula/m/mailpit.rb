@@ -1,8 +1,8 @@
 class Mailpit < Formula
   desc "Web and API based SMTP testing"
   homepage "https://mailpit.axllent.org/"
-  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.33.1.tar.gz"
-  sha256 "db2b71b4b1a535e379c62db72f1bc302346fde2dfecbf90ed0780ea2de1b8798"
+  url "https://github.com/axllent/mailpit/archive/refs/tags/v1.34.0.tar.gz"
+  sha256 "82e31ccc0069685f8794ea0d781cbf147f717633d3bd0f442883ab36ee6308c3"
   license "MIT"
 
   bottle do
@@ -16,8 +16,7 @@ class Mailpit < Formula
   depends_on "go" => :build
   depends_on "node" => :build
 
-  # `mailpit version` in the `test do` block checks GitHub for updates
-  allow_network_access! :test
+  deny_network_access!
 
   def fetch
     system "go", "mod", "download"
@@ -46,6 +45,6 @@ class Mailpit < Formula
     output = pipe_output("#{bin}/mailpit sendmail 2>&1", test_email, 11)
     assert_match "error parsing message body: malformed header line", output
 
-    assert_match "mailpit v#{version}", shell_output("#{bin}/mailpit version")
+    assert_match "mailpit v#{version}", shell_output("#{bin}/mailpit version --no-release-check")
   end
 end
