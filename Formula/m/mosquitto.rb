@@ -1,13 +1,12 @@
 class Mosquitto < Formula
   desc "Message broker implementing the MQTT protocol"
   homepage "https://mosquitto.org/"
-  url "https://mosquitto.org/files/source/mosquitto-2.1.2.tar.gz"
-  sha256 "fd905380691ac65ea5a93779e8214941829e3d6e038d5edff9eac5fd74cbed02"
+  url "https://mosquitto.org/files/source/mosquitto-2.1.4.tar.gz"
+  sha256 "ca30b26ccd3041c0e11fc407fe4f2e62bc445e8d8dea94a083cc60c09bd5ea30"
   # # dual-licensed under EPL-1.0 and EDL-1.0 (Eclipse Distribution License v1.0),
   # EDL-1.0 is pretty the same as BSD-3-Clause,
   # see discussions in https://github.com/spdx/license-list-XML/issues/1149
   license any_of: ["EPL-1.0", "BSD-3-Clause"]
-  revision 3
 
   livecheck do
     url "https://mosquitto.org/download/"
@@ -15,11 +14,11 @@ class Mosquitto < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5ae6f1db1f1b66cc14d174d8e3947e54581cf31a7a0a5bc9e81c42206bf1741d"
-    sha256 cellar: :any, arm64_tahoe:       "fb9f07114c604c5b2a7666b8193dc6836b3df87a188b244f8994b1bf36d2fbf9"
-    sha256 cellar: :any, arm64_sequoia:     "248822d05189cfa529da3c274f59d9982aa297b4e2a01f1b1df922b36f699386"
-    sha256 cellar: :any, arm64_linux:       "37c45dfc3b6f0767b2c801c912bd6a26825c197f60b64f5850efd2d249e35554"
-    sha256 cellar: :any, x86_64_linux:      "017f2c2b66d4b8cb1bd252c12a6ca540e9b3f6ca90ee09a8ec164eff86dd78f1"
+    sha256 cellar: :any, arm64_golden_gate: "10d1a49e02b3f57afac64a0bee721a4594e65544694aa944e768f4c8f8708917"
+    sha256 cellar: :any, arm64_tahoe:       "f19137f77ba9372109fa328d20f834ba5d201f7e27847a8f387b22bf06efac4b"
+    sha256 cellar: :any, arm64_sequoia:     "d7e5da6f1a009780178b054678d08e08035b025cede910975ecdddb9f02a34d3"
+    sha256 cellar: :any, arm64_linux:       "1b0028ae1c0f2db09976df3a71067af30881f20102272b5c5d4e31c73d36a786"
+    sha256 cellar: :any, x86_64_linux:      "3ae135420fbc58426706331bdaaf41b01373061a518cc9712ce5f4d745b20db3"
   end
 
   depends_on "cmake" => :build
