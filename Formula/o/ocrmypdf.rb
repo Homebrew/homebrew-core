@@ -3,16 +3,16 @@ class Ocrmypdf < Formula
 
   desc "Adds an OCR text layer to scanned PDF files"
   homepage "https://ocrmypdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/9b/ce/a2d548a7977237128d843872fac67ccf9f5d708a5e9a12ca0912730f0547/ocrmypdf-17.14.1.tar.gz"
-  sha256 "77412e62f621f1d1dbf4a333b4ef76c7f70977b1cb2d1d1f2d8d1e85939c0bf7"
+  url "https://files.pythonhosted.org/packages/66/4f/c7262015e4fe376f48f8c1c233520a0abc8f591ad16a26dd539e82cdbcb9/ocrmypdf-17.14.2.tar.gz"
+  sha256 "6dc0be8db27019050ca91ac351bc0b9f0523f44601bd0cd6504a1b1750731dee"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4ebe62a34fde5d4ee9eb5ba058da9f25237859e017415d152dca75203897a691"
-    sha256 cellar: :any, arm64_tahoe:       "288c92ad1232dffaddeeb6c63843cf13841ecbd262eb22e57879716c529568d8"
-    sha256 cellar: :any, arm64_sequoia:     "15bac0ff5ec94a1e2bc5390653fdd57a327b643b462557dd203428ebb4ccf7b9"
-    sha256 cellar: :any, arm64_linux:       "4ce789dad5c71c532ae9d33b51131e75f58a29e125c183bddd743f5d5b2d489f"
-    sha256 cellar: :any, x86_64_linux:      "005f48a7506c5e5f5c0a2ef561b6b910d2bfef417b0f731319f8f5ecd2cda594"
+    sha256 cellar: :any, arm64_golden_gate: "a689160823c5aa389ad74e5c2beafe59cdcab39307435257874494c7702cae46"
+    sha256 cellar: :any, arm64_tahoe:       "e9501293341597ced1f0c43239f9ff50e4ff406ad4eb726581425f0847a37d43"
+    sha256 cellar: :any, arm64_sequoia:     "d9392365ab284f1b8435fec5f4087504d9e2f903558af7031271ebae94491d8d"
+    sha256 cellar: :any, arm64_linux:       "b2400cdac0f15a2f1ca1411eeb258cbb24210cca183e59c130eadb633349b569"
+    sha256 cellar: :any, x86_64_linux:      "a9d594a8954eeb7ae155e2ee8ee4ddb464eccf68afe85572d698a964b5bc333a"
   end
 
   depends_on "cmake" => :build # for pikepdf
@@ -81,8 +81,8 @@ class Ocrmypdf < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdurl" do
@@ -101,8 +101,8 @@ class Ocrmypdf < Formula
   end
 
   resource "pikepdf" do
-    url "https://files.pythonhosted.org/packages/2e/5c/db56403f493bae2e35a0d5d2c9ad358b011f142b760282698a9f2732941e/pikepdf-10.18.0.tar.gz"
-    sha256 "cb555ebff93482e8a6eb55881488b469bbb2b5675161c1b93a0510a8642d98d0"
+    url "https://files.pythonhosted.org/packages/3b/03/b6e74f4e6c2dda1f0afa0a98fff902cab6c24c38e6eb6324f27d8cf1d5ab/pikepdf-10.18.2.tar.gz"
+    sha256 "b32ee8b0ffe606059dbf3386ebe1dae6e2601098277e22e8c75c2ee982436b43"
   end
 
   resource "pluggy" do
