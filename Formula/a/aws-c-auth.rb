@@ -1,18 +1,17 @@
 class AwsCAuth < Formula
   desc "C99 library implementation of AWS client-side authentication"
   homepage "https://github.com/awslabs/aws-c-auth"
-  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v1.0.4.tar.gz"
-  sha256 "5d4c4c7ab2d9c11be31b202b645d0bb4739257a7b4b7d03a264ff5b9bb4a6f6f"
+  url "https://github.com/awslabs/aws-c-auth/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "faa8ac8aff348d5e69e4598a0e9a48efe049cd4410cec2a5988dcf68f6a14fd2"
   license "Apache-2.0"
-  revision 1
-  compatibility_version 3
+  compatibility_version 4
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8483e3e3a3cd5a6ec637cbe1449786516a578a129afadd7faf499419d2870e1e"
-    sha256 cellar: :any, arm64_tahoe:       "e6415012b5677908f78ed73f784d378c46fd32fa424d5483aef56e042cef84bc"
-    sha256 cellar: :any, arm64_sequoia:     "836c62cbbba13099c6c82a44db48d0925d22be0a3de2ef78719802d7dc2a6327"
-    sha256 cellar: :any, arm64_linux:       "d528800babca7e9e1a3fb969d96a5227e39fa32d2488847d915ab3609589295e"
-    sha256 cellar: :any, x86_64_linux:      "1514a822f93c2545b0952865e1dcaefa4caf355ea62dcf72d3d1d57995c07361"
+    sha256 cellar: :any, arm64_golden_gate: "29b29ef1f5ef00ce8a519d98a9eb6c2c4b3a98e9d662b87ff0f46e06598a415f"
+    sha256 cellar: :any, arm64_tahoe:       "2bf4faea720e68e6872096269be4a196e6c439a329fd2da8102c7859835c3a57"
+    sha256 cellar: :any, arm64_sequoia:     "a141cca313280000d2b667e7132a0940493a4036ded71170ceb8b20c2d6377f1"
+    sha256 cellar: :any, arm64_linux:       "83f78203e64403e112ed77ad71fff3d013ef0b538ed5e3fb4413ac825f6e33cc"
+    sha256 cellar: :any, x86_64_linux:      "911882fea242d359d53284b1eeae2e23059645f02f7a3585fe2ffb97f706cbbe"
   end
 
   depends_on "cmake" => :build

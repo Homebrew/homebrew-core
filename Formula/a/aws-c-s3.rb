@@ -4,15 +4,15 @@ class AwsCS3 < Formula
   url "https://github.com/awslabs/aws-c-s3/archive/refs/tags/v1.5.2.tar.gz"
   sha256 "26bac413daa8b4146abd1fceb55a282a5d3869524c24aca64a00ec1a4e0449bd"
   license "Apache-2.0"
-  revision 2
+  revision 3
   compatibility_version 8
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "81ecc9cecf42a412a9b896048136ebb46098735e53640bc4c8fff95540e9cae9"
-    sha256 cellar: :any, arm64_tahoe:       "4a547ebc3761b142407d9eb3f07e0d2c0a4fdade8bda4bbdcb75563cd3570fc6"
-    sha256 cellar: :any, arm64_sequoia:     "29824e4ae47d3ec8e20367b52ed712815184f37ccc072c980bc1e74978cc4d7a"
-    sha256 cellar: :any, arm64_linux:       "294c09e0256c9f2b95f2c78c2610e08f20d68ce1232331bff7a718d84f38a5f6"
-    sha256 cellar: :any, x86_64_linux:      "3aa5c9a631c8034d14caf3bd5f4f383b46039420726f10d826c442c0a0fc045f"
+    sha256 cellar: :any, arm64_golden_gate: "782132cca969a405555ab9d617c28ddbbe8b7bb4d703f3b604636f97080a2427"
+    sha256 cellar: :any, arm64_tahoe:       "d705d805c747af9f6c2d16a59a6343741f4e18f7d6227aa234392146770418fd"
+    sha256 cellar: :any, arm64_sequoia:     "27eb75e043725c545249aaa15af4e6f0b1a93e2e49147dc64e78be9da29ca416"
+    sha256 cellar: :any, arm64_linux:       "33feb77b5dc65cd971739f91461337ebabfc0ed7123da64e6f556e95b5bce3f2"
+    sha256 cellar: :any, x86_64_linux:      "689a4bd3d6445c1de332b447b4420182a9a79dc0529fbc357900e382a309eebf"
   end
 
   depends_on "cmake" => :build
