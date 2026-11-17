@@ -7,12 +7,11 @@ class Bup < Formula
   head "https://github.com/bup/bup.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "e987baaf7f3fce9a5e47c0d16e993941a77abdbe56263901a64d3523bb89173a"
-    sha256 cellar: :any, arm64_tahoe:       "d8932f1a917884f1ec9cbd44ab7e71d7219e643c4ed4321abb5dff216c3a8ea0"
-    sha256 cellar: :any, arm64_sequoia:     "7dd0f645cab0a9bfdec64a4ae40fdbf1f489f077f7102288a78e0bd971ce19f4"
-    sha256 cellar: :any, arm64_linux:       "8e8d1c2edd5e882081a382892ac543fc84767c6d40377e06bd062e5af9f7434e"
-    sha256 cellar: :any, x86_64_linux:      "d4daea3296f0401a9635261e36202a469bde504a6ef516ba3c36f2dff76da351"
+    sha256 cellar: :any, arm64_golden_gate: "4a87f7bc6e4e75c3ce9df064d3791e4875cced9c30b62f7c5f5bc75bd41d4c1c"
+    sha256 cellar: :any, arm64_tahoe:       "f2b2f1036206e362c8808d8ea8e1239f88b68d81996d99262cf1e57e4c5e0e53"
+    sha256 cellar: :any, arm64_sequoia:     "540ec5a5987727050a77a879c39f86962eb5a8c9dc051aa88a3ce777a04f4453"
+    sha256 cellar: :any, arm64_linux:       "60f8609e0b7917cd07c16ce3ad402b217fc32e43b03c8bc85b5190798ac30ffe"
+    sha256 cellar: :any, x86_64_linux:      "e66fefeb5b569814ddc22f2408c15963020a5dc550786eedb740833345900f54"
   end
 
   depends_on "pandoc" => :build
