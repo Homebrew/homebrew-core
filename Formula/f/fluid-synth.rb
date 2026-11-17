@@ -9,11 +9,11 @@ class FluidSynth < Formula
   head "https://github.com/FluidSynth/fluidsynth.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9871338bbc7783df3e35ab21d8e603f2014fbe39663505cecd848ed468cf5943"
-    sha256 cellar: :any, arm64_tahoe:       "1e683e477113018fb2f8a32a673bcd4da049a220e5bd9cb945af5a5237274007"
-    sha256 cellar: :any, arm64_sequoia:     "f1c723969ebcdbd9b7cfc93679d2f934801d3283f980cc02390b79d1d6ae19b6"
-    sha256 cellar: :any, arm64_linux:       "c1967274c765144a1f5d4ae2a3e2dda797b18e1bea1cab95022a573c57d1a74e"
-    sha256 cellar: :any, x86_64_linux:      "a1dd2bbf5c60c895a4f5f22f350967c848528efb29f2a1c60282421f18b31ae2"
+    sha256 cellar: :any, arm64_golden_gate: "2bd2dbfb4e3a5d884cc6ec0044384fdb8267abeb3f2d4b13d6aab8bdb7b3c6d6"
+    sha256 cellar: :any, arm64_tahoe:       "2f333cf223e7a18aa07ed8c3e278e3e01cf0518700408e0b864028a56509322e"
+    sha256 cellar: :any, arm64_sequoia:     "299718045e2c37d15691149d2194a5c194f031afc1e6e23aa1997c389b7d4287"
+    sha256 cellar: :any, arm64_linux:       "e25c785450afef0d6d41ff02a581dd11fb1d66ccc100d5439db2aa897c11da03"
+    sha256 cellar: :any, x86_64_linux:      "67ead6ed6224743f9f3f0a152d60cc689c839810d62270a6ba4d4db867f2b642"
   end
 
   depends_on "cmake" => :build
