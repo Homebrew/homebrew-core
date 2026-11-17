@@ -1,12 +1,12 @@
 class Zimfw < Formula
   desc "Zsh plugin manager"
   homepage "https://zimfw.sh"
-  url "https://github.com/zimfw/zimfw/archive/refs/tags/v1.21.0.tar.gz"
-  sha256 "1772f20f893b8181a60855e988c16b24b10e6c537b1e27d859d443c20ea7be57"
+  url "https://github.com/zimfw/zimfw/archive/refs/tags/v1.21.1.tar.gz"
+  sha256 "9f07f6a20adb958acd85b94bdc28895f17dc6773cf95fbc841fabd23eddbcb83"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d041d1486a6bcb2502e58088c308dde7e358e017a0428683674c4d1b6aa4a6e5"
+    sha256 cellar: :any_skip_relocation, all: "4c61111d4684116bc5b2d5fe52cef541cf20d77bded17b3336d4778adba7e47b"
   end
 
   uses_from_macos "ruby" => :build
