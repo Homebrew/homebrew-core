@@ -16,14 +16,15 @@ class FairyStockfish < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "35d8f15e28de5033078a99bcd418429d2a2408a38745df08df987a141aae3229"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44c93f2b4f6e3b7ff1daa96bce98e9bc64b34c343921b6e145a23bf153131b2c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b70af3b59355821eaf2ee870e0f962159bf599b8964c1ba965cc848c0cd9708"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "3523a6ba3cf152a83e798aeb19298fc8b59df95194441f8dba655d56264867c1"
-    sha256 cellar: :any_skip_relocation, sonoma:            "1943dab5d7ebe253c43cde8c33d5683a08619be682dedc41f6b4c107f0718c71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4ffe9bc9209dbe890aac368fe2c74f7d6793ea9ece4ff6f837148dfc3405f8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8316c36ce185f713c34e19e6da7c5d5033b4d7ffd4d850d6fad6e65b5d187683"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2ffeab4f25bf666156096a8f476c480aef341f4095bd1e1982268dc0bc5c796"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f895429306b45cf7e3b48afc8e59acdf7a2e28ca8caf5cdf683cae285967109a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9630cdfb4334c4eb98c7487cd9834ce5abf60f4a1d267820d9369e3d974846a8"
+    sha256 cellar: :any,                 arm64_linux:       "a7821a06bf2b02fa896d1d539c8fb2cae0bfd530fc75afee948273e179d8150b"
+    sha256 cellar: :any,                 x86_64_linux:      "af04175e33f678d7261c7c8d4bff7ef7556e0983c5adcabb3cd1772b4100ca38"
   end
+
+  deny_network_access!
 
   def install
     arch = if Hardware::CPU.arm?
@@ -44,8 +45,15 @@ class FairyStockfish < Formula
       "x86-64"
     end
 
-    system "make", "-C", "src", "build", "ARCH=#{arch}", "largeboards=yes"
-    bin.install "src/stockfish" => "fairy-stockfish"
+    args = %W[
+      PREFIX=#{prefix}
+      EXE=fairy-stockfish
+      ARCH=#{arch}
+      COMPCXX=#{ENV.cxx}
+    ]
+
+    system "make", "-C", "src", "profile-build", "largeboards=yes", *args
+    system "make", "-C", "src", "install", *args
   end
 
   test do
