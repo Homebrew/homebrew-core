@@ -1,8 +1,8 @@
 class Openlore < Formula
   desc "Persistent architectural memory and structural cognition for AI coding agents"
   homepage "https://github.com/clay-good/OpenLore"
-  url "https://registry.npmjs.org/openlore/-/openlore-3.6.0.tgz"
-  sha256 "ad55736e5d6bcbd5dcaaec6bca4c9d62ca062dd8ae99402d3cc2c92a92de3be9"
+  url "https://registry.npmjs.org/openlore/-/openlore-3.7.0.tgz"
+  sha256 "56c77ac468a476e33586f51dbb931f619286a35113b1fcd7ed961457a53f12ea"
   license "MIT"
 
   bottle do
