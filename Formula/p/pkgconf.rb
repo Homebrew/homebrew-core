@@ -26,16 +26,15 @@ class Pkgconf < Formula
 
     # Using a resource to avoiding dependency tree from brew `meson` or `muon`.
     # The version should align to available HTTP mirror rather than latest.
-    # TODO: check on mirrors in future if better alternatives are available.
     resource "muon" do
-      url "https://muon.build/releases/v0.6.0/muon-v0.6.0.tar.gz"
-      mirror "https://pkg.freebsd.org/ports-distfiles/muon/0.6.0/muon-v0.6.0.tar.gz"
-      mirror "http://pkg.freebsd.org/ports-distfiles/muon/0.6.0/muon-v0.6.0.tar.gz"
-      sha256 "90a8428bc2178c59b9f7ddd1cb1cc6355f4df0c3ac023f7eefd159ae4f054024"
+      url "https://dl.muon.build/v0.7.1/muon-v0.7.1.tar.gz"
+      mirror "https://distfiles.alpinelinux.org/distfiles/edge/muon-v0.7.1.tar.gz"
+      mirror "http://distfiles.alpinelinux.org/distfiles/edge/muon-v0.7.1.tar.gz"
+      sha256 "956b5a74f7852ec4c57a11825dac79052da878da78f507bee1a0ef955053fbbb"
 
       livecheck do
-        url "https://raw.githubusercontent.com/freebsd/freebsd-ports/refs/heads/main/devel/muon/distinfo"
-        regex(/muon[._-]v?(\d+(?:\.\d+)+)\.t/i)
+        url "https://gitlab.alpinelinux.org/alpine/aports/-/raw/master/main/muon/APKBUILD"
+        regex(/^pkgver=v?(\d+(?:\.\d+)+)$/i)
       end
     end
   end
