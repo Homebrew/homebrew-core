@@ -1,8 +1,8 @@
 class Llgo < Formula
   desc "Go compiler based on LLVM integrate with the C ecosystem and Python"
   homepage "https://github.com/xgo-dev/llgo"
-  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.9.tar.gz"
-  sha256 "c911250a0adff0fa85dac188e31f67c80865b84936328b8794fb40f48dd3da43"
+  url "https://github.com/xgo-dev/llgo/archive/refs/tags/v1.0.10.tar.gz"
+  sha256 "6a7a981062bafe849ecab765a7dd03c6893edc2d589541d33753a98dd402e4da"
   license "Apache-2.0"
   head "https://github.com/xgo-dev/llgo.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Llgo < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "783fa720eb415e27e21d877c785e3317052e0cfcb1e099736728810e2a1589da"
-    sha256 cellar: :any, arm64_tahoe:       "f1fd3864548cf5ab9e0025e66dcd9ed4e4be2d40cd68861516d5d251bc1b2446"
-    sha256 cellar: :any, arm64_sequoia:     "b6a81045850658996ecc5694f52f3461d0882f4cd1fffd4569ee707ccc84ec57"
-    sha256               arm64_linux:       "15f9a388b965618551a608aad03f04c1ac752c71e9c713690f37d2e2e8608096"
-    sha256               x86_64_linux:      "89c1655ee91278726cd1a4fbf879af6732ebb0116213fc7e790373eeb5c179ca"
+    sha256 cellar: :any, arm64_golden_gate: "9fb2dfeeb8c94e73ecffbd60b4e017d3d3a6b8efc1e0185d1ed1114a4c345823"
+    sha256 cellar: :any, arm64_tahoe:       "63cd9cda2c301532c050f3ccaefd37b9d4208782bfaca320366de1e39578250b"
+    sha256 cellar: :any, arm64_sequoia:     "29d94237fb351b3591120ab02959216d44fbff9057af02368b6223ba9268b419"
+    sha256               arm64_linux:       "5b658bbfef3918513d103b61feb0c102f8e72f89c779ee64aea888aa55a0a2bb"
+    sha256               x86_64_linux:      "ca5d64844ee4f8baf12632165b7aee468571ac91d8669d034dbeca608348850f"
   end
 
   depends_on "bdw-gc" => :no_linkage
