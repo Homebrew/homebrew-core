@@ -10,11 +10,11 @@ class Repo < Formula
   version_scheme 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c1870c6e28e71e19c782ff72d40ddefda0509f1ea260ed00d2615478c4630146"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1870c6e28e71e19c782ff72d40ddefda0509f1ea260ed00d2615478c4630146"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1870c6e28e71e19c782ff72d40ddefda0509f1ea260ed00d2615478c4630146"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "141d1ef9ea09c18f3e644e7dd196e3902017c43847f6983732d437efb4526472"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "141d1ef9ea09c18f3e644e7dd196e3902017c43847f6983732d437efb4526472"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c39b0aded0d8ef87619ee2691639206c4b6093b07ac9b390562daabc4274f5f3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c39b0aded0d8ef87619ee2691639206c4b6093b07ac9b390562daabc4274f5f3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c39b0aded0d8ef87619ee2691639206c4b6093b07ac9b390562daabc4274f5f3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a9483dc6cc79870080ad70175f99ef36f506641bdc15d8e6af9e1f3d52f7b7ce"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a9483dc6cc79870080ad70175f99ef36f506641bdc15d8e6af9e1f3d52f7b7ce"
   end
 
   uses_from_macos "python"
