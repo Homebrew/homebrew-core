@@ -11,11 +11,11 @@ class Jags < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e5158a007a1c28d0469d29ea32a97377ea1fa9c85f91ee85447274e4e9673387"
-    sha256 cellar: :any, arm64_tahoe:       "fc1b94f196773844fae0c4447653ea9795c2d53af57636431286bc971c18346e"
-    sha256 cellar: :any, arm64_sequoia:     "a60d2a3e289b45a694e402b4774696558546f51980c13500716398fe3efdfae3"
-    sha256 cellar: :any, arm64_linux:       "6cc4fc64a63d61b678ca1e4b2b6da50121dd983166a2d58af591db52e1a4e751"
-    sha256 cellar: :any, x86_64_linux:      "7960338f0de0e165d39490a66de7e6da052a669a1ee6948137711e34c9f7371b"
+    sha256 cellar: :any, arm64_golden_gate: "ee9ca81f81bd8cc51c3f6d4922e5c05c9475233d845ce07a2618fec4e46c0cff"
+    sha256 cellar: :any, arm64_tahoe:       "3ee5246381f181b375f2797af904507ddf417eedac7bf9aed396f450f53232b8"
+    sha256 cellar: :any, arm64_sequoia:     "93bf956341fe1f63ea9b3f37a561e2d9596e30eac6b70a67eff66aff8792c395"
+    sha256 cellar: :any, arm64_linux:       "e823118f0deca73ae55ac1ebf7cc4e3d577fa84a1de15610c2a7e1aa785634e4"
+    sha256 cellar: :any, x86_64_linux:      "7342cb5489afe2d42f562d14623ea8368b6a579b6dbf281842deb73960040541"
   end
 
   depends_on "pkgconf" => :build
