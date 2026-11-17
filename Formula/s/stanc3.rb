@@ -20,7 +20,7 @@ class Stanc3 < Formula
 
   uses_from_macos "unzip" => :build
 
-  resource "homebrew-testfile" do
+  resource "homebrew-testfile", :test do
     url "https://raw.githubusercontent.com/stan-dev/stanc3/2e833ac746a36cdde11b7041fe3a1771dec92ba6/test/integration/good/algebra_solver_good.stan"
     sha256 "44e66f05cc7be4d0e0a942b3de03aed1a2c2abd93dbd5607542051d9d6ae2a0b"
   end
@@ -29,6 +29,8 @@ class Stanc3 < Formula
 
   def fetch
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
+    # Dune 3.25 fails on the parser: https://github.com/ocaml/dune/issues/17030
+    system "opam", "pin", "add", "--no-action", "dune", "3.24.2"
     # Upstream pins an exact OCaml version, so build against ours instead
     system "opam", "install", ".", "--deps-only", "--download-only", "--ignore-constraints-on=ocaml"
   end
