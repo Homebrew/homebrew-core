@@ -1,16 +1,16 @@
 class Ryl < Formula
   desc "Fast YAML linter and formatter written in Rust"
   homepage "https://ryl-docs.pages.dev"
-  url "https://github.com/owenlamont/ryl/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "125a621004b0eef0963fbb4261a335de3f4afb82fb789297efbd0ff9de8249ab"
+  url "https://github.com/owenlamont/ryl/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "6c005e39d0952dec7b937a0e9efb27a381979621a880ae6dee29777a641a94af"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f8233381f09234b75beedfd85b9cb09d329018097e40ee2e1cb29b4c3a3f0ee"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a1ab35b3e455f2cdfbdb7e7117e1f96197fd92f68bd389c07bbf9204f1d8318"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "270be8aa0f6abb476dc03521162dbbdbd4c28755210303f3499688ee259cf18a"
-    sha256 cellar: :any,                 arm64_linux:       "b762cc34ec8fbebec550c9c3b998360cdba372cd84ae61d54178f2beb4699d1a"
-    sha256 cellar: :any,                 x86_64_linux:      "0330c5227605e7b31987b13c7790ff2b2a3cc204ea99c8c9f763fd82ddbedb12"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0a465e2aeaa73c8d8358b671e49d0d3aa7e8e618e976c77b98ba9a9898f005f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d89cfda8f932d4ce20af70d64cc25cfa09d30d429c8f814057b43db5fff3a440"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "efc348b8f226fddea45572aced8b2cdacd4c982139d588760698d1281c9c23ab"
+    sha256 cellar: :any,                 arm64_linux:       "1fe834104297c70f54e6634aba6cad1a36b2d1eaea27bf9d9611fec1e8d76550"
+    sha256 cellar: :any,                 x86_64_linux:      "54b7606053639d8320d2845cf76657b1cd0d68d3c7569d4aebf443e9366226a2"
   end
 
   depends_on "rust" => :build
