@@ -1,8 +1,8 @@
 class Cadical < Formula
   desc "Clean and efficient state-of-the-art SAT solver"
   homepage "https://fmv.jku.at/cadical/"
-  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-3.0.1.tar.gz"
-  sha256 "0a8ea563b5a25f5aa064634814edab45cc0e45111ea0f5d412a565f806fd7e11"
+  url "https://github.com/arminbiere/cadical/archive/refs/tags/rel-3.1.0.tar.gz"
+  sha256 "187fb83106e8d7964f1d409ebf056f3853105c2a8ec32427472eff734c9ccb01"
   license "MIT"
 
   livecheck do
@@ -11,13 +11,11 @@ class Cadical < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b601dd2d9a2ad7f7ac6586492eae8c37c43f7048b9bae4c545f737b9dc3c7c14"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77962818debd60f5d12591b3dc589f5ceec70f7fc3fca65b69cc145ba06aa76e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ecf44191d1ed10a61bb47ce009d91e520abc637fbcf3608004cc7cf463fe2271"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5632faabd6d7090f603752a52eea7ace1cc7f101694eef8f7a4eb8de66803d35"
-    sha256 cellar: :any_skip_relocation, sonoma:            "dd05c41f479807a91b72b33fc3f120d40d25e416e8f5adbbd988ee462865a85e"
-    sha256 cellar: :any,                 arm64_linux:       "d3c1c53581a8f3f802a062318f9a4b23e503fa0bf9846040d69dac729ca421c5"
-    sha256 cellar: :any,                 x86_64_linux:      "cef0be1bad5d61be121bd000090bf1639d2ac89279892278312b647742c38625"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11ab537c42b14f88b9a35d21d4f95c2bdc43e7187c5c2f9ec73bc6d1137853ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83ff0c0e8421b9c8b1027db74d6fd4ee335b0104dd56682a70a9d9ae8b5b5f7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "822156060651b5974bb7d833b07b2ca32a4c875d2a5dfb7a9452f072747aa6ca"
+    sha256 cellar: :any,                 arm64_linux:       "ba938baf40cad18e0a3806fcf9a36f34331767422916939de56806d47dc36da6"
+    sha256 cellar: :any,                 x86_64_linux:      "84bf1ab4364a96ab913aa54b85443f82481b8ba949adaac51725ab798d70fcf4"
   end
 
   deny_network_access!
