@@ -4,8 +4,8 @@ class WhodbCli < Formula
   license "Apache-2.0"
 
   stable do
-    url "https://github.com/clidey/whodb/archive/refs/tags/0.138.0.tar.gz"
-    sha256 "971c7cb1ab555c8a76bf8a7fb28fae5f675982d89f0b6b76523941961edba493"
+    url "https://github.com/clidey/whodb/archive/refs/tags/0.139.0.tar.gz"
+    sha256 "ae7dbf583abe552caf83b1e535f3a3b753d9fdc062a537c76fe69864b86cf186"
 
     resource "baml" do
       url "https://github.com/BoundaryML/baml/archive/refs/tags/0.226.2.tar.gz"
