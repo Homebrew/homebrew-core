@@ -2,8 +2,8 @@ class DartSdk < Formula
   desc "Dart Language SDK, including the VM, dart2js, core libraries, and more"
   homepage "https://dart.dev"
   url "https://github.com/dart-lang/sdk.git",
-      tag:      "3.14.0",
-      revision: "fa8c1270c374c1346931583a17c3b7f278d3822d"
+      tag:      "3.14.1",
+      revision: "c8a0db5978a68d4037f7e5294ffc79867935c8c2"
   license "BSD-3-Clause"
   compatibility_version 4
 
@@ -13,11 +13,11 @@ class DartSdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "14f5d02480782a2bc2f1fdc9f9b26016585c1609d47bf617518bc4927880e432"
-    sha256 cellar: :any, arm64_tahoe:       "ab11017acdecdd1b5b666026063d85817616a1339aebcbe4009742d03c359148"
-    sha256 cellar: :any, arm64_sequoia:     "eb98ac19e734feee65c9cc942620783ccaa1c8601b9d0af286abc7d6e80ec7aa"
-    sha256 cellar: :any, arm64_linux:       "b185ee8351f9ad231f341c79fee83d2eae5491d925429103886145b95b49aee7"
-    sha256 cellar: :any, x86_64_linux:      "6164ae76235bce870827eff677b90bc571f6fa5a1bf0b06bba808d429cf2086d"
+    sha256 cellar: :any, arm64_golden_gate: "6807c7853a052edb31c54c7395d2b33799c190441b895e2e965568e970b994d6"
+    sha256 cellar: :any, arm64_tahoe:       "26e9d9eaf22b4fbb7f0783e8cf629905daaefb3a4f8ccbc3699eb91bcf696c60"
+    sha256 cellar: :any, arm64_sequoia:     "4b4cd24b0ad1b9e31a6a54a347a733166734f063bfe6af00b39d81d3cfa14257"
+    sha256 cellar: :any, arm64_linux:       "66ae91922d6f0c78a1c8da9cb30f4bdc247941a166a070e6dd0de7676451e22f"
+    sha256 cellar: :any, x86_64_linux:      "af1c4db2f89cf3433be7008df386942c82a29327a5fa844af67190adcacfe668"
   end
 
   depends_on "ninja" => :build
@@ -34,8 +34,8 @@ class DartSdk < Formula
   # always pull the latest commit from https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "43956b3e74de59b07bf8931ba9a472d622fe86a7"
-    version "43956b3e74de59b07bf8931ba9a472d622fe86a7"
+        revision: "ec77017fb3e090ff02bffb9c6980ebcdd3006ddc"
+    version "ec77017fb3e090ff02bffb9c6980ebcdd3006ddc"
 
     livecheck do
       url "https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main?format=JSON"
