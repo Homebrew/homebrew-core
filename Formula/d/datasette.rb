@@ -3,20 +3,20 @@ class Datasette < Formula
 
   desc "Open source multi-tool for exploring and publishing data"
   homepage "https://docs.datasette.io/en/stable/"
-  url "https://files.pythonhosted.org/packages/98/4a/75224122c9cc725b6dcc9466fff8a720c99a2d7b67ce866a82c52a5f2141/datasette-0.65.5.tar.gz"
-  sha256 "8d16ab1bf9a2753089cd3cb079045885d440f11267973e89e08e7fecf555264a"
+  url "https://files.pythonhosted.org/packages/4f/8e/5f25ff516c606ee9dfa59c39bc1c1127ae503b557779ac7279cf1624c053/datasette-0.65.6.tar.gz"
+  sha256 "ec3f5407d1f18b6afa773a18ad4989b77b23497cc0e1036fb37636d562b7afbc"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "372b056e2a789eff03381cf2220f2cf5a1f87c6d8fd5ecee8181e60ad567080a"
-    sha256 cellar: :any, arm64_tahoe:       "ea16d15ad0c9613adb4d26591f44ad11848d2924089970d6fdb0dfb9903b0f5e"
-    sha256 cellar: :any, arm64_sequoia:     "d324fa35ea58fc89ec06dac6b29ae81830d1972738f8a0e3cdad4eb2c78dc974"
-    sha256 cellar: :any, arm64_linux:       "8592e985c6112f83d53e463847f96137ad961eb2b31f6be8a1bc8ddd8ac917de"
-    sha256 cellar: :any, x86_64_linux:      "af755a6420204a6d7966514c0f6b5d49afa1af046aaf07617d4bc2cae81b54f6"
+    sha256 cellar: :any, arm64_golden_gate: "3eb8243854a04a2ae360c705e090ab898a4220bea0d5b4880b3dc3325d1e76f3"
+    sha256 cellar: :any, arm64_tahoe:       "caa7773b3720456e94fe92b06ca434249c90b4fe276c1bce4cf67cb9d95fe8bd"
+    sha256 cellar: :any, arm64_sequoia:     "3ed971719db450455da37c60223bbdf394782def5459581ee2b230b561ecd655"
+    sha256 cellar: :any, arm64_linux:       "19fade32d90aaa9090d423851d95e363e485993a333bace58b5d943390b2267c"
+    sha256 cellar: :any, x86_64_linux:      "518ea08143455658c4670637bd1a5cbe25425f1f61ff41650fafd5e7ec47bc37"
   end
 
+  depends_on "rust" => :build # for janus > uv_build > maturin
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "python@3.15"
@@ -29,8 +29,8 @@ class Datasette < Formula
   end
 
   resource "anyio" do
-    url "https://files.pythonhosted.org/packages/a9/d2/f4d173e22df740bc37b1db102b386ba719b66e95b0f0d751f556b387e6d2/anyio-4.15.1.tar.gz"
-    sha256 "9f28306018cbd6d329e64a36d58256edff76dd996fe423bc957326e578b82a94"
+    url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
+    sha256 "59bb03251907983d1603d27c3087ddb1e93299ea2163adcdba37899a4fb12ffb"
   end
 
   resource "asgi-csrf" do
@@ -39,13 +39,13 @@ class Datasette < Formula
   end
 
   resource "asgiref" do
-    url "https://files.pythonhosted.org/packages/e6/26/3b59f2bdae5f640389becb1f673cded775287f5fc4f816309d9ca9a3f93d/asgiref-3.12.1.tar.gz"
-    sha256 "59dcb51c272ad209d59bed5708a64a333083e86017d7fcdd67498eeab7784340"
+    url "https://files.pythonhosted.org/packages/6b/90/f5fce14e95fccf53b58e8e2c47cd84d40d105d64073ae1ac75166db150e0/asgiref-3.13.0.tar.gz"
+    sha256 "034cc8cbf72d00553b4be256703ac545120b4e50af13b49dec99da899aeeecb4"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "click-default-group" do
@@ -94,8 +94,8 @@ class Datasette < Formula
   end
 
   resource "janus" do
-    url "https://files.pythonhosted.org/packages/d8/7f/69884b6618be4baf6ebcacc716ee8680a842428a19f403db6d1c0bb990aa/janus-2.0.0.tar.gz"
-    sha256 "0970f38e0e725400496c834a368a67ee551dc3b5ad0a257e132f5b46f2e77770"
+    url "https://files.pythonhosted.org/packages/d9/6f/f212129ac9beb2cc4a5a339368e499cdf62a4d5a5edce5050860d2914b7d/janus-2.1.1.tar.gz"
+    sha256 "da6197870a8c634fed91698b5fd9725c33b83cb693baabf264320d7773e53659"
   end
 
   resource "jinja2" do
@@ -114,8 +114,8 @@ class Datasette < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/e6/d0abbb256b44e6a05748c6942511ff67db8dbb068de0c35b24bf1b395b09/platformdirs-4.13.5.tar.gz"
-    sha256 "05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "pluggy" do
@@ -124,8 +124,8 @@ class Datasette < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/5b/42/55c32bb9b12693c092ad250a0e82edb5b31ddeda6eb772de5f308b3804ad/python_multipart-0.0.32.tar.gz"
-    sha256 "be54b7f3fa167bb83e4fcd936b887b708f4e57fe75911c02aebf53efaf8d938e"
+    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
+    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
   end
 
   resource "pyyaml" do
