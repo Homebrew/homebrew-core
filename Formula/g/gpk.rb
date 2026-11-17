@@ -1,8 +1,8 @@
 class Gpk < Formula
   desc "TUI and CLI that unifies every package manager on the system"
   homepage "https://github.com/neur0map/glazepkg"
-  url "https://github.com/neur0map/glazepkg/archive/refs/tags/v0.6.10.tar.gz"
-  sha256 "0c7f708564e2e35613161ebba7ae9c980493cce667c0a5f8946ace75eb08c100"
+  url "https://github.com/neur0map/glazepkg/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "2571f6005046d77dee9d5f0f4d2e5981887988d43c3cf6c8d1da5e8aa7d91c48"
   license "GPL-3.0-or-later"
   head "https://github.com/neur0map/glazepkg.git", branch: "main"
 
