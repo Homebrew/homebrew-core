@@ -3,8 +3,8 @@ class Flye < Formula
 
   desc "De novo assembler for single molecule sequencing reads using repeat graphs"
   homepage "https://github.com/mikolmogorov/Flye"
-  url "https://github.com/mikolmogorov/Flye/archive/refs/tags/2.9.6.tar.gz"
-  sha256 "f05a3889b1c7aafed4cc0ed1adc1f19c22618c1c7b97ab5f80d388c8192bd32a"
+  url "https://github.com/mikolmogorov/Flye/archive/refs/tags/2.9.7.tar.gz"
+  sha256 "041635b3b7e7afc69fd50ab9cbf040db4749b04ae626ba65c8b08f550642351f"
   license all_of: [
     "BSD-3-Clause",
     "Apache-2.0", # lib/libcuckoo
@@ -15,12 +15,11 @@ class Flye < Formula
   head "https://github.com/mikolmogorov/Flye.git", branch: "flye"
 
   bottle do
-    rebuild 3
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b33ea78b7d3239be461b15546746298fa97c61fd55154a44fb42452280a8987"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8cf39112533b510aba6d872c17d1d4488476c44e81e5455b687511c576717c21"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62707abbb4e2af929c602c9c14feff1bfe4bff0a698e8777064f747fc9858581"
-    sha256 cellar: :any,                 arm64_linux:       "c076fce9b0285052cad327094ee3112c83f104923d968c06f17515db69488a90"
-    sha256 cellar: :any,                 x86_64_linux:      "64311add2fe8e416832d99a9037929124da14e7fcebf6537cbddbd501b0d6fdc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eeba63bee15ff606b5b3bc0bed01bc5014ad88f736d00bb9916879104f088bf4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c7bbc96f7d7bca0faa9664d04484a334a18482e285d9751a6ecdacd4bba2c44"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e3a99a0f664ffdc99a802b3c1d60b17776cec72f22d54672044a143ed372bb7f"
+    sha256 cellar: :any,                 arm64_linux:       "967a146dd6be450d82784387bd647efadef7e5aec454c401a98515b6235be012"
+    sha256 cellar: :any,                 x86_64_linux:      "d9490261e843a5100bc160bbbf43de9e2fc3865ec57d5b0e725edc005f8f593b"
   end
 
   depends_on "python@3.15"
