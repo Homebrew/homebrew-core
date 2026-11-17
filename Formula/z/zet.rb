@@ -1,8 +1,8 @@
 class Zet < Formula
   desc "CLI utility to find the union, intersection, and set difference of files"
   homepage "https://github.com/yarrow/zet"
-  url "https://github.com/yarrow/zet/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "a6f431927c16b22516e78a9ec7864d99e2676abae3acb46101df1c287e16f267"
+  url "https://github.com/yarrow/zet/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "678e569b4506c7099a4d99e75d420cf3b852ae3b5f19cd83e1a0d37be815a483"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -23,13 +23,6 @@ class Zet < Formula
   end
 
   depends_on "rust" => :build
-
-  # Backport fix for newer Rust
-  patch do
-    url "https://github.com/yarrow/zet/commit/7aba3b6016ede0b0a6b8aaff292bd7f6a0d7ac86.patch?full_index=1"
-    sha256 "9fca853d07ac5a81aafe8513b64ce1ef338f1ff106d7ad2eb16add777ba2e897"
-    type :backport
-  end
 
   deny_network_access!
 
