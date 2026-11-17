@@ -1,8 +1,8 @@
 class Yices2 < Formula
   desc "Yices SMT Solver"
   homepage "https://yices.csl.sri.com/"
-  url "https://github.com/SRI-CSL/yices2/archive/refs/tags/yices-2.7.0.tar.gz"
-  sha256 "584db72abf6643927b2c3ba98ff793f602216b452b8ff2f34a8851d35904804a"
+  url "https://github.com/SRI-CSL/yices2/archive/refs/tags/yices-2.8.0.tar.gz"
+  sha256 "cb4c58c3508a5e67c156ba26182cd540af644fb7ba39b2873feebf73f21201b2"
   license "GPL-3.0-or-later"
   compatibility_version 1
   head "https://github.com/SRI-CSL/yices2.git", branch: "master"
