@@ -1,8 +1,8 @@
 class Rustic < Formula
   desc "Fast, encrypted, and deduplicated backups powered by Rust"
   homepage "https://rustic.cli.rs"
-  url "https://github.com/rustic-rs/rustic/archive/refs/tags/v0.11.4.tar.gz"
-  sha256 "ea1796a66c22e2cd0232ee4d3e18cf95c7eb8608a465481023a6422f4720d2c3"
+  url "https://github.com/rustic-rs/rustic/archive/refs/tags/v0.12.0.tar.gz"
+  sha256 "41c496bee7dcfad0922d4d9e760be19f713ffaaa55fe92716943ca3ecc62d26e"
   license "Apache-2.0"
   head "https://github.com/rustic-rs/rustic.git", branch: "main"
 
