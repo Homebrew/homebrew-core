@@ -1,8 +1,8 @@
 class Zet < Formula
   desc "CLI utility to find the union, intersection, and set difference of files"
   homepage "https://github.com/yarrow/zet"
-  url "https://github.com/yarrow/zet/archive/refs/tags/v2.0.1.tar.gz"
-  sha256 "a6f431927c16b22516e78a9ec7864d99e2676abae3acb46101df1c287e16f267"
+  url "https://github.com/yarrow/zet/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "678e569b4506c7099a4d99e75d420cf3b852ae3b5f19cd83e1a0d37be815a483"
   license any_of: ["Apache-2.0", "MIT"]
 
   livecheck do
@@ -11,25 +11,14 @@ class Zet < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6635cc1f744df80d86abcb3cc059b426b3154446305d7d7540280b309a38b8d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "969859a7af56ff259df9c72e15a45dc0fb7ac11a7e0d70264a5f14dcf9efe80f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43ee895f1a866c5279689ea67039f268f036126cdaa95fce89ef694c67c9d469"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "eaf4041c27353f5278d0b7f232040a91cd8d87e9a6eb0d6dd6417186f3ab121d"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "1b42203cb1f07a7f436b7c6ba9a98667ca1e55dd65157fe8fb445a3de4b3c9e0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "4f7359f71bb633a4dca674758356c976b74cb8c9b0a78d705c07d33cbd157414"
-    sha256 cellar: :any_skip_relocation, ventura:           "7155960676e9ea9a1e323e80cf7dd1191a63951c097d1339d179873218519677"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "72716b50cfa1d1d51899f91f61ddf848b6f164e93082f2300a9088ef463921db"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "85c0892b0c2723950c55e1df613854ef10c21b708392084176ab0917c8a0ba7c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "af692fa15c5337ac1a3b8e17b44ab6e18202726a6e5e4e2a74b33e9f5ea949d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "010ab30280e99bc2fead6af0c98c14dd66c5739289f1dd2cfdf7460a55972cd1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef37cf0298c109c40674c1a1f7a0946fe3f82303c1dd48a143fd561d9aebdaac"
+    sha256 cellar: :any,                 arm64_linux:       "82edf325071c84a233285a3ab1ec0fd1ec29ae6575f1e5aeb4d9a1bf66a9f619"
+    sha256 cellar: :any,                 x86_64_linux:      "4f08a7688d1271ae81ed2611f9cdc62780a385a5e6d8163a5d586f4bc164ffdf"
   end
 
   depends_on "rust" => :build
-
-  # Backport fix for newer Rust
-  patch do
-    url "https://github.com/yarrow/zet/commit/7aba3b6016ede0b0a6b8aaff292bd7f6a0d7ac86.patch?full_index=1"
-    sha256 "9fca853d07ac5a81aafe8513b64ce1ef338f1ff106d7ad2eb16add777ba2e897"
-    type :backport
-  end
 
   deny_network_access!
 
