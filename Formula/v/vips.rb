@@ -13,11 +13,11 @@ class Vips < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "5bfa85cf7c5ab6a43f047d1ba998c2fc3aae935202e00289bf3ab387e873e325"
-    sha256 arm64_tahoe:       "43c51937e488dbb715b49e92933605fd2b64a44f106afca01b981b061e96eaac"
-    sha256 arm64_sequoia:     "c2513ea7c996254500a6d56b0c18866319223a2e87fd99f99be23b9eaf5fe8ca"
-    sha256 arm64_linux:       "28398995df204863b0ca7d5f283ee1b93e3be579e3a690f2e626164bafb6db6f"
-    sha256 x86_64_linux:      "656db2784475d013c76c79bccf236145fd9c923f0cf509d5b3b6fd8381711bbe"
+    sha256 arm64_golden_gate: "3ab6b72606d73d84988d178d4d2068fd7fc335f2bbd69255d1d020d5b4e0eb79"
+    sha256 arm64_tahoe:       "84953cacf9f680e4b117d56877af9eb970af31d362647a4e0b86af472572f229"
+    sha256 arm64_sequoia:     "3c51bcc9c013629477af326b92c798e3cf5e06cf85e68ebd2a5f2b19fa4b7200"
+    sha256 arm64_linux:       "7a2167ac06ef48bd94b851b67869882f34947a9de7b2e4721895770b2e549c0b"
+    sha256 x86_64_linux:      "e4c9b088442dd71d535760adad08b8fcd0d6a247cd7a80fdcc8b24ae01a270d4"
   end
 
   depends_on "gettext" => :build
