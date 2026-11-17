@@ -5,10 +5,9 @@ class Rockcraft < Formula
   homepage "https://documentation.ubuntu.com/rockcraft/"
   # git checkout needed for setuptools-scm
   url "https://github.com/canonical/rockcraft.git",
-      tag:      "1.20.0",
-      revision: "289c48bc6bbf5c9132897d22785e7d5a2b2666b1"
+      tag:      "1.21.2",
+      revision: "06ab2aeacfe45ec880a25d9ea504c6028a92b248"
   license "GPL-3.0-only"
-  revision 2
   head "https://github.com/canonical/rockcraft.git", branch: "main"
 
   livecheck do
@@ -17,11 +16,11 @@ class Rockcraft < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "22a713b3dbba146d6454a1bd01e1cf445b7d3047ebb04d42442a3105a2d8de68"
-    sha256 cellar: :any, arm64_tahoe:       "d341e8eb5d7753bb7ef13494d5f2bbe30bc5180b50655ef8485515e8d8e4d262"
-    sha256 cellar: :any, arm64_sequoia:     "cf6b7986b48884d47d29d0d8331b69c469af2408f054f13eadad19d4c392fba6"
-    sha256 cellar: :any, arm64_linux:       "4f0c93fd6c94af2417578851bc8a778f59968e1b05dfa9d6e8baf80e314c023b"
-    sha256 cellar: :any, x86_64_linux:      "67cf86c8f4fb6ec7e5e2ce155e0e8156e27baa4f271a4d5016732e02ee05abd4"
+    sha256 cellar: :any, arm64_golden_gate: "0134b37695d9a57df37be4999bc62e3c19faf794f433a7994fd4cfd42971c349"
+    sha256 cellar: :any, arm64_tahoe:       "4137daf24726682019d0f4567f54bfd47630349e63421658e79f1e8e1cae6479"
+    sha256 cellar: :any, arm64_sequoia:     "03cd1dd10a468357214398aa01ecfdaed57003bcab44aef428bf2de8bbb8f7d0"
+    sha256 cellar: :any, arm64_linux:       "50e5be3ff0f58dcca04c3d7594ba4a5430a56602911fadc14bbcb209358d92e0"
+    sha256 cellar: :any, x86_64_linux:      "cb2474c262b6eb9e065d2ed675610d223e3f5b8981d137e0a81588c6ef118dc8"
   end
 
   depends_on "certifi" => :no_linkage
@@ -37,10 +36,8 @@ class Rockcraft < Formula
   uses_from_macos "libxml2", since: :ventura
   uses_from_macos "libxslt"
 
-  # TODO: Remove this pin when a release includes the upstream vcs compatibility fix.
-  # https://github.com/canonical/rockcraft/pull/1373
   pypi_packages exclude_packages: %w[certifi cryptography pydantic pygit2],
-                extra_packages:   %w[craft-application==7.2.1 jeepney secretstorage]
+                extra_packages:   %w[jeepney secretstorage]
 
   resource "boolean-py" do
     url "https://files.pythonhosted.org/packages/c4/cf/85379f13b76f3a69bca86b60237978af17d6aa0bc5998978c3b8cf05abb2/boolean_py-5.0.tar.gz"
@@ -53,8 +50,8 @@ class Rockcraft < Formula
   end
 
   resource "craft-application" do
-    url "https://files.pythonhosted.org/packages/bf/30/9f520439e4f4a1c9ad538180b9c7057e4945c4e95994f2d2d93759202401/craft_application-7.2.1.tar.gz"
-    sha256 "86f1f35be4b447bada10305d91a252b178d20910f3d5a7d5bb8ac6d3d9810d49"
+    url "https://files.pythonhosted.org/packages/76/29/f20207aec16d26a5d0a433b2be9f49349870c9e4523ec2486816121c56e2/craft_application-7.5.0.tar.gz"
+    sha256 "6a2b33d4760815442d6e4cab8491960dc8da5e2c8b8111b32695a563a3282620"
   end
 
   resource "craft-archives" do
@@ -73,8 +70,8 @@ class Rockcraft < Formula
   end
 
   resource "craft-parts" do
-    url "https://files.pythonhosted.org/packages/25/17/dad4f52f6619abca9a9ecd66a79d816f0cee99cebcd300abaf8bc736d5b0/craft_parts-2.33.1.tar.gz"
-    sha256 "50c4dc1ef4a062f1a500c2718ac79be37279dfd4872d14c795eb47ab5485b157"
+    url "https://files.pythonhosted.org/packages/57/f1/fc775f1875ee33f0d51eb4e4c42e7347206eac85125f7e44a5bff22b0002/craft_parts-2.37.3.tar.gz"
+    sha256 "dba393c80fc0885d510108aa5958159e4c3917c0659143ba3059147affbe4645"
   end
 
   resource "craft-platforms" do
@@ -83,8 +80,8 @@ class Rockcraft < Formula
   end
 
   resource "craft-providers" do
-    url "https://files.pythonhosted.org/packages/2d/87/5f58341bd8305aef586e65e34ffcd725d96aaf28352b220dd4e1e45e83d3/craft_providers-3.8.0.tar.gz"
-    sha256 "fb93e64e6e62df0e96ee9402eeb16c2f8fe699512122e196556a547b178ed271"
+    url "https://files.pythonhosted.org/packages/36/33/944b3189cd953239db5339c59abe4edac10d9fa4072292b7b85acbec9f87/craft_providers-3.8.1.tar.gz"
+    sha256 "f11407bb5fbc61480245a49e0bb214e4395bff2c83107008c5b4843e800e2763"
   end
 
   resource "distro" do
@@ -223,13 +220,13 @@ class Rockcraft < Formula
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/92/f5/e1dfe8e1d91c54ce212fd93916eb01fd1c590f413be0a0978c39a97aa1bb/semver-3.1.0.tar.gz"
-    sha256 "14bc073439513d7773662a338f4db9829cf16c12b74b9568e2d2689975fbd7fc"
+    url "https://files.pythonhosted.org/packages/ec/a0/3d3f51a1304c0e8c93e06a23308f566f2d52d62f92dac903b85ef79dea6f/semver-3.1.2.tar.gz"
+    sha256 "bea193552413194252d33ff26ce0962b76669bd1c6fb17e8e203ac37f072feaf"
   end
 
   resource "setuptools" do
-    url "https://files.pythonhosted.org/packages/34/26/f5d29e25ffdb535afef2d35cdb55b325298f96debd670da4c325e08d70f4/setuptools-83.0.0.tar.gz"
-    sha256 "025bccbbf0fa05b6192bc64ae1e7b16e001fd6d6d4d5de03c97b1c1ade523bef"
+    url "https://files.pythonhosted.org/packages/6d/44/f5da03a8ef95d369145c5bb53050e7877c9f3d312e128605fd9504829143/setuptools-84.0.0.tar.gz"
+    sha256 "f4695c21257f0d9b537ec2692c941d02ee143b7cc1276941349a546573b2ef73"
   end
 
   resource "snap-helpers" do
