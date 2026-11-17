@@ -25,6 +25,8 @@ class FairyStockfish < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8316c36ce185f713c34e19e6da7c5d5033b4d7ffd4d850d6fad6e65b5d187683"
   end
 
+  deny_network_access!
+
   def install
     arch = if Hardware::CPU.arm?
       if OS.mac?
@@ -44,8 +46,15 @@ class FairyStockfish < Formula
       "x86-64"
     end
 
-    system "make", "-C", "src", "build", "ARCH=#{arch}", "largeboards=yes"
-    bin.install "src/stockfish" => "fairy-stockfish"
+    args = %W[
+      PREFIX=#{prefix}
+      EXE=fairy-stockfish
+      ARCH=#{arch}
+      COMPCXX=#{ENV.cxx}
+    ]
+
+    system "make", "-C", "src", "profile-build", "largeboards=yes", *args
+    system "make", "-C", "src", "install", *args
   end
 
   test do
