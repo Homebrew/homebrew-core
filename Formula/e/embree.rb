@@ -1,8 +1,8 @@
 class Embree < Formula
   desc "High-performance ray tracing kernels"
   homepage "https://www.embree.org/"
-  url "https://github.com/RenderKit/embree/archive/refs/tags/v4.4.1.tar.gz"
-  sha256 "dcf338cc61b636c871ccf370e673bfd380c5ecb71ce49ad50f28e1d4ec9995dc"
+  url "https://github.com/RenderKit/embree/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "6692fdf2b55831ac58732459443336d709974051d7ec642b3e1fcf06271b5eea"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/RenderKit/embree.git", branch: "master"
@@ -13,13 +13,11 @@ class Embree < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "2d8e8c2a85a2603616b2acd3e5fbd6c662a57df9c330b5afc7ff2864193cdd3e"
-    sha256 cellar: :any, arm64_tahoe:       "599121dbb13ec24262aa0f1ee733d79f13dab88df48ab4179652ae0de7ef326e"
-    sha256 cellar: :any, arm64_sequoia:     "a08f58e85ee4281a712fe8e0b553e30b2a3eb1dac6a7e70955b5daee18256f20"
-    sha256 cellar: :any, arm64_sonoma:      "68776f6b9992f0315f0bc13c2bdf5c6278b8c29c78157aa1d732fa4cee1e5184"
-    sha256 cellar: :any, arm64_linux:       "33418e0762947304108496847bd0e54fb9c7f4832e2afbf0c7563c5123d4fe2f"
-    sha256 cellar: :any, x86_64_linux:      "b2d4cb849835178c2cee7847c8115c0305be7a8ed6956ca6a56f612ce77ba231"
+    sha256 cellar: :any, arm64_golden_gate: "556634b7a1c648515b02facb99c3801994c44b29cd8afabe6691460459accc10"
+    sha256 cellar: :any, arm64_tahoe:       "aa25cece256cb986cc0379ee21c8f47978c99d2ae9bd44a6763eec9ed02ee190"
+    sha256 cellar: :any, arm64_sequoia:     "527b0e8608f5fe7fc848776c37282dfd2d3d0576a5be1a029793306976936b69"
+    sha256 cellar: :any, arm64_linux:       "4e4fb3ce6d0a332cc693c8281c0c3afd4e803860f7dd1679f0e0a35b6f5d8c62"
+    sha256 cellar: :any, x86_64_linux:      "72837df15a7601e719b89a55c9f9f00f42f939f19bf94412b49566b654232eed"
   end
 
   depends_on "cmake" => :build
