@@ -1,26 +1,12 @@
 class LdidProcursus < Formula
   desc "Put real or fake signatures in a Mach-O binary"
   homepage "https://github.com/ProcursusTeam/ldid"
+  url "https://github.com/ProcursusTeam/ldid/archive/refs/tags/v2.1.5-procursus8.tar.gz"
+  version "2.1.5-procursus8"
+  sha256 "d8034f4c76c1d042e5e6984c79c5da5a0fb4c08e8d2fb20b3691ffa39d377000"
   license "AGPL-3.0-or-later"
-  revision 3
   compatibility_version 1
   head "https://github.com/ProcursusTeam/ldid.git", branch: "master"
-
-  stable do
-    version "2.1.5-procursus7"
-    url "https://github.com/ProcursusTeam/ldid.git",
-        tag:      "v2.1.5-procursus7",
-        revision: "aaf8f23d7975ecdb8e77e3a8f22253e0a2352cef"
-
-    patch do
-      # Fix memory issues with various entitlements, remove in next release
-      # See ProcursusTeam/ldid#34 and ProcursusTeam/ldid#14 for more info
-      url "https://github.com/ProcursusTeam/ldid/commit/f38a095aa0cc721c40050cb074116c153608a11b.patch?full_index=1"
-      sha256 "848caded901d4686444aec79cdae550832cfd3633b2090ad92cd3dd8aa6e98cf"
-      type :backport
-      resolves "https://github.com/ProcursusTeam/ldid/pull/34"
-    end
-  end
 
   livecheck do
     url :stable
@@ -37,9 +23,11 @@ class LdidProcursus < Formula
 
   depends_on "pkgconf" => :build
   depends_on "libplist"
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   conflicts_with "ldid", because: "ldid installs a conflicting ldid binary"
+
+  deny_network_access!
 
   def install
     system "make", "install", "PREFIX=#{prefix}"
@@ -61,8 +49,9 @@ class LdidProcursus < Formula
       </dict>
       </plist>
     XML
-    cp test_fixtures("mach/a.out"), testpath
-    system bin/"ldid", "-Stest.xml", "a.out"
-    assert_match (testpath/"test.xml").read, shell_output("#{bin}/ldid -arch x86_64 -e a.out")
+    cp test_fixtures("mach/fat.dylib"), testpath
+    system bin/"ldid", "-Stest.xml", "fat.dylib"
+    assert_match (testpath/"test.xml").read, shell_output("#{bin}/ldid -arch x86_64 -e fat.dylib")
+    assert_match version.to_s, shell_output("#{bin}/ldid 2>&1")
   end
 end
