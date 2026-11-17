@@ -7,11 +7,11 @@ class LovableOj < Formula
   head "https://github.com/lovablelabs/oj.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ecf5c3dbc88ae5e56eb7e5db1358faebe77f015a5c00897534d61f0aed5a28a2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c59e410acbf3683893db38eeda6fe630c8ccca5620a9ad8e59a2b07363de585"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1a34f90fb8a56fcc817e579e1a7d34b064d6f7c8c7fd719909b37b71312b225"
-    sha256 cellar: :any,                 arm64_linux:       "5193a0c4d790bc9fd3266b69a1e393e418552fa9136e67eeea4e72391b0afea0"
-    sha256 cellar: :any,                 x86_64_linux:      "f17923651a07620f59e5a6094c8d660771ea4850d836f75942a8a7e0ccd5af48"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d5b8825eb54ce6c442b533de2a4ba4049aab6a5ffe770a2fb7de014e393bee9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "120074ddabb1365d3ed0a4342672a35a98fec665e92982cbf9b50e1e6159b1fe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f28db68f27d8dc629da6ffdb5854e78fe36f27d3ab85aaa1e69188f5eaaae9ee"
+    sha256 cellar: :any,                 arm64_linux:       "7965c9492668d86c245475128af2c6d775fb353f56d910a4e32abdcfbda85d3a"
+    sha256 cellar: :any,                 x86_64_linux:      "9213191c7c37e08755b08e5e152ece39ff97b6d30e4cc3170ab7eefc3c0c6709"
   end
 
   depends_on "cmake" => :build
