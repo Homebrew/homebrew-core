@@ -18,6 +18,10 @@ class LinuxHeadersAT515 < Formula
 
   keg_only :versioned_formula
 
+  # Projected EOL of Dec 2026 and not used by any Homebrew glibc
+  deprecate! date: "2026-12-31", because: :unmaintained
+  disable! date: "2027-12-31", because: :unmaintained
+
   depends_on :linux
 
   def install
