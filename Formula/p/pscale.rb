@@ -1,8 +1,8 @@
 class Pscale < Formula
   desc "CLI for PlanetScale Database"
   homepage "https://www.planetscale.com/"
-  url "https://github.com/planetscale/cli/archive/refs/tags/v0.352.0.tar.gz"
-  sha256 "170e0ce220501a27b277f609a7efdf073232b5c8e0c131a6ab38ee233fc9f477"
+  url "https://github.com/planetscale/cli/archive/refs/tags/v0.353.0.tar.gz"
+  sha256 "af462c093f041bf20dd0fd28317cb75e70bc60c403e96d0fec862c9c8d980223"
   license "Apache-2.0"
   head "https://github.com/planetscale/cli.git", branch: "main"
 
