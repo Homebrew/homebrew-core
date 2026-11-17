@@ -2,8 +2,8 @@ class Dartaotruntime < Formula
   desc "Command-line tool for running AOT-compiled snapshots of Dart code"
   homepage "https://dart.dev/tools/dartaotruntime"
   url "https://github.com/dart-lang/sdk.git",
-      tag:      "3.14.0",
-      revision: "fa8c1270c374c1346931583a17c3b7f278d3822d"
+      tag:      "3.14.1",
+      revision: "c8a0db5978a68d4037f7e5294ffc79867935c8c2"
   license "BSD-3-Clause"
   compatibility_version 4
 
@@ -32,8 +32,8 @@ class Dartaotruntime < Formula
   # always pull the latest commit from https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main
   resource "depot-tools" do
     url "https://chromium.googlesource.com/chromium/tools/depot_tools.git",
-        revision: "43956b3e74de59b07bf8931ba9a472d622fe86a7"
-    version "43956b3e74de59b07bf8931ba9a472d622fe86a7"
+        revision: "ec77017fb3e090ff02bffb9c6980ebcdd3006ddc"
+    version "ec77017fb3e090ff02bffb9c6980ebcdd3006ddc"
 
     livecheck do
       url "https://chromium.googlesource.com/chromium/tools/depot_tools.git/+/refs/heads/main?format=JSON"
