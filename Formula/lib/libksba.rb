@@ -12,13 +12,11 @@ class Libksba < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f597af732a8ef37c1cfc052ec37659502a4eb380c01d199ac853a41fe11b948a"
-    sha256 cellar: :any, arm64_tahoe:       "3525fe3de3234476c4d8e07607ce8481941c5e866d89c82c4f2d11d40a08f52f"
-    sha256 cellar: :any, arm64_sequoia:     "cc1bfa116e5e7550d0caeee4aba27203aa15ceb485083f5a6e91e6ab9c7011dd"
-    sha256 cellar: :any, arm64_sonoma:      "dec0bab0bcff0c515c9b10cbe85f5f2b802489bdd19f421ce6cc13db929b5bca"
-    sha256 cellar: :any, sonoma:            "e5036f50c0f5f015ac66a7d3426cc40d61c830cc52386408b410f3bcc8a7d45f"
-    sha256 cellar: :any, arm64_linux:       "8d33f9a176df2946deab95be35fcbb6d2775a79fbef41a55eaf259a2d1329e6f"
-    sha256 cellar: :any, x86_64_linux:      "74e720998979bbca5597eca92df39202c44229c674cc9368d578e6fbc08109ee"
+    sha256 cellar: :any, arm64_golden_gate: "aab958865fe3fc7810bb03912472c6392b5a5a50f7482bef223711e3d323bbb1"
+    sha256 cellar: :any, arm64_tahoe:       "0d843abb9cfa9de950ff2bfff1a7d3ac59a8fbde62887075dbd0399913326275"
+    sha256 cellar: :any, arm64_sequoia:     "8cf9f4148f5b71450f0ccf5002e087f9a3a80b6a074d0821b6299bb6d05d2058"
+    sha256 cellar: :any, arm64_linux:       "f50c8ef26457df3057ce964590bbe24d4ab911cd4e7e6a1fc2b30e7bce641e20"
+    sha256 cellar: :any, x86_64_linux:      "8402c17e39064e4cb5ce27750b4d0dae1e42b979b14cc61acd97812dd0d980c8"
   end
 
   depends_on "libgpg-error"
