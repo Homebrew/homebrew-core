@@ -8,12 +8,11 @@ class LiterateGit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97db96a4331803bf21206e93354b8581084d70bb15553ee5782443b087d03b55"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e67c10ebe0b1ff85e7ad49fbf4ff7c93a288b414404eeadcef34b58ce534fc9a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa64f0cf3a50fb9ed08bca790fce7724ecc850993b455d3babea4bd1b2f35abd"
-    sha256 cellar: :any,                 arm64_linux:       "e126987f8e3feed492ddb2c83f77408a1c3869d393bf92087404956611d0979b"
-    sha256 cellar: :any,                 x86_64_linux:      "69e5db03a0a03ea0417446ec8af1b24de7fdc5e95c2598c400260a56501540b8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "070c1d7d4e588a76e1a610e99b03b3dcc712be3fa7e573f772957f32351d937e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a961d660e284c741c141917219102be4aca044f901ccbb8df498bd2a171b5fd2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb972e9c77eecbaaa25dfc7658cb9d18f7c72c2ab98066768f644e9ab52c6a11"
+    sha256 cellar: :any,                 arm64_linux:       "c72bcbaa15a7b709a3b697d1f26f6ba7826682493340f8dbcd7ae3932c0e288b"
+    sha256 cellar: :any,                 x86_64_linux:      "43714ded0a7da75ff5a8203d7834f2db5131f4be06f15efa65ea23018dc99dc3"
   end
 
   depends_on "pkgconf" => :build
