@@ -1,10 +1,9 @@
 class MariadbAT1011 < Formula
   desc "Drop-in replacement for MySQL"
   homepage "https://mariadb.org/"
-  url "https://archive.mariadb.org/mariadb-10.11.19/source/mariadb-10.11.19.tar.gz"
-  sha256 "b8e543ee69d380fb1cfd563226f49e0fe96e4d67e7b7a9045ee514a168ed2066"
+  url "https://archive.mariadb.org/mariadb-10.11.20/source/mariadb-10.11.20.tar.gz"
+  sha256 "ac5c003f725950a4cbf9829bd9b191b73f8ab0f2630d6dbc6292fc5244d3c7cb"
   license "GPL-2.0-only"
-  revision 1
 
   livecheck do
     url "https://downloads.mariadb.org/rest-api/mariadb/all-releases/?olderReleases=false"
@@ -57,14 +56,6 @@ class MariadbAT1011 < Formula
   on_linux do
     depends_on "linux-pam"
     depends_on "zlib-ng-compat"
-  end
-
-  # Backport for OpenSSL 4
-  patch do
-    url "https://github.com/MariaDB/server/commit/fb641b0cd1810e7d148d6b4d70f915c06c2c0f9e.patch?full_index=1"
-    sha256 "bfc517ae33842539d9c8d02b6336476cb339b73b80c12dd2b5f873953228ef7e"
-    type :backport
-    resolves "https://github.com/MariaDB/server/pull/5652"
   end
 
   allow_network_access! :test
