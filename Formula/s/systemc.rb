@@ -1,8 +1,8 @@
 class Systemc < Formula
   desc "Core SystemC language and examples"
   homepage "https://systemc.org/overview/systemc/"
-  url "https://github.com/accellera-official/systemc/archive/refs/tags/3.0.2.tar.gz"
-  sha256 "9b3693ed286aab958b9e5d79bb0ad3bc523bbc46931100553275352038f4a0c4"
+  url "https://github.com/accellera-official/systemc/archive/refs/tags/3.0.3.tar.gz"
+  sha256 "6b4906fe564c81941b5d57c75ee9b20c44c3f4ead1cf607f38ff7beea9aacce4"
   license "Apache-2.0"
 
   livecheck do
@@ -11,14 +11,11 @@ class Systemc < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "95b2b074c59bc3d261b55138b181cbea15fbb3dc1769916e77e4ce730f8693f1"
-    sha256 cellar: :any, arm64_tahoe:       "00716d64cbf73b299bc4196805922c068bad1b23a802eba56272e18bfcdfce65"
-    sha256 cellar: :any, arm64_sequoia:     "28d7da347948cd78f7193fbb099b257d8d3f946d07bc21742c7b7e690fbf5fe5"
-    sha256 cellar: :any, arm64_sonoma:      "053cf8d14692e94ce4b21efad3d9ec03e881589e58906d0696aadbf41bce7c1e"
-    sha256 cellar: :any, sonoma:            "20aa078e51eb304521647411756566b1bac49d85303c1bf47ce9c5c944298563"
-    sha256 cellar: :any, arm64_linux:       "c206aedbe2c0bd668aa28cef896418cc1ecf2997a7ec303eb1d1aa3edeef25dc"
-    sha256 cellar: :any, x86_64_linux:      "0eb26842c8208705f29dd7906859f3323de39cd358a6133ebee013837d892fdc"
+    sha256 cellar: :any, arm64_golden_gate: "fcd5186cdeab5b80b87cfa28ee9ff624a60bf5d0ffa41ae3dc21756f228b0c4b"
+    sha256 cellar: :any, arm64_tahoe:       "c008aa010a53956b9aa13a13d7a7b0f7ea26787f24cc6f40c93a72d6d9a2792c"
+    sha256 cellar: :any, arm64_sequoia:     "8560e9ae47a230b7bbec101b4f865b71782d9fc6af3eff00d92b9cd777fed492"
+    sha256 cellar: :any, arm64_linux:       "ddf90d22af1cfec1739170292688e17b9757b8d1e1d28f0fc006d01d4e05b4b6"
+    sha256 cellar: :any, x86_64_linux:      "0a36fe41e9ff4727ec773bbcb6bdf972f17fe58cc75950dd1405e39c4bd2556d"
   end
 
   depends_on "cmake" => :build
