@@ -6,11 +6,11 @@ class Neonctl < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "eb964e5dc2a09916e48781c608c3f9248ff3b96cb55c83ca9993795fe72e7038"
-    sha256 cellar: :any,                 arm64_tahoe:       "eb964e5dc2a09916e48781c608c3f9248ff3b96cb55c83ca9993795fe72e7038"
-    sha256 cellar: :any,                 arm64_sequoia:     "eb964e5dc2a09916e48781c608c3f9248ff3b96cb55c83ca9993795fe72e7038"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "68ffb52f55e7e2a5d97d925834aff715f002e599778f69f8a6f3c04a60f0a28e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5ac828d41bd6f2fa66a4975112fe65147e10362bb3ffb241a6a2ce1e86c78f73"
+    sha256 cellar: :any,                 arm64_golden_gate: "88bd48a90c7719a67db00efd5bfa7decc3810f28281f7aec39caa53a56d361c1"
+    sha256 cellar: :any,                 arm64_tahoe:       "88bd48a90c7719a67db00efd5bfa7decc3810f28281f7aec39caa53a56d361c1"
+    sha256 cellar: :any,                 arm64_sequoia:     "88bd48a90c7719a67db00efd5bfa7decc3810f28281f7aec39caa53a56d361c1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f34d382639be3e4761280b61abcdc71139d58619b40c1c7b3cd122db7e39d215"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e419ae76d7848d14ab02b0daa8b7d5475fc0af5f8412626931a9a7e1508a333e"
   end
 
   depends_on "esbuild" # replaces the bundled copy
