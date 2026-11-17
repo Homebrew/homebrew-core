@@ -26,6 +26,7 @@ class QobineWeb < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "openssl@4"
+    depends_on "pipewire"
   end
 
   allow_network_access! :test
