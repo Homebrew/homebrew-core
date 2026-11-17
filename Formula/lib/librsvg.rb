@@ -59,6 +59,9 @@ class Librsvg < Formula
     rpath_flags = [rpath, rpath(source: gdk_pixbuf_moduledir)].map { |rp| "-rpath,#{rp}" }
     ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_flags.join(",")}" if OS.mac?
 
+    # Stop meson from dropping `HOMEBREW_PREFIX/lib` from the library `RPATH`
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.linux?
+
     # disable updating gdk-pixbuf cache, we will do this manually in post_install
     # https://github.com/Homebrew/homebrew/issues/40833
     ENV["DESTDIR"] = "/"
