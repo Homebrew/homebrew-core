@@ -12,13 +12,11 @@ class DockerCredentialHelperEcr < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c3f8394da931e2a7f61ce0cf6f8ca483fc2625e405d9f48d835bd84f7e22149b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08d041e92bae5951b08ae9481e3c6bcf4aec5583324e7393e9aa7538c693d08a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08d041e92bae5951b08ae9481e3c6bcf4aec5583324e7393e9aa7538c693d08a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "08d041e92bae5951b08ae9481e3c6bcf4aec5583324e7393e9aa7538c693d08a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "e82694f2c5f37d9690cd1c2060d7cc94a5cee9d7bc88b93735dd225e4cd29336"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "86525ade6158507fbba5982051aff57d186bbcadf576c82ab73f3062cf22dd02"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8e6a16b2fee9192ce8c0dcea3f97cb7709b5faee28cb34418d46f25396fbfb0e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3000010b6a643b2487436072507381c715ac3ebc6ebe2825931cc744c94221b9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3000010b6a643b2487436072507381c715ac3ebc6ebe2825931cc744c94221b9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3000010b6a643b2487436072507381c715ac3ebc6ebe2825931cc744c94221b9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "76e71a84d6a81ad131757c28a45c80c0a3c71f324744ff9d5436a9ccdffdd47e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "60e0ad11e96d6569ff204bd4e0f193c4954de1035538360627050f9d83664eff"
   end
 
   depends_on "go" => :build
