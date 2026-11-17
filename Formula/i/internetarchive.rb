@@ -3,13 +3,13 @@ class Internetarchive < Formula
 
   desc "Python wrapper for the various Internet Archive APIs"
   homepage "https://github.com/jjjake/internetarchive"
-  url "https://files.pythonhosted.org/packages/a5/e5/6299a3f04c085c9d3582840e2a086a3845e89b2ae5058fb817fca0a99795/internetarchive-5.12.1.tar.gz"
-  sha256 "fa9589c463a8a64e1c194f19f40bac680e2db9b493a0d9722cf7d30754cde65b"
+  url "https://files.pythonhosted.org/packages/83/b0/5bb29b4dbcb21ff71355cfb2e7b807be9e599500d81b6c8822eca741ade0/internetarchive-5.13.0.tar.gz"
+  sha256 "3be796ccde76c71a1061f7a641ec79c609119927224f1e7f2bbfdad09bc9f361"
   license "AGPL-3.0-or-later"
   head "https://github.com/jjjake/internetarchive.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "66e679c5eaab81857faf3ddae6c794a7a0d12bafa67692e4398772602407ba32"
+    sha256 cellar: :any_skip_relocation, all: "220eae4cdda94a9f456c23e529b5fa8db528503e2b52bc402d27e0ba357b1954"
   end
 
   depends_on "certifi"
@@ -28,13 +28,13 @@ class Internetarchive < Formula
   end
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/8e/39/c534bb172e9318400d5631074b1eda6c78b7c918d0f04233b50caa8e2c10/jsonpatch-1.36.tar.gz"
-    sha256 "7e110cb3c5a1c8768f7170bf8fb9887c4aa575fba74c95239e868b494bd9a522"
+    url "https://files.pythonhosted.org/packages/8f/13/43ae689f9340dc7339dc7f5a3b1772edcd48fb1eb62fd5d801a2aa09d382/jsonpatch-1.47.tar.gz"
+    sha256 "5ed650b7517789e0f43428aa7b09442c0b90de0a0fd17a53fd0ebf55205c601e"
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/52/77/9be5cce647fa4d7afa9047c0c1029bc73292c27430e64fc9d2393ccf6727/jsonpointer-3.4.tar.gz"
-    sha256 "e57015ae65af3821c6a3976069860789cf326103f38b22b2178d41d021adad25"
+    url "https://files.pythonhosted.org/packages/46/cb/2c3112a061a718d93866c2555dad1e9d53865e4703d0f3be550d252b277b/jsonpointer-3.12.tar.gz"
+    sha256 "7a3dcc11b64053eaa9c549e85e413f8d40a075215f793a331bed9182a14251ae"
   end
 
   resource "requests" do
