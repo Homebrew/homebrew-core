@@ -1,8 +1,8 @@
 class Jcode < Formula
   desc "AI coding agent harness for the terminal"
   homepage "https://jcode.sh"
-  url "https://github.com/1jehuang/jcode/archive/refs/tags/v0.99.1.tar.gz"
-  sha256 "f2ca7478f806ec04c69f9b8270a97c39d89f48b98d35a201c59051b03e144832"
+  url "https://github.com/1jehuang/jcode/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "2de28d606ecd3b43c918694d1fb390da93b9e574412b1572e43bbda2621e3dc4"
   license "MIT"
 
   livecheck do
@@ -40,7 +40,7 @@ class Jcode < Formula
 
     # Redirect `jcode update` to Homebrew
     inreplace "src/cli/dispatch.rs",
-              "hot_exec::run_update()?;",
+              "hot_exec::run_update(channel.as_deref())?;",
               'eprintln!("Please update jcode using: brew upgrade jcode");'
 
     system "cargo", "install", *std_cargo_args
