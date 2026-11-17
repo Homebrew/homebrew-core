@@ -1,17 +1,17 @@
 class Rubocop < Formula
   desc "Ruby static code analyzer and formatter, based on the community Ruby style guide"
   homepage "https://docs.rubocop.org"
-  url "https://github.com/rubocop/rubocop/archive/refs/tags/v1.92.2.tar.gz"
-  sha256 "af69e46a14e638520fd74895a7a6d3bc37e30a1c3e126786c329dde222bcbdfd"
+  url "https://github.com/rubocop/rubocop/archive/refs/tags/v1.92.3.tar.gz"
+  sha256 "52ecb61f8ff367db41eda22f366ae9d13bc14ba8bd5ffa94f8d9cf11d5ab5c97"
   license "MIT"
   head "https://github.com/rubocop/rubocop.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e774426c6cf320067f92a460277a01925a4838ab7e410279bf66e5e7c757fe97"
-    sha256 cellar: :any, arm64_tahoe:       "66b55b9ae1fbe363786ca17854bf1981810a39b5499f7ed90d6bc78f96d38551"
-    sha256 cellar: :any, arm64_sequoia:     "317ec3671dc6f9aab500545b04cffb34250766ade80907c39ce332494e2c0f76"
-    sha256 cellar: :any, arm64_linux:       "e266f8272de6d8d2999fd0f30a32cd6c4577e277f13fc8b69e52cc7c8048c8b4"
-    sha256 cellar: :any, x86_64_linux:      "389d9d0929faf64fccc8e1d3d3fdc8d0deeb5388dcf0589a7fd1f191f3418a4f"
+    sha256 cellar: :any, arm64_golden_gate: "972f5d0bc03599318d9d973d15a0dc37386f937432496e0a65c408948a282620"
+    sha256 cellar: :any, arm64_tahoe:       "4c3aed11bf8271f4b945f553417e41a63107d6278abdceb6927250ab1fd31679"
+    sha256 cellar: :any, arm64_sequoia:     "046513a3483c2c261d6d81dfc3ef2a2011e59859c665f50120e87a15505bd94f"
+    sha256 cellar: :any, arm64_linux:       "e29ee6e3c7444230a630098b080d4a3a983bfb7ee5f9480aa64b30035cca930b"
+    sha256 cellar: :any, x86_64_linux:      "513e03a0d6f458232661ca41ae76db633bd56a00f09e0c35a5f393c4386c1d0c"
   end
 
   depends_on "ruby"
@@ -23,8 +23,8 @@ class Rubocop < Formula
   end
 
   resource "json" do
-    url "https://rubygems.org/downloads/json-2.18.0.gem"
-    sha256 "b10506aee4183f5cf49e0efc48073d7b75843ce3782c68dbeb763351c08fd505"
+    url "https://rubygems.org/downloads/json-2.21.2.gem"
+    sha256 "1f1d3b7cf2b3ba1a69beca0bb6db13d5438b80bff3cd54cdaaa620b9b07c1c6a"
   end
 
   resource "language_server-protocol" do
@@ -43,13 +43,13 @@ class Rubocop < Formula
   end
 
   resource "parser" do
-    url "https://rubygems.org/downloads/parser-3.3.12.0.gem"
-    sha256 "21a6d7f755d5a24dfbdc6e6b772e4e879a52e7631a88bc5a3a134606052c9828"
+    url "https://rubygems.org/downloads/parser-3.3.13.0.gem"
+    sha256 "e02f9b63c2fe05b0c68f692ba4df89b3cb113b663964f75d988fbebfd6c3deca"
   end
 
   resource "prism" do
-    url "https://rubygems.org/downloads/prism-1.8.1.gem"
-    sha256 "b260c1844ee0c7ead9c938f7fd63b95888c87cc054dfb64043204eccff8116ac"
+    url "https://rubygems.org/downloads/prism-2.1.0.gem"
+    sha256 "1c0a7c6dea0e93183390fb123f007564dbe663198e2f86ad87204151147601f3"
   end
 
   resource "racc" do
@@ -63,13 +63,13 @@ class Rubocop < Formula
   end
 
   resource "regexp_parser" do
-    url "https://rubygems.org/downloads/regexp_parser-2.13.1.gem"
-    sha256 "5aedb6b7c35688f51e86eef17a15374dfd287c83f4ca644b2c5f3ec50a33b44b"
+    url "https://rubygems.org/downloads/regexp_parser-2.13.3.gem"
+    sha256 "c9833eb62afc9706ebdc61b2b41226c0ae3b45a2783f80174cffcf126453db27"
   end
 
   resource "rubocop-ast" do
-    url "https://rubygems.org/downloads/rubocop-ast-1.50.0.gem"
-    sha256 "b9ca88300da0803ee222ad20cdb30494c0a784eed06fdc35d254b06d662788db"
+    url "https://rubygems.org/downloads/rubocop-ast-1.51.0.gem"
+    sha256 "0ec311e36b191b3872d909078a35274e962ae97dbce64be6812d145ca59acfcb"
   end
 
   resource "ruby-progressbar" do
@@ -78,13 +78,8 @@ class Rubocop < Formula
   end
 
   resource "unicode-display_width" do
-    url "https://rubygems.org/downloads/unicode-display_width-3.2.0.gem"
-    sha256 "0cdd96b5681a5949cdbc2c55e7b420facae74c4aaf9a9815eee1087cb1853c42"
-  end
-
-  resource "unicode-emoji" do
-    url "https://rubygems.org/downloads/unicode-emoji-4.2.0.gem"
-    sha256 "519e69150f75652e40bf736106cfbc8f0f73aa3fb6a65afe62fefa7f80b0f80f"
+    url "https://rubygems.org/downloads/unicode-display_width-2.6.0.gem"
+    sha256 "12279874bba6d5e4d2728cef814b19197dbb10d7a7837a869bab65da943b7f5a"
   end
 
   deny_network_access!
