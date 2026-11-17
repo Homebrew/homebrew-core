@@ -3,25 +3,29 @@ class EvernoteBackup < Formula
 
   desc "Backup & export all Evernote notes and notebooks"
   homepage "https://github.com/vzhd1701/evernote-backup"
-  url "https://files.pythonhosted.org/packages/fe/fb/77e7a39fda8f28b795b91959b963afbbb137221b1d25408514ae0848bbb1/evernote_backup-1.14.0.tar.gz"
-  sha256 "d62240730c6444072b2011aa5e63fbd15e2246959324fec3e58f86a3e313a962"
+  url "https://files.pythonhosted.org/packages/93/cc/3365f0433896d50e70df92858003d6f0c4d87b7e21f36f4868efeb613ab7/evernote_backup-1.15.0.tar.gz"
+  sha256 "7e0db3b9a4f3711d8582e991063dfcd09f9bfc62d57ee94abffb544ef5767bb2"
   license "MIT"
-  revision 3
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a656da9101f275e439aebd2849b9811cc8db5e57c056cd41b85be37d760e0d67"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "482e424aa050a5b2742b9bbb266cc9126044f50e8ce6b27c2e60a3ec28efc598"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5a7369760a72f808ea572422645bb58bc796c8d5af25652e1fed10552761b6f"
-    sha256 cellar: :any,                 arm64_linux:       "513db6402e2c3369462afee150625e38ff12dfe164860d06b6782bb4aee538a7"
-    sha256 cellar: :any,                 x86_64_linux:      "7ee98e26f28491ba4783daf7151d9c0dede7a4d61dbc3d0d0a0c238c69b38806"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5fc8aceed9c04af713fccadc1f858587afa7aa0c7d3cce7c639f7b7c9e2a1ba4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2cf6aa9e4d5aa3ed38e2c311bc2c40af7d156014451b0b2e7b611cc98df5d4d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5102b058f3a5fb3092038e8b98007efc6d52d6f21b2fa0150d8a4319680884e5"
+    sha256 cellar: :any,                 arm64_linux:       "f8d952faf7660b84b4024fe52771310d72dab9cd24d147ecf9c33e5d8d72547e"
+    sha256 cellar: :any,                 x86_64_linux:      "49f8b4133a514c93e7ffb150dfae5614c694d869ce241613c93f3a3bb6cc4965"
   end
 
   depends_on "rust" => :build
   depends_on "certifi" => :no_linkage
   depends_on "python@3.15"
 
-  pypi_packages exclude_packages: "certifi",
-                extra_packages:   %w[pycryptodome keyring]
+  on_linux do
+    depends_on "cryptography" => :no_linkage
+  end
+
+  # TODO: Sync `pycryptodome` with upstream pin, which is darwin/win32-only and so ignored when resolving on Linux
+  pypi_packages exclude_packages: %w[certifi cryptography],
+                extra_packages:   %w[jeepney keyring pycryptodome==3.23.0 secretstorage]
 
   resource "charset-normalizer" do
     url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
@@ -29,13 +33,13 @@ class EvernoteBackup < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/76/d4/81420972a676e8ffea40450d8c8c92943e7218a78fe9b64359836cc9876b/click-8.4.2.tar.gz"
+    sha256 "9a6cea6e60b17ebe0a44c5cc636d94f09bd66142c1cd7d8b4cd731c4917a15f6"
   end
 
   resource "click-option-group" do
-    url "https://files.pythonhosted.org/packages/b9/9f/1f917934da4e07ae7715a982347e3c2179556d8a58d1108c5da3e8f09c76/click_option_group-0.5.7.tar.gz"
-    sha256 "8dc780be038712fc12c9fecb3db4fe49e0d0723f9c171d7cda85c20369be693c"
+    url "https://files.pythonhosted.org/packages/ef/ff/d291d66595b30b83d1cb9e314b2c9be7cfc7327d4a0d40a15da2416ea97b/click_option_group-0.5.9.tar.gz"
+    sha256 "f94ed2bc4cf69052e0f29592bd1e771a1789bd7bfc482dd0bc482134aff95823"
   end
 
   resource "evernote-plus" do
@@ -61,6 +65,11 @@ class EvernoteBackup < Formula
   resource "jaraco-functools" do
     url "https://files.pythonhosted.org/packages/6c/1f/c23395957d41ccf27c4e535c3d334c4051e5395b3752057ba4cbaec35c56/jaraco_functools-4.6.0.tar.gz"
     sha256 "880c577ec9720b3a052d5bc611fb9f2269b3d87902ef42440df443b88e443280"
+  end
+
+  resource "jeepney" do
+    url "https://files.pythonhosted.org/packages/7b/6f/357efd7602486741aa73ffc0617fb310a29b588ed0fd69c2399acbb85b0c/jeepney-0.9.0.tar.gz"
+    sha256 "cf0e9e845622b81e4a28df94c40345400256ec608d0e55bb8a3feaa9163f5732"
   end
 
   resource "keyring" do
@@ -99,8 +108,13 @@ class EvernoteBackup < Formula
   end
 
   resource "requests-sse" do
-    url "https://files.pythonhosted.org/packages/a1/57/91c3be234a531164786622f74aed74610125cfa1a9e3b707df417479673e/requests_sse-0.5.1.tar.gz"
-    sha256 "42df8ad8b8428a44b3f27d2501b68d3f2dd6eaa8cf4cc82e9e53cc3d18eea9cd"
+    url "https://files.pythonhosted.org/packages/13/94/f0f29584c3ca24c29a72e19a28136f73ed08adddc93fb8a0c998577c9085/requests_sse-0.5.3.tar.gz"
+    sha256 "107c63afb2a2292b422ab2504849f3adb54b4c884700646ebe9f6e4178ba375c"
+  end
+
+  resource "secretstorage" do
+    url "https://files.pythonhosted.org/packages/1c/03/e834bcd866f2f8a49a85eaff47340affa3bfa391ee9912a952a1faa68c7b/secretstorage-3.5.0.tar.gz"
+    sha256 "f04b8e4689cbce351744d5537bf6b1329c6fc68f91fa666f60a380edddcd11be"
   end
 
   resource "six" do
@@ -119,12 +133,12 @@ class EvernoteBackup < Formula
   end
 
   resource "xmltodict" do
-    url "https://files.pythonhosted.org/packages/39/0d/40df5be1e684bbaecdb9d1e0e40d5d482465de6b00cbb92b84ee5d243c7f/xmltodict-0.13.0.tar.gz"
-    sha256 "341595a488e3e01a85a9d8911d8912fd922ede5fecc4dce437eb4b6c8d037e56"
+    url "https://files.pythonhosted.org/packages/19/70/80f3b7c10d2630aa66414bf23d210386700aa390547278c789afa994fd7e/xmltodict-1.0.4.tar.gz"
+    sha256 "6d94c9f834dd9e44514162799d344d815a3a4faec913717a9ecbfa5be1bb8e61"
   end
 
   def install
-    without = %w[pycryptodome keyring] unless OS.mac?
+    without = OS.mac? ? %w[jeepney secretstorage] : %w[keyring pycryptodome]
     virtualenv_install_with_resources(without:)
 
     generate_completions_from_executable(bin/"evernote-backup", shell_parameter_format: :click)
