@@ -3,8 +3,8 @@ class Flye < Formula
 
   desc "De novo assembler for single molecule sequencing reads using repeat graphs"
   homepage "https://github.com/mikolmogorov/Flye"
-  url "https://github.com/mikolmogorov/Flye/archive/refs/tags/2.9.6.tar.gz"
-  sha256 "f05a3889b1c7aafed4cc0ed1adc1f19c22618c1c7b97ab5f80d388c8192bd32a"
+  url "https://github.com/mikolmogorov/Flye/archive/refs/tags/2.9.7.tar.gz"
+  sha256 "041635b3b7e7afc69fd50ab9cbf040db4749b04ae626ba65c8b08f550642351f"
   license all_of: [
     "BSD-3-Clause",
     "Apache-2.0", # lib/libcuckoo
