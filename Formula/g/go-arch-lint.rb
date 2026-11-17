@@ -7,11 +7,11 @@ class GoArchLint < Formula
   head "https://github.com/fe3dback/go-arch-lint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2b10fe9c840447a62e693526fbb4a09e25ec501793b9a1ffacc3b1080891b5e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c2b10fe9c840447a62e693526fbb4a09e25ec501793b9a1ffacc3b1080891b5e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2b10fe9c840447a62e693526fbb4a09e25ec501793b9a1ffacc3b1080891b5e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8e159ab3bad30ca229312f4f599343d961c46a0f5370d010768112252d173abe"
-    sha256 cellar: :any,                 x86_64_linux:      "81a64ce8c1bd2408bda01a50e78691c9e78e1d5972d58db77f99ace737671bcf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "990e950c242a0d7de8bdfa034252c7e8dddd4d3c35e9f61a23d032f216bc5f6a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "990e950c242a0d7de8bdfa034252c7e8dddd4d3c35e9f61a23d032f216bc5f6a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "990e950c242a0d7de8bdfa034252c7e8dddd4d3c35e9f61a23d032f216bc5f6a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8fe377bc0f3285b9c9a8e28b63774b6d2e39cb5dafc462b3ea95ef5269f6702d"
+    sha256 cellar: :any,                 x86_64_linux:      "70f141e227e229dc6e0ea607e620343432bb28f826b853b22f706bf827ea3393"
   end
 
   depends_on "go"
