@@ -15,6 +15,9 @@ class Solod < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "f23aa087960d006d27ac03224d95af7efab59966228707a32a8fb551e8e6c0d9"
   end
 
+  deprecate! date: "2026-11-17", because: :repo_archived
+  disable! date: "2027-11-17", because: :repo_archived
+
   depends_on "go" => [:build, :test]
 
   conflicts_with "so", because: "both install `so` binaries"
