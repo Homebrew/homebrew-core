@@ -5,12 +5,12 @@ class Flang < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm-project-23.1.5.src.tar.xz"
-    sha256 "fb50b1eac93ddeb3aa8dab4cfe324dff74f4a9c2bdee6160c9e36188f8d06a6e"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.6/llvm-project-23.1.6.src.tar.xz"
+    sha256 "d3b86ab29cfb4445a6652e5c2642ccc75e04e38084dde3701d323320f35a31da"
 
     resource "llvm_man_pages" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm_man_pages-23.1.5.tar.xz"
-      sha256 "ba08a070d4ad120913b60254968f051bf497195b06a065155edb83e8e59e9425"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.6/llvm_man_pages-23.1.6.tar.xz"
+      sha256 "daf2953e0fa1b4fc56920d963d5362a9bcea0ec1680d58faff49389d934f5d22"
 
       livecheck do
         formula :parent
