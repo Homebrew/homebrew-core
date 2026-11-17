@@ -3,17 +3,17 @@ class Skillspector < Formula
 
   desc "Security scanner for AI agent skills"
   homepage "https://github.com/NVIDIA/SkillSpector"
-  url "https://github.com/NVIDIA/SkillSpector/archive/refs/tags/v2.13.5.tar.gz"
-  sha256 "b4864f8774bd1f5c56747068c7a2d0aeb714f5e074972d1c48723dc21535427e"
+  url "https://github.com/NVIDIA/SkillSpector/archive/refs/tags/v2.13.6.tar.gz"
+  sha256 "758b8d04ee6300d76242bfca1ea7e17c33faa7500f49640dbcceb5d23c3322e9"
   license "Apache-2.0"
   head "https://github.com/NVIDIA/SkillSpector.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3e5aa360d58c07a2d925db4217a72e707f75c2271c873528fe93f48203b224f3"
-    sha256 cellar: :any, arm64_tahoe:       "dd175ede3761321aeab29c8dd67a0669c16547b293c7c9450d61a03a5b215fd9"
-    sha256 cellar: :any, arm64_sequoia:     "8ce544095f41bef465fb03dd0af9a28f46bbfe9b21402089ce2dfd82e7fe046f"
-    sha256 cellar: :any, arm64_linux:       "2f1e8ede2e3d5a43e91fa0769efa119362e0e9680ed823810c18373563a8c63d"
-    sha256 cellar: :any, x86_64_linux:      "139d23b2fc6a0a0ee17d6808e8fe45a033bbd6be029b6a21ef5dc769cd7a5a55"
+    sha256 cellar: :any, arm64_golden_gate: "55caef487a2bd19b2e3225b56b5695a6257449f390454c846bb9f93fe127949b"
+    sha256 cellar: :any, arm64_tahoe:       "397332c9b2ceed89679e49145888b171ae321bb7a10d8a0cc11333a017b03d04"
+    sha256 cellar: :any, arm64_sequoia:     "7947987c4e181cbbd1bba3675cb6d891a88a662cf692f1a67f07e8e6d74e207c"
+    sha256 cellar: :any, arm64_linux:       "a6001e2d7b8d4578f7818be589fe72844a7acd888eac9908d061a9a63e53ac8d"
+    sha256 cellar: :any, x86_64_linux:      "4df11eff02d72ddbd1c067417221e48f4d9e90bf0381deb1a3196232cb051314"
   end
 
   depends_on "pkgconf" => :build
@@ -141,8 +141,8 @@ class Skillspector < Formula
   end
 
   resource "langchain-core" do
-    url "https://files.pythonhosted.org/packages/de/1e/ce7b06cecfc41a8f179571f9e228ae9d2f7d090492d2c312322fd4f4380f/langchain_core-1.8.0.tar.gz"
-    sha256 "8c571299ae83acec89599cbbb6890018f54225da336a6e315c9e882dd5da6502"
+    url "https://files.pythonhosted.org/packages/70/22/b8823f7cad862d07aec9fe41d1bd61c1129fcde0879fcde4de5482c31896/langchain_core-1.8.1.tar.gz"
+    sha256 "778b9bf1d18d4b7a716311defa230db190006ef75fe175930e00012d82df603b"
   end
 
   resource "langchain-openai" do
