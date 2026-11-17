@@ -1,8 +1,8 @@
 class Ngt < Formula
   desc "Neighborhood graph and tree for indexing high-dimensional data"
   homepage "https://github.com/NGT-labs/NGT"
-  url "https://github.com/NGT-labs/NGT/archive/refs/tags/v2.8.1.tar.gz"
-  sha256 "6891814f2b83e6879d6c2e6d835f75fb10a741c8c539293df2d9fd2fab2cecae"
+  url "https://github.com/NGT-labs/NGT/archive/refs/tags/v2.8.2.tar.gz"
+  sha256 "21a76b3fa337a7da9cfcdb8917f983297e8f768de7757c72c3d65a2377cfa123"
   license "Apache-2.0"
 
   livecheck do
@@ -11,11 +11,11 @@ class Ngt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "45abfad53e2ca0728309c68a69567eb65fe32d9abeb9a7191d9f9ee16ea0c546"
-    sha256 cellar: :any, arm64_tahoe:       "fd19c1447fd6e4b48ebee8a52c6ad308b534eb8f9f1ac645891b5145e3debe13"
-    sha256 cellar: :any, arm64_sequoia:     "e3acfb1afaf5baf2b40d61280af51e3e98d6055c90d80ab9831c68fe99a7fee5"
-    sha256 cellar: :any, arm64_linux:       "c381798aa62796327645e3e98b2974c1ffe2e14f3e3c331e41beeaec9bf0545f"
-    sha256 cellar: :any, x86_64_linux:      "d12e28e8419b363ffa5a3aff2fdf16b8eb5a477f2b20e99f102d52013e4e0485"
+    sha256 cellar: :any, arm64_golden_gate: "fc69cfd63e379b54bda2d354a78227a8ddecd567cf815c4fec361dbf8b01e51b"
+    sha256 cellar: :any, arm64_tahoe:       "a531f44e212bc38226de7c19644de4060eced88bfb88ff9f0070125ed9f9a884"
+    sha256 cellar: :any, arm64_sequoia:     "af00e80275b0f1e523992960db0014aa5b1d95569402698872ffe3db62dc6fae"
+    sha256 cellar: :any, arm64_linux:       "0d5e15bb471ec7f25607552173796d07e199aaef09684cf61c57b51c416c4462"
+    sha256 cellar: :any, x86_64_linux:      "7f251874b99177c3be8af13995985c128b736f24a188c2372648caa14123e4f0"
   end
 
   depends_on "cmake" => :build
