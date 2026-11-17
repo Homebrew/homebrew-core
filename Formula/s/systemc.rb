@@ -1,8 +1,8 @@
 class Systemc < Formula
   desc "Core SystemC language and examples"
   homepage "https://systemc.org/overview/systemc/"
-  url "https://github.com/accellera-official/systemc/archive/refs/tags/3.0.2.tar.gz"
-  sha256 "9b3693ed286aab958b9e5d79bb0ad3bc523bbc46931100553275352038f4a0c4"
+  url "https://github.com/accellera-official/systemc/archive/refs/tags/3.0.3.tar.gz"
+  sha256 "6b4906fe564c81941b5d57c75ee9b20c44c3f4ead1cf607f38ff7beea9aacce4"
   license "Apache-2.0"
 
   livecheck do
