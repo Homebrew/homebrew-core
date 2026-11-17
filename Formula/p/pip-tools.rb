@@ -9,7 +9,7 @@ class PipTools < Formula
   head "https://github.com/jazzband/pip-tools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "02e2f502d1a56a97773071186361983ffc1ac5832310bfa4c94d1f4d564dbcd2"
+    sha256 cellar: :any_skip_relocation, all: "e5827608ae087995f58db17c84083711ec45d03ca6820508db2cea43d25f91b7"
   end
 
   depends_on "python@3.15"
