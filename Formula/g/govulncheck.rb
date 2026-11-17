@@ -3,8 +3,8 @@ class Govulncheck < Formula
   homepage "https://github.com/golang/vuln"
   # git checkout needed for buildInfo support
   url "https://github.com/golang/vuln.git",
-      tag:      "v1.9.0",
-      revision: "e672cbe8fbc8c76e28fcb6db0efd9ce354e0dac5"
+      tag:      "v1.10.0",
+      revision: "ef4cb2f7cae47fe3e21fc596455f694951867b29"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/golang/vuln.git", branch: "master"
