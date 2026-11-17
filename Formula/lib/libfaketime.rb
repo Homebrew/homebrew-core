@@ -1,19 +1,18 @@
 class Libfaketime < Formula
   desc "Report faked system time to programs"
   homepage "https://github.com/wolfcw/libfaketime"
-  url "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.13.tar.gz"
-  sha256 "8e56deeb805682b025107e095f1d94a6ea677472f05824cd475f5c5e6e1a5ddf"
+  url "https://github.com/wolfcw/libfaketime/archive/refs/tags/v0.9.14.tar.gz"
+  sha256 "d6468957b11bae8e541524ad43f2cdf91e5d87c8996183897c0499856024c90c"
   license "GPL-2.0-only"
   compatibility_version 1
   head "https://github.com/wolfcw/libfaketime.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "e761baba7c254c506dbe58100adfe022bf6dea5486cd06a577e2e5317e256e9f"
-    sha256 arm64_tahoe:       "1bea320380706963c4a0898c7f29deaca81d86d1adf68bb6cab7a5aa0fb75250"
-    sha256 arm64_sequoia:     "575600c6defeadc47186bf1dcfb51ab959cd5bc8bd39da52ed85642e9a689ffd"
-    sha256 arm64_sonoma:      "970c857258b8298e7a7f4f1dd6c436c85066706729506276f8fafeebf3033a5a"
-    sha256 arm64_linux:       "cf567f1c26a12ece368764d52060daf707af194131a57b58b6be51644ef75b75"
-    sha256 x86_64_linux:      "ad9bcb5cc3764a2b6ef502578051757abd0e4b3a9bde35d42838ac84e20e85e6"
+    sha256 arm64_golden_gate: "5099088aa0fa21415d6e01dc084942228569ae86434fcea3ef67cee7d0417890"
+    sha256 arm64_tahoe:       "5873cd6861d0ad3fa2c5b77946199bfac2edb99babbc47c9f22b75addaf4cc62"
+    sha256 arm64_sequoia:     "73b9207340dd1b828672162156941c9d8534822c91ef2ab4084e63a567a276f7"
+    sha256 arm64_linux:       "ad724607aa12e0572bc0b4bfc045ebc01159ce833d879f098c3acdbe66c5468e"
+    sha256 x86_64_linux:      "7a418a5de6dfd0dcc3e1a869a321ba6c875b9d197e442003331b6309fe38b26c"
   end
 
   on_macos do
