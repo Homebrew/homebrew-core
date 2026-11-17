@@ -12,8 +12,7 @@ class Fnlfmt < Formula
   depends_on "lua"
 
   def install
-    system "make"
-    bin.install "fnlfmt"
+    system "make", "install", "PREFIX=#{prefix}"
   end
 
   test do
