@@ -1,8 +1,8 @@
 class Embree < Formula
   desc "High-performance ray tracing kernels"
   homepage "https://www.embree.org/"
-  url "https://github.com/RenderKit/embree/archive/refs/tags/v4.4.1.tar.gz"
-  sha256 "dcf338cc61b636c871ccf370e673bfd380c5ecb71ce49ad50f28e1d4ec9995dc"
+  url "https://github.com/RenderKit/embree/archive/refs/tags/v4.5.0.tar.gz"
+  sha256 "6692fdf2b55831ac58732459443336d709974051d7ec642b3e1fcf06271b5eea"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/RenderKit/embree.git", branch: "master"
