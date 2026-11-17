@@ -1,17 +1,17 @@
 class Berglas < Formula
   desc "Tool for managing secrets on Google Cloud"
   homepage "https://github.com/GoogleCloudPlatform/berglas"
-  url "https://github.com/GoogleCloudPlatform/berglas/archive/refs/tags/v2.0.18.tar.gz"
-  sha256 "7066f3cdd8b23fa16cdc5945a97711785eb906c5fbdc70dcace5b79a48a69c82"
+  url "https://github.com/GoogleCloudPlatform/berglas/archive/refs/tags/v2.0.19.tar.gz"
+  sha256 "2a44df65587814d80a776cd876b8127af2fa6dd6509bef71aff17bd9b1796340"
   license "Apache-2.0"
   head "https://github.com/GoogleCloudPlatform/berglas.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a6306bd1581c3bfaf49601375169bfede33e73d83ca90073d6396940f0be111"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a6306bd1581c3bfaf49601375169bfede33e73d83ca90073d6396940f0be111"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a6306bd1581c3bfaf49601375169bfede33e73d83ca90073d6396940f0be111"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "62afdab7acd5d97b5ae4f32e6e0c373a438a17cbef54a20534e7c383ddf0e129"
-    sha256 cellar: :any,                 x86_64_linux:      "7fa2e3d514920d3a5a8b48e70ab5ee8e1528c7c305c997433698387fefc57eaf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a46b4a34404007fc23aa5cc076d92f15328b12a3cccad8cb30f2d8967d2cb33f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a46b4a34404007fc23aa5cc076d92f15328b12a3cccad8cb30f2d8967d2cb33f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a46b4a34404007fc23aa5cc076d92f15328b12a3cccad8cb30f2d8967d2cb33f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "85b5e90064a417fe16011f166fd8e5e5ff1ca846cfb4e7b9fdca73e32dd4fa00"
+    sha256 cellar: :any,                 x86_64_linux:      "3cc85d7fc7a0dc38b76e8750bcf802e7a7cfaf5ad076d7cf3457baa3a8c40661"
   end
 
   depends_on "go" => :build
