@@ -3,8 +3,8 @@ class McpAtlassian < Formula
 
   desc "MCP server for Atlassian tools (Confluence, Jira)"
   homepage "https://github.com/sooperset/mcp-atlassian"
-  url "https://files.pythonhosted.org/packages/fa/c2/34d16180a99cf335d650aada20fe9da66d60816708d1475cf3ac2ca3eb13/mcp_atlassian-0.24.5.tar.gz"
-  sha256 "45809cfefb67df6b29fe891181e608fa0ff46410ed27aa31b196f612080954b3"
+  url "https://files.pythonhosted.org/packages/5b/01/fdf2776b4132d2c1b0976da09bbf3f1d46617038a3cc42a0db58abfd7bcb/mcp_atlassian-0.24.6.tar.gz"
+  sha256 "1ca13866e7d3a6b6357ed8b146617a5ffd848078862efad9965c165b484c8be7"
   license "MIT"
   head "https://github.com/sooperset/mcp-atlassian.git", branch: "main"
 
@@ -52,8 +52,8 @@ class McpAtlassian < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/08/49/d174a1bcd2b62c261d68cd6dce10ef5f50a2bd4f8144bedeb5b6fa119ac2/authlib-1.9.6.tar.gz"
-    sha256 "1caa0791c0ea6bde6b4ef91b1731f720a97a0f00d3955878d4a493b4ce673247"
+    url "https://files.pythonhosted.org/packages/7e/9d/4260bc37e6b859f654394c4815a75c92f3505b42b53135a4603bba60d52d/authlib-1.9.8.tar.gz"
+    sha256 "879735216a0b805a4dfedb4fdd19e7d75ebb8debd70cc7566da9d813db34458d"
   end
 
   resource "beartype" do
@@ -352,8 +352,8 @@ class McpAtlassian < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
-    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
+    url "https://files.pythonhosted.org/packages/7e/c0/c753d487a83d873f6946cee6cbc26cea3fe59a476ad0de99a14938a2fbd8/python_multipart-0.0.34.tar.gz"
+    sha256 "b998ae90ca6e1e363261ce2e0e230281b8af53867b757970abd69ee9edcd843a"
   end
 
   resource "pyyaml" do
@@ -452,8 +452,8 @@ class McpAtlassian < Formula
   end
 
   resource "types-python-dateutil" do
-    url "https://files.pythonhosted.org/packages/8c/da/aaf5b20ea6c9e714fae9fdc611b68bde4edcba0aa4b1b853fc157d3d7b37/types_python_dateutil-2.9.0.20261104.tar.gz"
-    sha256 "5d0495702a5f7343741f5d842c531bcd1c941da8b4a85307d52ef43ba80252db"
+    url "https://files.pythonhosted.org/packages/82/ba/a19d28610031ac9608586077f71a21add4c80639cf01e5920d5f9bc207c9/types_python_dateutil-2.9.0.20261116.tar.gz"
+    sha256 "4213748a3f699431a83edf71969de9caa79d0846a5e8785c8a49072ff1968613"
   end
 
   resource "tzdata" do
