@@ -7,11 +7,11 @@ class Kingfisher < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1337436e53c57dcb5ebe9c259b8ef9d8531a2c73ce450967f6eaf74609724c1c"
-    sha256 cellar: :any, arm64_tahoe:       "88179e6e8f9f4c4e70dccb505eb3dd8685ef7d77cee9f531299dc0ef5d8648bc"
-    sha256 cellar: :any, arm64_sequoia:     "14e216d071e396eff7ae25f75b77df19b33d8cc569fc45b00b3e615eee7b1d9e"
-    sha256 cellar: :any, arm64_linux:       "f90f5ec2811ab5d1cfab5522a56ebd57a640228093695bc30847f5579d5d39f0"
-    sha256 cellar: :any, x86_64_linux:      "402ff0caef30d799f78c297657d03251c372d292bf7d4aa0161b129760d74298"
+    sha256 cellar: :any, arm64_golden_gate: "9cd363af26ae4e519079129ff7fcade0faba643015333dab274d6bd347d337ea"
+    sha256 cellar: :any, arm64_tahoe:       "41ff7da52829d537b89ffd1292adc9d8b73125ea92bf6b67fd8636eafb949626"
+    sha256 cellar: :any, arm64_sequoia:     "418eb34bbc172df11b2f821c82480682880ef041d5fd29c0c381fd34288876f1"
+    sha256 cellar: :any, arm64_linux:       "b3b68a7e274da505c51365d97948f26aaf7cb002cb595f68f26e7dceb23dbe0f"
+    sha256 cellar: :any, x86_64_linux:      "a075652ca96f91fed7676a1d8ec15bc8dcd58d3c827ee3b3b4835eb5bdc12119"
   end
 
   depends_on "pkgconf" => :build
