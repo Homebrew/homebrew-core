@@ -3,17 +3,17 @@ class Gptme < Formula
 
   desc "AI assistant in your terminal"
   homepage "https://gptme.org/docs/"
-  url "https://files.pythonhosted.org/packages/61/c9/d47a36bc9f01070d1380f5e822e7c6be679f2aad884a32befd6bac4f3ca9/gptme-0.36.0.tar.gz"
-  sha256 "d1d4b1c6743ec67526d0f1a770b223e48e7bac1266062185e1f4eee40a8b6322"
+  url "https://files.pythonhosted.org/packages/e9/f8/c151ab13484cb7fae3ca32aa5d2256060d2e151f16c1ab1b0cff33bfdbb7/gptme-0.37.0.tar.gz"
+  sha256 "899dffb73767b22aee2ff65d93d5afc08ff108accacc189a1438f81143adeec6"
   license "MIT"
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e15133946c7fcc0cb18fc5ef56413565703c8a56d62c03b988069424c7820310"
-    sha256 cellar: :any, arm64_tahoe:       "d5f217e4efdddd107be3df99be45f4f5d70b89745f6de6b78b1a9b4522f992cf"
-    sha256 cellar: :any, arm64_sequoia:     "4c817afb0ecdeefc6d1a1b3b1ef2753b75af661e75b6ad9b6363dbf852c225d6"
-    sha256 cellar: :any, arm64_linux:       "37fddf46649dc49d44f8e4e0afb89a96c91a0ee9333b9ea956b9885128212d2e"
-    sha256 cellar: :any, x86_64_linux:      "057fcb7d37b4cf99ac7d2ba7791fb5d2bcdbeeee49c571d3140eef00788b8d46"
+    sha256 cellar: :any, arm64_golden_gate: "10ae08f31e6d9e67495ed453aeae878477874a7b6fa9c076851b21210f78015e"
+    sha256 cellar: :any, arm64_tahoe:       "0a2bd2c7d1bea6bbf8ebbb7e864e61e94671b35b9a28cedce8252774c29f513d"
+    sha256 cellar: :any, arm64_sequoia:     "63f909c8ce7b9b1106fd7162bb076bf060e41e26e07415e048245213b7a3d950"
+    sha256 cellar: :any, arm64_linux:       "ab9bbc7f0121d42f6e1999fc4dc8e3f43bd2b5c9ee92465a82db2652c469b241"
+    sha256 cellar: :any, x86_64_linux:      "175ff26cc1b3f79b07c9d98ba04b62c25714284d132e2843448a881e14992dd6"
   end
 
   depends_on "rust" => :build # for jitter
@@ -56,8 +56,8 @@ class Gptme < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "click-default-group" do
@@ -131,8 +131,8 @@ class Gptme < Formula
   end
 
   resource "jiter" do
-    url "https://files.pythonhosted.org/packages/63/5b/f68319f4fe624311a744a33d10fdbcac4c971991e348223cba60d31780b2/jiter-0.18.0.tar.gz"
-    sha256 "a0ca63fd9450a212e4e658d4cfe0ab4977c4f9b0003c68828b843c65e27662ff"
+    url "https://files.pythonhosted.org/packages/67/de/8dfd06a2153d8ab6a83a8ca8f8ae3ff860ce2fe324ee6a5d05294b621c2a/jiter-0.19.0.tar.gz"
+    sha256 "ba3064f8be276d7cfb83c2fb85c858be533da2c2f80f9b048c3781b45a57a195"
   end
 
   resource "json-repair" do
@@ -151,8 +151,8 @@ class Gptme < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "matplotlib-inline" do
@@ -201,8 +201,8 @@ class Gptme < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/9a/6e/886dc7c9d21e2d95aceb696f1e31271742033aeef3661f6e9c8921493592/platformdirs-4.14.3.tar.gz"
-    sha256 "021add1ab113483edbcd4694f5fbb2d688b893ea30d35e1155bb371cf4be0be8"
+    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
+    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
   end
 
   resource "prompt-toolkit" do
@@ -221,8 +221,8 @@ class Gptme < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
-    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
+    url "https://files.pythonhosted.org/packages/59/28/227c843eedd29bd78e132e5aafa420d83154b10465c312f9c21ff2eaf77d/pydantic_settings-2.16.3.tar.gz"
+    sha256 "10e36f616623ebb586c05ca3d3cd22927146869db413d4f14c20c514442a1337"
   end
 
   resource "pygments" do
@@ -266,8 +266,8 @@ class Gptme < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/cf/e7/67c67920a3b5183388e0853a0a564a4bf60f2dd190a4e7626f5dad2fed62/regex-2026.11.15.tar.gz"
+    sha256 "d6ec7e29e62ebf93ab2a593d1137022b6025497d8610e5cb666d52f9ee5bb0ce"
   end
 
   resource "requests" do
@@ -291,8 +291,8 @@ class Gptme < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/71/7f/3b8ec4f27833f7b8c270a3ef960b6d435e1065439847bc0fcd1e58ae898b/sse_starlette-3.6.0.tar.gz"
-    sha256 "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440a88b3a"
+    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
+    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
   end
 
   resource "stack-data" do
