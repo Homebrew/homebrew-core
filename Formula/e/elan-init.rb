@@ -1,8 +1,8 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/refs/tags/v4.2.4.tar.gz"
-  sha256 "aae972bd10907763d53d0ea9593c02a340359505ce667b99e5289372f6801eec"
+  url "https://github.com/leanprover/elan/archive/refs/tags/v4.3.0.tar.gz"
+  sha256 "57c593002382a5356abe1dd5c37edbd2231e60202b34584ed33fa79979677418"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
@@ -35,14 +35,6 @@ class ElanInit < Formula
   end
 
   conflicts_with "lean-cli", because: "both install `lean` binaries"
-
-  # openssl@4 support
-  patch do
-    url "https://github.com/leanprover/elan/commit/5a90cb8529f1c96105cd7f67e3080781a52bac45.patch?full_index=1"
-    sha256 "c2a7087cc30d2481de7c6ae14fbd43189b9a7f7048a16cdc4059d9aa289a0bbe"
-    type :unofficial
-    resolves "https://github.com/leanprover/elan/pull/213"
-  end
 
   allow_network_access! :test
 
