@@ -6,6 +6,7 @@ class PortableRuby < PortableFormula
   url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.9.tar.gz"
   sha256 "c35350682ff050b79702d57ade4516e7336063f510155d19fb2fb5b3f3909511"
   license "Ruby"
+  revision 1
 
   # This regex restricts matching to versions other than X.Y.0.
   livecheck do
@@ -54,9 +55,20 @@ class PortableRuby < PortableFormula
     end
   end
 
+  resource "json" do
+    url "https://github.com/ruby/json/archive/refs/tags/v3.1.0.tar.gz"
+    sha256 "48589431ddee5510fa4229a565070b977cbed6c49f29686f1bc3e4dc600466fd"
+  end
+
   allow_network_access! :test
 
   def install
+    # Replace the default gem and its static extension to avoid CVE-2026-33210.
+    rm_r Dir["ext/json/*"] - %w[ext/json/extconf.rb ext/json/depend]
+    resource("json").stage do
+      (buildpath/"ext/json").install "lib", "json.gemspec", *Dir["ext/json/ext/*"]
+    end
+
     # Remove almost all bundled gems and replace with our own set.
     rm_r ".bundle"
     # Allowed gem dependency tree:
@@ -75,6 +87,8 @@ class PortableRuby < PortableFormula
       allowed_gems.any? { |gem| gem_basename.match?(/\A#{Regexp.escape(gem)}-\d/) }
     end)
     resources.each do |resource|
+      next if resource.name == "json"
+
       resource.stage "gems"
       bundled_gems << "#{resource.name} #{resource.version}\n"
     end
@@ -191,6 +205,14 @@ class PortableRuby < PortableFormula
       shell_output("#{ruby} -ryaml -e 'puts YAML.load(\"a: b\")'").chomp
     assert_equal "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
       shell_output("#{ruby} -ropenssl -e 'puts OpenSSL::Digest::SHA256.hexdigest(\"\")'").chomp
+    system ruby, "--disable-gems", "-rjson", "-e", <<~RUBY
+      begin
+        JSON.parse('{"%%":1,"%%":2}', allow_duplicate_key: false)
+        abort "duplicate keys were accepted"
+      rescue JSON::ParserError => error
+        abort error.message unless error.message.include?('duplicate key "%%"')
+      end
+    RUBY
     assert_match "200",
       shell_output("#{ruby} -ropen-uri -e 'URI.open(\"https://google.com\") { |f| puts f.status.first }'").chomp
     system ruby, "-rrbconfig", "-e", <<~RUBY
