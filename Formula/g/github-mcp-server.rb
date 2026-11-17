@@ -12,11 +12,11 @@ class GithubMcpServer < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "600824ddf568560904ded2738e80ecfe05ed25d9a0098f85919ecd927079d818"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "600824ddf568560904ded2738e80ecfe05ed25d9a0098f85919ecd927079d818"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "600824ddf568560904ded2738e80ecfe05ed25d9a0098f85919ecd927079d818"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b8d7d1842303b0133829459102bae0b98c6d30b3a0d5fc477fbc4bb565ac62d4"
-    sha256 cellar: :any,                 x86_64_linux:      "86ebb5fb1a13e9785fe20a64a1c1e2bc2c5b562d433629a964d19975e8d024d3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "56d119624e3eb37bffd5c5d2455bfa5f8f4c474aa83ce6af112ab9624c6e4bc2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56d119624e3eb37bffd5c5d2455bfa5f8f4c474aa83ce6af112ab9624c6e4bc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56d119624e3eb37bffd5c5d2455bfa5f8f4c474aa83ce6af112ab9624c6e4bc2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "19cb3f131ef3c0f0234f8347645df781127f1abd127030e9e15d65c8e44bac08"
+    sha256 cellar: :any,                 x86_64_linux:      "5e2cfc42e654fafda05b30f2c9d93d5b92894f6131f9149557d72644e688c325"
   end
 
   depends_on "go" => :build
