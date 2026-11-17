@@ -4,15 +4,15 @@ class Hashlink < Formula
   url "https://github.com/HaxeFoundation/hashlink/archive/refs/tags/1.16.tar.gz"
   sha256 "c392ce6e1d3670bcb60c85d83a161591707de9cdb6b00b48e79f9ea7807fc5a9"
   license "MIT"
+  revision 1
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "ccb57d0a18737a1a13d72719b6d458d1cac451030d3e9038a098a89907c7a6d2"
-    sha256 cellar: :any, arm64_tahoe:       "1fea142f31dba20b19f08a1356ad960560071acfde00211a5f14105087c354ec"
-    sha256 cellar: :any, arm64_sequoia:     "6992c2e2183662a7fba3df186a2c996d21561cd45cb418d4a23b1135bd526240"
-    sha256 cellar: :any, arm64_linux:       "2e2c30a5a813cace3208c460d4f76715f73806c7094319ca8d1ea9765c5f5ec9"
-    sha256 cellar: :any, x86_64_linux:      "62190ca7bad1f1feb11e38b998dc5f35901fc96dcb6143205547aac7c5cf491b"
+    sha256 cellar: :any, arm64_golden_gate: "5a3f7bb9afc8b15ee6c6b908d5573e5ae79464b3f0570906597e29663481ccdc"
+    sha256 cellar: :any, arm64_tahoe:       "d56e01dc93c896bf944bc4bf2681e3b07e21d799b3efe6b76c4782aac1d8220a"
+    sha256 cellar: :any, arm64_sequoia:     "8c5c6d5360b4fc4736b2f309a504f4f484ed5df51eb56f305964392597ac407a"
+    sha256 cellar: :any, arm64_linux:       "2ae4c203061f11b96a22c58401384d0dad4b908ca8b1d4c7da09c1fba7c1346b"
+    sha256 cellar: :any, x86_64_linux:      "31bbf0fa11a130c8caad66cc6c3245afab6fe7b644f1a958104d7f2df7875115"
   end
 
   deprecate! date: "2027-03-31", because: "needs deprecated `haxe` which needs EOL `mbedtls@3`"

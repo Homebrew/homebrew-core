@@ -2,9 +2,10 @@ class Mbedtls < Formula
   desc "Cryptographic & SSL/TLS library"
   homepage "https://www.trustedfirmware.org/projects/mbed-tls/"
   # TODO: undeprecate if upstream finds new maintainers to continue development
-  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.2.0/mbedtls-4.2.0.tar.bz2"
-  sha256 "2bed9d713b4668f76553b097e72b8aa30bc8f112a940d7ae228d524bbde6ffea"
+  url "https://github.com/Mbed-TLS/mbedtls/releases/download/mbedtls-4.3.0/mbedtls-4.3.0.tar.bz2"
+  sha256 "1c87cba094cb40f097ebe0eba440a74939b71dab4e1d0d566bc90749ff381d18"
   license "Apache-2.0"
+  compatibility_version 1
   head "https://github.com/Mbed-TLS/mbedtls.git", branch: "development"
 
   livecheck do
@@ -14,13 +15,11 @@ class Mbedtls < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "253b589bffe3e1b629bf0d6d375da2807877c5245de9e5f74de05fe561f4deff"
-    sha256 cellar: :any, arm64_tahoe:       "aba0d174acd033034f91058720d55cf5c935b836c9ab95d64ebba77dc4876ec9"
-    sha256 cellar: :any, arm64_sequoia:     "1616865611b7ecf8b2c1480ba6b5a40210221222d78ac19f2c7d13cf936d0b4c"
-    sha256 cellar: :any, arm64_sonoma:      "be5f181affb2f2648ef3c6c437224515044d11e6890eb42c7d6d7d556ae281ad"
-    sha256 cellar: :any, sonoma:            "aa97a192ca8652e95ba40a174c8d61cac795fc9dedcffa8a557f97d44efbe372"
-    sha256 cellar: :any, arm64_linux:       "5ce5e9e48b1610b58604b80d3deb594f4cfd27ad5eb53fb04726b28d9beb0d56"
-    sha256 cellar: :any, x86_64_linux:      "ed76153a02aa91fa411c67ec1b6ccaa59417b7da9c4ac9974c3de39f77b36939"
+    sha256 cellar: :any, arm64_golden_gate: "15510975e7d3b547052e4bfa40ceb3002f3220d51a063775d98a9fe6aa082456"
+    sha256 cellar: :any, arm64_tahoe:       "4f8596f46c4394ba8548bae619b2d513ca9c22a0018bc0395a4d74e47d3d077f"
+    sha256 cellar: :any, arm64_sequoia:     "5283dd60123a97b2732571dd4641a77233817ab7bce0f14d35b316c44d077e0f"
+    sha256 cellar: :any, arm64_linux:       "fc9e800d2e9ee449fdb98458e85d990a02b76554c8322438867fc34ad0fff474"
+    sha256 cellar: :any, x86_64_linux:      "511c090c62eeaf041e5c047667b8a6ecb5b2c2d996aef940cf5bdcec9e61eb9d"
   end
 
   # https://lists.trustedfirmware.org/archives/list/mbed-tls@lists.trustedfirmware.org/thread/YPIGCB7WN6GCHOGEGKOJXUYAP7OK527W/
