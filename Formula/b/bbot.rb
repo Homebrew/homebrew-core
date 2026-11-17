@@ -9,11 +9,12 @@ class Bbot < Formula
   head "https://github.com/blacklanternsecurity/bbot.git", branch: "stable"
 
   bottle do
-    sha256 arm64_golden_gate: "d6caa8dbbb170fdacb5657a1b2ca931c348ef02fc4f05362d052a80b2c8514dd"
-    sha256 arm64_tahoe:       "47e326cbbe1cd99a36a5da1ef64f7ee2352c6e8bab2320af9ce0ed89127606ef"
-    sha256 arm64_sequoia:     "cf4fb13dd65f9a2a7314ea1ee6a4076e3d2a1dc1a7a05a18fcec0f35169b379f"
-    sha256 arm64_linux:       "0d84231eb72d056c2e25cba51a9a1e43e77f0f1f61331427425d9a0aa1967eca"
-    sha256 x86_64_linux:      "c31e648ec6deb5347aabcd08279146006ef41fcb4f9a8d723d6507a87d1bd902"
+    rebuild 1
+    sha256 arm64_golden_gate: "1e93c53f92111d8b9844f2b874404e1081eebde52131c127c378a4b416986ae2"
+    sha256 arm64_tahoe:       "20b68257841b50c34c595001ba9b90833698ebc23c66309dc1eab4de768fc81f"
+    sha256 arm64_sequoia:     "d6ace740bd38cceae235ce3506b9ac89f2b71ed331b2254f1e004f03c897c185"
+    sha256 arm64_linux:       "c1156934c0682861c6e0ad5e17e94e27814af0c27d08218162b55fcc83b7a90f"
+    sha256 x86_64_linux:      "411810c09ca891b18892cf9d670f045ba7f36fc1586f9fa5d1636c5aae524483"
   end
 
   depends_on "cmake" => :build
@@ -26,7 +27,7 @@ class Bbot < Formula
   depends_on "libyaml"
   depends_on "openssl@4"
   depends_on "pydantic" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
   depends_on "xxhash"
   depends_on "yara"
   depends_on "zeromq"
@@ -73,8 +74,8 @@ class Bbot < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/5f/6b/6c1553e1e8f672f9423344a1915aad1537439ad3d14a3fbc1a02159cfd94/cachetools-7.3.0.tar.gz"
-    sha256 "3f63fc208410f0c3a3b37883c4903ecdacd6f0b259134e6d2e82debd5b2e01de"
+    url "https://files.pythonhosted.org/packages/0a/d6/3b2743ae0662528e36b1002074909e4e73dc7407f1fc7da0d6a1b7401e72/cachetools-7.3.2.tar.gz"
+    sha256 "43e5db663b58c4337a9959069d93f54dd2e065fdd0438a504cd1100fbeb48beb"
   end
 
   resource "charset-normalizer" do
@@ -158,8 +159,8 @@ class Bbot < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/51/f2/ccbeb91d186b2323fc99986499d2da3caab2151b1c2fb2ef74f7488d8934/pycryptodome-4.4.0.tar.gz"
-    sha256 "eab7620c60c85f3fa251d026ec06e094f036d96187bebb9752e46fbcebabbb55"
+    url "https://files.pythonhosted.org/packages/d6/4d/dfbdfacc0579fa4394e3a442f034c2fb41a44d95d21bf9cd85cee89c3df6/pycryptodome-4.5.0.tar.gz"
+    sha256 "51e97a8d1cf101974bc40c20b3191cb1903891e5c172346943d5d4f3bc4f9d83"
   end
 
   resource "pygments" do
@@ -188,8 +189,8 @@ class Bbot < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
-    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
+    url "https://files.pythonhosted.org/packages/cf/e7/67c67920a3b5183388e0853a0a564a4bf60f2dd190a4e7626f5dad2fed62/regex-2026.11.15.tar.gz"
+    sha256 "d6ec7e29e62ebf93ab2a593d1137022b6025497d8610e5cb666d52f9ee5bb0ce"
   end
 
   resource "requests" do
@@ -223,8 +224,8 @@ class Bbot < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
-    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
+    url "https://files.pythonhosted.org/packages/1f/52/ee5646b65d98a252e807ccc37725363942372a4113072e0bce7ed22f8b84/soupsieve-4.1.1.tar.gz"
+    sha256 "b296bd2d2f65b1a78149f3d7bf6736a147d2c9e2dfbde0e4404639d748a02e03"
   end
 
   resource "tabulate" do
