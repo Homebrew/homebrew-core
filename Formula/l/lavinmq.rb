@@ -34,8 +34,8 @@ class Lavinmq < Formula
   deny_network_access!
 
   def fetch
-    # Fetch the shards and the web UI's JavaScript libraries
-    system "make", "lib", "js"
+    # Fetch the shards, the web UI's JavaScript libraries and, from 2.12.0, the libgc source
+    system "make", "deps"
   end
 
   def install
