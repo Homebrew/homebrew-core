@@ -1,17 +1,17 @@
 class Trunk < Formula
   desc "Build, bundle & ship your Rust WASM application to the web"
   homepage "https://trunk-rs.github.io/trunk"
-  url "https://github.com/trunk-rs/trunk/archive/refs/tags/v0.22.1.tar.gz"
-  sha256 "b93e82dcb8cb3de8a6762d9d2df60a22b8e0db73c504edfcfabeb8017997bf1d"
+  url "https://github.com/trunk-rs/trunk/archive/refs/tags/v0.22.2.tar.gz"
+  sha256 "66a57a27d156181f8268a15c53755bf09f6119127de71b4a1f059badf80b9a90"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/trunk-rs/trunk.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "392a5793b6e48849767c8bd9bb2ea2f33482d8f874187ca978832db8ecc4f7d5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c7eb06b05110ee80ff3a85fe6a690a166f75c756cee0d99a7b924e463fedce0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e03bede5e4e512290fa0ae5044476ca013c592230a1e203a2385cd3fa5f85a49"
-    sha256 cellar: :any,                 arm64_linux:       "55201681cf31c74d1f1b8d98c6e401fe1e0773e2e5f960696d92341485ebf6ce"
-    sha256 cellar: :any,                 x86_64_linux:      "5405f9cc1bfc2c65bc1a59105ef89d63e6cf79eb52522c9964766dd301a1f22c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7fc724be49ada8be33c81340f3235122a28dcbbfc8735734899e902327e836c1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bfc01c6126142cde0156c9a4cb8d81fc60bb9b0afc4b9b8db3c4a9b07d9f8358"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f10ee62eee777c1e75a292bf9f710888684c2efe6178f60ae06350412b84c14"
+    sha256 cellar: :any,                 arm64_linux:       "3c3655e49e0aa2e1c390efd27bdcbc8f30d67b4e53b13ea8ca8c3c4e67a62150"
+    sha256 cellar: :any,                 x86_64_linux:      "e6ef087bccade98c97719cf20f0516c98289cf243a76ac473860f6a4a7d8f260"
   end
 
   depends_on "pkgconf" => :build
