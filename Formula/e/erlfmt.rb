@@ -1,8 +1,8 @@
 class Erlfmt < Formula
   desc "Automated code formatter for Erlang"
   homepage "https://github.com/WhatsApp/erlfmt"
-  url "https://github.com/WhatsApp/erlfmt/archive/refs/tags/v1.8.0.tar.gz"
-  sha256 "c7205f3a28dac589c623f21546d63d5b04cc669545d03485cb88552de0117f43"
+  url "https://github.com/WhatsApp/erlfmt/archive/refs/tags/v1.9.0.tar.gz"
+  sha256 "6586ca7274a7cf0146c4942fee234bb200f8668a8a08ca2d408692303b3e0948"
   license "Apache-2.0"
 
   bottle do
