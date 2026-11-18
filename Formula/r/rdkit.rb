@@ -48,9 +48,7 @@ class Rdkit < Formula
   end
 
   def postgresqls
-    deps.select { |d| d.name.match? Version.formula_optionally_versioned_regex(:postgresql) }
-        .map(&:to_formula)
-        .sort_by(&:version)
+    deps("postgresql").map(&:to_formula).sort_by(&:version)
   end
 
   def install
