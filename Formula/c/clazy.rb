@@ -73,8 +73,7 @@ class Clazy < Formula
       int main() { return 0; }
     CPP
 
-    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
-    ENV["CLANGXX"] = llvm.opt_bin/"clang++"
+    ENV["CLANGXX"] = dep("llvm").opt_bin/"clang++"
     system "cmake", "-DCMAKE_CXX_COMPILER=#{bin}/clazy", "."
     assert_match "warning: qgetenv().isEmpty() allocates. Use qEnvironmentVariableIsEmpty() instead",
       shell_output("make VERBOSE=1 2>&1")
