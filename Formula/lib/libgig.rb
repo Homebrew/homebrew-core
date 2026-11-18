@@ -1,8 +1,8 @@
 class Libgig < Formula
   desc "Library for Gigasampler and DLS (Downloadable Sounds) Level 1/2 files"
   homepage "https://www.linuxsampler.org/libgig/"
-  url "https://download.linuxsampler.org/packages/libgig-4.6.0.tar.bz2"
-  sha256 "fc331202210919e3172c4d36ab24231dea3667d8722141f0c7939ca545119d01"
+  url "https://download.linuxsampler.org/packages/libgig-4.6.1.tar.bz2"
+  sha256 "961e0fa8b306443d41b1ebbd2c6e4e9d8fb4db850450f80785c4d4590f12d8ca"
   license "GPL-2.0-or-later"
 
   # Using HTTP rather than HTTPS to avoid SSL connection timeout
@@ -12,13 +12,11 @@ class Libgig < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e6ec1e8f4811ea9a1519aef96fba86586b5303767ed0ff3ce186a877c553f373"
-    sha256 cellar: :any, arm64_tahoe:       "f94efc2b8cdb9cf3beb0a8337c7c078296d716b11539370ffe46976c8f535bea"
-    sha256 cellar: :any, arm64_sequoia:     "f4ab7ec5a877be2262893bb08816621eb377e4f6269383dd5925ba2dcf797e91"
-    sha256 cellar: :any, arm64_sonoma:      "94b350a053af0f1be12bc095358d77672b17157dfe42683ade462c43a1c4ecbe"
-    sha256 cellar: :any, sonoma:            "cb37547e50b8b19db5092fb27129cb3ed1b4cff400a01b528d1e3f6f86833a1d"
-    sha256 cellar: :any, arm64_linux:       "caf93915776096983670a26eb38068b76ca31947376029a5b0aedff6833cd749"
-    sha256 cellar: :any, x86_64_linux:      "a4195ffd000dd6d3e1f86df6c1fafe809f8b9e9aeed1cc24c47761e339163608"
+    sha256 cellar: :any, arm64_golden_gate: "22aceba70b09b0e590d38c37c54f5da80507300be4a83e6ca103a65dd5905b25"
+    sha256 cellar: :any, arm64_tahoe:       "709c6f82737e01325335fe8b829b363041dcdcaefd339f70938d6db33cebcc36"
+    sha256 cellar: :any, arm64_sequoia:     "2c8e798f84258ce101d047efd34db83e9aa338b86bbdf6e86caee48ea295e4fe"
+    sha256 cellar: :any, arm64_linux:       "a873eef5a88f386782c649476c20ed0fa2b1a42c044d77add8c712f50ec404ed"
+    sha256 cellar: :any, x86_64_linux:      "717e49655ec1d9eb1398307ad5a5c66d12a901a26cb02b2f7a057531ec0fdaee"
   end
 
   depends_on "pkgconf" => :build
