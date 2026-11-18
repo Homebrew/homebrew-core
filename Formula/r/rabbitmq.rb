@@ -21,8 +21,6 @@ class Rabbitmq < Formula
 
   allow_network_access! :test
 
-  def erlang = deps.map(&:name).find { |d| d.match?(/^erlang(@\d+(\.\d+)*)?$/) }
-
   def install
     # Install the base files
     prefix.install Dir["*"]
@@ -32,9 +30,10 @@ class Rabbitmq < Formula
 
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     inreplace sbin/"rabbitmq-defaults" do |s|
+      start_clean = dep("erlang").opt_lib/"erlang/bin/start_clean"
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{formula_opt_lib(erlang)/"erlang/bin/start_clean"}"
-      s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{formula_opt_lib(erlang)/"erlang/bin/start_clean"}"
+      s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{start_clean}"
+      s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{start_clean}"
     end
 
     # Set RABBITMQ_HOME in rabbitmq-env
@@ -85,12 +84,10 @@ class Rabbitmq < Formula
       mqtt.listeners.tcp.default=#{mqtt_port}
     CONF
 
-    pid = spawn sbin/"rabbitmq-server"
-    system sbin/"rabbitmq-diagnostics", "wait", "--pid", pid
-    system sbin/"rabbitmqctl", "status"
-    system sbin/"rabbitmqctl", "stop"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(sbin/"rabbitmq-server") do |pid|
+      system sbin/"rabbitmq-diagnostics", "wait", "--pid", pid
+      system sbin/"rabbitmqctl", "status"
+      system sbin/"rabbitmqctl", "stop"
+    end
   end
 end
