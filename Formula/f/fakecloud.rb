@@ -45,14 +45,10 @@ class Fakecloud < Formula
     assert_match version.to_s, shell_output("#{bin}/fakecloud --version")
 
     port = free_port
-    pid = spawn bin/"fakecloud", "--addr", "127.0.0.1:#{port}"
-    begin
+    with_test_process(bin/"fakecloud", "--addr", "127.0.0.1:#{port}") do
       sleep 3
       output = shell_output("curl -s http://127.0.0.1:#{port}/_fakecloud/health 2>&1")
       assert_match "ok", output.downcase
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
