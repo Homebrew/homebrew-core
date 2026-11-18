@@ -1,16 +1,16 @@
 class Rollup < Formula
   desc "Next-generation ES module bundler"
   homepage "https://rollupjs.org/"
-  url "https://registry.npmjs.org/rollup/-/rollup-4.68.4.tgz"
-  sha256 "c17f68446f61cc7ab9aea654a2e3267a26ef32938767da796eadc272872b9121"
+  url "https://registry.npmjs.org/rollup/-/rollup-4.68.5.tgz"
+  sha256 "de46443951aa4d6532c97422e5963689e9979283426f32b60d53ad065858bb07"
   license all_of: ["ISC", "MIT"]
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "79172f87e445a73e2fdfb3cdc1b5cf27f7ec3f4d8a45cd424117f66d967c9ab0"
-    sha256 cellar: :any,                 arm64_tahoe:       "79172f87e445a73e2fdfb3cdc1b5cf27f7ec3f4d8a45cd424117f66d967c9ab0"
-    sha256 cellar: :any,                 arm64_sequoia:     "79172f87e445a73e2fdfb3cdc1b5cf27f7ec3f4d8a45cd424117f66d967c9ab0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9396fdabd0a8c55b6937cd361195e7b36adbe2fb6ea59a56f2fd21339a9a7043"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "95799bafea528a55e7fc697d1f78e14a2da899f5a0ffc90b7c215a8365bbaadd"
+    sha256 cellar: :any,                 arm64_golden_gate: "00a33437af7359fbfbef0432c397e2e2e04ae20ba123d78915e7bd29f024f0b3"
+    sha256 cellar: :any,                 arm64_tahoe:       "00a33437af7359fbfbef0432c397e2e2e04ae20ba123d78915e7bd29f024f0b3"
+    sha256 cellar: :any,                 arm64_sequoia:     "00a33437af7359fbfbef0432c397e2e2e04ae20ba123d78915e7bd29f024f0b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6a78483da46bbc4447156bfb3fd517473bad558f4c51aacab217d1462eb30dac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e881f43ee15444dc41b3a974c1e1b592bec21fc70d0e6bd4067308857edbe95e"
   end
 
   depends_on "node"
