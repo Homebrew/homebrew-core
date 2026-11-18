@@ -12,11 +12,11 @@ class Lldb < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "290f59be8721ea27a4f4bb66f8e3d442ab75aae8f5483196b8508f7b42b4deb2"
-    sha256 arm64_tahoe:       "17b752c8f34bb1f7cd860920617f69c198bee2508755b7fb18975ea8ba3d2b61"
-    sha256 arm64_sequoia:     "134d5a7f5a169aad780fc1c0c390deb948037fe137d6e207259ee5bc4afeee50"
-    sha256 arm64_linux:       "c70ef8483bc168fae971ac0b56d015e637061dd1a9a3382dbe809222edddb9c9"
-    sha256 x86_64_linux:      "b7bdc5de82464e14829d8eb1ecd8345f296a9ac1bc84f703af03cb445954abac"
+    sha256 arm64_golden_gate: "9b3ca76ffcb19d01246904d4205d4f76168ac8f6b0ee800be3c1e8f410815f12"
+    sha256 arm64_tahoe:       "440571f9d7f30ea761f9392d946d293d1261760edbc9a9fa2d4e0225ec2eb6a2"
+    sha256 arm64_sequoia:     "4d80273d2060e73158d2326145cc5c06b412739476c1a3e05fbf073ba7bd87fe"
+    sha256 arm64_linux:       "94917b9c04d7b5f1a8b9357d6cc6900eaeb9601d377d8fd6fa9afcd73a49654b"
+    sha256 x86_64_linux:      "7994f70642cd6001b01a5d4f2c1e90191f0be1982bf471af82c2bc04cab0aae1"
   end
 
   keg_only :provided_by_macos
