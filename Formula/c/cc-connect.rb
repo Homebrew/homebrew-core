@@ -57,12 +57,10 @@ class CcConnect < Formula
 
     output = testpath/"output.txt"
 
-    pid = spawn bin/"cc-connect", "--config", testpath/"config.toml", [:out, :err] => output.to_s
-    sleep 1
+    with_test_process(bin/"cc-connect", "--config", testpath/"config.toml", [:out, :err] => output.to_s) do
+      sleep 1
 
-    assert_match "failed to create agent", output.read
-  ensure
-    Process.kill("SIGTERM", pid)
-    Process.wait(pid)
+      assert_match "failed to create agent", output.read
+    end
   end
 end
