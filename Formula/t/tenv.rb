@@ -1,8 +1,8 @@
 class Tenv < Formula
   desc "OpenTofu / Terraform / Terragrunt / Terramate / Atmos version manager"
   homepage "https://tofuutils.github.io/tenv/"
-  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.16.7.tar.gz"
-  sha256 "c2b560ce5c241650416c525e2e57f61686a0f33569802d84bd714e68fd646122"
+  url "https://github.com/tofuutils/tenv/archive/refs/tags/v4.16.9.tar.gz"
+  sha256 "e82fc7cf1cf6030f4056658ae870d0ef9a728f69c5d9997f5e46c738827b490c"
   license "Apache-2.0"
   head "https://github.com/tofuutils/tenv.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Tenv < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0536588a82be4d2620de9d22490f86a550797c8c3448e56ab9880fd2d499a5a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0536588a82be4d2620de9d22490f86a550797c8c3448e56ab9880fd2d499a5a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0536588a82be4d2620de9d22490f86a550797c8c3448e56ab9880fd2d499a5a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9e9562c2a646fc1e4986ff265d2e7e15e29a11df0a5ae2e187c5490e6ab1f815"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "76f7ed15ea1de607c50e7aee32a285c2d28cf6c40f5b0e30767b465f99746daf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3df537e8a7f3041498f06ba7e4fa6ae42614bc4b2eb34e094a83b8536508f48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3df537e8a7f3041498f06ba7e4fa6ae42614bc4b2eb34e094a83b8536508f48"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3df537e8a7f3041498f06ba7e4fa6ae42614bc4b2eb34e094a83b8536508f48"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ecd85b70f62880f7acb3754e5e53c427e9d16a98b86f1fd3f1af884c0bc64672"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f87a372ef61503b5d22ab6371747cd5ef40d11b9db63d76e3f33f256af032beb"
   end
 
   depends_on "go" => :build
