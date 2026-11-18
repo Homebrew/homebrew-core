@@ -42,7 +42,7 @@ class Hurl < Formula
 
   def install
     # `curl-sys` pulls in `openssl-sys` even though macOS uses the system libcurl
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.mac?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.mac?
 
     system "cargo", "install", *std_cargo_args(path: "packages/hurl")
     system "cargo", "install", *std_cargo_args(path: "packages/hurlfmt")
