@@ -50,20 +50,18 @@ class Imgproxy < Formula
     ENV["IMGPROXY_BIND"] = "127.0.0.1:#{port}"
     ENV["IMGPROXY_LOCAL_FILESYSTEM_ROOT"] = testpath
 
-    pid = spawn bin/"imgproxy"
-    sleep 20
+    with_test_process(bin/"imgproxy") do
+      sleep 20
 
-    output = testpath/"test-converted.png"
-    url = "http://127.0.0.1:#{port}/insecure/resize:fit:100:100:true/plain/local:///test.jpg@png"
+      output = testpath/"test-converted.png"
+      url = "http://127.0.0.1:#{port}/insecure/resize:fit:100:100:true/plain/local:///test.jpg@png"
 
-    system "curl", "-s", "-o", output, url
-    assert_path_exists output
+      system "curl", "-s", "-o", output, url
+      assert_path_exists output
 
-    file_output = shell_output("file #{output}")
-    assert_match "PNG image data", file_output
-    assert_match "100 x 100", file_output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      file_output = shell_output("file #{output}")
+      assert_match "PNG image data", file_output
+      assert_match "100 x 100", file_output
+    end
   end
 end
