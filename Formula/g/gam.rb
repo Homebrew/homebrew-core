@@ -4,8 +4,8 @@ class Gam < Formula
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
   # PyPI package has different version `7.50.0` with the github release `7.50.00`, so we use the github one here.
-  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.03.tar.gz"
-  sha256 "76d66aa52af6171f07f2c438e09531b128fc508d061939066f72d5a952ba92e5"
+  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.04.tar.gz"
+  sha256 "ac0436473665c7a70c4c3c8cfa6218d3b7e46c0090906249acd1c9744bc1487f"
   license "Apache-2.0"
 
   livecheck do
@@ -70,8 +70,8 @@ class Gam < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
-    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
+    url "https://files.pythonhosted.org/packages/e0/14/73688a22e91cfcfc6837a011ffa572e2ba3c348765f7bd482d8436fa9b6f/filelock-4.2.7.tar.gz"
+    sha256 "31f6f7e3a8b6f0bd89114d30c5d5218ea1cfb63e5c4aa695b7559314a209bc7f"
   end
 
   resource "google-api-core" do
@@ -85,8 +85,8 @@ class Gam < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/f5/b9/4b2528f30114b106e3c3a7298ba38d85e682fd1f83fe7c4a5b77c7677082/google_auth-2.62.0.tar.gz"
-    sha256 "0bef0ce54bdf9ce226c5d66e4264413bd918141c31bbe49fb52eac882f513d69"
+    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
+    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
   end
 
   resource "google-auth-httplib2" do
