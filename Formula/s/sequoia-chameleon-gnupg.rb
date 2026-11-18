@@ -43,7 +43,7 @@ class SequoiaChameleonGnupg < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     ENV["ASSET_OUT_DIR"] = buildpath
 
     system "cargo", "install", "--no-default-features", *std_cargo_args(features: "crypto-openssl")
