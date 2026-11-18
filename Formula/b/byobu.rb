@@ -1,10 +1,9 @@
 class Byobu < Formula
   desc "Text-based window manager and terminal multiplexer"
   homepage "https://byobu.org"
-  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/7.23.tar.gz"
-  sha256 "2c6bb133d717cd3333fbddef22fc27f1d8914ffd066c1b044b233186cbb35aa0"
+  url "https://github.com/dustinkirkland/byobu/archive/refs/tags/7.24.tar.gz"
+  sha256 "84151a9034070cb43de07642eeb37c2f60f8952c3b83526a9e1af1ec86dd4d39"
   license "GPL-3.0-only"
-  revision 1
 
   livecheck do
     url :stable
@@ -12,11 +11,11 @@ class Byobu < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0beba6cf94fa9eaf79c2b2f5ae40b9bfa86937ef2ac09fc59267cd7ab5ccfb56"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0beba6cf94fa9eaf79c2b2f5ae40b9bfa86937ef2ac09fc59267cd7ab5ccfb56"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0beba6cf94fa9eaf79c2b2f5ae40b9bfa86937ef2ac09fc59267cd7ab5ccfb56"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7d7400f007bb160889a74e39210f61c95f1c89a91ca95d4ba33aba2bc304fece"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7d7400f007bb160889a74e39210f61c95f1c89a91ca95d4ba33aba2bc304fece"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cee1a38018295be3e68baa8e2397b8fa4d628cd62d8194b7a60217a1ffd6db41"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cee1a38018295be3e68baa8e2397b8fa4d628cd62d8194b7a60217a1ffd6db41"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cee1a38018295be3e68baa8e2397b8fa4d628cd62d8194b7a60217a1ffd6db41"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a716df1cabfac057a3d9bfefc87da3a6e2e8ed47962df54d8c332edb05eac2ac"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a716df1cabfac057a3d9bfefc87da3a6e2e8ed47962df54d8c332edb05eac2ac"
   end
 
   depends_on "autoconf" => :build
