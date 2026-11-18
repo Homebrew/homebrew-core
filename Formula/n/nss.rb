@@ -1,8 +1,8 @@
 class Nss < Formula
   desc "Libraries for security-enabled client and server applications"
   homepage "https://firefox-source-docs.mozilla.org/security/nss/index.html"
-  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_133_RTM/src/nss-3.133.tar.gz"
-  sha256 "4d752526b9846a1d962588cfbd09b7cc2a4f6a4effbd9157d58a30e8a2573065"
+  url "https://ftp.mozilla.org/pub/security/nss/releases/NSS_3_134_RTM/src/nss-3.134.tar.gz"
+  sha256 "bb3b300b457f44da9a9486917c3b33bbc5935ae3cdf60aa759a6880889439c50"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -70,7 +70,14 @@ class Nss < Formula
 
     include_target = include/"nss"
     include_target.mkpath
-    Dir.glob("public/{dbm,nss}/*") { |file| cp file, include_target }
+    # Keep subdirectories such as `mozpkix`, which its headers include as `mozpkix/*.h`
+    Dir.glob("public/{dbm,nss}/**/*") do |file|
+      next if File.directory?(file)
+
+      target = include_target/Pathname(file).each_filename.drop(2).join("/")
+      target.dirname.mkpath
+      cp file, target
+    end
 
     lib.mkpath
     libexec.mkpath
