@@ -22,7 +22,7 @@ class Powershell < Formula
   depends_on "dotnet"
 
   def install
-    dotnet = deps.find { |d| d.name.match?(/dotnet(@\d+(\.\d+)*)?$/i) }.to_formula
+    dotnet = dep("dotnet").to_formula
     ENV["DOTNET_CLI_TELEMETRY_OPTOUT"] = "1"
     ENV["DOTNET_CLI_HOME"] = buildpath
     ENV["XDG_RUNTIME_DIR"] = buildpath
