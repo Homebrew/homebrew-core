@@ -1,10 +1,9 @@
 class Libecpint < Formula
   desc "Library for the efficient evaluation of integrals over effective core potentials"
   homepage "https://github.com/robashaw/libecpint"
-  url "https://github.com/robashaw/libecpint/archive/refs/tags/v1.0.7.tar.gz"
-  sha256 "e9c60fddb2614f113ab59ec620799d961db73979845e6e637c4a6fb72aee51cc"
+  url "https://github.com/robashaw/libecpint/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "080e3176c7fb6d761f14ae585022e1fd070c26c70ec9e38641b6f17608cb09d0"
   license "MIT"
-  revision 1
   compatibility_version 1
 
   bottle do
@@ -25,13 +24,6 @@ class Libecpint < Formula
 
   uses_from_macos "python" => :build
 
-  patch do
-    url "https://github.com/robashaw/libecpint/commit/649e4397a8ad3b90cab247f5a8cb806089583b46.patch?full_index=1"
-    sha256 "0ee17dba2c9538ae7756023207370059e7aaf91b6bf63e28c84fc30824cd61b2"
-    type :backport
-    resolves "https://github.com/robashaw/libecpint/issues/65"
-  end
-
   deny_network_access!
 
   def install
@@ -46,16 +38,14 @@ class Libecpint < Formula
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    pkgshare.install "tests/lib/api_test1/test1.cpp",
-                     "tests/lib/api_test1/api_test1.output",
-                     "include/testutil.hpp"
+    (pkgshare/"example").install "example/example.cpp", "example/hydrogen.bas", "example/iodine.bas"
   end
 
   test do
-    cp [pkgshare/"api_test1.output", pkgshare/"testutil.hpp"], testpath
-    system ENV.cxx, "-std=c++11", pkgshare/"test1.cpp",
-                    "-DHAS_PUGIXML", "-I#{include}/libecpint",
-                    "-L#{lib}", "-lecpint", "-o", "test1"
-    system "./test1"
+    cp pkgshare.glob("example/*"), testpath
+    system ENV.cxx, "-std=c++17", "example.cpp", "-I#{include}", "-L#{lib}", "-lecpint", "-o", "example"
+    output = shell_output("./example #{pkgshare}")
+    assert_match "Basis read: 44, 12, 36", output
+    assert_match "Done.", output
   end
 end
