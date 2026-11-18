@@ -18,11 +18,9 @@ class Mapscii < Formula
 
   test do
     output_log = testpath/"output.log"
-    pid = spawn bin/"mapscii", [:out, :err] => output_log.to_s
-    sleep 5
-    assert_match "Failed to start MapSCII", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"mapscii", [:out, :err] => output_log.to_s) do
+      sleep 5
+      assert_match "Failed to start MapSCII", output_log.read
+    end
   end
 end
