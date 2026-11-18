@@ -34,7 +34,7 @@ class Wxpython < Formula
   patch :DATA
 
   def install
-    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+    wxwidgets = dep("wxwidgets").to_formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
     ENV["WX_CONFIG"] = wx_config.to_s
 
