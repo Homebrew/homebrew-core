@@ -70,7 +70,8 @@ class Retdec < Formula
     # Workaround for CMake 4 compatibility with multiple vendored deps
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
-    system "cmake", "-S", ".", "-B", "build", "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
