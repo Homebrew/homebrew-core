@@ -82,7 +82,7 @@ class Bind < Formula
         "--localstatedir=#{var}",
         "--with-json-c",
         "--with-libidn2=#{formula_opt_prefix("libidn2")}",
-        "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+        "--with-openssl=#{dep("openssl").opt_prefix}",
         "--without-lmdb",
       ]
 
