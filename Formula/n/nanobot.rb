@@ -40,11 +40,9 @@ class Nanobot < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/nanobot --version")
 
-    pid = spawn bin/"nanobot", "run"
-    sleep 1
-    assert_path_exists testpath/"nanobot.db"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"nanobot", "run") do
+      sleep 1
+      assert_path_exists testpath/"nanobot.db"
+    end
   end
 end
