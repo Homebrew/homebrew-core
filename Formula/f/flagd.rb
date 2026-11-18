@@ -58,13 +58,9 @@ class Flagd < Formula
       localhost:#{port}/schema.v1.Service/ResolveBoolean
     BASH
 
-    pid = spawn bin/"flagd", "start", "-f", json_url, "-p", port.to_s
-    begin
+    with_test_process(bin/"flagd", "start", "-f", json_url, "-p", port.to_s) do
       sleep 3
       assert_match(/true/, shell_output(resolve_boolean_command))
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
