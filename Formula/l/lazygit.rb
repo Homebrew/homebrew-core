@@ -37,11 +37,9 @@ class Lazygit < Formula
     system "git", "init", "--initial-branch=main"
 
     s = testpath/"test.txt"
-    pid = spawn(bin/"lazygit", "-l", out: s.to_s, err: [:child, :out])
-    sleep 2
-    assert_match "Log file does not exist. Run `lazygit --debug` first to create the log file", s.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"lazygit", "-l", out: s.to_s, err: [:child, :out]) do
+      sleep 2
+      assert_match "Log file does not exist. Run `lazygit --debug` first to create the log file", s.read
+    end
   end
 end
