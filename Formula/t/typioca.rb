@@ -35,12 +35,10 @@ class Typioca < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/typioca --version")
 
-    pid = spawn bin/"typioca", "serve"
-    sleep 1
-    assert_path_exists testpath/"typioca"
-    assert_path_exists testpath/"typioca.pub"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"typioca", "serve") do
+      sleep 1
+      assert_path_exists testpath/"typioca"
+      assert_path_exists testpath/"typioca.pub"
+    end
   end
 end
