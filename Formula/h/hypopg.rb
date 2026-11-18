@@ -4,6 +4,7 @@ class Hypopg < Formula
   url "https://github.com/HypoPG/hypopg/archive/refs/tags/1.4.5.tar.gz"
   sha256 "9d1981af0c55ac75ab4e2648e0050ee626c1af4c68b24259e3c744ff5211ce49"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,8 +19,8 @@ class Hypopg < Formula
     sha256 cellar: :any,                 x86_64_linux:      "751bb0ff6799880642a0109bf2ad31324e4c795ec954e5c5e267e542365e6fe4"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
