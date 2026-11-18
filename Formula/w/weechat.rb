@@ -42,7 +42,7 @@ class Weechat < Formula
   end
 
   def install
-    tcltk = deps.find { |dep| dep.name.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }.to_formula
+    tcltk = dep("tcl-tk").to_formula
     args = %W[
       -DENABLE_ENCHANT=ON
       -DENABLE_GUILE=OFF
