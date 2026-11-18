@@ -1,26 +1,14 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
+  url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.4.-release.tar.gz"
+  version "1.11.4"
+  sha256 "981582e8a1b2ec1424314a4321f7e6e504911e9785bd1a3ddccefabd7c5403f9"
   license all_of: [
     "MPL-1.1",
     "LGPL-2.1-only", # spandsp
   ]
-  revision 1
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
-
-  stable do
-    url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.3.-release.tar.gz"
-    version "1.11.3"
-    sha256 "e7cfeed1cfbcaea31a30f4d21b778a2fb56c8bd534fdc2a864cec91c3fa3fd79"
-
-    # Backport fix for OpenSSL 4
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/fd1cab5117cd4c711293439354885a559ef783bb.patch?full_index=1"
-      sha256 "b214d7d737da93aa51e3e8c30d5d34dcf252e3f5149653bb064356c75906510b"
-      type :backport
-      resolves "https://github.com/signalwire/freeswitch/pull/3185"
-    end
-  end
 
   livecheck do
     url :head
@@ -44,11 +32,13 @@ class Freeswitch < Formula
   depends_on "jpeg-turbo"
   depends_on "ldns"
   depends_on "libks"
+  depends_on "libnatpmp"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsndfile"
   depends_on "libtiff"
   depends_on "lua"
+  depends_on "miniupnpc"
   depends_on "opencore-amr"
   depends_on "openssl@4"
   depends_on "opus"
@@ -180,12 +170,7 @@ class Freeswitch < Formula
       ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
-    if build.head?
-      system "./bootstrap.sh", "-j"
-    else
-      odie "Check if autoreconf can be removed!" if version > "1.11.3"
-      system "autoreconf", "--force", "--install", "--verbose"
-    end
+    system "./bootstrap.sh", "-j" if build.head?
 
     # Reject FFmpeg dependency due to MPL-1.1 incompatibility with GPL
     # Ref: https://www.gnu.org/licenses/license-list.html#MPL
@@ -196,6 +181,10 @@ class Freeswitch < Formula
 
     # Workaround for opus_parse.h using true/false which are keywords in C23
     ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
+
+    # Bundled libyuv builds its dotprod, i8mm, SVE and SME kernels with their own `-march`
+    # flags and selects them at runtime with its own CPU detection
+    ENV.runtime_cpu_detection if Hardware::CPU.arm?
 
     args = %W[
       --enable-shared
