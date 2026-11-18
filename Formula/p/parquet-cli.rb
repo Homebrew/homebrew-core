@@ -26,10 +26,11 @@ class ParquetCli < Formula
       system "mvn", "dependency:copy-dependencies"
       libexec.install "target/parquet-cli-#{version}.jar"
       libexec.install Dir["target/dependency/*"]
+      openjdk_bin = dep("openjdk").opt_bin
       (bin/"parquet").write <<~SH
         #!/bin/sh
         set -e
-        exec "#{formula_opt_bin("openjdk@21")}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
+        exec "#{openjdk_bin}/java" -cp "#{libexec}/*" org.apache.parquet.cli.Main "$@"
       SH
     end
 
