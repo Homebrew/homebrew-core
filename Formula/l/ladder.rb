@@ -30,13 +30,11 @@ class Ladder < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"ladder", "-p", port.to_s
-    sleep 2
+    with_test_process(bin/"ladder", "-p", port.to_s, signal: "INT") do
+      sleep 2
 
-    output = shell_output("curl -s http://127.0.0.1:#{port}/")
-    assert_match "ladder", output
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+      output = shell_output("curl -s http://127.0.0.1:#{port}/")
+      assert_match "ladder", output
+    end
   end
 end
