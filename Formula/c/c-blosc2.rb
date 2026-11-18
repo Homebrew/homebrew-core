@@ -1,8 +1,8 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v3.6.2.tar.gz"
-  sha256 "be617e6809ae569dcfb2ffa0ea56b3b92c8f669da0c97542c031412ce7f3e831"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v3.7.0.tar.gz"
+  sha256 "c68b290ac98361941da88d6581ac276689a06e08b6da5e90bc8403a9b088b092"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
@@ -39,10 +39,8 @@ class CBlosc2 < Formula
       -DBUILD_FUZZERS=OFF
       -DBUILD_BENCHMARKS=OFF
       -DBUILD_EXAMPLES=OFF
-      -DBUILD_PLUGINS=OFF
-      -DPREFER_EXTERNAL_LZ4=ON
-      -DPREFER_EXTERNAL_ZLIB=ON
-      -DPREFER_EXTERNAL_ZSTD=ON
+      -DBLOSC_DEPENDENCY_MODE=EXTERNAL
+      -DBLOSC_ENABLE_ZFP=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
