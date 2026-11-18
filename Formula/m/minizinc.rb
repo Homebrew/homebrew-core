@@ -1,28 +1,10 @@
 class Minizinc < Formula
   desc "Medium-level constraint modeling language"
   homepage "https://www.minizinc.org/"
+  url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.11.0.tar.gz"
+  sha256 "9c88aa270864d78c4f39437533796f5bf60bf71bec78f02685742b2c44aeba26"
   license "MPL-2.0"
-  revision 2
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
-
-  stable do
-    url "https://github.com/MiniZinc/libminizinc/archive/refs/tags/2.10.1.tar.gz"
-    sha256 "089ea94698cea94ed8396be77559b82d828437a808f5e37d10bccc9f1d39dd33"
-
-    # Prerequisite for the C++14 backport.
-    patch do
-      url "https://github.com/MiniZinc/libminizinc/commit/7eeecc2edc019f554de80be62da9ba58c31b3eca.patch?full_index=1"
-      sha256 "51966edea574e3c985ee5b58c45e3d69199e6dafa8257a2865d8fe5c63d16d7e"
-      type :backport
-    end
-
-    # Build with C++14 for compatibility with Gecode 6.5.
-    patch do
-      url "https://github.com/MiniZinc/libminizinc/commit/ced572f764dd17973b5b3bcc14af647e8751a42d.patch?full_index=1"
-      sha256 "27d20337469464471773b63a468b58f9e7c4e7c6af204e3daca8d8bd2ad58938"
-      type :backport
-    end
-  end
 
   bottle do
     sha256 arm64_golden_gate: "6f705d0126522da0ec58721180ed0f68a24b942b448eeae957dd36b5111e92bb"
@@ -41,10 +23,42 @@ class Minizinc < Formula
   depends_on "gecode"
   depends_on "osi"
 
+  resource "tree-sitter" do
+    url "https://github.com/tree-sitter/tree-sitter/archive/refs/tags/v0.26.12.tar.gz"
+    sha256 "428e2b182fe38eddc100d8bd851e47c96921a69281b66abafc25ba4b0aaeeeab"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/MiniZinc/libminizinc/#{LATEST_VERSION}/cmake/targets/libminizinc_parser.cmake"
+      regex(%r{tree-sitter/archive/refs/tags/v?(\d+(?:\.\d+)+)\.t}i)
+    end
+  end
+
+  resource "tree-feller" do
+    url "https://github.com/Dekker1/tree-feller/archive/refs/tags/v0.1.1.tar.gz"
+    sha256 "4a6b463da95ec6a9a1014732df6e77dabdb5e20c95cd9005107d1d4596e92cf9"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/MiniZinc/libminizinc/#{LATEST_VERSION}/cmake/targets/libminizinc_parser.cmake"
+      regex(%r{tree-feller/archive/refs/tags/v?(\d+(?:\.\d+)+)\.t}i)
+    end
+  end
+
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    (buildpath/"tree-sitter").install resource("tree-sitter")
+    (buildpath/"tree-feller").install resource("tree-feller")
+
+    # Avoid overlinking to `qtbase` via Gecode's exported CMake targets
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac?
+
+    args = %W[
+      -DMZN_USE_MIMALLOC=OFF
+      -DFETCHCONTENT_FULLY_DISCONNECTED=ON
+      -DFETCHCONTENT_SOURCE_DIR_TREE-SITTER=#{buildpath}/tree-sitter
+      -DFETCHCONTENT_SOURCE_DIR_TREE_FELLER=#{buildpath}/tree-feller
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
