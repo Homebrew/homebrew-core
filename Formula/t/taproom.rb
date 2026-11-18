@@ -1,20 +1,10 @@
 class Taproom < Formula
   desc "Interactive TUI for Homebrew"
   homepage "https://github.com/hzqtc/taproom"
+  url "https://github.com/hzqtc/taproom/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "66c8c6ab96f08382b95c3f8bebae15915c0bc1678bcecb4811cdab6f21063e31"
   license "MIT"
   head "https://github.com/hzqtc/taproom.git", branch: "main"
-
-  stable do
-    url "https://github.com/hzqtc/taproom/archive/refs/tags/v0.6.2.tar.gz"
-    sha256 "85ee7660bb76ed9277573d2c856bcfebd3181b919edf3862e7f9e15d32097088"
-
-    # Fix version number
-    patch do
-      url "https://github.com/hzqtc/taproom/commit/a26afac788a5122356bf9c07c3c3d04fabae76d3.patch?full_index=1"
-      sha256 "c9c5684f557ba7b3a5db9aee5b7c4a53bc41ac98f713aecd96afebd19ce1066f"
-      type :backport
-    end
-  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e26c44d3f1821d685aeb6c52c535abf3094461f1c3c41db3d12325e811fb4d6b"
@@ -51,7 +41,7 @@ class Taproom < Formula
     PTY.spawn(bin/"taproom", "--hide-columns", "Size") do |r, w, pid|
       r.winsize = [80, 130]
       begin
-        refute_nil r.expect("Loading all Formulae", 30), "taproom did not render its loading screen"
+        refute_nil r.expect("Loading all Packages", 30), "taproom did not render its loading screen"
         w.write "q"
         r.read
       rescue Errno::EIO
