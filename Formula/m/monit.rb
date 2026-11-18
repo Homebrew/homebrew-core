@@ -1,10 +1,9 @@
 class Monit < Formula
   desc "Manage and monitor processes, files, directories, and devices"
   homepage "https://mmonit.com/monit/"
-  url "https://mmonit.com/monit/dist/monit-6.0.0.tar.gz"
-  sha256 "ddacd2a8120aeb2351e4486ee04a17782b5004aee99f2041d829bc4dcf2a5b3b"
+  url "https://mmonit.com/monit/dist/monit-6.1.0.tar.gz"
+  sha256 "c28406dc922e64560095ec3ec99feb8eddd3f96e7b6eed22309a5865d1eab226"
   license "AGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://mmonit.com/monit/dist/"
