@@ -1,17 +1,17 @@
 class Ktop < Formula
   desc "Top-like tool for your Kubernetes clusters"
   homepage "https://ktop.app/"
-  url "https://github.com/vladimirvivien/ktop/archive/refs/tags/v0.7.1.tar.gz"
-  sha256 "de9a63dd35c0dd586a460cd1cd09f7b3463da330d781778f7694846f937da7e8"
+  url "https://github.com/vladimirvivien/ktop/archive/refs/tags/v0.7.2.tar.gz"
+  sha256 "336873872c1eba9ce1a1c76a093cc552001f6c36e0bc63d4f823b08faa8a4d39"
   license "Apache-2.0"
   head "https://github.com/vladimirvivien/ktop.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f1483ff5ae951b5bdd5890264b3a2c56bc0a32bde52e41be91afb189e0d9b4f9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59f21c9ccc98d0bf23723dcd0da0713b0828219e144247260c03618c0c7a33f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd47b4b77f0f5b1c6f294d268bc2e9fd58649e9dac8e1071c0e61816a94716a4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "565dcb5fc250a0279b033983965bbbf0d821e0fe386d1cb5711300895bb5ba6b"
-    sha256 cellar: :any,                 x86_64_linux:      "b60ba9014e3014a9738454caa924833026ac536d10cbc2a3eead1adb2fdc0c74"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6afca2e1669c84b50f2480986b4e406665a501bd498da95f32c29762c730cb80"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1621475c56ef1d2439b3102927b6cb5a3b717882465d54e0a77f4b1ad0844b1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d2d8419abecfa3c6672d1b1ea9cefdb9d6c926d56a50a64e46466607019c8bc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d17f10010e0ce82c1d8d3f1529cb5bcc64ea697394e873cd75392f5be05a0a01"
+    sha256 cellar: :any,                 x86_64_linux:      "deb0a934ea14bd47d92534ba59ed5905c8c45558a24e71019ad185ca393895dd"
   end
 
   depends_on "go" => :build
