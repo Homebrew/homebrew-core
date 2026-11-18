@@ -2,15 +2,14 @@ class Unisonlang < Formula
   desc "Friendly programming language from the future"
   homepage "https://unison-lang.org/"
   license "MIT"
-  revision 1
 
   stable do
-    url "https://github.com/unisonweb/unison/archive/refs/tags/release/1.5.0.tar.gz"
-    sha256 "74f1327e94199a93d97619268744f186c5a1b7d0b1af7ce1f35799137d1d1357"
+    url "https://github.com/unisonweb/unison/archive/refs/tags/release/2.0.0.tar.gz"
+    sha256 "892f3c8e26b22b45ea748a24cb99e60355deedd3528a6f437a29d304e590d1e2"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/1.5.0.tar.gz"
-      sha256 "d4cc5538f3826da2665c494c2cb6253dd2ffa60fe1cbdce48ba2543e293cc04b"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/2.0.0.tar.gz"
+      sha256 "50e0b0102ad5e1b8a49197b04cd4aacfc71cd249e63e748cb95476cd44ecf354"
 
       livecheck do
         formula :parent
