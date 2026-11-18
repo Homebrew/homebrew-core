@@ -28,11 +28,10 @@ class Coturn < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
-    ENV["SSL_CFLAGS"] = "-I#{formula_opt_include(openssl)}"
-    ENV["SSL_LIBS"] = "-L#{formula_opt_lib(openssl)} -lssl -lcrypto"
+    openssl = dep("openssl")
+    ENV["SSL_CFLAGS"] = "-I#{openssl.opt_include}"
+    ENV["SSL_LIBS"] = "-L#{openssl.opt_lib} -lssl -lcrypto"
     system "./configure", "--disable-silent-rules",
                           "--mandir=#{man}",
                           "--localstatedir=#{var}",
