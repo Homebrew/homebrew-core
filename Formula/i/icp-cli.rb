@@ -58,8 +58,6 @@ class IcpCli < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
     cd "crates/icp-cli/recover-cycles-canister" do
@@ -69,7 +67,7 @@ class IcpCli < Formula
 
   def install
     ENV["ICP_CLI_BUILD_DIST"] = "homebrew-core"
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     ENV["CARGO_TARGET_WASM32_UNKNOWN_UNKNOWN_LINKER"] = "wasm-ld"
     ENV.append_to_rustflags "--sysroot #{HOMEBREW_PREFIX}"
 
