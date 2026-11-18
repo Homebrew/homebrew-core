@@ -32,14 +32,8 @@ class Scipy < Formula
 
   pypi_packages exclude_packages: "numpy"
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.start_with?("python@") }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
-    pythons.each do |python3|
+    python3_interpreters.each do |python3|
       system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
@@ -49,7 +43,7 @@ class Scipy < Formula
       from scipy import special
       print(special.exp10(3))
     PYTHON
-    pythons.each do |python3|
+    python3_interpreters.each do |python3|
       assert_equal "1000.0", shell_output("#{python3} test.py").chomp
     end
   end
