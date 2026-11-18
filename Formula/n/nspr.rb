@@ -1,8 +1,8 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://hg.mozilla.org/projects/nspr"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.40/src/nspr-4.40.tar.gz"
-  sha256 "c0c1884c627f3db7a783f7c7314c695226b2043696791d15519e7e0578c19bdc"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.41/src/nspr-4.41.tar.gz"
+  sha256 "c562b8ddfe93704b7dc077be013f01448fdc6c124b1821c0f10471a71cb2e9e6"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -36,12 +36,6 @@ class Nspr < Formula
       ]
       args << "--enable-macos-target=#{MacOS.version}" if OS.mac?
       system "./configure", *args
-
-      if OS.mac?
-        # Remove the broken (for anyone but Firefox) install_name
-        inreplace "config/autoconf.mk", "-install_name @executable_path/$@ ", "-install_name #{lib}/$@ "
-      end
-
       system "make"
       system "make", "install"
 
