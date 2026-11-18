@@ -32,7 +32,7 @@ class Pay < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.linux?
     system "just", "install", "pay", *std_cargo_args(path: "rust/crates/cli")
   end
 
