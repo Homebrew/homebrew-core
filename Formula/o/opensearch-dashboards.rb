@@ -3,8 +3,8 @@ class OpensearchDashboards < Formula
   homepage "https://docs.opensearch.org/latest/dashboards/"
   # Build fails if not a git repository
   url "https://github.com/opensearch-project/OpenSearch-Dashboards.git",
-      tag:      "3.9.0",
-      revision: "def668b5c4ad825dfff980ed0951cca07aa0ac4b"
+      tag:      "3.10.0",
+      revision: "73911ce80af1364fa32301e220ec34910a58c0d3"
   license "Apache-2.0"
 
   livecheck do
