@@ -119,9 +119,7 @@ class Git < Formula
     args += if OS.mac?
       %w[NO_OPENSSL=1 APPLE_COMMON_CRYPTO=1]
     else
-      openssl_prefix = formula_opt_prefix("openssl@4")
-
-      %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{openssl_prefix}]
+      %W[NO_APPLE_COMMON_CRYPTO=1 OPENSSLDIR=#{dep("openssl").opt_prefix}]
     end
 
     # Make sure `git` looks in `opt_prefix` instead of the Cellar.
