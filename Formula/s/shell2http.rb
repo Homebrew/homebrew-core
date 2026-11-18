@@ -30,15 +30,13 @@ class Shell2http < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"shell2http", "-port", port.to_s, "/echo", "echo brewtest"
-    sleep 1
-    output = shell_output("curl -s http://localhost:#{port}")
-    assert_match "Served by shell2http/#{version}", output
+    with_test_process(bin/"shell2http", "-port", port.to_s, "/echo", "echo brewtest") do
+      sleep 1
+      output = shell_output("curl -s http://localhost:#{port}")
+      assert_match "Served by shell2http/#{version}", output
 
-    output = shell_output("curl -s http://localhost:#{port}/echo")
-    assert_match "brewtest", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = shell_output("curl -s http://localhost:#{port}/echo")
+      assert_match "brewtest", output
+    end
   end
 end
