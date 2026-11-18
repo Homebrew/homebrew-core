@@ -3,8 +3,8 @@ class MailDeduplicate < Formula
 
   desc "CLI to deduplicate mails from mail boxes"
   homepage "https://kdeldycke.github.io/mail-deduplicate/"
-  url "https://files.pythonhosted.org/packages/0d/e5/f0f2e99a117aa558fef500ce8a91373977917cd2fe1a41f35db6fb236a0c/mail_deduplicate-9.7.0.tar.gz"
-  sha256 "d891ffeeef3699974fb05907d10a4795cf6b7675dfe072bcec4171b46be56afc"
+  url "https://files.pythonhosted.org/packages/0a/30/7221997bf2d4dae663c1492b9d346d931de01ab6710b24eb21fbd6bc0f16/mail_deduplicate-9.7.1.tar.gz"
+  sha256 "e99120e3c505a06bbc2f963a515399b34515ae2eaa48f187c968067ed89ca45d"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/mail-deduplicate.git", branch: "main"
 
@@ -96,6 +96,6 @@ class MailDeduplicate < Formula
     # Run mail-deduplicate to check functionality
     output = shell_output("#{bin}/mdedup --dry-run " \
                           "--export=#{testpath}/deduped_mail.mbox test_mail1.eml test_mail2.eml 2>&1")
-    assert_match "No mail selected to perform action on", output
+    assert_match "DRY RUN: would have Copied 2/2 mails", output
   end
 end
