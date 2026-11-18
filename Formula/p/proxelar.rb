@@ -26,7 +26,7 @@ class Proxelar < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     features = ["scripting"]
     inreplace "proxyapi/Cargo.toml", "lua54", "lua55" # Allow bindings for the latest Lua version
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "proxelar-cli", features:)
@@ -36,14 +36,10 @@ class Proxelar < Formula
     assert_match version.to_s, shell_output("#{bin}/proxelar --version")
 
     port = free_port
-    pid = spawn bin/"proxelar", "--interface", "terminal", "--port", port.to_s, "--ca-dir", testpath
-    sleep 2
-    begin
+    with_test_process(bin/"proxelar", "--interface", "terminal", "--port", port.to_s, "--ca-dir", testpath) do
+      sleep 2
       output = shell_output("curl --silent --max-time 5 --proxy http://127.0.0.1:#{port} http://example.com/")
       assert_match "Example Domain", output
-    ensure
-      Process.kill("SIGTERM", pid)
-      Process.wait(pid)
     end
   end
 end
