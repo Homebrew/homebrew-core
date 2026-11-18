@@ -31,15 +31,11 @@ class Localai < Formula
     addr = "127.0.0.1:#{free_port}"
 
     # The add-on owner opens `/` at startup, which the Linux test sandbox denies
-    pid = spawn bin/"local-ai", "run", "--address", addr, "--addons-enabled=false"
-    sleep 5
+    with_test_process(bin/"local-ai", "run", "--address", addr, "--addons-enabled=false") do
+      sleep 5
 
-    begin
       response = shell_output("curl -s -i #{addr}/readyz")
       assert_match "HTTP/1.1 200 OK", response
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
