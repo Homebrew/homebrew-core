@@ -45,7 +45,7 @@ class Miniflux < Formula
 
     miniflux_addr = "127.0.0.1:#{free_port}"
     pg_port = free_port
-    pg_bin = formula_opt_bin("postgresql@19")
+    pg_bin = dep("postgresql").opt_bin
     pg_ctl = pg_bin/"pg_ctl"
 
     (testpath/"miniflux.conf").write <<~CONF
