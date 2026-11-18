@@ -1,8 +1,8 @@
 class Sqlcmd < Formula
   desc "Microsoft SQL Server command-line interface"
   homepage "https://github.com/microsoft/go-sqlcmd"
-  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.10.0.tar.gz"
-  sha256 "47fa2637d492c39ea75a0b41da4bbd127bf1891116f04861a96fba8bc5e654b6"
+  url "https://github.com/microsoft/go-sqlcmd/archive/refs/tags/v1.11.0.tar.gz"
+  sha256 "0191aac329e749b4ccc2e94ae56b5d1fc27caf3269d37bb7e5114329ebd7211e"
   license "MIT"
 
   livecheck do
