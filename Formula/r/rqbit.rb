@@ -49,8 +49,8 @@ class Rqbit < Formula
     if OS.linux?
       require "utils/linkage"
       [
-        formula_opt_lib("openssl@4")/shared_library("libssl"),
-        formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+        dep("openssl").opt_lib/shared_library("libssl"),
+        dep("openssl").opt_lib/shared_library("libcrypto"),
       ].each do |library|
         assert Utils.binary_linked_to_library?(bin/"rqbit", library),
                "No linkage with #{library.basename}! Cargo is likely using a vendored version."
