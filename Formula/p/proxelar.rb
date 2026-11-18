@@ -1,8 +1,8 @@
 class Proxelar < Formula
   desc "Man-in-the-Middle proxy for HTTP/HTTPS traffic"
   homepage "https://proxelar.micheletti.io"
-  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "09750029dca413b15cbdaf964dc2f888ac41d462c1ec25a90e6f58ea7d7cae72"
+  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "6570666545c10cdd954c2b39961087c825ffc54c8bbbe794cad1b012f4629c36"
   license "MIT"
 
   bottle do
