@@ -49,15 +49,10 @@ class Ldc < Formula
     end
   end
 
-  def llvm
-    deps.reject { |d| d.build? || d.test? }
-        .map(&:to_formula)
-        .find { |f| f.name.match?(/^llvm(@\d+)?$/) }
-  end
-
   def install
     (buildpath/"ldc-bootstrap").install resource("ldc-bootstrap")
 
+    llvm = dep("llvm")
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DD_COMPILER=#{buildpath}/ldc-bootstrap/bin/ldmd2
@@ -80,8 +75,8 @@ class Ldc < Formula
     D
     system bin/"ldc2", "test.d"
     assert_match "Hello, world!", shell_output("./test")
-    lld = deps.map(&:to_formula).find { |f| f.name.match?(/^lld(@\d+(\.\d+)*)?$/) }
-    with_env(PATH: "#{lld.opt_bin}:#{ENV["PATH"]}") do
+    lld_bin = dep("lld").opt_bin
+    with_env(PATH: "#{lld_bin}:#{ENV["PATH"]}") do
       system bin/"ldc2", "-flto=thin", "--linker=lld", "test.d"
       assert_match "Hello, world!", shell_output("./test")
       system bin/"ldc2", "-flto=full", "--linker=lld", "test.d"
