@@ -48,15 +48,13 @@ class Victorialogs < Formula
   test do
     http_port = free_port
 
-    pid = spawn bin/"victoria-logs",
-                "-httpListenAddr=127.0.0.1:#{http_port}",
-                "-storageDataPath=#{testpath}/victorialogs-data"
-    sleep 5
-    assert_match "VictoriaLogs", shell_output("curl -s 127.0.0.1:#{http_port}")
+    with_test_process(bin/"victoria-logs",
+                      "-httpListenAddr=127.0.0.1:#{http_port}",
+                      "-storageDataPath=#{testpath}/victorialogs-data") do
+      sleep 5
+      assert_match "VictoriaLogs", shell_output("curl -s 127.0.0.1:#{http_port}")
 
-    assert_match version.to_s, shell_output("#{bin}/victoria-logs --version")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/victoria-logs --version")
+    end
   end
 end
