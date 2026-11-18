@@ -42,7 +42,7 @@ class Unbound < Formula
       --with-libevent=#{formula_opt_prefix("libevent")}
       --with-libexpat=#{expat_prefix}
       --with-libnghttp2=#{formula_opt_prefix("libnghttp2")}
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{dep("openssl").opt_prefix}
     ]
 
     system "./configure", *args
