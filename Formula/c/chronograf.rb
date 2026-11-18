@@ -47,11 +47,9 @@ class Chronograf < Formula
     assert_match version.to_s, shell_output("#{bin}/chronograf --version")
 
     port = free_port
-    pid = spawn bin/"chronograf", "--port=#{port}"
-    output = shell_output("curl -s --retry 5 --retry-connrefused 0.0.0.0:#{port}/chronograf/v1/")
-    assert_match "/chronograf/v1/layouts", output
-  ensure
-    Process.kill("SIGTERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"chronograf", "--port=#{port}") do
+      output = shell_output("curl -s --retry 5 --retry-connrefused 0.0.0.0:#{port}/chronograf/v1/")
+      assert_match "/chronograf/v1/layouts", output
+    end
   end
 end
