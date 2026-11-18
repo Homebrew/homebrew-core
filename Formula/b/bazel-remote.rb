@@ -30,13 +30,9 @@ class BazelRemote < Formula
     ENV["BAZEL_REMOTE_DIR"] = "test"
     ENV["BAZEL_REMOTE_MAX_SIZE"] = "10"
 
-    begin
-      pid = spawn bin/"bazel-remote"
+    with_test_process(bin/"bazel-remote", signal: "INT") do
       sleep 2
       assert_path_exists testpath/"test", "Failed to create test directory"
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
