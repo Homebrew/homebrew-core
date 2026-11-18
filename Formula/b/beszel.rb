@@ -1,8 +1,8 @@
 class Beszel < Formula
   desc "Lightweight server monitoring with historical data, Docker stats, and alerts"
   homepage "https://beszel.dev"
-  url "https://github.com/henrygd/beszel/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "92dac1dd5faed2fe47fe6cdec831ccf5b04032c33438e88fc354666f563090ff"
+  url "https://github.com/henrygd/beszel/archive/refs/tags/v0.21.2.tar.gz"
+  sha256 "8613c593fd447b4602644a73f1ec26d5d8233fa91109192c05a2406e22316c34"
   license "MIT"
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
@@ -28,17 +28,13 @@ class Beszel < Formula
   end
 
   def install
-    # Homebrew manages upgrades, so replace self-update with a notice
-    inreplace "internal/cmd/hub/hub.go", "Run:   hub.Update,",
-              'Run: func(cmd *cobra.Command, _ []string) { cmd.Println("Run `brew upgrade beszel` to update.") },'
-
     cd "internal/site" do
       system "npm", "--offline", "run", "build"
     end
 
     ENV["CGO_ENABLED"] = "0"
     ENV["GOPROXY"] = "off"
-    system "go", "build", *std_go_args, "./internal/cmd/hub"
+    system "go", "build", *std_go_args(tags: "no_self_update"), "./internal/cmd/hub"
 
     (var/"lib/beszel").mkpath
   end
@@ -51,7 +47,8 @@ class Beszel < Formula
   end
 
   test do
-    assert_match "brew upgrade beszel", shell_output("#{bin}/beszel update 2>&1")
+    assert_match "self-update is disabled in this build; use your package manager to update",
+                 shell_output("#{bin}/beszel update 2>&1", 1)
 
     port = free_port
     url = "http://127.0.0.1:#{port}"
