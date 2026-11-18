@@ -3,16 +3,16 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/8e/fc/95989c90e78009ea19efba3008a992f5ab1cafa5fe683843ddb50b72d76c/rapid_mlx-1.0.3.tar.gz"
-  sha256 "9eef4e021e379bdf3fa27b4de8898f19e86a299bf1fea109b681ea16005bfe51"
+  url "https://files.pythonhosted.org/packages/53/ec/ca07723282fa5cbbbb577932eb815f7894037e3cce325ac7362e8c2c50df/rapid_mlx-1.0.4.tar.gz"
+  sha256 "437e8bc724822190eb3f8f55f9eb58c19f02b5d3253a41027600a433d46f027b"
   license "Apache-2.0"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e5a0524f3a5d7b3a7c1bf7d4955288eb0a88a2b023b89f051f020250f8c180a9"
-    sha256 cellar: :any, arm64_tahoe:       "2d179c05affc732dcbc4b28c59a9264eea64a44fed550d4f86674e5dfdfa3d29"
-    sha256 cellar: :any, arm64_sequoia:     "4ba262ce2cd8885c3c30b38d9b13404580057484d9437745ab8e9532cba40269"
+    sha256 cellar: :any, arm64_golden_gate: "79483920846053c359f01bbd24a67ebb89623183c33d000c0997c8a59e908e2b"
+    sha256 cellar: :any, arm64_tahoe:       "8de103fd135cb20a8116bdd60e9d3e4c04dc38da95c2d8edc6c1a89a49085361"
+    sha256 cellar: :any, arm64_sequoia:     "ce60592a63cd9f9575537f519da20be2c63547c3a2f03fd897a8981c35e9cb05"
   end
 
   depends_on "cmake" => :build
@@ -75,8 +75,8 @@ class RapidMlx < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/4e/7b/ae546e10f153fcf9a6afd8b9fe4730bdfeb8fdcb93178d54122973ef3f4c/fastapi-0.162.5.tar.gz"
-    sha256 "1ca37f64f61c99cebd38636e67525fb721c5e8c1169f07f2a35d73b0a63265d4"
+    url "https://files.pythonhosted.org/packages/ea/82/6b9764e52f89a8aaf68a5005093bcb8fdcadcb6ba30571def786c0d3bfc0/fastapi-0.162.7.tar.gz"
+    sha256 "b7503029c8ef2d2d5fea9049294cf8d0f2805c6621f4677ede269fce19f01efb"
   end
 
   resource "genai-prices" do
@@ -105,8 +105,8 @@ class RapidMlx < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz"
-    sha256 "c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643"
+    url "https://files.pythonhosted.org/packages/92/9d/df40b41f7db0370f82019820709244e7b660c52aa3da3c9e5c4e8141f6e6/httpcore2-2.16.2.tar.gz"
+    sha256 "6c519d0f7b44f7269fa9bbb4d2763db395a4a2370f046d8e8e0a4b38227815d2"
   end
 
   resource "httpx" do
@@ -120,8 +120,8 @@ class RapidMlx < Formula
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz"
-    sha256 "0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f"
+    url "https://files.pythonhosted.org/packages/1c/77/6515121dc5ac3c743ad1bff5afe635bcd1a3f23cc40db3c5c89f7d02917d/httpx2-2.16.2.tar.gz"
+    sha256 "748b615678f07d8e3b183efe81ad13b655ca88bfc56ce4589219b2d442860574"
   end
 
   resource "huggingface-hub" do
@@ -135,8 +135,8 @@ class RapidMlx < Formula
   end
 
   resource "imageio" do
-    url "https://files.pythonhosted.org/packages/f3/cd/69e4ac55b6dafdd2b5f32075236841a3945dea7323d0232d80f28c37cea8/imageio-2.38.1.tar.gz"
-    sha256 "6769f1f01c4dd46448307863a787c9a22fa4dbe11c0c88f525c6e410fdfd7983"
+    url "https://files.pythonhosted.org/packages/f1/be/027f866037034c8ccc1791a3df6d630d2e454233f7ba09fbff76ce5aed81/imageio-2.38.2.tar.gz"
+    sha256 "62e338ea5c19a5547521b3b590a8a9ed1177e5d6c3fd1df076029053eacc73ca"
   end
 
   resource "imageio-ffmpeg" do
@@ -185,8 +185,8 @@ class RapidMlx < Formula
   end
 
   resource "mflux" do
-    url "https://files.pythonhosted.org/packages/7f/08/33ff2acce0f84e51f6c86b6a8d33b4e6703ef485a5d9c40a9e1ebe9af797/mflux-0.20.0.tar.gz"
-    sha256 "8fec3407bbc821cfba9cebd8ae55e35450b9429ec9b5445c9557aaeb78087de0"
+    url "https://files.pythonhosted.org/packages/84/a1/fd8fee0d4d64dd2de448b28fdc9d26feada981c3ac4eee2ac8bfb54b0c8c/mflux-0.23.0.tar.gz"
+    sha256 "cefddbcb7d98fab4f4ddc1e2b706d8f616547f32c9829fdc065c3edd3db86b9a"
   end
 
   resource "miniaudio" do
@@ -220,8 +220,8 @@ class RapidMlx < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/83/8f/adc3e9f7077c16a2417eebb219df2f5933f4fa532fab143c6bbb1c287c67/openai-3.49.0.tar.gz"
-    sha256 "44badf2bea9bcd643dafa0bc4d5a109a14395889219fd68b8560322288196e96"
+    url "https://files.pythonhosted.org/packages/bb/d9/2ef76a717f5cd5d42857ae3424db2f16bf5f01070edfd63ea9347e7d041f/openai-3.52.0.tar.gz"
+    sha256 "258a4fec3e40b412c58672526ed33f20738c2e4ea27601792e73843af62466af"
   end
 
   resource "openai-harmony" do
@@ -270,8 +270,8 @@ class RapidMlx < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
-    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
+    url "https://files.pythonhosted.org/packages/59/28/227c843eedd29bd78e132e5aafa420d83154b10465c312f9c21ff2eaf77d/pydantic_settings-2.16.3.tar.gz"
+    sha256 "10e36f616623ebb586c05ca3d3cd22927146869db413d4f14c20c514442a1337"
   end
 
   resource "pygments" do
@@ -295,8 +295,8 @@ class RapidMlx < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
-    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
+    url "https://files.pythonhosted.org/packages/7e/c0/c753d487a83d873f6946cee6cbc26cea3fe59a476ad0de99a14938a2fbd8/python_multipart-0.0.34.tar.gz"
+    sha256 "b998ae90ca6e1e363261ce2e0e230281b8af53867b757970abd69ee9edcd843a"
   end
 
   resource "pyyaml" do
@@ -310,8 +310,8 @@ class RapidMlx < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
-    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
+    url "https://files.pythonhosted.org/packages/cf/e7/67c67920a3b5183388e0853a0a564a4bf60f2dd190a4e7626f5dad2fed62/regex-2026.11.15.tar.gz"
+    sha256 "d6ec7e29e62ebf93ab2a593d1137022b6025497d8610e5cb666d52f9ee5bb0ce"
   end
 
   resource "requests" do
