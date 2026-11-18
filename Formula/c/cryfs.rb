@@ -55,7 +55,7 @@ class Cryfs < Formula
 
   def install
     if build.head?
-      ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+      ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
       ENV["SODIUM_USE_PKG_CONFIG"] = "1"
 
       system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/cryfs-cli")
