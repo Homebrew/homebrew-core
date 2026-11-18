@@ -53,7 +53,7 @@ class QwtQt5 < Formula
     end
     args << spec
 
-    qt5 = formula_opt_prefix("qt@5")
+    qt5 = dep("qt").opt_prefix
     system "#{qt5}/bin/qmake", *args
     system "make"
     system "make", "install"
@@ -71,20 +71,20 @@ class QwtQt5 < Formula
       system ENV.cxx, "test.cpp", "-o", "out",
         "-std=c++11",
         "-framework", "qwt", "-framework", "QtCore",
-        "-F#{lib}", "-F#{formula_opt_lib("qt@5")}",
+        "-F#{lib}", "-F#{dep("qt").opt_lib}",
         "-I#{lib}/qwt.framework/Headers",
-        "-I#{formula_opt_lib("qt@5")}/QtCore.framework/Versions/5/Headers",
-        "-I#{formula_opt_lib("qt@5")}/QtGui.framework/Versions/5/Headers"
+        "-I#{dep("qt").opt_lib}/QtCore.framework/Versions/5/Headers",
+        "-I#{dep("qt").opt_lib}/QtGui.framework/Versions/5/Headers"
     else
       system ENV.cxx,
-        "-I#{formula_opt_include("qt@5")}",
-        "-I#{formula_opt_include("qt@5")}/QtCore",
-        "-I#{formula_opt_include("qt@5")}/QtGui",
+        "-I#{dep("qt").opt_include}",
+        "-I#{dep("qt").opt_include}/QtCore",
+        "-I#{dep("qt").opt_include}/QtGui",
         "test.cpp",
         "-lqwt", "-lQt5Core", "-lQt5Gui",
-        "-L#{formula_opt_lib("qt@5")}",
+        "-L#{dep("qt").opt_lib}",
         "-L#{lib}",
-        "-Wl,-rpath=#{formula_opt_lib("qt@5")}",
+        "-Wl,-rpath=#{dep("qt").opt_lib}",
         "-Wl,-rpath=#{lib}",
         "-o", "out", "-std=c++11", "-fPIC"
     end
