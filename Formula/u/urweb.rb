@@ -37,17 +37,15 @@ class Urweb < Formula
 
   deny_network_access!
 
-  def icu4c = deps.map(&:name).find { |d| d.match?(/^icu4c(@\d+)?$/) }
-
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
+    openssl_prefix = dep("openssl").opt_prefix
+    icu4c = dep("icu4c")
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-openssl=#{formula_opt_prefix(openssl)}",
+                          "--with-openssl=#{openssl_prefix}",
                           "SITELISP=$prefix/share/emacs/site-lisp/urweb",
-                          "ICU_INCLUDES=-I#{formula_opt_include(icu4c)}",
-                          "ICU_LIBS=-L#{formula_opt_lib(icu4c)}"
+                          "ICU_INCLUDES=-I#{icu4c.opt_include}",
+                          "ICU_LIBS=-L#{icu4c.opt_lib}"
     system "make", "install"
   end
 
