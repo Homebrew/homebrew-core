@@ -6,6 +6,11 @@ class Bismark < Formula
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/Bismark.git", branch: "master"
 
+  livecheck do
+    url :stable
+    regex(/^bismark-rust-v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7206699650e4a46404abbf068a181a449f0797f8d378ef3ad89fe7ed20187141"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cf73ac9b3c7a76ee6e37e1eb7b6a22f9e0252fb20ee6f27e5147ff4cbd7be87"
