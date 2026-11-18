@@ -26,8 +26,9 @@ class Tcltls < Formula
   allow_network_access! :test
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--includedir=#{include}/tcl-tk",
-                          "--with-openssl-dir=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl-dir=#{openssl_prefix}",
                           "--with-tcl=#{formula_opt_lib("tcl-tk")}",
                           "--with-tclinclude=#{formula_opt_include("tcl-tk")}/tcl-tk",
                           *std_configure_args
