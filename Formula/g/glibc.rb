@@ -235,6 +235,7 @@ class Glibc < Formula
     localedir = opt_share/"locale"
 
     mkdir "build" do
+      linux_headers_include = dep("linux-headers").opt_include
       args = [
         "--disable-crypt",
         "--disable-debug",
@@ -246,7 +247,7 @@ class Glibc < Formula
         "--without-gd",
         "--without-selinux",
         "--with-binutils=#{bootstrap_dir}/bin",
-        "--with-headers=#{formula_opt_include("linux-headers@6.8")}",
+        "--with-headers=#{linux_headers_include}",
         "--with-bugurl=#{tap.issues_url}",
         "--with-pkgversion=Homebrew glibc (#{pkg_version})",
 
