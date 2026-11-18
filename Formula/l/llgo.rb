@@ -40,21 +40,17 @@ class Llgo < Formula
     system "go", "mod", "download"
   end
 
-  def find_dep(name)
-    deps.find { |f| f.name.match?(/^#{name}(@\d+(\.\d+)*)?$/) }.name
-  end
-
   def install
-    llvm = find_dep("llvm")
+    llvm = dep("llvm")
     module_path = "github.com/xgo-dev/llgo"
     ldflags = %W[
       -X #{module_path}/internal/env.buildVersion=v#{version}
       -X #{module_path}/internal/env.buildTime=#{time.iso8601}
-      -X #{module_path}/xtool/env/llvm.ldLLVMConfigBin=#{formula_opt_bin(llvm)}/llvm-config
+      -X #{module_path}/xtool/env/llvm.ldLLVMConfigBin=#{llvm.opt_bin}/llvm-config
     ]
     tags = []
-    path_deps = %w[lld llvm go pkgconf].map { |name| formula_opt_bin(find_dep(name)) }
-    script_env = { PATH: "#{path_deps.join(":")}:${PATH}" }
+    dependency_bins = %w[lld llvm go pkgconf].map { |name| dep(name).opt_bin }.join(":")
+    script_env = { PATH: "#{dependency_bins}:${PATH}" }
 
     if OS.linux?
       # Workaround to avoid patchelf corruption when cgo is required
@@ -65,17 +61,17 @@ class Llgo < Formula
       end
 
       ENV.prepend "CGO_CPPFLAGS",
-        "-I#{formula_opt_include(llvm)} " \
+        "-I#{llvm.opt_include} " \
         "-D_GNU_SOURCE " \
         "-D__STDC_CONSTANT_MACROS " \
         "-D__STDC_FORMAT_MACROS " \
         "-D__STDC_LIMIT_MACROS"
-      ENV.prepend "CGO_LDFLAGS", "-L#{formula_opt_lib(llvm)} -lLLVM"
+      ENV.prepend "CGO_LDFLAGS", "-L#{llvm.opt_lib} -lLLVM"
 
       tags << "byollvm"
-      libunwind = find_dep("libunwind")
-      script_env[:CFLAGS] = "-I#{formula_opt_include(libunwind)} ${CFLAGS}"
-      script_env[:LDFLAGS] = "-L#{formula_opt_lib(libunwind)} -Wl,-rpath,#{formula_opt_lib(libunwind)} ${LDFLAGS}"
+      libunwind = dep("libunwind")
+      script_env[:CFLAGS] = "-I#{libunwind.opt_include} ${CFLAGS}"
+      script_env[:LDFLAGS] = "-L#{libunwind.opt_lib} -Wl,-rpath,#{libunwind.opt_lib} ${LDFLAGS}"
     end
 
     system "go", "build", *std_go_args(ldflags:, tags:), "./cmd/llgo"
