@@ -1,22 +1,21 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net/docs/"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.8.2.tar.gz"
-  sha256 "02b7efc0b9cfee26971c0f89b27724eb51d33c3230788963e77dc94070173c21"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/7.0.0.tar.gz"
+  sha256 "3162799004cdf1187d80906e38c1761f796ad21cd935ea67597f5efc8b3e5a11"
   license "MIT"
-  revision 2
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b353a708491ea11f18d320492dea6abb397980416311ca5f93269fe4171a2f39"
-    sha256 cellar: :any, arm64_tahoe:       "b4b4f16cccdfd11606e0397be312d4396618de8f6ae4ebe1523b3fdf8940a1b2"
-    sha256 cellar: :any, arm64_sequoia:     "181b7a089993b5fbf726a8e99460ca158ed210f0032f35b34c3303296782e045"
-    sha256 cellar: :any, arm64_linux:       "bbfbe387f180e2e92456e9e3026a52e1fe2e31161dc5e060b2af6d0378fd44fb"
-    sha256 cellar: :any, x86_64_linux:      "621b08d9d2775cd360015800c045e0b794f68ed2eaef453142bae08ffb5142d1"
+    sha256 cellar: :any, arm64_golden_gate: "cd4e57eb3fffe4bf0295008524a29b8b6ebedf51a7b2a05589b22944b2bd11f8"
+    sha256 cellar: :any, arm64_tahoe:       "5496b0469bddaca7d8c9be24aeda230b219424ef20e3ae65af23923f33c939db"
+    sha256 cellar: :any, arm64_sequoia:     "f38bbf3adcbf28e83fa3172319f62a3b3854e994f863c2808b520b580bb9fc9f"
+    sha256 cellar: :any, arm64_linux:       "fd8d81c07e4e701708743e68d8a7e1b165932466a7ebda4bf3b313e1af2edf6a"
+    sha256 cellar: :any, x86_64_linux:      "7604f10288bc1af927fdc2d707890767663a075bba0a39a60ab49326f5288c28"
   end
 
-  depends_on "dotnet@10"
+  depends_on "dotnet"
   depends_on "openssl@4"
 
   deny_network_access!
@@ -69,6 +68,6 @@ class Gitversion < Formula
     system "git", "config", "user.email", "test@example.com"
     system "git", "add", "test.txt"
     system "git", "commit", "-q", "--message='Test'"
-    assert_match '"FullSemVer": "0.0.1-1"', shell_output("#{bin}/gitversion -output json")
+    assert_match '"FullSemVer": "0.0.1-1"', shell_output("#{bin}/gitversion --output json")
   end
 end
