@@ -129,6 +129,7 @@ class GlibcAT217 < Formula
               '= SYSCONFDIR "/ld.so.preload";'
 
     mkdir "build" do
+      linux_headers_include = dep("linux-headers").opt_include
       args = [
         "--disable-debug",
         "--disable-dependency-tracking",
@@ -137,7 +138,7 @@ class GlibcAT217 < Formula
         "--sysconfdir=#{etc}",
         "--without-gd",
         "--without-selinux",
-        "--with-headers=#{formula_opt_include("linux-headers@4.4")}",
+        "--with-headers=#{linux_headers_include}",
       ]
       system "../configure", *args
       system "make", "all"
