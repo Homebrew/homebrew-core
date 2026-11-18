@@ -30,14 +30,8 @@ class Pygobject3 < Formula
 
   deny_network_access!
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       xy = Language::Python.major_minor_version(python)
       builddir = "buildpy#{xy}".delete(".")
       site_packages = prefix/Language::Python.site_packages(python)
@@ -62,7 +56,7 @@ class Pygobject3 < Formula
       assert(31 == GLib.Date.get_days_in_month(GLib.DateMonth.JANUARY, 2000))
     PYTHON
 
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       system python, "test.py"
     end
   end
