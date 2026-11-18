@@ -29,7 +29,7 @@ class Metals < Formula
   def install
     ENV["CI"] = "TRUE"
     ENV["JAVA_HOME"] = Language::Java.java_home("25")
-    ENV.prepend_path "PATH", formula_opt_bin("openjdk@25")
+    ENV.prepend_path "PATH", dep("openjdk").opt_bin
     inreplace "build.sbt", /version ~=.+?,/m, "version := \"#{version}\","
 
     system "sbt", "package"
