@@ -64,9 +64,8 @@ class Chakra < Formula
     # Workaround to build with ICU 76+
     ENV.append_to_cflags "-DU_SHOW_CPLUSPLUS_HEADER_API=0"
 
-    icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
     args = %W[
-      --custom-icu=#{icu4c_dep.to_formula.opt_include}
+      --custom-icu=#{dep("icu4c").opt_include}
       --jobs=#{ENV.make_jobs}
       -y
     ]
