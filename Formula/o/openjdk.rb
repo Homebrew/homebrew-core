@@ -1,8 +1,8 @@
 class Openjdk < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk27u/archive/refs/tags/jdk-27.0.1.0.3-ga.tar.gz"
-  sha256 "d4f0d695767eee4842b1e6a22daf5af6a87bcaeea68f0597538a97bd8fb340a6"
+  url "https://github.com/openjdk/jdk27u/archive/refs/tags/jdk-27.0.1.1-ga.tar.gz"
+  sha256 "024dd1810fd02991a02e9ca1f5f74f69b3e9c5f1d35e926bddea033704397bb0"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
   compatibility_version 2
 
@@ -12,11 +12,11 @@ class Openjdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c811f9f8d2b7f085dca136bc566f4c6a036d7609d62d137ad99007f961102631"
-    sha256 cellar: :any, arm64_tahoe:       "4b7ecc864e73c4aa30ecfd6afba56e05d9b8e72fcc0b6fba51823a9354f6f8f9"
-    sha256 cellar: :any, arm64_sequoia:     "89272db6b1e558a97f89a6218060a5615c36816680ce0afc89453ef678276f32"
-    sha256               arm64_linux:       "e550f27dea1fb035013a8b0d812ff57a106ca4729d8780d3365955829264af91"
-    sha256               x86_64_linux:      "6403443b4a4f8f736ffbc68c7232feb2aebbc386f44d6039c6b7de1d62af4391"
+    sha256 cellar: :any, arm64_golden_gate: "0b0489f6b2fdea05975c84a0ea9a93dde62b17509554c76a26af3c7a9a9ba26f"
+    sha256 cellar: :any, arm64_tahoe:       "674f203fc06af24086a509b714aba78ce347bc3c5f704a6efb1110bfc1742888"
+    sha256 cellar: :any, arm64_sequoia:     "2f15520d5266b8442e1526c7bc280d19d2a728c78ad4c33c4ca5efb79a3badf5"
+    sha256               arm64_linux:       "f844c0ef110a23f780d4b6cb7fd8cb0f93430e6c4c1a5f62a43e113c42a8c90f"
+    sha256               x86_64_linux:      "69a84e78a95251cfa9718a790f273a579c3c32775b0d47d1c3e2caec2a975369"
   end
 
   keg_only :shadowed_by_macos
