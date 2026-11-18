@@ -33,16 +33,11 @@ class Elasticmq < Formula
                             "-Drest-sqs.bind-port=#{port} " \
                             "-Drest-sqs.bind-hostname=127.0.0.1"
 
-    pid = spawn bin/"elasticmq"
-
-    begin
+    with_test_process(bin/"elasticmq") do
       url = "http://127.0.0.1:#{port}/?Action=ListQueues&Version=2012-11-05"
       output = shell_output("curl --silent --fail --retry 5 --retry-connrefused --retry-delay 1 '#{url}'")
 
       assert_match "ListQueues", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
