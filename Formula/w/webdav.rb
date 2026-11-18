@@ -39,15 +39,11 @@ class Webdav < Formula
 
     (testpath/"hello").write "World!"
 
-    begin
-      pid = spawn bin/"webdav", "--config", testpath/"config.yaml"
+    with_test_process(bin/"webdav", "--config", testpath/"config.yaml", signal: "INT") do
       sleep 2
 
       assert_match "World!", shell_output("curl -s http://127.0.0.1:#{port}/hello")
       assert_match version.to_s, shell_output("#{bin}/webdav version")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
