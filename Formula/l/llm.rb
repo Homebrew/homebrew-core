@@ -3,8 +3,8 @@ class Llm < Formula
 
   desc "Access large language models from the command-line"
   homepage "https://llm.datasette.io/"
-  url "https://files.pythonhosted.org/packages/48/06/1dfe0e38273099f5694dfe672f009ea87935327179c158de9782fff8c6db/llm-0.37.3.tar.gz"
-  sha256 "a612077ea32ed0a407a00571138341f7b362048fc7d5838f2a9bf6254a49252e"
+  url "https://files.pythonhosted.org/packages/98/ce/74e7e92cf75a22cdb220dca230e8ba630ee720ecf2e68139dba8765fc442/llm-0.38.tar.gz"
+  sha256 "cae379f24c5c6965381464c3a1be577f90a48d04c51e562b2090162bb3f893bd"
   license "Apache-2.0"
 
   bottle do
@@ -69,8 +69,8 @@ class Llm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/bb/d9/2ef76a717f5cd5d42857ae3424db2f16bf5f01070edfd63ea9347e7d041f/openai-3.52.0.tar.gz"
-    sha256 "258a4fec3e40b412c58672526ed33f20738c2e4ea27601792e73843af62466af"
+    url "https://files.pythonhosted.org/packages/6a/43/f2e44205e33d648482eac6696951e2e34b2566e8f958d0926a5a9458ab2e/openai-3.53.0.tar.gz"
+    sha256 "ade02e38795eec9a8aae5336d38bce30a68aea5095a4d92b7c285ed0ceb1d4c6"
   end
 
   resource "pluggy" do
@@ -89,8 +89,8 @@ class Llm < Formula
   end
 
   resource "python-ulid" do
-    url "https://files.pythonhosted.org/packages/50/a9/7d7e7e9a43c85c5d7efb44696c623612c5c0b87bdd9447292d0514a5bc59/python_ulid-4.1.0.tar.gz"
-    sha256 "7991ae0b139eed37fd843be81d561c56ec2c7544ef78262a401cd1a31bc41021"
+    url "https://files.pythonhosted.org/packages/f4/5a/ccca42a406a2b71cb359371c2692a326511b870c6b09ce12b6ee58c143a8/python_ulid-4.2.0.tar.gz"
+    sha256 "b935122d37ccb12afc45314019a0c0a59dba46a9e7ac722764c9be2540378c58"
   end
 
   resource "pyyaml" do
