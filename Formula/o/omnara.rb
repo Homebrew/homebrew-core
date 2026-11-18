@@ -476,7 +476,7 @@ class Omnara < Formula
     without += %w[jeepney secretstorage] unless OS.linux?
     virtualenv_install_with_resources(without:)
 
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3") if OS.linux?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.linux?
     resource("codex").stage do
       system "cargo", "install", *std_cargo_args(path: "codex-rs/cli", root: libexec)
     end
