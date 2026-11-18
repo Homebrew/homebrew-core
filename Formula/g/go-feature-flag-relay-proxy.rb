@@ -46,12 +46,8 @@ class GoFeatureFlagRelayProxy < Formula
         path: #{testpath}/flags.yml
     YAML
 
-    pid = spawn bin/"go-feature-flag-relay-proxy", "--config", testpath/"test.yml"
-    begin
+    with_test_process(bin/"go-feature-flag-relay-proxy", "--config", testpath/"test.yml") do
       assert_match "true", shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{port}/health")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
