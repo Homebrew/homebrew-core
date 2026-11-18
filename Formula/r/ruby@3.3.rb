@@ -57,7 +57,7 @@ class RubyAT33 < Formula
     HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = dep("openssl").name
 
   def install
     # otherwise `gem` command breaks
