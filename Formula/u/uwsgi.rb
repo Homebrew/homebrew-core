@@ -101,14 +101,10 @@ class Uwsgi < Formula
       --plugin python3
       -w helloworld
     ]
-    pid = spawn("#{bin}/uwsgi", *args)
-    sleep 4
+    with_test_process("#{bin}/uwsgi", *args, signal: "INT") do
+      sleep 4
 
-    begin
       assert_match "Hello World", shell_output("curl localhost:#{port}")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
