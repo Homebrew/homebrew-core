@@ -1,19 +1,17 @@
 class Libxfont2 < Formula
   desc "X11 font rasterisation library"
   homepage "https://www.x.org/"
-  url "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-2.0.9.tar.gz"
-  sha256 "8564b4df365bc5a6cb0c15900dc688f6e8f47b00a8571c6708c916dfb85066ba"
+  url "https://xorg.freedesktop.org/archive/individual/lib/libXfont2-2.0.10.tar.gz"
+  sha256 "f43ccbc4c65f24ee1d5130cf96e0f2146f34c41461d461625804df995809f5e5"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1838324222e25f35308c810e70acb39bd7578366378ace1e03d1399d6f86783f"
-    sha256 cellar: :any, arm64_tahoe:       "f4cd727130ba3dc89230f6bee3c6e312da697f31ad4bc2d6f12d0d39e92d2d71"
-    sha256 cellar: :any, arm64_sequoia:     "e58817e7dbe12b140db1a615a4aece5cca70fa25977db41a9c50c637448e59cf"
-    sha256 cellar: :any, arm64_sonoma:      "720c1277721acc179b101f27a0eb3c746d1e613e8d1dfb264c39e7471e91eb34"
-    sha256 cellar: :any, sonoma:            "4e12fb4f7f40d87c59b1f777685c31c0255385ebc8df648ff54d45478ed7a816"
-    sha256 cellar: :any, arm64_linux:       "be37414a13a5dd0092d392688c4d6398798b150a4337a118790eab529a8612d8"
-    sha256 cellar: :any, x86_64_linux:      "deaf074871a7424aa2fc1c8d16d4b035dd18ed9600765b58f55c3d9611cdb4b5"
+    sha256 cellar: :any, arm64_golden_gate: "fdf812eece2209a7bf52fed52b6658bea7b651aee03a95996fb69dc6968a4136"
+    sha256 cellar: :any, arm64_tahoe:       "ce5c825e6595df717295ca49419962867c400fcc10a86d2acb79b7a28209f884"
+    sha256 cellar: :any, arm64_sequoia:     "1315cc810bc802797f0250acf4eacb23de0851d251b21ce8284b33f80abea9e1"
+    sha256 cellar: :any, arm64_linux:       "7a8af606c8ec92a1e3075497e1d5a92e73c94159215c305871e4232cabfee1ca"
+    sha256 cellar: :any, x86_64_linux:      "76e8046945c94f1b3ff65b8113e7b7ad066c0b50e4a005d624e17a927f7f43fd"
   end
 
   depends_on "pkgconf" => :build
