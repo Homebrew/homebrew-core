@@ -21,8 +21,9 @@ class Testssl < Formula
     bin.install "testssl.sh"
     man1.install "doc/testssl.1"
     prefix.install "etc"
+    openssl_bin = dep("openssl").opt_bin
     env = {
-      PATH:                "#{formula_opt_bin("openssl@4")}:$PATH",
+      PATH:                "#{openssl_bin}:$PATH",
       TESTSSL_INSTALL_DIR: prefix,
     }
     bin.env_script_all_files(libexec/"bin", env)
