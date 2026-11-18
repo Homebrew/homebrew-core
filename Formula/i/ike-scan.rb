@@ -38,7 +38,7 @@ class IkeScan < Formula
     ENV["ac_cv_prog_cc_c23"] = "no"
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--mandir=#{man}",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make", "install"
   end
