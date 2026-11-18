@@ -39,10 +39,12 @@ class Adaptivecpp < Formula
       libomp_root = formula_opt_prefix("libomp")
       ["-DOpenMP_ROOT=#{libomp_root}"]
     else
+      llvm_bin = dep("llvm").opt_bin
+      lld_bin = dep("lld").opt_bin
       %W[
         -DACPP_EXPERIMENTAL_LLVM=ON
-        -DCLANG_EXECUTABLE_PATH=#{formula_opt_bin("llvm@21")}/clang++
-        -DACPP_LLD_PATH=#{formula_opt_bin("lld@21")}/ld.lld
+        -DCLANG_EXECUTABLE_PATH=#{llvm_bin}/clang++
+        -DACPP_LLD_PATH=#{lld_bin}/ld.lld
       ]
     end
 
