@@ -7,11 +7,12 @@ class Lavinmq < Formula
   head "https://github.com/cloudamqp/lavinmq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "94f5c107bbb19d047acbcee2483efc1c48009aafba27bfce7057e51a3d0fa037"
-    sha256 cellar: :any, arm64_tahoe:       "4a9f574ee48a67bcb3262566224a70363713bd37913879f5d08a5c657d45044f"
-    sha256 cellar: :any, arm64_sequoia:     "4d9d544e7d5a01e8dbc80a4584385ada2e1bcfb3fcae04716ab8088e4125bfe2"
-    sha256 cellar: :any, arm64_linux:       "6a18eda3f109fcdcf1270d5d8cb8fb93ed5b8040a96702b492056a2e86872567"
-    sha256 cellar: :any, x86_64_linux:      "06bb6c2a5c2a292c73531cf3d82c41b399e5971ed19e78871d544e5a0f26635e"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "ddb7f618f81937bc92023b8abc77e6832e17d1d92df7f20b7d49f4e2fc862751"
+    sha256 cellar: :any, arm64_tahoe:       "2edf7a057f64e617921f1dce99a19b38314dcc8960a6c106bcf900cf8e5656c9"
+    sha256 cellar: :any, arm64_sequoia:     "b9ec880f67447340697d2b763a127083bf67139bc4b528595a837e14fa576b2b"
+    sha256 cellar: :any, arm64_linux:       "179b672807d48556447ec791aaf2fc1f3c3a62401138d28305f34535f4289d03"
+    sha256 cellar: :any, x86_64_linux:      "58a2623ae3cb15438061f27d71047a6a0379a9545b084fd62921adb52d3121bc"
   end
 
   depends_on "crystal" => :build
@@ -34,8 +35,8 @@ class Lavinmq < Formula
   deny_network_access!
 
   def fetch
-    # Fetch the shards and the web UI's JavaScript libraries
-    system "make", "lib", "js"
+    # Fetch the shards, the web UI's JavaScript libraries and, from 2.12.0, the libgc source
+    system "make", "deps"
   end
 
   def install
