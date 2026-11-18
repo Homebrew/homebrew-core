@@ -33,7 +33,7 @@ class RattlerIndex < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.linux?
     features = %w[native-tls s3]
     system "cargo", "install", "--no-default-features", *std_cargo_args(path: "crates/rattler_index", features:)
   end
