@@ -13,11 +13,11 @@ class Clamav < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f15dc7848979650c7d832302f7db93bede76f4233f0c69152e25237ec92cd74a"
-    sha256 arm64_tahoe:       "61b43dc3270c1cadd015362c439a3ecbb0010f7305af7dfa955abdc219a34e21"
-    sha256 arm64_sequoia:     "e54a977af9228f0ae606ae7f4fc63a74ad7cdb16460c0c39a4d25e650bb25776"
-    sha256 arm64_linux:       "62e6ca7aa9dfa48fcd8557a0f0b2af2d4be5859e2f014c1848f9f21ed60c6123"
-    sha256 x86_64_linux:      "20cbe6d4910039057858b3be2ff2c59beb7d3cc778ba6f6e44a4ea2fa231c29e"
+    sha256 arm64_golden_gate: "958f1c4c51927e16af8ee4f3491ea78a7161b1c2f87e591a472dac8fdd229645"
+    sha256 arm64_tahoe:       "3edafc36846380214af4cdd53d5cb2261693d23c21036f2ce3743924d2eb463d"
+    sha256 arm64_sequoia:     "8125c58997ee415d8719bb46deed07648e8b4a72f836459d439efdfa86c6f77d"
+    sha256 arm64_linux:       "736bd3c891f0eb1c1b342222a9cc96853e96809d900a625d8bae28e5b2f5ba98"
+    sha256 x86_64_linux:      "c1b25a778df04c28325815c63c3e6147f7dec5d0a547af60e78e721b2d9e7929"
   end
 
   depends_on "cmake" => :build
