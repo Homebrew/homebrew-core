@@ -1,18 +1,18 @@
 class Datafusion < Formula
   desc "Apache Arrow DataFusion and Ballista query engines"
   homepage "https://arrow.apache.org/datafusion"
-  url "https://www.apache.org/dyn/closer.lua?path=datafusion/datafusion-55.2.0/apache-datafusion-55.2.0.tar.gz"
-  mirror "https://archive.apache.org/dist/datafusion/datafusion-55.2.0/apache-datafusion-55.2.0.tar.gz"
-  sha256 "54b40ccacf006ad5967b7d398b5f7e111a682c4d6f9a519c929ab0f02da0f176"
+  url "https://www.apache.org/dyn/closer.lua?path=datafusion/datafusion-55.3.0/apache-datafusion-55.3.0.tar.gz"
+  mirror "https://archive.apache.org/dist/datafusion/datafusion-55.3.0/apache-datafusion-55.3.0.tar.gz"
+  sha256 "94e460e7ca1434d8d50a9efbb3fc8dfa2aa7b9ff19759cd733be03e808e9802c"
   license "Apache-2.0"
   head "https://github.com/apache/datafusion.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ab5f9e4296f71c502ec8f12e16986396497ea176419f1d443249e94b81cc96e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c57b8a928455959805415ea96f88d88090bea60ab47b1c7d8153c5ec106dd6c9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be84edd02726e6bdd14585ad6129753b3b82e2923afa0f51733729a824f40489"
-    sha256 cellar: :any,                 arm64_linux:       "16e609b22354759aba28d527a82ecf190bc445d593217659d0431d77f1f64093"
-    sha256 cellar: :any,                 x86_64_linux:      "a9fd52db40f5377a91daccd7933a2bab43cdb54c71b2674c015f0cfd96221108"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf03aa37ace4a7e175cd454b6de1a7a897d1dfa43fbbc64f70fdb93d128ad945"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec882aff6a2e1700616639911bad5466965c023057e4a7795ae5db383709e957"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50a229a82e471376adb1fdbd7e2add6b508af31081bcff16f57f9b3c2305575d"
+    sha256 cellar: :any,                 arm64_linux:       "a5e24fb5f693f94426dc3695cb5e04109e14e6946063020aea8f7ecdc2adbe1b"
+    sha256 cellar: :any,                 x86_64_linux:      "379aca28e38e5db40b661621dfeaf8775810322db60d284daa485bcbd16e40b2"
   end
 
   depends_on "rust" => :build
