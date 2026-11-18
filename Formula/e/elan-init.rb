@@ -12,12 +12,11 @@ class ElanInit < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a5b7ecc6769afb1462a348a86983ae864d1ec990b2f7f7a8d2254a608ab17170"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7284664746c1d9c96bdcb2eb0d0a530afb3a9140f799ab75ca42c647df50f204"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8863f82f766e102c48fabd329d0d0ee30f0c4c6af7e7d4d0415ca946682c56f5"
-    sha256 cellar: :any,                 arm64_linux:       "1c417f4e363503715f9d28742b6b5892f8be0776064e8e5482facb84d2610a09"
-    sha256 cellar: :any,                 x86_64_linux:      "31d10a1966ca8a4550baf61a80c0e2ddb1be9a3453dc1a6d92f462c7a57d2d33"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "083ef770ce252675d822db9f15c38de78978e94f25d619f5367218f061dcdaba"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f51d6f80b575b8b8762b5ba004d046549a4408bc2e3949b1fed9158528871f2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb4ddcb8c905dbc6c7cb56b04465338959c25742c5b641a0139578f230ea795a"
+    sha256 cellar: :any,                 arm64_linux:       "54c49e48f98e30fb5afe6ce09e83dafbf07beeb6e0d48be2d74dcf7587897793"
+    sha256 cellar: :any,                 x86_64_linux:      "f903fe68cd15f611d2b46ed70fe4c077b381f75d171abc634f237711dfd29096"
   end
 
   depends_on "pkgconf" => :build
