@@ -53,6 +53,7 @@ class NodeAT22 < Formula
     # simdjson 5 `key_selector` uses `throw` in consteval, which clang <= 20 rejects with -fno-exceptions
     ENV.append "CXXFLAGS", "-DSIMDJSON_CONCEPT_DISABLED"
 
+    openssl = dep("openssl")
     args = %W[
       --prefix=#{prefix}
       --with-intl=system-icu
@@ -78,8 +79,8 @@ class NodeAT22 < Formula
       --shared-nghttp2-libpath=#{formula_opt_lib("libnghttp2")}
       --shared-nghttp3-includes=#{formula_opt_include("libnghttp3")}
       --shared-nghttp3-libpath=#{formula_opt_lib("libnghttp3")}
-      --shared-openssl-includes=#{formula_opt_include("openssl@3")}
-      --shared-openssl-libpath=#{formula_opt_lib("openssl@3")}
+      --shared-openssl-includes=#{openssl.opt_include}
+      --shared-openssl-libpath=#{openssl.opt_lib}
       --shared-simdjson-includes=#{formula_opt_include("simdjson")}
       --shared-simdjson-libpath=#{formula_opt_lib("simdjson")}
       --shared-sqlite-includes=#{formula_opt_include("sqlite")}
