@@ -21,7 +21,7 @@ class EasyRsa < Formula
     libexec.install "easyrsa"
     (bin/"easyrsa").write_env_script libexec/"easyrsa",
       EASYRSA:         pkgetc,
-      EASYRSA_OPENSSL: formula_opt_bin("openssl@4")/"openssl",
+      EASYRSA_OPENSSL: dep("openssl").opt_bin/"openssl",
       EASYRSA_PKI:     "${EASYRSA_PKI:-#{etc}/easy-rsa/pki}"
 
     pkgetc.install %w[
