@@ -125,13 +125,14 @@ class GlibcAT213 < Formula
     inreplace "elf/rtld.c", '= "/etc/ld.so.preload";', "= \"#{prefix}/etc/ld.so.preload\";"
 
     mkdir "build" do
+      linux_headers_include = dep("linux-headers").opt_include
       args = [
         "--disable-debug",
         "--disable-dependency-tracking",
         "--disable-silent-rules",
         "--prefix=#{prefix}",
         "--without-selinux",
-        "--with-headers=#{formula_opt_include("linux-headers@4.4")}",
+        "--with-headers=#{linux_headers_include}",
       ]
       system "../configure", *args
       system "make", "all"
