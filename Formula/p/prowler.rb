@@ -3,17 +3,17 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/cf/ee/52500446d03ec197d14cdce77e11707bf7fb85585d3f707ec735fb6e3851/prowler-5.49.0.tar.gz"
-  sha256 "38f46d18b4ec314df026113d6ab6a122080d04be1fb21a74f474265634814637"
+  url "https://files.pythonhosted.org/packages/e9/05/e6b08989b53821114d1bb0d0a01a26b873d27998a656e9ddb63325529dca/prowler-5.50.0.tar.gz"
+  sha256 "a99c2d9d5785fc854394e07c6b4f94db24c7ca3254d999d8c520ae1ee3ede852"
   license "Apache-2.0"
   head "https://github.com/prowler-cloud/prowler.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f7fe36bf9b7b1fcaf4eb6bc470c39bbe60aa7e2e2640555a86f3b5fb179a56cc"
-    sha256 cellar: :any, arm64_tahoe:       "c507c5ac695014aca3ba008bee3f3319d3ebe16f31fc5b029f4f2c6309fe46e4"
-    sha256 cellar: :any, arm64_sequoia:     "9748161a5ab699a33424376183afdc00d45c1430acc0a92c41003b57c6e85eb7"
-    sha256 cellar: :any, arm64_linux:       "a7208661dcb039fd6c0d76091b84fc1bf25f4bb5c1e7216c203abeaa05bc90ec"
-    sha256 cellar: :any, x86_64_linux:      "506afd1de6d3d5fe22e75d4ee3414cab9d434c4163656f981489455c015efee0"
+    sha256 cellar: :any, arm64_golden_gate: "54b87b6ba0d3a413cc055e17a9e0bbf9eeb6d23ea81ac152067cefe61438fa42"
+    sha256 cellar: :any, arm64_tahoe:       "5430ffdfcf1721cfb8175fc6fb1139c555938c0bcf891705c1a5c8fce5d57ce4"
+    sha256 cellar: :any, arm64_sequoia:     "bf786fdd00149ad2cdd48cf8c972f2246734f8eefbfceed11705bd910cd916c0"
+    sha256 cellar: :any, arm64_linux:       "1d5724131e8b677e9896bf9e32f9ceb369c9605226ea203033fe2acf337b929d"
+    sha256 cellar: :any, x86_64_linux:      "52cf376f9b306411f2c093845a6692981782fc5c8d8637bfa34a3ebcd1e38fd0"
   end
 
   depends_on "cmake" => :build
@@ -669,8 +669,8 @@ class Prowler < Formula
   end
 
   resource "iamdata" do
-    url "https://files.pythonhosted.org/packages/23/af/6115c45d764ab1c956823a2e42def9fb154f9c20c8b792dc7cc8930c31a6/iamdata-0.1.202611121.tar.gz"
-    sha256 "8e447a6eee0966f5b3b605973869cb8f35604bfa456ec41421160d5f3aaf58a4"
+    url "https://files.pythonhosted.org/packages/49/34/9a68fec2ad2886b00ec996aef0873248d9f44cfc1b85ba3022900d07f8e6/iamdata-0.1.202611161.tar.gz"
+    sha256 "cab179461aeae2bea659f704cedeeb6b98670166154f8346aff008cf86701c45"
   end
 
   resource "idna" do
