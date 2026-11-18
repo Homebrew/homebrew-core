@@ -20,7 +20,7 @@ class Gitversion < Formula
 
   deny_network_access!
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = dep("dotnet").to_formula
 
   def fetch
     ENV["XDG_RUNTIME_DIR"] = buildpath
@@ -48,8 +48,10 @@ class Gitversion < Formula
     system "dotnet", "publish", "src/GitVersion.App/GitVersion.App.csproj", *args
     env = { DOTNET_ROOT: "${DOTNET_ROOT:-#{dotnet.opt_libexec}}" }
     # Ensure OpenSSL is available for cryptography operations on Linux
-    openssl = deps.find { |dep| dep.name.start_with?("openssl@") }
-    env["LD_LIBRARY_PATH"] = "#{formula_opt_lib(openssl.name)}:${LD_LIBRARY_PATH}" if OS.linux?
+    if OS.linux?
+      openssl_lib = dep("openssl").opt_lib
+      env["LD_LIBRARY_PATH"] = "#{openssl_lib}:${LD_LIBRARY_PATH}"
+    end
     (bin/"gitversion").write_env_script libexec/"gitversion", env
   end
 
