@@ -30,13 +30,10 @@ class Miasma < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"miasma", "--host", "127.0.0.1", "--port", port.to_s
-
-    # give the server a second to start up
-    sleep 3
-    system "curl", "-sSf", "http://127.0.0.1:#{port}/"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"miasma", "--host", "127.0.0.1", "--port", port.to_s) do
+      # give the server a second to start up
+      sleep 3
+      system "curl", "-sSf", "http://127.0.0.1:#{port}/"
+    end
   end
 end
