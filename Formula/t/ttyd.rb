@@ -40,8 +40,9 @@ class Ttyd < Formula
   allow_network_access! :test
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     system "cmake", "-S", ".", "-B", "build",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
+                    "-DOPENSSL_ROOT_DIR=#{openssl_prefix}",
                     "-Dlibwebsockets_DIR=#{formula_opt_lib("libwebsockets")}/cmake/libwebsockets",
                     *std_cmake_args
     system "cmake", "--build", "build"
