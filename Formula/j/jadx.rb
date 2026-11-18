@@ -1,8 +1,8 @@
 class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
-  url "https://github.com/skylot/jadx/archive/refs/tags/v1.5.6.tar.gz"
-  sha256 "11bb5ebd8c3169ff3f87e6f928d60cff1545f0c55ba1f814ce67e43ba3f2a9e7"
+  url "https://github.com/skylot/jadx/archive/refs/tags/v1.5.7.tar.gz"
+  sha256 "c2ed4c394d65364447f2c8aa915de42ab9a45e638ec112918efb4c100751e194"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/skylot/jadx.git", branch: "master"
@@ -28,7 +28,8 @@ class Jadx < Formula
   def install
     ENV["JADX_VERSION"] = version.to_s if build.stable?
 
-    system "gradle", "clean", "dist"
+    # `dist` also builds a macOS DMG with a bundled JRE
+    system "gradle", "clean", "pack"
     libexec.install Dir["build/jadx/*"]
     bin.install libexec/"bin/jadx"
     bin.install libexec/"bin/jadx-gui"
