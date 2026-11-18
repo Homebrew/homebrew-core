@@ -52,11 +52,9 @@ class Diagram < Formula
 
   test do
     cp pkgshare/"sample.txt", testpath
-    pid = spawn bin/"diagram", "-in", "sample.txt", "-out", testpath/"output.png"
-    sleep 1
-    assert_path_exists testpath/"output.png"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"diagram", "-in", "sample.txt", "-out", testpath/"output.png") do
+      sleep 1
+      assert_path_exists testpath/"output.png"
+    end
   end
 end
