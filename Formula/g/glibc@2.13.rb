@@ -131,7 +131,7 @@ class GlibcAT213 < Formula
         "--disable-silent-rules",
         "--prefix=#{prefix}",
         "--without-selinux",
-        "--with-headers=#{formula_opt_include("linux-headers@4.4")}",
+        "--with-headers=#{dep("linux-headers").opt_include}",
       ]
       system "../configure", *args
       system "make", "all"
