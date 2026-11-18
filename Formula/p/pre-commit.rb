@@ -10,11 +10,12 @@ class PreCommit < Formula
   head "https://github.com/pre-commit/pre-commit.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "67c99a5603bb473b5803d43e78c58ca618311f1a16a41d34d1662e9547a8b846"
-    sha256 cellar: :any, arm64_tahoe:       "b23f6c0a81af6944d672f8263a361da002b3a72b96f3718049d92bf4888a0a0a"
-    sha256 cellar: :any, arm64_sequoia:     "937e49297cfbe445437090291b5f917a8e86aa6004855c6a69161d90704d4102"
-    sha256 cellar: :any, arm64_linux:       "7dce83cea30762d18b66c70798fabbc2c58fc0669d6b6329ad9309bae96e7de9"
-    sha256 cellar: :any, x86_64_linux:      "34a55f418c50e1f2d0732af2e64c2c95b7bf5b598ba880bf5f99fef791a7e1dd"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "30b05af7806195b8a424d967d934488078812b5c2f0d1edb2d4f79d02ef4fcc2"
+    sha256 cellar: :any, arm64_tahoe:       "e3b0a2e53a13db0e2936387330b0520946d4d7e496033eaf419cdd5a3c503691"
+    sha256 cellar: :any, arm64_sequoia:     "48a3d76cad39723858f06144bed43ae0eb2399d253665906b6b8f74d284997bf"
+    sha256 cellar: :any, arm64_linux:       "f0a583a4c58ba2ff6798850260d1a7a445b40280291ea307becf85a69172661e"
+    sha256 cellar: :any, x86_64_linux:      "52e26653db585e80f93de5e2c1417e8a32d1cdb5df93dd87a5c160a673d817a9"
   end
 
   depends_on "libyaml"
@@ -41,8 +42,8 @@ class PreCommit < Formula
   end
 
   resource "nodeenv" do
-    url "https://files.pythonhosted.org/packages/9a/8e/105de02c1322cfada6d9710d9146ef8026419d433c9d08359a2d35805811/nodeenv-1.11.0.tar.gz"
-    sha256 "3ce8fe5b71d16e8af7039ca65257354100bc772965d6bc549070649e53b1b146"
+    url "https://files.pythonhosted.org/packages/e6/99/d27cfc9518f49e4cbc25c683ec7cf8704a9d31311341c291c0e78ddf791b/nodeenv-1.12.0.tar.gz"
+    sha256 "4ea7f88339310afebc3253f2c7a91b94bacf97d73a36a5c108962abdfaca501e"
   end
 
   resource "packaging" do
