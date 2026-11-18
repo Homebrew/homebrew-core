@@ -68,8 +68,7 @@ class Fb303 < Formula
       ENV.append_to_cflags "-march=#{Hardware.oldest_cpu}" if Hardware::CPU.intel?
     end
 
-    openssl = folly.deps.find { |dep| dep.name.start_with?("openssl@") }
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix(openssl.name)
+    ENV.append_path "CMAKE_PREFIX_PATH", folly.dep("openssl").opt_prefix
 
     args = OS.mac? ? [] : ["-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib"]
     system "cmake", "-S", ".", "-B", ".", *args, *std_cmake_args
