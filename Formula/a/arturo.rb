@@ -51,7 +51,7 @@ class Arturo < Formula
     # FIXME: Unbundle OpenSSL. Should find a way to do this upstream
     inreplace "src/library/Net.nim",
               /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@4")} -lssl -lcrypto\".}"
+              "{.passL: \"-Wl,-rpath,#{dep("openssl").opt_lib} -lssl -lcrypto\".}"
 
     inreplace "src/vm/values/custom/vregex.nim",
               /\{\.passL: "[^"]*(-lpcre|libpcre\.a)[^"]*"\.\}/,
