@@ -1,17 +1,17 @@
 class OpenCodeReview < Formula
   desc "AI-powered code review tool with deterministic pipelines and an LLM agent"
   homepage "https://open-codereview.ai"
-  url "https://github.com/alibaba/open-code-review/archive/refs/tags/v1.13.11.tar.gz"
-  sha256 "67122e5ed3e2f5cd1baaf45cadd9045527a4ca8cbe352cd6db907a18ae6afd44"
+  url "https://github.com/alibaba/open-code-review/archive/refs/tags/v1.13.12.tar.gz"
+  sha256 "030d06e2efecddb38481caa9df2c2d867f449d20567e579045e4cef39c66655a"
   license "Apache-2.0"
   head "https://github.com/alibaba/open-code-review.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "327ec1cd89c5f4075f852ecac2df06decaa36235e6eec520c3c7be1623f01422"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "327ec1cd89c5f4075f852ecac2df06decaa36235e6eec520c3c7be1623f01422"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "327ec1cd89c5f4075f852ecac2df06decaa36235e6eec520c3c7be1623f01422"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b1c84adc18c29ecbc98f1fe5058dba6aedf072ad5f127a827d407ae6560e5e73"
-    sha256 cellar: :any,                 x86_64_linux:      "2053ce4298de22f6b989fee470c15730a9431c874bf8c83d8ccaa13dc27e61db"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c6a59077299e3fd3dda024429454e66ae1bbec3b00a91236cc990050608219c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c6a59077299e3fd3dda024429454e66ae1bbec3b00a91236cc990050608219c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c6a59077299e3fd3dda024429454e66ae1bbec3b00a91236cc990050608219c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7c938d7d7e993b80bd7281e4d8b6a164c1622a7b9dac5ae742fae8466dc7b735"
+    sha256 cellar: :any,                 x86_64_linux:      "978517f12b3dfc6c8a7230dc12eceaeb066a4d8c5db1169ab91e97a7a224a658"
   end
 
   depends_on "go" => :build
