@@ -44,7 +44,7 @@ class Libgdata < Formula
   end
 
   def install
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libsoup@2")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", dep("libsoup").opt_lib/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
     ENV.prepend_path "XDG_DATA_DIRS", HOMEBREW_PREFIX/"share"
 
@@ -77,7 +77,7 @@ class Libgdata < Formula
     C
 
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("icu4c")/"pkgconfig" if OS.mac?
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libsoup@2")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", dep("libsoup").opt_lib/"pkgconfig"
     flags = shell_output("pkgconf --cflags --libs libgdata").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"
