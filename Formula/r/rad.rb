@@ -48,11 +48,9 @@ class Rad < Formula
     assert_match "Hello, Homebrew!\nHello, Homebrew!", shell_output("#{testpath}/test 2")
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"radls", [:out, :err] => output_log.to_s
-    sleep 2
-    assert_match "Spinning up Rad LSP server", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"radls", [:out, :err] => output_log.to_s) do
+      sleep 2
+      assert_match "Spinning up Rad LSP server", output_log.read
+    end
   end
 end
