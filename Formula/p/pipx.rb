@@ -3,13 +3,17 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pipx.pypa.io"
-  url "https://files.pythonhosted.org/packages/b4/a6/3bfb09e7b4ce1f0602474ce7a4158d2c649e8f9151d8b93138ad27134579/pipx-1.18.16.tar.gz"
-  sha256 "06795f5cd689f3ea36b574a7d1ddfc7b4c1ebee66116db7b70ded868f95d5057"
+  url "https://files.pythonhosted.org/packages/25/a9/767f90fc7049f9f6204178a7ec38bcf7fc5506ce488076c60a67c3775c82/pipx-1.18.18.tar.gz"
+  sha256 "b9984a65ac07bb2f90e1fb121f40d7316c72e3ce178924e135bdb9ec4b9ddc76"
   license "MIT"
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "9221da62789ee89258f4eda38e1ab22a230e5fc034c6b69cc5ec90e394c9b04f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0124b182115c02db1c1d378dc2130d50be3ba66a425bee6bed1f7e2f6ea985b3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0124b182115c02db1c1d378dc2130d50be3ba66a425bee6bed1f7e2f6ea985b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0124b182115c02db1c1d378dc2130d50be3ba66a425bee6bed1f7e2f6ea985b3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "80085c4bfb7dee8ce92276e0466e2ca9183ddc71cb8da241ec6e0eac2849a02d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "80085c4bfb7dee8ce92276e0466e2ca9183ddc71cb8da241ec6e0eac2849a02d"
   end
 
   depends_on "python@3.15"
@@ -25,8 +29,8 @@ class Pipx < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
-    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
+    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
+    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
   end
 
   resource "packaging" do
@@ -49,7 +53,7 @@ class Pipx < Formula
 
   def install
     # Avoid Cellar path reference, which is only good for one version.
-    inreplace "src/pipx/interpreter.py", "return _get_sys_executable()",
+    inreplace "src/pipx/interpreter.py", "return str(Path(sys.executable).resolve())",
                                          "return '#{python3}'"
 
     venv = virtualenv_install_with_resources
