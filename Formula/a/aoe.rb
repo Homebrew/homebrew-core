@@ -6,6 +6,11 @@ class Aoe < Formula
   license "MIT"
   head "https://github.com/agent-of-empires/agent-of-empires.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "332e821df09d67e70224f47398270bbe33be70a087556b30bc127a6764e2bf88"
     sha256 cellar: :any, arm64_tahoe:       "c031d38d66f54266afa69d7a2ebc31a8efca0d86da316a5259ce1d8087478419"
