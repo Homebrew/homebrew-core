@@ -59,11 +59,9 @@ class Rvvm < Formula
 
     touch testpath/"test.bin"
     output_log = testpath/"output.log"
-    pid = spawn bin/"rvvm", "test.bin", "-nogui", "-verbose", [:out, :err] => output_log.to_s
-    sleep 5
-    refute_match "ERROR", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"rvvm", "test.bin", "-nogui", "-verbose", [:out, :err] => output_log.to_s) do
+      sleep 5
+      refute_match "ERROR", output_log.read
+    end
   end
 end
