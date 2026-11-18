@@ -224,7 +224,7 @@ class GetIplayer < Formula
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     ENV["NO_NETWORK_TESTING"] = "1"
     ENV["PERL_MM_USE_DEFAULT"] = "1"
-    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_PREFIX"] = dep("openssl").opt_prefix if OS.linux?
 
     resources.each do |r|
       r.stage do
