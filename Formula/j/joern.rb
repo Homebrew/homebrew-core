@@ -12,11 +12,11 @@ class Joern < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "dc8702b063bdbda03e930b0ebf75e9a6db52c27789b4fae23b3138980af7333d"
-    sha256               arm64_tahoe:       "21a69e8a76ef8fe0940fe6687025f70548b34aba84dd7da1ab1cceced870ff31"
-    sha256               arm64_sequoia:     "dc8702b063bdbda03e930b0ebf75e9a6db52c27789b4fae23b3138980af7333d"
-    sha256 cellar: :any, arm64_linux:       "fa4101a586b7f553842c35d71ac8d00d6bef2cd87a2451d0967a2dd41f394fcf"
-    sha256 cellar: :any, x86_64_linux:      "b8e4c5be20724ea291f4acc22fb0c3e32663232cc400741ceeda64029650d969"
+    sha256               arm64_golden_gate: "873321451eb7c26d485d70c656ce13378722f7377c2d0551f1b62b8f5cc1dd0b"
+    sha256               arm64_tahoe:       "febd3303f02626ddb963b2e51b795298a670c197e195a944a5f625eebcd8835f"
+    sha256               arm64_sequoia:     "febd3303f02626ddb963b2e51b795298a670c197e195a944a5f625eebcd8835f"
+    sha256 cellar: :any, arm64_linux:       "df65642067623ef0b3a555266f90fd61d552f482378e9332a5dabba8ad62939b"
+    sha256 cellar: :any, x86_64_linux:      "9093b63b4f4cf4c01f90b49ca4662178dbbe10871ffd6aa0c4da147dc52a1936"
   end
 
   depends_on "sbt" => :build
