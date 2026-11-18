@@ -1,18 +1,18 @@
 class CBlosc2 < Formula
   desc "Fast, compressed, persistent binary data store library for C"
   homepage "https://www.blosc.org"
-  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v3.6.2.tar.gz"
-  sha256 "be617e6809ae569dcfb2ffa0ea56b3b92c8f669da0c97542c031412ce7f3e831"
+  url "https://github.com/Blosc/c-blosc2/archive/refs/tags/v3.7.0.tar.gz"
+  sha256 "c68b290ac98361941da88d6581ac276689a06e08b6da5e90bc8403a9b088b092"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/Blosc/c-blosc2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0c28b60818efdb4430bfead2d9b8f48b64fdee71fda0ed0cb8c08d2b8bcf41c1"
-    sha256 cellar: :any, arm64_tahoe:       "20c781b2d87bdecfecff2c01b952eb0e68ee32888e9e230cb683737b07e27223"
-    sha256 cellar: :any, arm64_sequoia:     "c76bf1b42b4e21947554b5941cd6c118d2a83def2b0016ea68d7d3ff25011ecd"
-    sha256 cellar: :any, arm64_linux:       "d1fee9947fcbda9352e6e0e7a20dd6c89e1167d0e721f3346a20b880ca86f38e"
-    sha256 cellar: :any, x86_64_linux:      "9eac108c42c53d0339e4400c0f8435913b7e39a3e4f850759399f15c0c96c011"
+    sha256 cellar: :any, arm64_golden_gate: "7a1c2df66e29839d5320cf0ebdfbdbb24a020da48e4bbed838727cbd20954baa"
+    sha256 cellar: :any, arm64_tahoe:       "2b136d53a9b26eefa45a11dd49a09c32f25549931387f2734611e554798f0f28"
+    sha256 cellar: :any, arm64_sequoia:     "3cee7d5736eff9fa858dac41e7317a4e1fd475af7402ce979a5f5e4cc35fdde3"
+    sha256 cellar: :any, arm64_linux:       "e45e215bb8bcb90aff58f5fa8743fc9da8ba026368518a203170efdb453598a8"
+    sha256 cellar: :any, x86_64_linux:      "9bd152b5d770fe7cd8d0fe58904fba22ad4ea915d1b0a377a32dd93219218ad3"
   end
 
   depends_on "cmake" => :build
@@ -39,10 +39,8 @@ class CBlosc2 < Formula
       -DBUILD_FUZZERS=OFF
       -DBUILD_BENCHMARKS=OFF
       -DBUILD_EXAMPLES=OFF
-      -DBUILD_PLUGINS=OFF
-      -DPREFER_EXTERNAL_LZ4=ON
-      -DPREFER_EXTERNAL_ZLIB=ON
-      -DPREFER_EXTERNAL_ZSTD=ON
+      -DBLOSC_DEPENDENCY_MODE=EXTERNAL
+      -DBLOSC_ENABLE_ZFP=OFF
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
