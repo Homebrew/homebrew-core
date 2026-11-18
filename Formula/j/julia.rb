@@ -172,7 +172,7 @@ class Julia < Formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{lib}/julia"
     if OS.mac?
       # Help Julia find keg-only or unlinked dependencies
-      deps.select(&:required?).map(&:to_formula).map(&:opt_lib).select(&:directory?).each do |libdir|
+      deps.required.map(&:opt_lib).select(&:directory?).each do |libdir|
         ENV.append "LDFLAGS", "-Wl,-rpath,#{libdir}"
       end
 
@@ -199,7 +199,7 @@ class Julia < Formula
     system "make", *args, "install"
     if OS.linux?
       # Replace symlinks referencing Cellar paths with ones using opt paths
-      deps.reject(&:build?).map(&:to_formula).map(&:opt_lib).each do |libdir|
+      deps.reject(&:build?).map(&:opt_lib).each do |libdir|
         libdir.glob(shared_library("*")) do |so|
           next unless (lib/"julia"/so.basename).exist?
 
