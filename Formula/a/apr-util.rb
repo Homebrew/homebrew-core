@@ -33,7 +33,7 @@ class AprUtil < Formula
   def install
     system "./configure", "--with-apr=#{formula_opt_prefix("apr")}",
                           "--with-crypto",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{dep("openssl").opt_prefix}",
                           "--without-pgsql",
                           *std_configure_args
     system "make"
