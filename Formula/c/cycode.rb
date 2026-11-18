@@ -3,17 +3,17 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/53/88/67025babb4524bae34a07e34b64b3d5fa4c35c6ae8ab6ab3db6d522eb649/cycode-3.27.1.tar.gz"
-  sha256 "2ff67b99877d7d617912ce4e6ae6f877b6f078e7f25de925f5f169fe0194b443"
+  url "https://files.pythonhosted.org/packages/c2/46/e39667a72a0a8215520ab8b3e2541c2a0d7fb95c2f62ba2620ab468d4008/cycode-3.28.0.tar.gz"
+  sha256 "b91d063224ca35b39fce1ac09409699c5b59da4aa02e8b7c9197856a3c5f66fc"
   license "MIT"
   head "https://github.com/cycodehq/cycode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b6b04fb2197a087b4c85750a68cba718dfd469e5a726dd734e211a4c7ecdb48e"
-    sha256 cellar: :any, arm64_tahoe:       "f802105b466c294cdc72cd7e6277d9fb08eb0ced368b097ce29d642f4a3c4e75"
-    sha256 cellar: :any, arm64_sequoia:     "dbd8a4b2bf8fca1da4788ed1a3ff0eab65a218f5cc041f8e36ae803f1abbff58"
-    sha256 cellar: :any, arm64_linux:       "a3c075509eec8711f73b234b9bd61326a9e9820b329cf23de26a39d2326d0833"
-    sha256 cellar: :any, x86_64_linux:      "3c310694ac29b58176209b9e31de325b90ae42acd23440d3e448c9af1c984c99"
+    sha256 cellar: :any, arm64_golden_gate: "610ad5b63005251c2b397cca268f6f92af1dfe90305ea7753728bb3070d0ec6c"
+    sha256 cellar: :any, arm64_tahoe:       "48d1e2297aa825183a7967939c7bfb7950a30c3d33962bf96fc678c4c5a34ad5"
+    sha256 cellar: :any, arm64_sequoia:     "dacdfab545de9e0874b18f3350891c4e3cd2ea7cdf02a0fa75b5c86a2256aaa0"
+    sha256 cellar: :any, arm64_linux:       "48408a967bb49e6280bebf6ccfedd51cbe7b76e4732d952c7ea771854b3c4909"
+    sha256 cellar: :any, x86_64_linux:      "eda727f2283dcd3f0412b3758e7a5260a16c25e3ede75e293a33940fbe999c0a"
   end
 
   depends_on "certifi" => :no_linkage
@@ -101,8 +101,8 @@ class Cycode < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "marshmallow" do
@@ -131,8 +131,8 @@ class Cycode < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
-    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
+    url "https://files.pythonhosted.org/packages/59/28/227c843eedd29bd78e132e5aafa420d83154b10465c312f9c21ff2eaf77d/pydantic_settings-2.16.3.tar.gz"
+    sha256 "10e36f616623ebb586c05ca3d3cd22927146869db413d4f14c20c514442a1337"
   end
 
   resource "pygments" do
@@ -156,8 +156,8 @@ class Cycode < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
-    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
+    url "https://files.pythonhosted.org/packages/7e/c0/c753d487a83d873f6946cee6cbc26cea3fe59a476ad0de99a14938a2fbd8/python_multipart-0.0.34.tar.gz"
+    sha256 "b998ae90ca6e1e363261ce2e0e230281b8af53867b757970abd69ee9edcd843a"
   end
 
   resource "pyyaml" do
