@@ -37,9 +37,7 @@ class Oclgrind < Formula
   deny_network_access!
 
   def install
-    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
-               .to_formula
-    rpaths = [rpath, rpath(target: llvm.opt_lib)]
+    rpaths = [rpath, rpath(target: dep("llvm").opt_lib)]
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
