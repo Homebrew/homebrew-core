@@ -1,17 +1,17 @@
 class Libcue < Formula
   desc "Cue sheet parser library for C"
   homepage "https://github.com/lipnitsk/libcue"
-  url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.4.2.tar.gz"
-  sha256 "fd93d8d8ed95e91feeb77f41712cc4aef604cfd0da853879efa51c4c95df89c6"
+  url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.4.3.tar.gz"
+  sha256 "ca058ffab917f2ec66f442794f4cf0c75f51702bbeafbebaff8c682e3a8f82e9"
   license "GPL-2.0-only"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fef94041bf68f96aaa03a479dc4f8034638ca4ba01bc9c54c647ec1f758d407d"
-    sha256 cellar: :any, arm64_tahoe:       "703c94d9986a00f797b808bf892629f1eeefee82c6d75e8a50614f80432bbea2"
-    sha256 cellar: :any, arm64_sequoia:     "87020ed967b4a7accf127f12df7f81e4b553b1c8042acc9a1333d359d1be6f52"
-    sha256 cellar: :any, arm64_linux:       "218f92594e3172d977a2981c23d64e17765900a476a872ea4bbf8ab91e962ab7"
-    sha256 cellar: :any, x86_64_linux:      "22af14bd78c5c426db4977e8054233c985fc2985850c2f405f3b7ae953780af4"
+    sha256 cellar: :any, arm64_golden_gate: "c6b3e2c2586518bb4a7119dbae1b4c774403f5582cd7a167fc7a04da2f235776"
+    sha256 cellar: :any, arm64_tahoe:       "198d47a1351eefcf24e1834716f54ae87fd4fee9ccff6fbc7dee4a81c8bcfb06"
+    sha256 cellar: :any, arm64_sequoia:     "d0e586de95e4f4a86d04f19371c4988fa3617037d29bf524bdbf6f51cfb8fcf5"
+    sha256 cellar: :any, arm64_linux:       "f58452b8732d015bd065d3aeebb0b72046b6c6854a3db4c3b8765cc2f8e7e4d0"
+    sha256 cellar: :any, x86_64_linux:      "769f2d4b8eb5420fbb01f0fb3cb09cb55f7fe77d804920e9a110cb9f103ce981"
   end
 
   depends_on "bison" => :build # Needs bison 2.4+
