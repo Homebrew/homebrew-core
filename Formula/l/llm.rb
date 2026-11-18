@@ -3,16 +3,16 @@ class Llm < Formula
 
   desc "Access large language models from the command-line"
   homepage "https://llm.datasette.io/"
-  url "https://files.pythonhosted.org/packages/20/33/fdb966bc2c206bb6114ef3801c77d35b6827a3c04b6e067f1fd373a29f40/llm-0.37.2.tar.gz"
-  sha256 "06a6888e754ac031295f0187d989c0befd2a7f67fbdc857e4bd9a059f51a2ebc"
+  url "https://files.pythonhosted.org/packages/48/06/1dfe0e38273099f5694dfe672f009ea87935327179c158de9782fff8c6db/llm-0.37.3.tar.gz"
+  sha256 "a612077ea32ed0a407a00571138341f7b362048fc7d5838f2a9bf6254a49252e"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e702e71a9e4b52226cd2dc80c769c8f11f7ea76b970c166f46806a92459ed5ec"
-    sha256 cellar: :any, arm64_tahoe:       "75eacc4393e01cb5ab1b93a4ea71d59fcdc7f9a046ad211a3808b506c0d7e342"
-    sha256 cellar: :any, arm64_sequoia:     "3bd251ee2b7617353f8505a18d239e728a69e17e08bd3408f0439a62d150c9f1"
-    sha256 cellar: :any, arm64_linux:       "bf2485c55d7f2e126805954bddb4c4230194131bd340bb3d3e0bf8df4ef12b5a"
-    sha256 cellar: :any, x86_64_linux:      "eeb335d0ca070d3a8bb7abf0a2c22506bdace7cb5bcecb4db261297cfbe48796"
+    sha256 cellar: :any, arm64_golden_gate: "cb34f06e9f687147349ce12aec807ec4b31b87259e205c5a6c0c28d3f9688b32"
+    sha256 cellar: :any, arm64_tahoe:       "c44c50cc31a59939495dac73644be1682b09589d7e776446bff1e716e6877e35"
+    sha256 cellar: :any, arm64_sequoia:     "3b224489a656f6ac3852337ad017df49037b215bb06dd9290f4e2883ed063ed5"
+    sha256 cellar: :any, arm64_linux:       "985bb4fd7a9a825fbe1b67c8ecb83396f4ebce0788469dd8eb726bddb47061c4"
+    sha256 cellar: :any, x86_64_linux:      "a4929bcc5c9d595db75546c06d09a22d17eb47f5d7eb03bed76d30579df68aaf"
   end
 
   depends_on "rust" => :build # for jiter
@@ -49,13 +49,13 @@ class Llm < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz"
-    sha256 "c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643"
+    url "https://files.pythonhosted.org/packages/92/9d/df40b41f7db0370f82019820709244e7b660c52aa3da3c9e5c4e8141f6e6/httpcore2-2.16.2.tar.gz"
+    sha256 "6c519d0f7b44f7269fa9bbb4d2763db395a4a2370f046d8e8e0a4b38227815d2"
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz"
-    sha256 "0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f"
+    url "https://files.pythonhosted.org/packages/1c/77/6515121dc5ac3c743ad1bff5afe635bcd1a3f23cc40db3c5c89f7d02917d/httpx2-2.16.2.tar.gz"
+    sha256 "748b615678f07d8e3b183efe81ad13b655ca88bfc56ce4589219b2d442860574"
   end
 
   resource "idna" do
@@ -69,8 +69,8 @@ class Llm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/83/8f/adc3e9f7077c16a2417eebb219df2f5933f4fa532fab143c6bbb1c287c67/openai-3.49.0.tar.gz"
-    sha256 "44badf2bea9bcd643dafa0bc4d5a109a14395889219fd68b8560322288196e96"
+    url "https://files.pythonhosted.org/packages/bb/d9/2ef76a717f5cd5d42857ae3424db2f16bf5f01070edfd63ea9347e7d041f/openai-3.52.0.tar.gz"
+    sha256 "258a4fec3e40b412c58672526ed33f20738c2e4ea27601792e73843af62466af"
   end
 
   resource "pluggy" do
@@ -79,8 +79,8 @@ class Llm < Formula
   end
 
   resource "puremagic" do
-    url "https://files.pythonhosted.org/packages/24/74/ce5987ab9b8aec4ced06e2723ebb604205c9eb58abdad91453da93166380/puremagic-2.2.0.tar.gz"
-    sha256 "eb4bddf07c177c4b434554b92165b67449f5a51e152b976202d6254498810eef"
+    url "https://files.pythonhosted.org/packages/a7/8d/4d60110e23f445e2dc106340f9bd5f422bb6c540f4fb21086d3ee44b52ab/puremagic-2.3.0.tar.gz"
+    sha256 "b54e4a69dd37c50bacc879380f132382ab4e9a935529628c8975abcc73e10640"
   end
 
   resource "python-dateutil" do
