@@ -38,7 +38,7 @@ class Garnet < Formula
 
   allow_network_access! :test
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = dep("dotnet").to_formula
 
   def fetch
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
