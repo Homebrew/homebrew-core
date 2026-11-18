@@ -40,7 +40,7 @@ class Fnox < Formula
     ENV["AWS_LC_SYS_USE_SYSTEM"] = "1" if OS.linux?
     ENV["LIBSQLITE3_SYS_USE_PKG_CONFIG"] = "1"
     ENV["OPENSSL_NO_VENDOR"] = "1"
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.mac?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.mac?
 
     system "cargo", "install", *std_cargo_args
 
