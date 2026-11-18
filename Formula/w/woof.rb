@@ -25,15 +25,11 @@ class Woof < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"woof", "-s", "-p", port.to_s
-    sleep 15
+    with_test_process(bin/"woof", "-s", "-p", port.to_s, signal: "INT") do
+      sleep 15
 
-    begin
       read = (bin/"woof").read
       assert_equal read, shell_output("curl localhost:#{port}/woof")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
