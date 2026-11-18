@@ -4,6 +4,7 @@ class PgCron < Formula
   url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.8.tar.gz"
   sha256 "c19ab9bb35406c60fb51ecda993737c083850abe424acb6c1030439d00a1f8e4"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "95211c055fab71118be825193a38433f33553a6d1b91fe48d64a8929ac532df9"
@@ -14,8 +15,8 @@ class PgCron < Formula
     sha256 cellar: :any, x86_64_linux:      "22c919f61d6492ee31b437126078406263a7d43a26e898bf66a9cbe011f18df6"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
   depends_on "libpq"
 
   on_macos do
