@@ -50,15 +50,13 @@ class MonitoringPlugins < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     # workaround for Xcode 14.3
     ENV.append "CFLAGS", "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1403
 
     args = %W[
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{formula_opt_prefix(openssl)}
+      --with-openssl=#{dep("openssl").opt_prefix}
       --with-netsnmpconfig-command=#{formula_opt_bin("net-snmp")}/net-snmp-config
     ]
 
