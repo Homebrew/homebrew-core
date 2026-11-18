@@ -33,8 +33,9 @@ class Bibtexconv < Formula
   deny_network_access!
 
   def install
+    openssl_lib = dep("openssl").opt_lib
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
-                    "-DCRYPTO_LIBRARY=#{formula_opt_lib("openssl@4")}/#{shared_library("libcrypto")}"
+                    "-DCRYPTO_LIBRARY=#{openssl_lib}/#{shared_library("libcrypto")}"
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
