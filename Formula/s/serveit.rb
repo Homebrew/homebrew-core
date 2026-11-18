@@ -33,11 +33,9 @@ class Serveit < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"serveit", "-p", port.to_s
-    sleep 2
-    assert_match(/Listing for/, shell_output("curl localhost:#{port}"))
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+    with_test_process(bin/"serveit", "-p", port.to_s, signal: "INT") do
+      sleep 2
+      assert_match(/Listing for/, shell_output("curl localhost:#{port}"))
+    end
   end
 end
