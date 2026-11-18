@@ -13,11 +13,12 @@ class QobineWeb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b50a3daff9cc73842fa7a2f6ce1ad7c028a0c939e4a43b6a98e843e7c101c58f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aced61be0afe11e45d197931d8c01121d5863cb2376a8730f5dd86360ef4a604"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "155203f245dfe1a9be50bc226ad8887fd9dda8a18a2b60e930953c66f30898e9"
-    sha256 cellar: :any,                 arm64_linux:       "5f0558d6bc1fe97d1ce5c7e400cd83f3c48fce5356564c86854c92b0f5f1519a"
-    sha256 cellar: :any,                 x86_64_linux:      "f9c33305e9613079d13df08ea01cfd23f781a1a655e719766d9f2615cafe58d4"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e10786de481cfd1c9ee6d12bbe9c97d9104f4e6414fc40793c9704ba72c67c96"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6bc328531ece97e9c8f17af966c9f402e7f5f2889349ddb9881f514e5f1ba52"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa4bdc75661807666dcb2ac55d28b842363b02fa5ab5eae5e36f68ccffdbb37a"
+    sha256 cellar: :any,                 arm64_linux:       "882103e719a5e1c2783b2374f73ce6e856989d8b37df0ccfa68c4faf2a1ef3d3"
+    sha256 cellar: :any,                 x86_64_linux:      "348f89fe9c56a4665293c412cef695cd4bf6ba6993a56741ca218e064467f6aa"
   end
 
   depends_on "pkgconf" => :build
@@ -26,6 +27,7 @@ class QobineWeb < Formula
   on_linux do
     depends_on "alsa-lib"
     depends_on "openssl@4"
+    depends_on "pipewire"
   end
 
   allow_network_access! :test
