@@ -3,17 +3,17 @@ class Jiratui < Formula
 
   desc "Textual User Interface for interacting with Atlassian Jira from your shell"
   homepage "https://jiratui.sh/"
-  url "https://files.pythonhosted.org/packages/dd/74/1d02690e4f07bfee02d184b0515f1f03cc6c91f9971a2b5252852f86b5cb/jiratui-1.19.0.tar.gz"
-  sha256 "fa50ac41e511e6a542f5dd70ecd8410516ef0619cf542f9d523a24f79ab19894"
+  url "https://files.pythonhosted.org/packages/d8/ed/a76a00336b61b96c875220c63bc1282f1b1450aae61e6f73f8d07ba9554e/jiratui-1.20.0.tar.gz"
+  sha256 "a0765a83ffe7e8e5677c300f516946158e353edf8528a7b9e273600a87e4aaf4"
   license "MIT"
   head "https://github.com/whyisdifficult/jiratui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cbe3f7f02cfa144e59348c52dde17cd889808526ff5e64e9256984bde732f9a0"
-    sha256 cellar: :any, arm64_tahoe:       "bea55b663673a6ac7bbe134cdc10ddab7954ea154459b24dcb6a63a0e6e606e7"
-    sha256 cellar: :any, arm64_sequoia:     "0c5946c3f58caaae57883f79fc02e035f48be51faa25ff2d07ac8a3dbe62a6f6"
-    sha256 cellar: :any, arm64_linux:       "10dd6a87c83131735d13310926206aa11166166fe750874ed06a5b06f7c04d94"
-    sha256 cellar: :any, x86_64_linux:      "198aa1406981b25d3befa72ae6c82ef366611c43976a6c4f633d59f0e59d29e2"
+    sha256 cellar: :any, arm64_golden_gate: "fdec4a2c06bcb8b33b9c0f6ca412714f62e3c631b371e742a9f3ca27b4f3c9fb"
+    sha256 cellar: :any, arm64_tahoe:       "709d38b21a14548d8e292c04ff9f1e1d9766117d0462f9fc362fc58f417c9e06"
+    sha256 cellar: :any, arm64_sequoia:     "42d926ab65562fba7870664be0251b1743707d4ca92c967cc880e9c6811b7d64"
+    sha256 cellar: :any, arm64_linux:       "70a061ff7ca379263437f2c0b5e598874ecfd5bccd317e780cb50369782c134d"
+    sha256 cellar: :any, x86_64_linux:      "2fb6c199ab88948e53c255b05028207866ef03c461aced830f34294ee7b38919"
   end
 
   depends_on "rust" => :build
@@ -84,8 +84,8 @@ class Jiratui < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "marklas" do
@@ -94,8 +94,8 @@ class Jiratui < Formula
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/59/fc/f8d0863f8862f25602c0404d75568e89fb6b4109804645e5cdfb1be5cf56/mdit_py_plugins-0.6.1.tar.gz"
-    sha256 "a2bca0f039f39dbd35fb74ae1b5f998608c437463371f0ff7f49a19a17a114d0"
+    url "https://files.pythonhosted.org/packages/ad/a4/77a4e1be19fd9b08993c76d5e54979ac836b327754f1f5fecfed1b56cc67/mdit_py_plugins-0.7.0.tar.gz"
+    sha256 "26d2179227aaf4d1dc7acffe7a738cbd15cade6b5a61cff0a2cbf9fed93efede"
   end
 
   resource "mdurl" do
@@ -119,13 +119,13 @@ class Jiratui < Formula
   end
 
   resource "puremagic" do
-    url "https://files.pythonhosted.org/packages/24/74/ce5987ab9b8aec4ced06e2723ebb604205c9eb58abdad91453da93166380/puremagic-2.2.0.tar.gz"
-    sha256 "eb4bddf07c177c4b434554b92165b67449f5a51e152b976202d6254498810eef"
+    url "https://files.pythonhosted.org/packages/a7/8d/4d60110e23f445e2dc106340f9bd5f422bb6c540f4fb21086d3ee44b52ab/puremagic-2.3.0.tar.gz"
+    sha256 "b54e4a69dd37c50bacc879380f132382ab4e9a935529628c8975abcc73e10640"
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
-    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
+    url "https://files.pythonhosted.org/packages/59/28/227c843eedd29bd78e132e5aafa420d83154b10465c312f9c21ff2eaf77d/pydantic_settings-2.16.3.tar.gz"
+    sha256 "10e36f616623ebb586c05ca3d3cd22927146869db413d4f14c20c514442a1337"
   end
 
   resource "pygments" do
@@ -184,8 +184,8 @@ class Jiratui < Formula
   end
 
   resource "tree-sitter" do
-    url "https://files.pythonhosted.org/packages/f7/03/5600b84aff2e6c4fe80cfebb4063fe2f50299521befe5f6092ab8c082f4a/tree_sitter-0.26.0.tar.gz"
-    sha256 "b40c219edccc4564530c96f8f1556f6202b37cda964d1cbd7bd2b7e68b40a245"
+    url "https://files.pythonhosted.org/packages/e6/ca/3d69b21b2328dadee34a6cae65bc84e2b4e0c72bfb9147b7a2d4ba8110a0/tree_sitter-0.26.1.tar.gz"
+    sha256 "9919cbaf02d17fa9a4cd0e6da496aecf901b758e6eacf122eee393e3ef08aacd"
   end
 
   resource "tree-sitter-bash" do
@@ -244,8 +244,8 @@ class Jiratui < Formula
   end
 
   resource "tree-sitter-sql" do
-    url "https://github.com/DerekStride/tree-sitter-sql/releases/download/v0.3.11/tree-sitter-sql-v0.3.11.tar.gz"
-    sha256 "a97a324eae9c81ed68f6e162b9b33f8911fc6442caa2950e57c498e2460d1387"
+    url "https://github.com/DerekStride/tree-sitter-sql/releases/download/v0.3.13/tree-sitter-sql-v0.3.13.tar.gz"
+    sha256 "4c1c0317d44eaea101f37e15f32f4ce49fe06185642558fba4cec56b7c4c6f7a"
   end
 
   resource "tree-sitter-toml" do
