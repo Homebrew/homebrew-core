@@ -13,11 +13,11 @@ class OpensearchDashboards < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab3a7b07fc52d93f4fb5cfbdb2c3eacf3c6c808c4eaaf2d332794b0fb793ba0e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab3a7b07fc52d93f4fb5cfbdb2c3eacf3c6c808c4eaaf2d332794b0fb793ba0e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab3a7b07fc52d93f4fb5cfbdb2c3eacf3c6c808c4eaaf2d332794b0fb793ba0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "336f73c1d4b200da1fd28159e14fc394ba474a67cc5a8864d7fb369ceb33ef2d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ab22d18044d2d37934d2c2594e727b313c4974962fff13ea4aa2145f415a430b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24db4de0aa17ebf6d1253738c26cc81ec5363bc4623474a5e68db178d622616c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24db4de0aa17ebf6d1253738c26cc81ec5363bc4623474a5e68db178d622616c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "24db4de0aa17ebf6d1253738c26cc81ec5363bc4623474a5e68db178d622616c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "89766e51e270e5555127e5ad132a64bd4465427038d4f493bbff9b2d80c9f811"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "a7231e35439c92aa3a2f5129487f091d14ed2925ef8bdd6567a2aee44b9a3492"
   end
 
   deprecate! date: "2026-10-28", because: "needs deprecated `node@22`"
