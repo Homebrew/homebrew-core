@@ -31,12 +31,11 @@ class NagiosPlugins < Formula
   # `configure` script uses `ping6`
   deny_network_access! :postinstall
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --libexecdir=#{libexec}/sbin
-      --with-openssl=#{formula_opt_prefix(openssl)}
+      --with-openssl=#{openssl_prefix}
     ]
 
     system "./configure", *args, *std_configure_args(prefix: libexec)
