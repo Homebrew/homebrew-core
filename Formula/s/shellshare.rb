@@ -32,11 +32,9 @@ class Shellshare < Formula
     assert_match version.to_s, shell_output("#{bin}/shellshare --version")
 
     port = free_port
-    pid = spawn(bin/"shellshare", "server", "--port", port.to_s)
-    sleep 2
-    assert_match "shellshare", shell_output("curl --silent --max-time 5 http://localhost:#{port}")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"shellshare", "server", "--port", port.to_s) do
+      sleep 2
+      assert_match "shellshare", shell_output("curl --silent --max-time 5 http://localhost:#{port}")
+    end
   end
 end
