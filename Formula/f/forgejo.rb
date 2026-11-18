@@ -1,17 +1,17 @@
 class Forgejo < Formula
   desc "Self-hosted lightweight software forge"
   homepage "https://forgejo.org/"
-  url "https://codeberg.org/forgejo/forgejo/releases/download/v17.0.1/forgejo-src-17.0.1.tar.gz"
-  sha256 "d6b32ac77e71af0737f30613d985a0dc335b694b8b989d609a0cc88972f2fd4d"
+  url "https://codeberg.org/forgejo/forgejo/releases/download/v17.0.2/forgejo-src-17.0.2.tar.gz"
+  sha256 "5b08f6c24819aeb62b80f2f50f989cfcdfde0a8887f66438cbf32b556b1b6efb"
   license "GPL-3.0-or-later"
   head "https://codeberg.org/forgejo/forgejo.git", branch: "forgejo"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "02658fb060e9d2ec63dee4b280aa45da95f8b9d2baa860c0f3066608ead2b800"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b33f6226455e54c1092dee16306f301c7d9893f88a1c57c3be7f38797effaadd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19db7c548064dfd4097264a7b4c4cf3b228bfd6190bc33a3c6e8a9b26c3d0e06"
-    sha256 cellar: :any,                 arm64_linux:       "283fd314e41dfa09b127f0198ca8499042ba26e3049649b2b601bf0af26c9891"
-    sha256 cellar: :any,                 x86_64_linux:      "26eeaa42d685504ee72f00a885368b690230c3e89fe70d7b8db034e6d6f6afab"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "354dc0fa293e15a71dca25bfcb6d8fcbd4b5dbe26cecd214d3e4dc36d46b372a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "847a83896586d2a391e877b36fa659a9c6557f454891cc853dd3c3d2a3f68fa3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92626791cfefa2aa12200059559f56cf2e99c10d9d44625a9f516c0d4231a1dd"
+    sha256 cellar: :any,                 arm64_linux:       "83a70b053cb56633be7cffc6a829c0497fa0742afa1123d755a3ff85bc304389"
+    sha256 cellar: :any,                 x86_64_linux:      "2d475f7ff18ea5ed7b47b101b926623910925afeac2729d1f23b519fb45db49d"
   end
 
   depends_on "go" => :build
