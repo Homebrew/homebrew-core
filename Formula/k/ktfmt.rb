@@ -19,7 +19,7 @@ class Ktfmt < Formula
   allow_network_access! :build
 
   def install
-    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@17")
+    ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
 
     system "gradle", "shadowJar", "--no-daemon"
     libexec.install "core/build/libs/ktfmt-#{version}-with-dependencies.jar"
