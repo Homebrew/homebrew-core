@@ -1,13 +1,17 @@
 class LinuxHeadersAT44 < Formula
   desc "Header files of the Linux kernel"
-  homepage "https://kernel.org/"
-  url "https://cdn.kernel.org/pub/linux/kernel/v4.x/linux-4.4.302.tar.gz"
-  sha256 "66271f9d9fce8596622e8154ca0ea160e46b78a5a6c967a15b55855f744d1b0b"
+  homepage "https://kernel.org/", browsed: "2026-11-18"
+  # Track CIP project's SLTS as mentioned by release maintainer on final 4.4.302
+  # See https://lore.kernel.org/stable/1643877137240249@kroah.com/
+  url "https://cdn.kernel.org/pub/linux/kernel/projects/cip/4.4/linux-cip-4.4.302-cip116.tar.gz"
+  version "4.4.302-cip116"
+  sha256 "260469d3d98b0e82934734f149b99109df0fdd485b0b4fcecd1bd1db0b4987bc"
   license "GPL-2.0-only" => { with: "Linux-syscall-note" }
   compatibility_version 1
 
   livecheck do
-    skip "No longer developed or maintained"
+    url "https://cdn.kernel.org/pub/linux/kernel/projects/cip/4.4/"
+    regex(/href=.*?linux-cip[._-]v?(4\.4(?:\.\d+)+[._-]cip\d+)\.t/i)
   end
 
   bottle do
@@ -19,6 +23,8 @@ class LinuxHeadersAT44 < Formula
   keg_only :versioned_formula
 
   depends_on :linux
+
+  deny_network_access!
 
   def install
     system "make", "headers_install", "INSTALL_HDR_PATH=#{prefix}"
