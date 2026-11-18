@@ -64,8 +64,6 @@ class Mutt < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     user_in_mail_group = Etc.getgrnam("mail").mem.include?(ENV["USER"])
     effective_group = Etc.getgrgid(Process.egid).name
@@ -86,7 +84,7 @@ class Mutt < Formula
       --with-idn2
       --with-lmdb
       --with-sasl
-      --with-ssl=#{formula_opt_prefix(openssl)}
+      --with-ssl=#{dep("openssl").opt_prefix}
     ]
 
     configure = build.head? ? "./prepare" : "./configure"
