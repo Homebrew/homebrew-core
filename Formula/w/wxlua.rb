@@ -36,7 +36,7 @@ class Wxlua < Formula
 
   def install
     lua_version = lua.version.major_minor
-    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+    wxwidgets = dep("wxwidgets").to_formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
 
     args = %W[
