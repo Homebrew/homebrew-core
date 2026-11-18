@@ -1,8 +1,8 @@
 class Libcue < Formula
   desc "Cue sheet parser library for C"
   homepage "https://github.com/lipnitsk/libcue"
-  url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.4.2.tar.gz"
-  sha256 "fd93d8d8ed95e91feeb77f41712cc4aef604cfd0da853879efa51c4c95df89c6"
+  url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.4.3.tar.gz"
+  sha256 "ca058ffab917f2ec66f442794f4cf0c75f51702bbeafbebaff8c682e3a8f82e9"
   license "GPL-2.0-only"
   compatibility_version 1
 
