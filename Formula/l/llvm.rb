@@ -268,7 +268,7 @@ class Llvm < Formula
         ]
         linux_linker_flags = linux_library_paths.map { |path| "-L#{path} -Wl,-rpath,#{path}" }
         # Add opt_libs for dependencies to RPATH.
-        linux_linker_flags += deps.map(&:to_formula).map { |dep| "-Wl,-rpath,#{dep.opt_lib}" }
+        linux_linker_flags += deps.map { |dep| "-Wl,-rpath,#{dep.opt_lib}" }
 
         [args, extra_args].each do |arg_array|
           # Add the linker paths to the arguments passed to the temporary compilers and installed toolchain.
