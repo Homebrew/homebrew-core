@@ -51,14 +51,9 @@ class Cups < Formula
 
   test do
     port = free_port.to_s
-    pid = spawn "#{bin}/ippeveprinter", "-p", port, "Homebrew Test Printer"
-
-    begin
+    with_test_process("#{bin}/ippeveprinter", "-p", port, "Homebrew Test Printer") do
       sleep 2
       assert_match("Homebrew Test Printer", shell_output("curl localhost:#{port}"))
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
