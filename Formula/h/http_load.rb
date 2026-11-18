@@ -48,12 +48,13 @@ class HttpLoad < Formula
     bin.mkpath
     man1.mkpath
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       BINDIR=#{bin}
       LIBDIR=#{lib}
       MANDIR=#{man1}
       CC=#{ENV.cc}
-      SSL_TREE=#{formula_opt_prefix("openssl@3")}
+      SSL_TREE=#{openssl_prefix}
     ]
 
     inreplace "Makefile", "#SSL_", "SSL_"
