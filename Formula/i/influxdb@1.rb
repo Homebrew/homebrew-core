@@ -82,14 +82,10 @@ class InfluxdbAT1 < Formula
       s.gsub! %r{/.*/.influxdb/wal}, testpath/"influxdb/wal"
     end
 
-    begin
-      pid = spawn "#{bin}/influxd -config #{testpath}/config.toml"
+    with_test_process(bin/"influxd", "-config", testpath/"config.toml") do
       sleep 6
       output = shell_output("curl -Is localhost:8086/ping")
       assert_match "X-Influxdb-Version:", output
-    ensure
-      Process.kill("SIGTERM", pid)
-      Process.wait(pid)
     end
   end
 end
