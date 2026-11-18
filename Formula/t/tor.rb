@@ -38,14 +38,13 @@ class Tor < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --disable-silent-rules
       --sysconfdir=#{etc}
       --localstatedir=#{var}
-      --with-openssl-dir=#{formula_opt_prefix(openssl)}
+      --with-openssl-dir=#{openssl_prefix}
     ]
 
     system "./configure", *args, *std_configure_args
