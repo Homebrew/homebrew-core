@@ -58,11 +58,12 @@ class FreeradiusServer < Formula
   def install
     ENV.deparallelize
 
+    openssl = dep("openssl")
     args = %W[
       --sbindir=#{bin}
       --localstatedir=#{var}
-      --with-openssl-includes=#{formula_opt_include("openssl@4")}
-      --with-openssl-libraries=#{formula_opt_lib("openssl@4")}
+      --with-openssl-includes=#{openssl.opt_include}
+      --with-openssl-libraries=#{openssl.opt_lib}
       --with-talloc-lib-dir=#{formula_opt_lib("talloc")}
       --with-talloc-include-dir=#{formula_opt_include("talloc")}
     ]
