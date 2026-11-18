@@ -45,9 +45,10 @@ class Dafny < Formula
     system "make", "exe"
     libexec.install Dir["Binaries/*", "Scripts/quicktest.sh"]
 
+    dotnet_bin = dep("dotnet").opt_bin
     (bin/"dafny").write <<~BASH
       #!/bin/bash
-      exec "#{formula_opt_bin("dotnet@8")}/dotnet" "#{libexec}/Dafny.dll" "$@"
+      exec "#{dotnet_bin}/dotnet" "#{libexec}/Dafny.dll" "$@"
     BASH
   end
 
