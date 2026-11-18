@@ -15,11 +15,11 @@ class Nginx < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a1b8ce2b8c1d65284174988c16229b55e8954fa375d8fb9b6daaa0678b6bc70b"
-    sha256 arm64_tahoe:       "9fbfb35e4b3465f0a68e2be5cee1c062e0e431f36dcb8439c5e62b5140623bd6"
-    sha256 arm64_sequoia:     "2c39fe5c8c5058fd1d7be43d29c224351050de7042cda568fd23f4ee8e13fa69"
-    sha256 arm64_linux:       "ce016ff047905843f0e98f76be971a783ca6f622658cca1965a852d870ab5b6f"
-    sha256 x86_64_linux:      "f28bf36ad9ab30931be30c86a779d475f3477e30be6a86a5bee50e1ed4591e11"
+    sha256 arm64_golden_gate: "63dbfee2f8349a33a315c5e319dca0cdca5ea8bc51d6596a916c2d2b95620ec8"
+    sha256 arm64_tahoe:       "45f69b0e055be3777c68026f65bdd9859720460c3f1733c253e44acb65a7da41"
+    sha256 arm64_sequoia:     "ee3f5eff1d4577eeb6e1397f374702d0b48c8842dec31e0852f037aa854a55f8"
+    sha256 arm64_linux:       "652021ef8ed1c5a04f17066863e36cac88e59241326b37491b0afbb6ca81b5cf"
+    sha256 x86_64_linux:      "d31a742b66d6223e3d6d00ffff0935fce76cdb9092eb1123a43dc5913bb20555"
   end
 
   depends_on "openssl@4"
