@@ -51,6 +51,7 @@ class Zeek < Formula
     # Avoid references to the Homebrew shims directory
     inreplace "auxil/spicy/hilti/toolchain/src/config.cc.in", "${CMAKE_CXX_COMPILER}", ENV.cxx
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       -DBROKER_DISABLE_TESTS=on
       -DINSTALL_AUX_TOOLS=on
@@ -59,7 +60,7 @@ class Zeek < Formula
       -DCARES_ROOT_DIR=#{formula_opt_prefix("c-ares")}
       -DCARES_LIBRARIES=#{formula_opt_lib("c-ares")}/#{shared_library("libcares")}
       -DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")}/#{shared_library("libmaxminddb")}
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{openssl_prefix}
       -DPYTHON_EXECUTABLE=#{python3}
       -DZEEK_ETC_INSTALL_DIR=#{etc}
       -DZEEK_LOCAL_STATE_DIR=#{var}
