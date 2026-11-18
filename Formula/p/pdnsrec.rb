@@ -29,8 +29,6 @@ class Pdnsrec < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def fetch
     cd "rec-rust-lib/rust" do
       system "cargo", "fetch", *std_cargo_fetch_args
@@ -38,11 +36,12 @@ class Pdnsrec < Formula
   end
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --sysconfdir=#{etc}/powerdns
       --disable-silent-rules
       --with-boost=#{formula_opt_prefix("boost")}
-      --with-libcrypto=#{formula_opt_prefix(openssl)}
+      --with-libcrypto=#{openssl_prefix}
       --with-lua
       --without-net-snmp
     ]
