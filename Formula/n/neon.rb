@@ -43,7 +43,7 @@ class Neon < Formula
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{formula_opt_prefix("openssl@4")}",
+                          "--with-libs=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make", "install"
   end
