@@ -50,12 +50,8 @@ class Desed < Formula
       p
     SED
 
-    begin
-      pid = spawn bin/"desed", testpath/"test.sed", testpath/"test.txt"
+    with_test_process(bin/"desed", testpath/"test.sed", testpath/"test.txt", signal: "INT") do
       sleep 2
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
