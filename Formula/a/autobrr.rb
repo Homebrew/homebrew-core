@@ -54,13 +54,9 @@ class Autobrr < Formula
       sessionSecret = "secret-session-key"
     TOML
 
-    pid = spawn bin/"autobrr", "--config", testpath/""
-    begin
+    with_test_process(bin/"autobrr", "--config", testpath/"") do
       sleep 4
       system "curl", "-s", "--fail", "http://127.0.0.1:#{port}/api/healthz/liveness"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
