@@ -57,10 +57,7 @@ class Lit < Formula
     if OS.mac?
       ENV.prepend_path "PYTHONPATH", prefix/Language::Python.site_packages(python3)
     else
-      python = deps.reject { |d| d.build? || d.test? }
-                   .find { |d| d.name.match?(/^python@\d+(\.\d+)*$/) }
-                   .to_formula
-      ENV.prepend_path "PATH", python.opt_bin
+      ENV.prepend_path "PATH", dep("python").opt_bin
     end
     system python3, "-c", "import lit"
   end
