@@ -23,29 +23,22 @@ class Postgraphile < Formula
     ENV["PGHOST"] = testpath.to_s
     assert_match "postgraphile", shell_output("#{bin}/postgraphile --help")
 
-    pg_bin = formula_opt_bin("postgresql@18")
+    pg_bin = dep("postgresql").opt_bin
     system pg_bin/"initdb", "-D", testpath/"test"
-    pid = spawn("#{pg_bin}/postgres", "-D", testpath/"test", "-k", testpath, "-h", "")
-
-    begin
+    with_test_process("#{pg_bin}/postgres", "-D", testpath/"test", "-k", testpath, "-h", "") do
       sleep 2
       system pg_bin/"createdb", "test"
 
       preset = libexec/"lib/node_modules/postgraphile/dist/presets/amber.js"
       port = free_port
-      graphite_pid = spawn bin/"postgraphile", "-c", "postgres:///test?host=#{testpath}",
-                          "--preset", preset, "--port", port.to_s
-      query = { query: "{ __typename }" }.to_json
-      output = shell_output("curl --silent --show-error --fail --retry 5 --retry-connrefused --retry-delay 1 " \
-                            "--header 'Content-Type: application/json' --data '#{query}' " \
-                            "http://localhost:#{port}/graphql")
-      assert_equal "Query", JSON.parse(output).dig("data", "__typename")
-    ensure
-      Process.kill("TERM", graphite_pid)
-      Process.wait(graphite_pid)
+      with_test_process(bin/"postgraphile", "-c", "postgres:///test?host=#{testpath}",
+                        "--preset", preset, "--port", port.to_s) do
+        query = { query: "{ __typename }" }.to_json
+        output = shell_output("curl --silent --show-error --fail --retry 5 --retry-connrefused --retry-delay 1 " \
+                              "--header 'Content-Type: application/json' --data '#{query}' " \
+                              "http://localhost:#{port}/graphql")
+        assert_equal "Query", JSON.parse(output).dig("data", "__typename")
+      end
     end
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
