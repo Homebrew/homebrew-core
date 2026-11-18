@@ -59,7 +59,7 @@ class Qsoas < Formula
     inreplace "QSoas.pro", "mruby-config --cflags)", "mruby-config --cxxflags)"
 
     gsl = formula_opt_prefix("gsl")
-    qt5 = formula_opt_prefix("qt@5")
+    qt5 = dep("qt").opt_prefix
 
     system "#{qt5}/bin/qmake", "MRUBY_DIR=#{libexec}",
                                "GSL_DIR=#{gsl}/include",
