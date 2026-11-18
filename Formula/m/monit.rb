@@ -29,13 +29,11 @@ class Monit < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     system "./configure", "--prefix=#{prefix}",
                           "--localstatedir=#{var}/monit",
                           "--sysconfdir=#{etc}/monit",
-                          "--with-ssl-dir=#{formula_opt_prefix(openssl)}"
+                          "--with-ssl-dir=#{dep("openssl").opt_prefix}"
     system "make"
     system "make", "install"
     etc.install "monitrc"
