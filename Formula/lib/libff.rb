@@ -38,7 +38,7 @@ class Libff < Formula
     args = %W[
       -DWITH_PROCPS=OFF
       -DCURVE=#{curve}
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}
       -DCMAKE_CXX_STANDARD=17
       -DCMAKE_POSITION_INDEPENDENT_CODE=ON
     ]
