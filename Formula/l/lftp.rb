@@ -43,8 +43,9 @@ class Lftp < Formula
     # https://github.com/lavv17/lftp/issues/611
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--disable-silent-rules",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{openssl_prefix}",
                           "--with-readline=#{formula_opt_prefix("readline")}",
                           "--with-libidn2=#{formula_opt_prefix("libidn2")}",
                           *std_configure_args
