@@ -4,6 +4,7 @@ class Wal2json < Formula
   url "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_7.tar.gz"
   sha256 "e6c12d02dc32e4d610dce33ee52ea85a54e12a563e79c4844508b6c061ff07a1"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -22,8 +23,8 @@ class Wal2json < Formula
     sha256 cellar: :any,                 x86_64_linux:      "1a517efd74ab3202c425fb49d5f07633189e16f2bf0cb05c2c73c878c699d481"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
