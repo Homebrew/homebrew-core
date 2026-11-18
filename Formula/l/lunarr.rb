@@ -69,14 +69,10 @@ class Lunarr < Formula
     port = free_port
     ENV["LUNARR_DATA_DIR"] = (testpath/"data").to_s
     ENV["PORT"] = port.to_s
-    pid = spawn bin/"lunarr"
-    begin
+    with_test_process(bin/"lunarr") do
       output = shell_output("curl --silent --retry 10 --retry-connrefused --retry-delay 3 " \
                             "http://127.0.0.1:#{port}/api/health")
       assert_match "\"ok\":true", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
