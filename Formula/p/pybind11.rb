@@ -21,8 +21,7 @@ class Pybind11 < Formula
   depends_on "python@3.15" => [:build, :test]
 
   def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@3\.\d+$/) }
+    deps(/\Apython@3\.\d+\z/).map(&:to_formula)
   end
 
   def install
