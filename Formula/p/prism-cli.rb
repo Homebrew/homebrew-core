@@ -18,15 +18,15 @@ class PrismCli < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"prism", "mock", "--port", port.to_s, "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/tags/3.1.1/examples/v3.0/petstore.yaml"
+    with_test_process(
+      bin/"prism", "mock", "--port", port.to_s,
+      "https://raw.githubusercontent.com/OAI/OpenAPI-Specification/refs/tags/3.1.1/examples/v3.0/petstore.yaml"
+    ) do
+      sleep 10
 
-    sleep 10
+      system "curl", "http://127.0.0.1:#{port}/pets"
 
-    system "curl", "http://127.0.0.1:#{port}/pets"
-
-    assert_match version.to_s, shell_output("#{bin}/prism --version")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/prism --version")
+    end
   end
 end
