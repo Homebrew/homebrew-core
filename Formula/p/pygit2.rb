@@ -22,14 +22,8 @@ class Pygit2 < Formula
 
   pypi_packages exclude_packages: %w[cffi pycparser]
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.start_with?("python@") }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
-    pythons.each do |python3|
+    python3_interpreters.each do |python3|
       system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
@@ -37,7 +31,7 @@ class Pygit2 < Formula
   test do
     assert_empty resources, "This formula should not have any resources!"
 
-    pythons.each do |python3|
+    python3_interpreters.each do |python3|
       pyversion = Language::Python.major_minor_version(python3).to_s
 
       (testpath/pyversion/"hello.txt").write "Hello, pygit2."
