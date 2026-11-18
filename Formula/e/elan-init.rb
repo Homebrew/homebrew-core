@@ -1,8 +1,8 @@
 class ElanInit < Formula
   desc "Lean Theorem Prover installer and version manager"
   homepage "https://github.com/leanprover/elan"
-  url "https://github.com/leanprover/elan/archive/refs/tags/v4.3.0.tar.gz"
-  sha256 "57c593002382a5356abe1dd5c37edbd2231e60202b34584ed33fa79979677418"
+  url "https://github.com/leanprover/elan/archive/refs/tags/v4.4.0.tar.gz"
+  sha256 "4d38c12f11a9ceb9f7a878376cc525d1491cc41267ec99282be7452c95c30914"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/leanprover/elan.git", branch: "master"
 
@@ -12,11 +12,11 @@ class ElanInit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "083ef770ce252675d822db9f15c38de78978e94f25d619f5367218f061dcdaba"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f51d6f80b575b8b8762b5ba004d046549a4408bc2e3949b1fed9158528871f2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb4ddcb8c905dbc6c7cb56b04465338959c25742c5b641a0139578f230ea795a"
-    sha256 cellar: :any,                 arm64_linux:       "54c49e48f98e30fb5afe6ce09e83dafbf07beeb6e0d48be2d74dcf7587897793"
-    sha256 cellar: :any,                 x86_64_linux:      "f903fe68cd15f611d2b46ed70fe4c077b381f75d171abc634f237711dfd29096"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "56825e5f546d2aba77cf47b6fbb8fe59b2458abc42de950981c7d3d18002a6b7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "124a5c156152816c3e3b4bb7b5215f1d9aa492d073124bba2ab5eb9da224de12"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4efdf0261a3ff73655fc5f63698638bce746403b67022293b0dd471c5576879e"
+    sha256 cellar: :any,                 arm64_linux:       "468d9e2fd3c72c64e664d282c78709a9e4829be1201db5d64ed8ec62b49be837"
+    sha256 cellar: :any,                 x86_64_linux:      "34356a635d412718a7f016f53dc4026c2a81078bfa7678bcafa51aa9e5341537"
   end
 
   depends_on "pkgconf" => :build
