@@ -26,7 +26,7 @@ class Ranger < Formula
     (testpath/"test.py").write code
     assert_equal code, shell_output("#{bin}/rifle -w cat test.py")
 
-    ENV.prepend_path "PATH", formula_opt_libexec("python@3.15")/"bin"
+    ENV.prepend_path "PATH", dep("python").opt_libexec/"bin"
     assert_equal "Hello World!\n", shell_output("#{bin}/rifle -p 2 test.py")
   end
 end
