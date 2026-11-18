@@ -1,18 +1,16 @@
 class Mongoose < Formula
   desc "Web server build on top of Libmongoose embedded library"
   homepage "https://mongoose.ws/"
-  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.23.tar.gz"
-  sha256 "93208f164038b05d156935b8b725063e1afb3984a362dbcf3a9ea37b6f1f2255"
+  url "https://github.com/cesanta/mongoose/archive/refs/tags/7.24.tar.gz"
+  sha256 "0b21cc2ac2a094600d58f2bd20d42aa21ce88375adefc32af481fe89997285fb"
   license "GPL-2.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b72d57efb3d04afe351d5c2421cd770a02119523ca4a1963b485f173b6cb3a5b"
-    sha256 cellar: :any, arm64_tahoe:       "03a5f71bf23ad471f0fe7352dface9ef16fe83a17351ae92bde850cb7bb8430b"
-    sha256 cellar: :any, arm64_sequoia:     "da855f57ed5a209b828f81d9b427870e92f3cc861f9dc4366a69a587a16f39d5"
-    sha256 cellar: :any, arm64_sonoma:      "a606e227eafc2483733dda6a7443609eb69434d0ec195d0f84c4ff248cecaeb0"
-    sha256 cellar: :any, sonoma:            "2b7e2f95b37c22de8dd65949c4e02d9b65dfefa26cb8e09e520b37a32ad5b198"
-    sha256 cellar: :any, arm64_linux:       "dda4bf159cb7d12217c3fe2ad44215c4b578e7ec5acaffa6f158f2cfdca1194c"
-    sha256 cellar: :any, x86_64_linux:      "290d39e1f09d2f9e40fa650569d6aa5bcfc12f2b759c0621f361d1ed25ddcf1b"
+    sha256 cellar: :any, arm64_golden_gate: "7554043843eb9a94924ff1d88874b31b5935ab8e0c5f9a383f2b077c286d1888"
+    sha256 cellar: :any, arm64_tahoe:       "29dd52409ce1581a5b9d27b5b69d466704e304f0343e2af67fb2b51903e3a079"
+    sha256 cellar: :any, arm64_sequoia:     "c3c051f280bf68d0e34c0a10ca15e807c17a98f4b4680ae0cbb816f0902175ce"
+    sha256 cellar: :any, arm64_linux:       "c3a62ba94bd803666248723d5167bdb5f643747cd9a26ccc38cc7c622177843e"
+    sha256 cellar: :any, x86_64_linux:      "dd6b3a2188538317f4e7597007fc2cfa727ef6b9d516d7a35388d59298af597e"
   end
 
   allow_network_access! :test
