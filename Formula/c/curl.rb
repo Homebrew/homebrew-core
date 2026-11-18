@@ -70,9 +70,10 @@ class Curl < Formula
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --disable-silent-rules
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{openssl_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback
