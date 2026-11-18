@@ -88,20 +88,17 @@ class Filebeat < Formula
     (testpath/"log").mkpath
     (testpath/"data").mkpath
 
-    pid = spawn bin/"filebeat", "-c", testpath/"filebeat.yml",
-                                "--path.config", testpath/"filebeat",
-                                "--path.home=#{testpath}",
-                                "--path.logs", testpath/"log",
-                                "--path.data", testpath
+    with_test_process(bin/"filebeat", "-c", testpath/"filebeat.yml",
+                      "--path.config", testpath/"filebeat",
+                      "--path.home=#{testpath}",
+                      "--path.logs", testpath/"log",
+                      "--path.data", testpath) do
+      sleep 1
+      log_file.append_lines "foo bar baz"
+      sleep 5
 
-    sleep 1
-    log_file.append_lines "foo bar baz"
-    sleep 5
-
-    assert_path_exists testpath/"meta.json"
-    assert_path_exists testpath/"registry/filebeat"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_path_exists testpath/"meta.json"
+      assert_path_exists testpath/"registry/filebeat"
+    end
   end
 end
