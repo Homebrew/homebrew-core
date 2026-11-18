@@ -34,11 +34,8 @@ class Sqlpage < Formula
     port = free_port
 
     ENV["PORT"] = port.to_s
-    pid = spawn bin/"sqlpage"
-
-    assert_match "It works", shell_output("curl --retry-connrefused --retry 4 --silent http://localhost:#{port}")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"sqlpage") do
+      assert_match "It works", shell_output("curl --retry-connrefused --retry 4 --silent http://localhost:#{port}")
+    end
   end
 end
