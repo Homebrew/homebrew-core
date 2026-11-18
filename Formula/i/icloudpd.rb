@@ -5,17 +5,17 @@ class Icloudpd < Formula
   homepage "https://github.com/icloud-photos-downloader/icloud_photos_downloader"
   # We use a git checkout as scripts/patch_version runs git commands to update SHA
   url "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git",
-      tag:      "v1.33.0",
-      revision: "3caeae584c3d8bc6fcc51a1c9f7e5413b1422fd3"
+      tag:      "v1.33.1",
+      revision: "33805aea4cc212f26b1298951c2abf553c0acab2"
   license "MIT"
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e90f56161f79e6bf0c8f78cd5114d9fbf0dada856b492d38019d598cc1a1d9a3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d487c73659cec7eaa9e086b2fdcaafb0746d41e186793dc50015178a4098b3d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "61161344dcec96a3dd9a5ab771a3c68c75e828888c549de7c27cd3dccc57de36"
-    sha256 cellar: :any,                 arm64_linux:       "c5c9794e81f96c857ac3a2b0e96bd18d7a1221544fcaa7e7d09805c546eab31b"
-    sha256 cellar: :any,                 x86_64_linux:      "f344b444cb25b76a605f4cbf3d4eb78ff1d06ad4b1965fd07099d9636ba1302f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "831d759bed802e5e30aa85f08262b8950722b6e7b5981e25d2f47dd61b9a548c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1967a3b47ed98c1809c42f35cff71346c6f5f8065e7d7b488cc8b1ddbcb91560"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd3f9d941a0aad26ee14eb507ab946fad5d6750403ad7db862486f18e536562f"
+    sha256 cellar: :any,                 arm64_linux:       "402e5d99749e34bb53e0716d99306f365409b27a283f4ac33684f773d1921686"
+    sha256 cellar: :any,                 x86_64_linux:      "5fd80bae03dda07da91ffe36d15d14a1fea07c690e6c4078ef71e37e91668a97"
   end
 
   depends_on "certifi" => :no_linkage
@@ -43,8 +43,8 @@ class Icloudpd < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "fido2" do
