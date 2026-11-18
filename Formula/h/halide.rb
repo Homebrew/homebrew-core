@@ -32,7 +32,7 @@ class Halide < Formula
   deny_network_access!
 
   def install
-    llvm = deps.map(&:name).find { |f| f.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+    llvm = dep("llvm").name
     site_packages = prefix/Language::Python.site_packages(python3)
     rpaths = [rpath, rpath(source: site_packages/"halide")]
     rpaths << formula_opt_lib(llvm).to_s if OS.linux?
