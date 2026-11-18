@@ -33,10 +33,11 @@ class Libpulsar < Formula
   allow_network_access! :test
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       -DBUILD_TESTS=OFF
       -DCMAKE_CXX_STANDARD=17
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{openssl_prefix}
       -DUSE_ASIO=OFF
     ]
     # Avoid over-linkage to `abseil`.
