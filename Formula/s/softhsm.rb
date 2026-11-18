@@ -45,7 +45,7 @@ class Softhsm < Formula
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{pkgetc}",
                           "--with-crypto-backend=openssl",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{dep("openssl").opt_prefix}",
                           "--disable-gost",
                           *std_configure_args
     system "make", "install"
