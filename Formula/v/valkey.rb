@@ -1,8 +1,8 @@
 class Valkey < Formula
   desc "High-performance data structure server that primarily serves key/value workloads"
   homepage "https://valkey.io"
-  url "https://github.com/valkey-io/valkey/archive/refs/tags/9.1.3.tar.gz"
-  sha256 "184e34ed2d9b51879b682b5b15205e2b9d677c60280e3cb453be8f520d04e293"
+  url "https://github.com/valkey-io/valkey/archive/refs/tags/9.1.4.tar.gz"
+  sha256 "fe3d623600a1c046b4668feec097c507b4ae52f20c1fc7f1ebd384c07a165e77"
   license all_of: [
     "BSD-3-Clause",
     "BSD-2-Clause", # deps/jemalloc, deps/linenoise, src/lzf*
@@ -14,11 +14,11 @@ class Valkey < Formula
   head "https://github.com/valkey-io/valkey.git", branch: "unstable"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bf1d6cf0f83558024ff7c2e8bd47b0ad9bab6b833e30d2d6591c356386127f97"
-    sha256 cellar: :any, arm64_tahoe:       "7750c1dda4336e76ee0392f8d70a25574456cb63ac9edd69cef4e659601c4713"
-    sha256 cellar: :any, arm64_sequoia:     "06a7170e3c0c86884b25578bcb083b68bc47715c5e5ee4ce31e8b95311e22027"
-    sha256 cellar: :any, arm64_linux:       "8fb34f24c8e09d0060dbb860f5fc826ccb8fd20b2335a6a43d640ed82fae4bf1"
-    sha256 cellar: :any, x86_64_linux:      "e509dc1946dd3c33bd0bdc6c50788fffb4821fcfc510f46b838d0970b79b095b"
+    sha256 cellar: :any, arm64_golden_gate: "c778919fb7166a578525b9855f9e7c83b5dcde4560410d0050a4f2b46abcf4e9"
+    sha256 cellar: :any, arm64_tahoe:       "2f37ec3eddecbb3e8736edbc7b50e52c2aa1c4ad5d9e8d76cca3017880073d58"
+    sha256 cellar: :any, arm64_sequoia:     "073d1b003e9b4008c3bb17f7fd98fbec807cd79858ac1f8e6d72ffbe5c1a6067"
+    sha256 cellar: :any, arm64_linux:       "1646f3934be91b1d3e552bfb4e66e3e14bb7bd6870b0b9a189b85e021f9875e6"
+    sha256 cellar: :any, x86_64_linux:      "cd05678f4a1623f9ed6e78a2c595eef01284fc56363181caa97da17fa4e1518f"
   end
 
   depends_on "openssl@4"
