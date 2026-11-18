@@ -38,7 +38,7 @@ class OpensearchDashboards < Formula
     cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
       inreplace "bin/use_node",
                 /NODE=".+"/,
-                "NODE=\"#{formula_opt_bin("node@22")}/node\""
+                "NODE=\"#{dep("node").opt_bin}/node\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,
