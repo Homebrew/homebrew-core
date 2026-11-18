@@ -34,13 +34,9 @@ class Pgweb < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"pgweb", "--listen=#{port}", "--skip-open", "--sessions"
-    begin
+    with_test_process(bin/"pgweb", "--listen=#{port}", "--skip-open", "--sessions") do
       sleep 2
       assert_match "\"version\":\"#{version}\"", shell_output("curl http://localhost:#{port}/api/info")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
