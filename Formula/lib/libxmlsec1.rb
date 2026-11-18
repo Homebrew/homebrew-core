@@ -31,8 +31,6 @@ class Libxmlsec1 < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     args = %W[
       --disable-apps-crypto-dl
@@ -41,7 +39,7 @@ class Libxmlsec1 < Formula
       --disable-mscng
       --without-nss
       --without-nspr
-      --with-openssl=#{formula_opt_prefix(openssl)}
+      --with-openssl=#{dep("openssl").opt_prefix}
     ]
 
     system "./configure", *args, *std_configure_args
