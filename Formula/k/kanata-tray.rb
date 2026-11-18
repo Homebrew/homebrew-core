@@ -46,11 +46,9 @@ class KanataTray < Formula
 
     assert_match version.to_s, shell_output("#{bin}/kanata-tray --version 2>&1", 1)
 
-    pid = spawn bin/"kanata-tray"
-    sleep 2
-    assert_match "Creating it and populating with the default icons", (testpath/"kanata_tray_lastrun.log").read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"kanata-tray") do
+      sleep 2
+      assert_match "Creating it and populating with the default icons", (testpath/"kanata_tray_lastrun.log").read
+    end
   end
 end
