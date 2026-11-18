@@ -33,9 +33,10 @@ class Wrk < Formula
     ENV.deparallelize
     ENV["MACOSX_DEPLOYMENT_TARGET"] = MacOS.version.to_s if OS.mac?
     ENV.append_to_cflags "-I#{formula_opt_include("luajit")}/luajit-2.1"
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       WITH_LUAJIT=#{formula_opt_prefix("luajit")}
-      WITH_OPENSSL=#{formula_opt_prefix("openssl@4")}
+      WITH_OPENSSL=#{openssl_prefix}
     ]
     args << "VER=#{version}" if build.stable?
     system "make", *args
