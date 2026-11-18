@@ -4,6 +4,7 @@ class PgPartman < Formula
   url "https://github.com/pgpartman/pg_partman/archive/refs/tags/v5.5.1.tar.gz"
   sha256 "03671eb27a0dc0056a3eacf1435c0e2651dfb4d32d235fb3075e066106f68a9b"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url :stable
@@ -18,8 +19,8 @@ class PgPartman < Formula
     sha256 cellar: :any,                 x86_64_linux:      "60fe0c47826ed154295d5a02acc84d4b566ea25959fa3713eea8ba669014386b"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
