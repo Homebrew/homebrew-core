@@ -76,19 +76,16 @@ class Metricbeat < Formula
     (testpath/"logs").mkpath
     (testpath/"data").mkpath
 
-    pid = spawn bin/"metricbeat", "--path.config", testpath/"config", "--path.data", testpath/"data"
+    with_test_process(bin/"metricbeat", "--path.config", testpath/"config", "--path.data", testpath/"data") do
+      sleep 15
 
-    sleep 15
+      output = JSON.parse((testpath/"data/meta.json").read)
+      assert_includes output, "first_start"
 
-    output = JSON.parse((testpath/"data/meta.json").read)
-    assert_includes output, "first_start"
-
-    (testpath/"data").glob("metricbeat-*.ndjson") do |file|
-      s = JSON.parse(file.read.lines.first.chomp)
-      assert_match "metricbeat", s["@metadata"]["beat"]
+      (testpath/"data").glob("metricbeat-*.ndjson") do |file|
+        s = JSON.parse(file.read.lines.first.chomp)
+        assert_match "metricbeat", s["@metadata"]["beat"]
+      end
     end
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
