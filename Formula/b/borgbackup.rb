@@ -45,7 +45,7 @@ class Borgbackup < Formula
     ENV["BORG_LIBLZ4_PREFIX"] = formula_opt_prefix("lz4")
     ENV["BORG_LIBXXHASH_PREFIX"] = formula_opt_prefix("xxhash")
     ENV["BORG_LIBZSTD_PREFIX"] = formula_opt_prefix("zstd")
-    ENV["BORG_OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4")
+    ENV["BORG_OPENSSL_PREFIX"] = dep("openssl").opt_prefix
 
     # Parallel cythonize needs POSIX semaphores, which the Linux build sandbox denies
     inreplace "setup.py", /^cpu_threads = .*/, "cpu_threads = None"
