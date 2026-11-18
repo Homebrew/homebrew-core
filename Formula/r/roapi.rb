@@ -48,15 +48,11 @@ class Roapi < Formula
     (testpath/"data.csv").write "name,age\nsam,27\n"
     expected_output = '[{"name":"sam"}]'
 
-    pid = spawn bin/"roapi", "-a", "localhost:#{port}", "-t", testpath/"data.csv"
-    begin
+    with_test_process(bin/"roapi", "-a", "localhost:#{port}", "-t", testpath/"data.csv") do
       query = "SELECT name from data"
       header = "ACCEPT: application/json"
       url = "localhost:#{port}/api/sql"
       assert_match expected_output, shell_output("curl -s -X POST -H '#{header}' -d '#{query}' #{url}")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
