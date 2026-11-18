@@ -34,7 +34,7 @@ class Iperf3 < Formula
     system "./bootstrap.sh" if build.head?
     system "./configure", "--disable-silent-rules",
                           "--disable-profiling",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make", "clean" # there are pre-compiled files in the tarball
     system "make", "install"
@@ -42,11 +42,9 @@ class Iperf3 < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"iperf3", "--server", "--port", port.to_s
-    sleep 1
-    assert_match "Bitrate", shell_output("#{bin}/iperf3 --client 127.0.0.1 --port #{port} --time 1")
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+    with_test_process(bin/"iperf3", "--server", "--port", port.to_s, signal: "INT") do
+      sleep 1
+      assert_match "Bitrate", shell_output("#{bin}/iperf3 --client 127.0.0.1 --port #{port} --time 1")
+    end
   end
 end
