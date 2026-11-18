@@ -27,15 +27,14 @@ class Cdxgen < Formula
   # For `npm` and `dotnet`
   allow_network_access! :build
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+(\.\d+)*)?$/) }.to_formula
-
-  def ruby = deps.map(&:name).find { |d| d.match?(/^ruby(@\d+(\.\d+)*)?$/) }
+  def dotnet = dep("dotnet").to_formula
 
   def install
     # https://github.com/cdxgen/cdxgen/blob/master/lib/managers/binary.js
     # https://github.com/AppThreat/atom/blob/main/wrapper/nodejs/rbastgen.js
+    ruby_bin = dep("ruby").opt_bin
     cdxgen_env = {
-      RUBY_CMD:         "${RUBY_CMD:-#{formula_opt_bin(ruby)}/ruby}",
+      RUBY_CMD:         "${RUBY_CMD:-#{ruby_bin}/ruby}",
       SOURCEKITTEN_CMD: "${SOURCEKITTEN_CMD:-#{formula_opt_bin("sourcekitten")}/sourcekitten}",
       TRIVY_CMD:        "${TRIVY_CMD:-#{formula_opt_bin("trivy")}/trivy}",
     }
