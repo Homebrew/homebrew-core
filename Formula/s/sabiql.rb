@@ -1,8 +1,8 @@
 class Sabiql < Formula
   desc "Fast, safe-by-design, driverless, Vim-first DB TUI with ER diagrams"
   homepage "https://github.com/riii111/sabiql"
-  url "https://github.com/riii111/sabiql/archive/refs/tags/v3.0.3.tar.gz"
-  sha256 "0de29f3b267c2258c8d426281c20ae214388cbdfb06f44885682d308fd0f323e"
+  url "https://github.com/riii111/sabiql/archive/refs/tags/v3.1.0.tar.gz"
+  sha256 "c2a0ca871891518f875400947ab550230d34f670767b5108215ccb5f460319ea"
   license "MIT"
 
   bottle do
