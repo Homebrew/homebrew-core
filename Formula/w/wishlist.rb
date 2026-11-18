@@ -34,14 +34,10 @@ class Wishlist < Formula
     assert_match version.to_s, shell_output("#{bin}/wishlist --version")
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"wishlist", "serve", [:out, :err] => output_log.to_s
-    sleep 1
-    begin
+    with_test_process(bin/"wishlist", "serve", [:out, :err] => output_log.to_s) do
+      sleep 1
       assert_match "Starting SSH server", output_log.read
       assert_path_exists testpath/".wishlist"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
