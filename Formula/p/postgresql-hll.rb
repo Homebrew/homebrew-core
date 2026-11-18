@@ -4,6 +4,7 @@ class PostgresqlHll < Formula
   url "https://github.com/citusdata/postgresql-hll/archive/refs/tags/v2.21.tar.gz"
   sha256 "808de7603e6f954690b7f1a4514f264ce0557f8c4bb9a0e8c0ba0249df4098ce"
   license "Apache-2.0"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a352c9173f07cadc3a0c43db4f102a436a1b52328b48c57dc5f02c17378e6422"
@@ -15,8 +16,8 @@ class PostgresqlHll < Formula
     sha256 cellar: :any,                 x86_64_linux:      "561466d0e9a1c2c60eee2c7dac9051726ac7e3fafb1a1ddd9174c04dfd4eabc3"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
