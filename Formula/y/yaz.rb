@@ -51,10 +51,8 @@ class Yaz < Formula
       ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
       system "./buildconf.sh"
     end
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
     system "./configure", "--with-gnutls",
-                          "--with-icu=#{icu4c.opt_prefix}",
+                          "--with-icu=#{dep("icu4c").opt_prefix}",
                           "--with-xml2",
                           "--with-xslt",
                           *std_configure_args
