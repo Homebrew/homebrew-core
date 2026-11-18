@@ -495,3 +495,41 @@ index e84087068e..249831e816 100755
    exit 0
  else
    exit 1
+
+From 58a31b4316f1f687184eb147ffa1c676bc6a190e Mon Sep 17 00:00:00 2001
+From: Yury Khrustalev <yury.khrustalev@arm.com>
+Date: Thu, 6 Nov 2025 12:57:58 +0000
+Subject: [PATCH] posix: Fix invalid flags test for p{write,read}v2
+
+Two tests fail from time to time when a new flag is added for the
+p{write,read}v2 functions in a new Linux kernel:
+
+ - misc/tst-preadvwritev2
+ - misc/tst-preadvwritev64v2
+
+This disrupts when testing Glibc on a system with a newer kernel
+and it seems we can try improve testing for invalid flags setting
+all the bits that are not supposed to be supported (rather than
+setting only the next unsupported bit).
+
+Reviewed-by: Adhemerval Zanella  <adhemerval.zanella@linaro.org>
+---
+ misc/tst-preadvwritev2-common.c | 5 ++---
+ 1 file changed, 2 insertions(+), 3 deletions(-)
+
+diff --git a/misc/tst-preadvwritev2-common.c b/misc/tst-preadvwritev2-common.c
+index 8a59ff2f9d..05fb899cd2 100644
+--- a/misc/tst-preadvwritev2-common.c
++++ b/misc/tst-preadvwritev2-common.c
+@@ -113,9 +113,8 @@ do_test_with_invalid_iov (void)
+ static void
+ do_test_with_invalid_flags (void)
+ {
+-  /* Set the next bit from the mask of all supported flags.  */
+-  int invalid_flag = RWF_SUPPORTED != 0 ? __builtin_clz (RWF_SUPPORTED) : 2;
+-  invalid_flag = 0x1 << ((sizeof (int) * CHAR_BIT) - invalid_flag);
++  /* Set all the bits that are not used by the supported flags.  */
++  int invalid_flag = ~RWF_SUPPORTED;
+ 
+   char buf[32];
+   const struct iovec vec = { .iov_base = buf, .iov_len = sizeof (buf) };
