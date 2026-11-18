@@ -74,7 +74,7 @@ class Cpprestsdk < Formula
                     # Disable websockets feature due to https://github.com/zaphoyd/websocketpp/issues/1157
                     # Needs upstream response and fix in `websocketpp` formula (do not use bundled copy)
                     "-DCPPREST_EXCLUDE_WEBSOCKETS=ON",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
+                    "-DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -90,8 +90,8 @@ class Cpprestsdk < Formula
       }
     CPP
     system ENV.cxx, "test.cc", "-std=c++11",
-                    "-I#{formula_opt_include("boost")}", "-I#{formula_opt_include("openssl@4")}", "-I#{include}",
-                    "-L#{formula_opt_lib("boost")}", "-L#{formula_opt_lib("openssl@4")}", "-L#{lib}",
+                    "-I#{formula_opt_include("boost")}", "-I#{dep("openssl").opt_include}", "-I#{include}",
+                    "-L#{formula_opt_lib("boost")}", "-L#{dep("openssl").opt_lib}", "-L#{lib}",
                     "-lssl", "-lcrypto", "-lboost_random", "-lboost_chrono", "-lboost_thread",
                     "-lboost_filesystem", "-lcpprest",
                     "-o", "test_cpprest"
