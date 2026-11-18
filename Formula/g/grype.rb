@@ -7,11 +7,11 @@ class Grype < Formula
   head "https://github.com/anchore/grype.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0701bf0f2f469358478ff7072961f3505b0b5acf102d19f9482439fa20b04a3f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "354a4017805ae7529c1cc71073185a0112e33dde0c3a8c69b4c949ed6338d1e0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6bb6a64f7bf9670d6651f4e651fa0279ee9aa1da277f38f6bf7caf336936241c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7d7ef7d7b824daa4a2bd0917bad50a60e8eb798ddb9b4fe9b7c80820351efdbf"
-    sha256 cellar: :any,                 x86_64_linux:      "87b2939ffddeb0e1a4f1afa25b010491fd96ace39c7e00f842758519c74316ed"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e4230e33fa18052195de3b665529e749f8e9f9ad11eabd8e80a3ef5fac28bf1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "363efbbbf7e39abc78ec7129c801c2d9a21cd4331a721ec4d2e0f4084c857710"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ef19d34c227706000e85acaefe6326e065b9f99089681492c46b669a6c2565b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "731006f2e8e4861d8afcf7b0ccbaae2ebdf4224f6054024c1381311daf42b1f7"
+    sha256 cellar: :any,                 x86_64_linux:      "d6e2664ed387cca6e0590d44f094d5270275102925d3280b1a3b6ba72328478b"
   end
 
   depends_on "go" => :build
