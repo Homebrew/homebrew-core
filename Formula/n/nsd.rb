@@ -31,8 +31,6 @@ class Nsd < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 
@@ -40,7 +38,7 @@ class Nsd < Formula
                           "--localstatedir=#{var}",
                           "--disable-dnstap",
                           "--with-libevent=#{formula_opt_prefix("libevent")}",
-                          "--with-ssl=#{formula_opt_prefix(openssl)}",
+                          "--with-ssl=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make", "install"
   end
