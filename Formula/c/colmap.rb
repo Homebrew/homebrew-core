@@ -86,7 +86,8 @@ class Colmap < Formula
     # Fix library install directory and rpath
     inreplace "CMakeLists.txt", "LIBRARY DESTINATION thirdparty/", "LIBRARY DESTINATION lib/"
     args << "-DCMAKE_INSTALL_RPATH=#{loader_path};#{loader_path}/../libexec/poselib/lib"
-    args << "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}"
+    openssl_prefix = dep("openssl").opt_prefix
+    args << "-DOPENSSL_ROOT_DIR=#{openssl_prefix}"
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
