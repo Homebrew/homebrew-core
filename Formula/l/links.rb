@@ -33,8 +33,9 @@ class Links < Formula
   allow_network_access! :test
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--mandir=#{man}",
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{openssl_prefix}",
                           "--without-lzma",
                           *std_configure_args
     system "make", "install"
