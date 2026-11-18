@@ -33,7 +33,8 @@ class OpensshSkProvider < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--with-ssl-dir=#{formula_opt_prefix("openssl@4")}",
+    openssl_prefix = dep("openssl").opt_prefix
+    system "./configure", "--with-ssl-dir=#{openssl_prefix}",
                           "--with-security-key-standalone",
                           *std_configure_args
     # Only export the SecurityKeyProvider API, not the bundled libssh/openbsd-compat symbols
