@@ -48,12 +48,10 @@ class PocketId < Formula
       PORT=#{port}
     ENV
 
-    pid = spawn bin/"pocket-id"
-    sleep 5
+    with_test_process(bin/"pocket-id") do
+      sleep 5
 
-    system "curl", "-s", "--fail", "http://127.0.0.1:#{port}/health"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      system "curl", "-s", "--fail", "http://127.0.0.1:#{port}/health"
+    end
   end
 end
