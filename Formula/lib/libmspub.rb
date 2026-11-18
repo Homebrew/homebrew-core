@@ -1,8 +1,8 @@
 class Libmspub < Formula
   desc "Interpret and import Microsoft Publisher content"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libmspub"
-  url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.5.tar.xz"
-  sha256 "3671095f5a10bee8a755052a30576952c5b16d8b0f2ba9f2fb998338c18cb119"
+  url "https://dev-www.libreoffice.org/src/libmspub/libmspub-0.1.6.tar.xz"
+  sha256 "408eb742b172a0ccbd128a0ff6402eee495839cd905198ce2b3f2607bba617f4"
   license "MPL-2.0"
 
   livecheck do
