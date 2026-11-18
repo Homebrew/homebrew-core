@@ -44,7 +44,7 @@ class Lynx < Formula
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{dep("openssl").opt_prefix}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
                           "--with-curses-dir=#{formula_opt_prefix("ncurses")}",
