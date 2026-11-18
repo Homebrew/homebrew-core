@@ -51,13 +51,9 @@ class Tinyproxy < Formula
     cp etc/"tinyproxy/tinyproxy.conf", testpath/"tinyproxy.conf"
     inreplace testpath/"tinyproxy.conf", "Port 8888", "Port #{port}"
 
-    pid = spawn bin/"tinyproxy", "-c", testpath/"tinyproxy.conf"
-    begin
+    with_test_process(bin/"tinyproxy", "-c", testpath/"tinyproxy.conf", signal: "INT") do
       sleep 2
       assert_match "tinyproxy", shell_output("curl localhost:#{port}")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
