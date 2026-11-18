@@ -36,10 +36,8 @@ class Sniffnet < Formula
 
   test do
     # sniffet is a GUI application
-    pid = spawn bin/"sniffnet"
-    sleep 1
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"sniffnet") do
+      sleep 1
+    end
   end
 end
