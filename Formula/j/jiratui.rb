@@ -9,11 +9,11 @@ class Jiratui < Formula
   head "https://github.com/whyisdifficult/jiratui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cbe3f7f02cfa144e59348c52dde17cd889808526ff5e64e9256984bde732f9a0"
-    sha256 cellar: :any, arm64_tahoe:       "bea55b663673a6ac7bbe134cdc10ddab7954ea154459b24dcb6a63a0e6e606e7"
-    sha256 cellar: :any, arm64_sequoia:     "0c5946c3f58caaae57883f79fc02e035f48be51faa25ff2d07ac8a3dbe62a6f6"
-    sha256 cellar: :any, arm64_linux:       "10dd6a87c83131735d13310926206aa11166166fe750874ed06a5b06f7c04d94"
-    sha256 cellar: :any, x86_64_linux:      "198aa1406981b25d3befa72ae6c82ef366611c43976a6c4f633d59f0e59d29e2"
+    sha256 cellar: :any, arm64_golden_gate: "fdec4a2c06bcb8b33b9c0f6ca412714f62e3c631b371e742a9f3ca27b4f3c9fb"
+    sha256 cellar: :any, arm64_tahoe:       "709d38b21a14548d8e292c04ff9f1e1d9766117d0462f9fc362fc58f417c9e06"
+    sha256 cellar: :any, arm64_sequoia:     "42d926ab65562fba7870664be0251b1743707d4ca92c967cc880e9c6811b7d64"
+    sha256 cellar: :any, arm64_linux:       "70a061ff7ca379263437f2c0b5e598874ecfd5bccd317e780cb50369782c134d"
+    sha256 cellar: :any, x86_64_linux:      "2fb6c199ab88948e53c255b05028207866ef03c461aced830f34294ee7b38919"
   end
 
   depends_on "rust" => :build
