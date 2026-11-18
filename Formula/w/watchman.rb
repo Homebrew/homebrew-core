@@ -70,6 +70,7 @@ class Watchman < Formula
     #       if they are built as shared libraries. They're not used by any other
     #       formulae, so let's link them statically instead. This is done by default.
     build_user = tap&.user || "Homebrew"
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       -DENABLE_EDEN_SUPPORT=ON
       -DPython3_EXECUTABLE=#{python3}
@@ -77,7 +78,7 @@ class Watchman < Formula
       -DWATCHMAN_BUILDINFO_OVERRIDE=#{build_user}
       -DWATCHMAN_USE_XDG_STATE_HOME=ON
       -DCMAKE_CXX_STANDARD=20
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{openssl_prefix}
     ]
     # Avoid overlinking with libsodium and mvfst
     args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
