@@ -31,7 +31,7 @@ class PixiPack < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.linux?
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"pixi-pack", "completion", "-s")
