@@ -24,18 +24,12 @@ class Py3cairo < Formula
 
   deny_network_access!
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def site_packages(python)
     prefix/Language::Python.site_packages(python)
   end
 
   def install
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       python_version = Language::Python.major_minor_version(python)
       builddir = "build#{python_version}"
       system "meson", "setup", builddir, "-Dpython=#{python}",
@@ -48,7 +42,7 @@ class Py3cairo < Formula
   end
 
   test do
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       system python, "-c", "import cairo; print(cairo.version)"
     end
   end
