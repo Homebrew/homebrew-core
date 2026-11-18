@@ -10,9 +10,9 @@ class RapidMlx < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e5a0524f3a5d7b3a7c1bf7d4955288eb0a88a2b023b89f051f020250f8c180a9"
-    sha256 cellar: :any, arm64_tahoe:       "2d179c05affc732dcbc4b28c59a9264eea64a44fed550d4f86674e5dfdfa3d29"
-    sha256 cellar: :any, arm64_sequoia:     "4ba262ce2cd8885c3c30b38d9b13404580057484d9437745ab8e9532cba40269"
+    sha256 cellar: :any, arm64_golden_gate: "79483920846053c359f01bbd24a67ebb89623183c33d000c0997c8a59e908e2b"
+    sha256 cellar: :any, arm64_tahoe:       "8de103fd135cb20a8116bdd60e9d3e4c04dc38da95c2d8edc6c1a89a49085361"
+    sha256 cellar: :any, arm64_sequoia:     "ce60592a63cd9f9575537f519da20be2c63547c3a2f03fd897a8981c35e9cb05"
   end
 
   depends_on "cmake" => :build
