@@ -24,13 +24,14 @@ class I2pd < Formula
   deny_network_access!
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       DEBUG=no
       HOMEBREW=1
       USE_UPNP=yes
       PREFIX=#{prefix}
       BREWROOT=#{HOMEBREW_PREFIX}
-      SSLROOT=#{formula_opt_prefix("openssl@4")}
+      SSLROOT=#{openssl_prefix}
     ]
     args << "USE_AESNI=no" if Hardware::CPU.arm?
 
