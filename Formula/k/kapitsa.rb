@@ -14,6 +14,8 @@ class Kapitsa < Formula
   depends_on arch: :arm64
   depends_on macos: :sonoma
 
+  deny_network_access!
+
   def install
     ENV.O3
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
