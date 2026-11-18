@@ -2,8 +2,8 @@ class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
   url "https://github.com/opensearch-project/OpenSearch.git",
-      tag:      "3.9.0",
-      revision: "4ee42a94e87f66fbf1e62a9871b1b87f91e02472"
+      tag:      "3.10.0",
+      revision: "b9f09249b4a9922f0d0bc5bb8f62f90cf95e5eea"
   license "Apache-2.0"
   compatibility_version 1
 
