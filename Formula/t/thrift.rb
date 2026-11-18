@@ -38,12 +38,13 @@ class Thrift < Formula
   def install
     system "./bootstrap.sh" unless build.stable?
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --disable-debug
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{openssl_prefix}
       --without-java
       --without-kotlin
       --without-python
