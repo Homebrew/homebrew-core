@@ -162,7 +162,7 @@ class Bittensor < Formula
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     ENV["OPENSSL_NO_VENDOR"] = "1"
 
     # Allow Python 3.15
