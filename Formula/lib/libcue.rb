@@ -1,8 +1,8 @@
 class Libcue < Formula
   desc "Cue sheet parser library for C"
   homepage "https://github.com/lipnitsk/libcue"
-  url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "cc1b3a65c60bd88b77a1ddd1574042d83cf7cc32b85fe9481c99613359eb7cfe"
+  url "https://github.com/lipnitsk/libcue/archive/refs/tags/v2.4.2.tar.gz"
+  sha256 "fd93d8d8ed95e91feeb77f41712cc4aef604cfd0da853879efa51c4c95df89c6"
   license "GPL-2.0-only"
   compatibility_version 1
 
@@ -20,18 +20,15 @@ class Libcue < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "981c06a396357ab4014a50e803216c936cd5d6f3da3befa199a5e6926ad3b42a"
   end
 
+  depends_on "bison" => :build # Needs bison 2.4+
   depends_on "cmake" => :build
 
-  uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
 
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build",
-                    "-DBUILD_SHARED_LIBS=ON",
-                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
-                    *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DBUILD_SHARED_LIBS=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
