@@ -492,12 +492,10 @@ class Sickchill < Formula
 
   test do
     port = free_port.to_s
-    pid = spawn bin/"sickchill", "--port", port, "--datadir", testpath, "--nolaunch"
-    sleep 30
-    assert_path_exists testpath/"config.ini"
-    assert_path_exists testpath/"sickchill.db"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"sickchill", "--port", port, "--datadir", testpath, "--nolaunch") do
+      sleep 30
+      assert_path_exists testpath/"config.ini"
+      assert_path_exists testpath/"sickchill.db"
+    end
   end
 end
