@@ -28,7 +28,7 @@ class ProcyonDecompiler < Formula
     JAVA
 
     (testpath/"T.java").write fixture
-    system formula_opt_bin("openjdk@21")/"javac", "T.java"
+    system dep("openjdk").opt_bin/"javac", "T.java"
     assert_match fixture, shell_output("#{bin}/procyon-decompiler T.class")
   end
 end
