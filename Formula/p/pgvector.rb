@@ -4,6 +4,7 @@ class Pgvector < Formula
   url "https://github.com/pgvector/pgvector/archive/refs/tags/v0.8.7.tar.gz"
   sha256 "cac0b10c360f05b2d521200105ba3697e773d4cd3731f5a915a7e37ebe0bea85"
   license "PostgreSQL"
+  revision 1
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9363a3a6e4344d4c2780308b0938556ae18c937e398798117627912fd90d651"
@@ -13,8 +14,8 @@ class Pgvector < Formula
     sha256 cellar: :any,                 x86_64_linux:      "c19b2990a748acfd11ece70fff7024b52baa1a27e72de3958467a3d97810b044"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
