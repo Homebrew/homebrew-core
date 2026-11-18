@@ -26,7 +26,7 @@ class Hive < Formula
       next if file.directory?
 
       (bin/file.basename).write_env_script file,
-        JAVA_HOME:   formula_opt_prefix("openjdk@21"),
+        JAVA_HOME:   dep("openjdk").opt_prefix,
         HADOOP_HOME: "${HADOOP_HOME:-#{formula_opt_libexec("hadoop")}}",
         HIVE_HOME:   libexec
     end
