@@ -34,7 +34,8 @@ class Libfixbuf < Formula
   deny_network_access!
 
   def install
-    system "./configure", "--with-openssl=#{formula_opt_lib("openssl@4")}/pkgconfig",
+    openssl_lib = dep("openssl").opt_lib
+    system "./configure", "--with-openssl=#{openssl_lib}/pkgconfig",
                           "--mandir=#{man}",
                           *std_configure_args
     system "make", "install"
