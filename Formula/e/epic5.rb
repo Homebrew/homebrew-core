@@ -29,22 +29,18 @@ class Epic5 < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     system "./configure", "--mandir=#{man}",
                           "--with-ipv6",
-                          "--with-ssl=#{formula_opt_prefix(openssl)}",
+                          "--with-ssl=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make"
     system "make", "install"
   end
 
   test do
-    connection = spawn bin/"epic5", "irc.freenode.net"
-    sleep 5
-  ensure
-    Process.kill("TERM", connection)
-    Process.wait(connection)
+    with_test_process(bin/"epic5", "irc.freenode.net") do
+      sleep 5
+    end
   end
 end
