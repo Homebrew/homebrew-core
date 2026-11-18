@@ -77,12 +77,13 @@ class Bind < Formula
       system "meson", "compile", "-C", "build", "--verbose"
       system "meson", "install", "-C", "build"
     else
+      openssl_prefix = dep("openssl").opt_prefix
       args = [
         "--sysconfdir=#{pkgetc}",
         "--localstatedir=#{var}",
         "--with-json-c",
         "--with-libidn2=#{formula_opt_prefix("libidn2")}",
-        "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+        "--with-openssl=#{openssl_prefix}",
         "--without-lmdb",
       ]
 
