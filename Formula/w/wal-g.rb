@@ -1,18 +1,16 @@
 class WalG < Formula
   desc "Archival restoration tool for databases"
   homepage "https://github.com/wal-g/wal-g"
-  url "https://github.com/wal-g/wal-g/archive/refs/tags/v3.0.9.tar.gz"
-  sha256 "b06bc26c4865c07d0c269101910f63c7eedd03790b7c054a7da0980a7a9cc31d"
+  url "https://github.com/wal-g/wal-g/archive/refs/tags/v3.0.10.tar.gz"
+  sha256 "e7ad190500da1eb7cc7fdbe7e86543ce5b884992e99491042c5b2592caacf5fe"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a1aa5608e67b5cda0f6e5d77db6c468ba21e2d5ec93a1b3d08f0ffb0aad0e810"
-    sha256 cellar: :any, arm64_tahoe:       "8d22f5c8956cabb8e23479b4a5e7b9709d63d541deb1757917eee0d4668e132f"
-    sha256 cellar: :any, arm64_sequoia:     "ebfd98ba9b3c93d0b13212d89e35b37fb98c5f3e702eafaaf08ee587efd3ad89"
-    sha256 cellar: :any, arm64_sonoma:      "a17bd9cb46debe8e4b1a52abae8f1cd6e64bd16864f6076030a1669eb107439e"
-    sha256 cellar: :any, sonoma:            "51f755172790b0c249861849c6ec048a2ca1bcd120f55577e1d3287b2cdf0417"
-    sha256 cellar: :any, arm64_linux:       "d9a621e96aa82c373c34f4a0ae6498c6b60c3275eb6d1675d29e0abba6a354cd"
-    sha256 cellar: :any, x86_64_linux:      "479932ba6762c8c77c4b74fa4bb947d137c5e6cc30a3df51b2175edc26734639"
+    sha256 cellar: :any, arm64_golden_gate: "c5b264e5782f90cf982fecd8854925a6ac91622cd504497f11bea91312bcb2d3"
+    sha256 cellar: :any, arm64_tahoe:       "3018cffa57613f9f4031794009d8c12f8323eb7467968f1d8ffef9c735b2bf91"
+    sha256 cellar: :any, arm64_sequoia:     "a12f8b663830fdde49cabf7004f82d3cf7bfa7003798e9936496ed228c47be62"
+    sha256 cellar: :any, arm64_linux:       "2735077a373582d0d31644a98fc482fae145a1d45d6092a1214857adecd73857"
+    sha256 cellar: :any, x86_64_linux:      "652b597b71b70bb966176138149bf833ad1a3618018607240fa1c35c0fb6b498"
   end
 
   depends_on "go" => :build
