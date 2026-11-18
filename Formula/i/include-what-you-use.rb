@@ -32,7 +32,7 @@ class IncludeWhatYouUse < Formula
   end
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+(\.\d+)*)?$/) }
+    dep("llvm").to_formula
   end
 
   deny_network_access!
