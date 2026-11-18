@@ -1,8 +1,8 @@
 class Fontconfig < Formula
   desc "XML-based font configuration API for X Windows"
   homepage "https://wiki.freedesktop.org/www/Software/fontconfig/"
-  url "https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/2.18.3/fontconfig-2.18.3.tar.gz"
-  sha256 "9ae01e1d53acdef56010c5451cd34aa41d325b2faccd8606448d8fa01b2496b3"
+  url "https://gitlab.freedesktop.org/fontconfig/fontconfig/-/archive/2.18.4/fontconfig-2.18.4.tar.gz"
+  sha256 "cecf4125622ed674d5630b6deaeff43e3695afe197bdcc560363a1820d858112"
   license all_of: [
     "HPND-sell-variant",
     "Unicode-3.0",        # fc-case/CaseFolding.txt
