@@ -34,11 +34,10 @@ class Mfterm < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
-    ENV.prepend "CPPFLAGS", "-I#{formula_opt_include(openssl)}"
-    ENV.prepend "LDFLAGS", "-L#{formula_opt_lib(openssl)}"
+    openssl = dep("openssl")
+    ENV.prepend "CPPFLAGS", "-I#{openssl.opt_include}"
+    ENV.prepend "LDFLAGS", "-L#{openssl.opt_lib}"
 
     if build.head?
       chmod 0755, "./autogen.sh"
