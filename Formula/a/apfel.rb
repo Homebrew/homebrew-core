@@ -6,6 +6,11 @@ class Apfel < Formula
   license "MIT"
   head "https://github.com/Arthur-Ficial/apfel.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "315232980c9e14a93ee39818269244528f4d324dd8d87190cb9d6b0b903710ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "96eca3ea172a167eb855961065eb860429574b0ccac27d7f6cf51a0505aeff52"
