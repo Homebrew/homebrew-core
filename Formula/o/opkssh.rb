@@ -7,11 +7,11 @@ class Opkssh < Formula
   head "https://github.com/openpubkey/opkssh.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f05b98f30bf05b4f23846065771c2f13324a6646e51240264e8e9b320664ff0b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f05b98f30bf05b4f23846065771c2f13324a6646e51240264e8e9b320664ff0b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f05b98f30bf05b4f23846065771c2f13324a6646e51240264e8e9b320664ff0b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "61b184ec85a25726b67344562759446e3704c3e75d93bc75243a837faf59ba67"
-    sha256 cellar: :any,                 x86_64_linux:      "ac9661954e2ee32be2d1f79792b6941583015fa2d491e7170d7ddf96bce61a3f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d08fb6876cd0621504b1c88e67e00a4a2de5e50b903232cb16ae01ec01863176"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d08fb6876cd0621504b1c88e67e00a4a2de5e50b903232cb16ae01ec01863176"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d08fb6876cd0621504b1c88e67e00a4a2de5e50b903232cb16ae01ec01863176"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9e6ae416e4b81b101648059e527ad0e7a87ff50d3bd83b88840981c2905a0253"
+    sha256 cellar: :any,                 x86_64_linux:      "7d095e4155157293a1e0720710386607851142dbbe886bef488da8679218eec2"
   end
 
   depends_on "go" => :build
