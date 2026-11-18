@@ -10,16 +10,19 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d95848d572c82de0aa632db096b729fe43553b3443b57d780429fd9901f024f1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d95848d572c82de0aa632db096b729fe43553b3443b57d780429fd9901f024f1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d95848d572c82de0aa632db096b729fe43553b3443b57d780429fd9901f024f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "43585e1df758e00a1cd1fc9cbd8b24d4f2bc4d85f98bea04798c516e25594b85"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "43585e1df758e00a1cd1fc9cbd8b24d4f2bc4d85f98bea04798c516e25594b85"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1311482b1d3e4b42dc7ad1624622e1b653bcc8c9243bc3c99c8cef637151fd9f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1311482b1d3e4b42dc7ad1624622e1b653bcc8c9243bc3c99c8cef637151fd9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1311482b1d3e4b42dc7ad1624622e1b653bcc8c9243bc3c99c8cef637151fd9f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "153b79e1cfa95cdda68a82391ea1c59faa8cb3192cc79dc3447aa1e8794408f1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "153b79e1cfa95cdda68a82391ea1c59faa8cb3192cc79dc3447aa1e8794408f1"
   end
 
-  depends_on "node@24"
+  depends_on "node"
 
   uses_from_macos "git", since: :monterey # needs git >= 2.33.0 (Apple Git-136)
+
+  allow_network_access! :build
 
   def install
     system "npm", "install", *std_npm_args
