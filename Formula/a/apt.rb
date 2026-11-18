@@ -72,10 +72,11 @@ class Apt < Formula
       (buildpath/"bin").install "triehash.pl" => "triehash"
     end
 
+    berkeley_db_include = dep("berkeley-db").opt_include
     system "cmake", "-S", ".", "-B", "build",
                     "-DDPKG_DATADIR=#{formula_opt_libexec("dpkg")}/share/dpkg",
                     "-DDOCBOOK_XSL=#{formula_opt_prefix("docbook-xsl")}/docbook-xsl",
-                    "-DBERKELEY_INCLUDE_DIRS=#{formula_opt_include("berkeley-db@5")}",
+                    "-DBERKELEY_INCLUDE_DIRS=#{berkeley_db_include}",
                     "-DWITH_TESTS=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
