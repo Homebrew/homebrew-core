@@ -7,11 +7,7 @@ class Appium < Formula
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "23e51546a450d3e0f4f8a28f65d596ca23bffc68652d6b665d8080c722f19576"
-    sha256 cellar: :any, arm64_tahoe:       "ae69961ac2cd2e31df8fd9316d28a54cd0a59ef91dcf7aa971d4173373294e02"
-    sha256 cellar: :any, arm64_sequoia:     "0138956ee0a71a93f5e42a48028ee8a9bda6387824a97a166b1c73755f976df9"
-    sha256 cellar: :any, arm64_linux:       "f9d45d37761f3b1fb68c539fdb4abd539b3184687bac9e3c284fa735f65e3e1b"
-    sha256 cellar: :any, x86_64_linux:      "c6199c4359d159d208062a25c749a2219a461fe877170e5b88611eec7541840b"
+    sha256 cellar: :any_skip_relocation, all: "e1bc98571f659a9a29538064e9eb068f3133f5dddb1dd64e4151294c2c806253"
   end
 
   depends_on "node"
