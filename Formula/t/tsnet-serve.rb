@@ -40,16 +40,13 @@ class TsnetServe < Formula
     backend = "http://localhost:8080"
 
     logfile = testpath/"tsnet-serve.log"
-    pid = spawn bin/"tsnet-serve", "-hostname", hostname, "-backend", backend,
-                out: logfile.to_s, err: logfile.to_s
+    with_test_process(bin/"tsnet-serve", "-hostname", hostname, "-backend", backend,
+                      out: logfile.to_s, err: logfile.to_s) do
+      sleep 1
 
-    sleep 1
-
-    output = logfile.read
-    assert_match "tsnet starting with hostname \"#{hostname}\"", output
-    assert_match "LocalBackend state is NeedsLogin", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = logfile.read
+      assert_match "tsnet starting with hostname \"#{hostname}\"", output
+      assert_match "LocalBackend state is NeedsLogin", output
+    end
   end
 end
