@@ -1,10 +1,9 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net/docs/"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/6.8.2.tar.gz"
-  sha256 "02b7efc0b9cfee26971c0f89b27724eb51d33c3230788963e77dc94070173c21"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/7.0.0.tar.gz"
+  sha256 "3162799004cdf1187d80906e38c1761f796ad21cd935ea67597f5efc8b3e5a11"
   license "MIT"
-  revision 2
 
   no_autobump! because: :bumped_by_upstream
 
@@ -16,7 +15,7 @@ class Gitversion < Formula
     sha256 cellar: :any, x86_64_linux:      "621b08d9d2775cd360015800c045e0b794f68ed2eaef453142bae08ffb5142d1"
   end
 
-  depends_on "dotnet@10"
+  depends_on "dotnet"
   depends_on "openssl@4"
 
   deny_network_access!
@@ -69,6 +68,6 @@ class Gitversion < Formula
     system "git", "config", "user.email", "test@example.com"
     system "git", "add", "test.txt"
     system "git", "commit", "-q", "--message='Test'"
-    assert_match '"FullSemVer": "0.0.1-1"', shell_output("#{bin}/gitversion -output json")
+    assert_match '"FullSemVer": "0.0.1-1"', shell_output("#{bin}/gitversion --output json")
   end
 end
