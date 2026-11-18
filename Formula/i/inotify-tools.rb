@@ -7,8 +7,8 @@ class InotifyTools < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "9323724818634e205bcff1a6ebc3838782ebc0279419c54d2518fd59076e08bc"
-    sha256 cellar: :any, x86_64_linux: "39f7522f02a13eba1b5e38b2013a51599823b6330a9fd0a65e54dcf4b6f2ca3d"
+    sha256 cellar: :any, arm64_linux:  "78136867b3c009d088b2a6acf7f825853e86ea4c8296c4383cc53afd04563b1b"
+    sha256 cellar: :any, x86_64_linux: "d01aebbaccdca654e3421d8543ac2166684e1dcccc6c2173dfc49e9fee944c03"
   end
 
   depends_on "rust" => :build
