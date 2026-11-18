@@ -44,12 +44,10 @@ class HttpServerRs < Formula
   test do
     touch testpath/"foobar"
     port = free_port
-    pid = spawn bin/"http-server", "-q", "-p", port.to_s
-    sleep 3
-    output = shell_output("curl -s http://localhost:#{port}")
-    assert_match "foobar", output
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+    with_test_process(bin/"http-server", "-q", "-p", port.to_s, signal: "INT") do
+      sleep 3
+      output = shell_output("curl -s http://localhost:#{port}")
+      assert_match "foobar", output
+    end
   end
 end
