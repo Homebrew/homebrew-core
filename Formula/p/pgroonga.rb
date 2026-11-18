@@ -4,6 +4,7 @@ class Pgroonga < Formula
   url "https://packages.groonga.org/source/pgroonga/pgroonga-4.1.0.tar.gz"
   sha256 "0ce8d58e73820bb74e82882afa58d6c0c5c46d43ae8349c6fc05c7097b85ee40"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url "https://pgroonga.github.io/install/source.html"
@@ -21,8 +22,8 @@ class Pgroonga < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => :build
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
   depends_on "groonga"
   depends_on "msgpack"
   depends_on "xxhash"
