@@ -62,12 +62,9 @@ class Nessie < Formula
     port = free_port
     ENV["QUARKUS_HTTP_PORT"] = free_port.to_s
     ENV["QUARKUS_MANAGEMENT_PORT"] = port.to_s
-    pid = spawn bin/"nessie"
-
-    output = shell_output("curl -s --retry 5 --retry-connrefused localhost:#{port}/q/health")
-    assert_match "UP", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"nessie") do
+      output = shell_output("curl -s --retry 5 --retry-connrefused localhost:#{port}/q/health")
+      assert_match "UP", output
+    end
   end
 end
