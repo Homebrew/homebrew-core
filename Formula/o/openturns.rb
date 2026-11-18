@@ -1,20 +1,17 @@
 class Openturns < Formula
   desc "Probabilistic modelling and uncertainty quantification library"
   homepage "https://github.com/openturns/openturns"
-  url "https://github.com/openturns/openturns/archive/refs/tags/v1.27.3.tar.gz"
-  sha256 "6cd10e65682a09a5c8f7b40e3b4926d64fc93dcdff19c0e432ec843886cc1bc2"
+  url "https://github.com/openturns/openturns/archive/refs/tags/v1.28.tar.gz"
+  sha256 "8d81ed39004c06b7d5e628daca545a09e4f6b04f790ce33acd4146473b61e1fa"
   license "LGPL-3.0-or-later"
   head "https://github.com/openturns/openturns.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "24b4ba9f64ebe4b051bbf5a86ead5817ca1a44508e05e3c8ed1fff44f3569d1d"
-    sha256 arm64_tahoe:       "2f150a1b12c631f1d86abf83327222c98410292d937f35d4f38404be16cd0c0e"
-    sha256 arm64_sequoia:     "ba3391c01827910522fca5736530d941911dacde3d870178e9cb2b7e144e6802"
-    sha256 arm64_sonoma:      "a284e8de20f151f73c7ca8e0e2a94bc6bcaf211b1a8e13dba02415383ebed5fa"
-    sha256 sonoma:            "62828cc8463fa2a7409bcfa9ca5deac8b927bb8c51124df23ce0ed1b4fd62435"
-    sha256 arm64_linux:       "510dd85645562892344ab26d036cabf02e5d4bf7e95c6affc7ac606ea49804dc"
-    sha256 x86_64_linux:      "a5c2832548ef87987705919b55382328f649b5b3332c66da834edf75d125a132"
+    sha256 arm64_golden_gate: "2b7d69d31b131a7a9dacb8c689e1320cd4351665f4a122a034edfe22f26708c8"
+    sha256 arm64_tahoe:       "ba4fa215dba6f8ed923bc3e2ef276a908283afb63793ee2c573d391f62b38e4c"
+    sha256 arm64_sequoia:     "3a2951fc5f3652e0da6a30441b7fbfd2cac5e48b9dc67a4ec87b0a9812dc18f0"
+    sha256 arm64_linux:       "dc48cb8647a189be6bfc50bf133f1b476ee2e3bf4c0ba7dac41a7909015802a2"
+    sha256 x86_64_linux:      "a5cc22c2b0275992dcf99246eadf9a72deb2ed1c9b96f31aa0ed929c37abbd9d"
   end
 
   depends_on "boost" => :build
