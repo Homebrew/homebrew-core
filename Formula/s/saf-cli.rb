@@ -1,8 +1,8 @@
 class SafCli < Formula
   desc "CLI for the MITRE Security Automation Framework (SAF)"
   homepage "https://saf-cli.mitre.org"
-  url "https://registry.npmjs.org/@mitre/saf/-/saf-1.7.0.tgz"
-  sha256 "001d6bdb2ca7462ac86b5544068f7d2bf415cda777c6ef6ce3e1bd83af31269a"
+  url "https://registry.npmjs.org/@mitre/saf/-/saf-1.8.0.tgz"
+  sha256 "0b2433ccc0a161176153f949a5c4b708686a83a4aeaf88216f211880574bfd98"
   license "Apache-2.0"
 
   bottle do
