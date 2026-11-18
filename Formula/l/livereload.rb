@@ -33,15 +33,10 @@ class Livereload < Formula
     HTML
 
     port = free_port
-    pid = spawn bin/"livereload", testpath, "--port=#{port}"
-
-    begin
+    with_test_process(bin/"livereload", testpath, "--port=#{port}") do
       sleep 5
       output = shell_output("curl --retry 5 --retry-connrefused -s http://localhost:#{port}/index.html")
       assert_match "<h1>Hello, world!</h1>", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
