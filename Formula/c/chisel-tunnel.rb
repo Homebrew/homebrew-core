@@ -33,14 +33,9 @@ class ChiselTunnel < Formula
 
   test do
     server_port = free_port
-    server_pid = spawn bin/"chisel", "server", "-p", server_port.to_s, [:out, :err] => File::NULL
-
-    begin
+    with_test_process(bin/"chisel", "server", "-p", server_port.to_s, [:out, :err] => File::NULL) do
       sleep 2
       assert_match "Connected", shell_output("curl -v 127.0.0.1:#{server_port} 2>&1")
-    ensure
-      Process.kill("TERM", server_pid)
-      Process.wait(server_pid)
     end
   end
 end
