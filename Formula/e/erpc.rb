@@ -58,15 +58,11 @@ class Erpc < Formula
     output = shell_output("#{bin}/erpc validate --config #{testpath}/erpc.yaml")
     assert_empty JSON.parse(output)["errors"]
 
-    pid = spawn bin/"erpc", testpath/"erpc.yaml", [:out, :err] => (testpath/"erpc.log").to_s
-    begin
+    with_test_process(bin/"erpc", testpath/"erpc.yaml", [:out, :err] => (testpath/"erpc.log").to_s) do
       sleep 5
       assert_match "starting IPv4 HTTP server on 127.0.0.1:#{port}", (testpath/"erpc.log").read
       # The only upstream is a closed local port, so the project has no healthy upstream yet.
       assert_equal({ "main" => [] }, JSON.parse(shell_output("curl -s http://127.0.0.1:#{port}/healthcheck")))
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
