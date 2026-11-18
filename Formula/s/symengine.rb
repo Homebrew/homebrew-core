@@ -24,7 +24,6 @@ class Symengine < Formula
   deny_network_access!
 
   def install
-    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
     system "cmake", "-S", ".", "-B", "build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DWITH_MPFR=ON",
@@ -32,7 +31,7 @@ class Symengine < Formula
                     "-DINTEGER_CLASS=flint",
                     "-DWITH_LLVM=ON",
                     "-DCMAKE_UNITY_BUILD=ON",
-                    "-DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm",
+                    "-DLLVM_DIR=#{dep("llvm").opt_lib}/cmake/llvm",
                     "-DWITH_SYMENGINE_THREAD_SAFE=ON",
                     "-DWITH_SYSTEM_CEREAL=ON",
                     *std_cmake_args
