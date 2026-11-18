@@ -23,7 +23,7 @@ class Jmeter < Formula
     rm(Dir["bin/*.bat"])
 
     libexec.install Dir["*"]
-    (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: formula_opt_prefix("openjdk@21")
+    (bin/"jmeter").write_env_script libexec/"bin/jmeter", JAVA_HOME: dep("openjdk").opt_prefix
 
     resource("jmeter-plugins-manager").stage do
       (libexec/"lib/ext").install Dir["*"]
