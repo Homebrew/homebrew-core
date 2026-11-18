@@ -47,23 +47,20 @@ class Stolon < Formula
 
   test do
     endpoint = "http://127.0.0.1:2379"
-    pid = spawn "etcd", "--advertise-client-urls", endpoint, "--listen-client-urls", endpoint
+    with_test_process("etcd", "--advertise-client-urls", endpoint, "--listen-client-urls", endpoint) do
+      sleep 5
 
-    sleep 5
-
-    assert_match "stolonctl version #{version}",
-      shell_output("#{bin}/stolonctl version 2>&1")
-    output = shell_output("#{bin}/stolonctl status --cluster-name test " \
-                          "--store-backend etcdv3 --store-endpoints #{endpoint} 2>&1", 1)
-    assert_match "nil cluster data: <nil>", output
-    assert_match "stolon-keeper version #{version}",
-      shell_output("#{bin}/stolon-keeper --version 2>&1")
-    assert_match "stolon-sentinel version #{version}",
-      shell_output("#{bin}/stolon-sentinel --version 2>&1")
-    assert_match "stolon-proxy version #{version}",
-      shell_output("#{bin}/stolon-proxy --version 2>&1")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match "stolonctl version #{version}",
+        shell_output("#{bin}/stolonctl version 2>&1")
+      output = shell_output("#{bin}/stolonctl status --cluster-name test " \
+                            "--store-backend etcdv3 --store-endpoints #{endpoint} 2>&1", 1)
+      assert_match "nil cluster data: <nil>", output
+      assert_match "stolon-keeper version #{version}",
+        shell_output("#{bin}/stolon-keeper --version 2>&1")
+      assert_match "stolon-sentinel version #{version}",
+        shell_output("#{bin}/stolon-sentinel --version 2>&1")
+      assert_match "stolon-proxy version #{version}",
+        shell_output("#{bin}/stolon-proxy --version 2>&1")
+    end
   end
 end
