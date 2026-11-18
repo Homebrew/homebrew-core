@@ -25,7 +25,7 @@ class Jenkins < Formula
     if build.head?
       system "mvn", "clean", "install", "-pl", "war", "-am", "-DskipTests"
     else
-      system "#{formula_opt_bin("openjdk@21")}/jar", "xvf", "jenkins.war"
+      system "#{dep("openjdk").opt_bin}/jar", "xvf", "jenkins.war"
     end
     libexec.install Dir["**/jenkins.war", "**/cli-#{version}.jar"]
     bin.write_jar_script libexec/"jenkins.war", "jenkins", java_version: "21"
