@@ -49,8 +49,6 @@ class ApacheSerf < Formula
 
   deny_network_access!
 
-  def openssl = "openssl@4"
-
   def install
     # scons ignores our compiler and flags unless explicitly passed
     args = %W[
@@ -60,7 +58,7 @@ class ApacheSerf < Formula
       CFLAGS=#{ENV.cflags}
       GSSAPI=#{OS.mac? ? MacOS.sdk_for_formula(self).path/"usr" : formula_opt_prefix("krb5")}
       LINKFLAGS=#{ENV.ldflags}
-      OPENSSL=#{formula_opt_prefix(openssl)}
+      OPENSSL=#{formula_opt_prefix("openssl@4")}
       PREFIX=#{prefix}
     ]
     args << "ZLIB=#{formula_opt_prefix("zlib-ng-compat")}" if OS.linux?
