@@ -70,7 +70,7 @@ class Teslamate < Formula
     ENV["LC_ALL"] = "C"
 
     pg_port = free_port
-    pg_bin = formula_opt_bin("postgresql@18")
+    pg_bin = dep("postgresql").opt_bin
     pg_ctl = pg_bin/"pg_ctl"
     datadir = testpath/"postgres"
     system pg_ctl, "init", "-D", datadir
