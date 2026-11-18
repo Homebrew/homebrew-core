@@ -47,16 +47,15 @@ class Glibc < Formula
   mirror "https://ftp.gnu.org/gnu/glibc/glibc-2.39.tar.gz"
   sha256 "97f84f3b7588cd54093a6f6389b0c1a81e70d99708d74963a2e3eab7c7dc942d"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
-  revision 1
+  revision 2
 
   livecheck do
     skip "glibc is pinned to the version present in Homebrew CI"
   end
 
   bottle do
-    rebuild 2
-    sha256 arm64_linux:  "01a46dbd217ab6379da50f9285da81ebaf0928c3457fbb04542b745bc80cb27f"
-    sha256 x86_64_linux: "2fe24afa0fd4034a66340b61fbe952ec7628d5eb30358191730c9ba2b6a1d421"
+    sha256 arm64_linux:  "33833fc43846b77959cfa9cb2877a4c8a3433615be9a8c1a0bc08971cac8a71b"
+    sha256 x86_64_linux: "064894039ef74fc2f847f8a9112e4fbc68f889eba219d09acf986542562ba096"
   end
 
   keg_only "it can shadow system glibc if linked"
@@ -145,14 +144,17 @@ class Glibc < Formula
 
   # Apply CVE patches from Ubuntu
   patch do
-    url "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/glibc_2.39-0ubuntu8.8.debian.tar.xz"
-    mirror "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/glibc/2.39-0ubuntu8.8/glibc_2.39-0ubuntu8.8.debian.tar.xz"
-    sha256 "ff1aa3bb3eba4f302a99c9b957cacff6d79f26e9b0e663e379bf70a4f39d4283"
+    url "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/glibc_2.39-0ubuntu8.12.debian.tar.xz"
+    mirror "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/glibc/2.39-0ubuntu8.12/glibc_2.39-0ubuntu8.12.debian.tar.xz"
+    sha256 "cc7cf38a3060a282011e83c946b6cec1aebe9b04e21e133449abe28340a710f6"
     type :backport
-    resolves "CVE-2024-2961", "CVE-2024-33599", "CVE-2024-33600", "CVE-2024-33601", "CVE-2024-33602",
-             "CVE-2025-0395", "CVE-2025-5702", "CVE-2025-8058", "CVE-2025-15281",
-             "CVE-2026-0861", "CVE-2026-0915", "CVE-2026-4046", "CVE-2026-4437", "CVE-2026-4438",
-             "CVE-2026-5435", "CVE-2026-5450", "CVE-2026-5928", "CVE-2026-6238"
+    resolves "CVE-2024-2961",  "CVE-2024-33599", "CVE-2024-33600", "CVE-2024-33601", "CVE-2024-33602",
+             "CVE-2025-0395",  "CVE-2025-5702",  "CVE-2025-8058",  "CVE-2025-15281", "CVE-2026-0861",
+             "CVE-2026-0915",  "CVE-2026-4046",  "CVE-2026-4437",  "CVE-2026-4438",  "CVE-2026-5435",
+             "CVE-2026-5450",  "CVE-2026-5928",  "CVE-2026-6238",  "CVE-2026-6368",  "CVE-2026-6791",
+             "CVE-2026-8674",  "CVE-2026-18374", "CVE-2026-19499", "CVE-2026-19542", "CVE-2026-77117",
+             "CVE-2026-80489", "CVE-2026-84243", "CVE-2026-86805", "CVE-2026-89092", "CVE-2026-95818",
+             "CVE-2026-97399"
     apply "patches/any/CVE-2024-2961.patch",
           "patches/any/CVE-2024-33599.patch",
           "patches/any/CVE-2024-33600_1.patch",
@@ -174,7 +176,22 @@ class Glibc < Formula
           "patches/CVE-2026-5435.patch",
           "patches/CVE-2026-6238-1.patch",
           "patches/CVE-2026-6238-2.patch",
-          "patches/CVE-2026-443x.patch"
+          "patches/CVE-2026-443x.patch",
+          "patches/CVE-2026-19499.patch",
+          "patches/CVE-2026-19542.patch",
+          "patches/CVE-2026-6368.patch",
+          "patches/CVE-2026-6791.patch",
+          "patches/CVE-2026-77117-1.patch",
+          "patches/CVE-2026-77117-2.patch",
+          "patches/CVE-2026-80489.patch",
+          "patches/CVE-2026-18374.patch",
+          "patches/CVE-2026-8674.patch",
+          "patches/CVE-2026-86805_95818-pre1.patch",
+          "patches/CVE-2026-86805_95818-pre2.patch",
+          "patches/CVE-2026-86805_95818.patch",
+          "patches/CVE-2026-89092.patch",
+          "patches/CVE-2026-97399.patch",
+          "patches/CVE-2026-84243.patch"
   end
 
   # Backport of various test suite fixes
@@ -277,7 +294,11 @@ class Glibc < Formula
         ENV["TIMEOUTFACTOR"] = "4" if Hardware::CPU.intel?
 
         # Workaround to skip test failures seen when running in sandbox
-        xfail_tests = ["test-xfail-tst-realpath-toolong=yes"]
+        xfail_tests = %w[
+          test-xfail-tst-close_range=yes
+          test-xfail-tst-closefrom=yes
+          test-xfail-tst-realpath-toolong=yes
+        ]
       end
 
       system "../configure", *args, "CFLAGS=#{cflags}"
