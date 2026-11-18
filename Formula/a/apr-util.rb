@@ -31,9 +31,10 @@ class AprUtil < Formula
   deny_network_access!
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--with-apr=#{formula_opt_prefix("apr")}",
                           "--with-crypto",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{openssl_prefix}",
                           "--without-pgsql",
                           *std_configure_args
     system "make"
