@@ -287,7 +287,7 @@ class Bbot < Formula
     # Work around superenv breaking aws-lc-sys `-O0` needed to build CPU Jitter RNG
     ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     ENV["XXHASH_LINK_SO"] = "1"
 
     venv = virtualenv_install_with_resources without: %w[yara-python zstandard]
