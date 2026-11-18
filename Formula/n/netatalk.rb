@@ -61,11 +61,11 @@ class Netatalk < Formula
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@bindir@", opt_bin
     inreplace "distrib/initscripts/macos.netatalk.plist.in", "@sbindir@", opt_sbin
     inreplace "distrib/initscripts/systemd.netatalk.service.in", "@sbindir@", opt_sbin
-    bdb5_rpath = rpath(target: formula_opt_lib("berkeley-db@5"))
+    bdb5_rpath = rpath(target: dep("berkeley-db").opt_lib)
     ENV.append "LDFLAGS", "-Wl,-rpath,#{bdb5_rpath}" if OS.linux?
     args = [
       "-Dwith-appletalk=#{OS.linux?}", # macOS doesn't have an AppleTalk stack
-      "-Dwith-bdb-path=#{formula_opt_prefix("berkeley-db@5")}",
+      "-Dwith-bdb-path=#{dep("berkeley-db").opt_prefix}",
       "-Dwith-cups-libdir-path=#{libexec}",
       "-Dwith-cups-pap-backend=#{OS.linux?}",
       "-Dwith-docs=man,readmes,html_manual",
