@@ -27,15 +27,9 @@ class Cryptography < Formula
 
   pypi_packages exclude_packages: ["cffi", "pycparser"]
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.start_with?("python@") }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
     # TODO: Avoid building multiple times as binaries are already built in limited API mode
-    pythons.each do |python3|
+    python3_interpreters.each do |python3|
       system python3, "-m", "pip", "install", *std_pip_args, "."
     end
   end
@@ -49,7 +43,7 @@ class Cryptography < Formula
       print(f.decrypt(token))
     PYTHON
 
-    pythons.each do |python3|
+    python3_interpreters.each do |python3|
       assert_match "b'homebrew'", shell_output("#{python3} test.py")
     end
   end
