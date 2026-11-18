@@ -34,8 +34,9 @@ class W3m < Formula
   allow_network_access! :test
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--disable-image",
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{openssl_prefix}",
                           *std_configure_args
     system "make", "install"
   end
