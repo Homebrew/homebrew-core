@@ -5,12 +5,12 @@ class Flang < Formula
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   stable do
-    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm-project-23.1.5.src.tar.xz"
-    sha256 "fb50b1eac93ddeb3aa8dab4cfe324dff74f4a9c2bdee6160c9e36188f8d06a6e"
+    url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.6/llvm-project-23.1.6.src.tar.xz"
+    sha256 "d3b86ab29cfb4445a6652e5c2642ccc75e04e38084dde3701d323320f35a31da"
 
     resource "llvm_man_pages" do
-      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.5/llvm_man_pages-23.1.5.tar.xz"
-      sha256 "ba08a070d4ad120913b60254968f051bf497195b06a065155edb83e8e59e9425"
+      url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.6/llvm_man_pages-23.1.6.tar.xz"
+      sha256 "daf2953e0fa1b4fc56920d963d5362a9bcea0ec1680d58faff49389d934f5d22"
 
       livecheck do
         formula :parent
@@ -23,11 +23,11 @@ class Flang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7240378a57deb19d65a7a05f38f09ec01a22abf8f54352a5649f0c06da8b5dfe"
-    sha256 cellar: :any, arm64_tahoe:       "699202a4410fd73e60ba17c3c5fe84f83ba2571d162278ce4653470f1e67d5c7"
-    sha256 cellar: :any, arm64_sequoia:     "3cc6c2310b4a33966a101bbc0609588937603ce333150fb54bcae766d6cf667f"
-    sha256 cellar: :any, arm64_linux:       "106bbbbffa9ec78e654f3850e7101f2a5be6e4e573f18508fae07f7026562849"
-    sha256 cellar: :any, x86_64_linux:      "048593eb3ae0408e3b89ae09b3c126e9237e3ada440e72bf73fc0b1f7c841c64"
+    sha256 cellar: :any, arm64_golden_gate: "24425e0f396e5ff192725c279c4854e699c59a1968750f6b3d7749de8fda8cd0"
+    sha256 cellar: :any, arm64_tahoe:       "6f99350984ea6036bc0a343c3edfc88a9d0a70004888b797e4cc9413e8e5132e"
+    sha256 cellar: :any, arm64_sequoia:     "0f542713a73cad4a035c4d108595332c738d34926e47047940f34ac91a9558e7"
+    sha256 cellar: :any, arm64_linux:       "d8d82e84e468ebecc9bab408f87d72b97e616a257c9020a4f39f914ef58077f1"
+    sha256 cellar: :any, x86_64_linux:      "ebeb22b662f328d63547f06bf9ffafb9747688e527f317e4c742c34d9d08e840"
   end
 
   depends_on "cmake" => :build
