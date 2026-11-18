@@ -4,6 +4,7 @@ class Pgrouting < Formula
   url "https://github.com/pgRouting/pgrouting/releases/download/v4.0.2/pgrouting-4.0.2.tar.gz"
   sha256 "2faf31b178db969637c1f392ba3ba18fba8d5aed15bdc73fbb4a53a72c5d0f71"
   license "GPL-2.0-or-later"
+  revision 1
   compatibility_version 1
   head "https://github.com/pgRouting/pgrouting.git", branch: "develop"
 
@@ -23,8 +24,8 @@ class Pgrouting < Formula
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
   depends_on "postgis"
 
   allow_network_access! :test
