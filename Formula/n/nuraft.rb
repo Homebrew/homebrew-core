@@ -38,12 +38,13 @@ class Nuraft < Formula
 
   test do
     cp_r pkgshare/"examples/.", testpath
+    openssl = dep("openssl")
     system ENV.cxx, "-std=c++11", "-o", "test",
                     "quick_start.cxx", "logger.cc", "in_memory_log_store.cxx",
                     "-I#{include}/libnuraft", "-I#{testpath}/echo",
-                    "-I#{formula_opt_include("openssl@4")}",
+                    "-I#{openssl.opt_include}",
                     "-L#{lib}", "-lnuraft",
-                    "-L#{formula_opt_lib("openssl@4")}", "-lcrypto", "-lssl"
+                    "-L#{openssl.opt_lib}", "-lcrypto", "-lssl"
     assert_match "hello world", shell_output("./test")
   end
 end
