@@ -1,8 +1,8 @@
 class Openturns < Formula
   desc "Probabilistic modelling and uncertainty quantification library"
   homepage "https://github.com/openturns/openturns"
-  url "https://github.com/openturns/openturns/archive/refs/tags/v1.27.3.tar.gz"
-  sha256 "6cd10e65682a09a5c8f7b40e3b4926d64fc93dcdff19c0e432ec843886cc1bc2"
+  url "https://github.com/openturns/openturns/archive/refs/tags/v1.28.tar.gz"
+  sha256 "8d81ed39004c06b7d5e628daca545a09e4f6b04f790ce33acd4146473b61e1fa"
   license "LGPL-3.0-or-later"
   head "https://github.com/openturns/openturns.git", branch: "master"
 
