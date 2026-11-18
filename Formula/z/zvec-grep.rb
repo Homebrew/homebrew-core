@@ -1,8 +1,8 @@
 class ZvecGrep < Formula
   desc "Agent-friendly hybrid workspace search across code and non-code content"
   homepage "https://github.com/zvec-ai/zvec-grep"
-  url "https://registry.npmjs.org/@zvec/zvec-grep/-/zvec-grep-0.2.2.tgz"
-  sha256 "a958bb24f161c6d092fe555ddeeb44989f933354d9e21392d89af4bc75bd4393"
+  url "https://registry.npmjs.org/@zvec/zvec-grep/-/zvec-grep-0.3.1.tgz"
+  sha256 "c9a1c190f0a3c6a3a3835ebf4ac267f92469c9bfe4b7a567b96c5f8d98a95cd7"
   license "Apache-2.0"
 
   bottle do
