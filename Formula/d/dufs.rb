@@ -29,15 +29,10 @@ class Dufs < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"dufs", bin.to_s, "-b", "127.0.0.1", "--port", port.to_s
-
-    begin
+    with_test_process(bin/"dufs", bin.to_s, "-b", "127.0.0.1", "--port", port.to_s, signal: "INT") do
       sleep 2
       read = (bin/"dufs").read
       assert_equal read, shell_output("curl localhost:#{port}/dufs")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
