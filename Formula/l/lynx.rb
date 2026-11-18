@@ -38,13 +38,14 @@ class Lynx < Formula
     # Using --with-screen=ncurses to due to behaviour change in Big Sur
     # https://github.com/Homebrew/homebrew-core/pull/58019
 
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", *std_configure_args,
                           "--mandir=#{man}",
                           "--disable-echo",
                           "--enable-default-colors",
                           "--with-zlib",
                           "--with-bzlib",
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{openssl_prefix}",
                           "--enable-ipv6",
                           "--with-screen=ncurses",
                           "--with-curses-dir=#{formula_opt_prefix("ncurses")}",
