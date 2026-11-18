@@ -34,11 +34,9 @@ class Kubefwd < Formula
     assert_match "This program requires superuser privileges to run.", shell_output("#{bin}/kubefwd services")
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"kubefwd", "mcp", [:out, :err] => output_log.to_s
-    sleep 2
-    assert_match "Cannot connect to kubefwd API", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"kubefwd", "mcp", [:out, :err] => output_log.to_s) do
+      sleep 2
+      assert_match "Cannot connect to kubefwd API", output_log.read
+    end
   end
 end
