@@ -3,17 +3,17 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/61/63/3bfa8e62bb1e3551378fbbe3a7311f7fb3be81d93fb4c3d12466793aeada/bzt-1.17.2.tar.gz"
-  sha256 "6e9e76eb06b9513814307eb924dda0e4b91a92e8a84e257f650c137e7dfb676b"
+  url "https://files.pythonhosted.org/packages/5f/b0/cad50876a97a36d575e370094f84cd74c936cc2fea552f3626972edb7a24/bzt-1.17.3.tar.gz"
+  sha256 "1370a5874ffe2113a813171a7faf89dc9427406058089f573c69f3cb06763cc6"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a3da2a9801f7bc453bb617d3cf66376a336dc4c4659d5367287323f21c29f59c"
-    sha256 cellar: :any, arm64_tahoe:       "a86b325eb4138400b36894fe8f036352c360c17f053a78ac3b6a22c1b61a146b"
-    sha256 cellar: :any, arm64_sequoia:     "d687a7a7927f93af2d6422f73070a6aaf1051b9d60363e2f5e9b454932afeadd"
-    sha256 cellar: :any, arm64_linux:       "a8b02be0f615e939ecc7813b3e390b7658dc1c6de72dc66fe26248a9055f22c9"
-    sha256 cellar: :any, x86_64_linux:      "b60a5b8d5a0f14379898c96db06efa610b0ebbc0b0577911eff527e0cfb40ef4"
+    sha256 cellar: :any, arm64_golden_gate: "f7d33e6d96cceda90f934343a340605760b9a5345af60970e5b0e9e3f6b81b23"
+    sha256 cellar: :any, arm64_tahoe:       "c49c730de5c5f62a7417bf05e49136e6cbe0ad84fb7f8d3dd3176fb1bb14bce9"
+    sha256 cellar: :any, arm64_sequoia:     "37c3c36a4d89dac0f968ff1f5ee39c59015c2795fed1882cd251ccc4c35ead41"
+    sha256 cellar: :any, arm64_linux:       "a36c6c61dc208fa09647dfc0637c0b5d86c8e9a9472f2a0d19b829fab0111fc9"
+    sha256 cellar: :any, x86_64_linux:      "42ebeed66e006bcf770a0f13efb7e661eff29e7edbde18c354778fd952a7ad71"
   end
 
   depends_on "cmake" => :build
@@ -81,8 +81,8 @@ class Bzt < Formula
   end
 
   resource "cython" do
-    url "https://files.pythonhosted.org/packages/a9/d8/4981ef716ad0e3ff0d3ef383aefc6b03c4a88dee33b272bf8e0d833001ca/cython-3.3.0.tar.gz"
-    sha256 "eed0d93fbca7087f143b42c34b05a825849bdf17f101572c2105acfa49aa88b8"
+    url "https://files.pythonhosted.org/packages/99/ca/18e324972e5cac914816fdd7bb03e19a455b90039c277a538f7781b50c85/cython-3.3.1.tar.gz"
+    sha256 "e0e45989e821bef6aa9ae15c7d583ab5e055f7406c4b3624e49e06d24e90375a"
   end
 
   resource "dill" do
@@ -116,8 +116,8 @@ class Bzt < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/0a/ea/13a1ef3c12d12662905801495283530251918b70d62d368f1d2e0272c70d/humanize-4.16.0.tar.gz"
-    sha256 "7dc2244a2f84a4bfb1d36c37bac80cd78e35cdc5c119206d87b018e1445f3a3f"
+    url "https://files.pythonhosted.org/packages/d0/a7/5391f6db94bf16289ca63ce2632eef2eba7b9991e701016ac66f04539d47/humanize-4.17.0.tar.gz"
+    sha256 "1d6a36c453dbfbb3f0b34601d2e0b4ce5d48d780305cd45714843f0068fde6ac"
   end
 
   resource "idna" do
@@ -141,8 +141,8 @@ class Bzt < Formula
   end
 
   resource "msgpack" do
-    url "https://files.pythonhosted.org/packages/0a/e7/bb605a7bab2d8425a64b3fa762b39dc1bf1c7e3f11ba6fb5413d6db0ff8c/msgpack-1.2.3.tar.gz"
-    sha256 "32edb81a2b5eb7cd7c9d941b2bfbbb082fd2cd09e0e725930316af6b708db186"
+    url "https://files.pythonhosted.org/packages/cc/52/1ec7ead2c7528bf3d1db73e886fa4df10f9e6f0eb7854a448b7090cfcef7/msgpack-1.2.4.tar.gz"
+    sha256 "475c44e12f2a5de766a8448783f149c9b33f3f49b88953c6cd739a77d93c732c"
   end
 
   resource "multidict" do
@@ -186,23 +186,23 @@ class Bzt < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/0e/df/f15f80383f152452d8985b36d95cb8751f901a3e0ff4cd27f7e118f168e2/python_dateutil-3.0.0.tar.gz"
-    sha256 "7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"
+    url "https://files.pythonhosted.org/packages/18/39/b3927f3616f6223832f9b760e4208e8a7c7e1dea2b4d9ad7d32a5d214c3a/python_dateutil-4.0.0.tar.gz"
+    sha256 "d7295ff14fdc0f92f662100bfb6c551d160ca090f2939f1ec5b9794265c03f06"
   end
 
   resource "python-engineio" do
-    url "https://files.pythonhosted.org/packages/fc/65/f8bae11b228647e2e2f45b63dec7448efaddb7cb51f529de1fdba69e63b5/python_engineio-4.14.0.tar.gz"
-    sha256 "eaa1e386baf9c2c7959eef7f9d9165c5ea910c5b392f5316e78d29ed073cb43d"
+    url "https://files.pythonhosted.org/packages/dd/91/b565807fa922620ed575b412bf978d032e4c5d79558b400fdbfe1008c95a/python_engineio-4.15.1.tar.gz"
+    sha256 "1a412e798a90c64fabe7b20798939ae6d4a03f34da8a33d5a21a25a8bbbc3612"
   end
 
   resource "python-socketio" do
-    url "https://files.pythonhosted.org/packages/b9/04/8647675c93b5e74a3daa41a2a03930bac0cbdcfcf307900f0441ae6550ba/python_socketio-5.17.0.tar.gz"
-    sha256 "c3bbfc4937dcfea7c4d1b182afa94d4a30335d153987e8f2078b344beacf95a0"
+    url "https://files.pythonhosted.org/packages/71/b9/4ab083267c1f8ece9a9e019808412af7c7a03321411a1263cd863321baa2/python_socketio-5.18.1.tar.gz"
+    sha256 "07ab0e7c94a52833a67af1dc05958ad6fb0de69adc87de9198a61b22588c40d4"
   end
 
   resource "pytz" do
-    url "https://files.pythonhosted.org/packages/14/21/d83d6ef28c4c912c4bb4d1dcf591f7b8c6bde87b9c66f9f454677314e16d/pytz-2026.5.tar.gz"
-    sha256 "fa23724b9c486543b9ff54a327ee7569ac83ade54bb9afd0fc18676620401c86"
+    url "https://files.pythonhosted.org/packages/f5/b0/168030b0bfcc334cf09fa3313afdb888d892c8a0027324683d1de0ec277e/pytz-2026.6.tar.gz"
+    sha256 "3b0fc2727707663d6e517936f444fd8a8b240f1fc32f4bf7ee03274245945284"
   end
 
   resource "pyvirtualdisplay" do
@@ -241,13 +241,13 @@ class Bzt < Formula
   end
 
   resource "terminaltables3" do
-    url "https://files.pythonhosted.org/packages/55/9b/9abd7feb0cf552061cfa452c22773f3158cdad877ad5623f13edfa07116f/terminaltables3-4.0.0.tar.gz"
-    sha256 "4e3eefe209aa89005a0a34d1525739424569729ee29b5e64a8dd51c5ebdab77f"
+    url "https://files.pythonhosted.org/packages/e6/00/3d39132b17a2362bf03063c1c2bc641259d62d1dd6634830194585f63da8/terminaltables3-4.1.0.tar.gz"
+    sha256 "d54edc0407cf12326d3fdcbb6329165ef9e90c5948f374ca414f05056ea2806c"
   end
 
   resource "tzdata" do
-    url "https://files.pythonhosted.org/packages/d9/68/f1b440335057bfce71b6e50a9d09445aa2ecbd08359a337976627b8409e7/tzdata-2026.5.tar.gz"
-    sha256 "8cc73c0a0bfca7dbfa59235d60b2eff82231dee33f53d206db1acd9173cfc0a7"
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "urllib3" do
