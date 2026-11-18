@@ -35,14 +35,10 @@ class Virtiofsd < Formula
     shared = testpath/"shared"
     shared.mkpath
 
-    pid = spawn(bin/"virtiofsd", "--shared-dir", shared, "--socket-path", sock,
-                "--sandbox", "none", "--log-level", "off")
-    begin
+    with_test_process(bin/"virtiofsd", "--shared-dir", shared, "--socket-path", sock,
+                      "--sandbox", "none", "--log-level", "off") do
       sleep 2
       assert_predicate sock, :socket?
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
