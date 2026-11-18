@@ -43,12 +43,10 @@ class Bastet < Formula
   end
 
   test do
-    pid = spawn bin/"bastet"
-    sleep 3
-    assert_path_exists bin/"bastet"
-    assert_predicate bin/"bastet", :executable?
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"bastet") do
+      sleep 3
+      assert_path_exists bin/"bastet"
+      assert_predicate bin/"bastet", :executable?
+    end
   end
 end
