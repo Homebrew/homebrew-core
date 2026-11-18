@@ -16,6 +16,7 @@ class Xnec2c < Formula
   depends_on "glib"
   depends_on "gtk+3"
   depends_on "libtool"
+  depends_on :macos
   depends_on "pkgconf"
 
   def install
