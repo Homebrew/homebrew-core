@@ -45,7 +45,7 @@ class Tfproviderlint < Formula
 
   test do
     # TODO: remove when unpinning go 1.26
-    ENV.prepend_path "PATH", formula_opt_libexec("go@1.26")/"bin" # for keg_only go 1.26 binary
+    ENV.prepend_path "PATH", dep("go").opt_libexec/"bin" # for keg_only go 1.26 binary
 
     testpath.install resource("homebrew-test_resource")
     assert_match "S006: schema of TypeMap should include Elem",
