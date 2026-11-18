@@ -23,7 +23,7 @@ class Rebar3 < Formula
   depends_on "erlang" => :test
 
   def install
-    erlang_build_dep = deps.find { |dep| dep.build? && dep.name.match?(/^erlang@\d+$/) }&.to_formula
+    erlang_build_dep = deps(/\Aerlang@\d+\z/).build.first&.to_formula
     odie "Could not find build-time erlang!" if erlang_build_dep.blank?
 
     # To guarantee compatibility with various erlang versions, build with an older erlang.
@@ -45,14 +45,10 @@ class Rebar3 < Formula
   end
 
   test do
-    deps.each do |dep|
-      next unless dep.name.match?(/^erlang(@\d+)?$/)
-
+    deps("erlang").each do |dep|
       erlang = dep.to_formula
-      erlang_bin = erlang.opt_bin
-      erlang_version = erlang.version.major
-      with_env(PATH: "#{erlang_bin}:#{ENV["PATH"]}") do
-        assert_match "OTP #{erlang_version}", shell_output("#{bin}/rebar3 --version")
+      with_env(PATH: "#{erlang.opt_bin}:#{ENV["PATH"]}") do
+        assert_match "OTP #{erlang.version.major}", shell_output("#{bin}/rebar3 --version")
       end
     end
   end
