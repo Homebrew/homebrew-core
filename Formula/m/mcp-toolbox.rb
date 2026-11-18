@@ -43,15 +43,10 @@ class McpToolbox < Formula
     YAML
 
     port = free_port
-    pid = spawn bin/"toolbox", "--tools-file", testpath/"tools.yaml", "--port", port.to_s
-
-    begin
+    with_test_process(bin/"toolbox", "--tools-file", testpath/"tools.yaml", "--port", port.to_s) do
       sleep 5
       output = shell_output("curl -s -i http://localhost:#{port} 2>&1")
       assert_match "HTTP/1.1 200 OK", output, "Expected HTTP/1.1 200 OK response"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
