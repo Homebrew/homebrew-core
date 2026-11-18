@@ -34,7 +34,7 @@ class Sh4d0wup < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     system "cargo", "install", *std_cargo_args
 
@@ -57,8 +57,8 @@ class Sh4d0wup < Formula
     assert_match("ASN1 OID: secp256k1", output)
 
     [
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+      dep("openssl").opt_lib/shared_library("libssl"),
+      dep("openssl").opt_lib/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"sh4d0wup", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."
