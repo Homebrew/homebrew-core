@@ -4,7 +4,8 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.7.0.tar.gz"
   sha256 "832bbf50f2b6f57fab053bc9676b3bfe641e5bf966cdcb28c7926f8d4b3c5e04"
   license "GPL-2.0-or-later"
-  compatibility_version 1
+  revision 1
+  compatibility_version 2
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -28,8 +29,8 @@ class Postgis < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   depends_on "gdal"
   depends_on "geos"
