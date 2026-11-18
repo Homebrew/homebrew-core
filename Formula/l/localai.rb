@@ -1,8 +1,8 @@
 class Localai < Formula
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/releases/download/v4.12.1/LocalAI-v4.12.1-source.tar.gz"
-  sha256 "7e47078e3e92439e7539d331150c0941a1350228c874de6ec641aee21685bd8c"
+  url "https://github.com/mudler/LocalAI/releases/download/v5.0.0/LocalAI-v5.0.0-source.tar.gz"
+  sha256 "8879ff68b4356bef0c14997609d2e9740c4fbbbe62e8428e621286b9c5aaf42e"
   license "MIT"
   head "https://github.com/mudler/LocalAI.git", branch: "master"
 
@@ -30,7 +30,8 @@ class Localai < Formula
   test do
     addr = "127.0.0.1:#{free_port}"
 
-    pid = spawn bin/"local-ai", "run", "--address", addr
+    # The add-on owner opens `/` at startup, which the Linux test sandbox denies
+    pid = spawn bin/"local-ai", "run", "--address", addr, "--addons-enabled=false"
     sleep 5
 
     begin
