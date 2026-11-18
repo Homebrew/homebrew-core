@@ -34,15 +34,10 @@ class Miniserve < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"miniserve", bin/"miniserve", "-i", "127.0.0.1", "--port", port.to_s
-
-    begin
+    with_test_process(bin/"miniserve", bin/"miniserve", "-i", "127.0.0.1", "--port", port.to_s, signal: "INT") do
       sleep 2
       read = (bin/"miniserve").read
       assert_equal read, shell_output("curl localhost:#{port}")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
