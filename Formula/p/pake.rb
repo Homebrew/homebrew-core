@@ -1,8 +1,8 @@
 class Pake < Formula
   desc "Turn any webpage into a desktop app with Rust with ease"
   homepage "https://github.com/tw93/Pake"
-  url "https://registry.npmjs.org/pake-cli/-/pake-cli-3.19.0.tgz"
-  sha256 "6ee6dbef3fe6d635b4b74482ce6027b7499835192e3f23ec1a8b92ac2b45a70e"
+  url "https://registry.npmjs.org/pake-cli/-/pake-cli-3.19.1.tgz"
+  sha256 "aa1c4469b06002cbd413c967f8e71924a3457a9f2d8b7eff2145c49a82d22626"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -22,6 +22,7 @@ class Pake < Formula
 
   on_macos do
     depends_on "gettext"
+    depends_on "xz" # for liblzma
   end
 
   # Resources needed to build sharp from source to avoid bundled vips
