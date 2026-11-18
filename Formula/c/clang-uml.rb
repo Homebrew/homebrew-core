@@ -30,8 +30,7 @@ class ClangUml < Formula
   depends_on "yaml-cpp"
 
   def llvm
-    deps.map(&:to_formula)
-        .find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+    dep("llvm").to_formula
   end
 
   deny_network_access!
