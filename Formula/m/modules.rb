@@ -24,14 +24,12 @@ class Modules < Formula
 
   deny_network_access!
 
-  def tcltk = deps.map(&:name).find { |d| d.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }
-
   def install
     args = %W[
       --prefix=#{prefix}
       --datarootdir=#{share}
-      --with-tcl=#{formula_opt_lib(tcltk)}
-      --with-tclsh=#{formula_opt_bin(tcltk)}/tclsh
+      --with-tcl=#{dep("tcl-tk").opt_lib}
+      --with-tclsh=#{dep("tcl-tk").opt_bin}/tclsh
       --without-x
     ]
     args << "--with-pager=#{formula_opt_bin("less")}/less" if OS.linux?
