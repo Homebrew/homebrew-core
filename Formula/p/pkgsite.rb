@@ -1,8 +1,8 @@
 class Pkgsite < Formula
   desc "Documentation server for Go packages"
   homepage "https://pkg.go.dev/golang.org/x/pkgsite"
-  url "https://github.com/golang/pkgsite/archive/refs/tags/v0.6.0.tar.gz"
-  sha256 "63643f608bf927d35b5216cf546b7c52d90ec88190a2c83cc78eca5d42191d61"
+  url "https://github.com/golang/pkgsite/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "c8c0a319ade7fa9b87561aaf61b57694080060a76afc1d7dc035759e3eb76b39"
   license "BSD-3-Clause"
   head "https://go.googlesource.com/pkgsite.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Pkgsite < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41196526d83f2b7918d0ace9b92a759eff1128da12da35e58b068d1fea93a044"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41196526d83f2b7918d0ace9b92a759eff1128da12da35e58b068d1fea93a044"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41196526d83f2b7918d0ace9b92a759eff1128da12da35e58b068d1fea93a044"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ca159b28012fd6a341d17422a81769f8d2606833db5362c13b8d8c40e056d992"
-    sha256 cellar: :any,                 x86_64_linux:      "576294f06157b6cece61cef83caf2cc101c65a20608b944d432e7afecab43115"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "282d2bbe10f808ef3e409431d41d6f5bac1c748f44c230beca3edc098e74cb1f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "282d2bbe10f808ef3e409431d41d6f5bac1c748f44c230beca3edc098e74cb1f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "282d2bbe10f808ef3e409431d41d6f5bac1c748f44c230beca3edc098e74cb1f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "308ee203af03d54508cc753c56dab86aebe29ace8095c7466fde0fc02f9b59c8"
+    sha256 cellar: :any,                 x86_64_linux:      "096260ae22fa27d01553c2b324b1b71e0c0eae434823a953c3cc5d99443962da"
   end
 
   depends_on "go" => [:build, :test]
