@@ -7,17 +7,11 @@ class Libcue < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "b1c6d9e1262e95b78ba0a43002cbd574ceca052ce1828b7071ace8adce366fbe"
-    sha256 cellar: :any,                 arm64_tahoe:       "f874bb169fb510eac8614949b467eec60f3eb77a9f82e9d80b2356298265fc26"
-    sha256 cellar: :any,                 arm64_sequoia:     "a981b4ff3dfc99ea87cd08ec0caef79fc30b4bed4255841555fcbc3a02454b86"
-    sha256 cellar: :any,                 arm64_sonoma:      "82934a84b7755323aef43356f8239523839e05e42005233046994d33376ef104"
-    sha256 cellar: :any,                 arm64_ventura:     "a5037a18c0f6d957a866a5e897ed52b07121f5484a0dad00725566d17dc7ff8c"
-    sha256 cellar: :any,                 arm64_monterey:    "668a55590220069e7b7711d37ff033aa36102a27cacd715bfabd0699bd3c2a22"
-    sha256 cellar: :any,                 sonoma:            "0f391c7328b30c5e10263e59f1f313f9d5898a47fec936530b233734bdda5e24"
-    sha256 cellar: :any,                 ventura:           "924e97f8e5171a7bfa973ad1032983ed58f99c610c691a4bfddbaaeab8b2b358"
-    sha256 cellar: :any,                 monterey:          "799c04b2053d44ef0be1bea0b458612e8bde94f2dd6bd1165acb558b09a46267"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3474394b89c9462d00db5ce4d0c0bf90de7fe657256288a4600cf90f21c78b2e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "981c06a396357ab4014a50e803216c936cd5d6f3da3befa199a5e6926ad3b42a"
+    sha256 cellar: :any, arm64_golden_gate: "fef94041bf68f96aaa03a479dc4f8034638ca4ba01bc9c54c647ec1f758d407d"
+    sha256 cellar: :any, arm64_tahoe:       "703c94d9986a00f797b808bf892629f1eeefee82c6d75e8a50614f80432bbea2"
+    sha256 cellar: :any, arm64_sequoia:     "87020ed967b4a7accf127f12df7f81e4b553b1c8042acc9a1333d359d1be6f52"
+    sha256 cellar: :any, arm64_linux:       "218f92594e3172d977a2981c23d64e17765900a476a872ea4bbf8ab91e962ab7"
+    sha256 cellar: :any, x86_64_linux:      "22af14bd78c5c426db4977e8054233c985fc2985850c2f405f3b7ae953780af4"
   end
 
   depends_on "bison" => :build # Needs bison 2.4+
