@@ -26,7 +26,7 @@ class Reshape < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = deps("openssl").first&.name
 
   def fetch
     system "cargo", "generate-lockfile" if build.head?
