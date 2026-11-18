@@ -1,8 +1,8 @@
 class Fnox < Formula
   desc "Fort Knox for your secrets - flexible secret management tool"
   homepage "https://fnox.jdx.dev/"
-  url "https://github.com/jdx/fnox/archive/refs/tags/v1.49.0.tar.gz"
-  sha256 "7b4c1174e59e48247f3044242fffcecc3fb4c8d3cf672b0de93e4c779eb30959"
+  url "https://github.com/jdx/fnox/archive/refs/tags/v1.50.0.tar.gz"
+  sha256 "c02b71ab4c10b0d464fba0dc6ddb20bec16ae67c61d029919b50d55d39d15c05"
   license "MIT"
   head "https://github.com/jdx/fnox.git", branch: "main"
 
