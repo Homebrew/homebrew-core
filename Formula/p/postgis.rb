@@ -51,8 +51,7 @@ class Postgis < Formula
   end
 
   def postgresqls
-    deps.filter_map { |dep| dep.to_formula if dep.name.start_with?("postgresql@") }
-        .sort_by(&:version)
+    deps(/\Apostgresql@/).map(&:to_formula).sort_by(&:version)
   end
 
   def install
