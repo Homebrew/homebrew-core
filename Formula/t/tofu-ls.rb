@@ -37,8 +37,7 @@ class TofuLs < Formula
   test do
     port = free_port
 
-    pid = spawn bin/"tofu-ls", "serve", "-port", port.to_s, File::NULL
-    begin
+    with_test_process(bin/"tofu-ls", "serve", "-port", port.to_s, File::NULL, signal: "INT") do
       sleep 2
       tcp_socket = TCPSocket.new("localhost", port)
       tcp_socket.puts <<~EOF
@@ -47,9 +46,6 @@ class TofuLs < Formula
         {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
       EOF
       assert_match "Content-Type", tcp_socket.gets("\n")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
