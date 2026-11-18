@@ -11,8 +11,8 @@ class Bind < Formula
   compatibility_version 1
 
   stable do
-    url "https://downloads.isc.org/isc/bind9/9.20.30/bind-9.20.30.tar.xz"
-    sha256 "9e1443a40a72a30272cbc3196d020a6b2e26937111c83e59e101e82e1e3b4fef"
+    url "https://downloads.isc.org/isc/bind9/9.20.31/bind-9.20.31.tar.xz"
+    sha256 "9bfecd503ec79209d321053689c794da9f8dba993a24e9cd6bd7aa87cdf4122f"
 
     depends_on "readline" # TODO: Remove in 9.22
   end
