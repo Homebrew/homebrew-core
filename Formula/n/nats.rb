@@ -1,17 +1,17 @@
 class Nats < Formula
   desc "Utility for NATS Server and JetStream administration"
   homepage "https://github.com/nats-io/natscli"
-  url "https://github.com/nats-io/natscli/archive/refs/tags/v0.5.1.tar.gz"
-  sha256 "808a8905383949625e0a3f86821865eda29d381274021ff2d9ea7d7448c951fc"
+  url "https://github.com/nats-io/natscli/archive/refs/tags/v0.5.2.tar.gz"
+  sha256 "6a735b879a19a7abaa4b45e512f23ddb7df6e8f1cd14b32091cd8568e4e94f63"
   license "Apache-2.0"
   head "https://github.com/nats-io/natscli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0874c83c1bd1c1cfd4a135c4cd47796242e129e82e1e2594122422e4a4b84751"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dccd6710994aaec87c4303f4c73242bd6f2c2773a4232a7a02a6a81ffd1c64e5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b0b07f92419d681e843a8e703a6a71853fa9180353a92722152bb0f75dbfca5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "eb2374380592382003ba5ecd19cf300acf4c6128ab72f489d034b9dca2a7af8c"
-    sha256 cellar: :any,                 x86_64_linux:      "56d346fecdd7ad842af7212b93d4f6d2ab4b88771e79e78bebb30e5dac1dde97"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07aed02a4a5fe3bd4bd9d7e4b8da97ecdc1fbabe45298d4487da3e10bceb1e53"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b271b304a8c9418792983c861c00232599d4dfcd045b9cf0169801332c4e2787"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31e0b7d725783d7e56709f77bcc6774af780f3852cc507c848af36a35f28ea8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "44684d639a69f983b3c22863b57f3d1af8273b2d121ebab9d992ee3b7764f4ba"
+    sha256 cellar: :any,                 x86_64_linux:      "b74b282f6b1f77ab1ac62e64cc838c06c25325d90c46402b78b61056c013c9ac"
   end
 
   depends_on "go" => :build
