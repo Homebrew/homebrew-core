@@ -11,11 +11,11 @@ class BazelAT7 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a856341f521cc232736f31476370f9af63e5508e41f0163af696f2acc3821ad0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c436f45190502bca9761f1b8efd9159e4478516559d91354ea02d3d6000efc25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e27d2845a972ccbdcb40abd1cbd30c1121dac049c3ace3c7f45d11f036cda8a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d21460df11866ec48ecccddd55290b38e86eb09eab022abc72d226e10aed0597"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ef94d9ceef72abc98a895670f0efa3c86037f817872731bb392e26233e92beff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8d6f123b0cc0e6a686502ac1a669687ee3703360eb2a18023df5d40acea5b89"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f93bcbb668388b2b97b1ab21d56c7295cf2836fad157b1219f5c8a9839640779"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8826b681e3ce36c8684fefe9c7e54ff5a9883588b36fd1d561a687c96549a0e3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8b9606f3f3b679b913f358fe9c0cac9d2ee7df0a38da75de6af17fbb385b76b5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "89b61927bae485db228acb4ac036ed31e829ea06ff8ea2ec3265c38c24fcae3e"
   end
 
   keg_only :versioned_formula
