@@ -1,8 +1,8 @@
 class Xcinfo < Formula
   desc "Tool to get information about and install available Xcode versions"
   homepage "https://github.com/XcodeReleasesOrg/xcinfo"
-  url "https://github.com/XcodeReleasesOrg/xcinfo/archive/refs/tags/2.0.0.tar.gz"
-  sha256 "978a6eadd80fc802060226909137f1b035159d8b71c58d8f78c91abcc95e78f7"
+  url "https://github.com/XcodeReleasesOrg/xcinfo/archive/refs/tags/2.1.0.tar.gz"
+  sha256 "4e40836ceaff4a3f96c15244fc18be8fcaed1ca55f769fcec53b4ace354cf21d"
   license "LGPL-3.0-only"
   head "https://github.com/XcodeReleasesOrg/xcinfo.git", branch: "master"
 
