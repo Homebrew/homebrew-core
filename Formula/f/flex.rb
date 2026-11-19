@@ -1,8 +1,8 @@
 class Flex < Formula
   desc "Fast Lexical Analyzer, generates Scanners (tokenizers)"
   homepage "https://github.com/westes/flex"
-  url "https://github.com/westes/flex/releases/download/v2.7.1/flex-2.7.1.tar.gz"
-  sha256 "336715b27262c7eefab99ba46b06f05e54a1a39d7bc36c79b826a51bbe4fcb81"
+  url "https://github.com/westes/flex/releases/download/v2.7.2/flex-2.7.2.tar.gz"
+  sha256 "365b86feb4a63f9a1743b789f360a796d82fe7344eae7facc95e065c84d8e284"
   license "BSD-2-Clause"
   compatibility_version 1
 
