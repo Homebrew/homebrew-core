@@ -1,17 +1,17 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/tarballs/profanity-0.19.0.tar.xz"
-  sha256 "fa201a10df688a173a0ce61da3be528f8e03f44d72817ed327568acb1c8fb259"
+  url "https://profanity-im.github.io/tarballs/profanity-0.20.0.tar.xz"
+  sha256 "371f3c987a1800905632dc04b28c980acce8a5783eba55e8b1f9c5ca1df266f4"
   license "GPL-3.0-or-later"
   head "https://github.com/profanity-im/profanity.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "e8f73582a912a2325a042ccc35cae563528d1585a68ccc03c6967799e9c861e0"
-    sha256 arm64_tahoe:       "1cb182a6a25209e7c7e5c5aa0f22698ae5d4d38c8b298f7eace2808dfdad37b9"
-    sha256 arm64_sequoia:     "a949cabe1b7e4a600e16f4e02991b4a16d941aaac20249c32eb227a7da0652c9"
-    sha256 arm64_linux:       "3b68547440e6ee4cb5fd934752ff4b6663c257078a9329bf8dd99669cfa41dda"
-    sha256 x86_64_linux:      "98bf38f2693f545cac295d6ef9d07893b136a9871d640a161c6f6119917ed430"
+    sha256 arm64_golden_gate: "5a28ad0761eedf5992728ffab64fe33d53f3d1f1131e6b7974dbb4ad63fad817"
+    sha256 arm64_tahoe:       "5fb38ee91e6cc8108526c585e3a4ebfb129c369c49f3aea6e4031555073e5900"
+    sha256 arm64_sequoia:     "64e3e150bb8624ecef473365be54eaf86145909b8a397455f020d97925e6f29a"
+    sha256 arm64_linux:       "0dafd91d852afef58162651fb4c67815b793d5087f427bef12356de1bd172685"
+    sha256 x86_64_linux:      "83af0b90702018319134166a9be0f070880bde45707a34be0d7d78f2a1b8e0de"
   end
 
   depends_on "meson" => :build
@@ -20,14 +20,11 @@ class Profanity < Formula
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gpgme"
-  depends_on "gtk+3"
   depends_on "libgcrypt"
   depends_on "libomemo-c"
   depends_on "libotr"
   depends_on "libstrophe"
-  depends_on "libx11"
-  depends_on "libxscrnsaver"
-  depends_on "python@3.15"
+  depends_on "lua"
   depends_on "qrencode"
   depends_on "readline"
   depends_on "sqlite"
@@ -39,27 +36,25 @@ class Profanity < Formula
     depends_on "terminal-notifier"
   end
 
-  on_linux do
-    depends_on "libnotify"
-  end
+  deny_network_access!
 
   def install
     # Meson shells out to `brew --prefix readline` on macOS if `dependency("readline")`
     # cannot resolve directly, so keep Homebrew's `brew` executable discoverable.
     ENV.prepend_path "PATH", File.dirname(HOMEBREW_BREW_FILE)
+    # Meson strips its build rpaths on install, dropping the matching `opt/*/lib` entries from superenv
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.linux?
 
     args = %w[
       -Dnotifications=enabled
-      -Dpython-plugins=enabled
-      -Dc-plugins=enabled
+      -Dplugins=enabled
       -Dotr=enabled
       -Dpgp=enabled
       -Domemo=enabled
       -Domemo-backend=libomemo-c
       -Domemo-qrcode=enabled
-      -Dicons-and-clipboard=enabled
+      -Dtray=enabled
       -Dgdk-pixbuf=enabled
-      -Dxscreensaver=enabled
     ]
 
     system "meson", "setup", "build", *std_meson_args, *args
