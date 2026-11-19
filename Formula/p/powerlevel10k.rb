@@ -1,8 +1,8 @@
 class Powerlevel10k < Formula
   desc "Theme for zsh"
   homepage "https://github.com/romkatv/powerlevel10k"
-  url "https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.20.0.tar.gz"
-  sha256 "d8187d44b697b3a37a8c4896678b4380e717cbf2850179529358348780a2d3d7"
+  url "https://github.com/romkatv/powerlevel10k/archive/refs/tags/v1.21.0.tar.gz"
+  sha256 "352e277a60dbdda0a2005758b0c20b35e04a315b98f06bb8a75ef649e9b8c881"
   license "MIT"
   head "https://github.com/romkatv/powerlevel10k.git", branch: "master"
 
@@ -38,7 +38,7 @@ class Powerlevel10k < Formula
   end
 
   test do
-    output = shell_output("zsh -fic '. #{pkgshare}/powerlevel10k.zsh-theme && (( ${+P9K_SSH} )) && echo SUCCESS'")
+    output = shell_output("zsh -fc '. #{pkgshare}/powerlevel10k.zsh-theme && (( ${+P9K_SSH} )) && echo SUCCESS'")
     assert_match "SUCCESS", output
   end
 end
