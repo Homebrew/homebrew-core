@@ -1,17 +1,17 @@
 class BoshCli < Formula
   desc "Cloud Foundry BOSH CLI v2"
   homepage "https://bosh.io/docs/cli-v2/"
-  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.11.2.tar.gz"
-  sha256 "f2b25045096ee3c58a7c7e691f4123b9fc6d23885cf61024fd8ef930aac20494"
+  url "https://github.com/cloudfoundry/bosh-cli/archive/refs/tags/v7.11.3.tar.gz"
+  sha256 "02794efb9ad10d52d45aef0df165ce16f431f6ce2408fe8bd0bca06a6e562c14"
   license "Apache-2.0"
   head "https://github.com/cloudfoundry/bosh-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66dbccfad3b931828649c560671b1ce47de5de1b3f9c88be87f1eaf054d9d5f3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "66dbccfad3b931828649c560671b1ce47de5de1b3f9c88be87f1eaf054d9d5f3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "66dbccfad3b931828649c560671b1ce47de5de1b3f9c88be87f1eaf054d9d5f3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5974eb193dd7889ac81b794c7ba899d949665b2438d520c4c7d9f1db90850d65"
-    sha256 cellar: :any,                 x86_64_linux:      "5f132d5ee83052cb60380c4c9794448f7d6b9eeea530f390ae53cd9a079d44a3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7887bad381ff17685f11a9d5892d09caaaf5292d4ad02399070d711b3300ba6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7887bad381ff17685f11a9d5892d09caaaf5292d4ad02399070d711b3300ba6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7887bad381ff17685f11a9d5892d09caaaf5292d4ad02399070d711b3300ba6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c475d86f7d45dd71e6c96a1a9551788fbb07ccc4c345db5a3b8f5888aead3f49"
+    sha256 cellar: :any,                 x86_64_linux:      "7d8d4e77e0a437fabbaa2bf3e7201124c2782f0d38b68e5a00035094f5a5db2e"
   end
 
   depends_on "go" => :build
