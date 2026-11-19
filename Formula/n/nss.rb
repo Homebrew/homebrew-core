@@ -15,11 +15,11 @@ class Nss < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "32e9edd628d592b55049351c6b5d22bd1b7861522de5c3c7ae06335abecfbbe2"
-    sha256 cellar: :any, arm64_tahoe:       "1db797acdfe3bf4537e30ade265d6556fe80afb2085a3608609203928ac6f822"
-    sha256 cellar: :any, arm64_sequoia:     "bf93705a8dbe4ed57cec66a9550d9f8189690ae28da7ed642eb8e664f80da3b6"
-    sha256 cellar: :any, arm64_linux:       "34d766776388c7f971239f053af99f5043d6d801c7a44312151721c2dd8e8b98"
-    sha256 cellar: :any, x86_64_linux:      "c6e224826a0d27aac62a469369dd3c3cfff5ae73d73d4627ea544fba64d727d3"
+    sha256 cellar: :any, arm64_golden_gate: "67fd8cd45a6cdef966d13bcfc8d5fa1f08735ee8a72fa1ff61bd905ee86350e1"
+    sha256 cellar: :any, arm64_tahoe:       "c65937972682479a5dde0108607c10227c4e3f7e239ba2d138554b8cd710a9ad"
+    sha256 cellar: :any, arm64_sequoia:     "fbcd7c31872709eedf1f5221b21ab0bbbe569c5d7809478ea192e39b3d9eb727"
+    sha256 cellar: :any, arm64_linux:       "e857856a5c9c7bd7b23f0b071a11543a5bf804ff44d552fa3ec7e48f50140ed0"
+    sha256 cellar: :any, x86_64_linux:      "9628a3c7ec0fd8fe2dd521ebaf9dd04bf9275994fdd5af8f1ac4e51d6cb8d1a3"
   end
 
   depends_on "nspr"
