@@ -8,11 +8,11 @@ class ConfluenceMarkdownExporter < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4be591cb6ca506073363909a6ccd516cdd271bfa8740540e5ae491bf3610dd34"
-    sha256 cellar: :any, arm64_tahoe:       "75046f46dbbe752a2df1ff059815133ed90ea9e4feffa26130b00fe8866b357f"
-    sha256 cellar: :any, arm64_sequoia:     "af6fa8c76520dff9e4ff92749e3a6eba0ced056f62b8231f1ad4c88bb284edd4"
-    sha256 cellar: :any, arm64_linux:       "979ec07947ad7af5977533b2c53f298608358a972257efc8896eebb5bac6dce2"
-    sha256 cellar: :any, x86_64_linux:      "e62e128e61a72f4723bdb4529a866af6e496eb0d57ff2f532400da1afb44d149"
+    sha256 cellar: :any, arm64_golden_gate: "9624d78d4e324ef01aa509c8434f9cb2b1d1cf55719485c96370ecd09dc31f97"
+    sha256 cellar: :any, arm64_tahoe:       "23fbd4950792ff284fc26d2cf6b9b461c94d6fe4b58d7eaf8aec7418a444b80e"
+    sha256 cellar: :any, arm64_sequoia:     "58f89c86c7bf6c8947b25e7c597609a3bce370fbc63a91545af75cb78a1443d1"
+    sha256 cellar: :any, arm64_linux:       "4f9ac4e499db8370e177c5d2df11aae1d23dfb6e6ad169d248ac963b4dfe3391"
+    sha256 cellar: :any, x86_64_linux:      "ab14326d31a168c2e26e7dccab9169d4aedab04e7a5b474f3a3c40a593b6609f"
   end
 
   depends_on "certifi" => :no_linkage
