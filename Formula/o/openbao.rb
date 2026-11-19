@@ -2,8 +2,8 @@ class Openbao < Formula
   desc "Provides a software solution to manage, store, and distribute sensitive data"
   homepage "https://openbao.org/"
   url "https://github.com/openbao/openbao.git",
-      tag:      "v2.7.2",
-      revision: "9e0a0d3c3504a0a00b45e61355afac5e35c78379"
+      tag:      "v2.7.3",
+      revision: "0439ef5812538733afb277b4445a54706edc1db7"
   license "MPL-2.0"
   head "https://github.com/openbao/openbao.git", branch: "main"
 
@@ -13,11 +13,11 @@ class Openbao < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e99c51b24fa4cb954a1a8a56a75d69dde29d8d4534dd77599d10ea957b8ea531"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebaf74ba3e60cb01a1fd222bc1df28cae9b625abbc7cea057d682d509c73692b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b19fe229a3de55a7f7d24f71b6878edd8d49f49c7bfe2867a0339401937763c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3673e61161c5455b2528aae57e45bd1fb901b9686eb50879b69cd3f7c494fbf9"
-    sha256 cellar: :any,                 x86_64_linux:      "e36c742ee7f873bd29cdd6757d54ae7ed105390edcccba5099ba4934c437a2ff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "592c8060f53241c352de6a224bd0930c196d641723221d0935f486fdc4b8405d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05b6db8ceddaf43f039e38298bfd30813952b464ebc80c7902e5cb2d23301f3f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41ee6c6cdb7e8b0dd6645a8e3f59ea4d64715b84a874a9fd5c4a9bee6bce5d46"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4bc1d1c7de0df09fd922a02fd22010c2f7266c8bd918a6f5acd250257196b755"
+    sha256 cellar: :any,                 x86_64_linux:      "ad5fbe44837705a96d55b2cdd3a4dae90e5ee7631782af42b34b8090c8362220"
   end
 
   depends_on "go" => :build
