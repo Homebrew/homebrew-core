@@ -14,11 +14,11 @@ class Gam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8c0f44c28830f4a968ddf2931bbd7aee72994a58fb551f02ab6ab30fd69bf2d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a83fe6212aaf49d366421c1b0bca1f908879ee2558a2549fb8e2b7c2d0141ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5185678284d5dd08d63895239ce8bc37a7d9fe1b9a296839aa92a89dec0ea59"
-    sha256 cellar: :any,                 arm64_linux:       "1215bb7a3c4430b81ca3d9c7c7bf7e014471e0e1a7b5d68cfebf6e148b2b9152"
-    sha256 cellar: :any,                 x86_64_linux:      "277f621460571112a1b4a8187baa8b84d8183416ec3b6a7f4ed0e61e6c347f6f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eed6f43eb8aec2fe00c2b666849f478b6d0961931db1c2048ec7396a546ed1da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "becca3e0cdb00ec57533e709e8ed321d5d132353671fd4e744399defa581ed74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b177e6f738fbddf09c3585235b34e7f07ea720d5621c6e70dcfbfcf2e03b291c"
+    sha256 cellar: :any,                 arm64_linux:       "abfb5f03d3b0a0776c4063d7d0a9aedcf0f7f750eceb877308bf41a0a81d62e5"
+    sha256 cellar: :any,                 x86_64_linux:      "4803dd3c64477a77b54b6c97e4ba2606cbcc548c602d8fdf93a0bea06fc81516"
   end
 
   depends_on "cmake" => :build # for pyscard
