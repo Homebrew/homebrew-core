@@ -3,18 +3,17 @@ class Gdown < Formula
 
   desc "Google Drive Public File Downloader when Curl/Wget Fails"
   homepage "https://github.com/wkentaro/gdown"
-  url "https://files.pythonhosted.org/packages/99/14/db6cbe00c8259b2160e998ebbff3a616409611f5c39364cb667dfc7dd35a/gdown-6.5.1.tar.gz"
-  sha256 "e441b564589b4f9f49855679649b3b04b0d2e056bc1d635691f7e003ca27e5d0"
+  url "https://files.pythonhosted.org/packages/59/f4/230085dfb665cb944c73848de4bddc5dbc99c1573e18fb897863adedacaa/gdown-6.5.2.tar.gz"
+  sha256 "d372ee7e19fb521eccdc3fa9c77b38ce0591d86b83edb7b151835417afeb162f"
   license "MIT"
-  revision 1
   head "https://github.com/wkentaro/gdown.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bd6ed4a0021388a82c4f6cb90f6aea7ba1c70fa650cd901735cf95c8f13c36c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6bd6ed4a0021388a82c4f6cb90f6aea7ba1c70fa650cd901735cf95c8f13c36c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6bd6ed4a0021388a82c4f6cb90f6aea7ba1c70fa650cd901735cf95c8f13c36c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6854e02c8ab28c0229222becee41a9961b8fe814b4209168f42e0b701faff2ee"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6854e02c8ab28c0229222becee41a9961b8fe814b4209168f42e0b701faff2ee"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bb32da450666386a6130c1cecc0abe3269cdd92d1e5739b5b54a21dd72aab98"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bb32da450666386a6130c1cecc0abe3269cdd92d1e5739b5b54a21dd72aab98"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bb32da450666386a6130c1cecc0abe3269cdd92d1e5739b5b54a21dd72aab98"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "88bf6f2397b6287a277db9c9ef8324dc0051431a7c9d2a75a0e16cef9a808aa9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "88bf6f2397b6287a277db9c9ef8324dc0051431a7c9d2a75a0e16cef9a808aa9"
   end
 
   depends_on "certifi"
@@ -33,8 +32,8 @@ class Gdown < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
-    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "idna" do
@@ -53,8 +52,8 @@ class Gdown < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
-    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
+    url "https://files.pythonhosted.org/packages/1f/52/ee5646b65d98a252e807ccc37725363942372a4113072e0bce7ed22f8b84/soupsieve-4.1.1.tar.gz"
+    sha256 "b296bd2d2f65b1a78149f3d7bf6736a147d2c9e2dfbde0e4404639d748a02e03"
   end
 
   resource "tqdm" do
