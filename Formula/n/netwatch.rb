@@ -1,16 +1,16 @@
 class Netwatch < Formula
   desc "Cross-platform realtime network diagnostics TUI"
   homepage "https://www.netwatchlabs.com/labs/netwatch"
-  url "https://github.com/matthart1983/netwatch/archive/refs/tags/v0.40.1.tar.gz"
-  sha256 "0a8cccd31d1ffff41f6ab832731e4de02885078d8475750fd1a9baafb894d727"
+  url "https://github.com/matthart1983/netwatch/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "3cf1616c734b51864f16d2672c3f53a983af9055a58a153584ad4ab98cdb55ec"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "492902bd64e4a25ebf9508d42178d8ae3d5ba5dd392cd59c0187fa01c651cb21"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "38d0d86ff5154a8a5377738f97bf3f827a5e7e37cf73c761714d8c5e514a1a69"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "66e4f2b4108cba6442a1cf6f78f3dc3ead871b4e8300ca4337cf9da435e8698f"
-    sha256 cellar: :any,                 arm64_linux:       "b60050516ca0090a888d3ac49af5c5981fdface475f76233aeb0d87e3056f2ba"
-    sha256 cellar: :any,                 x86_64_linux:      "ed4864f58ed1ee17c301376728bde96f95567470daa79c33b2c6db2c8961001c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eb3e78940775866cafd5f132e62e0a03019f8ab0a5cdcbc4858dadf00f1da723"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "512ce7dc34bac395a54d7ae379ba9488841f5e779eff04eae51e5e56eb1b6b40"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "873f4dd489de28cd71229bf47164758160a5f7b917873b7f1e4650f2a4c2e61c"
+    sha256 cellar: :any,                 arm64_linux:       "b67edd5480b9086e0290bd134948ef83fe49820d06918411cb23c057b31f6c7e"
+    sha256 cellar: :any,                 x86_64_linux:      "679eeb90d280bf5da13b8ad42c4078a57508f8acfc8ed1765a8123625489b0f0"
   end
 
   depends_on "rust" => :build
