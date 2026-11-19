@@ -1,18 +1,18 @@
 class Zrok < Formula
   desc "Geo-scale, next-generation sharing platform built on top of OpenZiti"
   homepage "https://zrok.io"
-  url "https://github.com/openziti/zrok/releases/download/v2.0.10/source-v2.0.10.tar.gz"
-  sha256 "d0424960543227c2323106a7cd464d8a262b68dd233e4117a998f87463d18d81"
+  url "https://github.com/openziti/zrok/releases/download/v2.0.11/source-v2.0.11.tar.gz"
+  sha256 "e635462229fcb8be6710f4858e290367ebec279a54f5cdd6832cd398f745b61e"
   # The main license is Apache-2.0. ACKNOWLEDGEMENTS.md lists licenses for parts of code
   license all_of: ["Apache-2.0", "BSD-3-Clause", "MIT"]
   head "https://github.com/openziti/zrok.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11e39723fb73687791aeab4525fbeceb2c942193315daf5b2424aa9c3bca00ec"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2dec3026cf9e41dd16104ac0eb6c2da6a63d488e642a4273e0ac56cb93c9f452"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "699dc6961ee93dffc1f96bd694bd90dbb40d196d41c0f7608d4f60febe2ff285"
-    sha256 cellar: :any,                 arm64_linux:       "2ce9f711c77cb262c42adec6906ba9ab751e3667e8829bc6c4daea5f6a6fc164"
-    sha256 cellar: :any,                 x86_64_linux:      "18e33ffbacc21eeb57fe36fdb5afb8f6335b227bccec14679bf71af1abb20264"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b60d3864962c87a0da559fa9c2c2aa4828349aafcbefb63f88b3f98165ba6c8a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf42681f2c23e609dacd33a1f9221ff83142f73dc3ab275bbfb3b2a37ed88080"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "afc86526d636753f8a06ab89388a60289d48d64659ea5bed149fda85680a3818"
+    sha256 cellar: :any,                 arm64_linux:       "4dd33e51f5b65539ed073877b7cdc7bc81d6747eb7912e95c5695a57369ca711"
+    sha256 cellar: :any,                 x86_64_linux:      "c7dfd1f11cfe8e99fa24fc3ffa1c71a3758766ce0452177f34bd252123820a7f"
   end
 
   depends_on "go" => :build
