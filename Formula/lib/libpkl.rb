@@ -1,16 +1,16 @@
 class Libpkl < Formula
   desc "C library calling into Pkl's message passing API"
   homepage "https://pkl-lang.org/main/current/libpkl/index.html"
-  url "https://github.com/apple/pkl/archive/refs/tags/0.33.0.tar.gz"
-  sha256 "b232e7149705f4f4922dd27d4693c9ea97fa32b3fec9d45ef6f3297dccf2858c"
+  url "https://github.com/apple/pkl/archive/refs/tags/0.33.1.tar.gz"
+  sha256 "1e244cff4c27cacf800a7db5efeb3c2709364556e67e37bb8369705db49a7a1a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "df75bfe73dd3c8ae1482467bfadfb78eba69fb0d3528818afc08f863fc147556"
-    sha256 cellar: :any, arm64_tahoe:       "cc509280766edeb6ec0961079c793289d84b06f7df9998ed82ab5d3aee752dae"
-    sha256 cellar: :any, arm64_sequoia:     "241d65492170ff67b31a60c7f436909d12e386db2106b91cc9a68192f08c45b9"
-    sha256 cellar: :any, arm64_linux:       "4171bac15424ee4de38ac0e0a309e8ae08f85da1bf76eaa202e9e477bb0a1566"
-    sha256 cellar: :any, x86_64_linux:      "0e952d7e69337a9c994e30d06f1f012337894516a41f31aad5def7b161bbefd5"
+    sha256 cellar: :any, arm64_golden_gate: "0fe1b982b9476c980a9ff6fcceb3e24e95a39248243aee363e50842652e090e9"
+    sha256 cellar: :any, arm64_tahoe:       "ba0219910d57f56a3170cdf0e1e01ce9f1262e6f3f891d48a5835a105d7ecef1"
+    sha256 cellar: :any, arm64_sequoia:     "3daaa3113dd6226cdf3135126aedba79152d396f5c8c64b3903b832651d77256"
+    sha256 cellar: :any, arm64_linux:       "a3022a874321edc84e0f0b968f34cf155639d32e232506863d637eb90f7fb921"
+    sha256 cellar: :any, x86_64_linux:      "ff811ee7d20eeb300eb244a74fd33427c4cd8003bc2b1c50481c91044d337e39"
   end
 
   depends_on "gradle" => :build
