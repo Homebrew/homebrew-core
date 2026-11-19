@@ -50,7 +50,7 @@ class Gjs < Formula
     ENV["DESTDIR"] = "/"
 
     # allow GJS to find and load shared libraries
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.mac?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: HOMEBREW_PREFIX/"lib")}" if OS.mac?
 
     args = %w[
       -Dprofiler=disabled
