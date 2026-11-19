@@ -3,10 +3,9 @@ require File.expand_path("../../Abstract/portable-formula", __dir__)
 class PortableRuby < PortableFormula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.9.tar.gz"
-  sha256 "c35350682ff050b79702d57ade4516e7336063f510155d19fb2fb5b3f3909511"
+  url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.10.tar.gz"
+  sha256 "b53eef3371fa5d3e3b74340edcd015f06d5d8853968d4e539a5264fce41ed9f1"
   license "Ruby"
-  revision 1
 
   # This regex restricts matching to versions other than X.Y.0.
   livecheck do
@@ -15,10 +14,10 @@ class PortableRuby < PortableFormula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_big_sur: "d2c97b60b3559ba9dcb4a6cc4b212b49b458a23fa73748a0db8c453381d203a4"
-    sha256 cellar: :any_skip_relocation, big_sur:       "c5c4dd400e5d61073016c05c62c4c7574f1eaf717152967ebf9b950730000c75"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "d96e5c1d7a0a153b2f528ba97426877a5131ddaecef02697d485b024a8cb829f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "1223ded9a3fc81f6b65ff18969b401e2496eee77cd8cfa40683d5ba8455b4196"
+    sha256 cellar: :any_skip_relocation, arm64_big_sur: "832729e175b3c0864c8417ebc2bdcf1509e3856a08bd866c8bb0de806da6964e"
+    sha256 cellar: :any_skip_relocation, big_sur:       "c4f59d993944de5b080720477b9608eab8cf0ecace745d2058de5c1924c3037e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:   "629b9568a047bffa15ae7ea15544cdbcd2ac63ea136af71777de39fc68dd5598"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:  "de39ccc6459a91489fbf5e34d4b556e6bfd20a53a0c8104d17ee84e7ab34334f"
   end
 
   depends_on "pkgconf" => :build
@@ -32,8 +31,8 @@ class PortableRuby < PortableFormula
   end
 
   resource "msgpack" do
-    url "https://rubygems.org/downloads/msgpack-1.8.5.gem"
-    sha256 "97419eaa7b35dfe3e462c0e6c1a3dfdcbfc8756605c09e46e4c6daef127517ba"
+    url "https://rubygems.org/downloads/msgpack-1.8.7.gem"
+    sha256 "dfefec761b5f9047e6e8d95d2c7f8af4b3725d984a01942adc533aa819a2df33"
 
     livecheck do
       url "https://rubygems.org/api/v1/versions/msgpack.json"
@@ -44,8 +43,8 @@ class PortableRuby < PortableFormula
   end
 
   resource "bootsnap" do
-    url "https://rubygems.org/downloads/bootsnap-1.26.0.gem"
-    sha256 "ca96237015e6cd74a02963d5821cf00ac5ea134653b323e8cd6d702a7718bf1b"
+    url "https://rubygems.org/downloads/bootsnap-1.26.1.gem"
+    sha256 "5b5bd90f8f13ea338627c1d56ffbe2ea25e743ac48c2afec1a9bea3a06a264e2"
 
     livecheck do
       url "https://rubygems.org/api/v1/versions/bootsnap.json"
