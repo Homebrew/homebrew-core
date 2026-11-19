@@ -1,18 +1,16 @@
 class Celero < Formula
   desc "C++ Benchmark Authoring Library/Framework"
   homepage "https://github.com/DigitalInBlue/Celero"
-  url "https://github.com/DigitalInBlue/Celero/archive/refs/tags/v2.10.0.tar.gz"
-  sha256 "166f73a1f450396238074c7444e3295082bdda875355c62e1863af12a83be8fa"
+  url "https://github.com/DigitalInBlue/Celero/archive/refs/tags/v2.11.0.tar.gz"
+  sha256 "c01aca0d991331e5f96804ba8e5e1abf1c4209b012a1ebe8b98df76e0478f87b"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "3e720489240236f979fe02282f570d58d0d7349209a8d8d6804bfa8873d3640f"
-    sha256 cellar: :any,                 arm64_tahoe:       "b63fcdb9e0f73ce01496f71df726bea56a88701a1d37a0fb79325d7fa8e71592"
-    sha256 cellar: :any,                 arm64_sequoia:     "70f445ab1c256b1c9697ec1713d706c84db9a7cde69fe79c674a5e6bf9f256c4"
-    sha256 cellar: :any,                 arm64_sonoma:      "1b7ec357933948d2531d1426633e54ec66fbe912e7f133a11ecbb613eb74c339"
-    sha256 cellar: :any,                 sonoma:            "485ca90b69b9e2e21ed153ad95a446115644398d70747325314634b86456fc02"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b8f284e3f2349116d41cfdd37bb458b9e571ed8efb6bfbbfb688fde60e2730e6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "136a58bbef1ef017188b851cfaf5cf02ed4af629f3a35cf14f46708ddc314f84"
+    sha256 cellar: :any, arm64_golden_gate: "be40d5e1407b125ab2c19be1955902b2ea5dc0caaf7fc553e22784c754368491"
+    sha256 cellar: :any, arm64_tahoe:       "21940873eda4962c4fb1557aba8eb735ab209152a2da91ea1659315baf9fb0a8"
+    sha256 cellar: :any, arm64_sequoia:     "9fbf5364ce367a1e306c563e502d69d4f3580f08c567ff2205eaff6e8e4d0f81"
+    sha256 cellar: :any, arm64_linux:       "f33325a371c3b3084ff1a51e6aff833599056a0f0208e7a89aeaf13a3e386e88"
+    sha256 cellar: :any, x86_64_linux:      "716af80343ef929d49f081f6d7f5eeab8526cebd262a3ce0b1d4971ececc6107"
   end
 
   depends_on "cmake" => :build
