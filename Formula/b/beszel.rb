@@ -1,17 +1,17 @@
 class Beszel < Formula
   desc "Lightweight server monitoring with historical data, Docker stats, and alerts"
   homepage "https://beszel.dev"
-  url "https://github.com/henrygd/beszel/archive/refs/tags/v0.21.1.tar.gz"
-  sha256 "92dac1dd5faed2fe47fe6cdec831ccf5b04032c33438e88fc354666f563090ff"
+  url "https://github.com/henrygd/beszel/archive/refs/tags/v0.21.2.tar.gz"
+  sha256 "8613c593fd447b4602644a73f1ec26d5d8233fa91109192c05a2406e22316c34"
   license "MIT"
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "64c234488976fa10ba49215fbb967e763446ba83b603b8c460df07a3788d152c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64c234488976fa10ba49215fbb967e763446ba83b603b8c460df07a3788d152c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64c234488976fa10ba49215fbb967e763446ba83b603b8c460df07a3788d152c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "306555ef268d9090431d43f1a17d78ce5fe5cd5b8192d242b471de76f3953c4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5bb8fcaf6656abff89ed73f848ea46705ccb2ea9dc7b71df84b2af13e329175c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d66754e3c8b09f85aae67d2bd4367bef82e1d746e01383379495a09f6b1ff00e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d66754e3c8b09f85aae67d2bd4367bef82e1d746e01383379495a09f6b1ff00e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d66754e3c8b09f85aae67d2bd4367bef82e1d746e01383379495a09f6b1ff00e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6a7f2d8aab5d05a6f63fa467beb2f8152362de8e535f5b404827d8a6d64c57e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c5e572d3aedd8239762a01719d177579acca28126e349850061cfe869dedb14a"
   end
 
   depends_on "go" => :build
@@ -28,17 +28,13 @@ class Beszel < Formula
   end
 
   def install
-    # Homebrew manages upgrades, so replace self-update with a notice
-    inreplace "internal/cmd/hub/hub.go", "Run:   hub.Update,",
-              'Run: func(cmd *cobra.Command, _ []string) { cmd.Println("Run `brew upgrade beszel` to update.") },'
-
     cd "internal/site" do
       system "npm", "--offline", "run", "build"
     end
 
     ENV["CGO_ENABLED"] = "0"
     ENV["GOPROXY"] = "off"
-    system "go", "build", *std_go_args, "./internal/cmd/hub"
+    system "go", "build", *std_go_args(tags: "no_self_update"), "./internal/cmd/hub"
 
     (var/"lib/beszel").mkpath
   end
@@ -51,7 +47,8 @@ class Beszel < Formula
   end
 
   test do
-    assert_match "brew upgrade beszel", shell_output("#{bin}/beszel update 2>&1")
+    assert_match "self-update is disabled in this build; use your package manager to update",
+                 shell_output("#{bin}/beszel update 2>&1", 1)
 
     port = free_port
     url = "http://127.0.0.1:#{port}"
