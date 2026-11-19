@@ -1,8 +1,8 @@
 class Chaoskube < Formula
   desc "Periodically kills random pods in your Kubernetes cluster"
   homepage "https://github.com/linki/chaoskube"
-  url "https://github.com/linki/chaoskube/archive/refs/tags/v0.39.1.tar.gz"
-  sha256 "2228937790850075ca424bbfa221172fc0be0d1b3fb3c2d755dab7101945a5dd"
+  url "https://github.com/linki/chaoskube/archive/refs/tags/v0.39.2.tar.gz"
+  sha256 "135d9570499cef12a3d4fffe46e815a639c79d0cf39113ccec09cf3905141f17"
   license "MIT"
   head "https://github.com/linki/chaoskube.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Chaoskube < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e3fb8967457c7de10e46f3e873def41dfb2f9d147fbd51f51990d80cbdcff371"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8eb1211081d6b7d7290155174d1e461af3257ff5e21775dbcefbea57133ee1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52edd63c7cbceace82c6830e4344aefc6190f0a5f804407ddd1d044ff3a377cd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "8bec75bdc3d2437328edbe087056053e188eee3099922ea3ed7912ae6ca08c43"
-    sha256 cellar: :any_skip_relocation, sonoma:            "2fa184e0297b5a30ce33e86c3c0b38a01d03e8f2148fdf89518b63dd89cae4aa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "11335c35530d5232d58fe944684c0379763eb754d15027505d8b03ee7fdad921"
-    sha256 cellar: :any,                 x86_64_linux:      "6c79217bdc3e3dcbfa1e4eb5971d8e4cf73faa8f4f55e5484d3279d28b107b95"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6dead7a4d97781c4e8d46fd95c8a1699320d63fa12f7a6b37329e1e6a4d40a82"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f16d4a2d96e544c772dc7a1878d2bb69934944dffe3ff99787795287960bd75a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1b6075e1f04f2d2a4220783b479efe7f2dde732eea0e44203b9b41312c8f427"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0b1237289adc260093ec68da4fc4a47fd81f6e71888de17a3afe0e51de10a71f"
+    sha256 cellar: :any,                 x86_64_linux:      "0990501fe58d71762634f378ec219f5b6c35a4b8ac2bce8fc60c65e9d8c09af9"
   end
 
   depends_on "go" => :build
