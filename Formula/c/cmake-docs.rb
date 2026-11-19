@@ -11,11 +11,11 @@ class CmakeDocs < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94fa65df8bab4dc9dd0a549b31cdff0cb168c0a30046f43c5cd2fe6b5f7e907c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94fa65df8bab4dc9dd0a549b31cdff0cb168c0a30046f43c5cd2fe6b5f7e907c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94fa65df8bab4dc9dd0a549b31cdff0cb168c0a30046f43c5cd2fe6b5f7e907c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f9b7791e5831dc634b3a2b8afd046162f4d6bc417ccf627658efbaaab7062f45"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f9b7791e5831dc634b3a2b8afd046162f4d6bc417ccf627658efbaaab7062f45"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d69f13702cc8a42122c611747cc628a7afddab78ac3603ba0e444eb7416fa353"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d69f13702cc8a42122c611747cc628a7afddab78ac3603ba0e444eb7416fa353"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d69f13702cc8a42122c611747cc628a7afddab78ac3603ba0e444eb7416fa353"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e19544a58f149fa1a3933e05e7c8da67d82d7b3e59c6c47c9674a379f1aab451"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e19544a58f149fa1a3933e05e7c8da67d82d7b3e59c6c47c9674a379f1aab451"
   end
 
   depends_on "cmake" => :build
