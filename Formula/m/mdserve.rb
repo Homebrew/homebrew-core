@@ -16,6 +16,9 @@ class Mdserve < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "482b075537a6af00bf3856510cf13127987c1b7ee29722bc5f3c65207e106ebd"
   end
 
+  deprecate! date: "2026-11-19", because: :repo_archived
+  disable! date: "2027-05-19", because: :repo_archived
+
   depends_on "rust" => :build
 
   # The test runs a local HTTP server.
