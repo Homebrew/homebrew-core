@@ -3,23 +3,23 @@ class Gixy < Formula
 
   desc "NGINX configuration static analyzer focused on security"
   homepage "https://gixy.getpagespeed.com/"
-  url "https://files.pythonhosted.org/packages/ae/49/4e27e5b851adb542e867148127dafb79894bae62cf96aeb69bfbe8ecafba/gixy_ng-0.2.62.tar.gz"
-  sha256 "c0e2e82619ba26941c0c82407f886e3b888ad5b08e138b3685108b5448690a13"
+  url "https://files.pythonhosted.org/packages/1a/db/7e99c8fe473d466d62afc49ecdc5d36befd806e6f7a62deb976e86ce3689/gixy_ng-0.2.63.tar.gz"
+  sha256 "ccff12aa3fdda85e125d7540aa4b51219ed7ab7e59adbafafffb47d6e4b348a5"
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52751561b6589116cb3e06df37a1de1b91cf794bc31292b84e3948929215c81e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5adfddf29ba001d51f2cb62e20bf5a2b30b8922151e552d52c86922056ef3752"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6a16e182e1cd238691c68332a6f28589de0ed48074d11300e533db9e42ca9cb"
-    sha256 cellar: :any,                 arm64_linux:       "33b30e471de82d3bee5063372817fc64954fa8b38d37f2f408026285b23426f8"
-    sha256 cellar: :any,                 x86_64_linux:      "6377edc24bd678233af8351c4d167dc8ba1208977d827b240d04ad365a770e96"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1fd0f8e0580e208835e9dfceacc9a9f28a6ac534c999d5e83470c98782d1bbd5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9ffdd8c44ceeaab20c7a950a58b73d54b6d1aa1f55de87b9391ed8a35331e0a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "318ef49526aa8552c006800c93ef5beaeb3df3d66d9ac99fd4c0480f1817f328"
+    sha256 cellar: :any,                 arm64_linux:       "c738529ed3a74cf0ce82c09522cfa1ea1e4a7cf57c5c6b4d2ffc35d4d60e7e6f"
+    sha256 cellar: :any,                 x86_64_linux:      "bd8202894308958c780395ab61642cb521ad0547eae26a4c8faa5ce526f5c5fa"
   end
 
   depends_on "python@3.15"
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/bc/d9/c591a80cf3335de7820c6762f8ee9298a43da5319803d319e16657b6fdf2/configargparse-1.9.0.tar.gz"
-    sha256 "48d9c22affe4ac419b4dd0691fa929d759e1f99574be41826785f2dbf3da63a5"
+    url "https://files.pythonhosted.org/packages/01/77/0ca08089aff2548621a27575d64cb0c0e0e3694e4798211381a65d48dda7/configargparse-1.10.1.tar.gz"
+    sha256 "8ee7c4429e6402b881c9a85569eb9484db2f63260718b45c67c59625284371c8"
   end
 
   resource "jinja2" do
