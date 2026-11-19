@@ -1,14 +1,14 @@
 class Xcinfo < Formula
   desc "Tool to get information about and install available Xcode versions"
   homepage "https://github.com/XcodeReleasesOrg/xcinfo"
-  url "https://github.com/XcodeReleasesOrg/xcinfo/archive/refs/tags/2.0.0.tar.gz"
-  sha256 "978a6eadd80fc802060226909137f1b035159d8b71c58d8f78c91abcc95e78f7"
+  url "https://github.com/XcodeReleasesOrg/xcinfo/archive/refs/tags/2.1.0.tar.gz"
+  sha256 "4e40836ceaff4a3f96c15244fc18be8fcaed1ca55f769fcec53b4ace354cf21d"
   license "LGPL-3.0-only"
   head "https://github.com/XcodeReleasesOrg/xcinfo.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97446589d632f7930427c63503c58f7f90da7159f0ff36c7ad566976726d204e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06c95ac7068fc693c5c85a800a6dee06ab1705393efcc2f275f93c1f113bcb57"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5829ab2c8dd3a832f2f082194d89d643b3f61fb4d6c49745d2f5c2bb41361d4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fbbf4d45bbcdcf2f563e7cd1b36db960b94cfd9127dc28eded8487cb35b7451"
   end
 
   depends_on xcode: ["27.0", :build]
