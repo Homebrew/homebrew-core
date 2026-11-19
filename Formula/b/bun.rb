@@ -1,10 +1,8 @@
 class Bun < Formula
   desc "Incredibly fast JavaScript runtime, bundler, test runner, and package manager"
   homepage "https://bun.com/"
-  # Need git checkout to build. Alternatively could set GIT_SHA if we extract the commit.
-  url "https://github.com/oven-sh/bun.git",
-      tag:      "bun-v1.4.4",
-      revision: "38afee6c84fcf48c0edb2466aa4b27d287a59c30"
+  url "https://github.com/oven-sh/bun/archive/refs/tags/bun-v1.4.5.tar.gz"
+  sha256 "118dc25c12ec4ef3d95b597866a477079e170a071c79ccebca90954e05b0215e"
   license all_of: [
     "MIT",
     "LGPL-2.0-or-later", # JavaScriptCore
@@ -15,11 +13,11 @@ class Bun < Formula
     "BSD-2-Clause",      # libarchive, libbase64, libspng
     "BSD-3-Clause",      # lol-html, libwebp, zstd
     "IJG",               # libjpeg-turbo
+    "ISC",               # glob-parent, eslint-plugin-promise, @handlebars/parser
     "LGPL-2.1-or-later", # tinycc
     "Zlib",              # zlib-ng
     "Apache-2.0" => { with: "LLVM-exception" }, # __cxa_thread_atexit
   ]
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -62,34 +60,42 @@ class Bun < Formula
   # Bootstrap with the same Bun version as upstream CI,
   # https://github.com/oven-sh/bun/blob/bun-v#{version}/scripts/build/ci-images/spec.ts
   resource "bootstrap" do
+    checksums = {
+      "linux-x64"      => "bf8ccbfb2b0b80159e0f9a6d15c55317add8077534dbc6130a3edb52fccb395c",
+      "linux-aarch64"  => "baa6bb36f51d6e58561e02bbea825038a9df454f673d6d776e8bbf86f8c7850e",
+      "darwin-x64"     => "50a3491f73abc2fe81673171a85762d3bc2cc1680ccecadd983de99adf77977e",
+      "darwin-aarch64" => "c240d7f0ccb90c263a849fcdb09b7ee62630d921348ed6aafda86b9d577bc510",
+    }
+
+    version "1.4.4"
+
     on_macos do
       on_arm do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-darwin-aarch64.zip"
-        version "1.4.2"
-        sha256 "90987a3a16d7db556d886ac3d551e7b6d3edf0a1cf43acaed622e8676be1d12f"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v#{version}/bun-darwin-aarch64.zip"
+        sha256 checksums["darwin-aarch64"]
       end
       on_intel do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-darwin-x64-baseline.zip"
-        sha256 "bad5bbd6cf14d0980d115f5954c9ff904df619d5e994d2da1ffccd3f316300b0"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v#{version}/bun-darwin-x64.zip"
+        sha256 checksums["darwin-x64"]
       end
     end
     on_linux do
       on_arm do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-linux-aarch64.zip"
-        version "1.4.2"
-        sha256 "54328bbc2d9c8e0c9f892c544d66c57a83b84139e34909e5ee81758f1ac8fda7"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v#{version}/bun-linux-aarch64.zip"
+        sha256 checksums["linux-aarch64"]
       end
       on_intel do
-        url "https://github.com/oven-sh/bun/releases/download/bun-v1.4.2/bun-linux-x64-baseline.zip"
-        sha256 "c678040f14fe0440eb839d37cbd0ce4c051a32da72806ac97de6a6aab6bf728f"
+        url "https://github.com/oven-sh/bun/releases/download/bun-v#{version}/bun-linux-x64.zip"
+        sha256 checksums["linux-x64"]
       end
     end
   end
 
-  # Build patches for clang 23 and the macOS 27 SDK,
-  # https://github.com/oven-sh/bun/issues/41141
-  # Also replaces nightly-only `core::mem::type_info::of` to build with stable Rust
-  patch :DATA
+  # Allow building with Rust 1.100.0 until release with https://github.com/oven-sh/bun/pull/49051
+  patch do
+    file "Patches/bun/rust-1.100.0.diff"
+    type :unofficial # mostly a backport but some differences for stable Rust
+  end
 
   # Performing a manual shallow git clone since a full clone of WebKit repo is ~18GB in size
   # and brew's unpack strategy will duplicate a resource requiring over 36GB of disk space.
@@ -131,6 +137,7 @@ class Bun < Formula
       inreplace "scripts/build/flags.ts", "-march=armv8-a+crc", ENV["HOMEBREW_OPTFLAGS"].to_s
     end
 
+    ENV["GIT_SHA"] = Utils::Git.get_tar_commit_id(cached_download)
     ENV["RUSTC_BOOTSTRAP"] = "1" # workaround to build with stable rust
     # Nested dep builds run `cmake --build` without `--parallel`, four at a time
     # (the `dep` ninja pool), so each one spawns its own core-count worth of
@@ -142,7 +149,6 @@ class Bun < Formula
     ENV.prepend_path "PATH", buildpath/"bootstrap"
 
     args = ["--canary=off"]
-    args << "--baseline=on" if Hardware::CPU.intel?
     # Unless it detects CI, bun takes the deployment target from the SDK's major
     # version, so Xcode 27 on macOS 26 would build everything `minos 27.0`.
     args << "--osx-deployment-target=#{MacOS.version}" if OS.mac?
@@ -158,7 +164,10 @@ class Bun < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/bun --version")
-    refute_match "canary", shell_output("#{bin}/bun --revision")
+
+    bun_revision = shell_output("#{bin}/bun --revision")
+    refute_match "canary", bun_revision
+    refute_match "unknown", bun_revision
 
     system bin/"bun", "init", "--yes"
     assert_equal "Hello via Bun!", shell_output("#{bin}/bun run index.ts").chomp
@@ -182,109 +191,3 @@ class Bun < Formula
     assert_equal '[ "Sue", "Tim", "Bob" ]', shell_output("#{bin}/bun run db.ts").chomp
   end
 end
-
-__END__
-diff --git a/src/runtime/cli/lint_js.rs b/src/runtime/cli/lint_js.rs
---- a/src/runtime/cli/lint_js.rs
-+++ b/src/runtime/cli/lint_js.rs
-@@ -409,12 +409,21 @@
- /// Startup state that all VMs share.
--#[derive(Default)]
- struct Start {
-     initialize: std::sync::Once,
-     /// Set if the run won't have more than a few VMs. Stays unset if a VM starts before the files are known.
-     is_for_few: AtomicBool,
-     memory: std::sync::OnceLock<usize>,
- }
-
-+impl Default for Start {
-+    fn default() -> Self {
-+        Self {
-+            initialize: std::sync::Once::new(),
-+            is_for_few: AtomicBool::new(false),
-+            memory: std::sync::OnceLock::new(),
-+        }
-+    }
-+}
-+
- impl Start {
-     /// [`memory_for_engines`]
-     fn memory(&self) -> usize {
-diff --git a/src/collections/lib.rs b/src/collections/lib.rs
-index 57539df..46e4209 100644
---- a/src/collections/lib.rs
-+++ b/src/collections/lib.rs
-@@ -6,9 +6,10 @@
-     unsized_const_params,
-     const_cmp,
-     const_trait_impl,
--    allocator_api
-+    allocator_api,
-+    core_intrinsics
- )]
--#![allow(incomplete_features)]
-+#![allow(incomplete_features, internal_features)]
- #![warn(unused_must_use)]
- 
- pub mod hive_array;
-diff --git a/src/collections/multi_array_list.rs b/src/collections/multi_array_list.rs
-index fda15fa..3af1d82 100644
---- a/src/collections/multi_array_list.rs
-+++ b/src/collections/multi_array_list.rs
-@@ -47,7 +47,11 @@
- 
- use core::alloc::Layout;
- use core::marker::PhantomData;
--use core::mem::type_info;
-+mod type_info {
-+    pub(super) const fn of<T: ?Sized>() -> core::any::TypeId {
-+        const { core::intrinsics::type_id::<T>() }
-+    }
-+}
- use core::mem::{ManuallyDrop, MaybeUninit};
- use core::ptr::{self, NonNull};
- use std::alloc::{Allocator, Global};
-diff --git a/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp b/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
-index 0f72fd6..7ab0c64 100644
---- a/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
-+++ b/src/jsc/bindings/JSNodePerformanceHooksHistogram.cpp
-@@ -172,13 +172,13 @@ int64_t JSNodePerformanceHooksHistogram::getMax() const
- 
- double JSNodePerformanceHooksHistogram::getMean() const
- {
--    if (!m_histogramData.histogram) return NAN;
-+    if (!m_histogramData.histogram) return std::numeric_limits<double>::quiet_NaN();
-     return hdr_mean(m_histogramData.histogram);
- }
- 
- double JSNodePerformanceHooksHistogram::getStddev() const
- {
--    if (!m_histogramData.histogram) return NAN;
-+    if (!m_histogramData.histogram) return std::numeric_limits<double>::quiet_NaN();
-     return hdr_stddev(m_histogramData.histogram);
- }
- 
-diff --git a/src/jsc/bindings/c-bindings.cpp b/src/jsc/bindings/c-bindings.cpp
-index 481ccdd..1ff80f1 100644
---- a/src/jsc/bindings/c-bindings.cpp
-+++ b/src/jsc/bindings/c-bindings.cpp
-@@ -1143,6 +1143,11 @@ extern "C" const char* BUN_DEFAULT_PATH_FOR_SPAWN = "/usr/bin:/bin";
- #include <os/signpost.h>
- #include "generated_perf_trace_events.h"
- 
-+// The SDK applies an Apple-clang-only attribute here, unguarded.
-+// https://github.com/oven-sh/bun/issues/41141
-+#pragma clang diagnostic push
-+#pragma clang diagnostic ignored "-Wunknown-attributes"
-+
- // The event names have to be compile-time constants.
- // So we trick the compiler into thinking they are by using a macro.
- extern "C" void Bun__signpost_emit(os_log_t log, os_signpost_type_t type, os_signpost_id_t spid, int trace_event_id)
-@@ -1160,6 +1165,8 @@ extern "C" void Bun__signpost_emit(os_log_t log, os_signpost_type_t type, os_sig
-     }
- }
- 
-+#pragma clang diagnostic pop
-+
- #undef EMIT_SIGNPOST
- #undef FOR_EACH_TRACE_EVENT
