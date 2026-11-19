@@ -1,8 +1,8 @@
 class Libgosu < Formula
   desc "2D game development library"
   homepage "https://libgosu.org"
-  url "https://github.com/gosu/gosu/archive/refs/tags/v1.4.6.tar.gz"
-  sha256 "bbd4c4a868549702e190542f0dc5be8210c8290378ae9b24a75a86e57aa8f39e"
+  url "https://github.com/gosu/gosu/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "5585b759dfffc690f8442dfb1a18434c23f744959cc4f5c2580ffe299efc433d"
   license "MIT"
   head "https://github.com/gosu/gosu.git", branch: "master"
 
@@ -24,18 +24,23 @@ class Libgosu < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "sdl2-compat"
+  depends_on "sdl3"
 
   on_linux do
     depends_on "xorg-server" => :test
     depends_on "fontconfig"
     depends_on "mesa"
-    depends_on "mesa-glu"
-    depends_on "openal-soft"
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    # GCC rejects `target("neon")` that bundled mojoAL applies to its NEON functions
+    ENV.append_to_cflags "-DMOJOAL_FORCE_SCALAR_FALLBACK=1" if OS.linux? && Hardware::CPU.arm?
+
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -76,9 +81,9 @@ class Libgosu < Formula
       }
     CPP
 
-    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++17"
+    system ENV.cxx, "test.cpp", "-o", "test", "-L#{lib}", "-lgosu", "-I#{include}", "-std=c++20"
     if OS.linux?
-      # SDL3 (via sdl2-compat) fails if no video driver is available and "dummy"
+      # SDL3 fails if no video driver is available and "dummy"
       # workaround doesn't work as libgosu needs OpenGL support in video driver
       IO.pipe do |read_io, write_io|
         pid = spawn(formula_opt_bin("xorg-server")/"Xvfb", "-displayfd", write_io.fileno.to_s, write_io => write_io)
