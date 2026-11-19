@@ -8,11 +8,11 @@ class Unrtf < Formula
   head "https://hg.savannah.gnu.org/hgweb/unrtf/", using: :hg
 
   bottle do
-    sha256 arm64_golden_gate: "a226864b8ca2d3a3fd005b4d15f67f42f2283d389a358d6a26519be44f67fa78"
-    sha256 arm64_tahoe:       "cc979e852f9b1e2a2e64354acde5b7beb7b9210147f6887293302b6914834b7f"
-    sha256 arm64_sequoia:     "b7fdfcdb1fa423dfff13a459a13b72a0d091eccf084138138575a9217bc22c5b"
-    sha256 arm64_linux:       "56e196c69663296a493424ebbb430b19620cce002966f670e83e2b7c50a23d2e"
-    sha256 x86_64_linux:      "6d15032cd02da2d37dfc830b5a1ded04f28490fcedd5d7e3e1ce625899fa2f54"
+    sha256 arm64_golden_gate: "492fbd3533b6e5cc92160c527a966015f4fd50e76b5ecd4261f524a9620dbdf6"
+    sha256 arm64_tahoe:       "ba43df400660cf0b8dc74ab3bd3d45d6bbfd8868894ec9faa49f420bca24a024"
+    sha256 arm64_sequoia:     "aa2a0add9ac9fe87755c6273765d7ecbe87381824fe20d080d821ffaf84a42f3"
+    sha256 arm64_linux:       "986d21a03fd2a3be4df3819edf1d029aa6d683eafb636644a95d1b19a31f4b73"
+    sha256 x86_64_linux:      "893398302af1ed96a003896c34e64bb29709530c7f4cb83fab213fed88869a73"
   end
 
   depends_on "autoconf" => :build
