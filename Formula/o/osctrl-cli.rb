@@ -1,8 +1,8 @@
 class OsctrlCli < Formula
   desc "Fast and efficient osquery management"
   homepage "https://osctrl.net"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "7f6e4a260f24d37f19bc955d42bb0babfc1224af43e8db7d017f21c326404df0"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "4b10ac68bf33c6bd8239485871a46517ba8c26362a605f836c1619deeeb814a8"
   license "MIT"
   head "https://github.com/jmpsec/osctrl.git", branch: "develop"
 
