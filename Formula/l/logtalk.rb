@@ -1,9 +1,9 @@
 class Logtalk < Formula
   desc "Declarative object-oriented logic programming language"
   homepage "https://logtalk.org/"
-  url "https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt31020stable.tar.gz"
-  version "3.102.0"
-  sha256 "269ce4b1b5aa5ca59940a7a65e0caf10a589a44dd2ec1cc3711f8c48e4712c91"
+  url "https://github.com/LogtalkDotOrg/logtalk3/archive/refs/tags/lgt31030stable.tar.gz"
+  version "3.103.0"
+  sha256 "c461388e4d5715dbceadf570b3ad48efc71998c20f35a4b4e2f3cd22b5f020c7"
   license "Apache-2.0"
   head "https://github.com/LogtalkDotOrg/logtalk3.git", branch: "master"
 
@@ -15,11 +15,11 @@ class Logtalk < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e90229713060045c5c902b09bad9c4ad0e97afe279f6548ae2167ca14673049"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f781729c034f5a8111d9a0749cf978ec6532a38f9d2adc60efd50192684197e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "06c9cc894ff10b8b67c074f2e0115f96f678d807452f222294fb3c2cfc61efbc"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "15c683cf73004349e07196b2e87b27ec39d02d203ef53d046dcf3b60da0711c3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "549a7c3564e98e0e9dabd1136975742d931a79fa18a943ad06b2d7234e4e5deb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48cf25d967c9f9847f2e6795c144af7c20768f8802a6034cc0445ad78e2a4baf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78f5d49c63ce66b73956214d5cf11cd5f0b767cd45ec751471be2473afd2489d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0c931d9d7975078d4e8d55c7481d4c8725d19ed29dba76d1c9ce2ee01dbe68e"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "518bd8bd3149f3fba00dd376aebf71d6700965aa90528ff11e676f43744df475"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "680611ec0e7fdafcb31d565583ef0b368c856fe565b2070b209d82ea95566aa8"
   end
 
   depends_on "gnu-prolog"
