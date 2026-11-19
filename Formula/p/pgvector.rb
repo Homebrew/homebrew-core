@@ -7,11 +7,11 @@ class Pgvector < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9363a3a6e4344d4c2780308b0938556ae18c937e398798117627912fd90d651"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "326bc17440a773b75b054d83d7905b46b370b1a1b6543fff077186b5a632253b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "01dc0c82b633a46b651ca07ef6f46e2ebee35d73bc690163ac58b0514fc3e0d1"
-    sha256 cellar: :any,                 arm64_linux:       "069cd51a35f872f1baa4e4cc14e11f37732f92e0c7bad8e95b75358f6316d333"
-    sha256 cellar: :any,                 x86_64_linux:      "c19b2990a748acfd11ece70fff7024b52baa1a27e72de3958467a3d97810b044"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5731617b09cbaa103c5d929fbf4d30b2270ef0d5fe6c4c09327bbae6b94b8075"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8de9c8aa037c813d939dfe761e1ab28e7d6b20b98a71eb951c6306031e110cff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d5f16ed6c60c703280a2760e2c5862a34f469b758c8941bd4c4f4f1dcb3ad3e4"
+    sha256 cellar: :any,                 arm64_linux:       "68fdbd03e5533bf39bb13e7d6f10b4fa6cf9315628c9e994ef8d60e22a4f5098"
+    sha256 cellar: :any,                 x86_64_linux:      "0cbf08566402266b3cdde87c5a2961d2348d02439373df59a543a36df1ce65d0"
   end
 
   depends_on "postgresql@18" => [:build, :test]
