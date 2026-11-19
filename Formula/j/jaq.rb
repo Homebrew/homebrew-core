@@ -12,11 +12,11 @@ class Jaq < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f78dd3539265e37db02cccc2247c07b52e19c41d5e08b6bacda3143e107cc13"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d37ff64edfcc2f11468a4f962b47b572efd4018ee38a6836436efbe3e9d7010"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8cc80e3fa08e8fb2e998ca0c62db60ada9a88b728cb36d8a0d5132963cb735f"
-    sha256 cellar: :any,                 arm64_linux:       "b5ee914f151ba112005b3edcc0851b1cd11cfb04bc35a0afd04d3e71d14ee0d6"
-    sha256 cellar: :any,                 x86_64_linux:      "d19b747393180c9b93a2eb9b6f8bb88918f7797a74e095f89ca46f03c0361e70"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3582ed3de6504b8c3c77878761ffc2fcf81cac7c4e2db8c4767674a0dca14906"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "894e0dec12bfe5fd8f69e630e3eb0540d5e3f35ae23cc5731b81d10c9669212d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63370d88f77df893070c6a1637aaf42d24452da22768013c58af2bc750ed26a0"
+    sha256 cellar: :any,                 arm64_linux:       "4ddaeca1db11f9320b14cedc8c7a7bbd7d4f2c984b422f8737574786031ab0df"
+    sha256 cellar: :any,                 x86_64_linux:      "756ffd9ae4d58d96abc75b4ceaafa036836fee2ec050ff09b8caebc0844ade51"
   end
 
   depends_on "rust" => :build
