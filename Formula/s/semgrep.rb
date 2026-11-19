@@ -5,8 +5,8 @@ class Semgrep < Formula
   homepage "https://semgrep.dev"
   # Pull from git tag to get submodules, https://github.com/semgrep/semgrep/issues/10877
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.185.0",
-      revision: "9240f708f8d7e2fbd38b67aa6cd17704b1f81e14"
+      tag:      "v1.186.0",
+      revision: "a5844e7c2d9d04548f86048f525d467a00742656"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -16,11 +16,11 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "66b9a0ce0e1b9e546825bc07aa719bba3b742468331975f8b98094c9030cbbe0"
-    sha256 cellar: :any, arm64_tahoe:       "ece35c3762a403a85645b12ff7c65f6a5c613a8c9692e63544538c475043975d"
-    sha256 cellar: :any, arm64_sequoia:     "b6394ef07d6fdffa33320d3d2dc5b4a1a29496ff09703c6a44fbfd4f7ed1539a"
-    sha256               arm64_linux:       "ddc7b2e635cac13c35390b5bbfbcb2fa97f358495da128cca19ace13da1dbe4d"
-    sha256               x86_64_linux:      "2b774029f71d8e2d2d60879df40bf521ef1219d82675aed5cd9344194ee50d1e"
+    sha256 cellar: :any, arm64_golden_gate: "1ffff539fb371eb32668456c80f47805528bba0cc422aed811c4e356773e0e78"
+    sha256 cellar: :any, arm64_tahoe:       "81e0c50e8b8a50b7b7d3d703e8d3d1efd686335b9529ea81c014b95c86abaf92"
+    sha256 cellar: :any, arm64_sequoia:     "31882f2d99011309fcbb91275ed8372dc8139465d840977ae3e9e1b253766edd"
+    sha256               arm64_linux:       "63f9640fcb1b2c6f7ddebb336a0832ebef090c582ee1b1c82aa6273ccb0ef110"
+    sha256               x86_64_linux:      "af2255f47a38e7c56c6ef695866f696def523fc4623e20a7656a162b1cef8948"
   end
 
   depends_on "ocaml" => :build
@@ -66,8 +66,8 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/2d/1f/b7ce2efe406b87bb3693d587b91bcd8fa9030888870ceff29e4a0d233cb2/bracex-3.2.2.tar.gz"
-    sha256 "d18976160b3ba01a57d5c53a5c8c3aa2506efa9e0a3a62467251f82b8f563fde"
+    url "https://files.pythonhosted.org/packages/42/39/9ae971118d77b86cc3f03ab5a467ddb58de352d8ef29830c81531d22010c/bracex-3.2.3.tar.gz"
+    sha256 "8fbf92b4db3c31de999145e22a47d4ffdbefb983a98583c3272bd7d570f9a343"
   end
 
   resource "charset-normalizer" do
@@ -81,8 +81,8 @@ class Semgrep < Formula
   end
 
   resource "click-option-group" do
-    url "https://files.pythonhosted.org/packages/ef/ff/d291d66595b30b83d1cb9e314b2c9be7cfc7327d4a0d40a15da2416ea97b/click_option_group-0.5.9.tar.gz"
-    sha256 "f94ed2bc4cf69052e0f29592bd1e771a1789bd7bfc482dd0bc482134aff95823"
+    url "https://files.pythonhosted.org/packages/1d/03/454dafcda21ca579bfa3d3583edd91f283cf6fb7b9a63d00a3212e8e2d4c/click_option_group-0.5.10.tar.gz"
+    sha256 "22d6a7d102b4ead6a0b8601d577386d390deae91038662f2bd1d013806184ab7"
   end
 
   resource "colorama" do
@@ -151,8 +151,8 @@ class Semgrep < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mcp" do
@@ -231,8 +231,8 @@ class Semgrep < Formula
   end
 
   resource "pydantic-settings" do
-    url "https://files.pythonhosted.org/packages/d0/31/21d21e0e38a8f5f7a7f0cde22820117b6d17d6bc36f348129527f915d7f4/pydantic_settings-2.16.2.tar.gz"
-    sha256 "3dc08ffabed2bbd5dc2dd55ead7b78b4e4c5cd776aecd04310db5f1224caaf46"
+    url "https://files.pythonhosted.org/packages/59/28/227c843eedd29bd78e132e5aafa420d83154b10465c312f9c21ff2eaf77d/pydantic_settings-2.16.3.tar.gz"
+    sha256 "10e36f616623ebb586c05ca3d3cd22927146869db413d4f14c20c514442a1337"
   end
 
   resource "pygments" do
@@ -251,8 +251,8 @@ class Semgrep < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
-    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
+    url "https://files.pythonhosted.org/packages/7e/c0/c753d487a83d873f6946cee6cbc26cea3fe59a476ad0de99a14938a2fbd8/python_multipart-0.0.34.tar.gz"
+    sha256 "b998ae90ca6e1e363261ce2e0e230281b8af53867b757970abd69ee9edcd843a"
   end
 
   resource "referencing" do
