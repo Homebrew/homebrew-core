@@ -1,9 +1,9 @@
 class Wireshark < Formula
   desc "Network analyzer and capture tool - without graphical user interface"
   homepage "https://www.wireshark.org"
-  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.9.tar.xz"
-  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.9.tar.xz"
-  sha256 "d062d416a1ab3a49975aafe3a671c882dde0562ccd71b078808ceb59d465fc0f"
+  url "https://www.wireshark.org/download/src/all-versions/wireshark-4.6.10.tar.xz"
+  mirror "https://1.eu.dl.wireshark.org/src/all-versions/wireshark-4.6.10.tar.xz"
+  sha256 "268f41bdf8acee561b670217cf6ea74cf9e779477543e59f92f1cd00294a03dd"
   license "GPL-2.0-or-later"
   compatibility_version 1
   head "https://gitlab.com/wireshark/wireshark.git", branch: "master"
@@ -16,11 +16,11 @@ class Wireshark < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "adef566fd3cd74f439f4c86bae60ace6e64d84efc8732cb51bb57a66a864bd74"
-    sha256               arm64_tahoe:       "eff4794d618863fddc2d36a8c6d9538fd5db45496c79093de53f85844e7c2ee8"
-    sha256               arm64_sequoia:     "72705c8ec4b9af0dc70fe3a11ebd858be56db5e855926c1e87b52eff51fb8256"
-    sha256               arm64_linux:       "d36a19212d059245ec34be06c176ddef61655a13353f7de438e63494522509a8"
-    sha256 cellar: :any, x86_64_linux:      "42a55354c5a79600f4b353b7cc8fc4a842108b295dc35f78098a09734979ea56"
+    sha256               arm64_golden_gate: "62eb1e7f449d42c23cde3e21648419ed2a8692aa4e01b2f95edce4982a99382f"
+    sha256               arm64_tahoe:       "c3264739cd1f8b05c944d7f0e45e79693be1d231e8035c3871427a6900d8e910"
+    sha256               arm64_sequoia:     "3482dfbfb587c637dc9ff170f08815f037a0e31e473ac847ef3777da839ded87"
+    sha256               arm64_linux:       "5418842e1e2e26bfef4b0ffa81697e222bf793754d8d9c5e110aac667460356b"
+    sha256 cellar: :any, x86_64_linux:      "698b23407766a4d8bb72e49ff55d783c5840f52daa4dfb4aa66b0f539f38e701"
   end
 
   depends_on "cmake" => :build
