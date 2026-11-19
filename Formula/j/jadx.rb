@@ -1,20 +1,18 @@
 class Jadx < Formula
   desc "Dex to Java decompiler"
   homepage "https://github.com/skylot/jadx"
-  url "https://github.com/skylot/jadx/archive/refs/tags/v1.5.6.tar.gz"
-  sha256 "11bb5ebd8c3169ff3f87e6f928d60cff1545f0c55ba1f814ce67e43ba3f2a9e7"
+  url "https://github.com/skylot/jadx/archive/refs/tags/v1.5.7.tar.gz"
+  sha256 "c2ed4c394d65364447f2c8aa915de42ab9a45e638ec112918efb4c100751e194"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/skylot/jadx.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbf00e2b2173e4bb6624448c18a59e7aeeab5a18d175917cf26542f31f5b0bff"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0d4e73a3db3c8954b505f87d0df7dc900f04ee3158036ebb040d3ac420c24f8b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c813f91c5526d181d7571d4040efd27f8ee330a5b8ba1682e2653b549b2fb98f"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c813f91c5526d181d7571d4040efd27f8ee330a5b8ba1682e2653b549b2fb98f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3eaadb1ed17c35dd08c3c454cc2a79bd849cf7b44166c68da926ea893e28e543"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3eaadb1ed17c35dd08c3c454cc2a79bd849cf7b44166c68da926ea893e28e543"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3eaadb1ed17c35dd08c3c454cc2a79bd849cf7b44166c68da926ea893e28e543"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9f2dc450cbf7dacdd4e5a9022f25d6f33b29f76de6fa50940b98147938a8cb47"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9f2dc450cbf7dacdd4e5a9022f25d6f33b29f76de6fa50940b98147938a8cb47"
   end
 
   depends_on "gradle" => :build
@@ -28,7 +26,8 @@ class Jadx < Formula
   def install
     ENV["JADX_VERSION"] = version.to_s if build.stable?
 
-    system "gradle", "clean", "dist"
+    # `dist` also builds a macOS DMG with a bundled JRE
+    system "gradle", "clean", "pack"
     libexec.install Dir["build/jadx/*"]
     bin.install libexec/"bin/jadx"
     bin.install libexec/"bin/jadx-gui"
