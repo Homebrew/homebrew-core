@@ -1,18 +1,10 @@
-class Hister < Formula
+class Nogon < Formula
   desc "Self-hosted search engine for your browsing history"
   homepage "https://nogon.eu/"
   url "https://github.com/asciimoo/nogon/archive/refs/tags/v0.22.0.tar.gz"
   sha256 "e78fe5fb2d8c612f06104605aa234c8840eab0f14146829757706b59258c0154"
   license "AGPL-3.0-or-later"
   head "https://github.com/asciimoo/nogon.git", branch: "master"
-
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc1bdf302a57c4196af776d653a4b660702f0f0ef08f993b861df33c8aa6321b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "990dbbff43e4ef24bf054604107a4efdb1ed766f28664c37439c589527ec491f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23e9708c7c039ac7ce0b571c51a18757c149f667c4672625c877c465bdc51a6d"
-    sha256 cellar: :any,                 arm64_linux:       "cbf070c038bf7b0848f113b990e00fe735503fff9ab8c0f86f13cebdbf14d10e"
-    sha256 cellar: :any,                 x86_64_linux:      "76758589fbfbfa6af3b07dba818718e5ebb934bba78eda801d93496069672f15"
-  end
 
   depends_on "go" => :build
   depends_on "node" => :build
@@ -30,22 +22,21 @@ class Hister < Formula
 
     ENV["CGO_ENABLED"] = "1" if OS.linux?
     ENV["GOPROXY"] = "off"
-    system "go", "build", *std_go_args(output: bin/"nogon")
-    bin.install_symlink "nogon" => "hister"
+    system "go", "build", *std_go_args
     generate_completions_from_executable(bin/"nogon", "completion")
+  end
 
-    # Keep completion support for the existing command alias.
-    {
-      bash_completion/"nogon"      => bash_completion/"hister",
-      zsh_completion/"_nogon"      => zsh_completion/"_hister",
-      fish_completion/"nogon.fish" => fish_completion/"hister.fish",
-    }.each do |source, target|
-      target.write source.read.gsub("nogon", "hister")
-    end
+  def caveats
+    <<~CAVEATS
+      The hister command has been renamed to nogon. Update scripts that call hister.
+      If you ran Hister as a Homebrew service, run `brew services restart nogon` after upgrading.
+    CAVEATS
   end
 
   service do
-    run [opt_bin/"hister", "listen"]
+    # Keep the existing service identity and data directory on upgrade.
+    name macos: "sh.brew.hister", linux: "sh.brew.hister"
+    run [opt_bin/"nogon", "listen"]
     keep_alive true
     environment_variables HISTER_DATA_DIR: var/"hister"
     log_path var/"log/hister.log"
@@ -58,15 +49,8 @@ class Hister < Formula
 
     ENV["HISTER_DATA_DIR"] = testpath/"data"
     assert_match version.to_s, shell_output("#{bin}/nogon --version")
-    assert_equal shell_output("#{bin}/nogon --version"), shell_output("#{bin}/hister --version")
 
-    %w[nogon hister].each do |command|
-      assert_match "__start_#{command} #{command}", (bash_completion/command).read
-      assert_match "#compdef #{command}", (zsh_completion/"_#{command}").read
-      assert_match "complete -c #{command}", (fish_completion/"#{command}.fish").read
-    end
-
-    config = testpath/"hister.yml"
+    config = testpath/"nogon.yml"
     system bin/"nogon", "config", "create", "--full", config
     assert_match "app:", config.read
 
@@ -80,6 +64,5 @@ class Hister < Formula
     config.atomic_write config_data.to_yaml
 
     assert_equal "note.md\n", shell_output("#{bin}/nogon --config #{config} list-files --relative")
-    assert_equal "note.md\n", shell_output("#{bin}/hister --config #{config} list-files --relative")
   end
 end

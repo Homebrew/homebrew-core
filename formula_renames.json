@@ -35,6 +35,7 @@
   "gst-plugins-ugly": "gstreamer",
   "gst-python": "gstreamer",
   "gst-rtsp-server": "gstreamer",
+  "hister": "nogon",
   "hpp-fcl": "coal",
   "html-to-markdown": "html2markdown",
   "huggingface-cli": "hf",
