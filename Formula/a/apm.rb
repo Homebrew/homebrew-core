@@ -3,8 +3,8 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/3e/a9/600199ef488e856739525c92bfe210e94b40a57f9ad43b984dc232e0bacb/apm_cli-0.36.0.tar.gz"
-  sha256 "8227a0512b87b59b9237ed97f3adb1d2b8bcf4b6e0e8a8c638897431f96d68b6"
+  url "https://files.pythonhosted.org/packages/52/d9/bf1a4a8065e675ab63d3ad2f008c9d938b5301412d5eca64b681ee554a8c/apm_cli-0.36.1.tar.gz"
+  sha256 "b231d68b3ce5ea78326a33ec725b410227d0b081b2689aad5e4ba13b3b8388fa"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
@@ -85,8 +85,8 @@ class Apm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/bf/9d/7ec738e68764703d07eb4da4b43aabf0ae6f969f34cb3792a88af400abc5/filelock-4.2.11.tar.gz"
-    sha256 "0cb84119fb8dce17898e1f69c974d5019daa59c4d7656be390a5fa59ccced912"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "frozenlist" do
@@ -160,8 +160,8 @@ class Apm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/6a/43/f2e44205e33d648482eac6696951e2e34b2566e8f958d0926a5a9458ab2e/openai-3.53.0.tar.gz"
-    sha256 "ade02e38795eec9a8aae5336d38bce30a68aea5095a4d92b7c285ed0ceb1d4c6"
+    url "https://files.pythonhosted.org/packages/fd/db/2c78953776d819eac18b10bc830942693203f7d763b0c875ad930a7394a1/openai-3.55.0.tar.gz"
+    sha256 "82f8df6cbe8caf6042cee8c5bf6d6f4289602d01dc0d5a6b948a51cb2fc07cdf"
   end
 
   resource "pluggy" do
