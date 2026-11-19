@@ -1,8 +1,8 @@
 class Miniupnpc < Formula
   desc "UPnP IGD client library and daemon"
   homepage "http://miniupnp.free.fr/"
-  url "https://github.com/miniupnp/miniupnp/releases/download/miniupnpc_2_3_3/miniupnpc-2.3.3.tar.gz"
-  sha256 "d52a0afa614ad6c088cc9ddff1ae7d29c8c595ac5fdd321170a05f41e634bd1a"
+  url "https://github.com/miniupnp/miniupnp/releases/download/miniupnpc_2_3_5/miniupnpc-2.3.5.tar.gz"
+  sha256 "b9a1e57233216c5f62572de6d628e73e910f50cdb71e9c0eb89b169ce154d256"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/miniupnp/miniupnp.git", branch: "master"
@@ -16,15 +16,11 @@ class Miniupnpc < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "15166c42e0783ed9edfee5d812c67d92d2902461e582415c0d19382a8bb0b0c0"
-    sha256 cellar: :any,                 arm64_tahoe:       "b73df945175626c5dc6c3d05061ec1718f81ed5023c24cd59fd15c569eecf0f0"
-    sha256 cellar: :any,                 arm64_sequoia:     "140a46fc7c4fc0b31604b74cbebbd48e741765fe51a8cce8e04ed692926dac97"
-    sha256 cellar: :any,                 arm64_sonoma:      "943b48d7a7a85e18273bb25f34e177f9b75a032f3bc7f00891f6516aad64e2a1"
-    sha256 cellar: :any,                 arm64_ventura:     "956adafa0de14369e2e0624272c1cd6f1e777e8a359b642601a6d3933bf4bc46"
-    sha256 cellar: :any,                 sonoma:            "4b03e713001a5bde4ab0e36115d3bf20e81414099361a3ee7969e98c5f6dea35"
-    sha256 cellar: :any,                 ventura:           "20cf52235e1f51654b66062be1869416102ccd327769892f310fbfc74035cc28"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8cd223f810f0720ac35009022063a6d3f03231f97a9a17b79f0f4f86e6095160"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "21e083d283863e771c6927a44ad88f565f0c4af7b9448a96f99af0c773d66f8e"
+    sha256 cellar: :any, arm64_golden_gate: "0d7e9b9f0e5f0a30040ab7181f97e04644db48b378c717c88cee30e7ce1872bd"
+    sha256 cellar: :any, arm64_tahoe:       "159eb8471db7c3375b6670364111bcc21ad10f92d53b57eac77b0bb29ed6099f"
+    sha256 cellar: :any, arm64_sequoia:     "0d558e5433fcfdd53179c65082a62ba42abaa55b6589f76bb553e3927e6fba42"
+    sha256 cellar: :any, arm64_linux:       "1ba898dfa2c2a94ef77b0f6aac40f6ca87c7441fcaa269504681e04c3a2f8f89"
+    sha256 cellar: :any, x86_64_linux:      "51522e207314a8b2de82aeec4d4d929328247436c49aea8b28497233d7900fe1"
   end
 
   deny_network_access!
