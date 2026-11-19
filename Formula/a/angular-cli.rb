@@ -6,11 +6,11 @@ class AngularCli < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "5c4fd2510031645562cc41de59299b0db09d72fae71708f226569c656927e6cd"
-    sha256 cellar: :any,                 arm64_tahoe:       "4c57d6fe437fe256dfa7b2d8231c6c635090358f43843524192a868b417a47f9"
-    sha256 cellar: :any,                 arm64_sequoia:     "4053d18b622fff6a838f45766d0afde1228d83887c9852e926ea3921d2bf26eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "282f71761f5a05618f271411f5e917d6b253f269ba44b42fc20f6e21470dda74"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6c4d25117f40e6692b3a1f0b3f3461595e25fdb2aa814892c4232aa4c23bfe2d"
+    sha256 cellar: :any,                 arm64_golden_gate: "91101af4147d2c19597714b6f6e04920f3c1960e76506f7b38fe5c65597606d5"
+    sha256 cellar: :any,                 arm64_tahoe:       "799f9ff1b8e1e6b1532b358a3b0324f55a51fca068071083ea125f526556aaeb"
+    sha256 cellar: :any,                 arm64_sequoia:     "d7a4b691e65a9eb900c6c1b6708fb4d93ff05fe9e72dac4776e2e8e4204fdde4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "50bb91b4d3eb6e4865e9f36436582f0078781f7190bfa4c4894dde08b95944a3"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "34ae5dd9ce72ac50e6ee3e24cbe82a2e70c08000ef7ccef8164dcf962040936a"
   end
 
   depends_on "node"
