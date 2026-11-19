@@ -3,16 +3,16 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.github.com/spec-kit/"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.2.tar.gz"
-  sha256 "e2f860384fba1f213f860b3a125d594288059d80a5862e1651dfaca7a53be648"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.3.tar.gz"
+  sha256 "3eba0eeb14582937f5c07677709258a0502d4bff00eaf6698fcd810cdddf21af"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a4fe85ba37c9da33353d72eb7342485a951d8825fa60c67c4e1c1eaae5dcceab"
-    sha256 cellar: :any, arm64_tahoe:       "e81daa6daf4c99b5d422039c8441168c3cd297ae9afc589615c0487f12c9f80b"
-    sha256 cellar: :any, arm64_sequoia:     "429eb59f7dff6af162ac1c04a706f2700172d5531d493d86e6e719a57fe94081"
-    sha256 cellar: :any, arm64_linux:       "b8c7e645df0c3ba38955c57be2a1e3b4279fd87767bd18f62c86075ed385970e"
-    sha256 cellar: :any, x86_64_linux:      "9deb5d8823e6d82135106d90f0df3213da1394a89a5831f76f0c3f589e173e4c"
+    sha256 cellar: :any, arm64_golden_gate: "8a6bfbb08a6eede105fe6273b42199fd68a3f765b5adb03a6de0eb17cae46654"
+    sha256 cellar: :any, arm64_tahoe:       "08f2c0dd7b107bfeaecdb1c09ec92fe13be8ddb6207296610c3c6c900e6a0fd0"
+    sha256 cellar: :any, arm64_sequoia:     "5dd1c9c95ca23f51b550f5d0e8849c784cacaaa3bedca9bee990f5b96b76192f"
+    sha256 cellar: :any, arm64_linux:       "7949d6a1625a3c86144ac5bb1d410974851d21560a78d9395cd27f4e74bf727a"
+    sha256 cellar: :any, x86_64_linux:      "03a878cfe67f02b998dc9bdeb7242ec42b6564ccb87525f607e352eb4a0349ed"
   end
 
   depends_on "certifi" => :no_linkage
@@ -25,8 +25,8 @@ class Specify < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/0f/6e/a61e86e43bb6039b31a33a8f5fba76fe1cdacf3661e7b9756d4ff1b28cdc/annotated_doc-0.0.6.tar.gz"
-    sha256 "7969bb69912085b2285849c0dcac0b4b374fd180c13cf10a87f284ffcf347bbf"
+    url "https://files.pythonhosted.org/packages/0b/7d/bdbf3062e5dae31da8b3de1e3269110beb93d268df4a7f6d22b167c6cee0/annotated_doc-0.0.7.tar.gz"
+    sha256 "0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5"
   end
 
   resource "anyio" do
@@ -175,8 +175,8 @@ class Specify < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/6c/aa/0de7986aa1fa856adb961c67345189b97d13f6e250b34ba68884df865f07/typer-0.29.1.tar.gz"
-    sha256 "ab6eb3880bf67ce96147734717f9ec333c06f66e361f3ea947d0be43da39f242"
+    url "https://files.pythonhosted.org/packages/bf/21/37383ece7d0a4995fb8ea97729207c4292b3ff94085002f37b2387063cfb/typer-0.29.2.tar.gz"
+    sha256 "b1998dc5f2c3dedafa1517a9521fa944cc4dc1fadcea085d81a3b10ebcaeb075"
   end
 
   resource "uvicorn" do
