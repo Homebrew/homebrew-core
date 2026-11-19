@@ -1,18 +1,18 @@
 class Hiredis < Formula
   desc "Minimalistic client for Redis"
   homepage "https://github.com/redis/hiredis"
-  url "https://github.com/redis/hiredis/archive/refs/tags/v1.5.0.tar.gz"
-  sha256 "eec7ef8641d221e144a58d5ef8d733c8c75c7fd487097a233aacb4fa33981cfb"
+  url "https://github.com/redis/hiredis/archive/refs/tags/v1.5.1.tar.gz"
+  sha256 "f5ec19151c0f4f15ca018c22b17b6f6739a672a4fc0c085b692aef69a154ebef"
   license "BSD-3-Clause"
   compatibility_version 3
   head "https://github.com/redis/hiredis.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "70dc4f93a1e7ce548f3f9d487c9a4539b2bfcfcca22eade6f4cb754c1e99115c"
-    sha256 cellar: :any, arm64_tahoe:       "4f115a7323562c3735e80a6c1a62cc6522e91785617d72f4dee91567420b117b"
-    sha256 cellar: :any, arm64_sequoia:     "7b801854e2b89bfa18c64c248046c5e375779b580f636ef75f0292f156a243b0"
-    sha256 cellar: :any, arm64_linux:       "b1dfbf2cc69908e2d2efc57991c1b686a49552671217fcac1e022dec19b3017b"
-    sha256 cellar: :any, x86_64_linux:      "d21308c1a1b77a4656159bbbe0e7c4b4a3ee7f4764edf5f1769da6ffaa267dda"
+    sha256 cellar: :any, arm64_golden_gate: "3909d04c4db1e84ad6c0365d6748efe2d2d42a76c4bca41893c829e5bcbe1d07"
+    sha256 cellar: :any, arm64_tahoe:       "512e5b2b7330fdb6973d23b3ea528eac2c422a1b94ead8210d8b0e2805d390ab"
+    sha256 cellar: :any, arm64_sequoia:     "e198c1c0d5ac924a42f189ba584b79de70dcf29574d6063eface75b12fb4b2a0"
+    sha256 cellar: :any, arm64_linux:       "4a8352eb9f232532be77171f1019e70df5a63bf15f9ac1b1ed100afdc68f8736"
+    sha256 cellar: :any, x86_64_linux:      "089c198d7878c28c91a396b44b577da3735c01ee4f2a6972c7c72b38f1b59388"
   end
 
   depends_on "openssl@4"
