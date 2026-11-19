@@ -12,11 +12,11 @@ class Libpq < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e62574986e3c0fa7710e40059fbf5640ff292e79c854c31097154b2d795d5f6b"
-    sha256 arm64_tahoe:       "30707dc58b1ad9a8b7a6c2a8074f1cb4103f975adf0d2facc3c38423481accab"
-    sha256 arm64_sequoia:     "e190ea8b809095c2b780b0762ecb3116c4e6c43a7a743fa9913559ee811b0137"
-    sha256 arm64_linux:       "7b94111fe7492c4b2abe617321d2cb3c6f1aacbf60c4d9d02cf02520472448bc"
-    sha256 x86_64_linux:      "aaa203365e6a956916bc53dc8386f86a0b7e1cba40e4defce47eb006ff61a90f"
+    sha256 arm64_golden_gate: "3b29585438499645bb5a0f3d72f98e579bc2bcf0751c5cb70e80d1190754a30e"
+    sha256 arm64_tahoe:       "6b63fb160d9cc1fd4788b130da24af96a7b9b5a779edbc5072f4d683d5e5ab47"
+    sha256 arm64_sequoia:     "0f7195c10825b1d24cb826d54419e387eb80a403d21d25637f465c0ad5f11f88"
+    sha256 arm64_linux:       "14bb17803af8567fbe120e5477c5754cc8815a461a1349972a071da021132b8f"
+    sha256 x86_64_linux:      "39e19a95340524358dc5d7aadd4e931875276a645be0fd451893589c8c5bfdc8"
   end
 
   keg_only "it conflicts with PostgreSQL"
