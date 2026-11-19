@@ -1,8 +1,8 @@
 class Marmot < Formula
   desc "Open-source data catalog exposing metadata to AI agents"
   homepage "https://marmotdata.io"
-  url "https://github.com/marmotdata/marmot/archive/refs/tags/v0.13.2.tar.gz"
-  sha256 "82f30dd2cde2b5a7a5fc43e72d21a3c620dc76decf9da54709de823beaee6a9d"
+  url "https://github.com/marmotdata/marmot/archive/refs/tags/v0.14.0.tar.gz"
+  sha256 "7e044e9fda5615a498b7a63049e04f56a8eba692f69a9076cdd8ea1ab6ce48a8"
   license "MIT"
   head "https://github.com/marmotdata/marmot.git", branch: "main"
 
