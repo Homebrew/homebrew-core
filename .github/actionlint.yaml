@@ -6,3 +6,7 @@ self-hosted-runner:
 # Empty array means no configuration variable is allowed.
 config-variables:
   - BREW_COMMIT_CLIENT_ID
+paths:
+  "**/.github/workflows/*command-not-found-db.yml":
+    ignore:
+      - unexpected key "queue" for "concurrency" section
