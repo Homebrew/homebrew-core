@@ -1,17 +1,16 @@
 class SqlxCli < Formula
   desc "Command-line utility for SQLx, the Rust SQL toolkit"
   homepage "https://github.com/transact-rs/sqlx"
-  url "https://static.crates.io/crates/sqlx-cli/sqlx-cli-0.9.0.crate"
-  sha256 "93ef3857a4a0b48fcbf536b77a9122a35c7631686f2ccfbc75e616335771e8d0"
+  url "https://static.crates.io/crates/sqlx-cli/sqlx-cli-0.9.1.crate"
+  sha256 "7e99f14841a9fe8e5650ccda3dd7607f1f22c33af86b17b4872488a2146bcdfe"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17f96346339df8309f2f8d5020a878c3a794da751dc2a040fa71de00f8970e25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1345cd07b26c471448eeaa7845fbe87ec84f94c24441e38179482dd6e554bfb8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf39cd229538f7cf6c608a9d22d0a7cde3e8edef84eb1e12478151d8e1dac9d4"
-    sha256 cellar: :any,                 arm64_linux:       "ffd6a2e3df2697ab46d243288e9fd1a536a5936b0b0f46a3f721de38816f2b8b"
-    sha256 cellar: :any,                 x86_64_linux:      "1961041ef533e6f542d3b94951820947defe630ec25f8a33a67eac1f32eb61dd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5cfea7b7a8e929a3443d1494248ef6ea4a5bea113ada91918700f6a3eaf0e65c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5eb5578d51a6ddfd552a2e52262c08eb6bb42b638ee6f946f38508c1dbf776f5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec84e292a78702a703276ba0d79c73ad24d5451d817e54c43375583192d452fd"
+    sha256 cellar: :any,                 arm64_linux:       "ce250ffeb35d1e2ef4962aa6f7daf525ba590ef8a854346ec477cceeac05e50a"
+    sha256 cellar: :any,                 x86_64_linux:      "a0c2dda0c5e4136716e851ef0251c213e50dfd9ab286cd23cc2a6e6b7c85469e"
   end
 
   depends_on "pkgconf" => :build
