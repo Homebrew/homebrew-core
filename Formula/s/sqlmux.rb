@@ -1,8 +1,8 @@
 class Sqlmux < Formula
   desc "Terminal database client with tmux-style panes and Vim keybindings"
   homepage "https://github.com/kackerx/sqlmux"
-  url "https://github.com/kackerx/sqlmux/archive/refs/tags/v0.10.0.tar.gz"
-  sha256 "58ee19faa767394e1941d181602191d0b76d618463ade6d0959924c06d9b7c67"
+  url "https://github.com/kackerx/sqlmux/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "49409df9a00fdbf9ca6b8951e8fb11a35070ad2c9456feea8de0870203eb1225"
   license "MIT"
   head "https://github.com/kackerx/sqlmux.git", branch: "main"
 
