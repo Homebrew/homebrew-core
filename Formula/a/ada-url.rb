@@ -8,11 +8,11 @@ class AdaUrl < Formula
   head "https://github.com/ada-url/ada.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "0301940cf2332dffce80cf23a186226baacf1573198b836251ffc86cf3224427"
-    sha256 cellar: :any, arm64_tahoe:       "bea36bfe01b8beace977ebc3b9409fcb6e7cc35a25a782d6a4f49c34357a4cfe"
-    sha256 cellar: :any, arm64_sequoia:     "8ce7c5c9d5b395a3f943617f3942a72f42659d74dfdd467b833db02e82e6678c"
-    sha256 cellar: :any, arm64_linux:       "2cb93df57411348ff144bccf1d00512d5319a4d10d2f9a2e77eb6f1f5747f613"
-    sha256 cellar: :any, x86_64_linux:      "091d7756669bf597e97093fb406dacb4c3992b9058db7c402e2b17c52633017a"
+    sha256 cellar: :any, arm64_golden_gate: "1a9ed071e9441e02860ee26438dd24823c4e727e49aab0707e4b9060d57569a0"
+    sha256 cellar: :any, arm64_tahoe:       "50637a6585de002177ab5a4a3b824be54d28b485622abdfb9b400e3222da30ec"
+    sha256 cellar: :any, arm64_sequoia:     "259334ea083648295078549887b52a9bd92c655602e60292706d92a174e60896"
+    sha256 cellar: :any, arm64_linux:       "b2dfedf1862c87e8eb67d285d7cddb3297330ace8920430629c8f6e4fcf0eb27"
+    sha256 cellar: :any, x86_64_linux:      "4fb8371533af9a59d29ea10070d669cd35802a52d7d615e52fe9aef4605f9e06"
   end
 
   depends_on "cmake" => :build
