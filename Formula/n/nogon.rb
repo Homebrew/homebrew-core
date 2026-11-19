@@ -6,6 +6,14 @@ class Nogon < Formula
   license "AGPL-3.0-or-later"
   head "https://github.com/asciimoo/nogon.git", branch: "master"
 
+  bottle do
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d411f56c2de4af05e385f52dfc90fa9a37fc070e9b6ee567b04536c4b8007b1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d8f2ceb64a548d6c950105cf46ebf1c314d7e657804e815568d4b01c510a857"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b670b30cba3b8500bfa14a7282414d42d7a58b06fcfd565641b33f184654375"
+    sha256 cellar: :any,                 arm64_linux:       "49b5b4f166c902ba71f4158020fadc46d189c9accea944d5d0631498acdde82a"
+    sha256 cellar: :any,                 x86_64_linux:      "cc2ef6a58827021cd0f45229a94e7b7733ec4b500104476873e7e9b14e6c091d"
+  end
+
   depends_on "go" => :build
   depends_on "node" => :build
 
