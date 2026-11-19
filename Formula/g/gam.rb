@@ -4,8 +4,8 @@ class Gam < Formula
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
   # PyPI package has different version `7.50.0` with the github release `7.50.00`, so we use the github one here.
-  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.04.tar.gz"
-  sha256 "ac0436473665c7a70c4c3c8cfa6218d3b7e46c0090906249acd1c9744bc1487f"
+  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.05.tar.gz"
+  sha256 "c3ecbe4a882ace5dc6f26aaade40bd4a7cbe61c9bb614fd0e4e254f136bb06a4"
   license "Apache-2.0"
 
   livecheck do
@@ -14,11 +14,11 @@ class Gam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8c0f44c28830f4a968ddf2931bbd7aee72994a58fb551f02ab6ab30fd69bf2d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a83fe6212aaf49d366421c1b0bca1f908879ee2558a2549fb8e2b7c2d0141ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5185678284d5dd08d63895239ce8bc37a7d9fe1b9a296839aa92a89dec0ea59"
-    sha256 cellar: :any,                 arm64_linux:       "1215bb7a3c4430b81ca3d9c7c7bf7e014471e0e1a7b5d68cfebf6e148b2b9152"
-    sha256 cellar: :any,                 x86_64_linux:      "277f621460571112a1b4a8187baa8b84d8183416ec3b6a7f4ed0e61e6c347f6f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eed6f43eb8aec2fe00c2b666849f478b6d0961931db1c2048ec7396a546ed1da"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "becca3e0cdb00ec57533e709e8ed321d5d132353671fd4e744399defa581ed74"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b177e6f738fbddf09c3585235b34e7f07ea720d5621c6e70dcfbfcf2e03b291c"
+    sha256 cellar: :any,                 arm64_linux:       "abfb5f03d3b0a0776c4063d7d0a9aedcf0f7f750eceb877308bf41a0a81d62e5"
+    sha256 cellar: :any,                 x86_64_linux:      "4803dd3c64477a77b54b6c97e4ba2606cbcc548c602d8fdf93a0bea06fc81516"
   end
 
   depends_on "cmake" => :build # for pyscard
@@ -70,8 +70,8 @@ class Gam < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/e0/14/73688a22e91cfcfc6837a011ffa572e2ba3c348765f7bd482d8436fa9b6f/filelock-4.2.7.tar.gz"
-    sha256 "31f6f7e3a8b6f0bd89114d30c5d5218ea1cfb63e5c4aa695b7559314a209bc7f"
+    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
+    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
   end
 
   resource "google-api-core" do
