@@ -3,8 +3,8 @@ class Gixy < Formula
 
   desc "NGINX configuration static analyzer focused on security"
   homepage "https://gixy.getpagespeed.com/"
-  url "https://files.pythonhosted.org/packages/ae/49/4e27e5b851adb542e867148127dafb79894bae62cf96aeb69bfbe8ecafba/gixy_ng-0.2.62.tar.gz"
-  sha256 "c0e2e82619ba26941c0c82407f886e3b888ad5b08e138b3685108b5448690a13"
+  url "https://files.pythonhosted.org/packages/1a/db/7e99c8fe473d466d62afc49ecdc5d36befd806e6f7a62deb976e86ce3689/gixy_ng-0.2.63.tar.gz"
+  sha256 "ccff12aa3fdda85e125d7540aa4b51219ed7ab7e59adbafafffb47d6e4b348a5"
   license "MPL-2.0"
 
   bottle do
@@ -18,8 +18,8 @@ class Gixy < Formula
   depends_on "python@3.15"
 
   resource "configargparse" do
-    url "https://files.pythonhosted.org/packages/bc/d9/c591a80cf3335de7820c6762f8ee9298a43da5319803d319e16657b6fdf2/configargparse-1.9.0.tar.gz"
-    sha256 "48d9c22affe4ac419b4dd0691fa929d759e1f99574be41826785f2dbf3da63a5"
+    url "https://files.pythonhosted.org/packages/01/77/0ca08089aff2548621a27575d64cb0c0e0e3694e4798211381a65d48dda7/configargparse-1.10.1.tar.gz"
+    sha256 "8ee7c4429e6402b881c9a85569eb9484db2f63260718b45c67c59625284371c8"
   end
 
   resource "jinja2" do
