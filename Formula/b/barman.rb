@@ -9,12 +9,11 @@ class Barman < Formula
   head "https://github.com/EnterpriseDB/barman.git", branch: "REL_3_X_master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "5731864b3d91a264c33711670e4d1e10ebd34e675dd80fb214f75ddf9a37115c"
-    sha256 cellar: :any, arm64_tahoe:       "ca40b495693abb0b5d4c1b410a457e5eae9e9ecfdf47a0c1a1c0a25d55654bc6"
-    sha256 cellar: :any, arm64_sequoia:     "c4f8a3dd2ef4c6cf6eac867800988f13bcf8aac33bb385a5574f8c9d7c7ceca1"
-    sha256 cellar: :any, arm64_linux:       "1bb1e852137a2d944100f7ec2a4fb25abc19f64d97750758556a7a1b222f2162"
-    sha256 cellar: :any, x86_64_linux:      "12c46194af868574bfc7336c25f033cfe7bbb635656997bc8f79ca3989c3bbb0"
+    sha256 cellar: :any, arm64_golden_gate: "807b020165260e205d057450f2bad47b17c0d1d4796fa875cdc6ecc9f0ff500b"
+    sha256 cellar: :any, arm64_tahoe:       "fda0c7c42d4181abc7ca33d61ac556398dc77e8cfafb07d672d20720096fb24f"
+    sha256 cellar: :any, arm64_sequoia:     "477dd38796ee7b570afb69326a5508f4d2ed39b115b25efef3274b20ae55297e"
+    sha256 cellar: :any, arm64_linux:       "c5efaf571dc77cd294152547d39310aa7f9839ee8872f3c1e1eeb8eb7702cdca"
+    sha256 cellar: :any, x86_64_linux:      "5234ee7fba853e65200687e7fe73e34b184da9002f80c19d82af434a4c00ebe0"
   end
 
   depends_on "rust" => :build # for uv_build > maturin
