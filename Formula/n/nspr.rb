@@ -1,8 +1,8 @@
 class Nspr < Formula
   desc "Platform-neutral API for system-level and libc-like functions"
   homepage "https://hg.mozilla.org/projects/nspr"
-  url "https://archive.mozilla.org/pub/nspr/releases/v4.40/src/nspr-4.40.tar.gz"
-  sha256 "c0c1884c627f3db7a783f7c7314c695226b2043696791d15519e7e0578c19bdc"
+  url "https://archive.mozilla.org/pub/nspr/releases/v4.41/src/nspr-4.41.tar.gz"
+  sha256 "c562b8ddfe93704b7dc077be013f01448fdc6c124b1821c0f10471a71cb2e9e6"
   license "MPL-2.0"
   compatibility_version 1
 
@@ -12,13 +12,11 @@ class Nspr < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7858925e0755df4973feaddabcecc7d3a8dff43145dc070a48597f01ce134d52"
-    sha256 cellar: :any, arm64_tahoe:       "5dcb6d1b73ec8c839dacd46dfad6d34ab2cde7339593e106aaccc20cf72ddb62"
-    sha256 cellar: :any, arm64_sequoia:     "afa910ba680a2a951e5e624ff83f756ba7a53a2647cb1aabdf602cb94468eee2"
-    sha256 cellar: :any, arm64_sonoma:      "3025c0bd9a1ed60c1aedffb36475e0eef6a4666500959cf2386ca7180a9d7db3"
-    sha256 cellar: :any, sonoma:            "33eb0744b19504a815418fea946241fa63823ca513ac5be37a033429a0422ccf"
-    sha256 cellar: :any, arm64_linux:       "cd749cf5e8f3c20589baeab68214f55b5a9e39207bc4d39ba127a4e4b686a984"
-    sha256 cellar: :any, x86_64_linux:      "0922c5d8889e433afa933295c1627185d6d92f2c87d422d6d6a84e074bf6340b"
+    sha256 cellar: :any, arm64_golden_gate: "25b9cc4221fb34c3af7c5c60e4dd3c647dc01699dc88dc65eaf552b7ed7fac4c"
+    sha256 cellar: :any, arm64_tahoe:       "3a878872def2d80cbb89df3950554a493f31fe9e93fc2fd8e1c066cf663e2fae"
+    sha256 cellar: :any, arm64_sequoia:     "2623e1272ea3b2ecf96f1cf678fedde3c5d91cb46a7a51c544dea3c7db581a57"
+    sha256 cellar: :any, arm64_linux:       "237555dfb50937ab0ffc153e463e203f34dfaa22207aae7dc40be9c2a7ecb210"
+    sha256 cellar: :any, x86_64_linux:      "a56e5253473c3b24d5a4743a044451853307c5e9738108c169062d89ceb857da"
   end
 
   deny_network_access!
@@ -36,12 +34,6 @@ class Nspr < Formula
       ]
       args << "--enable-macos-target=#{MacOS.version}" if OS.mac?
       system "./configure", *args
-
-      if OS.mac?
-        # Remove the broken (for anyone but Firefox) install_name
-        inreplace "config/autoconf.mk", "-install_name @executable_path/$@ ", "-install_name #{lib}/$@ "
-      end
-
       system "make"
       system "make", "install"
 
