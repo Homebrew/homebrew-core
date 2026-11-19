@@ -1,11 +1,10 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
-  sha256 "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.14.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.14.tar.xz"
+  sha256 "7e2d258071f5db9620aa7ff34259331d004f7beafa3eb18560cfaf60acfbf02a"
   license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
-  revision 2
   compatibility_version 2
 
   # The download page links to the directory listing pages for the "Next" and
@@ -54,14 +53,6 @@ class Gnutls < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # Backport support for building with older clang
-  patch do
-    url "https://gitlab.com/gnutls/gnutls/-/commit/29c2027c963cf559817d0da37c1fc2efd0c1bd6a.diff"
-    sha256 "c0bfc0164ff131c9d2e1c4d0367430f8b767b64c9c21e0f408bd634d21fb0302"
-    type :backport
-    resolves "https://gitlab.com/gnutls/gnutls/-/merge_requests/2106"
   end
 
   # Test performs a TLS handshake with expired.badssl.com
