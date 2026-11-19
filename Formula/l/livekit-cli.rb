@@ -12,11 +12,11 @@ class LivekitCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ebf70221da215f4f34a3bec2a1cb7e0fd331e277f610a9fdd06fd20a0cb9c2a3"
-    sha256 cellar: :any, arm64_tahoe:       "3b0e0781fe460e2b2c44e3844da403b34baa731b53ae46f728c186d519d623fa"
-    sha256 cellar: :any, arm64_sequoia:     "e80ba6a65ed2577c0a1c8e95a4310b31d50bdd523f9794853ea9f610610f8b7a"
-    sha256 cellar: :any, arm64_linux:       "272e982099a8d0ba15aeb3c0c43b8fa2542af7e9b1d678dcb1ec2521182375ef"
-    sha256 cellar: :any, x86_64_linux:      "637277a69c9ba49b1093ee044d10dc17a7b4ceb905266c7517517b67659d1d4e"
+    sha256 cellar: :any, arm64_golden_gate: "30b6caf77c8cdc483fc1e4b2fe40e09b1de867a56279d1c36c668595db2a5a2b"
+    sha256 cellar: :any, arm64_tahoe:       "dc21cc76c2320914b208b82ff180a4c5d6dbc6222d2287a3dfd5838b3e08864b"
+    sha256 cellar: :any, arm64_sequoia:     "bdf435003b8cafbd4b977ea333761f0bd3a65ccb77b0c8064e13b16fffef7286"
+    sha256 cellar: :any, arm64_linux:       "8107e7b83afb001cb733142ab3c4201cc17c026e6384ebd032809a9de8bec289"
+    sha256 cellar: :any, x86_64_linux:      "637908f0a272cb486028bd314f4cdfe1e0cda07b255f2fbd1cf31fcbdeef8dee"
   end
 
   depends_on "go" => :build
