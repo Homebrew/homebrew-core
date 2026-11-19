@@ -1,8 +1,8 @@
 class Profanity < Formula
   desc "Console based XMPP client"
   homepage "https://profanity-im.github.io"
-  url "https://profanity-im.github.io/tarballs/profanity-0.19.0.tar.xz"
-  sha256 "fa201a10df688a173a0ce61da3be528f8e03f44d72817ed327568acb1c8fb259"
+  url "https://profanity-im.github.io/tarballs/profanity-0.20.0.tar.xz"
+  sha256 "371f3c987a1800905632dc04b28c980acce8a5783eba55e8b1f9c5ca1df266f4"
   license "GPL-3.0-or-later"
   head "https://github.com/profanity-im/profanity.git", branch: "master"
 
@@ -20,14 +20,11 @@ class Profanity < Formula
   depends_on "gdk-pixbuf"
   depends_on "glib"
   depends_on "gpgme"
-  depends_on "gtk+3"
   depends_on "libgcrypt"
   depends_on "libomemo-c"
   depends_on "libotr"
   depends_on "libstrophe"
-  depends_on "libx11"
-  depends_on "libxscrnsaver"
-  depends_on "python@3.15"
+  depends_on "lua"
   depends_on "qrencode"
   depends_on "readline"
   depends_on "sqlite"
@@ -39,27 +36,25 @@ class Profanity < Formula
     depends_on "terminal-notifier"
   end
 
-  on_linux do
-    depends_on "libnotify"
-  end
+  deny_network_access!
 
   def install
     # Meson shells out to `brew --prefix readline` on macOS if `dependency("readline")`
     # cannot resolve directly, so keep Homebrew's `brew` executable discoverable.
     ENV.prepend_path "PATH", File.dirname(HOMEBREW_BREW_FILE)
+    # Meson strips its build rpaths on install, dropping the matching `opt/*/lib` entries from superenv
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.linux?
 
     args = %w[
       -Dnotifications=enabled
-      -Dpython-plugins=enabled
-      -Dc-plugins=enabled
+      -Dplugins=enabled
       -Dotr=enabled
       -Dpgp=enabled
       -Domemo=enabled
       -Domemo-backend=libomemo-c
       -Domemo-qrcode=enabled
-      -Dicons-and-clipboard=enabled
+      -Dtray=enabled
       -Dgdk-pixbuf=enabled
-      -Dxscreensaver=enabled
     ]
 
     system "meson", "setup", "build", *std_meson_args, *args
