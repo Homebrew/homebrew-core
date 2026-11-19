@@ -3,8 +3,8 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/0a/74/fa72212de3930e48693ddc5fb232604e5951014299ffa04b72aed669be03/djlint-1.53.1.tar.gz"
-  sha256 "58ce4b52141d51f91c0bf7632d4c8be357d8cb93fde841068ae6498af8c7e487"
+  url "https://files.pythonhosted.org/packages/e3/c8/ac99e8a7aafda0561cd89120e6b0c0e6972f79f8c40c6c679ca1da3a1fc3/djlint-1.54.0.tar.gz"
+  sha256 "2086b83e151af72c20595e15d6017469bc69dfb4f832558d7f374a252e99f01b"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
