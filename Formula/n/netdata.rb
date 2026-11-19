@@ -1,8 +1,8 @@
 class Netdata < Formula
   desc "Diagnose infrastructure problems with metrics, visualizations & alarms"
   homepage "https://www.netdata.cloud/"
-  url "https://github.com/netdata/netdata/releases/download/v2.12.3/netdata-v2.12.3.tar.gz"
-  sha256 "6eb14deed1d7611c8f8969b2954432e91e631b2e45f762421873044561d80dd9"
+  url "https://github.com/netdata/netdata/releases/download/v2.13.0/netdata-v2.13.0.tar.gz"
+  sha256 "510db7699c76c44f3d4bcebec854d5a29ecdc3cf3bfadfe78e27ee7ea87f8491"
   license "GPL-3.0-or-later"
 
   livecheck do
@@ -64,19 +64,22 @@ class Netdata < Formula
     end
 
     # Install files using Homebrew's directory layout rather than relative to root.
-    inreplace "packaging/cmake/Modules/NetdataEBPFLegacy.cmake", "DESTINATION usr/", "DESTINATION "
-    inreplace "CMakeLists.txt" do |s|
-      s.gsub! %r{(\s"?(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?)usr/}, "\\1"
-      s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?etc/}, "\\1#{etc}/"
-      s.gsub! %r{(\s"?)(?:\$\{NETDATA_RUNTIME_PREFIX\}/)?var/}, "\\1#{var}/"
-      # Fix not to use `fetchContent` for `dlib` library
-      # Issue ref: https://github.com/netdata/netdata/issues/20147
-      s.gsub! "netdata_bundle_dlib()", "find_package(dlib REQUIRED)"
-      s.gsub! "netdata_add_dlib_to_target(netdata)", ""
+    inreplace "CMakeLists.txt", "set(BINDIR usr/sbin)", "set(BINDIR sbin)"
+    inreplace %w[InstallLayout Options SystemFiles].map { |m| "packaging/cmake/Modules/Netdata#{m}.cmake" },
+              '"usr/', '"'
+    inreplace "packaging/cmake/Modules/NetdataInstallLayout.cmake" do |s|
+      s.gsub! '"etc/', "\"#{etc}/"
+      s.gsub! '"var/', "\"#{var}/"
+      s.gsub! %r{\$\{NETDATA_RUNTIME_PREFIX\}/(\$\{(?:CACHE|CONFIG|LOG|VARLIB)_DEST\})}, "\\1"
     end
 
+    # Fix not to use `fetchContent` for `dlib` library
+    # Issue ref: https://github.com/netdata/netdata/issues/20147
+    inreplace "CMakeLists.txt", "netdata_bundle_dlib()", "find_package(dlib REQUIRED)"
+    inreplace "packaging/cmake/Modules/NetdataDaemon.cmake", "netdata_add_dlib_to_target(netdata)", ""
+
     args = %w[
-      -DBUILD_FOR_PACKAGING=ON
+      -DNETDATA_PACKAGE_KIND=deb
       -DENABLE_PLUGIN_NFACCT=OFF
       -DENABLE_PLUGIN_XENSTAT=OFF
     ]
