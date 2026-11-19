@@ -4,8 +4,8 @@ class Gam < Formula
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
   # PyPI package has different version `7.50.0` with the github release `7.50.00`, so we use the github one here.
-  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.04.tar.gz"
-  sha256 "ac0436473665c7a70c4c3c8cfa6218d3b7e46c0090906249acd1c9744bc1487f"
+  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.05.tar.gz"
+  sha256 "c3ecbe4a882ace5dc6f26aaade40bd4a7cbe61c9bb614fd0e4e254f136bb06a4"
   license "Apache-2.0"
 
   livecheck do
@@ -70,8 +70,8 @@ class Gam < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/e0/14/73688a22e91cfcfc6837a011ffa572e2ba3c348765f7bd482d8436fa9b6f/filelock-4.2.7.tar.gz"
-    sha256 "31f6f7e3a8b6f0bd89114d30c5d5218ea1cfb63e5c4aa695b7559314a209bc7f"
+    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
+    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
   end
 
   resource "google-api-core" do
