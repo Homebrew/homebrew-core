@@ -3,17 +3,17 @@ class MailDeduplicate < Formula
 
   desc "CLI to deduplicate mails from mail boxes"
   homepage "https://kdeldycke.github.io/mail-deduplicate/"
-  url "https://files.pythonhosted.org/packages/0d/e5/f0f2e99a117aa558fef500ce8a91373977917cd2fe1a41f35db6fb236a0c/mail_deduplicate-9.7.0.tar.gz"
-  sha256 "d891ffeeef3699974fb05907d10a4795cf6b7675dfe072bcec4171b46be56afc"
+  url "https://files.pythonhosted.org/packages/0a/30/7221997bf2d4dae663c1492b9d346d931de01ab6710b24eb21fbd6bc0f16/mail_deduplicate-9.7.1.tar.gz"
+  sha256 "e99120e3c505a06bbc2f963a515399b34515ae2eaa48f187c968067ed89ca45d"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/mail-deduplicate.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "811b0823754abd5e29bdbf400e7f855e8803369f006fa1da72d71d4161df2840"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a6c2e7748d78b93ee7e03431a513d9083f92152d8912e86ca8aa45ea373b92d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0576914549997b22f141f8ee657f120ba57f53b8bafcaddc5b1cfe84d2af30b5"
-    sha256 cellar: :any,                 arm64_linux:       "131e83103d05b9610cd013195d4bb5afc9df8d55ed19ea57a2b67b6f986a138e"
-    sha256 cellar: :any,                 x86_64_linux:      "8e2026488ee8e75289667b383fe495416a425fb3185a89f7da83458173b72626"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a49c1ad2c9aba0d3cdbb2a6c9f6a69106c011a8849ac073995994ac3b5a0ec1b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df4a19c4bc69566e9603fd12f4dafe3e051f239ad517849a93f6cd4c131fa732"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f30f3105a394f3692cf7d68dff5d5802899581a3d222990e91c572dccc2a4d11"
+    sha256 cellar: :any,                 arm64_linux:       "6955fc158574c3d7c6c759c410163279788db7e67bdae5d55144dc9b79f8d817"
+    sha256 cellar: :any,                 x86_64_linux:      "6e69963fcd9cc7cf0008c8c08c6031e03297f0fd701741b03a9038d8a3c515c6"
   end
 
   depends_on "rust" => :build # for click_extra > uv_build
@@ -96,6 +96,6 @@ class MailDeduplicate < Formula
     # Run mail-deduplicate to check functionality
     output = shell_output("#{bin}/mdedup --dry-run " \
                           "--export=#{testpath}/deduped_mail.mbox test_mail1.eml test_mail2.eml 2>&1")
-    assert_match "No mail selected to perform action on", output
+    assert_match "DRY RUN: would have Copied 2/2 mails", output
   end
 end
