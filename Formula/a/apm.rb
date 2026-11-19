@@ -3,17 +3,17 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/3e/a9/600199ef488e856739525c92bfe210e94b40a57f9ad43b984dc232e0bacb/apm_cli-0.36.0.tar.gz"
-  sha256 "8227a0512b87b59b9237ed97f3adb1d2b8bcf4b6e0e8a8c638897431f96d68b6"
+  url "https://files.pythonhosted.org/packages/52/d9/bf1a4a8065e675ab63d3ad2f008c9d938b5301412d5eca64b681ee554a8c/apm_cli-0.36.1.tar.gz"
+  sha256 "b231d68b3ce5ea78326a33ec725b410227d0b081b2689aad5e4ba13b3b8388fa"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "77f978acb4f7c1998df115b6cdafb5602460b0c3e4621d2b6c2ba6bd36fe54e2"
-    sha256 cellar: :any, arm64_tahoe:       "ed2ba2762d7c55eef61b7e2e49c5baac94e2c628b2db830d0469f365783b7087"
-    sha256 cellar: :any, arm64_sequoia:     "7a9ac3bedeb35cf6551325bbf7d68a76a9423867d61572d113fdf858ffde5778"
-    sha256 cellar: :any, arm64_linux:       "0d6165f53c2f9e9c34c9a7322330f139c95380e9ba1aac2aacaad257c3fe4bd8"
-    sha256 cellar: :any, x86_64_linux:      "ae620f867e25976badb6fffd819f24d39b7f96b69856d2ee050a13db72cc8920"
+    sha256 cellar: :any, arm64_golden_gate: "c2e2839d6046462d95a69e921c9f65e8b85be09b3abf1232f8fb238fa7a0ed5d"
+    sha256 cellar: :any, arm64_tahoe:       "af7b46c8c6d68c2a934c7b6af0bef9d304b5575250ee5a6d3eda83db73ae8a54"
+    sha256 cellar: :any, arm64_sequoia:     "363f707874d8386d29a35569900c04ff443b0c3f71ac641ca327404cc1cafd5b"
+    sha256 cellar: :any, arm64_linux:       "e19b396b2c5ebf158392b3f0195a007aa11f2ca6057c2a2d4c45c162ed3face5"
+    sha256 cellar: :any, x86_64_linux:      "31998df473918822db82c0ffe8cd0b69d916ba298a9f5285330bcaf8908ab32a"
   end
 
   depends_on "rust" => :build # for jiter
@@ -85,8 +85,8 @@ class Apm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/bf/9d/7ec738e68764703d07eb4da4b43aabf0ae6f969f34cb3792a88af400abc5/filelock-4.2.11.tar.gz"
-    sha256 "0cb84119fb8dce17898e1f69c974d5019daa59c4d7656be390a5fa59ccced912"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "frozenlist" do
@@ -160,8 +160,8 @@ class Apm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/6a/43/f2e44205e33d648482eac6696951e2e34b2566e8f958d0926a5a9458ab2e/openai-3.53.0.tar.gz"
-    sha256 "ade02e38795eec9a8aae5336d38bce30a68aea5095a4d92b7c285ed0ceb1d4c6"
+    url "https://files.pythonhosted.org/packages/fd/db/2c78953776d819eac18b10bc830942693203f7d763b0c875ad930a7394a1/openai-3.55.0.tar.gz"
+    sha256 "82f8df6cbe8caf6042cee8c5bf6d6f4289602d01dc0d5a6b948a51cb2fc07cdf"
   end
 
   resource "pluggy" do
