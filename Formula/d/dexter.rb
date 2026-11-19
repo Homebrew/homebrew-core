@@ -16,7 +16,7 @@ class Dexter < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b9b849261c597104bf285a9db07d30ef8ddf757061faf429e8b374d3247136b4"
   end
 
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "libpq"
   depends_on "ruby"
 
@@ -60,23 +60,18 @@ class Dexter < Formula
 
   test do
     ENV["LC_ALL"] = "C"
+    ENV["PGDATA"] = testpath/"test"
 
-    postgresql = Formula["postgresql@18"]
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    pg_ctl = formula_opt_bin("postgresql@19")/"pg_ctl"
     port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
-    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
-      port = #{port}
-      unix_socket_directories = '#{testpath}'
-    EOS
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
-
+    system pg_ctl, "initdb", "--options=-c port=#{port} -c unix_socket_directories=#{testpath}"
+    system pg_ctl, "start", "--log=#{testpath}/log"
     begin
       output = shell_output("#{bin}/dexter -h #{testpath} -d postgres -p #{port} -s SELECT 1 2>&1", 1)
       assert_match "Install HypoPG", output
     ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+      system pg_ctl, "stop"
     end
   end
 end

@@ -16,14 +16,12 @@ class Lakekeeper < Formula
 
   depends_on "cmake" => :build
   depends_on "rust" => :build
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "openssl@4"
 
   uses_from_macos "llvm" => :build # for libclang
 
   allow_network_access! :test
-
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
@@ -31,6 +29,7 @@ class Lakekeeper < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
+    openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
     ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
 
     system "cargo", "install", *std_cargo_args(path: "crates/lakekeeper-bin")
@@ -38,23 +37,19 @@ class Lakekeeper < Formula
 
   test do
     ENV["LC_ALL"] = "C"
+    ENV["PGDATA"] = testpath/"test"
 
     postgresql = deps.map(&:name).find { |d| d.match?(/^postgresql(@\d+(\.\d+)*)?$/) }
     pg_ctl = formula_opt_bin(postgresql)/"pg_ctl"
     port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test", "-o", "-E UTF-8 -U postgres"
-    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
-      port = #{port}
-    EOS
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    system pg_ctl, "initdb", "--options=-E UTF-8 -U postgres -c port=#{port}"
+    system pg_ctl, "start", "--log=#{testpath}/log"
 
-    begin
-      ENV["LAKEKEEPER__PG_DATABASE_URL_WRITE"] = "postgres://postgres@localhost:#{port}/postgres"
-      output = shell_output("#{bin}/lakekeeper migrate")
-      assert_match "Database migration complete", output
+    with_env(LAKEKEEPER__PG_DATABASE_URL_WRITE: "postgres://postgres@localhost:#{port}/postgres") do
+      assert_match "Database migration complete", shell_output("#{bin}/lakekeeper migrate")
     ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+      system pg_ctl, "stop"
     end
   end
 end

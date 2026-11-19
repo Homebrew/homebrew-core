@@ -21,7 +21,7 @@ class Electric < Formula
 
   depends_on "elixir" => :build
   depends_on "erlang" => :build
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "openssl@4"
 
   uses_from_macos "ncurses"
@@ -45,8 +45,7 @@ class Electric < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/electric version")
 
-    postgresql = Formula["postgresql@18"]
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    pg_ctl = formula_opt_bin("postgresql@19")/"pg_ctl"
     port = free_port
 
     ENV["DATABASE_URL"] = "postgres://#{ENV["USER"]}:@localhost:#{port}/postgres?sslmode=disable"
@@ -56,7 +55,7 @@ class Electric < Formula
     ENV["PGDATA"] = testpath/"test"
 
     system pg_ctl, "initdb", "--options=-c port=#{port} -c wal_level=logical"
-    system pg_ctl, "start", "-l", testpath/"log"
+    system pg_ctl, "start", "--log=#{testpath}/log"
 
     begin
       (testpath/"persistent/shapes/single_stack/.meta/backups/shape_status_backups").mkpath

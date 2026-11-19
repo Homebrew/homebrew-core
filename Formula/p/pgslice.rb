@@ -15,7 +15,7 @@ class Pgslice < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8416b778ccc3f5aa00631ddfc2f76957efd54b39fc22273edadf9c461a9892c5"
   end
 
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "libpq"
   depends_on "ruby"
 
@@ -55,23 +55,19 @@ class Pgslice < Formula
 
   test do
     ENV["LC_ALL"] = "C"
+    ENV["PGDATA"] = testpath/"test"
 
-    postgresql = Formula["postgresql@18"]
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    pg_ctl = formula_opt_bin("postgresql@19")/"pg_ctl"
     port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
-    (testpath/"test/postgresql.conf").write <<~CONF, mode: "a+"
-      port = #{port}
-    CONF
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    system pg_ctl, "initdb", "--options=-c port=#{port}"
+    system pg_ctl, "start", "--log=#{testpath}/log"
 
-    begin
-      ENV["PGSLICE_URL"] = "postgres://localhost:#{port}/postgres"
+    with_env(PGSLICE_URL: "postgres://localhost:#{port}/postgres") do
       output = shell_output("#{bin}/pgslice prep users created_at day 2>&1", 1)
       assert_match "Table not found", output
     ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+      system pg_ctl, "stop"
     end
   end
 end
