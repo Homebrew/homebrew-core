@@ -1,8 +1,8 @@
 class CodebookLsp < Formula
   desc "Code-aware spell checker language server"
   homepage "https://github.com/blopker/codebook"
-  url "https://github.com/blopker/codebook/archive/refs/tags/v0.4.0.tar.gz"
-  sha256 "09cd3feebf7ec75175d630740ce011a49ea8566cdec4930e4fb8964c5ea6afc2"
+  url "https://github.com/blopker/codebook/archive/refs/tags/v0.4.1.tar.gz"
+  sha256 "d0ee5f1003094d7a08be0ca08061b893de7442d552dc500997e089c832850d85"
   license "MIT"
   head "https://github.com/blopker/codebook.git", branch: "main"
 
@@ -12,11 +12,11 @@ class CodebookLsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dc1afb749beb562eaea62660718efc3ae6c0818c92edf2ce774a66498a43cf32"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98a89ca0661016c81040f86e3cfc6837871cd52e44b94facfbc8453e2c4b1439"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d25f260d2a5ad3d42e43fc7a815ae4010b4b088b0906f9d870322ad5a3770dd"
-    sha256 cellar: :any,                 arm64_linux:       "187d32ea127900077b4e63b105c0614b3b1ac6475ac0fa1db54cc4187f38a987"
-    sha256 cellar: :any,                 x86_64_linux:      "25611219aa87016831c08506455850c9ad69fab9f7c09c9c7980ede1bef0877d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf7f6fab42d896a2d4ba1f7936949eeee8213c34b3538c4a16af90aa2ae76bd3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e54c0ac35aff17075b2f2f01e948e914ecf0fee0a9ae0e241a33ef326d56e61"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5304677b110c5508faef049f96667ae749255a4d2585519e22b49f28d4dd4f37"
+    sha256 cellar: :any,                 arm64_linux:       "b93aaf7e4d1abc4cf0c171f4504992290f1f4ece06e06da6e7d94da715294109"
+    sha256 cellar: :any,                 x86_64_linux:      "cf23af009f8d63c3b382f108603f0e181ab258a0c10218f88ea6065589bb40ea"
   end
 
   depends_on "rust" => :build
