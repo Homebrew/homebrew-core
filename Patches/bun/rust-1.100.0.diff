@@ -1,0 +1,129 @@
+diff --git a/src/ast/lib.rs b/src/ast/lib.rs
+index f4c86093762..7b64323ad58 100644
+--- a/src/ast/lib.rs
++++ b/src/ast/lib.rs
+@@ -1,4 +1,3 @@
+-#![feature(allocator_api)]
+ // `#[thread_local]` for the per-node-allocation hot-path TLS
+ // (`DATA_STORE_OVERRIDE`, `Expr/Stmt::data::Store::{INSTANCE,
+ // MEMORY_ALLOCATOR, DISABLE_RESET}`, `store_ast_alloc_heap::ARENA`): bare
+diff --git a/src/bun_alloc/lib.rs b/src/bun_alloc/lib.rs
+index 0cae99668a5..a2446acefe8 100644
+--- a/src/bun_alloc/lib.rs
++++ b/src/bun_alloc/lib.rs
+@@ -3,7 +3,7 @@
+ // a dependency cycle.
+ #![allow(clippy::disallowed_types)]
+ #![feature(arbitrary_self_types_pointers)]
+-#![feature(allocator_api)]
++#![feature(allocator_ext)]
+ // `#[thread_local]` (vs the `thread_local!` macro) compiles to a bare
+ // `__thread` slot — single `mov reg, fs:[OFFSET]` access, no `LocalKey`
+ // `__getit()` wrapper, no lazy-init flag check, no dtor-registration probe.
+diff --git a/src/bun_core/lib.rs b/src/bun_core/lib.rs
+index e7ce6cf189c..2559a983036 100644
+--- a/src/bun_core/lib.rs
++++ b/src/bun_core/lib.rs
+@@ -1,4 +1,3 @@
+-#![feature(allocator_api)]
+ #![feature(adt_const_params)]
+ #![feature(thread_local)] // bare `__thread` slot for `thread_id::current()` cache
+ #![feature(freeze)] // `impl_field_parent!`'s `shared` arm rejects `Freeze` children at compile time
+diff --git a/src/bundler/lib.rs b/src/bundler/lib.rs
+index 7bb80e2f569..acf0d324ea6 100644
+--- a/src/bundler/lib.rs
++++ b/src/bundler/lib.rs
+@@ -1,5 +1,5 @@
+ #![feature(inherent_associated_types)]
+-#![feature(adt_const_params, allocator_api, thread_local)]
++#![feature(adt_const_params, thread_local)]
+ #![allow(incomplete_features)] // inherent_associated_types — used only for the ThreadPool::Worker path
+ #![allow(non_snake_case, non_upper_case_globals)]
+ #![warn(unused_must_use)]
+diff --git a/src/collections/lib.rs b/src/collections/lib.rs
+index 22edbb91820..3cf00e5cfce 100644
+--- a/src/collections/lib.rs
++++ b/src/collections/lib.rs
+@@ -5,8 +5,7 @@
+     adt_const_params,
+     unsized_const_params,
+     const_cmp,
+-    const_trait_impl,
+-    allocator_api
++    const_trait_impl
+ )]
+ #![allow(incomplete_features)]
+ #![warn(unused_must_use)]
+diff --git a/src/css/lib.rs b/src/css/lib.rs
+index 059245a7c19..a83457893a5 100644
+--- a/src/css/lib.rs
++++ b/src/css/lib.rs
+@@ -1,4 +1,3 @@
+-#![feature(allocator_api)]
+ #![warn(unused_must_use)]
+ // Allow `use bun_css as css;` from inside the crate — the ported submodules
+ // were translated against the crate's public surface and refer to it by name.
+diff --git a/src/parsers/lib.rs b/src/parsers/lib.rs
+index 1488ec61319..50d4663b030 100644
+--- a/src/parsers/lib.rs
++++ b/src/parsers/lib.rs
+@@ -1,5 +1,4 @@
+ #![warn(unused_must_use)]
+-#![feature(allocator_api)]
+ 
+ pub mod error;
+ pub use error::{Error, Result};
+diff --git a/src/ptr/lib.rs b/src/ptr/lib.rs
+index ec058ef2546..d871ec2b7c2 100644
+--- a/src/ptr/lib.rs
++++ b/src/ptr/lib.rs
+@@ -1,4 +1,3 @@
+-#![feature(allocator_api)]
+ #![allow(
+     non_snake_case,
+     non_camel_case_types,
+diff --git a/src/react_compiler/lib.rs b/src/react_compiler/lib.rs
+index 6d68b46a046..c0a0cd06b15 100644
+--- a/src/react_compiler/lib.rs
++++ b/src/react_compiler/lib.rs
+@@ -5,7 +5,7 @@
+ //! `react_compiler::entrypoint`) to read and write `bun_ast` directly, and
+ //! depends on the vendored HIR-level crates unmodified.
+ 
+-#![feature(allocator_api)]
++#![feature(allocator_ext)]
+ 
+ pub mod collections;
+ pub mod diagnostics;
+diff --git a/src/sema/lib.rs b/src/sema/lib.rs
+index 6e63ab0de23..613ae02e2b8 100644
+--- a/src/sema/lib.rs
++++ b/src/sema/lib.rs
+@@ -4,7 +4,7 @@
+ //! (https://github.com/microsoft/typescript-go, Copyright Microsoft Corporation, Apache License 2.0). Comments cite the
+ //! upstream function each piece of code corresponds to.
+ 
+-#![feature(allocator_api)]
++#![feature(allocator_ext)]
+ 
+ pub mod atom;
+ pub mod bind;
+diff --git a/src/shell_parser/lib.rs b/src/shell_parser/lib.rs
+index 303176dc3a9..caa0b29bfd2 100644
+--- a/src/shell_parser/lib.rs
++++ b/src/shell_parser/lib.rs
+@@ -1,4 +1,4 @@
+-#![feature(adt_const_params, generic_const_exprs, allocator_api)]
++#![feature(adt_const_params, generic_const_exprs)]
+ #![warn(unused_must_use)]
+ #![allow(incomplete_features)]
+ 
+diff --git a/src/sourcemap/lib.rs b/src/sourcemap/lib.rs
+index 47de3f994d8..b3b27af0c88 100644
+--- a/src/sourcemap/lib.rs
++++ b/src/sourcemap/lib.rs
+@@ -1,4 +1,3 @@
+-#![feature(allocator_api)]
+ #![warn(unused_must_use)]
+ //! `bun_sourcemap` — source map parsing, encoding, and lookup.
+ //!
