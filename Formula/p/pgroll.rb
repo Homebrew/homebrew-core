@@ -16,7 +16,7 @@ class Pgroll < Formula
   end
 
   depends_on "go" => :build
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "libpg_query"
 
   allow_network_access! :test
@@ -41,16 +41,13 @@ class Pgroll < Formula
 
     cp_r pkgshare/"01_create_tables.yaml", testpath
     ENV["LC_ALL"] = "C"
+    ENV["PGDATA"] = testpath/"test"
 
-    postgresql = Formula["postgresql@18"]
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    pg_ctl = formula_opt_bin("postgresql@19")/"pg_ctl"
     port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
-    (testpath/"test/postgresql.conf").write <<~EOS, mode: "a+"
-      port = #{port}
-    EOS
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    system pg_ctl, "initdb", "--options=-c port=#{port}"
+    system pg_ctl, "start", "--log=#{testpath}/log"
 
     begin
       pg_uri = "postgres://#{ENV["USER"]}@localhost:#{port}/postgres?sslmode=disable"
@@ -64,7 +61,7 @@ class Pgroll < Formula
       complete_output = shell_output("#{bin}/pgroll --postgres-url #{pg_uri} complete 2>&1")
       assert_match "Migration successful", complete_output
     ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+      system pg_ctl, "stop"
     end
   end
 end
