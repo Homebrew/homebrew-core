@@ -1,17 +1,17 @@
 class OsctrlMcp < Formula
   desc "Fast and efficient osquery management"
   homepage "https://docs.osctrl.net/components/osctrl-mcp/"
-  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.6.3.tar.gz"
-  sha256 "7f6e4a260f24d37f19bc955d42bb0babfc1224af43e8db7d017f21c326404df0"
+  url "https://github.com/jmpsec/osctrl/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "4b10ac68bf33c6bd8239485871a46517ba8c26362a605f836c1619deeeb814a8"
   license "MIT"
   head "https://github.com/jmpsec/osctrl.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd92c3a19787a7e9c238a28ded4c32de2ae5ab8d899a5e4f05abd22bda8a2306"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6593952b8dbd02da13ffa61af0a5bba6734412b170131ee6cc7abbc9b91ed8b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2daaf48606101b5bd93300b95c73989d8346178a1100fa57f2e297790413f28a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f4dbae2e77fed5af363e327af97937defe9f368fc11f1cd465a7dc8d27031475"
-    sha256 cellar: :any,                 x86_64_linux:      "2943c3e643f541cc5b4ed988d0a9276c6456dcd486a5c8f67de8517de28fdc26"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efdea31ee8b3aa4cc45ca6e125b991486b9da4d17817fbf741fc37a6f59199ee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a11d403df92f70d109183f77a6a8186f316a2ea325de4957e2af53a2ea908cd1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c92daed58859f8bf52649845749f71ef64ebf91225d9e3689c33fce87fa361c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "120f7cc53bd80172aee1364fdd119b650330fba76bded7b4b2e1ad3a8f5f92a2"
+    sha256 cellar: :any,                 x86_64_linux:      "83b6359db884deeec6036449d8e2d808fd43887690eb721e0b96feb95d831c08"
   end
 
   depends_on "go" => :build
