@@ -3,17 +3,17 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/c2/46/e39667a72a0a8215520ab8b3e2541c2a0d7fb95c2f62ba2620ab468d4008/cycode-3.28.0.tar.gz"
-  sha256 "b91d063224ca35b39fce1ac09409699c5b59da4aa02e8b7c9197856a3c5f66fc"
+  url "https://files.pythonhosted.org/packages/a4/6c/f91d45edbd0032367c3e5af790758aa5d375b5cd369d8e531299a3061ff4/cycode-3.28.1.tar.gz"
+  sha256 "65cbcc2df3788f3f17f1b03dcda9e3cbf16847aade0e143925e07837362a9060"
   license "MIT"
   head "https://github.com/cycodehq/cycode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "610ad5b63005251c2b397cca268f6f92af1dfe90305ea7753728bb3070d0ec6c"
-    sha256 cellar: :any, arm64_tahoe:       "48d1e2297aa825183a7967939c7bfb7950a30c3d33962bf96fc678c4c5a34ad5"
-    sha256 cellar: :any, arm64_sequoia:     "dacdfab545de9e0874b18f3350891c4e3cd2ea7cdf02a0fa75b5c86a2256aaa0"
-    sha256 cellar: :any, arm64_linux:       "48408a967bb49e6280bebf6ccfedd51cbe7b76e4732d952c7ea771854b3c4909"
-    sha256 cellar: :any, x86_64_linux:      "eda727f2283dcd3f0412b3758e7a5260a16c25e3ede75e293a33940fbe999c0a"
+    sha256 cellar: :any, arm64_golden_gate: "b99c0f40e5bd6ac3ece45e83146c99ce18a56f67e2c49028b58e833a0b4ee4a2"
+    sha256 cellar: :any, arm64_tahoe:       "97d91889014eebfb95c7fcf74c811e007a7e679107136a74cff18c87f20ceab0"
+    sha256 cellar: :any, arm64_sequoia:     "b9511d1a453a69145510d01199caf1980bf8b3f7fd2a6c111edb153f98bdcc69"
+    sha256 cellar: :any, arm64_linux:       "c97c01e73493a31e1d7ccebc29d29a92606ead2ca3bd600c9d2c6874c72a93ac"
+    sha256 cellar: :any, x86_64_linux:      "3075b6cc11f50f5c0e370dc612f88c40c731449f4c0a9b219c787cc148489853"
   end
 
   depends_on "certifi" => :no_linkage
@@ -24,6 +24,11 @@ class Cycode < Formula
   depends_on "rpds-py" => :no_linkage
 
   pypi_packages exclude_packages: %w[certifi cryptography pydantic rpds-py]
+
+  resource "annotated-doc" do
+    url "https://files.pythonhosted.org/packages/0b/7d/bdbf3062e5dae31da8b3de1e3269110beb93d268df4a7f6d22b167c6cee0/annotated_doc-0.0.7.tar.gz"
+    sha256 "0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5"
+  end
 
   resource "anyio" do
     url "https://files.pythonhosted.org/packages/a1/98/7e457a3b014976887a050561955c0b76e1e7e2d6e27b78ecef2ef80518f2/anyio-4.16.0.tar.gz"
@@ -46,8 +51,8 @@ class Cycode < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz"
-    sha256 "ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a"
+    url "https://files.pythonhosted.org/packages/bb/63/f9e1ea081ce35720d8b92acde70daaedace594dc93b693c869e0d5910718/click-8.3.3.tar.gz"
+    sha256 "398329ad4837b2ff7cbe1dd166a4c0f8900c3ca3a218de04466f38f6497f18a2"
   end
 
   resource "colorama" do
@@ -216,8 +221,8 @@ class Cycode < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/6c/89/c527e6c848739be8ceb5c44eb8208c52ea3515c6cf6406aa61932887bf58/typer-0.15.4.tar.gz"
-    sha256 "89507b104f9b6a0730354f27c39fae5b63ccd0c95b1ce1f1a6ba0cfd329997c3"
+    url "https://files.pythonhosted.org/packages/e4/51/9aed62104cea109b820bbd6c14245af756112017d309da813ef107d42e7e/typer-0.25.1.tar.gz"
+    sha256 "9616eb8853a09ffeabab1698952f33c6f29ffdbceb4eaeecf571880e8d7664cc"
   end
 
   resource "tzdata" do
