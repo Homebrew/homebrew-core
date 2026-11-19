@@ -1,10 +1,9 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/argotorg/solidity/releases/download/v0.8.38/solidity_0.8.38.tar.gz"
-  sha256 "a96f89d20525724acd9717032a0315466078c0176d5d13016d81f4cc81fd4115"
+  url "https://github.com/argotorg/solidity/releases/download/v0.8.39/solidity_0.8.39.tar.gz"
+  sha256 "2a5122f712c53fc58e9c243cdd4e0be6fe811c3111f03bdd6784bce066c48624"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -13,11 +12,11 @@ class Solidity < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ba8c0afa18a3ae154cff1074fd07c1a131d5c3049aeffc348d11f6d69a4db467"
-    sha256 cellar: :any, arm64_tahoe:       "28731e55742243ddbd8d411b44efe4b3e26e8f55d28db181eccf158721b56722"
-    sha256 cellar: :any, arm64_sequoia:     "15aa4a2e991a5b168631de6f9cf55cd5ebdfe6850fcc0c0c4c78bfd50268f0b0"
-    sha256 cellar: :any, arm64_linux:       "29a4bf78984e4076f4858b1f94643659d2324e699314b439ecd6ab2bd30ae854"
-    sha256 cellar: :any, x86_64_linux:      "70795049b637cd9a8a3b1c648ce6c7d37f6336a346ed78e0beaa1ef1ec265301"
+    sha256 cellar: :any, arm64_golden_gate: "04ee28119d4aec70f23d15c7f502def53f36fd4ceb9fc6039fb5c48cab91b2da"
+    sha256 cellar: :any, arm64_tahoe:       "dc3cee6fc354a49e5ae008e6c5f621a35a67ffaec0cda8d48f05b32883d6bc0d"
+    sha256 cellar: :any, arm64_sequoia:     "8de7805c75c8b576eb26c975095443921bb0d43977a5f8bc4cda028eba5a387b"
+    sha256 cellar: :any, arm64_linux:       "75543f39c4d5c66b6cd9d7a467e34e272ad60419c59963331f7d5b4062c18c82"
+    sha256 cellar: :any, x86_64_linux:      "e90c867bdecb289ad140f09a5e3557f6dad2b88fad142db5b3249ab62257fdde"
   end
 
   depends_on "cmake" => :build
