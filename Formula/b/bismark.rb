@@ -1,8 +1,8 @@
 class Bismark < Formula
   desc "Bisulfite read mapper and methylation caller"
   homepage "https://github.com/FelixKrueger/Bismark"
-  url "https://github.com/FelixKrueger/Bismark/archive/refs/tags/bismark-rust-v3.2.0.tar.gz"
-  sha256 "8b7261a2071a7c73e7b7e0337c243da126aacdb4feb526cac0d1d6a3431b65e5"
+  url "https://github.com/FelixKrueger/Bismark/archive/refs/tags/bismark-rust-v3.3.0.tar.gz"
+  sha256 "44267c3ec1f88c4d18fc98f36f70b113df154f49f39b2ff2a3fcb3e7b340bebc"
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/Bismark.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Bismark < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7206699650e4a46404abbf068a181a449f0797f8d378ef3ad89fe7ed20187141"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cf73ac9b3c7a76ee6e37e1eb7b6a22f9e0252fb20ee6f27e5147ff4cbd7be87"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49440033fde2c39954670e0ce46c061d0b18e4d3f59093cb4b8b528cd2d64b31"
-    sha256 cellar: :any,                 arm64_linux:       "a57ca8f4092bf7c3a7cd06f4694f31b4ec229b2c1ec307642afb7dbfd48b7603"
-    sha256 cellar: :any,                 x86_64_linux:      "d6e3cb0a263b3805344b2ca5a6805e3a3a6e1acd02e3d94b04753b9e7ca89fef"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2ada22dded3b36ae2d4a3af2ea65979cc715caa579311273046e9a47d147d5c8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29201c3c81ea64986724beef9a5da5acaf41c53a14d2e7093d7dbce7b977559a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18f2c0206d96ecef5f8b162290f93b8e49df7a8a9a07ad6bd95acd240a15754b"
+    sha256 cellar: :any,                 arm64_linux:       "6e07e09deb2856e65c0c1feca00dcc42d7c2a9861229e11278e63b9e92f55f57"
+    sha256 cellar: :any,                 x86_64_linux:      "90002616fdd53d4f34ce38862418c695826f0b5dd527754a51168e28c441bfb6"
   end
 
   depends_on "rust" => :build
