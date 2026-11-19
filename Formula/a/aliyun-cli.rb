@@ -1,8 +1,8 @@
 class AliyunCli < Formula
   desc "Universal Command-Line Interface for Alibaba Cloud"
   homepage "https://github.com/aliyun/aliyun-cli"
-  url "https://github.com/aliyun/aliyun-cli/archive/refs/tags/v3.5.3.tar.gz"
-  sha256 "3fb6e79f14e4e871c519c05945085ff7dca9839688ac2bded5a088e1e818bb92"
+  url "https://github.com/aliyun/aliyun-cli/archive/refs/tags/v3.5.4.tar.gz"
+  sha256 "c90668829297568aca9ab43cf0af2957155ab44f224f9cd84173275d2a204c92"
   license "Apache-2.0"
   head "https://github.com/aliyun/aliyun-cli.git", branch: "master"
 
@@ -12,19 +12,19 @@ class AliyunCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78bb57f6e4e8c3e37b131d526b6a2326f10b247d8268785ecf7d1778dff82228"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78bb57f6e4e8c3e37b131d526b6a2326f10b247d8268785ecf7d1778dff82228"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78bb57f6e4e8c3e37b131d526b6a2326f10b247d8268785ecf7d1778dff82228"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1ba4fa88369451fa18197a91e3d6f222c4899ff398c6e583122a670be883db87"
-    sha256 cellar: :any,                 x86_64_linux:      "2fb6bf90f097a3bb0760b5ef5f9bdc5a6bdb63a7d3c44e290196aade64cfd683"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6b34637cf6be328432994ef42f7cfd07a4cf66f48ebe9fb4384f9174fba82f8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6b34637cf6be328432994ef42f7cfd07a4cf66f48ebe9fb4384f9174fba82f8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6b34637cf6be328432994ef42f7cfd07a4cf66f48ebe9fb4384f9174fba82f8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9617a9ab3965f9026bf4eeb701c2845d66175b47881b3600b3650fee4a99a685"
+    sha256 cellar: :any,                 x86_64_linux:      "01347cb1bddcdf0936c17877ca8f551d3059ca536fc9fab24341b23a2805d8f7"
   end
 
   depends_on "go" => :build
 
   resource "aliyun-openapi-meta" do
-    url "https://github.com/aliyun/aliyun-openapi-meta/archive/1876f2666a44341c9f757b2f31682958a7a9eab8.tar.gz"
-    version "1876f2666a44341c9f757b2f31682958a7a9eab8"
-    sha256 "2d863c1f07933feb2641f34eae165cccbdbba02129ece94cc995f3aed5d277ba"
+    url "https://github.com/aliyun/aliyun-openapi-meta/archive/9e2d20e1390a84f69e919ebfdc20c99b964fde1e.tar.gz"
+    version "9e2d20e1390a84f69e919ebfdc20c99b964fde1e"
+    sha256 "7d9d493baa26b0afabdc0e34e928853fc3b19a5b78ca751c7c14ad9b458c326e"
 
     livecheck do
       url "https://api.github.com/repos/aliyun/aliyun-cli/contents/aliyun-openapi-meta?ref=v#{LATEST_VERSION}"
