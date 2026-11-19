@@ -2,9 +2,9 @@ class PhpAT84 < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.4.27.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.4.27.tar.xz"
-  sha256 "dcf93923b0e38e0d5252b25b796520b5a47761a08b3488b6d0b5d1115764d3f0"
+  url "https://www.php.net/distributions/php-8.4.28.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.4.28.tar.xz"
+  sha256 "0c8ec360e5dd8154f270b2fd50cd44ecc824e6ee39c85f911312b80d4daecd72"
   license all_of: [
     "PHP-3.01",
 
@@ -29,7 +29,6 @@ class PhpAT84 < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
-  revision 1
   compatibility_version 1
 
   livecheck do
