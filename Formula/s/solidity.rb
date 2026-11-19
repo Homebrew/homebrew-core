@@ -1,10 +1,9 @@
 class Solidity < Formula
   desc "Contract-oriented programming language"
   homepage "https://soliditylang.org"
-  url "https://github.com/argotorg/solidity/releases/download/v0.8.38/solidity_0.8.38.tar.gz"
-  sha256 "a96f89d20525724acd9717032a0315466078c0176d5d13016d81f4cc81fd4115"
+  url "https://github.com/argotorg/solidity/releases/download/v0.8.39/solidity_0.8.39.tar.gz"
+  sha256 "2a5122f712c53fc58e9c243cdd4e0be6fe811c3111f03bdd6784bce066c48624"
   license all_of: ["GPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0", "CC0-1.0"]
-  revision 1
   compatibility_version 1
 
   livecheck do
