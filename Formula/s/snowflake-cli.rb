@@ -3,17 +3,17 @@ class SnowflakeCli < Formula
 
   desc "CLI for snowflake"
   homepage "https://docs.snowflake.com/developer-guide/snowflake-cli/index"
-  url "https://files.pythonhosted.org/packages/31/cb/6564fde014eb4f8a9e1aefeb6a4c587fb95a46379ab84e72b0c6f4cd8558/snowflake_cli-3.33.0.tar.gz"
-  sha256 "512710fa3cfad55a116e1d180c7f19e0610232b2882213b320a3a83df2bda582"
+  url "https://files.pythonhosted.org/packages/f0/50/4af0a7dccf33a2367eff59427b53b73c41fb82adb9a7192988857f6b65bc/snowflake_cli-3.34.0.tar.gz"
+  sha256 "2d70e8e5e5be05f59fb95fd12753986e865ac7c37868a0a7c4d0123ab5830d0c"
   license "Apache-2.0"
   head "https://github.com/snowflakedb/snowflake-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8811980227341ce4b902e076090394a0bdc8fdbcc7f0462384d37f557ce1fed1"
-    sha256 cellar: :any, arm64_tahoe:       "6ebb9019f8922fbf17ac7736a7b323461a44f31b3324e465d2cde7f776cf9843"
-    sha256 cellar: :any, arm64_sequoia:     "c7ed6d279f7a5e2c8c183db664780ab35d00e2cbcc529679919c8204242caf13"
-    sha256 cellar: :any, arm64_linux:       "8c669c0a612ad904e06cec92400644bfa86c57dd11685e2fe4cbfc68a8c9614a"
-    sha256 cellar: :any, x86_64_linux:      "a43e9062c858bda277515c076c56efe4e600739eaf83ee4afcc5ddec29d4bf7b"
+    sha256 cellar: :any, arm64_golden_gate: "84ae37e7ba05ccee4a8a0f3be091e99204abd622400d4d942037e920e72ddbff"
+    sha256 cellar: :any, arm64_tahoe:       "2af41e479afcee764e200b82e93e321f561265c9b24ecf3bf075d5a4e064c5ce"
+    sha256 cellar: :any, arm64_sequoia:     "b54fe26ce3feee792deab7832a79663a6ae268d3dead34a251c4ce30f22efe70"
+    sha256 cellar: :any, arm64_linux:       "572f49d3e1d4a9663fd8068296459a1830079088f0b0cff8f547cf93a7908b48"
+    sha256 cellar: :any, x86_64_linux:      "6ef37120268a20a209705f4bde19a0165f0c954ea127c929c01dd426de33e0e1"
   end
 
   depends_on "protobuf" => :build
@@ -34,13 +34,13 @@ class SnowflakeCli < Formula
   end
 
   resource "boto3" do
-    url "https://files.pythonhosted.org/packages/ca/6b/2bc953d6f0b87505636d0a7c16e46a47ab6c49df4a278ac9c0b1c1732e65/boto3-1.43.127.tar.gz"
-    sha256 "b5417e81d439b35ccf3a1eb51fa06cf9c97167c9a6beaa1929175ee9840d505a"
+    url "https://files.pythonhosted.org/packages/aa/b8/149e2c2a599a6a3d3818bb7d9c30996be703d6bfc71b2bbe11b7c1a86ecc/boto3-1.44.5.tar.gz"
+    sha256 "667b344e25d2bcbb7c42fcf6b92a07bb1d73ee9d6d12c3a7873ec4c490b6fb64"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/8f/45/b4e606b0f66c11c6bd44e91381aa562c6b4dacf478b97b461a429036a89a/botocore-1.43.127.tar.gz"
-    sha256 "93bae360fb3a6f1b8e36593faa8bbbfa05b19866f7a37e9606a98f13394156f8"
+    url "https://files.pythonhosted.org/packages/09/f4/ca9bcb9774e8d0a903b95743abb252c78d05d80faa97eb6ee7f9c7167e0b/botocore-1.44.5.tar.gz"
+    sha256 "a988f39e3a4484def0b8010f41128f71157da0515a4804fccce4739aa8f216da"
   end
 
   resource "charset-normalizer" do
@@ -72,8 +72,8 @@ class SnowflakeCli < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
-    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "gitdb" do
@@ -132,8 +132,8 @@ class SnowflakeCli < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markupsafe" do
@@ -162,8 +162,8 @@ class SnowflakeCli < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "pluggy" do
