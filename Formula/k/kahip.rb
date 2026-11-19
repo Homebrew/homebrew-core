@@ -1,17 +1,17 @@
 class Kahip < Formula
   desc "Karlsruhe High Quality Partitioning"
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
-  url "https://github.com/KaHIP/KaHIP/archive/refs/tags/v3.28.tar.gz"
-  sha256 "60a059a060e48b8f16575fb94dbd7ac548768f5e16b49e95e52b68d672d7ea53"
+  url "https://github.com/KaHIP/KaHIP/archive/refs/tags/v3.29.tar.gz"
+  sha256 "cf7f740000a8b26ce5568951a2847d4169b9b394983d7b5d1d77c9887183063e"
   license "MIT"
   head "https://github.com/KaHIP/KaHIP.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "373c5cce4505ce22d68ff99c7d5b59d7abb4224be95f2a9387a6addee8f49916"
-    sha256 cellar: :any, arm64_tahoe:       "e85a16dce6d7a194b434e2bbaa5348f8c7461156a190aa5e837b9c9837474b8e"
-    sha256 cellar: :any, arm64_sequoia:     "30d11968179f02364d4ac00017a4692439069fd85d8e681d224658e2689c75ec"
-    sha256 cellar: :any, arm64_linux:       "2b69d78e268291db17f2f8aa96279e8bf3a6e006ecc1811e5634cde40aed13b1"
-    sha256 cellar: :any, x86_64_linux:      "00f909b0012965645d90685d922aa4ff60a5fbaf1296012b65a515f5811ad2d5"
+    sha256 cellar: :any, arm64_golden_gate: "de20cf302ca30ae56a19995819582e17b84aa13df3d531776a88dcfb7aa74ba3"
+    sha256 cellar: :any, arm64_tahoe:       "ab27d035afecc463f7ddfb5e4be4e21ffc7de4d480906dd6781b46233feb6654"
+    sha256 cellar: :any, arm64_sequoia:     "d34533e393f1fef5d6d75a79b05a5daa8180f6964be8c8ac4f6af14895f8e43d"
+    sha256 cellar: :any, arm64_linux:       "cff85ddcf852d1c8917d9e44b79a1083081d2e096b197bdf5932104f60215056"
+    sha256 cellar: :any, x86_64_linux:      "6febb6c74b05f44d3d410470be58713a21f947e9bb09e6a3e49557d2c35705d4"
   end
 
   depends_on "cmake" => :build
