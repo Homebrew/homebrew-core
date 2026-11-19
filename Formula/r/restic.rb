@@ -8,13 +8,11 @@ class Restic < Formula
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a5a348df1e0bc9d1b6048141e5138442178c54c624c1be9a175a6cafce59901c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46e8a729f34715368444f8b7d4b6e99dca7ec575f7c677bba40bec71764c1dea"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46e8a729f34715368444f8b7d4b6e99dca7ec575f7c677bba40bec71764c1dea"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "46e8a729f34715368444f8b7d4b6e99dca7ec575f7c677bba40bec71764c1dea"
-    sha256 cellar: :any_skip_relocation, sonoma:            "03df89b7f2a18bafe9021cfd24f32cf7920cac3f118bb8cc8fe042670370e93f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "13fa3948a9e6b498bb2e38178eef94685b0cc60760ac3875941e72595ec20a8b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c3fda69d9bba81b3d9fa3e9854377bd2b02c23681ba1d2eb4a8925dc3cb936d3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06f0efa7880f0985036e2ae22b3f307475a822ee1b90ea2d7502eab2cf246ed1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06f0efa7880f0985036e2ae22b3f307475a822ee1b90ea2d7502eab2cf246ed1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "06f0efa7880f0985036e2ae22b3f307475a822ee1b90ea2d7502eab2cf246ed1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4a395e26058cb6397cc5bd853662f5a4758bfead4d65fa9819e5a454760625a5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "82e9a5e826b02fc067531febab44647d39f77b3b1b85b4e2926dacf9518ccef4"
   end
 
   depends_on "go" => :build
