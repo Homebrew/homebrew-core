@@ -1,8 +1,8 @@
 class Baguette < Formula
   desc "Headless iOS Simulator manager and host-side input injection for iOS 26"
   homepage "https://tddworks.github.io/baguette/"
-  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.2.15.tar.gz"
-  sha256 "60df98fa49ca298fff00eb146c09fc65c261930eaea29e8eed34d373e3312200"
+  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "c0ab7feed1e62bc4f8432446bf06972b971a2b1303f6df6130493f6e58054f4f"
   license "Apache-2.0"
   head "https://github.com/tddworks/baguette.git", branch: "main"
 
@@ -16,13 +16,19 @@ class Baguette < Formula
   depends_on macos: :tahoe
 
   # `swift build` fetches packages
-  allow_network_access! :build
+  deny_network_access!
+
+  def fetch
+    # SwiftPM tries to apply its own sandbox, which cannot nest inside the
+    # build sandbox; Homebrew's sandbox still confines the whole process.
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
 
   def install
     # replace version like upstreams release process
-    inreplace "Sources/Baguette/App/Version.swift",
-              "let baguetteVersion = \"0.1.61\"",
-              %Q(let baguetteVersion = "#{version}")
+    inreplace "Sources/Commands/Version.swift",
+              'let baguetteVersion = "0.1.61"',
+              "let baguetteVersion = \"#{version}\""
 
     # Rebuild the iOS-Simulator injection dylibs from source: upstream ships them prebuilt and universal,
     # which `brew audit` rejects. Mirrors each Injected/*/build.sh, for this arch only.
