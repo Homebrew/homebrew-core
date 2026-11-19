@@ -1,9 +1,9 @@
 class Proftpd < Formula
   desc "Highly configurable GPL-licensed FTP server software"
   homepage "http://www.proftpd.org/"
-  url "https://github.com/proftpd/proftpd/archive/refs/tags/v1.3.9e.tar.gz"
-  version "1.3.9e"
-  sha256 "7db91f229f8c3ad18e233f38a3c1749bd11bf92e1079b6c7f86e51a3fcfce5eb"
+  url "https://github.com/proftpd/proftpd/archive/refs/tags/v1.3.9f.tar.gz"
+  version "1.3.9f"
+  sha256 "3b317c78af677d3678adb29c3a57590d3725c5446e1226d5080098f19871b9ef"
   license "GPL-2.0-or-later"
 
   # Proftpd uses an incrementing letter after the numeric version for
