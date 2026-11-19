@@ -3,19 +3,19 @@ class Vsview < Formula
 
   desc "Next-generation VapourSynth previewer"
   homepage "https://jaded-encoding-thaumaturgy.github.io/vs-view/"
-  url "https://files.pythonhosted.org/packages/d5/81/c2cb5506d9f899f04a81b4eddefdc77b073ed0c77a57139430570d6fe2ea/vsview-0.15.0.tar.gz"
-  sha256 "8be4d1004056ea4dfadd274ddecc20e9bcdd6b2393f35040045c45ce5c89bae3"
+  url "https://files.pythonhosted.org/packages/b3/82/561a8edebb658d4f0fc6dc5d820f7f19be6cc8995618ada669afd9de8c83/vsview-0.15.1.tar.gz"
+  sha256 "d46e614171bbab6f0b962883f39fd38498a4301784bd33dbb008cfcd0642a949"
   license all_of: [
     "EUPL-1.2",
     all_of: ["MIT", "Apache-2.0", "ISC", "OFL-1.1"], # src/vsview/assets/
   ]
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f2278dedbfe71aad6c751b6f6584b9daa0a1cbcbcdb35d26157433202fefdc9b"
-    sha256 cellar: :any, arm64_tahoe:       "d36d1bc49b86371b36fc0da90a3678900bb90c2c64ddd84c3c509f686029ea1c"
-    sha256 cellar: :any, arm64_sequoia:     "a09ec0224d089dc4f52fad821158309e7208060cbca22f1ff37b05c69c2a695e"
-    sha256 cellar: :any, arm64_linux:       "86c5a6ccfa0d330947db8e3ecbf3d75d4042962bf32dc178adddf9812e35201c"
-    sha256 cellar: :any, x86_64_linux:      "116e654de108688d620be06df5d7f78c23e88ff9ad425dcad0526792c7827138"
+    sha256 cellar: :any, arm64_golden_gate: "627e72e050e381e004b5ae3f5020d7a6f02a4d3dd296217b6ee70aad53bef1e6"
+    sha256 cellar: :any, arm64_tahoe:       "68bc29c8a466c767247ef7cf4cbda286ab81537708222988b8dcf8d80047c928"
+    sha256 cellar: :any, arm64_sequoia:     "c23d18c70235344ad15012318d6e2c83a0dbf4786c3c1308dc743025aff7e37d"
+    sha256 cellar: :any, arm64_linux:       "fbf9380caa90a8581e43f540861384717a188302cf9a317041105290ec5ca7cd"
+    sha256 cellar: :any, x86_64_linux:      "cd713736fbd6a3d6f47b0eebef4bcdddb17e02e998b427c920413d889c7eebca"
   end
 
   depends_on "cmake" => :build
@@ -202,23 +202,23 @@ class Vsview < Formula
   end
 
   resource "vsview-comp" do
-    url "https://files.pythonhosted.org/packages/88/3a/6b8f5317e4ca4589cdde50c297e83e306f0fd26c4151d16bb37af7279338/vsview_comp-0.16.0.tar.gz"
-    sha256 "72cd047eb22133a72d4e24145c130eac81e493555c9c1fec522cbb947e5e3c54"
+    url "https://files.pythonhosted.org/packages/b3/8a/7a0731201b70037eb0dcd40a7d5d32760f5db8ddcaac383a809cb85cd61f/vsview_comp-0.17.0.tar.gz"
+    sha256 "4a72822d0640edf6fc2e5523970b74cd447fd9936e9f2348bdd34b3d34e384d1"
   end
 
   resource "vsview-fftspectrum" do
-    url "https://files.pythonhosted.org/packages/84/3b/c8f5b6c37b5f6d2d5ea319d7921f63f909d2d4269f1a113be806e2aaba49/vsview_fftspectrum-0.3.0.tar.gz"
-    sha256 "87b5b0934f04b065542a93c0f07b2a9cc3898e28b7964e449ec894e4111d2860"
+    url "https://files.pythonhosted.org/packages/a9/05/219842e0ebbf675d2f60efeb89685de7bb863982f98c4228553a54c5e1c5/vsview_fftspectrum-0.4.0.tar.gz"
+    sha256 "b7667dcf34969fd7c2d29edd2632f5d1a37bc0603764e7e7ce71bb7187c05d71"
   end
 
   resource "vsview-frameprops-extended" do
-    url "https://files.pythonhosted.org/packages/3f/b6/bf879e1070da2dc63658a604d2748086e2ca506d31905986fc5171d4a7b8/vsview_frameprops_extended-0.3.0.tar.gz"
-    sha256 "7c5b6f18cfbaf907e4129a6cf56c95c4032f695e9d526d2bee1eec6f26b5a68a"
+    url "https://files.pythonhosted.org/packages/55/57/7f47ed8c691d21dd162f785e6c718a09f7658aa58c2f0bfe482a6cbb7acc/vsview_frameprops_extended-0.3.1.tar.gz"
+    sha256 "26d5c2c5f4c12edcac009ff660f1a6c54b0cde2dad09ec0a97ea26f432e573ea"
   end
 
   resource "vsview-split-planes" do
-    url "https://files.pythonhosted.org/packages/06/62/6b975885f25d0c803f4e64341446a79ff416f69be6371767c45a97d16583/vsview_split_planes-0.3.0.tar.gz"
-    sha256 "88e27a0ff190e6543998d67c319c259c1675466ff1d289012bc3abd3cb3b5f1a"
+    url "https://files.pythonhosted.org/packages/2e/04/4218ebe9c04d011e9deca42cc9be59d3e6ac98a91c3f7435cdc4f516b52d/vsview_split_planes-0.4.0.tar.gz"
+    sha256 "741d9ab3eda97a26f9ecb4a9cdb86942842c60d283a8d9994978af2be635fdb5"
   end
 
   resource "wassima" do
