@@ -1,17 +1,17 @@
 class Localai < Formula
   desc "OpenAI alternative"
   homepage "https://localai.io"
-  url "https://github.com/mudler/LocalAI/releases/download/v4.12.1/LocalAI-v4.12.1-source.tar.gz"
-  sha256 "7e47078e3e92439e7539d331150c0941a1350228c874de6ec641aee21685bd8c"
+  url "https://github.com/mudler/LocalAI/releases/download/v5.0.0/LocalAI-v5.0.0-source.tar.gz"
+  sha256 "8879ff68b4356bef0c14997609d2e9740c4fbbbe62e8428e621286b9c5aaf42e"
   license "MIT"
   head "https://github.com/mudler/LocalAI.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4269b74ce4f3ca31c01cfb520b282f3b486a818c289fb4cad216266f8593827"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fb3fd84cfac15777960230a60cbd728ef991075dcbd04535a8d68ecf56f9a24"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce9ff0d942144b587407605b66c1d3b411947f1fdb1f96100ff076782a821a77"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "361003f0b2215bfaf8555631019b1623a6baeb78a62ef5244db5114436a2dba9"
-    sha256 cellar: :any,                 x86_64_linux:      "948aa4c7a035d882b45b5cc358b2d084c5df4f75369ce7f3be56103584cc0019"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3929247d712ff9aee135690b9c68b9dfd951070fe8bc269531d10d064cbb2200"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fd388329480f98324a7d0391d8cfd3861928c8e6e4b90ac397a297848db2189"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "930c6a4a68d6665e3e68658788cd5908319e9757e2e21aed9a5545b5efa187e4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9ca2e46c9f881d52d7c3be7d7f1ccddc473e00b2951d638e19f5c0923471bd94"
+    sha256 cellar: :any,                 x86_64_linux:      "47875d79f3ffc8011f13d570d204148273ce68ebeff58cb050facaee0641e750"
   end
 
   depends_on "go" => :build
@@ -30,7 +30,8 @@ class Localai < Formula
   test do
     addr = "127.0.0.1:#{free_port}"
 
-    pid = spawn bin/"local-ai", "run", "--address", addr
+    # The add-on owner opens `/` at startup, which the Linux test sandbox denies
+    pid = spawn bin/"local-ai", "run", "--address", addr, "--addons-enabled=false"
     sleep 5
 
     begin
