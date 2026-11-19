@@ -15,9 +15,11 @@ defaults:
   run:
     shell: bash -xeuo pipefail {0}
 
+# Wait in the same queue as `update-command-not-found-db.yml` rather than replacing a pending update.
 concurrency:
   group: command-not-found-db
   cancel-in-progress: false
+  queue: max
 
 permissions: {}
 
