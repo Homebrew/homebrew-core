@@ -4,6 +4,7 @@ class Libnatpmp < Formula
   url "https://miniupnp.tuxfamily.org/files/download.php?file=libnatpmp-20230423.tar.gz"
   sha256 "0684ed2c8406437e7519a1bd20ea83780db871b3a3a5d752311ba3e889dbfc70"
   license "BSD-3-Clause"
+  compatibility_version 1
 
   livecheck do
     url "https://miniupnp.tuxfamily.org/files/"
