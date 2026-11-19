@@ -6,7 +6,7 @@ class AcmeSh < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c3a73e20dde99f68cb40a5b436e471a24d1f2e8b3712c9d89fc625c035b8cec2"
+    sha256 cellar: :any_skip_relocation, all: "aead95c71dfadd1a354733878304968a5d58709027dba9c8147a76e8537ae3ff"
   end
 
   deny_network_access!
