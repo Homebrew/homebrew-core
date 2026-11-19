@@ -1,8 +1,8 @@
 class KosliCli < Formula
   desc "CLI for managing Kosli"
   homepage "https://docs.kosli.com"
-  url "https://github.com/kosli-dev/cli/archive/refs/tags/v2.57.1.tar.gz"
-  sha256 "8d961003ac4e08486c034c85dca2eea82f8bb0fa095d604157a3c786cad4dfdf"
+  url "https://github.com/kosli-dev/cli/archive/refs/tags/v2.58.0.tar.gz"
+  sha256 "ba2e93d341cc2a0d4c5b002cfeb2009997ef413742465e8dc91b0d51aecb5838"
   license "MIT"
   head "https://github.com/kosli-dev/cli.git", branch: "main"
 
