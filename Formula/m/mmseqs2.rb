@@ -1,23 +1,22 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/18-8cc5c.tar.gz"
-  version "18-8cc5c"
-  sha256 "3541b67322aee357fd9ca529750d36cb1426aa9bcd1efb2dc916e35219e1a41c"
+  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/19-ab57c.tar.gz"
+  version "19-ab57c"
+  sha256 "68b20700b82c93f2a30a8a7fbe545ab6ec715bfccb13ddcab144d3f3f504c5a4"
   license "MIT"
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_golden_gate: "e4736d89e25b826e72cd9d0674e36c18ff48118e614718ecd3bd21c25f2a1f09"
-    sha256 cellar: :any, arm64_tahoe:       "cde948e5fd9bd5fc4712ca3da68732f40f07d67904b1368b388c58adf57db676"
-    sha256 cellar: :any, arm64_sequoia:     "61f15901cee4c6e69ef77101ca8b4f519f603d80e5e05ffb8c647a06fc7ffd53"
-    sha256 cellar: :any, arm64_sonoma:      "35e3e29a68022cd9aba6c865a67deeeac57ef771fee8f11282a49a677258e3c1"
-    sha256 cellar: :any, arm64_linux:       "ecd13dca0300d49a7f1be7272cea1217a7f2782a2bc8e7c89c4f40ee41469f03"
-    sha256 cellar: :any, x86_64_linux:      "bcad178647ca4c1639e7714f3a776743b472446e7b9bd744c7abbe0792c6469e"
+    sha256 cellar: :any, arm64_golden_gate: "c50cce6f94df5fa2387ee927f4057ede16c30bc06df7a26924c680ea9b6f079a"
+    sha256 cellar: :any, arm64_tahoe:       "345673be616f68f684e40d90d3a46a0afe54ef230bb3e85816f0faa4c7aff9ca"
+    sha256 cellar: :any, arm64_sequoia:     "cbee345ec5521f759bff4f321caec21e717bf13c578a4fafdca3587a885d4b04"
+    sha256 cellar: :any, arm64_linux:       "945c35bbc777811cf5ec31ad6952805a5775cca87fd40af02fe8da44cea90459"
+    sha256 cellar: :any, x86_64_linux:      "d5fbde9b4b0c530f5912a56f6fc18b6b6c7a437964f072abfdfb95ab900cbd98"
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "rust" => :build
   depends_on "wget"
 
   uses_from_macos "bzip2"
