@@ -1,8 +1,8 @@
 class RubyBuild < Formula
   desc "Install various Ruby versions and implementations"
   homepage "https://rbenv.org/man/ruby-build.1"
-  url "https://github.com/rbenv/ruby-build/archive/refs/tags/v20261023.tar.gz"
-  sha256 "3f083e548366544de28814c58954c6d31f05d115dce20fb01fff1c0069f03549"
+  url "https://github.com/rbenv/ruby-build/archive/refs/tags/v20261119.tar.gz"
+  sha256 "0d55d368b3157156d011b5f419c8a3758036210a602beeff8d0dfec329db0dc5"
   license "MIT"
   compatibility_version 1
   head "https://github.com/rbenv/ruby-build.git", branch: "master"
