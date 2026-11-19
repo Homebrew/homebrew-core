@@ -1,8 +1,8 @@
 class PySpy < Formula
   desc "Sampling profiler for Python programs"
   homepage "https://github.com/benfred/py-spy"
-  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.3.tar.gz"
-  sha256 "dc73c284a54ace20e62cf3f032c98bbdda5e36ae57795d3b0e538cd3ba2eecef"
+  url "https://github.com/benfred/py-spy/archive/refs/tags/v0.4.4.tar.gz"
+  sha256 "7bfa9af280f9c154585d44746fffdb52eccbb4abe010bf0b767d370ab23d4c9c"
   license "MIT"
   head "https://github.com/benfred/py-spy.git", branch: "master"
 
