@@ -15,6 +15,7 @@ class Mycli < Formula
     sha256 cellar: :any, x86_64_linux:      "2565f0aab72a63aef23f6a08f0b0e8a33f7d8b443a6d8323f07a40f253399245"
   end
 
+  depends_on "cmake" => :build # for rapidfuzz
   depends_on "rust" => :build # for jiter, polars, vl-convert
   depends_on "certifi" => :no_linkage
   depends_on "cryptography" => :no_linkage
@@ -22,6 +23,7 @@ class Mycli < Formula
   depends_on "libyaml"
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.15"
+  depends_on "rpds-py" => :no_linkage
 
   uses_from_macos "libffi"
 
@@ -30,7 +32,7 @@ class Mycli < Formula
   end
 
   pypi_packages package_name:     "mycli[llm,dataframe]",
-                exclude_packages: %w[certifi cryptography pydantic],
+                exclude_packages: %w[certifi cryptography pydantic rpds-py],
                 extra_packages:   %w[jeepney secretstorage]
 
   resource "altair" do
@@ -241,11 +243,6 @@ class Mycli < Formula
   resource "referencing" do
     url "https://files.pythonhosted.org/packages/22/f5/df4e9027acead3ecc63e50fe1e36aca1523e1719559c499951bb4b53188f/referencing-0.37.0.tar.gz"
     sha256 "44aefc3142c5b842538163acb373e24cce6632bd54bdb01b21ad5863489f50d8"
-  end
-
-  resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/42/68/3bd46b8a5e01d3c2ebdf9c5e9497912e3fe0cde02bac21a7130ca866e403/rpds_py-2026.9.1.tar.gz"
-    sha256 "4793ef7f78268b124b73fa933440f01d258bbae01de9fa53e9080c9ab0425a12"
   end
 
   resource "secretstorage" do
