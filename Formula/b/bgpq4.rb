@@ -1,8 +1,8 @@
 class Bgpq4 < Formula
   desc "BGP filtering automation for Cisco, Juniper, BIRD and OpenBGPD routers"
   homepage "https://github.com/bgp/bgpq4"
-  url "https://github.com/bgp/bgpq4/archive/refs/tags/1.16.tar.gz"
-  sha256 "c228e44bb62141851e7213563b5800b9b7b56d183f71563d5f0fe1ecdf57709e"
+  url "https://github.com/bgp/bgpq4/archive/refs/tags/1.17.tar.gz"
+  sha256 "f420e82da10b991399203e01ea2ea3369408ac367425bf48a2e0af145b96bbf4"
   license "BSD-2-Clause"
   head "https://github.com/bgp/bgpq4.git", branch: "main"
 
@@ -12,13 +12,11 @@ class Bgpq4 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06f7514aec90f7aa483f0ef531a13ff9afbae97ce3b2edd4b97aed55cac904d8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5e745990029980ccf23bea3b07c88a650c2cec39997890c3e8fb9a3777caa10"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38a03fd0d53b7b6a94732f1f0e41cff6212af6508ecb118cfe8b77eeaee1c07d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "3e6f9b0820084e8c9559a1f26a4052bd216243014844ca761ebf884ae430ce26"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a9f929e5bb0f2b14e82cb4b67e8078d642f73454397a065a709f8d9db56f6fe8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c6b3f5d3144ff448bba5c199dcf9e1eb2f46d1ebae9aad3cf85b15a99a4cb8a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "59e573f78602c2f9dcaf2418602fd0cbd570341d51f545179c1a49fa4b8044b4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "529c8f5d2cfa881163af8e10660e9ac72bf05152034dd0326924b7de1ff90a6d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "469313e0a6b2553d2d7a8f50aadfa0e5250fe81529c2d03247abf5e77194bafa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b0fec7a9018f00cbc8321a856081ebe8fe9c700fd318116bcb3ad0d1b9cf4117"
+    sha256 cellar: :any,                 arm64_linux:       "90677f00817c4f91f89c1f6363746d226501be2416847ba67f67d736f8792e7c"
+    sha256 cellar: :any,                 x86_64_linux:      "2c26da48ac4e7ec1106de2b0d6f8b1ad33b4ee6fedaf3afe5c0c195251b2751a"
   end
 
   depends_on "autoconf" => :build
