@@ -3,22 +3,20 @@ class GitRemoteCodecommit < Formula
 
   desc "Git Remote Helper to interact with AWS CodeCommit"
   homepage "https://github.com/aws/git-remote-codecommit"
-  url "https://files.pythonhosted.org/packages/6c/a0/feb4dfa42e8cb1a0bd91667233254e49696cf6618f51ad5629f6efd89dae/git-remote-codecommit-1.17.tar.gz"
-  sha256 "fd4a9ba3fbd88cd455a8e2087765e415da0beaae9932d4e84010069a536de24e"
+  url "https://files.pythonhosted.org/packages/ea/58/71a6047949f07a75ea7e1d273ba1c126e03c69f17a910d837f9368bc8dce/git_remote_codecommit-1.18.tar.gz"
+  sha256 "a34b737b0bd4b52932fd12cc42b3dfed5a7e4d87b5bc24910b90bf6e0f42f580"
   license "Apache-2.0"
-  revision 8
   head "https://github.com/aws/git-remote-codecommit.git", branch: "master"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "417955c4f84ef02ee4f4088e4a8af61bb567530c45d0417dd04991a821534998"
+    sha256 cellar: :any_skip_relocation, all: "799a0401214822d31ac9248b0b2c536f101393e8ff8f9b075b5ee4aa0ade3419"
   end
 
   depends_on "python@3.15"
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/6c/43/257e97270ddd6833fd54b11e544a09b441b02f8c731bdeb29b90479be565/botocore-1.43.111.tar.gz"
-    sha256 "44d5e80962ac6cb9e85af72667b77c9586451e3328ab0ce33195380767e213d8"
+    url "https://files.pythonhosted.org/packages/09/f4/ca9bcb9774e8d0a903b95743abb252c78d05d80faa97eb6ee7f9c7167e0b/botocore-1.44.5.tar.gz"
+    sha256 "a988f39e3a4484def0b8010f41128f71157da0515a4804fccce4739aa8f216da"
   end
 
   resource "jmespath" do
