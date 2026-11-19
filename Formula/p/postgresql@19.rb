@@ -11,6 +11,14 @@ class PostgresqlAT19 < Formula
     regex(%r{href=["']?v?(19(?:\.\d+)+)/?["' >]}i)
   end
 
+  bottle do
+    sha256 arm64_golden_gate: "60df5616bed49a1c85903b5d32cfcbf1f274fd6ef5d3d7d19536d5f9155b75eb"
+    sha256 arm64_tahoe:       "1267181e73359f83dcc8954281e8bf12a54ebbb20df785487fc9b6b78b28607f"
+    sha256 arm64_sequoia:     "e2dbd200d4001d026bbe331d3f10cad986e623853d30330b1386ca3e19c8a6be"
+    sha256 arm64_linux:       "e2da64ace4126fbe50acafcd61745f38f3915817c660662514ede827853c2a84"
+    sha256 x86_64_linux:      "165793305a1464483304002e5da329cf4c26a8ffd76408e0f7c80423e02e8797"
+  end
+
   keg_only :versioned_formula
 
   # https://www.postgresql.org/support/versioning/
