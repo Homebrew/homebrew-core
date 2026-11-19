@@ -4,19 +4,18 @@ class PostgresqlHll < Formula
   url "https://github.com/citusdata/postgresql-hll/archive/refs/tags/v2.21.tar.gz"
   sha256 "808de7603e6f954690b7f1a4514f264ce0557f8c4bb9a0e8c0ba0249df4098ce"
   license "Apache-2.0"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a352c9173f07cadc3a0c43db4f102a436a1b52328b48c57dc5f02c17378e6422"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d976ab79f3c4a3e76c076595e7fbe27a9b569feb4038ec8f5b9ecc6f1ff1b2bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4944479c33930ec01cc3acf769af2d6c43efe2cbb9683302c391f4f029d00545"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "6e75fe6ce1773d2a412b055d8c6db68aae2a258f357242e0cdf1ca4c6cf29c7c"
-    sha256 cellar: :any_skip_relocation, sonoma:            "8ca3ad63351e33fae0bf5feaf84cc94846b4bac2d4d3fc33cf12947f79214dad"
-    sha256 cellar: :any,                 arm64_linux:       "61fdcf4b1d383cba248b587b0a2be070783d190397273afdcd86edba2b3039f6"
-    sha256 cellar: :any,                 x86_64_linux:      "561466d0e9a1c2c60eee2c7dac9051726ac7e3fafb1a1ddd9174c04dfd4eabc3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e20080fbf12a371589beb62e1d87817cadef6f304f93ce35837d39c2c2584fa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e15536b951cd3ecbf312d059f2df90671e64bd71c5df93421b02e8433f637c6d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c821165fe5515c612f1d3aae9588897f95d2cdecb5ee1bfe71b88cb5fb857cc9"
+    sha256 cellar: :any,                 arm64_linux:       "9d38de701e28590e7a5fc9eb8aee9ebef7e14fa80a06b0c64d4e36a8ad5351e6"
+    sha256 cellar: :any,                 x86_64_linux:      "77d6dde04122e326201d057092ed916fa37ce713a6fa6a208da5458e420f354c"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }

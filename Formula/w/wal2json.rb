@@ -4,6 +4,7 @@ class Wal2json < Formula
   url "https://github.com/eulerto/wal2json/archive/refs/tags/wal2json_2_7.tar.gz"
   sha256 "e6c12d02dc32e4d610dce33ee52ea85a54e12a563e79c4844508b6c061ff07a1"
   license "BSD-3-Clause"
+  revision 1
   compatibility_version 1
 
   livecheck do
@@ -15,15 +16,15 @@ class Wal2json < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bee9e50cc7a4beee7e0058c0c9e51fadfa69092812f7f7db6f1645618a47f9c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b81ba84ad33472f553470645b65010d3b2b3aa85bc6a6ac86bb0edd5b4a5a2e5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baa6d3e26166c5c47f4328542074d4cdc2fc26d5c7292e4ec63d09ab176250df"
-    sha256 cellar: :any,                 arm64_linux:       "320a93e54dfef073cc62276d968cc717129e292eba211d54dbaf6f7d6952a5d3"
-    sha256 cellar: :any,                 x86_64_linux:      "1a517efd74ab3202c425fb49d5f07633189e16f2bf0cb05c2c73c878c699d481"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "637660a5479433b8b76554b99aa618c3dee922eb4f4345de7bb01d597dc0ccca"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0c31107ebfb1aed013ee8f044677f674df810769ed3340ff8e7430a00f9fdfb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d02a290c0ca4e7365d0ab1baeb88638411355867420d2b1b96371df0c3399a95"
+    sha256 cellar: :any,                 arm64_linux:       "7803dc0009aa18030a3ab934248344cf589820de418e3dfdfb294d8f795f6e99"
+    sha256 cellar: :any,                 x86_64_linux:      "d68797eaa63ea645adeaf219402eb6f138895591982117db71a1944c3feefb05"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }

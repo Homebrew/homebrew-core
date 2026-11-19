@@ -4,6 +4,7 @@ class Hypopg < Formula
   url "https://github.com/HypoPG/hypopg/archive/refs/tags/1.4.5.tar.gz"
   sha256 "9d1981af0c55ac75ab4e2648e0050ee626c1af4c68b24259e3c744ff5211ce49"
   license "PostgreSQL"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,15 +12,15 @@ class Hypopg < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc7096a0f2486cc661a57eb1a7b1806a97697c2b9a947c8c895c6a470222fe69"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7fb5f4b7b7c2e6ef1e7773a3d407ada87adec7ef5373fcc7438f72b892029d8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d7cceb7175ad6ba870027ad5ea8b4a38f027f235a330f275ef634887051a265"
-    sha256 cellar: :any,                 arm64_linux:       "80950ebd8821836fb04046e4c96255c01232358e0cba5ea2f117f3a5b34fb655"
-    sha256 cellar: :any,                 x86_64_linux:      "751bb0ff6799880642a0109bf2ad31324e4c795ec954e5c5e267e542365e6fe4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7addde8847558483ca1e4726f435214ca1216b42145a9a18b4560b404e3ac001"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51d5f98bd5a5b2aaa944a7921bb3207fae0762bc0f6e1fd0c6003e6e4be59143"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ead524bcaa28c67523f4eb8c3d3e4d37bd4a1e262d5bf447dbb56b366e5879f4"
+    sha256 cellar: :any,                 arm64_linux:       "feec2c3a54b46618f7f93ac8500e40ea1573c3c45376e599bdcd4080e8e41691"
+    sha256 cellar: :any,                 x86_64_linux:      "da9fa072739eeaa04a6bb0d0a7111c7ce886b81866693cac6cb1a5f5fe29ae6b"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
     deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }

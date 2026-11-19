@@ -46,6 +46,7 @@
   "postgresql@16",
   "postgresql@17",
   "postgresql@18",
+  "postgresql@19",
   "pytorch",
   "qt",
   "qtbase",

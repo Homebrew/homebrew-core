@@ -4,18 +4,18 @@ class PgCron < Formula
   url "https://github.com/citusdata/pg_cron/archive/refs/tags/v1.6.8.tar.gz"
   sha256 "c19ab9bb35406c60fb51ecda993737c083850abe424acb6c1030439d00a1f8e4"
   license "PostgreSQL"
+  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "95211c055fab71118be825193a38433f33553a6d1b91fe48d64a8929ac532df9"
-    sha256 cellar: :any, arm64_tahoe:       "f70213216b90da41859c6a8da096af2fd2934832329e13388eaed335c133682c"
-    sha256 cellar: :any, arm64_sequoia:     "3a4f9fc32502da9f9841ad7a0edb813fdef369ef2a8be5504144d0521f95ea93"
-    sha256 cellar: :any, arm64_sonoma:      "d17dd6d4c5579e3c32800990d4df4b6b4da12ed5b369cff465524808fb3b87f3"
-    sha256 cellar: :any, arm64_linux:       "a14941b26606e49a3f69aaca137f8d59e6171a365dc4b4706ba67cf96b57974b"
-    sha256 cellar: :any, x86_64_linux:      "22c919f61d6492ee31b437126078406263a7d43a26e898bf66a9cbe011f18df6"
+    sha256 cellar: :any, arm64_golden_gate: "3e83853bf9ee22e7c27fcc9d3813e2b97b47984a94452d745224f10c3a8ce5c5"
+    sha256 cellar: :any, arm64_tahoe:       "2721a0e6777877ad7dedba04e3e37bf789b42194ed0258f74c48eb2136e62b33"
+    sha256 cellar: :any, arm64_sequoia:     "b24e95b802f4cedaa19ad93a6b2ef678246780bda14abc3de6f7569a6671eeb9"
+    sha256 cellar: :any, arm64_linux:       "264ee471ce52121ffef86923c95c2fdb17638db6ffd0e22b726b27120ee925f5"
+    sha256 cellar: :any, x86_64_linux:      "70030df1da202a4ee0f376fed9d29cabc324a242aacc59f6f23b1f80598fe53d"
   end
 
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
   depends_on "libpq"
 
   on_macos do

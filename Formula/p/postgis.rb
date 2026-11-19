@@ -4,7 +4,8 @@ class Postgis < Formula
   url "https://download.osgeo.org/postgis/source/postgis-3.7.0.tar.gz"
   sha256 "832bbf50f2b6f57fab053bc9676b3bfe641e5bf966cdcb28c7926f8d4b3c5e04"
   license "GPL-2.0-or-later"
-  compatibility_version 1
+  revision 1
+  compatibility_version 2
 
   livecheck do
     url "https://download.osgeo.org/postgis/source/"
@@ -12,11 +13,11 @@ class Postgis < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "79f17567869fc7b1b1c772a7890aa91e5ad5dc5d0c37192f44af0e1fc096c131"
-    sha256 cellar: :any, arm64_tahoe:       "554c3844361d161e7ce02d159907d2b34b726c280b2565b6cb15ecd12da08949"
-    sha256 cellar: :any, arm64_sequoia:     "9c4e021231f6b9cc8087cacb436710d9fbff294080a1cf21c8a40abab492b566"
-    sha256 cellar: :any, arm64_linux:       "7d545f118e4b0626113fa7aacfbf3c17f0824c0f0ef63e8c9a2d4704f0e9d9bb"
-    sha256 cellar: :any, x86_64_linux:      "d307d37888dbbe6a89b99104634ab9e2ea6ee7509d3cecdaca70100ec7bd92cd"
+    sha256 cellar: :any, arm64_golden_gate: "2f1b9274adde3ae5b09e919d926aa7b62a18c328818fc6462da83aa775dcb400"
+    sha256 cellar: :any, arm64_tahoe:       "4f77712e7ce00b697325f79378c905070cad295fc0cc41695f3b542712719ea9"
+    sha256 cellar: :any, arm64_sequoia:     "3e0e225813f837b098e9b4886df6e83967306a0b73d77d08213071dfd5bc3011"
+    sha256 cellar: :any, arm64_linux:       "820375324dab8f12786ebb1973563d866611384f1958b00241a2ac0506803f81"
+    sha256 cellar: :any, x86_64_linux:      "d903bee5848976f685fa56e942acbb1b6b264f7cad4645c0fb955a849a580873"
   end
 
   head do
@@ -28,8 +29,8 @@ class Postgis < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "postgresql@17" => [:build, :test]
   depends_on "postgresql@18" => [:build, :test]
+  depends_on "postgresql@19" => [:build, :test]
 
   depends_on "gdal"
   depends_on "geos"
