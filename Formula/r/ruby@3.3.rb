@@ -1,8 +1,8 @@
 class RubyAT33 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.13.tar.gz"
-  sha256 "4cae72e971bd1cdb20ca87d299111182417c5276c162de8ead0ab0531426cd61"
+  url "https://cache.ruby-lang.org/pub/ruby/3.3/ruby-3.3.14.tar.gz"
+  sha256 "d0438ee291b0cacaf97c7a71df4c939d7f3265c8c2d1b8ffe27311f71fc680b0"
   license "Ruby"
 
   livecheck do
@@ -11,11 +11,11 @@ class RubyAT33 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "2fb8dcd7e74a3df2cc3015de44948d4a2f5d16814f1243ec120c3e86e905d4e4"
-    sha256 arm64_tahoe:       "01802ceee30dd61aa336ce5c14252598a82357c35c30704087fa66d2d5812a46"
-    sha256 arm64_sequoia:     "21988c8cb841d7013a20edc34f67660eae1ad002ed97da0872a89fbb26a9c63f"
-    sha256 arm64_linux:       "b48401588f513a271b02b81e426f5b884b98ace1185387aa513ab96714b2dfbb"
-    sha256 x86_64_linux:      "ea2e4f37b328353aaec446b9d17d9ca2fec8b825a6c2836ed80abb20bf2682ac"
+    sha256 arm64_golden_gate: "a44519ed02eb7951a3588afd4117ad615a453bde0b7b60a9fad348d673b6e181"
+    sha256 arm64_tahoe:       "dd51224ead8a492ea1aa848c4b8b02e47f463e6865d3bacb8f3a93e06adecc22"
+    sha256 arm64_sequoia:     "6d92497c670d1908ee900faf7ca9d347fa7b17806193721dceda5707d05aca49"
+    sha256 arm64_linux:       "38656d797d6df97f02a0262130cd8a79abce06f61166d4cb8fcc1bf521a1c476"
+    sha256 x86_64_linux:      "d16517c6c80367739428a75e1c5156c9f5669d12d14d339a46eaf0352e728d04"
   end
 
   keg_only :versioned_formula
@@ -38,8 +38,8 @@ class RubyAT33 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-4.0.23.tgz"
-    sha256 "843f89b1c9c35c28f7ccaf4580cde1e7b00dbd1907b46bcfdcdbc6afa7345e56"
+    url "https://rubygems.org/rubygems/rubygems-4.1.0.tgz"
+    sha256 "d0483e63c81c1f9c9c236ed4ec1bb0efd196e9aae858cdf4d309a0da51a82a2b"
 
     livecheck do
       url "https://rubygems.org/pages/download"
