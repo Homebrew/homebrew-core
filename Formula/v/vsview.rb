@@ -11,11 +11,11 @@ class Vsview < Formula
   ]
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f2278dedbfe71aad6c751b6f6584b9daa0a1cbcbcdb35d26157433202fefdc9b"
-    sha256 cellar: :any, arm64_tahoe:       "d36d1bc49b86371b36fc0da90a3678900bb90c2c64ddd84c3c509f686029ea1c"
-    sha256 cellar: :any, arm64_sequoia:     "a09ec0224d089dc4f52fad821158309e7208060cbca22f1ff37b05c69c2a695e"
-    sha256 cellar: :any, arm64_linux:       "86c5a6ccfa0d330947db8e3ecbf3d75d4042962bf32dc178adddf9812e35201c"
-    sha256 cellar: :any, x86_64_linux:      "116e654de108688d620be06df5d7f78c23e88ff9ad425dcad0526792c7827138"
+    sha256 cellar: :any, arm64_golden_gate: "627e72e050e381e004b5ae3f5020d7a6f02a4d3dd296217b6ee70aad53bef1e6"
+    sha256 cellar: :any, arm64_tahoe:       "68bc29c8a466c767247ef7cf4cbda286ab81537708222988b8dcf8d80047c928"
+    sha256 cellar: :any, arm64_sequoia:     "c23d18c70235344ad15012318d6e2c83a0dbf4786c3c1308dc743025aff7e37d"
+    sha256 cellar: :any, arm64_linux:       "fbf9380caa90a8581e43f540861384717a188302cf9a317041105290ec5ca7cd"
+    sha256 cellar: :any, x86_64_linux:      "cd713736fbd6a3d6f47b0eebef4bcdddb17e02e998b427c920413d889c7eebca"
   end
 
   depends_on "cmake" => :build
