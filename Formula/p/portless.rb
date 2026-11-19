@@ -6,7 +6,7 @@ class Portless < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "47576f9fa28c92990e333cb8d017d6c7b5d05bf60edd9ab9668078aa0766649d"
+    sha256 cellar: :any_skip_relocation, all: "86c288661bccbb6d262a72e52e68970f247b89cbab16d8d6da105e5334e44d0a"
   end
 
   depends_on "node"
