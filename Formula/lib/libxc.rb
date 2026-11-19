@@ -7,13 +7,12 @@ class Libxc < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a9c5071fb3ffca30d928bccf54165632723f5fb4ea543d7cc177aa9ff349b837"
-    sha256 cellar: :any, arm64_tahoe:       "36ceab6672413b88774dcd6c5302373c04f1939cdc63d33e5e246bd518e04fd3"
-    sha256 cellar: :any, arm64_sequoia:     "81b347bd4601b6ac8d1ce2fbb7860d1c4dd6ceaa7187e4892e4b48d981dc6e14"
-    sha256 cellar: :any, arm64_sonoma:      "ad24be426a5360d6ee4c925a3f5c1018d190359599db5af778577564e4b7c465"
-    sha256 cellar: :any, sonoma:            "b2a272a41e3c89fa5c9add783a63870d40b04f87c48b576f824ca7ca17489c26"
-    sha256 cellar: :any, arm64_linux:       "668fd9c3e4a8ed139ba3a5cbc670b77dc506685b9dc418e4fce978b22b63dfe1"
-    sha256 cellar: :any, x86_64_linux:      "12d1783769b29a461f77b8123f808b981247666ba4f45e7af67343f4b7def838"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "062054526dde4f93321c133195566032b58113ca69d501c26ed5c0acc3b884d3"
+    sha256 cellar: :any, arm64_tahoe:       "ab2639fc70474d5f0470a8da67bce3f303071d185a470b9c059c5ce5f82d1a6a"
+    sha256 cellar: :any, arm64_sequoia:     "e31f695c5452672c85950d0aa3beb4900f807b03571243b4618e047891c482a7"
+    sha256 cellar: :any, arm64_linux:       "290e611de24aa5c9c3393622814de49748dab8ae2ef161b2f1a8bfbfe07e2348"
+    sha256 cellar: :any, x86_64_linux:      "88f07995510971169d45b5509607d100d4d6433b14f8ec6af5d26a438d542c04"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -22,8 +21,7 @@ class Libxc < Formula
   def install
     args = %w[
       -DENABLE_FORTRAN=ON
-      -DDISABLE_KXC=OFF
-      -DDISABLE_LXC=OFF
+      -DMAXORDER=4
       -DBUILD_SHARED_LIBS=ON
     ]
     # Workaround to build with CMake 4
