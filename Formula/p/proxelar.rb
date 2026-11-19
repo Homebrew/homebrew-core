@@ -1,16 +1,16 @@
 class Proxelar < Formula
   desc "Man-in-the-Middle proxy for HTTP/HTTPS traffic"
   homepage "https://proxelar.micheletti.io"
-  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.6.1.tar.gz"
-  sha256 "09750029dca413b15cbdaf964dc2f888ac41d462c1ec25a90e6f58ea7d7cae72"
+  url "https://github.com/emanuele-em/proxelar/archive/refs/tags/v0.7.0.tar.gz"
+  sha256 "6570666545c10cdd954c2b39961087c825ffc54c8bbbe794cad1b012f4629c36"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4a249eec7031b3e6f787fd01cdb68c07d4bd7a7daf4a7106d11d83005ad820df"
-    sha256 cellar: :any, arm64_tahoe:       "f5cc559ff0e1c931d1ade701d40b7e597bbecdf7ba1f0d8d96a7a7976d9a2221"
-    sha256 cellar: :any, arm64_sequoia:     "b23a1a9828f41c8a4d9c8fad173d45df43d6c2aca70f995c6832a1ddc12f5cd0"
-    sha256 cellar: :any, arm64_linux:       "519f63f95532d4da941cbeabcd315e746576cb6c001973ff879a8e40923e5530"
-    sha256 cellar: :any, x86_64_linux:      "556a3b08a1f50c6a8376a3a96bbc79614235c16e9f1c832231306fb3b60ce643"
+    sha256 cellar: :any, arm64_golden_gate: "db81050f106a659d15ae5e4ff8f2fbf21b102c41481218af32661a29914950ce"
+    sha256 cellar: :any, arm64_tahoe:       "c2b9c45f3e0b465aa2018234ddd61b11e48a7939fc13ec026a5df350b8f801c0"
+    sha256 cellar: :any, arm64_sequoia:     "cf9e1f182059f281bbe3c3dd482c642e5dd982c561a85a1d3f6dc66641f5ea6b"
+    sha256 cellar: :any, arm64_linux:       "b241d95701ebe92333a154b6f7af0bd3ccd23cf1cce442727820a1d23a3632ae"
+    sha256 cellar: :any, x86_64_linux:      "cc40876bdd56b3aed7f6dde5a7caa6b1e82ea6980ede3b4ca8aa4aadf2c66a90"
   end
 
   depends_on "cmake" => :build
