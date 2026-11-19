@@ -1,8 +1,8 @@
 class RubyAT34 < Formula
   desc "Powerful, clean, object-oriented scripting language"
   homepage "https://www.ruby-lang.org/"
-  url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.12.tar.gz"
-  sha256 "5e5d85ad93b0adcccbad47733680f4892bd0078e3342437f7babce01c1872479"
+  url "https://cache.ruby-lang.org/pub/ruby/3.4/ruby-3.4.13.tar.gz"
+  sha256 "d0d3bf3dd8c224a3c3b7ecd816a0f1b2cbcf4f87b5afcbdbe91d3fef177f351a"
   license "Ruby"
   compatibility_version 1
 
@@ -12,11 +12,11 @@ class RubyAT34 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "0b7d6d97243acfeca0e5b1f79360352ad9ac3d2eedaf225b557eb1cd6a0af8e8"
-    sha256 arm64_tahoe:       "72488a6ac340cadab932e6625c698bfd1bf9af885c40cf448a21b23803c94b41"
-    sha256 arm64_sequoia:     "d708df41cd629b14261d810489a3e170c91de8c45285e49fd0f9b3a703b03fcc"
-    sha256 arm64_linux:       "152349b7487aa1f5f6afcbf5fc094b0ca6d70c8192702401191400f7aecb5673"
-    sha256 x86_64_linux:      "95203d855d053be8f3fc2017cbfd54ab9bb0c7a5cb7ffeccf1535e21ccf3b43d"
+    sha256 arm64_golden_gate: "9dde7c232336b11b6958d10ed98e6488e969be718ce49135770fb3116166c9a7"
+    sha256 arm64_tahoe:       "f04341646b014b6ec65633b754eadd415a436c860ffe7fe69fac9723db03ec05"
+    sha256 arm64_sequoia:     "6147cec61a99720b93147f4b4efa522ee72ac59ad832271da50e4a92c0652dcb"
+    sha256 arm64_linux:       "a3d13bb863acc499663ecb14b1e039011f99b81202d8c3a16ac2089e553c4093"
+    sha256 x86_64_linux:      "4c65903c58b0d3a15d90440e93ad5542235cc586c29e81b26c5bd2651d15d71b"
   end
 
   keg_only :versioned_formula
@@ -39,8 +39,8 @@ class RubyAT34 < Formula
   # The exception is Rubygem security fixes, which mandate updating this
   # formula & the versioned equivalents and bumping the revisions.
   resource "rubygems" do
-    url "https://rubygems.org/rubygems/rubygems-4.0.23.tgz"
-    sha256 "843f89b1c9c35c28f7ccaf4580cde1e7b00dbd1907b46bcfdcdbc6afa7345e56"
+    url "https://rubygems.org/rubygems/rubygems-4.1.0.tgz"
+    sha256 "d0483e63c81c1f9c9c236ed4ec1bb0efd196e9aae858cdf4d309a0da51a82a2b"
 
     livecheck do
       url "https://rubygems.org/pages/download"
