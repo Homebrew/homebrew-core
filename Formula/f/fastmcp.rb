@@ -3,17 +3,17 @@ class Fastmcp < Formula
 
   desc "Fast, Pythonic way to build MCP servers and clients"
   homepage "https://gofastmcp.com/getting-started/welcome"
-  url "https://files.pythonhosted.org/packages/48/28/5ac4bd298ca1d40a28df657a33e0dbce17dc61253512267ddbfc033232ba/fastmcp-4.2.1.tar.gz"
-  sha256 "06458edbb093e4d4ec42c99be5b65237df41648e6a2b7b3f54c5b45d561a7009"
+  url "https://files.pythonhosted.org/packages/7a/0f/4c12cb605a5686a766631e04ac09d6552edd7604200d95aa4d2d23b4a8e8/fastmcp-4.2.2.tar.gz"
+  sha256 "c79c7fa8d268deb9f1f0be92418398838ba6d018635b7545b3a6bbc49b95baa3"
   license "Apache-2.0"
   head "https://github.com/jlowin/fastmcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "786f72d296edada3ad3132a28db60ff12094aecff3bdbb39a3c115611ac3e6da"
-    sha256 cellar: :any, arm64_tahoe:       "3b08ebcf5b6641610869f355779f1e40937f662dbef9f0187793ff0c1a41dd92"
-    sha256 cellar: :any, arm64_sequoia:     "d68141aa54be3af6d6233d177ed0edfe801120a8a28ba20b220d1b4daae4da47"
-    sha256 cellar: :any, arm64_linux:       "a4b9baf590a8bd492219d1e5feec4d22d504b847ee5f546c722b79fb56f47dad"
-    sha256 cellar: :any, x86_64_linux:      "eb8fdde04efd5ddbc3e9f03ef35d1ba14fd7180faadfe4917da2829a5a61d0d2"
+    sha256 cellar: :any, arm64_golden_gate: "a19b88c9e89a4114eeab7aa065e3c841509324c5902b0cbfb2cebfff7866cfea"
+    sha256 cellar: :any, arm64_tahoe:       "9acb0be165fa5a0e5a3471a68e3b92691dbee4f6856af6a897844b6156a42994"
+    sha256 cellar: :any, arm64_sequoia:     "9445715745cc968049a3c944f7fd33eb6108cb42050eaba0b2d1a0e3606afc3d"
+    sha256 cellar: :any, arm64_linux:       "699842266040b21cb2d79e14c58f9bd8e5505b66558f8b615d354a7b4a794f7c"
+    sha256 cellar: :any, x86_64_linux:      "11ef5b52ebac3dc1388fc066bbce14ebc1a4d6fd8f3f6880bf1ba148489b2d9a"
   end
 
   depends_on "rust" => :build # for py_key_value_aio
@@ -44,8 +44,8 @@ class Fastmcp < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/7e/9d/4260bc37e6b859f654394c4815a75c92f3505b42b53135a4603bba60d52d/authlib-1.9.8.tar.gz"
-    sha256 "879735216a0b805a4dfedb4fdd19e7d75ebb8debd70cc7566da9d813db34458d"
+    url "https://files.pythonhosted.org/packages/73/69/0215a1818edb1fb6b9dd59b8a3870601f11603b6db1f830ff3f3ea62612f/authlib-1.9.9.tar.gz"
+    sha256 "cca3dffa51c8d80d6df19aee2279e47219dc996f5a527c06ac2e39d0757c99ef"
   end
 
   resource "beartype" do
@@ -54,8 +54,8 @@ class Fastmcp < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/e6/60/ac2d44dbfcca28a35151af27ad9c6236d913a67768b5bb88af90a8c02943/cachetools-8.0.0.tar.gz"
-    sha256 "5ed01bd676800d51f0025605e4fd8ad0891550513e7b0a4c3da478463764e5c3"
+    url "https://files.pythonhosted.org/packages/06/ce/d7ce62d82ec620e3b08538ce8948f4b3d7cb33829fc274413560004edd6d/cachetools-8.0.1.tar.gz"
+    sha256 "deb1d376d4d28c2f33f3e3058043b005e0af75c35c094bd54053e27d2906ad95"
   end
 
   resource "caio" do
@@ -94,8 +94,8 @@ class Fastmcp < Formula
   end
 
   resource "fastmcp-slim" do
-    url "https://files.pythonhosted.org/packages/99/82/b215810ee1fac03983a7e098b9b63e77e36abf39828e4705ff4f83a25f1a/fastmcp_slim-4.2.1.tar.gz"
-    sha256 "bcbe48b0eeb8bb32b616d7b329832f5d03d16db02807a58457f5e2e44d1d0def"
+    url "https://files.pythonhosted.org/packages/fb/21/2efb270cf8b678dd27a812f05b2df69326f9e5b1f9a8279492db349133b8/fastmcp_slim-4.2.2.tar.gz"
+    sha256 "c21e72ab66e2494d8d008885fc15f048840abae4d2979479f134668f92972f47"
   end
 
   resource "griffelib" do
@@ -194,8 +194,8 @@ class Fastmcp < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/03/a9/8bd4abc337acc2f84729beb1061db06df6112bbf5c8ed16cfcd5cddcf9c2/platformdirs-4.14.6.tar.gz"
-    sha256 "2fabae4441a016e262d87ef88f677c0d76c1999227e068eba2e8a81cf6fb4b30"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "py-key-value-aio" do
