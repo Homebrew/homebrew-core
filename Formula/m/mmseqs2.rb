@@ -1,9 +1,9 @@
 class Mmseqs2 < Formula
   desc "Software suite for very fast sequence search and clustering"
   homepage "https://mmseqs.com/"
-  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/18-8cc5c.tar.gz"
-  version "18-8cc5c"
-  sha256 "3541b67322aee357fd9ca529750d36cb1426aa9bcd1efb2dc916e35219e1a41c"
+  url "https://github.com/soedinglab/MMseqs2/archive/refs/tags/19-ab57c.tar.gz"
+  version "19-ab57c"
+  sha256 "68b20700b82c93f2a30a8a7fbe545ab6ec715bfccb13ddcab144d3f3f504c5a4"
   license "MIT"
   head "https://github.com/soedinglab/MMseqs2.git", branch: "master"
 
@@ -18,6 +18,7 @@ class Mmseqs2 < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "rust" => :build
   depends_on "wget"
 
   uses_from_macos "bzip2"
