@@ -1,8 +1,8 @@
 class DockerLanguageServer < Formula
   desc "Language server for Dockerfiles, Compose files, and Bake files"
   homepage "https://www.docker.com"
-  url "https://github.com/docker/docker-language-server/archive/refs/tags/v0.20.1.tar.gz"
-  sha256 "df94194ce63f0a1217944c72b941a842101aee7b7dd16018d71818d070d146a8"
+  url "https://github.com/docker/docker-language-server/archive/refs/tags/v0.20.2.tar.gz"
+  sha256 "f5dc558745a7a7324fd496a613f2ff3ada179f94499cbd3427d18f5c08d9d31f"
   license "Apache-2.0"
   head "https://github.com/docker/docker-language-server.git", branch: "main"
 
