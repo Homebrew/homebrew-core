@@ -6,6 +6,7 @@ class GitDelta < Formula
   license "MIT"
   compatibility_version 1
   head "https://github.com/dandavison/delta.git", branch: "main"
+
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "1c6dfce8d155c888d2b3a7a7852c7fbf8e70f3d506788c4ea83a459671a25fbe"
     sha256 cellar: :any, arm64_tahoe:       "900db86fb42d7d5e3852b860fafab4d33289ca784cb26171efe11763eeeb37e2"
