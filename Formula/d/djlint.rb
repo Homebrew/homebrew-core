@@ -9,11 +9,11 @@ class Djlint < Formula
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "29b7e67c50a8e93ac4e6e500e9ab193cd858d880c49d1942c7f97f5e748e5b0f"
-    sha256 cellar: :any, arm64_tahoe:       "406eb2237d4e5863fed154ec8580694a6462de442260dc35e4b0c1019ac96ac3"
-    sha256 cellar: :any, arm64_sequoia:     "33c0851b34fb177d65a52e6cc8d6b3c3c521bac918a755086b55833e37014867"
-    sha256 cellar: :any, arm64_linux:       "9b172424e89dd8206e2ad8e27d029540fbd3de746b6ab0de356b6c2fef19eec4"
-    sha256 cellar: :any, x86_64_linux:      "12baa148a6fbcbd07d5d682d863ff2afc2cdea5b19cd46f3adec1fa2aa3a834d"
+    sha256 cellar: :any, arm64_golden_gate: "4bd896b888236060957c05d0a29268e4ab413af4681866d476f6c2e39e475ebf"
+    sha256 cellar: :any, arm64_tahoe:       "b930217c5fad4472646ec26e79b92f6f4228fb434f00d3d01efa12e6d8c1b909"
+    sha256 cellar: :any, arm64_sequoia:     "0b057733de2aed3a1a00477e4a3b50da28dc765ca0002b33ceedc5a8cfdac274"
+    sha256 cellar: :any, arm64_linux:       "05eee04b216d9fba6004057b28dc5cbcb4c9adfed45786e0c58d1bedb9e2ffd7"
+    sha256 cellar: :any, x86_64_linux:      "692f05ce075913cd234a9e0e0c4816617f5298a3077ffe20099d450879228ada"
   end
 
   depends_on "libyaml"
