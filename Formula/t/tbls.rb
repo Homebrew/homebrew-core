@@ -1,17 +1,17 @@
 class Tbls < Formula
   desc "CI-Friendly tool to document a database"
   homepage "https://github.com/k1LoW/tbls"
-  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.96.1.tar.gz"
-  sha256 "84dd9ec88c6803be57df27f92a27a91d03e4e79437242caa4b7b52eef48e9979"
+  url "https://github.com/k1LoW/tbls/archive/refs/tags/v1.97.0.tar.gz"
+  sha256 "089d556bd7deb95516fba814063f01d4f35091665addcfedf05281c87b0cf145"
   license "MIT"
   head "https://github.com/k1LoW/tbls.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c9781b6e624d7aef360535c4fbf6197a0f31768206644da46a155cee6205e6d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6768f07d3113c7cdfbd544e3bf12f14ce3a962b0a31654f925ae145fd5f0735"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7fc47e8c22e3642652a59bd2813395fa83e7d55039246d15ce03f3bb943eb74a"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "49bef732dd47bcf665085fa18c6232ee8c070a0bf2ee0907f0fd3de6bb61e379"
-    sha256 cellar: :any,                 x86_64_linux:      "6fedbad4fa2c435fa20fc3ef318590549edf1f043232a00cb8094950f818fd81"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3d065dc9a07ff509c6bdbcf21d8f14674b378f9b26323e99e2c6f6399603f46"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "25bf0ff32d84e0cfe8f3ed8b2812199682cdd52ea0e132018eea8f706b05834b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7765be9ccee80b3f98731d5a8a85dc3937d8eca1dbbb1f4f202a1ecb56700d25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4adddfc8d5c7873c6de94a1b3fc3a336f01148d721d735bb575176da6a66eda4"
+    sha256 cellar: :any,                 x86_64_linux:      "fbed995cc170ef91022925ac33e4a8afe1013342ef7ba1b9dc4a710055b665e7"
   end
 
   depends_on "go" => :build
