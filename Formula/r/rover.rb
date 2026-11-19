@@ -1,8 +1,8 @@
 class Rover < Formula
   desc "CLI for managing and maintaining data graphs with Apollo Studio"
   homepage "https://www.apollographql.com/docs/rover/"
-  url "https://github.com/apollographql/rover/archive/refs/tags/v1.0.1.tar.gz"
-  sha256 "224cdfdd705856d703187a9ee09911cb499177394ec5f3b993d7abc127754e1e"
+  url "https://github.com/apollographql/rover/archive/refs/tags/v1.1.0.tar.gz"
+  sha256 "e95d6a8923f1fe3aff402156c12d037db46c2f99aa9c95099ec23c0c7ebeca1b"
   license "MIT"
   head "https://github.com/apollographql/rover.git", branch: "main"
 
@@ -12,11 +12,11 @@ class Rover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0000020cc190f7c81e00eb72a0d968fd9e1ee119799e17961ac523bc024e1214"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5954d0972fd599b19bddab2d080be5b589380f7e8e9b159b1c2d259712907435"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "329b4bef6482a76db691346c96a66d5e51448bbb334c9c48ae4bdae1026959e6"
-    sha256 cellar: :any,                 arm64_linux:       "e0a4a09f1c3c7558f20aba8310ab631fff23310effe78ce4c676a835b5136e65"
-    sha256 cellar: :any,                 x86_64_linux:      "5d0ada0ffb0191d60ffa6b4e4b8b7adc654bb0cd0791bbf7de4b8002b7317f0c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "534fd31be00de5a2e3c2789d60f25fa714aa9a9c07703cbcb314732499944460"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6052c6cd4a8aeb3740a73b3d83e5ce98abee0bebcad23074765b3684dacbaed"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b6a48a1c70ec98fc27102a3e45ba985cc397bacc549dcc90088423c4b47a3785"
+    sha256 cellar: :any,                 arm64_linux:       "49234580544332500ca5f69b8ae8ed1807f71c91e3dc85be3daf2b227e097212"
+    sha256 cellar: :any,                 x86_64_linux:      "3cb3ef6e26889b3ee240ad14281a4dcb4427d87a4403068b16a290ddb0258b1f"
   end
 
   depends_on "rust" => :build
