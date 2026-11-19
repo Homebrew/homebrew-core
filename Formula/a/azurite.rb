@@ -6,7 +6,7 @@ class Azurite < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e0d2b9196a3bdedae60f932a3857e3119b445501a692c31e1faf5d5f21f2680e"
+    sha256 cellar: :any_skip_relocation, all: "3cedd02627114013d39f06a10be64e79985b09293c267f6d9f26e3e24cc9c6e5"
   end
 
   depends_on "node"
