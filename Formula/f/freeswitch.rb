@@ -1,26 +1,14 @@
 class Freeswitch < Formula
   desc "Telephony platform to route various communication protocols"
   homepage "https://freeswitch.org"
+  url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.4.-release.tar.gz"
+  version "1.11.4"
+  sha256 "981582e8a1b2ec1424314a4321f7e6e504911e9785bd1a3ddccefabd7c5403f9"
   license all_of: [
     "MPL-1.1",
     "LGPL-2.1-only", # spandsp
   ]
-  revision 1
   head "https://github.com/signalwire/freeswitch.git", branch: "master"
-
-  stable do
-    url "https://files.freeswitch.org/releases/freeswitch/freeswitch-1.11.3.-release.tar.gz"
-    version "1.11.3"
-    sha256 "e7cfeed1cfbcaea31a30f4d21b778a2fb56c8bd534fdc2a864cec91c3fa3fd79"
-
-    # Backport fix for OpenSSL 4
-    patch do
-      url "https://github.com/signalwire/freeswitch/commit/fd1cab5117cd4c711293439354885a559ef783bb.patch?full_index=1"
-      sha256 "b214d7d737da93aa51e3e8c30d5d34dcf252e3f5149653bb064356c75906510b"
-      type :backport
-      resolves "https://github.com/signalwire/freeswitch/pull/3185"
-    end
-  end
 
   livecheck do
     url :head
@@ -28,11 +16,11 @@ class Freeswitch < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a83ee4518c1ac0ece17825c82f32cb172dc1f11e10c3a06b0cafd156ff5cf5e5"
-    sha256 arm64_tahoe:       "ec3eb1fa1cc1ebcead19541e4ac94b8ef971030ec795c6e1caf0d933515c8363"
-    sha256 arm64_sequoia:     "9cf0a6c1f76e414b1aeb80e901329df71bb2825f97d5256a1a2aaa1132f5ce89"
-    sha256 arm64_linux:       "4118135dcd9c4ca3c8542b98e7db7d98a3d5622f1a81721ccf93e547936ebb41"
-    sha256 x86_64_linux:      "e74ff9daaa722688053f1c469b3d4dfcefae41810a858babdb0fe242adade368"
+    sha256 arm64_golden_gate: "5fd319a2da6039225a872dde62e7b7f0a353987f2d8dcfd7bfdfddb5785bc698"
+    sha256 arm64_tahoe:       "9288f91320436552d468af928717f050d87db91e54ef63d7cb520544ad82b571"
+    sha256 arm64_sequoia:     "da74f8944749ecc9d22c7303d60c46b77c5fcbeea64b203df4d4f23369d8f84d"
+    sha256 arm64_linux:       "1ddef8df0f8a98ebe327f3d3bbceef0a1922aa776fb5f0cc6193e8c1556a6168"
+    sha256 x86_64_linux:      "a069adb72286678e51e3e9b40996b6c335fc810d25f79a95be79bd67109f3854"
   end
 
   depends_on "autoconf" => :build # for `spandsp`
@@ -44,11 +32,13 @@ class Freeswitch < Formula
   depends_on "jpeg-turbo"
   depends_on "ldns"
   depends_on "libks"
+  depends_on "libnatpmp"
   depends_on "libpng"
   depends_on "libpq"
   depends_on "libsndfile"
   depends_on "libtiff"
   depends_on "lua"
+  depends_on "miniupnpc"
   depends_on "opencore-amr"
   depends_on "openssl@4"
   depends_on "opus"
@@ -180,12 +170,7 @@ class Freeswitch < Formula
       ENV.append_path "PKG_CONFIG_PATH", libexec/"lib/pkgconfig"
     end
 
-    if build.head?
-      system "./bootstrap.sh", "-j"
-    else
-      odie "Check if autoreconf can be removed!" if version > "1.11.3"
-      system "autoreconf", "--force", "--install", "--verbose"
-    end
+    system "./bootstrap.sh", "-j" if build.head?
 
     # Reject FFmpeg dependency due to MPL-1.1 incompatibility with GPL
     # Ref: https://www.gnu.org/licenses/license-list.html#MPL
@@ -196,6 +181,10 @@ class Freeswitch < Formula
 
     # Workaround for opus_parse.h using true/false which are keywords in C23
     ENV.append "CFLAGS", "-std=gnu17" if DevelopmentTools.clang_build_version >= 1700
+
+    # Bundled libyuv builds its dotprod, i8mm, SVE and SME kernels with their own `-march`
+    # flags and selects them at runtime with its own CPU detection
+    ENV.runtime_cpu_detection if Hardware::CPU.arm?
 
     args = %W[
       --enable-shared
