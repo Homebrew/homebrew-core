@@ -7,11 +7,11 @@ class Edgevpn < Formula
   head "https://github.com/mudler/edgevpn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f263d494ad08bd197f86fc89b47855caae6ec9213e4067eeede1ecc849726a25"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f263d494ad08bd197f86fc89b47855caae6ec9213e4067eeede1ecc849726a25"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f263d494ad08bd197f86fc89b47855caae6ec9213e4067eeede1ecc849726a25"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "39ce6a49acc0dd5912e8d6abaf1cf627cf1e8f93c06b3c387eab688e2fd24c35"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "22f2297e6f09bfc798d1ef56b4a22f88b996fc208fe461302eb74e006604b82f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85322f4caca9b110d9e2265b7922c6051c96438cfcc9eb3f1f13e58872954ce2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "85322f4caca9b110d9e2265b7922c6051c96438cfcc9eb3f1f13e58872954ce2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85322f4caca9b110d9e2265b7922c6051c96438cfcc9eb3f1f13e58872954ce2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f07a7ceaafc5ba5c3bf8e4484d829f07b372f8fd272bdf3fcb489d75c86da3a8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dcb2ce4396a7dd2b765ed48a39ecb757d4380dbe34f90fcc2442d7dfabb0741c"
   end
 
   depends_on "go" => :build
