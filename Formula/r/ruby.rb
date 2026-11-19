@@ -6,15 +6,15 @@ class Ruby < Formula
 
   stable do
     # TODO: enable default_user_install when updating to Ruby 4.1
-    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.9.tar.gz"
-    sha256 "c35350682ff050b79702d57ade4516e7336063f510155d19fb2fb5b3f3909511"
+    url "https://cache.ruby-lang.org/pub/ruby/4.0/ruby-4.0.10.tar.gz"
+    sha256 "b53eef3371fa5d3e3b74340edcd015f06d5d8853968d4e539a5264fce41ed9f1"
 
     # Should be updated only when Ruby is updated (if an update is available).
     # The exception is Rubygem security fixes, which mandate updating this
     # formula & the versioned equivalents and bumping the revisions.
     resource "rubygems" do
-      url "https://rubygems.org/rubygems/rubygems-4.0.23.tgz"
-      sha256 "843f89b1c9c35c28f7ccaf4580cde1e7b00dbd1907b46bcfdcdbc6afa7345e56"
+      url "https://rubygems.org/rubygems/rubygems-4.1.0.tgz"
+      sha256 "d0483e63c81c1f9c9c236ed4ec1bb0efd196e9aae858cdf4d309a0da51a82a2b"
 
       livecheck do
         url "https://rubygems.org/pages/download"
@@ -29,11 +29,11 @@ class Ruby < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "e994fdb3c373383034f8a54edde2208e1a96ce9eaa6d1359fc9e612791c1eefd"
-    sha256 arm64_tahoe:       "e921e4fc82aff42272e57fe7fb25fc11e4d4dc2bd2ee3a6ac53815303c0f28ce"
-    sha256 arm64_sequoia:     "3f37570afbe7c40f8807b79fa16fd280a9fc3c8508066538ab15b0b2be80f05a"
-    sha256 arm64_linux:       "82db38cc052c7290d5f16dfc4b59737c14c0080faf3efa9159cdb00d9ca970b3"
-    sha256 x86_64_linux:      "ab2f6735d619f1aae4c2f29ca8e25b3a086a4290c169b8ff57de34498498ec6e"
+    sha256 arm64_golden_gate: "3fce03a6413b497c4c53bdd72138b83e5d142dbe32f4b59a10f5e1cdc739f5f3"
+    sha256 arm64_tahoe:       "e916067f925e9a3d4c84761f7adc51630d425b8679486923d59adcc5537b57b2"
+    sha256 arm64_sequoia:     "af69ccdbf9562f12659f8a950fb23ed643ccd3aadacafa92fee965ec0280f740"
+    sha256 arm64_linux:       "2d35222cc842e18006a3fd04a081b792e87d61f1bb16f06cb466e420e3480e85"
+    sha256 x86_64_linux:      "d679b71d100ca6ce8ee9cb37c34bc181e034a4ce6b1863d907e3727813244324"
   end
 
   head do
