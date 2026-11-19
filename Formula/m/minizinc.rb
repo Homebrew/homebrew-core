@@ -7,11 +7,11 @@ class Minizinc < Formula
   head "https://github.com/MiniZinc/libminizinc.git", branch: "develop"
 
   bottle do
-    sha256 arm64_golden_gate: "6f705d0126522da0ec58721180ed0f68a24b942b448eeae957dd36b5111e92bb"
-    sha256 arm64_tahoe:       "6f75738dc5376b2e3f33010d86a70a1f3c84cb99383f1781126305a582d98a9b"
-    sha256 arm64_sequoia:     "67f0139801803b015444ee08a3072dfb7be2e0a3ae3c46d46b79a5ca21453e54"
-    sha256 arm64_linux:       "350d2829790c1151f156b1aaeb42eeb2aea60401bf3273675772a90450d8ac93"
-    sha256 x86_64_linux:      "dba1ed869600dd8f0ae4b70e456e635f673c2f0faea2752f9400142b0be96b9e"
+    sha256 arm64_golden_gate: "c6195fb88ce25ae38f0461d61158d68cff4d7cd0a73a772fc06042f3da065dd8"
+    sha256 arm64_tahoe:       "eb6f0eeaef0d6c0f030ba5c0a8d0081b3f8e49c2f3d172cdeeeb23f4b0472c42"
+    sha256 arm64_sequoia:     "0d2f402392b5ac228ec61780ab3f77b73646e10706fa29dc04b9aaa4736645c2"
+    sha256 arm64_linux:       "4b24ab0690b832e5bac72fc4bb94502e41a955165211c3c9139d4bc608ee2d6d"
+    sha256 x86_64_linux:      "93844ff50aff36a1fe9a9405be7a1f783fbd76aec520cbde7fffb6706e552eb1"
   end
 
   depends_on "cmake" => :build
