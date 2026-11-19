@@ -12,11 +12,11 @@ class Freetds < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "407f4a714be45488ef941f825382025210f06e3fbf73442ef03e04d7a42570c5"
-    sha256 arm64_tahoe:       "d212e314a1da76c108fdb9c48044c14c3a8e8dba135c87acf7ae41377326edc4"
-    sha256 arm64_sequoia:     "70a7207d61cc46931c386133d880220e015d4e712ddc8014168fe5d9755c543f"
-    sha256 arm64_linux:       "81b9bf9629339d44f2721d4d5d540a453cf3dc1215f4d4a846373991ded08e8c"
-    sha256 x86_64_linux:      "7e8f529c06710260c2c2d6395deaeb3de34845258ff6f6321e5fdd297d584ee7"
+    sha256 arm64_golden_gate: "938bb72503154d9282a030b9fdabb3897e9608a4d0c5520eab47fa59d638e262"
+    sha256 arm64_tahoe:       "324e24580da6db09ed3c22f8ea20224aee7165e3cbdd0ebe10b97d0377941e32"
+    sha256 arm64_sequoia:     "5ea438e7b8c0a51165e5bd16f32213af09af2dab5ae8a1f3050a3a990dfae05a"
+    sha256 arm64_linux:       "7efcf957eca446a840aa95ce53b800442c0132c7b0cabc6118a349c162af71cd"
+    sha256 x86_64_linux:      "e7cdc7534b43fd1729adedeec40e5950695fc4371d0b24c78b2dbac4e633477a"
   end
 
   head do
