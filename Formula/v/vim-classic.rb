@@ -6,12 +6,11 @@ class VimClassic < Formula
   license "Vim"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "95c1df30090dcfbfc3d61ae796ac69226c6c6cd2d983933563879b72f00642b1"
-    sha256 arm64_tahoe:       "41ad80cc6adfa1dbed886f911b120a9eb35b3a49a19c210b1c8b5f22a775004d"
-    sha256 arm64_sequoia:     "20a4e7502969dccc8c90392246aa965cd949c0c78391315520cbc55518d25c8f"
-    sha256 arm64_linux:       "6156073b2dbeceaa09ca9018ac95024e74b0017ecb4947f2a9c200bf71b913cc"
-    sha256 x86_64_linux:      "f7d0fe354b048c8809b3d6964bc7f973d554d25055f0bf32b40cea5ad47ad265"
+    sha256 arm64_golden_gate: "8c4f557bd6f096c1d0bf29dfb0c898654227def6f2a9d5e330cc71319b3f70c5"
+    sha256 arm64_tahoe:       "3121c85d28de68639b7c4788a359dda9c8a4e15aead23e16331e2d256ab5ae99"
+    sha256 arm64_sequoia:     "2ec28ae6e1bfa81d91f54b1e3057cb7c129595cda8a45fa01421bb3205f177c9"
+    sha256 arm64_linux:       "114aa74b27901649ebe6ce15612c4fe6d224c9e2ce85e8270bae456ba457673f"
+    sha256 x86_64_linux:      "31a5f868ba90f7558198ef9f5c7c78a00920064dfa50cfa01617bdc8012dc0d5"
   end
 
   # Homebrew Ruby installs (4.x) currently cause a linker error with vim-classic,
