@@ -1,19 +1,17 @@
 class Nbytes < Formula
   desc "Library of byte handling functions extracted from Node.js core"
   homepage "https://github.com/nodejs/nbytes"
-  url "https://github.com/nodejs/nbytes/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "67f4b8363f12abb64c07a0cecf2bf2dce7ab47b5f8b9fd2efdb852ea254c2d40"
+  url "https://github.com/nodejs/nbytes/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "5158c92a34b02f54778ae7367dab77cc02861c69f4d8cfd4eeed608d586ca900"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "e12b964d3bb567375c1f8f0a106c474e6f31f3d47d60776f8f99123a28c9c3cd"
-    sha256 cellar: :any,                 arm64_tahoe:       "bc0a989ffab822c0ef0b5122cfc9f046be9b8c6b681dd09a3691c9963c44a282"
-    sha256 cellar: :any,                 arm64_sequoia:     "c320de81e5ba5364dd7159fcdcbac9fe3a1475e3d8f830d2115b5390c1261a10"
-    sha256 cellar: :any,                 arm64_sonoma:      "38bf51d000e92a43262c605d5fb709eb5d9de5adcc243231adeac2bcccac4ce0"
-    sha256 cellar: :any,                 sonoma:            "ee96a893bd236484dfb80e82f772830ce0ffd7f88d6943d6a8bb98f7a79ad65e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4fd63cfc842aa392cfd48b810f40fd586c567aa82e7c4c07f59e85681cae317c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cd60fe046720705ec370907040b03d1b47c806b0b2544612374206f50e7a502a"
+    sha256 cellar: :any, arm64_golden_gate: "38a76d911a5ac69042db2acc0f639f672e1fe26e4f8372dcbf993bed6af4c367"
+    sha256 cellar: :any, arm64_tahoe:       "5a2accb231bac27986c58efd5552413830213723ebc3d62cd8de5058ac82a749"
+    sha256 cellar: :any, arm64_sequoia:     "274197cd3d7ed773e8693a715bb5d0d5498f1d799e82275ad28d4bb359cad127"
+    sha256 cellar: :any, arm64_linux:       "0366d9fd5ed77399526563bbad9953552f0c88859fe6c085bf4d54dac2349ad1"
+    sha256 cellar: :any, x86_64_linux:      "340fb555250888abef01c5648cbdae16b269e2ae31356d41e21e35225b94bc6e"
   end
 
   depends_on "cmake" => :build
