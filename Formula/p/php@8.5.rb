@@ -36,6 +36,14 @@ class PhpAT85 < Formula
     regex(/href=.*?php[._-]v?(#{Regexp.escape(version.major_minor)}(?:\.\d+)*)\.t/i)
   end
 
+  bottle do
+    sha256 arm64_golden_gate: "69a637baf4bed4a21c654734d07acfee06eac5f754b1b8d70a1c93fa3d06c2c6"
+    sha256 arm64_tahoe:       "e704d0a36976c379e856ddfda8f1782f43b1aa6fba523bc0d8c7aa8f1d7ac7a9"
+    sha256 arm64_sequoia:     "4559bba8b5d08f3e4912b6649e5878a2ab2bb1811b24f94ea585d40baf7d373b"
+    sha256 arm64_linux:       "07d9eee975d6be65c20ecc48945d5b83d525ace0c416031643d8564468ce30fe"
+    sha256 x86_64_linux:      "faac44b0afceeeac4a131cb527fd05156bb36f5dbf516f6a006116a95241d0cb"
+  end
+
   keg_only :versioned_formula
 
   depends_on "httpd" => [:build, :test]
