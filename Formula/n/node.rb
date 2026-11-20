@@ -24,6 +24,7 @@ class Node < Formula
   end
 
   bottle do
+    manifest_sha256 "0d303596951a6ebae73d10bffeae9e046f2dc111e61db2824a05421fc12e2232"
     sha256 arm64_golden_gate: "577bb7c5f855024aea583ce31c4709f260aefb69bd328eed4b18233b25c42c19"
     sha256 arm64_tahoe:       "9329ef2e905a658c40bef81dee43b3da04382ac72c4cdc0e0ba96a44db88cada"
     sha256 arm64_sequoia:     "d4d849d4be04c7983afdf78b38b16c16871bc3fab8449119a9d8b4cd29db999d"
