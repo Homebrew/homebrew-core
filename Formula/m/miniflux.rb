@@ -14,7 +14,7 @@ class Miniflux < Formula
   end
 
   depends_on "go" => :build
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
 
   allow_network_access! :test
 
@@ -41,45 +41,36 @@ class Miniflux < Formula
 
   test do
     ENV["LC_ALL"] = "C"
+    ENV["PGDATA"] = datadir = testpath/"postgres"
 
+    miniflux_addr = "127.0.0.1:#{free_port}"
     pg_port = free_port
-    pg_bin = formula_opt_bin("postgresql@18")
+    pg_bin = formula_opt_bin("postgresql@19")
     pg_ctl = pg_bin/"pg_ctl"
 
-    datadir = testpath/"postgres"
-    system pg_ctl, "init", "-D", datadir
+    (testpath/"miniflux.conf").write <<~CONF
+      DATABASE_URL=postgres://localhost:#{pg_port}/miniflux_test?sslmode=disable
+      ADMIN_USERNAME=admin
+      ADMIN_PASSWORD=test123
+      CREATE_ADMIN=1
+      RUN_MIGRATIONS=1
+      LOG_LEVEL=debug
+      LISTEN_ADDR=#{miniflux_addr}
+    CONF
 
-    (datadir/"postgresql.conf").write <<~EOS, mode: "a+"
-      port = #{pg_port}
-      unix_socket_directories = '#{datadir}'
-    EOS
-
-    system pg_ctl, "start", "-D", datadir, "-l", testpath/"postgres.log"
+    system pg_ctl, "init", "--options=-c port=#{pg_port} -c unix_socket_directories=#{datadir}"
+    system pg_ctl, "start", "--log=#{testpath}/postgres.log"
     begin
       system pg_bin/"createdb", "-h", datadir, "-p", pg_port.to_s, "miniflux_test"
-
-      # Run Miniflux
-      miniflux_port = free_port
-      (testpath/"miniflux.conf").write <<~CONF
-        DATABASE_URL=postgres://localhost:#{pg_port}/miniflux_test?sslmode=disable
-        ADMIN_USERNAME=admin
-        ADMIN_PASSWORD=test123
-        CREATE_ADMIN=1
-        RUN_MIGRATIONS=1
-        LOG_LEVEL=debug
-        LISTEN_ADDR=127.0.0.1:#{miniflux_port}
-      CONF
-
       miniflux_pid = spawn(bin/"miniflux", "-c", testpath/"miniflux.conf")
-      begin
-        assert_equal "OK",
-          shell_output("curl --silent --retry 5 --retry-connrefused http://127.0.0.1:#{miniflux_port}/healthcheck")
-      ensure
+      output = shell_output("curl --silent --retry 5 --retry-connrefused http://#{miniflux_addr}/healthcheck")
+      assert_equal "OK", output
+    ensure
+      if miniflux_pid
         Process.kill "TERM", miniflux_pid
         Process.wait miniflux_pid
       end
-    ensure
-      system pg_ctl, "stop", "-D", datadir
+      system pg_ctl, "stop"
     end
   end
 end
