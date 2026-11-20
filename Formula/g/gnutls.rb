@@ -1,11 +1,10 @@
 class Gnutls < Formula
   desc "GNU Transport Layer Security (TLS) Library"
   homepage "https://gnutls.org/"
-  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
-  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.13.tar.xz"
-  sha256 "ffed8ec1bf09c2426d4f14aae377de4753b53e537d685e604e99a8b16ca9c97e"
+  url "https://www.gnupg.org/ftp/gcrypt/gnutls/v3.8/gnutls-3.8.14.tar.xz"
+  mirror "https://www.mirrorservice.org/sites/ftp.gnupg.org/gcrypt/gnutls/v3.8/gnutls-3.8.14.tar.xz"
+  sha256 "7e2d258071f5db9620aa7ff34259331d004f7beafa3eb18560cfaf60acfbf02a"
   license all_of: ["LGPL-2.1-or-later", "GPL-3.0-only"]
-  revision 2
   compatibility_version 2
 
   # The download page links to the directory listing pages for the "Next" and
@@ -32,14 +31,11 @@ class Gnutls < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "366c9b9c0a6b246af58952c4bb5ac921ec5be87bdc23c0b9d8b2ca97b1a3d996"
-    sha256 cellar: :any, arm64_tahoe:       "a2334eb50a165945aad7df804a3e846053de62973f6aee8060fec8c16c59446b"
-    sha256 cellar: :any, arm64_sequoia:     "0c8ba0cb42636a98b28a2c173b33c4298a286972a9838d27602f0bbc860acdbb"
-    sha256 cellar: :any, arm64_sonoma:      "3e7fd6bf0a203f1b700c3c7e73d3a99b06c678eeb5335341339659ab5f00655c"
-    sha256 cellar: :any, sonoma:            "77ec479ca9c1a6c80058f5bc9a908a1afd271f39a5cf69935e07fea4129a3824"
-    sha256               arm64_linux:       "1f5ee025df39e40fb4197fdb0ab82f4f657a70972554e8296af6b910d80f9e47"
-    sha256               x86_64_linux:      "8ac010d174af7ca336b9113fa208aa05104eb6b60e4e42f86c4212ad77ff6ad2"
+    sha256 cellar: :any, arm64_golden_gate: "c118d53b47033725a76201d0f0c65bbbffa7176a5f54021c067c84381b194b50"
+    sha256 cellar: :any, arm64_tahoe:       "5509d03e9fe545ff0848d3a5ee1c23a2e6ae077e6755cd0b04cca4b2d15b7872"
+    sha256 cellar: :any, arm64_sequoia:     "0f91625c5ac8e6d4542de6eb8b484fa78074dc9b23c01afa7471cd08f2d9791f"
+    sha256               arm64_linux:       "2eae01b3627aa62f7635ab50174c250e9a02796c26abc3bb92b7bc092809e7de"
+    sha256               x86_64_linux:      "be82965b59fff42219ed399bbe6463aa0ef44e6bebc310599f7f1fc2118f1378"
   end
 
   depends_on "pkgconf" => :build
@@ -54,14 +50,6 @@ class Gnutls < Formula
 
   on_macos do
     depends_on "gettext"
-  end
-
-  # Backport support for building with older clang
-  patch do
-    url "https://gitlab.com/gnutls/gnutls/-/commit/29c2027c963cf559817d0da37c1fc2efd0c1bd6a.diff"
-    sha256 "c0bfc0164ff131c9d2e1c4d0367430f8b767b64c9c21e0f408bd634d21fb0302"
-    type :backport
-    resolves "https://gitlab.com/gnutls/gnutls/-/merge_requests/2106"
   end
 
   # Test performs a TLS handshake with expired.badssl.com
