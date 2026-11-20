@@ -1,8 +1,8 @@
 class Virtiofsd < Formula
   desc "Vhost-user virtio-fs device backend written in Rust"
   homepage "https://gitlab.com/virtio-fs/virtiofsd"
-  url "https://gitlab.com/virtio-fs/virtiofsd/-/archive/v1.14.0/virtiofsd-v1.14.0.tar.bz2"
-  sha256 "0646c2cd5a733dd411afb49be8eff7f0a10bb4a286f75b822961e07ea6a654af"
+  url "https://gitlab.com/virtio-fs/virtiofsd/-/archive/v1.15.0/virtiofsd-v1.15.0.tar.bz2"
+  sha256 "514ff9e425a4f6f7c7218107a9535e389a9d56881c4f01e77f4e4880e4a342d8"
   license all_of: ["Apache-2.0", "BSD-3-Clause"]
   head "https://gitlab.com/virtio-fs/virtiofsd.git", branch: "main"
 
