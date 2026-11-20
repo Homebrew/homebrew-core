@@ -13,6 +13,7 @@ class OpensslAT4 < Formula
   end
 
   bottle do
+    manifest_sha256 "5334787c00d0174476fcb17e00b3bd4ef11379589acec0ae3d2639d5bdddd541"
     sha256 arm64_golden_gate: "d239639f77a275caa217707e126790b3f5f5c86e5bc6e2a996e5df7fdaed44a6"
     sha256 arm64_tahoe:       "382f63e829b116d5fb9a2b186147e489631b5bbbb06ac0089f795a3fed1085c4"
     sha256 arm64_sequoia:     "6fcbad388ef13f6f9481e91676e2ec1b49f0a3dbd473e838297a3c8850283978"
