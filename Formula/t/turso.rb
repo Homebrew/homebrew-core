@@ -1,8 +1,8 @@
 class Turso < Formula
   desc "Interactive SQL shell for Turso"
   homepage "https://github.com/tursodatabase/turso"
-  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "18912d5142b3d4abe29aeeb771ccbbdb4c819105627833d2232d746013d9cd0a"
+  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.8.4.tar.gz"
+  sha256 "c678c98a1f7a7ed1cf609bfbc5655198de4c6e19d62a941875d4d161584aecde"
   license "MIT"
   head "https://github.com/tursodatabase/turso.git", branch: "main"
 
@@ -29,6 +29,10 @@ class Turso < Formula
   end
 
   def install
+    # Rust 1.100 resolves std `Vec::new_in` first: https://github.com/tursodatabase/turso/issues/9463
+    inreplace "core/index_method/fts/directory.rs", "DynVec::new_in(",
+              "<DynVec<u8> as TursoVecInExt<u8, DynAllocator>>::new_in("
+
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
