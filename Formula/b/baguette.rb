@@ -1,14 +1,14 @@
 class Baguette < Formula
   desc "Headless iOS Simulator manager and host-side input injection for iOS 26"
   homepage "https://tddworks.github.io/baguette/"
-  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.2.15.tar.gz"
-  sha256 "60df98fa49ca298fff00eb146c09fc65c261930eaea29e8eed34d373e3312200"
+  url "https://github.com/tddworks/baguette/archive/refs/tags/v0.3.0.tar.gz"
+  sha256 "c0ab7feed1e62bc4f8432446bf06972b971a2b1303f6df6130493f6e58054f4f"
   license "Apache-2.0"
   head "https://github.com/tddworks/baguette.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cdbd2f8e5b28cf948901918c566d186ad4654d6ef65dfdf8b5ccd6d505ffa748"
-    sha256 cellar: :any, arm64_tahoe:       "356011c64c3b57d4783a43baa7dc8179c02d2b4436c589db47384d1373a626f7"
+    sha256 cellar: :any, arm64_golden_gate: "e83d1a1a1d72ba36d0f55faede8c275b1867c69cc396c717788796bd3eb43173"
+    sha256 cellar: :any, arm64_tahoe:       "4fc9ccbd0628f35514ea5ec5f9a633fbf2996e7abc521dfea2a50c3846b44aba"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -16,13 +16,19 @@ class Baguette < Formula
   depends_on macos: :tahoe
 
   # `swift build` fetches packages
-  allow_network_access! :build
+  deny_network_access!
+
+  def fetch
+    # SwiftPM tries to apply its own sandbox, which cannot nest inside the
+    # build sandbox; Homebrew's sandbox still confines the whole process.
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
 
   def install
     # replace version like upstreams release process
-    inreplace "Sources/Baguette/App/Version.swift",
-              "let baguetteVersion = \"0.1.61\"",
-              %Q(let baguetteVersion = "#{version}")
+    inreplace "Sources/Commands/Version.swift",
+              'let baguetteVersion = "0.1.61"',
+              "let baguetteVersion = \"#{version}\""
 
     # Rebuild the iOS-Simulator injection dylibs from source: upstream ships them prebuilt and universal,
     # which `brew audit` rejects. Mirrors each Injected/*/build.sh, for this arch only.
