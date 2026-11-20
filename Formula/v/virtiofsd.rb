@@ -7,8 +7,8 @@ class Virtiofsd < Formula
   head "https://gitlab.com/virtio-fs/virtiofsd.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "af1aab9fc68a2784268e0ecb254f90dbfdb9800a7df0b92b46b13dd45f6fda26"
-    sha256 cellar: :any, x86_64_linux: "8bd01117ad94d525b5ca73fba37f4bad0d4d2c04569a4d0a469aef5b14428291"
+    sha256 cellar: :any, arm64_linux:  "5234dc848f77555c4fed0b8ca3b15804a0050cc38ba7619f442b7c8ca7abd348"
+    sha256 cellar: :any, x86_64_linux: "6ff40d1e12a7926fa221e64926a88eb66424a3d88938a039608776de7400ff12"
   end
 
   depends_on "rust" => :build
