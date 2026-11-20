@@ -1,8 +1,8 @@
 class Officecli < Formula
   desc "Read, edit, and automate Office documents (.docx, .xlsx, .pptx)"
   homepage "https://github.com/iOfficeAI/OfficeCLI"
-  url "https://github.com/iOfficeAI/OfficeCLI/archive/refs/tags/v1.0.162.tar.gz"
-  sha256 "99e6ae2fa573d990fd7515147befc8ed758642024d68ae1f3503de7773e05177"
+  url "https://github.com/iOfficeAI/OfficeCLI/archive/refs/tags/v1.0.163.tar.gz"
+  sha256 "740ceebf57b6476129afb001f5c962e1321416ab5f395eed62ef63d2963de3f7"
   license "Apache-2.0"
 
   bottle do
