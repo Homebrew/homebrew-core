@@ -28,7 +28,7 @@ Thanks for contributing!
 ### To submit a version upgrade for the `foo` formula
 
 * check if the same upgrade has been already submitted by [searching the open pull requests for `foo`](https://github.com/Homebrew/homebrew-core/pulls?utf8=✓&q=is%3Apr+is%3Aopen+foo).
-* `brew tap homebrew/core`
+* `brew tap --force homebrew/core`
 * `brew bump-formula-pr --strict foo` with one of the following:
   * `--url=...` and `--sha256=...`
   * `--tag=...` and `--revision=...`
