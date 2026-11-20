@@ -1,8 +1,8 @@
 class SdlGfx < Formula
   desc "Graphics drawing primitives and other support functions"
   homepage "https://www.ferzkopp.net/wordpress/2016/01/02/sdl_gfx-sdl2_gfx/"
-  url "https://www.ferzkopp.net/Software/SDL_gfx-2.0/SDL_gfx-2.0.27.tar.gz"
-  sha256 "dfb15ac5f8ce7a4952dc12d2aed9747518c5e6b335c0e31636d23f93c630f419"
+  url "https://github.com/ferzkopp/SDL_gfx/archive/refs/tags/v2.0.28.tar.gz"
+  sha256 "7ed950ae0a5be3be1610bdecaba2fd71c8413927f10e4da267df6d75ea4b35c6"
   license "Zlib"
 
   livecheck do
@@ -24,16 +24,15 @@ class SdlGfx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e0d9c2a0a9a19755c096b6e3718be733b85336f11aee29d6d7ce6ee04305cf42"
   end
 
+  depends_on "cmake" => :build
   depends_on "sdl12-compat"
 
   deny_network_access!
 
   def install
-    args = ["--disable-sdltest"]
-    args << "--disable-mmx" if Hardware::CPU.arm?
-
-    system "./configure", *args, *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
