@@ -1,8 +1,8 @@
 class Cortex < Formula
   desc "Long term storage for Prometheus"
   homepage "https://cortexmetrics.io/"
-  url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.21.1.tar.gz"
-  sha256 "458486e076f9591701009ff0c36c4396c415b44e11832542e2cbc3ed30a27b79"
+  url "https://github.com/cortexproject/cortex/archive/refs/tags/v1.22.0.tar.gz"
+  sha256 "eebef940dd30baceffc2658da4a5ef85911246dd2abd53e257067131cb97e853"
   license "Apache-2.0"
   head "https://github.com/cortexproject/cortex.git", branch: "master"
 
@@ -12,13 +12,11 @@ class Cortex < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "511e28d06d1e5f0d05dcb71de3d1e3c45fdb3579b8159a1848596993cf755628"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f7941e738968a9378e8e7cd7158f0718c8d78033841d6ef03e6b090bf88dde4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bfff7ee0858a1dbeaa945370c8fd13e8bab2458387fad66940be54d7eca6755"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "fec7bf7d78d7683ed79fcb52b4199149efe35742bc5a74240f6eb3ec69aedd66"
-    sha256 cellar: :any_skip_relocation, sonoma:            "02508122196e19ecc981490c3ffa67daadd685ad74b08d662b1fa4056ce5d624"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "01be653d2f095c7a1b7409711305f4b9675994bb744a05fbf467a5da50971663"
-    sha256 cellar: :any,                 x86_64_linux:      "45bc7e33471c7abdd8cf89494785ccf6deb21c74280ae864155e4aadd9db4a81"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32a087ddbca6e0c5b73f4b20f93a578449dbc7ee8f4220eb13a3f0dfea707626"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22f5b203a7b4a4bf86e956d8540b2907d87b04651fc9ea9391ee9990efd62f81"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0703caa7d4badfe64627df32a8ace39d1c98db4d2f61de83c322a2222575240f"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "64d17ed5843440b22655b3b1bb20ea39dfa5b739c7760b640eb2d55c4c8242dc"
+    sha256 cellar: :any,                 x86_64_linux:      "30e3b20395cc59c86e8fc615084cda8f061dd7cef315d641b6d3428fbaed5c96"
   end
 
   depends_on "go" => :build
