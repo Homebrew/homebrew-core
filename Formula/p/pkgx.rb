@@ -1,8 +1,8 @@
 class Pkgx < Formula
   desc "Standalone binary that can run anything"
   homepage "https://pkgx.sh"
-  url "https://github.com/pkgxdev/pkgx/archive/refs/tags/v2.11.tar.gz"
-  sha256 "28f205234b62602e8a6f468335a2468765f019118ed34b1dbff0531d28ad9c43"
+  url "https://github.com/pkgxdev/pkgx/archive/refs/tags/v2.11.1.tar.gz"
+  sha256 "553019a0f9e67111568a6a193bcd63281e6252982d9a1d3835f1f0bc65313a0b"
   license "Apache-2.0"
   head "https://github.com/pkgxdev/pkgx.git", branch: "main"
 
