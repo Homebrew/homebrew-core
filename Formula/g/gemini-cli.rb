@@ -10,11 +10,11 @@ class GeminiCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "254090b4143ab509c0245ed3275e16e218aa63224048303e96881018497e2500"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb60b66d272b0c1b47c4fdd632d2d668ecc2506f73f607295b7d9690325f7f0c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78a49363d864ae853c63dcf47a78c5867fac60b1becc66f422f9b41737aeb4f7"
-    sha256 cellar: :any,                 arm64_linux:       "d3c2e8324bbe65f208d8aaf725401ed1d08d5f44caf506e2f3e7298484b47fe7"
-    sha256 cellar: :any,                 x86_64_linux:      "5428e3f94c6f7923077d5267a03aaf9d38f463195ac21af77be725673301aca0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b45736ce82fe9d9c50cb5aa434b5e3a123d9e267fafa95e777828b129befebc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a66aa58626aa00e282733dbdc91278bd844eef6edcd7c5927c1d4ddc65c6ab47"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddbb595cbc70410e9cdf660b97a20abbb9e588202861b1d52fc5b2809498b907"
+    sha256 cellar: :any,                 arm64_linux:       "dddb6c4209d4f574b0bf9f3d52287f15195d108a3760c5221e29e3410fae0287"
+    sha256 cellar: :any,                 x86_64_linux:      "cdc1d881b78dca45229c1bbc528bc97ef62978780237f6f4e021e600d86fb076"
   end
 
   deprecate! date: "2026-06-18", because: :unsupported, replacement_cask: "antigravity-cli"
