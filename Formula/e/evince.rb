@@ -1,19 +1,16 @@
 class Evince < Formula
   desc "GNOME document viewer"
   homepage "https://apps.gnome.org/Evince/"
-  url "https://download.gnome.org/sources/evince/48/evince-48.4.tar.xz"
-  sha256 "f296c5c662886635d4cd597e8ac0afcde7982be4486533c2b7f095b268be8668"
+  url "https://download.gnome.org/sources/evince/48/evince-48.5.tar.xz"
+  sha256 "0c7aba9485d0b6fb9f3e0ee75be916544744dc2ed9d58a2f9936a2e0434ac4a6"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "4b48ae6093e7fcde2c29de526dacc577e3e857bdb43d7049402cfaf85d526923"
-    sha256 arm64_tahoe:       "50fd46e30a5ad1bd12b39a183b2dfa2b1a7a33720caeb507582277a42b088a30"
-    sha256 arm64_sequoia:     "744afff8b2653517ecbd8d92ce03ed8da0723dd6bb3b5d72f9f697f09e4b68fc"
-    sha256 arm64_sonoma:      "e2ac1a99c1a4a34a2e35567608a23c18389b803d8fe6ba316cc0144b459b1091"
-    sha256 sonoma:            "6acf1c1c2f9f8ba50197ec410154c7e2f5e65cbbe30f4d822d3f2c4f86500f6d"
-    sha256 arm64_linux:       "c653ea149c80a57e11499d1d71906d38d22f4dc77eab85c70f71eeb2f781aee2"
-    sha256 x86_64_linux:      "25c5975817e4c02e346b2f75c3eaeb27bbba00216d0f77c9d2ebeeeb91272906"
+    sha256 arm64_golden_gate: "46463020ba0f562b6fe94d836fcf4a786e9e72661045ed80de2e5fb9d07310c2"
+    sha256 arm64_tahoe:       "b1d5f9ad6fab5f058ad3940b413441692af461bcdaf44dc541af04cd49a8d4be"
+    sha256 arm64_sequoia:     "6d0a8b81ffdab3b822401aae5f00437b800afe058e91c9622dd0551db59f8b14"
+    sha256 arm64_linux:       "3c361b443ce0f91ac9e53b80dfda98a92f952e24b32e1974f37670bd7c11dd51"
+    sha256 x86_64_linux:      "815096b5b4d0f14b68a76e8b00ae65a9609346b8ea3357db91cc3626f9ad653f"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
@@ -52,7 +49,13 @@ class Evince < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
+    # `test-ev-spawn` needs `gio/gdesktopappinfo.h`, which macOS GLib does not install.
+    inreplace "shell/meson.build", "if gio_unix_dep.found()",
+              "if gio_unix_dep.found() and cc.has_header('gio/gdesktopappinfo.h', dependencies: gio_unix_dep)"
+
     ENV["DESTDIR"] = "/"
 
     args = %w[
