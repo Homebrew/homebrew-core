@@ -1,9 +1,11 @@
 class Ephemeralpg < Formula
   desc "Run tests on an isolated, temporary Postgres database"
-  homepage "https://eradman.com/ephemeralpg/"
-  url "https://eradman.com/ephemeralpg/code/ephemeralpg-3.4.tar.gz"
+  homepage "https://eradman.com/ephemeralpg/", browsed: "2026-11-19"
+  url "https://github.com/eradman/ephemeralpg/archive/refs/tags/3.4.tar.gz"
+  mirror "https://eradman.com/ephemeralpg/code/ephemeralpg-3.4.tar.gz"
   sha256 "2300082455bf6a10d71a020d8b837d986dd72b0ef82572baf922f118c67cb52d"
   license "ISC"
+  head "https://github.com/eradman/ephemeralpg.git", branch: "master"
 
   livecheck do
     url "https://eradman.com/ephemeralpg/code/"
@@ -22,8 +24,10 @@ class Ephemeralpg < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "05c7d1aabdd8c6703627c23d63e5ef52e611046fab89e8a81030623b58f82095"
   end
 
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "libpq"
+
+  allow_network_access! :test
 
   def install
     system "make"
@@ -31,9 +35,9 @@ class Ephemeralpg < Formula
   end
 
   test do
-    pgsql = Formula["postgresql@18"]
-    ENV.prepend_path "PATH", pgsql.opt_bin
+    pgsql_bin = formula_opt_bin("postgresql@19")
+    ENV.prepend_path "PATH", pgsql_bin
     uri = shell_output("#{bin}/pg_tmp -d #{testpath} -t")
-    system pgsql.bin/"psql", uri, "-c", "\\l"
+    system pgsql_bin/"psql", uri, "-c", "\\l"
   end
 end
