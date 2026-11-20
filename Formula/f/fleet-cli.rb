@@ -1,8 +1,8 @@
 class FleetCli < Formula
   desc "Manage large fleets of Kubernetes clusters"
   homepage "https://fleet.rancher.io/"
-  url "https://github.com/rancher/fleet/archive/refs/tags/v0.16.3.tar.gz"
-  sha256 "6c72695e11063427a42dc6bebfad4434b509491cc5d316f2053386f6640abf83"
+  url "https://github.com/rancher/fleet/archive/refs/tags/v0.17.0.tar.gz"
+  sha256 "584631ac15d92f89f4791bbd47306a16812e89ae6901b069a6a0a1151812931a"
   license "Apache-2.0"
   head "https://github.com/rancher/fleet.git", branch: "main"
 
@@ -12,11 +12,11 @@ class FleetCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4593d161cc0c230b5e1d0e0086a54ce8464cf9372d573c0077b009d415b778ed"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21c50f885dc01f1df8f706adbb5b2b395309dd3d780e90739c3561218c271b2f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac4afd281b1ce469d89bd618508ce813855d00c12b7d3d838a2f11376f0dc5db"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "82d1f4c652e8adca4612e0230e3a4cd44a78c1c4e5bd95769277248690110524"
-    sha256 cellar: :any,                 x86_64_linux:      "c65b032184a50ee6652df9dc72312dff3db6b9570610505e7e3605d714eb103d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "596bb89998a7b4b771000307f318231a4cec5fa7fe942ab58f429500b776e842"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "445d957139d074154dc287dd934a4bb6e85976851fd2619896293ccca10c9fa7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13f62e0b994f91e9b32da871d1404dd673f1e43de29e6b84c3a6e18bd5640ba3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6f31d8eb36a0e25a33a5c787dadd50e06c3f3987e9f1e15f9a247d60065834fd"
+    sha256 cellar: :any,                 x86_64_linux:      "f22ac48defda311035a6bbdc3d5e0f8a22689fd61cb45498d00ff2f9e270aa97"
   end
 
   depends_on "go" => :build
