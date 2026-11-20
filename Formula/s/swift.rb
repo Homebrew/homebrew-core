@@ -4,8 +4,8 @@ class Swift < Formula
   desc "High-performance system programming language"
   homepage "https://www.swift.org"
   # NOTE: Keep version in sync with resources below
-  url "https://github.com/swiftlang/swift/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-  sha256 "c9c0c37995aa69994807eeb62c1e7e89bdd9f1a366dd8fc98a4bf65753dc6cbb"
+  url "https://github.com/swiftlang/swift/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+  sha256 "bb81b230b21c408b5dd9aae46063961a129c7fbf1b68e844fef4f1871c96a5f2"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -121,8 +121,8 @@ class Swift < Formula
   end
 
   resource "llvm-project" do
-    url "https://github.com/swiftlang/llvm-project/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "f551dffa43b2a7150c35b31fd7d0b823400b029f28c0b5339ee0f88f2684f7ed"
+    url "https://github.com/swiftlang/llvm-project/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "bcdad215dea4f344b397f4ede33a311b157c05d9afa814ab2742288518d741ea"
 
     livecheck do
       formula :parent
@@ -130,8 +130,8 @@ class Swift < Formula
   end
 
   resource "cmark" do
-    url "https://github.com/swiftlang/swift-cmark/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "e9fb077781f4511103d5e404b7760ee07b688dc95e32f52616883c10ae3e669a"
+    url "https://github.com/swiftlang/swift-cmark/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "e6a8ffb7dd90b8c144481ca9f1ea7cead1b739d83b031bc8422823beb34d8540"
 
     livecheck do
       formula :parent
@@ -139,8 +139,8 @@ class Swift < Formula
   end
 
   resource "llbuild" do
-    url "https://github.com/swiftlang/swift-llbuild/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "74350fec385b7b88a2f225fc7029752afc2b32f3f7953481dc8aa16299afa128"
+    url "https://github.com/swiftlang/swift-llbuild/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "e6345cdb0bc626439185fa9ea81b722f21b25e7056e20c79c580ad4c06505da3"
 
     livecheck do
       formula :parent
@@ -162,8 +162,8 @@ class Swift < Formula
   end
 
   resource "swift-build" do
-    url "https://github.com/swiftlang/swift-build/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "065d1619da577ce0a7b4c5e2d08b7da8100d4c80b8f75d42c6ed92081330d656"
+    url "https://github.com/swiftlang/swift-build/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "34bda90279b61c768a396f8e201a5057ce3ade25d87a441cb19d2fc4296a9c0a"
 
     livecheck do
       formula :parent
@@ -179,8 +179,8 @@ class Swift < Formula
   end
 
   resource "swiftpm" do
-    url "https://github.com/swiftlang/swift-package-manager/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "504e72d3e5c8eed8bb47fb5f997f2390066ed52cb8467b18bcd664951c6bc08b"
+    url "https://github.com/swiftlang/swift-package-manager/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "9aba12344f20b2d7c717ced88a8805d884523523a6e7092d00ce0f2914e24723"
 
     livecheck do
       formula :parent
@@ -194,8 +194,8 @@ class Swift < Formula
   end
 
   resource "indexstore-db" do
-    url "https://github.com/swiftlang/indexstore-db/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "51e5cdae88b8fc3e359e329358869f1d26348fa0f132f9e997c8736f671833b7"
+    url "https://github.com/swiftlang/indexstore-db/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "0d0bf81ff26c3b4584e769e3a69365f33dd8438103a6e09bc2cd720cad0d0a18"
 
     livecheck do
       formula :parent
@@ -203,8 +203,8 @@ class Swift < Formula
   end
 
   resource "sourcekit-lsp" do
-    url "https://github.com/swiftlang/sourcekit-lsp/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "2efa362852b055c6653629cf542182daa181c59928e3efbdb0b15923a738326f"
+    url "https://github.com/swiftlang/sourcekit-lsp/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "cbd66985b88989a7d6cb27e53de4830183069cf3f2538f5fe15591431f17f4da"
 
     livecheck do
       formula :parent
@@ -212,8 +212,8 @@ class Swift < Formula
   end
 
   resource "swift-driver" do
-    url "https://github.com/swiftlang/swift-driver/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "7511962f6f0aad7a288f1a3130e8edb5d98ff905545897d71edfe0d287aabf93"
+    url "https://github.com/swiftlang/swift-driver/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "3dbff9469e061699208575c83b27e44ee64d2e48bdebdeab407de24ba57f470f"
 
     livecheck do
       formula :parent
@@ -221,8 +221,8 @@ class Swift < Formula
   end
 
   resource "swift-tools-support-core" do
-    url "https://github.com/swiftlang/swift-tools-support-core/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "e4157ca16a5a5b31788c7455a8dddc5b2ed1b747fd523acedba2dd4f735465bf"
+    url "https://github.com/swiftlang/swift-tools-support-core/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "a3448e5378d3c83081a25774cc10c9f3129ef14f43eb3370d7f8304d02497b8f"
 
     livecheck do
       formula :parent
@@ -238,8 +238,8 @@ class Swift < Formula
   end
 
   resource "swift-docc" do
-    url "https://github.com/swiftlang/swift-docc/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "2261069272e00ea26f21c980eed159a35507898f9ecfb5286a5a4672d4ad8189"
+    url "https://github.com/swiftlang/swift-docc/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "73cb78fb3c5c8a3bfc47c090731042a6d345380daee70533119e7d92cd0f0a50"
 
     livecheck do
       formula :parent
@@ -247,8 +247,8 @@ class Swift < Formula
   end
 
   resource "swift-lmdb" do
-    url "https://github.com/swiftlang/swift-lmdb/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "504c2b22bb9a8c43d9c0b511dfdc4cb828bf41a5abcbca26795c7d79d5ff2eb7"
+    url "https://github.com/swiftlang/swift-lmdb/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "148da1b5f0e8737cb55f44992152d5bf682a0ede78d85feb20889bc1456f225e"
 
     livecheck do
       formula :parent
@@ -256,8 +256,8 @@ class Swift < Formula
   end
 
   resource "swift-docc-render-artifact" do
-    url "https://github.com/swiftlang/swift-docc-render-artifact/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "99ab4f91d77f4a4bf84a2e2f457356e6bd7d02bb96fa44e159a1811eb8d13d2b"
+    url "https://github.com/swiftlang/swift-docc-render-artifact/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "791ef1aa6af0763dc2c795cc21e37055f05c6984751e44780ef5b1a561f6624f"
 
     livecheck do
       formula :parent
@@ -265,8 +265,8 @@ class Swift < Formula
   end
 
   resource "swift-docc-symbolkit" do
-    url "https://github.com/swiftlang/swift-docc-symbolkit/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "c79e819ee831a8741a7821c8e9f05f4e49253ebc413cc3e636d7d642c1e858c3"
+    url "https://github.com/swiftlang/swift-docc-symbolkit/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "c8e95818c655d132a0853c5a0f68ba444c821374966a59e6826d109a47988808"
 
     livecheck do
       formula :parent
@@ -274,8 +274,8 @@ class Swift < Formula
   end
 
   resource "swift-markdown" do
-    url "https://github.com/swiftlang/swift-markdown/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "ce898c31ea30e3b0bbfb8bb19d1b587d68a2852a1e4033172ed7a4aaa2156cf3"
+    url "https://github.com/swiftlang/swift-markdown/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "a2cc222da957c9e1dfdf7b109cd4cf243deb6571fa385700b8b7620d006d9f6f"
 
     livecheck do
       formula :parent
@@ -283,8 +283,8 @@ class Swift < Formula
   end
 
   resource "swift-experimental-string-processing" do
-    url "https://github.com/swiftlang/swift-experimental-string-processing/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "8452bfdeac7f1afb9fe91faeba34f09ad46eb8e3085d345d3839f9ad4b69032b"
+    url "https://github.com/swiftlang/swift-experimental-string-processing/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "30f9968612b8a20f07c02d72e3d963a8df0faf7f17f82f888c34ab6b837dec81"
 
     livecheck do
       formula :parent
@@ -292,8 +292,8 @@ class Swift < Formula
   end
 
   resource "swift-syntax" do
-    url "https://github.com/swiftlang/swift-syntax/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "490f1f3da78a4d98a786c2edfef764aa5011db08c0ff737e78f0ec7186c038a6"
+    url "https://github.com/swiftlang/swift-syntax/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "e12c4cf40442b33e2a06830a453594a3480c9b2141f37dc31a3c5fb4185b1812"
 
     livecheck do
       formula :parent
@@ -301,8 +301,8 @@ class Swift < Formula
   end
 
   resource "swift-testing" do
-    url "https://github.com/swiftlang/swift-testing/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "4753bbc1600acee5c54b71c4006ebc082c8a38ac8223dd6b1d7585dad97536e4"
+    url "https://github.com/swiftlang/swift-testing/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "229a3c1b6d763c358617fe603d66e93e6da3689f50f87458c77bdfa81deafaa8"
 
     livecheck do
       formula :parent
@@ -310,8 +310,8 @@ class Swift < Formula
   end
 
   resource "swift-tools-protocols" do
-    url "https://github.com/swiftlang/swift-tools-protocols/archive/refs/tags/swift-6.4.2-RELEASE.tar.gz"
-    sha256 "48e48cb2f4f76f50587555d2e9b14257ee6ed9263193e8a6359e3f4d5651bf80"
+    url "https://github.com/swiftlang/swift-tools-protocols/archive/refs/tags/swift-6.4.3-RELEASE.tar.gz"
+    sha256 "6d037891878c9d79de4b8cf9136d62e387815afef6a72670fae60b5191aa3a40"
 
     livecheck do
       formula :parent
