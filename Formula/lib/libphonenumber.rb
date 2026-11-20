@@ -1,8 +1,8 @@
 class Libphonenumber < Formula
   desc "C++ Phone Number library by Google"
   homepage "https://github.com/google/libphonenumber"
-  url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.43.tar.gz"
-  sha256 "bea4c2afec1fd43f4a7b3bda7b00dc99392ba1345dddd147059856889d174248"
+  url "https://github.com/google/libphonenumber/archive/refs/tags/v9.0.44.tar.gz"
+  sha256 "ed3f2dd91e95d9c865772b62e51133eb5c8ca20f5a15e5f4064b4cc67d199185"
   license "Apache-2.0"
 
   livecheck do
@@ -24,14 +24,6 @@ class Libphonenumber < Formula
   depends_on "boost"
   depends_on "icu4c@79"
   depends_on "protobuf"
-
-  # Fix build with Boost 1.89.0
-  patch do
-    url "https://github.com/google/libphonenumber/commit/72c1023fbf00fc48866acab05f6ccebcae7f3213.patch?full_index=1"
-    sha256 "6bce9d77b45f35a84ef39831bf2cca793b11aa7b92bd6d71000397d3176f0345"
-    type :unofficial
-    resolves "https://github.com/google/libphonenumber/pull/3903"
-  end
 
   deny_network_access!
 
