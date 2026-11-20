@@ -1,17 +1,17 @@
 class Croc < Formula
   desc "Securely send things from one computer to another"
   homepage "https://github.com/schollz/croc"
-  url "https://github.com/schollz/croc/archive/refs/tags/v11.6.5.tar.gz"
-  sha256 "2558b6d44f661e4fb32d5146a6c76ce0c2af9a732baeeaf42c717e17245be8b2"
+  url "https://github.com/schollz/croc/archive/refs/tags/v11.6.6.tar.gz"
+  sha256 "7b70ea161a1d6343b4499c81280d9650fadb1c298d3be96bbc54a2e8d8cd0c21"
   license "MIT"
   head "https://github.com/schollz/croc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "177898b9a51e06b09013dbb752cd552bfe479ac7173a7ac6da53a73cf4928df1"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27a99c7a620c2181e03d131aba202dfc0fa9941328bd4abb49760d78a1650bae"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f41ae46c48852a72442c848407a0921e6a92a492acc345c9e1f94084f8342159"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5dea17b3a5ca28def980fab1e6beda0622d86a90f756d41d5165824c7da4febb"
-    sha256 cellar: :any,                 x86_64_linux:      "2363e7e81acdf1dd2190db5d09ec2f0105310923296b04ad0a147a65a5d3e80a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "186e48133593bb05d6b62ed6e870b989942cb5024fe590551613063ab5a318bc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "803894f1d8a2ee996080a93e320227af6ecaf7bd3b96c6b64780df4a181775d4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fceeb48f79a1f677abc21fc48df453454c4141185d3bfe71f2532bf52c2cda2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fee9a55ae1167660f6b5f5697a4cd6e06f1cc8c2fee8e10f866bdc58f4cd8687"
+    sha256 cellar: :any,                 x86_64_linux:      "5debbd781012298e515477270bea6438674556fa670004a9e4b50f0f9faf8557"
   end
 
   depends_on "go" => :build
