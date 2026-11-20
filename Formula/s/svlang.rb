@@ -1,8 +1,8 @@
 class Svlang < Formula
   desc "SystemVerilog compiler and language services"
   homepage "https://sv-lang.com/"
-  url "https://github.com/MikePopoloski/slang/archive/refs/tags/v12.1.tar.gz"
-  sha256 "e7454393956ef0f3e9bbcac27f7de473e11e1fd7be125c3009f1f2bfeddf0358"
+  url "https://github.com/MikePopoloski/slang/archive/refs/tags/v12.2.tar.gz"
+  sha256 "29c8dee801e489e10f84ebc8a65b641bbcee18614fd183223b35e85c2461b6ab"
   license "MIT"
   head "https://github.com/MikePopoloski/slang.git", branch: "master"
 
