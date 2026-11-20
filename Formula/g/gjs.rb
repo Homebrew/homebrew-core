@@ -19,11 +19,12 @@ class Gjs < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "dac6814353d5aa4867f37e007a2efb5906eafefe7b9f43bf66592c97e76fd0f5"
-    sha256 arm64_tahoe:       "067f6d6975f0c99543a333890d39e26810e587d9d7fa819e1783bfe1afcdf834"
-    sha256 arm64_sequoia:     "fd873f01f7508ecea864049ef226f0123926055d6e19f6058b5a97fd44c5548a"
-    sha256 arm64_linux:       "02327fa4f9a3a8c5c07c63c962b613464d16b6e76748352fefae7bc93cca21ff"
-    sha256 x86_64_linux:      "0dc866c495788a3dd7f67db35bf19c425e262b716f47bac636f8cb869d6aecba"
+    rebuild 1
+    sha256 arm64_golden_gate: "7725fd75c35240caa3c96f7b2e1a20d100a3cb39ad42ae3dc6792c30f4983cf7"
+    sha256 arm64_tahoe:       "22cebb7cf538f9b49d288ff8400125de9efbac44869c5ea391a4f85922c59457"
+    sha256 arm64_sequoia:     "4a2b86d73fa23bb853f5f6510e9ad67b4a482b1636628f2d626218ef3d0123b2"
+    sha256 arm64_linux:       "f0d6471dbb8db2f744a55b2174bbd4db9fe18186a0ba60774857a247033c5b42"
+    sha256 x86_64_linux:      "f40d198c3eac86406c2d2eddfccdc4d728151ae3374be0dd9de8301a5218d877"
   end
 
   depends_on "gobject-introspection" => :build # for generate_gir
@@ -50,7 +51,7 @@ class Gjs < Formula
     ENV["DESTDIR"] = "/"
 
     # allow GJS to find and load shared libraries
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{HOMEBREW_PREFIX}/lib" if OS.mac?
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: HOMEBREW_PREFIX/"lib")}" if OS.mac?
 
     args = %w[
       -Dprofiler=disabled
