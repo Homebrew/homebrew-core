@@ -1,8 +1,8 @@
 class Msgvault < Formula
   desc "Archive a lifetime of email and chat with offline search and analytics"
   homepage "https://github.com/kenn-io/msgvault"
-  url "https://github.com/kenn-io/msgvault/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "be0b82d9e6a75bd35c9a99cfb268b60f5e1b9911dfb5538467e1b3d0b6ac5be0"
+  url "https://github.com/kenn-io/msgvault/archive/refs/tags/v0.26.0.tar.gz"
+  sha256 "a751a9d20b13cd23195deb1796e45f81ef5bf0742122f5d056321fb53f14fa03"
   license "MIT"
   head "https://github.com/kenn-io/msgvault.git", branch: "main"
 
