@@ -3,8 +3,8 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/36/61/f21a0652af1f51b854a55647d798564300ff4780998bf62c5515357df773/gamdl-4.0.2.tar.gz"
-  sha256 "2ddaf97c889ea4ae559d2bae7fc498534acf19e0904e345f1c36ffa9958ecdbd"
+  url "https://files.pythonhosted.org/packages/57/9a/ea2b42e568ae727c15b6cbf89839e2edcbdaaaecd24617aa88fb0bba1662/gamdl-4.1.1.tar.gz"
+  sha256 "0a290b79e4ac2e6ccd607795ec6a346305220002a73d328dac487639cefdbeeb"
   license "MIT"
 
   bottle do
@@ -130,8 +130,8 @@ class Gamdl < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "prompt-toolkit" do
