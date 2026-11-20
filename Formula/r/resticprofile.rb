@@ -1,17 +1,17 @@
 class Resticprofile < Formula
   desc "Configuration profiles manager and scheduler for restic backup"
   homepage "https://creativeprojects.github.io/resticprofile/"
-  url "https://github.com/creativeprojects/resticprofile/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "343b956215e3a9124d0ac3d94740668a905eb4b9210e9f50f91baec67144f693"
+  url "https://github.com/creativeprojects/resticprofile/archive/refs/tags/v0.35.0.tar.gz"
+  sha256 "890e768a98948a85f5f7594a666784159209423f3688bf87b3f9c103b3c735f7"
   license "GPL-3.0-only"
   head "https://github.com/creativeprojects/resticprofile.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86f10fca650dddb8aacf40286a5c2b6bc02a0a8dc8cc42257b5a189ccfa74339"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc074b46b0683539ef914135ddebf410555f52af4a0c63a8b832021c23d076f8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb322474d629e7d7848af6691d59a342ac32dfe9d65453641fbf286d26c5fda8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cbabcf4e759799a8904660f79523f145eb9b1c2e5d44b3e642d0af52547e2f83"
-    sha256 cellar: :any,                 x86_64_linux:      "9b1ce2fa6cf8d23c3dd5c4307e597c33365625c408aefd2b8d84d24ef6f4de49"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a9a5c3a633b82cb4fac64a5a429d1502931d591c4c918b7ff6cc4415c9e1c83"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "401c1f515dbe0678bafdc1bd94011178fd52f77906678e999f5067da2874eeb4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5d137cd5bc88fff7a8b418d7c30261275c0ee3d54f47b49f5f9cc04f3900103"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "12e40d0dc1a986d3d3e6d633cc1462705f035aba680af56fb3f98eee98ba3d4e"
+    sha256 cellar: :any,                 x86_64_linux:      "403a33da9ea51d519769940597190b6c697e36513bd2b723907e4baca58593bf"
   end
 
   depends_on "go" => :build
