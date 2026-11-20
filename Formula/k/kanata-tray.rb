@@ -1,8 +1,8 @@
 class KanataTray < Formula
   desc "System tray for kanata keyboard remapper"
   homepage "https://github.com/rszyma/kanata-tray"
-  url "https://github.com/rszyma/kanata-tray/archive/refs/tags/v0.8.0.tar.gz"
-  sha256 "18d17493d20f6a06db31131c41059d2a8224494479fdf98498eb76c0fab70885"
+  url "https://github.com/rszyma/kanata-tray/archive/refs/tags/v0.9.0.tar.gz"
+  sha256 "b7541d686dcabbdbeee4ad78b8eabc2092260be93dc3455a51263f42399eac00"
   license "GPL-3.0-or-later"
   head "https://github.com/rszyma/kanata-tray.git", branch: "main"
 
