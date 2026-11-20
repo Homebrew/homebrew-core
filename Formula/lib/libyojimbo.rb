@@ -1,8 +1,8 @@
 class Libyojimbo < Formula
   desc "Secure client/server network protocol library for multiplayer games"
   homepage "https://github.com/mas-bandwidth/yojimbo"
-  url "https://github.com/mas-bandwidth/yojimbo/archive/refs/tags/v1.16.0.tar.gz"
-  sha256 "32e9284e3e0e6e1c1ed29b7bb6111a66c264b88db3263fd0cbed5d8ae6f24db6"
+  url "https://github.com/mas-bandwidth/yojimbo/archive/refs/tags/v1.16.1.tar.gz"
+  sha256 "c1a76ac99c09f616584f72decec331bf705f5c6926901abee3baecc1d317fad3"
   license "BSD-3-Clause"
 
   bottle do
@@ -21,6 +21,7 @@ class Libyojimbo < Formula
   depends_on "serialize"
 
   deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build",
                     "-DYOJIMBO_SYSTEM_DEPS=ON",
