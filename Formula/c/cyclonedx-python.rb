@@ -3,8 +3,8 @@ class CyclonedxPython < Formula
 
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Python projects"
   homepage "https://cyclonedx.org/"
-  url "https://files.pythonhosted.org/packages/4d/20/f17c18aadc522a0ff1c12692c45218d7cca4417798864c6b345f98c44459/cyclonedx_bom-8.0.1.tar.gz"
-  sha256 "a32c8bb2c4b436e0d6b7ee3b9f0899efdfc91e8f5d9652975467d31e4c20b900"
+  url "https://files.pythonhosted.org/packages/13/91/f1a2a75a5dbbada2404de3117f0a0c544727382bc1352013ee1ba15ec015/cyclonedx_bom-9.0.0.tar.gz"
+  sha256 "23394e24ff47bbf4c614e8a7d5ca5e18c64869a091f7e35f3baa2faea2390972"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-python.git", branch: "main"
 
@@ -70,8 +70,8 @@ class CyclonedxPython < Formula
   end
 
   resource "jsonpointer" do
-    url "https://files.pythonhosted.org/packages/c2/cf/5d665216bd9dea19dd26ea93ca525ef02936a9cccd0cd856f8408eb77f0b/jsonpointer-3.8.tar.gz"
-    sha256 "a627a255641390bfb4d51d4cfbb90648078ae855b45804ef7e19ea13a4cca355"
+    url "https://files.pythonhosted.org/packages/46/cb/2c3112a061a718d93866c2555dad1e9d53865e4703d0f3be550d252b277b/jsonpointer-3.12.tar.gz"
+    sha256 "7a3dcc11b64053eaa9c549e85e413f8d40a075215f793a331bed9182a14251ae"
   end
 
   resource "jsonschema" do
@@ -115,8 +115,8 @@ class CyclonedxPython < Formula
   end
 
   resource "py-serializable" do
-    url "https://files.pythonhosted.org/packages/73/21/d250cfca8ff30c2e5a7447bc13861541126ce9bd4426cd5d0c9f08b5547d/py_serializable-2.1.0.tar.gz"
-    sha256 "9d5db56154a867a9b897c0163b33a793c804c80cee984116d02d49e4578fc103"
+    url "https://files.pythonhosted.org/packages/48/8c/cad9596066de835b304be48b0eefa30dae1834afae6e670805831cc05ea2/py_serializable-2.2.0.tar.gz"
+    sha256 "8e4fa02e8de819c0488ccdb69c2d3109274adcf224c02357fd8729cb12727aab"
   end
 
   resource "pyparsing" do
