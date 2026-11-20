@@ -7,11 +7,11 @@ class Fluxcd < Formula
   head "https://github.com/fluxcd/flux2.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9a687a94258906b462924c271442f7a8c19c7e506a4f50312549ac2859a6a40"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "88d54faa549f30af622fca339ac52a19fc0fc79c25b7d36e28bbd676cbf71941"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd521d6cddc91818d56c1ca5e442803009392c736195b48a30c5b2c9398b82b6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cf373507e49a25aaadd1cb0df4df78f455d2c9b503f1a31bc93293f94aeadcec"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f1ea521d62bac61d11b89cffb0260c9155e6defc8e2f2ef29d3b2bb048fb7c8c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce5dd3590102cf588f927c22257cd0066271267a7af7cee0206e8628727f2711"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13cca67741c8d0db250f06f6ed552f80f889afa05830dc92935d2808359e41a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a24ffd8e8825e7ee16aacb216ac63147c97fa51574108fa846fb4df81f05d25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7384a08a7ae42dc8dfeff316da1177aaced825f02c02ea65debef6511bf037d6"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d94482bb65e53e2257026b3a525a58dc4bb4c4cc3591287f441cdb109bfe27a5"
   end
 
   depends_on "go" => :build
