@@ -5,18 +5,17 @@ class Manticoresearch < Formula
     "GPL-3.0-or-later",
     { any_of: ["Unlicense", "MIT"] }, # uni-algo (our formula is too new)
   ]
-  revision 5
   version_scheme 1
   head "https://github.com/manticoresoftware/manticoresearch.git", branch: "main"
 
   stable do
-    url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/29.9.0.tar.gz"
-    sha256 "e1dc58dc671e74278a6ab5327c2fc666d75ae3ad6fbc59587f60376043f3cb4e"
+    url "https://github.com/manticoresoftware/manticoresearch/archive/refs/tags/32.1.3.tar.gz"
+    sha256 "3261be44aea2e8998a20602c2780dca96c1a00780b5115ca7a2535a9e9ed3e9f"
 
     resource "mcl" do
-      url "https://github.com/manticoresoftware/columnar/archive/cb282a2442d2d51349fbea67cda97c2dda37f0bd.tar.gz"
-      version "cb282a2442d2d51349fbea67cda97c2dda37f0bd"
-      sha256 "5d444222405c00ce21f3a360e5983b140247f43b18c7f01b85d4b564e87a8432"
+      url "https://github.com/manticoresoftware/columnar/archive/12f86b4299dcef1495972838b76931bf46e4426f.tar.gz"
+      version "12f86b4299dcef1495972838b76931bf46e4426f"
+      sha256 "54c4e48e283280eabbe664627bd6d1cb07306e6a8bf3fe9557dc366f1a9213f0"
 
       livecheck do
         url "https://api.github.com/repos/manticoresoftware/manticoresearch/contents/mcl?ref=#{LATEST_VERSION}"
