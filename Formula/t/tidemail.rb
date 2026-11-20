@@ -1,8 +1,8 @@
 class Tidemail < Formula
   desc "TUI email client, supports IMAP, Gmail & Outlook OAuth"
   homepage "https://github.com/allisonhere/tidemail"
-  url "https://github.com/allisonhere/tidemail/archive/refs/tags/v1.9.1.tar.gz"
-  sha256 "f2862c8457e8d309c66420a172882d53cff332a444cdf4d5caa7f31aaa6b9986"
+  url "https://github.com/allisonhere/tidemail/archive/refs/tags/v1.10.1.tar.gz"
+  sha256 "ac1e7cda883f3f5366beb6e10cb18f2dfb0d477afb4a7d43a6c45b9dcd6950ad"
   license "MIT"
 
   bottle do
