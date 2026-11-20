@@ -12,6 +12,7 @@ class CaCertificates < Formula
   end
 
   bottle do
+    manifest_sha256 "0d9bed8093966a8372a95f5d487db851d9a3fe36be88e957cb9ffe3d6fcb8f51"
     sha256 cellar: :any_skip_relocation, all: "8a5a35e1a3223e6bc6ca7c853e0ac3d2568de2cc329b61688682bdf57165dab9"
   end
 
