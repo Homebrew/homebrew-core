@@ -8,10 +8,9 @@ class MediaControl < Formula
   head "https://github.com/ungive/media-control.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "055b247273a3170f316a9613c1eee3f1e9fb9ee2fae7a1984a0b399dbfa5355c"
-    sha256 cellar: :any, arm64_tahoe:       "cfc4cf0de19ff242e778ad128ae8426dd9cfceb1219dd6805fd4e00705b9b887"
-    sha256 cellar: :any, arm64_sequoia:     "841f859af49fc3eb06f281a32542e981a9f89a8ef78eda6085aafdf6c567b15a"
-    sha256 cellar: :any, arm64_sonoma:      "3260ffd1db588139a363dc1930d5e13d23c56864707be2611d6ffe402a5a366b"
+    sha256 cellar: :any, arm64_golden_gate: "5b7c33de79c9dc316b8e15124bfa9037bfcc0117c31cdf14eab6c50009bf0812"
+    sha256 cellar: :any, arm64_tahoe:       "41f49bdc10831d383179b7347191444deb06cb5fcc1f3e6eea3588867f55e741"
+    sha256 cellar: :any, arm64_sequoia:     "29658b117a51f897073b33a74a24d093c14b56d0a9376e34c6653cec7376f36c"
   end
 
   depends_on "cmake" => :build
