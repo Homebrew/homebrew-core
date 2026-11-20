@@ -7,11 +7,11 @@ class Mongosh < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d9676ad5671422ef3f271ac5c2e2c3015e41b4931569c4121ba7122aa260ea5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d9676ad5671422ef3f271ac5c2e2c3015e41b4931569c4121ba7122aa260ea5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7d9676ad5671422ef3f271ac5c2e2c3015e41b4931569c4121ba7122aa260ea5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8a7f0c0fe173dee510b7bbdab31af10067e1055a89cf35043d466d733f3f352c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8a7f0c0fe173dee510b7bbdab31af10067e1055a89cf35043d466d733f3f352c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "070ac2f0cb2f938c45875b3092f653be20d734bc47ca4af26de30f8aab9b6006"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "070ac2f0cb2f938c45875b3092f653be20d734bc47ca4af26de30f8aab9b6006"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "070ac2f0cb2f938c45875b3092f653be20d734bc47ca4af26de30f8aab9b6006"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "41beb13ba831682c7e113cf49fd8a6013d7fab9b708c39cda63d747607e3bb6f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "41beb13ba831682c7e113cf49fd8a6013d7fab9b708c39cda63d747607e3bb6f"
   end
 
   depends_on "node"
