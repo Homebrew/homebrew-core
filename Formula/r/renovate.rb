@@ -10,11 +10,11 @@ class Renovate < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9dbc1e89280bed789d662d626cf49c7ed0f87c0e6f3cd2139dbefb07f0fc1da4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9dbc1e89280bed789d662d626cf49c7ed0f87c0e6f3cd2139dbefb07f0fc1da4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9dbc1e89280bed789d662d626cf49c7ed0f87c0e6f3cd2139dbefb07f0fc1da4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d1bea72287f17c5ad17f3c5bd558409867703fb24f4ebd91ee35e8587a4a6539"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d1bea72287f17c5ad17f3c5bd558409867703fb24f4ebd91ee35e8587a4a6539"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b8413143b95423191579eb91b1d675da937c599c279c0e4d2f437a8f8f808d82"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8413143b95423191579eb91b1d675da937c599c279c0e4d2f437a8f8f808d82"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8413143b95423191579eb91b1d675da937c599c279c0e4d2f437a8f8f808d82"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "2d0fa0af382519add82e43da27d88b6f418d99bbbd3b87d701f55a42856428bb"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "2d0fa0af382519add82e43da27d88b6f418d99bbbd3b87d701f55a42856428bb"
   end
 
   depends_on "node"
