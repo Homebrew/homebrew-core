@@ -2,9 +2,9 @@ class Php < Formula
   desc "General-purpose scripting language"
   homepage "https://www.php.net/"
   # Should only be updated if the new version is announced on the homepage, https://www.php.net/
-  url "https://www.php.net/distributions/php-8.5.12.tar.xz"
-  mirror "https://fossies.org/linux/www/php-8.5.12.tar.xz"
-  sha256 "08bc2eba2a588654ade1357174aa646b761556c862dda0678345ee29ed481209"
+  url "https://www.php.net/distributions/php-8.6.0.tar.xz"
+  mirror "https://fossies.org/linux/www/php-8.6.0.tar.xz"
+  sha256 "5f84beaa3d763aee1e4feed99bf54ec692c383b322e25626807b589238c3a087"
   license all_of: [
     "PHP-3.01",
 
@@ -29,7 +29,6 @@ class Php < Formula
     "TCL",                   # 7
     "Zlib",                  # 8
   ]
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -38,11 +37,11 @@ class Php < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "a006f7d2db97ee5dc04d78aa89c0af4eb2ea9ec6cd7d80e41eb60fc39f24b8a5"
-    sha256 arm64_tahoe:       "4f694b2ea3c64b0fe85b253c0066f92b238540c9e984b0aebf2204ad19b36c89"
-    sha256 arm64_sequoia:     "a0f7e41f86b1f166cdd618799e66c2c5d00ae1e4cda1637ec368c347a0fe80e5"
-    sha256 arm64_linux:       "0cdb1f88d3d8626eda805b0b13a38b0c3184d62781b537e09ee8b0a38e734e05"
-    sha256 x86_64_linux:      "6da48164a7e9730b746b66d1882cc0155e4421747ff65990f33933e5ee639040"
+    sha256 arm64_golden_gate: "83ec7268d2de214a557e76cfb505f30284af750b163c112060bee990117ff5d6"
+    sha256 arm64_tahoe:       "8849e95ed67e53a2f7b5c78635aee5efb1a55da18479745673bc94cfcd5730d9"
+    sha256 arm64_sequoia:     "5f3146f2c36f3eb806c9f7f1340a3b9be6709db5cf6359633fb1d5476345d9ce"
+    sha256 arm64_linux:       "5f5b1a8d058fce0328cfb40aaf72df0e10e3a50b12480f491afaed0ae1485c5a"
+    sha256 x86_64_linux:      "1327147a7434191a9b792beda94a39c03d72641bae134b58ef17a5fe58aaeafc"
   end
 
   head do
@@ -168,6 +167,7 @@ class Php < Formula
       --enable-mbstring
       --enable-mysqlnd
       --enable-pcntl
+      --enable-pic
       --enable-phpdbg
       --enable-phpdbg-readline
       --enable-shmop
@@ -204,7 +204,6 @@ class Php < Formula
       --with-pdo-pgsql=#{formula_opt_prefix("libpq")}
       --with-pdo-sqlite
       --with-pgsql=#{formula_opt_prefix("libpq")}
-      --with-pic
       --with-snmp=#{formula_opt_prefix("net-snmp")}
       --with-sodium
       --with-sqlite3

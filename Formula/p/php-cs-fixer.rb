@@ -4,12 +4,14 @@ class PhpCsFixer < Formula
   url "https://github.com/PHP-CS-Fixer/PHP-CS-Fixer/releases/download/v3.95.32/php-cs-fixer.phar"
   sha256 "5c5358423ee19cc73e436da1bf0f0171bf3ce99efd2e323fe5e312795f7763b1"
   license "MIT"
+  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "a3ef317e49133d6c80ac2df1fad5b78dabe0f4821c628092877e35485b3a3962"
+    sha256 cellar: :any_skip_relocation, all: "71de1d5f4c37a7ccc048d754cd376d5d1b81cd4b4b1d4cf9de4d2feee45c39ae"
   end
 
-  depends_on "php"
+  # TODO: switch to unversioned php
+  depends_on "php@8.5"
 
   deny_network_access!
 
@@ -17,7 +19,7 @@ class PhpCsFixer < Formula
     libexec.install "php-cs-fixer.phar"
 
     (bin/"php-cs-fixer").write <<~PHP
-      #!#{formula_opt_bin("php")}/php
+      #!#{formula_opt_bin("php@8.5")}/php
       <?php require '#{libexec}/php-cs-fixer.phar';
     PHP
   end

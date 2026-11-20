@@ -22,11 +22,12 @@ class Phpmyadmin < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2047290d2b40a179ad79f4ed3890ebcbb5a6177c6f5279f55d8d41e866a1111a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "1da2339c67a3ef693c2a1c7612ba8c325e9fd793bd0a2f08706a48e746cc40e7"
   end
 
-  depends_on "php" => :test
+  # TODO: switch to unversioned php
+  depends_on "php@8.5" => :test
 
   deny_network_access!
 
@@ -70,7 +71,7 @@ class Phpmyadmin < Formula
   end
 
   test do
-    php = formula_opt_bin("php")/"php"
+    php = formula_opt_bin("php@8.5")/"php"
     cd pkgshare do
       assert_match "German", shell_output("#{php} #{pkgshare}/index.php")
     end
