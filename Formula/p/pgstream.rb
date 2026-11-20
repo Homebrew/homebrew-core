@@ -14,7 +14,7 @@ class Pgstream < Formula
   end
 
   depends_on "go" => :build
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "wal2json" => :test
 
   allow_network_access! :test
@@ -34,25 +34,25 @@ class Pgstream < Formula
     assert_match version.to_s, shell_output("#{bin}/pgstream --version")
 
     ENV["LC_ALL"] = "C"
+    ENV["PGDATA"] = testpath/"test"
 
-    postgresql = Formula["postgresql@18"]
-    pg_ctl = postgresql.opt_bin/"pg_ctl"
+    pg_ctl = formula_opt_bin("postgresql@19")/"pg_ctl"
     port = free_port
 
-    system pg_ctl, "initdb", "-D", testpath/"test"
+    system pg_ctl, "initdb"
     (testpath/"test/postgresql.conf").write <<~CONF, mode: "a+"
       port = #{port}
       shared_preload_libraries = 'wal2json'
       output_plugin_libraries = 'pgoutput, test_decoding, wal2json'
       wal_level = logical
     CONF
-    system pg_ctl, "start", "-D", testpath/"test", "-l", testpath/"log"
+    system pg_ctl, "start", "--log=#{testpath}/log"
 
     begin
       url = "postgres://localhost:#{port}/postgres?sslmode=disable"
       system bin/"pgstream", "init", "--postgres-url", url
     ensure
-      system pg_ctl, "stop", "-D", testpath/"test"
+      system pg_ctl, "stop"
     end
   end
 end
