@@ -9,11 +9,11 @@ class Boring < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b47dd1aa5e28c3f6a77c369a4635ee169c3d7d8835f278fdc8311bb6c479e54b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b47dd1aa5e28c3f6a77c369a4635ee169c3d7d8835f278fdc8311bb6c479e54b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b47dd1aa5e28c3f6a77c369a4635ee169c3d7d8835f278fdc8311bb6c479e54b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ac883f49524f39e2d56711f8fd5a8a3d2c730d8f0dca9dcc89c8963d664203bd"
-    sha256 cellar: :any,                 x86_64_linux:      "c7fedff28f89686921a73289dd5e639df6248e7704781338e3de5cf483c557cf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ecca6d8bfaec63324cafdb919dbdf552427102c0c7dbaaf3f194839089ab8dc5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ecca6d8bfaec63324cafdb919dbdf552427102c0c7dbaaf3f194839089ab8dc5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ecca6d8bfaec63324cafdb919dbdf552427102c0c7dbaaf3f194839089ab8dc5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b70036bd3bd0784d98ef75249dfc471dc38783595ec35b6aa7768282febcfcdb"
+    sha256 cellar: :any,                 x86_64_linux:      "5af1acd972c90d668497ae3f1a7e0c03023cf98d3524d04c9a52019c1bf7f367"
   end
 
   depends_on "go" => :build
