@@ -4,6 +4,7 @@ class Cherrytree < Formula
   url "https://github.com/giuspen/cherrytree/releases/download/v1.7.3/cherrytree_1.7.3.tar.xz"
   sha256 "c7da94b3e249d6edf64a57bdf51a53749fd9b36a13b0fbaa34cc30270347c71f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/giuspen/cherrytree.git", branch: "master"
 
   livecheck do
@@ -59,11 +60,7 @@ class Cherrytree < Formula
   deny_network_access!
 
   def install
-    # Link libxml2 directly: cherrytree uses its C API but CMake only links libxml++
-    ENV.append "LDFLAGS", "-Wl,--no-as-needed" if OS.linux?
-    ENV.append "LDFLAGS", "-lxml2"
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_LIBXMLPP5=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
