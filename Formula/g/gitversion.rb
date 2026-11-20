@@ -1,18 +1,18 @@
 class Gitversion < Formula
   desc "Easy semantic versioning for projects using Git"
   homepage "https://gitversion.net/docs/"
-  url "https://github.com/GitTools/GitVersion/archive/refs/tags/7.0.0.tar.gz"
-  sha256 "3162799004cdf1187d80906e38c1761f796ad21cd935ea67597f5efc8b3e5a11"
+  url "https://github.com/GitTools/GitVersion/archive/refs/tags/7.0.1.tar.gz"
+  sha256 "a6b01ce3850e132760da786be07b8603eb1a1492ba0476dd243117cd5e472731"
   license "MIT"
 
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "cd4e57eb3fffe4bf0295008524a29b8b6ebedf51a7b2a05589b22944b2bd11f8"
-    sha256 cellar: :any, arm64_tahoe:       "5496b0469bddaca7d8c9be24aeda230b219424ef20e3ae65af23923f33c939db"
-    sha256 cellar: :any, arm64_sequoia:     "f38bbf3adcbf28e83fa3172319f62a3b3854e994f863c2808b520b580bb9fc9f"
-    sha256 cellar: :any, arm64_linux:       "fd8d81c07e4e701708743e68d8a7e1b165932466a7ebda4bf3b313e1af2edf6a"
-    sha256 cellar: :any, x86_64_linux:      "7604f10288bc1af927fdc2d707890767663a075bba0a39a60ab49326f5288c28"
+    sha256 cellar: :any, arm64_golden_gate: "992f61fca409cb148c6ac95e02ea1c082e1285e870ae274d17da31cc638540ea"
+    sha256 cellar: :any, arm64_tahoe:       "35d54be91f8f4363667456822404fa6f724919142e1ac51c6745703d63ea14c3"
+    sha256 cellar: :any, arm64_sequoia:     "ac4ca570dc73cb0af8b79d5d8107a5166648f400e7c022da6580eb5d2cd66443"
+    sha256 cellar: :any, arm64_linux:       "4659832468c62b09936c9f0957c504cd893db4266b36915180d024a6af6bc7a6"
+    sha256 cellar: :any, x86_64_linux:      "0edfd4801cd3343a86cbd728e46c3868dd632db33913a17e657933af0ae6181a"
   end
 
   depends_on "dotnet"
