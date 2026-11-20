@@ -1,8 +1,8 @@
 class AngularCli < Formula
   desc "CLI tool for Angular"
   homepage "https://angular.dev/cli/"
-  url "https://registry.npmjs.org/@angular/cli/-/cli-22.2.8.tgz"
-  sha256 "be53b34de12a9e7ad6e995bfea7df484b446ca7cbd2c58a239bcdc02a88f928d"
+  url "https://registry.npmjs.org/@angular/cli/-/cli-22.3.0.tgz"
+  sha256 "cb7eb35f2aa5242e5e161c5a906eaf2f72dd78423d3dcff1b564ef8a23646336"
   license "MIT"
 
   bottle do
@@ -20,8 +20,8 @@ class AngularCli < Formula
 
     # Rebuild the prebuilt `oxc-parser` binding as it lacks header space for relocation
     resource "oxc" do
-      url "https://github.com/oxc-project/oxc/archive/refs/tags/crates_v0.156.0.tar.gz"
-      sha256 "6d27e3c3458bffbd466091dbfd9edda06021e77aa680f508dfaafe8406669c6d"
+      url "https://github.com/oxc-project/oxc/archive/refs/tags/crates_v0.158.0.tar.gz"
+      sha256 "c26aeb000af3ab57bd65b237a857444f4b0d955a5df7bd06a3356e4f62e51e66"
 
       livecheck do
         url "https://registry.npmjs.org/@schematics/angular/latest"
