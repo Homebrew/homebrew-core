@@ -1,8 +1,8 @@
 class Mdds < Formula
   desc "Multi-dimensional data structure and indexing algorithm"
   homepage "https://gitlab.com/mdds/mdds"
-  url "https://gitlab.com/api/v4/projects/mdds%2Fmdds/packages/generic/source/3.2.1/mdds-3.2.1.tar.bz2"
-  sha256 "2ed33238ca9e42cc9ffa99a14adc80d86c09c0b0d001f876724ae3a167435048"
+  url "https://gitlab.com/api/v4/projects/mdds%2Fmdds/packages/generic/source/4.0.0/mdds-4.0.0.tar.bz2"
+  sha256 "4b04787c31c706ca1f3bd5a24e186b41f78ce772dfd22feb26737369ef522502"
   license "MIT"
   compatibility_version 1
 
@@ -37,7 +37,7 @@ class Mdds < Formula
       }
     CPP
     system ENV.cxx, "test.cpp", "-o", "test",
-                    "-std=c++17",
+                    "-std=c++20",
                     "-I#{include.children.first}"
     system "./test"
   end
