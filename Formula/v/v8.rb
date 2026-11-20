@@ -3,8 +3,8 @@ class V8 < Formula
   homepage "https://v8.dev/docs"
   # Track V8 version from Chrome stable: https://chromiumdash.appspot.com/releases?platform=Mac
   # Check `brew livecheck --resources v8` for any resource updates
-  url "https://github.com/v8/v8/archive/refs/tags/15.8.62.31.tar.gz"
-  sha256 "9492e7f62ead8e6fe9af154d551191598365b8f4dc0d7bc9d57839ee63e3ab06"
+  url "https://github.com/v8/v8/archive/refs/tags/15.9.128.11.tar.gz"
+  sha256 "b905c8aee902d904d3e02bb1f0e110f27343c729fe9f730fdb61c09fc60da678"
   license "BSD-3-Clause"
 
   livecheck do
@@ -24,11 +24,11 @@ class V8 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ed4843dbd2994d0ce489d4b9b78405aa686a4909c64c98e955588def3008922f"
-    sha256 cellar: :any, arm64_tahoe:       "e5e063358d860d8c55fa4181a5dc49a9beba20216436aaed2864bd7fcfd84879"
-    sha256 cellar: :any, arm64_sequoia:     "62b8a3f31cdb12f311038151aa197a17297aba0e5aa2fbe8b8f142b79bd1405a"
-    sha256 cellar: :any, arm64_linux:       "7a1502114c6cb5c5277e23f48621c14eb93bfa37475d7489c88b9f056765ce29"
-    sha256 cellar: :any, x86_64_linux:      "978088b516f4afecff7b9a4f49fe065f22f88a0aa819199c88c9855a83c3c608"
+    sha256 cellar: :any, arm64_golden_gate: "ded29c3fdf48d005563bc9d2cc643196c8f233d8bad83719a22635eaca6678ad"
+    sha256 cellar: :any, arm64_tahoe:       "3bfb929bb656a747a7d3471a9fdf49367f215610e3819d289d09d1bf2e247cf9"
+    sha256 cellar: :any, arm64_sequoia:     "b12f56e52ba59b36bfb718c1c281806336f7fb4ab0d6790bc61d97ece9d1a253"
+    sha256 cellar: :any, arm64_linux:       "d926e0cfd104b5452b37fc9c4c0545550e2c27152bc84c7d4f103a1e6a850be7"
+    sha256 cellar: :any, x86_64_linux:      "8b80f30f3fae0ff5e86110dd46f975f9212f7ff7d96b7e1e04e30d61f4554b7f"
   end
 
   depends_on "llvm" => :build
@@ -58,8 +58,8 @@ class V8 < Formula
   # e.g. for CIPD dependency gn: https://chromium.googlesource.com/v8/v8.git/+/refs/tags/<version>/DEPS#99
   resource "gn" do
     url "https://gn.googlesource.com/gn.git",
-        revision: "938087829fcbcc8fd87835ee301dd522c7637685"
-    version "938087829fcbcc8fd87835ee301dd522c7637685"
+        revision: "4df39f484f1f49f5c7f6264adc88d27811cb7b00"
+    version "4df39f484f1f49f5c7f6264adc88d27811cb7b00"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -69,8 +69,8 @@ class V8 < Formula
 
   resource "build" do
     url "https://chromium.googlesource.com/chromium/src/build.git",
-        revision: "0c1bea50d7016e2c9ca0c736765025d8f2284898"
-    version "0c1bea50d7016e2c9ca0c736765025d8f2284898"
+        revision: "af992619fc48cb7f698662654d15080a774b5bf1"
+    version "af992619fc48cb7f698662654d15080a774b5bf1"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -80,8 +80,8 @@ class V8 < Formula
 
   resource "buildtools" do
     url "https://chromium.googlesource.com/chromium/src/buildtools.git",
-        revision: "2f41b66d4857c8efbfcb2a350f159944f71dbf7e"
-    version "2f41b66d4857c8efbfcb2a350f159944f71dbf7e"
+        revision: "a9c58ac990557a29176bbaeef7577b196c38a950"
+    version "a9c58ac990557a29176bbaeef7577b196c38a950"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -91,12 +91,23 @@ class V8 < Formula
 
   resource "third_party/abseil-cpp" do
     url "https://chromium.googlesource.com/chromium/src/third_party/abseil-cpp.git",
-        revision: "9a0a43cbad88a77703bd73093011a62bbe0a6740"
-    version "9a0a43cbad88a77703bd73093011a62bbe0a6740"
+        revision: "d8ad4495323e7b20443e7129fcbfd7ee78282818"
+    version "d8ad4495323e7b20443e7129fcbfd7ee78282818"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
       regex(%r{["']/chromium/src/third_party/abseil-cpp\.git["']\s*\+\s*["']@["']\s*\+\s*["']([0-9a-f]+)["']}i)
+    end
+  end
+
+  resource "third_party/boringssl/src" do
+    url "https://boringssl.googlesource.com/boringssl.git",
+        revision: "5e1bfb45c353b2bb36bdf26b006ea8f5566c82d5"
+    version "5e1bfb45c353b2bb36bdf26b006ea8f5566c82d5"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
+      regex(%r{["']/boringssl\.git["']\s*\+\s*["']@["']\s*\+\s*["']([0-9a-f]+)["']}i)
     end
   end
 
@@ -113,8 +124,8 @@ class V8 < Formula
 
   resource "third_party/fast_float/src" do
     url "https://chromium.googlesource.com/external/github.com/fastfloat/fast_float.git",
-        revision: "42f254836ee416ffcf2f4e6576260003ac33d48c"
-    version "42f254836ee416ffcf2f4e6576260003ac33d48c"
+        revision: "dbeabeeb3e6791cb96994c2a7a084c36e62ccfb2"
+    version "dbeabeeb3e6791cb96994c2a7a084c36e62ccfb2"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -135,8 +146,8 @@ class V8 < Formula
 
   resource "third_party/googletest/src" do
     url "https://chromium.googlesource.com/external/github.com/google/googletest.git",
-        revision: "0b656495436f57212be8700794a3d5fb14000c5f"
-    version "0b656495436f57212be8700794a3d5fb14000c5f"
+        revision: "6450691fd7d07ef932582206fbafb1a513927e08"
+    version "6450691fd7d07ef932582206fbafb1a513927e08"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -157,8 +168,8 @@ class V8 < Formula
 
   resource "third_party/icu" do
     url "https://chromium.googlesource.com/chromium/deps/icu.git",
-        revision: "2a51536dfb3b448bdf3dae70c782ea2879c90904"
-    version "2a51536dfb3b448bdf3dae70c782ea2879c90904"
+        revision: "b09986242cfb165b9111ade98be6b042ef973b86"
+    version "b09986242cfb165b9111ade98be6b042ef973b86"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -168,8 +179,8 @@ class V8 < Formula
 
   resource "third_party/jinja2" do
     url "https://chromium.googlesource.com/chromium/src/third_party/jinja2.git",
-        revision: "c3027d884967773057bf74b957e3fea87e5df4d7"
-    version "c3027d884967773057bf74b957e3fea87e5df4d7"
+        revision: "fde3c16799bd5937e4f15aedc9037c89f96236b9"
+    version "fde3c16799bd5937e4f15aedc9037c89f96236b9"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -179,8 +190,8 @@ class V8 < Formula
 
   resource "third_party/llvm-libc/src" do
     url "https://chromium.googlesource.com/external/github.com/llvm/llvm-project/libc.git",
-        revision: "631cc29c6dde5bafcf4b22674af6ecad67147977"
-    version "631cc29c6dde5bafcf4b22674af6ecad67147977"
+        revision: "885e2a900ba002ef0ba7b4757da90b0f3aa309e8"
+    version "885e2a900ba002ef0ba7b4757da90b0f3aa309e8"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -201,8 +212,8 @@ class V8 < Formula
 
   resource "third_party/partition_alloc" do
     url "https://chromium.googlesource.com/chromium/src/base/allocator/partition_allocator.git",
-        revision: "566ebad54d97777c36615883259a9f9d2c106d37"
-    version "566ebad54d97777c36615883259a9f9d2c106d37"
+        revision: "cf4e6581d2404fdd11b903ca1e7c3e04e679751b"
+    version "cf4e6581d2404fdd11b903ca1e7c3e04e679751b"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
@@ -223,8 +234,8 @@ class V8 < Formula
 
   resource "third_party/zlib" do
     url "https://chromium.googlesource.com/chromium/src/third_party/zlib.git",
-        revision: "9f9f52c60a14e8e772fb561029ae0a121fef7609"
-    version "9f9f52c60a14e8e772fb561029ae0a121fef7609"
+        revision: "ec453dc9abac1ddf39ced752e72a7a80dcda1d91"
+    version "ec453dc9abac1ddf39ced752e72a7a80dcda1d91"
 
     livecheck do
       url "https://raw.githubusercontent.com/v8/v8/refs/tags/#{LATEST_VERSION}/DEPS"
