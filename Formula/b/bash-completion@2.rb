@@ -31,18 +31,18 @@ class BashCompletionAT2 < Formula
     depends_on "bash"
   end
 
+  # Allow all bottle to work on macOS without `readlink -f` (12.3+) or `realpath` (13+)
+  on_big_sur :or_older do
+    depends_on "coreutils"
+  end
+
   conflicts_with "bash-completion", because: "each are different versions of the same formula"
 
   deny_network_access!
 
   def install
-    inreplace "bash_completion" do |s|
-      # `/usr/bin/readlink -f` exists since macOS 12.3. Older systems
-      # (including earlier Monterey releases) do not support this option.
-      s.gsub! "readlink -f", "readlink" if OS.mac? && MacOS.version <= :monterey
-      # Automatically read Homebrew's existing v1 completions
-      s.gsub! "(/etc/bash_completion.d)", "(#{etc}/bash_completion.d)"
-    end
+    # Automatically read Homebrew's existing v1 completions
+    inreplace "bash_completion", "(/etc/bash_completion.d)", "(#{etc}/bash_completion.d)"
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
