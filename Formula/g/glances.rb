@@ -9,11 +9,12 @@ class Glances < Formula
   head "https://github.com/nicolargo/glances.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "18098ec6b3c51e28ecb7e29e31e8b2afbdd57e17b59143316dac4bddd96ab24b"
-    sha256 cellar: :any, arm64_tahoe:       "348d963b745c4215f5b60d2eb9ecf96d39d146f3f4d38ef17ecf96508cf4a43c"
-    sha256 cellar: :any, arm64_sequoia:     "025e73cfb3cfeac9bee46a84bfc17070320d8bd88d7a5db0b8f3f74841d2af19"
-    sha256 cellar: :any, arm64_linux:       "c6468e6dea91f621826d0b25dbcbe78f61a20f411743f9acb954a6c6ddd67919"
-    sha256 cellar: :any, x86_64_linux:      "2b93f5fdbc2db4dcef73f5546cf1863aa300429a91b58a235a08be19a8975ac1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2312c1f92c696b1e524bb9eeb5b6d2ec9da0197bc50259f984295a1164f1575e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3443d93627048e35f0b0e721ea86941b14bb30999b2b6d778a7e5a646a23620"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05d9d949326ed39e52a500f01a2e6a444e6d936e019f9d079285ab8b82d53cab"
+    sha256 cellar: :any,                 arm64_linux:       "8aae1e75ca343e1c75c46c199a78bd0c315319de925f71687c5590a6fed57dea"
+    sha256 cellar: :any,                 x86_64_linux:      "a85e3bb94fdd37ceeb0d3d1faf7fc846ebcdd308136f576ab0d39b7271a2335b"
   end
 
   depends_on "rust" => :build # for annotated-docs
@@ -21,14 +22,15 @@ class Glances < Formula
   depends_on "cryptography" => :no_linkage
   depends_on "pydantic" => :no_linkage
   depends_on "python@3.15"
+  depends_on "rpds-py" => :no_linkage
 
   pypi_packages package_name:     "glances[containers,mcp,web]",
-                exclude_packages: %w[certifi cryptography pydantic],
+                exclude_packages: %w[certifi cryptography pydantic rpds-py],
                 extra_packages:   "psutil"
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
-    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+    url "https://files.pythonhosted.org/packages/0b/7d/bdbf3062e5dae31da8b3de1e3269110beb93d268df4a7f6d22b167c6cee0/annotated_doc-0.0.7.tar.gz"
+    sha256 "0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5"
   end
 
   resource "anyio" do
@@ -62,8 +64,8 @@ class Glances < Formula
   end
 
   resource "fastapi" do
-    url "https://files.pythonhosted.org/packages/e9/eb/2cf8c80abf09b2800aef0a83b41066fbfda8ee5495b7a08b9d1af40f7046/fastapi-0.162.0.tar.gz"
-    sha256 "6a22c1e2e6e32e0633ee7e170f00009a29b8228b16feb219ee42f32fd8d88a8f"
+    url "https://files.pythonhosted.org/packages/4b/9f/d0e353b6c275329d17b1c926db48003e1276879855e8b6c87eb9d57907ad/fastapi-0.164.0.tar.gz"
+    sha256 "3db1b4b146924d284b33bd6b9ca244c8bd0560d5e3526591447fd3abe4383989"
   end
 
   resource "h11" do
@@ -72,13 +74,13 @@ class Glances < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz"
-    sha256 "c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643"
+    url "https://files.pythonhosted.org/packages/92/9d/df40b41f7db0370f82019820709244e7b660c52aa3da3c9e5c4e8141f6e6/httpcore2-2.16.2.tar.gz"
+    sha256 "6c519d0f7b44f7269fa9bbb4d2763db395a4a2370f046d8e8e0a4b38227815d2"
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz"
-    sha256 "0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f"
+    url "https://files.pythonhosted.org/packages/1c/77/6515121dc5ac3c743ad1bff5afe635bcd1a3f23cc40db3c5c89f7d02917d/httpx2-2.16.2.tar.gz"
+    sha256 "748b615678f07d8e3b183efe81ad13b655ca88bfc56ce4589219b2d442860574"
   end
 
   resource "idna" do
@@ -152,8 +154,8 @@ class Glances < Formula
   end
 
   resource "python-multipart" do
-    url "https://files.pythonhosted.org/packages/9f/b7/15b905f6142a9a8a68f66900788da1a32e4d4254452783b37ad1eccb0506/python_multipart-0.0.33.tar.gz"
-    sha256 "b8112424a6abd162ec08d390565dd113ad699f2fe6fef3c987b8bbcbfe9e390d"
+    url "https://files.pythonhosted.org/packages/7e/c0/c753d487a83d873f6946cee6cbc26cea3fe59a476ad0de99a14938a2fbd8/python_multipart-0.0.34.tar.gz"
+    sha256 "b998ae90ca6e1e363261ce2e0e230281b8af53867b757970abd69ee9edcd843a"
   end
 
   resource "referencing" do
@@ -171,11 +173,6 @@ class Glances < Formula
     sha256 "7681a0a3d047012b5bdc0ee37d7f8f07ebe76ab08caeccfc3921ce23c88d5bc6"
   end
 
-  resource "rpds-py" do
-    url "https://files.pythonhosted.org/packages/42/68/3bd46b8a5e01d3c2ebdf9c5e9497912e3fe0cde02bac21a7130ca866e403/rpds_py-2026.9.1.tar.gz"
-    sha256 "4793ef7f78268b124b73fa933440f01d258bbae01de9fa53e9080c9ab0425a12"
-  end
-
   resource "shtab" do
     url "https://files.pythonhosted.org/packages/ff/dd/e58588cf2d02266d504f4399979740b8b2b61fbd7719a89578afaa6558a3/shtab-1.13.0.tar.gz"
     sha256 "0a5be9d7ab2b4549e9a38252abcd5ecf5ec6813ecd80c6b06fa851bff55a5085"
@@ -187,8 +184,8 @@ class Glances < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/71/7f/3b8ec4f27833f7b8c270a3ef960b6d435e1065439847bc0fcd1e58ae898b/sse_starlette-3.6.0.tar.gz"
-    sha256 "623151d6c20dc0eebf1b3379c27faae91fff883bac7ab6665f16f46440a88b3a"
+    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
+    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
   end
 
   resource "starlette" do
