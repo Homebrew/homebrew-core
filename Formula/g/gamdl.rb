@@ -3,16 +3,16 @@ class Gamdl < Formula
 
   desc "Python CLI app for downloading Apple Music songs, music videos and post videos"
   homepage "https://github.com/glomatico/gamdl"
-  url "https://files.pythonhosted.org/packages/36/61/f21a0652af1f51b854a55647d798564300ff4780998bf62c5515357df773/gamdl-4.0.2.tar.gz"
-  sha256 "2ddaf97c889ea4ae559d2bae7fc498534acf19e0904e345f1c36ffa9958ecdbd"
+  url "https://files.pythonhosted.org/packages/57/9a/ea2b42e568ae727c15b6cbf89839e2edcbdaaaecd24617aa88fb0bba1662/gamdl-4.1.1.tar.gz"
+  sha256 "0a290b79e4ac2e6ccd607795ec6a346305220002a73d328dac487639cefdbeeb"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "dc6c04f0207be0a4bfcad3a2e478993fc78a31f3628b835785f34f9f8e8901e5"
-    sha256 cellar: :any, arm64_tahoe:       "f74cb1b6b55818732a7eb17cf93bf82d4e24bcf5038cf7b684f2f6d158514768"
-    sha256 cellar: :any, arm64_sequoia:     "db8042b8d59adfd06c5f0b4dff37a44c75bfcc66b98ef542165e13c08479991a"
-    sha256 cellar: :any, arm64_linux:       "72f480c54e136f63c2572daf6d0521430d29651165193055c0fc9fd545e9be16"
-    sha256 cellar: :any, x86_64_linux:      "0857b323700139fa9330060d23cf9b1adcc4636201227fd2c8805e5655d3085c"
+    sha256 cellar: :any, arm64_golden_gate: "faa100bab79cd49318d7cd68cedbc47b5b2f9e7e0d66d80292188d44635a899e"
+    sha256 cellar: :any, arm64_tahoe:       "9a097193efaf5cef878afa2113f49a3bfdf6d0ac9bad711d4c96f736c43bb11c"
+    sha256 cellar: :any, arm64_sequoia:     "b5d1c8f4638348641641f9cf3a150f8d8d08437d99bfe88fd1c4322289886ecb"
+    sha256 cellar: :any, arm64_linux:       "c595bc730a79ddf6cd18776b902eeca09a62f48a8d4d17bcf282851a3a7752bd"
+    sha256 cellar: :any, x86_64_linux:      "52b51743856f5e7ed350610b4b5e93ab2ac7fc48953d4a06f060178a1330a993"
   end
 
   depends_on "rust" => :build
@@ -130,8 +130,8 @@ class Gamdl < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "prompt-toolkit" do
