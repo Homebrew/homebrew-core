@@ -1,8 +1,8 @@
 class Dissent < Formula
   desc "GTK4 Discord client in Go"
   homepage "https://github.com/diamondburned/dissent"
-  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.41.tar.gz"
-  sha256 "d31559e994798b47b3cf1440db3565fa0cfff7a9b1c67e49470509569cb8963e"
+  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.50.tar.gz"
+  sha256 "b60e7b27b05ec8402b22855009f708355065501628dde5c7c14855aaa3a5d0e1"
   license "GPL-3.0-or-later"
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
@@ -53,7 +53,8 @@ class Dissent < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args
+    # Browser login needs webkitgtk-6.0 (GTK 4), but `webkitgtk` is built for GTK 3
+    system "go", "build", *std_go_args(tags: "nowebkit")
   end
 
   test do
