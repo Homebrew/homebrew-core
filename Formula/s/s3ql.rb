@@ -3,10 +3,9 @@ class S3ql < Formula
 
   desc "POSIX-compliant FUSE filesystem using object store as block storage"
   homepage "https://github.com/s3ql/s3ql"
-  url "https://github.com/s3ql/s3ql/releases/download/s3ql-6.3.1/s3ql-6.3.1.tar.gz"
-  sha256 "79d805de38ab0501f1457149e888c143f08ccd3aba7283d0cc845ca5bb662de6"
+  url "https://github.com/s3ql/s3ql/releases/download/s3ql-6.4.0/s3ql-6.4.0.tar.gz"
+  sha256 "3edf5ecbe6ef3d1276b1d1533524ccc3f452a0068d966756fc42088b92567d64"
   license "GPL-3.0-only"
-  revision 3
 
   livecheck do
     url :stable
@@ -14,8 +13,8 @@ class S3ql < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "0e6aab2e0e23aecac310c7d69243ba0dd115fd15c8be298c5ea7529e9318ae46"
-    sha256 cellar: :any, x86_64_linux: "cd64916374bd6164402abdcc48ecb1f78662f2a93a2a2455d679cb14b6d5e52e"
+    sha256 cellar: :any, arm64_linux:  "26c9a6fc46f42a7865f365871cfe282b0f6c7a0ac07aaf62851ea9836cec2952"
+    sha256 cellar: :any, x86_64_linux: "8b670251726d1e8149ce80e70c1fdc41763e905fffc40209eeed8e7891d85bea"
   end
 
   depends_on "pkgconf" => :build
@@ -31,8 +30,8 @@ class S3ql < Formula
   pypi_packages exclude_packages: %w[certifi cryptography pydantic]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
-    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+    url "https://files.pythonhosted.org/packages/0b/7d/bdbf3062e5dae31da8b3de1e3269110beb93d268df4a7f6d22b167c6cee0/annotated_doc-0.0.7.tar.gz"
+    sha256 "0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5"
   end
 
   resource "anyio" do
@@ -61,8 +60,8 @@ class S3ql < Formula
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
-    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
+    url "https://files.pythonhosted.org/packages/4a/d4/87353e950d653d87360176363d51f316e8e368e1ddbb7ba7aa5503c30c3e/google_auth-2.62.2.tar.gz"
+    sha256 "046c61a72d3a847d6df6417a7f0d5cf054e3b82bbcb54fb1e69d47880964049c"
   end
 
   resource "google-auth-oauthlib" do
@@ -86,8 +85,8 @@ class S3ql < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdurl" do
@@ -166,8 +165,8 @@ class S3ql < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/bf/21/37383ece7d0a4995fb8ea97729207c4292b3ff94085002f37b2387063cfb/typer-0.29.2.tar.gz"
+    sha256 "b1998dc5f2c3dedafa1517a9521fa944cc4dc1fadcea085d81a3b10ebcaeb075"
   end
 
   resource "urllib3" do
