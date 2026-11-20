@@ -75,6 +75,7 @@ class Readline < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "cf6434889ede9b443c44a678b7467b6a196038eaebc74e310e5d72060d3903ac"
     sha256 cellar: :any, arm64_golden_gate: "74b458562c5a589a612ebba8f8fc12f3ecbe083223eb4a368c723d88b26a454d"
     sha256 cellar: :any, arm64_tahoe:       "15cdd69af824537192843db389cbfd2459b3797cf4f36c906f8f8ab617d7d59f"
     sha256 cellar: :any, arm64_sequoia:     "461763fa21c050a59e5bbceedf67dcacf24e4aa4604490d73f0c9fa0f40e7fe5"
