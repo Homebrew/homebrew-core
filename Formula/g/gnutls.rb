@@ -31,14 +31,11 @@ class Gnutls < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "366c9b9c0a6b246af58952c4bb5ac921ec5be87bdc23c0b9d8b2ca97b1a3d996"
-    sha256 cellar: :any, arm64_tahoe:       "a2334eb50a165945aad7df804a3e846053de62973f6aee8060fec8c16c59446b"
-    sha256 cellar: :any, arm64_sequoia:     "0c8ba0cb42636a98b28a2c173b33c4298a286972a9838d27602f0bbc860acdbb"
-    sha256 cellar: :any, arm64_sonoma:      "3e7fd6bf0a203f1b700c3c7e73d3a99b06c678eeb5335341339659ab5f00655c"
-    sha256 cellar: :any, sonoma:            "77ec479ca9c1a6c80058f5bc9a908a1afd271f39a5cf69935e07fea4129a3824"
-    sha256               arm64_linux:       "1f5ee025df39e40fb4197fdb0ab82f4f657a70972554e8296af6b910d80f9e47"
-    sha256               x86_64_linux:      "8ac010d174af7ca336b9113fa208aa05104eb6b60e4e42f86c4212ad77ff6ad2"
+    sha256 cellar: :any, arm64_golden_gate: "c118d53b47033725a76201d0f0c65bbbffa7176a5f54021c067c84381b194b50"
+    sha256 cellar: :any, arm64_tahoe:       "5509d03e9fe545ff0848d3a5ee1c23a2e6ae077e6755cd0b04cca4b2d15b7872"
+    sha256 cellar: :any, arm64_sequoia:     "0f91625c5ac8e6d4542de6eb8b484fa78074dc9b23c01afa7471cd08f2d9791f"
+    sha256               arm64_linux:       "2eae01b3627aa62f7635ab50174c250e9a02796c26abc3bb92b7bc092809e7de"
+    sha256               x86_64_linux:      "be82965b59fff42219ed399bbe6463aa0ef44e6bebc310599f7f1fc2118f1378"
   end
 
   depends_on "pkgconf" => :build
