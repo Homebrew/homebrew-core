@@ -1,8 +1,8 @@
 class Nmstatectl < Formula
   desc "Command-line tool that manages host networking settings in a declarative manner"
   homepage "https://nmstate.io/"
-  url "https://static.crates.io/crates/nmstatectl/nmstatectl-2.2.62.crate"
-  sha256 "3ad5a2d991e13dbdad1d0dbb6d8694cb6004712744dea38ba31d41392a0647bd"
+  url "https://static.crates.io/crates/nmstatectl/nmstatectl-2.2.63.crate"
+  sha256 "86ba1ec1ea4059c75dc27dd4284a0e83e0b1311c0949668ab58ef9781f521e66"
   license "Apache-2.0"
   head "https://github.com/nmstate/nmstate.git", branch: "base"
 
