@@ -11,6 +11,11 @@ class Ry < Formula
     sha256 cellar: :any_skip_relocation, all: "8b92938f20452bf4ad49ef46d0788aac93d5b7f5846cfd3fbaa387da67a2e56e"
   end
 
+  # Last release on 2014-04-01, last activity on 2015-01-22.
+  # On deprecation date, analytics had 0 installs in 90 days
+  deprecate! date: "2026-11-20", because: :unmaintained
+  disable! date: "2027-05-20", because: :unmaintained
+
   depends_on "bash-completion"
   depends_on "ruby-build"
 
