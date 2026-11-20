@@ -1,24 +1,18 @@
 class Libffcall < Formula
   desc "GNU Foreign Function Interface library"
   homepage "https://www.gnu.org/software/libffcall/"
-  url "https://ftpmirror.gnu.org/libffcall/libffcall-2.5.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/libffcall/libffcall-2.5.tar.gz"
-  sha256 "7f422096b40498b1389093955825f141bb67ed6014249d884009463dc7846879"
+  url "https://ftpmirror.gnu.org/libffcall/libffcall-2.6.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/libffcall/libffcall-2.6.tar.gz"
+  sha256 "7e3951d642a1884adaf7f15c60df1bf8fbde686daa9fa69df1a514471b8cff39"
   license "GPL-2.0-or-later"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "b4f50e5ea72969477339e4d0a22883eb4a0a2686a8fa55bd2ef40b3e7a6cd1ff"
-    sha256 cellar: :any,                 arm64_tahoe:       "fbe3ce6fb6c30092a721dbfcbcfbe662320e3cd25095ddbc486762494d53d4cb"
-    sha256 cellar: :any,                 arm64_sequoia:     "e93c50e4766acad117fedb1330c4f90b07d0badda4f3d63aa9a19aa648ac4432"
-    sha256 cellar: :any,                 arm64_sonoma:      "ec1b54aeab6d34a9ab35e7e376ed02847f08a29de71a3d4768fa96954327127c"
-    sha256 cellar: :any,                 arm64_ventura:     "958171b0bcdc0974726cfff41c6de58c7e4f90017b4fb9d881b968e8d1612fdf"
-    sha256 cellar: :any,                 arm64_monterey:    "89ae257133dd08f737b51cafdbb62ee4aa5d6896d21f78e95673985a6639d265"
-    sha256 cellar: :any,                 sonoma:            "39a00f8aa8c633d254f3dd8de7cd584e825a71d135b9ca3455dad8b1efe4169f"
-    sha256 cellar: :any,                 ventura:           "ad7787776409d59f5b45119a6b799af71c09a7ab6f50970e4b563cb1b6d5e150"
-    sha256 cellar: :any,                 monterey:          "d625f99cb896c08b3aeccfda72807c229e079f923f83be78a96d9d0433d47a03"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "12c0105ace9d81015418ec1ffb4226ba5b249c107c5dc0aa679a97b20afa4ced"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5d42265685ccd225935b647212b027cabcf753fdd4c7f2596d9e30f3be1e8d40"
+    sha256 cellar: :any, arm64_golden_gate: "77729a92694af90b17873ca592d21a468a06a1054c1029b2551ad9a767758bc3"
+    sha256 cellar: :any, arm64_tahoe:       "43b81e5f5874e3fe1fba31e6e5c7dcc4d0674d8c0cfc0c1c0449b9e810118ea8"
+    sha256 cellar: :any, arm64_sequoia:     "b4db7f982f859bd96dbfdfa774eebdbe775e920ed8c719e4e6e4e254aaa4e95f"
+    sha256 cellar: :any, arm64_linux:       "e91715c47088a1d58752e14df1b3f7151b906bd1ba4b423ea9030267afd8eb33"
+    sha256 cellar: :any, x86_64_linux:      "6806137374966f0e35097bf9e5704795f0809c06398aed1a4f86414ed1f31419"
   end
 
   conflicts_with "epics-base", because: "both install `callback.h` header"
