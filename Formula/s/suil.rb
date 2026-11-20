@@ -27,20 +27,13 @@ class Suil < Formula
   depends_on "libx11"
   depends_on "lv2"
 
-  on_macos do
-    # Can undeprecate if new release with Qt 6 support is available.
-    # Alternatively can just build direct X11 wrapper (libsuil_x11.dylib)
-    # Issue ref: https://gitlab.com/lv2/suil/-/issues/11
-    deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5. Cocoa support will be removed after 2026-11-19"
-
-    depends_on "qt@5" # cocoa still needs Qt5
-  end
-
   on_linux do
     depends_on "glib"
     depends_on "gtk+3"
     depends_on "qtbase"
   end
+
+  deny_network_access!
 
   def install
     system "meson", "setup", "build", *std_meson_args
