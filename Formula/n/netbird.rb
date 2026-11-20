@@ -6,11 +6,11 @@ class Netbird < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ca14b4bc96e43cca2bb8b9814021b883a021e3bb2fe3373ac1fc32bcdf8360c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ca14b4bc96e43cca2bb8b9814021b883a021e3bb2fe3373ac1fc32bcdf8360c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ca14b4bc96e43cca2bb8b9814021b883a021e3bb2fe3373ac1fc32bcdf8360c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1398ed8ac4fc0edce489d3219bb1632e3feb42e821b49d95c74cb35c9383375d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9474b7308b398a47ecc323b70ee4e7c3abdf88707336ee72139f9df4ee64404d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b83d4f778af0b08a265314ef33c8bf931c61058315a8e0ffc3e77985391a3441"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b83d4f778af0b08a265314ef33c8bf931c61058315a8e0ffc3e77985391a3441"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b83d4f778af0b08a265314ef33c8bf931c61058315a8e0ffc3e77985391a3441"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "944ba40dec52f1db08adfb612b9f28d3a128e7064326d6b92e786b1679cb0ebc"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5c77026a38ee2b62e580c6c3649edf2cdfcb83af2d6373a1408944450f80fa1d"
   end
 
   depends_on "go" => :build
