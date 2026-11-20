@@ -1,19 +1,17 @@
 class Rasusa < Formula
   desc "Randomly subsample sequencing reads or alignments"
   homepage "https://doi.org/10.21105/joss.03941"
-  url "https://github.com/mbhall88/rasusa/archive/refs/tags/5.1.0.tar.gz"
-  sha256 "c58ee8cdb2e40c921fbef4b8ceffcb7999687b473152f942a6bda0089da6b256"
+  url "https://github.com/mbhall88/rasusa/archive/refs/tags/5.1.1.tar.gz"
+  sha256 "c9674624e2a24af5924b55709969e761e2b6abb43fe8cf45abfd40d693b65c26"
   license "MIT"
   head "https://github.com/mbhall88/rasusa.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6797f148c8ce13f290e4e2b6d90c6f41d65f49e040ee59cf4939c473cbcbc3b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "84e4c2e53b22b7694d71ea8101fdbf6eff284c1f33b910e6294e5caf835367be"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa84277a578b086b7ca25187150b4fb85074c15ebc2d7158a2a32422d404d43e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e5a9c290c011b8ba91865c5e72497a803b78724682dd07f2dfdf86609a462bb0"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3fd5eabbce7f8187d33ee041e00b65bd833a9aa8c72d4b38638effd74cd57e37"
-    sha256 cellar: :any,                 arm64_linux:       "930b293dea8704291bf7813cb533330bbeb0fe1a6adf90ec8cc6ff71515cb4c5"
-    sha256 cellar: :any,                 x86_64_linux:      "0603d85ca2e35d78f396eadec3212371e1bf6408ff422adab204d982a5f8e0a8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22c0d94b4a865a2740999e419347f2843c2af59de20329a31fb56e85a7ece02c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59de844a17e1fa34cf2ad206f62d88cc87741ada720c9088802359ade2e0466a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d4bc304786eb86795653ec0b680a599b13e6fa42b2c727e799f64b9b084a8c0"
+    sha256 cellar: :any,                 arm64_linux:       "01ad876143c7c6be1b816bdfda3accb23e0ded8dabfb8059aa2e3dfe4a028818"
+    sha256 cellar: :any,                 x86_64_linux:      "ab7eff2c93a5f7c647f04ed42e6057776fdcf4d5aec9191d470f6d6d9c2ec675"
   end
 
   depends_on "rust" => :build
