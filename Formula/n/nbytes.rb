@@ -1,8 +1,8 @@
 class Nbytes < Formula
   desc "Library of byte handling functions extracted from Node.js core"
   homepage "https://github.com/nodejs/nbytes"
-  url "https://github.com/nodejs/nbytes/archive/refs/tags/v0.1.4.tar.gz"
-  sha256 "67f4b8363f12abb64c07a0cecf2bf2dce7ab47b5f8b9fd2efdb852ea254c2d40"
+  url "https://github.com/nodejs/nbytes/archive/refs/tags/v0.1.5.tar.gz"
+  sha256 "5158c92a34b02f54778ae7367dab77cc02861c69f4d8cfd4eeed608d586ca900"
   license "MIT"
   compatibility_version 1
 
