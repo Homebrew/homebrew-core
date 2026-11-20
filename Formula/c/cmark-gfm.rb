@@ -1,13 +1,11 @@
 class CmarkGfm < Formula
   desc "C implementation of GitHub Flavored Markdown"
   homepage "https://github.com/github/cmark-gfm"
-  url "https://github.com/github/cmark-gfm/archive/refs/tags/0.29.0.gfm.13.tar.gz"
-  version "0.29.0.gfm.13"
-  sha256 "5abc61798ebd9de5660bc076443c07abad2b8d15dbc11094a3a79644b8ad243a"
+  url "https://github.com/github/cmark-gfm/archive/refs/tags/0.29.0.gfm.14.tar.gz"
+  version "0.29.0.gfm.14"
+  sha256 "1c1acf50c5e9939e170b6e017ec06fcf94abeb383670b819d091a285b7ba11fe"
   license "BSD-2-Clause"
-  compatibility_version 1
-
-  no_autobump! because: :incompatible_version_format
+  compatibility_version 2
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "5b2e159cf8fdfff365ea1e00453ca3bc2a7997088c6af0ab4ca9ddca6fe9896e"
@@ -26,6 +24,7 @@ class CmarkGfm < Formula
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "python" => :build
 
   deny_network_access!
@@ -34,8 +33,6 @@ class CmarkGfm < Formula
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-    # Workaround to build with CMake 4
-    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
