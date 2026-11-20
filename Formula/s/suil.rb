@@ -12,13 +12,12 @@ class Suil < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "b5e9e72782fea0513708a148403678da5da41a00fa7556c7d86648e2c6eb70a0"
-    sha256 arm64_tahoe:       "adce2989ab987d21cf92671496284df3396f22dd113495c8ba44e2bbe90c22fb"
-    sha256 arm64_sequoia:     "3465540e13410f3444375c0588c26c58d947aa1c5781801252f43f89406f8eff"
-    sha256 arm64_sonoma:      "4e500b8273217d5c1f0eccf6f3d8d34e8ff1845342c001c3ea95a104a206007a"
-    sha256 sonoma:            "6a071ed376235a2f02b4a7a085b8eba6af48835aeccec1f4d3a44dd874a0e543"
-    sha256 arm64_linux:       "f33735b4417b37962f04cc8f6d4f199037af19d6ff15d2273e5784fa98efbfd3"
-    sha256 x86_64_linux:      "96d50ae9d442fbc64791d9e12ea1fe44fb1aa0f3082bb37bcbff908e355c5e3f"
+    rebuild 1
+    sha256 arm64_golden_gate: "5e61204661ea0fb05a4cfd25e17a82727816a0b916f50cb2de73c3d239789f4c"
+    sha256 arm64_tahoe:       "f1114139ad9a565503ce1b1605c8f8fca56912801de06cb08629222d29ab690b"
+    sha256 arm64_sequoia:     "93c11803d5ebdd53cdba26f7c0c01ed16ff73b8b186a87b78c2636bd6f5ebaf5"
+    sha256 arm64_linux:       "923b3b4a5ec4a19a8e2b9983940e54f4dc45a4a0a985c5a1fe489a4d87d9253a"
+    sha256 x86_64_linux:      "ea9b30c9a3054fe029fe38a143ec0e5e23661396b990bfd62dcc99b90d7f6514"
   end
 
   depends_on "meson" => :build
@@ -27,20 +26,13 @@ class Suil < Formula
   depends_on "libx11"
   depends_on "lv2"
 
-  on_macos do
-    # Can undeprecate if new release with Qt 6 support is available.
-    # Alternatively can just build direct X11 wrapper (libsuil_x11.dylib)
-    # Issue ref: https://gitlab.com/lv2/suil/-/issues/11
-    deprecate! date: "2026-05-19", because: "needs end-of-life Qt 5. Cocoa support will be removed after 2026-11-19"
-
-    depends_on "qt@5" # cocoa still needs Qt5
-  end
-
   on_linux do
     depends_on "glib"
     depends_on "gtk+3"
     depends_on "qtbase"
   end
+
+  deny_network_access!
 
   def install
     system "meson", "setup", "build", *std_meson_args
