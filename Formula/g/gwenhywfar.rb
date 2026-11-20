@@ -1,8 +1,8 @@
 class Gwenhywfar < Formula
   desc "Utility library required by aqbanking and related software"
   homepage "https://www.aquamaniac.de/rdm/projects/gwenhywfar"
-  url "https://www.aquamaniac.de/rdm/attachments/download/662/gwenhywfar-5.14.3.tar.gz"
-  sha256 "be1371a668d4d42f113f9dbebd850a66c63437037a027d3c1148afff5503998b"
+  url "https://www.aquamaniac.de/rdm/attachments/download/664/gwenhywfar-5.14.4.tar.gz"
+  sha256 "55bad83e73e91446b1bfb931a7d0988d963072631be3f29957a5d4dc9b31e0cf"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
