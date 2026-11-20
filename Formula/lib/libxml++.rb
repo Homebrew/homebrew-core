@@ -1,14 +1,14 @@
 class Libxmlxx < Formula
   desc "C++ wrapper for libxml"
-  homepage "https://libxmlplusplus.sourceforge.net/"
-  url "https://github.com/libxmlplusplus/libxmlplusplus/releases/download/2.42.4/libxml++-2.42.4.tar.xz"
-  sha256 "82c7bb4f20a227bba174158be475c1017f650b276f9268923c6601b5a545838f"
+  homepage "https://libxmlplusplus.github.io/libxmlplusplus/"
+  url "https://github.com/libxmlplusplus/libxmlplusplus/releases/download/5.6.1/libxml++-5.6.1.tar.xz"
+  sha256 "4996e8a73995e8a4cd656c8591dce38181146edfc30cb47c97d1db3c56990ad7"
   license "LGPL-2.1-or-later"
-  compatibility_version 1
+  compatibility_version 2
 
   livecheck do
     url :stable
-    regex(/^v?(2\.([0-8]\d*?)?[02468](?:\.\d+)*?)$/i)
+    regex(/^v?(\d+\.([0-8]\d*?)?[02468](?:\.\d+)*?)$/i)
   end
 
   bottle do
@@ -24,7 +24,6 @@ class Libxmlxx < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
-  depends_on "glibmm@2.66"
 
   uses_from_macos "libxml2"
 
@@ -46,9 +45,9 @@ class Libxmlxx < Formula
          return 0;
       }
     CPP
-
-    flags = shell_output("pkgconf --cflags --libs libxml++-2.6").chomp.split
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
+    command = "#{formula_opt_bin("pkgconf")}/pkgconf --cflags --libs libxml++-5.0"
+    flags = shell_output(command).strip.split
+    system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", *flags
     system "./test"
   end
 end
