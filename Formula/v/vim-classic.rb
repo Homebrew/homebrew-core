@@ -1,10 +1,9 @@
 class VimClassic < Formula
   desc "Vim 8 long term support version with no LLM-generated code"
   homepage "https://vim-classic.org/"
-  url "https://git.sr.ht/~sircmpwn/vim-classic/archive/v8.3.0.tar.gz"
-  sha256 "6e1c97c8269e9354bbc474f0efa7e1e0b23fcdb6075067474d731a9bfac6e8ef"
+  url "https://git.sr.ht/~sircmpwn/vim-classic/archive/v8.3.1.tar.gz"
+  sha256 "1d9baef8dab6751145b7c4460e85c0af1f4c432bf8ff03d8db13b977fca31e8c"
   license "Vim"
-  revision 1
 
   bottle do
     rebuild 1
