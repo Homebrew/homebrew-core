@@ -9,11 +9,12 @@ class Glances < Formula
   head "https://github.com/nicolargo/glances.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "18098ec6b3c51e28ecb7e29e31e8b2afbdd57e17b59143316dac4bddd96ab24b"
-    sha256 cellar: :any, arm64_tahoe:       "348d963b745c4215f5b60d2eb9ecf96d39d146f3f4d38ef17ecf96508cf4a43c"
-    sha256 cellar: :any, arm64_sequoia:     "025e73cfb3cfeac9bee46a84bfc17070320d8bd88d7a5db0b8f3f74841d2af19"
-    sha256 cellar: :any, arm64_linux:       "c6468e6dea91f621826d0b25dbcbe78f61a20f411743f9acb954a6c6ddd67919"
-    sha256 cellar: :any, x86_64_linux:      "2b93f5fdbc2db4dcef73f5546cf1863aa300429a91b58a235a08be19a8975ac1"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2312c1f92c696b1e524bb9eeb5b6d2ec9da0197bc50259f984295a1164f1575e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3443d93627048e35f0b0e721ea86941b14bb30999b2b6d778a7e5a646a23620"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05d9d949326ed39e52a500f01a2e6a444e6d936e019f9d079285ab8b82d53cab"
+    sha256 cellar: :any,                 arm64_linux:       "8aae1e75ca343e1c75c46c199a78bd0c315319de925f71687c5590a6fed57dea"
+    sha256 cellar: :any,                 x86_64_linux:      "a85e3bb94fdd37ceeb0d3d1faf7fc846ebcdd308136f576ab0d39b7271a2335b"
   end
 
   depends_on "rust" => :build # for annotated-docs
