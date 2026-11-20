@@ -24,7 +24,9 @@ class Xgo < Formula
   deny_network_access!
 
   def fetch
-    system "go", "mod", "download"
+    cd "cmd" do
+      system "go", "mod", "download"
+    end
   end
 
   def install
@@ -36,7 +38,9 @@ class Xgo < Formula
       -X github.com/goplus/xgo/env.defaultXGoRoot=#{libexec}
     ]
 
-    system "go", "build", *std_go_args(ldflags:, output: libexec/"bin/xgo"), "./cmd/xgo"
+    cd "cmd" do
+      system "go", "build", *std_go_args(ldflags:, output: libexec/"bin/xgo"), "./xgo"
+    end
 
     # gop is a symlink to xgo
     (libexec/"bin").install_symlink "xgo" => "gop"
