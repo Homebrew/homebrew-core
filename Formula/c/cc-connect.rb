@@ -1,16 +1,16 @@
 class CcConnect < Formula
   desc "Bridges local AI coding agents to messaging platforms"
   homepage "https://github.com/chenhg5/cc-connect"
-  url "https://github.com/chenhg5/cc-connect/archive/refs/tags/v1.5.2.tar.gz"
-  sha256 "3edbccd5c66848f14239f9778cdd7e0941f0d5d3b276bb424472e2c975dcb5fd"
+  url "https://github.com/chenhg5/cc-connect/archive/refs/tags/v1.5.3.tar.gz"
+  sha256 "c3a47e27464dd33fbdfa0723e26e63b03350b9e15f78fd8b59e76eb15293e3af"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85ee53685016266995812330136390666bb8bbcd16c0ff4e5b9a710609f14810"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "85ee53685016266995812330136390666bb8bbcd16c0ff4e5b9a710609f14810"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85ee53685016266995812330136390666bb8bbcd16c0ff4e5b9a710609f14810"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dd6ff31da1cf9a46e3341a7062b51512bd4684937f118933073843d7908f2d1b"
-    sha256 cellar: :any,                 x86_64_linux:      "2f6867669b756e725971fa4d18a3d41a4c049dcaf0518157cc71bab1b2acbd2c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1399fda32fbae2a42ba0381165e7ad84342a6440845ebaa9d3a05949720dde60"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1399fda32fbae2a42ba0381165e7ad84342a6440845ebaa9d3a05949720dde60"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1399fda32fbae2a42ba0381165e7ad84342a6440845ebaa9d3a05949720dde60"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "06fa01da140240db3cf5308c48aa8c10102ae2312088e92b1d48aef1901e8aa9"
+    sha256 cellar: :any,                 x86_64_linux:      "fc8e7570bc62fc6b92b69448dd9dcd27af882d5d328bb61e460e238ac6a5eeb7"
   end
 
   depends_on "go" => :build
