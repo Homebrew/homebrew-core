@@ -8,11 +8,12 @@ class Mycli < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "be1195bb985edd41d4af1bd65c4e406abee4461201bc5bc0aa89dd91af516c1a"
-    sha256 cellar: :any, arm64_tahoe:       "96bdc92da2ed13ea8b0ffd0f94b70ddbfb34d93284ddc251e1d3bfc74fb6cd77"
-    sha256 cellar: :any, arm64_sequoia:     "6b24d0832a2cab9b8d085c7c7c928e00a5904fb8916a30eca6c7dcdee77b2e93"
-    sha256 cellar: :any, arm64_linux:       "14901abbcc823dadf929bc4a1af292fa43af1232746a6310f81b3fb7e58b725c"
-    sha256 cellar: :any, x86_64_linux:      "2565f0aab72a63aef23f6a08f0b0e8a33f7d8b443a6d8323f07a40f253399245"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "e66f30e5dc1d60e5d4edbf6eb18dd203161a04ace05200c10c6286dec0d9887a"
+    sha256 cellar: :any, arm64_tahoe:       "e5bcbb0d0c16947ca1bc81de7600cafd77ca33ee11b546be1379b3d74fa26448"
+    sha256 cellar: :any, arm64_sequoia:     "f8e78414843cf00727c90b77191591c18b856954ee5295285bce762b55d8518a"
+    sha256 cellar: :any, arm64_linux:       "db916f47b28a4c4a5e98020cf7965008aeb6d7a8867aa2c8a166d57d39ea2fcc"
+    sha256 cellar: :any, x86_64_linux:      "e7288a35de05958fc569b9c8bc0b76800c95a4cc7511d30b530d62b536ec0cfe"
   end
 
   depends_on "cmake" => :build # for rapidfuzz
