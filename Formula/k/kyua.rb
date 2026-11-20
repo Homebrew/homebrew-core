@@ -1,8 +1,8 @@
 class Kyua < Formula
   desc "Testing framework for infrastructure software"
   homepage "https://github.com/freebsd/kyua"
-  url "https://github.com/freebsd/kyua/releases/download/kyua-0.15.1/kyua-0.15.1.tar.gz"
-  sha256 "19adf19c1cce83b0484ee786ff813a1745e2aa4c2e1a0cceefb41da91c43c87c"
+  url "https://github.com/freebsd/kyua/releases/download/kyua-0.15.2/kyua-0.15.2.tar.gz"
+  sha256 "469499eab896790a46b2083dfe89f09c8cad3bf79ce45848619a61f287b68837"
   license "BSD-3-Clause"
   head "https://github.com/freebsd/kyua.git", branch: "master"
 
@@ -12,11 +12,11 @@ class Kyua < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "0756318b41a0e6d4aac7d48f330eb663684d7da1230ba3b659cf7d5a09c34662"
-    sha256 arm64_tahoe:       "7cee7f1432163540dc14341a92c9770d3d697cfff13600eceff232889d45e7ef"
-    sha256 arm64_sequoia:     "c45ea692a99d93b6b9cf2e49d2f5f731b624ba1de65ad385bed98affdc6113cc"
-    sha256 arm64_linux:       "dd49b6a184f2ac7bcdc6bf4ee3a051f34cfc366df9e5768e50e6f4bebee27e26"
-    sha256 x86_64_linux:      "757c190a69bd998653deec0d1be17084dbb6decbf5c4124cab8da819672c6753"
+    sha256 arm64_golden_gate: "6fdb8de88659d594876e883bdbfa0f0a943d894783323a0bd769cb73f8a6d557"
+    sha256 arm64_tahoe:       "4905d096a462bd0097740684d968bf204140269a1c7982a40bd7149c9235e0ca"
+    sha256 arm64_sequoia:     "963855fa6f8e41b41fbf9ce5d43bfcb4bf04ee3e7cb7194315b5c1f47c8c397e"
+    sha256 arm64_linux:       "a5e2e755f72e1c5bfef5116abcf557751b83995ec1670c419f5a03296b5ecb24"
+    sha256 x86_64_linux:      "eb3d40d567c56e6467bc765ac6218a339ec5e4da382c5f16b94317c1c9a28739"
   end
 
   depends_on "pkgconf" => [:build, :test]
