@@ -1,8 +1,8 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/refs/tags/cjdns-v22.3.tar.gz"
-  sha256 "99e20274d581949b9a5998564485f567732e7888ac786c2edb43493048e4d0ef"
+  url "https://github.com/cjdelisle/cjdns/archive/refs/tags/cjdns-v22.4.tar.gz"
+  sha256 "27d5083b936144a6903fbb039bc449642ef5ea2c4ea7c3a281779536da79a4bc"
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
@@ -21,14 +21,6 @@ class Cjdns < Formula
   depends_on "rust" => :build
   depends_on "libsodium"
 
-  # remove inode check
-  patch do
-    url "https://github.com/cjdelisle/cjdns/commit/4848490a8532c03d9918adf5ee7d28c66eb65fd1.patch?full_index=1"
-    sha256 "4eb2abe4d52270018d8a1d1d938ee1323d9b1675f35e36f5c6bf2f0ba50a47e8"
-    type :unofficial
-    resolves "https://github.com/cjdelisle/cjdns/pull/1272"
-  end
-
   # patch to use system libsodium
   patch do
     url "https://github.com/cjdelisle/cjdns/commit/5ac5ce94028d507041ab4f24d30184b2a8b49c8a.patch?full_index=1"
@@ -39,11 +31,9 @@ class Cjdns < Formula
 
   def install
     ENV["SODIUM_USE_PKG_CONFIG"] = "1"
-    ENV["NO_TEST"] = "1"
 
-    system "./do"
-
-    bin.install "cjdroute", "cjdnstool"
+    system "cargo", "install", "--bin", "cjdroute", *std_cargo_args(path: "rust/cjdns_sys")
+    system "cargo", "install", *std_cargo_args(path: "rust/cjdnstool")
     man1.install "doc/man/cjdroute.1"
     man5.install "doc/man/cjdroute.conf.5"
   end
