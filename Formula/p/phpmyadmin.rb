@@ -22,8 +22,8 @@ class Phpmyadmin < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "2047290d2b40a179ad79f4ed3890ebcbb5a6177c6f5279f55d8d41e866a1111a"
+    rebuild 2
+    sha256 cellar: :any_skip_relocation, all: "1da2339c67a3ef693c2a1c7612ba8c325e9fd793bd0a2f08706a48e746cc40e7"
   end
 
   # TODO: switch to unversioned php
