@@ -3,18 +3,18 @@ class Pydantic < Formula
 
   desc "Data validation using Python type hints"
   homepage "https://pydantic.dev/docs/validation"
-  url "https://files.pythonhosted.org/packages/b4/fc/1203d011145c98ddce3cd2f505bb54375ef8d43223053df6bfcf3c746f46/pydantic-2.14.3.tar.gz"
-  sha256 "1054f237f4d4733e5a30e1e2333bd33a2004ab9ab1510bd053a9a31bb48e232d"
+  url "https://files.pythonhosted.org/packages/8e/25/3ec212432a6031b65f043eaca9c820ddf87c0d0aa330023e64f79fcb5db6/pydantic-2.14.4.tar.gz"
+  sha256 "7c19f1d46f8accf55a4617a6116e1ade64840870f397b846a2c53fb9019414ba"
   license "MIT"
   version_scheme 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5420ee9c73805b0d6c4b47deaf7940ee582fbb2ec21370b651793338bf78cb9e"
-    sha256 cellar: :any, arm64_tahoe:       "084ef7731720ea993be2fc46bb8dbaa19c5ec55f46e8f33b1625cb281a6efaed"
-    sha256 cellar: :any, arm64_sequoia:     "ea135ffa4ee2711d0a26421ff9db7efe2fc8e24004f2805cfa2276ad356a0070"
-    sha256 cellar: :any, arm64_linux:       "aa0e8b9511ee64c1169c212ec171b471e2a70cb17c1e848f6a14b6524448e810"
-    sha256 cellar: :any, x86_64_linux:      "2ca6c10354e98b24f1b096d45327bb9658898523af3436dc14697cdae7328b17"
+    sha256 cellar: :any, arm64_golden_gate: "22e917d6707d837d5f71ef9a1f731d182972c6be08f6572eff1c7934b427f1a1"
+    sha256 cellar: :any, arm64_tahoe:       "e950a9a6de2e214d8527835d611e08cab79ea225ab0b26b68f5fcea8a2c8a56f"
+    sha256 cellar: :any, arm64_sequoia:     "2f3e82870e07a93ba699cf72729b2def85debc1b0a123411591e1de6cdb9d579"
+    sha256 cellar: :any, arm64_linux:       "b5a7917a55ed7007ae8c97ee26021019743ee70f9dc626613119d125f4e58852"
+    sha256 cellar: :any, x86_64_linux:      "72d9f397234e8977930f92a6ac1b8a256152167abb66dae14f631cbdc4a680e3"
   end
 
   depends_on "maturin" => :build
@@ -34,8 +34,8 @@ class Pydantic < Formula
   end
 
   resource "pydantic-core" do
-    url "https://files.pythonhosted.org/packages/9c/0f/34f9ce4ba701dd0b815033ef94d99b56f66200e578ee6052aa3ac26f064e/pydantic_core-2.50.4.tar.gz"
-    sha256 "aead3b74b68396bf0feab5d57e050b730ded7df55853c1e048a87e00aaf033c6"
+    url "https://files.pythonhosted.org/packages/fb/63/0ceb815a7762576027ce388544c573d440574f95afb1302a2496b96db548/pydantic_core-2.50.5.tar.gz"
+    sha256 "1e740886083ff95530d694e6a3f09ed914bcf92a496d16acd307c6c3484fc36d"
   end
 
   resource "typing-extensions" do
