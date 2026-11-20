@@ -3,8 +3,8 @@ class Prowler < Formula
 
   desc "Tool for cloud security assessments, audits, incident response, and more"
   homepage "https://prowler.com/"
-  url "https://files.pythonhosted.org/packages/e9/05/e6b08989b53821114d1bb0d0a01a26b873d27998a656e9ddb63325529dca/prowler-5.50.0.tar.gz"
-  sha256 "a99c2d9d5785fc854394e07c6b4f94db24c7ca3254d999d8c520ae1ee3ede852"
+  url "https://files.pythonhosted.org/packages/0f/79/a23266b1e3723c426967722d696191018a57df0cac717f364b389ea82b2f/prowler-5.51.0.tar.gz"
+  sha256 "2ad9662abc7974960dfeb65938d796c7744f32f5df07461c28baa0e330f4669b"
   license "Apache-2.0"
   head "https://github.com/prowler-cloud/prowler.git", branch: "master"
 
@@ -529,8 +529,8 @@ class Prowler < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
-    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "flask" do
@@ -669,8 +669,8 @@ class Prowler < Formula
   end
 
   resource "iamdata" do
-    url "https://files.pythonhosted.org/packages/49/34/9a68fec2ad2886b00ec996aef0873248d9f44cfc1b85ba3022900d07f8e6/iamdata-0.1.202611161.tar.gz"
-    sha256 "cab179461aeae2bea659f704cedeeb6b98670166154f8346aff008cf86701c45"
+    url "https://files.pythonhosted.org/packages/fa/80/49e566e5acbef1b6978e00aae7a50ffea7f8c6722382423c2bcedbebbe22/iamdata-0.1.202611181.tar.gz"
+    sha256 "ace33a6e0522cc92e6459da2b821ec81377b5a7830beecbb97d7a4eb4a616a90"
   end
 
   resource "idna" do
@@ -834,8 +834,8 @@ class Prowler < Formula
   end
 
   resource "narwhals" do
-    url "https://files.pythonhosted.org/packages/67/43/e11d75a7fb635c6f63dd6e176cb3e050ec2fee35f2f2267b332a6ad351ec/narwhals-2.28.0.tar.gz"
-    sha256 "2d9860c80d6610820826e94c6e42ce4b1d92d89cdd479586e652a8d211dab345"
+    url "https://files.pythonhosted.org/packages/c4/20/e2cce41bfa17909205b39c8a4aa3ec730d87f1c4e77453efd3f5aaf50b81/narwhals-2.29.0.tar.gz"
+    sha256 "eb19c877d9a705300bcc9414499a07b32a52db703369414e57e474ca5fc63c42"
   end
 
   resource "nest-asyncio" do
@@ -904,8 +904,8 @@ class Prowler < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "plotly" do
