@@ -9,11 +9,11 @@ class Fastmcp < Formula
   head "https://github.com/jlowin/fastmcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a19b88c9e89a4114eeab7aa065e3c841509324c5902b0cbfb2cebfff7866cfea"
-    sha256 cellar: :any, arm64_tahoe:       "9acb0be165fa5a0e5a3471a68e3b92691dbee4f6856af6a897844b6156a42994"
-    sha256 cellar: :any, arm64_sequoia:     "9445715745cc968049a3c944f7fd33eb6108cb42050eaba0b2d1a0e3606afc3d"
-    sha256 cellar: :any, arm64_linux:       "699842266040b21cb2d79e14c58f9bd8e5505b66558f8b615d354a7b4a794f7c"
-    sha256 cellar: :any, x86_64_linux:      "11ef5b52ebac3dc1388fc066bbce14ebc1a4d6fd8f3f6880bf1ba148489b2d9a"
+    sha256 cellar: :any, arm64_golden_gate: "b4b6d4cb2cbffc42950c73371583189eef00d90afdae957ae70c4b3786f21e6d"
+    sha256 cellar: :any, arm64_tahoe:       "740f77a4a08a2dffc55a9504500d8b8fd123073cac51fe481d3f6b5df5522e8f"
+    sha256 cellar: :any, arm64_sequoia:     "b30fb5c31988941f89e70808c0ab2a037f3ad5a833cbd69e6ec6b1791885745e"
+    sha256 cellar: :any, arm64_linux:       "8676ad80c26ff632b7e86c91b2d9529c9b54ca7df9fd44c7a631ab5f908a3ac0"
+    sha256 cellar: :any, x86_64_linux:      "92533dfc8d5815adb70908f41eb0b70a15c2675c6158f07c0c189244ab941951"
   end
 
   depends_on "rust" => :build # for py_key_value_aio
