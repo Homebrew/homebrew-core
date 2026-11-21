@@ -33,12 +33,14 @@ class Quazip < Formula
     system "cmake", "--install", "build"
 
     cd include do
-      include.install_symlink "QuaZip-Qt#{Formula["qtbase"].version.major}-#{version}/quazip" => "quazip"
+      qt_major = Formula["qtbase"].version.major
+      include.install_symlink "QuaZip-Qt#{qt_major}-#{version}/quazip" => "quazip"
     end
   end
 
   test do
     ENV.delete "CPATH"
+    qt_major = Formula["qt"].version.major
     (testpath/"test.pro").write <<~EOS
       QT             += core5compat
       TEMPLATE        = app
@@ -48,7 +50,7 @@ class Quazip < Formula
       SOURCES        += test.cpp
       INCLUDEPATH    += #{include} #{formula_opt_include("zlib-ng-compat")}
       LIBPATH        += #{lib}
-      LIBS           += -lquazip#{version.major}-qt#{Formula["qt"].version.major}
+      LIBS           += -lquazip#{version.major}-qt#{qt_major}
       QMAKE_RPATHDIR += #{lib}
     EOS
 
