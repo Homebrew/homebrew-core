@@ -1,8 +1,8 @@
 class Bitwuzla < Formula
   desc "SMT solver for bit-vectors, floating-points, arrays and uninterpreted functions"
   homepage "https://bitwuzla.github.io"
-  url "https://github.com/bitwuzla/bitwuzla/archive/refs/tags/0.10.0.tar.gz"
-  sha256 "5f4309dfe3e7d716889fa113e7a48a3b4e33efc95348b3cafb036f10e8d17e1d"
+  url "https://github.com/bitwuzla/bitwuzla/archive/refs/tags/0.11.0.tar.gz"
+  sha256 "97d916f5d5fbc79a39ad3d3f95b4871de0fb20d001045289a414826873821d41"
   license "MIT"
   compatibility_version 2
 
