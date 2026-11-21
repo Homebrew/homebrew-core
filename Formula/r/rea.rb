@@ -1,8 +1,8 @@
 class Rea < Formula
   desc "Reverse engineering CLI and MCP server for agents"
   homepage "https://github.com/morluto/rea"
-  url "https://registry.npmjs.org/rea-agents/-/rea-agents-6.9.0.tgz"
-  sha256 "322338a1505e2557702a16012e7d46abdb5729641d98938662762dfbfb79262a"
+  url "https://registry.npmjs.org/rea-agents/-/rea-agents-6.10.1.tgz"
+  sha256 "e8cf08c9fa954e998fc8868c23fa8e5f518cdb9553488ec227b31a3bb6903150"
   license "MIT"
 
   bottle do
