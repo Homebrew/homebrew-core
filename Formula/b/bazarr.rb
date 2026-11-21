@@ -49,6 +49,8 @@ class Bazarr < Formula
     sha256 "c740e93d24b5d0d7ecdd5548c43e37e2c88564826e869c861d5e3fa7f1cee7ff"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
