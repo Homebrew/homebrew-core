@@ -43,7 +43,7 @@ class Citus < Formula
     # The major soversion is hardcoded to at least make sure compatibility version hasn't changed.
     # If it does change, then need to confirm if API/ABI change impacts running on older PostgreSQL.
     libpq_args = %W[
-      libpq=#{formula_opt_lib("libpq")/shared_library("libpq", 5)}
+      libpq=#{formula_opt_lib("libpq")}/#{shared_library("libpq", 5)}
       rpathdir=#{formula_opt_lib("libpq")}
     ]
 
@@ -55,9 +55,9 @@ class Citus < Formula
         system "make", *libpq_args
         # Override the hardcoded install paths set by the PGXS makefiles.
         system "make", "install", "bindir=#{bin}",
-                                  "datadir=#{share/postgresql.name}",
-                                  "pkglibdir=#{lib/postgresql.name}",
-                                  "pkgincludedir=#{include/postgresql.name}"
+                                  "datadir=#{share}/#{postgresql.name}",
+                                  "pkglibdir=#{lib}/#{postgresql.name}",
+                                  "pkgincludedir=#{include}/#{postgresql.name}"
       end
     end
   end
