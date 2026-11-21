@@ -1,8 +1,8 @@
 class Nip4 < Formula
   desc "Image processing spreadsheet"
   homepage "https://github.com/libvips/nip4"
-  url "https://github.com/libvips/nip4/releases/download/v9.1.5/nip4-9.1.5.tar.xz"
-  sha256 "ceea7a00f9e8182195c3b4a62416145dbc303f44f62a09bfce0690fd6fbf1ecc"
+  url "https://github.com/libvips/nip4/releases/download/v9.2.1/nip4-9.2.1.tar.xz"
+  sha256 "ac2d1736a612e568a1b0a19248fc3ab8bcb804c169be6aa6dce9a78e5079a3af"
   license "GPL-2.0-or-later"
   head "https://github.com/libvips/nip4.git", branch: "main"
 
