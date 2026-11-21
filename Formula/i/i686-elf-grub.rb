@@ -43,9 +43,9 @@ class I686ElfGrub < Formula
       args = %W[
         --disable-werror
         --target=#{target}
-        --prefix=#{prefix/target}
+        --prefix=#{prefix}/#{target}
         --bindir=#{bin}
-        --libdir=#{lib/target}
+        --libdir=#{lib}/#{target}
         --with-platform=pc
         --program-prefix=#{target}-
       ]
