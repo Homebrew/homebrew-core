@@ -36,8 +36,9 @@ class Libopennet < Formula
   def install
     if Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.
+      automake = Formula["automake"]
       %w[config.guess config.sub].each do |fn|
-        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+        cp automake.share/"automake-#{automake.version.major_minor}"/fn, fn
       end
     end
     # Fix flat namespace usage.
