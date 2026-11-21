@@ -6,7 +6,7 @@ class Openspec < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "1bea148cddc1605831e4035be77258c32faa6149382a837a2b2639523accd08f"
+    sha256 cellar: :any_skip_relocation, all: "14a4f075a5662edc3f1315ec43935a1373e87171d6433d43377d44da84b27147"
   end
 
   depends_on "node"
