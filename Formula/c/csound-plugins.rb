@@ -35,7 +35,8 @@ class CsoundPlugins < Formula
 
   def install
     # Must match the plugin search path compiled into `csound`
-    install_dir = lib/"csound/plugins64-#{Formula["csound"].version.major_minor}"
+    csound_version = Formula["csound"].version.major_minor
+    install_dir = lib/"csound/plugins64-#{csound_version}"
 
     args = %W[
       -DBUILD_CHUA_OPCODES=OFF
@@ -101,14 +102,16 @@ class CsoundPlugins < Formula
 
     system csound.opt_bin/"csound", "test.orc", "test.sco"
 
-    assert_path_exists testpath/"test.#{OS.mac? ? "aif" : "wav"}"
+    audio_format = OS.mac? ? "aif" : "wav"
+    assert_path_exists testpath/"test.#{audio_format}"
     assert_path_exists testpath/"test.h5"
 
+    plugin_name = "p5gconnect" if OS.mac?
     (testpath/"opcode-existence.orc").write <<~ORC
       instr 1
           i_ websocket 8888, 0
           i_ wiiconnect 1, 1
-          #{"p5gconnect" if OS.mac?}
+          #{plugin_name}
       endin
     ORC
     system csound.opt_bin/"csound", "--orc", "--syntax-check-only", "opcode-existence.orc"
