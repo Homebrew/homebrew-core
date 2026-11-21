@@ -35,8 +35,8 @@ class PgPartman < Formula
       system "make"
       system "make", "install", "bindir=#{bin}",
                                 "docdir=#{doc}",
-                                "datadir=#{share/postgresql.name}",
-                                "pkglibdir=#{lib/postgresql.name}"
+                                "datadir=#{share}/#{postgresql.name}",
+                                "pkglibdir=#{lib}/#{postgresql.name}"
       system "make", "clean"
     end
   end
