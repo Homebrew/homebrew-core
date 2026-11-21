@@ -68,6 +68,6 @@ class Mockolo < Formula
         }
       }
     SWIFT
-    assert_equal output, shell_output("cat #{testpath/"GeneratedMocks.swift"}").gsub(/\s+/, "").strip
+    assert_equal output, shell_output("cat #{testpath}/GeneratedMocks.swift").gsub(/\s+/, "").strip
   end
 end
