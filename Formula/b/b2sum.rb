@@ -23,6 +23,8 @@ class B2sum < Formula
 
   conflicts_with "coreutils", because: "both install `b2sum` binaries"
 
+  deny_network_access!
+
   def install
     cd "b2sum" do
       inreplace "makefile", "../sse", "../neon" if Hardware::CPU.arm?
