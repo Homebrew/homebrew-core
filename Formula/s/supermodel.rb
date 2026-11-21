@@ -1,9 +1,9 @@
 class Supermodel < Formula
   desc "Sega Model 3 arcade emulator"
   homepage "https://github.com/trzy/Supermodel"
-  url "https://github.com/trzy/Supermodel/archive/refs/tags/v0.4-20261121-git-d430b94.tar.gz"
-  version "0.4-20261121-git-d430b94"
-  sha256 "381bd403be6355c4fe00797e49260371eae3af212d6375fd513a7af7a5957dac"
+  url "https://github.com/trzy/Supermodel/archive/refs/tags/v0.4-20261121-git-34ede1c.tar.gz"
+  version "0.4-20261121-git-34ede1c"
+  sha256 "f5e65d20c1bb3b7aac4da6f4b3c4b95ef077ed0f6da7a958e0f2f5bdead469fe"
   license "GPL-3.0-or-later"
   head "https://github.com/trzy/Supermodel.git", branch: "master"
 
