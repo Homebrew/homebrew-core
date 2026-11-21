@@ -24,6 +24,8 @@ class BowerMail < Formula
 
   conflicts_with "bower", because: "both install `bower` binaries"
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "man"
