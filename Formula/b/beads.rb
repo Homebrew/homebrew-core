@@ -32,10 +32,11 @@ class Beads < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
+    revision = build.head? ? "HEAD" : "v#{version}"
     ldflags = %W[
       -X main.Version=#{version}
       -X main.Build=#{tap.user}
-      -X main.Branch=#{build.head? ? "HEAD" : "v#{version}"}
+      -X main.Branch=#{revision}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/bd"
     bin.install_symlink "beads" => "bd"
