@@ -67,6 +67,8 @@ class Breezy < Formula
     sha256 "db2100058c50784c3d24984920ceefe61b951e915cb483ffafa116fdfc18cea2"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
     bin.each_child do |f|
