@@ -2,8 +2,8 @@ class Fceux < Formula
   desc "All-in-one NES/Famicom Emulator"
   homepage "https://fceux.com/"
   url "https://github.com/TASEmulators/fceux.git",
-      tag:      "fceux-2.7.0",
-      revision: "a6d03e7968bd77a8156a7c9b628a673753f2f4c6"
+      tag:      "v2.8.0",
+      revision: "c40fcf6319cf5e03cf39e4295e553045e695c22c"
   license all_of: [
     "GPL-2.0-or-later",
     "LGPL-2.1-or-later", # src/drivers/common/{hq2x.cpp,nes_ntsc*}
@@ -12,11 +12,12 @@ class Fceux < Formula
   head "https://github.com/TASEmulators/fceux.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7fa07490642ef50f0ce1c61e4e7ee2fb520432cabb06ec225153b5700e131e5b"
-    sha256 cellar: :any, arm64_tahoe:       "434227872e81c93b79deb5819af139d244bb50d3342fd62a3bad56a616d6880b"
-    sha256 cellar: :any, arm64_sequoia:     "c0521f7ce98b252748fa7914071ccf2bc18adfa3963c40d2a915139802a5b37b"
-    sha256 cellar: :any, arm64_linux:       "aa28e120a9db3dcb3a14763a773ea33e51387546d87150b22d70c902c6044ca8"
-    sha256 cellar: :any, x86_64_linux:      "a4ae0367e9933d888cafe50f5fa293c7976e1c366b1b0be8d1119ebf87f397e2"
+    manifest_sha256 "13f8cbaa650c22f8ef211bb9b204f04c65ae8d8748e8cf01b6be3a6eed3a92d1"
+    sha256 cellar: :any, arm64_golden_gate: "0996d2c8e778f922805d6a9523ef2cd7914cfce2b9eb152b7577e441b557980d"
+    sha256 cellar: :any, arm64_tahoe:       "fe1cad4f405b6926036b14fff49cb0e0af5ff64f615bec52ac6c47515c8fc387"
+    sha256 cellar: :any, arm64_sequoia:     "96553c4094173385986e18442268f46d4e553cda2e19d3a5dd4e6a6252fd919b"
+    sha256 cellar: :any, arm64_linux:       "c4cc973354856b52c38b82fb7d43602332bf464269ae4fc949d5cf336e6b5977"
+    sha256 cellar: :any, x86_64_linux:      "665a2064531c53ee16d24ea5526b41c6983512e8603d44034fddc0cd641cc802"
   end
 
   depends_on "cmake" => :build
