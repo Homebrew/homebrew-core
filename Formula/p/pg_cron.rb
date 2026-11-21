@@ -39,10 +39,10 @@ class PgCron < Formula
       # We force linkage to `libpq` to allow building for multiple `postgresql@X` formulae.
       # The major soversion is hardcoded to at least make sure compatibility version hasn't changed.
       # If it does change, then need to confirm if API/ABI change impacts running on older PostgreSQL.
-      system "make", "install", "libpq=#{formula_opt_lib("libpq")/shared_library("libpq", 5)}",
+      system "make", "install", "libpq=#{formula_opt_lib("libpq")}/#{shared_library("libpq", 5)}",
                                 "rpathdir=#{formula_opt_lib("libpq")}",
-                                "pkglibdir=#{lib/postgresql.name}",
-                                "datadir=#{share/postgresql.name}"
+                                "pkglibdir=#{lib}/#{postgresql.name}",
+                                "datadir=#{share}/#{postgresql.name}"
       system "make", "clean"
     end
   end
