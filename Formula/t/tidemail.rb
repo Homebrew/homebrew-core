@@ -6,11 +6,11 @@ class Tidemail < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c21ad01de603a3db7efe4ac8147bf2a0168e4cec2778d163d8a2b0d370368e1d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c21ad01de603a3db7efe4ac8147bf2a0168e4cec2778d163d8a2b0d370368e1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c21ad01de603a3db7efe4ac8147bf2a0168e4cec2778d163d8a2b0d370368e1d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "dceb00be68d49ff84112fca1375c04be01fa7ba29701584664c6d2366d5dcf6a"
-    sha256 cellar: :any,                 x86_64_linux:      "ace1fb1e588337e1352a33f49c89e0b2843a876c84c0134d91d5d968981e05f4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e59a77dcddd82f8d86e4293d03516a48391e7a3af547d9deaf78d613d97c3040"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e59a77dcddd82f8d86e4293d03516a48391e7a3af547d9deaf78d613d97c3040"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e59a77dcddd82f8d86e4293d03516a48391e7a3af547d9deaf78d613d97c3040"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "013524f914b5baff2f35c4f1feea12e5a413d1f9244ec0fd24075ae28a92bb5f"
+    sha256 cellar: :any,                 x86_64_linux:      "31574b3b99635dee24d9d22c4a7a0a9deabed8aa369982eceeffbed9005c296e"
   end
 
   depends_on "go" => :build
