@@ -16,6 +16,8 @@ class Bundletool < Formula
     sha256 "f7ea5a75ce10e394a547d0c46115b62a2f03380a18b1fc222e98928d1448775f"
   end
 
+  deny_network_access!
+
   def install
     libexec.install "bundletool-all-#{version}.jar" => "bundletool-all.jar"
     bin.write_jar_script libexec/"bundletool-all.jar", "bundletool"
