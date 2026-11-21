@@ -40,9 +40,10 @@ class Languagetool < Formula
 
     bin.write_jar_script(libexec/"languagetool-commandline.jar", "languagetool", java_version:)
     bin.write_jar_script(libexec/"languagetool.jar", "languagetool-gui", java_version:)
+    java_home = Language::Java.overridable_java_home_env(java_version)[:JAVA_HOME]
     (bin/"languagetool-server").write <<~BASH
       #!/bin/bash
-      export JAVA_HOME="#{Language::Java.overridable_java_home_env(java_version)[:JAVA_HOME]}"
+      export JAVA_HOME="#{java_home}"
       exec "${JAVA_HOME}/bin/java" -cp "#{libexec}/languagetool-server.jar" org.languagetool.server.HTTPServer "$@"
     BASH
 
