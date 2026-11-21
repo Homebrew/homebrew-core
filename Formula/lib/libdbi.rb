@@ -35,7 +35,8 @@ class Libdbi < Formula
       # Workaround for ancient config files not recognizing aarch64 macos.
       %w[config.guess config.sub].each do |fn|
         (buildpath/fn).unlink
-        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+        automake_version = Formula["automake"].version.major_minor
+        cp Formula["automake"].share/"automake-#{automake_version}"/fn, fn
       end
     end
     system "./configure", *std_configure_args
