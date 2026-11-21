@@ -14,7 +14,8 @@ class Calabash < Formula
     url :stable
     regex(/^v?(\d+(?:[.-]\d+)+)$/i)
     strategy :github_releases do |json, regex|
-      saxon_suffix = "-#{Formula["saxon"].version.major}0"
+      saxon_major = Formula["saxon"].version.major
+      saxon_suffix = "-#{saxon_major}0"
 
       json.map do |release|
         next if release["draft"] || release["prerelease"]
