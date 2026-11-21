@@ -1,4 +1,4 @@
-class Go < Formula
+class GoAT127 < Formula
   desc "Open source programming language to build simple/reliable/efficient software"
   homepage "https://go.dev/"
   url "https://go.dev/dl/go1.27.4.src.tar.gz"
@@ -6,11 +6,10 @@ class Go < Formula
   sha256 "73cfb8571aec0c01177687db87163d46aa20e9779672772891aa17654d9a6099"
   license "BSD-3-Clause"
   compatibility_version 14
-  head "https://go.googlesource.com/go.git", branch: "master"
 
   livecheck do
     url "https://go.dev/dl/?mode=json"
-    regex(/^go[._-]?v?(\d+(?:\.\d+)+)[._-]src\.t.+$/i)
+    regex(/^go[._-]?v?(1\.27(?:\.\d+)*)[._-]src\.t.+$/i)
     strategy :json do |json, regex|
       json.map do |release|
         next if release["stable"] != true
