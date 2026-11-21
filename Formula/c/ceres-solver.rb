@@ -1,6 +1,8 @@
 class CeresSolver < Formula
   desc "C++ library for large-scale optimization"
-  homepage "http://ceres-solver.org/"
+  # TODO: Update homepage after https://github.com/ceres-solver/ceres-solver/issues/1218
+  # homepage "http://ceres-solver.org/"
+  homepage "https://ceres-solver.github.io/ceres-solver/"
   license "BSD-3-Clause"
   revision 6
   compatibility_version 1
