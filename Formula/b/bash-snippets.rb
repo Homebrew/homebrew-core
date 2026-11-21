@@ -15,6 +15,8 @@ class BashSnippets < Formula
   conflicts_with "pwned", because: "both install `pwned` binaries"
   conflicts_with "todoman", because: "both install `todo` binaries"
 
+  allow_network_access! :test
+
   def install
     system "./install.sh", "--prefix=#{prefix}", "all"
   end

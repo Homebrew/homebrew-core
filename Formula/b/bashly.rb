@@ -121,6 +121,8 @@ class Bashly < Formula
     sha256 "eb9dd449bc8a703325162f293308b5bd5403741f8c91e7ca14802b0eaaa8d067"
   end
 
+  deny_network_access!
+
   def install
     ENV["GEM_HOME"] = libexec
 
