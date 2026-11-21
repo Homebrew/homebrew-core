@@ -29,6 +29,8 @@ class BalenaCli < Formula
     depends_on "xz" # for liblzma
   end
 
+  allow_network_access! :build
+
   def install
     ENV.deparallelize
 

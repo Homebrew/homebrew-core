@@ -51,6 +51,8 @@ class Bandit < Formula
     sha256 "e97a2667923efda926e8713fde6a73616df68210a3cbc6f02b48967b676fd8bf"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
