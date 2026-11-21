@@ -98,7 +98,8 @@ class Libgccjit < Formula
 
       # Fix linkage with `libgcc_s.1.1`. See: https://github.com/orgs/Homebrew/discussions/5364
       if Hardware::CPU.intel?
-        ldflags << "-Wl,-rpath,#{rpath(source: lib/"gcc/current", target: formula_opt_lib("gcc")/"gcc/current")}"
+        gcc_rpath = rpath(source: lib/"gcc/current", target: formula_opt_lib("gcc")/"gcc/current")
+        ldflags << "-Wl,-rpath,#{gcc_rpath}"
       end
 
       make_args = %W[BOOT_LDFLAGS=#{ldflags.join(" ")}]
