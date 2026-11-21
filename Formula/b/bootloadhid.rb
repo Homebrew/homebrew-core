@@ -28,6 +28,8 @@ class Bootloadhid < Formula
 
   depends_on "libusb-compat"
 
+  deny_network_access!
+
   def install
     Dir.chdir "commandline"
     system "make"
