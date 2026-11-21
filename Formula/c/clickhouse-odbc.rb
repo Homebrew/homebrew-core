@@ -95,14 +95,14 @@ class ClickhouseOdbc < Formula
 
       [ClickHouse ODBC Test Driver A]
       Description = ODBC Driver for ClickHouse (ANSI)
-      Driver      = #{lib/shared_library("libclickhouseodbc")}
-      Setup       = #{lib/shared_library("libclickhouseodbc")}
+      Driver      = #{lib}/#{shared_library("libclickhouseodbc")}
+      Setup       = #{lib}/#{shared_library("libclickhouseodbc")}
       UsageCount  = 1
 
       [ClickHouse ODBC Test Driver W]
       Description = ODBC Driver for ClickHouse (Unicode)
-      Driver      = #{lib/shared_library("libclickhouseodbcw")}
-      Setup       = #{lib/shared_library("libclickhouseodbcw")}
+      Driver      = #{lib}/#{shared_library("libclickhouseodbcw")}
+      Setup       = #{lib}/#{shared_library("libclickhouseodbcw")}
       UsageCount  = 1
     INI
 
