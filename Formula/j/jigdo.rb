@@ -61,10 +61,10 @@ class Jigdo < Formula
 
     assert_path_exists testpath/"test.jigdo"
     assert_path_exists testpath/"template.tmp"
-    system bin/"jigdo-file", "make-image", "--image=#{testpath/"test.png"}",
+    system bin/"jigdo-file", "make-image", "--image=#{testpath}/test.png",
                                            "--template=#{testpath}/template.tmp",
                                            "--jigdo=#{testpath}/test.jigdo"
-    system bin/"jigdo-file", "verify", "--image=#{testpath/"test.png"}",
+    system bin/"jigdo-file", "verify", "--image=#{testpath}/test.png",
                                        "--template=#{testpath}/template.tmp"
   end
 end
