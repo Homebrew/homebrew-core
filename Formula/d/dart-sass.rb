@@ -49,11 +49,12 @@ class DartSass < Formula
       system "dart", "run", "grinder", "protobuf"
     end
 
+    language_version = resource("language").version
     args = %W[
       -Dversion=#{version}
       -Ddart-version=#{Formula["dart-sdk"].version}
       -Dcompiler-version=#{version}
-      -Dprotocol-version=#{resource("language").version}
+      -Dprotocol-version=#{language_version}
     ]
     system "dart", "compile", "aot-snapshot", "--output", "sass.aot", *args, "bin/sass.dart"
     libexec.install "sass.aot"
