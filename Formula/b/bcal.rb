@@ -23,6 +23,8 @@ class Bcal < Formula
     depends_on "readline"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
