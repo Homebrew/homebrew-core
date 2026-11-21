@@ -40,6 +40,8 @@ class Borgbackup < Formula
     sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
+  allow_network_access! :build
+
   def install
     ENV["BORG_LIBB2_PREFIX"] = formula_opt_prefix("libb2")
     ENV["BORG_LIBLZ4_PREFIX"] = formula_opt_prefix("lz4")
