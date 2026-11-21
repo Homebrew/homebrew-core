@@ -21,6 +21,8 @@ class Bwidget < Formula
     depends_on "xorg-server" => :test
   end
 
+  deny_network_access!
+
   def install
     (lib/"bwidget").install Dir["*"]
   end
