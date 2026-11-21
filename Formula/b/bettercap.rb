@@ -1,19 +1,18 @@
 class Bettercap < Formula
   desc "Swiss army knife for network attacks and monitoring"
   homepage "https://www.bettercap.org/"
-  url "https://github.com/bettercap/bettercap/archive/refs/tags/v2.41.7.tar.gz"
-  sha256 "797274ac3a4e35e40e640958c267a60f559213d9ae1322ab721d8f4ec71cbaeb"
+  url "https://github.com/bettercap/bettercap/archive/refs/tags/v2.42.0.tar.gz"
+  sha256 "cdcce5b68b426c286b0b6aa1aabd2c84f6e891dd3b6e441d4a61de07ccf653a3"
   license "GPL-3.0-only"
   head "https://github.com/bettercap/bettercap.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "d7d9078233739eed2257acb6c94797162eea2cde014a9fc7dfb99239dffd2116"
-    sha256 cellar: :any,                 arm64_tahoe:       "faf6aeb244e61de6dd3a3f0d42273ff1d6081e502a70141a31d0052e6cc5c8b0"
-    sha256 cellar: :any,                 arm64_sequoia:     "6492c09568d8bb7e396acef38be1bc5dd79bc70cbc6e94252af742f6e98b4f0a"
-    sha256 cellar: :any,                 arm64_sonoma:      "1b63c6988896778611a76c07abba8772351946fd5537cd22d6390eac8251f702"
-    sha256 cellar: :any,                 sonoma:            "24af0789079b4ae2835f467f50c3af839c8677e74613eb032a99f1a361325484"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "810b00e8d5ed76b2feed206f36822047e822e4847d63bca5d40eece927f01b21"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e71a3a6cd746e9f1acefe81649ccf5fa0d71c7f086dbee1b84c2895a93186664"
+    manifest_sha256 "0a614cffdec5e7816f61779fbb281a03af23d074261fb7dd869754c3164b024b"
+    sha256 cellar: :any, arm64_golden_gate: "706483dbc0e1bbebe564de4f159812cd72f3f794a5eec4a164cd5342bda0c9a8"
+    sha256 cellar: :any, arm64_tahoe:       "2d6084eb7e421172f44c9206ee938886106710b040614720c8119829b230c059"
+    sha256 cellar: :any, arm64_sequoia:     "56cdb6f133975e2571e5cae18fe989a1f728a05966cf698be1e662f8113cfefd"
+    sha256 cellar: :any, arm64_linux:       "0bfb044dc2d4719d3a500df194e2ac184f958f26f74fa59550c30e3d9a779b14"
+    sha256 cellar: :any, x86_64_linux:      "722fcac485f99d4280b90240c647eda156a3a77fc0a66c25b4c512305cffebb1"
   end
 
   depends_on "go" => :build
