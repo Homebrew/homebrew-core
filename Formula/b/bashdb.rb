@@ -35,7 +35,8 @@ class Bashdb < Formula
 
   def install
     # Update configure to support Bash 5.3 by replacing `'5.2' | '5.0' | '5.1'`
-    inreplace "configure", /(?:'5\.\d+'(?:\s+\|\s+)?)+/, "'#{Formula["bash"].version.major_minor}'"
+    bash_version = Formula["bash"].version.major_minor
+    inreplace "configure", /(?:'5\.\d+'(?:\s+\|\s+)?)+/, "'#{bash_version}'"
 
     system "./configure", "--with-bash=#{HOMEBREW_PREFIX}/bin/bash", *std_configure_args
     system "make", "install"

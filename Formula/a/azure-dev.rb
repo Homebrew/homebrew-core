@@ -33,7 +33,8 @@ class AzureDev < Formula
     azd_version = if build.stable?
       "#{version} (commit 0000000000000000000000000000000000000000)"
     else
-      "#{File.read("cli/version.txt").strip} (commit #{Utils.git_head})"
+      cli_version = File.read("cli/version.txt").strip
+      "#{cli_version} (commit #{Utils.git_head})"
     end
     ldflags = %W[-X "github.com/azure/azure-dev/cli/azd/internal.Version=#{azd_version}"]
     system "go", "build", "-C", "cli/azd", *std_go_args(ldflags:, output: bin/"azd")

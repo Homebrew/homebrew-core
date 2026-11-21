@@ -41,6 +41,7 @@ class Lua < Formula
     # Fix path in the config header
     inreplace "src/luaconf.h", "/usr/local", HOMEBREW_PREFIX
 
+    platform = OS.mac? ? "macosx" : "linux"
     args = %W[
       CC=#{ENV.cc}
       INSTALL_INC=#{include}/lua
@@ -48,7 +49,7 @@ class Lua < Formula
       INSTALL_TOP=#{prefix}
       MYCFLAGS=#{ENV.cflags}
       MYLDFLAGS=#{ENV.ldflags}
-      PLAT=#{OS.mac? ? "macosx" : "linux"}
+      PLAT=#{platform}
     ]
 
     system "make", *args
@@ -58,11 +59,12 @@ class Lua < Formula
     # We ship our own pkg-config file as Lua no longer provide them upstream.
     libs = %w[-llua -lm]
     libs << "-ldl" if OS.linux?
+    install_prefix = versioned_formula? ? opt_prefix : HOMEBREW_PREFIX
     (lib/"pkgconfig/lua.pc").write <<~PC
       V=#{version.major_minor}
       R=#{version}
 
-      prefix=#{versioned_formula? ? opt_prefix : HOMEBREW_PREFIX}
+      prefix=#{install_prefix}
       INSTALL_BIN=${prefix}/bin
       INSTALL_INC=${prefix}/include/lua
       INSTALL_LIB=${prefix}/lib

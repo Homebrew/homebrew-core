@@ -32,8 +32,9 @@ class Gowall < Formula
   def install
     # Work around https://github.com/gen2brain/go-fitz/issues/143
     (buildpath/"go-fitz").install resource("go-fitz")
+    go_version = Formula["go"].version.major_minor
     (buildpath/"go.work").write <<~GOMOD
-      go #{Formula["go"].version.major_minor}
+      go #{go_version}
       use .
       replace github.com/gen2brain/go-fitz => ./go-fitz
     GOMOD

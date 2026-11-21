@@ -37,12 +37,14 @@ class Anyzig < Formula
     chmod_R "u+w", buildpath/"zig-lib"
     ENV["ZIG_LIB_DIR"] = buildpath/"zig-lib"
 
-    args = %W[-Dforce-version=v#{version.to_s.tr(".", "_")}]
+    archive_version = version.to_s.tr(".", "_")
+    args = %W[-Dforce-version=v#{archive_version}]
     system "zig", "build", *args, *std_zig_args
   end
 
   test do
-    assert_match "v#{version.to_s.tr(".", "_")}", shell_output("#{bin}/zig any version").strip
+    archive_version = version.to_s.tr(".", "_")
+    assert_match "v#{archive_version}", shell_output("#{bin}/zig any version").strip
     system bin/"zig", "any", "list-installed"
   end
 end

@@ -109,7 +109,8 @@ class Netatalk < Formula
   end
 
   test do
-    pidfile = var/"run/netatalk#{".pid" if OS.mac?}"
+    pid_suffix = ".pid" if OS.mac?
+    pidfile = var/"run/netatalk#{pid_suffix}"
     port = free_port
     (testpath/"afp.conf").write <<~CONF
       [Global]

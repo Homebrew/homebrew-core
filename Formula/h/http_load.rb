@@ -14,7 +14,7 @@ class HttpLoad < Formula
       # Convert date-based version from 09Mar2016 format to 20160309
       page.scan(regex).map do |match|
         date_str = match&.first
-        date_str ? Date.parse(date_str)&.strftime("%Y%m%d") : nil
+        Date.parse(date_str)&.strftime("%Y%m%d") if date_str
       end
     end
   end

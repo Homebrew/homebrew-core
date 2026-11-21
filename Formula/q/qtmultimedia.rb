@@ -93,8 +93,9 @@ class Qtmultimedia < Formula
       target_link_libraries(test PRIVATE Qt6::#{modules.join(" Qt6::")})
     CMAKE
 
+    qt_modules = modules.join(" ").downcase
     (testpath/"test.pro").write <<~QMAKE
-      QT      += #{modules.join(" ").downcase}
+      QT      += #{qt_modules}
       TARGET   = test
       CONFIG  += console
       CONFIG  -= app_bundle

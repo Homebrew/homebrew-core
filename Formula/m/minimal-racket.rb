@@ -130,7 +130,7 @@ class MinimalRacket < Formula
       assert_match(%r{.*#{Regexp.escape(openssl)}/.*/libssl.*\.dylib}, output)
     else
       output = shell_output("LD_DEBUG=libs #{bin}/racket -e '(require openssl)' 2>&1")
-      assert_match "init: #{formula_opt_lib(openssl)/shared_library("libssl")}", output
+      assert_match "init: #{formula_opt_lib(openssl)}/#{shared_library("libssl")}", output
     end
   end
 end

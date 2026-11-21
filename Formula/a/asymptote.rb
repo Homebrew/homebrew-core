@@ -72,7 +72,7 @@ class Asymptote < Formula
     # Also workaround to override bundled bdw-gc. Upstream is not willing to add configure option.
     # Ref: https://github.com/vectorgraphics/asymptote/issues/521#issuecomment-2644549764
     touch "doc/asy-latex.pdf"
-    system "make", "install-asy", "GCLIB=#{formula_opt_lib("bdw-gc")/shared_library("libgc")}"
+    system "make", "install-asy", "GCLIB=#{formula_opt_lib("bdw-gc")}/#{shared_library("libgc")}"
 
     doc.install resource("manual")
     elisp.install_symlink pkgshare.glob("*.el")

@@ -123,7 +123,11 @@ class Libbi < Formula
         next if r.name == "thrust"
 
         # need to set TT_ACCEPT=y for Template library for non-interactive install
-        perl_flags = (r.name == "Template") ? "TT_ACCEPT=y" : ""
+        perl_flags = if r.name == "Template"
+          "TT_ACCEPT=y"
+        else
+          ""
+        end
         system "perl", "Makefile.PL", "INSTALL_BASE=#{libexec}", perl_flags
         system "make"
         system "make", "install"

@@ -54,7 +54,11 @@ class Wild < Formula
       assert_match "ELF 64-bit LSB pie executable, x86-64", shell_output("file test")
     end
 
-    readelf = OS.mac? ? formula_opt_bin("binutils")/"readelf" : DevelopmentTools.locate("readelf")
+    readelf = if OS.mac?
+      formula_opt_bin("binutils")/"readelf"
+    else
+      DevelopmentTools.locate("readelf")
+    end
     assert_match "Linker: Wild ", shell_output("#{readelf} --string-dump .comment test")
   end
 end

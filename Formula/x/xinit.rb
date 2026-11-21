@@ -62,7 +62,8 @@ class Xinit < Formula
         # align with formula `font-util`
         font_paths = %w[misc TTF OTF Type1 75dpi 100dpi].map do |f|
           p = HOMEBREW_PREFIX/"share/fonts/X11"/f
-          %Q(    [ -e #{p}/fonts.dir ] && fontpath="$fontpath,#{p}#{",#{p}/:unscaled" if /\d+dpi/.match? p}"\n)
+          unscaled_path = ",#{p}/:unscaled" if /\d+dpi/.match? p
+          %Q(    [ -e #{p}/fonts.dir ] && fontpath="$fontpath,#{p}#{unscaled_path}"\n)
         end
         lines = File.readlines prefix/"etc/X11/xinit/xinitrc.d/10-fontdir.sh"
         lines[1] = %Q(    fontpath="built-ins"\n) + font_paths.join

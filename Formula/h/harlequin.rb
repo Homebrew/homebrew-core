@@ -295,7 +295,8 @@ class Harlequin < Formula
 
   def install
     if resource("psycopg").version != resource("psycopg-c").version
-      odie "Manually modify psycopg-c version to match psycopg==#{resource("psycopg").version}"
+      psycopg_version = resource("psycopg").version
+      odie "Manually modify psycopg-c version to match psycopg==#{psycopg_version}"
     end
 
     virtualenv_install_with_resources

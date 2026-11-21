@@ -82,7 +82,9 @@ class Sniffles < Formula
       start = 500 + (i * 10)
       seq = ref[start...1400] + ref[1600...2600]
       flag = i.odd? ? 16 : 0
-      sam << "read#{i}\t#{flag}\tchr1\t#{start + 1}\t60\t#{1400 - start}M200D1000M\t*\t0\t0\t#{seq}\t*\n"
+      position = start + 1
+      match_length = 1400 - start
+      sam << "read#{i}\t#{flag}\tchr1\t#{position}\t60\t#{match_length}M200D1000M\t*\t0\t0\t#{seq}\t*\n"
     end
     (testpath/"reads.sam").write sam
     system "samtools", "view", "-b", "-o", "reads.bam", "reads.sam"

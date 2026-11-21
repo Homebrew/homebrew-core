@@ -92,7 +92,7 @@ class Cellpose < Formula
     # Load torchvision's virtualenv and its pytorch .pth file.
     # NOTE: This is an exception to our usual policy as building `pytorch` is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("torchvision")/site_packages}')\n"
+    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("torchvision")}/#{site_packages}')\n"
     (venv.site_packages/"homebrew-torchvision.pth").write pth_contents
   end
 

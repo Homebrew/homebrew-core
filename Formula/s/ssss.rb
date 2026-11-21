@@ -51,7 +51,7 @@ class Ssss < Formula
   test do
     shares = pipe_output("#{bin}/ssss-split -t 3 -n 5 -w brew -Q", "Homebrew secret\n", 0).lines
     assert_equal 5, shares.count
-    shares.each_with_index { |share, i| assert_match(/\Abrew-#{i + 1}-\h+\n\z/, share) }
+    shares.each.with_index(1) { |share, index| assert_match(/\Abrew-#{index}-\h+\n\z/, share) }
 
     secret = pipe_output("#{bin}/ssss-combine -t 3 -Q 2>&1", shares.values_at(0, 2, 4).join, 0)
     assert_equal "Homebrew secret", secret.strip

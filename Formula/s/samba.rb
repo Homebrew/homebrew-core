@@ -146,7 +146,7 @@ class Samba < Formula
   end
 
   test do
-    smbd = OS.mac? ? sbin/"samba-dot-org-smbd" : sbin/"smbd"
+    smbd = sbin/(OS.mac? ? "samba-dot-org-smbd" : "smbd")
 
     system smbd, "--build-options", "--configfile=/dev/null"
     system smbd, "--version"

@@ -52,8 +52,9 @@ class ScalaCli < Formula
       extra << "-H:CLibraryPath=#{zlib_lib}"
       extra << "-H:NativeLinkerOption=-Wl,-rpath,#{zlib_lib}"
     end
+    extra_flags = extra.map { |f| "'#{f}'" }.join(" ")
     inreplace "generate-native-image.sh", "'--no-fallback'",
-              "'--no-fallback' #{extra.map { |f| "'#{f}'" }.join(" ")}"
+              "'--no-fallback' #{extra_flags}"
     system "bash", "./generate-native-image.sh"
 
     bin.install Dir["out/cli/*/base-image/nativeImage.dest/scala-cli"].first

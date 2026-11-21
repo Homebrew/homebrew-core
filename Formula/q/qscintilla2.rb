@@ -33,7 +33,11 @@ class Qscintilla2 < Formula
   def install
     args = %w[-config release]
     if OS.mac?
-      spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+      spec = if ENV.compiler == :clang
+        "macx-clang"
+      else
+        "macx-g++"
+      end
       args += %W[-spec #{spec}]
     end
 
@@ -66,11 +70,11 @@ class Qscintilla2 < Formula
       mv "pyproject-qt#{qt.version.major}.toml", "pyproject.toml"
       (buildpath/"Python/pyproject.toml").append_lines <<~TOML
         [tool.sip.project]
-        sip-include-dirs = ["#{pyqt.opt_prefix/site_packages}/PyQt#{pyqt.version.major}/bindings"]
+        sip-include-dirs = ["#{pyqt.opt_prefix}/#{site_packages}/PyQt#{pyqt.version.major}/bindings"]
       TOML
 
       args = %W[
-        --target-dir #{prefix/site_packages}
+        --target-dir #{prefix}/#{site_packages}
         --qsci-features-dir #{share}/qt/mkspecs/features
         --qsci-include-dir #{include}
         --qsci-library-dir #{lib}

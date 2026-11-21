@@ -67,8 +67,9 @@ class Xplanet < Formula
   def install
     # Workaround for ancient config files not recognizing aarch64 macos.
     if Hardware::CPU.arm?
+      automake = Formula["automake"]
       %w[config.guess config.sub].each do |fn|
-        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, fn
+        cp automake.share/"automake-#{automake.version.major_minor}"/fn, fn
       end
     end
 

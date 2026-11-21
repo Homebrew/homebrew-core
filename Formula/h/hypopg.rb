@@ -32,9 +32,9 @@ class Hypopg < Formula
     postgresqls.each do |postgresql|
       ENV["PG_CONFIG"] = postgresql.opt_bin/"pg_config"
       system "make"
-      system "make", "install", "pkglibdir=#{lib/postgresql.name}",
-                                "datadir=#{share/postgresql.name}",
-                                "pkgincludedir=#{include/postgresql.name}"
+      system "make", "install", "pkglibdir=#{lib}/#{postgresql.name}",
+                                "datadir=#{share}/#{postgresql.name}",
+                                "pkgincludedir=#{include}/#{postgresql.name}"
       system "make", "clean"
     end
   end

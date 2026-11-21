@@ -59,9 +59,10 @@ class Rdkit < Formula
 
     python_rpath = rpath(source: lib/Language::Python.site_packages(python3))
     python_rpaths = [python_rpath, "#{python_rpath}/..", "#{python_rpath}/../.."]
+    rpath_flags = python_rpaths.map { |path| "-Wl,-rpath,#{path}" }.join(" ")
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DCMAKE_MODULE_LINKER_FLAGS=#{python_rpaths.map { |path| "-Wl,-rpath,#{path}" }.join(" ")}
+      -DCMAKE_MODULE_LINKER_FLAGS=#{rpath_flags}
       -DCMAKE_PREFIX_PATH='#{formula_opt_lib("maeparser")};#{formula_opt_lib("coordgen")}'
       -DCMAKE_REQUIRE_FIND_PACKAGE_coordgen=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_maeparser=ON

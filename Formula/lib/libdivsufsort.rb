@@ -54,6 +54,8 @@ class Libdivsufsort < Formula
     EOS
 
     ["", "64"].each do |suffix|
+      printf_format = "PRId32"
+      printf_format = "PRId64" if suffix == "64"
       (testpath/"test#{suffix}.c").write <<~C
         #include <stdio.h>
         #include <stdlib.h>
@@ -69,7 +71,7 @@ class Libdivsufsort < Formula
             saidx#{suffix}_t *SA = (saidx#{suffix}_t *) malloc(n * sizeof(saidx#{suffix}_t));
             divsufsort#{suffix}((unsigned char *) Text, SA, n);
             for (i = 0; i < n; ++i) {
-                printf("SA[%2d] = %2" #{(suffix == "64") ? "PRId64" : "PRId32"} ": ", i, SA[i]);
+                printf("SA[%2d] = %2" #{printf_format} ": ", i, SA[i]);
                 for(j = SA[i]; j < n; ++j) {
                     printf("%c", Text[j]);
                 }

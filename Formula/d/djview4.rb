@@ -33,10 +33,12 @@ class Djview4 < Formula
   depends_on "qtbase"
 
   def install
+    desktopfiles = OS.mac? ? "disable" : "enable"
+    mac_support = OS.mac? ? "enable" : "disable"
     system "./autogen.sh", "--with-x=no",
                             "--disable-nsdejavu",
-                            "--#{OS.mac? ? "disable" : "enable"}-desktopfiles",
-                            "--#{OS.mac? ? "enable" : "disable"}-mac",
+                            "--#{desktopfiles}-desktopfiles",
+                            "--#{mac_support}-mac",
                             "--with-tiff=#{formula_opt_prefix("libtiff")}",
                             *std_configure_args
     system "make", "CC=#{ENV.cc}", "CXX=#{ENV.cxx}"

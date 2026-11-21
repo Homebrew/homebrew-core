@@ -73,8 +73,9 @@ class Unnethack < Formula
     # upgrading/uninstalling
     version_specific_directory = "#{var}/unnethack/#{version}"
 
+    owner = `id -un`
     args = [
-      "--with-owner=#{`id -un`}",
+      "--with-owner=#{owner}",
       # common xlogfile for all versions
       "--enable-xlogfile=#{var}/unnethack/xlogfile",
       "--with-bonesdir=#{version_specific_directory}/bones",

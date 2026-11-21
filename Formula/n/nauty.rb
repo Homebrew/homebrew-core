@@ -32,7 +32,8 @@ class Nauty < Formula
     system "make", "all", "TLSlibs"
     system "make", "install", "TLSinstall"
 
-    doc.install "nug#{version.major_minor.to_s.tr(".", "")}.pdf", "README", Dir["*.txt"]
+    manual_version = version.major_minor.to_s.tr(".", "")
+    doc.install "nug#{manual_version}.pdf", "README", Dir["*.txt"]
 
     # Ancillary source files listed in README
     pkgshare.install %w[sumlines.c sorttemplates.c bliss2dre.c poptest.c]

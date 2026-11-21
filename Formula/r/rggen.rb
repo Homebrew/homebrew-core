@@ -69,7 +69,8 @@ class Rggen < Formula
     %w[rggen-verilog rggen-veryl rggen-vhdl].each do |plugin|
       resource(plugin).stage do
         system "gem", "build", "#{plugin}.gemspec"
-        system "gem", "install", "#{plugin}-#{resource(plugin).version}.gem"
+        plugin_version = resource(plugin).version
+        system "gem", "install", "#{plugin}-#{plugin_version}.gem"
       end
     end
 

@@ -33,7 +33,8 @@ class Workmux < Formula
       system "git", "init"
       system "git", "-c", "user.name=brew", "-c", "user.email=brew@test", "commit", "--allow-empty", "-m", "init"
       system "tmux", "-S", socket, "new-session", "-d"
-      ENV["TMUX"] = "#{socket},#{shell_output("tmux -S #{socket} display -p '\#{pid}'").chomp},0"
+      server_pid = shell_output("tmux -S #{socket} display -p '\#{pid}'").chomp
+      ENV["TMUX"] = "#{socket},#{server_pid},0"
 
       assert_match "Successfully created worktree and tmux window", shell_output("#{bin}/workmux add brew-test")
       assert_equal (testpath/"repo__worktrees/brew-test").to_s, shell_output("#{bin}/workmux path brew-test").chomp

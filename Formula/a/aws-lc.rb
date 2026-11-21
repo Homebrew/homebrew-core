@@ -55,7 +55,7 @@ class AwsLc < Formula
     (testpath/"testfile.txt").write("This is a test file")
     expected_checksum = "e2d0fe1585a63ec6009c8016ff8dda8b17719a637405a4e23c0ff81339148249"
     bssl = OS.mac? ? "bssl" : "aws-lc-bssl"
-    output = shell_output("#{bin/bssl} sha256sum testfile.txt")
+    output = shell_output("#{bin}/#{bssl} sha256sum testfile.txt")
     assert_match expected_checksum, output
   end
 end

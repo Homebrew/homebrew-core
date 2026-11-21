@@ -44,12 +44,13 @@ class Ant < Formula
     end
 
     resource("bcel").stage do
-      (libexec/"lib").install "bcel-#{resource("bcel").version}.jar"
+      bcel_version = resource("bcel").version
+      (libexec/"lib").install "bcel-#{bcel_version}.jar"
 
       # Ensure bcel jar is readable by world, see https://github.com/Homebrew/homebrew-core/issues/203905
       # Fixed upstream in https://github.com/apache/commons-bcel/commit/3afa84f8cc19e56ea550ae743ce0693f4c7d8ec5,
       # remove on next update of bcel resource.
-      chmod 0644, libexec/"lib/bcel-#{resource("bcel").version}.jar"
+      chmod 0644, libexec/"lib/bcel-#{bcel_version}.jar"
     end
   end
 

@@ -39,8 +39,9 @@ class Libsail < Formula
   deny_network_access!
 
   def install
+    codecs_rpath = rpath(source: lib/"sail/codecs")
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"sail/codecs")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{codecs_rpath}
       -DSAIL_BUILD_EXAMPLES=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

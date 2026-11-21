@@ -23,11 +23,12 @@ class AmplMp < Formula
   deny_network_access!
 
   def install
+    executable_rpath = rpath(source: libexec/"bin")
     args = %W[
       -DAMPL_LIBRARY_DIR=#{libexec}/bin
       -DBUILD_SHARED_LIBS=ON
       -DBUILD_TESTS=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: libexec/"bin")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{executable_rpath}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

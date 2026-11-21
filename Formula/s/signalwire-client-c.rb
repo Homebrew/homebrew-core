@@ -39,7 +39,8 @@ class SignalwireClientC < Formula
       }
     C
 
-    modules = ["signalwire_client#{version.major}", "libks#{Formula["libks"].version.major}"]
+    libks_major = Formula["libks"].version.major
+    modules = ["signalwire_client#{version.major}", "libks#{libks_major}"]
     flags = Utils.safe_popen_read("pkgconf", "--cflags", "--libs", *modules).chomp.split
     system ENV.cc, "test.c", "-o", "test", "-I#{formula_opt_include("openssl@4")}", *flags
     system "./test"

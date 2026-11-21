@@ -24,7 +24,11 @@ class TextEmbeddingsInference < Formula
   end
 
   def install
-    args = (OS.mac? && Hardware::CPU.arm?) ? ["-F", "metal"] : []
+    args = if OS.mac? && Hardware::CPU.arm?
+      ["-F", "metal"]
+    else
+      []
+    end
     system "cargo", "install", *std_cargo_args(path: "router"), "-F", "candle", *args
   end
 

@@ -40,7 +40,7 @@ class Mdxmini < Formula
     flags = if OS.mac?
       %W[
         -dynamiclib
-        -install_name #{lib/libmdxmini}
+        -install_name #{lib}/#{libmdxmini}
         -undefined dynamic_lookup
       ]
     else

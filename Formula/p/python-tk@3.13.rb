@@ -52,7 +52,7 @@ class PythonTkAT313 < Formula
       name = "_tkinter"
       sources = ["_tkinter.c", "tkappinit.c"]
       define-macros = [["WITH_APPINIT", "1"], ["TCL_WITH_EXTERNAL_TOMMATH", "1"]]
-      include-dirs = ["#{python_include}/internal", "#{formula_opt_include("tcl-tk")/"tcl-tk"}"]
+      include-dirs = ["#{python_include}/internal", "#{formula_opt_include("tcl-tk")}/tcl-tk"]
       libraries = ["tcl#{tcltk_version}", "tcl#{tcltk_version.major}tk#{tcltk_version}"]
       library-dirs = ["#{formula_opt_lib("tcl-tk")}"]
     TOML

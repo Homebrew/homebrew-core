@@ -108,7 +108,8 @@ class JohnJumbo < Formula
 
   test do
     touch "john2.pot"
-    (testpath/"test").write "dave:#{`printf secret | /usr/bin/openssl md5 -r | cut -d' ' -f1`}"
+    digest = `printf secret | /usr/bin/openssl md5 -r | cut -d' ' -f1`
+    (testpath/"test").write "dave:#{digest}"
     assert_match(/secret/, shell_output("#{bin}/john --pot=#{testpath}/john2.pot --format=raw-md5 test"))
     assert_match(/secret/, (testpath/"john2.pot").read)
   end

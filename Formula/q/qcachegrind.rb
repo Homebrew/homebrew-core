@@ -29,7 +29,11 @@ class Qcachegrind < Formula
   def install
     args = %w[-config release]
     if OS.mac?
-      spec = (ENV.compiler == :clang) ? "macx-clang" : "macx-g++"
+      spec = if ENV.compiler == :clang
+        "macx-clang"
+      else
+        "macx-g++"
+      end
       args += %W[-spec #{spec}]
     end
 

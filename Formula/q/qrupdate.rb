@@ -24,7 +24,10 @@ class Qrupdate < Formula
     ENV.fortran
 
     # CMake's Fortran/C interface probe requires matching GCC LTO versions.
-    ENV.method("gcc-#{Formula["gcc"].version.major}").call if OS.linux?
+    if OS.linux?
+      gcc_major = Formula["gcc"].version.major
+      ENV.method("gcc-#{gcc_major}").call
+    end
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"

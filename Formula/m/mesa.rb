@@ -169,7 +169,11 @@ class Mesa < Formula
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
 
       # KosmicKrisp requires Metal 4 / macOS 26, see https://docs.mesa3d.org/drivers/kosmickrisp.html
-      vulkan_drivers = (MacOS.version >= :tahoe) ? "kosmickrisp,swrast" : "swrast"
+      vulkan_drivers = if MacOS.version >= :tahoe
+        "kosmickrisp,swrast"
+      else
+        "swrast"
+      end
 
       %W[
         -Dgallium-drivers=llvmpipe,zink

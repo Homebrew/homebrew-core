@@ -36,7 +36,8 @@ class RocqMicromegaPlugin < Formula
     ENV["OPAMROOT"] = buildpath/".opam"
     ENV["OPAMYES"] = "1"
     system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
-    system "opam", "install", "ppx_optcomp.v#{resource("ppx_optcomp").version}", "--no-depexts"
+    ppx_optcomp_version = resource("ppx_optcomp").version
+    system "opam", "install", "ppx_optcomp.v#{ppx_optcomp_version}", "--no-depexts"
 
     ENV.prepend_path "OCAMLPATH", buildpath/".opam/ocaml-system/lib"
     ENV.prepend_path "OCAMLPATH", formula_opt_lib("rocq")/"ocaml"

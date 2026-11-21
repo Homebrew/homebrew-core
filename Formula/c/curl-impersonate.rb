@@ -150,11 +150,16 @@ class CurlImpersonate < Formula
     # Homebrew-specific workaround as brew audit doesn't allow zip urls in resources
     inreplace "CMakeLists.txt" do |s|
       s.gsub! "${BORINGSSL_COMMIT}.zip", "${BORINGSSL_COMMIT}.tar.gz"
-      s.gsub! "${BORINGSSL_URL_HASH}", "SHA256=#{resource("boringssl").checksum}"
+      boringssl_checksum = resource("boringssl").checksum
+      s.gsub! "${BORINGSSL_URL_HASH}", "SHA256=#{boringssl_checksum}"
     end
 
     resources.reject(&:test?).each do |r|
-      download_dir = (r.name == "libidn2") ? "build/deps/downloads" : "build/#{r.name}-prefix/src"
+      download_dir = if r.name == "libidn2"
+        "build/deps/downloads"
+      else
+        "build/#{r.name}-prefix/src"
+      end
       r.stage { (buildpath/download_dir).install Dir["*"].first => File.basename(r.url) }
     end
 

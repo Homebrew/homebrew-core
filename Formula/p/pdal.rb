@@ -72,7 +72,7 @@ class Pdal < Formula
       ENV.append_to_cflags "-I#{libunwind.opt_include}"
       args += %W[
         -DLIBUNWIND_INCLUDE_DIR=#{libunwind.opt_include}
-        -DLIBUNWIND_LIBRARY=#{libunwind.opt_lib/shared_library("libunwind")}
+        -DLIBUNWIND_LIBRARY=#{libunwind.opt_lib}/#{shared_library("libunwind")}
       ]
     end
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

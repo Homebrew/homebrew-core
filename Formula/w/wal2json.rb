@@ -36,7 +36,7 @@ class Wal2json < Formula
     postgresqls.each do |postgresql|
       system "make", "install", "USE_PGXS=1",
                                 "PG_CONFIG=#{postgresql.opt_bin}/pg_config",
-                                "pkglibdir=#{lib/postgresql.name}"
+                                "pkglibdir=#{lib}/#{postgresql.name}"
       system "make", "clean"
     end
   end

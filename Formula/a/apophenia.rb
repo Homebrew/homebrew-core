@@ -76,7 +76,7 @@ class Apophenia < Formula
     sqlite_output = shell_output("sqlite3 baz.db '.mode csv' '.headers on' 'select * from bar'")
     assert_equal (testpath/"foo.csv").read, sqlite_output.gsub(/\r\n?/, "\n")
 
-    query_output = shell_output("#{bin}/apop_plot_query -d #{testpath/"baz.db"} -q 'select thud,bump from bar' -f-")
+    query_output = shell_output("#{bin}/apop_plot_query -d #{testpath}/baz.db -q 'select thud,bump from bar' -f-")
     assert_equal query_output, expected_gnuplot_output
   end
 end

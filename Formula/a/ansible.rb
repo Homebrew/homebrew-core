@@ -661,7 +661,8 @@ class Ansible < Formula
         - name: ping
           ping:
     YAML
-    python3 = "python#{Language::Python.major_minor_version libexec/"bin/python"}"
+    python_version = Language::Python.major_minor_version libexec/"bin/python"
+    python3 = "python#{python_version}"
     (testpath/"hosts.ini").write [
       "localhost ansible_connection=local",
       " ansible_python_interpreter=#{which(python3)}",

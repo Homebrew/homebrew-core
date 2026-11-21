@@ -68,10 +68,13 @@ class Yaws < Formula
       Hello World!
     EOS
 
+    log_dir = mkdir(testpath/"log").first
+    ebin_dir = mkdir(testpath/"ebin").first
+    include_dir = mkdir(testpath/"include").first
     (testpath/"yaws.conf").write <<~EOS
-      logdir = #{mkdir(testpath/"log").first}
-      ebin_dir = #{mkdir(testpath/"ebin").first}
-      include_dir = #{mkdir(testpath/"include").first}
+      logdir = #{log_dir}
+      ebin_dir = #{ebin_dir}
+      include_dir = #{include_dir}
 
       <server localhost>
         port = #{port}

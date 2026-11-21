@@ -75,10 +75,11 @@ class OsrmBackend < Formula
     lua = Formula["lua"]
     luaversion = lua.version.major_minor
 
+    lua_library = lua.opt_lib/shared_library("liblua", luaversion.to_s)
     system "cmake", "-S", ".", "-B", "build",
                     "-DENABLE_CCACHE:BOOL=OFF",
                     "-DLUA_INCLUDE_DIR=#{lua.opt_include}/lua#{luaversion}",
-                    "-DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua", luaversion.to_s)}",
+                    "-DLUA_LIBRARY=#{lua_library}",
                     "-DENABLE_GOLD_LINKER=OFF",
                     "-Dgauche_DIR=#{libexec}/gauche/lib/cmake/gauche",
                     "-DCMAKE_CXX_FLAGS=-I#{libexec}/gauche/include",

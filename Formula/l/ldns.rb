@@ -35,7 +35,7 @@ class Ldns < Formula
       --with-examples
       --with-ssl=#{formula_opt_prefix("openssl@4")}
       --with-pyldns
-      PYTHON_PLATFORM_SITE_PKG=#{prefix/Language::Python.site_packages(python3)}
+      PYTHON_PLATFORM_SITE_PKG=#{prefix}/#{Language::Python.site_packages(python3)}
       top_builddir=#{buildpath}
       --disable-dane-verify
       --without-xcode-sdk

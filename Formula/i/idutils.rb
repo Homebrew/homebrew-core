@@ -65,7 +65,8 @@ class Idutils < Formula
   end
 
   test do
-    system bin/"mkid", "#{MacOS.sdk_path if OS.mac?}/usr/include"
+    sdk_root = MacOS.sdk_path if OS.mac?
+    system bin/"mkid", "#{sdk_root}/usr/include"
 
     system bin/"lid", "FILE"
   end

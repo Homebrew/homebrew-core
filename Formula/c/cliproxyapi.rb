@@ -34,7 +34,7 @@ class Cliproxyapi < Formula
       -X main.Version=#{version}
       -X main.Commit=#{tap.user}
       -X main.BuildDate=#{time.iso8601}
-      -X main.DefaultConfigPath=#{etc/"cliproxyapi.conf"}
+      -X main.DefaultConfigPath=#{etc}/cliproxyapi.conf
     ]
 
     system "go", "build", *std_go_args(ldflags:), "cmd/server/main.go"

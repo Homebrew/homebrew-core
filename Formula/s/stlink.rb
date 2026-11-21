@@ -22,10 +22,11 @@ class Stlink < Formula
 
   def install
     libusb = Formula["libusb"]
+    stlink_library = libusb.opt_lib/shared_library("libusb-#{libusb.version.major_minor}")
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DLIBUSB_INCLUDE_DIR=#{libusb.opt_include}/libusb-#{libusb.version.major_minor}
-      -DLIBUSB_LIBRARY=#{libusb.opt_lib/shared_library("libusb-#{libusb.version.major_minor}")}
+      -DLIBUSB_LIBRARY=#{stlink_library}
     ]
     if OS.linux?
       args << "-DSTLINK_MODPROBED_DIR=#{lib}/modprobe.d"

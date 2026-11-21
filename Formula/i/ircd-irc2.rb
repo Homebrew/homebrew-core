@@ -54,8 +54,9 @@ class IrcdIrc2 < Formula
 
     if OS.linux? && Hardware::CPU.arm?
       # Workaround for ancient config files not recognizing aarch64 macos.
+      automake = Formula["automake"]
       %w[config.guess config.sub].each do |fn|
-        cp Formula["automake"].share/"automake-#{Formula["automake"].version.major_minor}"/fn, "support/#{fn}"
+        cp automake.share/"automake-#{automake.version.major_minor}"/fn, "support/#{fn}"
       end
     end
 

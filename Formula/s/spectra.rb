@@ -25,7 +25,7 @@ class Spectra < Formula
 
   test do
     system ENV.cxx, pkgshare/"test.cpp", "-std=c++14",
-           "-I#{formula_opt_include("eigen")/"eigen3"}", "-I#{include}", "-o", "test"
+           "-I#{formula_opt_include("eigen")}/eigen3", "-I#{include}", "-o", "test"
 
     macos_expected = <<~EOS
       5 Eigenvalues found:

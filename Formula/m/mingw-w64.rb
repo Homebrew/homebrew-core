@@ -232,7 +232,11 @@ class MingwW64 < Formula
     ENV.remove_macosxsdk if OS.mac?
     target_archs.each do |arch|
       target = "#{arch}-w64-mingw32"
-      outarch = (arch == "i686") ? "i386" : "x86-64"
+      outarch = if arch == "i686"
+        "i386"
+      else
+        "x86-64"
+      end
 
       system bin/"#{target}-gcc", "-o", "test.exe", "hello.c"
       assert_match "file format pei-#{outarch}", shell_output("#{bin}/#{target}-objdump -a test.exe")

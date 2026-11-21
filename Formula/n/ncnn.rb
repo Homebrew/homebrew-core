@@ -49,7 +49,7 @@ class Ncnn < Formula
     if OS.mac?
       args += %W[
         -DVulkan_INCLUDE_DIR=#{formula_opt_include("molten-vk")}
-        -DVulkan_LIBRARY=#{formula_opt_lib("molten-vk")/shared_library("libMoltenVK")}
+        -DVulkan_LIBRARY=#{formula_opt_lib("molten-vk")}/#{shared_library("libMoltenVK")}
       ]
 
       # Apple Clang 16 crashes compiling AVX-VNNI(-INT8) and AVX-512(BF16/FP16) intrinsics.

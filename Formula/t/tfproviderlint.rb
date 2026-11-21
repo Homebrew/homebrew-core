@@ -34,9 +34,10 @@ class Tfproviderlint < Formula
   end
 
   def install
+    prerelease = "dev" if build.head?
     ldflags = %W[
       -X github.com/bflad/tfproviderlint/version.Version=#{version}
-      -X github.com/bflad/tfproviderlint/version.VersionPrerelease=#{"dev" if build.head?}
+      -X github.com/bflad/tfproviderlint/version.VersionPrerelease=#{prerelease}
     ]
 
     system "go", "build", *std_go_args(ldflags:), "./cmd/tfproviderlint"

@@ -34,8 +34,9 @@ class LibayatanaIndicator < Formula
       -DFLAVOUR_GTK3=ON
     ]
     if OS.mac?
+      executable_rpath = rpath(source: libexec/name)
       args += [
-        "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs -Wl,-rpath,#{rpath(source: libexec/name)}",
+        "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs -Wl,-rpath,#{executable_rpath}",
         "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs",
       ]
     end

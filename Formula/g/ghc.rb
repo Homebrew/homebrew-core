@@ -151,7 +151,11 @@ class Ghc < Formula
     ENV.deparallelize { system "hadrian/build", "install", *hadrian_args }
 
     bash_completion.install "utils/completion/ghc.bash" => "ghc"
-    ghc_libdir = build.head? ? lib.glob("ghc-*").first : lib/"ghc-#{version}"
+    ghc_libdir = if build.head?
+      lib.glob("ghc-*").first
+    else
+      lib/"ghc-#{version}"
+    end
     (ghc_libdir/"lib/package.conf.d/package.cache").unlink
     (ghc_libdir/"lib/package.conf.d/package.cache.lock").unlink
   end

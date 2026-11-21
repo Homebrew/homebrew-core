@@ -37,7 +37,7 @@ class PythonTkAT310 < Formula
               ext_modules = [
                 Extension("_tkinter", ["_tkinter.c", "tkappinit.c"],
                           define_macros=[("WITH_APPINIT", 1)],
-                          include_dirs=["#{tcltk.opt_include/"tcl-tk"}"],
+                          include_dirs=["#{tcltk.opt_include}/tcl-tk"],
                           libraries=["tcl#{tcltk_version}", "tk#{tcltk_version}"],
                           library_dirs=["#{tcltk.opt_lib}"])
               ]

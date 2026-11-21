@@ -76,7 +76,7 @@ class Scrcpy < Formula
 
     fakeadb.write <<~SH
       #!/bin/sh
-      echo "$@" >> #{testpath/"fakeadb.log"}
+      echo "$@" >> #{testpath}/fakeadb.log
 
       if [ "$1" = "devices" ]; then
         echo "List of devices attached"

@@ -57,6 +57,10 @@ class Lammps < Formula
 
   def install
     %w[serial mpi].each do |variant|
+      build_omp = "yes"
+      build_omp = "no" if variant == "serial"
+      build_mpi = "no"
+      build_mpi = "yes" if variant == "mpi"
       args = [
         "-S", "cmake", "-B", "build_#{variant}",
         "-C", "cmake/presets/all_on.cmake",
@@ -66,8 +70,8 @@ class Lammps < Formula
         "-DPKG_KIM=yes",
         "-DPKG_VORONOI=yes",
         "-DLAMMPS_MACHINE=#{variant}",
-        "-DBUILD_MPI=#{(variant == "mpi") ? "yes" : "no"}",
-        "-DBUILD_OMP=#{(variant == "serial") ? "no" : "yes"}",
+        "-DBUILD_MPI=#{build_mpi}",
+        "-DBUILD_OMP=#{build_omp}",
         "-DBUILD_SHARED_LIBS=yes",
         "-DFFT=FFTW3",
         "-DWITH_GZIP=yes",

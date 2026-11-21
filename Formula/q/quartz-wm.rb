@@ -42,7 +42,8 @@ class QuartzWm < Formula
 
   def install
     system "autoreconf", "--force", "--install", "--verbose"
-    system "./configure", "--with-bundle-id-prefix=#{Formula["xinit"].plist_name.chomp ".startx"}",
+    bundle_id_prefix = Formula["xinit"].plist_name.chomp ".startx"
+    system "./configure", "--with-bundle-id-prefix=#{bundle_id_prefix}",
                           *std_configure_args.reject { |s| s["--disable-debug"] }
     system "make", "install"
   end

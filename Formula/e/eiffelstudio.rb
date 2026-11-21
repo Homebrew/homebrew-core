@@ -49,7 +49,8 @@ class Eiffelstudio < Formula
     platform = if OS.mac?
       "macosx-x86-64"
     else
-      "#{OS.kernel_name.downcase}-#{Hardware::CPU.arch.to_s.tr("_", "-")}"
+      target_arch = Hardware::CPU.arch.to_s.tr("_", "-")
+      "#{OS.kernel_name.downcase}-#{target_arch}"
     end
 
     # Apply workarounds
@@ -63,7 +64,8 @@ class Eiffelstudio < Formula
 
     system "./compile_exes", platform
     system "./make_images", platform
-    prefix.install (buildpath/"Eiffel_#{version.to_s[/^(\d+\.\d+)/, 1]}").children
+    release_series = version.to_s[/^(\d+\.\d+)/, 1]
+    prefix.install (buildpath/"Eiffel_#{release_series}").children
 
     eiffel_env = { ISE_EIFFEL: prefix, ISE_PLATFORM: platform }
     {

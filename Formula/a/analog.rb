@@ -32,12 +32,13 @@ class Analog < Formula
   deny_network_access!
 
   def install
+    target_os = OS.mac? ? "OSX" : "UNIX"
     args = [
       "CC=#{ENV.cc}",
       "CFLAGS=#{ENV.cflags}",
       %Q(DEFS='-DLANGDIR="#{pkgshare}/lang/"' -DHAVE_GD -DHAVE_ZLIB -DHAVE_BZLIB -DHAVE_PCRE),
       "LIBS=-lgd -lpng -ljpeg -lz -lbz2 -lpcre2-8 -lminizip -lm",
-      "OS=#{OS.mac? ? "OSX" : "UNIX"}",
+      "OS=#{target_os}",
       "SUBDIRS=libgd",
       "SUBDIROBJS=libgd/gdfontf.o",
     ]

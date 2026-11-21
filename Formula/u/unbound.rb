@@ -32,7 +32,12 @@ class Unbound < Formula
   deny_network_access!
 
   def install
-    expat_prefix = OS.mac? ? "#{MacOS.sdk_for_formula(self).path}/usr" : formula_opt_prefix("expat")
+    expat_prefix = if OS.mac?
+      sdk_path = MacOS.sdk_for_formula(self).path
+      "#{sdk_path}/usr"
+    else
+      formula_opt_prefix("expat")
+    end
     args = %W[
       --prefix=#{prefix}
       --sysconfdir=#{etc}

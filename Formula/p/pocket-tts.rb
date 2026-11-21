@@ -203,7 +203,7 @@ class PocketTts < Formula
     # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.
     # NOTE: This is an exception to our usual policy as building `pytorch` is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")/site_packages}\n"
+    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")}/#{site_packages}\n"
 
     generate_completions_from_executable(bin/"pocket-tts", shell_parameter_format: :typer)
   end

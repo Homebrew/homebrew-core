@@ -37,6 +37,7 @@ class Nagios < Formula
   end
 
   def install
+    group_name = Utils.safe_popen_read("id", "-gn").chomp
     args = [
       "--sbindir=#{prefix}/cgi-bin",
       "--sysconfdir=#{etc}/nagios",
@@ -46,7 +47,7 @@ class Nagios < Formula
       "--with-cgiurl=/nagios/cgi-bin",
       "--with-htmurl=/nagios",
       "--with-nagios-user=#{user}",
-      "--with-nagios-group='#{Utils.safe_popen_read("id", "-gn").chomp}'",
+      "--with-nagios-group='#{group_name}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
       "--with-ssl=#{formula_opt_prefix(openssl)}",

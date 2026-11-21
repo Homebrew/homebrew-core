@@ -104,7 +104,7 @@ class Mupdf < Formula
       tesseract=yes
       verbose=yes
       prefix=#{prefix}
-      pydir=#{prefix/site_packages}
+      pydir=#{prefix}/#{site_packages}
       CC=#{ENV.cc}
       USE_SYSTEM_LIBS=yes
       USE_SYSTEM_MUJS=no
@@ -122,8 +122,10 @@ class Mupdf < Formula
         ["OPENJPEG", "libopenjp2"],
         ["TESSERACT", "tesseract"],
       ].each do |argname, libname|
-        args << "SYS_#{argname}_CFLAGS=#{Utils.safe_popen_read("pkgconf", "--cflags", libname).strip}"
-        args << "SYS_#{argname}_LIBS=#{Utils.safe_popen_read("pkgconf", "--libs", libname).strip}"
+        cflags = Utils.safe_popen_read("pkgconf", "--cflags", libname).strip
+        args << "SYS_#{argname}_CFLAGS=#{cflags}"
+        libs = Utils.safe_popen_read("pkgconf", "--libs", libname).strip
+        args << "SYS_#{argname}_LIBS=#{libs}"
         args << "HAVE_SYS_#{argname}=yes"
       end
 

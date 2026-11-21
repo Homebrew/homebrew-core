@@ -108,7 +108,8 @@ class Gdal < Formula
 
     osgeo_ext = site_packages/"osgeo"
     rpaths = [rpath, rpath(source: osgeo_ext)]
-    ENV.append "LDFLAGS", "-Wl,#{rpaths.map { |rp| "-rpath,#{rp}" }.join(",")}"
+    linker_rpaths = rpaths.map { |rp| "-rpath,#{rp}" }.join(",")
+    ENV.append "LDFLAGS", "-Wl,#{linker_rpaths}"
     # keep C++ standard in sync with `abseil.rb`
     args = %W[
       -DENABLE_PAM=ON

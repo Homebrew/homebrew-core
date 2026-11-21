@@ -74,7 +74,8 @@ class Rtabmap < Formula
     return unless OS.mac?
 
     # Remove SDK include paths from CMake config files to avoid requiring specific SDK version
-    sdk_include_regex = Regexp.escape("#{MacOS.sdk_for_formula(self).path}/usr/include")
+    sdk_path = MacOS.sdk_for_formula(self).path
+    sdk_include_regex = Regexp.escape("#{sdk_path}/usr/include")
     inreplace lib.glob("rtabmap-*/RTABMap_{core,utilite}Targets.cmake"), /;#{sdk_include_regex}([;"])/, "\\1"
   end
 

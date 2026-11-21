@@ -30,7 +30,10 @@ class Libks < Formula
 
   def install
     args = ["-DWITH_PACKAGING=OFF"]
-    args << "-DUUID_ABS_LIB_PATH=#{MacOS.sdk_for_formula(self).path}/usr/lib/libSystem.tbd" if OS.mac?
+    if OS.mac?
+      sdk_path = MacOS.sdk_for_formula(self).path
+      args << "-DUUID_ABS_LIB_PATH=#{sdk_path}/usr/lib/libSystem.tbd"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

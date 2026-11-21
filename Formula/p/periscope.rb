@@ -50,12 +50,12 @@ class Periscope < Formula
     assert_equal [["tracked", "3"], ["unique", "2"], ["duplicate", "1"], ["overhead", "4", "B"]], summary
 
     # rm allows deleting dupes but not uniques
-    shell_output "#{bin}/psc rm #{scandir/"a"}"
+    shell_output "#{bin}/psc rm #{scandir}/a"
     refute_path_exists (scandir/"a")
     # now b is unique
-    shell_output "#{bin}/psc rm #{scandir/"b"} 2>/dev/null", 1
+    shell_output "#{bin}/psc rm #{scandir}/b 2>/dev/null", 1
     assert_path_exists (scandir/"b")
-    shell_output "#{bin}/psc rm #{scandir/"c"} 2>/dev/null", 1
+    shell_output "#{bin}/psc rm #{scandir}/c 2>/dev/null", 1
     assert_path_exists (scandir/"c")
 
     # cleanup

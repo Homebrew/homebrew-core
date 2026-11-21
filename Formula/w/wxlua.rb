@@ -43,7 +43,7 @@ class Wxlua < Formula
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DwxLua_LUA_LIBRARY_VERSION=#{lua_version}
       -DwxLua_LUA_INCLUDE_DIR=#{lua.opt_include}/lua
-      -DwxLua_LUA_LIBRARY=#{lua.opt_lib/shared_library("liblua")}
+      -DwxLua_LUA_LIBRARY=#{lua.opt_lib}/#{shared_library("liblua")}
       -DwxWidgets_CONFIG_EXECUTABLE=#{wx_config}
       -DwxLua_LUA_LIBRARY_USE_BUILTIN=FALSE
     ]

@@ -88,7 +88,7 @@ class Adios2 < Formula
       -DCMAKE_DISABLE_FIND_PACKAGE_LibFFI=TRUE
       -DCMAKE_DISABLE_FIND_PACKAGE_NVSTREAM=TRUE
       -DPython_EXECUTABLE=#{python3}
-      -DCMAKE_INSTALL_PYTHONDIR=#{prefix/Language::Python.site_packages(python3)}
+      -DCMAKE_INSTALL_PYTHONDIR=#{prefix}/#{Language::Python.site_packages(python3)}
       -DADIOS2_BUILD_TESTING=OFF
       -DADIOS2_BUILD_EXAMPLES=OFF
       -DADIOS2_USE_EXTERNAL_DEPENDENCIES=ON

@@ -44,8 +44,8 @@ class Pgroonga < Formula
           -Dtest=false
           --prefix=#{prefix}
           --bindir=#{bin}
-          --libdir=#{lib/postgresql.name}
-          --datadir=#{share/postgresql.name}
+          --libdir=#{lib}/#{postgresql.name}
+          --datadir=#{share}/#{postgresql.name}
           --buildtype=release
           --wrap-mode=nofallback
         ]

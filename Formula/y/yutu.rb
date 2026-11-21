@@ -29,8 +29,9 @@ class Yutu < Formula
 
   def install
     mod = "github.com/eat-pray-ai/yutu/cmd"
+    target_os = OS.mac? ? "darwin" : "linux"
     ldflags = %W[
-      -X #{mod}.Os=#{OS.mac? ? "darwin" : "linux"}
+      -X #{mod}.Os=#{target_os}
       -X #{mod}.Arch=#{Hardware::CPU.arch}
       -X #{mod}.Version=v#{version}
       -X #{mod}.CommitDate=#{time.iso8601}

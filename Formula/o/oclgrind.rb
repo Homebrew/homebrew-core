@@ -50,11 +50,12 @@ class Oclgrind < Formula
   end
 
   test do
+    header_dir = OS.mac? ? "OpenCL" : "CL"
     (testpath/"rot13.c").write <<~C
       #include <stdio.h>
       #include <stdlib.h>
       #include <string.h>
-      #include <#{OS.mac? ? "OpenCL" : "CL"}/cl.h>
+      #include <#{header_dir}/cl.h>
 
       const char rot13_cl[] = "                         \\
       __kernel void rot13                               \\

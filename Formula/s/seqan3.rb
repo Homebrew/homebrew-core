@@ -35,7 +35,10 @@ class Seqan3 < Formula
       }
     CPP
 
-    ENV.method("gcc-#{Formula["gcc"].version.major}").call if OS.mac? && DevelopmentTools.clang_build_version < 1700
+    if OS.mac? && DevelopmentTools.clang_build_version < 1700
+      gcc_major = Formula["gcc"].version.major
+      ENV.method("gcc-#{gcc_major}").call
+    end
     system ENV.cxx, "-std=c++23", "test.cpp", "-o", "test"
     system "./test"
   end

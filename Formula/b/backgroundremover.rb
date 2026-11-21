@@ -216,8 +216,8 @@ class Backgroundremover < Formula
     # into virtual environments, so install `.pth` files to link them.
     # NOTE: This is an exception to our usual policy as building them is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    (venv.site_packages/"homebrew-torchvision.pth").write "#{formula_opt_libexec("torchvision")/site_packages}\n"
-    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")/site_packages}\n"
+    (venv.site_packages/"homebrew-torchvision.pth").write "#{formula_opt_libexec("torchvision")}/#{site_packages}\n"
+    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")}/#{site_packages}\n"
 
     # We install `numba` separately without build isolation to avoid building another `numpy`
     venv.pip_install(resource("numba"), build_isolation: false)

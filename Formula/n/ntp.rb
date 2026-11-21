@@ -52,7 +52,7 @@ class Ntp < Formula
 
   test do
     # On Linux all binaries are installed in bin, while on macOS they are split between bin and sbin.
-    ntpdate_bin = OS.mac? ? sbin/"ntpdate" : bin/"ntpdate"
+    ntpdate_bin = (OS.mac? ? sbin : bin)/"ntpdate"
     if OS.mac? && ENV["HOMEBREW_GITHUB_HOSTED_RUNNER"]
       # NTP servers aren't reachable in GitHub's macOS runner?
       assert_match "Server dropped: no data", shell_output("#{ntpdate_bin} -bdq pool.ntp.org 2>&1", 1)

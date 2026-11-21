@@ -28,7 +28,7 @@ class Gobo < Formula
     (Pathname.glob prefix/"gobo/bin/ge*").each do |p|
       (bin/p.basename).write_env_script p,
                                         "GOBO" => prefix/"gobo",
-                                        "PATH" => "#{prefix/"gobo/bin"}:$PATH"
+                                        "PATH" => "#{prefix}/gobo/bin:$PATH"
     end
   end
 
@@ -67,7 +67,7 @@ class Gobo < Formula
           <file_rule>
             <exclude>/EIFGENs$</exclude>
           </file_rule>
-          <variable name="GOBO_LIBRARY" value="#{prefix/"gobo"}" />
+          <variable name="GOBO_LIBRARY" value="#{prefix}/gobo" />
           <library name="free_elks" location="${GOBO_LIBRARY}/library/free_elks/library_${GOBO_EIFFEL}.ecf" readonly="true" />
           <library name="kernel" location="${GOBO_LIBRARY}/library/kernel/library.ecf" readonly="true"/>
           <cluster name="hello" location="./" />

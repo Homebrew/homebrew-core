@@ -47,7 +47,11 @@ class Qwt < Formula
     end
 
     os = OS.mac? ? "macx" : OS.kernel_name.downcase
-    compiler = ENV.compiler.to_s.match?("clang") ? "clang" : "g++"
+    compiler = if ENV.compiler.to_s.match?("clang")
+      "clang"
+    else
+      "g++"
+    end
 
     system "qmake", "-config", "release", "-spec", "#{os}-#{compiler}"
     system "make"

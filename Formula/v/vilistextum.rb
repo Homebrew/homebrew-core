@@ -12,7 +12,10 @@ class Vilistextum < Formula
       # Omit version with old scheme that is incorrectly treated as newest
       # NOTE: This `strategy` block can be removed in the future if/when the
       # download page only contains versions with three parts like 2.3.0.
-      page.scan(regex).map { |match| ((version = match.first) == "2.22") ? nil : version }
+      page.scan(regex).map do |match|
+        version = match.first
+        version if version != "2.22"
+      end
     end
   end
 

@@ -56,7 +56,7 @@ class Unar < Formula
         arch = Hardware::CPU.arm? ? "arm64" : "x86_64"
         %w[XADMaster unar lsar].each do |target|
           xcodebuild "-target", target, "-project", "../XADMaster.xcodeproj",
-                     "SYMROOT=#{buildpath/"build"}", "-configuration", "Release",
+                     "SYMROOT=#{buildpath}/build", "-configuration", "Release",
                      "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}", "ARCHS=#{arch}", "ONLY_ACTIVE_ARCH=YES"
         end
 

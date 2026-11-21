@@ -74,7 +74,7 @@ class SyslogNg < Formula
     system "./configure", "--disable-silent-rules",
                           "--enable-all-modules",
                           "--sysconfdir=#{pkgetc}",
-                          "--localstatedir=#{var/name}",
+                          "--localstatedir=#{var}/#{name}",
                           "--with-ivykis=system",
                           "--with-python=#{Language::Python.major_minor_version python3}",
                           "--with-python-venv-dir=#{venv.root}",

@@ -35,7 +35,11 @@ class Dwarf < Formula
 
     # Work around failure from GCC 10+ using default of `-fno-common`
     # /usr/bin/ld: repl.o:(.bss+0x20): multiple definition of `fc_ptr'
-    args = ENV.compiler.to_s.start_with?("gcc") ? ["CC=#{ENV.cc} -fcommon"] : []
+    args = if ENV.compiler.to_s.start_with?("gcc")
+      ["CC=#{ENV.cc} -fcommon"]
+    else
+      []
+    end
 
     %w[src/libdwarf.c doc/dwarf.man doc/xdwarf.man.html].each do |f|
       inreplace f, "/etc/dwarfrc", etc/"dwarfrc"

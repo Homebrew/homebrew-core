@@ -57,11 +57,13 @@ class Wireshark < Formula
   def install
     lua = Formula["lua"]
     plugindir = lib/"wireshark/plugins/#{version.major}-#{version.minor}"
+    extcap_rpath = rpath(source: libexec/"wireshark/extcap")
+    codecs_rpath = rpath(source: plugindir/"codecs")
     args = %W[
       -DENABLE_BROTLI=OFF
       -DENABLE_SNAPPY=OFF
       -DLUA_INCLUDE_DIR=#{lua.opt_include}/lua
-      -DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua")}
+      -DLUA_LIBRARY=#{lua.opt_lib}/#{shared_library("liblua")}
       -DCARES_INCLUDE_DIR=#{formula_opt_include("c-ares")}
       -DGCRYPT_INCLUDE_DIR=#{formula_opt_include("libgcrypt")}
       -DGNUTLS_INCLUDE_DIR=#{formula_opt_include("gnutls")}
@@ -69,8 +71,8 @@ class Wireshark < Formula
       -DBUILD_wireshark=OFF
       -DBUILD_logray=OFF
       -DENABLE_APPLICATION_BUNDLE=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: libexec/"wireshark/extcap")}
-      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{rpath(source: plugindir/"codecs")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{extcap_rpath}
+      -DCMAKE_MODULE_LINKER_FLAGS=-Wl,-rpath,#{codecs_rpath}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

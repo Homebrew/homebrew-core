@@ -40,13 +40,13 @@ class C3c < Formula
       "-DC3_USE_TB=OFF",
       "-DCMAKE_POSITION_INDEPENDENT_CODE=ON",
       "-DLLVM_DIR=#{llvm.opt_lib}/cmake/llvm",
-      "-DLLVM=#{llvm.opt_lib/shared_library("libLLVM")}",
-      "-DLLD_COFF=#{lld.opt_lib/shared_library("liblldCOFF")}",
-      "-DLLD_COMMON=#{lld.opt_lib/shared_library("liblldCommon")}",
-      "-DLLD_ELF=#{lld.opt_lib/shared_library("liblldELF")}",
-      "-DLLD_MACHO=#{lld.opt_lib/shared_library("liblldMachO")}",
-      "-DLLD_MINGW=#{lld.opt_lib/shared_library("liblldMinGW")}",
-      "-DLLD_WASM=#{lld.opt_lib/shared_library("liblldWasm")}",
+      "-DLLVM=#{llvm.opt_lib}/#{shared_library("libLLVM")}",
+      "-DLLD_COFF=#{lld.opt_lib}/#{shared_library("liblldCOFF")}",
+      "-DLLD_COMMON=#{lld.opt_lib}/#{shared_library("liblldCommon")}",
+      "-DLLD_ELF=#{lld.opt_lib}/#{shared_library("liblldELF")}",
+      "-DLLD_MACHO=#{lld.opt_lib}/#{shared_library("liblldMachO")}",
+      "-DLLD_MINGW=#{lld.opt_lib}/#{shared_library("liblldMinGW")}",
+      "-DLLD_WASM=#{lld.opt_lib}/#{shared_library("liblldWasm")}",
     ]
     args << "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON" if OS.linux?
 

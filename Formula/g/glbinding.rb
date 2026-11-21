@@ -33,8 +33,9 @@ class Glbinding < Formula
     # considers /usr and /usr/local to be valid for a system installation
     inreplace "CMakeLists.txt", "set(SYSTEM_DIR_INSTALL FALSE)", "set(SYSTEM_DIR_INSTALL TRUE)"
 
+    build_headers = OS.mac? ? "ON" : "OFF"
     system "cmake", "-S", ".", "-B", "build",
-                    "-DOPTION_BUILD_OWN_KHR_HEADERS=#{OS.mac? ? "ON" : "OFF"}",
+                    "-DOPTION_BUILD_OWN_KHR_HEADERS=#{build_headers}",
                     "-DEXECUTABLE_INSTALL_RPATH=#{rpath}",
                     "-DLIBRARY_INSTALL_RPATH=#{loader_path}",
                     *std_cmake_args

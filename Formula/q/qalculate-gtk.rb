@@ -35,7 +35,7 @@ class QalculateGtk < Formula
 
   def install
     if OS.mac?
-      ENV.append_to_cflags "-I#{formula_opt_include("gtk-mac-integration")/"gtkmacintegration"}"
+      ENV.append_to_cflags "-I#{formula_opt_include("gtk-mac-integration")}/gtkmacintegration"
       ENV.append "LDFLAGS", "-L#{formula_opt_lib("gtk-mac-integration")} -lgtkmacintegration-gtk3"
     end
     ENV.prepend_path "PERL5LIB", formula_opt_libexec("perl-xml-parser")/"lib/perl5" unless OS.mac?

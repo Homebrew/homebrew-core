@@ -436,7 +436,8 @@ class Agda < Formula
     system bin/"agda2hs", "--out-dir=#{testpath}", agda2hstest
     assert_equal agda2hsexpect, agda2hsout.read
 
-    assert_equal "Agda v#{version.major_minor_patch} Language Server v#{resource("agda-language-server").version}",
+    agda_language_server_version = resource("agda-language-server").version
+    assert_equal "Agda v#{version.major_minor_patch} Language Server v#{agda_language_server_version}",
                  shell_output("#{bin}/als -V").strip
   end
 end

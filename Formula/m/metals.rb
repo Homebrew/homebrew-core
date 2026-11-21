@@ -48,8 +48,8 @@ class Metals < Formula
     (libexec/"lib").install buildpath.glob("mtags-shared/target/scala-*/mtags-shared_*-#{version}.jar")
     (libexec/"lib").install "mtags-interfaces/target/mtags-interfaces-#{version}.jar"
 
-    args = %W[-cp "#{libexec/"lib"}/*" scala.meta.metals.Main]
-    mcp_args = %W[-cp "#{libexec/"lib"}/*" scala.meta.metals.McpMain]
+    args = %W[-cp "#{libexec}/lib/*" scala.meta.metals.Main]
+    mcp_args = %W[-cp "#{libexec}/lib/*" scala.meta.metals.McpMain]
     env = Language::Java.overridable_java_home_env("25")
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     (bin/"metals").write_env_script "java", args.join(" "), env

@@ -107,8 +107,8 @@ class Powershell < Formula
     module_copy_script = buildpath/"homebrew-copy-psgallery-modules.ps1"
     module_copy_script.write <<~PS1
       $ErrorActionPreference = 'Stop'
-      Import-Module '#{buildpath/"build.psm1"}' -Force
-      Copy-PSGalleryModules -CsProjPath '#{buildpath/"src/Modules/PSGalleryModules.csproj"}' -Destination '#{publish_path/"Modules"}' -Force
+      Import-Module '#{buildpath}/build.psm1' -Force
+      Copy-PSGalleryModules -CsProjPath '#{buildpath}/src/Modules/PSGalleryModules.csproj' -Destination '#{publish_path}/Modules' -Force
     PS1
 
     # Hardcode the environment object as we dont have brew command. See https://github.com/PowerShell/PowerShell/blob/v7.5.4/build.psm1#L124-L224

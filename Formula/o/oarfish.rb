@@ -37,7 +37,10 @@ class Oarfish < Formula
     assert_match version.to_s, shell_output("#{bin}/oarfish --version")
 
     random = Random.new(1)
-    transcripts = (1..3).map { |i| ">tx#{i}\n#{Array.new(1000) { "ACGT"[random.rand(4)] }.join}\n" }
+    transcripts = (1..3).map do |i|
+      sequence = Array.new(1000) { "ACGT"[random.rand(4)] }.join
+      ">tx#{i}\n#{sequence}\n"
+    end
     (testpath/"test.fasta").write transcripts.join
     system bin/"oarfish", "--reads", "test.fasta", "--annotated", "test.fasta",
                           "--seq-tech", "ont-cdna", "--output", "sample"

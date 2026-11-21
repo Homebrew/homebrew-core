@@ -31,16 +31,18 @@ class Libgsm < Formula
     man3.mkpath
 
     arflags = if OS.mac?
+      library_path = lib/shared_library("libgsm", version.major.to_s)
       %W[
         -dynamiclib
         -compatibility_version #{version.major}
         -current_version #{version}
-        -install_name #{lib/shared_library("libgsm", version.major.to_s)}
+        -install_name #{library_path}
       ]
     else
+      library_name = shared_library("libgsm", version.major.to_s)
       %W[
         -shared
-        -Wl,-soname,#{shared_library("libgsm", version.major.to_s)}
+        -Wl,-soname,#{library_name}
       ]
     end
     arflags << "-o"

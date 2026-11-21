@@ -23,9 +23,10 @@ class Sbomasm < Formula
   end
 
   def install
+    commit = build.head? ? Utils.git_head : tap.user
     ldflags = %W[
       -X sigs.k8s.io/release-utils/version.gitVersion=#{version}
-      -X sigs.k8s.io/release-utils/version.gitCommit=#{build.head? ? Utils.git_head : tap.user}
+      -X sigs.k8s.io/release-utils/version.gitCommit=#{commit}
       -X sigs.k8s.io/release-utils/version.gitTreeState=clean
       -X sigs.k8s.io/release-utils/version.buildDate=#{time.iso8601}
     ]

@@ -35,12 +35,13 @@ class Pixie < Formula
 
   def install
     semver = build.head? ? "0.0.0-dev" : version
+    build_number = revision + bottle&.rebuild.to_i + 1
     ldflags = %W[
       -X px.dev/pixie/src/shared/goversion.buildSCMRevision=#{Utils.git_short_head}
       -X px.dev/pixie/src/shared/goversion.buildSCMStatus=Distribution
       -X px.dev/pixie/src/shared/goversion.buildSemver=#{semver}
       -X px.dev/pixie/src/shared/goversion.buildTimeStamp=#{time.to_i}
-      -X px.dev/pixie/src/shared/goversion.buildNumber=#{revision + bottle&.rebuild.to_i + 1}
+      -X px.dev/pixie/src/shared/goversion.buildNumber=#{build_number}
       -X px.dev/pixie/src/shared/goversion.builtBy=#{tap.user}
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"px"), "./src/pixie_cli"

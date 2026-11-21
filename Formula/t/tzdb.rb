@@ -28,7 +28,7 @@ class Tzdb < Formula
     make_args = %W[
       CFLAGS=#{ENV.cflags}
       USRDIR=#{prefix}
-      TZDEFAULT=#{etc/"localtime"}
+      TZDEFAULT=#{etc}/localtime
     ]
     make_args << "LDLIBS=-lintl" if OS.mac?
 

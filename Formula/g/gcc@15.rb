@@ -70,7 +70,8 @@ class GccAT15 < Formula
     # https://github.com/Homebrew/homebrew-core/pull/221029
     languages << "m2" if !OS.mac? || MacOS.version < :sequoia
 
-    pkgversion = "Homebrew GCC #{pkg_version} #{build.used_options*" "}".strip
+    build_options = build.used_options * " "
+    pkgversion = "Homebrew GCC #{pkg_version} #{build_options}".strip
 
     args = %W[
       --prefix=#{opt_prefix}

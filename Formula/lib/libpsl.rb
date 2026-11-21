@@ -28,7 +28,11 @@ class Libpsl < Formula
   deny_network_access!
 
   def install
-    runtime = (OS.linux? || MacOS.version <= :monterey) ? "libidn2" : "libicucore"
+    runtime = if OS.linux? || MacOS.version <= :monterey
+      "libidn2"
+    else
+      "libicucore"
+    end
     args = %W[
       --disable-silent-rules
       --enable-builtin

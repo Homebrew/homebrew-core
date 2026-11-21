@@ -43,9 +43,10 @@ class Mgis < Formula
     if OS.mac?
       # Use -dead_strip_dylibs to avoid linkage to boost container and graph modules
       # Issue ref: https://github.com/boostorg/boost/issues/985
+      module_rpath = rpath(source: prefix/Language::Python.site_packages(python3)/"mgis")
       linker_flags = %W[
         -Wl,-dead_strip_dylibs
-        -Wl,-rpath,#{rpath(source: prefix/Language::Python.site_packages(python3)/"mgis")}
+        -Wl,-rpath,#{module_rpath}
       ]
       args << "-DCMAKE_MODULE_LINKER_FLAGS=#{linker_flags.join(" ")}"
     end

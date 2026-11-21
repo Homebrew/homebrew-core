@@ -69,11 +69,12 @@ class Watchman < Formula
     #       RPATHs configured, so will need to be installed and relocated manually
     #       if they are built as shared libraries. They're not used by any other
     #       formulae, so let's link them statically instead. This is done by default.
+    build_user = tap&.user || "Homebrew"
     args = %W[
       -DENABLE_EDEN_SUPPORT=ON
       -DPython3_EXECUTABLE=#{python3}
       -DWATCHMAN_VERSION_OVERRIDE=#{version}
-      -DWATCHMAN_BUILDINFO_OVERRIDE=#{tap&.user || "Homebrew"}
+      -DWATCHMAN_BUILDINFO_OVERRIDE=#{build_user}
       -DWATCHMAN_USE_XDG_STATE_HOME=ON
       -DCMAKE_CXX_STANDARD=20
       -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}

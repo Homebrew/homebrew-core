@@ -34,8 +34,10 @@ class Cpptoml < Formula
   deny_network_access!
 
   def install
+    enable_libcxx = "OFF"
+    enable_libcxx = "ON" if ENV.compiler == :clang
     args = %W[
-      -DENABLE_LIBCXX=#{(ENV.compiler == :clang) ? "ON" : "OFF"}
+      -DENABLE_LIBCXX=#{enable_libcxx}
       -DCPPTOML_BUILD_EXAMPLES=OFF
     ]
 

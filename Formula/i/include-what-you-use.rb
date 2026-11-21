@@ -41,9 +41,10 @@ class IncludeWhatYouUse < Formula
     resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
     resource_dir.sub! llvm.prefix.realpath, llvm.opt_prefix
 
+    relative_resource_dir = Pathname(resource_dir).relative_path_from(bin)
     args = %W[
       -DIWYU_RESOURCE_RELATIVE_TO=iwyu
-      -DIWYU_RESOURCE_DIR=#{Pathname(resource_dir).relative_path_from(bin)}
+      -DIWYU_RESOURCE_DIR=#{relative_resource_dir}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args

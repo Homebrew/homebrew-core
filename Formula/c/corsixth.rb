@@ -65,10 +65,14 @@ class Corsixth < Formula
       end
     end
 
-    datadir = OS.mac? ? prefix/"CorsixTH.app/Contents/Resources/" : pkgshare
+    datadir = if OS.mac?
+      prefix/"CorsixTH.app/Contents/Resources/"
+    else
+      pkgshare
+    end
     args = std_cmake_args + %W[
       -DLUA_INCLUDE_DIR=#{lua.opt_include}/lua
-      -DLUA_LIBRARY=#{lua.opt_lib/shared_library("liblua")}
+      -DLUA_LIBRARY=#{lua.opt_lib}/#{shared_library("liblua")}
       -DLUA_PROGRAM_PATH=#{lua.opt_bin}/lua
       -DCORSIX_TH_DATADIR=#{datadir}
     ]
@@ -94,7 +98,11 @@ class Corsixth < Formula
     end
 
     lua_env = { LUA_PATH: ENV["LUA_PATH"], LUA_CPATH: ENV["LUA_CPATH"] }
-    bin_path = OS.mac? ? prefix/"CorsixTH.app/Contents/MacOS/CorsixTH" : libexec/"bin/corsix-th"
+    bin_path = if OS.mac?
+      prefix/"CorsixTH.app/Contents/MacOS/CorsixTH"
+    else
+      libexec/"bin/corsix-th"
+    end
     (bin/"CorsixTH").write_env_script(bin_path, lua_env)
   end
 

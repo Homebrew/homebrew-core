@@ -75,7 +75,11 @@ class Ollama < Formula
     llama_source_dir = buildpath/"llama.cpp"
     llama_source_dir.install resource("llama.cpp")
 
-    preset = (OS.mac? && Hardware::CPU.arm?) ? "darwin" : "cpu"
+    preset = if OS.mac? && Hardware::CPU.arm?
+      "darwin"
+    else
+      "cpu"
+    end
 
     args = %W[
       --preset #{preset}

@@ -30,9 +30,10 @@ class Goenv < Formula
   end
 
   def install
+    build_user = tap&.user || "homebrew"
     ldflags = %W[
       -X main.version=#{version}
-      -X main.commit=#{tap&.user || "homebrew"}
+      -X main.commit=#{build_user}
       -X main.buildTime=#{time.iso8601}
     ]
     system "go", "build", *std_go_args(ldflags:, output: bin/"goenv")

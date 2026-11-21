@@ -88,8 +88,10 @@ class PythonFreethreading < Formula
     # Override the auto-detection of libmpdec, which assumes a universal build.
     # This is currently an inreplace due to https://github.com/python/cpython/issues/98557.
     if OS.mac?
+      machine = Hardware::CPU.arm? ? "uint128" : "x64"
+      ENV["PYTHON_DECIMAL_WITH_MACHINE"] = machine
       inreplace "configure", "libmpdec_machine=universal",
-                "libmpdec_machine=#{ENV["PYTHON_DECIMAL_WITH_MACHINE"] = Hardware::CPU.arm? ? "uint128" : "x64"}"
+                "libmpdec_machine=#{machine}"
     end
 
     # The --enable-optimization and --with-lto flags diverge from what upstream
@@ -237,8 +239,9 @@ class PythonFreethreading < Formula
     end
 
     # Patch ensurepip to bootstrap our updated version of pip
+    pip_version = resource("pip").version
     inreplace lib_cellar/"ensurepip/__init__.py" do |s|
-      s.gsub!(/_PIP_VERSION = .*/, "_PIP_VERSION = \"#{resource("pip").version}\"")
+      s.gsub!(/_PIP_VERSION = .*/, "_PIP_VERSION = \"#{pip_version}\"")
     end
 
     # Rename idle, pydoc to t variants
@@ -268,7 +271,7 @@ class PythonFreethreading < Formula
            "--upgrade",
            "--isolated",
            "--target=#{root_site_packages}",
-           bundled/"pip-#{resource("pip").version}-py3-none-any.whl"
+           bundled/"pip-#{pip_version}-py3-none-any.whl"
 
     # Use brewed ca-certificates PEM file instead of the bundled copy
     certifi = root_site_packages/"pip/_vendor/certifi"

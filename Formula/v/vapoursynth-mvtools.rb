@@ -44,7 +44,7 @@ class VapoursynthMvtools < Formula
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 
     # Work around Homebrew's python prefix patch
-    args = %W[-Dpython.platlibdir=#{prefix/Language::Python.site_packages(python3)}]
+    args = %W[-Dpython.platlibdir=#{prefix}/#{Language::Python.site_packages(python3)}]
 
     system "meson", "setup", "build", *args, *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

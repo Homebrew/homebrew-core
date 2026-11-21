@@ -55,8 +55,9 @@ class Httpd < Formula
     end
 
     if OS.mac?
-      libxml2 = "#{MacOS.sdk_for_formula(self).path}/usr"
-      zlib = "#{MacOS.sdk_for_formula(self).path}/usr"
+      sdk_usr = MacOS.sdk_for_formula(self).path/"usr"
+      libxml2 = sdk_usr
+      zlib = sdk_usr
     else
       libxml2 = formula_opt_prefix("libxml2")
       zlib = formula_opt_prefix("zlib-ng-compat")

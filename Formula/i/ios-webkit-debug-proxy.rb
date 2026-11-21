@@ -34,8 +34,10 @@ class IosWebkitDebugProxy < Formula
     assert_match version.to_s, shell_output("#{bin}/ios_webkit_debug_proxy --version")
 
     base_port = free_port
+    first_port = base_port + 1
+    last_port = base_port + 101
     (testpath/"config.csv").write <<~CSV
-      null:#{base_port},:#{base_port + 1}-#{base_port + 101}
+      null:#{base_port},:#{first_port}-#{last_port}
     CSV
 
     output_log = testpath/"output.log"

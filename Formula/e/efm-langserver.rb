@@ -38,7 +38,7 @@ class EfmLangserver < Formula
           - lint-command: "flake8 --stdin-display-name ${INPUT} -"
             lint-stdin: true
     YAML
-    output = shell_output("#{bin}/efm-langserver -c #{testpath/"config.yml"} -d")
+    output = shell_output("#{bin}/efm-langserver -c #{testpath}/config.yml -d")
     assert_match "version: 2", output
     assert_match "lint-command: flake8 --stdin-display-name ${INPUT} -", output
   end

@@ -113,7 +113,8 @@ class Projectm < Formula
         return 0;
       }
     CPP
-    flags = shell_output("pkgconf libprojectM #{"egl" if OS.linux?} --cflags --libs").split
+    egl_package = "egl" if OS.linux?
+    flags = shell_output("pkgconf libprojectM #{egl_package} --cflags --libs").split
     flags += %w[-framework OpenGL -Wno-deprecated-declarations] if OS.mac?
     system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test", *flags
     system "./test"

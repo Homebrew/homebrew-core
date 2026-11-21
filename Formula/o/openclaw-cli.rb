@@ -35,7 +35,8 @@ class OpenclawCli < Formula
     # Remove incompatible pre-built binaries (non-native architectures
     # and GPU variants requiring CUDA/Vulkan)
     arch = Hardware::CPU.arm? ? "arm64" : "x64"
-    target = "#{OS.linux? ? "linux" : "mac"}-#{arch}"
+    platform = OS.linux? ? "linux" : "mac"
+    target = "#{platform}-#{arch}"
 
     node_modules.glob("tree-sitter-bash/prebuilds/*").each do |dir|
       rm_r(dir) if dir.basename.to_s != target

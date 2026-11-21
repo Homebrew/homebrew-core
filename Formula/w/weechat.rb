@@ -43,6 +43,8 @@ class Weechat < Formula
 
   def install
     tcltk = deps.find { |dep| dep.name.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }.to_formula
+    tcl_library = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")
+    tk_library = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major}tk#{tcltk.version.major_minor}")
     args = %W[
       -DENABLE_ENCHANT=ON
       -DENABLE_GUILE=OFF
@@ -50,9 +52,9 @@ class Weechat < Formula
       -DENABLE_MAN=ON
       -DENABLE_PHP=OFF
       -DTCL_INCLUDE_PATH=#{tcltk.opt_include}/tcl-tk
-      -DTCL_LIBRARY=#{tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")}
+      -DTCL_LIBRARY=#{tcl_library}
       -DTK_INCLUDE_PATH=#{tcltk.opt_include}/tcl-tk
-      -DTK_LIBRARY=#{tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major}tk#{tcltk.version.major_minor}")}
+      -DTK_LIBRARY=#{tk_library}
     ]
 
     # Help CMake find Perl header on macOS due to non-standard layout

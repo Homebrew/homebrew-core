@@ -46,8 +46,8 @@ class Rsync < Formula
     mkdir "a"
     mkdir "b"
 
-    ["foo\n", "bar\n", "baz\n"].map.with_index do |s, i|
-      (testpath/"a/#{i + 1}.txt").write s
+    ["foo\n", "bar\n", "baz\n"].each.with_index(1) do |s, index|
+      (testpath/"a/#{index}.txt").write s
     end
 
     system bin/"rsync", "-artv", testpath/"a/", testpath/"b/"

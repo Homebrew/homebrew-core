@@ -36,7 +36,8 @@ class Fsw < Formula
 
   test do
     # The FSEvents monitor gets no events in the `brew test` sandbox, so use kqueue on macOS
-    io = IO.popen("#{bin}/fsw #{"-k " if OS.mac?}test")
+    kernel_flag = "-k " if OS.mac?
+    io = IO.popen("#{bin}/fsw #{kernel_flag}test")
     (testpath/"test").write("foo")
     sleep 2
     rm testpath/"test"

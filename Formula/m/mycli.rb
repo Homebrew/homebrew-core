@@ -331,7 +331,8 @@ class Mycli < Formula
 
     # sqlglotc must compile against our sqlglot, but `PIP_CONSTRAINT` does not reach its build env.
     resource("sqlglotc").stage do
-      inreplace "pyproject.toml", "\n    \"sqlglot\",", "\n    \"sqlglot==#{resource("sqlglot").version}\","
+      sqlglot_version = resource("sqlglot").version
+      inreplace "pyproject.toml", "\n    \"sqlglot\",", "\n    \"sqlglot==#{sqlglot_version}\","
       venv.pip_install Pathname.pwd
     end
 

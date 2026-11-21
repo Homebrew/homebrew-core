@@ -29,7 +29,7 @@ class Sponge < Formula
   test do
     file = testpath/"sponge-test.txt"
     file.write("c\nb\na\n")
-    system "sort #{file} | #{bin/"sponge"} #{file}"
+    system "sort #{file} | #{bin}/sponge #{file}"
     assert_equal "a\nb\nc\n", File.read(file)
   end
 end

@@ -105,6 +105,7 @@ class Docbook < Formula
     end
 
     (etc/"xml").mkpath
+    resource_names = resources.map(&:name).join(" ")
     (libexec/"post-install").write <<~SH
       #!/bin/sh
       set -e
@@ -112,7 +113,7 @@ class Docbook < Formula
       export XML_CATALOG_FILES="$catalog"
       xmlcatalog="$(command -v xmlcatalog)"
       [ -f "$catalog" ] || "$xmlcatalog" --noout --create "$catalog"
-      for version in #{resources.map(&:name).join(" ")}; do
+      for version in #{resource_names}; do
         entry="file://#{opt_prefix}/docbook/xml/$version/catalog.xml"
         "$xmlcatalog" --noout --del "$entry" "$catalog"
         "$xmlcatalog" --noout --add nextCatalog "" "$entry" "$catalog"

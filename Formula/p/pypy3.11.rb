@@ -174,13 +174,15 @@ class Pypy311 < Formula
     end
 
     # Patch ensurepip to bootstrap our updated versions of setuptools/pip
+    setuptools_version = resource("setuptools").version
+    pip_version = resource("pip").version
     inreplace wheel_dir.parent/"__init__.py" do |s|
-      s.gsub!(/_SETUPTOOLS_VERSION = .*/, "_SETUPTOOLS_VERSION = \"#{resource("setuptools").version}\"")
-      s.gsub!(/_PIP_VERSION = .*/, "_PIP_VERSION = \"#{resource("pip").version}\"")
+      s.gsub!(/_SETUPTOOLS_VERSION = .*/, "_SETUPTOOLS_VERSION = \"#{setuptools_version}\"")
+      s.gsub!(/_PIP_VERSION = .*/, "_PIP_VERSION = \"#{pip_version}\"")
     end
 
     # Ensure that our new pip wheel is globally readable.
-    pip_wheel = wheel_dir/"pip-#{resource("pip").version}-py3-none-any.whl"
+    pip_wheel = wheel_dir/"pip-#{pip_version}-py3-none-any.whl"
     chmod "ugo+r", pip_wheel
 
     # Bootstrap initial install of pip.
@@ -196,7 +198,7 @@ class Pypy311 < Formula
            "--no-index",
            "--upgrade",
            "--isolated",
-           wheel_dir/"setuptools-#{resource("setuptools").version}-py3-none-any.whl",
+           wheel_dir/"setuptools-#{setuptools_version}-py3-none-any.whl",
            pip_wheel
 
     # Move original libexec/bin directory to allow preserving user-installed scripts.

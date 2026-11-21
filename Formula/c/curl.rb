@@ -58,7 +58,8 @@ class Curl < Formula
   allow_network_access! :test
 
   def install
-    tag_name = "curl-#{version.to_s.tr(".", "_")}"
+    archive_version = version.to_s.tr(".", "_")
+    tag_name = "curl-#{archive_version}"
     if build.stable? && stable.mirrors.grep(%r{\Ahttps?://(www\.)?github\.com/}).first.exclude?(tag_name)
       odie "Tag name #{tag_name} is not found in the GitHub mirror URL! " \
            "Please make sure the URL is correct."

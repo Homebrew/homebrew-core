@@ -67,7 +67,8 @@ class Povray < Formula
     end
 
     # Workaround for Xcode 16.3+, issue ref: https://github.com/POV-Ray/povray/issues/479
-    inreplace "source/#{build.stable? ? "backend" : "core"}/shape/truetype.cpp",
+    source_dir = build.stable? ? "backend" : "core"
+    inreplace "source/#{source_dir}/shape/truetype.cpp",
               "#if !defined(TARGET_OS_MAC)",
               "#if !defined(__MACTYPES__)"
 
@@ -77,8 +78,9 @@ class Povray < Formula
     # Disable optimizations similar to Debian/Fedora. This mainly removes `-ffast-math`
     # as `povray` has open bugs like https://github.com/POV-Ray/povray/issues/460.
     # Other optimizations like `-O3` and `-march=native` were always removed by brew.
+    build_user = tap&.user || "Homebrew"
     args = %W[
-      COMPILED_BY=#{tap&.user || "Homebrew"}
+      COMPILED_BY=#{build_user}
       --disable-optimiz
       --mandir=#{man}
       --with-boost=#{formula_opt_prefix("boost")}

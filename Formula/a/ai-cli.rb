@@ -23,7 +23,7 @@ class AiCli < Formula
   end
 
   test do
-    output = shell_output("#{bin}/ai text --image #{testpath/"missing.png"} describe 2>&1", 1)
+    output = shell_output("#{bin}/ai text --image #{testpath}/missing.png describe 2>&1", 1)
     assert_match "could not read reference image", output
   end
 end

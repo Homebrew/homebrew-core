@@ -446,8 +446,8 @@ class RapidMlx < Formula
 
     # These formulae install their Python modules in separate virtual environments.
     site_packages = Language::Python.site_packages(python3)
-    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")/site_packages}\n"
-    (venv.site_packages/"homebrew-torchvision.pth").write "#{formula_opt_libexec("torchvision")/site_packages}\n"
+    (venv.site_packages/"homebrew-pytorch.pth").write "#{formula_opt_libexec("pytorch")}/#{site_packages}\n"
+    (venv.site_packages/"homebrew-torchvision.pth").write "#{formula_opt_libexec("torchvision")}/#{site_packages}\n"
   end
 
   test do

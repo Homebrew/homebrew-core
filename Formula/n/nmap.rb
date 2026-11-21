@@ -54,7 +54,11 @@ class Nmap < Formula
 
     ENV.deparallelize
 
-    libpcap_path = OS.mac? ? MacOS.sdk_path/"usr/" : formula_opt_prefix("libpcap")
+    libpcap_path = if OS.mac?
+      MacOS.sdk_path/"usr/"
+    else
+      formula_opt_prefix("libpcap")
+    end
 
     args = %W[
       --with-liblua=#{formula_opt_prefix("lua")}

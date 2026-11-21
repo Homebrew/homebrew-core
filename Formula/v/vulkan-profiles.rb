@@ -140,7 +140,7 @@ class VulkanProfiles < Formula
     # https://github.com/KhronosGroup/Vulkan-Profiles/issues/1008
     venv = virtualenv_create(buildpath/"build/python-venv", python3)
     site_packages = Language::Python.site_packages(python3)
-    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pyinstaller")/site_packages}')\n"
+    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pyinstaller")}/#{site_packages}')\n"
     (venv.site_packages/"homebrew-pyinstaller.pth").write pth_contents
     build_backends = %w[flit-core poetry-core calver vcs-versioning setuptools-scm pathspec pluggy
                         tomlkit trove-classifiers hatchling hatch-vcs hatch-fancy-pypi-readme]

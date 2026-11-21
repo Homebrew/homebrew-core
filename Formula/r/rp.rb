@@ -32,7 +32,8 @@ class Rp < Formula
     os = OS.mac? ? "osx" : "lin"
     rp = bin/"rp-#{os}"
     output = shell_output("#{rp} --file #{rp} --rop=1 --unique")
-    assert_match "FileFormat: #{OS.mac? ? "Mach-o" : "Elf"}", output
+    file_format = OS.mac? ? "Mach-o" : "Elf"
+    assert_match "FileFormat: #{file_format}", output
     assert_match(/\d+ unique gadgets found/, output)
   end
 end

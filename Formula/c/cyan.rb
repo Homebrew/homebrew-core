@@ -46,7 +46,11 @@ class Cyan < Formula
     end
 
     # Keep only tool binaries for the current OS/architecture pair.
-    tools_arch = (!OS.mac? && Hardware::CPU.arm64?) ? "aarch64" : Hardware::CPU.arch.to_s
+    tools_arch = if !OS.mac? && Hardware::CPU.arm64?
+      "aarch64"
+    else
+      Hardware::CPU.arch.to_s
+    end
     tools_root = venv.site_packages/"cyan/tools"
     tools_os_dir = tools_root/OS.kernel_name
     tools_dir = tools_os_dir/tools_arch

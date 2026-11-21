@@ -91,9 +91,9 @@ class Postgis < Formula
         system "make", "install", "bindir=#{bin}",
                                   "docdir=#{doc}",
                                   "mandir=#{man}",
-                                  "pkglibdir=#{lib/postgresql.name}",
-                                  "datadir=#{share/postgresql.name}",
-                                  "PG_SHAREDIR=#{share/postgresql.name}"
+                                  "pkglibdir=#{lib}/#{postgresql.name}",
+                                  "datadir=#{share}/#{postgresql.name}",
+                                  "PG_SHAREDIR=#{share}/#{postgresql.name}"
       end
 
       rm(bin/"postgres")

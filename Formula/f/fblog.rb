@@ -34,7 +34,7 @@ class Fblog < Formula
   end
 
   test do
-    output = shell_output("#{bin}/fblog #{pkgshare/"sample.json.log"}")
+    output = shell_output("#{bin}/fblog #{pkgshare}/sample.json.log")
 
     assert_match "Trust key rsa-43fe6c3d-6242-11e7-8b0c-02420a000007 found in cache", output
     assert_match "Content-Type set both in header", output

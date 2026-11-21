@@ -80,12 +80,13 @@ class XorgServer < Formula
   def install
     # ChangeLog contains some non relocatable strings
     rm "ChangeLog"
+    bundle_id_prefix = Formula["xinit"].plist_name.chomp ".startx"
     meson_args = std_meson_args(prefix: HOMEBREW_PREFIX) + %W[
       -Dxephyr=true
       -Dxf86bigfont=true
       -Dxcsecurity=true
 
-      -Dbundle-id-prefix=#{Formula["xinit"].plist_name.chomp ".startx"}
+      -Dbundle-id-prefix=#{bundle_id_prefix}
       -Dbuilder_addr=#{tap.remote}
       -Dbuilder_string=#{tap.name}
     ]

@@ -48,8 +48,9 @@ class LibheifPlugins < Formula
       X264
     ]
 
+    plugin_rpath = rpath(source: lib/"libheif", target: formula_opt_lib("libheif"))
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath(source: lib/"libheif", target: formula_opt_lib("libheif"))}
+      -DCMAKE_INSTALL_RPATH=#{plugin_rpath}
       -DPLUGIN_DIRECTORY=#{HOMEBREW_PREFIX}/lib/libheif
       -DPLUGIN_INSTALL_DIRECTORY=#{lib}/libheif
       -DWITH_AOM_DECODER=OFF

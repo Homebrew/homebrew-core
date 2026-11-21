@@ -27,7 +27,8 @@ class Gssh < Formula
     ENV["CIRCLE_TAG"] = version
     ENV["GROOVY_SSH_VERSION"] = version
     system "gradle", "shadowJar", "--no-daemon"
-    libexec.install "#{"groovy-ssh/" if build.head?}cli/build/libs/gssh.jar"
+    source_prefix = "groovy-ssh/" if build.head?
+    libexec.install "#{source_prefix}cli/build/libs/gssh.jar"
     bin.write_jar_script libexec/"gssh.jar", "gssh", java_version: "21"
   end
 

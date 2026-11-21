@@ -116,7 +116,12 @@ class Baysor < Formula
     # Two well-separated clumps of molecules drawn from three genes.
     genes = %w[geneA geneB geneC]
     rows = [0, 100].flat_map do |offset|
-      Array.new(24) { |i| "#{offset + ((i % 4) * 2)},#{(i / 4) * 2},#{genes[i % 3]}" }
+      Array.new(24) do |i|
+        x = offset + ((i % 4) * 2)
+        y = (i / 4) * 2
+        gene = genes[i % 3]
+        "#{x},#{y},#{gene}"
+      end
     end
     (testpath/"molecules.csv").write "x,y,gene\n#{rows.join("\n")}\n"
 

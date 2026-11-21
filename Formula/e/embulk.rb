@@ -40,7 +40,8 @@ class Embulk < Formula
 
   test do
     testpath.install resource("jruby-complete")
-    jruby = "jruby=file://#{testpath}/jruby-complete-#{resource("jruby-complete").version}.jar"
+    jruby_complete_version = resource("jruby-complete").version
+    jruby = "jruby=file://#{testpath}/jruby-complete-#{jruby_complete_version}.jar"
 
     (testpath/"config.yml").write <<~YAML
       in:
