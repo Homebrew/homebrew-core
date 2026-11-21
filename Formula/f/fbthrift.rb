@@ -1,25 +1,26 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
-  homepage "https://github.com/facebook/fbthrift"
-  url "https://github.com/facebook/fbthrift/archive/refs/tags/v2026.10.26.00.tar.gz"
+  homepage "https://github.com/meta/fbthrift"
+  url "https://github.com/meta/fbthrift/archive/refs/tags/v2026.10.26.00.tar.gz"
   sha256 "6ad18cfc24297120a536a0ef9c5a84f409c9aa4376057328e8dca9d45587d5a1"
   license "Apache-2.0"
   compatibility_version 1
-  head "https://github.com/facebook/fbthrift.git", branch: "main"
+  head "https://github.com/meta/fbthrift.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "3453a498bb875c83553d28f21130bb61ebe481059f37b7d6099ebf8b0c58f1d1"
-    sha256 cellar: :any, arm64_tahoe:       "71baec8e37f4c2e738ab23669c87d6b2888ff864b8afde424692fa572d6d3bc4"
-    sha256 cellar: :any, arm64_sequoia:     "8cf7ebd521ff5accd085e2ed00bc36fee174c1ffe0bebfb52648736f337474f0"
-    sha256 cellar: :any, arm64_linux:       "5d222322a3fd77ed2aef935e2d45d450fa1cbf33f75a28c71bb25aaafb110f9d"
-    sha256 cellar: :any, x86_64_linux:      "328290b61e8243e538546954db4813c616193d81882946be43239395157d4a2d"
+    rebuild 1
+    manifest_sha256 "e88782413fa06aa7bdd92fb8dcd60a807078ae80af8adf8a0e455ce2237b9258"
+    sha256 cellar: :any, arm64_golden_gate: "131b296e6c93c52939cfd129237e29b651fccc6e902095e6cd0ea5a5682eaf38"
+    sha256 cellar: :any, arm64_tahoe:       "9a162e15b18f89a6faf7cff95c09ac8f7c2c2e87eaaedf9256e087f3c3939856"
+    sha256 cellar: :any, arm64_sequoia:     "7888b4c3ff8f28f59438336e8f3d56557e1b68d4f1e524008dade15b60e08613"
+    sha256 cellar: :any, arm64_linux:       "89584bc22e038290c4f23f970f93f3513bb1e76f4fe2492c60121d411aa8c4cb"
+    sha256 cellar: :any, x86_64_linux:      "bd46d4a7a4ef69015717aacf1dc733d3f8997396f2eef1fe41eb049c80ebcdb4"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
   depends_on "cmake" => [:build, :test]
   depends_on "mvfst" => [:build, :test]
   depends_on "zstd" => :build
-  depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
@@ -39,15 +40,9 @@ class Fbthrift < Formula
 
   conflicts_with "thrift", because: "both install `thrift` binaries"
 
-  def install
-    # Work around build failure with Xcode 16
-    # Issue ref: https://github.com/facebook/fbthrift/issues/618
-    # Issue ref: https://github.com/facebook/fbthrift/issues/607
-    ENV.append "CXXFLAGS", "-fno-assume-unique-vtables" if DevelopmentTools.clang_build_version >= 1600
-    # Restore `<fmt/core.h>` pulling in `<fmt/format.h>` (dropped in fmt 12.2); #702 doesn't apply to this tag.
-    # PR ref: https://github.com/facebook/fbthrift/pull/702
-    ENV.append "CXXFLAGS", "-DFMT_DEPRECATED_HEAVY_CORE"
+  deny_network_access!
 
+  def install
     ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@4")
 
     # The static libraries are a bit annoying to build. If modifying this formula
