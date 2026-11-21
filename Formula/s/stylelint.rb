@@ -1,12 +1,13 @@
 class Stylelint < Formula
   desc "Modern CSS linter"
   homepage "https://stylelint.io/"
-  url "https://registry.npmjs.org/stylelint/-/stylelint-18.0.0.tgz"
-  sha256 "c4afe67deb7470113f8edd18138fc96f64c45007de2ffbae3a6c934e1b535682"
+  url "https://registry.npmjs.org/stylelint/-/stylelint-18.1.0.tgz"
+  sha256 "d0b13361093bd37263a68ee851407ee18f112efa438c96bd0b0c385bf9c7c2a9"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "3bd8f152ba5c36e6a7320d05c34fc7c8e75defa23c246daa823e52c11e0bca09"
+    manifest_sha256 "f1a1fe0d929a039dba38de65773bdb265fe0db8dcded2d86dcce83ac53fbcebb"
+    sha256 cellar: :any_skip_relocation, all: "3dcd02dbbd15ddb379218fe31b90cb82986f152347220a97d7cc2ad9718c117f"
   end
 
   depends_on "node"
