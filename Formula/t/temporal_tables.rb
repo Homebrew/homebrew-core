@@ -35,8 +35,8 @@ class TemporalTables < Formula
     postgresqls.each do |postgresql|
       args = %W[
         PG_CONFIG=#{postgresql.opt_bin}/pg_config
-        pkglibdir=#{lib/postgresql.name}
-        datadir=#{share/postgresql.name}
+        pkglibdir=#{lib}/#{postgresql.name}
+        datadir=#{share}/#{postgresql.name}
         docdir=#{doc}
       ]
       system "make", "install", *args
