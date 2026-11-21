@@ -28,6 +28,8 @@ class BpmTools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e78a1d3a9c96635e57bf0ce8c329a88b8b3406a0e0ba4a19cb97e4b42727f6a0"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "bpm"
