@@ -51,12 +51,17 @@ class ApacheSerf < Formula
 
   def install
     # scons ignores our compiler and flags unless explicitly passed
+    gssapi_dir = if OS.mac?
+      MacOS.sdk_for_formula(self).path/"usr"
+    else
+      formula_opt_prefix("krb5")
+    end
     args = %W[
       APR=#{formula_opt_prefix("apr")}
       APU=#{formula_opt_prefix("apr-util")}
       CC=#{ENV.cc}
       CFLAGS=#{ENV.cflags}
-      GSSAPI=#{OS.mac? ? MacOS.sdk_for_formula(self).path/"usr" : formula_opt_prefix("krb5")}
+      GSSAPI=#{gssapi_dir}
       LINKFLAGS=#{ENV.ldflags}
       OPENSSL=#{formula_opt_prefix("openssl@4")}
       PREFIX=#{prefix}
