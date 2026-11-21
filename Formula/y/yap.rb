@@ -1,14 +1,15 @@
 class Yap < Formula
   desc "On-device audio transcription using Speech.framework"
   homepage "https://github.com/finnvoor/yap"
-  url "https://github.com/finnvoor/yap/archive/refs/tags/1.2.1.tar.gz"
-  sha256 "0ee7ea1bd8b724acdf95575baa832365dd843caab81f9e57b33a28a5712921eb"
+  url "https://github.com/finnvoor/yap/archive/refs/tags/1.2.2.tar.gz"
+  sha256 "a078bb4908cea4e0eb22953e4acf85b137d6d69218deed652658e21fac905793"
   license "CC0-1.0"
   head "https://github.com/finnvoor/yap.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f252219d254b35e69d44275d71d4f2b80a40b05106fe68da1d4d1ec648ad029"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8d6f115bdf9d2b8dbec1319cc03fd4b173408bd3014fb36be16f0ccd7194e29"
+    manifest_sha256 "70e00c715a0956eea99286cd30324c6d63af0e6354d9dd340eb6439aca6bfb22"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2d736e0613c4718c96505c8d37f5bfcb31f1134499f49156242c984d8499a4f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f53a363b4e7c0ac5de8c5b3175d743e137d05dbba52bff99104804e37c505ce0"
   end
 
   depends_on macos: :tahoe
