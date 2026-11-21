@@ -285,9 +285,10 @@ class Glibc < Formula
           "x86_64/64"
         end
         if sysv_dir
+          length_hex = (localedir.to_s.length + 1).to_s(16)
           inreplace "../sysdeps/unix/sysv/linux/#{sysv_dir}/libc.abilist",
                     /(_nl_default_dirname.*?)0x12/,
-                    "\\10x#{(localedir.to_s.length + 1).to_s(16)}"
+                    "\\10x#{length_hex}"
         end
 
         # Avoid Intel CI runner timeout on tst-malloc-too-large-malloc-hugetlb2
