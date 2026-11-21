@@ -59,8 +59,9 @@ class Flexiblas < Formula
     ]
     inreplace flat_namespace_files, " -flat_namespace\"", '"'
 
+    library_rpath = rpath(source: lib/"flexiblas")
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"flexiblas")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{library_rpath}
       -DFLEXIBLAS_DEFAULT=#{blas_backends.first}
       -DSYSCONFDIR=#{etc}
       -DEXAMPLES=OFF
