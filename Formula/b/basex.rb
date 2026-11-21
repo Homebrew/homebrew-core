@@ -19,6 +19,8 @@ class Basex < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     rm Dir["bin/*.bat"]
     rm_r("repo")
