@@ -48,6 +48,8 @@ class BerkeleyDbAT5 < Formula
     directory "dist"
   end
 
+  deny_network_access!
+
   def install
     # BerkeleyDB dislikes parallel builds
     ENV.deparallelize
