@@ -101,7 +101,11 @@ class Libgxps < Formula
       XML
     end
 
-    zip = OS.mac? ? "/usr/bin/zip" : formula_opt_bin("zip")/"zip"
+    zip = if OS.mac?
+      "/usr/bin/zip"
+    else
+      formula_opt_bin("zip")/"zip"
+    end
     Dir.chdir(testpath) do
       system zip, "-qr", (testpath/"test.xps"), "_rels", "Documents", "FixedDocumentSequence.fdseq"
     end
