@@ -6,12 +6,12 @@ class BacklogMd < Formula
   license "MIT"
 
   bottle do
-    manifest_sha256 "b1127a4c905bcb5d9204c459af50ba41a8f1cff212f23abbfbcfc798be105597"
-    sha256 arm64_golden_gate: "837e93200c5790397ee1373f95c27a11467a66958fe52df249340ab1fae0c053"
-    sha256 arm64_tahoe:       "2aab9da80fb100bb8a286d48e8fd7961aa44c2af327085a888573bdbe09747aa"
-    sha256 arm64_sequoia:     "668668fce21b58a8e992667b55f1c654b8d3128cd7136b0c0509b74023fcf6d1"
-    sha256 arm64_linux:       "4f643b98d0451d807035ba1735c74bd923551c87ae52efc9e7f159f8d93479fc"
-    sha256 x86_64_linux:      "2b95525a542becc3c2cf90ab3d6723b0f1c81be6616b92c5f3e8413a928f65e8"
+    manifest_sha256 "cbef45b4fb9ca01aa38b096ad0c0fffeb60de699a7ea7653fcb570cc71497054"
+    sha256 arm64_golden_gate: "2c7cb5298ee93885535140927d97881b479c672ca5324064a54ccc87bb39f74d"
+    sha256 arm64_tahoe:       "af571bf9b1ddc995f8c9db3be83b65381fb5cc5f5d9ff9a749bb8ed76d9b48a4"
+    sha256 arm64_sequoia:     "128e2dcd6256527fd46a98819220dd73b7f4fe1650e8f177a023a25a0266b070"
+    sha256 arm64_linux:       "eb3235abf5922787228d9d6c5d6f1f0e14eccde055b0c89ecd770cd38c5c87b4"
+    sha256 x86_64_linux:      "dd027c6fed9600a1e8848d65e5df400c8b443e5ee9bd84256ea6a7affd34aa5b"
   end
 
   depends_on "bun" => :build
