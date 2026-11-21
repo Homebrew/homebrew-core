@@ -1,31 +1,22 @@
 class CmarkGfm < Formula
   desc "C implementation of GitHub Flavored Markdown"
   homepage "https://github.com/github/cmark-gfm"
-  url "https://github.com/github/cmark-gfm/archive/refs/tags/0.29.0.gfm.13.tar.gz"
-  version "0.29.0.gfm.13"
-  sha256 "5abc61798ebd9de5660bc076443c07abad2b8d15dbc11094a3a79644b8ad243a"
+  url "https://github.com/github/cmark-gfm/archive/refs/tags/0.29.0.gfm.14.tar.gz"
+  version "0.29.0.gfm.14"
+  sha256 "1c1acf50c5e9939e170b6e017ec06fcf94abeb383670b819d091a285b7ba11fe"
   license "BSD-2-Clause"
-  compatibility_version 1
-
-  no_autobump! because: :incompatible_version_format
+  compatibility_version 2
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "5b2e159cf8fdfff365ea1e00453ca3bc2a7997088c6af0ab4ca9ddca6fe9896e"
-    sha256 cellar: :any,                 arm64_tahoe:       "77d33326d768ca3fba2c4a8be10c3515997fc81c948f9df681d56eb92671fbcc"
-    sha256 cellar: :any,                 arm64_sequoia:     "85d7af0fca04c40443c4ed376656271c88814f43c935ec59a1704382fd59f35e"
-    sha256 cellar: :any,                 arm64_sonoma:      "02ea9335249ea4b4749ebdb3770deadd78e9e135431ad4552ff23941fe83edb9"
-    sha256 cellar: :any,                 arm64_ventura:     "db367b57679f3f5ff972e89fb35c51fb30bbb343ce8e13b9202bf202ca8ae24b"
-    sha256 cellar: :any,                 arm64_monterey:    "88f430ffc95c1e948082963bd58dc7b710033f69b7aa74b11d4f4fd7c567603a"
-    sha256 cellar: :any,                 arm64_big_sur:     "1cc456ff30491754d4ee3a1197e3e409ca1f5563183b50bbde899e0864f8942e"
-    sha256 cellar: :any,                 sonoma:            "eda0aadb3e858244f38c388210772ece97d5146ef6aa64c34586752422596b22"
-    sha256 cellar: :any,                 ventura:           "e69573db28aff177eec22651c2ccb5b7be8863b8d4f1edd816ab67eb9da9c05b"
-    sha256 cellar: :any,                 monterey:          "4cca4929db9ff31ee827b74d4683662af0a48e4577f95507216073ffff37a22b"
-    sha256 cellar: :any,                 big_sur:           "f0ae4dd8836af5cb5e7de552916c9c8dc9fe2b839c79be70f504cf5777ec14e6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "473b7bbb4354fa15345f5c648c9d6c3f2a619966f30014fd2ea1e12be75514ed"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9cc57585e59c81673c7cb0c374c59f900778886de3329127706534eb8851a0b5"
+    sha256 cellar: :any, arm64_golden_gate: "ee420d6bd4c2c39c7a07d057c5930ec4e5e748615fafcd3df6f68b280468b6ad"
+    sha256 cellar: :any, arm64_tahoe:       "8e64ee0191d7c9d5bc72720bc27e262dd41cb9d9ddc44a47c2315ca86a5888da"
+    sha256 cellar: :any, arm64_sequoia:     "f494a64ec5af2ed9a7f367a3061e8a98f2b6c51a1e0a036efca71b6901963ec8"
+    sha256 cellar: :any, arm64_linux:       "1d69674fcb1e270ab2c210c645dafed8db6840693cf679087ebbfcf1450204ae"
+    sha256 cellar: :any, x86_64_linux:      "836c3602c5e6f005d3bd80000aa857ac6173581f91baa61d01c1059f471762ae"
   end
 
   depends_on "cmake" => :build
+
   uses_from_macos "python" => :build
 
   deny_network_access!
@@ -34,8 +25,6 @@ class CmarkGfm < Formula
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
-    # Workaround to build with CMake 4
-    args << "-DCMAKE_POLICY_VERSION_MINIMUM=3.5"
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
