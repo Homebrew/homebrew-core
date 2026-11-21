@@ -65,7 +65,8 @@ class Garnet < Formula
     rm_r Dir["libs/native/bftree-garnet/runtimes/*"]
 
     # The device csproj ships every prebuilt runtime it finds, so drop the ones we can't use
-    native_rid = ("linux-#{Hardware::CPU.arm? ? "arm64" : "x64"}" if OS.linux?)
+    target_arch = Hardware::CPU.arm? ? "arm64" : "x64"
+    native_rid = ("linux-#{target_arch}" if OS.linux?)
     device_runtimes = buildpath/"libs/storage/Tsavorite/cs/src/core/Device/runtimes"
     device_runtimes.each_child { |rid| rm_r(rid) if rid.basename.to_s != native_rid }
 
