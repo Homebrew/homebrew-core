@@ -11,6 +11,8 @@ class BashGitPrompt < Formula
     sha256 cellar: :any_skip_relocation, all: "5049efb01e5ceb83df920dfe1c5dd23595401e3c700064fee74afbf9949d4f8f"
   end
 
+  deny_network_access!
+
   def install
     share.install "gitprompt.sh", "gitprompt.fish", "git-prompt-help.sh",
                   "gitstatus.py", "gitstatus.sh", "gitstatus_pre-1.7.10.sh",
