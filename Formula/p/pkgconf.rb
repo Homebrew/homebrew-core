@@ -57,6 +57,7 @@ class Pkgconf < Formula
       ["#{HOMEBREW_LIBRARY}/Homebrew/os/linux/pkgconfig"]
     end
 
+    sdk_root = MacOS.sdk_path if OS.mac?
     if build.head?
       # Autotools build is planned for removal in pkgconf 3.1
       resource("muon").stage do
@@ -70,7 +71,7 @@ class Pkgconf < Formula
 
       args = %W[
         -Dwith-pkg-config-dir=#{pc_path.uniq.join(File::PATH_SEPARATOR)}
-        -Dwith-system-includedir=#{MacOS.sdk_path if OS.mac?}/usr/include
+        -Dwith-system-includedir=#{sdk_root}/usr/include
         -Dwith-system-libdir=/usr/lib
       ]
 
@@ -81,7 +82,7 @@ class Pkgconf < Formula
       args = %W[
         --disable-silent-rules
         --with-pkg-config-dir=#{pc_path.uniq.join(File::PATH_SEPARATOR)}
-        --with-system-includedir=#{MacOS.sdk_path if OS.mac?}/usr/include
+        --with-system-includedir=#{sdk_root}/usr/include
         --with-system-libdir=/usr/lib
       ]
 
