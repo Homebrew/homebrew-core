@@ -161,6 +161,8 @@ class Bittensor < Formula
     sha256 "db234eda965dcce15df96bb9709f587cd87d4d52aaf0e80e2f34ec04c7670c57"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
     ENV["OPENSSL_NO_VENDOR"] = "1"
