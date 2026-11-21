@@ -16,6 +16,8 @@ class Bnd < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "biz.aQute.bnd-#{version}.jar"
     bin.write_jar_script libexec/"biz.aQute.bnd-#{version}.jar", "bnd"
