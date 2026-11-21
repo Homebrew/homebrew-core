@@ -1,8 +1,8 @@
 class Calcurse < Formula
   desc "Text-based personal organizer"
   homepage "https://calcurse.org/"
-  url "https://calcurse.org/files/calcurse-4.9.0.tar.gz"
-  sha256 "8d4c36c868cc37d50decb49423548320488e64693d01527a272d1c2fb0afa8e6"
+  url "https://calcurse.org/files/calcurse-4.9.1.tar.gz"
+  sha256 "111f58413e62d47e6eda5807f63b589a2b458e4bf3c80f156ded0107957aa675"
   license "BSD-2-Clause"
 
   livecheck do
