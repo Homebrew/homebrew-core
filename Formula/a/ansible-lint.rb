@@ -3,17 +3,17 @@ class AnsibleLint < Formula
 
   desc "Checks ansible playbooks for practices and behaviour"
   homepage "https://docs.ansible.com/projects/lint/"
-  url "https://files.pythonhosted.org/packages/fe/55/94814bfe335b58e1f65c0b2e6c8d0676737eadd7cc1466d8fe7213345a13/ansible_lint-26.10.1.tar.gz"
-  sha256 "a746c6f3cb5719d1c202bc14e956ef3b0eca704025d1aa92707a27fc73ed73ea"
+  url "https://files.pythonhosted.org/packages/bc/22/4db7a3ab031c7f08f6b1340df9fbc7b730a2ee25ec21047c1a3da445af0a/ansible_lint-26.11.0.tar.gz"
+  sha256 "74813203aa5450d720c3d86b9d0d4ddc51d30e36ac69e1f0d9f7650f5a3b5dd3"
   license all_of: ["MIT", "GPL-3.0-or-later"]
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "2d1bc5555b077e708a41aede8f86498fddf3ed53994d5c743c31d7ce75d1e1e1"
-    sha256 cellar: :any, arm64_tahoe:       "0f9523c927649eb22845e6141bad915097572a1c4285f09b826448901355b10e"
-    sha256 cellar: :any, arm64_sequoia:     "deac1dd3ff6d3f70c2c024e981fa54defade2511cf727f034238a84be5d1c29c"
-    sha256 cellar: :any, arm64_linux:       "2089febaa8a4e1f1ea665781609755dda76b7024b404e3db57536d3528d659d8"
-    sha256 cellar: :any, x86_64_linux:      "2dd90417a1420cf5e0383af99d21ec9f3fde56ec27e0dcad69c1348e9851629f"
+    manifest_sha256 "739f7b8b63a5d5cbe4fa603483866c7a7321ff7dd44269550a6f0fc8d0e48950"
+    sha256 cellar: :any, arm64_golden_gate: "c902a95f761719552480801ad2156d1bde2ba817e2067ecb5605fc8471e21dee"
+    sha256 cellar: :any, arm64_tahoe:       "cd492a0bee375467a3c322648e27a9f08d09a0a6991eafa2ce6c4ef9498ad932"
+    sha256 cellar: :any, arm64_sequoia:     "b5a0c69381ed19e8f10fcad893bed8c07a5166638c77276efaf27dad11957f4a"
+    sha256 cellar: :any, arm64_linux:       "0f59776b46eccb5d44307833dd5161f530dd5d8ac3bc14eb003f70ae4b59c9af"
+    sha256 cellar: :any, x86_64_linux:      "7cb730b6eb60357703e3a8513d489a412535dc8284c7a8fdf0382916b57f7cb0"
   end
 
   depends_on "pkgconf" => :build
@@ -24,9 +24,7 @@ class AnsibleLint < Formula
   depends_on "python@3.15"
   depends_on "rpds-py" => :no_linkage
 
-  # FIXME: remove `extra_packages` when `ansible` formula adds support for new `ansible-core`
-  pypi_packages exclude_packages: %w[cryptography rpds-py],
-                extra_packages:   "ansible-core==2.21.6"
+  pypi_packages exclude_packages: %w[cryptography rpds-py]
 
   resource "ansible-compat" do
     url "https://files.pythonhosted.org/packages/e8/b3/64652d98718d5a597a15c2eb95e55fd6935b1c4eeee316370e5a498a2a6e/ansible_compat-26.11.0.tar.gz"
@@ -34,16 +32,8 @@ class AnsibleLint < Formula
   end
 
   resource "ansible-core" do
-    url "https://files.pythonhosted.org/packages/ed/9f/c3f578633cd374db6ed981f8abc401885819e94e3d6a8548a1bd0095c575/ansible_core-2.21.6.tar.gz"
-    sha256 "3fa05b4b1af69f2fa19b49dde8edd5a23e693c2c1c3bda2d85fce73bd6cfc36d"
-
-    # Python 3.15 startup fix, upstream PR ref, https://github.com/ansible/ansible/pull/86976
-    patch do
-      url "https://github.com/ansible/ansible/commit/ee5c59156c61bc1f452a61846138e0d40427aeab.patch?full_index=1"
-      sha256 "d3d25e65af572af49e2c75d4096eba6ca3b97ce2b75f06977e2b6d189e2451c8"
-      type :backport
-      resolves "https://github.com/ansible/ansible/issues/87677"
-    end
+    url "https://files.pythonhosted.org/packages/9d/9c/320090b2f1542122259cd759d5148678fd98945913837ee05718920f73ea/ansible_core-2.22.0.tar.gz"
+    sha256 "bf50b4a0cfa985e30585c7ba301897ea7050d224ca49d2816cab10e33a160e1c"
   end
 
   resource "attrs" do
@@ -57,13 +47,13 @@ class AnsibleLint < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/4d/fc/137095eb2f24ccf0b4db196abd9f5cfe74398a834af51d4bc4876e0beaf0/bracex-3.2.1.tar.gz"
-    sha256 "07a9b2100ceecc0c24afa1a1714bf8d4a6abb43d592939455f662b682ac9baa4"
+    url "https://files.pythonhosted.org/packages/42/39/9ae971118d77b86cc3f03ab5a467ddb58de352d8ef29830c81531d22010c/bracex-3.2.3.tar.gz"
+    sha256 "8fbf92b4db3c31de999145e22a47d4ffdbefb983a98583c3272bd7d570f9a343"
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "distro" do
@@ -72,8 +62,8 @@ class AnsibleLint < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
-    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "jinja2" do
@@ -112,8 +102,8 @@ class AnsibleLint < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "pytokens" do
@@ -147,8 +137,8 @@ class AnsibleLint < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/60/81/eb96ce41e8def4ff3b02cec7d1d92e3682597de5064d8687ac88d1734f18/wcmatch-12.0.tar.gz"
-    sha256 "80ebfdf510d5fef580c4fc662b9eba76b331cff20d7913fc6e722edcb199cbe6"
+    url "https://files.pythonhosted.org/packages/db/c5/fb0e01e995d104af32ce83a4ada70476d647c116dc8897887949c9886204/wcmatch-12.0.3.tar.gz"
+    sha256 "ccf83affafadc4286ffb335bc827ca2bffb0547fa5d5587600b585151bce4359"
   end
 
   resource "yamllint" do
