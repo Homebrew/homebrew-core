@@ -70,7 +70,7 @@ class Polynote < Formula
     end
 
     env = Language::Java.overridable_java_home_env(java_version)
-    env[:PYTHONPATH] = "#{pip_install_prefix/Language::Python.site_packages(python3)}:${PYTHONPATH}"
+    env[:PYTHONPATH] = "#{pip_install_prefix}/#{Language::Python.site_packages(python3)}:${PYTHONPATH}"
     env[:LD_LIBRARY_PATH] = lib.to_s
     (bin/"polynote").write_env_script libexec/"polynote.py", env
   end
