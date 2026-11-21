@@ -47,7 +47,8 @@ class Openturns < Formula
       -DCMAKE_UNITY_BUILD_BATCH_SIZE=32
     ]
 
-    args << "-DBLA_VENDOR=#{OS.mac? ? "Apple" : "OpenBLAS"}"
+    blas_vendor = OS.mac? ? "Apple" : "OpenBLAS"
+    args << "-DBLA_VENDOR=#{blas_vendor}"
     args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
