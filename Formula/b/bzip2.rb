@@ -30,6 +30,8 @@ class Bzip2 < Formula
 
   keg_only :provided_by_macos
 
+  deny_network_access!
+
   def install
     inreplace "Makefile", "$(PREFIX)/man", "$(PREFIX)/share/man"
 
