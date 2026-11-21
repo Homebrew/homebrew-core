@@ -9,7 +9,7 @@ class Postgraphile < Formula
     sha256 cellar: :any_skip_relocation, all: "48679831f7c718e8ee98c68a562ec8451e95776806eb94eb6edfc8c4b6a6617d"
   end
 
-  depends_on "postgresql@18" => :test
+  depends_on "postgresql@19" => :test
   depends_on "node"
 
   def install
@@ -20,32 +20,33 @@ class Postgraphile < Formula
   test do
     ENV["LC_ALL"] = "C"
     ENV["GRAPHILE_ENV"] = "development"
+    ENV["PGDATA"] = testpath/"test"
     ENV["PGHOST"] = testpath.to_s
-    assert_match "postgraphile", shell_output("#{bin}/postgraphile --help")
+    ENV["PGPORT"] = free_port.to_s
+    pg_bin = formula_opt_bin("postgresql@19")
+    pg_ctl = pg_bin/"pg_ctl"
 
-    pg_bin = formula_opt_bin("postgresql@18")
-    system pg_bin/"initdb", "-D", testpath/"test"
-    pid = spawn("#{pg_bin}/postgres", "-D", testpath/"test", "-k", testpath, "-h", "")
+    assert_match version.to_s, shell_output("#{bin}/postgraphile --version")
 
+    system pg_ctl, "initdb", "--options=-c unix_socket_directories=#{testpath}"
+    system pg_ctl, "start", "--log=#{testpath}/log"
     begin
-      sleep 2
-      system pg_bin/"createdb", "test"
+      system pg_bin/"createdb", "mydb"
 
-      preset = libexec/"lib/node_modules/postgraphile/dist/presets/amber.js"
-      port = free_port
-      graphite_pid = spawn bin/"postgraphile", "-c", "postgres:///test?host=#{testpath}",
-                          "--preset", preset, "--port", port.to_s
+      preset = "postgraphile/presets/amber"
+      port = free_port.to_s
       query = { query: "{ __typename }" }.to_json
+      pid = spawn(bin/"postgraphile", "--connection", "postgres:///mydb", "--preset", preset, "--port", port)
       output = shell_output("curl --silent --show-error --fail --retry 5 --retry-connrefused --retry-delay 1 " \
                             "--header 'Content-Type: application/json' --data '#{query}' " \
                             "http://localhost:#{port}/graphql")
       assert_equal "Query", JSON.parse(output).dig("data", "__typename")
     ensure
-      Process.kill("TERM", graphite_pid)
-      Process.wait(graphite_pid)
+      if pid
+        Process.kill("TERM", pid)
+        Process.wait(pid)
+      end
+      system pg_ctl, "stop"
     end
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
