@@ -11,11 +11,12 @@ class Qrcp < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c0030d2091a35b171841b25fa852571ede6f65b301602af5ef387ece2026083"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c0030d2091a35b171841b25fa852571ede6f65b301602af5ef387ece2026083"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c0030d2091a35b171841b25fa852571ede6f65b301602af5ef387ece2026083"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f3b8e031e4980377a1a55f881184dbe18dffeccb0f8bcc450fdadb1ae7bbc13e"
-    sha256 cellar: :any,                 x86_64_linux:      "3727188f3322ee679221137f83b63657f6b278538d2642809006a032a91b9507"
+    manifest_sha256 "cd179d7cddcf6694f0c874e2a887c8294578f1e69de6e218ab4e7f5b072cef87"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2245506a6b1b0cb89f7edee65212f2057993007fd9cd136fae05faa11f06d3ee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2245506a6b1b0cb89f7edee65212f2057993007fd9cd136fae05faa11f06d3ee"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2245506a6b1b0cb89f7edee65212f2057993007fd9cd136fae05faa11f06d3ee"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fbbc5f11d3f40742b35c5350587d9d3042684ba4cb191b078f5c89e0894e16c6"
+    sha256 cellar: :any,                 x86_64_linux:      "652cf5524f7fa98ffa4f9123f0473e2a62d64578fbfb05479fbd19c490226510"
   end
 
   depends_on "go" => :build
