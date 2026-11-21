@@ -1,11 +1,11 @@
 class Mvfst < Formula
   desc "QUIC transport protocol implementation"
-  homepage "https://github.com/facebook/mvfst"
-  url "https://github.com/facebook/mvfst/archive/refs/tags/v2026.10.26.00.tar.gz"
+  homepage "https://github.com/meta/mvfst"
+  url "https://github.com/meta/mvfst/archive/refs/tags/v2026.10.26.00.tar.gz"
   sha256 "7b2f2a84a5df3689d29a2c3c482b508e1d26251d568e9faf0ced22fb113e6dcd"
   license "MIT"
   compatibility_version 1
-  head "https://github.com/facebook/mvfst.git", branch: "main"
+  head "https://github.com/meta/mvfst.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "89fa1ce0871b16ac60e273cb788f983df5aff7319d00877a0f1a1429d0953154"
@@ -17,7 +17,6 @@ class Mvfst < Formula
 
   depends_on "cmake" => [:build, :test]
   depends_on "googletest" => :test
-  depends_on "double-conversion"
   depends_on "fizz"
   depends_on "fmt"
   depends_on "folly"
