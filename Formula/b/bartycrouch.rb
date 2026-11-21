@@ -22,6 +22,12 @@ class Bartycrouch < Formula
   depends_on xcode: ["14.0", :build]
   depends_on :macos
 
+  deny_network_access!
+
+  def fetch
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     system "make", "install", "prefix=#{prefix}"
   end
