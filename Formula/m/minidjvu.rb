@@ -46,8 +46,19 @@ class Minidjvu < Formula
   end
 
   test do
-    circle = (0...16).map { |y| (0...16).map { |x| ((((x - 8)**2) + ((y - 8)**2)) < 25) ? 1 : 0 }.join }
-    box = (0...16).map { |y| (0...16).map { |x| (x.between?(3, 12) && y.between?(3, 12)) ? 1 : 0 }.join }
+    circle = (0...16).map do |y|
+      (0...16).map do |x|
+        squared_distance = ((x - 8)**2) + ((y - 8)**2)
+        inside_circle = squared_distance < 25
+        inside_circle ? 1 : 0
+      end.join
+    end
+    box = (0...16).map do |y|
+      (0...16).map do |x|
+        inside_box = x.between?(3, 12) && y.between?(3, 12)
+        inside_box ? 1 : 0
+      end.join
+    end
     (testpath/"circle.pbm").binwrite "P4\n16 16\n#{[circle.join].pack("B*")}"
     (testpath/"box.pbm").binwrite "P4\n16 16\n#{[box.join].pack("B*")}"
 
