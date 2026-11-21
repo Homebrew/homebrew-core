@@ -1,10 +1,11 @@
 class Tomlplusplus < Formula
   desc "Header-only TOML config file parser and serializer for C++17"
   homepage "https://marzer.github.io/tomlplusplus/"
-  url "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.4.0.tar.gz"
-  sha256 "8517f65938a4faae9ccf8ebb36631a38c1cadfb5efa85d9a72e15b9e97d25155"
+  url "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.5.0.tar.gz"
+  sha256 "0fab22df275d188b7c8c698d06b9dcabdaa3f083f9b8da106cbfd2fe181bac62"
   license "MIT"
-  compatibility_version 1
+  compatibility_version 2
+  head "https://github.com/marzer/tomlplusplus.git", branch: "master"
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "c169b59a47b5fd45a4b365689f19815c3147f77868a8de171aff4e4443ea8d4a"
@@ -24,6 +25,8 @@ class Tomlplusplus < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
   depends_on "pkgconf" => [:build, :test]
+
+  deny_network_access!
 
   def install
     system "meson", "setup", "build", *std_meson_args
