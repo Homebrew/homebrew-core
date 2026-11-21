@@ -7,11 +7,11 @@ class Zbctl < Formula
   head "https://github.com/camunda-community-hub/zeebe-client-go.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59ca5c0487e4edbcab68fe4f54e4429b47530c85f619ebe61cb4e0ae94464ad9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59ca5c0487e4edbcab68fe4f54e4429b47530c85f619ebe61cb4e0ae94464ad9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "59ca5c0487e4edbcab68fe4f54e4429b47530c85f619ebe61cb4e0ae94464ad9"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "364f876215bf5a239077d80137db3db3703538de37f65bd33f05fe4d7e18a64e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e8577d7a2f3ed00363bd45ec4ba139112bdd891590b63d13d1bad4cacf114255"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf98b21e9840d8a849536040cadb75f4971d1848e0ef46c8f59f326a77219dd6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf98b21e9840d8a849536040cadb75f4971d1848e0ef46c8f59f326a77219dd6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf98b21e9840d8a849536040cadb75f4971d1848e0ef46c8f59f326a77219dd6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "56d019b025a5ed475bb084e66b29d271101b7e40d52d2a4ddd2970278de6608d"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f6f592caac9128160ecb2268c4f0c3919931b211ec5a604ce02bbf5e5aacd036"
   end
 
   depends_on "go" => :build
