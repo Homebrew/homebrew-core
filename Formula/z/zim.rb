@@ -54,7 +54,11 @@ class Zim < Formula
 
   test do
     # Workaround for https://github.com/zim-desktop-wiki/zim-desktop-wiki/issues/2665
-    ENV["LC_ALL"] = (OS.mac? && MacOS.version >= :sequoia) ? "C" : "en_US.UTF-8"
+    ENV["LC_ALL"] = if OS.mac? && MacOS.version >= :sequoia
+      "C"
+    else
+      "en_US.UTF-8"
+    end
     ENV["LANG"] = "en_US.UTF-8"
 
     mkdir_p %w[Notes/Homebrew HTML]
