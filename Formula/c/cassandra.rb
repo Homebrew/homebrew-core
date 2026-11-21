@@ -87,8 +87,9 @@ class Cassandra < Formula
       s.gsub! "cassandra_storagedir=\"$CASSANDRA_HOME/data\"",
               "cassandra_storagedir=\"#{var}/lib/cassandra\""
 
+      java_home = Language::Java.overridable_java_home_env("17")[:JAVA_HOME]
       s.gsub! "#JAVA_HOME=/usr/local/jdk6",
-              "JAVA_HOME=#{Language::Java.overridable_java_home_env("17")[:JAVA_HOME]}"
+              "JAVA_HOME=#{java_home}"
     end
 
     rm Dir["bin/*.bat", "bin/*.ps1"]
