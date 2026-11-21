@@ -214,7 +214,7 @@ class MoltenVk < Formula
         return 0;
       }
     CPP
-    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-I#{libexec/"include"}", "-L#{lib}", "-lMoltenVK"
+    system ENV.cc, "-o", "test", "test.cpp", "-I#{include}", "-I#{libexec}/include", "-L#{lib}", "-lMoltenVK"
     system "./test"
   end
 end
