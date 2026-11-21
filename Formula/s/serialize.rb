@@ -7,7 +7,8 @@ class Serialize < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "cab8370f59616153ea7ee56aa27aebcbb724311118ea8509195cfbfb7ca8ba5a"
+    manifest_sha256 "511dd3cec14e139df127d2854d60f358e14a79758be768b37f1aa3cf938e8f43"
+    sha256 cellar: :any_skip_relocation, all: "b8e16647efe34d8dd28f7c52c2e3f0e09a35da888dcb0ea3ae2ca0319830fc36"
   end
 
   depends_on "cmake" => :build
