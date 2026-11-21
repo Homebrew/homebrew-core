@@ -120,7 +120,8 @@ class Csound < Formula
 
     system bin/"csound", "test.orc", "test.sco"
 
-    assert_path_exists testpath/"test.#{OS.mac? ? "aif" : "wav"}"
+    audio_format = OS.mac? ? "aif" : "wav"
+    assert_path_exists testpath/"test.#{audio_format}"
   end
 end
 
