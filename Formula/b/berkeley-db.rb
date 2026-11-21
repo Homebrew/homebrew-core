@@ -35,6 +35,8 @@ class BerkeleyDb < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Work around undefined NULL causing incorrect detection of thread local storage class
     ENV.append "CFLAGS", "-include stddef.h" if DevelopmentTools.clang_build_version >= 1500
