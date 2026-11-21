@@ -58,8 +58,8 @@ class Libosinfo < Formula
 
     args = %W[
       -Denable-gtk-doc=false
-      -Dwith-pci-ids-path=#{share/"misc/pci.ids"}
-      -Dwith-usb-ids-path=#{Formula["usb.ids"].opt_share/"misc/usb.ids"}
+      -Dwith-pci-ids-path=#{share}/misc/pci.ids
+      -Dwith-usb-ids-path=#{Formula["usb.ids"].opt_share}/misc/usb.ids
       -Dsysconfdir=#{etc}
     ]
     system "meson", "setup", "build", *args, *std_meson_args
