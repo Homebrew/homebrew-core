@@ -128,7 +128,8 @@ class UtilLinux < Formula
 
     flags = ["x", "w", "r"] * 3
     perms = flags.each_with_index.reduce("") do |sum, (flag, index)|
-      sum.insert 0, (stat.mode.nobits?(2 ** index) ? "-" : flag)
+      unset = stat.mode.nobits?(2 ** index)
+      sum.insert 0, (unset ? "-" : flag)
     end
 
     out = shell_output("#{bin}/namei -lx /usr").split("\n").last.split
