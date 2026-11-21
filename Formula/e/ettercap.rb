@@ -41,9 +41,10 @@ class Ettercap < Formula
   end
 
   def install
+    plugin_rpath = rpath(source: lib/"ettercap")
     args = %W[
       -DBUNDLED_LIBS=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"ettercap")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{plugin_rpath}
       -DCMAKE_POLICY_VERSION_MINIMUM=3.5
       -DENABLE_CURSES=ON
       -DENABLE_GTK=ON
