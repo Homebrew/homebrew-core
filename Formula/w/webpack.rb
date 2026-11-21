@@ -1,20 +1,20 @@
 class Webpack < Formula
   desc "Bundler for JavaScript and friends"
   homepage "https://webpack.js.org/"
-  url "https://registry.npmjs.org/webpack/-/webpack-5.112.2.tgz"
-  sha256 "fb618a5eba0f16fa43ed720cc4634df4e88c65d594c0e0ad2c5c0c9be4057dfe"
+  url "https://registry.npmjs.org/webpack/-/webpack-5.113.0.tgz"
+  sha256 "095755cb8e271b3f38615ae794264f314b1e4dd3158c5677e8700aee9ea20bb7"
   license "MIT"
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "59db8f6fe61bbdfc25dbbd5e3f09cbe378fb6a1edf9d25dbec360e94bbb71268"
+    sha256 cellar: :any_skip_relocation, all: "45bdf52e3b3fad78e82a36ce8f9b95c5e4d9b2a3fa5c9846b80ba091a4ccb711"
   end
 
   depends_on "node"
 
   resource "webpack-cli" do
-    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-7.2.3.tgz"
-    sha256 "fa877796e6e582994c336a38143a12c6c229e70684698aea6008d93d0f4fbc5d"
+    url "https://registry.npmjs.org/webpack-cli/-/webpack-cli-7.3.1.tgz"
+    sha256 "833aab597a1f8748bd943a961763fe4a5640c7efa6c6e5c0e88a497db90c42dd"
   end
 
   def install
