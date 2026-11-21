@@ -23,8 +23,9 @@ class Glci < Formula
   end
 
   def install
+    build_user = tap&.user || "homebrew"
     ldflags = %W[
-      -X gitlab.com/gitlab-org/ci-cd/runner-tools/glci/pkg/version.Commit=#{tap&.user || "homebrew"}
+      -X gitlab.com/gitlab-org/ci-cd/runner-tools/glci/pkg/version.Commit=#{build_user}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/glci"
     generate_completions_from_executable(bin/"glci", "completion")
