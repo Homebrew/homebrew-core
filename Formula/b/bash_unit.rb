@@ -9,6 +9,8 @@ class BashUnit < Formula
     sha256 cellar: :any_skip_relocation, all: "8c7b39455fab02fd97f73960e4c41b3d65f7695d5442d3950385c4d5fe874f09"
   end
 
+  deny_network_access!
+
   def install
     bin.install "bash_unit"
     man1.install "docs/man/man1/bash_unit.1"
