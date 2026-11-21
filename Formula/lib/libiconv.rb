@@ -37,13 +37,6 @@ class Libiconv < Formula
     # Reported at https://savannah.gnu.org/bugs/index.php?66170
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    args = %W[
-      --enable-extra-encodings
-      --enable-static
-      --docdir=#{doc}
-    ]
-    system "./configure", *args, *std_configure_args
-
     make_args = %W[
       CFLAGS=#{ENV.cflags}
       CC=#{ENV.cc}
@@ -51,6 +44,14 @@ class Libiconv < Formula
       AUTOMAKE=automake
     ]
     system "make", "-f", "Makefile.devel", *make_args
+
+    args = %W[
+      --enable-extra-encodings
+      --enable-static
+      --docdir=#{doc}
+    ]
+    system "./configure", *args, *std_configure_args
+
     system "make", "install"
   end
 
