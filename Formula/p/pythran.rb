@@ -77,7 +77,8 @@ class Pythran < Formula
     PYTHON
 
     system bin/"pythran", testpath/"test.py"
-    with_env(CXX: "g++-#{Formula["gcc"].version.major}") do
+    gcc_major = Formula["gcc"].version.major
+    with_env(CXX: "g++-#{gcc_major}") do
       # Test common optimizations can be enabled. Using GCC as easier to enable OpenMP
       system bin/"pythran", "-DUSE_XSIMD", "-fopenmp", "-march=native", testpath/"arc_distance.py"
     end
