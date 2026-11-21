@@ -27,6 +27,8 @@ class Bastet < Formula
     resolves "https://github.com/fph/bastet/issues/6"
   end
 
+  deny_network_access!
+
   def install
     inreplace %w[Config.cpp bastet.6], "/var", var
 
