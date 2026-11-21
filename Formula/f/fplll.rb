@@ -32,10 +32,10 @@ class Fplll < Formula
 
   test do
     (testpath/"m1.fplll").write("[[10 11][11 12]]")
-    assert_equal "[[0 1 ]\n[1 0 ]\n]\n", `#{bin/"fplll"} m1.fplll`
+    assert_equal "[[0 1 ]\n[1 0 ]\n]\n", `#{bin}/fplll m1.fplll`
 
     (testpath/"m2.fplll").write("[[17 42 4][50 75 108][11 47 33]][100 101 102]")
-    assert_equal "[107 88 96]\n", `#{bin/"fplll"} -a cvp m2.fplll`
+    assert_equal "[107 88 96]\n", `#{bin}/fplll -a cvp m2.fplll`
 
     (testpath/"test.cpp").write <<~CPP
       #include <fplll.h>
