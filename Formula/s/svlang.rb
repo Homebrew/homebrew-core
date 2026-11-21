@@ -4,6 +4,7 @@ class Svlang < Formula
   url "https://github.com/MikePopoloski/slang/archive/refs/tags/v12.2.tar.gz"
   sha256 "29c8dee801e489e10f84ebc8a65b641bbcee18614fd183223b35e85c2461b6ab"
   license "MIT"
+  revision 1
   head "https://github.com/MikePopoloski/slang.git", branch: "master"
 
   bottle do
