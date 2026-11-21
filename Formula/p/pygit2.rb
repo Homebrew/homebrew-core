@@ -44,7 +44,7 @@ class Pygit2 < Formula
       mkdir pyversion do
         system python3, "-c", <<~PYTHON
           import pygit2
-          repo = pygit2.init_repository('#{testpath/pyversion}', False) # git init
+          repo = pygit2.init_repository('#{testpath}/#{pyversion}', False) # git init
 
           index = repo.index
           index.add('hello.txt')
