@@ -1,8 +1,8 @@
 class Calcurse < Formula
   desc "Text-based personal organizer"
   homepage "https://calcurse.org/"
-  url "https://calcurse.org/files/calcurse-4.9.0.tar.gz"
-  sha256 "8d4c36c868cc37d50decb49423548320488e64693d01527a272d1c2fb0afa8e6"
+  url "https://calcurse.org/files/calcurse-4.9.1.tar.gz"
+  sha256 "111f58413e62d47e6eda5807f63b589a2b458e4bf3c80f156ded0107957aa675"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,11 +11,11 @@ class Calcurse < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "2eb8e08d63a8959d613c0d813d75a3df832c3954aae4af3af7514ec5c0f388b3"
-    sha256 arm64_tahoe:       "ae659e6b960dd2c98f6079ac27fdaa69f035d1b0d1cc467d472b61115017cefa"
-    sha256 arm64_sequoia:     "049e6b3779e9b7b032d939585c728fd085c37e93c1732b7d69f9bca7c1e4f37f"
-    sha256 arm64_linux:       "7922ea58aeb354ce3bfeb0238349feb875810cdbd3f234ead28c396f566e3e2c"
-    sha256 x86_64_linux:      "1b255f106d8b22fdbc11a70dadcc43cf9f9a9d4e944e8ecf27f26cd666205577"
+    sha256 arm64_golden_gate: "5d919d1105101456dc8edbd70ad16f914a028aa3210cb6d3205afbd8a9f2a4e9"
+    sha256 arm64_tahoe:       "2ff5c6cda82119ae5677bd6f0331b6443f52a2a8472497198f5524b90c076a93"
+    sha256 arm64_sequoia:     "f0c8b5a5111c647332d1ffc1e54b6eaa6d5884fc50ca4371b84d6005ab8468b2"
+    sha256 arm64_linux:       "ef35631e6bd89ad74c524a86d281251aba13d1ddcd28ae65bc1e411dfc1487c1"
+    sha256 x86_64_linux:      "b2343243b2a588c1d0538a1280d48b190f13a140826460ef5845d56c78e26845"
   end
 
   head do
