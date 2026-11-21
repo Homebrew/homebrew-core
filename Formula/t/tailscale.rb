@@ -31,10 +31,13 @@ class Tailscale < Formula
 
   def install
     vars = Utils.safe_popen_read("./build_dist.sh", "shellvars")
+    long_version = vars.match(/VERSION_LONG="(.*)"/)[1]
+    short_version = vars.match(/VERSION_SHORT="(.*)"/)[1]
+    git_hash = vars.match(/VERSION_GIT_HASH="(.*)"/)[1]
     ldflags = %W[
-      -X tailscale.com/version.longStamp=#{vars.match(/VERSION_LONG="(.*)"/)[1]}
-      -X tailscale.com/version.shortStamp=#{vars.match(/VERSION_SHORT="(.*)"/)[1]}
-      -X tailscale.com/version.gitCommitStamp=#{vars.match(/VERSION_GIT_HASH="(.*)"/)[1]}
+      -X tailscale.com/version.longStamp=#{long_version}
+      -X tailscale.com/version.shortStamp=#{short_version}
+      -X tailscale.com/version.gitCommitStamp=#{git_hash}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/tailscale"
     system "go", "build", *std_go_args(ldflags:, output: bin/"tailscaled"), "./cmd/tailscaled"
