@@ -4,12 +4,12 @@ class Unisonlang < Formula
   license "MIT"
 
   stable do
-    url "https://github.com/unisonweb/unison/archive/refs/tags/release/2.0.0.tar.gz"
-    sha256 "892f3c8e26b22b45ea748a24cb99e60355deedd3528a6f437a29d304e590d1e2"
+    url "https://github.com/unisonweb/unison/archive/refs/tags/release/2.0.1.tar.gz"
+    sha256 "a946203ef9b836f181d843406b42d62785e89fbcc3ba970cd61f960bda520aed"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/2.0.0.tar.gz"
-      sha256 "50e0b0102ad5e1b8a49197b04cd4aacfc71cd249e63e748cb95476cd44ecf354"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/2.0.1.tar.gz"
+      sha256 "0cec5f4bca59a4f9d52ec235784a3918f3ea5c23c9cb90e740bd9f0d9fce711d"
 
       livecheck do
         formula :parent
