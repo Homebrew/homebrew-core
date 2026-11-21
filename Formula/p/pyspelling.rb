@@ -3,17 +3,17 @@ class Pyspelling < Formula
 
   desc "Spell checker automation tool"
   homepage "https://facelessuser.github.io/pyspelling/"
-  url "https://files.pythonhosted.org/packages/1d/49/4a80f24e1188286e65c2c5005415ddac0d64a8c2cc975f00b5758ca51db1/pyspelling-2.13.tar.gz"
-  sha256 "6464afb9da9d3fd35b11a47d0297b67f4f1e3ba73a98d948326b34a85deb4ab1"
+  url "https://files.pythonhosted.org/packages/ad/07/04237f8cac359478740c6217c844764845ecfe061bf8ba7479da15d6dc55/pyspelling-2.14.tar.gz"
+  sha256 "d1bb3eaca2cf45e33aa2dc6ca2cc1927b9f9b5f5449d75b043c6c16d1bdec613"
   license "MIT"
-  revision 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "19e592df82e84e93a8a9213ba3b8e255419e061fe81270be66144fbf2ea7ff6c"
-    sha256 cellar: :any, arm64_tahoe:       "28d5cd265cd2b62370b1465b25bec519b18f0805c07a16fd3ccc634c98d8f8b1"
-    sha256 cellar: :any, arm64_sequoia:     "fbeabd95c5f1b35867ffd84e30c7851fac3c3a817aef233267eaf888186d7f6a"
-    sha256 cellar: :any, arm64_linux:       "3e969dde0013e3bf03f20a94a496e201b6bcc3b836479b59a7391113883e660f"
-    sha256 cellar: :any, x86_64_linux:      "6b0c463abc39f14a2793baa185fb07a3d5cb2aa1eca0e9e19d9b8ee030aab50f"
+    manifest_sha256 "7a5981dd114a41924d13f046970aa869e68f6051d4d725608926b5b903c085cc"
+    sha256 cellar: :any, arm64_golden_gate: "47b7aade53b43333ab7d5bd31732b39cbb0ea88d2bbcdd75c442235453bc2fbf"
+    sha256 cellar: :any, arm64_tahoe:       "e905187dfebde25212e400473c49b7ba2701b27ced48e39d8f8a19f583226ec1"
+    sha256 cellar: :any, arm64_sequoia:     "cb2979ad13e920d68b1942f99635c8dea073d3bd49497fe44fc834355ecd6cdd"
+    sha256 cellar: :any, arm64_linux:       "ed159cd5243b87239eb6b1b0e3247367df68392f23d626a5c6d53d75c86d5438"
+    sha256 cellar: :any, x86_64_linux:      "ddd9b06f99708d1864b346ea7b382e09a6d3585b996a7eeac49d1925d1ad5723"
   end
 
   depends_on "aspell" => :test
@@ -29,8 +29,8 @@ class Pyspelling < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/2d/1f/b7ce2efe406b87bb3693d587b91bcd8fa9030888870ceff29e4a0d233cb2/bracex-3.2.2.tar.gz"
-    sha256 "d18976160b3ba01a57d5c53a5c8c3aa2506efa9e0a3a62467251f82b8f563fde"
+    url "https://files.pythonhosted.org/packages/66/6f/95a6fcb1c430007cda4122c77aace4541fba297f08e2be791ab235a4c548/bracex-3.2.4.tar.gz"
+    sha256 "c1e67eb59f81445dee15b2c588b7c81352b697cfbd6c4931a2943ea6b71eb5ea"
   end
 
   resource "html5lib" do
@@ -67,8 +67,8 @@ class Pyspelling < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/95/48/21a393ff731b8f928fa4f8176f9a7ceba2252ee60a5149f25b45c292aa5c/soupsieve-4.1.tar.gz"
-    sha256 "ca9abf7126667010d8f6e9b39bfc1bc3b23c8aed9bcb0f54a754dde969bb8aab"
+    url "https://files.pythonhosted.org/packages/82/77/d59ca6aa338bdd8d880234d15b7c466cb176e44502899a9df81ba2e13cd0/soupsieve-4.1.3.tar.gz"
+    sha256 "13f70186c8f40bf8d0ff7bbab09a18fb149600b465269207b5e5b588f55fda08"
   end
 
   resource "typing-extensions" do
@@ -77,8 +77,8 @@ class Pyspelling < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/2e/17/bf44790f97414e37885830139933b4e96faac71560768ae9f9e458dbd936/wcmatch-12.0.1.tar.gz"
-    sha256 "4ea6acef75b657bf71ac8fa9520165bf5ae55120c4e655895a5b7d4c69896c5e"
+    url "https://files.pythonhosted.org/packages/96/3a/fd5e95b2c1c04e3874682f9796d06f7389e2a95ab581177800ca17e785fa/wcmatch-12.0.4.tar.gz"
+    sha256 "23fe77fbfa3fff9e46f0f4a3d1891065270596774bd6131bd2f973fb822242a1"
   end
 
   resource "webencodings" do
