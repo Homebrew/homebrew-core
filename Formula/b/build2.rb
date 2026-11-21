@@ -25,6 +25,8 @@ class Build2 < Formula
   uses_from_macos "curl"
   uses_from_macos "openssl"
 
+  deny_network_access!
+
   def install
     # Suppress loading of default options files.
     ENV["BUILD2_DEF_OPT"] = "0"
