@@ -8,11 +8,12 @@ class Supermodel < Formula
   head "https://github.com/trzy/Supermodel.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d62852f9a84ffa86461ae5fa8c9d43854db655784c706ff282a2748e9747ce2c"
-    sha256 cellar: :any, arm64_tahoe:       "8705ede606acc87ca62dd3d0ac14678f3ccd8d1f30746836e1cdcccb0d73f6b6"
-    sha256 cellar: :any, arm64_sequoia:     "fc83bcfaec311243b3a19b5a68279d87166d5857611ec55f3ac36197aefcf801"
-    sha256 cellar: :any, arm64_linux:       "db8f88a90702ade97a7c44d18a09fa3ba4000fd6ec2c0e9cd12fdb75a8b1eb77"
-    sha256 cellar: :any, x86_64_linux:      "938ccf26776a80fef5f91ed0d0d28c7219edeff5374bf751162ffaa20245c789"
+    manifest_sha256 "4f0ad093bd39aa083086b3c5f3c8d99318e949a012d328de714b720d010f6b2f"
+    sha256 cellar: :any, arm64_golden_gate: "4ad73fbd5c439dcbe879b83f633af8deb919c9db967051e6dc334f91215fd910"
+    sha256 cellar: :any, arm64_tahoe:       "12ef3a4cc85f7b95654bae3338fbc8024f8bd90f6d67cd0a6abc157c617d421a"
+    sha256 cellar: :any, arm64_sequoia:     "3ade8e663346c6f08d55a0e6013541257145b4b540fc7d69651ffb694f7269a9"
+    sha256 cellar: :any, arm64_linux:       "1707fd5aafcd8a485c6d67dbc5b90257f6465b3b641415210e5d0421b7c283e2"
+    sha256 cellar: :any, x86_64_linux:      "d1ab52f28bd44d094a37a722141f7f5150cc3412a3ebd55692b6e16ffa5e6d0f"
   end
 
   depends_on "sdl2-compat"
