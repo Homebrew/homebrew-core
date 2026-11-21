@@ -1,8 +1,8 @@
 class Autotrace < Formula
   desc "Convert bitmap to vector graphics"
   homepage "https://autotrace.sourceforge.net/"
-  url "https://github.com/autotrace/autotrace/archive/refs/tags/0.31.11.tar.gz"
-  sha256 "da595b49d2419ef7f771533f46710c92a0267e380b8ff8a4ca8b9f2f41a76093"
+  url "https://github.com/autotrace/autotrace/archive/refs/tags/0.31.12.tar.gz"
+  sha256 "0db44ad1be129ccc679f5c314d3f041528fcc111e1210c27f2546dad9793cb6f"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/autotrace/autotrace.git", branch: "master"
 
