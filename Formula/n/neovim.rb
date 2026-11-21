@@ -108,7 +108,8 @@ class Neovim < Formula
 
   def fetch
     resources.each do |r|
-      r.stage(buildpath/"deps-build/build/src/treesitter_#{r.name.split("-").last}")
+      grammar = r.name.split("-").last
+      r.stage(buildpath/"deps-build/build/src/treesitter_#{grammar}")
     end
 
     (buildpath/"fetch-parsers.cmake").write <<~CMAKE
@@ -117,9 +118,10 @@ class Neovim < Formula
       cmake_language(DEFER CALL list FILTER targets INCLUDE REGEX "-download$")
       cmake_language(DEFER CALL add_custom_target download DEPENDS ${targets})
     CMAKE
+    use_existing_source = build.stable? ? "ON" : "OFF"
     system "cmake", "-S", "cmake.deps", "-B", "deps-build",
                     "-DUSE_BUNDLED=OFF", "-DUSE_BUNDLED_TS_PARSERS=ON", "-DCMAKE_TLS_VERIFY=ON",
-                    "-DUSE_EXISTING_SRC_DIR=#{build.stable? ? "ON" : "OFF"}",
+                    "-DUSE_EXISTING_SRC_DIR=#{use_existing_source}",
                     "-DCMAKE_PROJECT_INCLUDE=#{buildpath}/fetch-parsers.cmake", *std_cmake_args
     system "cmake", "--build", "deps-build", "--target", "download"
   end
@@ -141,9 +143,9 @@ class Neovim < Formula
     inreplace "cmake/GenerateVersion.cmake", "--dirty", "--dirty=-Homebrew"
 
     system "cmake", "-S", ".", "-B", "build",
-                    "-DLUV_LIBRARY=#{formula_opt_lib("luv")/shared_library("libluv")}",
-                    "-DLIBUV_LIBRARY=#{formula_opt_lib("libuv")/shared_library("libuv")}",
-                    "-DLPEG_LIBRARY=#{formula_opt_lib("lpeg")/shared_library("liblpeg")}",
+                    "-DLUV_LIBRARY=#{formula_opt_lib("luv")}/#{shared_library("libluv")}",
+                    "-DLIBUV_LIBRARY=#{formula_opt_lib("libuv")}/#{shared_library("libuv")}",
+                    "-DLPEG_LIBRARY=#{formula_opt_lib("lpeg")}/#{shared_library("liblpeg")}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
