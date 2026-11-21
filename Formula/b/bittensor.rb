@@ -180,8 +180,8 @@ class Bittensor < Formula
     wallet_path = testpath/"btcli-brew-test"
     test_wallet_name = "brew-test"
     # Substrate dev seed for //Alice, so the regenerated address is deterministic
-    seed = "0xe5be9a5092b81bca64be81d212e7f2f9eba183bb7a90954f7b76361f6edb5c0a"
-    ss58_address = "5GrwvaEF5zXb26Fz9rcQpDWS57CtERHpNehXCPcNoHGKutQY"
+    seed = "0xc4fd09cd875228709b3dfca51e1dfc720fdff2c077bacb5aa06ae210eccfa123"
+    ss58_address = "5DCrxt3ao2zgdBs3hgAhVZrqJq4KPJo1N9BBTaeJ32T7AaHX"
 
     global_args = %W[
       --wallet #{test_wallet_name}
