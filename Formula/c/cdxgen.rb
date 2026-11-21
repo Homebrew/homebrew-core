@@ -63,13 +63,14 @@ class Cdxgen < Formula
       ENV["XDG_RUNTIME_DIR"] = buildpath
       dosai_cmd = "dosai-#{os}-#{arch}"
       # .NET 11 SDK fails to bundle a single-file app with `AppHostRelativeDotNet`
+      dotnet_path = dotnet.opt_libexec.relative_path_from(cdxgen_plugins/"dosai")
       args = %W[
         --configuration Release
         --framework net#{dotnet.version.major_minor}
         --no-self-contained
         --output #{cdxgen_plugins}/dosai
         --use-current-runtime
-        -p:AppHostRelativeDotNet=#{dotnet.opt_libexec.relative_path_from(cdxgen_plugins/"dosai")}
+        -p:AppHostRelativeDotNet=#{dotnet_path}
         -p:AssemblyName=#{dosai_cmd}
         -p:DebugType=None
         -p:PublishSingleFile=false
