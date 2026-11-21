@@ -58,9 +58,9 @@ class X8664ElfGrub < Formula
         --disable-werror
         --enable-grub-mkfont
         --target=#{target}
-        --prefix=#{prefix/target}
+        --prefix=#{prefix}/#{target}
         --bindir=#{bin}
-        --libdir=#{lib/target}
+        --libdir=#{lib}/#{target}
         --with-platform=efi
         --program-prefix=#{target}-
       ]
@@ -71,7 +71,7 @@ class X8664ElfGrub < Formula
 
       (prefix/target/"share/grub").mkpath
 
-      system "./grub-mkfont", "--output=#{prefix/target}/share/grub/unicode.pf2", ENV["UNIFONT"]
+      system "./grub-mkfont", "--output=#{prefix}/#{target}/share/grub/unicode.pf2", ENV["UNIFONT"]
     end
   end
 
