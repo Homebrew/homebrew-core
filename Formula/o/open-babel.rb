@@ -43,7 +43,7 @@ class OpenBabel < Formula
       -DRUN_SWIG=ON
       -DPYTHON_BINDINGS=ON
       -DPYTHON_EXECUTABLE=#{python3}
-      -DPYTHON_INSTDIR=#{prefix/Language::Python.site_packages(python3)}
+      -DPYTHON_INSTDIR=#{prefix}/#{Language::Python.site_packages(python3)}
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
