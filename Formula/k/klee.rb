@@ -67,6 +67,7 @@ class Klee < Formula
 
     # Use build configuration at
     # https://github.com/klee/klee/blob/v#{version}/scripts/build/p-libcxx.inc
+    standalone = OS.mac? ? "OFF" : "ON"
     libcxx_args = std_cmake_args(install_prefix: libcxx_install_dir) + %W[
       -DRUNTIMES_CMAKE_ARGS=-DCMAKE_INSTALL_RPATH=#{rpath}
       -DLLVM_ENABLE_RUNTIMES=libcxx;libcxxabi;libunwind
@@ -77,7 +78,7 @@ class Klee < Formula
       -DLLVM_ENABLE_RTTI:BOOL=OFF
       -DLIBCXX_ENABLE_THREADS:BOOL=OFF
       -DLIBCXX_ENABLE_SHARED:BOOL=ON
-      -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=#{OS.mac? ? "OFF" : "ON"}
+      -DLIBCXX_ENABLE_STATIC_ABI_LIBRARY:BOOL=#{standalone}
       -DLIBCXXABI_ENABLE_THREADS:BOOL=OFF
       -DLIBCXXABI_USE_LLVM_UNWINDER:BOOL=ON
     ]
@@ -130,7 +131,8 @@ class Klee < Formula
     system "cmake", "--install", "build"
 
     venv = virtualenv_create(libexec/"venv", python3)
-    venv.pip_install buildpath/"wheels/tabulate-#{resource("tabulate").version}-py3-none-any.whl"
+    tabulate_version = resource("tabulate").version
+    venv.pip_install buildpath/"wheels/tabulate-#{tabulate_version}-py3-none-any.whl"
     rewrite_shebang python_shebang_rewrite_info(venv.root/"bin/python"), *bin.children
   end
 
