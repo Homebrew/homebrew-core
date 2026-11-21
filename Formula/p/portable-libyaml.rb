@@ -3,8 +3,8 @@ require File.expand_path("../../Abstract/portable-formula", __dir__)
 class PortableLibyaml < PortableFormula
   desc "YAML Parser"
   homepage "https://github.com/yaml/libyaml"
-  url "https://github.com/yaml/libyaml/releases/download/0.2.5/yaml-0.2.5.tar.gz"
-  sha256 "c642ae9b75fee120b2d96c712538bd2cf283228d2337df2cf2988e3c02678ef4"
+  url "https://github.com/yaml/libyaml/releases/download/0.2.6/yaml-0.2.6.tar.gz"
+  sha256 "43b393a117bd4fe39812fddc94e3d654359a3ae05653dcf0110a1122d1747e61"
   license "MIT"
   compatibility_version 1
 
