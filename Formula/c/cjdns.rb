@@ -28,6 +28,12 @@ class Cjdns < Formula
     resolves "https://github.com/cjdelisle/cjdns/pull/1273"
   end
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     ENV["SODIUM_USE_PKG_CONFIG"] = "1"
 
