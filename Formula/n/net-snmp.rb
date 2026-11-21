@@ -46,6 +46,15 @@ class NetSnmp < Formula
     end
   end
 
+  # Fix reusing a session after it was closed, e.g. a PHP `SNMP` object
+  # failing every request after the first with "Can't assign requested address"
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/6a16c2df17e9479de822b42a30dca345c9e746f5.patch?full_index=1"
+    sha256 "aa729ad0a91cf2d8ba00c437d88b0179b70fa5ab42f8855735ba1e73c84c099c"
+    type :backport
+    resolves "https://github.com/net-snmp/net-snmp/issues/1055"
+  end
+
   deny_network_access!
 
   def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
