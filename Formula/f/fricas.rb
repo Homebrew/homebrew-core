@@ -4,7 +4,7 @@ class Fricas < Formula
   url "https://github.com/fricas/fricas/releases/download/1.4.0/fricas-1.4.0-full.tar.bz2"
   sha256 "e113c721aaba673226d0806076a12ec82c07562c2954479443047d4264172514"
   license "BSD-3-Clause"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "19e8489980440724251e2239cc19851f6704ba045da5d1314ffd8205443458e0"
@@ -25,7 +25,29 @@ class Fricas < Formula
   depends_on "sbcl"
   depends_on "zstd"
 
+  # jFriCAS, the Jupyter interface built into FriCAS since 1.4.0
+  # (https://github.com/fricas/fricas/commit/7e01ccbaf6e9da6106d86a91aa31b3535597811f),
+  # needs the Hunchentoot web server in the FriCAS image.  Build SBCL with
+  # Hunchentoot as described in FriCAS's INSTALL.
+  resource "hsbcl" do
+    url "https://downloads.sourceforge.net/project/fricas/fricas/1.3.9/hsbcl-1.3.9.tar"
+    sha256 "dc69541993ae3b14e1912e3160ba7a1e0f044be4af6ea46caa98dc6d65b54b6a"
+  end
+
   def install
+    # Build hsbcl with upstream's script, but save it as a core instead of
+    # an executable: an SBCL executable cannot load another core, which
+    # --enable-lisp-core needs ("more than one core file specified").
+    # Make this core the default core of the sbcl used for the build.
+    sbcl_home = buildpath/"sbcl_home"
+    sbcl_home.install_symlink formula_opt_lib("sbcl")/"sbcl/contrib"
+    resource("hsbcl").stage do
+      inreplace "la.lisp", '"../hsbcl" :executable t', "\"#{sbcl_home}/sbcl.core\""
+      system "./build_hsbcl"
+    end
+    (buildpath/"bin/sbcl").write_env_script formula_opt_libexec("sbcl")/"bin/sbcl", SBCL_HOME: sbcl_home
+    ENV.prepend_path "PATH", buildpath/"bin"
+
     args = %w[
       --with-lisp=sbcl
       --enable-lisp-core
@@ -42,5 +64,7 @@ class Fricas < Formula
   test do
     assert_match %r{ \(/ \(pi\) 2\)\n},
       pipe_output("#{bin}/fricas -nosman", "integrate(sqrt(1-x^2),x=-1..1)::InputForm")
+    assert_match "Value = (:HUNCHENTOOT",
+      pipe_output("#{bin}/fricas -nosman", ")lisp (member :hunchentoot *features*)")
   end
 end
