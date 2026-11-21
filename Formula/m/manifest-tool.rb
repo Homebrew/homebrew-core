@@ -1,19 +1,17 @@
 class ManifestTool < Formula
   desc "Command-line tool to create and query container image manifest list/indexes"
   homepage "https://github.com/estesp/manifest-tool/"
-  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.2.2.tar.gz"
-  sha256 "97a9535830d6cd9d382c1d9ebae01a64dcbb400c540086a738e0e5297904ae3b"
+  url "https://github.com/estesp/manifest-tool/archive/refs/tags/v2.2.3.tar.gz"
+  sha256 "20f3136b61614bb72b4b95342644e78345a544091dc5ae660d0237ecebc102ff"
   license "Apache-2.0"
   head "https://github.com/estesp/manifest-tool.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dbe4e8911430840ded614e4c48b72ce7f10ae44b59e03c6825837a3f0ebe025c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff6ca925edd27743d5951fa56f113293fedc984e85a981acb47469e831ecd8be"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f8397acb5e94f556bd7bd1912f490cd78179c68a34d0aeb19a436191463f3686"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "caa96b91d56f4bfd7134538576efbd412a71272bceeb7485225a59b06de33d1e"
-    sha256 cellar: :any_skip_relocation, sonoma:            "301afe0b73ddd03fd4bcef72f57e7511133a0068252b8accafd77f8381b7cb55"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9820c2efb7987a017570f456dc8fa1050f8b70bfb3fe1494d4f8baa9910e5fbe"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "da6975815c6a6ca38ef57adff084060f96b886d66fa7be87b50c3ab655943cb2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "660e4bf09f645873e17d5374706ea9e08117bf15fa39f670279aa65809d9f0a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56193e4529f14a40d3806db63dcb92097f8bdd24407040f791262af93067561a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e3bf78982962094d2bb1bbb36c462a633c2fe9c8337978b75ded3794107f865"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "faf3643b9708f26c6ebd8b934a4becd51ee7d7e33995aa6d3f54ef74ab02b20c"
+    sha256 cellar: :any,                 x86_64_linux:      "0eebdc764623f496e874d5debe9d70b139af37999ee91fe908ad46be16ee0e5b"
   end
 
   depends_on "go" => :build
