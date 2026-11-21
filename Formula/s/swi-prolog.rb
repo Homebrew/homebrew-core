@@ -58,6 +58,9 @@ class SwiProlog < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
+
+    # Remove `swipl-win` binary since we build without the GUI components
+    rm bin/"swipl-win"
   end
 
   test do
