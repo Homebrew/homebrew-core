@@ -52,9 +52,16 @@ class Itstool < Formula
     resource("libxml2").stage do
       # We need to insert our include dir first
       includes = [formula_opt_include("libxml2")]
-      includes << (OS.mac? ? "#{MacOS.sdk_for_formula(self).path}/usr/include" : HOMEBREW_PREFIX/"include")
+      include_dir = if OS.mac?
+        sdk_path = MacOS.sdk_for_formula(self).path
+        "#{sdk_path}/usr/include"
+      else
+        HOMEBREW_PREFIX/"include"
+      end
+      includes << include_dir
+      include_paths = includes.map { |inc| "'#{inc}'," }.join(" ")
       inreplace "python/setup.py.in", "includes_dir = [",
-                                      "includes_dir = [#{includes.map { |inc| "'#{inc}'," }.join(" ")}"
+                                      "includes_dir = [#{include_paths}"
 
       # Run configure to generate setup.py and Doxygen XML
       system "./configure", "--disable-silent-rules",
