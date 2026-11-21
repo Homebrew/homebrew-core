@@ -34,6 +34,6 @@ class Wasmer < Formula
     wasm = ["0061736d0100000001070160027f7f017f030201000707010373756d00000a09010700200020016a0b"].pack("H*")
     (testpath/"sum.wasm").write(wasm)
     assert_equal "3\n",
-      shell_output("#{bin}/wasmer run #{testpath/"sum.wasm"} --invoke sum 1 2")
+      shell_output("#{bin}/wasmer run #{testpath}/sum.wasm --invoke sum 1 2")
   end
 end
