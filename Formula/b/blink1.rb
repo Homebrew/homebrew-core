@@ -20,6 +20,8 @@ class Blink1 < Formula
     depends_on "systemd"
   end
 
+  deny_network_access!
+
   def install
     mkdir_p [bin, include, lib/"pkgconfig"]
     system "make"
