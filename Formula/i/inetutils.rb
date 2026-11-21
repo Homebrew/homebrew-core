@@ -118,7 +118,11 @@ class Inetutils < Formula
   end
 
   test do
-    ftp = OS.mac? ? libexec/"gnubin/ftp" : bin/"ftp"
+    ftp = if OS.mac?
+      libexec/"gnubin/ftp"
+    else
+      bin/"ftp"
+    end
     output = pipe_output("#{ftp} -v", "open ftp.gnu.org\nanonymous\nls\nquit\n")
     assert_match "Connected to ftp.gnu.org.\n220 GNU FTP server ready", output
   end
