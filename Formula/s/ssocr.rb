@@ -45,10 +45,11 @@ class Ssocr < Formula
     DIGITS
 
     rows = display.lines.map(&:chomp)
+    pixels = rows.join("\n").tr(".#", "01")
     (testpath/"digits.pbm").write <<~PBM
       P1
       #{rows.first.length} #{rows.length}
-      #{rows.join("\n").tr(".#", "01")}
+      #{pixels}
     PBM
 
     assert_equal "431432", shell_output("#{bin}/ssocr -T #{testpath}/digits.pbm").chomp
