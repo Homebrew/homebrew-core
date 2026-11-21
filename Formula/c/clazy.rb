@@ -39,7 +39,8 @@ class Clazy < Formula
   def install
     # macOS has undefined symbols if only linking clang-cpp.
     # This is just the default value already set by CMakeLists.txt.
-    args = ["-DCLAZY_LINK_CLANG_DYLIB=#{OS.mac? ? "OFF" : "ON"}"]
+    standalone = OS.mac? ? "OFF" : "ON"
+    args = ["-DCLAZY_LINK_CLANG_DYLIB=#{standalone}"]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
