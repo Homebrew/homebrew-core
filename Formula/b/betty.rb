@@ -11,7 +11,9 @@ class Betty < Formula
     sha256 cellar: :any_skip_relocation, all: "6e05c82883d813ce98372d8ed15bf2e4b9cd11cd91f36483a07e37ccec8204ee"
   end
 
-  uses_from_macos "ruby"
+  depends_on "ruby"
+
+  deny_network_access!
 
   def install
     libexec.install "lib", "main.rb" => "betty"
