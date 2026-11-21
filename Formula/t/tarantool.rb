@@ -52,7 +52,10 @@ class Tarantool < Formula
       -DENABLE_BUNDLED_ZSTD=OFF
       -DLUAJIT_NO_UNWIND=ON
     ]
-    args << "-DCURL_ROOT_DIR=#{MacOS.sdk_for_formula(self).path}/usr" if OS.mac?
+    if OS.mac?
+      sdk_path = MacOS.sdk_for_formula(self).path
+      args << "-DCURL_ROOT_DIR=#{sdk_path}/usr"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
