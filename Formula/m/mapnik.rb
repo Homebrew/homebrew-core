@@ -47,11 +47,12 @@ class Mapnik < Formula
   conflicts_with "svg2png", because: "both install `svg2png` binaries"
 
   def install
+    input_rpath = rpath(source: lib/"mapnik/input")
     cmake_args = %W[
       -DBUILD_BENCHMARK:BOOL=OFF
       -DBUILD_DEMO_CPP:BOOL=OFF
       -DBUILD_DEMO_VIEWER:BOOL=OFF
-      -DCMAKE_INSTALL_RPATH:PATH=#{rpath};#{rpath(source: lib/"mapnik/input")}
+      -DCMAKE_INSTALL_RPATH:PATH=#{rpath};#{input_rpath}
       -DUSE_EXTERNAL_MAPBOX_PROTOZERO=ON
     ]
 
