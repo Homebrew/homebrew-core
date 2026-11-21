@@ -3,8 +3,8 @@ class Bzt < Formula
 
   desc "BlazeMeter Taurus"
   homepage "https://gettaurus.org/"
-  url "https://files.pythonhosted.org/packages/5f/b0/cad50876a97a36d575e370094f84cd74c936cc2fea552f3626972edb7a24/bzt-1.17.3.tar.gz"
-  sha256 "1370a5874ffe2113a813171a7faf89dc9427406058089f573c69f3cb06763cc6"
+  url "https://files.pythonhosted.org/packages/80/8c/9122215c51e8837d4ee71cdda76a6b1d7afd549d45b60c391fc84d7ea516/bzt-1.17.4.tar.gz"
+  sha256 "0d3f5070ce52a5b11d5806c5af4716bbdb27795440b248908d5a524d19e84701"
   license "Apache-2.0"
   head "https://github.com/Blazemeter/taurus.git", branch: "master"
 
