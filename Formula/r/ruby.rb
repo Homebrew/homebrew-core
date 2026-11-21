@@ -70,7 +70,8 @@ class Ruby < Formula
         determine_api_version
       else
         # Best effort guess
-        "#{stable.version.major.to_i}.#{stable.version.minor.to_i + 1}.0+0"
+        next_minor = stable.version.minor.to_i + 1
+        "#{stable.version.major.to_i}.#{next_minor}.0+0"
       end
     else
       "#{version.major.to_i}.#{version.minor.to_i}.0"
