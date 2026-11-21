@@ -93,7 +93,8 @@ class Zig < Formula
           assert_match(/\b#{arch.tr("_", "-")}\b/, file_output)
         else
           assert_match(/\bMach-O\b/, file_output)
-          expected_arch = (arch == "aarch64") ? "arm64" : arch
+          expected_arch = arch
+          expected_arch = "arm64" if arch == "aarch64"
           assert_match(/\b#{expected_arch}\b/, file_output)
         end
       end
