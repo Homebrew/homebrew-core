@@ -21,6 +21,8 @@ class Babeld < Formula
     sha256 cellar: :any,                 x86_64_linux:      "066c81b6f7cf20af8094d4425e090d322788a98591444d3902a802c5fda52e05"
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
       # LDLIBS='' fixes: ld: library not found for -lrt
