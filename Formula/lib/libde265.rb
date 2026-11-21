@@ -19,8 +19,9 @@ class Libde265 < Formula
   deny_network_access!
 
   def install
+    executable_rpath = rpath(source: libexec/"bin")
     system "cmake", "-S", ".", "-B", "build",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: libexec/"bin")}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath};#{executable_rpath}",
                     "-DENABLE_DECODER=OFF",
                     *std_cmake_args
     system "cmake", "--build", "build"
