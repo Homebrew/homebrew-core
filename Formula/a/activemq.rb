@@ -24,7 +24,11 @@ class Activemq < Formula
       wrapper_dir = "macosx"
     else
       # https://github.com/apache/activemq/blob/main/assembly/src/release/bin/linux-x86-64/activemq#L176-L183
-      arch = Hardware::CPU.intel? ? "x86" : Utils.safe_popen_read("uname", "-p").downcase.strip
+      arch = if Hardware::CPU.intel?
+        "x86"
+      else
+        Utils.safe_popen_read("uname", "-p").downcase.strip
+      end
       wrapper_dir = "#{OS.kernel_name.downcase}-#{arch}-#{Hardware::CPU.bits}"
       odie "Remove workaround for arm64 linux!" unless buildpath.glob("bin/linux-{arm,aarch}*").empty?
       mv "bin/linux-x86-64", "bin/#{wrapper_dir}" unless Hardware::CPU.intel?
