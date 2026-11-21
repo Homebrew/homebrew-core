@@ -33,7 +33,11 @@ class OpenshiftCli < Formula
   def install
     arch = Hardware::CPU.intel? ? "amd64" : Hardware::CPU.arch.to_s
     os = OS.kernel_name.downcase
-    revision = build.head? ? Utils.git_head : Pathname.pwd.basename.to_s.delete_prefix("oc-")
+    revision = if build.head?
+      Utils.git_head
+    else
+      Pathname.pwd.basename.to_s.delete_prefix("oc-")
+    end
 
     # See https://github.com/Homebrew/brew/issues/14763
     ENV.O0 if OS.linux?
