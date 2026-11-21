@@ -119,8 +119,8 @@ class Urlwatch < Formula
   test do
     (testpath/"config.yaml").write("")
     (testpath/"urls.yaml").write("")
-    output = shell_output("#{bin}/urlwatch --config #{testpath/"config.yaml"} " \
-                          "--urls #{testpath/"urls.yaml"} --test-filter 1", 1)
+    output = shell_output("#{bin}/urlwatch --config #{testpath}/config.yaml " \
+                          "--urls #{testpath}/urls.yaml --test-filter 1", 1)
     assert_match("Not found: '1'", output)
   end
 end
