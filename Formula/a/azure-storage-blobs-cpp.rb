@@ -31,7 +31,7 @@ class AzureStorageBlobsCpp < Formula
     # TODO: Remove when upstream supports shared flatcc: https://github.com/Azure/azure-sdk-for-cpp/issues/7437
     args = %W[
       -DBUILD_SHARED_LIBS=ON
-      -DFLATCCRT_LIB_PATH_RELEASE=#{formula_opt_lib("flatcc")/shared_library("libflatccrt")}
+      -DFLATCCRT_LIB_PATH_RELEASE=#{formula_opt_lib("flatcc")}/#{shared_library("libflatccrt")}
     ]
     system "cmake", "-S", "sdk/storage/azure-storage-blobs", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
