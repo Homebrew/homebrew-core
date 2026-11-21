@@ -26,7 +26,8 @@ class Fastlane < Formula
   end
 
   def fastlane_gem_home
-    "${HOME}/.local/share/fastlane/#{Formula["ruby"].version.major_minor}.0"
+    ruby_version = Formula["ruby"].version.major_minor
+    "${HOME}/.local/share/fastlane/#{ruby_version}.0"
   end
 
   def install
