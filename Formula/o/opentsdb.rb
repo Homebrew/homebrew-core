@@ -57,7 +57,11 @@ class Opentsdb < Formula
     env["PATH"] = "$JAVA_HOME/bin:$PATH"
     env["HBASE_HOME"] = formula_opt_libexec("hbase")
     # We weren't able to get HBase native LZO compression working in Monterey
-    env["COMPRESSION"] = (OS.mac? && MacOS.version >= :monterey) ? "NONE" : "LZO"
+    env["COMPRESSION"] = if OS.mac? && MacOS.version >= :monterey
+      "NONE"
+    else
+      "LZO"
+    end
 
     create_table = pkgshare/"tools/create_table_with_env.sh"
     create_table.write_env_script pkgshare/"tools/create_table.sh", env
