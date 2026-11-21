@@ -73,7 +73,7 @@ class Bnfc < Formula
 
     EOS
     check_out_hs = <<~EOS
-      #{testpath/"test.calc"}
+      #{testpath}/test.calc
 
       Parse Successful!
 
