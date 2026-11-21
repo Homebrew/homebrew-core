@@ -156,12 +156,13 @@ class Pypy312 < Formula
     end
 
     # Patch ensurepip to bootstrap our updated version of pip
+    pip_version = resource("pip").version
     inreplace wheel_dir.parent/"__init__.py",
               /_PIP_VERSION = .*/,
-              "_PIP_VERSION = \"#{resource("pip").version}\""
+              "_PIP_VERSION = \"#{pip_version}\""
 
     # Ensure that our new pip wheel is globally readable.
-    pip_wheel = wheel_dir/"pip-#{resource("pip").version}-py3-none-any.whl"
+    pip_wheel = wheel_dir/"pip-#{pip_version}-py3-none-any.whl"
     chmod "ugo+r", pip_wheel
 
     # Bootstrap initial install of pip.
