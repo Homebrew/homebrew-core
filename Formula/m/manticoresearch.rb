@@ -117,7 +117,7 @@ class Manticoresearch < Formula
       -DCMAKE_REQUIRE_FIND_PACKAGE_stemmer=ON
       -DCMAKE_REQUIRE_FIND_PACKAGE_xxHash=ON
       -DMYSQL_CONFIG_EXECUTABLE=#{formula_opt_bin("mariadb-connector-c")}/mariadb_config
-      -DRE2_LIBRARY=#{formula_opt_lib("re2")/shared_library("libre2")}
+      -DRE2_LIBRARY=#{formula_opt_lib("re2")}/#{shared_library("libre2")}
       -DWITH_GALERA=OFF
       -DWITH_JIEBA=OFF
       -DWITH_ICU_FORCE_STATIC=OFF
