@@ -38,6 +38,6 @@ class Rune < Formula
       }
     RN
 
-    assert_equal "Hello, world!", shell_output("#{bin/"rune"} run").strip
+    assert_equal "Hello, world!", shell_output("#{bin}/rune run").strip
   end
 end
