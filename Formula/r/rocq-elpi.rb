@@ -44,7 +44,9 @@ class RocqElpi < Formula
     # Use libexec as root to avoid risk of moving non-relocatable binaries
     with_env(OPAMROOT: libexec, OPAMYES: "1", OPAMNODEPEXTS: "1", OPAMNOSELFUPGRADE: "1") do
       system "opam", "init", "--compiler=ocaml-system", "--disable-sandboxing", "--no-setup"
-      system "opam", "install", "elpi.#{resource("elpi").version}", "ppx_optcomp.v#{resource("ppx_optcomp").version}"
+      elpi_version = resource("elpi").version
+      ppx_optcomp_version = resource("ppx_optcomp").version
+      system "opam", "install", "elpi.#{elpi_version}", "ppx_optcomp.v#{ppx_optcomp_version}"
     end
 
     # Only keep packages needed at runtime but leave them in libexec to avoid
