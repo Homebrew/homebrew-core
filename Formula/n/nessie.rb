@@ -1,8 +1,8 @@
 class Nessie < Formula
   desc "Transactional Catalog for Data Lakes with Git-like semantics"
   homepage "https://projectnessie.org"
-  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.110.0.tar.gz"
-  sha256 "ce25ee365697e8be771d5c46e6bab2c97a6e933f843e56d289a92cc08fcd6037"
+  url "https://github.com/projectnessie/nessie/archive/refs/tags/nessie-0.110.1.tar.gz"
+  sha256 "1c509dec4cbbeca5098e0f170082a1fad4111ffed007a489451f0c11701c2b86"
   license "Apache-2.0"
 
   bottle do
@@ -22,8 +22,8 @@ class Nessie < Formula
   # TODO: Remove when Nessie's Quarkus Gradle plugin includes the Gradle 9.8 fix.
   # https://github.com/quarkusio/quarkus/pull/57352
   resource "quarkus-gradle-model" do
-    url "https://github.com/quarkusio/quarkus/archive/refs/tags/3.40.1.1.tar.gz"
-    sha256 "a303ea57ade33812bea0122682bfb709177743676bc2fcca1b65771a1ac5013d"
+    url "https://github.com/quarkusio/quarkus/archive/refs/tags/3.40.1.2.tar.gz"
+    sha256 "535a6f316b13ef2a4e9ad6a609341e389a2c53c5d930e80d33504ca3025c4eea"
 
     # Fix Gradle 9.8 dependency resolution, upstream PR ref, https://github.com/quarkusio/quarkus/pull/57352
     patch do
