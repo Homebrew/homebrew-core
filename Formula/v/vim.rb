@@ -67,6 +67,7 @@ class Vim < Formula
     # the right place (HOMEBREW_PREFIX/share/vim/{vimrc,vimfiles}) for
     # system vimscript files. We specify the normal installation prefix
     # when calling "make install".
+    perl_linkage = "=dynamic" unless OS.mac?
     system "./configure", "--prefix=#{HOMEBREW_PREFIX}",
                           "--mandir=#{man}",
                           "--enable-multibyte",
@@ -74,7 +75,7 @@ class Vim < Formula
                           "--with-compiledby=Homebrew",
                           "--enable-cscope",
                           "--enable-terminal",
-                          "--enable-perlinterp#{"=dynamic" unless OS.mac?}",
+                          "--enable-perlinterp#{perl_linkage}",
                           "--enable-python3interp=dynamic",
                           "--enable-rubyinterp=dynamic",
                           "--disable-gui",
@@ -90,7 +91,8 @@ class Vim < Formula
   end
 
   def caveats
-    "Additional features can be enabled by installing: #{extra_deps.map(&:name).join(", ")}"
+    dependency_names = extra_deps.map(&:name).join(", ")
+    "Additional features can be enabled by installing: #{dependency_names}"
   end
 
   test do
