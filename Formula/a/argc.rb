@@ -6,13 +6,12 @@ class Argc < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61921a0a0ab226435d27ef4bb6107905c7ec9f8ede2218e9e3085274f0f48e70"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97c0c11c5ae6a02e1d03a5517d20212f19ea2b6ea375240376edceac4e648b83"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5db910665a850a7cb9ae004905334f5ee7e59f4d2a6b6fa6bada7f0726504d29"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "7bd3931b38e249a10a4bca2fa1915dd4a703f481bf274d8a5f7ec4a2be41e17d"
-    sha256 cellar: :any_skip_relocation, sonoma:            "247198700a139a3d8a0271bc76255582f5faaa51e41eafc2f5c7b33246b5c5ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e4f46f3930acd606540638bfa9e2a647b17c658404d8b5a02a5d76ca9208c0f5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c7799c43dd99a8ce808ff49e11e2c864a2bb4f4d9a23797f39179d607bf2cd8e"
+    manifest_sha256 "b781ea8a4e3363d47d8cf1b1718ccb0b864a48eade44ee5da89592460abd36fb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "612626cf19920f72261d50fa0d2ba961f905e682394fbcacb991b3ea965d8440"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48cdfd0216a92c91c1edf9efea471293d84cc8146207fa3332c35e0adf0f1ef4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8bb36811062e59850737fe41b07dffb2bb5619a5962b99f0310c10bfd404576"
+    sha256 cellar: :any,                 arm64_linux:       "7afe7831205824bf9620b8b5054af862bf2c9cd7e5790495627e62d02d51a03c"
+    sha256 cellar: :any,                 x86_64_linux:      "57b403db5ebb15b1e3bda3a1cd30b838a50e0494db9008af90d2ec6962435dad"
   end
 
   depends_on "rust" => :build
