@@ -1,17 +1,18 @@
 class OtelTui < Formula
   desc "Terminal OpenTelemetry viewer"
   homepage "https://github.com/ymtdzzz/otel-tui"
-  url "https://github.com/ymtdzzz/otel-tui/archive/refs/tags/v0.7.5.tar.gz"
-  sha256 "fc8a5ab4416b9428532978cb759b31f83bc27e8617e44545c53fb41d401a3d91"
+  url "https://github.com/ymtdzzz/otel-tui/archive/refs/tags/v0.7.6.tar.gz"
+  sha256 "91d564e41df6bfa55e666bd2bdb86c459569b41407027599ea5e87b32943cd0a"
   license "Apache-2.0"
   head "https://github.com/ymtdzzz/otel-tui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a75fd6e76633975acb72ae70c261a6f3820d97af8ce036a2012202df083baa7c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46cd33dbfb6ced74ec32db3772c2ea1d0746a4a98bbc929e66d4ddeae25923f1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ebd7e9ee6757391872c066fe4f525f35f8a18e625a7c70f86461ba16247c2f6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cacf4ccb191213b466a0bdd7cef8aceb5812548d5a0bf9823bf3579c2aa3bd27"
-    sha256 cellar: :any,                 x86_64_linux:      "dc3c25f7566e4ab82b7c6749e87880f316bb3b5ee8d495f1fb02ae47f692fb20"
+    manifest_sha256 "0c9d72f0c66ec3c44988c134fa07ab95b8551c66004e5e3f928bbd7fc2f36b3a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42ef4b3f3b9baf7f0b18c011ae96198a05175ca6d3b692f3c40050e1285c17c3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4bcb1199f3503f0798df30f98e90f1ba0835be409b993cafff7b00bbe0f0c4c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a8fcbe3ff37a44d07d479261b4f8f3c672265cd917011247d00b6d67c2631e2b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "994d88048493c7ed1912afbf04fd08bb00846e5fc576a990897dbdb132392a4c"
+    sha256 cellar: :any,                 x86_64_linux:      "85894a272898bd9d27b6d677a8743fe0ed4f396bc64afe70b2bbde1e99ae0404"
   end
 
   depends_on "go" => :build
