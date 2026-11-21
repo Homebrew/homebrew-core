@@ -21,7 +21,8 @@ class PythonSetuptools < Formula
     # Add symlinks to use on all externally-managed pythons
     extra_pythons = Keg.for(python3).to_formula.versioned_formulae.select { |f| f.version >= "3.12" }
     extra_site_packages_list = extra_pythons.map { |f| lib/"python#{f.version.major_minor}/site-packages" }
-    extra_site_packages_list << (lib/"python#{Formula["python-freethreading"].version.major_minor}t/site-packages")
+    python_version = Formula["python-freethreading"].version.major_minor
+    extra_site_packages_list << (lib/"python#{python_version}t/site-packages")
     site_packages = prefix/Language::Python.site_packages(python3)
     site_packages.find.select(&:file?).each do |path|
       extra_site_packages_list.each do |extra_site_packages|
