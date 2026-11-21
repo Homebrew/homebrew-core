@@ -6,6 +6,7 @@ class YtDlp < Formula
   url "https://files.pythonhosted.org/packages/83/31/4be3987022a6244550ab6a3afe45ad10ac10b5e5ab8874bd8eecc7f8b937/yt_dlp-2026.10.26.tar.gz"
   sha256 "abe5c6b94c3b2f0560500add1c42e0a97641752743a5b65588ac2007a6e23eb6"
   license "Unlicense"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -28,6 +29,7 @@ class YtDlp < Formula
   depends_on "cffi"
   depends_on "curl-impersonate"
   depends_on "deno"
+  depends_on "ffmpeg"
   depends_on "pycparser"
   depends_on "python@3.15"
 
