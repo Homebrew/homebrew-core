@@ -48,7 +48,7 @@ class VapoursynthBestsource < Formula
     ENV.append_path "PKG_CONFIG_PATH", buildpath/"pkgconfig"
 
     # Work around Homebrew's python prefix patch
-    args = %W[-Dpython.platlibdir=#{prefix/Language::Python.site_packages(python3)}]
+    args = %W[-Dpython.platlibdir=#{prefix}/#{Language::Python.site_packages(python3)}]
 
     # Using nodownload as nofallback with `--force-fallback-for` can download HEAD git repos
     system "meson", "setup", "build", *args, *std_meson_args, "--wrap-mode=nodownload"
