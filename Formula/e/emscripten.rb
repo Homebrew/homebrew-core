@@ -129,6 +129,7 @@ class Emscripten < Formula
 
       # See upstream configuration in `src/build.py` at
       # https://chromium.googlesource.com/emscripten-releases/
+      enable_terminfo = !OS.linux?
       args = %W[
         -DLLVM_ENABLE_LIBXML2=OFF
         -DLLVM_INCLUDE_EXAMPLES=OFF
@@ -140,7 +141,7 @@ class Emscripten < Formula
         -DLLVM_INSTALL_TOOLCHAIN_ONLY=ON
         -DLLVM_TARGETS_TO_BUILD=#{targets.join(";")}
         -DLLVM_ENABLE_PROJECTS=#{projects.join(";")}
-        -DLLVM_ENABLE_TERMINFO=#{!OS.linux?}
+        -DLLVM_ENABLE_TERMINFO=#{enable_terminfo}
         -DCLANG_ENABLE_ARCMT=OFF
         -DCLANG_ENABLE_STATIC_ANALYZER=OFF
         -DLLVM_INCLUDE_TESTS=OFF
