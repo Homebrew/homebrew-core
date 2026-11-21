@@ -7,8 +7,7 @@ class Mdds < Formula
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "304f5fdd92f650a15e6cfc1ffdcb88919934de6a002e1e6b5e6358ca1da7251d"
+    sha256 cellar: :any_skip_relocation, all: "de3fad33a9f2070d70b2dc0b8c3120241bfa9bd51746aa029452a0e5c99c73e8"
   end
 
   head do
