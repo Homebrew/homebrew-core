@@ -39,7 +39,7 @@ class VapoursynthImwri < Formula
     # prefix, but we want it in a Cellar location instead.
     inreplace "meson.build",
               "install_dir = vapoursynth_dep.get_variable(pkgconfig: 'libdir') / 'vapoursynth'",
-              "install_dir = '#{prefix/Language::Python.site_packages(python3)}/vapoursynth/plugins'"
+              "install_dir = '#{prefix}/#{Language::Python.site_packages(python3)}/vapoursynth/plugins'"
 
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
