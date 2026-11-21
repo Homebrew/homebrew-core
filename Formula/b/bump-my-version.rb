@@ -122,6 +122,8 @@ class BumpMyVersion < Formula
     sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 
