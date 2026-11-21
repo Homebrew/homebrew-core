@@ -142,7 +142,7 @@ class Glibc < Formula
     end
   end
 
-  # Apply CVE patches from Ubuntu
+  # Apply rolling release branch (release/2.39/master) and CVE patches from Ubuntu
   patch do
     url "https://archive.ubuntu.com/ubuntu/pool/main/g/glibc/glibc_2.39-0ubuntu8.12.debian.tar.xz"
     mirror "https://launchpad.net/ubuntu/+archive/primary/+sourcefiles/glibc/2.39-0ubuntu8.12/glibc_2.39-0ubuntu8.12.debian.tar.xz"
@@ -155,7 +155,8 @@ class Glibc < Formula
              "CVE-2026-8674",  "CVE-2026-18374", "CVE-2026-19499", "CVE-2026-19542", "CVE-2026-77117",
              "CVE-2026-80489", "CVE-2026-84243", "CVE-2026-86805", "CVE-2026-89092", "CVE-2026-95818",
              "CVE-2026-97399"
-    apply "patches/any/CVE-2024-2961.patch",
+    apply "patches/git-updates.diff",
+          "patches/any/CVE-2024-2961.patch",
           "patches/any/CVE-2024-33599.patch",
           "patches/any/CVE-2024-33600_1.patch",
           "patches/any/CVE-2024-33600_2.patch",
@@ -199,6 +200,9 @@ class Glibc < Formula
     file "Patches/glibc/2.39-test-fixes.patch"
     type :backport
   end
+
+  # resolv unittests fail with 'TCP bind: Permission denied' without network access
+  allow_network_access! :build
 
   def install
     # Automatic bootstrapping is only supported for x86_64 and aarch64.
@@ -294,7 +298,7 @@ class Glibc < Formula
         # Avoid Intel CI runner timeout on tst-malloc-too-large-malloc-hugetlb2
         ENV["TIMEOUTFACTOR"] = "4" if Hardware::CPU.intel?
 
-        # Workaround to skip test failures seen when running in sandbox
+        # Skip tests that fail within brew's landlock API sandbox
         xfail_tests = %w[
           test-xfail-tst-close_range=yes
           test-xfail-tst-closefrom=yes
