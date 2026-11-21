@@ -35,7 +35,8 @@ class Textidote < Formula
 
   def install
     # Avoid downloading junit as we don't run tests
-    system "ant", "-Dbuild.targetjdk=#{Formula["openjdk"].version.major}", "-Djunit.absent=false"
+    java_major = Formula["openjdk"].version.major
+    system "ant", "-Dbuild.targetjdk=#{java_major}", "-Djunit.absent=false"
 
     # Install the JAR + a wrapper script
     libexec.install "textidote-#{version}.jar" => "textidote.jar"
