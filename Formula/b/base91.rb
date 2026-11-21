@@ -21,6 +21,8 @@ class Base91 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "c611713705345338da5415ea274901781c883f71e870384f92866fb7275083b3"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "base91"
