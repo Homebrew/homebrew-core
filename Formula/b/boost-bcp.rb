@@ -23,6 +23,8 @@ class BoostBcp < Formula
   depends_on "boost-build" => :build
   depends_on "boost" => :test
 
+  deny_network_access!
+
   def install
     cd "tools/bcp" do
       system "b2"
