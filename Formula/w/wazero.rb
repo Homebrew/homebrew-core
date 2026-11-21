@@ -82,6 +82,6 @@ class Wazero < Formula
     system "wat2wasm", testpath/"mount.wat", "-o", testpath/"mount.wasm"
 
     assert_equal "/homebrew",
-      shell_output("#{bin}/wazero run -mount=/tmp:/homebrew #{testpath/"mount.wasm"}")
+      shell_output("#{bin}/wazero run -mount=/tmp:/homebrew #{testpath}/mount.wasm")
   end
 end
