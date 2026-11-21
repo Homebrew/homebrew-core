@@ -2,12 +2,11 @@ class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
   license "BSD-3-Clause"
-  revision 1
   head "https://github.com/IoLanguage/io.git", branch: "master"
 
   stable do
-    url "https://github.com/IoLanguage/io/archive/refs/tags/2017.09.06.tar.gz"
-    sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
+    url "https://github.com/IoLanguage/io/archive/refs/tags/2026.11.20.tar.gz"
+    sha256 "62aa86656e65414ece414ef3a6ff5adbaf2bbe06e9847505d57628addc965e11"
 
     # Backport commits to build on arm64
     on_macos do
