@@ -14,11 +14,12 @@ class Tt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d14326a0bf7e84cfd7013cd8330c77eed1b33929822eac06cc8ab0ac51d96eff"
-    sha256 cellar: :any, arm64_tahoe:       "aec53a3f79902fac47d7b21d082da1e78652c8056a9c894dfaadcf2263f6e34d"
-    sha256 cellar: :any, arm64_sequoia:     "9cd7840ce4cb09ecabe750c326e49bca690c8719ffc2dc807eed0fdd64e534ea"
-    sha256 cellar: :any, arm64_linux:       "018b2bdade45ff1f7bde29c0dd56328900ee1bf988e70c114fceb205948f5c50"
-    sha256 cellar: :any, x86_64_linux:      "4abffd12a755b9c4054cae7437dc368db7cc05183e7d58f8c6be84c2c5a0df53"
+    rebuild 1
+    sha256 cellar: :any, arm64_golden_gate: "dcf2c474052ec2bbf472c94eed3550fc6109ad9caeb3328eaf65bbc4fe92c496"
+    sha256 cellar: :any, arm64_tahoe:       "b318d909fd2f6c387d24dcb15bbc9d3dff7d304aaba3a2cfcf0e93401a262320"
+    sha256 cellar: :any, arm64_sequoia:     "f9f69299289e1be39ef23ad2a9b43e4243b5f7a627ab6c85c69731305f25f2c8"
+    sha256 cellar: :any, arm64_linux:       "77d59056b320a3e4a3630f2868a9015864e51237fc604e48ff48fac35a01ccca"
+    sha256 cellar: :any, x86_64_linux:      "d990fdcdfd3333a0d962d236901d535af753aa9edf947a315e731821539fdfa0"
   end
 
   depends_on "go" => :build
@@ -29,10 +30,6 @@ class Tt < Formula
   uses_from_macos "curl"
   uses_from_macos "unzip"
   uses_from_macos "zip"
-
-  on_macos do
-    depends_on "bash-completion"
-  end
 
   deny_network_access!
 
@@ -47,7 +44,10 @@ class Tt < Formula
     bin.install "tt"
     (etc/"tarantool").install "package/tt.yaml.default" => "tt.yaml"
 
+    # Avoid bash completion being manually sourced due to
+    # https://docs.brew.sh/Shell-Completion#bash
     generate_completions_from_executable(bin/"tt", "completion")
+    (share/"bash-completion/completions").install bash_completion.children
   end
 
   test do
