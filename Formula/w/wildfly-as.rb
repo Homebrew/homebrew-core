@@ -118,7 +118,8 @@ class WildflyAs < Formula
     # Make sure the install paths are correct
     netty_dir = buildpath/"modules/system/layers/base/io/netty"
     common_dir = netty_dir/"netty-transport-native-unix-common/main"
-    common_jar = "netty-transport-native-unix-common-#{resource("netty").version}.Final-#{os}-#{arch}.jar"
+    netty_version = resource("netty").version
+    common_jar = "netty-transport-native-unix-common-#{netty_version}.Final-#{os}-#{arch}.jar"
     native_dir = netty_dir/"netty-transport-native-#{io}/main/lib/META-INF/native"
     native_lib = "libnetty_transport_native_#{io}_#{arch}.#{ext}"
     odie "Unable to find #{common_jar} in #{common_dir}!" unless (common_dir/common_jar).exist?
