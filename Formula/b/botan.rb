@@ -49,12 +49,13 @@ class Botan < Formula
     python_formula = Keg.for(python3).to_formula
     python_versions = [python_formula, *python_formula.versioned_formulae].map(&:version).select { |v| v >= "3.12" }
 
+    supported_versions = python_versions.map(&:major_minor).join(",")
     args = %W[
       --prefix=#{prefix}
       --docdir=share/doc
       --with-zlib
       --with-bzip2
-      --with-python-versions=#{python_versions.map(&:major_minor).join(",")}
+      --with-python-versions=#{supported_versions}
       --with-sqlite3
       --system-cert-bundle=#{Formula["ca-certificates"].pkgetc}/cert.pem
     ]
