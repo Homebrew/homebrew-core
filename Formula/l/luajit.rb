@@ -24,7 +24,8 @@ class Luajit < Formula
     url "https://api.github.com/repos/LuaJIT/LuaJIT/branches/v2.1"
     strategy :json do |json|
       date = json.dig("commit", "commit", "author", "date")
-      "2.1.#{DateTime.parse(date).strftime("%s")}"
+      timestamp = DateTime.parse(date).strftime("%s")
+      "2.1.#{timestamp}"
     end
   end
 
