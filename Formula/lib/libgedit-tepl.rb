@@ -53,8 +53,7 @@ class LibgeditTepl < Formula
       }
     C
 
-    icu4c_dep = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:icu4c) }
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib(icu4c_dep.name)/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", dep("icu4c").opt_lib/"pkgconfig"
     flags = shell_output("pkgconf --cflags --libs libgedit-tepl-6").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     system "./test"

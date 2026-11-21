@@ -27,7 +27,7 @@ class Kdoctor < Formula
   allow_network_access! :build
 
   def install
-    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
+    ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
     mac_suffix = Hardware::CPU.intel? ? "X64" : Hardware::CPU.arch.to_s.capitalize
     build_task = "linkReleaseExecutableMacos#{mac_suffix}"
     system "gradle", "clean", build_task, "--no-daemon"

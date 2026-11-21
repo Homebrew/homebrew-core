@@ -65,15 +65,13 @@ class Typedb < Formula
           directory: "#{testpath}/log"
     YAML
 
-    pid = spawn bin/"typedb", "--config", testpath/"config.yml", [:out, :err] => log_path.to_s
-    sleep 5
+    with_test_process(bin/"typedb", "--config", testpath/"config.yml", [:out, :err] => log_path.to_s) do
+      sleep 5
 
-    output = log_path.read
-    assert_match "Running TypeDB", output
-    assert_match(/Serving:\n\s+gRPC:\s+0.0.0.0:#{server_port}/i, output)
-    assert_match "TLS: disabled", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = log_path.read
+      assert_match "Running TypeDB", output
+      assert_match(/Serving:\n\s+gRPC:\s+0.0.0.0:#{server_port}/i, output)
+      assert_match "TLS: disabled", output
+    end
   end
 end

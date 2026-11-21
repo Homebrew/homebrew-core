@@ -37,12 +37,10 @@ class Openfga < Formula
     assert_match version.to_s, shell_output("#{bin}/openfga version 2>&1")
 
     port = free_port
-    pid = spawn bin/"openfga", "run", "--playground-enabled", "--playground-port", port.to_s
-    sleep 3
-    output = shell_output("curl -s http://localhost:#{port}/playground")
-    assert_match "title=\"Embedded Playground\"", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"openfga", "run", "--playground-enabled", "--playground-port", port.to_s) do
+      sleep 3
+      output = shell_output("curl -s http://localhost:#{port}/playground")
+      assert_match "title=\"Embedded Playground\"", output
+    end
   end
 end

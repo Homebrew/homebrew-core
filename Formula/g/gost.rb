@@ -59,17 +59,15 @@ class Gost < Formula
           listener:
             type: tcp
     YAML
-    pid = spawn bin/"gost", "-C", testpath/"gost.yml"
-    sleep 2
-    output = shell_output("curl --max-time 10 -I -x #{bind_address} https://github.com")
-    assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
-    assert_match(/Server: GitHub.com/i, output)
+    with_test_process(bin/"gost", "-C", testpath/"gost.yml") do
+      sleep 2
+      output = shell_output("curl --max-time 10 -I -x #{bind_address} https://github.com")
+      assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
+      assert_match(/Server: GitHub.com/i, output)
 
-    output = shell_output("curl --max-time 10 -I --socks5-hostname #{bind_address} https://github.com")
-    assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
-    assert_match(/Server: GitHub.com/i, output)
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = shell_output("curl --max-time 10 -I --socks5-hostname #{bind_address} https://github.com")
+      assert_match %r{HTTP/\d+(?:\.\d+)? 200}, output
+      assert_match(/Server: GitHub.com/i, output)
+    end
   end
 end

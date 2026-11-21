@@ -304,11 +304,9 @@ class Fastapi < Formula
           return {"Hello": "World"}
     PYTHON
 
-    pid = spawn bin/"fastapi", "dev", "--port", port.to_s, "main.py"
-    output = shell_output("curl --silent --retry 5 --retry-connrefused http://127.0.0.1:#{port}")
-    assert_equal '{"Hello":"World"}', output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"fastapi", "dev", "--port", port.to_s, "main.py") do
+      output = shell_output("curl --silent --retry 5 --retry-connrefused http://127.0.0.1:#{port}")
+      assert_equal '{"Hello":"World"}', output
+    end
   end
 end

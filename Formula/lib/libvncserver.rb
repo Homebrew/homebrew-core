@@ -38,7 +38,7 @@ class Libvncserver < Formula
     args = %W[
       -DJPEG_INCLUDE_DIR=#{formula_opt_include("jpeg-turbo")}
       -DJPEG_LIBRARY=#{formula_opt_lib("jpeg-turbo")/shared_library("libjpeg")}
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}
       -DWITH_EXAMPLES=OFF
       -DWITH_GCRYPT=OFF
       -DWITH_GNUTLS=OFF

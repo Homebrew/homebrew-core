@@ -17,7 +17,7 @@ class Autojump < Formula
   deny_network_access!
 
   def install
-    python_bin = formula_opt_libexec("python@3.15")/"bin"
+    python_bin = dep("python").opt_libexec/"bin"
     system python_bin/"python", "install.py", "-d", prefix, "-z", zsh_completion
 
     # ensure uniform bottles

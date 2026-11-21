@@ -27,7 +27,7 @@ class Tcltls < Formula
 
   def install
     system "./configure", "--includedir=#{include}/tcl-tk",
-                          "--with-openssl-dir=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl-dir=#{dep("openssl").opt_prefix}",
                           "--with-tcl=#{formula_opt_lib("tcl-tk")}",
                           "--with-tclinclude=#{formula_opt_include("tcl-tk")}/tcl-tk",
                           *std_configure_args

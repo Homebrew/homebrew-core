@@ -48,7 +48,7 @@ class Fbthrift < Formula
     # PR ref: https://github.com/facebook/fbthrift/pull/702
     ENV.append "CXXFLAGS", "-DFMT_DEPRECATED_HEAVY_CORE"
 
-    ENV["OPENSSL_ROOT_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_ROOT_DIR"] = dep("openssl").opt_prefix
 
     # The static libraries are a bit annoying to build. If modifying this formula
     # to include them, make sure `bin/thrift1` links with the dynamic libraries
@@ -103,7 +103,7 @@ class Fbthrift < Formula
       target_link_libraries(test FBThrift::transport)
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@4")
+    ENV.append_path "CMAKE_PREFIX_PATH", dep("openssl").opt_prefix
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
   end

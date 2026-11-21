@@ -32,13 +32,9 @@ class Ferron < Formula
     port = free_port
 
     (testpath/"ferron.yaml").write "global: {\"port\":#{port}}"
-    begin
-      pid = spawn bin/"ferron", "-c", testpath/"ferron.yaml"
+    with_test_process(bin/"ferron", "-c", testpath/"ferron.yaml") do
       sleep 3
       assert_match "The requested resource wasn't found", shell_output("curl -s 127.0.0.1:#{port}")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

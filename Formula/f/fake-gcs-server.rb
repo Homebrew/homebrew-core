@@ -32,11 +32,10 @@ class FakeGcsServer < Formula
   test do
     port = free_port
 
-    pid = spawn bin/"fake-gcs-server", "-host", "127.0.0.1", "-port", port.to_s,
-                    "-backend", "memory", "-log-level", "warn"
-    sleep 2
+    with_test_process(bin/"fake-gcs-server", "-host", "127.0.0.1", "-port", port.to_s,
+                      "-backend", "memory", "-log-level", "warn") do
+      sleep 2
 
-    begin
       output = shell_output("curl -k -s 'https://127.0.0.1:#{port}/storage/v1/b?project=test'")
       assert_equal "{\"kind\":\"storage#buckets\"}", output.strip
 
@@ -47,9 +46,6 @@ class FakeGcsServer < Formula
       # Verify bucket exists
       output = shell_output("curl -k -s 'https://127.0.0.1:#{port}/storage/v1/b?project=test'")
       assert_equal "test-bucket", JSON.parse(output)["items"][0]["id"]
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

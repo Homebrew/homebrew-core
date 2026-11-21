@@ -92,7 +92,7 @@ class Sapling < Formula
     end
 
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     ENV["PYTHON_SYS_EXECUTABLE"] = ENV["PYO3_PYTHON"] = python3
     ENV["SAPLING_VERSION"] = if build.stable?
       version
@@ -122,8 +122,8 @@ class Sapling < Formula
 
     dylibs = [
       formula_opt_lib("libssh2")/shared_library("libssh2"),
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+      dep("openssl").opt_lib/shared_library("libssl"),
+      dep("openssl").opt_lib/shared_library("libcrypto"),
     ]
     dylibs << (formula_opt_lib("curl")/shared_library("libcurl")) if OS.linux?
 

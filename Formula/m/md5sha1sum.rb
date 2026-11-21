@@ -39,11 +39,9 @@ class Md5sha1sum < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
-    ENV["SSLINCPATH"] = formula_opt_include(openssl)
-    ENV["SSLLIBPATH"] = formula_opt_lib(openssl)
+    ENV["SSLINCPATH"] = dep("openssl").opt_include
+    ENV["SSLLIBPATH"] = dep("openssl").opt_lib
 
     system "./configure", "--prefix=#{prefix}"
     system "make"

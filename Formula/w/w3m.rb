@@ -35,7 +35,7 @@ class W3m < Formula
 
   def install
     system "./configure", "--disable-image",
-                          "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-ssl=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make", "install"
   end

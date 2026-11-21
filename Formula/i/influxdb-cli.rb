@@ -44,7 +44,7 @@ class InfluxdbCli < Formula
       --http-bind-address=:#{influxd_port}
       --log-level=error
     ]
-    influxd = spawn formula_opt_bin("influxdb@2")/"influxd", *influxd_args
+    influxd = spawn dep("influxdb").opt_bin/"influxd", *influxd_args
     sleep 30
 
     # Configure the CLI for the test env.

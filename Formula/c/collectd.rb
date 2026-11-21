@@ -90,14 +90,10 @@ class Collectd < Formula
       </Plugin>
       LoadPlugin memory
     EOS
-    begin
-      pid = spawn sbin/"collectd", "-f", "-C", "collectd.conf"
+    with_test_process(sbin/"collectd", "-f", "-C", "collectd.conf", signal: "INT") do
       sleep 3
       assert_path_exists log, "Failed to create log file"
       assert_match "plugin \"memory\" successfully loaded.", log.read
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end

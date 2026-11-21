@@ -58,7 +58,7 @@ class Opensearch < Formula
                 libexec/"bin/opensearch-keystore",
                 libexec/"bin/opensearch-plugin",
                 libexec/"bin/opensearch-shard"
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk@25"))
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: dep("openjdk").opt_prefix)
 
     (var/"lib/opensearch").mkpath
     (var/"log/opensearch").mkpath
@@ -95,16 +95,14 @@ class Opensearch < Formula
     port = free_port
     (testpath/"data").mkdir
     (testpath/"logs").mkdir
-    pid = spawn bin/"opensearch", "-Ehttp.port=#{port}",
-                            "-Epath.data=#{testpath}/data",
-                            "-Epath.logs=#{testpath}/logs"
-    sleep 30
-    output = shell_output("curl -s -XGET localhost:#{port}/")
-    assert_equal "opensearch", JSON.parse(output)["version"]["distribution"]
+    with_test_process(bin/"opensearch", "-Ehttp.port=#{port}",
+                      "-Epath.data=#{testpath}/data",
+                      "-Epath.logs=#{testpath}/logs") do
+      sleep 30
+      output = shell_output("curl -s -XGET localhost:#{port}/")
+      assert_equal "opensearch", JSON.parse(output)["version"]["distribution"]
 
-    system bin/"opensearch-plugin", "list"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      system bin/"opensearch-plugin", "list"
+    end
   end
 end

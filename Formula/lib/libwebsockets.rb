@@ -37,7 +37,7 @@ class Libwebsockets < Formula
                     "-DLWS_WITH_LIBUV=ON",
                     "-DLWS_WITHOUT_TESTAPPS=ON",
                     "-DLWS_UNIX_SOCK=ON",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
+                    "-DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}",
                     *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
@@ -58,7 +58,7 @@ class Libwebsockets < Formula
         return 0;
       }
     C
-    system ENV.cc, "test.c", "-I#{formula_opt_prefix("openssl@4")}/include",
+    system ENV.cc, "test.c", "-I#{dep("openssl").opt_prefix}/include",
                    "-L#{lib}", "-lwebsockets", "-o", "test"
     system "./test"
   end

@@ -54,7 +54,7 @@ class Ncrack < Formula
   deny_network_access!
 
   def install
-    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@4")}", *std_configure_args
+    system "./configure", "--with-openssl=#{dep("openssl").opt_prefix}", *std_configure_args
     system "make"
     system "make", "install"
   end

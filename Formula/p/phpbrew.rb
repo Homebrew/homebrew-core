@@ -30,7 +30,7 @@ class Phpbrew < Formula
   def install
     libexec.install "phpbrew.phar" => "phpbrew"
     (bin/"phpbrew").write <<~PHP
-      #!#{formula_opt_bin("php@8.4")}/php
+      #!#{dep("php").opt_bin}/php
       <?php require '#{libexec}/phpbrew';
     PHP
   end

@@ -28,7 +28,7 @@ class Xaric < Formula
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    system "./configure", "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+    system "./configure", "--with-openssl=#{dep("openssl").opt_prefix}",
                           *std_configure_args
     system "make", "install"
   end

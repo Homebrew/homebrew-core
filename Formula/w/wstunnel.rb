@@ -46,15 +46,13 @@ class Wstunnel < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"wstunnel", "server", "ws://[::]:#{port}", "--no-color"
-    sleep 2
+    with_test_process(bin/"wstunnel", "server", "ws://[::]:#{port}", "--no-color", signal: "INT") do
+      sleep 2
 
-    output = shell_output("curl -sI http://localhost:#{port}")
-    assert_match "HTTP/1.1 400 Bad Request", output
+      output = shell_output("curl -sI http://localhost:#{port}")
+      assert_match "HTTP/1.1 400 Bad Request", output
 
-    assert_match version.to_s, shell_output("#{bin}/wstunnel --version")
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/wstunnel --version")
+    end
   end
 end

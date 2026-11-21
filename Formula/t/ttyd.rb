@@ -41,7 +41,7 @@ class Ttyd < Formula
 
   def install
     system "cmake", "-S", ".", "-B", "build",
-                    "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}",
+                    "-DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}",
                     "-Dlibwebsockets_DIR=#{formula_opt_lib("libwebsockets")}/cmake/libwebsockets",
                     *std_cmake_args
     system "cmake", "--build", "build"

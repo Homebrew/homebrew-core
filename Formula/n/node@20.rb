@@ -62,8 +62,8 @@ class NodeAT20 < Formula
       --shared-libuv-libpath=#{formula_opt_lib("libuv")}
       --shared-nghttp2-includes=#{formula_opt_include("libnghttp2")}
       --shared-nghttp2-libpath=#{formula_opt_lib("libnghttp2")}
-      --shared-openssl-includes=#{formula_opt_include("openssl@3")}
-      --shared-openssl-libpath=#{formula_opt_lib("openssl@3")}
+      --shared-openssl-includes=#{dep("openssl").opt_include}
+      --shared-openssl-libpath=#{dep("openssl").opt_lib}
       --shared-brotli-includes=#{formula_opt_include("brotli")}
       --shared-brotli-libpath=#{formula_opt_lib("brotli")}
       --shared-cares-includes=#{formula_opt_include("c-ares")}

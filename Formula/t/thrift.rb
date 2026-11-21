@@ -43,7 +43,7 @@ class Thrift < Formula
       --disable-tests
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{dep("openssl").opt_prefix}
       --without-java
       --without-kotlin
       --without-python

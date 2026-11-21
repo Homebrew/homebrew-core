@@ -27,7 +27,7 @@ class ScalaCli < Formula
   end
 
   def install
-    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@17")
+    ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
     ENV["COURSIER_CACHE"] = "#{HOMEBREW_CACHE}/coursier/v1"
     ENV["COURSIER_ARCHIVE_CACHE"] = "#{HOMEBREW_CACHE}/coursier/arc"
     ENV["COURSIER_JVM_CACHE"] = "#{HOMEBREW_CACHE}/coursier/jvm"
@@ -63,7 +63,7 @@ class ScalaCli < Formula
     ENV["SCALA_CLI_HOME"] = testpath
     ENV["COURSIER_CACHE"] = ENV["COURSIER_ARCHIVE_CACHE"] = testpath/".coursier_cache"
     ENV["COURSIER_JVM_CACHE"] = testpath/".coursier_jvm_cache"
-    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@17")
+    ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
 
     (testpath/"Hello.scala").write <<~SCALA
       @main def hello() = println("Hello from Scala CLI")

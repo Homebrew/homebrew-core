@@ -29,8 +29,6 @@ class CodeCli < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def fetch
     cd "cli" do
       system "cargo", "fetch", *std_cargo_fetch_args
@@ -40,7 +38,7 @@ class CodeCli < Formula
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     ENV["VSCODE_CLI_NAME_LONG"] = "Code OSS"
 
@@ -57,8 +55,8 @@ class CodeCli < Formula
     assert_match version.to_s, shell_output("#{bin}/code --version")
 
     linked_libraries = [
-      formula_opt_lib(openssl)/shared_library("libssl"),
-      formula_opt_lib(openssl)/shared_library("libcrypto"),
+      dep("openssl").opt_lib/shared_library("libssl"),
+      dep("openssl").opt_lib/shared_library("libcrypto"),
     ]
 
     linked_libraries.each do |library|

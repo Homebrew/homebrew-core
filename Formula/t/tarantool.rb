@@ -37,14 +37,12 @@ class Tarantool < Formula
   end
 
   def install
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
     args = %W[
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
       -DENABLE_DIST=ON
-      -DICU_ROOT=#{icu4c.opt_prefix}
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
+      -DICU_ROOT=#{dep("icu4c").opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}
       -DREADLINE_ROOT=#{formula_opt_prefix("readline")}
       -DENABLE_BUNDLED_LIBCURL=OFF
       -DENABLE_BUNDLED_LIBUNWIND=OFF

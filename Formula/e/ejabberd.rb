@@ -47,8 +47,8 @@ class Ejabberd < Formula
     ENV["TARGET_DIR"] = ENV["DESTDIR"] = "#{lib}/ejabberd/erlang/lib/ejabberd-#{version}"
     ENV["MAN_DIR"] = man
     ENV["SBIN_DIR"] = sbin
-    ENV.append_to_cflags "-I#{formula_opt_include("openssl@4")}"
-    ENV.append "LDFLAGS", "-L#{formula_opt_lib("openssl@4")}"
+    ENV.append_to_cflags "-I#{dep("openssl").opt_include}"
+    ENV.append "LDFLAGS", "-L#{dep("openssl").opt_lib}"
 
     args = %W[
       --prefix=#{prefix}

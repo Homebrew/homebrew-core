@@ -36,7 +36,7 @@ class Ispc < Formula
   deny_network_access!
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    dep("llvm").to_formula
   end
 
   def install

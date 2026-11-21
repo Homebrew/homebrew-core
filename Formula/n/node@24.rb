@@ -115,8 +115,8 @@ class NodeAT24 < Formula
       --shared-nghttp3-libpath=#{formula_opt_lib("libnghttp3")}
       --shared-ngtcp2-includes=#{formula_opt_include("libngtcp2")}
       --shared-ngtcp2-libpath=#{formula_opt_lib("libngtcp2")}
-      --shared-openssl-includes=#{formula_opt_include("openssl@4")}
-      --shared-openssl-libpath=#{formula_opt_lib("openssl@4")}
+      --shared-openssl-includes=#{dep("openssl").opt_include}
+      --shared-openssl-libpath=#{dep("openssl").opt_lib}
       --shared-simdjson-includes=#{formula_opt_include("simdjson")}
       --shared-simdjson-libpath=#{formula_opt_lib("simdjson")}
       --shared-sqlite-includes=#{formula_opt_include("sqlite")}

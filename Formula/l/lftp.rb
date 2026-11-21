@@ -44,7 +44,7 @@ class Lftp < Formula
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
     system "./configure", "--disable-silent-rules",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{dep("openssl").opt_prefix}",
                           "--with-readline=#{formula_opt_prefix("readline")}",
                           "--with-libidn2=#{formula_opt_prefix("libidn2")}",
                           *std_configure_args

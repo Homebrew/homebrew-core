@@ -54,7 +54,7 @@ class Redis < Formula
     ENV["OSX_MIN_SDK_VER"] = MacOS.version.to_s if OS.mac?
     # RediSearch looks for Homebrew's `openssl@3` before anything else on macOS
     inreplace "modules/redisearch/src/CMakeLists.txt",
-              "/opt/homebrew/opt/openssl@3", formula_opt_prefix("openssl@4")
+              "/opt/homebrew/opt/openssl@3", dep("openssl").opt_prefix
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
            "BUILD_COMPRESSION=yes", "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
 

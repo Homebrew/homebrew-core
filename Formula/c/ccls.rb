@@ -23,15 +23,10 @@ class Ccls < Formula
   depends_on "rapidjson" => :build
   depends_on "llvm"
 
-  def llvm
-    deps.reject { |d| d.build? || d.test? }
-        .find { |f| f.name.match?(/^llvm(@\d+)?$/) }
-        .to_formula
-  end
-
   deny_network_access!
 
   def install
+    llvm = dep("llvm").to_formula
     ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(target: llvm.opt_lib)}" if OS.linux?
     resource_dir = Utils.safe_popen_read(llvm.opt_bin/"clang", "-print-resource-dir").chomp
     resource_dir.gsub! llvm.prefix.realpath, llvm.opt_prefix

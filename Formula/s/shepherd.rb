@@ -53,17 +53,13 @@ class Shepherd < Formula
       (register-services dummy-service)
     SCHEME
 
-    begin
-      pid = spawn bin/"shepherd", "-c", "dummy-service.scm"
+    with_test_process(bin/"shepherd", "-c", "dummy-service.scm") do
       sleep 2
 
       output = shell_output("#{bin}/herd status 2>&1", 1)
       assert_match "socket: No such file or directory", output
 
       assert_match version.to_s, shell_output("#{bin}/herd --version")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

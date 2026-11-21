@@ -24,12 +24,10 @@ class Ophcrack < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     args = %W[
       --disable-gui
-      --with-libssl=#{formula_opt_prefix(openssl)}
+      --with-libssl=#{dep("openssl").opt_prefix}
     ]
     args << "--with-libexpat=#{formula_opt_prefix("expat")}" if OS.linux?
 

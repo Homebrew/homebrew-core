@@ -30,7 +30,7 @@ class I2pd < Formula
       USE_UPNP=yes
       PREFIX=#{prefix}
       BREWROOT=#{HOMEBREW_PREFIX}
-      SSLROOT=#{formula_opt_prefix("openssl@4")}
+      SSLROOT=#{dep("openssl").opt_prefix}
     ]
     args << "USE_AESNI=no" if Hardware::CPU.arm?
 

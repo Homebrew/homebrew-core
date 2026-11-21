@@ -44,14 +44,10 @@ class Anyquery < Formula
     assert_match "no such table: non_existing_table", output
 
     port = free_port.to_s
-    pid = spawn bin/"anyquery", "server", "--port", port
-    begin
+    with_test_process(bin/"anyquery", "server", "--port", port) do
       sleep 5
       output = shell_output("#{formula_opt_bin("mysql-client")}/mysql -h 127.0.0.1 -P #{port} -e 'show tables;' main")
       assert_match "information_schema.COLLATIONS", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

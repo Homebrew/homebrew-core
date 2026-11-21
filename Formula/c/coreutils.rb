@@ -77,8 +77,9 @@ class Coreutils < Formula
     ]
 
     if OS.mac?
-      ENV.append "CPPFLAGS", "-I#{formula_opt_include("openssl@4")}"
-      ENV.append "LDFLAGS", "-L#{formula_opt_lib("openssl@4")}"
+      openssl = dep("openssl")
+      ENV.append "CPPFLAGS", "-I#{openssl.opt_include}"
+      ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
     end
 
     system "./configure", *args, *std_configure_args

@@ -49,14 +49,10 @@ class Piknik < Formula
     genkeys = shell_output("#{bin}/piknik -genkeys")
     lines = genkeys.lines.grep(/\s+=\s+/).map { |x| x.gsub(/\s+/, " ").gsub(/#.*/, "") }.uniq
     conffile.write lines.join("\n")
-    pid = spawn bin/"piknik", "-server", "-config", conffile
-    begin
+    with_test_process(bin/"piknik", "-server", "-config", conffile) do
       sleep 1
       pipe_output("#{bin}/piknik -config #{conffile} -copy", "test", 0)
       assert_equal "test", shell_output("#{bin}/piknik -config #{conffile} -move")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

@@ -57,8 +57,7 @@ class Gspell < Formula
       }
     C
 
-    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
-    ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", dep("icu4c").opt_lib/"pkgconfig"
     flags = shell_output("pkgconf --cflags --libs gspell-1").chomp.split
     system ENV.cc, "test.c", "-o", "test", *flags
     ENV["G_DEBUG"] = "fatal-warnings"

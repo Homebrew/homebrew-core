@@ -32,11 +32,9 @@ class Goshs < Formula
     (testpath/"test.txt").write "Hello, Goshs!"
 
     port = free_port
-    pid = spawn bin/"goshs", "-p", port.to_s, "-d", testpath, "-si"
-    output = shell_output("curl --retry 5 --retry-connrefused -s http://localhost:#{port}/test.txt")
-    assert_match "Hello, Goshs!", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"goshs", "-p", port.to_s, "-d", testpath, "-si") do
+      output = shell_output("curl --retry 5 --retry-connrefused -s http://localhost:#{port}/test.txt")
+      assert_match "Hello, Goshs!", output
+    end
   end
 end

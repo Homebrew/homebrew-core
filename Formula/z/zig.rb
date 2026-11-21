@@ -47,8 +47,7 @@ class Zig < Formula
     # Reduce max_rss to build on CI with less than 8GB memory available
     inreplace "build.zig", ".max_rss = 8_000_000_000,", ".max_rss = 6_900_000_000,"
 
-    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
-               .to_formula
+    llvm = dep("llvm").to_formula
     if llvm.versioned_formula? && deps.any? { |dep| dep.name == "z3" }
       # Don't remove this check even if we're using a versioned LLVM
       # to avoid accidentally keeping it when not needed in the future.

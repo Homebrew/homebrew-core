@@ -27,7 +27,7 @@ class Pickle < Formula
     # bin.install "pickle.phar" => "pickle"
     libexec.install "pickle.phar" => "pickle"
     (bin/"pickle").write <<~PHP
-      #!#{formula_opt_bin("php@8.4")}/php
+      #!#{dep("php").opt_bin}/php
       <?php require '#{libexec}/pickle';
     PHP
   end

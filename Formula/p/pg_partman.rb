@@ -23,7 +23,7 @@ class PgPartman < Formula
   depends_on "postgresql@19" => [:build, :test]
 
   def postgresqls
-    deps.map(&:to_formula).sort_by(&:version).filter { |f| f.name.start_with?("postgresql@") }
+    deps(/\Apostgresql@/).map(&:to_formula).sort_by(&:version)
   end
 
   def install

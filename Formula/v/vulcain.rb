@@ -52,13 +52,10 @@ class Vulcain < Formula
       }
     EOS
 
-    pid = spawn bin/"vulcain", "run", "--config", testpath/"Caddyfile"
+    with_test_process(bin/"vulcain", "run", "--config", testpath/"Caddyfile") do
+      sleep 2
 
-    sleep 2
-
-    assert_match "Vulcain API", shell_output("curl -s http://127.0.0.1:#{port}")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match "Vulcain API", shell_output("curl -s http://127.0.0.1:#{port}")
+    end
   end
 end

@@ -66,7 +66,7 @@ class Alpine < Formula
     ENV.deparallelize
 
     args = %W[
-      --with-ssl-dir=#{formula_opt_prefix("openssl@3")}
+      --with-ssl-dir=#{dep("openssl").opt_prefix}
       --with-ssl-certs-dir=#{etc}/openssl@3
       --with-bundled-tools
     ]

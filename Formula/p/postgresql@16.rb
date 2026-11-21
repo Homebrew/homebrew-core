@@ -54,7 +54,7 @@ class PostgresqlAT16 < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = dep("openssl").name
 
   def install
     ENV.runtime_cpu_detection

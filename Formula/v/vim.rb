@@ -49,7 +49,7 @@ class Vim < Formula
   conflicts_with "macvim", because: "vim and macvim both install vi* binaries"
   conflicts_with "vim-classic", because: "vim and vim-classic both install vi* binaries"
 
-  def extra_deps = deps.select { |dep| dep.build? && dep.test? }
+  def extra_deps = deps.build.select(&:test?)
 
   deny_network_access!
 
@@ -58,7 +58,7 @@ class Vim < Formula
 
     # Allow dynamically loading formulae libraries when not linked
     extra_deps.each do |dep|
-      extra_rpath = dep.to_formula.opt_lib
+      extra_rpath = dep.opt_lib
       extra_rpath = rpath(target: extra_rpath) if OS.mac? # cannot use $ORIGIN
       ENV.append "LDFLAGS", "-Wl,-rpath,#{extra_rpath}"
     end

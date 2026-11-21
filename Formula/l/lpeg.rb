@@ -34,7 +34,7 @@ class Lpeg < Formula
   end
 
   def luas
-    deps.map(&:to_formula).select { |f| f.name.match?(/^lua(@\d+(\.\d+)*)?$/) }
+    deps("lua").map(&:to_formula)
   end
 
   def luajit = Formula["luajit"]

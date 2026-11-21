@@ -38,9 +38,7 @@ class Libmspub < Formula
   def install
     # icu4c 75+ needs C++17 and icu4c 76+ needs icu-uc
     # TODO: Fix upstream
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
-    ENV["ICU_LIBS"] = "-L#{icu4c.opt_lib} -licui18n -licuuc"
+    ENV["ICU_LIBS"] = "-L#{dep("icu4c").opt_lib} -licui18n -licuuc"
     ENV.append "CXXFLAGS", "-std=gnu++17"
 
     system "./configure", "--disable-silent-rules",

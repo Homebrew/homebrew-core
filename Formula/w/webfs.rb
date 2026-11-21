@@ -38,11 +38,9 @@ class Webfs < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"webfsd", "-F", "-p", port.to_s
-    sleep 5
-    assert_match %r{webfs/1.21}, shell_output("curl localhost:#{port}")
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+    with_test_process(bin/"webfsd", "-F", "-p", port.to_s, signal: "INT") do
+      sleep 5
+      assert_match %r{webfs/1.21}, shell_output("curl localhost:#{port}")
+    end
   end
 end

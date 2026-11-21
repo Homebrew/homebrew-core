@@ -25,7 +25,7 @@ class TomcatNative < Formula
     cd "native" do
       system "./configure", "--with-apr=#{formula_opt_prefix("apr")}",
                             "--with-java-home=#{formula_opt_prefix("openjdk")}",
-                            "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+                            "--with-ssl=#{dep("openssl").opt_prefix}",
                             *std_configure_args
       system "make"
       system "make", "install"

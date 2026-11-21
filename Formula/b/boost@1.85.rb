@@ -42,12 +42,10 @@ class BoostAT185 < Formula
     end
 
     # libdir should be set by --prefix but isn't
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
     bootstrap_args = %W[
       --prefix=#{prefix}
       --libdir=#{lib}
-      --with-icu=#{icu4c.opt_prefix}
+      --with-icu=#{dep("icu4c").opt_prefix}
     ]
 
     # Handle libraries that will not be built.

@@ -73,10 +73,6 @@ class Mysql < Formula
     type :unofficial
   end
 
-  def icu4c = deps.map(&:name).find { |dep| dep.start_with?("icu4c@") }
-
-  def openssl = deps.map(&:name).find { |dep| dep.start_with?("openssl@") }
-
   def install
     # Remove bundled libraries other than explicitly allowed below.
     # `boost` and `rapidjson` must use bundled copy due to patches.
@@ -108,8 +104,8 @@ class Mysql < Formula
       -DMYSQL_DATADIR=#{var}/mysql
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix(openssl)}
-      -DWITH_ICU=#{formula_opt_prefix(icu4c)}
+      -DOPENSSL_ROOT_DIR=#{dep("openssl").opt_prefix}
+      -DWITH_ICU=#{dep("icu4c").opt_prefix}
       -DWITH_AUTHENTICATION_WEBAUTHN=OFF
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system

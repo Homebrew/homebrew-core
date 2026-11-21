@@ -47,13 +47,11 @@ class Screenpipe < Formula
     assert_match version.to_s, shell_output("#{bin}/screenpipe -V")
 
     log_file = testpath/".screenpipe/screenpipe.#{time.strftime("%Y-%m-%d")}.log"
-    pid = spawn bin/"screenpipe", "--disable-vision", "--disable-audio", "--disable-telemetry"
-    sleep 200
+    with_test_process(bin/"screenpipe", "--disable-vision", "--disable-audio", "--disable-telemetry") do
+      sleep 200
 
-    assert_path_exists log_file
-    assert_match(/INFO.*screenpipe/, File.read(log_file))
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_path_exists log_file
+      assert_match(/INFO.*screenpipe/, File.read(log_file))
+    end
   end
 end

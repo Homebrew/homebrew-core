@@ -53,17 +53,14 @@ class Gitea < Formula
     ENV["GITEA_WORK_DIR"] = testpath
     port = free_port
 
-    pid = spawn bin/"gitea", "web", "--port", port.to_s, "--install-port", port.to_s
+    with_test_process(bin/"gitea", "web", "--port", port.to_s, "--install-port", port.to_s) do
+      output = shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{port}/api/settings/api")
+      assert_match "Go to default page", output
 
-    output = shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{port}/api/settings/api")
-    assert_match "Go to default page", output
+      output = shell_output("curl -s http://localhost:#{port}/")
+      assert_match "Installation - Gitea: Git with a cup of tea", output
 
-    output = shell_output("curl -s http://localhost:#{port}/")
-    assert_match "Installation - Gitea: Git with a cup of tea", output
-
-    assert_match version.to_s, shell_output("#{bin}/gitea -v")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/gitea -v")
+    end
   end
 end

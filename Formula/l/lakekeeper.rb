@@ -29,8 +29,7 @@ class Lakekeeper < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     system "cargo", "install", *std_cargo_args(path: "crates/lakekeeper-bin")
   end
@@ -39,7 +38,7 @@ class Lakekeeper < Formula
     ENV["LC_ALL"] = "C"
     ENV["PGDATA"] = testpath/"test"
 
-    postgresql = deps.map(&:name).find { |d| d.match?(/^postgresql(@\d+(\.\d+)*)?$/) }
+    postgresql = dep("postgresql").name
     pg_ctl = formula_opt_bin(postgresql)/"pg_ctl"
     port = free_port
 

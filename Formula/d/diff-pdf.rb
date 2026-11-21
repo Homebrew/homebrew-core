@@ -31,7 +31,7 @@ class DiffPdf < Formula
   deny_network_access!
 
   def install
-    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+    wxwidgets = dep("wxwidgets").to_formula
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"
     system "./configure", "--disable-silent-rules", "--with-wx-config=#{wx_config}", *std_configure_args
     system "make", "install"

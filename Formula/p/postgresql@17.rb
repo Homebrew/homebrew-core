@@ -56,7 +56,7 @@ class PostgresqlAT17 < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = dep("openssl").name
 
   def install
     # Modify Makefile to link macOS binaries using Cellar path. Otherwise, binaries are linked

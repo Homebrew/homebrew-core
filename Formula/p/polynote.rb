@@ -93,13 +93,9 @@ class Polynote < Formula
         dir: #{testpath}/notebooks
     YAML
 
-    pid = spawn bin/"polynote", "--config", testpath/"config.yml"
-    begin
+    with_test_process(bin/"polynote", "--config", testpath/"config.yml") do
       sleep 5
       assert_match "<title>Polynote</title>", shell_output("curl -s 127.0.0.1:#{port}")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

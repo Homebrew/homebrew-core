@@ -38,12 +38,6 @@ class ProtobufAT21 < Formula
     resolves "https://github.com/protocolbuffers/protobuf/pull/10403"
   end
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.match?(/^python@\d\.\d+$/) }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
     cmake_args = %w[
       -Dprotobuf_BUILD_LIBPROTOC=ON
@@ -66,7 +60,7 @@ class ProtobufAT21 < Formula
     ENV["PROTOC"] = bin/"protoc"
 
     pip_args = ["--config-settings=--build-option=--cpp_implementation"]
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       pyext_dir = prefix/Language::Python.site_packages(python)/"google/protobuf/pyext"
       with_env(LDFLAGS: "-Wl,-rpath,#{rpath(source: pyext_dir)} #{ENV.ldflags}".strip) do
         system python, "-m", "pip", "install", *pip_args, *std_pip_args(build_isolation: true), "./python"
@@ -96,7 +90,7 @@ class ProtobufAT21 < Formula
     (testpath/"test.proto").write testdata
     system bin/"protoc", "test.proto", "--cpp_out=."
 
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       with_env(PYTHONPATH: (prefix/Language::Python.site_packages(python)).to_s) do
         system python, "-c", "import google.protobuf"
       end

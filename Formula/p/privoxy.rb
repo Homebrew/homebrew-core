@@ -50,14 +50,10 @@ class Privoxy < Formula
   test do
     bind_address = "127.0.0.1:#{free_port}"
     (testpath/"config").write("listen-address #{bind_address}\n")
-    pid = spawn sbin/"privoxy", "--no-daemon", testpath/"config"
-    begin
+    with_test_process(sbin/"privoxy", "--no-daemon", testpath/"config", signal: "INT") do
       sleep 5
       output = shell_output("curl --head --proxy #{bind_address} https://github.com")
       assert_match "HTTP/1.1 200 Connection established", output
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end

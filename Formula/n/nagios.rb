@@ -30,8 +30,6 @@ class Nagios < Formula
 
   def htdocs = pkgshare/"htdocs"
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def user
     Utils.safe_popen_read("id", "-un").chomp
   end
@@ -49,7 +47,7 @@ class Nagios < Formula
       "--with-nagios-group='#{Utils.safe_popen_read("id", "-gn").chomp}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{formula_opt_prefix(openssl)}",
+      "--with-ssl=#{dep("openssl").opt_prefix}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?

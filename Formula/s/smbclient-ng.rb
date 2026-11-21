@@ -182,16 +182,12 @@ class SmbclientNg < Formula
     CONF
 
     port = free_port
-    pid = spawn smbd, "--debug-stdout", "-F", "--configfile=#{testpath}/smb.conf", "--port=#{port}", "--debuglevel=4",
-                "--log-basename=#{testpath}/samba/state", in: "/dev/null"
-
-    begin
+    with_test_process(smbd, "--debug-stdout", "-F", "--configfile=#{testpath}/smb.conf",
+                      "--port=#{port}", "--debuglevel=4", "--log-basename=#{testpath}/samba/state",
+                      in: "/dev/null") do
       system bin/"smbclientng", "--no-pass", "-H", "127.0.0.1", "-P", port.to_s,
         "-C", "use test", "-C", "get hello", "-C", "exit"
       assert_equal "hello", (testpath/"hello").read
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

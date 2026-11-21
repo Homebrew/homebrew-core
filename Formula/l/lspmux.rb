@@ -88,13 +88,9 @@ class Lspmux < Formula
 
     output = /Content-Length: \d+\r\n\r\n/
 
-    begin
-      pid = spawn bin/"lspmux", "server"
+    with_test_process(bin/"lspmux", "server") do
       sleep 5
       assert_match output, pipe_output(bin/"lspmux", input, 0)
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

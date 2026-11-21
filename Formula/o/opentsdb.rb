@@ -40,7 +40,7 @@ class Opentsdb < Formula
 
   def install
     with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
-      ENV.prepend_path "PATH", formula_opt_libexec("python@3.13")/"bin"
+      ENV.prepend_path "PATH", dep("python").opt_libexec/"bin"
       system "autoreconf", "--force", "--install", "--verbose"
       system "./configure", "--disable-silent-rules",
                             "--localstatedir=#{var}/opentsdb",

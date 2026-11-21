@@ -21,7 +21,7 @@ class Uftp < Formula
   depends_on "openssl@4"
 
   def install
-    system "make", "OPENSSL=#{formula_opt_prefix("openssl@4")}", "DESTDIR=#{prefix}", "install"
+    system "make", "OPENSSL=#{dep("openssl").opt_prefix}", "DESTDIR=#{prefix}", "install"
     # the makefile installs into DESTDIR/usr/..., move everything up one and remove usr
     # the project maintainer was contacted via sourceforge on 12-Feb, he responded WONTFIX on 13-Feb
     prefix.install (prefix/"usr").children

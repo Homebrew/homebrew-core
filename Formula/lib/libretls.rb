@@ -24,12 +24,10 @@ class Libretls < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     system "./configure", *std_configure_args,
                           "--disable-silent-rules",
-                          "--with-openssl=#{formula_opt_prefix(openssl)}"
+                          "--with-openssl=#{dep("openssl").opt_prefix}"
     system "make", "install"
   end
 

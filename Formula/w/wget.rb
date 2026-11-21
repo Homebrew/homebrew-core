@@ -56,7 +56,7 @@ class Wget < Formula
     system "./bootstrap", "--skip-po" if build.head?
     system "./configure", "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{formula_opt_prefix("openssl@4")}",
+                          "--with-libssl-prefix=#{dep("openssl").opt_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--with-libpsl",

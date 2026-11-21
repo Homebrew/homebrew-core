@@ -111,13 +111,9 @@ class Kapacitor < Formula
     ENV["KAPACITOR_INFLUXDB_0_ENABLED"] = "false"
     ENV["KAPACITOR_REPORTING_ENABLED"] = "false"
 
-    begin
-      pid = spawn "#{bin}/kapacitord -config #{testpath}/config.toml"
+    with_test_process(bin/"kapacitord", "-config", testpath/"config.toml", signal: "INT") do
       sleep 20
       shell_output("#{bin}/kapacitor list tasks")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end

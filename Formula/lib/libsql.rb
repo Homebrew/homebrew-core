@@ -42,13 +42,11 @@ class Libsql < Formula
   end
 
   test do
-    pid = spawn(bin/"sqld")
-    sleep 2
-    assert_path_exists testpath/"data.sqld"
+    with_test_process(bin/"sqld", signal: "INT") do
+      sleep 2
+      assert_path_exists testpath/"data.sqld"
 
-    assert_match version.to_s, shell_output("#{bin}/sqld --version")
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/sqld --version")
+    end
   end
 end

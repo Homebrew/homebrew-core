@@ -62,7 +62,7 @@ class Mvfst < Formula
       set_target_properties(echo PROPERTIES BUILD_RPATH "#{lib};#{HOMEBREW_PREFIX}/lib")
     CMAKE
 
-    ENV.append_path "CMAKE_PREFIX_PATH", formula_opt_prefix("openssl@4")
+    ENV.append_path "CMAKE_PREFIX_PATH", dep("openssl").opt_prefix
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args
     system "cmake", "--build", "build"
 

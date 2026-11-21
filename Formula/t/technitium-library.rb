@@ -19,7 +19,7 @@ class TechnitiumLibrary < Formula
 
   deny_network_access!
 
-  def dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
+  def dotnet = dep("dotnet").to_formula
 
   def libraries
     %w[

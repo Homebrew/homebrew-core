@@ -31,16 +31,14 @@ class Ntp < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.start_with?("openssl@") }
-
   def install
     args = %W[
       --disable-debug
       --disable-dependency-tracking
       --disable-silent-rules
       --prefix=#{prefix}
-      --with-openssl-libdir=#{formula_opt_lib(openssl)}
-      --with-openssl-incdir=#{formula_opt_include(openssl)}
+      --with-openssl-libdir=#{dep("openssl").opt_lib}
+      --with-openssl-incdir=#{dep("openssl").opt_include}
       --with-net-snmp-config=no
     ]
 

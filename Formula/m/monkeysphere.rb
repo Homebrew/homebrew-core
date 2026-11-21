@@ -53,7 +53,7 @@ class Monkeysphere < Formula
   end
 
   def install
-    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_PREFIX"] = dep("openssl").opt_prefix
     ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 

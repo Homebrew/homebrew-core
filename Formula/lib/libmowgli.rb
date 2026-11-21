@@ -21,11 +21,9 @@ class Libmowgli < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     system "./configure", "--prefix=#{prefix}",
-                          "--with-openssl=#{formula_opt_prefix(openssl)}"
+                          "--with-openssl=#{dep("openssl").opt_prefix}"
     system "make"
     system "make", "install"
   end

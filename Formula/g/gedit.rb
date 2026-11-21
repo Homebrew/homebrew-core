@@ -62,7 +62,7 @@ class Gedit < Formula
 
   test do
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("icu4c")/"pkgconfig" if OS.mac?
-    ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libpeas@1")/"pkgconfig"
+    ENV.prepend_path "PKG_CONFIG_PATH", dep("libpeas").opt_lib/"pkgconfig"
 
     # main executable test
     system bin/"gedit", "--version"

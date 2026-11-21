@@ -100,8 +100,7 @@ class DotnetAT9 < Formula
       # Deparallelize to avoid bootstrap Roslyn crashes.
       ENV.deparallelize
     else
-      icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-      ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
+      ENV.append_path "LD_LIBRARY_PATH", dep("icu4c").opt_lib
     end
 
     # Work around the bootstrap SDK failing when it shuts down build servers

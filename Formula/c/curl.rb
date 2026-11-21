@@ -71,7 +71,7 @@ class Curl < Formula
 
     args = %W[
       --disable-silent-rules
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{dep("openssl").opt_prefix}
       --without-ca-bundle
       --without-ca-path
       --with-ca-fallback

@@ -147,8 +147,6 @@ class Sile < Formula
   # `luarocks unpack` needs network access
   allow_network_access! :build
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     lua = "luajit"
     luaversion = "5.1"
@@ -176,7 +174,7 @@ class Sile < Formula
     luarocks_args = %W[
       ZLIB_DIR=#{zlib_dir}
       EXPAT_DIR=#{expat_dir}
-      OPENSSL_DIR=#{formula_opt_prefix(openssl)}
+      OPENSSL_DIR=#{dep("openssl").opt_prefix}
       --tree=#{luapath}
       --lua-dir=#{formula_opt_prefix(lua)}
     ]

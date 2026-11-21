@@ -33,8 +33,6 @@ class Passenger < Formula
 
   allow_network_access! :test
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     if OS.mac? && MacOS::CLT.installed?
       ENV["SDKROOT"] = MacOS::CLT.sdk_path(MacOS.version)
@@ -43,8 +41,8 @@ class Passenger < Formula
     end
 
     inreplace "src/ruby_supportlib/phusion_passenger/platform_info/openssl.rb" do |s|
-      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{formula_opt_include(openssl)}"
-      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{formula_opt_lib(openssl)}"
+      s.gsub! "-I/usr/local/opt/openssl/include", "-I#{dep("openssl").opt_include}"
+      s.gsub! "-L/usr/local/opt/openssl/lib", "-L#{dep("openssl").opt_lib}"
     end
 
     system "rake", "apache2"

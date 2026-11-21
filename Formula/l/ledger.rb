@@ -40,10 +40,8 @@ class Ledger < Formula
 
   deny_network_access!
 
-  def python = deps.map(&:name).find { |d| d.match?(/^python(@\d+(\.\d+)*)?$/) }
-
   def install
-    ENV.prepend_path "PATH", formula_opt_libexec(python)/"bin"
+    ENV.prepend_path "PATH", dep("python").opt_libexec/"bin"
 
     args = %W[
       --jobs=#{ENV.make_jobs}

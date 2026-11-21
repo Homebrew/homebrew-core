@@ -34,13 +34,11 @@ class RevealMd < Formula
     (testpath/"test.md").write("# Hello, Reveal-md!")
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"reveal-md", testpath/"test.md", [:out, :err] => output_log.to_s
-    sleep 8
-    assert_match "Serving reveal.js", output_log.read
+    with_test_process(bin/"reveal-md", testpath/"test.md", [:out, :err] => output_log.to_s) do
+      sleep 8
+      assert_match "Serving reveal.js", output_log.read
 
-    assert_match version.to_s, shell_output("#{bin}/reveal-md --version")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/reveal-md --version")
+    end
   end
 end

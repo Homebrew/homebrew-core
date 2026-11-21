@@ -41,8 +41,8 @@ class Adaptivecpp < Formula
     else
       %W[
         -DACPP_EXPERIMENTAL_LLVM=ON
-        -DCLANG_EXECUTABLE_PATH=#{formula_opt_bin("llvm@21")}/clang++
-        -DACPP_LLD_PATH=#{formula_opt_bin("lld@21")}/ld.lld
+        -DCLANG_EXECUTABLE_PATH=#{dep("llvm").opt_bin}/clang++
+        -DACPP_LLD_PATH=#{dep("lld").opt_bin}/ld.lld
       ]
     end
 

@@ -46,7 +46,7 @@ class Drogon < Formula
       port = free_port
       inreplace "main.cc", "5555", port.to_s
 
-      system "cmake", "-S", ".", "-B", "build", "-DCMAKE_PREFIX_PATH=#{formula_opt_prefix("openssl@4")}"
+      system "cmake", "-S", ".", "-B", "build", "-DCMAKE_PREFIX_PATH=#{dep("openssl").opt_prefix}"
       system "cmake", "--build", "build"
 
       begin

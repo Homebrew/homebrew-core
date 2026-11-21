@@ -25,7 +25,7 @@ class Dumpling < Formula
 
   deny_network_access!
 
-  def go = deps.find { |d| d.name.match?(/^go(@\d+(\.\d+)*)?$/) }.to_formula
+  def go = dep("go").to_formula
 
   def fetch
     system "go", "mod", "download"

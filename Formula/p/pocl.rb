@@ -30,7 +30,7 @@ class Pocl < Formula
   uses_from_macos "python" => :build
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
+    dep("llvm").to_formula
   end
 
   def install
