@@ -3,17 +3,17 @@ class CfnLint < Formula
 
   desc "Validate CloudFormation templates against the CloudFormation spec"
   homepage "https://github.com/aws-cloudformation/cfn-lint/"
-  url "https://files.pythonhosted.org/packages/a9/9c/114b3e8bab54caa706ad9294982499f4d86e84d041953904e5ce5c4e72e6/cfn_lint-1.60.1.tar.gz"
-  sha256 "d07d50f0f60b5c719ed3ddcd06ab7329209f74892a14e1e853c49fe4d4bb5dce"
+  url "https://files.pythonhosted.org/packages/9a/cd/82bc68b69eb8a1a6a09a88ad6a0b54e1990ea127665e4c9faa8b1ea0f4c9/cfn_lint-1.61.0.tar.gz"
+  sha256 "a408e1ae0a059b1e8cdcd581c01545ebc99a40961e2edd2a1c0a77e463dcc922"
   license "MIT-0"
   head "https://github.com/aws-cloudformation/cfn-lint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d7b31517bd1617b550b39c51a944f0037998fa55f4007e1f1894eb89065f3e44"
-    sha256 cellar: :any, arm64_tahoe:       "964d4da9df339f3506f47cedcd719a60a28d8240f4fbe51082ee96a22de33b8a"
-    sha256 cellar: :any, arm64_sequoia:     "fd3c869d3cb0417d0fbf8efb4ca82adfcf3dcc4968d80c6325c2495cee0b1de7"
-    sha256 cellar: :any, arm64_linux:       "e1aad56d0868d535d744cbd53fe95b13ba45202b166c476ee5df83fb81bda95e"
-    sha256 cellar: :any, x86_64_linux:      "bbfae1535a950baa2a326572c3df2bb1d6bef02dff39b1a87afd655c79e157a9"
+    sha256 cellar: :any, arm64_golden_gate: "9955380793f715d119961a1857da94cb99512c5efc6d2f79c64d22566c2d877b"
+    sha256 cellar: :any, arm64_tahoe:       "20aecca0d817538ac54ab963c5e276f0a738a88633d7b1723000284479c252f7"
+    sha256 cellar: :any, arm64_sequoia:     "e57666afed6b4c1c827d6c4866262a81e2b8e214313387ba3276b327ed5d5b1f"
+    sha256 cellar: :any, arm64_linux:       "36e13587793d5ab25c1bd054221796f2b6168e6e76c0cba4049b8040937e2bd7"
+    sha256 cellar: :any, x86_64_linux:      "2d0e6f308b9b7496fde8a621df0d8ee69b3d302caef730a6d1ec1ef9a55df220"
   end
 
   depends_on "libyaml"
@@ -24,8 +24,8 @@ class CfnLint < Formula
   pypi_packages exclude_packages: %w[pydantic rpds-py]
 
   resource "jsonpatch" do
-    url "https://files.pythonhosted.org/packages/8f/13/43ae689f9340dc7339dc7f5a3b1772edcd48fb1eb62fd5d801a2aa09d382/jsonpatch-1.47.tar.gz"
-    sha256 "5ed650b7517789e0f43428aa7b09442c0b90de0a0fd17a53fd0ebf55205c601e"
+    url "https://files.pythonhosted.org/packages/9c/b5/0236966b8a3d5b9bf147ea81932c0cd59358a77497bdb95d137e5ee3f080/jsonpatch-1.48.tar.gz"
+    sha256 "81e9a03754137a1201d9b534ddd599cc0eb5983fe941bce238dc8a76e442bb94"
   end
 
   resource "jsonpointer" do
@@ -49,8 +49,8 @@ class CfnLint < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
-    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
+    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
+    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
   end
 
   resource "sympy" do
