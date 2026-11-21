@@ -34,6 +34,8 @@ class BtrfsProgs < Formula
   # remove sphinx-rtd-theme extension for html docs
   patch :DATA
 
+  deny_network_access!
+
   def install
     system "./configure", "--disable-python", *std_configure_args
     # Override `udevdir` since Homebrew's `pkg-config udev --variable=udevdir` output
