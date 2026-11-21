@@ -3,17 +3,17 @@ class McpAtlassian < Formula
 
   desc "MCP server for Atlassian tools (Confluence, Jira)"
   homepage "https://github.com/sooperset/mcp-atlassian"
-  url "https://files.pythonhosted.org/packages/5b/01/fdf2776b4132d2c1b0976da09bbf3f1d46617038a3cc42a0db58abfd7bcb/mcp_atlassian-0.24.6.tar.gz"
-  sha256 "1ca13866e7d3a6b6357ed8b146617a5ffd848078862efad9965c165b484c8be7"
+  url "https://files.pythonhosted.org/packages/8b/52/2ca072889113094182377c9543ab45e36b26a5aa2723d34a4170423d740e/mcp_atlassian-0.24.7.tar.gz"
+  sha256 "e4dcb0f575451817d405d3defb898b4d585260a6f9d7b042c3efdfd3f42aaa98"
   license "MIT"
   head "https://github.com/sooperset/mcp-atlassian.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c821552ae76b714e79009f2db1422cf3d35c2609b0ba4f4015d17edb0df6e585"
-    sha256 cellar: :any, arm64_tahoe:       "3f1d2322647ec67e45a2f8c5c17937cfdf3379ad7b4e04f9724354e76698118f"
-    sha256 cellar: :any, arm64_sequoia:     "94e5f9b4f328c07d652dd1371b4423ef820ca3341320672ea1f9376e957bf0f1"
-    sha256 cellar: :any, arm64_linux:       "b70e096f42701607a9f002a612da6050f6921e79e96ef47ffea01e5bf9879030"
-    sha256 cellar: :any, x86_64_linux:      "4c8bceee53cf0f0c7bbc9ff3f94d803e13c5be40649924f94e91b7a3fbb58ea5"
+    sha256 cellar: :any, arm64_golden_gate: "724a3c7ad77fad53cac4c83aed1654c71e8ea8071d7b7b5c10105669d9548d0e"
+    sha256 cellar: :any, arm64_tahoe:       "b018196b110332081ba226ad24e3c98b2dd8ce7e70eca0ad9f037d954f5308b1"
+    sha256 cellar: :any, arm64_sequoia:     "6278a0717564c1fbc8eae78689ae1bf3c3f169a3e97f9dfd3239ab816ffb9ef0"
+    sha256 cellar: :any, arm64_linux:       "b16d0f87146556b8aad30787148c7882784d6528fc8fb277c2d337dce5d2b2a2"
+    sha256 cellar: :any, x86_64_linux:      "ec018379e16f75b67467977bddd53007cda760d5a289ebe8187ecfd3fbb22e57"
   end
 
   depends_on "pkgconf" => :build
@@ -52,8 +52,8 @@ class McpAtlassian < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/7e/9d/4260bc37e6b859f654394c4815a75c92f3505b42b53135a4603bba60d52d/authlib-1.9.8.tar.gz"
-    sha256 "879735216a0b805a4dfedb4fdd19e7d75ebb8debd70cc7566da9d813db34458d"
+    url "https://files.pythonhosted.org/packages/73/69/0215a1818edb1fb6b9dd59b8a3870601f11603b6db1f830ff3f3ea62612f/authlib-1.9.9.tar.gz"
+    sha256 "cca3dffa51c8d80d6df19aee2279e47219dc996f5a527c06ac2e39d0757c99ef"
   end
 
   resource "beartype" do
@@ -67,8 +67,8 @@ class McpAtlassian < Formula
   end
 
   resource "cachetools" do
-    url "https://files.pythonhosted.org/packages/e6/60/ac2d44dbfcca28a35151af27ad9c6236d913a67768b5bb88af90a8c02943/cachetools-8.0.0.tar.gz"
-    sha256 "5ed01bd676800d51f0025605e4fd8ad0891550513e7b0a4c3da478463764e5c3"
+    url "https://files.pythonhosted.org/packages/75/28/eb1ac766e4c0c439506a654186de8e2cfcd99035218a9393986103a0fdf0/cachetools-8.0.2.tar.gz"
+    sha256 "30ac523adfc118b51d2b2e7bad8a0ddb31370dfe2700c7f10ca224f36ccf81e0"
   end
 
   resource "caio" do
@@ -92,8 +92,8 @@ class McpAtlassian < Formula
   end
 
   resource "cyclopts" do
-    url "https://files.pythonhosted.org/packages/ea/18/a075c6a5c6623aa94b12c1e5bc20de4f7a06db53fbcbe2b524171e39e027/cyclopts-5.5.1.tar.gz"
-    sha256 "450c03b9c48b813c6944dce12b182b9878355570c8977af31d73ba1111a4df13"
+    url "https://files.pythonhosted.org/packages/49/5d/cee0096dd8c5ad13ce516599c4823637d0107643666a03ddc43a9580391f/cyclopts-5.5.2.tar.gz"
+    sha256 "c0339b7ddd7b1c886f13bb8b68a6a65aa7144d3027f1d0e290be514b8fe1589b"
   end
 
   resource "deprecated" do
@@ -117,8 +117,8 @@ class McpAtlassian < Formula
   end
 
   resource "exceptiongroup" do
-    url "https://files.pythonhosted.org/packages/50/79/66800aadf48771f6b62f7eb014e352e5d06856655206165d775e675a02c9/exceptiongroup-1.3.1.tar.gz"
-    sha256 "8b412432c6055b0b7d14c310000ae93352ed6754f70fa8f7c34141f91c4e3219"
+    url "https://files.pythonhosted.org/packages/85/ac/f882fe3234606340c8729372da0fb98c634b97a560c9d375d9afea21496b/exceptiongroup-1.3.2.tar.gz"
+    sha256 "ca82e69f0cb535fbde934885744b67669a3efddd50fe7bc00d3398839fcaddec"
   end
 
   resource "fakeredis" do
@@ -242,8 +242,8 @@ class McpAtlassian < Formula
   end
 
   resource "markdownify" do
-    url "https://files.pythonhosted.org/packages/92/ab/d1297139c0e2ceb151ae564c8c4f57ac0155d8f1f8b4cbd5d6523c82ea36/markdownify-1.2.3.tar.gz"
-    sha256 "1a176f05522c8a2cb1dd3ab9d307dcdadbed5c26ae717855bfc42b3b6d38d937"
+    url "https://files.pythonhosted.org/packages/98/29/5e46d8d7aa6c66c73809c0018a435b3271d01fa0f54f8215d634a6a92051/markdownify-1.2.4.tar.gz"
+    sha256 "3837f5eb4caa627473451f9ebb91e00d0f12120fc64d64246bea23934244bd01"
   end
 
   resource "mcp" do
@@ -302,8 +302,8 @@ class McpAtlassian < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
+    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
   end
 
   resource "py-key-value-aio" do
@@ -401,11 +401,6 @@ class McpAtlassian < Formula
     sha256 "f04b8e4689cbce351744d5537bf6b1329c6fc68f91fa666f60a380edddcd11be"
   end
 
-  resource "six" do
-    url "https://files.pythonhosted.org/packages/94/e7/b2c673351809dca68a0e064b6af791aa332cf192da575fd474ed7d6f16a2/six-1.17.0.tar.gz"
-    sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
-  end
-
   resource "sniffio" do
     url "https://files.pythonhosted.org/packages/a2/87/a6771e1546d97e7e041b6ae58d80074f81b7d5121207425c964ddf5cfdbd/sniffio-1.3.1.tar.gz"
     sha256 "f4324edc670a0f49750a81b895f35c3adb843cca46f0530f79fc1babb23789dc"
@@ -417,8 +412,8 @@ class McpAtlassian < Formula
   end
 
   resource "soupsieve" do
-    url "https://files.pythonhosted.org/packages/1f/52/ee5646b65d98a252e807ccc37725363942372a4113072e0bce7ed22f8b84/soupsieve-4.1.1.tar.gz"
-    sha256 "b296bd2d2f65b1a78149f3d7bf6736a147d2c9e2dfbde0e4404639d748a02e03"
+    url "https://files.pythonhosted.org/packages/17/35/bf779c1cc376bc216a2d94e3b3d9ee48347296af29bedfc6caaf96bc132f/soupsieve-4.1.2.tar.gz"
+    sha256 "c6539a2638f26991463527337e39d630e3cbb86d024f52282a510535b8a7e09f"
   end
 
   resource "sse-starlette" do
@@ -462,8 +457,8 @@ class McpAtlassian < Formula
   end
 
   resource "uncalled-for" do
-    url "https://files.pythonhosted.org/packages/9c/e9/056b74ca4559f93cd38080c110696ae9a8f6d1976b162eb3638895f829e7/uncalled_for-0.6.1.tar.gz"
-    sha256 "49d9a55a806529dbb844f64a2e3adc8f44ad0b0802f5d91381a09c088c44e144"
+    url "https://files.pythonhosted.org/packages/a3/60/993a9757dc4a41727351828dc784e66fd467ed81d46cbec25d44cae69657/uncalled_for-0.6.2.tar.gz"
+    sha256 "58835db667a85408c7b6d6ad8dfdd74d7713d3be669b46396ba3d2c6a889242d"
   end
 
   resource "unidecode" do
