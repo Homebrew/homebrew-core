@@ -2,8 +2,8 @@ class Ejdb < Formula
   desc "Embeddable JSON Database engine C11 library"
   homepage "https://ejdb.org"
   url "https://github.com/Softmotions/ejdb.git",
-      tag:      "v2.101",
-      revision: "6689f1aab0d50883db0099e317d5af2f78258731"
+      tag:      "v2.102",
+      revision: "5f261b70f6b7f96b4ff207d05f44c7f150d47876"
   license "MIT"
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
@@ -26,8 +26,8 @@ class Ejdb < Formula
   end
 
   resource "iwnet" do
-    url "https://github.com/Softmotions/iwnet/archive/refs/tags/v1.7.2.tar.gz"
-    sha256 "1301ed6acc94a98c13ae0cf2cc90135d7460a99df2f53c2f3bde088d29b5e8a9"
+    url "https://github.com/Softmotions/iwnet/archive/refs/tags/v1.8.0.tar.gz"
+    sha256 "f24d94a10542ef1a8cdf6780fca75c3376398321f041698d2a33b33627b2f4fc"
 
     livecheck do
       url "https://raw.githubusercontent.com/Softmotions/ejdb/refs/tags/v#{LATEST_VERSION}/Autark"
