@@ -1,8 +1,8 @@
 class Faac < Formula
-  desc "ISO AAC audio encoder"
+  desc "ISO AAC audio encoder and decoder suite with MP4 muxer and resampler"
   homepage "https://freewareadvancedaudio.github.io"
-  url "https://github.com/FreewareAdvancedAudio/faac/archive/refs/tags/faac-2.2.tar.gz"
-  sha256 "a93963573907c83e26e8cfabbf80d3a9c360f06ea4ecf1ea6cb74a202494d8d9"
+  url "https://github.com/FreewareAdvancedAudio/faac/archive/refs/tags/faac-3.0.tar.gz"
+  sha256 "b46e1431d0c10f97767e058fbe782744fef23bc7b3fc8be0e9751558d506565f"
   license "LGPL-2.1-or-later"
   compatibility_version 3
   head "https://github.com/FreewareAdvancedAudio/faac.git", branch: "master"
@@ -18,6 +18,8 @@ class Faac < Formula
   depends_on "meson" => :build
   depends_on "ninja" => :build
 
+  link_overwrite "bin/faad", "share/man/man1/faad.1"
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
@@ -25,7 +27,16 @@ class Faac < Formula
   end
 
   test do
-    system bin/"faac", test_fixtures("test.mp3"), "-P", "-o", "test.m4a"
-    assert_path_exists testpath/"test.m4a"
+    cp test_fixtures("test.wav"), testpath/"in.wav"
+    system bin/"faac", "-b", "32", "in.wav", "-o", "out.m4a"
+    assert_path_exists testpath/"out.m4a"
+
+    system bin/"faad", "-o", "back.wav", "out.m4a"
+    assert_path_exists testpath/"back.wav"
+
+    system bin/"faam", "info", "out.m4a"
+
+    system bin/"faar", "-r", "48000", "in.wav", "re.wav"
+    assert_path_exists testpath/"re.wav"
   end
 end
