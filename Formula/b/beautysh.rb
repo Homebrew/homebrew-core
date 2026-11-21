@@ -24,6 +24,8 @@ class Beautysh < Formula
     sha256 "23c08b00e8e08cc3adcddb825251c497478df1dada6aefeb01e626ad37303745"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

@@ -58,6 +58,8 @@ class Beanquery < Formula
     sha256 "40ad376b4ed4e139a8d00d00bd6659d44c3b7546933fb3314132f776bfa1f44f"
   end
 
+  allow_network_access! :build
+
   def install
     venv = virtualenv_install_with_resources(without: "beancount")
 

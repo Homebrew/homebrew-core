@@ -25,6 +25,8 @@ class Bcrypt < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}",
                    "CFLAGS=#{ENV.cflags}",

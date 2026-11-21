@@ -27,6 +27,8 @@ class Bchunk < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "97b11f40a695dccaf6033a9911a9377984ffa7d3ed59bc1272fce7b3a0958edf"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "bchunk"

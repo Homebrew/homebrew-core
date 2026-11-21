@@ -26,6 +26,8 @@ class Bedtools < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"

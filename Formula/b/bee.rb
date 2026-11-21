@@ -11,6 +11,8 @@ class Bee < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     rm_r(Dir["bin/*.bat"])
     libexec.install Dir["*"]
