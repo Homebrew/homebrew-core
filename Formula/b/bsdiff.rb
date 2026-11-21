@@ -34,6 +34,8 @@ class Bsdiff < Formula
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     ENV.append "LDLIBS", "-lbz2" unless OS.mac?
     system "bmake"

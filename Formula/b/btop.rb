@@ -31,6 +31,8 @@ class Btop < Formula
     cause "Requires C++23 support for `std::ranges::to`"
   end
 
+  deny_network_access!
+
   def install
     system "make", "CXX=#{ENV.cxx}", "STRIP=true"
     system "make", "PREFIX=#{prefix}", "install"

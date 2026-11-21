@@ -26,6 +26,8 @@ class Bsdsfv < Formula
   # Patch from MacPorts, plus storing `getopt()` in an `int` since `char` is unsigned on arm64 Linux
   patch :DATA
 
+  deny_network_access!
+
   def install
     bin.mkpath
 
