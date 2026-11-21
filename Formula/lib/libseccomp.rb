@@ -12,8 +12,8 @@ class Libseccomp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "dfa3d0c4946724af90e4f7739c42730b3c257d540a140ca0cdb4982511513931"
-    sha256 cellar: :any, x86_64_linux: "9e72c2ef0f0d1a4081ede5f46a0c6fe2a6b7060ae4b2552736f70a3060f4cdbb"
+    sha256 cellar: :any, arm64_linux:  "c0fcbf64b62f0c2f52d373094a8b995eae04b741c9913e7444a13385a1607ad4"
+    sha256 cellar: :any, x86_64_linux: "cfb7331e0f2524d22aeeeacd1832ff2426adc04ccaf2fdc75fff48610da88624"
   end
 
   head do
