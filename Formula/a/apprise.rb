@@ -3,16 +3,17 @@ class Apprise < Formula
 
   desc "Send notifications from the command-line to popular notification services"
   homepage "https://pypi.org/project/apprise/"
-  url "https://files.pythonhosted.org/packages/a4/92/461f16f50118a99953aed66d5c1c5dc462261bd6cca15862f2eae7b5fcf5/apprise-2.2.0.tar.gz"
-  sha256 "711382b7c366e575276863da72f5473e34db1735a9980f6df464b337a8003ebc"
+  url "https://files.pythonhosted.org/packages/0e/2d/f30dc3f4cffc386344c6d0aa84068d2638badbbc503dd45b2b38b013818b/apprise-2.3.0.tar.gz"
+  sha256 "359b37320cb7cd169a57a475346bfeaccdb5074b307c6abaa3af7b62790b1b52"
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4635ca46b2af2881b5e6ea9d46837f6d09943b8033324130a34e1cb20b443270"
-    sha256 cellar: :any, arm64_tahoe:       "a44e247f607d3811badc0926642bb0ba0dae365659e0cf5510d127e58056d011"
-    sha256 cellar: :any, arm64_sequoia:     "08dd79ca3f85b625ac45dc09f696079f19577baf363cea759bb94782986d8152"
-    sha256 cellar: :any, arm64_linux:       "c1efbe8683d37f057a7a4081a1941fd03db770eb864887907251c9e8026635c0"
-    sha256 cellar: :any, x86_64_linux:      "9ce94bfb4526f3ee9f0782f47c75e61535dbd5efd318d2518146b7f40a086cbc"
+    manifest_sha256 "05323912d8cc7cc8599023748de184179e62d2fdf9b3a404e2192027de09a22a"
+    sha256 cellar: :any, arm64_golden_gate: "19e4ce92efdacf87e63bcc5e78419d561ad162985d9a4f70980d72863b6cde58"
+    sha256 cellar: :any, arm64_tahoe:       "702b27a94de85f871b117f6dcf2150767091a4fd3609cb84ce6b25749c2bdce6"
+    sha256 cellar: :any, arm64_sequoia:     "206be57b1b15fc644d7dd23bcb317b6c0909979706cfef1faf93bb75275161a1"
+    sha256 cellar: :any, arm64_linux:       "13291f03bf634fe8cbf645d60a1718b9cf0cd96f93a49086a70a73d365100bba"
+    sha256 cellar: :any, x86_64_linux:      "e045bc23ccee6c16096c9e6adb318e38ffb0aa62a77f34c6c9dd98eb2e73a33c"
   end
 
   depends_on "certifi"
