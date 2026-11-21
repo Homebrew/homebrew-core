@@ -6,15 +6,6 @@ class Vineyard < Formula
   license "Apache-2.0"
   revision 9
 
-  bottle do
-    sha256                               arm64_tahoe:   "919c4b1917e6c9de9ac61fb81fddaa53341a4ccd5006b37303ee8912dbd083b6"
-    sha256                               arm64_sequoia: "7115452ec4ac6196760c896397ef8f9b7501ed68d025f617bc414ee5d50fac93"
-    sha256                               arm64_sonoma:  "961ce13405feed87837d8a59b9f73d4ce279d98d935698615b7f0255f3ecaf82"
-    sha256                               sonoma:        "a04569fcbe3d84dbf0b0201db5f6ebb0ccc11fbce5f35d840a36c060acd96f62"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cc5088eb334d6fc02585840db5bb706abc3bf5eff6f6e4a7530d9b2d1cca4273"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "898b18380f4cc4dd14a07b242a0764379d41f4b412c3c4b843b4f685d7aa46de"
-  end
-
   # Multiple workarounds needed to build. No response to upstream issues/PRs:
   # - https://github.com/v6d-io/v6d/issues/2041
   # - https://github.com/v6d-io/v6d/pull/2066

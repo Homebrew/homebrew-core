@@ -13,6 +13,7 @@ class Xz < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "431d66aacc75ad15b7c5e3dc039bceff47122ed930c53545e4d2282be0afced7"
     sha256 cellar: :any, arm64_golden_gate: "b2b5d6523153be05c20bcc51cd358ea3dd1f4bf893748fdedb779ab508ea63ce"
     sha256 cellar: :any, arm64_tahoe:       "d291ad2277682238329b0e4d249e5e2c948c4b10cd64dba1963d897330ad88dd"
     sha256 cellar: :any, arm64_sequoia:     "c2724c0db0398134694b8366d30d14f4de376115fb54c559c331d5fd0474af76"

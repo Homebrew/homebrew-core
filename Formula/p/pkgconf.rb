@@ -14,6 +14,7 @@ class Pkgconf < Formula
   end
 
   bottle do
+    manifest_sha256 "c1445e36a170f35a5317ac52d7f51e9f1196b3962333ce1903f53be3fe8c3273"
     sha256 arm64_golden_gate: "f5da9ea7e060cd8a7d06e31bdb76dbf74e5d46d77b6657d0573ba1d548216d33"
     sha256 arm64_tahoe:       "84d9b76f2382bca438590bb86a0e1d464147ec70d0bc9a20c25b665c29535aa3"
     sha256 arm64_sequoia:     "984325551072d74b5c32e4c0a48464250612eaf835c39f8b23425fbaf7d3cbc1"

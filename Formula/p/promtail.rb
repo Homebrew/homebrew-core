@@ -6,15 +6,6 @@ class Promtail < Formula
   license "AGPL-3.0-only"
   head "https://github.com/grafana/loki.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a74a587ac2ad98fab5c9f2798153e921fa6b2fac6d7f6ab577160a9f76baaf9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia: "a15c057482a418fe5f1c6a6f396f6f41badbdd92e75b6f299c9476eb7bee9b3a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3c0faf97cabfa8ff7a4f3800bd0ea62046c7c2c888b91a798620d698a522a53d"
-    sha256 cellar: :any_skip_relocation, sonoma:        "e012b34304d8e2ba3d59b3f152b0d02c268edb5a6d4dd74afed37305988eb019"
-    sha256 cellar: :any_skip_relocation, arm64_linux:   "cb9dcd94e00bb629e7e44a1c7549c578e785fff136c52e32eccf3bdfcd4fc2ba"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:  "f4d0320e85e8108f455108d5b108769177e3f277ad7896d73e8765d4a56be555"
-  end
-
   # Promtail is deprecated/eol and upstream removed code: https://github.com/grafana/loki/pull/21245
   deprecate! date: "2026-03-02", because: :repo_removed
   disable! date: "2026-03-02", because: :repo_removed

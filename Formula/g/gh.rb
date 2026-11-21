@@ -13,6 +13,7 @@ class Gh < Formula
   end
 
   bottle do
+    manifest_sha256 "25b79281cecb9bb07f88227d222cd3f67a141fe9275f19505a684e42d8408536"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04e000cb2faa577e8b164c46479b1d517fe6777c1bb3565fce42293103a68f0b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37b15d760c279e04215c5a6ec2b43e7a2cb2fc5b60158b58c2658ac81af90b9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86e614f29b06c2262f756074566bf5ef765040d7c2d3fce6523a392a8a45eee0"

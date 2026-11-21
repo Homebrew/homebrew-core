@@ -7,16 +7,6 @@ class Pypy310 < Formula
   revision 1
   head "https://github.com/pypy/pypy.git", branch: "main"
 
-  bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4867635c5bacc0b72447a5355ac39da36fd65ac6e34c2a0b7280b0ad5b32ec25"
-    sha256 cellar: :any, arm64_tahoe:       "b80a1002fd362e89ae2e3353ce566cd4d0e71a1f2c9fa29c1320a28d925dc630"
-    sha256 cellar: :any, arm64_sequoia:     "13d02f7c456b3561f313153df622cb3c8291104669bfa10c2c9b99a39c7a701d"
-    sha256 cellar: :any, arm64_sonoma:      "8c19c7d138dabdb6e6caca03d190132722ede28c816b02e607cb4f1a89d9bb68"
-    sha256 cellar: :any, sonoma:            "d825e5ab5629a4da05ca828ca78288653e5235dca4eaddbd003078a7d11a35d1"
-    sha256 cellar: :any, arm64_linux:       "f90b17c54b31bc396034479dadef0461ba7882b109c2c85c55e5dbcd04a6cff1"
-    sha256 cellar: :any, x86_64_linux:      "6bb389560952b0632d23c74ee4cc871bb658e30960fbfed02cea97ed4d677a5b"
-  end
-
   # PyPy 3.10 was dropped in 7.3.20 and source tarballs have been removed
   deprecate! date: "2026-06-22", because: :deprecated_upstream
   disable! date: "2026-09-22", because: :deprecated_upstream
