@@ -42,7 +42,10 @@ class Seexpr < Formula
       -DENABLE_SSE4=OFF
       -DUSE_PYTHON=OFF
     ]
-    args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: share/"SeExpr2/utils")}" if OS.mac?
+    if OS.mac?
+      utils_rpath = rpath(source: share/"SeExpr2/utils")
+      args << "-DCMAKE_INSTALL_RPATH=#{rpath};#{utils_rpath}"
+    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
