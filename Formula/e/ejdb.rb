@@ -8,11 +8,12 @@ class Ejdb < Formula
   head "https://github.com/Softmotions/ejdb.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "902406167e3178bc7e10ed885509f5e0d86dd192bc9d4b9422f3cc8cff252881"
-    sha256 cellar: :any, arm64_tahoe:       "03315581a2dd2da6ce72683968d5c3ed9025796afbab312e8129f7568880c100"
-    sha256 cellar: :any, arm64_sequoia:     "d15ff6f09a40496a109a093aba6c4b6d3bb0a404373f8d1eeaf53d422e0d4564"
-    sha256 cellar: :any, arm64_linux:       "149581fc89a3a811c3dc6af7898b55bfb616b6d552e115c66db52dab948dece7"
-    sha256 cellar: :any, x86_64_linux:      "d833775ea6c3251641fde638c40d26d5a879998fee361f693142e5008824cf43"
+    manifest_sha256 "9f5915b703e5ca9865f55219d4de3108016adf0e5af3a294e137ce7b413a9232"
+    sha256 cellar: :any, arm64_golden_gate: "8dec69882cd76d9f5331e8d54fbae4e470e9db3aaa8c61813ec4dcdf066da1bd"
+    sha256 cellar: :any, arm64_tahoe:       "3922cab1df8c5d888e1eea71848f659cf9707f7ec6eb2e5b8dae7d2a8d4d65ab"
+    sha256 cellar: :any, arm64_sequoia:     "5746a422b4ba40e91b102fcd952b01bcd3537f86d23e414a68a9f91f9f02e4ad"
+    sha256 cellar: :any, arm64_linux:       "917f4298a99a3af5a6fbeb6fa18713d406be8c2a5acd573deceaa40df8c59b19"
+    sha256 cellar: :any, x86_64_linux:      "bf4b4fd444b2ddbe6c67da4fdf313aaffc24b3fa52abfbae966cbde3eac41fdc"
   end
 
   depends_on "pkgconf" => :build
