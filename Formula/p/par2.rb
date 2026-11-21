@@ -12,12 +12,12 @@ class Par2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "48545302a93dd664eca598e1aef2082521c166983de8593ef93a8bcee538207e"
-    sha256 cellar: :any, arm64_tahoe:       "5c8bc516cc357df1caf9f727322ab90ed96bfb08ad1c44c3bad1bcd2c0fae9b7"
-    sha256 cellar: :any, arm64_sequoia:     "4bbc5a219438f388a9fcc9b9f19d40e8384cf0c29f3bfc080285109c5a96c08f"
-    sha256 cellar: :any, arm64_sonoma:      "c30e2e595960b1409af9033cac4b98f6dd0659dc32320bfc7d3a777336fbc945"
-    sha256 cellar: :any, arm64_linux:       "088097ba500a499f16f0647a02ed1c5e15be3c39c52a8d5d3e1513834362f72b"
-    sha256 cellar: :any, x86_64_linux:      "39d80aa414a39ad6f8ade2cf14cf2d2ea3ec6db48303ad2d54a675435bac2cd7"
+    manifest_sha256 "9432d1e84a579a6629a83b4bfcf7286ba6985fdb60c8d5790e3cf5b163c70b5d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b9d6252add89cda91cb8cf9eac9346edef079c79a1c44d62b413d60af5d4d16"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93652d2a76d6096ee2ae582e4ec62b052ba0f1a335c02c37ecce282c5fb2dc5c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fb11a7b04831ac7dd90ad7fee4281661f9d86ef0bf12caaf3743d3b3b616124"
+    sha256 cellar: :any,                 arm64_linux:       "b6535e6a5d924971215a643ee27b10532c0911241c8e6433746c81261cf25abf"
+    sha256 cellar: :any,                 x86_64_linux:      "02c908249a4ecdec1c6d65a81cf946ab637eb86835dbf9bc31b120fd8828f886"
   end
 
   depends_on "cmake" => :build
