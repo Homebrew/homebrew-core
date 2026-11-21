@@ -8,11 +8,11 @@ class Harfbuzz < Formula
   head "https://github.com/harfbuzz/harfbuzz.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "df90d0a72867ebebc59b4bbae968d7667eb3114bff7759fd2cd26f191caf407d"
-    sha256 cellar: :any, arm64_tahoe:       "dc5fa4caeb130a4c1ef318533049b3c86b49dd5a7c9639a50a658c518cea8d1d"
-    sha256 cellar: :any, arm64_sequoia:     "91c3542c8e6b0e7b1b35af3d24118a0c3f2fd29cef8013e279861ae8f108547d"
-    sha256 cellar: :any, arm64_linux:       "ffbede0c27d334b42fe2e80780a7543bc0fcb993f678b7355a48d0f7bd4db191"
-    sha256 cellar: :any, x86_64_linux:      "8dc972166b3fbf211cbe8f149562f971d21e35471ceea4096b522f9f18fa8e34"
+    sha256 cellar: :any, arm64_golden_gate: "7880dae1bc51f51c14be6c2d7deae49b6ff82079dac12c8bca544cf3fe39f476"
+    sha256 cellar: :any, arm64_tahoe:       "e3e72f48df09d84ff1cc5f7857c123f8ca89158374a206cc8d5f549558b6e1b6"
+    sha256 cellar: :any, arm64_sequoia:     "2ff0502456c4f74bed13cba420f13e25e4ddf511f91259958eeda940df48475e"
+    sha256 cellar: :any, arm64_linux:       "c3f9f6e2586025e24643c4bb94cd13e5ba8a1435950f5a96abb16dac091900b1"
+    sha256 cellar: :any, x86_64_linux:      "e5286009da75d3d5584337ef66e85a150c4e61cdd2ecad50a9da95040b9ad301"
   end
 
   depends_on "gobject-introspection" => :build
