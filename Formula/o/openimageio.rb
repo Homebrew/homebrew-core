@@ -57,8 +57,9 @@ class Openimageio < Formula
     py3ver = Language::Python.major_minor_version python3
     ENV["PYTHONPATH"] = site_packages = prefix/Language::Python.site_packages(python3)
 
+    module_rpath = rpath(source: site_packages/"OpenImageIO")
     args = %W[
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: site_packages/"OpenImageIO")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{module_rpath}
       -DPython3_EXECUTABLE=#{python3}
       -DPYTHON_VERSION=#{py3ver}
       -DCCACHE_FOUND=
