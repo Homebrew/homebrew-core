@@ -37,7 +37,7 @@ class MipsLinuxGnuBinutils < Formula
   def install
     target = "mips-linux-gnu"
     system "./configure", "--target=#{target}",
-                          "--infodir=#{info/target}",
+                          "--infodir=#{info}/#{target}",
                           "--with-system-zlib",
                           "--with-zstd",
                           "--disable-nls",
