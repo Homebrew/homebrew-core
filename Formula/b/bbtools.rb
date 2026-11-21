@@ -21,6 +21,8 @@ class Bbtools < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     cd "jni" do
       rm Dir["libbbtoolsjni.*", "*.o"]
