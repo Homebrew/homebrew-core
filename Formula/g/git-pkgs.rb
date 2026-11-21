@@ -40,6 +40,6 @@ class GitPkgs < Formula
     system "git", "init"
     File.write("package.json", '{"dependencies":{"lodash":"^4.17.21"}}')
     system bin/"git-pkgs", "diff-file", "package.json", "package.json"
-    assert_match version.to_s, shell_output("#{bin/"git-pkgs"} --version")
+    assert_match version.to_s, shell_output("#{bin}/git-pkgs --version")
   end
 end
