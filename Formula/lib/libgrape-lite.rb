@@ -17,6 +17,9 @@ class LibgrapeLite < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "958b7eb7dc114040a3275bc9be6c668c5529a31705810d330cfcab8f46ee3f18"
   end
 
+  deprecate! date: "2026-11-21", because: :unmaintained
+  disable! date: "2027-05-21", because: :unmaintained
+
   depends_on "cmake" => [:build, :test]
   depends_on "gflags"
   depends_on "glog"
