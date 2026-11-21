@@ -27,7 +27,7 @@ class Dz6 < Formula
 
   test do
     assert_match version.to_s, shell_output("#{bin}/dz6 --version")
-    output = shell_output("#{bin}/dz6 #{testpath/"missing.bin"} 2>&1", 1)
+    output = shell_output("#{bin}/dz6 #{testpath}/missing.bin 2>&1", 1)
     assert_match "No such file or directory", output
   end
 end
