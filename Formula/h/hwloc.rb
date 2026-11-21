@@ -12,11 +12,12 @@ class Hwloc < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4c19c2e509ec4730569f93af374d728bf018739eb24d065424654ebe83ec0725"
-    sha256 cellar: :any, arm64_tahoe:       "57c2792ce1624499ce1b5dabe5af80179ff6e722ed7d14ffa882835636bdd7c5"
-    sha256 cellar: :any, arm64_sequoia:     "ee94ec61d74f506590e5498b938df7d068452e79685e784594d5ec48aa17b284"
-    sha256 cellar: :any, arm64_linux:       "d69c3e8ece8e550570133666203dda31683a8b16f3ba0b9540245e4c74b9d5e6"
-    sha256 cellar: :any, x86_64_linux:      "2429a479251d2d279ab5c200a2c9c8fab7844c354574c37ed8d3ac39490e66c5"
+    manifest_sha256 "d6064db562dc2b3380179ae314c639e0f5faa7a19b9881a002c3264be235a2a5"
+    sha256 cellar: :any, arm64_golden_gate: "c0b62d65c0f5865468d380b55d02da120d54b22a813d69408c7dfb488a7b7f92"
+    sha256 cellar: :any, arm64_tahoe:       "ff18d6b1f50d604331341e9a061426ad3379add277cab1f4554602cca3357966"
+    sha256 cellar: :any, arm64_sequoia:     "1392635c0406064a026dd2a07dd7a130b2ca04caf9389ccf68c777e5d19444bd"
+    sha256 cellar: :any, arm64_linux:       "095b3342f4603691b0b5bfa52a856d2ba3a9edc9067a593c790cbe62fd6fdff7"
+    sha256 cellar: :any, x86_64_linux:      "ca6bd3d33f100800402246076aa743b211bfb3164138ae9676de95b7073e18e2"
   end
 
   head do
