@@ -18,6 +18,8 @@ class B43Fwcutter < Formula
     sha256 cellar: :any,                 x86_64_linux:      "1a9d39f6f14afa678fc07affb74210ee13e65ce628a2430cf616c88716d32944"
   end
 
+  deny_network_access!
+
   def install
     inreplace "Makefile" do |m|
       # Don't try to chown root:root on generated files
