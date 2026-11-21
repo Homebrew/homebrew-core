@@ -1,33 +1,24 @@
 class Cjdns < Formula
   desc "Advanced mesh routing system with cryptographic addressing"
   homepage "https://github.com/cjdelisle/cjdns/"
-  url "https://github.com/cjdelisle/cjdns/archive/refs/tags/cjdns-v22.3.tar.gz"
-  sha256 "99e20274d581949b9a5998564485f567732e7888ac786c2edb43493048e4d0ef"
+  url "https://github.com/cjdelisle/cjdns/archive/refs/tags/cjdns-v22.4.tar.gz"
+  sha256 "27d5083b936144a6903fbb039bc449642ef5ea2c4ea7c3a281779536da79a4bc"
   license all_of: ["GPL-3.0-or-later", "GPL-2.0-or-later", "BSD-3-Clause", "MIT"]
   head "https://github.com/cjdelisle/cjdns.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "2c5acff39fa600723fd9e528d6db61053ab7886981d3f0e8a72b837cace88318"
-    sha256 cellar: :any,                 arm64_tahoe:       "3e80901cd150c0a4985cc8ec0c94b1241716a80d4765f87d4298bcef556a3a0c"
-    sha256 cellar: :any,                 arm64_sequoia:     "59d19ffb7e8297bb316e1ad8b1bcbe0d26c8f3be65c8cdec2b7ac3a11b2e5008"
-    sha256 cellar: :any,                 arm64_sonoma:      "f9dba69b82d805f37555fc9059f9963cdcc8cd79a5272df7ddc8b882ad03a5b6"
-    sha256 cellar: :any,                 sonoma:            "faca4c08e507600ff631b2f06387de220a74cf3b74ce53759e4ba86171509a87"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "859d70d081723d20c26072e75c5040c23848e7555ec84ae1df094a150522167a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c843f89da788dd4cf98f419584f680e76ee0b81b1b819fd474569c9389e43360"
+    manifest_sha256 "cad20f12ef491dfb6672065a102a5a332eb704eb7eada314ad96c3ebf64ab82d"
+    sha256 cellar: :any, arm64_golden_gate: "b8cdb3cb67888948da9f30fc7223e058afac5ab739ec969ce077ffc607029cef"
+    sha256 cellar: :any, arm64_tahoe:       "774d813cfd9bda72a60e8020b07b079535268325bf2398b988df123711e79e95"
+    sha256 cellar: :any, arm64_sequoia:     "77742bb6fa01e40c389fc446b220d8751b9b5e99ce9b466ba8c4e2b454e6e0fd"
+    sha256 cellar: :any, arm64_linux:       "679678d12b5b46700fc478af0fece0e0c611d182747b5a4844ebe4178628b987"
+    sha256 cellar: :any, x86_64_linux:      "3628bba1dd835750f9f78a8964e2dbeeda340b620f83c454ff6a84b334bd152f"
   end
 
   depends_on "node" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "libsodium"
-
-  # remove inode check
-  patch do
-    url "https://github.com/cjdelisle/cjdns/commit/4848490a8532c03d9918adf5ee7d28c66eb65fd1.patch?full_index=1"
-    sha256 "4eb2abe4d52270018d8a1d1d938ee1323d9b1675f35e36f5c6bf2f0ba50a47e8"
-    type :unofficial
-    resolves "https://github.com/cjdelisle/cjdns/pull/1272"
-  end
 
   # patch to use system libsodium
   patch do
@@ -39,11 +30,9 @@ class Cjdns < Formula
 
   def install
     ENV["SODIUM_USE_PKG_CONFIG"] = "1"
-    ENV["NO_TEST"] = "1"
 
-    system "./do"
-
-    bin.install "cjdroute", "cjdnstool"
+    system "cargo", "install", "--bin", "cjdroute", *std_cargo_args(path: "rust/cjdns_sys")
+    system "cargo", "install", *std_cargo_args(path: "rust/cjdnstool")
     man1.install "doc/man/cjdroute.1"
     man5.install "doc/man/cjdroute.conf.5"
   end
