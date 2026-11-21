@@ -46,7 +46,11 @@ class Zenith < Formula
     r.winsize = [80, 43]
     sleep 1
     w.write "q"
-    output = OS.mac? ? r.read : (testpath/"out.log").read
+    output = if OS.mac?
+      r.read
+    else
+      (testpath/"out.log").read
+    end
     assert_match "PID", output
     assert_match "CPU", output
     assert_match "MEM", output
