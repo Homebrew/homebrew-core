@@ -88,11 +88,11 @@ class Redis < Formula
 
   test do
     system bin/"redis-server", "--test-memory", "2"
-    %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var/p} doesn't exist!" }
+    %w[run db/redis log].each { |p| assert_path_exists var/p, "#{var}/#{p} doesn't exist!" }
 
     # Test that all modules can be loaded
     %w[redisbloom.so rejson.so redisearch.so redistimeseries.so].each do |file|
-      output = shell_output("#{bin}/redis-server --loadmodule #{lib/"redis/modules"/file} --test-memory 2 2>&1", 1)
+      output = shell_output("#{bin}/redis-server --loadmodule #{lib}/redis/modules/#{file} --test-memory 2 2>&1", 1)
       assert_match(/Module.*loaded from/, output)
     end
   end
