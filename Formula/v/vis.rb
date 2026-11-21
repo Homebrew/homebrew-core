@@ -65,7 +65,7 @@ class Vis < Formula
   end
 
   test do
-    binary = OS.mac? ? bin/"vise" : bin/"vis"
+    binary = bin/(OS.mac? ? "vise" : "vis")
 
     assert_match "vis #{version} +curses +lua", shell_output("#{binary} -v 2>&1")
   end
