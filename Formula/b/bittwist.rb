@@ -19,6 +19,8 @@ class Bittwist < Formula
 
   uses_from_macos "libpcap"
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"
