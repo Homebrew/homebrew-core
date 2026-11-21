@@ -50,7 +50,7 @@ class Mimirtool < Formula
 
     (testpath/"rule.yaml").write(test_rule)
 
-    output = shell_output("#{bin}/mimirtool rules check #{testpath / "rule.yaml"} 2>&1", 1)
+    output = shell_output("#{bin}/mimirtool rules check #{testpath}/rule.yaml 2>&1", 1)
     expected = "recording rule name does not match level:metric:operation format, must contain at least one colon"
     assert_match expected, output
   end
