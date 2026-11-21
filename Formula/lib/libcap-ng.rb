@@ -28,7 +28,7 @@ class LibcapNg < Formula
     system "./configure", "--disable-silent-rules",
                           "--with-python3",
                           *std_configure_args
-    system "make", "install", "py3execdir=#{prefix/Language::Python.site_packages(python3)}"
+    system "make", "install", "py3execdir=#{prefix}/#{Language::Python.site_packages(python3)}"
   end
 
   test do
