@@ -40,7 +40,7 @@ class Freeglut < Formula
     args = %W[
       -DFREEGLUT_BUILD_DEMOS=OFF
       -DOPENGL_INCLUDE_DIR=#{formula_opt_include("mesa")}
-      -DOPENGL_gl_LIBRARY=#{formula_opt_lib("mesa")/shared_library("libGL")}
+      -DOPENGL_gl_LIBRARY=#{formula_opt_lib("mesa")}/#{shared_library("libGL")}
     ]
     # Prevent CMake from discarding RPATH to mesa.
     # TODO: Should drop this when we introduce `libglvnd`
