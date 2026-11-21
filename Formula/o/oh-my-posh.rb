@@ -15,11 +15,12 @@ class OhMyPosh < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "544f9c3cdb4eae7e07b50af3de5a5e85b05a6b7cdc906938fc1324fe002786cd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec7d139e74bc13738016349473e97419aa3c549e5e0f0cf185316545f7a0460f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "faf4a21562dbf692619462cb97a20f5efdfd3fc24ab66104ca5aaecfefbefb71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2e8fd80038508be425d0f6c7baf481adf06b2d77240dd265bc1147a6eba5fa96"
-    sha256 cellar: :any,                 x86_64_linux:      "91f553ed9918c3f4bd5fd9ca48f304d96a88c889cecdee6563e4c9905664585b"
+    manifest_sha256 "e26032553fa00f5df7b63f225b3e3f2e110a74d15f82c26418767d05ee963b63"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23c982d058ed72626b1fad4d31e3b946e952b5e768037c1a5b1ea1d67f221052"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0bd88b91f9530d526c7a54aa63e48314d7c4eea80c3731bb5c5b1cd8d741bcdd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aba5493db3fe645a75200aba6718faeab3e471b35b856a1ac56aa539880e1bdd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5b267ea67dec49cf75305e50a9002b6c2f43175e8b0580505ddb054b7e5b2001"
+    sha256 cellar: :any,                 x86_64_linux:      "28d1b96b3fb1655289bb05abb6c7376b9117ad81ce45be88fd4d6fdd59885a31"
   end
 
   depends_on "go" => :build
