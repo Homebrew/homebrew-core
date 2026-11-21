@@ -71,7 +71,8 @@ class ArcadeLearningEnvironment < Formula
     # We build without XLA and jax has no sdists
     inreplace "pyproject.toml", '"jax >= 0.4.31', "#"
 
-    cmake_args << "-DCMAKE_INSTALL_RPATH=#{rpath(source: prefix/Language::Python.site_packages(python3)/"ale_py")}"
+    module_rpath = rpath(source: prefix/Language::Python.site_packages(python3)/"ale_py")
+    cmake_args << "-DCMAKE_INSTALL_RPATH=#{module_rpath}"
     ENV["CMAKE_ARGS"] = cmake_args.join(" ")
     system python3, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
   end
