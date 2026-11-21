@@ -1,8 +1,8 @@
 class Ols < Formula
   desc "Language server for The Odin Programming Language"
   homepage "https://github.com/DanielGavin/ols"
-  url "https://github.com/DanielGavin/ols/archive/refs/tags/dev-2026-10.tar.gz"
-  sha256 "49ce783760429421645f6b4125dda374154148fdfbcb66fce61f772dbfaba851"
+  url "https://github.com/DanielGavin/ols/archive/refs/tags/dev-2026-11.tar.gz"
+  sha256 "9cbcb116d666075c51cf7c005faf7392a398c75e8adbea476d6a01f779793565"
   license "MIT"
 
   bottle do
@@ -19,7 +19,7 @@ class Ols < Formula
     args = %W[
       -out:ols
       -collection:src=src
-      -define:VERSION=#{version}
+      -define:VERSION=dev-#{version}
       -o:speed
       -no-bounds-check
     ]
