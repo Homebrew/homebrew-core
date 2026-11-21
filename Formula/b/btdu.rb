@@ -16,6 +16,8 @@ class Btdu < Formula
   depends_on :linux
   depends_on "ncurses"
 
+  deny_network_access!
+
   def install
     system "dub", "build", "-b", "release", "--compiler=ldc2"
     bin.install "btdu"
