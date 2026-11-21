@@ -27,6 +27,8 @@ class Badread < Formula
     sha256 "b0fb6e85882cab02208ccd6daa46f80cb9ff1d05764e91bf22920a01d7a6fbfa"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
     pkgshare.install "test"

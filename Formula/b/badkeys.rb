@@ -34,6 +34,8 @@ class Badkeys < Formula
     sha256 "28dfcce0162b9211413e26dfbfdf1d24317fbeba18fc93c12400a1856b2a0bc7"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     virtualenv_install_with_resources
   end
