@@ -179,8 +179,10 @@ class Openvino < Formula
     ENV["SKIP_RPATH"] = "1"
     ENV["PYTHON_EXTENSIONS_ONLY"] = "1"
     ENV["CPACK_GENERATOR"] = "BREW"
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: libexec/site_packages/"openvino")}"
-    ENV.append "LDFLAGS", "-Wl,-rpath,#{rpath(source: libexec/site_packages/"openvino/frontend/onnx")}"
+    module_rpath = rpath(source: libexec/site_packages/"openvino")
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{module_rpath}"
+    onnx_rpath = rpath(source: libexec/site_packages/"openvino/frontend/onnx")
+    ENV.append "LDFLAGS", "-Wl,-rpath,#{onnx_rpath}"
 
     inreplace "pyproject.toml" do |s|
       # Allow our newer `numpy`
