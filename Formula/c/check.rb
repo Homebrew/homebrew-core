@@ -40,7 +40,7 @@ class Check < Formula
       ck_assert_msg(1, "This should always pass");
     EOS
 
-    system "#{bin/"checkmk"} test.tc > test.c"
+    system "#{bin}/checkmk test.tc > test.c"
 
     system ENV.cc, "test.c", "-I#{include}", "-L#{lib}", "-lcheck", "-o", "test"
     system "./test"
