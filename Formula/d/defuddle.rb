@@ -1,8 +1,8 @@
 class Defuddle < Formula
   desc "Extract article content and metadata from web pages"
   homepage "https://defuddle.md"
-  url "https://registry.npmjs.org/defuddle/-/defuddle-0.19.9.tgz"
-  sha256 "f701a80ba2e44c951c7eb18842b4f7c2a73f8d3dfeed9a0491cb605321a72a56"
+  url "https://registry.npmjs.org/defuddle/-/defuddle-0.19.11.tgz"
+  sha256 "964ee80e688220c342af7ea603fd0820571e64ee8c352daab73da9231e83fcbf"
   license "MIT"
 
   bottle do
