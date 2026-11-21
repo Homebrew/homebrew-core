@@ -23,10 +23,11 @@ class Crit < Formula
   end
 
   def install
+    build_date = time.iso8601[0, 10]
     ldflags = %W[
       -X main.version=#{version}
       -X main.commit=brew
-      -X main.date=#{time.iso8601[0, 10]}
+      -X main.date=#{build_date}
     ]
     system "go", "build", *std_go_args(ldflags:), "./cmd/crit"
   end
