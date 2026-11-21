@@ -37,7 +37,7 @@ class Tennis < Formula
       Bob;7
     CSV
 
-    output = shell_output("#{bin}/tennis --color off --delimiter ';' --title Scores #{testpath/"scores.csv"}")
+    output = shell_output("#{bin}/tennis --color off --delimiter ';' --title Scores #{testpath}/scores.csv")
     assert_match "Scores", output
     assert_match "Alice", output
     assert_match "42", output
