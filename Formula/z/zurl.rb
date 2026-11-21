@@ -42,7 +42,8 @@ class Zurl < Formula
   allow_network_access! :test
 
   def install
-    args = ["--qtselect=#{Formula["qtbase"].version.major}"]
+    qt_major = Formula["qtbase"].version.major
+    args = ["--qtselect=#{qt_major}"]
     args << "--extraconf=QMAKE_MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}" if OS.mac?
 
     system "./configure", "--prefix=#{prefix}", *args
