@@ -8,6 +8,15 @@ class Apicula < Formula
   license "MIT"
   head "https://github.com/YosysHQ/apicula.git", branch: "master"
 
+  bottle do
+    manifest_sha256 "0243d1187b213ad6d406052f6ce9497ed689699299e3bfd7ce879d7eb8073658"
+    sha256 cellar: :any, arm64_golden_gate: "bbf2b4721f0f144186651217ba2835b37f511fe04dd52acca03adb621953a6d6"
+    sha256 cellar: :any, arm64_tahoe:       "3f1081a68e8e31079f6339920fa398fd41f7402cbc9cc406da6679f5cdf210c7"
+    sha256 cellar: :any, arm64_sequoia:     "17b13c6123bb6073c8752974e6800ffc8e1a47db79459e538b769112f266c483"
+    sha256 cellar: :any, arm64_linux:       "ca9a61c62e7112524391528e5d62615388151d150f80ee0280120a6b29c129b0"
+    sha256 cellar: :any, x86_64_linux:      "012c79330ff8dc68a01bd17b6103befff0202176faf281367cd07db699442996"
+  end
+
   depends_on "rust" => :build
   depends_on "numpy"
   depends_on "python@3.15"
