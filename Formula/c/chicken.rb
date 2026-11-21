@@ -26,11 +26,12 @@ class Chicken < Formula
   def install
     ENV.deparallelize
 
+    target_arch = Hardware::CPU.arch.to_s.tr("_", "-")
     args = %W[
       PREFIX=#{prefix}
       C_COMPILER=#{ENV.cc}
       LIBRARIAN=ar
-      ARCH=#{Hardware::CPU.arch.to_s.tr("_", "-")}
+      ARCH=#{target_arch}
       LINKER_OPTIONS=-Wl,-rpath,#{rpath},-rpath,#{HOMEBREW_PREFIX}/lib
     ]
 
