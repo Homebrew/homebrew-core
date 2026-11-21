@@ -31,7 +31,7 @@ class VapoursynthBm3d < Formula
     # Work around Homebrew's python prefix patch
     args = %W[
       --native-file=python.ini
-      -Dpython.platlibdir=#{prefix/Language::Python.site_packages(python3)}
+      -Dpython.platlibdir=#{prefix}/#{Language::Python.site_packages(python3)}
     ]
 
     system "meson", "setup", "build", *args, *std_meson_args
