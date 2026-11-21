@@ -106,7 +106,11 @@ class Nu < Formula
     rm_r(buildpath/"libffi")
 
     # Remove unused prefix from ffi.h to match directory structure of libffi formula
-    include_path = (OS.mac? && Hardware::CPU.arm?) ? "ffi" : "x86_64-linux-gnu"
+    include_path = if OS.mac? && Hardware::CPU.arm?
+      "ffi"
+    else
+      "x86_64-linux-gnu"
+    end
     inreplace ["objc/NuBridge.h", "objc/NuBridge.m", "objc/Nu.m"], "<#{include_path}/", "<"
 
     system "make", "CC=#{ENV.cc}"
