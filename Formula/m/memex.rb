@@ -1,10 +1,9 @@
 class Memex < Formula
   desc "Index and search local agent conversation history"
   homepage "https://github.com/nicosuave/memex"
-  url "https://github.com/nicosuave/memex/archive/refs/tags/v0.34.0.tar.gz"
-  sha256 "f6f2ea783bc5b95419bcc747aeefb792eed5a0c7496d434a6a2f4a80607a73b3"
+  url "https://github.com/nicosuave/memex/archive/refs/tags/v0.34.1.tar.gz"
+  sha256 "da80f745becdb2e6ea172a1a7f268b91007afc6d956141cf0f586024ee69d885"
   license "MIT"
-  revision 1
   head "https://github.com/nicosuave/memex.git", branch: "main"
 
   bottle do
