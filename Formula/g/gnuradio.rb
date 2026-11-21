@@ -179,7 +179,7 @@ class Gnuradio < Formula
     args = %W[
       -DGR_PKG_CONF_DIR=#{etc}/gnuradio/conf.d
       -DGR_PREFSDIR=#{etc}/gnuradio/conf.d
-      -DGR_PYTHON_DIR=#{prefix/site_packages}
+      -DGR_PYTHON_DIR=#{prefix}/#{site_packages}
       -DENABLE_DEFAULT=OFF
       -DPYTHON_EXECUTABLE=#{venv.root}/bin/python
       -DPYTHON_VERSION_MAJOR=3
@@ -220,7 +220,7 @@ class Gnuradio < Formula
       site.addsitedir("#{plugin_pth_dir}")
     PYTHON
 
-    pth_contents = "#{prefix/site_packages}\nimport homebrew_gr_plugins\n"
+    pth_contents = "#{prefix}/#{site_packages}\nimport homebrew_gr_plugins\n"
     (venv.site_packages/"homebrew-gnuradio.pth").write pth_contents
 
     # Patch the grc config to change the search directory for blocks
