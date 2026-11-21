@@ -113,7 +113,7 @@ class Luvit < Formula
         -DLUV_INCLUDE_DIR=#{libexec}/include/luv
         -DLUV_LIBRARY=#{libexec}/lib/#{shared_library("libluv")}
         -DLUAJIT_INCLUDE_DIR=#{luajit.opt_include}/luajit-2.1
-        -DLUAJIT_LIBRARIES=#{luajit.opt_lib/shared_library("libluajit")}
+        -DLUAJIT_LIBRARIES=#{luajit.opt_lib}/#{shared_library("libluajit")}
       ]
 
       system "cmake", "-S", ".", "-B", "build", *luvi_args, *std_cmake_args
