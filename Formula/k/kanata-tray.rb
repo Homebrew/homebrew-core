@@ -7,13 +7,11 @@ class KanataTray < Formula
   head "https://github.com/rszyma/kanata-tray.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e7855dff25f7d95b8d8887411795382c6a59af4b48ef130ee06582547441202"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb526f18706af690003f2ed01864946f9d571f6c4806b283686980a640482ba5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7395f0834cc4e3a0e8fea0f0017e8769a753f58a60287747c5c4b85993cb2633"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "310cc724d28ccf0df5203fbe061d1e109cafedf36d68c8120e96737ff708ef27"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ab65e1afa544494a2d88f75b534a1ee92b991a9dea378960811eaa2ed28f9c00"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4b3f913d959bd3b930477eeab58ab7b60b98e760c17015cd9c02c74e709ef87c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "df26679273f6a01d075bdc7d46b725c1a439f3060a94d3ce4b80f77e69ac38ac"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "daeb512b82b3f8821e6ba29fe407e6d540386c5995e886f7d9b844307b5e26ec"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebb165f640d1eb5fd95d1901b4ff647f04c32d8f4aa8fd9ebb89710884119609"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92b91c850fc4bdf541df557f70fba823a303326acb59c0cfd22a96c04dd9566b"
+    sha256 cellar: :any,                 arm64_linux:       "d12294ad3b4ec40162add8e5c7112eb2619484ecc86d52467bb6038d9fb25e0e"
+    sha256 cellar: :any,                 x86_64_linux:      "004714319bb5eb43f0d6e823649a12875db5d282989d9aa376ae5ee1c99b6f35"
   end
 
   depends_on "go" => :build
