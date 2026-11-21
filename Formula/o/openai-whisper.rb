@@ -106,7 +106,7 @@ class OpenaiWhisper < Formula
     # We depend on pytorch, but that's a separate formula, so install a `.pth` file to link them.
     # NOTE: This is an exception to our usual policy as building `pytorch` is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pytorch")/site_packages}')\n"
+    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pytorch")}/#{site_packages}')\n"
     (venv.site_packages/"homebrew-pytorch.pth").write pth_contents
 
     # We install `numba` separately without build isolation to avoid building another `numpy`
