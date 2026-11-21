@@ -57,8 +57,8 @@ class Zeek < Formula
       -DINSTALL_ZEEKCTL=on
       -DUSE_GEOIP=on
       -DCARES_ROOT_DIR=#{formula_opt_prefix("c-ares")}
-      -DCARES_LIBRARIES=#{formula_opt_lib("c-ares")/shared_library("libcares")}
-      -DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")/shared_library("libmaxminddb")}
+      -DCARES_LIBRARIES=#{formula_opt_lib("c-ares")}/#{shared_library("libcares")}
+      -DLibMMDB_LIBRARY=#{formula_opt_lib("libmaxminddb")}/#{shared_library("libmaxminddb")}
       -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
       -DPYTHON_EXECUTABLE=#{python3}
       -DZEEK_ETC_INSTALL_DIR=#{etc}
