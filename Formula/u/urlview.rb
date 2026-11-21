@@ -56,7 +56,11 @@ class Urlview < Formula
 
     man1.mkpath
 
-    url_handler = OS.mac? ? "open" : etc/"urlview/url_handler.sh"
+    url_handler = if OS.mac?
+      "open"
+    else
+      etc/"urlview/url_handler.sh"
+    end
     inreplace "urlview.man", "/etc/urlview/url_handler.sh", url_handler
     inreplace "urlview.c",
       '#define DEFAULT_COMMAND "/etc/urlview/url_handler.sh %s"',
