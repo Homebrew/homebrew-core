@@ -198,6 +198,8 @@ class Buku < Formula
     resolves "https://github.com/jarun/buku/pull/883"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     # Workaround for https://github.com/html5lib/html5lib-python/issues/593
     odie "Check if setuptools workaround can be removed!" if resource("html5lib").version > "1.1.0"
