@@ -15,12 +15,12 @@ class OhMyPosh < Formula
   end
 
   bottle do
-    manifest_sha256 "e26032553fa00f5df7b63f225b3e3f2e110a74d15f82c26418767d05ee963b63"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23c982d058ed72626b1fad4d31e3b946e952b5e768037c1a5b1ea1d67f221052"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0bd88b91f9530d526c7a54aa63e48314d7c4eea80c3731bb5c5b1cd8d741bcdd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aba5493db3fe645a75200aba6718faeab3e471b35b856a1ac56aa539880e1bdd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5b267ea67dec49cf75305e50a9002b6c2f43175e8b0580505ddb054b7e5b2001"
-    sha256 cellar: :any,                 x86_64_linux:      "28d1b96b3fb1655289bb05abb6c7376b9117ad81ce45be88fd4d6fdd59885a31"
+    manifest_sha256 "a851773ac36433759706520ad7ee8730ad657b9c487c7fbcbd5f56ee2069cd99"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54cea633d726ecf28ca6af22a358c9b0d822f97997eeabbd4d69f4b670a6418b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6989883918f09ef9c0e4dcc3bd42e371ee34667f64cd54a843bdcd74c8aa7a9f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d88a7f5280a387e0f5aa97f33c90d4298473c7f19b035684b20760d54ba6a270"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b1428df66ec139f45933ac0494dcf1d303eb07ffd218deb79b5cf9345a6b68fc"
+    sha256 cellar: :any,                 x86_64_linux:      "f717e83ad9f02d5f5720f2c7ffa33406db7d31132fd0234c413b349b09b182e5"
   end
 
   depends_on "go" => :build
