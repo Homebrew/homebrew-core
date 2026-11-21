@@ -6,11 +6,11 @@ class Libjuice < Formula
   license "MPL-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bead0107e9de47a3a962a72371bd5a9e5b69f309f918e284d651a3780c7bf4fd"
-    sha256 cellar: :any, arm64_tahoe:       "c8db775e80fddda39991c0ac872b620ce79c427ed899594df23cc07a7a1e3baf"
-    sha256 cellar: :any, arm64_sequoia:     "618428cd60b8ea4782ce0deee98e71c7da97ab3a9f1ce53c54db9ad60c26597b"
-    sha256 cellar: :any, arm64_linux:       "c2bcd8293c0195034e627ccc6cca9c235fd5c23dfcb1a0d070b4ad27ae91bbb8"
-    sha256 cellar: :any, x86_64_linux:      "daa1e89bbb463b3f2195a9d5c180223529b95105513d1d4d7838aa37197e2854"
+    sha256 cellar: :any, arm64_golden_gate: "0a1a7e5114406e3603ea73e41b1b05dcee3b3875ad7a1f989233056eb6ecaeb0"
+    sha256 cellar: :any, arm64_tahoe:       "1ee6c66a8d8560e92f23c828b448450df1b7de0e086674a1440ae9ac32ae30c4"
+    sha256 cellar: :any, arm64_sequoia:     "ad09c7d79021247bc4bc95d37f3cad4bef99c43fd3e8668125363cf2e94c3497"
+    sha256 cellar: :any, arm64_linux:       "a624c6e6ecb40cf928172035de7c8434514cf89a88e4a90674e075d811af061c"
+    sha256 cellar: :any, x86_64_linux:      "263d39cfcf0ab415079f7df02c7a410183b2d741c2ef9f4b3510f1e569f3b03e"
   end
 
   depends_on "cmake" => :build
