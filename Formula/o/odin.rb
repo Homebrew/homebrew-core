@@ -80,7 +80,11 @@ class Odin < Formula
     ln_s raylib.lib/shared_library("libraylib"), vendor/raylib_dir/shared_library("libraylib", "620")
 
     raygui_dir = vendor/(OS.mac? ? "macos" : "linux")
-    raygui_name = (OS.mac? && Hardware::CPU.arm?) ? "libraygui-arm64" : "libraygui"
+    raygui_name = if OS.mac? && Hardware::CPU.arm?
+      "libraygui-arm64"
+    else
+      "libraygui"
+    end
 
     resource("raygui").stage do
       cp "src/raygui.h", "src/raygui.c"
