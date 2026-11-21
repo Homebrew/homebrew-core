@@ -41,7 +41,8 @@ class Libtecla < Formula
     ENV.deparallelize
 
     %w[config.guess config.sub].each do |fn|
-      cp "#{formula_opt_prefix("automake")}/share/automake-#{Formula["automake"].version.major_minor}/#{fn}", fn
+      automake_version = Formula["automake"].version.major_minor
+      cp "#{formula_opt_prefix("automake")}/share/automake-#{automake_version}/#{fn}", fn
     end
 
     # Fix hard coded flat namespace usage in configure.
