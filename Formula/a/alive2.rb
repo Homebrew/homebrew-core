@@ -66,7 +66,7 @@ class Alive2 < Formula
 
     clang = formula_opt_bin("llvm")/"clang"
     system clang, "-O3", "test.c", "-S", "-emit-llvm",
-                  "-fpass-plugin=#{lib/shared_library("tv")}",
+                  "-fpass-plugin=#{lib}/#{shared_library("tv")}",
                   "-Xclang", "-load",
                   "-Xclang", lib/shared_library("tv")
   end
