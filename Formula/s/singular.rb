@@ -24,8 +24,9 @@ class Singular < Formula
       newest_version = versions.last
 
       # Fetch the page for the newest version directory
+      release_dir = newest_version.to_s.tr(".", "-")
       dir_page = Homebrew::Livecheck::Strategy.page_content(
-        URI.join(@url, "#{newest_version.to_s.tr(".", "-")}/").to_s,
+        URI.join(@url, "#{release_dir}/").to_s,
       )
       next versions if dir_page[:content].blank?
 
