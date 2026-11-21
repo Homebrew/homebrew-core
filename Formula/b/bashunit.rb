@@ -9,6 +9,8 @@ class Bashunit < Formula
     sha256 cellar: :any_skip_relocation, all: "a148cf32b76ca43de82060970edc752ca54491157c51425f630fc2dc08ba3298"
   end
 
+  deny_network_access!
+
   def install
     bin.install "bashunit"
   end

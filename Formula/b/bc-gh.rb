@@ -32,6 +32,8 @@ class BcGh < Formula
 
   conflicts_with "bc", because: "both install `bc` and `dc` binaries"
 
+  deny_network_access!
+
   def install
     # https://github.com/gavinhoward/bc#recommended-optimizations
     ENV.O3

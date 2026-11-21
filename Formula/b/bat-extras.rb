@@ -28,6 +28,8 @@ class BatExtras < Formula
   depends_on "shfmt" => :build
   depends_on "ripgrep" => :test
 
+  deny_network_access!
+
   def install
     system "./build.sh", "--prefix=#{prefix}", "--minify", "all", "--install"
   end
