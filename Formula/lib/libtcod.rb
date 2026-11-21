@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.2.tar.gz"
-  sha256 "a4f6bcdddd33fc3cdb52d47a269f0a22c5f88a15c855f596bb1e8e1698362173"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.3.tar.gz"
+  sha256 "e42d67c9afac51d4ff45a7c35fc25b216ccd6a23897cd4dd21a4b2e0e2337277"
   license all_of: [
     "BSD-3-Clause",
     "Zlib", # src/vendor/lodepng.c
