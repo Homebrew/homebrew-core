@@ -4,12 +4,12 @@ class Unisonlang < Formula
   license "MIT"
 
   stable do
-    url "https://github.com/unisonweb/unison/archive/refs/tags/release/2.0.0.tar.gz"
-    sha256 "892f3c8e26b22b45ea748a24cb99e60355deedd3528a6f437a29d304e590d1e2"
+    url "https://github.com/unisonweb/unison/archive/refs/tags/release/2.0.1.tar.gz"
+    sha256 "a946203ef9b836f181d843406b42d62785e89fbcc3ba970cd61f960bda520aed"
 
     resource "local-ui" do
-      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/2.0.0.tar.gz"
-      sha256 "50e0b0102ad5e1b8a49197b04cd4aacfc71cd249e63e748cb95476cd44ecf354"
+      url "https://github.com/unisonweb/unison-local-ui/archive/refs/tags/release/2.0.1.tar.gz"
+      sha256 "0cec5f4bca59a4f9d52ec235784a3918f3ea5c23c9cb90e740bd9f0d9fce711d"
 
       livecheck do
         formula :parent
@@ -23,11 +23,12 @@ class Unisonlang < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "158526465b4049a7a874cbdb4420c128c684ecf4f0d873a8ef2f2b64b8f973b9"
-    sha256               arm64_tahoe:       "318e9d375df0f0ae8d79a177a2709ebd1861affd7d81f34a76d55b0768f87c16"
-    sha256               arm64_sequoia:     "1ea4d40e2b9e8041487c8ab4e76fcfd1e9e618d0a2d199268125025c37579275"
-    sha256 cellar: :any, arm64_linux:       "738c9ffc5de0bd74c1bfe07cb7fafa1b668965f4f6a11005c58bc7b20e78a461"
-    sha256 cellar: :any, x86_64_linux:      "9a9616e7a9728f1a41eb2ddcbe1c6022a0dee53a54a69ae878ce823cf73242d6"
+    manifest_sha256 "85d0e9870f6ff886bdadf2338047df2ca5e708abdb4fb5645eeb41c53ad50597"
+    sha256               arm64_golden_gate: "8d4b362ced6d4834e53e7a25995ccf7e042eedc335b13458a2b42a7d3b57b70c"
+    sha256               arm64_tahoe:       "d6e5f1bee9de6cb9446bcd508fe98825625bbd99de9cfdc6cd2848f0f5f3c509"
+    sha256               arm64_sequoia:     "fa7b021f65cba1fabfb18ef40789981179588f33264f1b9999bad0249fefa039"
+    sha256 cellar: :any, arm64_linux:       "c496c752d8aa65148b6120d98742b0f00c7e6b4a5ec124680a2fe88c14f8d94e"
+    sha256 cellar: :any, x86_64_linux:      "fc154b199bffc22a76d3a8c888cb0b946ea7eb5470562a9e9dc7dc9b413981ca"
   end
 
   head do
