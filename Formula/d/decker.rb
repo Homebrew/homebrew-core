@@ -6,11 +6,11 @@ class Decker < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "07213d6db1c5b1cc4007f23cb5806fc8b61f9941803705b19b0aca767388e85c"
-    sha256 cellar: :any, arm64_tahoe:       "e576c5f4dd8c31744b52538f7564833981cca7f0e6144eb63c0f0bbbf8e5e418"
-    sha256 cellar: :any, arm64_sequoia:     "b5cf6afb7c5ac5b35b87c8cbcc75f5fa4d3a646d08d6b5588f496f046a1e3915"
-    sha256 cellar: :any, arm64_linux:       "422846d8ef9846e65b1224fe12fecae8e049d49de094273fce49278bdf271782"
-    sha256 cellar: :any, x86_64_linux:      "25bcd653eb91dcff652c0ad8f28f3aaad667440c9d214d55b95427f39966e24e"
+    sha256 cellar: :any, arm64_golden_gate: "0d33bf2120b3cefd0096977f8fb8e073fd0409b538ef59c70b2e99a749f7b5c3"
+    sha256 cellar: :any, arm64_tahoe:       "4df5a990b91bd2dbbbcd2440dbbddc72eedad58d73ccf46a5eaf35ffa202b13b"
+    sha256 cellar: :any, arm64_sequoia:     "a54ec8b9c6f488431076ba7779504ce189477948c245fb13c06888e113f81eb8"
+    sha256 cellar: :any, arm64_linux:       "67d96b6d4429bc6814206609eef8080cbcb1d3600437c6b9638c21eb58d01277"
+    sha256 cellar: :any, x86_64_linux:      "a5c37ec835273f2fbdfae7286e54feccc5a2dadab3ea0ff105b2d6db1bb4d9df"
   end
 
   depends_on "sdl2-compat"
