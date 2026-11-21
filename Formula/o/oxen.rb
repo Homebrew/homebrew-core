@@ -17,11 +17,12 @@ class Oxen < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a018fb9211e39bcb62065eefd7e7f76eea4137125dbfc19387e92f540660d6b7"
-    sha256 cellar: :any, arm64_tahoe:       "c0879f1a5f2e05ca0d73155f3ab10f7267356a05373c63a760daaf332defe9c9"
-    sha256 cellar: :any, arm64_sequoia:     "a0e0e3e778a38423df1b69af01fb49588a131e3eac1c338879c80e4b99055f22"
-    sha256 cellar: :any, arm64_linux:       "89a5f01b429ae115cf12850910eb613078427e520ab2db6079edbbea9168df81"
-    sha256 cellar: :any, x86_64_linux:      "ba4c5f5f521ffc7f7ec5bfe4a65125a1abd5c934e1bfaa1b915c2f335cef4b11"
+    manifest_sha256 "e4d5fea0ef1b5ba88651c7e97dd68474e0d3c6b8490ff8588a052be2e9e6d60f"
+    sha256 cellar: :any, arm64_golden_gate: "ce2c14c312ae2cc992b657c737671036dd8883c3a7f30d99356412c3ae52e2ea"
+    sha256 cellar: :any, arm64_tahoe:       "7b4bdc98e770e492bf630cdbf9ed27bee71eaca79d34790f5be0d534dee9f46a"
+    sha256 cellar: :any, arm64_sequoia:     "71d2b1c532df4b77406068e496e1089975448792de15851e12243837f9107156"
+    sha256 cellar: :any, arm64_linux:       "8b2497a54f1047e396bb3481f10c2419718abb9f0d92a5d7a07896da999f335f"
+    sha256 cellar: :any, x86_64_linux:      "12af78dce339e77b30ec2923e723e1a722b0f5135f0c4578b49f7ae005566368"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
