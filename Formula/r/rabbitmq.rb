@@ -33,8 +33,8 @@ class Rabbitmq < Formula
     # Correct SYS_PREFIX for things like rabbitmq-plugins
     inreplace sbin/"rabbitmq-defaults" do |s|
       s.gsub! "SYS_PREFIX=${RABBITMQ_HOME}", "SYS_PREFIX=#{HOMEBREW_PREFIX}"
-      s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{formula_opt_lib(erlang)/"erlang/bin/start_clean"}"
-      s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{formula_opt_lib(erlang)/"erlang/bin/start_clean"}"
+      s.gsub! "CLEAN_BOOT_FILE=start_clean", "CLEAN_BOOT_FILE=#{formula_opt_lib(erlang)}/erlang/bin/start_clean"
+      s.gsub! "SASL_BOOT_FILE=start_sasl", "SASL_BOOT_FILE=#{formula_opt_lib(erlang)}/erlang/bin/start_clean"
     end
 
     # Set RABBITMQ_HOME in rabbitmq-env
