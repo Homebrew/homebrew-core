@@ -21,6 +21,8 @@ class Brogue < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # Use HOMEBREW_PREFIX path to get sdl2_image headers
     sdl_config = HOMEBREW_PREFIX/"bin/sdl2-config"
