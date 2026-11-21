@@ -21,6 +21,8 @@ class Bmake < Formula
 
   uses_from_macos "bc-gh" => :build
 
+  deny_network_access!
+
   def install
     # -DWITHOUT_PROG_LINK means "don't symlink as bmake-VERSION."
     # shell-ksh test segfaults since macOS 11.
