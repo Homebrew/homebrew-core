@@ -131,7 +131,8 @@ class Julia < Formula
       WITH_TERMINFO=0
     ]
 
-    args << "TAGGED_RELEASE_BANNER=Built by #{tap&.user || "unknown user"} (v#{pkg_version})"
+    build_user = tap&.user || "unknown user"
+    args << "TAGGED_RELEASE_BANNER=Built by #{build_user} (v#{pkg_version})"
     if OS.mac?
       args << "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"
       # `-force_load` takes an archive path, so pass the `-lutf8proc` of `USE_SYSTEM_UTF8PROC` through as-is
