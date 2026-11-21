@@ -25,7 +25,8 @@ class Pkl < Formula
     ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
 
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
-    job_name = "pkl-cli:#{OS.mac? ? "mac" : "linux"}Executable#{arch.capitalize}"
+    target_os = OS.mac? ? "mac" : "linux"
+    job_name = "pkl-cli:#{target_os}Executable#{arch.capitalize}"
 
     args = %W[
       --no-daemon
@@ -34,7 +35,8 @@ class Pkl < Formula
     ]
 
     system "gradle", *args, job_name
-    bin.install "pkl-cli/build/executable/pkl-#{OS.mac? ? "macos" : "linux"}-#{arch}" => "pkl"
+    archive_os = OS.mac? ? "macos" : "linux"
+    bin.install "pkl-cli/build/executable/pkl-#{archive_os}-#{arch}" => "pkl"
     generate_completions_from_executable(bin/"pkl", "shell-completion")
   end
 
