@@ -11,13 +11,8 @@ class BashCompletionAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ab59eeb65d536e57be3398300db759fe74eb8e93355adfc63f33fd78d583798"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
-    sha256 cellar: :any_skip_relocation, sonoma:            "f96ab73a09477ff6eec8b56c8f02e4c2bf9db31bd35274b21616754ed6d0dad5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c4155c66f3e11be146daec64a9c0121f87dadd27fda2f631b1aa55784016a0c6"
+    rebuild 1
+    sha256 cellar: :any_skip_relocation, all: "5a5826537a22fd92a5214effe1d41f98343e3d87ac2fc0b9d5ff029462501643"
   end
 
   head do
@@ -31,18 +26,18 @@ class BashCompletionAT2 < Formula
     depends_on "bash"
   end
 
+  # Allow all bottle to work on macOS without `readlink -f` (12.3+) or `realpath` (13+)
+  on_big_sur :or_older do
+    depends_on "coreutils"
+  end
+
   conflicts_with "bash-completion", because: "each are different versions of the same formula"
 
   deny_network_access!
 
   def install
-    inreplace "bash_completion" do |s|
-      # `/usr/bin/readlink -f` exists since macOS 12.3. Older systems
-      # (including earlier Monterey releases) do not support this option.
-      s.gsub! "readlink -f", "readlink" if OS.mac? && MacOS.version <= :monterey
-      # Automatically read Homebrew's existing v1 completions
-      s.gsub! "(/etc/bash_completion.d)", "(#{etc}/bash_completion.d)"
-    end
+    # Automatically read Homebrew's existing v1 completions
+    inreplace "bash_completion", "(/etc/bash_completion.d)", "(#{etc}/bash_completion.d)"
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", *std_configure_args
