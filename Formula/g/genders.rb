@@ -42,6 +42,9 @@ class Genders < Formula
     file "Patches/libtool/configure-big_sur.diff"
   end
 
+  # For Python's `pip`
+  allow_network_access! :build
+
   def install
     ENV["PYTHON"] = which("python3")
 
