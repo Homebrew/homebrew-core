@@ -585,9 +585,10 @@ class Swift < Formula
     end
 
     extra_cmake_options = if OS.mac?
+      sdk_path = MacOS.sdk_for_formula(self).path
       %W[
-        -DSQLite3_INCLUDE_DIR=#{MacOS.sdk_for_formula(self).path}/usr/include
-        -DSQLite3_LIBRARY=#{MacOS.sdk_for_formula(self).path}/usr/lib/libsqlite3.tbd
+        -DSQLite3_INCLUDE_DIR=#{sdk_path}/usr/include
+        -DSQLite3_LIBRARY=#{sdk_path}/usr/lib/libsqlite3.tbd
       ]
     else
       []
