@@ -1,16 +1,17 @@
 class Rea < Formula
   desc "Reverse engineering CLI and MCP server for agents"
   homepage "https://github.com/morluto/rea"
-  url "https://registry.npmjs.org/rea-agents/-/rea-agents-6.9.0.tgz"
-  sha256 "322338a1505e2557702a16012e7d46abdb5729641d98938662762dfbfb79262a"
+  url "https://registry.npmjs.org/rea-agents/-/rea-agents-6.10.1.tgz"
+  sha256 "e8cf08c9fa954e998fc8868c23fa8e5f518cdb9553488ec227b31a3bb6903150"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2c29c7a339a0767113615640ebf91b47296408bf29483ed649bcfd38d51c2f7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2c29c7a339a0767113615640ebf91b47296408bf29483ed649bcfd38d51c2f7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2c29c7a339a0767113615640ebf91b47296408bf29483ed649bcfd38d51c2f7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "376dc1489619e329e248ffba13ff0531b58798f277bdfb80d0490220928fcc1c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "376dc1489619e329e248ffba13ff0531b58798f277bdfb80d0490220928fcc1c"
+    manifest_sha256 "cfdd19d978c7dfccdea0ca3dbc84629d87782e4976c16e85a0470d8d2e0cdded"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a4cde9b4b019f427c465318bcc9367aa7da45bb528ebe4498af076dd6ead5a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a4cde9b4b019f427c465318bcc9367aa7da45bb528ebe4498af076dd6ead5a5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a4cde9b4b019f427c465318bcc9367aa7da45bb528ebe4498af076dd6ead5a5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6c7a6cfa4ee1945f0bcc40942e64882787cc127edcd45928c283e0fd2302ac1a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6c7a6cfa4ee1945f0bcc40942e64882787cc127edcd45928c283e0fd2302ac1a"
   end
 
   depends_on "node"
