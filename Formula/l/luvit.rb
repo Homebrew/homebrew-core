@@ -8,11 +8,11 @@ class Luvit < Formula
   head "https://github.com/luvit/luvit.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "11816918015948df89cbe3dae5b1d821a9805381ae40933ce1ac2de758df1b9f"
-    sha256 cellar: :any, arm64_tahoe:       "68213e151eb44401a46350fd5813f69d07a118671c37c2c365c599b75c048529"
-    sha256 cellar: :any, arm64_sequoia:     "3c6a4361b6bd3a85177230b130e5f05a64b129d3d69298604d78a566e94eb79d"
-    sha256 cellar: :any, arm64_linux:       "c4a44c8439856a30f4263d7ec94dce4c9cafc3c30995ca9fde3d2c2355f00341"
-    sha256 cellar: :any, x86_64_linux:      "c46cea3a1898127efe1df7c54cca2b68881638b97b092035cfa893825983369d"
+    sha256 cellar: :any, arm64_golden_gate: "59b5032657078fcf6273ea3d1472d836379f4234291fe7bf05b9bf7fc7928327"
+    sha256 cellar: :any, arm64_tahoe:       "0acde22c5dd7a185d1f3680373709a855742092b525799333d2e33b3afceab5d"
+    sha256 cellar: :any, arm64_sequoia:     "5d7239fd6d1a9b1883055d18d7e435ccdab18a77cd4b744553a2e43f2831f054"
+    sha256 cellar: :any, arm64_linux:       "a22b42ca5137b59c2b021ce56ffaf6704712a7b7900823b54e06e6ed622f913b"
+    sha256 cellar: :any, x86_64_linux:      "36f454b748dfca14d1c35b534042d9ff8a965feb3fdf6b1d1d7da6e189e9762e"
   end
 
   depends_on "cmake" => :build
