@@ -1,8 +1,8 @@
 class Libtcod < Formula
   desc "API for roguelike developers"
   homepage "https://github.com/libtcod/libtcod"
-  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.2.tar.gz"
-  sha256 "a4f6bcdddd33fc3cdb52d47a269f0a22c5f88a15c855f596bb1e8e1698362173"
+  url "https://github.com/libtcod/libtcod/archive/refs/tags/2.3.3.tar.gz"
+  sha256 "e42d67c9afac51d4ff45a7c35fc25b216ccd6a23897cd4dd21a4b2e0e2337277"
   license all_of: [
     "BSD-3-Clause",
     "Zlib", # src/vendor/lodepng.c
@@ -11,11 +11,12 @@ class Libtcod < Formula
   ]
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e938472eaa920cfecf7f090c0e1ff2fd05407e362803713cb83ef2796e74a099"
-    sha256 cellar: :any, arm64_tahoe:       "15c47925086e25619f041b169fdcf3f3654f9af6d9f456f68e15aee9035a71e5"
-    sha256 cellar: :any, arm64_sequoia:     "69b316cb6050678054fd6aa77192944f4607683d9fc02361d5803329a89c4f67"
-    sha256 cellar: :any, arm64_linux:       "7a2963d64bbdfee970affd45b507f1cdbd066d5cf5d87859d8164ff5a4b26dab"
-    sha256 cellar: :any, x86_64_linux:      "bac5c893f7b2f114ad0880e714e1e21e7c385a72c31d5f23aca5d3727f52cd55"
+    manifest_sha256 "a9e3d3f54a9fa3c7a1fda88632716983276ddcc9707594fa4e57cd7379b3eff0"
+    sha256 cellar: :any, arm64_golden_gate: "9a33d37a211f886e81d8aa529a2bf810923f69d9c087900e021a53279556c1f2"
+    sha256 cellar: :any, arm64_tahoe:       "6935b14317a6447ba8ba1abff168d57496cf1231d41ad2835f9e69e38ade3bc2"
+    sha256 cellar: :any, arm64_sequoia:     "eaaf32bd1493e80316a77ff91e68ed92875625b8403fe280ba31ad84efd6bc56"
+    sha256 cellar: :any, arm64_linux:       "07a3622c048c13f73b109f04b18336f94b928f21abe905083486291490311ec2"
+    sha256 cellar: :any, x86_64_linux:      "d8e02aa078c5388312fc71e3a5977f533ee01673d652dbc6d81d2d582b8bdbb8"
   end
 
   depends_on "cmake" => :build
