@@ -1,11 +1,11 @@
 class Folly < Formula
   desc "Collection of reusable C++ library artifacts developed at Facebook"
-  homepage "https://github.com/facebook/folly"
-  url "https://github.com/facebook/folly/archive/refs/tags/v2026.10.26.00.tar.gz"
+  homepage "https://github.com/meta/folly"
+  url "https://github.com/meta/folly/archive/refs/tags/v2026.10.26.00.tar.gz"
   sha256 "b47fe04b804adfb51c65cda6b171505e67b9d1d69621106e54697821d1bf7ebc"
   license "Apache-2.0"
   compatibility_version 1
-  head "https://github.com/facebook/folly.git", branch: "main"
+  head "https://github.com/meta/folly.git", branch: "main"
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "50a8093a63f295161d17bb70379ab1e26a3100fd200499f61cd13f5fc4d29fda"
@@ -19,7 +19,6 @@ class Folly < Formula
   depends_on "fast_float" => :build
   depends_on "pkgconf" => :build
   depends_on "boost"
-  depends_on "double-conversion"
   depends_on "fmt"
   depends_on "gflags"
   depends_on "glog"
@@ -36,6 +35,8 @@ class Folly < Formula
   on_linux do
     depends_on "zlib-ng-compat"
   end
+
+  deny_network_access!
 
   def install
     args = %w[
