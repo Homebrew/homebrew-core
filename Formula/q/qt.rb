@@ -150,8 +150,9 @@ class Qt < Formula
       target_link_libraries(test PRIVATE Qt6::#{modules.join(" Qt6::")})
     CMAKE
 
+    qt_modules = modules.join(" ").downcase
     (testpath/"test.pro").write <<~QMAKE
-      QT      += #{modules.join(" ").downcase}
+      QT      += #{qt_modules}
       TARGET   = test
       CONFIG  += console
       CONFIG  -= app_bundle
@@ -160,6 +161,7 @@ class Qt < Formula
       INCLUDEPATH += #{formula_opt_include("vulkan-headers")}
     QMAKE
 
+    webengine_include = "#include <QtWebEngineCore>" if webengine_supported?
     (testpath/"main.cpp").write <<~CPP
       #undef QT_NO_DEBUG
       #include <QCoreApplication>
@@ -171,7 +173,7 @@ class Qt < Formula
       #include <QtSvg>
       #include <QDebug>
       #include <QVulkanInstance>
-      #{"#include <QtWebEngineCore>" if webengine_supported?}
+      #{webengine_include}
       #include <iostream>
 
       int main(int argc, char *argv[])
