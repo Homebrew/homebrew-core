@@ -44,7 +44,7 @@ class Neko < Formula
 
   def install
     args = %W[
-      -DMARIADB_CONNECTOR_LIBRARIES=#{formula_opt_lib("mariadb-connector-c")/"mariadb"/shared_library("libmariadb")}
+      -DMARIADB_CONNECTOR_LIBRARIES=#{formula_opt_lib("mariadb-connector-c")}/mariadb/#{shared_library("libmariadb")}
       -DRELOCATABLE=OFF
       -DRUN_LDCONFIG=OFF
     ]
