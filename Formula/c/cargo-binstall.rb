@@ -1,8 +1,8 @@
 class CargoBinstall < Formula
   desc "Binary installation for rust projects"
   homepage "https://github.com/cargo-bins/cargo-binstall"
-  url "https://github.com/cargo-bins/cargo-binstall/archive/refs/tags/v1.27.0.tar.gz"
-  sha256 "b07ca41ca1f6fbe9b93982b04b04505645c3640da4925315ff86d956e2197f88"
+  url "https://github.com/cargo-bins/cargo-binstall/archive/refs/tags/v1.28.0.tar.gz"
+  sha256 "9495aae52ca36a560d9cdc9a7563d2e385813e76d42904c683f847e9370073e9"
   license "GPL-3.0-only"
   head "https://github.com/cargo-bins/cargo-binstall.git", branch: "main"
 
@@ -15,11 +15,12 @@ class CargoBinstall < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59ff0e3616e2f7cfa8e45e1ac53e1ace44bed60ef754d9ee05c9367022257cab"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9686e2d8e0c368880696e6dd97276d14088e34257fd18640c58f60e20876e76"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0125f94563e2441cb1781e9d45db24d247fdada2b331d84a9bf78e70321da4c4"
-    sha256 cellar: :any,                 arm64_linux:       "7ea84986c07b0c72c609c1a7122a14628dfcadf37724e6803e8fb9f96ce65ac1"
-    sha256 cellar: :any,                 x86_64_linux:      "003d6572af4bd3b4fa5c163e88a361bc3d126a3e8e214c6855cba3ecc4f3368b"
+    manifest_sha256 "f51773fa05473efd69de3d1d73e009d3cc8e5a183cbdd5ab060e970dad32f31d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4358e7d8bd20c6f77e658b9a67fb59b4fad2c2221a2789aa7c2d685071e32dd7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22880c2b38d013ae60713f8fb8d77fd7d8747e76d30f961cdc86a38fb8707e2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e7735a06e82d669c60ce09358593d66b9a5bbe1d24cdbd75a7b1facf46025bc"
+    sha256 cellar: :any,                 arm64_linux:       "2df470c4df38c6ea0195e10821cb67ad9d452a374eb941b5dc7fe582f14a6725"
+    sha256 cellar: :any,                 x86_64_linux:      "2ac8b8e11ce984c5edcaf6df6c98cd67a5144295ac57076dc6c4225d049579ee"
   end
 
   depends_on "rust" => :build
