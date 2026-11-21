@@ -4,6 +4,7 @@ class ZigAT016 < Formula
   url "https://ziglang.org/download/0.16.0/zig-0.16.0.tar.xz"
   sha256 "43186959edc87d5c7a1be7b7d2a25efffd22ce5807c7af99067f86f99641bfdf"
   license "MIT"
+  compatibility_version 1
 
   livecheck do
     skip "No longer developed or maintained"
@@ -37,7 +38,8 @@ class ZigAT016 < Formula
 
   # Backport fix for zig to fetch zip files to cache
   patch do
-    url "https://codeberg.org/ziglang/zig/commit/cfde9303ff75322525746aa325026f0e12fb402c.diff"
+    url "https://codeberg.org/ziglang/zig/commit/cfde9303ff75322525746aa325026f0e12fb402c.diff",
+      user_agent: :fake
     sha256 "9e9aa27db65d5b66eb82df7eae13baff57656de2088c0ee15eccbda404e690fa"
     type :backport
   end
