@@ -71,15 +71,16 @@ class Sysdig < Formula
 
     # Copied installation options from `falcosecurity-libs` formula
     resource("falcosecurity-libs").stage do
+      falcosecurity_libs_version = resource("falcosecurity-libs").version
       args = %W[
         -DBUILD_DRIVER=OFF
         -DBUILD_LIBSCAP_GVISOR=OFF
         -DBUILD_LIBSCAP_EXAMPLES=OFF
         -DBUILD_LIBSINSP_EXAMPLES=OFF
         -DBUILD_SHARED_LIBS=ON
-        -DCMAKE_INSTALL_RPATH=#{falco_prefix/"lib"}
+        -DCMAKE_INSTALL_RPATH=#{falco_prefix}/lib
         -DCREATE_TEST_TARGETS=OFF
-        -DFALCOSECURITY_LIBS_VERSION=#{resource("falcosecurity-libs").version}
+        -DFALCOSECURITY_LIBS_VERSION=#{falcosecurity_libs_version}
         -DUSE_BUNDLED_DEPS=OFF
       ]
       system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: falco_prefix)
