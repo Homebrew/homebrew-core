@@ -11,6 +11,8 @@ class BrunoCli < Formula
 
   depends_on "node"
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     # supress `punycode` module deprecation warning, upstream issue: https://github.com/usebruno/bruno/issues/2229

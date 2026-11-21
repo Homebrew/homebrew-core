@@ -22,6 +22,8 @@ class Boxes < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # distro uses /usr/share/boxes change to prefix
     system "make", "GLOBALCONF=#{share}/boxes-config",

@@ -22,6 +22,8 @@ class Brightness < Formula
 
   depends_on :macos
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "prefix=#{prefix}", "install"

@@ -12,6 +12,8 @@ class Briss < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*.jar"]
     bin.write_jar_script libexec/"briss-#{version}.jar", "briss"
