@@ -36,7 +36,7 @@ class QtPerconaServer < Formula
       -DFEATURE_sql_odbc=OFF
       -DFEATURE_sql_psql=OFF
       -DFEATURE_sql_sqlite=OFF
-      -DMySQL_LIBRARY=#{formula_opt_lib("percona-server")/shared_library("libperconaserverclient")}
+      -DMySQL_LIBRARY=#{formula_opt_lib("percona-server")}/#{shared_library("libperconaserverclient")}
       -DQT_GENERATE_SBOM=OFF
     ]
     args << "-DQT_NO_APPLE_SDK_AND_XCODE_CHECK=ON" if OS.mac?
