@@ -54,7 +54,7 @@ class Mlpack < Formula
       -DUSE_OPENMP=OFF
       -DARMADILLO_INCLUDE_DIR=#{formula_opt_include("armadillo")}
       -DENSMALLEN_INCLUDE_DIR=#{formula_opt_include("ensmallen")}
-      -DARMADILLO_LIBRARY=#{formula_opt_lib("armadillo")/shared_library("libarmadillo")}
+      -DARMADILLO_LIBRARY=#{formula_opt_lib("armadillo")}/#{shared_library("libarmadillo")}
       -DSTB_IMAGE_INCLUDE_DIR=#{include}/stb
       -DCMAKE_INSTALL_RPATH=#{rpath}
     ]
