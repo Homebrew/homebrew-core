@@ -36,7 +36,7 @@ class Unixcw < Formula
     # Load PulseAudio by absolute path and use a clock that exists on macOS.
     # Both changes submitted upstream: https://sourceforge.net/p/unixcw/tickets/3/
     inreplace "src/libcw/libcw_pa.c", '"libpulse-simple.so.0"',
-              "\"#{formula_opt_lib("pulseaudio")/shared_library("libpulse-simple", 0)}\""
+              "\"#{formula_opt_lib("pulseaudio")}/#{shared_library("libpulse-simple", 0)}\""
     ENV.append_to_cflags "-DCLOCK_BOOTTIME=CLOCK_MONOTONIC" if OS.mac?
 
     system "./configure", "--disable-xcwcp", "--disable-static", *std_configure_args
