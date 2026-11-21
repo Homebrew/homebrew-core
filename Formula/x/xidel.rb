@@ -52,7 +52,8 @@ class Xidel < Formula
     end
 
     cd "programs/internet/xidel" if build.stable?
-    inreplace "build.sh", "$fpc ", "$fpc -k-rpath -k#{sh_quote formula_opt_lib("openssl@4").to_s} "
+    openssl_lib = sh_quote formula_opt_lib("openssl@4").to_s
+    inreplace "build.sh", "$fpc ", "$fpc -k-rpath -k#{openssl_lib} "
     system "./build.sh"
     bin.install "xidel"
     man1.install "meta/xidel.1"
