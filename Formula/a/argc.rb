@@ -1,8 +1,8 @@
 class Argc < Formula
   desc "Easily create and use cli based on bash script"
   homepage "https://github.com/sigoden/argc"
-  url "https://github.com/sigoden/argc/archive/refs/tags/v1.24.0.tar.gz"
-  sha256 "3c0756bf455759617f2ea0405697d655af15071c89b35a58311e4be53dced1fa"
+  url "https://github.com/sigoden/argc/archive/refs/tags/v1.25.0.tar.gz"
+  sha256 "6c2de9129c356058b46f4509596181dfcaf15a155939770d0ff553d45438ebb7"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
@@ -30,7 +30,7 @@ class Argc < Formula
   end
 
   test do
-    system bin/"argc", "--argc-create", "build"
+    system bin/"argc", "--argc-create", "-", "build"
     assert_path_exists testpath/"Argcfile.sh"
     assert_match "build", shell_output("#{bin}/argc build")
   end
