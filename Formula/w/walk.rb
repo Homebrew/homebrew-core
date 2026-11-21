@@ -1,20 +1,17 @@
 class Walk < Formula
   desc "Terminal navigator"
   homepage "https://github.com/antonmedv/walk"
-  url "https://github.com/antonmedv/walk/archive/refs/tags/v1.13.0.tar.gz"
-  sha256 "9f62377438908757fcb2210bd08bf346391858f21d0ef664d7998abf635880cb"
+  url "https://github.com/antonmedv/walk/archive/refs/tags/v1.14.0.tar.gz"
+  sha256 "1d611d683c6764de089971e838dd8462dc1d6e63b3faf1a8f8d2a144d7264a3e"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5d4c43b9b424284baa8feb81844235379cee338079e8f2c0134ae6b0292a43bf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1cc7f94688414f6b4106eb69287cda711b724acf675a64fbdcd9a6b1c1b2c4c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "cce3ab82e4e2280c930d6f3c532440a20749e42175316a90fb64d7f00cea7d1f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9719de03b75d0b1697d97ca68da9481bc29191c5cb3d89e5d899f7ff8c61ef1b"
-    sha256 cellar: :any_skip_relocation, ventura:           "9719de03b75d0b1697d97ca68da9481bc29191c5cb3d89e5d899f7ff8c61ef1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "703f1027bcd2e5546c10901ca9b0a6df4dd76fa20c3647e9eba389fdc0dd592a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cfa31d4ff035f46edf2aa77d9b6165e4edb93278f268b059325bed36d3b8e42e"
+    manifest_sha256 "f8081014c2f8299a86d097dc0847e5b8bfc27a11007a5a0bc30ee887dbf7e491"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7367d2050ec4bcabe7e857457ecdc234744a42fe1ff1f7c0bc0dc3270c54ab0d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7367d2050ec4bcabe7e857457ecdc234744a42fe1ff1f7c0bc0dc3270c54ab0d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7367d2050ec4bcabe7e857457ecdc234744a42fe1ff1f7c0bc0dc3270c54ab0d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "515d548fac0ee436412ff1200882739ededd1d8e5f722de7a0bff1444e13f9ad"
+    sha256 cellar: :any,                 x86_64_linux:      "3cca4907a91fb746e410698dac86fdcef04e2f2cb02a8b813a7d882486883318"
   end
 
   depends_on "go" => :build
