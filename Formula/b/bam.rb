@@ -22,6 +22,8 @@ class Bam < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "1220e1a71792eacface17e8168d217ca657aeecf3b30a672a0815375536e2d1d"
   end
 
+  deny_network_access!
+
   def install
     system "./make_unix.sh"
     bin.install "bam"
