@@ -56,9 +56,10 @@ class Groonga < Formula
 
     # Explicitly disable features to avoid opportunistic linkage from superenv CMAKE_PREFIX_PATH.
     # Also set FETCHCONTENT_FULLY_DISCONNECTED=ON to avoid fallback to fetching bundled copies.
+    functions_rpath = rpath(source: lib/"groonga/plugins/functions")
     args = %W[
       -DCMAKE_INSTALL_LOCALSTATEDIR=#{var}
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"groonga/plugins/functions")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{functions_rpath}
       -DCMAKE_INSTALL_SYSCONFDIR=#{etc}
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DGRN_WITH_BASE64=no
@@ -87,7 +88,8 @@ class Groonga < Formula
     system "cmake", "--install", "_build"
 
     resource("groonga-normalizer-mysql").stage do
-      args = ["-DCMAKE_INSTALL_RPATH=#{rpath(source: lib/"groonga/plugins/normalizers")}"]
+      normalizers_rpath = rpath(source: lib/"groonga/plugins/normalizers")
+      args = ["-DCMAKE_INSTALL_RPATH=#{normalizers_rpath}"]
 
       system "cmake", "-S", ".", "-B", "_build", *args, *std_cmake_args
       system "cmake", "--build", "_build"
