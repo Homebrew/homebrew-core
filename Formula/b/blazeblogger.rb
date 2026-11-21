@@ -10,6 +10,8 @@ class Blazeblogger < Formula
     sha256 cellar: :any_skip_relocation, all: "4f76e3eb4cb3ab302fdf746ec68a54f42422913c10916429788affadad93209c"
   end
 
+  deny_network_access!
+
   def install
     # https://code.google.com/p/blazeblogger/issues/detail?id=51
     ENV.deparallelize
