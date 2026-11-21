@@ -43,10 +43,11 @@ class Libftdi < Formula
   end
 
   def install
+    examples_rpath = rpath(source: pkgshare/"examples/bin")
     system "cmake", "-S", ".", "-B", "build",
                     "-DCMAKE_BUILD_WITH_INSTALL_RPATH=ON",
                     "-DCMAKE_CXX_STANDARD=11",
-                    "-DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: pkgshare/"examples/bin")}",
+                    "-DCMAKE_INSTALL_RPATH=#{rpath};#{examples_rpath}",
                     "-DFTDIPP=ON",
                     "-DPYTHON_BINDINGS=OFF",
                     *std_cmake_args
