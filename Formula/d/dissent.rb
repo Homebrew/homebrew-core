@@ -1,17 +1,18 @@
 class Dissent < Formula
   desc "GTK4 Discord client in Go"
   homepage "https://github.com/diamondburned/dissent"
-  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.41.tar.gz"
-  sha256 "d31559e994798b47b3cf1440db3565fa0cfff7a9b1c67e49470509569cb8963e"
+  url "https://github.com/diamondburned/dissent/archive/refs/tags/v0.0.50.tar.gz"
+  sha256 "b60e7b27b05ec8402b22855009f708355065501628dde5c7c14855aaa3a5d0e1"
   license "GPL-3.0-or-later"
   head "https://github.com/diamondburned/dissent.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c664a0a6ef1090025b348fe7765f3edb1d5e5ceb1407230cef6682a5c919a571"
-    sha256 cellar: :any, arm64_tahoe:       "d9aeb502ce1e2a70103b671d396eb60e2c1372eae453b18d84068e858d8d5f96"
-    sha256 cellar: :any, arm64_sequoia:     "e953880852ef75e6144a10e3d0f13670bee8ca36c05c2b1c9603d96d81003317"
-    sha256 cellar: :any, arm64_linux:       "45b6f3b96547ba929b9f3850fee82d7b2f09e99beaf6cac602febed70f7b6a72"
-    sha256 cellar: :any, x86_64_linux:      "00261e8d590e87f040bd7186505747da3bc29f928a619174f39ea8d403c3f366"
+    manifest_sha256 "07d0a6824a54b7c879bd6743c3aef521968e06f42bdcb1e55338deff1c5ae398"
+    sha256 cellar: :any, arm64_golden_gate: "6cebc3028caf7721873117c91c16bc7c498fbb759d9aaa52a1497b81dd7aca16"
+    sha256 cellar: :any, arm64_tahoe:       "77125542ff2a01bf7d0748cebff68e8234292183b3c75f090604c1978c408549"
+    sha256 cellar: :any, arm64_sequoia:     "972c6f9df51a00e5ea334dccea76307d3eff7f6b7dd142006c025fc5340138b1"
+    sha256 cellar: :any, arm64_linux:       "4de591e4ed135e79cd8b3ea0f5ffb1e30a66a7c672735b1ad4b625c9d0a2c406"
+    sha256 cellar: :any, x86_64_linux:      "662f912fbb6b31bebf16b893d967512f8322236d0fe979bfeaff945fadb42757"
   end
 
   depends_on "go" => :build
@@ -53,7 +54,8 @@ class Dissent < Formula
       ENV.append "GOFLAGS", "-buildmode=pie"
     end
 
-    system "go", "build", *std_go_args
+    # Browser login needs webkitgtk-6.0 (GTK 4), but `webkitgtk` is built for GTK 3
+    system "go", "build", *std_go_args(tags: "nowebkit")
   end
 
   test do
