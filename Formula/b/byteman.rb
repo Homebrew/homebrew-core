@@ -17,6 +17,8 @@ class Byteman < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     rm_r(Dir["bin/*.bat"])
     doc.install Dir["docs/*"], "README"
