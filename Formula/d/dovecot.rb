@@ -133,6 +133,7 @@ class Dovecot < Formula
 
     port = free_port.to_s
     cp_r share/"doc/dovecot/example-config", testpath/"config"
+    internal_group = Etc.getgrgid(Process.egid).name
     (testpath/"config/dovecot.conf").write <<~EOS
       dovecot_config_version = #{version}
       dovecot_storage_version = #{version}
@@ -150,7 +151,7 @@ class Dovecot < Formula
 
       default_login_user = #{ENV["USER"]}
       default_internal_user = #{ENV["USER"]}
-      default_internal_group = #{Etc.getgrgid(Process.egid).name}
+      default_internal_group = #{internal_group}
       auth_mechanisms = plain
       log_path = #{testpath}/dovecot.log
     EOS
