@@ -1,8 +1,8 @@
 class Txr < Formula
   desc "Lisp-like programming language for convenient data munging"
   homepage "https://www.nongnu.org/txr/"
-  url "https://www.kylheku.com/cgit/txr/snapshot/txr-302.tar.bz2"
-  sha256 "f0de012ed62218e049d09a39ae6a9387598d8eac12a7c2d7d9d906c27c36ef54"
+  url "https://www.kylheku.com/cgit/txr/snapshot/txr-303.tar.bz2"
+  sha256 "b985117b7e55b98f1cd6952d749542e8f1e6c23c7c107fea64ade27f59bd0ae5"
   license "BSD-2-Clause"
 
   livecheck do
@@ -11,14 +11,12 @@ class Txr < Formula
   end
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "773bc545ece9faefd2b81503a159bc67ee80c05ab9caa3fe2f076a468e04ccfc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a3e2696544766b198f2d6be38cee732e7757bc465a85951d3cc69c589a74490"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "080e9b53e0bf6f5fdf978e4498dce5138f32750ceaeeda57a4343a9fc3d9ca79"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "b7c6793df7533f54d70fb81522f014fa532c20ddb4386557d40554146b0aa53b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "0db191f5177f88c2347a3374bd99847bc65034f200bd83ed891de7cb69d56823"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ef7c5786a174ca30e31d3d87afa2aeb796cab3c72a837f01397af9011cfe9885"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "28c0d4e14ed8bf41888293d49df188ed82b731ef0dd5fe30fe279c69f4a17b1f"
+    manifest_sha256 "65705350c77a276d7e4b8db81999c1bd6ec4c57a6ae62870ceb74ac524e09162"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "000af3c53e57c5fdcea54f1b32f703fa2635bf3ddebb5813ddad576461215f48"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f8eee549e90b640a695babe0a710b76203941bd942ac5ef5bfb3f1465731198"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c982025f8b78726aace6f9b14439841b6e31a2a4037664b7072c97b6990d6c4"
+    sha256 cellar: :any,                 arm64_linux:       "6ee2267ba6bb7f8b387fe1540bb8f71f45433a773dcea88f0339a1010c4fce12"
+    sha256 cellar: :any,                 x86_64_linux:      "092220daea4b5a7249047aa2eff7962416c603c9255a3dea5e21b975db6a107c"
   end
 
   depends_on "pkgconf" => :build
