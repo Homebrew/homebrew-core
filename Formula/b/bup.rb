@@ -29,6 +29,8 @@ class Bup < Formula
     depends_on "acl"
   end
 
+  deny_network_access!
+
   def install
     ENV["BUP_PYTHON_CONFIG"] = "#{python3}-config"
 
