@@ -1,9 +1,10 @@
 class Par2 < Formula
   desc "Parchive: Parity Archive Volume Set for data recovery"
   homepage "https://parchive.github.io"
-  url "https://github.com/Parchive/par2cmdline/releases/download/v1.4.0/par2cmdline-1.4.0.tar.bz2"
-  sha256 "269aff9d49c6a0c0d1c394300d35c36229764588f56faad5850eaf36c7a298dc"
+  url "https://github.com/Parchive/par2cmdline/releases/download/v2.0.0/par2cmdline-2.0.0.tar.bz2"
+  sha256 "93b8403d6304bcfbfe5bc5a619099496bfe3510c48b73dae6c26127eeaa91cbb"
   license "GPL-2.0-or-later"
+  head "https://github.com/Parchive/par2cmdline.git", branch: "master"
 
   livecheck do
     url :stable
@@ -19,31 +20,24 @@ class Par2 < Formula
     sha256 cellar: :any, x86_64_linux:      "39d80aa414a39ad6f8ade2cf14cf2d2ea3ec6db48303ad2d54a675435bac2cd7"
   end
 
-  on_macos do
-    depends_on "libomp"
-  end
+  depends_on "cmake" => :build
 
   deny_network_access!
 
   def install
-    if OS.mac?
-      libomp_include = formula_opt_include("libomp")
-      libomp_lib = formula_opt_lib("libomp")
-      ENV.append_to_cflags "-Xpreprocessor -fopenmp -I#{libomp_include} -L#{libomp_lib} -lomp"
-    end
-
-    system "./configure", *std_configure_args
-    system "make", "install"
+    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "--build", "build"
+    system "cmake", "--install", "build"
   end
 
   test do
     # Protect a file with par2.
     test_file = testpath/"some-file"
-    File.write(test_file, "file contents")
+    test_file.write "file contents"
     system bin/"par2", "create", test_file
 
     # "Corrupt" the file by overwriting, then ask par2 to repair it.
-    File.write(test_file, "corrupted contents")
+    File.write test_file, "corrupted contents"
     repair_command_output = shell_output("#{bin}/par2 repair #{test_file}")
 
     # Verify that par2 claimed to repair the file.
@@ -51,6 +45,6 @@ class Par2 < Formula
     assert_match "Repair complete.", repair_command_output
 
     # Verify that par2 actually repaired the file.
-    assert_equal "file contents", File.read(test_file)
+    assert_equal "file contents", test_file.read
   end
 end
