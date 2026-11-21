@@ -1,8 +1,8 @@
 class Turso < Formula
   desc "Interactive SQL shell for Turso"
   homepage "https://github.com/tursodatabase/turso"
-  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "18912d5142b3d4abe29aeeb771ccbbdb4c819105627833d2232d746013d9cd0a"
+  url "https://github.com/tursodatabase/turso/archive/refs/tags/v0.8.4.tar.gz"
+  sha256 "c678c98a1f7a7ed1cf609bfbc5655198de4c6e19d62a941875d4d161584aecde"
   license "MIT"
   head "https://github.com/tursodatabase/turso.git", branch: "main"
 
@@ -12,11 +12,12 @@ class Turso < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47a0890fdb028897e341dacabb91b07e5f3484751c1b33250491ac12c965ea3a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67efadc00266071e8fc9b037ab61445c7754dff0818a326cdb56bcd09a724f99"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99561b3c357353314453bf05568c5c3abab90332f1d5dbc050da3b92e993222a"
-    sha256 cellar: :any,                 arm64_linux:       "576bc4d735a57baa6592c44780384d17b23d4a335419decf755c0b72e6747848"
-    sha256 cellar: :any,                 x86_64_linux:      "1e608dff13ccf307732081dfa1f5cbd9e8a1f4eee8ff112999173e1c3bcd87d9"
+    manifest_sha256 "fc378f9bb1e4654c401fbabbba2f936450175b97cdde92a202b93535969aede5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da619c4166fc3fcd356e1ad66f54eb732d296102a976c3780976fb560ed78ec9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "74da09b245920c7cc4031ff12772cf1713bfe31d921c1e9e228bc1dc7fade554"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ac62a5b3ddf562cbfe37fa8e7de2b181ac8e08b106260adfee365a30aadf760"
+    sha256 cellar: :any,                 arm64_linux:       "b423dccc6bef567ab0e98f078252af4f31c53748659da3affbaee98bb8e946bf"
+    sha256 cellar: :any,                 x86_64_linux:      "fb8ac6a8cd1acffc1671a045f3866b1e7290db6e444f5d6c44b0924c44ba6132"
   end
 
   depends_on "rust" => :build
@@ -29,6 +30,10 @@ class Turso < Formula
   end
 
   def install
+    # Rust 1.100 resolves std `Vec::new_in` first: https://github.com/tursodatabase/turso/issues/9463
+    inreplace "core/index_method/fts/directory.rs", "DynVec::new_in(",
+              "<DynVec<u8> as TursoVecInExt<u8, DynAllocator>>::new_in("
+
     system "cargo", "install", *std_cargo_args(path: "cli")
   end
 
