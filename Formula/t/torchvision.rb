@@ -53,7 +53,7 @@ class Torchvision < Formula
     # This needs to happen _before_ we try to install torchvision.
     # NOTE: This is an exception to our usual policy as building `pytorch` is complicated
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pytorch")/site_packages}')\n"
+    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("pytorch")}/#{site_packages}')\n"
     (venv.site_packages/"homebrew-pytorch.pth").write pth_contents
 
     venv.pip_install_and_link(buildpath, build_isolation: false)
