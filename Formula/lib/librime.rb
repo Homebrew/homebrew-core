@@ -54,9 +54,10 @@ class Librime < Formula
       r.stage buildpath/"plugins"/r.name
     end
 
+    plugins_rpath = rpath(source: lib/"rime-plugins")
     args = %W[
       -DBUILD_MERGED_PLUGINS=OFF
-      -DCMAKE_INSTALL_RPATH=#{rpath};#{rpath(source: lib/"rime-plugins")}
+      -DCMAKE_INSTALL_RPATH=#{rpath};#{plugins_rpath}
       -DENABLE_EXTERNAL_PLUGINS=ON
       -DBUILD_TEST=OFF
     ]
