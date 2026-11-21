@@ -63,7 +63,7 @@ class Nbdime < Formula
 
     # Provide an exception to avoid dealing with `jupyterlab` dependency tree
     site_packages = Language::Python.site_packages(venv.root/"bin/python3")
-    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("jupyterlab")/site_packages}')\n"
+    pth_contents = "import site; site.addsitedir('#{formula_opt_libexec("jupyterlab")}/#{site_packages}')\n"
     (venv.site_packages/"homebrew-jupyterlab.pth").write pth_contents
   end
 
