@@ -21,11 +21,12 @@ class Vim < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "71002ebd7931e26b3ee5042f1de5d44362399d280bc6930e50b3724e0aa9dbf4"
-    sha256 arm64_tahoe:       "dd9db77cb80d580c4da371ec1ba03feaf30d2d9bbdb731f47a279f9044d71f38"
-    sha256 arm64_sequoia:     "0a4ee6e1698d02ce10855c7a8f9c0f12aac9406fdbd556d77ea63f2630772333"
-    sha256 arm64_linux:       "15ed89c87d874e83b4d1702c01404043ebeffe818bfa513e9e81e31bb5d6ca0f"
-    sha256 x86_64_linux:      "0890e9b30597812a0f60fc656dc25eaa8632773c27618a2046a23dc537cf0afa"
+    manifest_sha256 "1b3cfd5dbeb7ae54d26feb171447eb70c61937754c980c1af9555143be6059e9"
+    sha256 arm64_golden_gate: "752a4a499d7e6313234e556b99a3e915587e3298e7fb9feabcff4071a485e841"
+    sha256 arm64_tahoe:       "5dbc5bb3334fd397d0579610d1631552bf40e7c8e4e061e91afead461788624c"
+    sha256 arm64_sequoia:     "6308870516ec74aee45c5ec12b1fa7b13546fe4538a736ec5b5461f67d93af98"
+    sha256 arm64_linux:       "0f0e46ce28f899f5e14e07447b428937ef03f80c9e41292d97a2314c3d4d8057"
+    sha256 x86_64_linux:      "42356deac174deb3df0f2f0d87dbdb1087283b530c9c80452914d7c9c396bb21"
   end
 
   depends_on "gettext" => :build
