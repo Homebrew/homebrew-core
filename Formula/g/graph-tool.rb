@@ -92,10 +92,11 @@ class GraphTool < Formula
     # > Enforce -O3. It makes a substantial difference, e.g. 12x speed improvement over -O2 in benchmarks.
     ENV.O3
 
+    boost_python = python3.basename.to_s.delete(".")
     args = %W[
       PYTHON=#{python3}
-      --with-python-module-path=#{prefix/Language::Python.site_packages(python3)}
-      --with-boost-python=boost_#{python3.basename.to_s.delete(".")}
+      --with-python-module-path=#{prefix}/#{Language::Python.site_packages(python3)}
+      --with-boost-python=boost_#{boost_python}
       --with-boost-libdir=#{formula_opt_lib("boost")}
       --with-boost-coroutine=boost_coroutine
       --disable-silent-rules
@@ -114,7 +115,7 @@ class GraphTool < Formula
         brew install gtk+3 py3cairo pygobject3 python-matplotlib
 
       If you want zstd decompression, you can use the bundled Python package, e.g.
-        export PYTHONPATH="#{opt_libexec/Language::Python.site_packages(python3)}"
+        export PYTHONPATH="#{opt_libexec}/#{Language::Python.site_packages(python3)}"
     EOS
   end
 
