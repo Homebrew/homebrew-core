@@ -45,7 +45,11 @@ class PerlDbdMysql < Formula
 
     resources.each do |r|
       r.stage do
-        install_base = (r.name == "Devel::CheckLib") ? buildpath/"build_deps" : libexec
+        install_base = if r.name == "Devel::CheckLib"
+          buildpath/"build_deps"
+        else
+          libexec
+        end
         system "perl", "Makefile.PL", "INSTALL_BASE=#{install_base}", "INSTALLMAN1DIR=none", "INSTALLMAN3DIR=none"
         system "make", "install"
       end
@@ -70,7 +74,11 @@ class PerlDbdMysql < Formula
   end
 
   test do
-    perl = OS.mac? ? "/usr/bin/perl" : formula_opt_bin("perl")/"perl"
+    perl = if OS.mac?
+      "/usr/bin/perl"
+    else
+      formula_opt_bin("perl")/"perl"
+    end
     port = free_port
     socket = testpath/"mysql.sock"
     mysql = Formula["mysql"]
