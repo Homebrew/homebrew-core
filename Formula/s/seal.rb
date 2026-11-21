@@ -47,11 +47,13 @@ class Seal < Formula
       ENV.append "LDFLAGS", "-L#{lib}"
     end
 
+    build_headers = OS.mac? ? "ON" : "OFF"
+    use_hexl = Hardware::CPU.intel? ? "ON" : "OFF"
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DSEAL_BUILD_DEPS=OFF
-      -DSEAL_USE_ALIGNED_ALLOC=#{OS.mac? ? "ON" : "OFF"}
-      -DSEAL_USE_INTEL_HEXL=#{Hardware::CPU.intel? ? "ON" : "OFF"}
+      -DSEAL_USE_ALIGNED_ALLOC=#{build_headers}
+      -DSEAL_USE_INTEL_HEXL=#{use_hexl}
       -DCMAKE_CXX_FLAGS=-I#{include}
     ]
 
