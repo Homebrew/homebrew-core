@@ -21,6 +21,8 @@ class Beanstalkd < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e523cebb72efcd0e73c3c11cbf695f6b0a3486894b9c6f6ea4c7590dc6a59a77"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
