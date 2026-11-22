@@ -3,17 +3,18 @@ class Fastmcp < Formula
 
   desc "Fast, Pythonic way to build MCP servers and clients"
   homepage "https://gofastmcp.com/getting-started/welcome"
-  url "https://files.pythonhosted.org/packages/4a/32/f9ac18813cedafca75a3942e8ccb31fa59b7774df21a290c4680c0fd311f/fastmcp-4.2.3.tar.gz"
-  sha256 "0c9d1739d59e89506489bea589dec6193d204ab86e9739333d6bb46c13476477"
+  url "https://files.pythonhosted.org/packages/af/1d/dde86c523e3242e7d143e75478dc1604046da57665cf615f58d197e529f2/fastmcp-4.2.4.tar.gz"
+  sha256 "9039b0eb7cde12353ae60396015e9bf8bedd278ed7b6196ee4a8eb4b63d84b06"
   license "Apache-2.0"
   head "https://github.com/jlowin/fastmcp.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b4b6d4cb2cbffc42950c73371583189eef00d90afdae957ae70c4b3786f21e6d"
-    sha256 cellar: :any, arm64_tahoe:       "740f77a4a08a2dffc55a9504500d8b8fd123073cac51fe481d3f6b5df5522e8f"
-    sha256 cellar: :any, arm64_sequoia:     "b30fb5c31988941f89e70808c0ab2a037f3ad5a833cbd69e6ec6b1791885745e"
-    sha256 cellar: :any, arm64_linux:       "8676ad80c26ff632b7e86c91b2d9529c9b54ca7df9fd44c7a631ab5f908a3ac0"
-    sha256 cellar: :any, x86_64_linux:      "92533dfc8d5815adb70908f41eb0b70a15c2675c6158f07c0c189244ab941951"
+    manifest_sha256 "3af14ad16b144e8172ed3eeee1dcca91c2ac4c4fb38dce0522770c56a18702ad"
+    sha256 cellar: :any, arm64_golden_gate: "e0d84c95d9ef1533950e6a93d7ee7df16f832386fe6efd439ccb087edd1144e3"
+    sha256 cellar: :any, arm64_tahoe:       "efb5e6fc8eed5bb33dd95f185b7a09bd227c63da12586c2e58b2d7cf365ef25b"
+    sha256 cellar: :any, arm64_sequoia:     "e25db9a2db8628dfbba68b7e3f50705975b2526706af821421e7ec140b65bedb"
+    sha256 cellar: :any, arm64_linux:       "f765a22819ecf2acae697e5b103a5c8f1269ec5ab4705189ac6174f68b41bcb8"
+    sha256 cellar: :any, x86_64_linux:      "9688598f79dc243d7a3d372872a8a5eeb8e752f645284e00befd658b9fe89b7a"
   end
 
   depends_on "rust" => :build # for py_key_value_aio
@@ -44,8 +45,8 @@ class Fastmcp < Formula
   end
 
   resource "authlib" do
-    url "https://files.pythonhosted.org/packages/73/69/0215a1818edb1fb6b9dd59b8a3870601f11603b6db1f830ff3f3ea62612f/authlib-1.9.9.tar.gz"
-    sha256 "cca3dffa51c8d80d6df19aee2279e47219dc996f5a527c06ac2e39d0757c99ef"
+    url "https://files.pythonhosted.org/packages/a9/7c/e1963d10d1d7203ca913a20e377893ec27489db27f5115f25ff50ef7b5bd/authlib-1.9.10.tar.gz"
+    sha256 "f7453c4a3f5975f94cc55223c4d48ff9c7d8d3b4e3d727ed2549edaeb9b85d50"
   end
 
   resource "beartype" do
@@ -94,8 +95,8 @@ class Fastmcp < Formula
   end
 
   resource "fastmcp-slim" do
-    url "https://files.pythonhosted.org/packages/28/0d/ed5949b0431463676675b3654697bc1b01136f3c454cd727592702ca6be3/fastmcp_slim-4.2.3.tar.gz"
-    sha256 "9037cd8c0a2804152102f559f8f6a9c615377b6aeb9d2b6a466c0afe9df5839b"
+    url "https://files.pythonhosted.org/packages/80/a6/bcea2e1e7ca3e60030e6f23170e5013feb9b6c6a9f541316b8596b4eeb8a/fastmcp_slim-4.2.4.tar.gz"
+    sha256 "2aa508dace0e5d9176fe116077cdbf22a18c62f97ddd1decf5625b9f4faf55df"
   end
 
   resource "griffelib" do
@@ -194,8 +195,8 @@ class Fastmcp < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
-    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "py-key-value-aio" do
@@ -234,8 +235,8 @@ class Fastmcp < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "referencing" do
