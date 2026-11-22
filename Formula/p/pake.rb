@@ -1,16 +1,17 @@
 class Pake < Formula
   desc "Turn any webpage into a desktop app with Rust with ease"
   homepage "https://github.com/tw93/Pake"
-  url "https://registry.npmjs.org/pake-cli/-/pake-cli-3.19.0.tgz"
-  sha256 "6ee6dbef3fe6d635b4b74482ce6027b7499835192e3f23ec1a8b92ac2b45a70e"
+  url "https://registry.npmjs.org/pake-cli/-/pake-cli-3.19.6.tgz"
+  sha256 "8461c689f02b3e71fd2c59c4f34106bb5507f571e1345740c2ecc5d03b148c88"
   license "GPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1e911c1038aa7221f803eec39bb302688787543714b6582a20b3a7bab2e5f751"
-    sha256 cellar: :any, arm64_tahoe:       "a15b7e256834ccbde6d680e9cb2c65f4d0398875c0e6403a40750731279b4aa5"
-    sha256 cellar: :any, arm64_sequoia:     "db307f6e6272d9455a0c69c91d4844567f3468d0bbef0fdc7b9d707ab4fb5e6a"
-    sha256 cellar: :any, arm64_linux:       "f57057dd272087527bfbf13e94fa777fafd7e8fcc6606b09c1567548b002d99d"
-    sha256 cellar: :any, x86_64_linux:      "9c0dd03667087a6e6ef779466d2e2d8afbf3220860683eb0ae6fb8202ba1e74c"
+    manifest_sha256 "6ef435055cb9e7f1c862ce8ef43adb54bd72be2818695f5d777b365ef1267ada"
+    sha256 cellar: :any, arm64_golden_gate: "326b19b6708ad2ea024882b56bd0b914c12e24f2f8e0e909365c2cbcdc6d87cf"
+    sha256 cellar: :any, arm64_tahoe:       "4a35b24ecf473a005c01499f8a17817f07d0fc8caaba76d1ee7bc70cf0084864"
+    sha256 cellar: :any, arm64_sequoia:     "fd13b57f4a6e196f91fbe2002fbd92bbd25498275f21235604a6d52c26cf9c7a"
+    sha256 cellar: :any, arm64_linux:       "55998c38419a14ceaf00d5385f9f6a1dc43431cb641cb2a6835c6c9b6da530db"
+    sha256 cellar: :any, x86_64_linux:      "3d05772638c93118a751b0181c4a4c169d8bddd000eff39be0b74a68193a469a"
   end
 
   depends_on "pkgconf" => :build
@@ -22,6 +23,11 @@ class Pake < Formula
 
   on_macos do
     depends_on "gettext"
+  end
+
+  on_linux do
+    depends_on "patchelf" => :build
+    depends_on "xz"
   end
 
   # Resources needed to build sharp from source to avoid bundled vips
@@ -43,6 +49,13 @@ class Pake < Formula
     node_modules = libexec/"lib/node_modules/pake-cli/node_modules"
     libexec.glob("#{node_modules}/.pnpm/fsevents@*/node_modules/fsevents/fsevents.node").each do |f|
       deuniversalize_machos f
+    end
+
+    # Help the prebuilt `@tauri-apps/cli` module find Homebrew's `liblzma`.
+    if OS.linux?
+      node_modules.glob("@tauri-apps/cli-linux-*/cli.linux-*.node").each do |f|
+        system "patchelf", "--set-rpath", formula_opt_lib("xz"), f
+      end
     end
 
     ENV["SHARP_FORCE_GLOBAL_LIBVIPS"] = "1"
