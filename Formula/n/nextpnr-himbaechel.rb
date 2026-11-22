@@ -6,6 +6,15 @@ class NextpnrHimbaechel < Formula
   license "ISC"
   head "https://github.com/YosysHQ/nextpnr.git", branch: "main"
 
+  bottle do
+    manifest_sha256 "2fb4a65a416f7c3c5a8874c38815c29db6e722ae2b2011c0ba8affa5f976ad7d"
+    sha256 cellar: :any, arm64_golden_gate: "c743deb6b0000cd0b4ebb89779e1e5cb0ec5e0f39296a21342a3f3dd256574b8"
+    sha256 cellar: :any, arm64_tahoe:       "1bb8a71df9c5b7be6b67da7642f9a34926eab7bce9cdac396f0e7ecceeb975cc"
+    sha256 cellar: :any, arm64_sequoia:     "6af7193a2ef73a9a051a3befdf900fb1dbdc75e6f288ee4adcc6d37177ef2bd6"
+    sha256 cellar: :any, arm64_linux:       "a8515195eff0feed5dbcc32bba730847c3a19ac5a74c1862e77aca4fb687ff16"
+    sha256 cellar: :any, x86_64_linux:      "8300dd4900314686fccdd7793a402e63c0bb5cbe2ef86e3f1aeb83e7473474e2"
+  end
+
   depends_on "apicula" => :build
   depends_on "cmake" => :build
   depends_on "yosys" => :test
