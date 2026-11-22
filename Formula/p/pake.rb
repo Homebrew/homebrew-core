@@ -1,8 +1,8 @@
 class Pake < Formula
   desc "Turn any webpage into a desktop app with Rust with ease"
   homepage "https://github.com/tw93/Pake"
-  url "https://registry.npmjs.org/pake-cli/-/pake-cli-3.19.0.tgz"
-  sha256 "6ee6dbef3fe6d635b4b74482ce6027b7499835192e3f23ec1a8b92ac2b45a70e"
+  url "https://registry.npmjs.org/pake-cli/-/pake-cli-3.19.6.tgz"
+  sha256 "8461c689f02b3e71fd2c59c4f34106bb5507f571e1345740c2ecc5d03b148c88"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -24,6 +24,11 @@ class Pake < Formula
     depends_on "gettext"
   end
 
+  on_linux do
+    depends_on "patchelf" => :build
+    depends_on "xz"
+  end
+
   # Resources needed to build sharp from source to avoid bundled vips
   # https://sharp.pixelplumbing.com/install/#building-from-source
   resource "node-addon-api" do
@@ -43,6 +48,13 @@ class Pake < Formula
     node_modules = libexec/"lib/node_modules/pake-cli/node_modules"
     libexec.glob("#{node_modules}/.pnpm/fsevents@*/node_modules/fsevents/fsevents.node").each do |f|
       deuniversalize_machos f
+    end
+
+    # Help the prebuilt `@tauri-apps/cli` module find Homebrew's `liblzma`.
+    if OS.linux?
+      node_modules.glob("@tauri-apps/cli-linux-*/cli.linux-*.node").each do |f|
+        system "patchelf", "--set-rpath", formula_opt_lib("xz"), f
+      end
     end
 
     ENV["SHARP_FORCE_GLOBAL_LIBVIPS"] = "1"
