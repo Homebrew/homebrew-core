@@ -21,6 +21,8 @@ class Csvtomd < Formula
   # ValueError: invalid mode: 'rU'
   patch :DATA
 
+  allow_network_access!
+
   def install
     virtualenv_install_with_resources
   end
