@@ -469,6 +469,8 @@ class Omnara < Formula
     sha256 "ef66b4b2237024053c98bc86089fe30d240a3e368926566c7cc17e0c40edf5db"
   end
 
+  allow_network_access!
+
   def install
     without = ["codex"]
     without += %w[jeepney secretstorage] unless OS.linux?
