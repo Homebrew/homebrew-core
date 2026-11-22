@@ -34,6 +34,8 @@ class Drafter < Formula
     resolves "https://github.com/apiaryio/drafter/pull/796"
   end
 
+  allow_network_access!
+
   def install
     # Fix to error: no member named 'swap' in namespace 'std'
     if OS.mac? && DevelopmentTools.clang_build_version >= 1700
