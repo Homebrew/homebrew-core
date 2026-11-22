@@ -27,6 +27,8 @@ class Tcc < Formula
   deprecate! date: "2025-09-16", because: :unsupported
   disable! date: "2026-09-16", because: :unsupported
 
+  allow_network_access!
+
   def install
     # Add appropriate include paths for macOS or Linux.
     os_include_path = if OS.mac?
