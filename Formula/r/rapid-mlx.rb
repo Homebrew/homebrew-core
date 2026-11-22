@@ -3,16 +3,17 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/53/ec/ca07723282fa5cbbbb577932eb815f7894037e3cce325ac7362e8c2c50df/rapid_mlx-1.0.4.tar.gz"
-  sha256 "437e8bc724822190eb3f8f55f9eb58c19f02b5d3253a41027600a433d46f027b"
+  url "https://files.pythonhosted.org/packages/73/ad/6464a964f4f22a0c092089c9c8605801611d479f38be896af3883e050bee/rapid_mlx-1.0.5.tar.gz"
+  sha256 "2d5dd7792609a2df34b4e0361297948934f0bed72b56cb367b5611d2f5913281"
   license "Apache-2.0"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "79483920846053c359f01bbd24a67ebb89623183c33d000c0997c8a59e908e2b"
-    sha256 cellar: :any, arm64_tahoe:       "8de103fd135cb20a8116bdd60e9d3e4c04dc38da95c2d8edc6c1a89a49085361"
-    sha256 cellar: :any, arm64_sequoia:     "ce60592a63cd9f9575537f519da20be2c63547c3a2f03fd897a8981c35e9cb05"
+    manifest_sha256 "2b83789c4566ccec4af72cf5a1ec0a04fbf7a6fffed1e70a66b7e58763b1d7af"
+    sha256 cellar: :any, arm64_golden_gate: "b1860c0e3ed08b3182323f00340019f1c04fd572d7430fdf6ddb70f8080e5dbb"
+    sha256 cellar: :any, arm64_tahoe:       "1fd7fd82aca782a860ac07b872573c44ed0ade5ea46f3166c6dce3d17bd1d27b"
+    sha256 cellar: :any, arm64_sequoia:     "4d3c60671eef4d07d0885990adfde7164630d9d8829727a196eb1534c3d5424f"
   end
 
   depends_on "cmake" => :build
@@ -45,8 +46,8 @@ class RapidMlx < Formula
   ]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/0f/6e/a61e86e43bb6039b31a33a8f5fba76fe1cdacf3661e7b9756d4ff1b28cdc/annotated_doc-0.0.6.tar.gz"
-    sha256 "7969bb69912085b2285849c0dcac0b4b374fd180c13cf10a87f284ffcf347bbf"
+    url "https://files.pythonhosted.org/packages/0b/7d/bdbf3062e5dae31da8b3de1e3269110beb93d268df4a7f6d22b167c6cee0/annotated_doc-0.0.7.tar.gz"
+    sha256 "0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5"
   end
 
   resource "anyio" do
@@ -80,8 +81,8 @@ class RapidMlx < Formula
   end
 
   resource "genai-prices" do
-    url "https://files.pythonhosted.org/packages/1d/ce/7b18aeb714493736513bffd919414551324cb73f0a4ac8d6f5ddc2373e6d/genai_prices-0.2.3.tar.gz"
-    sha256 "cdee9b0b2e44b1323c477ebe3c84e44ddbcdd1a3feb0ebce5bb2af1bc667d900"
+    url "https://files.pythonhosted.org/packages/c9/57/d35f58ac166442f4dd63cf6ace63445fd5bd46eb170241cebd5437b719e6/genai_prices-0.2.5.tar.gz"
+    sha256 "7e3ee897a16a39a1ac1cff328a3f9d839412f6f619028821dcb45b84338f5d3a"
   end
 
   resource "griffelib" do
@@ -165,8 +166,8 @@ class RapidMlx < Formula
   end
 
   resource "logfire-api" do
-    url "https://files.pythonhosted.org/packages/75/86/00b6bd2e60ac09b26c6e147da48d83dc8706defc2ebde8b003ce6de2b059/logfire_api-5.6.0.tar.gz"
-    sha256 "e2341041ebe7bb0283d41e5defa03655f04706b2eeede9b89b6fc23b955ee565"
+    url "https://files.pythonhosted.org/packages/75/02/ea64660ba93b9a754d04acf19e8455483dc78bdbd2852821105c75a02b86/logfire_api-6.0.0.tar.gz"
+    sha256 "12e0a578878a84a1e24c816b1bd8d58d512965793837687cd6385d67316799a0"
   end
 
   resource "markdown-it-py" do
@@ -220,8 +221,8 @@ class RapidMlx < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/bb/d9/2ef76a717f5cd5d42857ae3424db2f16bf5f01070edfd63ea9347e7d041f/openai-3.52.0.tar.gz"
-    sha256 "258a4fec3e40b412c58672526ed33f20738c2e4ea27601792e73843af62466af"
+    url "https://files.pythonhosted.org/packages/90/b2/97780581dab39384d1de4bc15f1f6cbaff26ce965a46c23a10bd948b71a8/openai-3.57.0.tar.gz"
+    sha256 "5a0a89d6a542efc85e2a8cec701ca9265b795d578c777828e10fafdf80e333b6"
   end
 
   resource "openai-harmony" do
@@ -240,8 +241,8 @@ class RapidMlx < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "prompt-toolkit" do
@@ -300,8 +301,8 @@ class RapidMlx < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "referencing" do
@@ -310,8 +311,8 @@ class RapidMlx < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/cf/e7/67c67920a3b5183388e0853a0a564a4bf60f2dd190a4e7626f5dad2fed62/regex-2026.11.15.tar.gz"
-    sha256 "d6ec7e29e62ebf93ab2a593d1137022b6025497d8610e5cb666d52f9ee5bb0ce"
+    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
+    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
   end
 
   resource "requests" do
@@ -400,8 +401,8 @@ class RapidMlx < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/6c/aa/0de7986aa1fa856adb961c67345189b97d13f6e250b34ba68884df865f07/typer-0.29.1.tar.gz"
-    sha256 "ab6eb3880bf67ce96147734717f9ec333c06f66e361f3ea947d0be43da39f242"
+    url "https://files.pythonhosted.org/packages/bf/21/37383ece7d0a4995fb8ea97729207c4292b3ff94085002f37b2387063cfb/typer-0.29.2.tar.gz"
+    sha256 "b1998dc5f2c3dedafa1517a9521fa944cc4dc1fadcea085d81a3b10ebcaeb075"
   end
 
   resource "urllib3" do
