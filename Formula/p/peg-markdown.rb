@@ -34,6 +34,8 @@ class PegMarkdown < Formula
     depends_on "gettext"
   end
 
+  allow_network_access!
+
   def install
     # Workaround for arm64 linux. Upstream isn't maintained
     ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?
