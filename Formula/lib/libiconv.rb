@@ -8,9 +8,11 @@ class Libiconv < Formula
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "84718608d5c5f2bf0afd3884587957f9d1c5a4870340dcdc75c12d3a5fd71007"
-    sha256 cellar: :any, arm64_tahoe:       "9a7174efb9791b8465d71485e9d455ce51de5be13a6c20ae457ca2c63f06d7d0"
-    sha256 cellar: :any, arm64_sequoia:     "eaecd1468193e943ad6fb51c286d5bba93ed425c391370be6a9e498ce7f45b92"
+    rebuild 1
+    manifest_sha256 "03e2f30bf0e0f68fe962262e772b570ed52044127a857f400f62d613b81da9d2"
+    sha256 cellar: :any, arm64_golden_gate: "f84633ee2d2e32efe68d3c829d413eb47a3910649a4c3c5eeba0afeb17988254"
+    sha256 cellar: :any, arm64_tahoe:       "dd971e307d7f56270bc990789d492a6a76223c89850a52f1ffebe4f53ce803f7"
+    sha256 cellar: :any, arm64_sequoia:     "5ca919781f43941f0f3c625abd01f858a0e7e381c0f369a60f564391083d5aa2"
   end
 
   keg_only :provided_by_macos
@@ -37,13 +39,6 @@ class Libiconv < Formula
     # Reported at https://savannah.gnu.org/bugs/index.php?66170
     ENV.append_to_cflags "-Wno-incompatible-function-pointer-types" if DevelopmentTools.clang_build_version >= 1500
 
-    args = %W[
-      --enable-extra-encodings
-      --enable-static
-      --docdir=#{doc}
-    ]
-    system "./configure", *args, *std_configure_args
-
     make_args = %W[
       CFLAGS=#{ENV.cflags}
       CC=#{ENV.cc}
@@ -51,6 +46,14 @@ class Libiconv < Formula
       AUTOMAKE=automake
     ]
     system "make", "-f", "Makefile.devel", *make_args
+
+    args = %W[
+      --enable-extra-encodings
+      --enable-static
+      --docdir=#{doc}
+    ]
+    system "./configure", *args, *std_configure_args
+
     system "make", "install"
   end
 
