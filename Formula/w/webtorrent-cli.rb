@@ -23,6 +23,8 @@ class WebtorrentCli < Formula
   # and unable to use newer node-datachannel https://github.com/ThaUnknown/webrtc-polyfill/issues/9
   depends_on "node@20"
 
+  allow_network_access!
+
   def install
     # Install locally as `npx only-allow pnpm` in `ip-set`'s preinstall script fails in global mode
     system "npm", "install", "--omit=dev", *std_npm_args(prefix: false, ignore_scripts: false)
