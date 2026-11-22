@@ -27,6 +27,8 @@ class Flvstreamer < Formula
 
   conflicts_with "rtmpdump", because: "both install 'rtmpsrv', 'rtmpsuck' and 'streams' binary"
 
+  allow_network_access!
+
   def install
     system "make", "posix"
     bin.install "flvstreamer", "rtmpsrv", "rtmpsuck", "streams"
