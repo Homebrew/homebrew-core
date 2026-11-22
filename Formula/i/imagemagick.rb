@@ -73,8 +73,8 @@ class Imagemagick < Formula
       "--without-wmf",
       "--without-jxl",
       "--without-openexr",
+      "--without-x",
     ]
-    args << "--without-x" if OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
