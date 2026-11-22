@@ -69,6 +69,8 @@ class Ekg2 < Formula
   depends_on "openssl@3"
   depends_on "readline"
 
+  allow_network_access!
+
   def install
     # Workaround for Xcode 15
     if DevelopmentTools.clang_build_version >= 1500
