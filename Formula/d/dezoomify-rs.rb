@@ -23,6 +23,9 @@ class DezoomifyRs < Formula
     sha256 cellar: :any,                 x86_64_linux:      "a8944cd48ae08c98eed6b573046448fca162138eb57178726ba6755b844d19c3"
   end
 
+  deprecate! date: "2026-11-22", because: :repo_archived, replacement_formula: "dezoomify-cli"
+  disable! date: "2027-11-22", because: :repo_archived, replacement_formula: "dezoomify-cli"
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "imagemagick" => :test
