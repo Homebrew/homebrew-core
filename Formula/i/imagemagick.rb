@@ -14,11 +14,13 @@ class Imagemagick < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "fdf2c1d90a405eedc93a38d8893a1cbd402a46b47eafe7202f253ae48049cc45"
-    sha256 arm64_tahoe:       "716944af354b61a32211639340a5a0effc449329d0c6ecac804602e9dd49260a"
-    sha256 arm64_sequoia:     "b6b37af7bc80eb1151abf44903daa73fd802dc6d0854aad3e08292b5a64d8c29"
-    sha256 arm64_linux:       "5d72010baea62c1bf3cfa6d1e0432b1f667c2f87bc5f3860a74ea752712af8c6"
-    sha256 x86_64_linux:      "96a90c06c7242644a97c2ee9503e5d975cb3d48c5d7f74a63a29e3d9dd132746"
+    rebuild 1
+    manifest_sha256 "33f24e42df7e1ff1203b96554e365a900a0cc53c7ad623f032f2ca16ac3a8ada"
+    sha256 arm64_golden_gate: "94814227d626f27c5fa015eea537ea0c45cfda4dbc4b4c3ed1c3b96b70354be9"
+    sha256 arm64_tahoe:       "6a87299f0e51ff8e9bf87d9a854aa6e8f657ecb3c550c4f2bd8aa71db4793983"
+    sha256 arm64_sequoia:     "4bcf85a748445bd6f57076833e27e8678f87e1ecbafd9c2465b0bb578098feb8"
+    sha256 arm64_linux:       "15c01468babb7d711236c3677a4d1f3ed2e3fa83881f8ede789fd1045b61fadc"
+    sha256 x86_64_linux:      "aab7be477c51a94971ddc41f7b534f648f5599b2bcf7c4a3a6894aa0c3dae6b7"
   end
 
   depends_on "pkgconf" => :build
@@ -73,8 +75,8 @@ class Imagemagick < Formula
       "--without-wmf",
       "--without-jxl",
       "--without-openexr",
+      "--without-x",
     ]
-    args << "--without-x" if OS.mac?
 
     system "./configure", *args, *std_configure_args
     system "make", "install"
