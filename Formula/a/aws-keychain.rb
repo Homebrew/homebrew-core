@@ -16,6 +16,8 @@ class AwsKeychain < Formula
 
   depends_on :macos
 
+  deny_network_access!
+
   def install
     bin.install "aws-keychain"
   end

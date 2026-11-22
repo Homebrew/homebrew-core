@@ -19,6 +19,8 @@ class Autorest < Formula
     sha256 "e981f21115bc9deba47c74e5c533d92a94cf5dbe880c4304357650083283ce13"
   end
 
+  allow_network_access! :test
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

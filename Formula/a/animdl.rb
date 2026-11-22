@@ -163,6 +163,8 @@ class Animdl < Formula
   # blocks needed to be manually bumped to newer versions.
   patch :DATA
 
+  allow_network_access! [:build, :test]
+
   def install
     virtualenv_install_with_resources
 

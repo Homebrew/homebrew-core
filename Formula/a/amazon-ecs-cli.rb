@@ -28,6 +28,8 @@ class AmazonEcsCli < Formula
 
   depends_on "go" => :build
 
+  deny_network_access!
+
   def install
     ENV["GOPATH"] = buildpath
     ENV["GO111MODULE"] = "auto"
