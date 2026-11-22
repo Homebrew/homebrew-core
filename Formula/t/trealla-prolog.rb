@@ -11,11 +11,12 @@ class TreallaProlog < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "01a6ee4296162fffa4458eba23a0ff3efcd15ee27d5176e7e0cadfac26698860"
-    sha256 arm64_tahoe:       "e722a35b3e0da6b24c1375eb7c209cc8114d3ad0863bcbabd26c3fa3ce053d73"
-    sha256 arm64_sequoia:     "0915027233af0c9bd26df3d7a777f18784cc87d6078bd5a1e936bd96c05e4ef9"
-    sha256 arm64_linux:       "94337b0f9fc785ce320b9bf6075f976f0a274984b4342888aa3fdb08af357f1f"
-    sha256 x86_64_linux:      "4bbdc18e6f39c583d41d2358bda098d7804b8e43f77e1aa9ce93ec97666b416b"
+    manifest_sha256 "41013d778c1f8f3c34cf63cec3faf7ace7704f378606b6ccff605f843cee67f5"
+    sha256 arm64_golden_gate: "1ed97cd5f3b2959e655909121f4e66f7e1afd9db9e4661c34c6e77dc40e33f20"
+    sha256 arm64_tahoe:       "ae7ca2b8e0afd0b0263eff343b64786fe8255fc0278ace71e0028ac07554d8ba"
+    sha256 arm64_sequoia:     "30350761f8fcde4bf4457d2d0be2693029463c4ec296dc526ef6ea5028621eef"
+    sha256 arm64_linux:       "5d26e68c176a4d0813602a1401e37a24ea66c670838bd980953e5f46b83a4663"
+    sha256 x86_64_linux:      "d49ac7ac519272de461de077ec1582b38217d49c1e86a7308a16a16228108155"
   end
 
   depends_on "openssl@4"
