@@ -41,6 +41,8 @@ class PostgresqlAT13 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access!
+
   def install
     ENV.runtime_cpu_detection
     ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("openssl@3")} -L#{formula_opt_lib("readline")}"
