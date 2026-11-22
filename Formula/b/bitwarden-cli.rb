@@ -17,6 +17,8 @@ class BitwardenCli < Formula
 
   depends_on "node"
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args(prefix: false)
     cd buildpath/"apps/cli" do

@@ -24,6 +24,8 @@ class Bit < Formula
 
   conflicts_with "bit-git", because: "both install `bit` binaries"
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
