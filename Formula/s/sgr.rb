@@ -191,6 +191,8 @@ class Sgr < Formula
     resolves "https://github.com/splitgraph/sgr/pull/813"
   end
 
+  allow_network_access!
+
   def install
     # Fix to allow newer `pglast`
     # PR ref: https://github.com/splitgraph/sgr/pull/814
