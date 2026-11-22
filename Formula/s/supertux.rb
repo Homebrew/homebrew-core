@@ -4,8 +4,8 @@ class Supertux < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0.1/SuperTux-v0.7.0.1-Source.tar.gz"
-    sha256 "c3a3813bc57b8267960e4fcc33afe5f5cb468abe2a288fe58da4f288d0d7442c"
+    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0.2/SuperTux-v0.7.0.2-Source.tar.gz"
+    sha256 "e37845e1c3efa5a095f2a1f5efd59f1d447e31ea3db37fc6dcb963ca438fbc87"
 
     depends_on "sdl2-compat"
     depends_on "sdl2_image"
