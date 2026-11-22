@@ -37,6 +37,8 @@ class CdDiscid < Formula
   deprecate! date: "2025-10-16", because: :unmaintained
   disable! date: "2026-10-16", because: :unmaintained
 
+  allow_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}"
     bin.install "cd-discid"
