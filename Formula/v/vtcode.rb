@@ -1,8 +1,8 @@
 class Vtcode < Formula
   desc "CLI Semantic Coding Agent"
   homepage "https://vinhnx.github.io"
-  url "https://static.crates.io/crates/vtcode/vtcode-0.184.0.crate"
-  sha256 "bdd0371f07b03df6ef34def6905e04193b2d2c641e9ab2b8394df7376b660477"
+  url "https://static.crates.io/crates/vtcode/vtcode-0.185.0.crate"
+  sha256 "615703b5e7b8064f686703481382b2ac7484754d76310db075f97ca48b4b0e06"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/vinhnx/vtcode.git", branch: "main"
 
@@ -11,11 +11,12 @@ class Vtcode < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08d04baab1bbef20d890c9446d87068a66076f5ef0f3c94d6f6282cf525a0afd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e2f3317a2f65da4edc78c7e3c608681f0f51377e7f6a720b2c92a648f7575e8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "819e93c55dbf289dfd0e5a8d878a41858f589faa84fd3f501f7dd7db6c95b6d3"
-    sha256 cellar: :any,                 arm64_linux:       "ae9ba5c66c5ca252f29a99555020d43bd8b9fcafb19afe980aab11582208e592"
-    sha256 cellar: :any,                 x86_64_linux:      "8607ca3812217b088add97464ecb170cee164b423b97c6dccf9e094febc78342"
+    manifest_sha256 "eb844a57e73af75c5b6190f9d821a1e8859f63320156391cc97078813a97ff31"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc9404bbd13abcbe57b68f87be82265c98a69f829088239fc13c743856fef356"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2a08af88155466f8a8e7397056760163781683e21510c7a9001636a073fa968"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c44e7d4a885a6542f729b69b36ed22c9e03ca5e83ace53c32984a5398a0f565b"
+    sha256 cellar: :any,                 arm64_linux:       "c420f853c51d519576c49c2dd8616c0fa93b0e6760fedcf94e8173b0851fb0ce"
+    sha256 cellar: :any,                 x86_64_linux:      "31548d5aeb943a9e2d20cb3f3328a38fb21705c4628071f2b6681473c54e435a"
   end
 
   depends_on "pkgconf" => :build
