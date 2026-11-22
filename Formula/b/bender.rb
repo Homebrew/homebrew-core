@@ -1,10 +1,20 @@
 class Bender < Formula
   desc "Dependency management tool for hardware projects"
   homepage "https://github.com/pulp-platform/bender"
-  url "https://github.com/pulp-platform/bender/archive/refs/tags/v0.32.1.tar.gz"
-  sha256 "0541a4b536588b05601e02b28e35a7506e04fa877dccd15d7d5d477b0f95ff3f"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/pulp-platform/bender.git", branch: "master"
+
+  stable do
+    url "https://github.com/pulp-platform/bender/archive/refs/tags/v0.32.1.tar.gz"
+    sha256 "0541a4b536588b05601e02b28e35a7506e04fa877dccd15d7d5d477b0f95ff3f"
+
+    # Backport support for prefetching slang
+    patch do
+      url "https://github.com/pulp-platform/bender/commit/cd6f11a9826529d4e1968203e9914a62a5c7fce7.patch?full_index=1"
+      sha256 "f2c57348acfea4e086d66c4049a428a1b2f4384a853436b56beba784ca26a435"
+      type :backport
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84d0393345e63606f22bb8c38a7742464449d258606adbd4f65049f64c73bc13"
@@ -28,7 +38,51 @@ class Bender < Formula
     cause "`bender-slang` crate requires C++20"
   end
 
+  # Cannot use svlang/etc. formulae because the ABI of svlang and C++ bridge must match,
+  # which is only guaranteed if both are built using the same build defines and flags.
+  # See https://github.com/pulp-platform/bender/commit/4fa9b3a97f6f41e3fef4d26444038e8f3b4c76d1
+  resource "slang" do
+    url "https://github.com/MikePopoloski/slang/archive/refs/tags/v11.0.tar.gz"
+    sha256 "50676d5a9adbefb97d266a4b174e6b0513901afd5ac57a6cdfea0a61149c3704"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/pulp-platform/bender/refs/tags/v#{LATEST_VERSION}/crates/bender-slang/CMakeLists.txt"
+      regex(/GIT_TAG\s+v?(\d+(?:\.\d+)+)/i)
+    end
+  end
+
+  resource "fmt" do
+    url "https://github.com/fmtlib/fmt/releases/download/12.1.0/fmt-12.1.0.zip"
+    sha256 "695fd197fa5aff8fc67b5f2bbc110490a875cdf7a41686ac8512fb480fa8ada7"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/pulp-platform/bender/refs/tags/v#{LATEST_VERSION}/flake.nix"
+      regex(/repo = "fmt";\s*tag = "v?(\d+(?:\.\d+)+)";/i)
+    end
+  end
+
+  resource "mimalloc" do
+    url "https://github.com/microsoft/mimalloc/releases/download/v3.3.2/mimalloc-v3.3.2-source.tar.gz"
+    sha256 "7ced84a659a95454ce08b725af56331164e6b8673310e5a9a5c612576145456f"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/pulp-platform/bender/refs/tags/v#{LATEST_VERSION}/flake.nix"
+      regex(/repo = "mimalloc";\s*tag = "v?(\d+(?:\.\d+)+)";/i)
+    end
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
+    resources.each do |r|
+      r.stage("vendor/#{r.name}")
+      ENV["#{r.name.upcase}_SRC_DIR"] = buildpath/"vendor"/r.name
+    end
+
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"bender", "completion", shells: [:bash, :zsh, :fish, :pwsh])
