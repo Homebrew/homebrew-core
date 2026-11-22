@@ -26,6 +26,8 @@ class GrafanaAgent < Formula
     depends_on "systemd" => :build
   end
 
+  allow_network_access!
+
   def install
     ldflags = %W[
       -X github.com/grafana/agent/internal/build.Branch=HEAD
