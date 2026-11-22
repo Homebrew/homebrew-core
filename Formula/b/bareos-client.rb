@@ -23,6 +23,7 @@ class BareosClient < Formula
   depends_on "cmake" => :build
   depends_on "cpp-gsl" => :build
   depends_on "fmt" => :build
+  depends_on "tl-expected" => :build
   depends_on "utf8cpp" => :build
   depends_on "jansson"
   depends_on "lzo"
@@ -40,6 +41,8 @@ class BareosClient < Formula
   end
 
   conflicts_with "bacula-fd", because: "both install a `bconsole` executable"
+
+  deny_network_access!
 
   def install
     # Work around Linux build failure by disabling warnings:
@@ -64,6 +67,7 @@ class BareosClient < Formula
               "  NAME Microsoft.GSL\n  VERSION \"5.0.0\""
 
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args,
+                    "-DCPM_LOCAL_PACKAGES_ONLY=ON",
                     "-DENABLE_PYTHON=OFF",
                     "-Dworkingdir=#{var}/lib/bareos",
                     "-Darchivedir=#{var}/bareos",
