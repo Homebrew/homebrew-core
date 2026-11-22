@@ -3,8 +3,8 @@ class Tmt < Formula
 
   desc "Test Management Tool"
   homepage "https://tmt.readthedocs.io"
-  url "https://files.pythonhosted.org/packages/5b/d7/03b86441447940b86f59c814d9bdc7f21ab5d8ed010ec220700b2cd9f497/tmt-1.80.0.tar.gz"
-  sha256 "92decab8ae98c740b37b04cce13234dd4938b0692ee492ff6c22bf7137b96f59"
+  url "https://files.pythonhosted.org/packages/a6/c8/997f3ae3c18701ca67a826e11ae9ec05766bd5ec7a8759d521fda923052a/tmt-1.81.0.tar.gz"
+  sha256 "9075340d1f80e4416efc23f96c1ad50b57a4f1cf72aa3647a29804bcee1d539a"
   license "MIT"
 
   bottle do
@@ -34,8 +34,8 @@ class Tmt < Formula
   end
 
   resource "click" do
-    url "https://files.pythonhosted.org/packages/c7/0e/7fa0ef50764b67090eca4114772a2abf8b6148198475e54c660b97caeee6/click-8.5.0.tar.gz"
-    sha256 "ba0d2089de75ea0310e2dde03160e6ca10009947fb95a182f9b54021bb272e34"
+    url "https://files.pythonhosted.org/packages/45/37/edbf1b0707709013c0cf2e8317e03d97ed29bf4cac709fe328904ae92a38/click-8.5.1.tar.gz"
+    sha256 "9bbfada76703fd1d784b83eea012e3e8c6a001a876543ef104fa56aaaeb072b4"
   end
 
   resource "docutils" do
@@ -44,8 +44,8 @@ class Tmt < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/d8/28/3893324bcadf8f89b1616637468d766af3f625008c0735bf704fdfa86617/filelock-4.2.4.tar.gz"
-    sha256 "c6d8663535e1650ee430507b4ffbac7b464dd64b7647ea0112a9f406499d163d"
+    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
+    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
   end
 
   resource "flexcache" do
@@ -99,8 +99,8 @@ class Tmt < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/58/e6/d0abbb256b44e6a05748c6942511ff67db8dbb068de0c35b24bf1b395b09/platformdirs-4.13.5.tar.gz"
-    sha256 "05831adf87d392760f4b5c3a0a95579ab5a10b18b9b9bd43680dcb47544788a0"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "pygments" do
