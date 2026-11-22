@@ -1,8 +1,8 @@
 class Redis < Formula
   desc "Persistent key-value database, with built-in net interface"
   homepage "https://redis.io/"
-  url "https://download.redis.io/releases/redis-8.10.3.tar.gz"
-  sha256 "edde778f6bdee7581e42fc139ca9e07e2822212092f7501f99989656e3629d02"
+  url "https://download.redis.io/releases/redis-8.12.0.tar.gz"
+  sha256 "b0100a879b2d45dc97d8fda941127609d648f8913008db1b65a2f72a8ae36c8b"
   license all_of: [
     "AGPL-3.0-only", # modules: VectorSimilarity, LibMR
     "Apache-2.0", # modules: ScalableVectorSearch, cpu_features, friso, cndict
@@ -50,11 +50,6 @@ class Redis < Formula
   def install
     # VectorSimilarity selects its SIMD kernels at runtime via cpu_features.
     ENV.runtime_cpu_detection
-    # FIXME: redisbloom's vendored readies has no `OSX_MIN_SDK_VER` past tahoe, leaving `-mmacosx-version-min=` empty
-    ENV["OSX_MIN_SDK_VER"] = MacOS.version.to_s if OS.mac?
-    # RediSearch looks for Homebrew's `openssl@3` before anything else on macOS
-    inreplace "modules/redisearch/src/CMakeLists.txt",
-              "/opt/homebrew/opt/openssl@3", formula_opt_prefix("openssl@4")
     system "gmake", "deploy", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes",
            "BUILD_COMPRESSION=yes", "REDISEARCH_GENERATE_HEADERS=0", "IGNORE_MISSING_DEPS=1", "LTO=0"
 
