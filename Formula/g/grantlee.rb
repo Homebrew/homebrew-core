@@ -37,6 +37,8 @@ class Grantlee < Formula
     resolves "https://github.com/steveire/grantlee/pull/88"
   end
 
+  allow_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DGRANTLEE_BUILD_WITH_QT6=TRUE", *std_cmake_args
     system "cmake", "--build", "build"
