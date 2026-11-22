@@ -3,17 +3,18 @@ class Virtualenv < Formula
 
   desc "Tool for creating isolated virtual python environments"
   homepage "https://virtualenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/ae/66/8dd793701fa14a32086a7b7c3acaa7c22d8de6a7359b34eb7467d2d00c51/virtualenv-21.15.9.tar.gz"
-  sha256 "adc6799981f513ce852aea17ea592e0d342ce48e87f5d17a3d997966df582a67"
+  url "https://files.pythonhosted.org/packages/b7/db/4281879de138c880ac9f4c697f633e05f2703912f0fd0add006474db7f27/virtualenv-21.15.11.tar.gz"
+  sha256 "6ad11e129f546835ae81d47a27f48ed32dcc4e2a0776014a159bab8895cdb9ac"
   license "MIT"
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8db480d2544e7275adfc01e0f5492ae15aa87e9955d6287c1b6c25fc6b345acb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8db480d2544e7275adfc01e0f5492ae15aa87e9955d6287c1b6c25fc6b345acb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8db480d2544e7275adfc01e0f5492ae15aa87e9955d6287c1b6c25fc6b345acb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d7d6e869458032e69ed079777588ca9c938e637081b146eae1e3a5cf0b42c51e"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d7d6e869458032e69ed079777588ca9c938e637081b146eae1e3a5cf0b42c51e"
+    manifest_sha256 "854ff73d8a0cb195c4352ff8c5715124cdfd30ab508ae77c6c380b69e0d805fc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ef7cdaf8e37002eaa41349bdddd183021baf73e26cef74ba13c19206789f12b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ef7cdaf8e37002eaa41349bdddd183021baf73e26cef74ba13c19206789f12b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ef7cdaf8e37002eaa41349bdddd183021baf73e26cef74ba13c19206789f12b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0f9f4999b7f979c88a99e17214226ce0f862ab5c9be6d1439634b07f4219dc23"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0f9f4999b7f979c88a99e17214226ce0f862ab5c9be6d1439634b07f4219dc23"
   end
 
   depends_on "python@3.15"
@@ -34,8 +35,8 @@ class Virtualenv < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/a6/2c/ec57eede0db493e61443c76ac7b4d24e94a24050afb3d598bf3678487f75/platformdirs-4.14.7.tar.gz"
-    sha256 "5472257c1cf97a14658af52997011c7e59e4aebf3a24950b973c11b579e1b074"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "python-discovery" do
