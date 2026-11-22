@@ -1,17 +1,23 @@
 class Blocky < Formula
   desc "Fast and lightweight DNS proxy as ad-blocker for local network"
   homepage "https://0xerr0r.github.io/blocky/"
-  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.36.0.tar.gz"
-  sha256 "98b613b88c2b960b091ebfa7c3622a325e47528da6c636d313efdf183a8bd254"
+  url "https://github.com/0xerr0r/blocky/archive/refs/tags/v0.37.0.tar.gz"
+  sha256 "1bdd2269625880233a554f4043aba6640c48683662aab62ab58d3e2ad4483eb6"
   license "Apache-2.0"
   head "https://github.com/0xerr0r/blocky.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2de8b86d3ac459133f8cc0384461344a5727af8df27cdd69a7e4c67b4d333f4e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd83c657a779ce76e1e99f2c7bb93b19d82bef39f35f5c17b6e72ade22c2c1ee"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c07729963d3d08bd366e70ac6be6296cb43ee59e2c8d38c43f9ee4ef7baa605"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ba43e9d01a3fc29fe0c31d8e8932f0bd5022e6fe38f127aff39fcc76d0ad7483"
-    sha256 cellar: :any,                 x86_64_linux:      "1639dff4b50901de5fdc8c7f5e3832a4f5a4b6a86bf0988a101bcbe8f4867d02"
+    manifest_sha256 "5b8e0f308ca53c3e273be2bca731f9074c4d51e5464c5bda701fa044432c57f2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3443f24e4b344f8c9b5bee340d65a96b262e5d36aaef75f4a05dd043ca4eae5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e44d1f39d7da635296aaba45093d4eb1cf2aab5298ffe25d0f4dbb315b63302f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "863cf0cbc155d7bfc5bd46de2429462556429b70b99c946ece7ba286c5cfcac1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4a2d455f278af8d3dc39cbb498183e6950ba404d7fafa73902adc661021e6ed9"
+    sha256 cellar: :any,                 x86_64_linux:      "420672079fbfa9563f0b57231a260c6d62d9a61f0f76d0ed719afac96bdb89df"
   end
 
   depends_on "go" => :build
