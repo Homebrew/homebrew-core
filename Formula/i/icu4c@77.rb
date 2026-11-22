@@ -22,6 +22,8 @@ class Icu4cAT77 < Formula
   # Disable date set 1 year after ICU 78.1 release
   disable! date: "2026-10-30", because: :versioned_formula
 
+  allow_network_access!
+
   def install
     args = %w[
       --disable-samples
