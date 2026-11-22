@@ -17,6 +17,12 @@ class Bluetoothconnector < Formula
 
   uses_from_macos "swift" => :build, since: :ventura # swift 5.9+
 
+  deny_network_access!
+
+  def fetch
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
     system "swift", "build", *std_swift_args
     bin.install ".build/release/BluetoothConnector"
