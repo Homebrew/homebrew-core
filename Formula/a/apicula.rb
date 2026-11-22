@@ -6,15 +6,17 @@ class Apicula < Formula
   url "https://files.pythonhosted.org/packages/46/a8/c47790d71916fbf560dbf54c2df1f6acd8e992511e6c872cfbed171b7c91/apycula-0.35.tar.gz"
   sha256 "1fd15bdcf512eb8eedda48f11dc81fc35236a7ae904b1a887fd6ea44120f37c6"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/YosysHQ/apicula.git", branch: "master"
 
   bottle do
-    manifest_sha256 "0243d1187b213ad6d406052f6ce9497ed689699299e3bfd7ce879d7eb8073658"
-    sha256 cellar: :any, arm64_golden_gate: "bbf2b4721f0f144186651217ba2835b37f511fe04dd52acca03adb621953a6d6"
-    sha256 cellar: :any, arm64_tahoe:       "3f1081a68e8e31079f6339920fa398fd41f7402cbc9cc406da6679f5cdf210c7"
-    sha256 cellar: :any, arm64_sequoia:     "17b13c6123bb6073c8752974e6800ffc8e1a47db79459e538b769112f266c483"
-    sha256 cellar: :any, arm64_linux:       "ca9a61c62e7112524391528e5d62615388151d150f80ee0280120a6b29c129b0"
-    sha256 cellar: :any, x86_64_linux:      "012c79330ff8dc68a01bd17b6103befff0202176faf281367cd07db699442996"
+    rebuild 1
+    manifest_sha256 "b783f701288b623569325fd398e29427b383ebc67f84c79704540afc4337d4a1"
+    sha256 cellar: :any, arm64_golden_gate: "5d31d9502866027d8d84f9002df879597c0720f86f17c8ce59552dd789f7ad00"
+    sha256 cellar: :any, arm64_tahoe:       "e8a643c8050bae955bb820807e1f0d19e362e4a1cfa6806c5e340e9cdb697b1c"
+    sha256 cellar: :any, arm64_sequoia:     "647263dffbd9cf98afbea50514326147da2ff4b32a3961a70870e20aea388dd9"
+    sha256 cellar: :any, arm64_linux:       "7be9ce332ae5cc6a0356cea3fae2cdb7a13ebe5ddc0217f72413a3abf95a1b7d"
+    sha256 cellar: :any, x86_64_linux:      "75cc9f6f36ee0e6a0e2900cc1503ee9fe8b6571faf2606d9887006a77414104c"
   end
 
   depends_on "rust" => :build
