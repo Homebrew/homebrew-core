@@ -8,8 +8,9 @@ class Gita < Formula
   license "MIT"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, all: "102397c04a33d6be5eef971912c39d159e41fcbda6fabc8dd73e4b597b5b31b0"
+    rebuild 3
+    manifest_sha256 "bc5b7eb0e60d252c4fe5980967f4d602ce987d349e3848db66e54f1d509c23ce"
+    sha256 cellar: :any_skip_relocation, all: "943024f299f7c09bca152aa9daa9070bc47264f23d710ed30fcf159d86e580d2"
   end
 
   depends_on "python@3.15"
