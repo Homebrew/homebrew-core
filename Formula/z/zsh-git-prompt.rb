@@ -10,9 +10,15 @@ class ZshGitPrompt < Formula
   end
 
   deprecate! date: "2026-10-01", because: :unmaintained
-  disable! date: "2027-10-01", because: :unmaintained
+  disable! date: "2027-04-01", because: :unmaintained
+
+  uses_from_macos "python"
+  uses_from_macos "zsh"
+
+  deny_network_access!
 
   def install
+    inreplace "zshrc.sh", "`python ", "`python3 "
     prefix.install Dir["*.{sh,py}"]
   end
 
@@ -24,7 +30,7 @@ class ZshGitPrompt < Formula
   end
 
   test do
-    system "git", "init"
+    system "git", "init", "--initial-branch", "master"
     zsh_command = ". #{opt_prefix}/zshrc.sh && git_super_status"
     assert_match "master", shell_output("zsh -c '#{zsh_command}'")
   end
