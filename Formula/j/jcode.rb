@@ -1,8 +1,8 @@
 class Jcode < Formula
   desc "AI coding agent harness for the terminal"
   homepage "https://jcode.sh"
-  url "https://github.com/1jehuang/jcode/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "03f078f1f97468badac9c1672df19651b6f460bc93ddd9f49579b3a83f0a1a64"
+  url "https://github.com/1jehuang/jcode/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "2a787f8828e24fe3fef455ba924c3a64ea38bc6ffc683d647e3b238269ddfba1"
   license "MIT"
 
   livecheck do
@@ -34,6 +34,9 @@ class Jcode < Formula
   end
 
   def install
+    # Version comes from `Cargo.toml`, which is not bumped for every release tag
+    ENV["JCODE_BUILD_SEMVER"] = version.to_s
+
     # Disable background auto-update by default
     inreplace "src/cli/args.rs",
               '#[arg(long, global = true, default_value = "true")]',
@@ -41,7 +44,7 @@ class Jcode < Formula
 
     # Redirect `jcode update` to Homebrew
     inreplace "src/cli/dispatch.rs",
-              "hot_exec::run_update(channel.as_deref())?;",
+              "hot_exec::run_update(resolved_channel, set_channel_only)?;",
               'eprintln!("Please update jcode using: brew upgrade jcode");'
 
     system "cargo", "install", *std_cargo_args
