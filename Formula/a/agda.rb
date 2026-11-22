@@ -121,29 +121,14 @@ class Agda < Formula
     depends_on "zlib-ng-compat"
   end
 
-  def install
+  deny_network_access!
+
+  def fetch
     agda2hs_build = buildpath/"agda2hs"
     als = buildpath/"agda-language-server"
-    # use pkgshare for write permissions needed to re-generate .agdai when using different options
-    agdaprim = pkgshare/"prim"
-    stdlib = pkgshare/"stdlib"
-    classeslib = pkgshare/"stdlib-classes"
-    metalib = pkgshare/"stdlib-meta"
-    cubicallib = pkgshare/"cubical"
-    categorieslib = pkgshare/"categories"
-    agda2hs_lib = pkgshare/"agda2hs"
 
     resource("agda2hs").stage agda2hs_build
     resource("agda-language-server").stage als
-    resource("stdlib").stage stdlib
-    resource("stdlib-classes").stage classeslib
-    resource("stdlib-meta").stage metalib
-    resource("cubical").stage cubicallib
-    resource("categories").stage categorieslib
-
-    # Set up the primitive library and data file directory ahead of time
-    mkdir_p agdaprim
-    ENV["Agda_datadir"] = agdaprim.to_s
 
     # Make the language server build tolerate point releases
     inreplace als/"package.yaml", "Agda == 2.8.0", "Agda >= 2.8.0 && < 2.9.0"
@@ -170,6 +155,33 @@ class Agda < Formula
         flags: +Agda-2-8-0
     HASKELL
 
+    system "cabal", "v2-update"
+    system "cabal", "fetch", "ieee754"
+    system "cabal", "v2-install", ".", agda2hs_build, als, "--only-download", *std_cabal_v2_args
+  end
+
+  def install
+    agda2hs_build = buildpath/"agda2hs"
+    als = buildpath/"agda-language-server"
+    # use pkgshare for write permissions needed to re-generate .agdai when using different options
+    agdaprim = pkgshare/"prim"
+    stdlib = pkgshare/"stdlib"
+    classeslib = pkgshare/"stdlib-classes"
+    metalib = pkgshare/"stdlib-meta"
+    cubicallib = pkgshare/"cubical"
+    categorieslib = pkgshare/"categories"
+    agda2hs_lib = pkgshare/"agda2hs"
+
+    resource("stdlib").stage stdlib
+    resource("stdlib-classes").stage classeslib
+    resource("stdlib-meta").stage metalib
+    resource("cubical").stage cubicallib
+    resource("categories").stage categorieslib
+
+    # Set up the primitive library and data file directory ahead of time
+    mkdir_p agdaprim
+    ENV["Agda_datadir"] = agdaprim.to_s
+
     cabal_args = std_cabal_v2_args.map { |s| s.sub "=copy", "=symlink" }
     # Reduce install size by dynamically linking to shared libraries in store-dir
     # TODO: Linux support, related issue https://github.com/haskell/cabal/issues/9784
@@ -178,7 +190,6 @@ class Agda < Formula
     # Expose certain packages for building and testing
     exposed_packages = %w[base ieee754 text directory containers]
 
-    system "cabal", "v2-update"
     system "cabal", "--store-dir=#{libexec}", "v2-install", *exposed_packages, "--lib", *cabal_args
     system "cabal", "--store-dir=#{libexec}", "v2-install", ".", agda2hs_build, als, *cabal_args
 
