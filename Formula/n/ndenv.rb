@@ -26,6 +26,8 @@ class Ndenv < Formula
 
   depends_on "node-build"
 
+  allow_network_access!
+
   def install
     inreplace "libexec/ndenv" do |s|
       if HOMEBREW_PREFIX.to_s != "/usr/local"
