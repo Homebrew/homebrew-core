@@ -65,6 +65,8 @@ class Nu < Formula
     resolves "https://github.com/programming-nu/nu/pull/103"
   end
 
+  allow_network_access!
+
   def install
     ENV["PREFIX"] = prefix
     # Don't hard code path to clang.
