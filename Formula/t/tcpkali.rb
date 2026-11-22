@@ -26,6 +26,8 @@ class Tcpkali < Formula
   uses_from_macos "bison" => :build
   uses_from_macos "ncurses"
 
+  allow_network_access!
+
   def install
     args = []
     if OS.linux?

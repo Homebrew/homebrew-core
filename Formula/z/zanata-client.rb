@@ -28,6 +28,8 @@ class ZanataClient < Formula
     depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   end
 
+  allow_network_access!
+
   def install
     libexec.install Dir["*"]
     (bin/"zanata-cli").write_env_script libexec/"bin/zanata-cli", Language::Java.java_home_env("1.8")

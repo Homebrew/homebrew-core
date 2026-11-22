@@ -40,6 +40,8 @@ class HasteClient < Formula
     sha256 "3dcdd74a767302559fcf91a63b568ee00770494ce24195167b1c147ab3f6fe51"
   end
 
+  allow_network_access!
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|

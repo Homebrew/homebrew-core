@@ -29,6 +29,8 @@ class Dumb < Formula
   depends_on "argtable"
   depends_on "sdl2-compat"
 
+  allow_network_access!
+
   def install
     args = std_cmake_args + %w[
       -DBUILD_ALLEGRO4=OFF

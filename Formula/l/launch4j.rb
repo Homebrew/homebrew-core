@@ -33,6 +33,8 @@ class Launch4j < Formula
   depends_on :macos
   depends_on "openjdk"
 
+  allow_network_access!
+
   def install
     system "ant", "compile"
     system "ant", "jar"

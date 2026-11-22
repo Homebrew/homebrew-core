@@ -26,6 +26,8 @@ class SolrAT811 < Formula
 
   depends_on "openjdk"
 
+  allow_network_access!
+
   def install
     pkgshare.install "bin/solr.in.sh"
     (var/"lib/solr").install "server/solr/README.txt", "server/solr/solr.xml", "server/solr/zoo.cfg"

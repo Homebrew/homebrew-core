@@ -32,6 +32,8 @@ class Inadyn < Formula
   depends_on "confuse"
   depends_on "openssl@4"
 
+  allow_network_access!
+
   def install
     mkdir_p buildpath/"inadyn/m4"
 

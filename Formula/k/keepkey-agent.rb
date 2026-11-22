@@ -141,6 +141,8 @@ class KeepkeyAgent < Formula
     sha256 "e3e79874b07d776c40bd6033f8ddf76a7dad46a7b8aa1b2787a83083519a1803"
   end
 
+  allow_network_access!
+
   def install
     virtualenv_install_with_resources
   end

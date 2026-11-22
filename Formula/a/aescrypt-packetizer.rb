@@ -27,6 +27,8 @@ class AescryptPacketizer < Formula
   deprecate! date: "2025-03-17", because: "switched to a commercial license in v4"
   disable! date: "2026-03-17", because: "switched to a commercial license in v4"
 
+  allow_network_access!
+
   def install
     if build.head?
       cd "Linux"

@@ -25,6 +25,8 @@ class MicroInetd < Formula
   deprecate! date: "2025-03-18", because: :unmaintained
   disable! date: "2026-03-18", because: :unmaintained
 
+  allow_network_access!
+
   def install
     bin.mkpath
     man1.mkpath

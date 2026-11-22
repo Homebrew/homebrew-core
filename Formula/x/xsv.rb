@@ -27,6 +27,8 @@ class Xsv < Formula
 
   depends_on "rust" => :build
 
+  allow_network_access!
+
   def install
     system "cargo", "install", *std_cargo_args
   end

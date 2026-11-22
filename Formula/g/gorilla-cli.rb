@@ -82,6 +82,8 @@ class GorillaCli < Formula
     sha256 "4d478375d31bc5395a3c55c40ccdf3354688364cd61c4f6adacaa9215d0b3605"
   end
 
+  allow_network_access!
+
   def install
     virtualenv_install_with_resources
   end

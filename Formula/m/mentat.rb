@@ -286,6 +286,8 @@ class Mentat < Formula
     sha256 "b86885dcf294e15204919950f666e06ffc6c7c114ca900b060d6e16293528294"
   end
 
+  allow_network_access!
+
   def install
     # Fix removed importlib.abc classes
     inreplace "mentat/utils.py", "from importlib.abc import Traversable",

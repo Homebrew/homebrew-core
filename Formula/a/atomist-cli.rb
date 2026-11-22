@@ -29,6 +29,8 @@ class AtomistCli < Formula
     depends_on "macos-term-size"
   end
 
+  allow_network_access!
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

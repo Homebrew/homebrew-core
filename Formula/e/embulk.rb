@@ -33,6 +33,8 @@ class Embulk < Formula
     sha256 "ce537f21a2cfc34cf91fc834d8d1c663c6f3b5bca57cacd45fd4c47ede71c303"
   end
 
+  allow_network_access!
+
   def install
     libexec.install "embulk-#{version}.jar"
     bin.write_jar_script libexec/"embulk-#{version}.jar", "embulk", java_version: "21"

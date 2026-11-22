@@ -22,6 +22,8 @@ class Jsontoolkit < Formula
 
   depends_on "cmake" => :build
 
+  allow_network_access!
+
   def install
     args = %W[
       -DCMAKE_COMPILE_WARNING_AS_ERROR=OFF

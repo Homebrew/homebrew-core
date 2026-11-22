@@ -31,6 +31,8 @@ class Espeak < Formula
 
   conflicts_with "espeak-ng", because: "both install `espeak` binaries"
 
+  allow_network_access!
+
   def install
     share.install "espeak-data"
     doc.install Dir["docs/*"]

@@ -49,6 +49,8 @@ class LibsoupAT2 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access!
+
   def install
     system "meson", "setup", "build", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"

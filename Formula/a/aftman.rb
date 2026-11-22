@@ -28,6 +28,8 @@ class Aftman < Formula
 
   uses_from_macos "bzip2"
 
+  allow_network_access!
+
   def install
     system "cargo", "install", *std_cargo_args
   end

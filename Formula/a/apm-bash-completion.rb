@@ -13,6 +13,8 @@ class ApmBashCompletion < Formula
   deprecate! date: "2025-04-27", because: :repo_archived
   disable! date: "2026-04-27", because: :repo_archived
 
+  allow_network_access!
+
   def install
     bash_completion.install "apm"
   end

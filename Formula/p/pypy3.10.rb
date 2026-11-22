@@ -46,6 +46,8 @@ class Pypy310 < Formula
     stable.url[/pypy(\d+\.\d+)/, 1]
   end
 
+  allow_network_access!
+
   def install
     # Avoid statically linking to libffi
     inreplace "rpython/rlib/clibffi.py", '"libffi.a"', "\"#{shared_library("libffi")}\""

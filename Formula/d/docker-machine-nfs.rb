@@ -13,6 +13,8 @@ class DockerMachineNfs < Formula
   deprecate! date: "2025-04-27", because: :repo_archived
   disable! date: "2026-04-27", because: :repo_archived
 
+  allow_network_access!
+
   def install
     inreplace "docker-machine-nfs.sh", "/usr/local", HOMEBREW_PREFIX
     bin.install "docker-machine-nfs.sh" => "docker-machine-nfs"

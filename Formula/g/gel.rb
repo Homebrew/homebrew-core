@@ -20,6 +20,8 @@ class Gel < Formula
 
   uses_from_macos "ruby"
 
+  allow_network_access!
+
   def install
     system "rake", "man"
     bin.install "exe/gel"

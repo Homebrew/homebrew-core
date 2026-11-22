@@ -27,6 +27,8 @@ class Nuxeo < Formula
   depends_on "openjdk"
   depends_on "poppler"
 
+  allow_network_access!
+
   def install
     libexec.install Dir["#{buildpath}/*"]
 

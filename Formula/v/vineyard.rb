@@ -56,6 +56,8 @@ class Vineyard < Formula
     resolves "https://github.com/v6d-io/v6d/pull/2066"
   end
 
+  allow_network_access!
+
   def install
     # Workaround for older libstdc++
     ENV.append "CXXFLAGS", "-include memory_resource" if OS.linux?

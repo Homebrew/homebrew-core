@@ -44,6 +44,8 @@ class ProtobufAT21 < Formula
         .map { |f| f.opt_libexec/"bin/python" }
   end
 
+  allow_network_access!
+
   def install
     cmake_args = %w[
       -Dprotobuf_BUILD_LIBPROTOC=ON

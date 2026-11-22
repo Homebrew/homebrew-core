@@ -29,6 +29,8 @@ class FdkAac < Formula
   deprecate! date: "2026-09-13", because: "does not meet the license policy"
   disable! date: "2026-09-13", because: "does not meet the license policy"
 
+  allow_network_access!
+
   def install
     system "./autogen.sh" if build.head?
     system "./configure", "--disable-dependency-tracking",

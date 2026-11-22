@@ -144,6 +144,8 @@ class ConanAT1 < Formula
     resolves "https://github.com/conan-io/conan/pull/18445"
   end
 
+  allow_network_access!
+
   def install
     virtualenv_install_with_resources
   end

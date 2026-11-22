@@ -42,6 +42,8 @@ class NodeAT20 < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access!
+
   def install
     # The new linker crashed during LTO due to high memory usage.
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500

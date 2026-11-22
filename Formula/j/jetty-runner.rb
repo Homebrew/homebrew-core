@@ -20,6 +20,8 @@ class JettyRunner < Formula
 
   depends_on "openjdk"
 
+  allow_network_access!
+
   def install
     libexec.install Dir["*"]
     bin.write_jar_script libexec/"jetty-runner-#{version}.jar", "jetty-runner"

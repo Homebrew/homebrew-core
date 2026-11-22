@@ -29,6 +29,8 @@ class Libgit2AT17 < Formula
   depends_on "libssh2"
   depends_on "openssl@3"
 
+  allow_network_access!
+
   def install
     args = %w[-DBUILD_EXAMPLES=OFF -DBUILD_TESTS=OFF -DUSE_SSH=ON]
 

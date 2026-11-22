@@ -29,6 +29,8 @@ class Mmsrip < Formula
   deprecate! date: "2025-03-17", because: :unmaintained
   disable! date: "2026-03-17", because: :unmaintained
 
+  allow_network_access!
+
   def install
     system "./configure", "--disable-debug", "--disable-dependency-tracking",
                           "--prefix=#{prefix}", "--mandir=#{man}"

@@ -28,6 +28,8 @@ class Aws2Wrap < Formula
     sha256 "655708b3c069387c8b77b072fc429a57d0e214221d01c0a772df7dfedcb3bcd2"
   end
 
+  allow_network_access!
+
   def install
     virtualenv_install_with_resources
   end

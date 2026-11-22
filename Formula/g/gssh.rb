@@ -23,6 +23,8 @@ class Gssh < Formula
   depends_on "gradle@8" => :build
   depends_on "openjdk@21"
 
+  allow_network_access!
+
   def install
     ENV["CIRCLE_TAG"] = version
     ENV["GROOVY_SSH_VERSION"] = version

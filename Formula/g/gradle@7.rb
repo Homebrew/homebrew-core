@@ -19,6 +19,8 @@ class GradleAT7 < Formula
   # TODO: Check if support for running on Java 20 is backported to Gradle 7.x.
   depends_on "openjdk@17"
 
+  allow_network_access!
+
   def install
     rm(Dir["bin/*.bat"])
     libexec.install %w[bin docs lib src]

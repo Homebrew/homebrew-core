@@ -16,6 +16,8 @@ class PythonArgcomplete < Formula
 
   depends_on "python@3.14"
 
+  allow_network_access!
+
   def install
     venv = virtualenv_install_with_resources
 

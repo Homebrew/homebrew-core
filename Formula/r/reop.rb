@@ -26,6 +26,8 @@ class Reop < Formula
 
   depends_on "libsodium"
 
+  allow_network_access!
+
   def install
     # Temporary Homebrew-specific work around for linker flag ordering problem in Ubuntu 16.04.
     # Remove after migration to 18.04.

@@ -16,6 +16,8 @@ class Kettle < Formula
 
   depends_on "openjdk"
 
+  allow_network_access!
+
   def install
     rm_r(Dir["*.{bat}"])
     libexec.install Dir["*"]

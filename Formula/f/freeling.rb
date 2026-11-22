@@ -24,6 +24,8 @@ class Freeling < Formula
   conflicts_with "hunspell", because: "both install 'analyze' binary"
   conflicts_with "crfsuite", because: "both install `crfsuite` binaries"
 
+  allow_network_access!
+
   def install
     # Unbundle `dynet` and its dependency `eigen`
     rm_r(["src/eigen3", "src/libdynet"])

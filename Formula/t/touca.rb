@@ -51,6 +51,8 @@ class Touca < Formula
     sha256 "40c2dc0c681e47eb8f90e7e27bf6ff7df2e677421fd46756da1161c39ca70d32"
   end
 
+  allow_network_access!
+
   def install
     # Allow latest `certifi`: https://github.com/trytouca/trytouca/pull/663
     inreplace "pyproject.toml", 'certifi = "^2022.12.7"', 'certifi = ">=2022.12.7"'

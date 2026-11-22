@@ -29,6 +29,8 @@ class BotanAT2 < Formula
   uses_from_macos "bzip2"
   uses_from_macos "zlib"
 
+  allow_network_access!
+
   def install
     ENV.cxx11
 

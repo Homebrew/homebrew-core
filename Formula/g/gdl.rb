@@ -50,6 +50,8 @@ class Gdl < Formula
     resolves "https://gitlab.gnome.org/GNOME/gdl/-/merge_requests/4"
   end
 
+  allow_network_access!
+
   def install
     system "./configure", "--disable-silent-rules",
                           "--enable-introspection=yes",

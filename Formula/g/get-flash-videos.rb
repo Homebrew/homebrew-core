@@ -148,6 +148,8 @@ class GetFlashVideos < Formula
     sha256 "cd7209a6dfe0a3dc8caffe1aa2233b0e6effec7572d76a7a93feefffe636214e"
   end
 
+  allow_network_access!
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
     unless OS.mac?

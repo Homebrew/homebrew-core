@@ -20,6 +20,8 @@ class PariNflistdata < Formula
 
   depends_on "pari"
 
+  allow_network_access!
+
   def install
     Dir.glob("nflistdata/*/**/*").each do |path|
       Utils::Gzip.compress(path) unless File.directory?(path)

@@ -31,6 +31,8 @@ class Nuvie < Formula
   deprecate! date: "2026-01-23", because: "has moved to the ScummVM project", replacement_formula: "scummvm"
   disable! date: "2026-01-23", because: "has moved to the ScummVM project", replacement_formula: "scummvm"
 
+  allow_network_access!
+
   def install
     # Work around GCC 11 / Clang 17 failure due to higher default C++ standard.
     # We use C++03 standard as C++11 standard needs upstream fix.

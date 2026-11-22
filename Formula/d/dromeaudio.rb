@@ -27,6 +27,8 @@ class Dromeaudio < Formula
 
   depends_on "cmake" => :build
 
+  allow_network_access!
+
   def install
     # install FindDromeAudio.cmake under share/cmake/Modules/
     inreplace "share/CMakeLists.txt", "${CMAKE_ROOT}", "#{share}/cmake"

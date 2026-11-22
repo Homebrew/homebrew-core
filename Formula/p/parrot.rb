@@ -57,6 +57,8 @@ class Parrot < Formula
     end
   end
 
+  allow_network_access!
+
   def install
     if OS.linux? || MacOS.version >= :sonoma
       ENV.prepend_create_path "PERL5LIB", buildpath/"build_deps/lib/perl5"

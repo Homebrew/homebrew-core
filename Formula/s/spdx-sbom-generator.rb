@@ -25,6 +25,8 @@ class SpdxSbomGenerator < Formula
 
   depends_on "go" => [:build, :test]
 
+  allow_network_access!
+
   def install
     target = if OS.linux?
       inreplace "Makefile", "GOARCH=amd64", "GOARCH=arm64" if Hardware::CPU.arm?

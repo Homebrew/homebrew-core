@@ -44,6 +44,8 @@ class GnomeThemesExtra < Formula
     depends_on "perl-xml-parser" => :build
   end
 
+  allow_network_access!
+
   def install
     # To find gtk-update-icon-cache
     ENV.prepend_path "PATH", formula_opt_libexec("gtk+")

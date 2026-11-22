@@ -26,6 +26,8 @@ class MbedtlsAT2 < Formula
   depends_on "cmake" => :build
   depends_on "python@3.12" => :build
 
+  allow_network_access!
+
   def install
     inreplace "include/mbedtls/config.h" do |s|
       # enable pthread mutexes

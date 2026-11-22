@@ -30,6 +30,8 @@ class RedisAT62 < Formula
 
   depends_on "openssl@3"
 
+  allow_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "CC=#{ENV.cc}", "BUILD_TLS=yes"
 

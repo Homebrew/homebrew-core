@@ -32,6 +32,8 @@ class Cortexso < Formula
 
   conflicts_with "cortex", because: "both install `cortex` binaries"
 
+  allow_network_access!
+
   def install
     system "npm", "install", "--sqlite=#{formula_opt_prefix("sqlite")}", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

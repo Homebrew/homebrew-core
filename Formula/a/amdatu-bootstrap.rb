@@ -26,6 +26,8 @@ class AmdatuBootstrap < Formula
     depends_on arch: :x86_64 # openjdk@8 is not supported on ARM
   end
 
+  allow_network_access!
+
   def install
     env = Language::Java.java_home_env("1.8")
     # Add java to PATH to fix Linux issue: amdatu-bootstrap: line 35: java: command not found

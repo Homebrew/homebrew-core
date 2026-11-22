@@ -58,6 +58,8 @@ class Chakra < Formula
     cause "requires Clang, see https://github.com/chakra-core/ChakraCore/issues/2038"
   end
 
+  allow_network_access!
+
   def install
     # Use ld_classic to work around 'ld: Assertion failed: (0 && "lto symbol should not be in layout")'
     ENV.append "LDFLAGS", "-Wl,-ld_classic" if DevelopmentTools.clang_build_version >= 1500

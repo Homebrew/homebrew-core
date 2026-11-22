@@ -25,6 +25,8 @@ class BrewCaskCompletion < Formula
   deprecate! date: "2025-05-17", because: "is now natively supported by `brew`"
   disable! date: "2026-05-17", because: "is now natively supported by `brew`"
 
+  allow_network_access!
+
   def install
     fish_completion.install "brew-cask.fish"
   end

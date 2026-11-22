@@ -21,6 +21,8 @@ class Kcptun < Formula
 
   depends_on "go" => :build
 
+  allow_network_access!
+
   def install
     ldflags = "-X main.VERSION=#{version}"
     system "go", "build", *std_go_args(ldflags:, output: bin/"kcptun_client"), "./client"

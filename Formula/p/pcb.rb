@@ -64,6 +64,8 @@ class Pcb < Formula
 
   conflicts_with "gts", because: "both install a `gts.h` header"
 
+  allow_network_access!
+
   def install
     if OS.mac?
       ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
