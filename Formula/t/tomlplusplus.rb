@@ -1,15 +1,15 @@
 class Tomlplusplus < Formula
   desc "Header-only TOML config file parser and serializer for C++17"
   homepage "https://marzer.github.io/tomlplusplus/"
-  url "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.5.0.tar.gz"
-  sha256 "0fab22df275d188b7c8c698d06b9dcabdaa3f083f9b8da106cbfd2fe181bac62"
+  url "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.5.1.tar.gz"
+  sha256 "4821c769370a6489b6a37814f16f3769eee0f2e733a5c129d5d99e2515a95c2b"
   license "MIT"
   compatibility_version 2
   head "https://github.com/marzer/tomlplusplus.git", branch: "master"
 
   bottle do
-    manifest_sha256 "450937592c078623a84bf6f50e51b62724e3fb7d758907ff7326cf371a9b03e7"
-    sha256 cellar: :any_skip_relocation, all: "a3f9e2541535b784751ed9501af0507577a2d4597bfe511851209656b4254001"
+    manifest_sha256 "00cda1a2259e0f5560ea76abdd1eb4293fdd5a7e43ceb74f89b489563473db33"
+    sha256 cellar: :any_skip_relocation, all: "9f5ccc0fba3d61f0e6b5035e1eab6acf609296369ee4dbd2fac7d8f6795494f8"
   end
 
   depends_on "cmake" => :build
