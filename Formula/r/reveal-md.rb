@@ -14,6 +14,9 @@ class RevealMd < Formula
     sha256 cellar: :any, x86_64_linux:      "45100cb1686b30fdddbfc5cc0b516346dcf8c6170eac86edfbbcb52cbad2da4d"
   end
 
+  deprecate! date: "2026-11-22", because: :repo_archived
+  disable! date: "2027-11-22", because: :repo_archived
+
   depends_on "node"
 
   def install
