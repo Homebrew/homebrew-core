@@ -19,7 +19,7 @@ class Icloudpd < Formula
   end
 
   depends_on "certifi" => :no_linkage
-  depends_on "python@3.14"
+  depends_on "python@3.15"
 
   on_macos do
     depends_on "gnu-sed" => :build
