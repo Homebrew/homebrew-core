@@ -1,11 +1,10 @@
 class Opencascade < Formula
   desc "3D modeling and numerical simulation software for CAD/CAM/CAE"
   homepage "https://dev.opencascade.org/"
-  url "https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V7_9_3.tar.gz"
-  sha256 "5ecf094ec6b12d5413dfb851d8c3590c354058aee556e32e408bdfbf8c357d57"
+  url "https://github.com/Open-Cascade-SAS/OCCT/archive/refs/tags/V8_0_2.tar.gz"
+  sha256 "4b3ecaa559cd4f772a8a763668ca692bf79a36b05c41e8871139eb8d4625de9c"
   license "LGPL-2.1-only"
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
 
   # The first-party download page (https://dev.opencascade.org/release)
   # references version 7.5.0 and hasn't been updated for later maintenance
@@ -41,6 +40,8 @@ class Opencascade < Formula
     depends_on "libx11"
     depends_on "mesa" # For OpenGL
   end
+
+  deny_network_access!
 
   def install
     # FreeImage has multiple CVEs and has been dropped by distros like Arch Linux
@@ -121,7 +122,7 @@ class Opencascade < Formula
     # Make sure hardcoded library name references in our CMake config files are valid.
     (testpath/"CMakeLists.txt").write <<~CMAKE
       cmake_minimum_required(VERSION 4.0)
-      set(CMAKE_CXX_STANDARD 11)
+      set(CMAKE_CXX_STANDARD 17)
       project(test LANGUAGES CXX)
       find_package(OpenCASCADE REQUIRED)
       add_executable(test main.cpp)
