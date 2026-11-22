@@ -6,13 +6,21 @@ class ZshGitPrompt < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d4fa3836434d56704bd03f88f3e45557cac6e12cb6e17cc251635ecdcbc431eb"
+    rebuild 1
+    manifest_sha256 "3f645767039253d401392e508d0e4d5975a2f83e9bcc5b83d6695c6d7aa2b130"
+    sha256 cellar: :any_skip_relocation, all: "a2808fdcf382e27b8cec87840d95e6bbc55b8766a663bc58060b2a6831081bd7"
   end
 
   deprecate! date: "2026-10-01", because: :unmaintained
-  disable! date: "2027-10-01", because: :unmaintained
+  disable! date: "2027-04-01", because: :unmaintained
+
+  uses_from_macos "python"
+  uses_from_macos "zsh"
+
+  deny_network_access!
 
   def install
+    inreplace "zshrc.sh", "`python ", "`python3 "
     prefix.install Dir["*.{sh,py}"]
   end
 
@@ -24,7 +32,7 @@ class ZshGitPrompt < Formula
   end
 
   test do
-    system "git", "init"
+    system "git", "init", "--initial-branch", "master"
     zsh_command = ". #{opt_prefix}/zshrc.sh && git_super_status"
     assert_match "master", shell_output("zsh -c '#{zsh_command}'")
   end
