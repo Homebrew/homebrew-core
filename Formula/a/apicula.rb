@@ -6,6 +6,7 @@ class Apicula < Formula
   url "https://files.pythonhosted.org/packages/46/a8/c47790d71916fbf560dbf54c2df1f6acd8e992511e6c872cfbed171b7c91/apycula-0.35.tar.gz"
   sha256 "1fd15bdcf512eb8eedda48f11dc81fc35236a7ae904b1a887fd6ea44120f37c6"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/YosysHQ/apicula.git", branch: "master"
 
   bottle do
