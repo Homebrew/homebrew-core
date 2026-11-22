@@ -43,6 +43,8 @@ class Libgdata < Formula
     depends_on "gettext"
   end
 
+  allow_network_access!
+
   def install
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("libsoup@2")/"pkgconfig"
     ENV.prepend_path "XDG_DATA_DIRS", Formula["libsoup@2"].opt_share
