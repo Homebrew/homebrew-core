@@ -14,6 +14,8 @@ class Bsdconv < Formula
     sha256 x86_64_linux:      "15695e87a50300769dc59b25751ddcdb2ecd4289ffbcaccf54229865f39209c2"
   end
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}"
     system "make", "PREFIX=#{prefix}", "install"
