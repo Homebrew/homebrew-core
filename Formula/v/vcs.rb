@@ -31,6 +31,8 @@ class Vcs < Formula
     depends_on "gnu-getopt"
   end
 
+  allow_network_access!
+
   def install
     inreplace "vcs", "declare GETOPT=getopt", "declare GETOPT=#{formula_opt_bin("gnu-getopt")}/getopt" if OS.mac?
 
