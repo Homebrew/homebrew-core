@@ -16,6 +16,8 @@ class Blueutil < Formula
   depends_on xcode: :build
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Set to build with SDK=macosx10.6, but it doesn't actually need 10.6
     xcodebuild "-arch", Hardware::CPU.arch,
