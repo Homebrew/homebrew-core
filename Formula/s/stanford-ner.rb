@@ -15,6 +15,10 @@ class StanfordNer < Formula
     sha256 cellar: :any_skip_relocation, all: "caf1491537a74417f2d4070335d5c281ce60387d984726f77458b329b0fbe9c8"
   end
 
+  # Homepage and source pages are gone
+  deprecate! date: "2026-11-22", because: :repo_removed, replacement_formula: "stanford-corenlp"
+  disable! date: "2027-11-22", because: :repo_removed, replacement_formula: "stanford-corenlp"
+
   depends_on "openjdk"
 
   def install
