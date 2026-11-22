@@ -1,10 +1,9 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.7/InsightToolkit-5.4.7.tar.gz"
-  sha256 "4907033e0e93fb04734df8556b88a670ba630b4f42b52e9f25ed4d084a7ab925"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.8/InsightToolkit-5.4.8.tar.gz"
+  sha256 "f4f6900f5049c3dbdf5d717798615615b21efc20bab883daf4498905c6712824"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "main"
 
   livecheck do
@@ -46,15 +45,42 @@ class Itk < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "scifio-imageio" do
+    url "https://github.com/scifio/scifio-imageio/archive/247ada6ab94a2fd2f7ef4519358abd951ddb3649.tar.gz"
+    sha256 "50ed8a32da408a5f0425584189def09fe4c003d486d47fcd642cad05d25fb50c"
+  end
+
+  resource "bioformats-package" do
+    url "https://downloads.openmicroscopy.org/bio-formats/6.3.0/artifacts/bioformats_package.jar"
+    sha256 "a8ee4978307bba0851da2173bca2575012e0c8ce1dbc9d2e3285df02ff163831"
+  end
+
+  resource "scifio-itk-bridge" do
+    url "https://maven.scijava.org/content/repositories/releases/io/scif/scifio-itk-bridge/1.2.1/scifio-itk-bridge-1.2.1.jar"
+    sha256 "1bc12d8ff6f540bd81ea8a45fc3e25ac86c1092e0539a64496351c8ec8a64b54"
+  end
+
+  deny_network_access!
+
   def install
     # Avoid CMake trying to find GoogleTest even though tests are disabled
     rm_r(buildpath/"Modules/ThirdParty/GoogleTest")
+
+    scifio = buildpath/"Modules/Remote/SCIFIO"
+    resource("scifio-imageio").stage scifio
+    # Do not download the bundled JRE, which is not shipped in the bottle.
+    inreplace scifio/"src/CMakeLists.txt", "unset(jreFileNameBase)", "unset(jreFileName)"
+    (buildpath/"build/lib/jars").install(
+      resource("bioformats-package").cached_download => "bioformats_package.jar",
+      resource("scifio-itk-bridge").cached_download  => "scifio-itk-bridge.jar",
+    )
 
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH:STRING=#{lib}
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       -DITKV3_COMPATIBILITY:BOOL=OFF
+      -DITK_FORBID_DOWNLOADS=ON
       -DITK_LEGACY_REMOVE=ON
       -DITK_USE_64BITS_IDS=ON
       -DITK_USE_FFTWF=ON
@@ -93,9 +119,6 @@ class Itk < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Remove the bundled JRE installed by SCIFIO ImageIO plugin
-    rm_r(lib/"jre") if OS.linux? || Hardware::CPU.intel?
   end
 
   test do
