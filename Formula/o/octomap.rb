@@ -1,10 +1,10 @@
 class Octomap < Formula
   desc "Efficient probabilistic 3D mapping framework based on octrees"
   homepage "https://octomap.github.io/"
-  url "https://github.com/OctoMap/octomap/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "b6b6c10c99ab15701dd105840e7d4cf18e226eb68714dd4bdfe049dede5cd489"
+  url "https://github.com/OctoMap/octomap/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "a47231ec8b7cca3147e611caf31a100dfc24a2257dcc58cff1a047519586befa"
   license "BSD-3-Clause"
-  compatibility_version 1
+  compatibility_version 2
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "ebe6fd230093c36f670de6dde66f7f135a064f4953892a0cfe655e2280455c91"
@@ -20,7 +20,12 @@ class Octomap < Formula
   deny_network_access!
 
   def install
-    system "cmake", "-S", "octomap", "-B", "build", *std_cmake_args
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", "octomap", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
