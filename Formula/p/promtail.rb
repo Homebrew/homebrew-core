@@ -16,6 +16,8 @@ class Promtail < Formula
     depends_on "systemd"
   end
 
+  allow_network_access!
+
   def install
     cd "clients/cmd/promtail" do
       system "go", "build", *std_go_args
