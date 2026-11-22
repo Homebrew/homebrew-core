@@ -20,6 +20,8 @@ class Blahtexml < Formula
 
   depends_on "xerces-c"
 
+  deny_network_access!
+
   def install
     if OS.mac?
       system "make", "blahtex-mac"

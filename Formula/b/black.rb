@@ -96,6 +96,8 @@ class Black < Formula
     sha256 "03dd38de09bc213e9a8b29761eec33ee1d5318dac0e49d8af36e4d27830e23a7"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     ENV["HATCH_BUILD_HOOK_ENABLE_MYPYC"] = "1"
     virtualenv_install_with_resources

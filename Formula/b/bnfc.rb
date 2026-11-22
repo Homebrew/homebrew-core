@@ -29,10 +29,18 @@ class Bnfc < Formula
 
   uses_from_macos "libffi"
 
-  def install
+  allow_network_access! :test
+
+  def fetch
     rm "cabal.project" # avoid resolving test dependencies
     cd "source" do
       system "cabal", "v2-update"
+      system "cabal", "v2-install", "--only-download", *std_cabal_v2_args
+    end
+  end
+
+  def install
+    cd "source" do
       system "cabal", "v2-install", *std_cabal_v2_args
     end
     system "make", "-C", "docs", "text", "man", "SPHINXBUILD=#{formula_opt_bin("sphinx-doc")}/sphinx-build"
