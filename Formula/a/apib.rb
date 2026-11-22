@@ -30,9 +30,24 @@ class Apib < Formula
   depends_on "libev"
   depends_on "openssl@4"
 
+  resource "gtest" do
+    url "https://github.com/google/googletest/archive/refs/tags/release-1.10.0.tar.gz"
+    sha256 "9dc9157a9a1551ec7a7e43daea9a694a0bb5fb8bec81235d8a1e6ef64c716dcb"
+  end
+
+  resource "absl" do
+    url "https://github.com/abseil/abseil-cpp/archive/refs/tags/20200225.1.tar.gz"
+    sha256 "0db0d26f43ba6806a8a3338da3e646bb581f0ca5359b3a201d8fb8e4752fd5f8"
+  end
+
+  deny_network_access!
+
   def install
+    resource("gtest").stage("build/_deps/gtest-src")
+    resource("absl").stage("build/_deps/absl-src")
+
     # Workaround to build with CMake 4
-    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5]
+    args = %w[-DCMAKE_POLICY_VERSION_MINIMUM=3.5 -DFETCHCONTENT_FULLY_DISCONNECTED=ON]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     # Workaround to build bundled Abseil
     inreplace "build/_deps/absl-src/absl/strings/internal/str_format/extension.h",
