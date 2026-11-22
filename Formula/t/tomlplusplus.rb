@@ -8,8 +8,8 @@ class Tomlplusplus < Formula
   head "https://github.com/marzer/tomlplusplus.git", branch: "master"
 
   bottle do
-    manifest_sha256 "450937592c078623a84bf6f50e51b62724e3fb7d758907ff7326cf371a9b03e7"
-    sha256 cellar: :any_skip_relocation, all: "a3f9e2541535b784751ed9501af0507577a2d4597bfe511851209656b4254001"
+    manifest_sha256 "00cda1a2259e0f5560ea76abdd1eb4293fdd5a7e43ceb74f89b489563473db33"
+    sha256 cellar: :any_skip_relocation, all: "9f5ccc0fba3d61f0e6b5035e1eab6acf609296369ee4dbd2fac7d8f6795494f8"
   end
 
   depends_on "cmake" => :build
