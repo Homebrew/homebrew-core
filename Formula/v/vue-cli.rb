@@ -28,6 +28,8 @@ class VueCli < Formula
     depends_on "terminal-notifier"
   end
 
+  allow_network_access!
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
