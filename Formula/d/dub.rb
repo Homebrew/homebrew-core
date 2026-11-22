@@ -1,8 +1,8 @@
 class Dub < Formula
   desc "Build tool for D projects"
   homepage "https://code.dlang.org/getting_started"
-  url "https://github.com/dlang/dub/archive/refs/tags/v1.42.0.tar.gz"
-  sha256 "7f0a5133885a71b89f7a683d8f3e3616e070238424b36ae04fdbc0d7b99e3027"
+  url "https://github.com/dlang/dub/archive/refs/tags/v1.43.0.tar.gz"
+  sha256 "f69ebd696d0e7c7d826fa835dc8594b20e62c475c0d7e60cfb2f342b4a5887b3"
   license "MIT"
   version_scheme 1
   compatibility_version 1
@@ -19,13 +19,12 @@ class Dub < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c81431c2c9c3eb25fe6f0ad1e4f9970eb67e087c5c74473d14270b5eaac987f7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4c2c13b0d370c4c67216140002dd1283391b6d5efbbae022e9cb9e1631199a6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2debfa6562ba2f5a2364f0212411f6a99abb39f5c9498bf0ef6781ae25b9afa"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "44e71aeb7048f8bfabfeee7d4b45c9fc0c3fc19db386479817bc05b71e0e044b"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a830ab02e13c8fbbf99fbf9afc8e54f7a0620e03ca6defc99f9fd57193512df7"
-    sha256 cellar: :any,                 arm64_linux:       "d3e39e08d0fe9c5a23c222f8e11afbeaf39a4c0328113c22755d797aa328d4eb"
-    sha256 cellar: :any,                 x86_64_linux:      "d51f71b643fc4926e74ee1ca376a0b02ae5af630c963207aaccdd1fbaa3b1ca7"
+    manifest_sha256 "0c02e314d277357d598bb4b5eb7de47b1f1218e2f852db8e9ac5e1bc89040602"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2455cc59a797bc6f8c0701a702d2b7fbf8719d92a75b3faa645bdf104495082"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "762c179465207a6481448a33cb3adac12ce9253b20922bbf7add92ceb799a18a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b04324f5af0bec5ee837aced9d850bb063139004b878eb2a8596e16c1830926a"
+    sha256 cellar: :any,                 arm64_linux:       "64fd3c0c6b296a1fdf1dae62b9ef696edeebb1bdcadbd6856f52c5663ba7091b"
+    sha256 cellar: :any,                 x86_64_linux:      "d769f1ffcdfb649ee0514dc0f428afd5b56e2e7bf5d3c11304db43b4ae6ae312"
   end
 
   depends_on "ldc" => [:build, :test]
