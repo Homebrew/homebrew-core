@@ -6,6 +6,15 @@ class DezoomifyCli < Formula
   license "GPL-3.0-or-later"
   head "https://github.com/dezoomify/dezoomify.git", branch: "main"
 
+  bottle do
+    manifest_sha256 "aa038a4402ccc5fa6d93c79871bbeb67686262fa80c3d2c13750cf5ea9f547ad"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47c213a9040e68dc25a8e1584c05416791826348014523379d8dd061cdd9a771"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "691ec215357bc33ac33ae6592155793771cbd9c251848adc68c5b2b8cee438ca"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac0103adf78429b95ef9fa1d197c82e4ede1b7bd7d2cc6c9d96ffb667ddbb7aa"
+    sha256 cellar: :any,                 arm64_linux:       "41f0893331069fbdaf7964669f65f86447c46184af7377e7475b9c3bbf97293c"
+    sha256 cellar: :any,                 x86_64_linux:      "c89869e914fd627787606d034ac8ed8ba898b6c497189b0f5bd2519f72d12206"
+  end
+
   depends_on "node" => :build
   depends_on "pnpm" => :build
   depends_on "rust" => :build
