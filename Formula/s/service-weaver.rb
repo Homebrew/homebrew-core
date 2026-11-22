@@ -50,6 +50,8 @@ class ServiceWeaver < Formula
 
   conflicts_with "weaver", because: "both install a `weaver` binary"
 
+  allow_network_access!
+
   def install
     # Workaround to avoid patchelf corruption when cgo is required (for go-sqlite3)
     if OS.linux? && Hardware::CPU.arm64?
