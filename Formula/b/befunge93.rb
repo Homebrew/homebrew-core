@@ -29,6 +29,8 @@ class Befunge93 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "4f71eb1910501903b8af94c21352759032696046be49995beb95caead85a8398"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install Dir["bin/bef*"]

@@ -628,6 +628,8 @@ class Biber < Formula
     sha256 "cd98c8104b70d7672bfa26b4513b78adf2b4b9220e586aa8beb1a508500365a6"
   end
 
+  deny_network_access!
+
   def install
     ENV["ALIEN_INSTALL_TYPE"] = "system"
     ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4") if OS.linux?

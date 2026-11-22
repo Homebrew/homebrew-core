@@ -16,6 +16,8 @@ class Bfg < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "bfg-#{version}.jar"
     bin.write_jar_script libexec/"bfg-#{version}.jar", "bfg"

@@ -112,6 +112,8 @@ class Beets < Formula
     sha256 "63bf2ead4c879426ebf22ef2a781eeb4aa3b4ae798a0435506f8687fd5bb9b63"
   end
 
+  allow_network_access! :build
+
   def install
     # TODO: Remove when jellfish supports python 3.15:  https://codeberg.org/jpt/jellyfish/issues/237
     ENV["PYO3_USE_ABI3_FORWARD_COMPATIBILITY"] = "1"
