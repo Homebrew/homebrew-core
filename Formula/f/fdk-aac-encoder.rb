@@ -23,6 +23,8 @@ class FdkAacEncoder < Formula
   depends_on "pkgconf" => :build
   depends_on "fdk-aac"
 
+  allow_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose"
     system "./configure", "--disable-silent-rules",
