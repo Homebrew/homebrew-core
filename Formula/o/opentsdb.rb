@@ -38,6 +38,8 @@ class Opentsdb < Formula
     depends_on arch: :x86_64 # openjdk@8 (needed to build) is not supported on ARM
   end
 
+  allow_network_access!
+
   def install
     with_env(JAVA_HOME: Language::Java.java_home("1.8")) do
       ENV.prepend_path "PATH", formula_opt_libexec("python@3.13")/"bin"
