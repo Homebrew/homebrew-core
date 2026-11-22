@@ -94,6 +94,8 @@ class PythonAT39 < Formula
     bin/"python#{version.major_minor}"
   end
 
+  allow_network_access!
+
   def install
     # Unset these so that installing pip and setuptools puts them where we want
     # and not into some other Python the user has installed.
