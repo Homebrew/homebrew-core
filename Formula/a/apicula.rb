@@ -35,6 +35,8 @@ class Apicula < Formula
     sha256 "0a13624a4969159fe35d8c2a3d377b2b61bbd8585e327440d5e52725affcce38"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
