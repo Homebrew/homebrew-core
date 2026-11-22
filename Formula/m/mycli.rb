@@ -3,17 +3,17 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/87/23/9353a5b2fba1fc8587802ea642dc8ca5b815e7555d4bf57e109d97d0669b/mycli-2.31.1.tar.gz"
-  sha256 "75770d450e6fa80e89f4d6a8de5f12096206cadcd0f2760528507fecfc8992c4"
+  url "https://files.pythonhosted.org/packages/ee/ec/07bf804ee6e523cc5254a6a3f3e5db5eeaf121ce961d6dc71d74c684511f/mycli-2.32.0.tar.gz"
+  sha256 "fb9a90ab8566c9f3535bf182dce7a6b90dc4ae2d7fad1d37726ce5ef5053f015"
   license "BSD-3-Clause"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "e66f30e5dc1d60e5d4edbf6eb18dd203161a04ace05200c10c6286dec0d9887a"
-    sha256 cellar: :any, arm64_tahoe:       "e5bcbb0d0c16947ca1bc81de7600cafd77ca33ee11b546be1379b3d74fa26448"
-    sha256 cellar: :any, arm64_sequoia:     "f8e78414843cf00727c90b77191591c18b856954ee5295285bce762b55d8518a"
-    sha256 cellar: :any, arm64_linux:       "db916f47b28a4c4a5e98020cf7965008aeb6d7a8867aa2c8a166d57d39ea2fcc"
-    sha256 cellar: :any, x86_64_linux:      "e7288a35de05958fc569b9c8bc0b76800c95a4cc7511d30b530d62b536ec0cfe"
+    manifest_sha256 "b2804ccad53c2a085ad83b1dc6779bc41be72f12e95f308b8cea37f5057e3017"
+    sha256 cellar: :any, arm64_golden_gate: "3a5e53ddc5646c1380440bd588a731ed770d0f6c76d929d98d90cc737f9295c4"
+    sha256 cellar: :any, arm64_tahoe:       "f3e3cc6a26c1ac03ae7f17aedc7195b3830d202b6d095d205b4e2f54fe521e04"
+    sha256 cellar: :any, arm64_sequoia:     "db2f2e5277849244d08c504a7acada13cd099a474b0e04e7edd57ca8f94a60a2"
+    sha256 cellar: :any, arm64_linux:       "5ce90a0d727838e59407f39880b6671de445d1ed8f737bd60534d34bc73dce4d"
+    sha256 cellar: :any, x86_64_linux:      "dea4f7e39dd9432f23604b9e79e23776047b9899a954c041204b35d8d734a8e4"
   end
 
   depends_on "cmake" => :build # for rapidfuzz
@@ -167,8 +167,8 @@ class Mycli < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/0c/9d/bbc069c02b07420e590e240673e40efbf423e6d7eb6c52493b7ab78f5d7d/openai-3.55.1.tar.gz"
-    sha256 "db5a9ae65d21e5a51ef7fa395e5418942b04120cc73f2ab25bd2fc22db101ecd"
+    url "https://files.pythonhosted.org/packages/90/b2/97780581dab39384d1de4bc15f1f6cbaff26ce965a46c23a10bd948b71a8/openai-3.57.0.tar.gz"
+    sha256 "5a0a89d6a542efc85e2a8cec701ca9265b795d578c777828e10fafdf80e333b6"
   end
 
   resource "packaging" do
@@ -232,8 +232,8 @@ class Mycli < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "rapidfuzz" do
