@@ -1,8 +1,8 @@
 class Noodle < Formula
   desc "Terminal REST client with file-based collections"
   homepage "https://noodlerest.dev"
-  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "5f6bbf259008ce1c76faf29ea8176985dd64c72535ced78ecde9ab37fea67eda"
+  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "e0445156fafdb76deb934cbe6ab01577c57284f40c4dcb8733f721f83092ecf6"
   license "Apache-2.0"
 
   bottle do
