@@ -8,7 +8,9 @@ class B2Tools < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "37f7fd548427151a4cd653ace326accc010ce3940e70fea89097c81d20e59cd2"
+    rebuild 1
+    manifest_sha256 "5b9f18d76f3de282a607ed53ac2275c71cade4c466c57b588fd0cb256aa41a49"
+    sha256 cellar: :any_skip_relocation, all: "7a40a101c1ef3f2514137297ad64ac4a697caaa707df76e752e1e35c0f1b0b1d"
   end
 
   depends_on "certifi"
@@ -24,8 +26,8 @@ class B2Tools < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "arrow" do
@@ -111,11 +113,6 @@ class B2Tools < Formula
 
     system bin/"b2", "install-autocomplete", "--shell", "bash"
     bash_completion.install "#{Dir.home}/.bash_completion.d/b2"
-
-    # Build an `:all` bottle by replacing comments
-    inreplace venv.site_packages.glob("argcomplete-*.dist-info/METADATA"),
-              "/opt/homebrew/bin/bash",
-              "$HOMEBREW_PREFIX/bin/bash"
   end
 
   test do

@@ -9,11 +9,13 @@ class Nox < Formula
   revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2293fa69bcb4075a996ffcd40374c181ed481a62e4dab79d0574ffe3bb7a3c44"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2293fa69bcb4075a996ffcd40374c181ed481a62e4dab79d0574ffe3bb7a3c44"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2293fa69bcb4075a996ffcd40374c181ed481a62e4dab79d0574ffe3bb7a3c44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "37f9d81c7d708417331deb7851d165ffda341daed65f6baf801a086654fe27f3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "06c45287ce7f473ebbb313aa73733e9fd9e01c94431050175649b17788dead21"
+    rebuild 1
+    manifest_sha256 "f67d3adb115a8d1a823bd2c96a075122bbc224eaf61bc5c46af9c6aa99c06424"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1afafa63b7966c3cebbd3c7dead3f79ee24bc0616f968e6a3c6ab306c9faef36"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1afafa63b7966c3cebbd3c7dead3f79ee24bc0616f968e6a3c6ab306c9faef36"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1afafa63b7966c3cebbd3c7dead3f79ee24bc0616f968e6a3c6ab306c9faef36"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b3ee065604e8ab0e23f9c35de48b475dd814d2da37881335a8c3794837d27db7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b3ee065604e8ab0e23f9c35de48b475dd814d2da37881335a8c3794837d27db7"
   end
 
   depends_on "certifi" => :no_linkage
@@ -22,8 +24,8 @@ class Nox < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "attrs" do
@@ -77,15 +79,11 @@ class Nox < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    virtualenv_install_with_resources
     (bin/"tox-to-nox").unlink
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "nox",
                                          shell_parameter_format: :arg)
-
-    # Build an `:all` bottle by replacing comments
-    file = venv.site_packages.glob("argcomplete-*.dist-info/METADATA")
-    inreplace file, "/opt/homebrew/bin/bash", "$HOMEBREW_PREFIX/bin/bash"
   end
 
   test do

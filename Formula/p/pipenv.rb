@@ -9,11 +9,13 @@ class Pipenv < Formula
   head "https://github.com/pypa/pipenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9de4bf9dde687732653652d58c10805d28e389da012f399e9682a975f2b44ea4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9de4bf9dde687732653652d58c10805d28e389da012f399e9682a975f2b44ea4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9de4bf9dde687732653652d58c10805d28e389da012f399e9682a975f2b44ea4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c245061b541e06aa212645a108203d919ab320a37dac4cb653da19dba329cb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5c245061b541e06aa212645a108203d919ab320a37dac4cb653da19dba329cb6"
+    rebuild 1
+    manifest_sha256 "99000eadc4bdee36330855abe62b9a084f47893ac05d079a8c7b041e6582d025"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2554623a046a9281a3bd42655c6c2ac7f74bdafa00de49db88c84f888260baab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2554623a046a9281a3bd42655c6c2ac7f74bdafa00de49db88c84f888260baab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2554623a046a9281a3bd42655c6c2ac7f74bdafa00de49db88c84f888260baab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "cd796dc24795aff6ab5ca56194f3ec188ad8f4b121c09e9d5e1ed768a28b6dc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cd796dc24795aff6ab5ca56194f3ec188ad8f4b121c09e9d5e1ed768a28b6dc0"
   end
 
   depends_on "certifi" => :no_linkage
@@ -23,8 +25,8 @@ class Pipenv < Formula
                 exclude_packages: "certifi"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "distlib" do
@@ -63,13 +65,9 @@ class Pipenv < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    virtualenv_install_with_resources
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "pipenv", "--shell")
-
-    # Build an `:all` bottle by replacing comments
-    file = venv.site_packages.glob("argcomplete-*.dist-info/METADATA")
-    inreplace file, "/opt/homebrew/bin/bash", "$HOMEBREW_PREFIX/bin/bash"
   end
 
   test do

@@ -10,8 +10,9 @@ class Censys < Formula
   head "https://github.com/censys/censys-python.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, all: "c91f1674cac71ee411f991076b2deaf5a6c0013e973a6a220e8028112f2d31ec"
+    rebuild 2
+    manifest_sha256 "9b49522454aef7e64d5d353e400042b47e24de697abc205eb6ac441e8de5cf1d"
+    sha256 cellar: :any_skip_relocation, all: "bfd188fe4fbafb47455d1af6c8489cc20c16d9c7f8023fb3b03500dcccaca07e"
   end
 
   depends_on "certifi" => :no_linkage
@@ -20,8 +21,8 @@ class Censys < Formula
   pypi_packages exclude_packages: "certifi"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "backoff" do
@@ -70,14 +71,10 @@ class Censys < Formula
   end
 
   def install
-    venv = virtualenv_install_with_resources
+    virtualenv_install_with_resources
 
     generate_completions_from_executable(libexec/"bin/register-python-argcomplete", "censys",
                                          shell_parameter_format: :arg)
-
-    # Build an `:all` bottle by replacing comments
-    file = venv.site_packages.glob("argcomplete-*.dist-info/METADATA")
-    inreplace file, "/opt/homebrew/bin/bash", "$HOMEBREW_PREFIX/bin/bash"
   end
 
   test do
