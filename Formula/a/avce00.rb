@@ -29,6 +29,8 @@ class Avce00 < Formula
 
   conflicts_with "gdal", because: "both install a cpl_conv.h header"
 
+  deny_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}"
     bin.install "avcimport", "avcexport", "avcdelete", "avctest"
