@@ -8,6 +8,15 @@ class Planoai < Formula
   sha256 "7f8965b84f509b154ee0404f9cabce2d24ec6451b25c5cbd290aa8b1f7681186"
   license "Apache-2.0"
 
+  bottle do
+    manifest_sha256 "877aa6a29e802e4a3defe6cd5cc4da8b1c69a60647466d250f211f0c7c6e2aa9"
+    sha256 cellar: :any, arm64_golden_gate: "afe9d0676ad7fa6b79d9f4206bf29339b502984ac22a274ecccad0a6969bcc40"
+    sha256 cellar: :any, arm64_tahoe:       "9e07db65ec422b202e4a456aaba9210ea8503b4b559a8a7ba4b2a62d64decbba"
+    sha256 cellar: :any, arm64_sequoia:     "c54131672031feb05517fbbf7101f32738a097e78fc3347cedfe9ba9e73bf8db"
+    sha256 cellar: :any, arm64_linux:       "70de557982bc019e1ec276bd883bf2241bac47eb6fc662e2d8afa96c71e5f1b2"
+    sha256 cellar: :any, x86_64_linux:      "8dfc9149dcef2278f8b6cec3331a10375a70367115700a4cb6799d613037977c"
+  end
+
   depends_on "certifi" => :no_linkage
   depends_on "libyaml"
   depends_on "python@3.15"
