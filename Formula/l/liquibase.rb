@@ -1,6 +1,6 @@
 class Liquibase < Formula
   desc "Library for database change tracking"
-  homepage "https://www.liquibase.org/"
+  homepage "https://www.liquibase.com/community"
   # NOTE: Do not bump to v5.0.0+ as license changed to FSL-1.1-ALv2
   url "https://github.com/liquibase/liquibase/releases/download/v4.33.0/liquibase-4.33.0.tar.gz"
   sha256 "689acfcdc97bad0d4c150d1efab9c851e251b398cb3d6326f75e8aafe40ed578"
