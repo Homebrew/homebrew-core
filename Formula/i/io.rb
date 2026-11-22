@@ -1,73 +1,9 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
+  url "https://github.com/IoLanguage/io/archive/refs/tags/2026.11.20.tar.gz"
+  sha256 "62aa86656e65414ece414ef3a6ff5adbaf2bbe06e9847505d57628addc965e11"
   license "BSD-3-Clause"
-  revision 1
-  head "https://github.com/IoLanguage/io.git", branch: "master"
-
-  stable do
-    url "https://github.com/IoLanguage/io/archive/refs/tags/2017.09.06.tar.gz"
-    sha256 "9ac5cd94bbca65c989cd254be58a3a716f4e4f16480f0dc81070457aa353c217"
-
-    # Backport commits to build on arm64
-    on_macos do
-      on_arm do
-        # Backport CMake changes to cleanly apply later commits
-        patch do
-          url "https://github.com/IoLanguage/io/commit/27d3900e8a88d0ee45773666a5a257ca735eb0b0.patch?full_index=1"
-          sha256 "937ba88cecf017b19791b13e8f721060b91af319ba753463b40353a56d6fa99d"
-          type :backport
-          resolves "https://github.com/IoLanguage/io/pull/360"
-        end
-        patch do
-          url "https://github.com/IoLanguage/io/commit/27e87f614992df745d894b5190c95180baf9cf4b.patch?full_index=1"
-          sha256 "142761908bc1cb2e04c442e1d97397f39b063d64d10079750b396316280ccf7e"
-          type :backport
-          resolves "https://github.com/IoLanguage/io/pull/366"
-        end
-        patch do
-          url "https://github.com/IoLanguage/io/commit/72c8a7ec1e0711ba54754b17def08e3fdcea4f66.patch?full_index=1"
-          sha256 "634ded26ac1e1015ec1ece869c7311ec1db7639b6c6bfb976f74c7617c7b417f"
-          type :backport
-          resolves "https://github.com/IoLanguage/io/pull/384"
-        end
-        patch do
-          url "https://github.com/IoLanguage/io/commit/b200c7f0e0f899a19d576852e931badb542f37a7.patch?full_index=1"
-          sha256 "85f942c3b25238ab722d26944ff2c11d8e55cd6c3d4373e8121c2a31d1fe1fd5"
-          type :backport
-          resolves "https://github.com/IoLanguage/io/pull/471"
-        end
-
-        # Backport some clang-format whitespace changes from
-        # https://github.com/IoLanguage/io/commit/158ee62d2551ceffcc1a34616baa38794e59e21f
-        patch :DATA
-
-        # Backport support for arm64
-        patch do
-          url "https://github.com/IoLanguage/io/commit/bb5fa48fc272e0e8febda40c0f9f6c85cd788a60.patch?full_index=1"
-          sha256 "b6f1100606dc2539abdd0707fe6a578cd7e462db7f70d192a9613860e67bf760"
-          type :backport
-          resolves "https://github.com/IoLanguage/io/pull/476"
-        end
-      end
-    end
-
-    # Backport fix for Linux build
-    patch do
-      url "https://github.com/IoLanguage/io/commit/92fe8304c55b84a17b0624613a7006e85a0128a2.patch?full_index=1"
-      sha256 "183367979123123671fcd076aba3820ed20066add66725211a396eb5c621a6c6"
-      type :backport
-      resolves "https://github.com/IoLanguage/io/pull/359"
-    end
-
-    # build patch for sysctl.h as glibc 2.32 removed <sys/sysctl.h>
-    patch do
-      url "https://github.com/IoLanguage/io/commit/9f3e4d87b6d4c1bf583134d55d1cf92d3464c49f.patch?full_index=1"
-      sha256 "2ee70f5e61d1b798bea172fb357381c7781eecd465714de7ad56c56fd89f5c1c"
-      type :backport
-      resolves "https://github.com/IoLanguage/io/pull/446"
-    end
-  end
 
   bottle do
     rebuild 1
@@ -82,37 +18,50 @@ class Io < Formula
     sha256 x86_64_linux:      "28f27659192940b8773ab23b0d237befa1ebb90ca6b771f82852422631f6549e"
   end
 
-  depends_on "cmake" => :build
-  depends_on "pkgconf" => :build
+  depends_on "lld" => :build
+  depends_on "llvm" => :build
+  depends_on "wasi-libc" => :build
+  depends_on "wasi-runtimes" => :build
+  depends_on "wasmtime"
+
+  resource "parson" do
+    url "https://github.com/kgabis/parson/archive/ba29f4eda9ea7703a9f6a9cf2b0532a2605723c3.tar.gz"
+    sha256 "d311cd3d051965485bff1c89a3980df7ad0ee3f9c0f33c18964d8c1cc32ef2cf"
+  end
 
   deny_network_access!
 
   def install
-    ENV.deparallelize
+    resource("parson").stage buildpath/"deps/parson"
 
-    # FSF GCC needs this to build the ObjC bridge
-    ENV.append_to_cflags "-fobjc-exceptions"
+    # IOASSERT returns an IoObject, not the UArray these two functions return.
+    inreplace "libs/iovm/source/IoObject.c", "IOASSERT(ISSEQ(seq), CSTRING(slotName));", <<~C.chomp
+      if (!ISSEQ(seq)) {
+          IoState_error_(IOSTATE, m, "Io Assertion '%s'", CSTRING(slotName));
+          return NULL;
+      }
+    C
 
-    if build.stable?
-      inreplace "CMakeLists.txt" do |s|
-        # Turn off all add-ons in main cmake file
-        s.gsub! "add_subdirectory(addons)", "#add_subdirectory(addons)"
-        # Allow building on non-x86_64 platforms
-        # Ref: https://github.com/IoLanguage/io/issues/450 / https://github.com/IoLanguage/io/issues/474
-        s.gsub! 'SET(CMAKE_C_FLAGS "-msse2")', "" if OS.linux? && !Hardware::CPU.intel?
-      end
-    end
+    cc = %W[
+      #{formula_opt_bin("llvm")}/clang
+      --target=wasm32-wasip1
+      -resource-dir=#{Formula["wasi-runtimes"].opt_pkgshare}
+      -B#{formula_opt_bin("lld")}
+    ].join(" ")
+    system "make", "WASI_SDK=#{formula_opt_prefix("wasi-libc")}", "CC=#{cc}", "HOST_CC=#{ENV.cc}"
 
-    args = %W[
-      -DCMAKE_DISABLE_FIND_PACKAGE_ODE=ON
-      -DCMAKE_DISABLE_FIND_PACKAGE_Theora=ON
-      -DCMAKE_INSTALL_RPATH=#{rpath}
-      -DCMAKE_POLICY_VERSION_MINIMUM=3.5
-    ]
+    libexec.install "build/bin/io_static" => "io.wasm"
+    (bin/"io").write <<~SH
+      #!/bin/sh
+      exec "#{formula_opt_bin("wasmtime")}/wasmtime" run --dir=. "#{libexec}/io.wasm" "$@"
+    SH
+  end
 
-    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+  def caveats
+    <<~EOS
+      Io now runs under WASI, with filesystem access limited to the current
+      directory. Native dynamic addons and Eerie are not supported.
+    EOS
   end
 
   test do
@@ -123,53 +72,3 @@ class Io < Formula
     assert_equal "it works!\n", shell_output("#{bin}/io test.io")
   end
 end
-
-__END__
-diff --git a/libs/coroutine/source/Coro.c b/libs/coroutine/source/Coro.c
-index 88951158..25219b47 100644
---- a/libs/coroutine/source/Coro.c
-+++ b/libs/coroutine/source/Coro.c
-@@ -70,9 +70,7 @@ typedef struct CallbackBlock
- #endif
- } CallbackBlock;
- 
--
--Coro *Coro_new(void)
--{
-+Coro *Coro_new(void) {
- 	Coro *self = (Coro *)io_calloc(1, sizeof(Coro));
- 	self->requestedStackSize = CORO_DEFAULT_STACK_SIZE;
- 	self->allocatedStackSize = 0;
-diff --git a/libs/coroutine/source/taskimpl.h b/libs/coroutine/source/taskimpl.h
-index e3742315..8b871b29 100644
---- a/libs/coroutine/source/taskimpl.h
-+++ b/libs/coroutine/source/taskimpl.h
-@@ -106,17 +106,17 @@ extern	void		makecontext(ucontext_t*, void(*)(), int, ...);
- #endif
- 
- #if defined(__APPLE__)
--#	define mcontext libthread_mcontext
--#	define mcontext_t libthread_mcontext_t
--#	define ucontext libthread_ucontext
--#	define ucontext_t libthread_ucontext_t
--#	if defined(__i386__)
--#		include "386-ucontext.h"
--#	elif defined(__x86_64__)
--#		include "amd64-ucontext.h"
--#	else
--#		include "power-ucontext.h"
--#	endif
-+#define mcontext libthread_mcontext
-+#define mcontext_t libthread_mcontext_t
-+#define ucontext libthread_ucontext
-+#define ucontext_t libthread_ucontext_t
-+#if defined(__i386__)
-+#include "386-ucontext.h"
-+#elif defined(__x86_64__)
-+#include "amd64-ucontext.h"
-+#else
-+#include "power-ucontext.h"
-+#endif
- #endif
- 
- #if defined(__OpenBSD__)
