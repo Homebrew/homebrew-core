@@ -15,9 +15,14 @@ class Xcinfo < Formula
   depends_on arch: :arm64
   depends_on macos: :tahoe # aligned to build Xcode as cannot cross-compile
 
+  deny_network_access!
+
+  def fetch
+    system "swift", "package", "resolve", "--disable-sandbox"
+  end
+
   def install
-    # The default SwiftBuild build system fails to compile swift-syntax's C shims in the Homebrew build environment
-    system "swift", "build", "--build-system", "native", *std_swift_args
+    system "swift", "build", *std_swift_args
     bin.install ".build/release/xcinfo"
   end
 
