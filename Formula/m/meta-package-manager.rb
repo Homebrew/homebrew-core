@@ -4,8 +4,8 @@ class MetaPackageManager < Formula
 
   desc "Wrapper around all package managers with a unifying CLI"
   homepage "https://kdeldycke.github.io/meta-package-manager/"
-  url "https://files.pythonhosted.org/packages/43/e6/ea650344bb8ff68dc85b0303b2e10db97b67727d0c595b4289a63ed4d7f6/meta_package_manager-8.3.0.tar.gz"
-  sha256 "dd06527de24f718ab141a37b920b88c3018f205175fbecf5f50a712008d5f606"
+  url "https://files.pythonhosted.org/packages/ea/d2/abd332eb590b8d028f063ade8f4f1dabb8dc4834c38f0957a693ca1ee3f8/meta_package_manager-8.3.1.tar.gz"
+  sha256 "004b110788cc611666dd285c2a61b5bcdddb748222358adca3e8761df0f3be30"
   license "GPL-2.0-or-later"
   head "https://github.com/kdeldycke/meta-package-manager.git", branch: "main"
 
@@ -30,8 +30,8 @@ class MetaPackageManager < Formula
   pypi_packages exclude_packages: ["certifi", "rpds-py"]
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/2d/1f/b7ce2efe406b87bb3693d587b91bcd8fa9030888870ceff29e4a0d233cb2/bracex-3.2.2.tar.gz"
-    sha256 "d18976160b3ba01a57d5c53a5c8c3aa2506efa9e0a3a62467251f82b8f563fde"
+    url "https://files.pythonhosted.org/packages/66/6f/95a6fcb1c430007cda4122c77aace4541fba297f08e2be791ab235a4c548/bracex-3.2.4.tar.gz"
+    sha256 "c1e67eb59f81445dee15b2c588b7c81352b697cfbd6c4931a2943ea6b71eb5ea"
   end
 
   resource "click" do
@@ -40,8 +40,8 @@ class MetaPackageManager < Formula
   end
 
   resource "click-extra" do
-    url "https://files.pythonhosted.org/packages/de/5e/db9986517ce10c38bb224b24f18f64bf6061effc295a2c28fc1569843bcd/click_extra-10.2.0.tar.gz"
-    sha256 "499b8ad73f9fa9182f799fbb14ebbc7e61a6dde9c2977954173fdcef4b32994e"
+    url "https://files.pythonhosted.org/packages/18/50/a7ecb15b045cbad2fb4ab5f23bce1f16d6305bd687ca62eef8abeedd1dd4/click_extra-10.3.1.tar.gz"
+    sha256 "1289c8e1eb7cf871a7eab64bb8cf91374e9ad99ffec5cd61619a890ce1f0adef"
   end
 
   resource "cloup" do
@@ -65,8 +65,8 @@ class MetaPackageManager < Formula
   end
 
   resource "wcmatch" do
-    url "https://files.pythonhosted.org/packages/2e/17/bf44790f97414e37885830139933b4e96faac71560768ae9f9e458dbd936/wcmatch-12.0.1.tar.gz"
-    sha256 "4ea6acef75b657bf71ac8fa9520165bf5ae55120c4e655895a5b7d4c69896c5e"
+    url "https://files.pythonhosted.org/packages/96/3a/fd5e95b2c1c04e3874682f9796d06f7389e2a95ab581177800ca17e785fa/wcmatch-12.0.4.tar.gz"
+    sha256 "23fe77fbfa3fff9e46f0f4a3d1891065270596774bd6131bd2f973fb822242a1"
   end
 
   resource "wcwidth" do
