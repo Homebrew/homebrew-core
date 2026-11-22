@@ -31,6 +31,8 @@ class Rye < Formula
 
   conflicts_with "ryelang", because: "both install `rye` binaries"
 
+  allow_network_access!
+
   def install
     system "cargo", "install", *std_cargo_args(path: "rye")
     generate_completions_from_executable(bin/"rye", "self", "completion", "-s")
