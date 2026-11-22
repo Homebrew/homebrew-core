@@ -3,19 +3,18 @@ class Maigret < Formula
 
   desc "Collect a dossier on a person by username from thousands of sites"
   homepage "https://github.com/soxoj/maigret"
-  url "https://files.pythonhosted.org/packages/e6/c7/e807e9a94ac69cd9f967e4e440f8278422346b7f05cde1c81ff8919b1a83/maigret-0.6.6.tar.gz"
-  sha256 "8a364955d6272ac7a7c719fba59b4218fb23839f343a776ff783ed2c432f21b8"
+  url "https://files.pythonhosted.org/packages/6a/ff/216a8426fa352b2a76624688f5840ba9050873c7db33db0fcb36a8b4ce76/maigret-0.6.7.tar.gz"
+  sha256 "b1c029f70b44ceed2e4dd7cc48412ff7b208230767640011de543bce8037d5ef"
   license "MIT"
-  revision 1
   head "https://github.com/soxoj/maigret.git", branch: "main"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any, arm64_golden_gate: "9f267a103e5d9876679226bbe8bac773f600ddfd9a6da2f4766cb413e7fe94e9"
-    sha256 cellar: :any, arm64_tahoe:       "bba8048d1d4e58897300cbd1d9bd11af17320707d495c236590d7274aa25d4bc"
-    sha256 cellar: :any, arm64_sequoia:     "9b39037d5b2ac0c817981943aa0ac062a68f97de6ee8a9c45f6ad7b0be79050f"
-    sha256 cellar: :any, arm64_linux:       "128ec9a199a381ed26f3ee1cb22c53e863cc235a7c23acb2cce7a5fe741797c9"
-    sha256 cellar: :any, x86_64_linux:      "b28104e01b7485309a06b85ed5cf253033876f2be5d6c0c9e9417ba853b32efc"
+    manifest_sha256 "41a99746f9e70f8b156b1b8e83ea5cad8c4055d28ee53f1bb1bc80f711aa33df"
+    sha256 cellar: :any, arm64_golden_gate: "7fe617df0aeedd2a13108c17d4850b8ff007f57f6c38741b8e4124a306de0a04"
+    sha256 cellar: :any, arm64_tahoe:       "ba7a8884620c673eada9a001913c8ab61af7e6064812fb7d29de03c4ff7dfcc1"
+    sha256 cellar: :any, arm64_sequoia:     "7d40adf881d6fa87a71b0e281cad38b376ecc2f1fcd1776e67fe890828994b09"
+    sha256 cellar: :any, arm64_linux:       "db4c7110ff113cd6578a795bcb30b17ad47328fb202d01b6002634d84356ce9d"
+    sha256 cellar: :any, x86_64_linux:      "a5244b3c0b965ecac1009d81ef175fe8b3c7af8b4682b60801b52608fa8d32f5"
   end
 
   depends_on "cmake" => :build # for pycares
@@ -232,8 +231,8 @@ class Maigret < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "prompt-toolkit" do
@@ -287,13 +286,13 @@ class Maigret < Formula
   end
 
   resource "python-dateutil" do
-    url "https://files.pythonhosted.org/packages/66/c0/0c8b6ad9f17a802ee498c46e004a0eb49bc148f2fd230864601a86dcf6db/python-dateutil-2.9.0.post0.tar.gz"
-    sha256 "37dd54208da7e1cd875388217d5e00ebd4179249f90fb72437e91a35459a0ad3"
+    url "https://files.pythonhosted.org/packages/0e/df/f15f80383f152452d8985b36d95cb8751f901a3e0ff4cd27f7e118f168e2/python_dateutil-3.0.0.tar.gz"
+    sha256 "7ebcb3c29a92f3ceafe79a7a48a5c45677e9e004bbeec5742ac0bbb00560b7a2"
   end
 
   resource "python-socks" do
-    url "https://files.pythonhosted.org/packages/bb/5d/57f4f34cba6cd33dabc557096225487bfd977f8831d789b2b81a885f9ed3/python_socks-3.2.1.tar.gz"
-    sha256 "d21618ae6c6734d357be83263b3791666d12af59480ace8f48f2b5fcc8edc987"
+    url "https://files.pythonhosted.org/packages/95/c6/4036f0b1bbcbd2bb863dbc82bc1b48c304553f070cc067cdeb797268af6c/python_socks-3.2.2.tar.gz"
+    sha256 "307cca18f0b464cdc48341578e521832c4878690a6f87b82dfad7bad7474b78f"
   end
 
   resource "pyvis" do
@@ -317,8 +316,8 @@ class Maigret < Formula
   end
 
   resource "socid-extractor" do
-    url "https://files.pythonhosted.org/packages/78/39/9e4c8d26f7dfb0e342f185b63a415b3588109fcd8cc8f6d535dd2461a124/socid_extractor-0.1.1.tar.gz"
-    sha256 "a7013008ff4aeaedb24e0899318e2d5cbf1b395f9945db1495c720fa5823ded1"
+    url "https://files.pythonhosted.org/packages/d4/f8/7f5d8be2a1d9b27eb48212ee2c2390b811ecb1a4d830468e6603053a8dcf/socid_extractor-0.1.2.tar.gz"
+    sha256 "584836cf6e04ada3f76c2e6b27b708a651479fcc044471d21d4f753fee9d1929"
   end
 
   resource "soupsieve" do
@@ -339,6 +338,11 @@ class Maigret < Formula
   resource "typing-extensions" do
     url "https://files.pythonhosted.org/packages/f6/cc/6253133b5bb138fc3306cebfbda2c520f545d36b5be2c7255cc528bb45d6/typing_extensions-4.16.0.tar.gz"
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
+  end
+
+  resource "tzdata" do
+    url "https://files.pythonhosted.org/packages/7a/29/6a1391d31cd00ff9e927215a224a880e1e84e826b64ba80a499e51c074d8/tzdata-2026.6.tar.gz"
+    sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
   resource "urllib3" do
