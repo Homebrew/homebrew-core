@@ -29,6 +29,8 @@ class Pidof < Formula
   # Hard dependency on sys/proc.h, which isn't available on Linux
   depends_on :macos
 
+  allow_network_access!
+
   def install
     # Fix "error: call to undeclared function 'strcasestr'" and "error: call to undeclared function 'kill'"
     # Contacted the upstream author via email on 2023-09-29
