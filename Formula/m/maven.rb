@@ -1,9 +1,9 @@
 class Maven < Formula
   desc "Java-based project management"
   homepage "https://maven.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz"
-  mirror "https://archive.apache.org/dist/maven/maven-3/3.10.1/binaries/apache-maven-3.10.1-bin.tar.gz"
-  sha256 "810b8348f0a40f9116c202093fae007ebeabf67699bf34d81ee7e272289e085a"
+  url "https://www.apache.org/dyn/closer.lua?path=maven/maven-3/3.10.2/binaries/apache-maven-3.10.2-bin.tar.gz"
+  mirror "https://archive.apache.org/dist/maven/maven-3/3.10.2/binaries/apache-maven-3.10.2-bin.tar.gz"
+  sha256 "8ba13121794243e604dbca50439f6ae649ce602675a167129556fd502947b249"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -13,7 +13,8 @@ class Maven < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "b4a0ffc245bee96a9635a59179e6e527520d2d11a4d63ad3ae6af37710f1c9fe"
+    manifest_sha256 "75254a19d9856829c89b6e66e8983da2155eece19947aced00380e4b98d3ed5f"
+    sha256 cellar: :any_skip_relocation, all: "28fa9b035bb96598ea4c7299aa24f8f4c63f3636f6c37a24722d443281808abe"
   end
 
   depends_on "openjdk"
