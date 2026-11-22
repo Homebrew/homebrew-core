@@ -1,17 +1,18 @@
 class Drydock < Formula
   desc "Dashboard for a fleet of Git repositories"
   homepage "https://github.com/yetidevworks/drydock"
-  url "https://github.com/yetidevworks/drydock/archive/refs/tags/v1.4.1.tar.gz"
-  sha256 "36aac94ee78b552de65c1574d52f63271ad97c75ef9ba7fecff4db5d5481e90f"
+  url "https://github.com/yetidevworks/drydock/archive/refs/tags/v1.4.2.tar.gz"
+  sha256 "5ee0696186293ae613de662a5d88bfa863b2f32f6be333c2a38fe4c902add2e9"
   license "MIT"
   head "https://github.com/yetidevworks/drydock.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b5879c03abd28913b21b56e71f495e5d032ae70798c9538a75e902d8dad08f7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fbd773358d38766b4d5515c3c8f5a85525d4b518adc6631abe54d24479224a8d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9fa729648aa158e3ee9600fb46aa34dbe1092cd0f4a945649f63c561b9d196b"
-    sha256 cellar: :any,                 arm64_linux:       "c865486bb0a2e5db461458e0847eed6d8a06b980f5ac35dfc5a4f785b1264d1a"
-    sha256 cellar: :any,                 x86_64_linux:      "f680cfc3def6cf40149fff013613f5940bf2220c0a9684d46d9d22b986b34c1c"
+    manifest_sha256 "8e4d467d1ff67dfd970a6b24e3e799e61d8d5bc4f242ecef4f3f08730cc1e295"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0d1798e3069c9461389bf2a563c5fc258e8cd8114e9052e2e1544d39a44bc79"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c67a8b2691a87dd5e414596acc90b20a9d70f2770f4cf864975379c9fa6997a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a709a16a56982044f283a498774a916a87de010fd92b236cc3759d4f9231e98"
+    sha256 cellar: :any,                 arm64_linux:       "ece85bf33d97faa44aa60cfc96e4b42513b0b8ad0e90ec2234371d31422313da"
+    sha256 cellar: :any,                 x86_64_linux:      "f666eb225569ebba71ea5807719bb38d86bf7814d76ea5be61a904f409da1ba5"
   end
 
   depends_on "rust" => :build
