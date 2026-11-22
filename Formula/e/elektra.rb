@@ -27,6 +27,8 @@ class Elektra < Formula
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
 
+  allow_network_access!
+
   def install
     ENV["CMAKE_POLICY_VERSION_MINIMUM"] = "3.5"
 
