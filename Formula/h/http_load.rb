@@ -42,6 +42,8 @@ class HttpLoad < Formula
 
   depends_on "openssl@3"
 
+  allow_network_access!
+
   def install
     bin.mkpath
     man1.mkpath
