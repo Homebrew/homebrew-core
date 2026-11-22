@@ -1,8 +1,8 @@
 class Tomlplusplus < Formula
   desc "Header-only TOML config file parser and serializer for C++17"
   homepage "https://marzer.github.io/tomlplusplus/"
-  url "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.5.0.tar.gz"
-  sha256 "0fab22df275d188b7c8c698d06b9dcabdaa3f083f9b8da106cbfd2fe181bac62"
+  url "https://github.com/marzer/tomlplusplus/archive/refs/tags/v3.5.1.tar.gz"
+  sha256 "4821c769370a6489b6a37814f16f3769eee0f2e733a5c129d5d99e2515a95c2b"
   license "MIT"
   compatibility_version 2
   head "https://github.com/marzer/tomlplusplus.git", branch: "master"
