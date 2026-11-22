@@ -14,11 +14,13 @@ class NetSnmp < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "359759cc4d5243c1b00718b3a243f2628830dca23386cf01a1f88c14ec2d2f69"
-    sha256 arm64_tahoe:       "ea1257eafed4f0743dbd5ee1858711b162e5b9e222af987f67343eb638cb4551"
-    sha256 arm64_sequoia:     "d3fe01e57a8647bde0f85fb29e6584dd2bb5468e732583317e69532990844918"
-    sha256 arm64_linux:       "3092a0a9ddcd531672934f6c546c5b239d042132b7aee0ca290d9194e42b5245"
-    sha256 x86_64_linux:      "ca797f3ee39ab466a424eb17e3ae1a0a3a4a670392537c849f5b0c3cf061884c"
+    rebuild 1
+    manifest_sha256 "41cbd8c525e3a06d93c0ed0b0bcaf2da17343b026bd4ce31427b55ed9bc2d953"
+    sha256 arm64_golden_gate: "032c17b11585c711bd7a76174e77e5ab795792ae67be3f493d0e4ed4b8c7a774"
+    sha256 arm64_tahoe:       "1121533b1d075028eeb7e0734b51493c690d58e460f6ae09a58e19d192459af0"
+    sha256 arm64_sequoia:     "a26da42979d7ed30a33cca21c09b1b0482a273f496796b65a60b029cd923ff5b"
+    sha256 arm64_linux:       "97c2e5058bb6a7ef2f38c3ce78b3d58bb2d8a30a62c0662cc456cb1b67cab213"
+    sha256 x86_64_linux:      "e5b975989dc608f543e17cb552ac26077b1e7014798020c92b949629355cf76d"
   end
 
   keg_only :provided_by_macos
@@ -44,6 +46,15 @@ class NetSnmp < Formula
       type :unofficial
       resolves "https://github.com/net-snmp/net-snmp/issues/434"
     end
+  end
+
+  # Fix reusing a session after it was closed, e.g. a PHP `SNMP` object
+  # failing every request after the first with "Can't assign requested address"
+  patch do
+    url "https://github.com/net-snmp/net-snmp/commit/6a16c2df17e9479de822b42a30dca345c9e746f5.patch?full_index=1"
+    sha256 "aa729ad0a91cf2d8ba00c437d88b0179b70fa5ab42f8855735ba1e73c84c099c"
+    type :backport
+    resolves "https://github.com/net-snmp/net-snmp/issues/1055"
   end
 
   deny_network_access!
