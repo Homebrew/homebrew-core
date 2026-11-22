@@ -11,6 +11,8 @@ class Bork < Formula
     sha256 cellar: :any_skip_relocation, all: "16ffe8fc8e92fb6b7a8563cf610e9ebef39bb4123b8c092087aba936df7ed44b"
   end
 
+  deny_network_access!
+
   def install
     man1.install "docs/bork.1"
     prefix.install %w[bin lib test types]

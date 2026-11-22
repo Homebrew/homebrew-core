@@ -24,6 +24,8 @@ class BoostPython3 < Formula
   depends_on "boost"
   depends_on "python@3.15"
 
+  deny_network_access!
+
   def install
     # "layout" should be synchronized with boost
     args = %W[

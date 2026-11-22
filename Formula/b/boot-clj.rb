@@ -13,6 +13,8 @@ class BootClj < Formula
 
   depends_on "openjdk"
 
+  allow_network_access! :test
+
   def install
     libexec.install "boot.jar"
     (bin/"boot").write <<~SHELL

@@ -25,6 +25,8 @@ class BoostBuild < Formula
 
   conflicts_with "b2-tools", because: "both install `b2` binaries"
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh"
     system "./b2", "--prefix=#{prefix}", "install"

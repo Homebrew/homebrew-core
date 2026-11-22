@@ -26,6 +26,8 @@ class Bossa < Formula
     depends_on "readline"
   end
 
+  deny_network_access!
+
   def install
     system "make", "bin/bossac", "bin/bossash"
     bin.install "bin/bossac"

@@ -20,6 +20,8 @@ class Bootterm < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "ffec9a2836da5cdeecccc33cd9ce2a78fb2048121c48b07bf28b0f6317a60c23"
   end
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
