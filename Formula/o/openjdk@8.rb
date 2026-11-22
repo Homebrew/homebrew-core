@@ -1,10 +1,10 @@
 class OpenjdkAT8 < Formula
   desc "Development kit for the Java programming language"
   homepage "https://openjdk.org/"
-  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u512-ga.tar.gz"
-  version "1.8.0-512"
-  BUILD_NUMBER = "b09".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview
-  sha256 "0a151972b63d1db2c6a1a2f321791a41b29ff9279c49e6a01bafd23190a1574e"
+  url "https://github.com/openjdk/jdk8u/archive/refs/tags/jdk8u514-ga.tar.gz"
+  version "1.8.0-514"
+  BUILD_NUMBER = "b01".freeze # Please update when a new GA release is available: https://wiki.openjdk.org/spaces/jdk8u/overview
+  sha256 "99c43515f340937220fc99a99b43201809b7534b7821c41ce620a80fe2a07494"
   license "GPL-2.0-only"
 
   livecheck do
