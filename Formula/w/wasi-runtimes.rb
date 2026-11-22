@@ -4,6 +4,7 @@ class WasiRuntimes < Formula
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.6/llvm-project-23.1.6.src.tar.xz"
   sha256 "d3b86ab29cfb4445a6652e5c2642ccc75e04e38084dde3701d323320f35a31da"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
