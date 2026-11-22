@@ -1,17 +1,17 @@
 class Codanna < Formula
   desc "Code intelligence system with semantic search"
   homepage "https://docs.codanna.sh/"
-  url "https://github.com/bartolli/codanna/archive/refs/tags/v0.17.1.tar.gz"
-  sha256 "ea3cbe407e92395f670f990bd4be875685791e768a65eba1895dfd41f35b28b2"
+  url "https://github.com/bartolli/codanna/archive/refs/tags/v0.18.0.tar.gz"
+  sha256 "0a98241d0abea775eadb8849a9d9fc3b25408c3f93c585b5d6973cdd250270d8"
   license "Apache-2.0"
-  revision 3
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ccdccde7a98094db3a73ed3f38fa16fd83ac9642f1766c0a2dfe9ac370712ac0"
-    sha256 cellar: :any, arm64_tahoe:       "75cb961c938a3ec975bf86450027b23e48c42a20ef8266eb471f90817979b4bd"
-    sha256 cellar: :any, arm64_sequoia:     "825c09ed3ffe0659ab8577b6e995fd3549df6bbcb42b2f2a0afdc402a016787a"
-    sha256 cellar: :any, arm64_linux:       "99afabc0f7e285559c1ff847b3cef64ee922848cfad6f5ba78e0cacadf2dad79"
-    sha256 cellar: :any, x86_64_linux:      "e113e0ef6ce26f8e66cdce21ab9c74aa7930ec43e674055381cc26cc2ff004ba"
+    manifest_sha256 "40d41e7e0ad49ece3ac0cd9191c6815933e6c1c8d04468ebf4123a024c5c8f5c"
+    sha256 cellar: :any, arm64_golden_gate: "a6454efce134ed0f13a2855290368ca1c7ac792ac81a9e5c199a11e5df9aeabf"
+    sha256 cellar: :any, arm64_tahoe:       "3f172c1bb2756bcffc8db5320dc1e47e030837e4d17ead51ef8958a10cba65d8"
+    sha256 cellar: :any, arm64_sequoia:     "b19953f290d8a83dd65696649b9e94c59eb00c618d5696e8b9a745c901a3a418"
+    sha256 cellar: :any, arm64_linux:       "249aa6b3da318d56bc6f40b8fdb12a019d56726e110e920c4d35a87402d03cb6"
+    sha256 cellar: :any, x86_64_linux:      "7ad42dfb66cdd5e54bf00b34941bd15814763f3c3fcc0c61a685ae00ecd6ccf2"
   end
 
   depends_on "pkgconf" => :build
