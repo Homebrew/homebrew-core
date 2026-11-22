@@ -7,9 +7,10 @@ class M1ddc < Formula
   head "https://github.com/waydabber/m1ddc.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3867b5ab27b555067acddeea26aba450679dfa2c980b1f3b96c895ed2d834019"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5f214e6c142610187513ef1756b281a7879ca8402feea6420c9483a78ec7ed6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0a276f5e6d1f9f8ef3cf05a7e118fc8b72236678cb79f4ad5bd47dda8735739"
+    manifest_sha256 "c0be968a5788ab8eec3fc9fb16ef25b39040ba4df7dad0682cf36ac234c03b4d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f203efb2d8b0b3b3187a7fdfe9334e85e3b3be094459308c31cebd878e59b185"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5755f7891e4d2c3f6d9f9b257c4e08178c762d88778356434a80c05535c31085"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6067f0eba98aa7f2261f1af069d3c39ba6ecbd44adad4e7470e758ad07b855b6"
   end
 
   depends_on arch: :arm64
