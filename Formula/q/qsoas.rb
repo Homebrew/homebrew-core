@@ -43,6 +43,8 @@ class Qsoas < Formula
     sha256 "183711c7a26d932b5342e64860d16953f1cc6518d07b2c30a02937fb362563f8"
   end
 
+  allow_network_access!
+
   def install
     resource("mruby").stage do
       system "make"
