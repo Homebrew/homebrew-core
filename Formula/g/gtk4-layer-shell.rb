@@ -6,6 +6,12 @@ class Gtk4LayerShell < Formula
   license "MIT"
   head "https://github.com/wmww/gtk4-layer-shell.git", branch: "main"
 
+  bottle do
+    manifest_sha256 "0e0322116ecc3593783aab59cb38f38edbf7bdbc1e9d3cf05922459ae00b9748"
+    sha256 cellar: :any, arm64_linux:  "c875c863412d4a73f667d9793ae455c729d0118cf18c121a8c59cd5aa6b0929c"
+    sha256 cellar: :any, x86_64_linux: "29a7082aadd13747da590431f710a390345dee5ff89a30f173a130d99acf6af9"
+  end
+
   depends_on "gobject-introspection" => :build
   depends_on "meson" => :build
   depends_on "ninja" => :build
