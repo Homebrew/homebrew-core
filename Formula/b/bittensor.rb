@@ -3,17 +3,17 @@ class Bittensor < Formula
 
   desc "SDK and command-line tool for the Bittensor network"
   homepage "https://subtensor.vercel.app/"
-  url "https://files.pythonhosted.org/packages/f3/76/166ec4263a7889df2bb8796a57187906cec3aa3079e235b9e60517041c51/bittensor-11.3.0.tar.gz"
-  sha256 "8ce05029a712866048c6cf3e3d5df1592ac896175f5b4227f63044b7e7b7edb3"
+  url "https://files.pythonhosted.org/packages/16/e9/3075647afee2c48885d2a6df0db88f654c216f42122f92a58c2e5c7bfd79/bittensor-11.3.5.tar.gz"
+  sha256 "17e761f5abd7a7ceb5cb391088bc1d5187f55a9be03cea21234a10cbaa805c64"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "f8cbd87bd655b6a2733e579ebb7bff016ce5435d71da9a51712eeed9c1804c66"
-    sha256 cellar: :any, arm64_tahoe:       "63b5366de84f5e5141d10159086bc5e2bc47b35bd20ab63a2ba15339f8e36aba"
-    sha256 cellar: :any, arm64_sequoia:     "e71af8e2d98b5284591be8899e9fcffcb43b347140e10ff079448328d541c2a2"
-    sha256 cellar: :any, arm64_linux:       "56a4ee8eeff4adc4d06a4c6a1013abf1ef80b396719c685953f2da28ae538907"
-    sha256 cellar: :any, x86_64_linux:      "cb29e721a14c7aa8d3008e3d2ba57cbd682ba879bc36fd5dbc7ba8e2a2ae0ef6"
+    manifest_sha256 "9f702b8bfd0dba86c319bb32a2abef9d875d3035cc784b491689c64e54519ad5"
+    sha256 cellar: :any, arm64_golden_gate: "f6a2aa6f02c1845c7132ff84273aae44fa6e216230ff82c849debd7d54ac53b0"
+    sha256 cellar: :any, arm64_tahoe:       "c3d8d45c2f4792192e6fe3f666fc25434eebd55081b153b490cb4a5eaf5447cf"
+    sha256 cellar: :any, arm64_sequoia:     "9d82ea33e9791aa8f32d5f34294b95d67525c749a06f7901cc9fe3f5d7d7c124"
+    sha256 cellar: :any, arm64_linux:       "7bc4122b7069d5c54b82521faeca751268fc776158c3fb1f9c1833768ce9735b"
+    sha256 cellar: :any, x86_64_linux:      "1f39e75646c89b58d7e31a79d9365d1065acebda7125aa4b05277a2038bfd5b9"
   end
 
   depends_on "rust" => :build # for bittensor-core
@@ -27,18 +27,18 @@ class Bittensor < Formula
   pypi_packages exclude_packages: %w[pydantic]
 
   resource "annotated-doc" do
-    url "https://files.pythonhosted.org/packages/5a/8e/38aa427ed5402449e226975b649c5dc73ccadfefeb95e6aecb8f8ea4b6b6/annotated_doc-0.0.5.tar.gz"
-    sha256 "c7e58ce09192557605d8bbd92836d7e1d520ac9580096042c0bfd197efacf1bb"
+    url "https://files.pythonhosted.org/packages/0b/7d/bdbf3062e5dae31da8b3de1e3269110beb93d268df4a7f6d22b167c6cee0/annotated_doc-0.0.7.tar.gz"
+    sha256 "0a30ef8f5322a4173720ae6712dc9a5e58f5a19868f3f167b4b5778db066c2b5"
   end
 
   resource "bitarray" do
-    url "https://files.pythonhosted.org/packages/04/f7/6765577df59e2345036e435f7e983e1c291d67b7d76a51918eff04ad1494/bitarray-3.11.0.tar.gz"
-    sha256 "bf19437ec00ec3d40aef82eaeedc14cf4000be9b635c4f5049796506e6630dd8"
+    url "https://files.pythonhosted.org/packages/2b/1f/7ba6857992322cca8f379a4858a864f1c05fd1c115e3b1b65000d28ce094/bitarray-3.12.4.tar.gz"
+    sha256 "1f8bdf27eea32ab5783e32d3df105bab429e8097adc95d6307635238cfb5d366"
   end
 
   resource "bittensor-core" do
-    url "https://files.pythonhosted.org/packages/d2/25/121407d496268d62bd7e75fa8d842d9aef5787070d9d657d7cb035642130/bittensor_core-0.1.5.tar.gz"
-    sha256 "bb6175643ef351e8afc5059cb907b6f13083bec7525ad287c1a6db30be9ee980"
+    url "https://files.pythonhosted.org/packages/83/43/5f8dfd7fe3fe44bebfc2107a54d60059d842509c16d51432c2f899b8e4bf/bittensor_core-0.1.12.tar.gz"
+    sha256 "8fb4a05289b18f4e958e66204a49640880b74b05c429ad424c60bb312fa5a283"
   end
 
   resource "ckzg" do
@@ -47,8 +47,8 @@ class Bittensor < Formula
   end
 
   resource "cytoolz" do
-    url "https://files.pythonhosted.org/packages/bd/d4/16916f3dc20a3f5455b63c35dcb260b3716f59ce27a93586804e70e431d5/cytoolz-1.1.0.tar.gz"
-    sha256 "13a7bf254c3c0d28b12e2290b82aed0f0977a4c2a2bf84854fcdc7796a29f3b0"
+    url "https://files.pythonhosted.org/packages/43/ce/d8bd9b5f85b11c7231f7cec791e1248949c8073e9cded5076759d973d35b/cytoolz-1.2.0.tar.gz"
+    sha256 "fdd8ded8a93e1be009577fccddaacf78aa21cbe7dc6ec53c229def0198a1ffa5"
   end
 
   resource "eth-abi" do
@@ -97,8 +97,8 @@ class Bittensor < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdurl" do
@@ -112,8 +112,8 @@ class Bittensor < Formula
   end
 
   resource "pycryptodome" do
-    url "https://files.pythonhosted.org/packages/34/e0/0d0bd5b1089a4bf5ef48164459289ddf02a9110ca1db854edaad25127e64/pycryptodome-3.24.0.tar.gz"
-    sha256 "9140779b40405476a799305b9ac1bcaab4ee6791dc3d38b12a9aa84ffbd6aabf"
+    url "https://files.pythonhosted.org/packages/a9/75/b8a9ba9a15b1b190d1fb21e75e921934c9bcd7e63e137f96b56ed274328c/pycryptodome-3.24.1.tar.gz"
+    sha256 "3f9e74444c0ecbec7af232a95d282c74b114d53212ce075ed17b7fd7dca32bb3"
   end
 
   resource "pygments" do
@@ -127,8 +127,8 @@ class Bittensor < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/fc/f2/af1da9d3ceed77bfcdce40427d49ba0be94e4fe84245e3bfef68c10e75b6/regex-2026.9.29.tar.gz"
-    sha256 "8b5fcc4771732191b2b7d1dd68d8f0353f47f8d90b6150f6dce58bf1112442cb"
+    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
+    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
   end
 
   resource "rich" do
@@ -152,8 +152,8 @@ class Bittensor < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/03/51/d33db42cc72ffd8c30777547b42d01f0cbf9d95a770457698d0174b3ed71/typer-0.27.3.tar.gz"
-    sha256 "d0396f770a560ab1b0a8504e13b5f254b728cedb05c61cf0359e944e50ce8901"
+    url "https://files.pythonhosted.org/packages/bf/21/37383ece7d0a4995fb8ea97729207c4292b3ff94085002f37b2387063cfb/typer-0.29.2.tar.gz"
+    sha256 "b1998dc5f2c3dedafa1517a9521fa944cc4dc1fadcea085d81a3b10ebcaeb075"
   end
 
   resource "websockets" do
@@ -170,7 +170,14 @@ class Bittensor < Formula
     # Allow Python 3.15
     inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
 
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, "python3.15")
+    venv.pip_install resources.reject { |r| r.name == "bittensor-core" }
+    resource("bittensor-core").stage do
+      # The sdist keeps `[patch]` entries pointing at vendored crates it does not ship, which breaks `cargo metadata`
+      inreplace "Cargo.toml", %r{^(?:evm-gasometer|sc-informant) = \{ path = "vendor/[^"]+" \}\n}, ""
+      venv.pip_install Pathname.pwd
+    end
+    venv.pip_install_and_link buildpath
 
     bin.install_symlink libexec/"bin/btcli"
     bash_completion.install libexec/"share/bash-completion/completions/btcli"
@@ -198,10 +205,12 @@ class Bittensor < Formula
     output = shell_output("#{bin}/btcli #{global_args.join(" ")} wallet regen-coldkey #{regen_args.join(" ")}")
 
     expected_regen = {
-      "coldkey"     => test_wallet_name,
-      "crypto_type" => "sr25519",
-      "ss58"        => ss58_address,
-      "path"        => wallet_path.to_s,
+      "coldkey"        => test_wallet_name,
+      "crypto_type"    => "sr25519",
+      "account_type"   => "standard",
+      "signing_scheme" => "sr25519",
+      "ss58"           => ss58_address,
+      "path"           => wallet_path.to_s,
     }
     assert_equal expected_regen, JSON.parse(output)
 
