@@ -19,6 +19,8 @@ class NicovideoDl < Formula
 
   uses_from_macos "python"
 
+  allow_network_access!
+
   def install
     # Replace `cgi` usage removed in python 3.13
     inreplace "nicovideo-dl", "import cgi", ""
