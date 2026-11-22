@@ -56,6 +56,8 @@ class RuffLsp < Formula
     sha256 "0cea48d173cc12fa28ecabc3b837ea3cf6f38c6d1136f85cbaaf598984861466"
   end
 
+  allow_network_access!
+
   def install
     virtualenv_install_with_resources
   end
