@@ -16,6 +16,8 @@ class Bgrep < Formula
     sha256 cellar: :any,                 x86_64_linux:      "f6dfa7034085b0560b2a86a28db8b4de0c55a4efcc8c2112d9560e04dfe72130"
   end
 
+  deny_network_access!
+
   def install
     args = %w[bgrep.c -o bgrep]
     args << ENV.cflags if ENV.cflags.present?

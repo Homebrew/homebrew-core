@@ -176,6 +176,8 @@ class Bilix < Formula
     resolves "https://github.com/HFrost0/bilix/pull/255"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     virtualenv_install_with_resources
 
