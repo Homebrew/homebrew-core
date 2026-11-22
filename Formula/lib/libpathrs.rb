@@ -8,8 +8,10 @@ class Libpathrs < Formula
   head "https://github.com/cyphar/libpathrs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "7c76680f600201bc7e6ce67d6c9f4986276d9202c202838e06119f2be1db3208"
-    sha256 cellar: :any, x86_64_linux: "3f164db4ca74c4b95a6fcc699e831d43f3946abc21eff1d959846c62c9e9fbb6"
+    rebuild 1
+    manifest_sha256 "5be177dcf60635f53c5421cdc69fda26c4fd1a9c29d942f1176ba2cf93cbc4ad"
+    sha256 cellar: :any, arm64_linux:  "8b32c69a959a1e3508b4d81285c7d1c82f9c864f09c4097ea987565d387cfded"
+    sha256 cellar: :any, x86_64_linux: "e113b5ac71c073b35ef96498d7df94c01d5515c102165d7304c3b94cbfc1dcd1"
   end
 
   depends_on "lld" => :build
