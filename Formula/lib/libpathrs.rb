@@ -1,21 +1,29 @@
 class Libpathrs < Formula
   desc "C-friendly API to make path resolution safer on Linux"
   homepage "https://github.com/cyphar/libpathrs"
-  url "https://github.com/cyphar/libpathrs/archive/refs/tags/v0.2.6.tar.gz"
-  sha256 "ae274cd296b863d538e28ee42e612f40723f9f0b2601a41c5b796ac074e5eb9c"
+  url "https://github.com/cyphar/libpathrs/releases/download/v0.2.6/libpathrs-0.2.6.tar.xz"
+  sha256 "7b1e3a2c3cc0bd9f94187edbb6d1ba9737deb2bf7f724df1ee37653ea405b2b0"
   license any_of: ["MPL-2.0", "LGPL-3.0-or-later"]
   compatibility_version 1
   head "https://github.com/cyphar/libpathrs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "7c76680f600201bc7e6ce67d6c9f4986276d9202c202838e06119f2be1db3208"
-    sha256 cellar: :any, x86_64_linux: "3f164db4ca74c4b95a6fcc699e831d43f3946abc21eff1d959846c62c9e9fbb6"
+    rebuild 1
+    manifest_sha256 "5be177dcf60635f53c5421cdc69fda26c4fd1a9c29d942f1176ba2cf93cbc4ad"
+    sha256 cellar: :any, arm64_linux:  "8b32c69a959a1e3508b4d81285c7d1c82f9c864f09c4097ea987565d387cfded"
+    sha256 cellar: :any, x86_64_linux: "e113b5ac71c073b35ef96498d7df94c01d5515c102165d7304c3b94cbfc1dcd1"
   end
 
   depends_on "lld" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on :linux
+
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
 
   def install
     # Not parallelizable because hack/with-crate-type.sh modifies Cargo.toml in-place
