@@ -11,6 +11,8 @@ class BoomCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "3804dd1b6ac824126d7b5a3456482ccfa6a84afb568b3528cd9fc9be939b157d"
   end
 
+  deny_network_access!
+
   def install
     bash_completion.install "completion/boom.bash" => "boom"
     zsh_completion.install "completion/boom.zsh" => "_boom"

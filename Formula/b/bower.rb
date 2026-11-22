@@ -25,6 +25,8 @@ class Bower < Formula
 
   conflicts_with "bower-mail", because: "both install `bower` binaries"
 
+  allow_network_access! :test
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

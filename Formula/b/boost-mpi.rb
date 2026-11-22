@@ -26,6 +26,8 @@ class BoostMpi < Formula
   depends_on "boost"
   depends_on "open-mpi"
 
+  allow_network_access! :test
+
   def install
     # "layout" should be synchronized with boost
     args = %W[
