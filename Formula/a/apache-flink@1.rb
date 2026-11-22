@@ -23,6 +23,8 @@ class ApacheFlinkAT1 < Formula
 
   depends_on "openjdk@11"
 
+  allow_network_access! :test
+
   def install
     inreplace "conf/config.yaml" do |s|
       s.sub!(/^env:/, "env.java.home: #{Language::Java.java_home("11")}\n\\0")
