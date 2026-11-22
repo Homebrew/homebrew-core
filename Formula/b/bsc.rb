@@ -54,13 +54,21 @@ class Bsc < Formula
   # https://github.com/B-Lang-org/bsc/issues/504#issuecomment-1286287406
   patch :DATA
 
+  deny_network_access!
+
+  def fetch
+    # Using index-state to reproducibly fetch packages without needing resources
+    haskell_libs = %w[old-time regex-compat split syb strict-concurrency]
+    system "cabal", "v2-update", "hackage.haskell.org,#{time.iso8601}"
+    system "cabal", "fetch", *haskell_libs
+  end
+
   def install
     # Directly running tar to unpack subdirectories into buildpath
     resource("yices").stage { system "tar", "-xzf", Dir["*.tar.gz"].first, "-C", buildpath } if build.stable?
 
     store_dir = buildpath/"store"
     haskell_libs = %w[old-time regex-compat split syb strict-concurrency]
-    system "cabal", "v2-update"
     system "cabal", "--store-dir=#{store_dir}", "v2-install", "--lib", *haskell_libs
 
     package_db = store_dir.glob("ghc-*/package.db").first
