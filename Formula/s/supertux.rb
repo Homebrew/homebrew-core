@@ -4,8 +4,8 @@ class Supertux < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0/SuperTux-v0.7.0-Source.tar.gz"
-    sha256 "32fc5b99b9994ed58e58341d6f21de925764b381256e108591136de53bc31da5"
+    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0.1/SuperTux-v0.7.0.1-Source.tar.gz"
+    sha256 "c3a3813bc57b8267960e4fcc33afe5f5cb468abe2a288fe58da4f288d0d7442c"
 
     depends_on "sdl2-compat"
     depends_on "sdl2_image"
@@ -60,18 +60,17 @@ class Supertux < Formula
       # Without the following option, Cmake intend to use the library of MONO framework.
       "-DPNG_PNG_INCLUDE_DIR=#{formula_opt_include("libpng")}",
       "-DCMAKE_INSTALL_RPATH=#{rpath}",
+      # Avoid bundling dependency dylibs into `MacOS/` and overriding the rpath
+      "-DDISABLE_CPACK_BUNDLING=ON",
+      "-DINSTALL_SUBDIR_DOC=share/doc/supertux2",
     ]
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
-    return unless OS.mac?
-
-    # Remove unnecessary files
-    rm_r(share/"applications")
-    rm_r(share/"pixmaps")
-    rm_r(prefix/"MacOS")
+    # Remove unnecessary app bundle skeleton
+    rm_r(prefix/"SuperTux.app") if OS.mac?
   end
 
   test do
