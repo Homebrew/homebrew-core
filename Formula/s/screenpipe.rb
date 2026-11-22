@@ -37,6 +37,8 @@ class Screenpipe < Formula
     depends_on "xz"
   end
 
+  allow_network_access!
+
   def install
     features = ["metal", "pipes"] if OS.mac? && Hardware::CPU.arm?
     system "cargo", "install", *std_cargo_args(path: "screenpipe-server", features:)
