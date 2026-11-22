@@ -42,6 +42,8 @@ class LibspellingAT02 < Formula
     depends_on "harfbuzz"
   end
 
+  allow_network_access!
+
   def install
     system "meson", "setup", "build", "-Ddocs=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
