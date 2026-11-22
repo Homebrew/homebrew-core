@@ -11,8 +11,8 @@ class Psalm < Formula
   end
 
   bottle do
-    manifest_sha256 "431b72996f0fa97f01a672ba70cd9b8d3b642ef15d5ea541273320e96f022c01"
-    sha256 cellar: :any_skip_relocation, all: "9fa8a2b0a8d78c86d527621c02e9b24fd46e8d985ec8dafae863c256cf100de9"
+    manifest_sha256 "2ababb3e01172aa66367e847d731630e13243f61c4572f9a3b6afb9962196f7d"
+    sha256 cellar: :any_skip_relocation, all: "18242007187f8ac73a7b1ad3fc08d0b6ee556fbfb5af3347ce91de4e4857a75a"
   end
 
   depends_on "composer" => :test
