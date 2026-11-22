@@ -18,6 +18,8 @@ class Websocketpp < Formula
   depends_on "cmake" => :build
   depends_on "asio"
 
+  allow_network_access!
+
   def install
     # cmake 4.0 support PR, https://github.com/zaphoyd/websocketpp/pull/1168
     system "cmake", "-S", ".", "-B", "build", "-DCMAKE_POLICY_VERSION_MINIMUM=3.5", *std_cmake_args
