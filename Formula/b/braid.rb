@@ -64,6 +64,8 @@ class Braid < Formula
     sha256 "187ea312fb58420ff0c40f40af1862651d4295c8675267c6a1c353f1a0ac3265"
   end
 
+  allow_network_access! :test
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|

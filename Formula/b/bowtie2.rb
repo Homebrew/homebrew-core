@@ -27,6 +27,8 @@ class Bowtie2 < Formula
     depends_on "simde" => :build
   end
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
 
