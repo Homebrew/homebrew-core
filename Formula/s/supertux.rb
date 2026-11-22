@@ -4,8 +4,8 @@ class Supertux < Formula
   license "GPL-3.0-or-later"
 
   stable do
-    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0.1/SuperTux-v0.7.0.1-Source.tar.gz"
-    sha256 "c3a3813bc57b8267960e4fcc33afe5f5cb468abe2a288fe58da4f288d0d7442c"
+    url "https://github.com/SuperTux/supertux/releases/download/v0.7.0.2/SuperTux-v0.7.0.2-Source.tar.gz"
+    sha256 "e37845e1c3efa5a095f2a1f5efd59f1d447e31ea3db37fc6dcb963ca438fbc87"
 
     depends_on "sdl2-compat"
     depends_on "sdl2_image"
@@ -17,12 +17,12 @@ class Supertux < Formula
   end
 
   bottle do
-    manifest_sha256 "5612d250d91e16c26ce7d8841058d5cd26ee35a6af15e0731598c95a556b36c4"
-    sha256 cellar: :any, arm64_golden_gate: "adbd10311e415e487c45af03cf2603d4b514c0ba534d225d4575ae040e18cfe4"
-    sha256 cellar: :any, arm64_tahoe:       "5104dbb3c15805361140cb21c2b7711b820673b86ae5a99dac6082673174dc46"
-    sha256 cellar: :any, arm64_sequoia:     "d0d9a86edcc56293a2d7e8e4b836880ffbd9137efbf3aff8851a562fd725a4b0"
-    sha256 cellar: :any, arm64_linux:       "efd4ae6d6d671e8c91e484f8f9f56defe15d63bf3df334d8b7092861af30b14d"
-    sha256 cellar: :any, x86_64_linux:      "d29d4802cf0dd5541afdcc05e8b91d485b437d23e05d1ca01748c4b693460ad4"
+    manifest_sha256 "62c8ad4ac0a385b9f6617d197f4e41a9749da7d4378df2fc05c3e7cfdbf6d6e7"
+    sha256 cellar: :any, arm64_golden_gate: "fce254f371c6b9ce1dad7378f0a91c9b26aab8ee150626f065ecc5d2942abdc2"
+    sha256 cellar: :any, arm64_tahoe:       "70b08c765afcc66b84d3da111697178a202645eea2f4d27dffa91b072bb5ea59"
+    sha256 cellar: :any, arm64_sequoia:     "99503fbe1910d31d524582719397d87941115ad04ec081231f383ca3ca78939d"
+    sha256 cellar: :any, arm64_linux:       "a3d0465cae53d66c455783df565c0901b5ac8f5f05abac9c6be2f9d16529e062"
+    sha256 cellar: :any, x86_64_linux:      "ad38fa7dd29c1683c568f25a97ab0e6e24091c28bc9443cb087267989b2adabe"
   end
 
   head do
