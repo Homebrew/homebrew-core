@@ -101,6 +101,8 @@ class GhcAT94 < Formula
     resolves "https://gitlab.haskell.org/ghc/ghc/-/merge_requests/10520"
   end
 
+  allow_network_access!
+
   def install
     ENV["CC"] = ENV.cc
     ENV["LD"] = "ld"
