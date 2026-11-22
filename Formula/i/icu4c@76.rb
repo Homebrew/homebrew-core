@@ -24,6 +24,8 @@ class Icu4cAT76 < Formula
   deprecate! date: "2025-03-29", because: :versioned_formula
   disable! date: "2026-03-29", because: :versioned_formula
 
+  allow_network_access!
+
   def install
     args = %w[
       --disable-samples
