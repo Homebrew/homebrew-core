@@ -26,13 +26,19 @@ class Aescrypt < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2a2705c4423a86919b9309235a468b5cc1ac66200501bd255cefe0d26d1f07c6"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for newer Clang
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
-    # Work around failure from GCC 10+ using default of `-fno-common`
-    # multiple definition of `ROUNDS'; aescrypt.o:(.bss+0x180): first defined here
-    ENV.append_to_cflags "-fcommon" if OS.linux?
+    if OS.linux?
+      # Work around failure from GCC 10+ using default of `-fno-common`
+      # multiple definition of `ROUNDS'; aescrypt.o:(.bss+0x180): first defined here
+      ENV.append_to_cflags "-fcommon"
+      # Work around "buffer overflow detected" with Ubuntu gcc default of -D_FORTIFY_SOURCE=3
+      ENV.append_to_cflags "-D_FORTIFY_SOURCE=2"
+    end
 
     system "./configure"
     system "make"
