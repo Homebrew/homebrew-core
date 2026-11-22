@@ -1,8 +1,8 @@
 class ReleaseIt < Formula
   desc "Generic CLI tool to automate versioning and package publishing related tasks"
   homepage "https://github.com/release-it/release-it"
-  url "https://registry.npmjs.org/release-it/-/release-it-21.1.2.tgz"
-  sha256 "f1a86b64bbe50643920ac52ee0a406b5b7007f94ff156be2e85fd87536161145"
+  url "https://registry.npmjs.org/release-it/-/release-it-21.1.3.tgz"
+  sha256 "054e70acd9db3f5b20f9874da53ee2b8ef323f163edb898c23a904bdfb56de21"
   license "MIT"
 
   livecheck do
