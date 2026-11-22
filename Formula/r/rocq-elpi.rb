@@ -2,10 +2,10 @@ class RocqElpi < Formula
   desc "Elpi extension language for Rocq"
   homepage "https://github.com/LPCIC/coq-elpi"
   # Update resources based on https://github.com/LPCIC/coq-elpi/blob/v#{version}/rocq-elpi.opam#L18-L26
-  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.6.0/rocq-elpi-3.6.0.tar.gz"
-  sha256 "72ecf7a08edf8ebbe9114df8d27ab0d272b8682d2f68297b6f6730f8ad429abb"
+  url "https://github.com/LPCIC/coq-elpi/releases/download/v3.7.0/rocq-elpi-3.7.0.tar.gz"
+  sha256 "56c8279b16fdc01d972aab28bbe672a3c93067d497cde98884d8305ea65a6a5a"
   license "LGPL-2.1-or-later"
-  compatibility_version 5
+  compatibility_version 6
 
   livecheck do
     url :stable
@@ -32,8 +32,8 @@ class RocqElpi < Formula
   # The result is similar to using `--deps-only` in other formulae. We can't
   # run that here as it installs a duplicate copy of `rocq`.
   resource "elpi" do
-    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v4.0.0/elpi.opam"
-    sha256 "9b42f3ce82465cc827d32745467ca106b8053d57d05ce10bc001ae134cf7e142"
+    url "https://raw.githubusercontent.com/LPCIC/elpi/refs/tags/v4.1.1/elpi.opam"
+    sha256 "fb7e5df93d012c2803196751107036ce8c8bcee84644410a455d99700ec512e9"
   end
 
   resource "ppx_optcomp" do
@@ -66,19 +66,6 @@ class RocqElpi < Formula
     end
 
     ENV["OCAMLFIND_CONF"] = libexec/"lib/findlib.conf"
-
-    # dune 3.24 replaced the Coq build language with the Rocq build language.
-    dune_files = buildpath.glob("**/{dune,dune-project}")
-    {
-      "(lang dune 3.13)" => "(lang dune 3.24)",
-      "(using coq 0.8)"  => "(using rocq 0.11)",
-      "(coq (flags"      => "(rocq (flags",
-      "coq.theory"       => "rocq.theory",
-      "coq.pp"           => "rocq.pp",
-      "%{coq:"           => "%{rocq:",
-    }.each do |before, after|
-      inreplace dune_files.select { |f| f.read.include?(before) }, before, after
-    end
 
     system "dune", "build", "-p", name, "@install"
     system "dune", "install", name, "--prefix=#{prefix}",
