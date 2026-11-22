@@ -3,8 +3,8 @@ class GalleryDl < Formula
 
   desc "Command-line downloader for image-hosting site galleries and collections"
   homepage "https://codeberg.org/mikf/gallery-dl"
-  url "https://files.pythonhosted.org/packages/6c/ed/0499729ee864503256e3892843f990a5785160b05ad3510f62fd426648dc/gallery_dl-1.32.20.tar.gz"
-  sha256 "335792dc3af065dd70ec2908f28e46a5653ff66e35a447326be620e990d7c0f3"
+  url "https://files.pythonhosted.org/packages/37/a1/bffb3ccddd5d829ac1e444d0f8be640461e2031cf0f779efbf50c47629dc/gallery_dl-1.32.21.tar.gz"
+  sha256 "4a1f71cc9a95dae9098d63e79049fbdccfec44386ba9ca49c7248eb8b3b821c0"
   license "GPL-2.0-only"
   head "https://codeberg.org/mikf/gallery-dl.git", branch: "master"
 
@@ -72,8 +72,8 @@ class GalleryDl < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "requests" do
