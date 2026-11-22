@@ -31,6 +31,8 @@ class GitSeries < Formula
   # Commit ref: https://github.com/git-series/git-series/commit/daf949d8b5b1c9299c49a5cfd30b6da9534ccb87
   patch :DATA
 
+  allow_network_access!
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
