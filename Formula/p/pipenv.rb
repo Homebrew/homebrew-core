@@ -9,11 +9,13 @@ class Pipenv < Formula
   head "https://github.com/pypa/pipenv.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9de4bf9dde687732653652d58c10805d28e389da012f399e9682a975f2b44ea4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9de4bf9dde687732653652d58c10805d28e389da012f399e9682a975f2b44ea4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9de4bf9dde687732653652d58c10805d28e389da012f399e9682a975f2b44ea4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c245061b541e06aa212645a108203d919ab320a37dac4cb653da19dba329cb6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5c245061b541e06aa212645a108203d919ab320a37dac4cb653da19dba329cb6"
+    rebuild 1
+    manifest_sha256 "99000eadc4bdee36330855abe62b9a084f47893ac05d079a8c7b041e6582d025"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2554623a046a9281a3bd42655c6c2ac7f74bdafa00de49db88c84f888260baab"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2554623a046a9281a3bd42655c6c2ac7f74bdafa00de49db88c84f888260baab"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2554623a046a9281a3bd42655c6c2ac7f74bdafa00de49db88c84f888260baab"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "cd796dc24795aff6ab5ca56194f3ec188ad8f4b121c09e9d5e1ed768a28b6dc0"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "cd796dc24795aff6ab5ca56194f3ec188ad8f4b121c09e9d5e1ed768a28b6dc0"
   end
 
   depends_on "certifi" => :no_linkage
