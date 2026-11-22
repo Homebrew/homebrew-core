@@ -37,6 +37,8 @@ class Orogene < Formula
     resolves "https://github.com/orogene/orogene/pull/315"
   end
 
+  allow_network_access!
+
   def install
     # Ensure that the `openssl` crate picks up the intended library.
     ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@3")
