@@ -7,11 +7,12 @@ class Kubecolor < Formula
   head "https://github.com/kubecolor/kubecolor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7fe7d1a4a1d479ce42cc03511c48693273ffd1b5671e25481a27e1bb7c6e4c4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7fe7d1a4a1d479ce42cc03511c48693273ffd1b5671e25481a27e1bb7c6e4c4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7fe7d1a4a1d479ce42cc03511c48693273ffd1b5671e25481a27e1bb7c6e4c4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5e5b3d9ca4ea2bfe529582291123b8c08c114f4d8be41eecc9a8686a669975a1"
-    sha256 cellar: :any,                 x86_64_linux:      "3233c0e081a96c4fdd3ba1e2705af45b1508a7bf7ddf954ff94840ba3fd5e8ef"
+    manifest_sha256 "745180e8e932c5ff5734c733638bd7764288c0cf291ee74d4c1698c7d3df215d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24399f44b9380f07abd26927bb03e282b9ae2cf1dab5f8d065b6b5fd6068e793"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24399f44b9380f07abd26927bb03e282b9ae2cf1dab5f8d065b6b5fd6068e793"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "24399f44b9380f07abd26927bb03e282b9ae2cf1dab5f8d065b6b5fd6068e793"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f30c403f4cf8ba382c3c8f5a2e34fb9fadae8edc4ee94b2f97e39d97769927bf"
+    sha256 cellar: :any,                 x86_64_linux:      "136993e3cb2399bdcbe44556fdeabdab0a5e500aabd967763c6a582b3e706368"
   end
 
   depends_on "go" => :build
