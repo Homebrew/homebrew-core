@@ -21,6 +21,8 @@ class Astra < Formula
     depends_on "zlib-ng-compat"
   end
 
+  allow_network_access! :build
+
   def install
     ENV["JAVA_HOME"] = if OS.mac?
       formula_opt_libexec("graalvm")/"graalvm.jdk/Contents/Home"
