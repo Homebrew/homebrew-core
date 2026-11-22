@@ -58,6 +58,8 @@ class RubyAT31 < Formula
     HOMEBREW_PREFIX/"lib/ruby/gems/#{api_version}/bin"
   end
 
+  allow_network_access!
+
   def install
     rm_r(%w[ext/openssl test/openssl])
     resource("openssl").stage do
