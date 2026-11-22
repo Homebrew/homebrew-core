@@ -23,6 +23,8 @@ class AmmoniteRepl < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     (libexec/"bin").install Dir["*"].first => "amm"
     chmod 0755, libexec/"bin/amm"
