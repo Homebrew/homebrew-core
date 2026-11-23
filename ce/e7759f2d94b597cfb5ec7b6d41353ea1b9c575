@@ -1,0 +1,14 @@
+Formula/f/fcl.rb
+  h_9df9c32c3f321d 5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cee7759f2d94b597cfb5ec7b6d41353ea1b9c575",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
