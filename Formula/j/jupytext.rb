@@ -9,12 +9,12 @@ class Jupytext < Formula
   head "https://github.com/mwouts/jupytext.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "8173d8e6921ebc4d39621689913527509d98ec7ba18492776ef4be1510fc6fe7"
-    sha256 cellar: :any, arm64_tahoe:       "4c0b6cd9248b894678e3c07c7d224be9fce1b627f1a637857aa4d14aaa43ff1d"
-    sha256 cellar: :any, arm64_sequoia:     "52cb6e8cb8d08f7aad40fa9d312f3d40e7474b5640cb4146e55d87e17d337859"
-    sha256 cellar: :any, arm64_linux:       "6ac4d12d82795fa8af521d21a838e1a64927a66eacdb5d813eaba7376ecf44af"
-    sha256 cellar: :any, x86_64_linux:      "5e617572426bf56747f196f76f9fa99f9f9044e88a8cab06daad8df37a708d0a"
+    manifest_sha256 "334b675dc2ae1298f7bff8c0047424a2c48149297cb44fbddebfc405b6525674"
+    sha256 cellar: :any, arm64_golden_gate: "78cbbe1bb9999eb7b16c0e56edc5844497ffe2fa1a4cb37b72d5ec9db8c0bcc0"
+    sha256 cellar: :any, arm64_tahoe:       "0174613267898c5c953dcd4bd53f16415f62a1ce0891aa8fa12ea340c20e411c"
+    sha256 cellar: :any, arm64_sequoia:     "b8c1f1510d58f2ff19fe558fe8c1175120114034a389f6ad427564ad9044e0c0"
+    sha256 cellar: :any, arm64_linux:       "cc847f3940604ae1061f8583d1ecdec10e1a05b98599bc2d36ee4d521b02adac"
+    sha256 cellar: :any, x86_64_linux:      "ce9751a1a8c1e0033cf04772ba760d2216ea6960c6a26366076d492f5e951dca"
   end
 
   depends_on "libyaml"
