@@ -1,8 +1,8 @@
 class Oxlint < Formula
   desc "High-performance linter for JavaScript and TypeScript written in Rust"
   homepage "https://oxc.rs/"
-  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxlint_v1.94.0.tar.gz"
-  sha256 "b1db39aa7bbd784855c0633c0f402239bd3b6423ddbe27417a41180a1ab5a41e"
+  url "https://github.com/oxc-project/oxc/archive/refs/tags/oxlint_v1.95.0.tar.gz"
+  sha256 "471ffde9613a5c2e8263423ad702c4001c0aedcf98a679cdf9b7b1f136a33ee8"
   license "MIT"
   head "https://github.com/oxc-project/oxc.git", branch: "main"
 
@@ -12,11 +12,12 @@ class Oxlint < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04416414178def27a841411ae48d33370bd9e5c97a1e3b9c8af366e99d10d8f2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "328d48a748e844772353f14e70751b3793ab265ff2392666bf706f14bf76b4cd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dcc9927d1be97b258e6007b6256c55bc22ae95f6b9beb88e01afb78a02832b4b"
-    sha256 cellar: :any,                 arm64_linux:       "96a3418be1058446264881163c1e98b9e343c4498e5302f7347851e560ef00fa"
-    sha256 cellar: :any,                 x86_64_linux:      "ed85c9cf5360f68bba7e59cb9294335cdd2bbb079165220757a43ab735466963"
+    manifest_sha256 "92c0a15c9ed2d7617be298f6345f6b2ebe95425704f18e7cad18d802697c62cf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1c9869e6a66510bc640826ca820d3c8b5b42271a8d71268af3f5899a37841c2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "017d71f4346a806addb58b9be1608f596f4f2de7eafc97134060cdb59c08ef9c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1873e67824bba12fc056908b7827d4fe2a531772c540808eea71421ba774e748"
+    sha256 cellar: :any,                 arm64_linux:       "0101947e7ce5b1c83297097e24734392ec3ac6fed68b8ca8e215af2a4e0bfb0f"
+    sha256 cellar: :any,                 x86_64_linux:      "75753f3000c134a61175b0543f7bec3ca1a76cb377abffb7f92fac58ad5836d7"
   end
 
   depends_on "rust" => :build
