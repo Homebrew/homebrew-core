@@ -1,10 +1,9 @@
 class Itk < Formula
   desc "Insight Toolkit is a toolkit for performing registration and segmentation"
   homepage "https://itk.org"
-  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.7/InsightToolkit-5.4.7.tar.gz"
-  sha256 "4907033e0e93fb04734df8556b88a670ba630b4f42b52e9f25ed4d084a7ab925"
+  url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.8/InsightToolkit-5.4.8.tar.gz"
+  sha256 "f4f6900f5049c3dbdf5d717798615615b21efc20bab883daf4498905c6712824"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "main"
 
   livecheck do
@@ -13,13 +12,12 @@ class Itk < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "6b7530683d6c45f4f0a88135a67d834f09f2a17c16a6f586fcb7acb4a2da70a1"
-    sha256 arm64_tahoe:       "44a809e493cb4aedd21711c7c9adf70016a2d3fd29e8f7be3435fa6a6155a729"
-    sha256 arm64_sequoia:     "b7a74d583fc5ae57cd25120dd8ca2c8a8d0e613ac6004855cfd77b580f93952c"
-    sha256 arm64_sonoma:      "7ce1f34e9e19b9f8efe1652c7ec0581a0ad04703d6f1faa1996853af92a9f9bc"
-    sha256 arm64_linux:       "990b689e0df7bf101ae3d723322f517f9ff7ab9aadf6ae33418e8e5947fc0bb7"
-    sha256 x86_64_linux:      "1f32a7e76e02701e82cc14d72bc9c183c8c49a250a348150a97c8e2caf5963aa"
+    manifest_sha256 "a43ed84f17f0a4051a29c3aac144ef2beaa1e2e1f7ba8fb9e5a7b9b373f0db70"
+    sha256 arm64_golden_gate: "dd4117590094c4739c1f25ef55d8ea9eed2317a865cdffb0a679c4a6b5724841"
+    sha256 arm64_tahoe:       "2aa68d7352f80d55d8d70f2fcd69b3eac77294c2ab75899c1fd2b881141b8b1b"
+    sha256 arm64_sequoia:     "44c9e01d197e1308b259814f61db4b8c0326d3c764921ddbaaef3afbe843d580"
+    sha256 arm64_linux:       "68d2dd6d3be6e6b349a967105eb2cde5d78cfb0742227ccc96e852af50959476"
+    sha256 x86_64_linux:      "95891abe4df79d25857c1413a11ebd798aff4e7aab46eeb23ee7c70f1f67919d"
   end
 
   depends_on "cmake" => :build
@@ -46,15 +44,42 @@ class Itk < Formula
     depends_on "zlib-ng-compat"
   end
 
+  resource "scifio-imageio" do
+    url "https://github.com/scifio/scifio-imageio/archive/247ada6ab94a2fd2f7ef4519358abd951ddb3649.tar.gz"
+    sha256 "50ed8a32da408a5f0425584189def09fe4c003d486d47fcd642cad05d25fb50c"
+  end
+
+  resource "bioformats-package" do
+    url "https://downloads.openmicroscopy.org/bio-formats/6.3.0/artifacts/bioformats_package.jar"
+    sha256 "a8ee4978307bba0851da2173bca2575012e0c8ce1dbc9d2e3285df02ff163831"
+  end
+
+  resource "scifio-itk-bridge" do
+    url "https://maven.scijava.org/content/repositories/releases/io/scif/scifio-itk-bridge/1.2.1/scifio-itk-bridge-1.2.1.jar"
+    sha256 "1bc12d8ff6f540bd81ea8a45fc3e25ac86c1092e0539a64496351c8ec8a64b54"
+  end
+
+  deny_network_access!
+
   def install
     # Avoid CMake trying to find GoogleTest even though tests are disabled
     rm_r(buildpath/"Modules/ThirdParty/GoogleTest")
+
+    scifio = buildpath/"Modules/Remote/SCIFIO"
+    resource("scifio-imageio").stage scifio
+    # Do not download the bundled JRE, which is not shipped in the bottle.
+    inreplace scifio/"src/CMakeLists.txt", "unset(jreFileNameBase)", "unset(jreFileName)"
+    (buildpath/"build/lib/jars").install(
+      resource("bioformats-package").cached_download => "bioformats_package.jar",
+      resource("scifio-itk-bridge").cached_download  => "scifio-itk-bridge.jar",
+    )
 
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH:STRING=#{lib}
       -DCMAKE_INSTALL_NAME_DIR:STRING=#{lib}
       -DITKV3_COMPATIBILITY:BOOL=OFF
+      -DITK_FORBID_DOWNLOADS=ON
       -DITK_LEGACY_REMOVE=ON
       -DITK_USE_64BITS_IDS=ON
       -DITK_USE_FFTWF=ON
@@ -93,9 +118,6 @@ class Itk < Formula
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args, *args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-
-    # Remove the bundled JRE installed by SCIFIO ImageIO plugin
-    rm_r(lib/"jre") if OS.linux? || Hardware::CPU.intel?
   end
 
   test do
