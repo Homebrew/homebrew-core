@@ -1,0 +1,16 @@
+Formula/o/octomap.rb
+  h_9df9c32c3f321d 7
+Formula/c/coal.rb
+  h_9df9c32c3f321d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "168654575cd0a1d2debebbe9c4f02053266524d6",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
