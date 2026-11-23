@@ -11,11 +11,12 @@ class SwaggerCodegenAT2 < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6382463d1432c3ddf7b9c5847f895d3182e12ff793da6d7c6bf08138d2e78d63"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6382463d1432c3ddf7b9c5847f895d3182e12ff793da6d7c6bf08138d2e78d63"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6382463d1432c3ddf7b9c5847f895d3182e12ff793da6d7c6bf08138d2e78d63"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "60c1b8fb1026f3e3872249124e59bec4703a5f19555258f47f39fad3c586bc43"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "60c1b8fb1026f3e3872249124e59bec4703a5f19555258f47f39fad3c586bc43"
+    manifest_sha256 "0da9eb5977c193c858f1c9ebc6fe2f70387e2d82b4efde7b10a43558ddee65d4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91aa9dbc21a2dab807b50cbf3ae2dadcb92d9e53a2a0a0cc216ced18376d32ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "91aa9dbc21a2dab807b50cbf3ae2dadcb92d9e53a2a0a0cc216ced18376d32ef"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91aa9dbc21a2dab807b50cbf3ae2dadcb92d9e53a2a0a0cc216ced18376d32ef"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1e20d43f29fb9bc3a9bc98f584f401375aacbb8cea4ad6b3083e51228a1110e9"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1e20d43f29fb9bc3a9bc98f584f401375aacbb8cea4ad6b3083e51228a1110e9"
   end
 
   keg_only :versioned_formula
