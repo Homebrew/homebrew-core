@@ -1,15 +1,14 @@
 class Qt5compat < Formula
   desc "Qt 5 Core APIs that were removed in Qt 6"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qt5compat-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qt5compat-everywhere-src-6.12.0.tar.xz"
-  sha256 "78cf1c283795312a7fa31c73eb7f7f556b48374adc484f10ad5a3c0bcb59264e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qt5compat-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qt5compat-everywhere-src-6.12.1.tar.xz"
+  sha256 "32f47f68de1299d48faf02858be66fd708ee1273b1579e4fad474e7e728318b5"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-2-Clause", # src/core5/codecs
     "BSD-3-Clause", # *.cmake
   ]
-  revision 2
   compatibility_version 1
   head "https://code.qt.io/qt/qt5compat.git", branch: "dev"
 
