@@ -12,11 +12,12 @@ class Mapnik < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6193dafbec13a3f6c1b7e82edb657d0a05278ead1e4aa280dbb09d30e24f7f58"
-    sha256 cellar: :any, arm64_tahoe:       "f1224f153b89c4a0a653fca20de35b683bcad3282fbfbef14c05ef80ecc1da83"
-    sha256 cellar: :any, arm64_sequoia:     "047a1df58d74b75e3d766286d138704fc396b0d4738c5a934ce7e70a2771339e"
-    sha256 cellar: :any, arm64_linux:       "92505b642f41fdbcea7f5379e447162fac176660908a6d9ddec2a1adb9742aec"
-    sha256 cellar: :any, x86_64_linux:      "41e1ba7f516550eb5185505ae25a1f16bc6f52270cd0619033007f472a1c7a3b"
+    manifest_sha256 "21266a094ae7dc37618a54baba881ee5afef0a7dca0619b7b79e1f122496e628"
+    sha256 cellar: :any, arm64_golden_gate: "55f7ae87eb48214cc12635c7d99a9ed9052b9b92dd54cb8ae5e3b71c6a8da379"
+    sha256 cellar: :any, arm64_tahoe:       "fc436f9a8b4087c25f6821556c167cfea515c54b44d72fc8829a2f50243e58cd"
+    sha256 cellar: :any, arm64_sequoia:     "eaf18f21f130e0a06839b1863648615571c405d59ad60ef1beb9182a850a83c4"
+    sha256 cellar: :any, arm64_linux:       "71b0b182b25d8849051a22abba504765fbba5a08f39ec6ea8c15dd0cffc2f072"
+    sha256 cellar: :any, x86_64_linux:      "20344dddb40707cdb13d4d2ac09d41134724954e99e7579feac7122948bac672"
   end
 
   depends_on "cmake" => :build
