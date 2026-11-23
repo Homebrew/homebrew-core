@@ -1,9 +1,9 @@
 class Qtmultimedia < Formula
   desc "Provides APIs for playing back and recording audiovisual content"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtmultimedia-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtmultimedia-everywhere-src-6.12.0.tar.xz"
-  sha256 "3143f53b64257ba2a0685c940f5dce476c75871ff86b516de45cfd54ea93a62d"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtmultimedia-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtmultimedia-everywhere-src-6.12.1.tar.xz"
+  sha256 "5a125bc2bede8c6512296e0f3204a9922741fd144fcae7d4a66b3c007bb125e3"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { all_of: ["MPL-2.0", "BSD-3-Clause"] }, # bundled eigen
@@ -12,8 +12,7 @@ class Qtmultimedia < Formula
     "GPL-3.0-only", # Qt6MultimediaTestLib
     "MIT",          # bundled signalsmith-stretch (Linux)
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtmultimedia.git", branch: "dev"
 
   livecheck do
