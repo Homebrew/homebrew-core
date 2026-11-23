@@ -1,19 +1,18 @@
 class Bttf < Formula
   desc "CLI tool for datetime arithmetic, parsing, formatting and more"
   homepage "https://github.com/BurntSushi/bttf"
-  url "https://github.com/BurntSushi/bttf/archive/refs/tags/0.1.4.tar.gz"
-  sha256 "21b265959403c02406137adac1012f676a25ad67d6fbf29a553b9e459c7bbc73"
+  url "https://github.com/BurntSushi/bttf/archive/refs/tags/0.2.0.tar.gz"
+  sha256 "5399df79e15ba48e94526319ec6baf4e4e9bbe983693adc4ba784294f0875e78"
   license any_of: ["Unlicense", "MIT"]
   head "https://github.com/BurntSushi/bttf.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f5d2b832601afdb72014f520a1e422f023d2c460aa22e91cca5c7239f30a599"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2dec3d0979ba353bec5b6383149bf2aceaaaeb90f02adaa2ab56e41d7610657"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9735d9d3715dbb241583d0cac7a8d054b0833333de3d596ae8926d3c8684be9"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "4e85e7ce385c902afa7058cce65c1170cb24171f0c227cc0a186dfcfbfd22567"
-    sha256 cellar: :any_skip_relocation, sonoma:            "357cdc8676c5f5954c063292ab90357ef7e69eae4adb7008b2752265a6b2bfd1"
-    sha256 cellar: :any,                 arm64_linux:       "a80a228db159c0f4c60fe8f38c3fa0bb89a06fced1f0f179acd3c688ae0a1cdc"
-    sha256 cellar: :any,                 x86_64_linux:      "1c399b8ac5e23a0da09e3f9218fcb79f1751698d4f03b291250d70a9feeb2455"
+    manifest_sha256 "732f41771cacfc151122d6efb7288581cdede6652580f1bd60e3a87edb268a83"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0a716a01dfbc34568de419c0625b3afc49e95cef0e6c4d4d5568e30b538cc2c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a58425fc68d7c600d54761bc454cccac37a32ba829c48c8b756b31000ed50376"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11bce6db2ed04ea1a44710a4c663ffadd3242c4273fc2bd7f412413d6e39ae78"
+    sha256 cellar: :any,                 arm64_linux:       "79a74c56b37bb14ad872fa1ad65030201bfee7ee88dc3f19146f9b1af940fca4"
+    sha256 cellar: :any,                 x86_64_linux:      "06d9803e4818fc7df2316685ad1ff7daa6033f8a331704f4035674c597370054"
   end
 
   depends_on "rust" => :build
@@ -29,7 +28,7 @@ class Bttf < Formula
   end
 
   test do
-    assert_match version.to_s, shell_output("#{bin}/bttf --version 2>&1", 1)
+    assert_match version.to_s, shell_output("#{bin}/bttf --version")
     assert_equal "2026-06-11\n", shell_output("#{bin}/bttf time fmt -f '%F' 2026-06-11")
   end
 end
