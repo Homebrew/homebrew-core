@@ -7,11 +7,12 @@ class Buildkite < Formula
   head "https://github.com/buildkite/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a57146ef9c4d49b47df04c16511f7b312fd9432ea53916b6446e78cca0b52ed8"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a57146ef9c4d49b47df04c16511f7b312fd9432ea53916b6446e78cca0b52ed8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a57146ef9c4d49b47df04c16511f7b312fd9432ea53916b6446e78cca0b52ed8"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3dd73f61e552805f9f442a889492e3435273f832d9c8a9fa22085cd309b79997"
-    sha256 cellar: :any,                 x86_64_linux:      "adf9dd131c546a8c188b0454048d18e6d0dc938dfeef44a70a3cbd0321d0b602"
+    manifest_sha256 "1cf1d937b4c71cf60ab4896dea3da321d11ae19bad7d7f2765a657c09f23d1ae"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d78ddd8c004fe8bc0722efe677581c18492ee75eb9e4b463c6cde6b5afc4644"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d78ddd8c004fe8bc0722efe677581c18492ee75eb9e4b463c6cde6b5afc4644"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d78ddd8c004fe8bc0722efe677581c18492ee75eb9e4b463c6cde6b5afc4644"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "59ef9dcec620a40d9c4e545531308c073b09191c64c98fe59d97facee232f7af"
+    sha256 cellar: :any,                 x86_64_linux:      "563812cb4653ac26e7f1b5785ee48662a8055ae5679ad912a0d3d57a628fb48b"
   end
 
   depends_on "go" => :build
