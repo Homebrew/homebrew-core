@@ -1,10 +1,9 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.5.tar.gz"
-  sha256 "ff1a9053feb509ff9d7729703355541ae9690073a6b1c40eb692c962e0dc1720"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.6.tar.gz"
+  sha256 "7ab15dc88022d2425ad94dcffd8abbf1b6d7018089b4e48d6b40780738e0b445"
   license "MIT"
-  revision 2
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
@@ -26,14 +25,6 @@ class WhisperCpp < Formula
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
   depends_on "llama.cpp"
   depends_on "sdl2-compat"
-
-  # Support new llama.cpp
-  patch do
-    url "https://github.com/ggml-org/whisper.cpp/commit/63ae1b5f55b5d56622b39b3c01a4710feb57d844.patch?full_index=1"
-    sha256 "4422ba043e70622ba20c5c8dfb614680fb7c88229c9e398dffea098b5d12d65c"
-    type :unofficial
-    resolves "https://github.com/ggml-org/whisper.cpp/pull/4173"
-  end
 
   deny_network_access!
 
