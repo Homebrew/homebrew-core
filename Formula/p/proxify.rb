@@ -1,10 +1,21 @@
 class Proxify < Formula
   desc "Portable proxy for capturing, manipulating, and replaying HTTP/HTTPS traffic"
   homepage "https://projectdiscovery.io"
-  url "https://github.com/projectdiscovery/proxify/archive/refs/tags/v0.0.16.tar.gz"
-  sha256 "a156d8094ac5a31bc92029c1a9e02300caa5e2f189dc13949410d792e9f4e63c"
   license "MIT"
   head "https://github.com/projectdiscovery/proxify.git", branch: "main"
+
+  stable do
+    url "https://github.com/projectdiscovery/proxify/archive/refs/tags/v0.0.17.tar.gz"
+    sha256 "e0c5bc3c8b0666ccbfd34cadbab972ddfe3737f01f1bcde9fddb265c96262a76"
+
+    # Report the version of the release being packaged.
+    patch do
+      url "https://github.com/projectdiscovery/proxify/commit/af4d51b66733f93dae11c775c2ede39763bc4fe6.patch?full_index=1"
+      sha256 "3135398ce9478934784965c62f2ba66f235343ecad30d50399d8841a303ea82c"
+      type :unofficial
+      resolves "https://github.com/projectdiscovery/proxify/pull/791"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5733e2963c4056dc02e99da401bad6a88d2ce294f80760b0b53a1fc00ef2dac"
