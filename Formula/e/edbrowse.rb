@@ -22,6 +22,8 @@ class Edbrowse < Formula
   depends_on "readline"
   depends_on "unixodbc"
 
+  deny_network_access!
+
   def install
     # :: is a GNU make operator, but BSD make doesn't support it
     inreplace "src/makefile", "::=", ":="
