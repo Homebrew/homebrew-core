@@ -172,6 +172,8 @@ class Clipsafe < Formula
     sha256 "5881555d6187972a2382aa0d4db2d74c970b06774c621b6ca523739236d2d501"
   end
 
+  deny_network_access!
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
