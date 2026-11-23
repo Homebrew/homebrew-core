@@ -7,11 +7,12 @@ class Goshs < Formula
   head "https://github.com/goshs-labs/goshs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e059faf072b05f6bbb06c6789bc8a8850650d605f7871910a8dec36d284457d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8e059faf072b05f6bbb06c6789bc8a8850650d605f7871910a8dec36d284457d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e059faf072b05f6bbb06c6789bc8a8850650d605f7871910a8dec36d284457d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4eff59fbc1638015b1e9323279e9c93756a11b1b17bffc1be5bb15412adfa827"
-    sha256 cellar: :any,                 x86_64_linux:      "d343f51fbb93feee209cd311b6f7f793316df87f375865db9ecf9a361cca6333"
+    manifest_sha256 "ffcaea35c144be61fcc35dac7fd5b862d57fe10575680019ca9d16634e2cbcb2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "79d08ae0a76800adb75976a42f4ea1e039ac3347435d2868d2df97efc5ca96bd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "79d08ae0a76800adb75976a42f4ea1e039ac3347435d2868d2df97efc5ca96bd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "79d08ae0a76800adb75976a42f4ea1e039ac3347435d2868d2df97efc5ca96bd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "9f9fff5ca43e0ef91d5935228759f3a7b081557eb527d31b4b0eb21efdb60236"
+    sha256 cellar: :any,                 x86_64_linux:      "59da492f1fd8d037d4e5761cbe332066238c0c22469b1b9942528ab03256f841"
   end
 
   depends_on "go" => :build
