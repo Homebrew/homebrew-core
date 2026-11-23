@@ -22,6 +22,8 @@ class Enchive < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "116e7fa59dc5c555ef911ca1668175cb71fce934dcc3f475433e84ce6d2f4d14"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
