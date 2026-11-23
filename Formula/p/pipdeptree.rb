@@ -3,16 +3,17 @@ class Pipdeptree < Formula
 
   desc "CLI to display dependency tree of the installed Python packages"
   homepage "https://github.com/tox-dev/pipdeptree"
-  url "https://files.pythonhosted.org/packages/19/46/20ca1d51ec287be3de393a6b16da7462469b428158e045ba1f37caeed8ab/pipdeptree-4.2.15.tar.gz"
-  sha256 "634d078d54644046bfb5416c39423cf594430a2f59f94e89c7152e0efdb02c23"
+  url "https://files.pythonhosted.org/packages/65/26/0061e43ebd0c11aa03cdf856a751c6dfeae0fff8ff62f1451cb071cdbcb5/pipdeptree-4.2.16.tar.gz"
+  sha256 "3b4ab4a39472b8ec1e67f8d25b8c6c11f245c35cd5607af9103cec84d84e7885"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "bca03bed26c48f4d89f608c2bdcc60316fadd2484e4c9d608a5f65114c5cbe70"
-    sha256 cellar: :any, arm64_tahoe:       "72b18cafef4bca30e936f4166bbd24dbd767d912eb0e851016446edf1ee8ed63"
-    sha256 cellar: :any, arm64_sequoia:     "e4202ae98160003faf526eab05038f49b91b391f295024c61c476a77c65845ef"
-    sha256 cellar: :any, arm64_linux:       "5882444297ba8f2736879ed6d0aab929c2dbea5f836b924e2e6851e62558a422"
-    sha256 cellar: :any, x86_64_linux:      "f420b3b1368857c0383d2bb299fe941ee127fd22bf3151366dbf682cb617fb3a"
+    manifest_sha256 "fdc2be653337dc2d7e7455751ca2ead2c529848f1134b39f7c8697977feceacc"
+    sha256 cellar: :any, arm64_golden_gate: "0c09eb945844dbc7ebaecec3ebab88f02b62e4b0d2d3099f70b8b6865215b9d4"
+    sha256 cellar: :any, arm64_tahoe:       "5c5a5e2f641f8bae8e7f35a027ccc42bcc99a5b2aa466d94868a512c8ef6c0f7"
+    sha256 cellar: :any, arm64_sequoia:     "5d27b82af48b3a7f375440e0ce1a321032db4e8e969f0489e586346f61253e21"
+    sha256 cellar: :any, arm64_linux:       "0d71088a96592b23afcf4bf67eb6790a4bde88c445d198a6038eb430c27ab718"
+    sha256 cellar: :any, x86_64_linux:      "cb2e66ea671f79bd0d85e8d58d9541449dc93aaeb85ce8a524041238750d6b8e"
   end
 
   depends_on "meson" => :build
@@ -89,8 +90,8 @@ class Pipdeptree < Formula
   end
 
   resource "python-sbom" do
-    url "https://files.pythonhosted.org/packages/e7/c8/433fce09ca6d9580e71b1bcde4db4da5c1f77039536deca9d373f1b7886e/python_sbom-0.3.1.tar.gz"
-    sha256 "37d0fa3d0a16fddc3d88099e147e164ddb3055e8bc3424506ef41dd80f723a73"
+    url "https://files.pythonhosted.org/packages/eb/2a/c65b33d002f4cb910afbe3a9cae6fb12cdf348fe62fe48c2b746401b079f/python_sbom-0.5.0.tar.gz"
+    sha256 "fc7b2c46fa40f52e587ac59cada775e83dcac231fafa90b7a71c3554527ddfb6"
   end
 
   resource "tomli" do
