@@ -25,6 +25,8 @@ class Curlftpfs < Formula
   depends_on "libfuse@2"
   depends_on :linux # on macOS, requires closed-source macFUSE
 
+  deny_network_access!
+
   def install
     ENV.append "CPPFLAGS", "-D__off_t=off_t"
     system "autoreconf", "--force", "--install", "--verbose"
