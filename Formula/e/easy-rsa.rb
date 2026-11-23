@@ -12,6 +12,8 @@ class EasyRsa < Formula
 
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     inreplace "easyrsa" do |s|
       s.gsub! "'/etc/easy-rsa'", "'#{pkgetc}'"
