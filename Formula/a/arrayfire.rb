@@ -6,16 +6,19 @@ class Arrayfire < Formula
   license "BSD-3-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4f224b64d47f6a67dd6dfc596a6e5097dc91b86a39a233a103179caa8f15f618"
-    sha256 cellar: :any, arm64_tahoe:       "b59778bb395f7b1ecf8f4f3da7b66b54da788e549f1d8353af963e5660fc2114"
-    sha256 cellar: :any, arm64_sequoia:     "ffdb9f6796dc072b80c34c66eb2221f8b7d371a7934a0865f7ba18e853b89093"
-    sha256 cellar: :any, arm64_linux:       "62b8e874be2295a388507f60375bfc5b293aeb9fab53a5861afff5ca64288a30"
-    sha256 cellar: :any, x86_64_linux:      "f5b10075024a7389b812798f3be6edcfaed9eadd07ea5f477d16892c072fdad9"
+    rebuild 1
+    manifest_sha256 "0454abe377d78bb3934d57c4dfb388ab65378897024e4e6753b64ed4208aa841"
+    sha256 cellar: :any, arm64_golden_gate: "106384a47dbb5001bc6c66c6522d88693ff94fbce9e301783ad917e1aed22737"
+    sha256 cellar: :any, arm64_tahoe:       "9a2729d15de5726ee09f13c96b48fbd5629b5a8812924f92f90bfa3af9d372d8"
+    sha256 cellar: :any, arm64_sequoia:     "6ab6651e61ddda0a26e43d05f7c608542fc5640758b93e69e7720d9220eb8371"
+    sha256 cellar: :any, arm64_linux:       "4b53a4fecb9da11f52c2282aadfcc571cad27c8c3e2e047ff2df667981475dbc"
+    sha256 cellar: :any, x86_64_linux:      "b73850f5a819dfbd11c245fb23d0ec4d4d5662dcd32f3699a6375eb87b3bebf6"
   end
 
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "opencl-clhpp-headers" => :build
   depends_on "clblast"
   depends_on "fftw"
   depends_on "fmt"
@@ -52,11 +55,9 @@ class Arrayfire < Formula
     resolves "https://github.com/arrayfire/arrayfire/pull/3710"
   end
 
-  def install
-    # FreeImage has multiple CVEs (https://github.com/arrayfire/arrayfire/issues/3547) and
-    # has been dropped by distros like Arch Linux (https://archlinux.org/todo/drop-freeimage/).
-    odie "FreeImage should not be a dependency!" if deps.map(&:name).include?("freeimage")
+  deny_network_access!
 
+  def install
     # Fix for: `ArrayFire couldn't locate any backends.`
     rpaths = [
       rpath(source: lib, target: formula_opt_lib("fftw")),
@@ -68,15 +69,20 @@ class Arrayfire < Formula
     # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
     inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build",
+    # Building in-tree with the AF_INTERNAL_DOWNLOAD_FLAG so that CMake uses
+    # the bundled extern/* sources and doesn't try running git when offline
+    system "cmake", "-S", ".", "-B", ".",
                     "-DAF_BUILD_CUDA=OFF",
+                    "-DAF_BUILD_EXAMPLES=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
+                    "-DAF_INTERNAL_DOWNLOAD_FLAG=ON",
                     "-DAF_WITH_EXTERNAL_PACKAGES_ONLY=ON",
                     "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_DISABLE_FIND_PACKAGE_MKL=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     pkgshare.install "examples"
   end
