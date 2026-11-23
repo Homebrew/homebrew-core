@@ -15,6 +15,8 @@ class Clac < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "7938397708c73afe67e251fc647f7dbec82854b1b5590acdf87fe09a8d696fbf"
   end
 
+  deny_network_access!
+
   def install
     system "make", "PREFIX=#{prefix}", "install"
   end
