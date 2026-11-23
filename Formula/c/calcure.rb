@@ -38,6 +38,8 @@ class Calcure < Formula
     sha256 "85d2cd9c09f81f0bb29db27759fc83af4f1e620efb814f8c5bf8b4cc4feece6d"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
