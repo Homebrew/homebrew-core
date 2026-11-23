@@ -6,12 +6,12 @@ class PhpantomLsp < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2947722dc0f320bf8278c7f1c6c02edee6bf75ac3cd26067add00717ff74db59"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4922caa9bf3ef403d56e6fef64eeb2153cd792bd6b2378a81cc21df15d968192"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0e17f27f74bd3b92ac52b7edff93bbf3bd0ec844901e1d603d391e52df93247"
-    sha256 cellar: :any,                 arm64_linux:       "f17603d6cd860421d70337aa07faf0a2e3e7b5eff595c56dd3df3639edec655f"
-    sha256 cellar: :any,                 x86_64_linux:      "1a083e44a4de8c4191248cda03b39ebd6105a398bf6ad79ff70787f2ca94f7ee"
+    manifest_sha256 "d321c1c0670488fdb2d8dd84d6e41cdcf48796bde83ea9a631345d0f276da69a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d4a8987f57cbc79e71a9a861267b622e43f74aa079fa9da9a8e0e779f1c0506"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86e69d48c515b1f4a8af4dc6a1e0d43b0023ae220d31a897d22f3fee93f160ac"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db17cf72c13f48f440b9a6436e55de0971b05fe2b2e330363f3252f8f2520dfc"
+    sha256 cellar: :any,                 arm64_linux:       "3707ece8a6de71a81f387a90f1c1e43ad3059f2bf1017dabd0d48e8fb37f2516"
+    sha256 cellar: :any,                 x86_64_linux:      "0564ed465e02e1096657204e2f239ac99e1363167c1bb8205e9157d188df8976"
   end
 
   depends_on "rust" => :build
