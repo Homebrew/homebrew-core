@@ -1,18 +1,19 @@
 class Helmfile < Formula
   desc "Deploy Kubernetes Helm Charts"
   homepage "https://github.com/helmfile/helmfile"
-  url "https://github.com/helmfile/helmfile/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "920f59113da7a09ab0d4b693c2b0d3a36cc5be9b974d146b2d6b76f572409468"
+  url "https://github.com/helmfile/helmfile/archive/refs/tags/v1.8.5.tar.gz"
+  sha256 "916370931c502d9b33f7aec56737b990d65e4b342c946506cdf8e8a9259c0303"
   license "MIT"
   version_scheme 1
   head "https://github.com/helmfile/helmfile.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "449edc030903f1d50d94017b21c92b3a9fa02618ed7140359e1ab3a43bded8e5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1670cd02a2e7f2618a29b6abe87709b755dfe47cee7f53cf7d6bdacb2af35bc1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a42236f0cc31a3621cd1561cce9a891473193e53de8a225830a9ae5c8662699"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a933f61d6fb2959a6cdfa09439f95da8892a23e8e50994b52932a03fa01309a8"
-    sha256 cellar: :any,                 x86_64_linux:      "8feab842e787c169b7e9ff1085d8dfc98e101d0c1cd66e2ddc53a2e839f5f0e0"
+    manifest_sha256 "caf75e69b556338f3c596340701fbd5be7a0d63abedc9b0b29f4b693481d7657"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e487fa7ff1dcd2392bb9b1ed7e2a86586712573c6837dd37c870d2b32eab9514"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61e80b03e82f9b8e68289abd30883f5a4a706acb57b5b749900c0fb272964122"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f93af1aaba0460fceff9ea110d896d537a2a5f99a6ac5ac5789be996ba07ae3"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e4fe4c272ed5227bf1f7b12a82a8a8c7cba0633f1329d62d13aa648fc773dfd9"
+    sha256 cellar: :any,                 x86_64_linux:      "19007cbf1f188bcdc5c1340874133a849e08533b5c1ad6cf91c0030bb3e7693e"
   end
 
   depends_on "go" => :build
