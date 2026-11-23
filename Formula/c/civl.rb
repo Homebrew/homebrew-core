@@ -22,6 +22,8 @@ class Civl < Formula
   depends_on "openjdk"
   depends_on "z3"
 
+  deny_network_access!
+
   def install
     underscored_version = version.to_s.tr("-", "_")
     libexec.install "lib/civl-#{underscored_version}.jar"
