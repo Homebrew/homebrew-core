@@ -12,8 +12,9 @@ class Kmod < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "073361ca529b18c7f9b0e8f176095f2633022359d5687b6a2012f759e329e724"
-    sha256 x86_64_linux: "d5b794fc7e066ff22a16073de79188c57c6a6691285f4d84d935565e7f1e94a2"
+    manifest_sha256 "b544e8c775734994edbe7204138ed9ebbe98e594c9fe811c2ad9bb3c926c1121"
+    sha256 arm64_linux:  "e2e9d906967bbe2c0c0ffa591248170c0ebb267591c3a90e527be11a63034ca3"
+    sha256 x86_64_linux: "f6a258a9c6ede3ecf99c8ffba746596a8baec67ceab554dda253603f5f0e2ec4"
   end
 
   depends_on "meson" => :build
