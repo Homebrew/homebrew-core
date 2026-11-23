@@ -4,7 +4,7 @@ class Librcsc < Formula
   url "https://github.com/helios-base/librcsc/archive/refs/tags/rc2026.tar.gz"
   sha256 "876d2903eace3f46be3a91b184ccce96a7885c73903c0e73d52cf0df3d79b9d5"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "e17823d2045aa373c7216a2813a6d28cebe37de2e4490ef47683bb589bd781d3"
