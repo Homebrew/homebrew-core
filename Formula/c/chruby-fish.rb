@@ -14,6 +14,8 @@ class ChrubyFish < Formula
   depends_on "chruby"
   depends_on "fish"
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
