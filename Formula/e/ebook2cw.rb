@@ -38,6 +38,8 @@ class Ebook2cw < Formula
     depends_on "gettext" => :build # for msgfmt
   end
 
+  deny_network_access!
+
   def install
     system "make", "DESTDIR=#{prefix}"
     system "make", "install", "DESTDIR=#{prefix}"
