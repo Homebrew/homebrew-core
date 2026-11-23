@@ -58,6 +58,8 @@ class AnsibleCmdb < Formula
     resolves "https://github.com/fboender/ansible-cmdb/issues/259"
   end
 
+  allow_network_access! :build
+
   def install
     man1.install "contrib/ansible-cmdb.man.1" => "ansible-cmdb.1"
 
