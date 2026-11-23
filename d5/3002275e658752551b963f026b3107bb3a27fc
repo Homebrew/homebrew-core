@@ -1,0 +1,14 @@
+Formula/b/bttf.rb
+  h_9df9c32c3f321d 4-5,32
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "d53002275e658752551b963f026b3107bb3a27fc",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
