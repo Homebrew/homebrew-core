@@ -27,6 +27,8 @@ class Clib < Formula
 
   uses_from_macos "curl"
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
