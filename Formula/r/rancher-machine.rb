@@ -1,9 +1,9 @@
 class RancherMachine < Formula
   desc "Machine management for a container-centric world"
   homepage "https://github.com/rancher/machine"
-  url "https://github.com/rancher/machine/archive/refs/tags/v0.15.0-rancher145.tar.gz"
-  version "0.15.0-rancher145"
-  sha256 "e039feb0f202854a97737bf7eadfde1d1a647294494c153791d191f8277835b0"
+  url "https://github.com/rancher/machine/archive/refs/tags/v0.15.0-rancher146.tar.gz"
+  version "0.15.0-rancher146"
+  sha256 "82e6f182eb9a91bfad581a09c4f1747477127ce13164114d32894afdaa185459"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/rancher/machine.git", branch: "master"
@@ -14,13 +14,12 @@ class RancherMachine < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6a4ec6f738f3d664b9a8b88174869a707dab991f925b9eea95cb6ea3c414d4d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2545aaf76aba913bbe20dd34d1f1029de506f8d6df73b296aaf6e58b63e6b259"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2545aaf76aba913bbe20dd34d1f1029de506f8d6df73b296aaf6e58b63e6b259"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "2545aaf76aba913bbe20dd34d1f1029de506f8d6df73b296aaf6e58b63e6b259"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3338ed79b62e0103e0e6aee587e52efe6a5f5e63674879019a574d2b7c5678d0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c27da271c1d0aa6267c8e5640f09bb5d493add89a1768ce9492980aa19005d9"
-    sha256 cellar: :any,                 x86_64_linux:      "2d864571c4dadce840efce99a57fc0f98621e80d711e3a5e7f5d18643810adfe"
+    manifest_sha256 "4439ed9d7462e2a19ac6f016938c96ade6a5d1b8d9af8b9d37019e0a1ef889ff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "738dd03ad2a6c863e89484959e1ba984a367358b2ab7212ab92d493a3d483684"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "738dd03ad2a6c863e89484959e1ba984a367358b2ab7212ab92d493a3d483684"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "738dd03ad2a6c863e89484959e1ba984a367358b2ab7212ab92d493a3d483684"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "bbaa4e1b57cedd0ba00b5087526a89fde14f94b7f64f23291afcd7e0a3b498cc"
+    sha256 cellar: :any,                 x86_64_linux:      "29994ec618046fd986e59288eb8d78535ca8b60c96295fd46c2b3b21971c7186"
   end
 
   depends_on "go" => :build
