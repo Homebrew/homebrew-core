@@ -1,8 +1,8 @@
 class Gedit < Formula
   desc "GNOME text editor"
   homepage "https://gedit-technology.github.io/apps/gedit/"
-  url "https://gitlab.gnome.org/World/gedit/gedit/-/archive/51.0/gedit-51.0.tar.bz2"
-  sha256 "25070b5c70af1839efab396f03e50caff15262a2e22ff8a550013e2bec84738d"
+  url "https://gitlab.gnome.org/World/gedit/gedit/-/archive/51.1/gedit-51.1.tar.bz2"
+  sha256 "7e99664c8c37818cd2bd39d06ba0806eae0d8719772404253b648fa689782def"
   license "GPL-2.0-or-later"
   head "https://gitlab.gnome.org/World/gedit/gedit.git", branch: "main"
 
