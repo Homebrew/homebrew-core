@@ -1,19 +1,18 @@
 class Rustywind < Formula
   desc "CLI for organizing Tailwind CSS classes"
   homepage "https://github.com/avencera/rustywind"
-  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.28.0.tar.gz"
-  sha256 "3094863289e70a999699898032d8c5c5e3d0f2448c6c85f84f323ca9c9e1462f"
+  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.28.1.tar.gz"
+  sha256 "da746179cf40b5c08f1affcc84cbb323dbf6c3e71b22517595c3e5858cfe1108"
   license "Apache-2.0"
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b1316c79f6e9c630d89ea059370d741398031cb5e49da4d701efaea709e4b795"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7532e2eda66a07c25f94ab85f6a05cb660ce0e435ba95d5be71ad7ea6cb0754"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8eba343acfc22c3a8f49c35e6c79d75ea313e849554eeee746af00a2f7450424"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1adbfb906e7501b99973715bf5b757f5622e1ae7c18d31a5010e6081e4a1659c"
-    sha256 cellar: :any_skip_relocation, sonoma:            "349367a71e234910f792f87cde84c6603fa95a032ffacb0596ffd5b02f7ebf79"
-    sha256 cellar: :any,                 arm64_linux:       "1f7c51e3e3b8b64ba6a11c8b707c42ce4610d9f3e9cb178e0a9804488124aa8d"
-    sha256 cellar: :any,                 x86_64_linux:      "3d3303753a660fcf2a1fcd18678a039f4de4a8cebd6650ec9db8b5db136b2ed1"
+    manifest_sha256 "9fe7c50261e994afa332379f6aeec1d6bfb09cb58196e0c51c1e629ba2718ebe"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1fe5bd6d7926fa6a97e60b2dcd45f75be965b68794117e18ea4abac74701a97"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a0dc803476dba8e242ec8b0024feebce3072fbdaf0019c852d8032868361486"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2ce3f25b7bdd96d28599294ac02d7a596200992c2ee73fddc810df5e7f1eea2"
+    sha256 cellar: :any,                 arm64_linux:       "1a5b2c80febb46833c12bc12486b0c93bc260b388d3af8d1c58874f7a3a7a5aa"
+    sha256 cellar: :any,                 x86_64_linux:      "dffe020739aab0b5cce9dcfce9cd664adf90fb86f98dab66d7c941a062f84c4b"
   end
 
   depends_on "rust" => :build
