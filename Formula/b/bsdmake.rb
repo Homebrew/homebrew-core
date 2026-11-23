@@ -49,6 +49,8 @@ class Bsdmake < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Replace @PREFIX@ inserted by MacPorts patches
     inreplace %w[mk/bsd.README
