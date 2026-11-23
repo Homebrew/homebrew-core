@@ -20,6 +20,8 @@ class Bltool < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     if build.head?
       system "lein", "uberjar"

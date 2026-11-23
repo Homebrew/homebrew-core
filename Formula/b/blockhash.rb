@@ -27,6 +27,8 @@ class Blockhash < Formula
     sha256 "a9f6858876adadc83c8551b664632a9cf669c2aea4fec0c09d81171cc3b8a97f"
   end
 
+  deny_network_access!
+
   def install
     system "python3", "./waf", "configure", "--prefix=#{prefix}"
     system "python3", "./waf"

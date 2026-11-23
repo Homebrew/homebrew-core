@@ -17,6 +17,8 @@ class Baresip < Formula
   depends_on "pkgconf" => :build
   depends_on "libre"
 
+  allow_network_access! :test
+
   def install
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}

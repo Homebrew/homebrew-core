@@ -22,6 +22,8 @@ class Blackbox < Formula
 
   depends_on "gnupg"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["bin/*"]
     bin.write_exec_script Dir[libexec/"*"].select { |f| File.executable? f }
