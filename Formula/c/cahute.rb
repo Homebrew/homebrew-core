@@ -1,12 +1,16 @@
 class Cahute < Formula
-  include Language::Python::Virtualenv
-
   desc "Library and set of utilities to interact with Casio calculators"
   homepage "https://cahute.org/"
-  url "https://ftp.cahute.org/releases/cahute-0.6.tar.gz"
-  sha256 "2fb0a8f0b14d75fb0d8a6fa07f3feda9b4cfaad11115340285e2c9414565059c"
   license "CECILL-2.1"
   head "https://gitlab.com/cahute/cahute.git", branch: "develop"
+
+  stable do
+    url "https://ftp.cahute.org/releases/cahute-0.6.tar.gz"
+    sha256 "2fb0a8f0b14d75fb0d8a6fa07f3feda9b4cfaad11115340285e2c9414565059c"
+
+    # Backport https://gitlab.com/cahute/cahute/-/commit/10c389c8917438ae64335f34613bd4e45f6e8a30
+    patch :DATA
+  end
 
   livecheck do
     url "https://ftp.cahute.org/releases/"
@@ -31,19 +35,10 @@ class Cahute < Formula
   depends_on "libusb"
   depends_on "sdl2-compat"
 
-  pypi_packages package_name:   "",
-                extra_packages: "toml"
-
-  resource "toml" do
-    url "https://files.pythonhosted.org/packages/be/ba/1f744cdc819428fc6b5084ec34d9b30660f6f9daaf70eead706e3203ec3c/toml-0.10.2.tar.gz"
-    sha256 "b3bda1d108d5dd99f4a20d24d9c348e91c4db7ab1b749200bded2f839ccbe68f"
-  end
+  deny_network_access!
 
   def install
-    venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resources
-
-    system "cmake", "-S", ".", "-B", "build", "-DPython3_EXECUTABLE=#{venv.root}/bin/python", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DPython3_EXECUTABLE=#{python3}", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
@@ -119,3 +114,42 @@ class Cahute < Formula
     system "./usb-detect"
   end
 end
+
+__END__
+diff --git a/chars/process_chars.py b/chars/process_chars.py
+index a3c33ac7cdaea316db6ec2b475498e978196c8af..5e06cd4f7b5ab25c6a9dd278912819dbea8c8af4 100644
+--- a/chars/process_chars.py
++++ b/chars/process_chars.py
+@@ -26,10 +26,7 @@
+ # The fact that you are presently reading this means that you have had
+ # knowledge of the CeCILL 2.1 license and that you accept its terms.
+ # *****************************************************************************
+-"""Process the character references.
+-
+-This script requires the ``toml`` package to be installed.
+-"""
++"""Process the character references."""
+ 
+ from __future__ import annotations
+ 
+@@ -38,9 +35,9 @@ from dataclasses import dataclass, field
+ from logging import getLogger
+ from os import makedirs
+ from pathlib import Path
++import tomllib
+ from typing import Any, Iterator, Literal
+ 
+-import toml
+ 
+ CharacterTableKey = Literal["legacy", "9860"]
+ """Type representing a character table."""
+@@ -298,7 +295,8 @@ class CharacterReference:
+         }
+ 
+         try:
+-            raw_data = toml.load(path)
++            with open(path, "rb") as f:
++                raw_data = tomllib.load(f)
+         except ValueError:
+             logger.exception("Could not load the TOML file")
+             raise
