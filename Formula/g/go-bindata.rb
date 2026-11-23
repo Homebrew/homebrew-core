@@ -1,26 +1,19 @@
 class GoBindata < Formula
   desc "Small utility that generates Go code from any file"
   homepage "https://github.com/kevinburke/go-bindata"
-  url "https://github.com/kevinburke/go-bindata/archive/refs/tags/v4.0.2.tar.gz"
-  sha256 "ac343c4b316b234b8ea354d86eb3c7ded2da4fe8f40d45f60391d289c66cd950"
+  url "https://github.com/kevinburke/go-bindata/archive/refs/tags/v4.0.3.tar.gz"
+  sha256 "dddc4b80ce9e21fe8ac585cf9693e4b3b092986fb260303ad2437330648e2af5"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/kevinburke/go-bindata.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0910bd858de86f4aadaf5759cd951a8023c205cf91bca2443d2001dc01e01356"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8be1fb86c897d65b0b6697108ef7c1ebe6c6fc775e560d5a912b995fc64b6d0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f977a8bca6e460e124842d67240dbc2001b9fc0fd5fbb4399918609d17503dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e84dc7d2a78aad296659dbe0d476a943eccf5493274e4c0ca6a75470b3c4beaf"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
-    sha256 cellar: :any_skip_relocation, arm64_monterey:    "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
-    sha256 cellar: :any_skip_relocation, arm64_big_sur:     "76617a44d91e752b9bd01f180ae617a0ae71d8109c376162a0a7c7b5a830f135"
-    sha256 cellar: :any_skip_relocation, sonoma:            "3546c1b7bb0397e9f8fde3eaee97b5c89a6fc0a7519dc45d718d6ed68a5d8916"
-    sha256 cellar: :any_skip_relocation, ventura:           "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
-    sha256 cellar: :any_skip_relocation, monterey:          "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
-    sha256 cellar: :any_skip_relocation, big_sur:           "e5e4f74424a4bc23bdba3c3bd8b74031b8b7c1c3ebcd46cfec1fdca526fbd1b4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "ed6a27aace940fd9da6a3d92f175bee2c085cfc25497cf7367403998fafc1818"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fc06d08b284da8bc9425c70ed2b7d8463799f0ec962c15904a8bb6a84b9eef18"
+    manifest_sha256 "f395774352b1fb86f3950d3fb7207ed9a755ff32f7c43182951319a724fc30f3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "058b6fa15d814718fb8f34f26bdeb064a34582f6e8ebce6d7235c222ebf89137"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "058b6fa15d814718fb8f34f26bdeb064a34582f6e8ebce6d7235c222ebf89137"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "058b6fa15d814718fb8f34f26bdeb064a34582f6e8ebce6d7235c222ebf89137"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "6699ca13ea8abd323bd498ce2968eac081b7b36caebf15614684c4396e3662af"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d7e818362a4834eb167a5d3f243ee8b964a8d01e997bfaae0e12c415aa62f599"
   end
 
   depends_on "go"
