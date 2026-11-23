@@ -26,6 +26,8 @@ class Eigenpy < Formula
   depends_on "python@3.15"
   depends_on "scipy"
 
+  deny_network_access!
+
   def install
     ENV.prepend_path "PYTHONPATH", formula_opt_prefix("numpy")/Language::Python.site_packages(python3)
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
