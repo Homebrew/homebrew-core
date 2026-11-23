@@ -19,10 +19,20 @@ class Argo < Formula
   depends_on "node" => :build
   depends_on "yarn" => :build
 
+  deny_network_access!
+
+  def fetch
+    # Run targets that need network access to fetch Go modules
+    ENV["GOPATH"] = buildpath/"go"
+    system "make", "#{buildpath}/go/bin/openapi-gen",
+                   "vendor/modules.txt",
+                   "pkg/apis/workflow/v1alpha1/zz_generated.deepcopy.go"
+    system "yarn", "install", "--cwd=ui", "--immutable"
+  end
+
   def install
-    # this needs to be remove to prevent multiple 'operation not permitted' errors
-    inreplace "Makefile", "CGO_ENABLED=0", ""
-    system "make", "dist/argo", "-j1"
+    ENV["GOPATH"] = buildpath/"go"
+    system "make", "dist/argo"
     bin.install "dist/argo"
 
     generate_completions_from_executable(bin/"argo", "completion")
