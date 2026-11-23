@@ -7,12 +7,12 @@ class Fallow < Formula
   head "https://github.com/fallow-rs/fallow.git", branch: "main"
 
   bottle do
-    manifest_sha256 "d1acfd69e2c25f1f3004ec3299a98f3ffb6b2f35e63d99e819e3782a862092d8"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5717eb24a5d49ccfdcba5317bc7798c3a9b7e66d6021a7c36ec282e03afdc98f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c979c698d709a01ef5ce5149f46286c39c40d591462495ef3c4ecd15d9180f9c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d31ada03a1fba9df8773ae42736a279488d03ff92e0b8023150c4fa12fbd0226"
-    sha256 cellar: :any,                 arm64_linux:       "7bce05391d633b0b1acdcb49ae9237188a82fc7b97c7aeb6e3ecd6050492fafa"
-    sha256 cellar: :any,                 x86_64_linux:      "2002b134b3759375ef937efadd17631c1848a926e9a29b217c7c26d1fcc12901"
+    manifest_sha256 "da3c81d523aa0b1cac79a16d33a6b12a0b20f1f90e1c1aa8b1624372e2621f83"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1ce2ba2f32e8d818799bd07049801c84e5049bf9820e149f6ec4221720a34e5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ea31836a604b46424b9e3c83c71c1e3896aac1a0e2b78270010b9277767776d9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07ea6319db02249ef8c516868444c00ecf82c1eaa19725b32ffac806843f6b7e"
+    sha256 cellar: :any,                 arm64_linux:       "c746b74ec3450bf922f85b828a5197b0429d6d1cff1790b44ae667ef5edd639d"
+    sha256 cellar: :any,                 x86_64_linux:      "570436a9e2c2ea9a10601060bc4c438095bd3004b1653c253b91a09401f5504c"
   end
 
   depends_on "rust" => :build
