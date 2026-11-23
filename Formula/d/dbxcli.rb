@@ -1,17 +1,18 @@
 class Dbxcli < Formula
   desc "Command-line tool for Dropbox users and team admins"
   homepage "https://github.com/dropbox/dbxcli"
-  url "https://github.com/dropbox/dbxcli/archive/refs/tags/v3.8.2.tar.gz"
-  sha256 "51bb791227a17c867d429400fa075a22ceaf52ef1b57c363c12a3f3f23fa429a"
+  url "https://github.com/dropbox/dbxcli/archive/refs/tags/v3.8.3.tar.gz"
+  sha256 "ed7a3ab89535bef97ddf64cd8b2a7bef15d7b8c2de911021bf87843a2b33e132"
   license "Apache-2.0"
   head "https://github.com/dropbox/dbxcli.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e73ed84d08a46c4e6dcfd6c54eb63eabf6838922bf4dd9ae29321584d70b7ae"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e73ed84d08a46c4e6dcfd6c54eb63eabf6838922bf4dd9ae29321584d70b7ae"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9e73ed84d08a46c4e6dcfd6c54eb63eabf6838922bf4dd9ae29321584d70b7ae"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "81afeb78b8fac422c7a4c7c81eef3af88b2393a1aba97ebaa3275c4afb943906"
-    sha256 cellar: :any,                 x86_64_linux:      "86fb898875e0db102e392408f3cd328953609884ba4fb9d197bab2c59ed6805d"
+    manifest_sha256 "84f62a12898c782f906de4f9cd96b614a4bbb754afae002be202d4aa7562d020"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a85246e602b1eb12cd6b193b4e52c88a01b24fcd670a4844480eea05fd976e0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0a85246e602b1eb12cd6b193b4e52c88a01b24fcd670a4844480eea05fd976e0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a85246e602b1eb12cd6b193b4e52c88a01b24fcd670a4844480eea05fd976e0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "89d2ecaad3a928cfea3ab6a427cb11ad2246fe7672336177cd58c99dc5e5dac5"
+    sha256 cellar: :any,                 x86_64_linux:      "14551dafdc2f9dfa99d7df19f716645e16678143b327143fdc3dd3cd5d8b3efb"
   end
 
   depends_on "go" => :build
