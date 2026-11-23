@@ -67,6 +67,8 @@ class Ccm < Formula
   # https://github.com/apache/cassandra-ccm/commit/0b19c8eef37d
   patch :DATA
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
