@@ -21,6 +21,8 @@ class Cbonsai < Formula
   depends_on "scdoc" => :build
   depends_on "ncurses"
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
