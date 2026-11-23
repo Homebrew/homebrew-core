@@ -16,6 +16,10 @@ class Telnet < Formula
   depends_on xcode: :build
   depends_on :macos
 
+  on_linux do
+    disable! date: "2026-11-23", because: "is only supported on macOS", replacement_formula: "inetutils"
+  end
+
   conflicts_with "inetutils", because: "both install 'telnet' binaries"
 
   resource "libtelnet" do
