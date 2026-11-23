@@ -20,6 +20,8 @@ class BrewGem < Formula
 
   uses_from_macos "ruby"
 
+  deny_network_access!
+
   def install
     lib.install Dir["lib/*"]
     bin.install "bin/brew-gem"
