@@ -16,6 +16,8 @@ class Chisel < Formula
   depends_on xcode: :build
   depends_on :macos
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*.py", "commands"]
 
