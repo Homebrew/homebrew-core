@@ -1,10 +1,9 @@
 class HierarchyBuilder < Formula
   desc "High level commands to declare a hierarchy based on packed classes"
   homepage "https://github.com/math-comp/hierarchy-builder"
-  url "https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.3/hierarchy-builder-1.10.3.tar.gz"
-  sha256 "577597528f25d217baee91040cc5d7e5f621be7e7a629cccf295e337f73a6d45"
+  url "https://github.com/math-comp/hierarchy-builder/releases/download/v1.10.4/hierarchy-builder-1.10.4.tar.gz"
+  sha256 "3c2aef7e13c548190c4a36d2e155dcaa3bd82acb9fe8c99ca98210d76484bc3d"
   license "MIT"
-  revision 7
   compatibility_version 2
 
   livecheck do
