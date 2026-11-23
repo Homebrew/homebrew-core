@@ -1,0 +1,14 @@
+Formula/r/rocq-elpi.rb
+  h_9df9c32c3f321d 5-6,34-35
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "14b7ff66176f11688d81804f8e44f5b7d1df5675",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
