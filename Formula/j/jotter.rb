@@ -6,6 +6,15 @@ class Jotter < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/samox73/jotter.git", branch: "main"
 
+  bottle do
+    manifest_sha256 "e640cd8825e06b04367147dadd5a5ebf61f2cf6f4259d7794f35ccf6bf164dc5"
+    sha256 cellar: :any, arm64_golden_gate: "f04cad751637782efebcc5771097b217cd5eb99157498aafca8f84a8356ed1ac"
+    sha256 cellar: :any, arm64_tahoe:       "cf200389686200b6044891c7a3c6abe3a2e44b623de8cf019990b7bd5cd5a2b8"
+    sha256 cellar: :any, arm64_sequoia:     "b02fd5dfc844bb44d0b70e34daa9f7bfa860f04841e68d6c113abfb49ae50800"
+    sha256 cellar: :any, arm64_linux:       "ce372b177ebe993510e62a8e4bf07782ea9090daa70f427e04351e36a9b340a2"
+    sha256 cellar: :any, x86_64_linux:      "039e71c5b06037f1ca2a3044965b8670122c1795943c0c04ebb8ef5616a520e2"
+  end
+
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
   depends_on "oniguruma"
