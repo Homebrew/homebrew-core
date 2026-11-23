@@ -24,6 +24,8 @@ class Embree < Formula
   depends_on "ispc" => :build
   depends_on "tbb"
 
+  deny_network_access!
+
   def install
     # Enable maximum ISA as it is detected at runtime
     ENV.runtime_cpu_detection
