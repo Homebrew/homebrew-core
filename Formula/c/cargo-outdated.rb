@@ -1,21 +1,10 @@
 class CargoOutdated < Formula
   desc "Cargo subcommand for displaying when Rust dependencies are out of date"
   homepage "https://github.com/kbknapp/cargo-outdated"
+  url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.20.0.tar.gz"
+  sha256 "dca410981933dff2021e4c7606c6a8aeb13bf67ed9efed6068cb8d6befab3b69"
   license "MIT"
-  revision 1
   head "https://github.com/kbknapp/cargo-outdated.git", branch: "master"
-
-  stable do
-    url "https://github.com/kbknapp/cargo-outdated/archive/refs/tags/v0.19.0.tar.gz"
-    sha256 "ea6592c08d4e8ea53aa0251cbbfbf8ad2b2167f794cb9599715eecb3653507f2"
-
-    # Backport openssl-sys update
-    patch do
-      url "https://github.com/kbknapp/cargo-outdated/commit/2681b1c2ffad45ccbb35e027804b6bf39fc4b75e.patch?full_index=1"
-      sha256 "8115a7b5bbbb204c44f250d494d1e24df2d9e6473ab247fa6c342014a1f85e1b"
-      type :backport
-    end
-  end
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "5133c6014beedcac9f9a99a2113b5f99ae9be6e5f1255ceccc2027f9af8b731e"
