@@ -1,10 +1,9 @@
 class Mapnik < Formula
   desc "Toolkit for developing mapping applications"
   homepage "https://mapnik.org/"
-  url "https://github.com/mapnik/mapnik/releases/download/v4.3.2/mapnik-v4.3.2.tar.bz2"
-  sha256 "1858a9d57f4d2007d717ea84af23bcb32bd984fbc635426b79124fe9f7a682c4"
+  url "https://github.com/mapnik/mapnik/releases/download/v4.4.0/mapnik-v4.4.0.tar.bz2"
+  sha256 "0f70e6eba27543b3e0b945da883856caaca91e3c75c3a2465f077e78ac089f2b"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/mapnik/mapnik.git", branch: "master"
 
   livecheck do
@@ -46,6 +45,8 @@ class Mapnik < Formula
 
   conflicts_with "svg2png", because: "both install `svg2png` binaries"
 
+  deny_network_access!
+
   def install
     input_rpath = rpath(source: lib/"mapnik/input")
     cmake_args = %W[
@@ -55,12 +56,6 @@ class Mapnik < Formula
       -DCMAKE_INSTALL_RPATH:PATH=#{rpath};#{input_rpath}
       -DUSE_EXTERNAL_MAPBOX_PROTOZERO=ON
     ]
-
-    # TODO: Remove this workaround once either:
-    # a) CMake in mapnik properly handles C language requirements for proj OR
-    # b) The workaround is no longer needed with proj > 9.9.0
-    #    Ref: https://github.com/OSGeo/PROJ/issues/4862
-    inreplace "CMakeLists.txt", "LANGUAGES CXX\n", "LANGUAGES C CXX\n"
 
     system "cmake", "-S", ".", "-B", "build", *cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
