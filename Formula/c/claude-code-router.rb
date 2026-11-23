@@ -16,6 +16,8 @@ class ClaudeCodeRouter < Formula
 
   depends_on "node"
 
+  allow_network_access! [:build, :test]
+
   def install
     system "npm", "install", *std_npm_args
 
