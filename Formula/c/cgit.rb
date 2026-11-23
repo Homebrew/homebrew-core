@@ -38,6 +38,8 @@ class Cgit < Formula
     file "Patches/cgit/memrchr-impl.patch"
   end
 
+  deny_network_access!
+
   def install
     system "make", "prefix=#{prefix}",
                    "CGIT_SCRIPT_PATH=#{pkgshare}",
