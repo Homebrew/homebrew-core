@@ -16,6 +16,8 @@ class ClosureCompiler < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     bin.write_jar_script libexec/"closure-compiler-v#{version}.jar", "closure-compiler"
