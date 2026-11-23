@@ -26,6 +26,8 @@ class Exiftags < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "9bb2331fd48ad529d9fe2c1cda8f11370d2982afbcebe6403ed18333d6a86416"
   end
 
+  deny_network_access!
+
   def install
     bin.mkpath
     man1.mkpath
