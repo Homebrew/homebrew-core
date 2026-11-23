@@ -1,8 +1,8 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/meta/fbthrift"
-  url "https://github.com/meta/fbthrift/archive/refs/tags/v2026.10.26.00.tar.gz"
-  sha256 "6ad18cfc24297120a536a0ef9c5a84f409c9aa4376057328e8dca9d45587d5a1"
+  url "https://github.com/meta/fbthrift/archive/refs/tags/v2026.11.23.00.tar.gz"
+  sha256 "83255fcddbab9165590d272685695dd3c07a3cefcc3ac4bf69142eaa1e089063"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/meta/fbthrift.git", branch: "main"
@@ -64,7 +64,7 @@ class Fbthrift < Formula
     (share/"vim/vimfiles/syntax").install "thrift/contrib/thrift.vim"
 
     # Save a copy of FindxxHash.cmake to test with as it is used in FBThriftConfig.cmake
-    (libexec/"cmake").install "build/fbcode_builder/CMake/FindXxhash.cmake"
+    (libexec/"cmake").install "tool/fbcode_builder/CMake/FindXxhash.cmake"
   end
 
   test do
