@@ -44,6 +44,8 @@ class Kuzu < Formula
     cause "Requires C++20"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       -DAUTO_UPDATE_GRAMMAR=0
