@@ -25,6 +25,8 @@ class Cheapglk < Formula
 
   keg_only "it conflicts with other Glk libraries"
 
+  deny_network_access!
+
   def install
     system "make"
 
