@@ -1,10 +1,9 @@
 class WhisperCpp < Formula
   desc "Port of OpenAI's Whisper model in C/C++"
   homepage "https://github.com/ggml-org/whisper.cpp"
-  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.5.tar.gz"
-  sha256 "ff1a9053feb509ff9d7729703355541ae9690073a6b1c40eb692c962e0dc1720"
+  url "https://github.com/ggml-org/whisper.cpp/archive/refs/tags/v1.9.6.tar.gz"
+  sha256 "7ab15dc88022d2425ad94dcffd8abbf1b6d7018089b4e48d6b40780738e0b445"
   license "MIT"
-  revision 2
   compatibility_version 1
   head "https://github.com/ggml-org/whisper.cpp.git", branch: "master"
 
@@ -14,11 +13,12 @@ class WhisperCpp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d1b38766f30e6eb78c502ec9fab921b39838fcd10fe084b9bff4d335ed592557"
-    sha256 cellar: :any, arm64_tahoe:       "7ac257aafd3586b79ed3be9cf150b3650c2f94a097c9dce9a75139914cc4a429"
-    sha256 cellar: :any, arm64_sequoia:     "5a28079052309e287e3f7d98ddc74f3f5ee2f2a31bce193f6e1ac068de79dcf5"
-    sha256 cellar: :any, arm64_linux:       "0d8d7ade355581a9bb7dff7c9306e7e3c52252f0276aedee19227f2315d33cde"
-    sha256 cellar: :any, x86_64_linux:      "dccee89fee5df5013d5cb8008a38142cfeb3f4d3f924786667ea77fa71981940"
+    manifest_sha256 "3e2e1ec1eb2ad0a973c14c972c85f03d9f618fa3648168881fdb1a9b1a7d72be"
+    sha256 cellar: :any, arm64_golden_gate: "d117c2ce6d54f7c47dcb8bd245165bb0df3a1434ac126d5d7ba12f3fb8dc641b"
+    sha256 cellar: :any, arm64_tahoe:       "8399aa3bbc282efe6b063cc3c97952b41ff117e309f79b5cf0f9e6f40944f46a"
+    sha256 cellar: :any, arm64_sequoia:     "0e028d24f8e0a5d7bf7f8167d81d6034458228dbe75fc17e1a1ed1e07390efa4"
+    sha256 cellar: :any, arm64_linux:       "424d67446e4fd2f0a7ae331ccdc8e002f93ca9f7c643e44995d1e6f3f282e798"
+    sha256 cellar: :any, x86_64_linux:      "6792fe5f842d493a0e86edeee2b865baa276299a9edeaa8fc1ddcbb4d132bf03"
   end
 
   depends_on "cmake" => :build
@@ -26,14 +26,6 @@ class WhisperCpp < Formula
   depends_on "ggml" # NOTE: reject all PRs that try to bundle ggml
   depends_on "llama.cpp"
   depends_on "sdl2-compat"
-
-  # Support new llama.cpp
-  patch do
-    url "https://github.com/ggml-org/whisper.cpp/commit/63ae1b5f55b5d56622b39b3c01a4710feb57d844.patch?full_index=1"
-    sha256 "4422ba043e70622ba20c5c8dfb614680fb7c88229c9e398dffea098b5d12d65c"
-    type :unofficial
-    resolves "https://github.com/ggml-org/whisper.cpp/pull/4173"
-  end
 
   deny_network_access!
 
