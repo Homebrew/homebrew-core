@@ -1,8 +1,10 @@
 class Backupninja < Formula
   desc "Backup automation tool"
   homepage "https://0xacab.org/liberate/backupninja"
-  url "https://0xacab.org/liberate/backupninja/-/archive/backupninja_upstream/1.2.2/backupninja-backupninja_upstream-1.2.2.tar.gz"
-  sha256 "93ddc72f085d46145b289d35dac1d72e998c15bec1833db78e474b53c9768774"
+  # Using git checkout as the git archive is blocked by bot protection
+  url "https://0xacab.org/liberate/backupninja.git",
+      tag:      "backupninja-1.2.2",
+      revision: "183b8c30911d9fa96b66c9f5b436813457240f86"
   license "GPL-2.0-or-later"
   revision 1
 
@@ -21,11 +23,15 @@ class Backupninja < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "51d04199b4a1284612e6d1ff704412738c400bb844808c6a4348264ac3b67753"
   end
 
+  depends_on "autoconf" => :build
+  depends_on "automake" => :build
   depends_on "dialog"
 
   on_macos do
     depends_on "bash"
   end
+
+  deny_network_access!
 
   def install
     args = %W[
@@ -35,6 +41,7 @@ class Backupninja < Formula
     ]
     args << "BASH=#{formula_opt_bin("bash")}/bash" if OS.mac?
 
+    system "./autogen.sh"
     system "./configure", *args, *std_configure_args
     system "make", "install"
     (var/"log").mkpath
