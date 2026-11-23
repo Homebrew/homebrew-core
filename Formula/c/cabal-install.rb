@@ -48,12 +48,18 @@ class CabalInstall < Formula
     end
   end
 
-  def install
+  allow_network_access! :test
+
+  def fetch
     resource("bootstrap").stage(buildpath/"bin")
-    cabal = buildpath/"bin/cabal"
     cd "cabal-install" if build.head?
-    system cabal, "v2-update"
-    system cabal, "v2-install", *std_cabal_v2_args
+    system buildpath/"bin/cabal", "v2-update"
+    system buildpath/"bin/cabal", "v2-install", "--only-download", *std_cabal_v2_args
+  end
+
+  def install
+    cd "cabal-install" if build.head?
+    system buildpath/"bin/cabal", "v2-install", *std_cabal_v2_args
     bash_completion.install "bash-completion/cabal"
   end
 
