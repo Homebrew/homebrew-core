@@ -2,7 +2,7 @@ class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/flexible-collision-library/fcl.git", branch: "master"
 
@@ -38,6 +38,14 @@ class Fcl < Formula
       sha256 "6265c1178fe237313e107ae19386d7fc5d69638213d705290ddb61aea0b0fda2"
       type :unofficial
       resolves "https://github.com/flexible-collision-library/fcl/pull/649"
+    end
+
+    # Link the octomap::octomap target exported by OctoMap 2.0
+    patch do
+      url "https://github.com/flexible-collision-library/fcl/commit/dba11957540eda3656429cdfd4b8ba03557b60d2.patch?full_index=1"
+      sha256 "d727a5a703a1a0f9304d9987b79734d2655193125fce5bc6dc14b6f22435dcc2"
+      type :unofficial
+      resolves "https://github.com/flexible-collision-library/fcl/pull/672"
     end
   end
 
