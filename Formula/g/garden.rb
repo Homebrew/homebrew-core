@@ -1,18 +1,18 @@
 class Garden < Formula
   desc "Grow and cultivate collections of Git trees"
   homepage "https://garden-rs.gitlab.io"
-  url "https://github.com/garden-rs/garden/archive/refs/tags/v2.7.0.tar.gz"
-  sha256 "40f7df483e784583664e258c6d27873050107d6a2a80f971ea64264baf89f0b5"
+  url "https://github.com/garden-rs/garden/archive/refs/tags/v2.8.0.tar.gz"
+  sha256 "398bab121145f71656d0349f99ed77d52534021414818fbd3bb6e81dcd311111"
   license "MIT"
   head "https://github.com/garden-rs/garden.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bcf9f03d59448c0dffe48e55bb0b565220e6a7a47abc5eef10c4646bd61c85c4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02ca0b134297c502d53e7a2e78cc251a9c12d0e22c690c2a2efbe382d9315c7b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c89f4e44b6b4520c1fa7094aaabcc913d381a44a800af5f006d935498264529"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "68620c1ae9726b2d6f3ca1429326e934f843fa9fc45460b2606b3566ecb8fb2d"
-    sha256 cellar: :any,                 arm64_linux:       "30c787ab704fe617a640cd2e86beb4c03c2b214edf8b26f346ab7e4c1f90c117"
-    sha256 cellar: :any,                 x86_64_linux:      "2edfdda9ee1a547957b085e031de75a8f9205b97cad67ea13458745b08dd8ed4"
+    manifest_sha256 "f9dea8d2e3c0838e2171a97a0192f802d8c7f3944c90c1f1be98a99ad374dd52"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "740639240bd5ef109e9dc8f74e4affbfb1acee01acd70ff9ca3f86865c00ce65"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50d97e80870c0e9a46bf633b8090bbf572670aacd824a03bdb28b89c9417a4c4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "01464f95040b194fe3e2d8a506eb5d051655d4156696d3c77f8f991ea7b9ffdd"
+    sha256 cellar: :any,                 arm64_linux:       "11b6c1396d3736cf4426ab4af88c47731ac21ffc24d5dbf7047f8de970bf86fe"
+    sha256 cellar: :any,                 x86_64_linux:      "0d980b3e85755ae4d480437ebf05081ab9a8ca6888f63d36dd71ce8606f18ef7"
   end
 
   depends_on "rust" => :build
