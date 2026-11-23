@@ -1,8 +1,8 @@
 class PhpantomLsp < Formula
   desc "Fast PHP language server written in Rust"
   homepage "https://github.com/PHPantom-dev/phpantom_lsp"
-  url "https://github.com/PHPantom-dev/phpantom_lsp/archive/refs/tags/0.11.1.tar.gz"
-  sha256 "c5a9b0e21eac77edacd56add5b46094fb2425435581f32ba574d25e1ff6b97df"
+  url "https://github.com/PHPantom-dev/phpantom_lsp/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "d9f5a1bda4a67e61ea0650ccb6ebe2f143b884e81cb5156d4cd0726888d2191c"
   license "MIT"
 
   bottle do
@@ -19,9 +19,9 @@ class PhpantomLsp < Formula
   # The PHP standard library stubs embedded into the binary, pinned in `stubs.lock`.
   # build.rs downloads them when they are missing, which the sandbox blocks.
   resource "phpstorm-stubs" do
-    url "https://github.com/JetBrains/phpstorm-stubs/archive/5f68c1021badebe34119fb8fa10ba7cc25de6c0c.tar.gz"
-    version "5f68c1021badebe34119fb8fa10ba7cc25de6c0c"
-    sha256 "8b9bf4b69196d9193f56a4a6ad88b9ff8a230e372312ae8a181c04df1972c4a1"
+    url "https://github.com/JetBrains/phpstorm-stubs/archive/2049ca3cfa1feabf52db074108fe776a5713cf02.tar.gz"
+    version "2049ca3cfa1feabf52db074108fe776a5713cf02"
+    sha256 "3ef62542d2f77ad30c7dab7dfa726e57e86dd5e3403780294119cf4f5ca6dcb7"
 
     livecheck do
       url "https://raw.githubusercontent.com/PHPantom-dev/phpantom_lsp/refs/tags/#{LATEST_VERSION}/stubs.lock"
