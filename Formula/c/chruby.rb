@@ -12,6 +12,8 @@ class Chruby < Formula
     sha256 cellar: :any_skip_relocation, all: "a93d7f31af99177bb1884086e94e0c9dcb99ba4ef1ffb1f6fe33bff584c385de"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
