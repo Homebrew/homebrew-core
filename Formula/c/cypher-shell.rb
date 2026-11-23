@@ -18,6 +18,8 @@ class CypherShell < Formula
 
   depends_on "openjdk@21"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     (bin/"cypher-shell").write_env_script libexec/"bin/cypher-shell", Language::Java.overridable_java_home_env("21")
