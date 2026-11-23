@@ -240,6 +240,8 @@ class Cycode < Formula
     sha256 "a2e33cbfaa0306f8e6b0c13e0cb89d7d7a2da3e62b90c66e18c33d9807b28620"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 
