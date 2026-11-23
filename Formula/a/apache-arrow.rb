@@ -52,8 +52,23 @@ class ApacheArrow < Formula
     cause "fails handling PROTOBUF_FUTURE_ADD_EARLY_WARN_UNUSED"
   end
 
+  resource "mimalloc" do
+    url "https://github.com/microsoft/mimalloc/archive/refs/tags/v3.4.1.tar.gz"
+    sha256 "37107a52c16baa80c5f74861dddda7b27bb9949e41a6637691867a94c88ca446"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/apache/arrow/refs/tags/apache-arrow-#{LATEST_VERSION}/cpp/thirdparty/versions.txt"
+      regex(/^ARROW_MIMALLOC_BUILD_VERSION=v?(\d+(?:\.\d+)+)$/i)
+    end
+  end
+
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
+
+    resource("mimalloc").stage("mimalloc")
+    ENV["ARROW_MIMALLOC_URL"] = buildpath/"mimalloc"
 
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
