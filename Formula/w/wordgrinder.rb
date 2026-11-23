@@ -27,6 +27,8 @@ class Wordgrinder < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     ENV["CURSES_PACKAGE"] = "ncursesw"
     system "make", "OBJDIR=#{buildpath}/wg-build"
