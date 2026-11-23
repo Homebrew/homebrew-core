@@ -1,10 +1,9 @@
 class Gspell < Formula
   desc "Flexible API to implement spellchecking in GTK+ applications"
   homepage "https://gitlab.gnome.org/GNOME/gspell"
-  url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.5.tar.xz"
-  sha256 "788783b56fc3d03283b3aa29302d0b958aeca88835e10b1ec61f19e0efc7e8a4"
+  url "https://download.gnome.org/sources/gspell/1.14/gspell-1.14.6.tar.xz"
+  sha256 "d02a6f1ff3cf324798f184062a6777302ef4b325deab277d8469d3816c69282d"
   license "LGPL-2.1-or-later"
-  revision 1
   compatibility_version 1
 
   bottle do
@@ -34,6 +33,8 @@ class Gspell < Formula
   on_macos do
     depends_on "gettext"
   end
+
+  deny_network_access!
 
   def install
     args = %w[
