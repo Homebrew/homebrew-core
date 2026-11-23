@@ -34,6 +34,8 @@ class CustomInstall < Formula
     sha256 "d3994c72c21e2481c8dcbc074138ebe0cf9b9f5146f8642c72e1aadf85f18caf"
   end
 
+  allow_network_access! :build
+
   def install
     venv = virtualenv_create(libexec, python3)
     venv.pip_install resources
