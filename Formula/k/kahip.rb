@@ -1,8 +1,8 @@
 class Kahip < Formula
   desc "Karlsruhe High Quality Partitioning"
   homepage "https://algo2.iti.kit.edu/documents/kahip/index.html"
-  url "https://github.com/KaHIP/KaHIP/archive/refs/tags/v3.29.tar.gz"
-  sha256 "cf7f740000a8b26ce5568951a2847d4169b9b394983d7b5d1d77c9887183063e"
+  url "https://github.com/KaHIP/KaHIP/archive/refs/tags/v3.30.tar.gz"
+  sha256 "9fe214ba2978951fdc75b3f4f2dc944e3279bb1ddeac32ae097121310b1c5c51"
   license "MIT"
   head "https://github.com/KaHIP/KaHIP.git", branch: "master"
 
@@ -22,6 +22,14 @@ class Kahip < Formula
   end
 
   conflicts_with "mcp-toolbox", because: "both install `toolbox` binaries"
+
+  # Fix missing `prefetch` in fallback `ordered_edge_map` on non-libstdc++ 11/13/15 toolchains
+  patch do
+    url "https://github.com/KaHIP/KaHIP/commit/bab6e0c2ac6dd47fdc77bf04cd02dc9da49c6dca.patch?full_index=1"
+    sha256 "93961fa87839e824e489d453fe2f2ef743729295c65ddfd84295b386e8827b2d"
+    type :unofficial
+    resolves "https://github.com/KaHIP/KaHIP/pull/191"
+  end
 
   deny_network_access!
 
