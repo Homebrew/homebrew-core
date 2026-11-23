@@ -1,13 +1,12 @@
 class FfmpegFull < Formula
   desc "Play, record, convert, and stream many audio and video codecs"
   homepage "https://ffmpeg.org/"
-  url "https://ffmpeg.org/releases/ffmpeg-9.0.2.tar.xz"
-  sha256 "8c3850283eb25fa026482078a04051e0be17347b09ef81a0849bec15a96e002e"
+  url "https://ffmpeg.org/releases/ffmpeg-9.1.tar.xz"
+  sha256 "1a4d394ae63d190a526cd052eb4415c156b5c5e2df37efab41a7de0b8fde2433"
   # None of these parts are used by default, you have to explicitly pass `--enable-gpl`
   # to configure to activate them. In this case, FFmpeg's license changes to GPL v2+.
   # Passing `--enable-version3` changes the license to GPL v3+.
   license "GPL-3.0-or-later"
-  revision 3
   head "https://github.com/FFmpeg/FFmpeg.git", branch: "master"
 
   livecheck do
@@ -15,11 +14,12 @@ class FfmpegFull < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f19a5f065453cf01a80570d05507747bd1b654eaa6f5ce7d7eae41519ebbee77"
-    sha256 arm64_tahoe:       "3cc6ac70cfa4f4eb33989e7e433367cb1e735cfc92fbd135d44515f6dbcd35a5"
-    sha256 arm64_sequoia:     "64d139fb62d60e85fd92874bbc63a147db212c9db4658e08ca8ec538ef8059f5"
-    sha256 arm64_linux:       "eb6816fcb8c314ca8d13f14747c8336535305024f72ca80a365057e4d854b49b"
-    sha256 x86_64_linux:      "13fdf4b79e8f1dc727fad9383a15b7d3ebb3240d50a1160147e4b9e761c0b647"
+    manifest_sha256 "10cb1ad02cc47e2f0e642b02e7db2002a8943448310f8ece8119b11f91e5acef"
+    sha256 arm64_golden_gate: "a5681f17293b8ae229ff620c8995e0b62bc83a5e5a1706c46a2adb8dc1660530"
+    sha256 arm64_tahoe:       "01902e9a81c817f97094e4ebb2cdbf8b56b658c9dfe7a40771ffc7a622f967ed"
+    sha256 arm64_sequoia:     "9191e0476e423db9d9009cf3e11aec638e5b1895692e7a7e85b52ebca788d02d"
+    sha256 arm64_linux:       "9084f723425f055422822f95823231b1a227e276f3a2adf4031c0a6339392362"
+    sha256 x86_64_linux:      "21778baeb8fd76d4c50da4b68d3d6f59ce21905354825099f7eca3fe4a093e36"
   end
 
   keg_only :versioned_formula
