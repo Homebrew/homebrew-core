@@ -11,14 +11,12 @@ class Libetonyek < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256               arm64_golden_gate: "3c80844ed5366106f68f8d6592d3487cd7f25a531d34dbcbc75592013763613a"
-    sha256               arm64_tahoe:       "15e4106e5a95482d49ca870517bb9ec974028d31b4e6ad71b82b7bfdbf637816"
-    sha256               arm64_sequoia:     "83bb5e23e86d7476934b74bda30cd21958299d3ac87f702b40536f1b4e41af96"
-    sha256               arm64_sonoma:      "d57c06d659c57a25dd60cd7e4484061640fde9f755395a783095d87f8c65fc42"
-    sha256 cellar: :any, sonoma:            "af39f35143e4fcfc2e82eb18a96c5c02957fada39033d52324ff5edbb4944efe"
-    sha256               arm64_linux:       "43d455ef90f218ca763f9821d4798b9cd09c4e9d699436c4764719646e805cdf"
-    sha256               x86_64_linux:      "b2983d0f4f6f8037ab0ec443afe5527759cb94342d60d26442b776f7c2c8e7a1"
+    manifest_sha256 "a2660c8e503a32eb17d99c22e52cfb9faca726bfc3c9e4d95f917a0018802bc4"
+    sha256 arm64_golden_gate: "215ad88b396a516af14ac1a867bd11338d56372c0a7e89cf0e41c00cc145a66f"
+    sha256 arm64_tahoe:       "0f7f4c8697a67cc68d956138330739534b26699781c4e60ee79a169c9999527b"
+    sha256 arm64_sequoia:     "62da39ac496d37a5e77e8a39076a8bc95521f1a65e309903a7ab7aabbd35dd31"
+    sha256 arm64_linux:       "e6813a0c146f1138e434bb4df2f338787e008cd2adbff574995fb37b1e32ffec"
+    sha256 x86_64_linux:      "f595d776b8a737b91d605cf823ba606f31ac9cbdcab1d7102b1e06e3a846e1da"
   end
 
   depends_on "boost" => :build
