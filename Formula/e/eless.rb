@@ -12,6 +12,8 @@ class Eless < Formula
 
   depends_on "emacs"
 
+  deny_network_access!
+
   def install
     bin.install "eless"
     info.install "docs/eless.info"
