@@ -1,16 +1,15 @@
 class Qtscxml < Formula
   desc "Provides functionality to create state machines from SCXML files"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtscxml-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtscxml-everywhere-src-6.12.0.tar.xz"
-  sha256 "adc04875b383256bcd5a412f6f249d363495ea037913ca8c96d723442be38383"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtscxml-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtscxml-everywhere-src-6.12.1.tar.xz"
+  sha256 "d86c009901920732e7e579b2bf50e6d6b9e9b64c6f70b75e494eb68b98fd95d5"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qscxmlc
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtscxml.git", branch: "dev"
 
   livecheck do
