@@ -13,6 +13,8 @@ class Cask < Formula
   depends_on "coreutils"
   depends_on "emacs"
 
+  allow_network_access! :test
+
   def install
     bin.install "bin/cask"
     # Lisp files must stay here: https://github.com/cask/cask/issues/305
