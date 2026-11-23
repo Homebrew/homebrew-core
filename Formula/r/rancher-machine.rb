@@ -1,9 +1,9 @@
 class RancherMachine < Formula
   desc "Machine management for a container-centric world"
   homepage "https://github.com/rancher/machine"
-  url "https://github.com/rancher/machine/archive/refs/tags/v0.15.0-rancher145.tar.gz"
-  version "0.15.0-rancher145"
-  sha256 "e039feb0f202854a97737bf7eadfde1d1a647294494c153791d191f8277835b0"
+  url "https://github.com/rancher/machine/archive/refs/tags/v0.15.0-rancher146.tar.gz"
+  version "0.15.0-rancher146"
+  sha256 "82e6f182eb9a91bfad581a09c4f1747477127ce13164114d32894afdaa185459"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/rancher/machine.git", branch: "master"
