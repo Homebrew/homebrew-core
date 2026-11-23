@@ -7,11 +7,13 @@ class Gat < Formula
   head "https://github.com/koki-develop/gat.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10d8bac08f836a29c56de07a5028fe9a9e2b44da111b7b290ee22699e8f3ab18"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10d8bac08f836a29c56de07a5028fe9a9e2b44da111b7b290ee22699e8f3ab18"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10d8bac08f836a29c56de07a5028fe9a9e2b44da111b7b290ee22699e8f3ab18"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a9e38e691aaea720f6ef43ab0b648b5f07dd463fea03704a82070fdacf58d513"
-    sha256 cellar: :any,                 x86_64_linux:      "52c8726fd21488129ece31f50a4cd8d1cd91001b452ce95e6dfdd0e5ff426063"
+    rebuild 1
+    manifest_sha256 "c2c92380c5f273a0315482592ac9e7b55c2980ef23b52948adefe71a0e023628"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "823386ccdcd4c2a54c48dc644b2a79f493a8478913c9fe4ed4cde9c6a1ccae06"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "823386ccdcd4c2a54c48dc644b2a79f493a8478913c9fe4ed4cde9c6a1ccae06"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "823386ccdcd4c2a54c48dc644b2a79f493a8478913c9fe4ed4cde9c6a1ccae06"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "94924e8da1b7b6c28581eeb9ca0972c238b80e600786c4c514376037bd85ba42"
+    sha256 cellar: :any,                 x86_64_linux:      "74880c3798723a5f145365aad4712cc90e1a086d834df37c21603c6d84cbaaab"
   end
 
   depends_on "go" => :build
@@ -24,6 +26,7 @@ class Gat < Formula
 
   def install
     system "go", "build", *std_go_args(ldflags: "-X github.com/koki-develop/gat/cmd.version=v#{version}")
+    generate_completions_from_executable(bin/"gat", shell_parameter_format: :cobra)
   end
 
   test do
