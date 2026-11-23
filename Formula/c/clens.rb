@@ -40,6 +40,8 @@ class Clens < Formula
     resolves "https://github.com/conformal/clens/pull/3"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     system "make", "all", "install", "LOCALBASE=#{prefix}"
