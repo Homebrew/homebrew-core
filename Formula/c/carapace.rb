@@ -1,8 +1,8 @@
 class Carapace < Formula
   desc "Multi-shell multi-command argument completer"
   homepage "https://carapace.sh"
-  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.8.4.tar.gz"
-  sha256 "b20afecb54a7ddaa12bc931ae081bf0e017c163ceb7d14bfcd571a286741ccd2"
+  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.8.5.tar.gz"
+  sha256 "e301baf4c1921d22da98e01813dadb7c1c6db435120c3e9db5b4e209e307d5dd"
   license "MIT"
   head "https://github.com/carapace-sh/carapace-bin.git", branch: "master"
 
