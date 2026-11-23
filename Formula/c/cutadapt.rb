@@ -32,6 +32,8 @@ class Cutadapt < Formula
     sha256 "06584821588f813563863b63d5e02568a4328661b7507ea38c432f24c69ea4b7"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
     pkgshare.install "tests/data"
