@@ -3,8 +3,8 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://facebook.github.io/watchman/"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.10.26.00.tar.gz"
-  sha256 "cb0ec3a700412f7ea83b4853783a51738cf7bfc3cbac30d324a14f603f83ce9d"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.11.23.00.tar.gz"
+  sha256 "513a78c03fef7706eec77548c8f9d02f37215c5987e067bb4c462451b930fc9e"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
@@ -42,27 +42,11 @@ class Watchman < Formula
     depends_on "openssl@4"
   end
 
-  # fmt 12.2 dropped fmt::format from <fmt/core.h>; include <fmt/format.h> where used.
-  patch do
-    url "https://github.com/facebook/watchman/commit/21e10ae9596a81ac95795ee0915f4308a9c34603.patch?full_index=1"
-    sha256 "be595623d5a520de9e1820f1388ebbdf3ef9ff5d665a33c0231fdba36b5d0dbb"
-    type :unofficial
-    resolves "https://github.com/facebook/watchman/pull/1348"
-  end
-
   def install
     # Match the F14 ABI in bottled Folly instead of compiling for the host CPU.
     if OS.linux? && Tab.for_formula(Formula["folly"]).built_as_bottle
       ENV["HOMEBREW_OPTFLAGS"] = Hardware::CPU.optimization_flags.fetch(Hardware.oldest_cpu)
     end
-
-    # Drop the `GlobPath` C++ type as its GPL-2.0 header is not mirrored to this repository
-    # https://github.com/facebook/watchman/issues/1355
-    inreplace "eden/fs/service/eden.thrift" do |s|
-      s.gsub! 'cpp_include "eden/fs/utils/GlobPath.h"', ""
-      s.gsub! '@cpp.Adapter{name = "::facebook::eden::GlobPathAdapter"}', ""
-    end
-    inreplace "watchman/watcher/eden.cpp", "std::move(name).intoFbString()", "std::move(name)"
 
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
