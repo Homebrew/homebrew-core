@@ -16,6 +16,7 @@ class Arrayfire < Formula
   depends_on "boost" => :build
   depends_on "cmake" => :build
   depends_on "doxygen" => :build
+  depends_on "opencl-clhpp-headers" => :build
   depends_on "clblast"
   depends_on "fftw"
   depends_on "fmt"
@@ -52,11 +53,9 @@ class Arrayfire < Formula
     resolves "https://github.com/arrayfire/arrayfire/pull/3710"
   end
 
-  def install
-    # FreeImage has multiple CVEs (https://github.com/arrayfire/arrayfire/issues/3547) and
-    # has been dropped by distros like Arch Linux (https://archlinux.org/todo/drop-freeimage/).
-    odie "FreeImage should not be a dependency!" if deps.map(&:name).include?("freeimage")
+  deny_network_access!
 
+  def install
     # Fix for: `ArrayFire couldn't locate any backends.`
     rpaths = [
       rpath(source: lib, target: formula_opt_lib("fftw")),
@@ -68,15 +67,20 @@ class Arrayfire < Formula
     # https://github.com/arrayfire/arrayfire/blob/715e21fcd6e989793d01c5781908f221720e7d48/src/backend/opencl/CMakeLists.txt#L598
     inreplace "src/backend/opencl/CMakeLists.txt", "if(group_flags)", "if(FALSE)" if OS.mac?
 
-    system "cmake", "-S", ".", "-B", "build",
+    # Building in-tree with the AF_INTERNAL_DOWNLOAD_FLAG so that CMake uses
+    # the bundled extern/* sources and doesn't try running git when offline
+    system "cmake", "-S", ".", "-B", ".",
                     "-DAF_BUILD_CUDA=OFF",
+                    "-DAF_BUILD_EXAMPLES=OFF",
                     "-DAF_COMPUTE_LIBRARY=FFTW/LAPACK/BLAS",
+                    "-DAF_INTERNAL_DOWNLOAD_FLAG=ON",
                     "-DAF_WITH_EXTERNAL_PACKAGES_ONLY=ON",
                     "-DCMAKE_CXX_STANDARD=14",
+                    "-DCMAKE_DISABLE_FIND_PACKAGE_MKL=ON",
                     "-DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}",
                     *std_cmake_args
-    system "cmake", "--build", "build"
-    system "cmake", "--install", "build"
+    system "cmake", "--build", "."
+    system "cmake", "--install", "."
 
     pkgshare.install "examples"
   end
