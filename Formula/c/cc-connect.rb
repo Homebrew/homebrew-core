@@ -16,12 +16,19 @@ class CcConnect < Formula
   depends_on "go" => :build
   depends_on "node" => :build
 
-  def install
+  deny_network_access!
+
+  def fetch
     cd "web" do
       system "npm", "install", *std_npm_args(prefix: false)
+    end
+    system "go", "mod", "download"
+  end
+
+  def install
+    cd "web" do
       system "npm", "run", "build"
     end
-
     system "go", "build", *std_go_args(ldflags: :goreleaser), "./cmd/cc-connect"
 
     pkgetc.install "config.example.toml" => "config.toml"
