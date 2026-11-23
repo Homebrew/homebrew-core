@@ -16,6 +16,19 @@ class Btdu < Formula
   depends_on :linux
   depends_on "ncurses"
 
+  # Backport ae update to fix build with newer ldc
+  patch do
+    url "https://github.com/CyberShadow/btdu/commit/882b602b0243e36c9522ec282ce33a0c8b0b1c6a.patch?full_index=1"
+    sha256 "92ad3e329538fcb9441aabc0bcaa2d8a1c64782f08b920d208138a7fcd2ae407"
+    type :backport
+  end
+
+  deny_network_access!
+
+  def fetch
+    system "dub", "fetch"
+  end
+
   def install
     system "dub", "build", "-b", "release", "--compiler=ldc2"
     bin.install "btdu"
