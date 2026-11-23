@@ -17,6 +17,8 @@ class ExcelCompare < Formula
     sha256 "f362153aea24092e45a3d306a16a49e4faa19939f83cdcb703a215fe48cc196a"
   end
 
+  deny_network_access!
+
   def install
     libexec.install Dir["lib/*"]
 
