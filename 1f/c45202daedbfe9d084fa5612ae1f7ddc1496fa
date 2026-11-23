@@ -1,0 +1,14 @@
+Formula/s/simdjson.rb
+  h_9df9c32c3f321d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1fc45202daedbfe9d084fa5612ae1f7ddc1496fa",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
