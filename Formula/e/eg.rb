@@ -30,6 +30,8 @@ class Eg < Formula
   # ISO C99 and later do not support implicit int [-Wimplicit-int]
   patch :DATA
 
+  deny_network_access!
+
   def install
     inreplace "eglib.c", "/usr/share/", "#{etc}/"
     bin.mkpath
