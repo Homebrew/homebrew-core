@@ -1,16 +1,17 @@
 class Noodle < Formula
   desc "Terminal REST client with file-based collections"
   homepage "https://noodlerest.dev"
-  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v0.11.0.tar.gz"
-  sha256 "5f6bbf259008ce1c76faf29ea8176985dd64c72535ced78ecde9ab37fea67eda"
+  url "https://github.com/noodle-rest/noodle/archive/refs/tags/v1.0.0.tar.gz"
+  sha256 "e0445156fafdb76deb934cbe6ab01577c57284f40c4dcb8733f721f83092ecf6"
   license "Apache-2.0"
 
   bottle do
-    sha256 arm64_golden_gate: "ad5da1240ccb26d2688b4679bf1c3cd8788ea67b302a83b6131ff1ea54eba5fb"
-    sha256 arm64_tahoe:       "e4a020c0372a95eb620e36112d2c1698760c8facbc0691c9362f6797ebbfa4ef"
-    sha256 arm64_sequoia:     "152a541f8a038ea2715dc3a89d0f19dbf2c458788c80afc2f176a419d60e3838"
-    sha256 arm64_linux:       "8b581407d2b050aefa7fc560915d69c225a54987582136c19bb2070237279d66"
-    sha256 x86_64_linux:      "672f3fbca81074b75d09e2ee56340fe8f69406290b7149756794dd45fb814b62"
+    manifest_sha256 "d615e5f3c331c90abcbbb9e73887c88f723be6c3ee3d70488c577345a25768b7"
+    sha256 arm64_golden_gate: "b661f550fd34ee2dc85a70085f8f93ecd5b4658b6b475e12584a08242e37eb3f"
+    sha256 arm64_tahoe:       "f9fcbd40c03b9f0a5e6cd2204a2a07f7c5dd36192f89efde33606f79ae313803"
+    sha256 arm64_sequoia:     "b9b1853902e09e431cda89971e338097807d6fa8922c6ebb60bd249670199d59"
+    sha256 arm64_linux:       "861752fe6f943e4d0b2742d1a6b8de8d9c481a2dc605cc8911ce43ba534ed9d7"
+    sha256 x86_64_linux:      "3d4651e5a39ea7402bfa8be43291109da2408d0bd986667471d61b68d48b1c21"
   end
 
   depends_on "bun" => :build
