@@ -15,6 +15,8 @@ class Cdlabelgen < Formula
     sha256 cellar: :any_skip_relocation, all: "b59e22a5f1b438e89d6ae6cc662a70c09c9fd3aeee92538cf6a049296a0ca2be"
   end
 
+  deny_network_access!
+
   def install
     man1.mkpath
     system "make", "install", "BASE_DIR=#{prefix}"
