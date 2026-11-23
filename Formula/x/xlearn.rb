@@ -24,10 +24,15 @@ class Xlearn < Formula
     disable! date: "2026-09-25", because: :unsupported
   end
 
+  deny_network_access!
+
   def install
     inreplace "CMakeLists.txt", "set(CMAKE_INSTALL_PREFIX \"xLearn\")", ""
 
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_MACOSX_RPATH=TRUE", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build",
+                    "-DCMAKE_MACOSX_RPATH=TRUE",
+                    "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
+                    *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
