@@ -10,6 +10,8 @@ class WpCliCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "157dc6d8f92431bf3084c0ce8b8f78149299ad308b17ca23df5235622213565c"
   end
 
+  deny_network_access!
+
   def install
     bash_completion.install "utils/wp-completion.bash" => "wp"
   end
