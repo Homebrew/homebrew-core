@@ -1,8 +1,8 @@
 class GoBindata < Formula
   desc "Small utility that generates Go code from any file"
   homepage "https://github.com/kevinburke/go-bindata"
-  url "https://github.com/kevinburke/go-bindata/archive/refs/tags/v4.0.2.tar.gz"
-  sha256 "ac343c4b316b234b8ea354d86eb3c7ded2da4fe8f40d45f60391d289c66cd950"
+  url "https://github.com/kevinburke/go-bindata/archive/refs/tags/v4.0.3.tar.gz"
+  sha256 "dddc4b80ce9e21fe8ac585cf9693e4b3b092986fb260303ad2437330648e2af5"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/kevinburke/go-bindata.git", branch: "master"
