@@ -36,6 +36,8 @@ class Calabash < Formula
   depends_on "openjdk"
   depends_on "saxon"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
     bin.write_jar_script libexec/"xmlcalabash-#{version}.jar", "calabash", "-Xmx1024m"
