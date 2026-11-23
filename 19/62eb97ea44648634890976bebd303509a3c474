@@ -1,0 +1,14 @@
+Formula/d/distrobox.rb
+  h_9df9c32c3f321d 3-5
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "1962eb97ea44648634890976bebd303509a3c474",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
