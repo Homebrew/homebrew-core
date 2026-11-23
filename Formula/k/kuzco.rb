@@ -24,6 +24,8 @@ class Kuzco < Formula
   depends_on "go" => :build
   depends_on "opentofu" => :test
 
+  allow_network_access!
+
   def install
     ldflags = "-s -w -X github.com/RoseSecurity/kuzco/cmd.Version=#{version}"
     system "go", "build", *std_go_args(ldflags:)
