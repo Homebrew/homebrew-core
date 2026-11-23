@@ -1,18 +1,18 @@
 class Carapace < Formula
   desc "Multi-shell multi-command argument completer"
   homepage "https://carapace.sh"
-  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.8.3.tar.gz"
-  sha256 "f5aad2921d52bef5a32ae8125e7b9aaa8aefa3e80d87adb0bc1d82939773aa18"
+  url "https://github.com/carapace-sh/carapace-bin/archive/refs/tags/v1.8.4.tar.gz"
+  sha256 "b20afecb54a7ddaa12bc931ae081bf0e017c163ceb7d14bfcd571a286741ccd2"
   license "MIT"
   head "https://github.com/carapace-sh/carapace-bin.git", branch: "master"
 
   bottle do
-    manifest_sha256 "e421314fcbccca1452dcfc872c26939388ec91020e5b58cc15ebf77c019bd2c3"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "110162ab888a66f8a53fb742b41d7fa4c6416a8282f4e2222192e7b50df537eb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "110162ab888a66f8a53fb742b41d7fa4c6416a8282f4e2222192e7b50df537eb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "110162ab888a66f8a53fb742b41d7fa4c6416a8282f4e2222192e7b50df537eb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cb5a803952309782dddb8e978aa6e15e3df2d592ba6b18879f006cefc8491a58"
-    sha256 cellar: :any,                 x86_64_linux:      "7216a69a3d6d1400ea3df23f1639076be9388b1efec75fd82e9f8e03f0cecdc9"
+    manifest_sha256 "d3c78c3a86f295398930829450ec93ffd273c3ecd516ea5c1e4bc4c885eba47f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2687cfa2ea4287de3ad6c3caa647b41480882ba9321332550d9c98461c14dc4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2687cfa2ea4287de3ad6c3caa647b41480882ba9321332550d9c98461c14dc4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d2687cfa2ea4287de3ad6c3caa647b41480882ba9321332550d9c98461c14dc4"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "12f5dac7bc320ed096310d41bf0774856864ea557ce73267e4d68e53b2acd5a7"
+    sha256 cellar: :any,                 x86_64_linux:      "75dcde255f44e6996301eedb6e09cadb18720df78788218eb8944456f202e387"
   end
 
   depends_on "go" => :build
