@@ -14,11 +14,12 @@ class Openrtsp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d1cb86b55c8b6232323774328ad18098bdaf9594203cfb09233897427a32d1c7"
-    sha256 cellar: :any, arm64_tahoe:       "acad60ee5fe0c26edbaadcac332b619eaa0c2611205339f33d8777ffb8609b41"
-    sha256 cellar: :any, arm64_sequoia:     "3beb51433a1b1610876913eeccee781194137e676fc06d272d9b556d83b9aae2"
-    sha256 cellar: :any, arm64_linux:       "6543c13f6954113944e3c70aec5634ec187b023129e2a5fff238cd666aaec009"
-    sha256 cellar: :any, x86_64_linux:      "9a22c6adb434f7f6664eb80696f7f445d685f6f39f4e12e4835dc87a3e968e81"
+    manifest_sha256 "598efbd2b1961ffc8e97523c35559aff2c48a50e92a1e13836706f4411458cbd"
+    sha256 cellar: :any, arm64_golden_gate: "3898f1811943c9318b836dedb068ff9524487dd51a2404001d0a94eccd29aa65"
+    sha256 cellar: :any, arm64_tahoe:       "a9b929e4dd12d4842090c5ce0dfae1633b781a1ae0724bf1f6be566007e18bb1"
+    sha256 cellar: :any, arm64_sequoia:     "656978932a69cc7ae052af2789e8cd5e0fa7f0438df35992e593b48a41dcc3c7"
+    sha256 cellar: :any, arm64_linux:       "ee3525314a4e494d8889a335bb5a43336421914e498b4ad4ba15e62bc9f59de0"
+    sha256 cellar: :any, x86_64_linux:      "3d986f237935264b037147114f8393ebe46f10767ac92bc05fae2735c3160474"
   end
 
   depends_on "openssl@4"
