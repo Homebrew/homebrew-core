@@ -29,6 +29,8 @@ class Epstool < Formula
 
   depends_on "ghostscript"
 
+  deny_network_access!
+
   def install
     system "make", "install",
                    "EPSTOOL_ROOT=#{prefix}",
