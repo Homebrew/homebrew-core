@@ -18,11 +18,12 @@ class Flow < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b1b5a66524cb7561826ec8f02835662fe1e77703c452362bd2cc8a4532597b4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c18b10b8832ee75f725a09574562754b79ebf4ced6f262b784509a94e06a817"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "51f75107b8458939f3553fcd495c37e4045f7d6a4900e4eb72fec41c520ff802"
-    sha256 cellar: :any,                 arm64_linux:       "a9d97771a94430eb88bac250a419d4ba7382d3016e03351edc952e7e0e566a6f"
-    sha256 cellar: :any,                 x86_64_linux:      "84ce33d9a3b3b4f911e1584f861ad4dac809a3e688467427d105b2f2351834bd"
+    manifest_sha256 "6e7a6a90c2359d1409bcee2727a35dcd5cdad8b34c69e14df5bdc3e91c2d92c8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4c1493ff48e332c54f3855a35ab33cd757165a1b5ed78967257fe79cfe1afe5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "665ab1139153e25cb737eb91766f48eed753332b091c0826816c0e8a4d84f7a9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce6a9094f57ef8cf14e87f8d9b72c57b519b2a588a4cc51eb65f97fde721e173"
+    sha256 cellar: :any,                 arm64_linux:       "f7555364cb11489bfb06140583e7fe4335c6b3e8719835b43f57ede7c2f242e5"
+    sha256 cellar: :any,                 x86_64_linux:      "e62105b5dbcef89d17791364b93ea24d9326b1037892e855c49d6625e6b87ff4"
   end
 
   depends_on "rust" => :build
