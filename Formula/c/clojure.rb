@@ -22,6 +22,8 @@ class Clojure < Formula
 
   uses_from_macos "ruby" => :build
 
+  allow_network_access! :test
+
   def install
     system "./install.sh", prefix
     bin.env_script_all_files libexec/"bin", Language::Java.overridable_java_home_env
