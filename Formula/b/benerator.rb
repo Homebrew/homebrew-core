@@ -15,6 +15,8 @@ class Benerator < Formula
 
   depends_on "openjdk@11"
 
+  deny_network_access!
+
   def install
     # Remove unnecessary files
     rm(Dir["bin/*.bat", "bin/pom.xml"])
