@@ -24,6 +24,8 @@ class Exodriver < Formula
 
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     system "make", "-C", "liblabjackusb", "install",
            "PREFIX=#{prefix}", "RUN_LDCONFIG=0", "LINK_SO=1"

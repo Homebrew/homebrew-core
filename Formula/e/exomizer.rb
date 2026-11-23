@@ -26,6 +26,8 @@ class Exomizer < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "c0fae099202b6a7ca59dd64e37fc4ffbe8f4612b2b4dd9e266053a7810c9bdac"
   end
 
+  deny_network_access!
+
   def install
     cd "src" do
       system "make"
