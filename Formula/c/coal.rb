@@ -4,7 +4,7 @@ class Coal < Formula
   url "https://github.com/coal-library/coal/releases/download/v3.0.4/coal-3.0.4.tar.gz"
   sha256 "0a9091aa281f51b9513f11aae39758a6188bca63010524f36b3bdc566381ca4a"
   license "BSD-2-Clause"
-  revision 2
+  revision 3
   compatibility_version 2
   head "https://github.com/coal-library/coal.git", branch: "devel"
 
@@ -37,6 +37,9 @@ class Coal < Formula
   def install
     ENV.prepend_path "PYTHONPATH", formula_opt_prefix("eigenpy")/Language::Python.site_packages(python3)
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
+
+    # FIXME: octomap 2 only accepts 2.0.x version requests, so drop the 1.8 minimum until coal supports octomap 2
+    inreplace "CMakeLists.txt", "ADD_PROJECT_DEPENDENCY(octomap 1.8.0 ", "ADD_PROJECT_DEPENDENCY(octomap "
 
     # enable backward compatibility with hpp-fcl
     args = %W[
