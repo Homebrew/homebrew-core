@@ -20,6 +20,8 @@ class EpicsBase < Formula
 
   conflicts_with "libffcall", because: "both install `callback.h` header"
 
+  allow_network_access! :test
+
   def install
     hostarch = Utils.safe_popen_read("./startup/EpicsHostArch").strip
     ENV["EPICS_HOST_ARCH"] = hostarch
