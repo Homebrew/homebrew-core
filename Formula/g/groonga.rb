@@ -4,7 +4,7 @@ class Groonga < Formula
   url "https://github.com/groonga/groonga/releases/download/v16.1.5/groonga-16.1.5.tar.gz"
   sha256 "f7ae843e80aec4a8b83743b570c0f82ffe44939405db0843f06ecd6190801476"
   license "LGPL-2.1-or-later"
-  revision 3
+  revision 4
   compatibility_version 1
   head "https://github.com/groonga/groonga.git", branch: "main"
 
