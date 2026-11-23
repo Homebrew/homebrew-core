@@ -24,6 +24,8 @@ class Ent < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2473992bc5d574c4fff2dafdc65e23e72c6661fab3b939d6a853a98b45538e4e"
   end
 
+  deny_network_access!
+
   def install
     system "make", "CC=#{ENV.cc}", "CFLAGS=#{ENV.cflags}"
     bin.install "ent"
