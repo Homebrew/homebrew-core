@@ -6,6 +6,13 @@ class Libjodycode < Formula
   license "MIT"
   compatibility_version 1
 
+  livecheck do
+    url "https://codeberg.org/api/v1/repos/jbruchon/libjodycode/releases"
+    strategy :json do |json|
+      json.filter_map { |tag| tag["tag_name"]&.delete_prefix("v") }
+    end
+  end
+
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "83e23477ee5a814cd9f6801c5d8fcad6161ba6dc1d941cfb620474a25eaa9176"
     sha256 cellar: :any, arm64_tahoe:       "073330f62fd7c97addcf3b43fd146b401b9cc2801fc5fc44e7369f55f2b6c8af"
