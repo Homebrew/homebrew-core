@@ -29,8 +29,14 @@ class Blaze < Formula
   depends_on "cmake" => :build
   depends_on "openblas"
 
+  deny_network_access!
+
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # When bottling, align with upstream's BLAZE_CACHE_SIZE_DEFAULT (3072 Ki)
+    # rather than using the build machine's L2/L3 cache size.
+    args = %w[-DBLAZE_CACHE_SIZE=3145728 -DBLAZE_CACHE_SIZE_AUTO=OFF] if build.bottle?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
