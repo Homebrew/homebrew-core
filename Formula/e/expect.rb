@@ -58,6 +58,8 @@ class Expect < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Upstream still uses K&R function definitions, which do not compile as C23.
     ENV.append_to_cflags "-std=gnu17"
