@@ -45,6 +45,8 @@ class Eiffelstudio < Formula
     depends_on "harfbuzz"
   end
 
+  deny_network_access!
+
   def install
     platform = if OS.mac?
       "macosx-x86-64"
