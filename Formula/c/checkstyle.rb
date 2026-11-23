@@ -16,6 +16,8 @@ class Checkstyle < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "checkstyle-#{version}-all.jar"
     bin.write_jar_script libexec/"checkstyle-#{version}-all.jar", "checkstyle"
