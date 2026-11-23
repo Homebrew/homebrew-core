@@ -1,18 +1,18 @@
 class OpenCodeReview < Formula
   desc "AI-powered code review tool with deterministic pipelines and an LLM agent"
   homepage "https://open-codereview.ai"
-  url "https://github.com/alibaba/open-code-review/archive/refs/tags/v1.14.1.tar.gz"
-  sha256 "4693797f7072d87eb7c02cd9bd009069a52da259497cd51e7c8f6aee5df71185"
+  url "https://github.com/alibaba/open-code-review/archive/refs/tags/v1.14.2.tar.gz"
+  sha256 "19b8a062af3d8ba9024063852f094f9bb090800557ba327565283fb033a67c72"
   license "Apache-2.0"
   head "https://github.com/alibaba/open-code-review.git", branch: "main"
 
   bottle do
-    manifest_sha256 "4da311ea09795c999a846f76a477f68c19fe1da705597aed2d13a580fbd4b947"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "730bc8d2af4361e9915d926d4b685d7559d14ef9b00bb9257d35588d27fd384c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "730bc8d2af4361e9915d926d4b685d7559d14ef9b00bb9257d35588d27fd384c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "730bc8d2af4361e9915d926d4b685d7559d14ef9b00bb9257d35588d27fd384c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "35c4365a9b1985479b937f54a7b38bc43fedcdb1da51f73b50d1ad2e9036b261"
-    sha256 cellar: :any,                 x86_64_linux:      "cabbb33dffbc3315b9db2a708e83b685437cedd390123a25f278545971bf5f48"
+    manifest_sha256 "a83092bcef2c11fa00339a5f23e6669fd9c12e7adda7afefdb9e0cda1c325864"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40ff017c016ec10ed524853f5f0f586874af9c431693aa54ee12edeba54abb15"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "40ff017c016ec10ed524853f5f0f586874af9c431693aa54ee12edeba54abb15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "40ff017c016ec10ed524853f5f0f586874af9c431693aa54ee12edeba54abb15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "580a8bbb5af0c6fd03718ffcffc1441f94f357f68607838a83bda5a96215b7af"
+    sha256 cellar: :any,                 x86_64_linux:      "6c296ce71300fe7924af5fba8a6d451948ee42ba4ee5e8e1d3ed4b1183167e18"
   end
 
   depends_on "go" => :build
