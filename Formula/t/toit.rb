@@ -21,7 +21,9 @@ class Toit < Formula
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   deny_network_access!
 
@@ -29,8 +31,7 @@ class Toit < Formula
     # Toit requires its bundled Mbed TLS configuration and allocation-failure
     # patches for garbage collection and retrying TLS operations.
     # Configure directly so Homebrew controls the architecture and compiler flags.
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args,
-                    "-DBUILD_TESTING=OFF"
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
