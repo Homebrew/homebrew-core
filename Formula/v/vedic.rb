@@ -1,8 +1,8 @@
 class Vedic < Formula
   desc "Simple Sanskrit programming language"
   homepage "https://vedic-lang.github.io/"
-  url "https://github.com/vedic-lang/vedic/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "9bfb68dfa8a79c02d52905eb1403267209dae80ad05287b7f3706f14071c4800"
+  url "https://github.com/vedic-lang/vedic/archive/refs/tags/v2.1.0.tar.gz"
+  sha256 "2d0fe84427503f3ab09ea9687827de6d386e6804b2ec20ab61a4c41dbde0c454"
   license "MIT"
   head "https://github.com/vedic-lang/vedic.git", branch: "main"
 
