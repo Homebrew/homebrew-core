@@ -1,12 +1,13 @@
 class Haraka < Formula
   desc "Fast, highly extensible, and event driven SMTP server"
   homepage "https://haraka.github.io/"
-  url "https://registry.npmjs.org/Haraka/-/Haraka-3.4.0.tgz"
-  sha256 "8213ffc65e79eec76516a4083772fe4da83ee3d3eb72268dc445e1b49db60d12"
+  url "https://registry.npmjs.org/Haraka/-/Haraka-3.4.1.tgz"
+  sha256 "5d7ab30be66dc687d4ab2e6312b0e6e33893656a9d6fadfb28efc5a084113af3"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "e2f76326499995260a40411d765827d920b2a9a4653699f298ea2a421bb8137b"
+    manifest_sha256 "c630705d600ca0a5a94d64c555cd8e35e1c9151f0604b755db31018115930aa7"
+    sha256 cellar: :any_skip_relocation, all: "85ab392d80d09ff4e5d734f786c3dffd56ef8fe3876242bd43addaf33260127e"
   end
 
   depends_on "node"
