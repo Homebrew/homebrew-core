@@ -1,15 +1,14 @@
 class Qthttpserver < Formula
   desc "Framework for embedding an HTTP server into a Qt application"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qthttpserver-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qthttpserver-everywhere-src-6.12.0.tar.xz"
-  sha256 "ede040264551d0930ea5f6c1a4c18a7a3dea59d635e71cd2e81f02567d7814a4"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qthttpserver-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qthttpserver-everywhere-src-6.12.1.tar.xz"
+  sha256 "eb2004bc8a9703f19530bc2f95e1b5ab7bbdd719ece8b8b028a7f304d623c02b"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qthttpserver.git", branch: "dev"
 
   livecheck do
