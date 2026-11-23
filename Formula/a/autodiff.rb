@@ -26,7 +26,11 @@ class Autodiff < Formula
   depends_on "eigen@3"
   depends_on "pybind11"
 
+  deny_network_access!
+
   def install
+    ENV["PIP_NO_BUILD_ISOLATION"] = "0"
+
     args = %W[
       -DAUTODIFF_BUILD_TESTS=OFF
       -DPYTHON_EXECUTABLE=#{python3}
