@@ -1,8 +1,8 @@
 class PerconaXtrabackupAT84 < Formula
   desc "Open source hot backup tool for InnoDB and XtraDB databases"
   homepage "https://www.percona.com/software/mysql-database/percona-xtrabackup"
-  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.4/Percona-XtraBackup-8.4.0-7/source/tarball/percona-xtrabackup-8.4.0-7.tar.gz"
-  sha256 "177ee52757d6e702b082b033e4562d680ed8f6dfa24d8cdad13005e48db65e18"
+  url "https://downloads.percona.com/downloads/Percona-XtraBackup-8.4/Percona-XtraBackup-8.4.0-8/source/tarball/percona-xtrabackup-8.4.0-8.tar.gz"
+  sha256 "7a121e8c3f54b2c94d61f98f00bb5e09980c1dc56602d58dfa5eeeb7cabd08ca"
   license "GPL-2.0-only"
 
   livecheck do
@@ -19,11 +19,12 @@ class PerconaXtrabackupAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "6ceb749df11890bb0f641569830721ebff24b1cedf61eff86d1a7c6b462bcf5a"
-    sha256 arm64_tahoe:       "c907938a06f70b9b168021636d7623d3a2fa93ca377e175abc2ed491d7ffb986"
-    sha256 arm64_sequoia:     "b80aba00645bc4646ca790a807beed84307e5f15ad7fd06f799c1b3c6f28652b"
-    sha256 arm64_linux:       "c61375d5cc6d724bd1ca9ed41864e120a1506345fba4d6881480f29feb7d83cb"
-    sha256 x86_64_linux:      "df1dc8723ff32e3e37858cdd245466045b0a3fcdbb82180bde5b656b9e32e700"
+    manifest_sha256 "bd7c56dba166e4a243c09d3b2bc46fdfe551ffe3db27f8d5843ac41bf14fa0e9"
+    sha256 arm64_golden_gate: "dbce22abd2618f9b284e1de377d2ab3acc1055bfebc9d6b35933a5c542249d2f"
+    sha256 arm64_tahoe:       "e0f2bbac624f9884984539ea97108771e120fb1cde3ebcfa7541238290eae428"
+    sha256 arm64_sequoia:     "600ae437517c1c206742637d24c6d19df832eed0e310f0991198d582f115591d"
+    sha256 arm64_linux:       "66e5b22b296635f819d0358b7e1fdcdeb915e4b0526293239337cb524acf7873"
+    sha256 x86_64_linux:      "8148f143d752fa7e0d31fcfe007f37a29dec4171c75b23cf9961456a620f7a20"
   end
 
   keg_only :versioned_formula
