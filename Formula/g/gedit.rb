@@ -7,11 +7,12 @@ class Gedit < Formula
   head "https://gitlab.gnome.org/World/gedit/gedit.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "8a5f0c850fb7f16d41490a719670d7a8549de2c8e88be8d23038aebd7300b557"
-    sha256 arm64_tahoe:       "507b87e2c995aa2361e462cbeebe7ad53c5be6375a9a3c6d79775bfae5dd6e0d"
-    sha256 arm64_sequoia:     "1c78bccbdfe7b63c5e06497610f1cbfc7f195409f2844c36332767ec65dc2d7f"
-    sha256 arm64_linux:       "68585fda7bc264c2af6149fa12f2fc7da99761dbda8a3b7429fa4adeaa63c9ab"
-    sha256 x86_64_linux:      "b96e101f2a7d9b985bd4bae11c29c5761d801dc2223c49e2345231c76c8e65f1"
+    manifest_sha256 "0ea25559e7ac38333b2cb18aea7c44c78374cbcbde9e4562680ceb4d42219293"
+    sha256 arm64_golden_gate: "bd924bff8335ccf08401a5b0865b97c7640273447825199b266cc39e1d7c2a03"
+    sha256 arm64_tahoe:       "28126b2fa23011ebad5c01a6d506b6fb4be2881864acff4f0e0a929353481cf2"
+    sha256 arm64_sequoia:     "209a80c3534e2cc8468703ad8ca3a411ad123b1e5821048f1a3c46d1b5727e0e"
+    sha256 arm64_linux:       "1bfcaae2f712eeb2beb38088ec9d568ea3d59fe4ce8efded41f45edff5166179"
+    sha256 x86_64_linux:      "879f89739b60e56f83310356275e2119aa4584097c8aaa83df26f12d7220a6bc"
   end
 
   depends_on "desktop-file-utils" => :build # for update-desktop-database
