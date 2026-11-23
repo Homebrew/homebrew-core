@@ -15,6 +15,8 @@ class Wtf < Formula
     sha256 cellar: :any_skip_relocation, all: "bc34952388539647f56ffd984f795b2fdea730d0ba466a6bd6ec9aedea6a74cf"
   end
 
+  deny_network_access!
+
   def install
     inreplace %w[wtf wtf.6], "/usr/share", share
     bin.install "wtf"
