@@ -1,9 +1,9 @@
 class Qtquickeffectmaker < Formula
   desc "Tool to create custom Qt Quick shader effects"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtquickeffectmaker-everywhere-src-6.12.0.tar.xz"
-  sha256 "290c8c3c9835e9d3991cbf7e8fe965992c8f7c8730e694f7cf90fb719c2c63ac"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtquickeffectmaker-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtquickeffectmaker-everywhere-src-6.12.1.tar.xz"
+  sha256 "9dad8295b7bdd1bdb02a2d25f6c9dafb2d4bcdfcbf4de78fc0879f09f1933cb1"
   license all_of: [
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
     "BSD-3-Clause", # BlurHelper.qml
