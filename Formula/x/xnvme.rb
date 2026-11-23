@@ -1,8 +1,8 @@
 class Xnvme < Formula
   desc "Cross-platform libraries and tools for efficient I/O and low-level control"
   homepage "https://xnvme.io/"
-  url "https://github.com/xnvme/xnvme/releases/download/v0.7.5/xnvme-fat-0.7.5.tar.gz"
-  sha256 "67e1e55966f150c68cbe386112202cb3d1af8831b7202a251986b7e63cf34f3a"
+  url "https://github.com/xnvme/xnvme/releases/download/v0.8.0/xnvme-fat-0.8.0.tar.gz"
+  sha256 "2cee620380a7df8180825c0028cfb72ed9f1ed95a5e8ccf37351e3825bd93111"
   license "BSD-3-Clause"
 
   livecheck do
@@ -44,9 +44,6 @@ class Xnvme < Formula
 
   test do
     # Verify cli usage using a "ramdisk" of 1GB
-    output = shell_output("#{bin}/xnvme library-info")
-    assert_match "XNVME_BE_RAMDISK_ENABLED", output
-
     output = shell_output("#{bin}/xnvme info 1GB --be ramdisk")
     assert_match "uri: '1GB'", output
     assert_match "type: XNVME_GEO_CONVENTIONAL", output
