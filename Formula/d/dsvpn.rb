@@ -1,20 +1,21 @@
 class Dsvpn < Formula
   desc "Dead Simple VPN"
   homepage "https://github.com/jedisct1/dsvpn"
-  url "https://github.com/jedisct1/dsvpn/archive/refs/tags/0.1.5.tar.gz"
-  sha256 "53c9ff2518acea188926a4f10d38929da7b61b6770d6ec00f73a4c82ff918c5e"
+  url "https://github.com/jedisct1/dsvpn/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "fd1b1e2cd95745af54e3cfd62825ce73a5e1223de84cd7abc170401e89eee0ff"
   license "MIT"
   head "https://github.com/jedisct1/dsvpn.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "57f62e6cb6aa2c6725e0ca3ef5060d36d20c20d7f4da2fd12046ff4e74e7b45b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06ad6babce8270f21d7b98ea3e7aaac1b2bcfa4815b39b75561de68193149a9b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78343612a40f3a9ba3c70ad6339c69e04c18262d54da9cc22c550fbc63dbe949"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1d45aa8e155e087221a37d22bdb86b86eff6ff721f0a711082c87d2b9d5781a4"
-    sha256 cellar: :any_skip_relocation, sonoma:            "db2467dae361b23cdfc06e2a98a4d64f987b8a314d74eb2a3e54087c0e55e142"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2d67ee9ff361e38d1f7c78f22c110b4f07d7a00568f6327254a3c2fe326f72e1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e4329c90e50ec594f40ba135a486f53781a838491792f72f0e2be6b5997df7af"
+    manifest_sha256 "e6435de2157994f75d7b0ddafef76ad0e4d46774fab59f83278b51bb0adb45c2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bdead0d792944c4091c52da07dec149d6189133c7ae4d275c4179554560a71c5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b639ed6155a97b325bf530ec77651837cc76e67bc31d0a5140264322ecb419de"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd69e59e85352804e32aa226e4e4dc479f70c7ec857e44399d603630437a0873"
+    sha256 cellar: :any,                 arm64_linux:       "5440fe53e23864117663027f8925cbdf7ae39ba3bbd9841c160a23a0fc647edb"
+    sha256 cellar: :any,                 x86_64_linux:      "224ce2cf51e17c1eb1e09562b2ef96e8aac684bd03203c887c06f54c0bff6dcc"
   end
+
+  deny_network_access!
 
   def install
     sbin.mkpath
