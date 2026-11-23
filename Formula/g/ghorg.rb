@@ -1,17 +1,18 @@
 class Ghorg < Formula
   desc "Quickly clone an entire org's or user's repositories into one directory"
   homepage "https://github.com/gabrie30/ghorg"
-  url "https://github.com/gabrie30/ghorg/archive/refs/tags/v1.11.17.tar.gz"
-  sha256 "edeed22b64898a8d2eacb6c6de85d8aa0a16bc762d546b56c7c06f722d46a040"
+  url "https://github.com/gabrie30/ghorg/archive/refs/tags/v1.11.18.tar.gz"
+  sha256 "1828028e4a8b3234038a2de4e2eccecf57a27a02eb0112a90eb16bbca9954ecd"
   license "Apache-2.0"
   head "https://github.com/gabrie30/ghorg.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6904ed2eac3d916d3816e5ef8153bc49eeea88e0738862a913e2cf2654b81356"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6904ed2eac3d916d3816e5ef8153bc49eeea88e0738862a913e2cf2654b81356"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6904ed2eac3d916d3816e5ef8153bc49eeea88e0738862a913e2cf2654b81356"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "719944dbb2616f4d845824182a7bcf75859eee385d54a750450d465481cf5645"
-    sha256 cellar: :any,                 x86_64_linux:      "1f5606e02ce8885e33b0852fb9d94a95fd476522c0343f5c5d0ebc9acab02fd0"
+    manifest_sha256 "df7f5321913d587ba528eefa166befb4645a342ae80179aab458f24d97b0073b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e334ce715a602f459d319ffd2b3a54cd3ee83c5a84e869674644c1c39fef7a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4e334ce715a602f459d319ffd2b3a54cd3ee83c5a84e869674644c1c39fef7a2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e334ce715a602f459d319ffd2b3a54cd3ee83c5a84e869674644c1c39fef7a2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "133de67b0f9fbc1c464c21f46cecd63de6b0cc348003d567012645d43e5a1dc2"
+    sha256 cellar: :any,                 x86_64_linux:      "c2581f2a93c3931a3ff056879cd66155ba60a6ebe6a783dc52acdb6f854d36e4"
   end
 
   depends_on "go" => :build
