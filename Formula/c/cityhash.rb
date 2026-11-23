@@ -38,6 +38,8 @@ class Cityhash < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if OS.linux? && Hardware::CPU.arm?
 
