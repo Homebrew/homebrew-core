@@ -38,6 +38,8 @@ class CfnFlip < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 
