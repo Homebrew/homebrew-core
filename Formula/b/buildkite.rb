@@ -1,8 +1,8 @@
 class Buildkite < Formula
   desc "Work with Buildkite from the command-line"
   homepage "https://github.com/buildkite/cli"
-  url "https://github.com/buildkite/cli/archive/refs/tags/v3.69.0.tar.gz"
-  sha256 "96681b1a8772a04e28318af0e969dac279339165e05d238e8d05ad15f13cb43d"
+  url "https://github.com/buildkite/cli/archive/refs/tags/v3.70.0.tar.gz"
+  sha256 "52e1b708d08b0253252ae99245fc15462dd76986b4c05d6cb010592d8e498841"
   license "MIT"
   head "https://github.com/buildkite/cli.git", branch: "main"
 
