@@ -1,8 +1,8 @@
 class Dps8m < Formula
   desc "Simulator of the 36-bit GE/Honeywell/Bull 600/6000-series mainframe computers"
   homepage "https://dps8m.gitlab.io/"
-  url "https://dps8m.gitlab.io/dps8m-r3.1.0-archive/R3.1.0/dps8m-r3.1.0-src.tar.gz"
-  sha256 "4f09cb3e0106f39864617f17f3858e15cca1e9588fd50dde9bc736808f89e26b"
+  url "https://dps8m.gitlab.io/dps8m-r3.2.0-archive/R3.2.0/dps8m-r3.2.0-src.tar.gz"
+  sha256 "efd2e0e80cc9d47aad31126dcaa065c2d5fa688966f38397d9772c6781ce8b61"
   license "ICU"
   head "https://gitlab.com/dps8m/dps8m.git", branch: "master"
 
@@ -38,6 +38,9 @@ class Dps8m < Formula
       inreplace "src/pgo/Build.PGO.Homebrew.Clang.sh", "$(brew --prefix llvm)", "$BREW_LLVM_PATH"
       ENV["BREW_LLVM_PATH"] = formula_opt_prefix("llvm")
       ENV["NO_PGO_LIBUV"] = "1"
+      # Xcode's `ar`/`ranlib` can't read the LTO bitcode produced by Homebrew LLVM
+      ENV["AR"] = formula_opt_bin("llvm")/"llvm-ar"
+      ENV["RANLIB"] = formula_opt_bin("llvm")/"llvm-ranlib"
       ENV.append "LDFLAGS", "-Wl,-rpath,\"#{formula_opt_lib("libuv")}\" -L\"#{formula_opt_lib("libuv")}\" -luv"
       ENV.append "CFLAGS", "-I\"#{formula_opt_include("libuv")}\""
       system "./src/pgo/Build.PGO.Homebrew.Clang.sh", "LIBUV="
