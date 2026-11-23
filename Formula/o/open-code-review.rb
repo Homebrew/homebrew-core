@@ -7,12 +7,12 @@ class OpenCodeReview < Formula
   head "https://github.com/alibaba/open-code-review.git", branch: "main"
 
   bottle do
-    manifest_sha256 "4da311ea09795c999a846f76a477f68c19fe1da705597aed2d13a580fbd4b947"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "730bc8d2af4361e9915d926d4b685d7559d14ef9b00bb9257d35588d27fd384c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "730bc8d2af4361e9915d926d4b685d7559d14ef9b00bb9257d35588d27fd384c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "730bc8d2af4361e9915d926d4b685d7559d14ef9b00bb9257d35588d27fd384c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "35c4365a9b1985479b937f54a7b38bc43fedcdb1da51f73b50d1ad2e9036b261"
-    sha256 cellar: :any,                 x86_64_linux:      "cabbb33dffbc3315b9db2a708e83b685437cedd390123a25f278545971bf5f48"
+    manifest_sha256 "a83092bcef2c11fa00339a5f23e6669fd9c12e7adda7afefdb9e0cda1c325864"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40ff017c016ec10ed524853f5f0f586874af9c431693aa54ee12edeba54abb15"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "40ff017c016ec10ed524853f5f0f586874af9c431693aa54ee12edeba54abb15"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "40ff017c016ec10ed524853f5f0f586874af9c431693aa54ee12edeba54abb15"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "580a8bbb5af0c6fd03718ffcffc1441f94f357f68607838a83bda5a96215b7af"
+    sha256 cellar: :any,                 x86_64_linux:      "6c296ce71300fe7924af5fba8a6d451948ee42ba4ee5e8e1d3ed4b1183167e18"
   end
 
   depends_on "go" => :build
