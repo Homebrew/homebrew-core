@@ -13,11 +13,12 @@ class NodeAT24 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "38c22b35292f707be51e7a4ac68d298b2226dee7a4d6a50f5bcb1b0bc0a830f7"
-    sha256 arm64_tahoe:       "a1d458fc7f2ec69d7b8d1cdd96f6f85e28879ac6eab88997e2896abd98b5fad5"
-    sha256 arm64_sequoia:     "b60790ba81fa2c00a7fea8d26c476ecd4fba9be5ff6c62192996733cfb72afef"
-    sha256 arm64_linux:       "1c1ec41f9e2861ba895840cd43e58ae64ed7c42a478e576a635ba260de9d2f76"
-    sha256 x86_64_linux:      "e15c277e8dc0a694aa7d02f83e80fafea41b634fda7ba9121b899a450d6ffdad"
+    manifest_sha256 "f22dbda6a280d8ab9dd168ff1e77a6bdc8e4ee7bd9a3a0a6383177431dd14310"
+    sha256 arm64_golden_gate: "fe2bc01e626afa5d0047210fc3e3ec2b7d1e3f629328f0435204352b2b3476df"
+    sha256 arm64_tahoe:       "56adb88a3438b7afb441f68bebbde9a953ccfd184b5db8bb9d330f8701007b22"
+    sha256 arm64_sequoia:     "df5075ab2d820d001d3f18066fc66fbccb9d2ae3d0bd0b3530cf715afb0ea8c1"
+    sha256 arm64_linux:       "65d17af1ef5d1359156b73744e6793eb8849c3f3aa093a0efef06b0208987f3a"
+    sha256 x86_64_linux:      "ec69907c7bd7f8d4aaf440e0db279826fc0d72bbf5abe7a750376fe02a1921db"
   end
 
   keg_only :versioned_formula
