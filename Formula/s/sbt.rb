@@ -1,8 +1,8 @@
 class Sbt < Formula
   desc "Build tool for Scala projects"
   homepage "https://www.scala-sbt.org/"
-  url "https://github.com/sbt/sbt/releases/download/v2.1.0/sbt-2.1.0.tgz"
-  sha256 "c26da34433ffa8a503682cc9b7d3789ed84305070b9f187948f0a41b82d76f10"
+  url "https://github.com/sbt/sbt/releases/download/v2.1.1/sbt-2.1.1.tgz"
+  sha256 "54f99416b027f201d881326075bf85f20680d8c3f2b09415584829e868b34999"
   license "Apache-2.0"
   compatibility_version 1
 
@@ -14,7 +14,8 @@ class Sbt < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "c4ca1e3aa39e44cf42368b66176f7f34ec8699070fd16920b4ec9832a2e801b9"
+    manifest_sha256 "44be2f05e29060fdc8d62e656da4a53c7c81c4d7c0b5fdc0a7a22714b5a8ae65"
+    sha256 cellar: :any_skip_relocation, all: "f75a0374a1faf915d7d811e91ee3f0d73aee5b8ab92838036429e1d20e921bff"
   end
 
   depends_on "openjdk"
