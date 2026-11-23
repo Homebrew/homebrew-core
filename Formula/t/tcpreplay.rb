@@ -7,12 +7,12 @@ class Tcpreplay < Formula
   head "https://github.com/appneta/tcpreplay.git", branch: "master"
 
   bottle do
-    manifest_sha256 "a9248bc97072b992bda013a01a80e2e7f9f48612330d7fbb270d3fb34d903c65"
-    sha256 cellar: :any, arm64_golden_gate: "d68b86d3a9f771d56f5f0847b98e5fafaab8b58c367a509669f4a21cd21e0e02"
-    sha256 cellar: :any, arm64_tahoe:       "30ba80f193cee6975b86543881e5f2317c23652cb4a10f196aab617486155879"
-    sha256 cellar: :any, arm64_sequoia:     "1084d00a22b91bb31ac02c06ab7f9ef6fb1cc626d97b4c985e083d6c7d045fb0"
-    sha256 cellar: :any, arm64_linux:       "ef1b1756039cba40d1b64e4423cdaee4678defe015d06673ab87167736f28d27"
-    sha256 cellar: :any, x86_64_linux:      "98973ecaf2b0b9511b74b32b980b5e47292235bca02f18ddc58a9206038249b3"
+    manifest_sha256 "de44b79d89a70c7aab70042997d34924b1836e9e0fb8b8cab24702ae5b4e72ec"
+    sha256 cellar: :any, arm64_golden_gate: "e3b3da2dbff74e922cbc50621b5d54dd06f6b741d91ba5f2ff475c1702a58ef9"
+    sha256 cellar: :any, arm64_tahoe:       "c2628b0363bea16ac99b22f8a58439f607d49533c215c71d77b7d991418a1955"
+    sha256 cellar: :any, arm64_sequoia:     "b72e6ffa300c51971f8e3947a00bbd8101b73338669cbc81c3573a505f53806c"
+    sha256 cellar: :any, arm64_linux:       "54c2e898c04c6a20fe162ad98e4495d0c8093bd8dbaa25465f14ea9a037fe1de"
+    sha256 cellar: :any, x86_64_linux:      "4d62ef82f4d34ac32ca4e5a36aaaed520f89dfe30c9a54de44be7d9f0a380f6a"
   end
 
   depends_on "cmake" => :build
