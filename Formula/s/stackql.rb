@@ -12,11 +12,12 @@ class Stackql < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b79e953fe2a8f4f7ced6ff750f25fc187b8ac7eaa1296c4b92c2f7ecd4e42f60"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b79e953fe2a8f4f7ced6ff750f25fc187b8ac7eaa1296c4b92c2f7ecd4e42f60"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b79e953fe2a8f4f7ced6ff750f25fc187b8ac7eaa1296c4b92c2f7ecd4e42f60"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2b441dda86b95000ce070b75cb258264ed0f75aaf93d1d891a39afdbb50ccaa5"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "337e17cadbc6ad57477f652db0bfd28b12e27731c9dcb7674fb075975b030429"
+    manifest_sha256 "8d6a3287c664b54216e2157ac0399131f3e6affced3433f94cec53a958c57cc8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d41aa4ccecc4433f01b9469b22d7ddd6c376394843848bf454213ff868aeef8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d41aa4ccecc4433f01b9469b22d7ddd6c376394843848bf454213ff868aeef8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7d41aa4ccecc4433f01b9469b22d7ddd6c376394843848bf454213ff868aeef8"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "40a1da786a5583233eeb7c202caff250f338de9414076bf11ece93a25032d71f"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b3e6b26feaa3f9f3904bb05d8ecf0555001684c39b38f84714078acb34d0bcd5"
   end
 
   depends_on "go" => :build
