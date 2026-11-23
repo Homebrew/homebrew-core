@@ -17,8 +17,13 @@ class ActionsLanguageserver < Formula
 
   depends_on "node"
 
-  def install
+  deny_network_access!
+
+  def fetch
     system "npm", "install", *std_npm_args(prefix: false)
+  end
+
+  def install
     system "npm", "run", "build", "--workspaces"
     libexec.install "languageserver/bin", "languageserver/dist"
     bin.install_symlink Dir[libexec/"bin/*"]
