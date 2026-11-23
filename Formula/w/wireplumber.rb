@@ -21,6 +21,8 @@ class Wireplumber < Formula
   depends_on "pipewire"
   depends_on "systemd"
 
+  deny_network_access!
+
   def install
     args = %W[
       -Ddoc=disabled
