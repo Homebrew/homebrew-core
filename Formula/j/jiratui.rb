@@ -3,17 +3,18 @@ class Jiratui < Formula
 
   desc "Textual User Interface for interacting with Atlassian Jira from your shell"
   homepage "https://jiratui.sh/"
-  url "https://files.pythonhosted.org/packages/d8/ed/a76a00336b61b96c875220c63bc1282f1b1450aae61e6f73f8d07ba9554e/jiratui-1.20.0.tar.gz"
-  sha256 "a0765a83ffe7e8e5677c300f516946158e353edf8528a7b9e273600a87e4aaf4"
+  url "https://files.pythonhosted.org/packages/fb/28/748374e57ce1f8d5be8e87120c90fec80b6cb7cb7261d00389a976138b7f/jiratui-1.21.0.tar.gz"
+  sha256 "f5a2b6d0dd25dc5ddc9259475bfc54ef486af71fc33dc9cbd62eda6b3e41c9ff"
   license "MIT"
   head "https://github.com/whyisdifficult/jiratui.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fdec4a2c06bcb8b33b9c0f6ca412714f62e3c631b371e742a9f3ca27b4f3c9fb"
-    sha256 cellar: :any, arm64_tahoe:       "709d38b21a14548d8e292c04ff9f1e1d9766117d0462f9fc362fc58f417c9e06"
-    sha256 cellar: :any, arm64_sequoia:     "42d926ab65562fba7870664be0251b1743707d4ca92c967cc880e9c6811b7d64"
-    sha256 cellar: :any, arm64_linux:       "70a061ff7ca379263437f2c0b5e598874ecfd5bccd317e780cb50369782c134d"
-    sha256 cellar: :any, x86_64_linux:      "2fb6c199ab88948e53c255b05028207866ef03c461aced830f34294ee7b38919"
+    manifest_sha256 "b160dc5c69245c5f8b4f6e341feb1bed8dbb22bc696f725b2489a41a5c7e7083"
+    sha256 cellar: :any, arm64_golden_gate: "a557edae09e873ff8f1b59688d3ad4cbebc70a8f8a91e25db13e592de3b4043e"
+    sha256 cellar: :any, arm64_tahoe:       "c94d446d001b46126aca0a156552a667efa5beca5fbffd1d949e00096becf227"
+    sha256 cellar: :any, arm64_sequoia:     "9b74696b8b41fe3e09f1c342d6a04fd28c23c54bf4605dbac170f717f2e711da"
+    sha256 cellar: :any, arm64_linux:       "5242bd56cf3c4d6a3a78ac4ee2ea89420b466f0877e8796079c4b11e008fe0b3"
+    sha256 cellar: :any, x86_64_linux:      "dd775b9e8d34ab04a67806c8e7609bda852a595b3a12347d791de2dab1f3864b"
   end
 
   depends_on "rust" => :build
@@ -109,8 +110,8 @@ class Jiratui < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "prompt-toolkit" do
@@ -149,8 +150,8 @@ class Jiratui < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "questionary" do
@@ -179,8 +180,20 @@ class Jiratui < Formula
   end
 
   resource "textual-image" do
-    url "https://files.pythonhosted.org/packages/10/77/b2128ced69556bfbb8e1c19d8f013e621cf12531eaba4e9b09e1cfa81e37/textual_image-0.13.2.tar.gz"
-    sha256 "8ca0cee2bfcd7734de5b16a1936da226b77b745e28830d9cf2bc202cb70e43ee"
+    url "https://files.pythonhosted.org/packages/f9/78/ce1683a3a9c5afd9bb9440adf518ec67d1e3e71d6c1c8ead4e9f84a5aeea/textual_image-0.14.4.tar.gz"
+    sha256 "b410e6a3af16b0d6a125ea18a57105a1f1dbde48420355c0e2e3b9a06f6cc575"
+  end
+
+  resource "textual-speedups" do
+    url "https://files.pythonhosted.org/packages/d4/73/bba3e9feae9ca730c32122306ddac61278a8bc47633346eddad9d52a435d/textual_speedups-0.2.1.tar.gz"
+    sha256 "72cf0f7bdeede015367b59b70bcf724ba2c3080a8641ebc5eb94b36ad1536824"
+
+    patch do
+      url "https://github.com/willmcgugan/textual-speedups/commit/acb510d0dafa82ca1bd4291a880c6785b96be5f3.patch?full_index=1"
+      sha256 "7eeb90dbfc3ecb903827c61314941b590f105279b297c8eb57bb664be916f26e"
+      type :unofficial
+      resolves "https://github.com/willmcgugan/textual-speedups/pull/11"
+    end
   end
 
   resource "tree-sitter" do
@@ -269,8 +282,8 @@ class Jiratui < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
-    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
+    url "https://files.pythonhosted.org/packages/8e/da/d59374b2c893ae70a41fdb064637ccef218f25df8c67e5431a96708235d9/wcwidth-0.9.5.tar.gz"
+    sha256 "713534e2ecb16e0fc39f19e0a5dda997da76d010953e9e8f803e7971f8accd80"
   end
 
   resource "xdg-base-dirs" do
