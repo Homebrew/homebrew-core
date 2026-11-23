@@ -1,10 +1,21 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flow.org/"
-  url "https://github.com/facebook/flow/archive/refs/tags/v0.340.0.tar.gz"
-  sha256 "278ea54ca9f93a1e6636baedafc2b96b32007b13fdeb50763b787988fe59d7a6"
   license "MIT"
   head "https://github.com/facebook/flow.git", branch: "main"
+
+  stable do
+    url "https://github.com/facebook/flow/archive/refs/tags/v0.342.0.tar.gz"
+    sha256 "9964e7ba88755be8a23ba4bd910b57a115cf46b39c3a25c757c20e04f143c996"
+
+    # Replace `box` patterns, which Rust 1.100 removed, with `deref!` patterns
+    patch do
+      url "https://github.com/meta/flow/commit/9976dbf5c6220ea90555d25ac97a1e7496ab203c.patch?full_index=1"
+      sha256 "2ede7443733e6e5a126b4f7508cd74eb9b0acd55c3ca130c7b03fc42dbcf8f9a"
+      type :unofficial
+      resolves "https://github.com/meta/flow/pull/9536"
+    end
+  end
 
   bottle do
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b1b5a66524cb7561826ec8f02835662fe1e77703c452362bd2cc8a4532597b4"
