@@ -1,8 +1,8 @@
 class Dsvpn < Formula
   desc "Dead Simple VPN"
   homepage "https://github.com/jedisct1/dsvpn"
-  url "https://github.com/jedisct1/dsvpn/archive/refs/tags/0.1.5.tar.gz"
-  sha256 "53c9ff2518acea188926a4f10d38929da7b61b6770d6ec00f73a4c82ff918c5e"
+  url "https://github.com/jedisct1/dsvpn/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "fd1b1e2cd95745af54e3cfd62825ce73a5e1223de84cd7abc170401e89eee0ff"
   license "MIT"
   head "https://github.com/jedisct1/dsvpn.git", branch: "master"
 
@@ -15,6 +15,8 @@ class Dsvpn < Formula
     sha256 cellar: :any_skip_relocation, arm64_linux:       "2d67ee9ff361e38d1f7c78f22c110b4f07d7a00568f6327254a3c2fe326f72e1"
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "e4329c90e50ec594f40ba135a486f53781a838491792f72f0e2be6b5997df7af"
   end
+
+  deny_network_access!
 
   def install
     sbin.mkpath
