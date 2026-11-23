@@ -31,6 +31,8 @@ class EyeD3 < Formula
     sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
     doc.install Dir["docs/*"]
