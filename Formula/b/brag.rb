@@ -20,6 +20,8 @@ class Brag < Formula
     depends_on "tcl-tk@8"
   end
 
+  deny_network_access!
+
   def install
     bin.install "brag"
     # macOS needs /usr/bin before #{HOMEBREW_PREFIX}/bin to avoid incompatible TCL 9.
