@@ -6,12 +6,12 @@ class VideoCompare < Formula
   license "GPL-2.0-only"
 
   bottle do
-    manifest_sha256 "29d64e991449d7cd597fca9a38d281dc9832b99b4a400a529e1d1a06baeecbb4"
-    sha256 cellar: :any, arm64_golden_gate: "8f449e11696b8fbbd61ae9ba1df431563d7e9705435a3ed5237916e25b1b08b6"
-    sha256 cellar: :any, arm64_tahoe:       "1901eca689888b28198074faaf2f73c55a889cce0b1f784caf627e77da5c1690"
-    sha256 cellar: :any, arm64_sequoia:     "db8b8d56aac607da3b7a606505a723262563f63bf6cb0f17b14f404b9e392a90"
-    sha256 cellar: :any, arm64_linux:       "c37665f41d9f0d29ffb56ec57e77532ed050a4113bf46528d7183526a6c42f49"
-    sha256 cellar: :any, x86_64_linux:      "1ada6c0f58127fb49c0b14a8845a384cbca6f4bddb5de323194c03a767508c49"
+    manifest_sha256 "866da748de75e18328560ce97b9723f9688ae8c45114c1b9cf4039dc9a10b5fc"
+    sha256 cellar: :any, arm64_golden_gate: "aa6097ad2be8995d586bb508d12339e2e87fc974b8f7a7b8a14ae5174f3b4604"
+    sha256 cellar: :any, arm64_tahoe:       "256c31bc48fc499457c3ba80bdba35f407524a8c59c089fc2862b7431a1639fd"
+    sha256 cellar: :any, arm64_sequoia:     "85552dd3ebf49d8126afcb960054698141aca0a780432e294c46362563548908"
+    sha256 cellar: :any, arm64_linux:       "02616cb7d49c5e17445ddb7ec67a91a921bd687231e6ba328b4b16cf1898b5e5"
+    sha256 cellar: :any, x86_64_linux:      "9cca4adf3450321cbd04e522363ce2359d280d9b4b89450dd7889ea575d1a824"
   end
 
   depends_on "ffmpeg"
