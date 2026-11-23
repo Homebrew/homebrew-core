@@ -21,6 +21,8 @@ class Cidrmerge < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "1587da7aaa0f1a2617f1a3880601c40a1aa1f342eb5b67fb68bb7c47db896452"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "cidrmerge"
