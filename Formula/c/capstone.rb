@@ -26,6 +26,8 @@ class Capstone < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     ENV["HOMEBREW_CAPSTONE"] = "1"
     ENV["PREFIX"] = prefix
