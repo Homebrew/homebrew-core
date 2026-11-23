@@ -1,9 +1,10 @@
 class Tcpreplay < Formula
   desc "Replay saved tcpdump files at arbitrary speeds"
   homepage "https://tcpreplay.appneta.com/"
-  url "https://github.com/appneta/tcpreplay/releases/download/v4.6.2/tcpreplay-4.6.2.tar.gz"
-  sha256 "ac4cbc58b4121edb273bc7d4603dfd6a762e7d344981233c8a253425d9dddd8f"
+  url "https://github.com/appneta/tcpreplay/archive/refs/tags/v4.6.3.tar.gz"
+  sha256 "0bb0fbbc6c6d9c5be7381fc157007f97748907c20f98f11ae7b774736487bfaa"
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "BSD-4-Clause", "GPL-3.0-or-later", "ISC"]
+  head "https://github.com/appneta/tcpreplay.git", branch: "master"
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "9f3959451fd95fd2300d7c5389ffe810484fb38b9577cefa4b1c7accbbddf023"
@@ -16,6 +17,7 @@ class Tcpreplay < Formula
   depends_on "cmake" => :build
   depends_on "libdnet"
 
+  uses_from_macos "python" => :build
   uses_from_macos "libpcap"
 
   deny_network_access!
