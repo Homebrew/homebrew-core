@@ -4,14 +4,15 @@ class Librcsc < Formula
   url "https://github.com/helios-base/librcsc/archive/refs/tags/rc2026.tar.gz"
   sha256 "876d2903eace3f46be3a91b184ccce96a7885c73903c0e73d52cf0df3d79b9d5"
   license "LGPL-3.0-or-later"
-  revision 4
+  revision 5
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e17823d2045aa373c7216a2813a6d28cebe37de2e4490ef47683bb589bd781d3"
-    sha256 cellar: :any, arm64_tahoe:       "de05fbbe79e807b3e229f6180b6b8a04b9b991dd8321d8ed63346409d383728b"
-    sha256 cellar: :any, arm64_sequoia:     "e11dc2ba1f3df070983af0729395a3920246c634fb75b9e57c0e97ec1521d8fd"
-    sha256 cellar: :any, arm64_linux:       "e2b6bffea14ab2b7045a680780071e15b6064a1304df4aad16e890c25f6516c3"
-    sha256 cellar: :any, x86_64_linux:      "c82481ab05a9b3d68eece877de643ca1be61fc037fe28ed6c8c5db7d5f45f25b"
+    manifest_sha256 "daaa2306b41462e67d929cf811784de4771d9095a86a9f424030c2c69ed1dedb"
+    sha256 cellar: :any, arm64_golden_gate: "19cf9fd65b42c6ffb7613868db311281f91779da844f89bcb6ea125ead8da3e4"
+    sha256 cellar: :any, arm64_tahoe:       "74c528c1e696d5b31a4063184429339e4c8092e288201d9f6436df043dc05bc0"
+    sha256 cellar: :any, arm64_sequoia:     "5eb2838d53794512bf14bb818f66c02a195ad80309bf04d20fb802aeb81e5435"
+    sha256 cellar: :any, arm64_linux:       "f35907c3d711b3f86c8fe7da9dbd55f7dd9128c2cefb3d299c68a82bad11ae11"
+    sha256 cellar: :any, x86_64_linux:      "9e3256e268d050f48ee09bbe166858bcca5e1e67c17089bc964a4710929bd359"
   end
 
   depends_on "autoconf" => :build
