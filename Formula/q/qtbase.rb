@@ -1,36 +1,17 @@
 class Qtbase < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtbase-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtbase-everywhere-src-6.12.1.tar.xz"
+  sha256 "cd837bb9fd631e20439a04eaa0c2f252f19ad92fdf5adf10229d0fbc2fab2d53"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # qmake
     "BSD-3-Clause", # *.cmake
     "GFDL-1.3-no-invariants-only", # *.qdoc
   ]
-  revision 2
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtbase.git", branch: "dev"
-
-  stable do
-    url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
-    mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtbase-everywhere-src-6.12.0.tar.xz"
-    sha256 "a951bd163c7b80fc6b8c88d7668fb56abf91c152373e13c10666763238131307"
-
-    # Backport to support md4c 0.6.0
-    patch do
-      url "https://github.com/qt/qtbase/commit/032643f99e090e0304ef935c2ee11c109d55c8a1.patch?full_index=1"
-      sha256 "6870a711a6fb7ce6367f541e10ec9fe2785bd7d7484a2b1759b8d1f082a3f09f"
-      type :backport
-    end
-
-    # Fix `#include_next` forwarding headers when the framework path precedes them
-    patch do
-      url "https://github.com/qt/qtbase/commit/8c260a771ab1ed7d6cdb5f221854ee470e5790a6.patch?full_index=1"
-      sha256 "07742a103f8928457f7df8140a0f88589980f81670ab0b6c646b19dc8cc36344"
-      type :cherry_pick
-      resolves "https://codereview.qt-project.org/c/qt/qtbase/+/776003"
-    end
-  end
 
   # The first-party website doesn't make version information readily available,
   # so we check the `head` repository tags instead.
