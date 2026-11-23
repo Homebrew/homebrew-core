@@ -8,6 +8,7 @@ class Vampire < Formula
   livecheck do
     url :stable
     regex(/^v?(\d+(?:\.\d+)+)$/i)
+    strategy :github_releases # Not always the latest release
   end
 
   bottle do
