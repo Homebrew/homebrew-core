@@ -617,6 +617,8 @@ class AnsibleAT13 < Formula
     sha256 "627ad26769b6831130239182afcb195f64fbf494626bc9eb4b2ac8170de5b775"
   end
 
+  allow_network_access! :build
+
   def install
     venv = virtualenv_install_with_resources without: "ansible-core"
     venv.pip_install_and_link resource("ansible-core")
