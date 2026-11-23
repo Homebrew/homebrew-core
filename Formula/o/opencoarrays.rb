@@ -1,8 +1,8 @@
 class Opencoarrays < Formula
   desc "Open-source coarray Fortran ABI, API, and compiler wrapper"
-  homepage "http://www.opencoarrays.org"
-  url "https://github.com/sourceryinstitute/OpenCoarrays/archive/refs/tags/2.10.3.tar.gz"
-  sha256 "f9f2fb6ac1fe92c1ea66976894b5cebe53812827b7d1238fed933e2845e8a022"
+  homepage "https://www.opencoarrays.org"
+  url "https://github.com/sourceryinstitute/OpenCoarrays/archive/refs/tags/2.11.0.tar.gz"
+  sha256 "2444f2083df3654675cc5563d0391885969b03db94c5b6cb522c85918a48f878"
   license "BSD-3-Clause"
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
@@ -17,25 +17,35 @@ class Opencoarrays < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "gcc@13"
+  depends_on "gcc@14"
   depends_on "open-mpi"
 
   def install
-    # Version 2.10.2 and older are incompatible with GFortran 15.
-    # Version 2.10.3 blocks building with Open MPI and GFortran 14+.
+    # OpenCoarrays blocks building with Open MPI and GFortran 15+.
     # We don't support MPICH dependency as a single MPI is needed across formulae
     #
     # Ref: https://github.com/sourceryinstitute/OpenCoarrays/issues/793
     # Ref: https://github.com/open-mpi/ompi/issues/13385
-    ENV["FC"] = which("gfortran-13")
+    ENV["FC"] = which("gfortran-14")
+    openmpi = Formula["open-mpi"]
 
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    # Use `open-mpi` even if another MPI is linked into HOMEBREW_PREFIX, and keep
+    # FindMPI from picking HOMEBREW_PREFIX/lib over the `mpifort -show` paths.
+    args = %W[
+      -DMPI_C_COMPILER=#{openmpi.opt_bin}/mpicc
+      -DMPI_Fortran_COMPILER=#{openmpi.opt_bin}/mpifort
+      -DMPIEXEC_EXECUTABLE=#{openmpi.opt_bin}/mpiexec
+      -DCMAKE_FIND_USE_CMAKE_ENVIRONMENT_PATH=OFF
+    ]
+
+    # Build tests only for bottles, where they run below
+    testing = build.bottle? ? "ON" : "OFF"
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args, "-DBUILD_TESTING=#{testing}"
     system "cmake", "--build", "build"
     # Run test in CI to check if issues mixing direct gcc@14 with indirect gcc in open-mpi.
     # Avoid running on local source build as tests can be flaky (e.g. newer shellcheck installed)
     if build.bottle?
-      # Ignore a shellcheck error from ctest if CMake finds locally installed shellcheck
-      with_env(PRTE_MCA_rmaps_default_mapping_policy: ":oversubscribe", SHELLCHECK_OPTS: "-e SC2329") do
+      with_env(PRTE_MCA_rmaps_default_mapping_policy: ":oversubscribe") do
         system "ctest", "--test-dir", "build", "--rerun-failed", "--output-on-failure", "--parallel", ENV.make_jobs
       end
     end
@@ -43,7 +53,6 @@ class Opencoarrays < Formula
 
     # Replace `open-mpi` Cellar path that breaks on `open-mpi` version/revision bumps.
     # CMake FindMPI uses REALPATH so there isn't a clean way to handle during generation.
-    openmpi = Formula["open-mpi"]
     inreplace_files = [bin/"caf", lib/"cmake/opencoarrays/OpenCoarraysTargets.cmake"]
     inreplace inreplace_files, openmpi.prefix.realpath, openmpi.opt_prefix
   end
