@@ -15,6 +15,8 @@ class Eatmemory < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "f533d0610753efd7d0be2492b438403b65ba8ddcf7a26cd64733cca2a69cacf4"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "VERSION=#{version}"
   end

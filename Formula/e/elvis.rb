@@ -24,6 +24,12 @@ class Elvis < Formula
   depends_on "rebar3" => :build
   depends_on "erlang"
 
+  deny_network_access!
+
+  def fetch
+    system "rebar3", "get-deps"
+  end
+
   def install
     system "rebar3", "escriptize"
 

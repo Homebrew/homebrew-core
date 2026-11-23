@@ -15,6 +15,8 @@ class Emojify < Formula
     depends_on "bash"
   end
 
+  deny_network_access!
+
   def install
     bin.install "emojify"
   end

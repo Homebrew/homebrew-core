@@ -17,9 +17,17 @@ class Edgevpn < Formula
   depends_on "go" => :build
   depends_on "node" => :build
 
-  def install
+  deny_network_access!
+
+  def fetch
     cd "api/react-ui" do
       system "npm", "ci"
+    end
+    system "go", "mod", "download"
+  end
+
+  def install
+    cd "api/react-ui" do
       system "npm", "run", "build"
     end
 

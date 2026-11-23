@@ -12,6 +12,8 @@ class EmacsDracula < Formula
 
   depends_on "emacs"
 
+  deny_network_access!
+
   def install
     elisp.install "dracula-theme.el"
   end
