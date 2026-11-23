@@ -1,16 +1,17 @@
 class Lfk < Formula
   desc "Terminal user interface for navigating and managing Kubernetes clusters"
   homepage "https://github.com/janosmiko/lfk"
-  url "https://github.com/janosmiko/lfk/archive/refs/tags/v0.19.18.tar.gz"
-  sha256 "f0183f42ef4a86c082cf3fc5e03f65f2e27aee2019585bfb427318deb28b8b6d"
+  url "https://github.com/janosmiko/lfk/archive/refs/tags/v0.19.19.tar.gz"
+  sha256 "ebaf94ae81f0946ec76b375be589c95ec4dab60b001caec4f7d6c0239488c01a"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a54a0780c07b058ad755b819a57d6cc295673ce29af76edfa1afd1551c64145"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a54a0780c07b058ad755b819a57d6cc295673ce29af76edfa1afd1551c64145"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a54a0780c07b058ad755b819a57d6cc295673ce29af76edfa1afd1551c64145"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "27355975a7ba5f4868903f450b8cf49ab54d066b6a4d271d86817afffeaf77da"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6e03a70479e083e6bbc90a7a0bad9a5421be9cad6258f8bbe1ed98909b755329"
+    manifest_sha256 "e8b590ae2508dd0d6c3b09e8dbbd870aaf9e0394538f164aec5da559e9942770"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f993a6cc5514d97e194ddb1d8f22e0865560306f80c7b12058cc0f8a635124ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f993a6cc5514d97e194ddb1d8f22e0865560306f80c7b12058cc0f8a635124ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f993a6cc5514d97e194ddb1d8f22e0865560306f80c7b12058cc0f8a635124ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "71e496084e8a32a8b0193014d449a79cb94bce7535242e724d8ab98ece5b5020"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8a0222d65e35dc67cdc9dda13fd0ae6b98259119a56772445bf68e6ad3b3f33d"
   end
 
   depends_on "go" => :build
