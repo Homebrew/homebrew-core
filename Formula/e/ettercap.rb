@@ -40,6 +40,8 @@ class Ettercap < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     plugin_rpath = rpath(source: lib/"ettercap")
     args = %W[
