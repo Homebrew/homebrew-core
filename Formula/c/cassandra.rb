@@ -60,6 +60,8 @@ class Cassandra < Formula
     sha256 "681a2d0eefd721998f90642762b8e75c2159ec531b20ad5e437245ea7b06a107"
   end
 
+  allow_network_access! :build
+
   def install
     (var/"log/cassandra").mkpath
 
