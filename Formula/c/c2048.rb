@@ -14,6 +14,8 @@ class C2048 < Formula
     sha256 cellar: :any,                 x86_64_linux:      "8f1a701fa1daba5eae8995d86cd031f78e59d7a65667220b6e29c559a0fd20ec"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "install", "PREFIX=#{prefix}"
