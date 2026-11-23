@@ -55,6 +55,8 @@ class Carla < Formula
     depends_on "sdl2-compat"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for https://github.com/falkTX/Carla/issues/1926
     if build.stable? && OS.mac? && MacOS.version >= :sequoia
