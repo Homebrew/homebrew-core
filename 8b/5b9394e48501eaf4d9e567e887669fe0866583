@@ -1,0 +1,14 @@
+Formula/j/jotter.rb
+  h_9df9c32c3f321d 1-48
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "8b5b9394e48501eaf4d9e567e887669fe0866583",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
