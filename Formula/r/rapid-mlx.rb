@@ -3,8 +3,8 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/73/ad/6464a964f4f22a0c092089c9c8605801611d479f38be896af3883e050bee/rapid_mlx-1.0.5.tar.gz"
-  sha256 "2d5dd7792609a2df34b4e0361297948934f0bed72b56cb367b5611d2f5913281"
+  url "https://files.pythonhosted.org/packages/5b/bb/deca653f9c59df5d4b445c048d7d5b01d09ef543f076866cc1ee2f81961c/rapid_mlx-1.1.0.tar.gz"
+  sha256 "2f2c310cdb99b11876d44ade83c48e5f00b908ade7f8b9283096b215250cab35"
   license "Apache-2.0"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
@@ -56,8 +56,8 @@ class RapidMlx < Formula
   end
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "attrs" do
@@ -416,8 +416,8 @@ class RapidMlx < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
-    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
+    url "https://files.pythonhosted.org/packages/8e/da/d59374b2c893ae70a41fdb064637ccef218f25df8c67e5431a96708235d9/wcwidth-0.9.5.tar.gz"
+    sha256 "713534e2ecb16e0fc39f19e0a5dda997da76d010953e9e8f803e7971f8accd80"
   end
 
   resource "websockets" do
