@@ -1,19 +1,18 @@
 class IcWasm < Formula
   desc "CLI tool for performing Wasm transformations specific to ICP canisters"
   homepage "https://github.com/dfinity/ic-wasm"
-  url "https://github.com/dfinity/ic-wasm/archive/refs/tags/0.11.1.tar.gz"
-  sha256 "0ad9b97cc85a66d862f0b855860c4c2fbaa247c62fcc7b6092c18ba4ac4c5199"
+  url "https://github.com/dfinity/ic-wasm/archive/refs/tags/1.0.0.tar.gz"
+  sha256 "336d5414f13490b5e1756b09dd1a9d07a16c46068d17df4f3e0e96f55ebf3796"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "406c857018bbc0233c2f07c79c66997d50b0fb224f2abe8aa818c58c177b6a9d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00c5bd941b3aaba552b0fdf5b484f3a2b6bbfc370c327aee7e3206a9191fdfd8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db165fc477d53fd00b9dbea404845ed74d01a01193c294795290c233b887a8e6"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "0e861bf507eef93bb35114164df4a18ccaa060376e46c360e1cabd70ea613f2a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "9f8eaae57653b8efb76e89ece8b5beb8da7fc0dc598c09372b88e7c0be11647d"
-    sha256 cellar: :any,                 arm64_linux:       "7b5ac667397692b364e3d564b130b5ef9735f5322d5cf25361a737b042b795e3"
-    sha256 cellar: :any,                 x86_64_linux:      "b2eadc7b51e72fdccf409b0647ba811d98290a9f77e4e95ac24423ef355ae4b1"
+    manifest_sha256 "66e5d46341a76eca98818daaa23a22bd8700425b9a8e66592fe601e00ee3c010"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f8f304eff9b781bb7709a8ab395c2c6088a430cfd65191c0b34c52c92635580"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b46b38a7b21528136d92f49c0077736f613316bd622e214c105e7a3074c93e3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a042fc2ab03f4316a854a78e50a1842c06635ce78e1869042ad782f59b5024d"
+    sha256 cellar: :any,                 arm64_linux:       "3f8962cb42b765cbc45c8c7b0fc506929fed415d9ebc368954bfc43c05df3fab"
+    sha256 cellar: :any,                 x86_64_linux:      "a24d6e76d1e2254c232661dae4e246ba104159d122bea7db1bf4c3595e79ebb2"
   end
 
   depends_on "rust" => :build
