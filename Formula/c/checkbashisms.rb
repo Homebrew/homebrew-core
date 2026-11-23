@@ -14,6 +14,8 @@ class Checkbashisms < Formula
     sha256 cellar: :any_skip_relocation, all: "209862e6d0ef309830c3f26a14feb1452e1abea516c77256a34d6561271d8a39"
   end
 
+  deny_network_access!
+
   def install
     inreplace "scripts/checkbashisms.pl" do |s|
       s.gsub! "###VERSION###", version.to_s
