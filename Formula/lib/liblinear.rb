@@ -1,15 +1,24 @@
 class Liblinear < Formula
   desc "Library for large linear classification"
-  homepage "https://www.csie.ntu.edu.tw/~cjlin/liblinear/"
-  url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/liblinear-2.50.tar.gz"
-  sha256 "e5eeafe2159c41148b59304da2ba0ed12648e3d491ce2b9625058e174e96ca29"
+  homepage "https://github.com/cjlin1/liblinear"
+  url "https://github.com/cjlin1/liblinear/archive/refs/tags/v250.tar.gz"
+  version "2.50"
+  sha256 "c875bab4d5ae53a5b48a91081c66f39a0bd2524f49e934dcdaed90284dd605e4"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://github.com/cjlin1/liblinear.git", branch: "master"
 
   livecheck do
-    url "https://www.csie.ntu.edu.tw/~cjlin/liblinear/oldfiles/"
-    regex(/href=.*?liblinear[._-]v?(\d+(?:\.\d+)+)\.t/i)
+    url :stable
+    regex(/^v?(\d)(\d+)$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map do |tag|
+        match = tag.match(regex)
+        next if match.blank?
+
+        "#{match[1]}.#{match[2]}"
+      end
+    end
   end
 
   bottle do
@@ -26,6 +35,8 @@ class Liblinear < Formula
   patch :p0 do
     file "Patches/liblinear/patch-Makefile.diff"
   end
+
+  deny_network_access!
 
   def install
     soversion_regex = /^SHVER = (\d+)$/
