@@ -1,10 +1,9 @@
 class Libetonyek < Formula
   desc "Interpret and import Apple Keynote presentations"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
-  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.13.tar.xz"
-  sha256 "032b71cb597edd92a0b270b916188281bc35be55296b263f6817b29adbcb1709"
+  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.14.tar.xz"
+  sha256 "11b33496db3f36af0456086229d154e6d0e64f27bff96112e1036da1db38d631"
   license "MPL-2.0"
-  revision 1
 
   livecheck do
     url "https://dev-www.libreoffice.org/src/"
@@ -41,13 +40,6 @@ class Libetonyek < Formula
     sha256 "5ed6bcd4ae3f3c05c912e62f216cd1a44123846147f729a49fb5668da51e030e"
   end
 
-  # Apply Fedora patch to fix build with mdds >= 3
-  patch :p0 do
-    url "https://src.fedoraproject.org/rpms/libetonyek/raw/65a93fb7f21fb0e668d78644ec6aa7843e5372f5/f/mdds3.patch"
-    sha256 "cd390fa4280b78fd0d1a7f587ab576d8ef0c4848036c8b0c821b576c6745db17"
-    type :unofficial
-  end
-
   deny_network_access!
 
   def install
@@ -62,8 +54,8 @@ class Libetonyek < Formula
     mdds_pc_file = (Formula["mdds"].share/"pkgconfig").glob("mdds-*.pc").first.to_s
     mdds_api_version = File.basename(mdds_pc_file, File.extname(mdds_pc_file)).split("-")[1]
 
-    # Override -std=gnu++11 as mdds>=2.1.1 needs C++17 std::bool_constant
-    ENV.append "CXXFLAGS", "-std=gnu++17"
+    # Needs concepts
+    ENV.append "CXXFLAGS", "-std=gnu++20"
 
     ENV["LANGTAG_CFLAGS"] = "-I#{libexec}/include"
     ENV["LANGTAG_LIBS"] = "-L#{libexec}/lib -llangtag -lxml2"
@@ -84,7 +76,7 @@ class Libetonyek < Formula
         return libetonyek::EtonyekDocument::RESULT_OK;
       }
     CPP
-    system ENV.cxx, "-std=c++11", "test.cpp", "-o", "test",
+    system ENV.cxx, "-std=c++20", "test.cpp", "-o", "test",
                     "-I#{formula_opt_include("librevenge")}/librevenge-0.0",
                     "-I#{include}/libetonyek-0.1",
                     "-L#{formula_opt_lib("librevenge")}",
