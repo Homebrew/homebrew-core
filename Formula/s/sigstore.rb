@@ -3,18 +3,18 @@ class Sigstore < Formula
 
   desc "Codesigning tool for Python packages"
   homepage "https://github.com/sigstore/sigstore-python"
-  url "https://files.pythonhosted.org/packages/bb/26/0561ddc1fcda5a12e577b4716f3e345905fc5e98978def96bc78e2d538ce/sigstore-4.5.1.tar.gz"
-  sha256 "14accda8a7d4ef47cb25b4903829fb10f011048c261a5937724a43d073c4f34d"
+  url "https://files.pythonhosted.org/packages/11/10/349d460d275dccade8d5aa29e15290a7febb0c0bdeab8f2cd9d0ee61d9db/sigstore-4.6.0.tar.gz"
+  sha256 "dc9a7bd0e35ee381a6f70281f520f858d12b34a997c023f7dec835c0095a5067"
   license "Apache-2.0"
-  revision 1
   head "https://github.com/sigstore/sigstore-python.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b9c83c1e6d60a398c3fd8f7257a8cbc299ef5addb8915bcd1cc07b1665796110"
-    sha256 cellar: :any, arm64_tahoe:       "92695912ecad75ce9aa06d23f13e758c6a477867ee2732f07ed34284b03ef8a5"
-    sha256 cellar: :any, arm64_sequoia:     "5ecd75fb6ddc3e82c37bc7d43da38db5dbe1158e955b9ed71cab2d1a87f4d31f"
-    sha256 cellar: :any, arm64_linux:       "0c55b65ad5418771d8888faf077f9e83e78811903528f49cb8afe046362bef98"
-    sha256 cellar: :any, x86_64_linux:      "62c2458588b8e8dc82fb71e807f1c26d11d1141455c67673a62a97ec38d2be77"
+    manifest_sha256 "1980f9ce823ad4fe09727132921cafa3c9ffb6b8dc227abfdb42e21aed14dac4"
+    sha256 cellar: :any, arm64_golden_gate: "12bad4eada636addb7c4e7e38765c2de97b7b6b4b62972bd27f686641eea9e9b"
+    sha256 cellar: :any, arm64_tahoe:       "35ac5b6a0fa92923a01d5954bb6ff7bdcbabeb663d918559468f43c3318a3708"
+    sha256 cellar: :any, arm64_sequoia:     "177bf3462adc9b8068359a9e7ff58dd2d75ce0ff37089d460730e826e0439f2c"
+    sha256 cellar: :any, arm64_linux:       "16f467b90db424af2f8a6c319f990a4e60dc5b78dd2c13550110ec9640288caf"
+    sha256 cellar: :any, x86_64_linux:      "9cc49fd61c3332d3efb8c7e616aebed18b8b7449a13c31c040875c303a9282dd"
   end
 
   depends_on "pkgconf" => :build # for rfc3161-client
@@ -27,19 +27,14 @@ class Sigstore < Formula
 
   pypi_packages exclude_packages: %w[certifi cryptography pydantic]
 
-  resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
-  end
-
   resource "dnspython" do
     url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
     sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "email-validator" do
-    url "https://files.pythonhosted.org/packages/f5/22/900cb125c76b7aaa450ce02fd727f452243f2e91a61af068b40adba60ea9/email_validator-2.3.0.tar.gz"
-    sha256 "9fc05c37f2f6cf439ff414f8fc46d917929974a82244c20eb10231ba60c54426"
+    url "https://files.pythonhosted.org/packages/c0/4d/f5e9d9de19f4b8f9e33d802fe3efb0ef96e88d4d6d45d604f335bef2f1ef/email_validator-2.4.0.tar.gz"
+    sha256 "be487bc50bc3bd832a98515a55a15649d9bec06d954fa178663190714b6c4ee1"
   end
 
   resource "id" do
@@ -63,8 +58,8 @@ class Sigstore < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "pygments" do
@@ -75,11 +70,6 @@ class Sigstore < Formula
   resource "pyjwt" do
     url "https://files.pythonhosted.org/packages/43/ea/5194e52748b0da83d71e082d75496eaec6e58f419f5e184786ded517e6a9/pyjwt-2.15.1.tar.gz"
     sha256 "4f259e80cdfb6b3fc18a7de51fd1ef9ec79652f25019bae68975ca2468a34df8"
-  end
-
-  resource "requests" do
-    url "https://files.pythonhosted.org/packages/ac/c3/e2a2b89f2d3e2179abd6d00ebd70bff6273f37fb3e0cc209f48b39d00cbf/requests-2.34.2.tar.gz"
-    sha256 "f288924cae4e29463698d6d60bc6a4da69c89185ad1e0bcc4104f584e960b9ed"
   end
 
   resource "rfc3161-client" do
