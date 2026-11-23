@@ -2,7 +2,7 @@ class Node < Formula
   desc "Open-source, cross-platform JavaScript runtime environment"
   homepage "https://nodejs.org/"
   license "MIT"
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/nodejs/node.git", branch: "main"
 
