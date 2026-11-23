@@ -11,17 +11,21 @@ class Toit < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ef06a37f5245d46d0aeceda9c2ebcd7032d5e1ecec16445b2df22c5eafef02c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "85d80942588eadd641e9367365e9b3d46d3cebeb437d46fec5f978747579891c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98ce4c2cef7503c98ad1388bfdf3051a719d4cedf6c51917808472027707a88b"
-    sha256 cellar: :any,                 arm64_linux:       "67cef17443bb26dc5c5705455ef14b61d1b240412b2d4ce10cf547d5f3d29292"
-    sha256 cellar: :any,                 x86_64_linux:      "68adaa207ca85b8762da0ff09793e4a53c5b7c8fc25cb6e65d69c1470ee8e83b"
+    rebuild 1
+    manifest_sha256 "f5456fb455b5c8cf8a7c2b0c6718cdf2e6eb0a98a437c87272f9ccc502eaf0f6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85fd14fcab0bda2ef948b2868d5b4c6a3c7b685e7fa485dc2d2b6b98ed3a048f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0588b2697be25787cba0d12a414b165d3543fc98f7d2e9ebe1825745ea3456b0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92ce4a5832f1e44ce53a580cef9f6d553aaecc75ad6fd2772d3c9e2b14ab731b"
+    sha256 cellar: :any,                 arm64_linux:       "fd1ffcbcb5ac09a7d6ca5938e9f2d34c197271ac54907189ab90a70a715e3797"
+    sha256 cellar: :any,                 x86_64_linux:      "1f05478dfc457f6795ad357405551271b307dba08c43db1e5d79b3ee2decc210"
   end
 
   depends_on "cmake" => :build
   depends_on "ninja" => :build
 
-  uses_from_macos "zlib"
+  on_linux do
+    depends_on "zlib-ng-compat"
+  end
 
   deny_network_access!
 
@@ -29,8 +33,7 @@ class Toit < Formula
     # Toit requires its bundled Mbed TLS configuration and allocation-failure
     # patches for garbage collection and retrying TLS operations.
     # Configure directly so Homebrew controls the architecture and compiler flags.
-    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args,
-                    "-DBUILD_TESTING=OFF"
+    system "cmake", "-S", ".", "-B", "build", "-G", "Ninja", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
