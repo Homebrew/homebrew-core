@@ -63,6 +63,8 @@ class Esbonio < Formula
     sha256 "36c2fb94c990cc2545143b12690e2de6c16300f9dbe5b4f33fa300cf57dc8792"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
