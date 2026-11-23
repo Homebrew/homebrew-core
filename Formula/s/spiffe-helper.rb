@@ -1,8 +1,8 @@
 class SpiffeHelper < Formula
   desc "Tool that can be used to retrieve and manage SVIDs on behalf of a workload"
   homepage "https://github.com/spiffe/spiffe-helper"
-  url "https://github.com/spiffe/spiffe-helper/archive/refs/tags/v0.12.3.tar.gz"
-  sha256 "c6307f6c25991c9cd2bddec73f4bbee036d29267f2059c43742db4f44fb2dc78"
+  url "https://github.com/spiffe/spiffe-helper/archive/refs/tags/v0.12.4.tar.gz"
+  sha256 "316c9c27959effc6eb6fd027112d642e56a00cae31c73be1f98c5ec02f2daea1"
   license "Apache-2.0"
   head "https://github.com/spiffe/spiffe-helper.git", branch: "main"
 
