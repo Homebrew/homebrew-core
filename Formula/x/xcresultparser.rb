@@ -7,9 +7,10 @@ class Xcresultparser < Formula
   head "https://github.com/a7ex/xcresultparser.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "162a84c6d7628ab7cf32c0f77a1e5501006a9a08c7106b5f8d7dd325412d5074"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff100065a1e9b245402b1dafcdfcc30ded7aa484a03c764e1e29a0b45664515f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4806fe37e6dd28386cb7545ead79f03e469be502a54e88c1ef899f286dabdacc"
+    manifest_sha256 "0e105b53133925b35d3f6077485da85beb6ab3afd9be1fa4858ac126ec087db2"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99b7df49ee3b582e1b3266a33050615f6e11d1cbc96a7d04f462cb2e45daa342"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bae2567a29616506108afb55136cbf7fbcd16d3578d15a6297aac13811f4bc6e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b554b904b42e42b01509fb770131375a4829edb54ae84b1656b044fc076a1f91"
   end
 
   depends_on xcode: ["15.0", :build]
