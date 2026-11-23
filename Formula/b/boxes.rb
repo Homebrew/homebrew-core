@@ -22,6 +22,8 @@ class Boxes < Formula
   uses_from_macos "flex" => :build
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     # distro uses /usr/share/boxes change to prefix
     system "make", "GLOBALCONF=#{share}/boxes-config",
@@ -34,6 +36,7 @@ class Boxes < Formula
   end
 
   test do
+    ENV["TERM"] = "xterm"
     assert_match "test brew", pipe_output(bin/"boxes", "test brew", 0)
   end
 end
