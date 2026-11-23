@@ -5,7 +5,7 @@ class ApacheArrow < Formula
   mirror "https://archive.apache.org/dist/arrow/arrow-26.0.1/apache-arrow-26.0.1.tar.gz"
   sha256 "1dd1b6701d9de58a4ed82b107539682f46ef6b9e22747e18e03204125c05a987"
   license "Apache-2.0"
-  revision 1
+  revision 2
   compatibility_version 4
   head "https://github.com/apache/arrow.git", branch: "main"
 
