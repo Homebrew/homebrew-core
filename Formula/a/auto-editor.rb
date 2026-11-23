@@ -7,11 +7,12 @@ class AutoEditor < Formula
   head "https://github.com/WyattBlue/auto-editor.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "86b42df5e9f7b7092eca5a88887686a9be6974afb4bcf73bd7b5a3e093e2e892"
-    sha256 cellar: :any, arm64_tahoe:       "85d637867e5adc60c85174cbd2949aa3b86360273bdf468134bed1eabd0ea030"
-    sha256 cellar: :any, arm64_sequoia:     "c3bd19946d45e7f29e0d5364c8ae0e5e852437f456186b6324c0ddbe2b19e916"
-    sha256 cellar: :any, arm64_linux:       "52543f54e616b3589f2d607c9b1dac09163bfc4c0ec04680f10ebcab731baaa7"
-    sha256 cellar: :any, x86_64_linux:      "b65e6223d1e5deb4548c8443949bdb556562ecf55aa051a35beafe69110ceb4a"
+    manifest_sha256 "7190bfe0928906ac63c234185dd6e74e47744d6fa3a3a8375f225697b215ae7e"
+    sha256 cellar: :any, arm64_golden_gate: "b573b47a748bc7e67af43878c355ad29f350cbe39b792c118882261314b7eda6"
+    sha256 cellar: :any, arm64_tahoe:       "1c39519221933794d56fc97dbd9752fbb7160235632d0200f8fc928196eac536"
+    sha256 cellar: :any, arm64_sequoia:     "7045af73fd043f58024111d20db9a7463ca6bfefae96d7d7b49b4040a1f3e9d9"
+    sha256 cellar: :any, arm64_linux:       "32a60aa46746299a1e986e32f9a728aec7da815fb6c2a8e9582427fde91304e2"
+    sha256 cellar: :any, x86_64_linux:      "3c0324358916f46e37bb1b953a4e6abe6ea6bbc8b2afe21201188eedb0301245"
   end
 
   depends_on "nim" => :build
