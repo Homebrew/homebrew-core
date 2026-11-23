@@ -1,8 +1,8 @@
 class Llamastash < Formula
   desc "Terminal-native local LLM orchestrator and proxy"
   homepage "https://github.com/llamastash/llamastash"
-  url "https://github.com/llamastash/llamastash/archive/refs/tags/v0.12.0.tar.gz"
-  sha256 "924d1229a3824aa877112d946ab2cec94ad62c5acc5de0b7d5eb46961186f7e8"
+  url "https://github.com/llamastash/llamastash/archive/refs/tags/v0.12.1.tar.gz"
+  sha256 "62668a7feb4ef361f4754de8bf951b32e78bbe45dec501d07640a97216c68b04"
   license "MIT"
   head "https://github.com/llamastash/llamastash.git", branch: "main"
 
