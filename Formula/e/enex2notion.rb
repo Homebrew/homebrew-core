@@ -167,6 +167,8 @@ class Enex2notion < Formula
     end
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

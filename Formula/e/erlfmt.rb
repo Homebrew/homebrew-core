@@ -16,6 +16,12 @@ class Erlfmt < Formula
   depends_on "rebar3" => :build
   depends_on "erlang"
 
+  deny_network_access!
+
+  def fetch
+    system "rebar3", "as", "release", "get-deps"
+  end
+
   def install
     system "rebar3", "as", "release", "escriptize"
     bin.install "_build/release/bin/erlfmt"

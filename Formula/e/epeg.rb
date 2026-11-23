@@ -28,6 +28,8 @@ class Epeg < Formula
   depends_on "jpeg-turbo"
   depends_on "libexif"
 
+  deny_network_access!
+
   def install
     system "./autogen.sh", *std_configure_args, "--disable-silent-rules"
     system "make", "install"

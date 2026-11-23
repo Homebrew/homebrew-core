@@ -40,6 +40,8 @@ class EnterTex < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     ENV["DESTDIR"] = "/"
     args = ["-Ddconf_migration=false", "-Dgtk_doc=false", "-Dtests=false"]

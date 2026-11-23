@@ -29,6 +29,8 @@ class Envv < Formula
     resolves "https://github.com/jakewendt/envv/pull/4"
   end
 
+  deny_network_access!
+
   def install
     system "make"
 

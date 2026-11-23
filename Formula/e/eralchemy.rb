@@ -43,6 +43,8 @@ class Eralchemy < Formula
     sha256 "5c475bacd91a63490e1cbbd1741dc70a3435e98161b5b9458d195ee97f40a3fa"
   end
 
+  allow_network_access! :build
+
   def install
     # Work around pygraphviz source-build discovery and runtime paths for nonstandard prefixes.
     # https://github.com/pygraphviz/pygraphviz/issues/630
