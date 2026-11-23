@@ -1,8 +1,8 @@
 class Jackett < Formula
   desc "API Support for your favorite torrent trackers"
   homepage "https://github.com/Jackett/Jackett"
-  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.24.3036.tar.gz"
-  sha256 "bbc01b322c24b5cb1520c22dfd58b266175431300743516603c9b91e766e0007"
+  url "https://github.com/Jackett/Jackett/archive/refs/tags/v0.25.28.tar.gz"
+  sha256 "dd25bc83aba2e8b06922bdb4f479af7b133044de8cf5469ef765f98eba8367fc"
   license "GPL-2.0-only"
   head "https://github.com/Jackett/Jackett.git", branch: "master"
 
@@ -14,11 +14,7 @@ class Jackett < Formula
     sha256 cellar: :any, x86_64_linux:      "40873c7c59eb1a1405f14e12eadbadeedc90a8829dcaa978b3224467748d870d"
   end
 
-  # Aligned to .NET dependency. Can remove if updated to latest .NET
-  deprecate! date: "2026-11-10", because: "needs end-of-life .NET 9"
-  disable! date: "2027-11-10", because: "needs end-of-life .NET 9"
-
-  depends_on "dotnet@9"
+  depends_on "dotnet@10"
 
   allow_network_access! :test
 
