@@ -22,6 +22,8 @@ class Cbmbasic < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "0e08527ac4b01d5d2c747776b5d8be5ae6e402862a87bafe7331c3c3b49d6170"
   end
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `RAM'; cbmbasic.o:(.bss+0x10): first defined here
