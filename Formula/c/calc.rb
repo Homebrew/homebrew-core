@@ -25,6 +25,8 @@ class Calc < Formula
     depends_on "util-linux" # for `col`
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 
