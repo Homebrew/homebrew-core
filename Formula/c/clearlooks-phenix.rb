@@ -13,6 +13,8 @@ class ClearlooksPhenix < Formula
 
   depends_on "gtk+3"
 
+  deny_network_access!
+
   def install
     (share/"themes/Clearlooks-Phenix").install %w[gtk-2.0 gtk-3.0 index.theme]
     system formula_opt_bin("gtk+3")/"gtk3-update-icon-cache", "-f", share/"themes/Clearlooks-Phenix"
