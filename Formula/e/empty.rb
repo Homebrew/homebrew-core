@@ -22,6 +22,8 @@ class Empty < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "a0a948757c10df171941b8b0bcd8546a9fdc1ab13b66817e80a21829e632c003"
   end
 
+  deny_network_access!
+
   def install
     # Fix incorrect link order in Linux
     inreplace "Makefile", "${LIBS} -o empty empty.c", "empty.c ${LIBS} -o empty" if OS.linux?
