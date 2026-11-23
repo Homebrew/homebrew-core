@@ -1,8 +1,8 @@
 class Telegraf < Formula
   desc "Plugin-driven server agent for collecting & reporting metrics"
   homepage "https://www.influxdata.com/time-series-platform/telegraf/"
-  url "https://github.com/influxdata/telegraf/archive/refs/tags/v1.40.3.tar.gz"
-  sha256 "27bfeaf8c56cbcffc289065623ff7e3b0ff9e48c1d9c00e2278ed453900a0e66"
+  url "https://github.com/influxdata/telegraf/archive/refs/tags/v1.40.4.tar.gz"
+  sha256 "1770b4eba7e3e7885928c29b7aa09fb438ba2f1e1b4ababf2411ae50b2e8c537"
   license "MIT"
   head "https://github.com/influxdata/telegraf.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Telegraf < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "be1f9e24bbb10ab0c5d7e5988631709d008babba3f5a929ea4e52e6bd25f1665"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04c8788ebc87f9dcb6bad8613eaaa767abb4584ec9acca545eb8e4c4f894f169"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6ca5c6a716670110c7ef46eac6ab200011463364c16327446c763c751b7f289"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "9417cac6dd8ee32dfc06250873880ad37e6c5b3c2055e14c6f7627a2be048764"
-    sha256 cellar: :any,                 x86_64_linux:      "646f722449b13e512bce937636264bcb094b98fa8f21cca96b65bd9a7d226c6f"
+    manifest_sha256 "6e4761a410ca9c1b1d6864305f0296bd48fd2fa538bbdb73ada16291479685e0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20560948692a8d8057c3f730458dca656847b473ab32060c2a5a75802c65f90b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e8c7856f6dd6ebe67f30dca062d2e2ec8924992e2392aab422c1c5e4db23fcaf"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "507d5e6d8fe3a30f81a14c9d5d4747248c80b7ea200984dff0c3a1b268d974fe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7d110e0bd52ff0ac011d160b83d373e95a6dfe159c6d7577ee519e07e8faf799"
+    sha256 cellar: :any,                 x86_64_linux:      "7b836c66424171db5746c42f65317f8af7b3769ac70903bb5d652ad2f5f29067"
   end
 
   depends_on "go" => :build
