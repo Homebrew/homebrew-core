@@ -26,8 +26,9 @@ class Pickle < Formula
     # TODO: Switch to following when using unversioned `php`:
     # bin.install "pickle.phar" => "pickle"
     libexec.install "pickle.phar" => "pickle"
+    php_bin = dep("php").opt_bin
     (bin/"pickle").write <<~PHP
-      #!#{formula_opt_bin("php@8.4")}/php
+      #!#{php_bin}/php
       <?php require '#{libexec}/pickle';
     PHP
   end

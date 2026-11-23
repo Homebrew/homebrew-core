@@ -70,13 +70,11 @@ class Pomerium < Formula
             body: "plain text"
     YAML
 
-    pid = spawn bin/"pomerium", "--config", testpath/"config.yaml"
-    sleep 10
-    assert_match "OK", shell_output("curl -s http://127.0.0.1:#{port}/healthz")
-    assert_match "plain text", shell_output("curl -s http://127.0.0.1:#{port}")
-    assert_match version.to_s, shell_output("#{bin}/pomerium --version")
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+    with_test_process(bin/"pomerium", "--config", testpath/"config.yaml", signal: "INT") do
+      sleep 10
+      assert_match "OK", shell_output("curl -s http://127.0.0.1:#{port}/healthz")
+      assert_match "plain text", shell_output("curl -s http://127.0.0.1:#{port}")
+      assert_match version.to_s, shell_output("#{bin}/pomerium --version")
+    end
   end
 end

@@ -86,11 +86,11 @@ class MysqlAT84 < Formula
     # Disable ABI checking
     inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
 
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
     # -DWITH_FIDO=system isn't set as feature isn't enabled and bundled copy was removed.
     # Formula paths are set to avoid HOMEBREW_HOME logic in CMake scripts
+    openssl_prefix = dep("openssl").opt_prefix
+    icu4c_prefix = dep("icu4c").opt_prefix
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
       -DINSTALL_DOCDIR=share/doc/#{name}
@@ -102,8 +102,8 @@ class MysqlAT84 < Formula
       -DMYSQL_DATADIR=#{var}/mysql
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
-      -DWITH_ICU=#{icu4c.opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{openssl_prefix}
+      -DWITH_ICU=#{icu4c_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
       -DWITH_LZ4=system

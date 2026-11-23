@@ -60,10 +60,11 @@ class Nmap < Formula
       formula_opt_prefix("libpcap")
     end
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --with-liblua=#{formula_opt_prefix("lua")}
       --with-libpcre=#{formula_opt_prefix("pcre2")}
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{openssl_prefix}
       --with-libpcap=#{libpcap_path}
       --without-nmap-update
       --disable-universal

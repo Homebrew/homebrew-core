@@ -65,8 +65,9 @@ class Alpine < Formula
   def install
     ENV.deparallelize
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
-      --with-ssl-dir=#{formula_opt_prefix("openssl@3")}
+      --with-ssl-dir=#{openssl_prefix}
       --with-ssl-certs-dir=#{etc}/openssl@3
       --with-bundled-tools
     ]

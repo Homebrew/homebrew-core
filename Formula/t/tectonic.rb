@@ -49,7 +49,7 @@ class Tectonic < Formula
 
     # Ensure that the `openssl` crate picks up the intended library.
     # https://crates.io/crates/openssl#manual-configuration
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4") if OS.linux?
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix if OS.linux?
 
     system "cargo", "install", *std_cargo_args(features: "external-harfbuzz")
     bin.install_symlink bin/"tectonic" => "nextonic"

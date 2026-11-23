@@ -71,13 +71,10 @@ class Cava < Formula
       data_format = ascii
     EOS
 
-    pid = spawn(bin/"cava", "-p", cava_config, [:out, :err] => cava_stdout.to_s)
+    with_test_process(bin/"cava", "-p", cava_config, [:out, :err] => cava_stdout.to_s) do
+      sleep 5
 
-    sleep 5
-
-    assert_match "0;0;\n", cava_stdout.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match "0;0;\n", cava_stdout.read
+    end
   end
 end

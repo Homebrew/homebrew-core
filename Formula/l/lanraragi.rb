@@ -60,7 +60,7 @@ class Lanraragi < Formula
 
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
-    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_PREFIX"] = dep("openssl").opt_prefix
     ENV["ARCHIVE_LIBARCHIVE_LIB_DLL"] = formula_opt_lib("libarchive")/shared_library("libarchive")
     ENV["ALIEN_INSTALL_TYPE"] = "system"
     ENV["PERL_MM_USE_DEFAULT"] = "1"

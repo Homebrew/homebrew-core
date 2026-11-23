@@ -71,11 +71,9 @@ class Gruyere < Formula
 
   test do
     output_log = testpath/"output.log"
-    pid = spawn bin/"gruyere", "--details", [:out, :err] => output_log.to_s
-    sleep 4
-    assert_match "Here's what's running...", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"gruyere", "--details", [:out, :err] => output_log.to_s) do
+      sleep 4
+      assert_match "Here's what's running...", output_log.read
+    end
   end
 end

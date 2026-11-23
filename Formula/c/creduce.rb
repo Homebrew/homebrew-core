@@ -156,10 +156,8 @@ class Creduce < Formula
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 
-    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
-               .to_formula
     # Avoid ending up with llvm's Cellar path hard coded.
-    ENV["CLANG_FORMAT"] = llvm.opt_bin/"clang-format"
+    ENV["CLANG_FORMAT"] = dep("llvm").opt_bin/"clang-format"
 
     resources.each do |r|
       r.stage do

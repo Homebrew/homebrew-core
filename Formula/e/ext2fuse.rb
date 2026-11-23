@@ -31,7 +31,8 @@ class Ext2fuse < Formula
     ENV.append "CFLAGS", "-D__i386__"
     ENV.append "CFLAGS", "-DHAVE_TYPE_SSIZE_T"
     ENV.append "CFLAGS", "-DNO_INLINE_FUNCS"
-    ENV.append "CFLAGS", "-I#{formula_opt_include("libfuse@2")}/fuse"
+    libfuse_include = dep("libfuse").opt_include
+    ENV.append "CFLAGS", "-I#{libfuse_include}/fuse"
     system "./configure", *std_configure_args
     system "make", "install"
   end

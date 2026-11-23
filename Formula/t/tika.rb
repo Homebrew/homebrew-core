@@ -43,13 +43,10 @@ class Tika < Formula
     assert_equal "application/pdf\n", shell_output("#{bin}/tika --detect #{pdf}")
 
     port = free_port
-    pid = spawn bin/"tika-rest-server", "--port=#{port}"
-
-    sleep 10
-    response = shell_output("curl -s -i http://localhost:#{port}")
-    assert_match "HTTP/1.1 200 OK", response
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"tika-rest-server", "--port=#{port}") do
+      sleep 10
+      response = shell_output("curl -s -i http://localhost:#{port}")
+      assert_match "HTTP/1.1 200 OK", response
+    end
   end
 end

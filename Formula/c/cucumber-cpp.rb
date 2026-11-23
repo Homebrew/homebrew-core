@@ -67,8 +67,7 @@ class CucumberCpp < Formula
 
     system ENV.cxx, "-std=c++17", "test.cpp", "-o", "test", "-I#{include}", "-L#{lib}", "-lcucumber-cpp", "-pthread"
 
-    begin
-      pid = spawn "./test"
+    with_test_process("./test", signal: "INT") do
       sleep 1
       expected = <<~EOS
         Feature: Test
@@ -82,9 +81,6 @@ class CucumberCpp < Formula
         3 steps (3 passed)
       EOS
       assert_match expected, shell_output("#{testpath}/bin/cucumber --quiet")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end

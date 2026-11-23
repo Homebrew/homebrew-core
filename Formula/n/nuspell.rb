@@ -85,8 +85,7 @@ class Nuspell < Formula
       }
     CPP
 
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
+    icu4c = dep("icu4c")
     ENV.prepend_path "PKG_CONFIG_PATH", icu4c.opt_lib/"pkgconfig"
     flags = shell_output("pkg-config --cflags --libs nuspell").chomp.split
     flags << "-Wl,-rpath,#{lib},-rpath,#{icu4c.opt_lib}" if OS.linux?

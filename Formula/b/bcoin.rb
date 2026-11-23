@@ -26,12 +26,6 @@ class Bcoin < Formula
 
   uses_from_macos "python" => :build
 
-  def node
-    deps.reject(&:build?)
-        .map(&:to_formula)
-        .find { |f| f.name.match?(/^node(@\d+(\.\d+)*)?$/) }
-  end
-
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
@@ -59,7 +53,7 @@ class Bcoin < Formula
         await node.ensure();
       })();
     JS
-    system "#{node.opt_bin}/node", testpath/"script.js"
+    system dep("node").opt_bin/"node", testpath/"script.js"
     assert File.directory?("#{testpath}/.bcoin")
   end
 end

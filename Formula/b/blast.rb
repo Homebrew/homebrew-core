@@ -73,11 +73,12 @@ class Blast < Formula
       end
 
       # Boost is only used for unit tests.
+      mbedtls_prefix = dep("mbedtls").opt_prefix
       args = %W[
         --prefix=#{prefix}
         --with-bin-release
         --with-dll
-        --with-mbedtls=#{formula_opt_prefix("mbedtls@3")}
+        --with-mbedtls=#{mbedtls_prefix}
         --with-mt
         --with-pcre2=#{formula_opt_prefix("pcre2")}
         --without-strip

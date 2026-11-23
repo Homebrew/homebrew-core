@@ -36,18 +36,16 @@ class Mycorrhiza < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"mycorrhiza", "-listen-addr", "127.0.0.1:#{port}", "."
-    sleep 5
+    with_test_process(bin/"mycorrhiza", "-listen-addr", "127.0.0.1:#{port}", ".") do
+      sleep 5
 
-    # Create a hypha
-    cmd = "curl -siF'text=This is a test hypha.' 127.0.0.1:#{port}/upload-text/test_hypha"
-    assert_match "303 See Other", shell_output(cmd)
+      # Create a hypha
+      cmd = "curl -siF'text=This is a test hypha.' 127.0.0.1:#{port}/upload-text/test_hypha"
+      assert_match "303 See Other", shell_output(cmd)
 
-    # Verify that it got created
-    cmd = "curl -s 127.0.0.1:#{port}/hypha/test_hypha"
-    assert_match "This is a test hypha.", shell_output(cmd)
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      # Verify that it got created
+      cmd = "curl -s 127.0.0.1:#{port}/hypha/test_hypha"
+      assert_match "This is a test hypha.", shell_output(cmd)
+    end
   end
 end

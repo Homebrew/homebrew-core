@@ -42,7 +42,7 @@ class Weechat < Formula
   end
 
   def install
-    tcltk = deps.find { |dep| dep.name.match?(/^tcl-tk(@\d+(\.\d+)*)?$/) }.to_formula
+    tcltk = dep("tcl-tk").to_formula
     tcl_library = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")
     tk_library = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major}tk#{tcltk.version.major_minor}")
     args = %W[

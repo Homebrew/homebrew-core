@@ -33,7 +33,8 @@ class Zookeeper < Formula
   end
 
   def install
-    system "mvn", "install", "-Pfull-build", "-DskipTests", "-Dc-client-openssl=#{formula_opt_prefix("openssl@4")}"
+    openssl_prefix = dep("openssl").opt_prefix
+    system "mvn", "install", "-Pfull-build", "-DskipTests", "-Dc-client-openssl=#{openssl_prefix}"
 
     system "tar", "-xf", "zookeeper-assembly/target/apache-zookeeper-#{version}-bin.tar.gz"
     binpfx = "apache-zookeeper-#{version}-bin"

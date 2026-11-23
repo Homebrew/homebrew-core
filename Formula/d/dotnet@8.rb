@@ -107,8 +107,7 @@ class DotnetAT8 < Formula
                 "<CrossgenOutput Condition=\" '$(TargetArchitecture)' == 's390x'",
                 "<CrossgenOutput Condition=\" '$(TargetOsName)' == 'osx'"
     else
-      icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-      ENV.append_path "LD_LIBRARY_PATH", icu4c_dep.to_formula.opt_lib
+      ENV.append_path "LD_LIBRARY_PATH", dep("icu4c").opt_lib
 
       # Use our libunwind rather than the bundled one.
       inreplace "src/runtime/eng/SourceBuild.props",

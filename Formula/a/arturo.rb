@@ -49,9 +49,10 @@ class Arturo < Formula
     rm_r("src/deps")
 
     # FIXME: Unbundle OpenSSL. Should find a way to do this upstream
+    openssl_lib = dep("openssl").opt_lib
     inreplace "src/library/Net.nim",
               /\{\.passL: "[^"]*(-lcrypto|libcrypto\.a)[^"]*"\.\}/,
-              "{.passL: \"-Wl,-rpath,#{formula_opt_lib("openssl@4")} -lssl -lcrypto\".}"
+              "{.passL: \"-Wl,-rpath,#{openssl_lib} -lssl -lcrypto\".}"
 
     inreplace "src/vm/values/custom/vregex.nim",
               /\{\.passL: "[^"]*(-lpcre|libpcre\.a)[^"]*"\.\}/,

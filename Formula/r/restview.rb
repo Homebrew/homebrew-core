@@ -58,14 +58,10 @@ class Restview < Formula
     RST
 
     port = free_port
-    pid = spawn bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst"
-    begin
+    with_test_process(bin/"restview", "--listen=#{port}", "--no-browser", "sample.rst") do
       output = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
       assert_match "<p>Here we have a numbered list</p>", output
       assert_match "<li>Four</li>", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

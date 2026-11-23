@@ -27,7 +27,7 @@ class Dug < Formula
 
   allow_network_access! :test
 
-  def dotnet = deps.find { |d| d.name.match?(/^dotnet(@\d+)?$/) }.to_formula
+  def dotnet = dep("dotnet").to_formula
 
   def fetch
     ENV["XDG_RUNTIME_DIR"] = buildpath

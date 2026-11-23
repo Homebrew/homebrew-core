@@ -64,7 +64,7 @@ class Hadoop < Formula
     pid = Process.spawn({
       "JAVA_HOME" => Language::Java.java_home("17"),
       "CLASSPATH" => classpaths.join(":"),
-    }, formula_opt_bin("openjdk@17")/"java", "org.apache.hadoop.yarn.server.resourcemanager.ResourceManager",
+    }, dep("openjdk").opt_bin/"java", "org.apache.hadoop.yarn.server.resourcemanager.ResourceManager",
                                              "-Dyarn.resourcemanager.webapp.address=127.0.0.1:#{port}")
     sleep 15
 

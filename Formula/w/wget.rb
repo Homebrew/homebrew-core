@@ -54,9 +54,10 @@ class Wget < Formula
 
   def install
     system "./bootstrap", "--skip-po" if build.head?
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--sysconfdir=#{etc}",
                           "--with-ssl=openssl",
-                          "--with-libssl-prefix=#{formula_opt_prefix("openssl@4")}",
+                          "--with-libssl-prefix=#{openssl_prefix}",
                           "--disable-pcre",
                           "--disable-pcre2",
                           "--with-libpsl",

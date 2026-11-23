@@ -30,7 +30,7 @@ class Feroxbuster < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     system "cargo", "install", *std_cargo_args
 
@@ -50,14 +50,9 @@ class Feroxbuster < Formula
     (testpath/"web/b.txt").write "b"
 
     port = free_port
-    pid = spawn "miniserve", testpath/"web", "-i", "127.0.0.1", "--port", port.to_s
-
-    begin
+    with_test_process("miniserve", testpath/"web", "-i", "127.0.0.1", "--port", port.to_s, signal: "INT") do
       sleep 1
       system bin/"feroxbuster", "-q", "-w", testpath/"wordlist", "-u", "http://127.0.0.1:#{port}"
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end

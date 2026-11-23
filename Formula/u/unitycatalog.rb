@@ -65,15 +65,13 @@ class Unitycatalog < Formula
         next
       end
     end
-    pid = spawn formula_opt_bin("openjdk@21")/"java",
-                "-cp", (libexec/"jars/classpath").read.strip,
-                "io.unitycatalog.server.UnityCatalogServer", "--port", port.to_s
-    sleep 20
+    with_test_process(dep("openjdk").opt_bin/"java",
+                      "-cp", (libexec/"jars/classpath").read.strip,
+                      "io.unitycatalog.server.UnityCatalogServer", "--port", port.to_s) do
+      sleep 20
 
-    output = shell_output("#{bin}/uc catalog list --server http://localhost:#{port}")
-    assert_match "[]", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = shell_output("#{bin}/uc catalog list --server http://localhost:#{port}")
+      assert_match "[]", output
+    end
   end
 end

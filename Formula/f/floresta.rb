@@ -53,15 +53,13 @@ class Floresta < Formula
   end
 
   test do
-    pid = spawn bin/"florestad", "--network", "regtest", "--data-dir", testpath.to_s
-    sleep 2
+    with_test_process(bin/"florestad", "--network", "regtest", "--data-dir", testpath.to_s, signal: "INT") do
+      sleep 2
 
-    output = shell_output("#{bin}/floresta-cli --network regtest getblockchaininfo")
-    genesis_regtest = "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"
+      output = shell_output("#{bin}/floresta-cli --network regtest getblockchaininfo")
+      genesis_regtest = "0f9188f13cb7b2c71f2a335e3a4fc328bf5beb436012afca590b1a11466e2206"
 
-    assert_match genesis_regtest, output
-  ensure
-    Process.kill("SIGINT", pid)
-    Process.wait(pid)
+      assert_match genesis_regtest, output
+    end
   end
 end

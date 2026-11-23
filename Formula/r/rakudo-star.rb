@@ -79,7 +79,7 @@ class RakudoStar < Formula
     ENV["DBIISH_SQLITE_LIB"] = formula_opt_lib("sqlite")/shared_library("libsqlite3")
 
     # openssl module's brew --prefix openssl probe fails so set value here
-    ENV["OPENSSL_PREFIX"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_PREFIX"] = dep("openssl").opt_prefix
 
     rm buildpath.glob("src/rakudo-star-modules/**/*.o")
     # Skip module tests probe for optional DB/client libraries and rely on the test block instead

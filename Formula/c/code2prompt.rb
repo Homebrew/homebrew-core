@@ -30,7 +30,7 @@ class Code2prompt < Formula
 
   def install
     # Ensure the correct `openssl` will be picked up.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     path = build.head? ? "crates/code2prompt" : "."
     system "cargo", "install", *std_cargo_args(path:)
@@ -51,8 +51,8 @@ class Code2prompt < Formula
     assert_match "ChatGPT models, text-embedding-ada-002", JSON.parse(json_output)["model_info"]
 
     [
-      formula_opt_lib("openssl@4")/shared_library("libssl"),
-      formula_opt_lib("openssl@4")/shared_library("libcrypto"),
+      dep("openssl").opt_lib/shared_library("libssl"),
+      dep("openssl").opt_lib/shared_library("libcrypto"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"code2prompt", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

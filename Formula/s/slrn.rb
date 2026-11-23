@@ -28,8 +28,6 @@ class Slrn < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     bin.mkpath
     man1.mkpath
@@ -38,8 +36,9 @@ class Slrn < Formula
     # Fix compile with newer Clang
     ENV.append_to_cflags "-Wno-implicit-function-declaration" if DevelopmentTools.clang_build_version >= 1200
 
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", *std_configure_args,
-                          "--with-ssl=#{formula_opt_prefix(openssl)}",
+                          "--with-ssl=#{openssl_prefix}",
                           "--with-slrnpull=#{var}/spool/news/slrnpull",
                           "--with-slang=#{HOMEBREW_PREFIX}"
     ENV.deparallelize

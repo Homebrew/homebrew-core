@@ -39,8 +39,7 @@ class ScummvmTools < Formula
     # configure will happily carry on even if it can't find wxwidgets,
     # so let's make sure the install method keeps working even when
     # the wxwidgets dependency version changes
-    wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)?)?$/) }
-                    .to_formula
+    wxwidgets = dep("wxwidgets").to_formula
 
     # The configure script needs a little help finding our wx-config
     wxconfig = "wx-config-#{wxwidgets.version.major_minor}"

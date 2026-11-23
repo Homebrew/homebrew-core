@@ -216,10 +216,8 @@ class Btcli < Formula
     sha256 "9ac374123c6fd7abf64d1fec93962b0bd4ee2c19751755a762a72dd96c0378f8"
   end
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     ENV["XXHASH_LINK_SO"] = "1"
     without = "async-substrate-interface"
     venv = virtualenv_install_with_resources(without:)

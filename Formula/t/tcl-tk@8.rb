@@ -122,8 +122,9 @@ class TclTkAT8 < Formula
     end
 
     resource("tcltls").stage do
+      openssl_prefix = dep("openssl").opt_prefix
       system "./configure", "--with-ssl=openssl",
-                            "--with-openssl-dir=#{formula_opt_prefix("openssl@3")}",
+                            "--with-openssl-dir=#{openssl_prefix}",
                             "--prefix=#{prefix}",
                             "--mandir=#{man}"
       system "make", "install"

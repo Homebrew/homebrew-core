@@ -30,14 +30,13 @@ class Nagios < Formula
 
   def htdocs = pkgshare/"htdocs"
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def user
     Utils.safe_popen_read("id", "-un").chomp
   end
 
   def install
     group_name = Utils.safe_popen_read("id", "-gn").chomp
+    openssl_prefix = dep("openssl").opt_prefix
     args = [
       "--sbindir=#{prefix}/cgi-bin",
       "--sysconfdir=#{etc}/nagios",
@@ -50,7 +49,7 @@ class Nagios < Formula
       "--with-nagios-group='#{group_name}'",
       "--with-command-user=#{user}",
       "--with-httpd-conf=#{share}",
-      "--with-ssl=#{formula_opt_prefix(openssl)}",
+      "--with-ssl=#{openssl_prefix}",
       "--disable-libtool",
     ]
     args << "--with-command-group=_www" if OS.mac?

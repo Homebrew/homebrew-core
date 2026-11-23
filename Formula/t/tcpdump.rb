@@ -24,7 +24,7 @@ class Tcpdump < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = dep("openssl").name
 
   def install
     system "./configure", "--disable-smb",

@@ -53,15 +53,12 @@ class Surfer < Formula
     EOS
 
     token = "tokentoken"
-    pid = spawn bin/"surfer", "server", "--file", "test.vcd", "--port", port.to_s, "--token", token
+    with_test_process(bin/"surfer", "server", "--file", "test.vcd", "--port", port.to_s, "--token", token) do
+      sleep 2
 
-    sleep 2
-
-    output = shell_output("curl -S http://localhost:#{port}/#{token}")
-    expected = "Surfer Remote Server"
-    assert_includes output, expected
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = shell_output("curl -S http://localhost:#{port}/#{token}")
+      expected = "Surfer Remote Server"
+      assert_includes output, expected
+    end
   end
 end

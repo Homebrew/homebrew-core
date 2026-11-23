@@ -93,9 +93,8 @@ class PerconaServerAT84 < Formula
     # Disable ABI checking
     inreplace "cmake/abi_check.cmake", "RUN_ABI_CHECK 1", "RUN_ABI_CHECK 0" if OS.linux?
 
-    icu4c = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-                .to_formula
     # -DINSTALL_* are relative to `CMAKE_INSTALL_PREFIX` (`prefix`)
+    icu4c_prefix = dep("icu4c").opt_prefix
     args = %W[
       -DCOMPILATION_COMMENT=Homebrew
       -DDEFAULT_CHARSET=utf8mb4
@@ -109,7 +108,7 @@ class PerconaServerAT84 < Formula
       -DMYSQL_DATADIR=#{var}/mysql
       -DSYSCONFDIR=#{etc}
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DWITH_ICU=#{icu4c.opt_prefix}
+      -DWITH_ICU=#{icu4c_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
       -DWITH_FIDO=system

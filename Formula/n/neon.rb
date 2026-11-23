@@ -39,11 +39,12 @@ class Neon < Formula
 
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--enable-shared",
                           "--disable-static",
                           "--disable-nls",
                           "--with-ssl=openssl",
-                          "--with-libs=#{formula_opt_prefix("openssl@4")}",
+                          "--with-libs=#{openssl_prefix}",
                           *std_configure_args
     system "make", "install"
   end

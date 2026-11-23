@@ -44,15 +44,11 @@ class StaticWebServer < Formula
     HTML
 
     port = free_port
-    pid = spawn bin/"static-web-server", "--port", port.to_s, "--root", testpath.to_s
-    sleep 2
+    with_test_process(bin/"static-web-server", "--port", port.to_s, "--root", testpath.to_s) do
+      sleep 2
 
-    begin
       response = shell_output("curl -s http://127.0.0.1:#{port}")
       assert_match "Hello, Homebrew!", response
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

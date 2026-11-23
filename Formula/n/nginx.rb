@@ -49,8 +49,9 @@ class Nginx < Formula
       s.gsub! "    #}\n\n}", "    #}\n    include servers/*;\n}"
     end
 
-    cc_opt = "-I#{formula_opt_include("pcre2")} -I#{formula_opt_include("openssl@4")}"
-    ld_opt = "-L#{formula_opt_lib("pcre2")} -L#{formula_opt_lib("openssl@4")}"
+    openssl = dep("openssl")
+    cc_opt = "-I#{formula_opt_include("pcre2")} -I#{openssl.opt_include}"
+    ld_opt = "-L#{formula_opt_lib("pcre2")} -L#{openssl.opt_lib}"
 
     args = %W[
       --prefix=#{prefix}

@@ -120,9 +120,10 @@ class PerconaXtrabackupAT84 < Formula
     # FIXME: `common.h` stubs `posix_fadvise` as a macro on macOS, which breaks the `::` qualifier
     inreplace "storage/innobase/xtrabackup/src/xb_io_probe.h", "::posix_fadvise(", "posix_fadvise(" if OS.mac?
 
-    icu4c = deps.map(&:to_formula).find { |f| f.name.match?(/^icu4c@\d+$/) }
     # -DWITH_FIDO=system isn't set as feature isn't enabled and bundled copy was removed.
     # Formula paths are set to avoid HOMEBREW_HOME logic in CMake scripts
+    openssl_prefix = dep("openssl").opt_prefix
+    icu4c_prefix = dep("icu4c").opt_prefix
     cmake_args = %W[
       -DBUILD_CONFIG=xtrabackup_release
       -DCOMPILATION_COMMENT=Homebrew
@@ -131,8 +132,8 @@ class PerconaXtrabackupAT84 < Formula
       -DWITH_MAN_PAGES=ON
       -DINSTALL_MYSQLTESTDIR=
       -DBISON_EXECUTABLE=#{formula_opt_bin("bison")}/bison
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@4")}
-      -DWITH_ICU=#{icu4c.opt_prefix}
+      -DOPENSSL_ROOT_DIR=#{openssl_prefix}
+      -DWITH_ICU=#{icu4c_prefix}
       -DWITH_SYSTEM_LIBS=ON
       -DWITH_EDITLINE=system
       -DWITH_LZ4=system
@@ -163,7 +164,7 @@ class PerconaXtrabackupAT84 < Formula
   end
 
   test do
-    mysql_bin = formula_opt_bin("mysql@8.4")
+    mysql_bin = dep("mysql").opt_bin
     common_args = %W[--no-defaults --port=#{free_port} --socket=#{testpath}/mysql.sock]
     client_args = %w[--user=root --password=]
     server_args = %W[--datadir=#{testpath}/mysql --tmpdir=#{testpath}/tmp]

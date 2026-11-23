@@ -57,8 +57,9 @@ class Bigloo < Formula
       pcre2
     ])
 
-    ENV.append_to_cflags "-I#{formula_opt_include("openssl@4")}"
-    ENV.append "LDFLAGS", "-L#{formula_opt_lib("openssl@4")}"
+    openssl = dep("openssl")
+    ENV.append_to_cflags "-I#{openssl.opt_include}"
+    ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
 
     # These need to be passed after --prefix
     install_args = %W[
@@ -77,7 +78,8 @@ class Bigloo < Formula
       --jvm=yes
     ]
     # Record the keg-only JDK so the JVM backend does not depend on `PATH`
-    args << "--javaprefix=#{formula_opt_bin("openjdk@25")}"
+    openjdk_bin = dep("openjdk").opt_bin
+    args << "--javaprefix=#{openjdk_bin}"
 
     if OS.mac?
       args << "--os-macosx"

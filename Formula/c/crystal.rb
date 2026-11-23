@@ -88,14 +88,12 @@ class Crystal < Formula
   end
 
   def install
-    llvm = deps.find { |dep| dep.name.match?(/^llvm(@\d+)?$/) }
-               .to_formula
     non_keg_only_runtime_deps = deps.filter_map { |dep| dep.to_formula unless dep.build? }
                                     .reject(&:keg_only?)
 
     resource("boot").stage "boot"
     ENV.append_path "PATH", "boot/bin"
-    ENV["LLVM_CONFIG"] = llvm.opt_bin/"llvm-config"
+    ENV["LLVM_CONFIG"] = dep("llvm").opt_bin/"llvm-config"
     ENV["CRYSTAL_LIBRARY_PATH"] = ENV["HOMEBREW_LIBRARY_PATHS"]
     if OS.mac? && (sdk_path = MacOS.sdk_path)
       ENV.append_path "CRYSTAL_LIBRARY_PATH", sdk_path/"usr/lib"

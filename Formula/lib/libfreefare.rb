@@ -39,11 +39,10 @@ class Libfreefare < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
-    ENV.append_to_cflags "-I#{formula_opt_include(openssl)}"
-    ENV.append "LDFLAGS", "-L#{formula_opt_lib(openssl)}"
+    openssl = dep("openssl")
+    ENV.append_to_cflags "-I#{openssl.opt_include}"
+    ENV.append "LDFLAGS", "-L#{openssl.opt_lib}"
 
     system "./configure", "--disable-silent-rules", *std_configure_args
     system "make", "install"

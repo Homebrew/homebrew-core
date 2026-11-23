@@ -32,8 +32,7 @@ class Citus < Formula
   uses_from_macos "curl"
 
   def postgresqls
-    deps.filter_map { |f| f.to_formula if f.name.start_with?("postgresql@") }
-        .sort_by(&:version)
+    deps(/\Apostgresql@/).map(&:to_formula).sort_by(&:version)
   end
 
   def install

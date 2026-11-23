@@ -213,8 +213,7 @@ class Dotnet < Formula
       # cause undefined symbols, e.g. __swift_FORCE_LOAD_$_swift_Builtin_float
       ENV["SDKROOT"] = MacOS.sdk_for_formula(self).path
     else
-      icu4c_dep = deps.find { |dep| dep.name.match?(/^icu4c(@\d+)?$/) }
-      ENV.append_path "LD_LIBRARY_PATH", formula_opt_lib(icu4c_dep.name)
+      ENV.append_path "LD_LIBRARY_PATH", dep("icu4c").opt_lib
     end
 
     if build.head?

@@ -36,9 +36,10 @@ class H2o < Formula
     # https://github.com/Homebrew/brew/pull/251
     ENV.delete("SDKROOT")
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       -DWITH_BUNDLED_SSL=OFF
-      -DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}
+      -DOPENSSL_ROOT_DIR=#{openssl_prefix}
     ]
 
     # Workaround to build with CMake 4

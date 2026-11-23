@@ -23,7 +23,7 @@ class Tunnelite < Formula
     # .NET's user-scoped named mutexes need a writable runtime directory on Linux.
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
+    dotnet = dep("dotnet").to_formula
     # Force a single MSBuild node: worker-node sockets are denied by the macOS sandbox (Homebrew/brew#23920)
     args = %W[
       --configuration Release

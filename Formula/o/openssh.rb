@@ -50,13 +50,14 @@ class Openssh < Formula
   def install
     ENV.append "CPPFLAGS", "-D__APPLE_SANDBOX_NAMED_EXTERNAL__" if OS.mac?
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --sysconfdir=#{etc}/ssh
       --with-ldns
       --with-libedit
       --with-kerberos5
       --with-pam
-      --with-ssl-dir=#{formula_opt_prefix("openssl@4")}
+      --with-ssl-dir=#{openssl_prefix}
       --with-security-key-builtin
     ]
 

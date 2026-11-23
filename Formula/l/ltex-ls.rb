@@ -30,7 +30,7 @@ class LtexLs < Formula
     # Reported upstream at https://github.com/valentjn/ltex-ls/issues/244.
     inreplace "pom.xml", "<arg>-Werror</arg>", ""
 
-    ENV.prepend_path "PATH", formula_opt_libexec("python@3.14")/"bin"
+    ENV.prepend_path "PATH", dep("python").opt_libexec/"bin"
     ENV["JAVA_HOME"] = Language::Java.java_home(Formula["openjdk@21"].version.major.to_s)
     ENV["TMPDIR"] = buildpath
 

@@ -47,13 +47,10 @@ class Speech < Formula
     # Server-startup: `speech-server` binds on a port without preloading any
     # model and serves /health.
     port = free_port
-    pid = spawn bin/"speech-server", "--host", "127.0.0.1", "--port", port.to_s
-
-    sleep 15
-    health = shell_output("curl -sf --max-time 5 http://127.0.0.1:#{port}/health")
-    assert_match "ok", health
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"speech-server", "--host", "127.0.0.1", "--port", port.to_s) do
+      sleep 15
+      health = shell_output("curl -sf --max-time 5 http://127.0.0.1:#{port}/health")
+      assert_match "ok", health
+    end
   end
 end

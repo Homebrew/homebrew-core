@@ -38,7 +38,7 @@ class Chapel < Formula
   end
 
   def llvm
-    deps.map(&:to_formula).find { |f| f.name.match? "^llvm" }
+    dep("llvm").to_formula
   end
 
   # determine the C backend to use based on the system

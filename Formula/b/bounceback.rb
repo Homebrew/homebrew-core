@@ -42,12 +42,10 @@ class Bounceback < Formula
   end
 
   test do
-    pid = spawn bin/"bounceback", "--config", etc/"bounceback.yml"
-    sleep 2
-    assert_match "\"message\":\"Starting proxies\"", (testpath/"bounceback.log").read
-    assert_match version.to_s, shell_output("#{bin}/bounceback --help", 2)
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"bounceback", "--config", etc/"bounceback.yml") do
+      sleep 2
+      assert_match "\"message\":\"Starting proxies\"", (testpath/"bounceback.log").read
+      assert_match version.to_s, shell_output("#{bin}/bounceback --help", 2)
+    end
   end
 end

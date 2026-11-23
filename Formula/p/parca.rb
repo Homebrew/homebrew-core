@@ -38,11 +38,9 @@ class Parca < Formula
     YAML
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"parca", "--config-path=parca.yaml", [:out, :err] => output_log.to_s
-    sleep 1
-    assert_match "starting server", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"parca", "--config-path=parca.yaml", [:out, :err] => output_log.to_s) do
+      sleep 1
+      assert_match "starting server", output_log.read
+    end
   end
 end

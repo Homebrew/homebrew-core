@@ -44,7 +44,7 @@ class Gerust < Formula
 
   def install
     if build.stable?
-      ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+      ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     else
       ENV["AWS_LC_SYS_USE_SYSTEM"] = "1"
     end

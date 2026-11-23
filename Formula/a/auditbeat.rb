@@ -77,17 +77,15 @@ class Auditbeat < Formula
         filename: auditbeat
     YAML
 
-    pid = spawn bin/"auditbeat", "--path.config", testpath/"config", "--path.data", testpath/"data"
-    sleep 5
-    touch testpath/"files/touch"
-    sleep 10
+    with_test_process(bin/"auditbeat", "--path.config", testpath/"config", "--path.data", testpath/"data") do
+      sleep 5
+      touch testpath/"files/touch"
+      sleep 10
 
-    assert_path_exists testpath/"data/beat.db"
+      assert_path_exists testpath/"data/beat.db"
 
-    output = JSON.parse((testpath/"data/meta.json").read)
-    assert_includes output, "first_start"
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = JSON.parse((testpath/"data/meta.json").read)
+      assert_includes output, "first_start"
+    end
   end
 end

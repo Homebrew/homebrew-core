@@ -54,14 +54,10 @@ class AwsEsProxy < Formula
     address = "127.0.0.1:#{free_port}"
     endpoint = "https://dummy-host.eu-west-1.es.amazonaws.com"
 
-    pid = spawn bin/"aws-es-proxy", "-listen=#{address}", "-endpoint=#{endpoint}"
-    begin
+    with_test_process(bin/"aws-es-proxy", "-listen=#{address}", "-endpoint=#{endpoint}") do
       sleep 2
       output = shell_output("curl --silent #{address}")
       assert_match "Failed to sign", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

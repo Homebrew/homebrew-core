@@ -37,8 +37,9 @@ class IkeScan < Formula
     # The bundled `getopt.h` declares `getopt()` without a prototype, which C23 reads as taking no arguments
     ENV["ac_cv_prog_cc_c23"] = "no"
     system "autoreconf", "--force", "--install", "--verbose"
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--mandir=#{man}",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{openssl_prefix}",
                           *std_configure_args
     system "make", "install"
   end

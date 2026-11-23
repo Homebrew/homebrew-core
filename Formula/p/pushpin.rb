@@ -121,14 +121,10 @@ class Pushpin < Formula
     ENV["LC_ALL"] = "en_US.UTF-8"
     ENV["LANG"] = "en_US.UTF-8"
 
-    pid = spawn bin/"pushpin", "--config=#{conffile}"
-    sleep 5
+    with_test_process(bin/"pushpin", "--config=#{conffile}") do
+      sleep 5
 
-    begin
       system python3, runfile
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

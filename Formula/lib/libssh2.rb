@@ -142,15 +142,14 @@ class Libssh2 < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --disable-silent-rules
       --disable-examples-build
       --with-openssl
       --with-libz
-      --with-libssl-prefix=#{formula_opt_prefix(openssl)}
+      --with-libssl-prefix=#{openssl_prefix}
     ]
 
     system "./buildconf" if build.head?

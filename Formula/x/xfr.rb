@@ -31,12 +31,10 @@ class Xfr < Formula
   test do
     ENV["XFR_NO_UPDATE_CHECK"] = "1"
     port = free_port
-    pid = spawn bin/"xfr", "serve", "--port", port.to_s, "--no-mdns"
-    sleep 1
-    output = shell_output("#{bin}/xfr 127.0.0.1 --port #{port} --time 1sec --json")
-    assert_operator JSON.parse(output)["bytes_total"], :>, 0
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+    with_test_process(bin/"xfr", "serve", "--port", port.to_s, "--no-mdns") do
+      sleep 1
+      output = shell_output("#{bin}/xfr 127.0.0.1 --port #{port} --time 1sec --json")
+      assert_operator JSON.parse(output)["bytes_total"], :>, 0
+    end
   end
 end

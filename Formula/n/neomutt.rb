@@ -55,11 +55,10 @@ class Neomutt < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --sysconfdir=#{etc}
       --autocrypt
@@ -76,7 +75,7 @@ class Neomutt < Formula
       --with-idn2=#{formula_opt_prefix("libidn2")}
       --with-lua=#{formula_opt_prefix("lua")}
       --with-ncurses=#{formula_opt_prefix("ncurses")}
-      --with-ssl=#{formula_opt_prefix(openssl)}
+      --with-ssl=#{openssl_prefix}
       --with-sqlite=#{formula_opt_prefix("sqlite")}
     ]
 

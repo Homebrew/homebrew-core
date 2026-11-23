@@ -74,8 +74,8 @@ class GnuApl < Formula
     # FIXME: Work around newer clang producing a broken binary
     if OS.mac? && MacOS.version >= :golden_gate && build.stable?
       odie "Remove llvm@21 workaround!" if version > "2.0"
-      ENV["CC"] = formula_opt_bin("llvm@21")/"clang"
-      ENV["CXX"] = formula_opt_bin("llvm@21")/"clang++"
+      ENV["CC"] = dep("llvm").opt_bin/"clang"
+      ENV["CXX"] = dep("llvm").opt_bin/"clang++"
     end
 
     system "autoreconf", "--force", "--install", "--verbose" # TODO: if build.head?

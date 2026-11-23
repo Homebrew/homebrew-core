@@ -30,10 +30,11 @@ class Ldns < Formula
   conflicts_with "drill", because: "both install a `drill` binary"
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --with-drill
       --with-examples
-      --with-ssl=#{formula_opt_prefix("openssl@4")}
+      --with-ssl=#{openssl_prefix}
       --with-pyldns
       PYTHON_PLATFORM_SITE_PKG=#{prefix}/#{Language::Python.site_packages(python3)}
       top_builddir=#{buildpath}

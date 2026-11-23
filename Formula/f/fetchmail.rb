@@ -30,7 +30,8 @@ class Fetchmail < Formula
   deny_network_access!
 
   def install
-    system "./configure", "--with-ssl=#{formula_opt_prefix("openssl@4")}",
+    openssl_prefix = dep("openssl").opt_prefix
+    system "./configure", "--with-ssl=#{openssl_prefix}",
                           *std_configure_args
     system "make", "install"
   end

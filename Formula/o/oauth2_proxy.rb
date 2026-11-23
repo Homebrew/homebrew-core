@@ -43,21 +43,16 @@ class Oauth2Proxy < Formula
     assert_match version.to_s, shell_output("#{bin}/oauth2-proxy --version")
 
     port = free_port
-    pid = spawn "#{bin}/oauth2-proxy",
-                "--client-id=testing",
-                "--client-secret=testing",
-                # Cookie secret must be 16, 24, or 32 bytes to create an AES cipher
-                "--cookie-secret=0b425616d665d89fb6ee917b7122b5bf",
-                "--http-address=127.0.0.1:#{port}",
-                "--upstream=file:///tmp",
-                "--email-domain=*"
-
-    begin
+    with_test_process("#{bin}/oauth2-proxy",
+                      "--client-id=testing",
+                      "--client-secret=testing",
+                      # Cookie secret must be 16, 24, or 32 bytes to create an AES cipher
+                      "--cookie-secret=0b425616d665d89fb6ee917b7122b5bf",
+                      "--http-address=127.0.0.1:#{port}",
+                      "--upstream=file:///tmp",
+                      "--email-domain=*") do
       output = shell_output("curl --silent --retry 5 --retry-connrefused http://127.0.0.1:#{port}")
       assert_match "<title>Sign In</title>", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

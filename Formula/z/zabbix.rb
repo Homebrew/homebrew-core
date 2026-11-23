@@ -26,12 +26,13 @@ class Zabbix < Formula
   deny_network_access!
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --enable-agent
       --enable-ipv6
       --with-libpcre2
       --sysconfdir=#{pkgetc}
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{openssl_prefix}
     ]
 
     if OS.mac?

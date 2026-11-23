@@ -91,8 +91,7 @@ class Step < Formula
            "--provisioner-password-file", testpath/"password.txt", "--name",
            "homebrew-smallstep-test", "--provisioner", "brew"
 
-    pid = spawn bin/"step-ca", "--password-file", testpath/"password.txt", "#{steppath}/config/ca.json"
-    begin
+    with_test_process(bin/"step-ca", "--password-file", testpath/"password.txt", "#{steppath}/config/ca.json") do
       sleep 6
       assert_match(/^ok$/, shell_output("#{bin}/step ca health"))
 
@@ -110,9 +109,6 @@ class Step < Formula
       brew_crt_json = JSON.parse(shell_output("#{bin}/step certificate inspect --format json brew.crt"))
       assert_equal "CN=homebrew-smallstep-leaf", brew_crt_json["subject_dn"]
       assert_equal "O=homebrew-smallstep-test, CN=homebrew-smallstep-test Intermediate CA", brew_crt_json["issuer_dn"]
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

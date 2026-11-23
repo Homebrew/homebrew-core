@@ -87,8 +87,9 @@ class JohnJumbo < Formula
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_EXEC='\"#{share}/john\"'"
     ENV.append "CFLAGS", "-DJOHN_SYSTEMWIDE_HOME='\"#{share}/john\"'"
 
-    ENV["OPENSSL_LIBS"] = "-L#{formula_opt_lib("openssl@4")}"
-    ENV["OPENSSL_CFLAGS"] = "-I#{formula_opt_include("openssl@4")}"
+    openssl = dep("openssl")
+    ENV["OPENSSL_LIBS"] = "-L#{openssl.opt_lib}"
+    ENV["OPENSSL_CFLAGS"] = "-I#{openssl.opt_include}"
 
     cd "src" do
       system "./configure", "--disable-native-tests"

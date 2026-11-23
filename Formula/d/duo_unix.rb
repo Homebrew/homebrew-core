@@ -38,10 +38,11 @@ class DuoUnix < Formula
 
     File.write("build-date", time.to_i)
     system "./bootstrap"
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--disable-silent-rules",
                           "--sysconfdir=#{etc}",
                           "--includedir=#{include}/duo",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{openssl_prefix}",
                           "--with-pam=#{lib}/pam/",
                           *std_configure_args
     system "make", "install"

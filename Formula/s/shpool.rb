@@ -36,15 +36,11 @@ class Shpool < Formula
   test do
     socket = testpath/"shpool.socket"
     args = [bin/"shpool", "--socket", socket, "--config-file", File::NULL, "--no-daemonize"]
-    pid = spawn(*args, "daemon", out: File::NULL, err: File::NULL)
-    begin
+    with_test_process(*args, "daemon", out: File::NULL, err: File::NULL) do
       sleep 3
       assert_predicate socket, :socket?
       sessions = JSON.parse(Utils.safe_popen_read(*args, "list", "--json")).fetch("sessions")
       assert_empty sessions
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

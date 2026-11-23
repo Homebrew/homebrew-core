@@ -85,7 +85,8 @@ class Fizz < Formula
 
     ENV.delete "CPATH"
 
-    args = ["-DCMAKE_PREFIX_PATH=#{formula_opt_prefix("openssl@4")}"]
+    openssl_prefix = dep("openssl").opt_prefix
+    args = ["-DCMAKE_PREFIX_PATH=#{openssl_prefix}"]
     args << "-DCMAKE_BUILD_RPATH=#{lib};#{HOMEBREW_PREFIX}/lib" if OS.linux?
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"

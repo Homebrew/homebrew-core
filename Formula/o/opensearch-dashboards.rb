@@ -36,9 +36,10 @@ class OpensearchDashboards < Formula
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     cd "build/opensearch-dashboards-#{version}-#{os}-#{arch}" do
+      node_bin = dep("node").opt_bin
       inreplace "bin/use_node",
                 /NODE=".+"/,
-                "NODE=\"#{formula_opt_bin("node@22")}/node\""
+                "NODE=\"#{node_bin}/node\""
 
       inreplace "config/opensearch_dashboards.yml",
                 /#\s*pid\.file: .+$/,

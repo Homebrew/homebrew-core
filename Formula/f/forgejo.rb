@@ -43,17 +43,14 @@ class Forgejo < Formula
     ENV["FORGEJO_WORK_DIR"] = testpath
     port = free_port
 
-    pid = spawn bin/"forgejo", "web", "--port", port.to_s, "--install-port", port.to_s
+    with_test_process(bin/"forgejo", "web", "--port", port.to_s, "--install-port", port.to_s) do
+      output = shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{port}/api/settings/api")
+      assert_match "Go to default page", output
 
-    output = shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{port}/api/settings/api")
-    assert_match "Go to default page", output
+      output = shell_output("curl --silent http://localhost:#{port}/")
+      assert_match "Installation - Forgejo: Beyond coding. We Forge.", output
 
-    output = shell_output("curl --silent http://localhost:#{port}/")
-    assert_match "Installation - Forgejo: Beyond coding. We Forge.", output
-
-    assert_match version.to_s, shell_output("#{bin}/forgejo -v")
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      assert_match version.to_s, shell_output("#{bin}/forgejo -v")
+    end
   end
 end

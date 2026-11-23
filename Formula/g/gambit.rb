@@ -23,7 +23,7 @@ class Gambit < Formula
 
   deny_network_access!
 
-  def wxwidgets = deps.find { |dep| dep.name.match?(/^wxwidgets(@\d+(\.\d+)*)?$/) }.to_formula
+  def wxwidgets = dep("wxwidgets").to_formula
 
   def install
     wx_config = wxwidgets.opt_bin/"wx-config-#{wxwidgets.version.major_minor}"

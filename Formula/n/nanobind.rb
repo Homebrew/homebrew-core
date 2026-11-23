@@ -72,7 +72,7 @@ class Nanobind < Formula
     end
 
     ENV.delete("CMAKE_PREFIX_PATH")
-    prefix_path_dirs = deps.filter_map { |dep| dep.to_formula.opt_prefix if !dep.build? || dep.test? }
+    prefix_path_dirs = deps.filter_map { |dep| dep.opt_prefix if !dep.build? || dep.test? }
     cmake_find_args = %W[
       -DCMAKE_MAKE_PROGRAM=make
       -DCMAKE_C_COMPILER=#{ENV.cc}

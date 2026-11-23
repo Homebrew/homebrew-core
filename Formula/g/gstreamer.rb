@@ -228,7 +228,7 @@ class Gstreamer < Formula
     ENV.append_to_rustflags "--codegen link-args=-Wl,#{rpath_args.join(",")}"
 
     # Make sure the `openssl-sys` crate uses our OpenSSL.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     # Work around superenv breaking aws-lc-sys `-O0` needed to build CPU Jitter RNG
     ENV["AWS_LC_SYS_NO_JITTER_ENTROPY"] = "1"

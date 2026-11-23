@@ -38,9 +38,10 @@ class SNail < Formula
   uses_from_macos "ncurses"
 
   def install
+    openssl = dep("openssl")
     system "make", "CC=#{ENV.cc}",
-                   "C_INCLUDE_PATH=#{formula_opt_include("openssl@3")}",
-                   "LDFLAGS=-L#{formula_opt_lib("openssl@3")}",
+                   "C_INCLUDE_PATH=#{openssl.opt_include}",
+                   "LDFLAGS=-L#{openssl.opt_lib}",
                    "VAL_PREFIX=#{prefix}",
                    "OPT_DOTLOCK=no",
                    "config"

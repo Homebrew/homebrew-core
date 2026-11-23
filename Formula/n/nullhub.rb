@@ -39,14 +39,9 @@ class Nullhub < Formula
     assert_match version.to_s, shell_output("#{bin}/nullhub --version")
 
     port = free_port
-    pid = spawn bin/"nullhub", "serve", "--host", "127.0.0.1", "--port", port.to_s, "--no-open"
-
-    begin
+    with_test_process(bin/"nullhub", "serve", "--host", "127.0.0.1", "--port", port.to_s, "--no-open") do
       output = shell_output("curl --silent --fail --retry 5 --retry-connrefused http://127.0.0.1:#{port}/health")
       assert_equal '{"status":"ok"}', output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

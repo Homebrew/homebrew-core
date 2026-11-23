@@ -41,11 +41,12 @@ class Softhsm < Formula
 
   def install
     system "./autogen.sh"
+    openssl_prefix = dep("openssl").opt_prefix
     system "./configure", "--disable-silent-rules",
                           "--localstatedir=#{var}",
                           "--sysconfdir=#{pkgetc}",
                           "--with-crypto-backend=openssl",
-                          "--with-openssl=#{formula_opt_prefix("openssl@4")}",
+                          "--with-openssl=#{openssl_prefix}",
                           "--disable-gost",
                           *std_configure_args
     system "make", "install"

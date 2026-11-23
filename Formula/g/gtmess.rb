@@ -34,7 +34,8 @@ class Gtmess < Formula
     ENV.append_to_cflags "-Wno-implicit-int" if DevelopmentTools.clang_build_version >= 1403
 
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
-    system "./configure", "--with-ssl=#{formula_opt_prefix("openssl@4")}", *std_configure_args
+    openssl_prefix = dep("openssl").opt_prefix
+    system "./configure", "--with-ssl=#{openssl_prefix}", *std_configure_args
     system "make", "install"
   end
 

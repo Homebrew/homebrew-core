@@ -38,16 +38,13 @@ class Arelo < Formula
     chmod 0755, testpath/"test.sh"
 
     logfile = testpath/"arelo.log"
-    arelo_pid = spawn bin/"arelo", "--pattern", "test.sh", "--", "./test.sh", out: logfile.to_s
+    with_test_process(bin/"arelo", "--pattern", "test.sh", "--", "./test.sh", out: logfile.to_s) do
+      sleep 1
+      touch testpath/"test.sh"
+      sleep 1
 
-    sleep 1
-    touch testpath/"test.sh"
-    sleep 1
-
-    assert_path_exists testpath/"test.sh"
-    assert_match "Hello, world!", logfile.read
-  ensure
-    Process.kill("TERM", arelo_pid)
-    Process.wait(arelo_pid)
+      assert_path_exists testpath/"test.sh"
+      assert_match "Hello, world!", logfile.read
+    end
   end
 end

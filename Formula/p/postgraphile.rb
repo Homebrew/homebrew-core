@@ -23,7 +23,7 @@ class Postgraphile < Formula
     ENV["PGDATA"] = testpath/"test"
     ENV["PGHOST"] = testpath.to_s
     ENV["PGPORT"] = free_port.to_s
-    pg_bin = formula_opt_bin("postgresql@19")
+    pg_bin = dep("postgresql").opt_bin
     pg_ctl = pg_bin/"pg_ctl"
 
     assert_match version.to_s, shell_output("#{bin}/postgraphile --version")
@@ -36,16 +36,13 @@ class Postgraphile < Formula
       preset = "postgraphile/presets/amber"
       port = free_port.to_s
       query = { query: "{ __typename }" }.to_json
-      pid = spawn(bin/"postgraphile", "--connection", "postgres:///mydb", "--preset", preset, "--port", port)
-      output = shell_output("curl --silent --show-error --fail --retry 5 --retry-connrefused --retry-delay 1 " \
-                            "--header 'Content-Type: application/json' --data '#{query}' " \
-                            "http://localhost:#{port}/graphql")
-      assert_equal "Query", JSON.parse(output).dig("data", "__typename")
-    ensure
-      if pid
-        Process.kill("TERM", pid)
-        Process.wait(pid)
+      with_test_process(bin/"postgraphile", "--connection", "postgres:///mydb", "--preset", preset, "--port", port) do
+        output = shell_output("curl --silent --show-error --fail --retry 5 --retry-connrefused --retry-delay 1 " \
+                              "--header 'Content-Type: application/json' --data '#{query}' " \
+                              "http://localhost:#{port}/graphql")
+        assert_equal "Query", JSON.parse(output).dig("data", "__typename")
       end
+    ensure
       system pg_ctl, "stop"
     end
   end

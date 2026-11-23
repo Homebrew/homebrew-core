@@ -42,10 +42,9 @@ class MailtrapLocal < Formula
 
     http_port = free_port
     smtp_port = free_port
-    pid = spawn bin/"mailtrap-local", "--http-listen", "127.0.0.1:#{http_port}",
-                                      "--smtp-listen", "127.0.0.1:#{smtp_port}",
-                                      "--db", testpath/"mailtrap-local.sqlite3"
-    begin
+    with_test_process(bin/"mailtrap-local", "--http-listen", "127.0.0.1:#{http_port}",
+                      "--smtp-listen", "127.0.0.1:#{smtp_port}",
+                      "--db", testpath/"mailtrap-local.sqlite3") do
       api = "http://127.0.0.1:#{http_port}/api/v1"
       assert_match "openapi:", shell_output("curl -s --retry 10 --retry-connrefused #{api}/openapi.yaml")
 
@@ -58,9 +57,6 @@ class MailtrapLocal < Formula
         Hello from Homebrew
       EOS
       assert_match "Homebrew test", shell_output("curl -s #{api}/messages")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

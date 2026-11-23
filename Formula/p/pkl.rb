@@ -22,7 +22,7 @@ class Pkl < Formula
   end
 
   def install
-    ENV["JAVA_HOME"] = formula_opt_prefix("openjdk@21")
+    ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
 
     arch = Hardware::CPU.arm? ? "aarch64" : "amd64"
     target_os = OS.mac? ? "mac" : "linux"

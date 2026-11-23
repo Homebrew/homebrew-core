@@ -72,16 +72,12 @@ class Arjun < Formula
       HTTPServer(("localhost", #{port}), Handler).serve_forever()
     PYTHON
 
-    server_pid = spawn python3, testpath/"server.py"
-    sleep 10
+    with_test_process(python3, testpath/"server.py") do
+      sleep 10
 
-    begin
       dbfile = libexec/Language::Python.site_packages(python3)/"arjun/db/small.txt"
       output = shell_output("#{bin}/arjun -u http://localhost:#{port}/ -m GET -w #{dbfile}")
       assert_match "No parameters were discovered", output
-    ensure
-      Process.kill("TERM", server_pid)
-      Process.wait(server_pid)
     end
   end
 end

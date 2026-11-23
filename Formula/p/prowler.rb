@@ -1253,13 +1253,11 @@ class Prowler < Formula
     sha256 "6d8684c69009be49e1b18ec251a5eb0d7e24f93624990a8a124a1da66a92fc8a"
   end
 
-  def openssl = deps.map(&:name).find { |dep| dep.start_with?("openssl@") }
-
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
     # Keep keg-only `aws-lc` headers (via `kingfisher`) from shadowing OpenSSL for `openssl-sys`
-    ENV.prepend_path "HOMEBREW_INCLUDE_PATHS", formula_opt_include(openssl)
+    ENV.prepend_path "HOMEBREW_INCLUDE_PATHS", dep("openssl").opt_include
     ENV.O0
 
     venv = virtualenv_install_with_resources

@@ -28,7 +28,7 @@ class Zellij < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
+  def openssl = deps("openssl").first&.name
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args

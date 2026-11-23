@@ -31,8 +31,6 @@ class Projectable < Formula
 
   deny_network_access!
 
-  def openssl = deps.map(&:name).find { |d| d.match?(/^openssl(@\d+(\.\d+)*)?$/) }
-
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
   end
@@ -41,7 +39,7 @@ class Projectable < Formula
     ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["LIBSSH2_SYS_USE_PKG_CONFIG"] = "1"
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl)
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     system "cargo", "install", *std_cargo_args
   end
@@ -66,11 +64,12 @@ class Projectable < Formula
       Process.wait(pid)
     end
 
+    openssl_lib = dep("openssl").opt_lib
     [
       formula_opt_lib("libgit2")/shared_library("libgit2"),
       formula_opt_lib("libssh2")/shared_library("libssh2"),
-      formula_opt_lib(openssl)/shared_library("libcrypto"),
-      formula_opt_lib(openssl)/shared_library("libssl"),
+      openssl_lib/shared_library("libcrypto"),
+      openssl_lib/shared_library("libssl"),
     ].each do |library|
       assert Utils.binary_linked_to_library?(bin/"prj", library),
              "No linkage with #{library.basename}! Cargo is likely using a vendored version."

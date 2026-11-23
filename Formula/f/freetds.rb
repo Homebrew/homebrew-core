@@ -41,13 +41,14 @@ class Freetds < Formula
   deny_network_access!
 
   def install
+    openssl_prefix = dep("openssl").opt_prefix
     args = %W[
       --prefix=#{prefix}
       --with-tdsver=7.3
       --mandir=#{man}
       --sysconfdir=#{etc}
       --with-unixodbc=#{formula_opt_prefix("unixodbc")}
-      --with-openssl=#{formula_opt_prefix("openssl@4")}
+      --with-openssl=#{openssl_prefix}
       --enable-sybase-compat
       --enable-krb5
       --enable-odbc-wide

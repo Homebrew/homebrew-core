@@ -92,9 +92,9 @@ class Vineyard < Formula
     headers.each { |header| ENV.append "CXXFLAGS", "-include boost/process/v1/#{header}.hpp" }
 
     # LLVM is keg-only.
-    llvm = deps.map(&:to_formula).find { |f| f.name.match?(/^llvm(@\d+)?$/) }
-    ENV.prepend_path "PYTHONPATH", llvm.opt_prefix/Language::Python.site_packages(python3)
+    ENV.prepend_path "PYTHONPATH", dep("llvm").opt_prefix/Language::Python.site_packages(python3)
 
+    openssl_prefix = dep("openssl").opt_prefix
     args = [
       "-DBUILD_VINEYARD_PYTHON_BINDINGS=OFF",
       "-DBUILD_VINEYARD_TESTS=OFF",
@@ -103,7 +103,7 @@ class Vineyard < Formula
       "-DCMAKE_FIND_PACKAGE_PREFER_CONFIG=ON", # for newer protobuf
       "-DCMAKE_POLICY_VERSION_MINIMUM=3.5",
       "-DLIBGRAPELITE_INCLUDE_DIRS=#{formula_opt_include("libgrape-lite")}",
-      "-DOPENSSL_ROOT_DIR=#{formula_opt_prefix("openssl@3")}",
+      "-DOPENSSL_ROOT_DIR=#{openssl_prefix}",
       "-DPYTHON_EXECUTABLE=#{python3}",
       "-DUSE_EXTERNAL_ETCD_LIBS=ON",
       "-DUSE_EXTERNAL_HIREDIS_LIBS=ON",

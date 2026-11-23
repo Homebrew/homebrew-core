@@ -38,14 +38,11 @@ class Esbmc < Formula
   # Avoid std::atomic<double> arithmetic, which needs libc++ 18 or newer.
   patch :DATA
 
-  def python = deps.map(&:name).find { |d| d.match?(/^python(@\d+(\.\d+)*)?$/) }
-
-  def llvm = deps.map(&:name).find { |d| d.match?(/^llvm(@\d+(\.\d+)*)?$/) }
-
   def install
+    llvm_lib = dep("llvm").opt_lib
     args = %W[
-      -DLLVM_DIR=#{formula_opt_lib(llvm)}/cmake/llvm
-      -DClang_DIR=#{formula_opt_lib(llvm)}/cmake/clang
+      -DLLVM_DIR=#{llvm_lib}/cmake/llvm
+      -DClang_DIR=#{llvm_lib}/cmake/clang
       -DPython3_EXECUTABLE=#{python3}
       -DBitwuzla_DIR=#{formula_opt_prefix("bitwuzla")}
       -DENABLE_PYTHON_FRONTEND=ON
@@ -62,7 +59,8 @@ class Esbmc < Formula
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
-    bin.env_script_all_files libexec/"bin", PATH: "#{formula_opt_libexec(python)}/bin:$PATH"
+    python_libexec = dep("python").opt_libexec
+    bin.env_script_all_files libexec/"bin", PATH: "#{python_libexec}/bin:$PATH"
   end
 
   test do

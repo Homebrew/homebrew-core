@@ -79,7 +79,7 @@ class Rpm < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix("openssl@4")
+    ENV["OPENSSL_DIR"] = dep("openssl").opt_prefix
 
     resource("rpm-sequoia").stage do |r|
       with_env(PREFIX: prefix) do

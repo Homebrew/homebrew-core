@@ -32,14 +32,10 @@ class MagicWormholeRs < Formula
 
   test do
     n = rand(1e6)
-    pid = spawn bin/"wormhole-rs", "send", "--code=#{n}-homebrew-test", test_fixtures("test.svg")
-    begin
+    with_test_process(bin/"wormhole-rs", "send", "--code=#{n}-homebrew-test", test_fixtures("test.svg")) do
       sleep 1
       exec bin/"wormhole-rs", "receive", "--noconfirm", "#{n}-homebrew-test"
       assert_path_exists testpath/"received.svg"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

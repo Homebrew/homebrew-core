@@ -23,14 +23,8 @@ class Cffi < Formula
 
   pypi_packages exclude_packages: "pycparser"
 
-  def pythons
-    deps.map(&:to_formula)
-        .select { |f| f.name.start_with?("python@") }
-        .map { |f| f.opt_libexec/"bin/python" }
-  end
-
   def install
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       system python, "-m", "pip", "install", *std_pip_args(build_isolation: true), "."
     end
   end
@@ -57,7 +51,7 @@ class Cffi < Formula
       print(lib.sum(1, 2))
     PYTHON
 
-    pythons.each do |python|
+    python3_interpreters.each do |python|
       assert_equal 3, shell_output("#{python} sum.py").to_i
     end
   end

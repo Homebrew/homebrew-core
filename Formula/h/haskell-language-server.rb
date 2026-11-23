@@ -35,8 +35,7 @@ class HaskellLanguageServer < Formula
   end
 
   def ghcs
-    deps.filter_map { |dep| dep.to_formula if dep.name.match? "ghc" }
-        .sort_by(&:version)
+    deps("ghc").map(&:to_formula).sort_by(&:version)
   end
 
   def install

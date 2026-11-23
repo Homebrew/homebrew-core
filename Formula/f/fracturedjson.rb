@@ -39,7 +39,7 @@ class Fracturedjson < Formula
   def install
     ENV["XDG_RUNTIME_DIR"] = buildpath
 
-    dotnet = deps.find { |d| d.name.match? Version.formula_optionally_versioned_regex(:dotnet) }.to_formula
+    dotnet = dep("dotnet").to_formula
     args = %W[
       --configuration Release
       --framework net#{dotnet.version.major_minor}
