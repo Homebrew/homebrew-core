@@ -3,18 +3,18 @@ class Jupytext < Formula
 
   desc "Jupyter notebooks as Markdown documents, Julia, Python or R scripts"
   homepage "https://jupytext.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/79/7f/5d2cc9618eca61dbc2d76628da3622a311702abd6b15c824bbf2b53e0db6/jupytext-1.19.6.tar.gz"
-  sha256 "ba1d143bb3751e054d3164376b148ee8fa74e1a860fc9411e1da93ff588b8a17"
+  url "https://files.pythonhosted.org/packages/73/d5/b3bea5a85c57f79affd632b1a844417dc3f99063a99463f1a725b8c6c4a1/jupytext-1.19.7.tar.gz"
+  sha256 "5d440c437d7784edee1b2ff3a652420164c30f110cd8441189dfc2df766fde68"
   license "MIT"
   head "https://github.com/mwouts/jupytext.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "8173d8e6921ebc4d39621689913527509d98ec7ba18492776ef4be1510fc6fe7"
-    sha256 cellar: :any, arm64_tahoe:       "4c0b6cd9248b894678e3c07c7d224be9fce1b627f1a637857aa4d14aaa43ff1d"
-    sha256 cellar: :any, arm64_sequoia:     "52cb6e8cb8d08f7aad40fa9d312f3d40e7474b5640cb4146e55d87e17d337859"
-    sha256 cellar: :any, arm64_linux:       "6ac4d12d82795fa8af521d21a838e1a64927a66eacdb5d813eaba7376ecf44af"
-    sha256 cellar: :any, x86_64_linux:      "5e617572426bf56747f196f76f9fa99f9f9044e88a8cab06daad8df37a708d0a"
+    manifest_sha256 "334b675dc2ae1298f7bff8c0047424a2c48149297cb44fbddebfc405b6525674"
+    sha256 cellar: :any, arm64_golden_gate: "78cbbe1bb9999eb7b16c0e56edc5844497ffe2fa1a4cb37b72d5ec9db8c0bcc0"
+    sha256 cellar: :any, arm64_tahoe:       "0174613267898c5c953dcd4bd53f16415f62a1ce0891aa8fa12ea340c20e411c"
+    sha256 cellar: :any, arm64_sequoia:     "b8c1f1510d58f2ff19fe558fe8c1175120114034a389f6ad427564ad9044e0c0"
+    sha256 cellar: :any, arm64_linux:       "cc847f3940604ae1061f8583d1ecdec10e1a05b98599bc2d36ee4d521b02adac"
+    sha256 cellar: :any, x86_64_linux:      "ce9751a1a8c1e0033cf04772ba760d2216ea6960c6a26366076d492f5e951dca"
   end
 
   depends_on "libyaml"
@@ -29,8 +29,8 @@ class Jupytext < Formula
   end
 
   resource "fastjsonschema" do
-    url "https://files.pythonhosted.org/packages/33/a4/9473c7c3b87009d9c1d74034e4a0f6a35ff0d42dd0f9866d0c3ec4e9217b/fastjsonschema-2.22.2.tar.gz"
-    sha256 "72064e12356a7d6ef02165be2946b9abadbdf238536e07eb587e3dbaa33099cf"
+    url "https://files.pythonhosted.org/packages/1c/80/cc3c531dd70c8ffa1045aecf33c97c5581cc8fd0e824b3ecb2c1881550c1/fastjsonschema-2.22.3.tar.gz"
+    sha256 "8330c91b027dcf941efcb7b1f0998515ff95d177ea15bbabdfe8671965620901"
   end
 
   resource "jsonschema" do
@@ -49,13 +49,13 @@ class Jupytext < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/59/fc/f8d0863f8862f25602c0404d75568e89fb6b4109804645e5cdfb1be5cf56/mdit_py_plugins-0.6.1.tar.gz"
-    sha256 "a2bca0f039f39dbd35fb74ae1b5f998608c437463371f0ff7f49a19a17a114d0"
+    url "https://files.pythonhosted.org/packages/ad/a4/77a4e1be19fd9b08993c76d5e54979ac836b327754f1f5fecfed1b56cc67/mdit_py_plugins-0.7.0.tar.gz"
+    sha256 "26d2179227aaf4d1dc7acffe7a738cbd15cade6b5a61cff0a2cbf9fed93efede"
   end
 
   resource "mdurl" do
@@ -74,13 +74,13 @@ class Jupytext < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "referencing" do
