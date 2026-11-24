@@ -13,8 +13,9 @@ class Securefs < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "b5b05042aec54595b5545c3050eddd44ffdf303ac49e1a145a6336d725ecad70"
-    sha256 x86_64_linux: "8db7a45b6e3f6fbe5880131e433afc7e94f1a2137d8e18d27a0a66381dba4440"
+    manifest_sha256 "fdcf665a269a314d2eb24d2778ce5886f97910db1f2f0ae4e87438d6b95fda64"
+    sha256 arm64_linux:  "7a0704cd3a88a211ece046a4f3fddfd62b93a18e3be8452649cd585f422c9631"
+    sha256 x86_64_linux: "867baafa2fd005452913454c7c399759e9b06c2e96a0f76d169baaa927930496"
   end
 
   deprecate! date: "2026-06-21", because: "needs unmaintained `libfuse@2`"
