@@ -1,8 +1,8 @@
 class Libupnpp < Formula
   desc "C++ wrapper for libnpupnp"
   homepage "https://www.lesbonscomptes.com/upmpdcli/libupnpp-refdoc/libupnpp-ctl.html"
-  url "https://www.lesbonscomptes.com/upmpdcli/downloads/libupnpp-1.0.4.tar.gz"
-  sha256 "4738a19be51c09bd59a26b28e305172e2052c0e970b2fad92320a2d7cf1157c5"
+  url "https://www.lesbonscomptes.com/upmpdcli/downloads/libupnpp-1.0.5.tar.gz"
+  sha256 "f83da1bfde4823bb079ce228a2c9abd695274ae572758dbb02159184db150dd0"
   license "LGPL-2.1-or-later"
   head "https://framagit.org/medoc92/libupnpp.git", branch: "master"
 
