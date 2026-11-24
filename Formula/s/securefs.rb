@@ -4,7 +4,7 @@ class Securefs < Formula
   url "https://github.com/netheril96/securefs/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "d7fac7adc70c09473173aeadee5b7041d7e63fbf392ef40bdd77888590bb12a2"
   license "MIT"
-  revision 11
+  revision 12
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   livecheck do
@@ -26,17 +26,23 @@ class Securefs < Formula
   depends_on "abseil"
   depends_on "argon2"
   depends_on "cryptopp"
-  depends_on "fruit"
-  depends_on "jsoncpp"
   depends_on "libfuse@2" # FUSE 3 issue: https://github.com/netheril96/securefs/issues/181
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "protobuf"
   depends_on "sqlite"
   depends_on "uni-algo"
-  depends_on "utf8proc"
+
+  # Fix `erase` ambiguity with C++20 `std::erase`
+  patch do
+    url "https://github.com/netheril96/securefs/commit/ff95e6525aa6a5980ed9e0d45e14025efbdeb2bd.patch?full_index=1"
+    sha256 "fcb79c66774a4272e1dc5d1ec137dce0814ab40119927a2eb82095b36cfa7c45"
+    type :unofficial
+    resolves "https://github.com/netheril96/securefs/issues/236"
+  end
 
   def install
     args = %w[
+      -DCMAKE_CXX_STANDARD=20
       -DSECUREFS_ENABLE_INTEGRATION_TEST=OFF
       -DSECUREFS_ENABLE_UNIT_TEST=OFF
       -DSECUREFS_USE_VCPKG=OFF
