@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.13.tar.gz"
-  sha256 "3a6616b044b199c6b798dc34e16a6cbca34567de8f6520fc9cfafb8169fe8015"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.14.tar.gz"
+  sha256 "254f5e50773d59554671ec8f26dbef2ebcc3a127942498bd5213765b4d63f743"
   license "MIT"
 
   livecheck do
@@ -26,14 +26,6 @@ class Garnet < Formula
     depends_on "cmake" => :build
     depends_on "util-linux" => :build
     depends_on "libaio"
-  end
-
-  # Keep using Garnet's stream adapter when .NET defines the same type name.
-  patch do
-    url "https://github.com/microsoft/garnet/commit/3b7fa55c398b396d6eaf26c8b22df57d2475936a.patch?full_index=1"
-    sha256 "5ac2fdce31dc5e47add3694993459c287f5dece20c26d951185ed3e5cefac26c"
-    type :unofficial
-    resolves "https://github.com/microsoft/garnet/pull/2385"
   end
 
   allow_network_access! :test
