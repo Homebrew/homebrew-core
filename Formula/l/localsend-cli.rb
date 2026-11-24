@@ -1,8 +1,8 @@
 class LocalsendCli < Formula
   desc "Terminal client for sending files between nearby devices"
   homepage "https://localsend.org"
-  url "https://github.com/localsend/localsend/archive/refs/tags/v1.18.2.tar.gz"
-  sha256 "4425dfcf2e016d6540ea44941deb4ba6568201cc47d7f08753606e6e4b2769cd"
+  url "https://github.com/localsend/localsend/archive/refs/tags/v1.19.0.tar.gz"
+  sha256 "2906534b592685b98692d934805dbedd8158d62eec9931874250a010bfffa79b"
   license "Apache-2.0"
 
   bottle do
@@ -27,7 +27,8 @@ class LocalsendCli < Formula
 
   test do
     assert_match "localsend-cli #{version}", shell_output("#{bin}/localsend-cli --version")
-    assert_match "Not a file: missing.txt", shell_output("#{bin}/localsend-cli --file missing.txt 2>&1", 1)
+    assert_match "Not a file or directory: missing.txt",
+                 shell_output("#{bin}/localsend-cli send missing.txt 2>&1", 1)
 
     require "pty"
     require "socket"
