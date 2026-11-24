@@ -4,8 +4,8 @@ class OrTools < Formula
   url "https://github.com/google/or-tools/archive/refs/tags/v9.15.tar.gz"
   sha256 "6395a00a97ff30af878ee8d7fd5ad0ab1c7844f7219182c6d71acbee1b5f3026"
   license "Apache-2.0"
-  revision 16
-  head "https://github.com/google/or-tools.git", branch: "stable"
+  revision 17
+  head "https://github.com/google/or-tools.git", branch: "main"
 
   livecheck do
     url :stable
@@ -34,14 +34,6 @@ class OrTools < Formula
 
   uses_from_macos "bzip2"
 
-  on_macos do
-    depends_on "cgl"
-    depends_on "gmp"
-    depends_on "mpfr"
-    depends_on "openblas"
-    depends_on "osi"
-  end
-
   on_linux do
     depends_on "zlib-ng-compat"
   end
@@ -62,6 +54,8 @@ class OrTools < Formula
       -DBUILD_EXAMPLES=OFF
       -DUSE_SCIP=ON
     ]
+    args += %w[EXE SHARED].map { |type| "-DCMAKE_#{type}_LINKER_FLAGS=-Wl,-dead_strip_dylibs" } if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
