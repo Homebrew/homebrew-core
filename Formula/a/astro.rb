@@ -1,8 +1,8 @@
 class Astro < Formula
   desc "To build and run Airflow DAGs locally and interact with the Astronomer API"
   homepage "https://www.astronomer.io/"
-  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.47.0.tar.gz"
-  sha256 "d0b7363c415507c77aade69b070490b84c9e4df35f972f77714ddf8d733bb16d"
+  url "https://github.com/astronomer/astro-cli/archive/refs/tags/v1.48.0.tar.gz"
+  sha256 "985c9db632670c5434b5d36fa7a907a3635fdc9fd1eb29e4e644bebc805ace01"
   license "Apache-2.0"
   head "https://github.com/astronomer/astro-cli.git", branch: "main"
 
@@ -12,11 +12,12 @@ class Astro < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4577646bb520932f479b075a6b93f2627880067b92443c0de0c7cf1722553933"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "96bee68b28ff85e5642c3bc790513f0a2bc63432e684c58558b23b9a843046ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ebfdaff81d8a69d518bfcef39c13a53be744076b7a0c621aa9de9ff91c60f23"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d9de4f9146c0532a1c87e20445309f3486c4e3b64ad42f1764bc53044f5ac29c"
-    sha256 cellar: :any,                 x86_64_linux:      "b585563a1925769430cd83d230cff42dab1cabde3a91c7d05119aef588511d2a"
+    manifest_sha256 "3d5c449e9bc19be74c14556d5acf87fb44af358db8670b29882eb5b007468e17"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eaf6e128efae2859a10be08ba19471f594c81bfe722d83801f1ac62ba59f8648"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69145b7f13144594dcd9f138af794244ac07ff4fc24c39b33ac2957aa5e24691"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e9bff377b91c2b33319e86761508b55b3628de2a759d5a362a7364e5d42e11b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "60162f827f8b5deaa92918b6d96aff0444813b77c5a621060ebbf2b7f1e96ceb"
+    sha256 cellar: :any,                 x86_64_linux:      "e15954311b8b177a5e395e5f066f20159ef4f6edc662ce2f18a48352f4839d10"
   end
 
   depends_on "go" => :build
