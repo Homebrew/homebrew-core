@@ -5,6 +5,15 @@ class LanOrangutan < Formula
   sha256 "cf6a2ab8fe1363f08d153f32acbcf25b6addb1f2fa16888cab686a4c5fd09bc5"
   license "MIT"
 
+  bottle do
+    manifest_sha256 "03a3a34ede6bd212068cd34c2a305e78381a21ee77ea207559f9505cca1485e3"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77b7633bfb656aaff0da231edbef1fad22f2f84756bb680a9b914887690bce9a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77b7633bfb656aaff0da231edbef1fad22f2f84756bb680a9b914887690bce9a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77b7633bfb656aaff0da231edbef1fad22f2f84756bb680a9b914887690bce9a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "498b2ac2037a3d5a44bf2dd8c736623c6c46ec9f790c5c972f7e2d7d1eefd48a"
+    sha256 cellar: :any,                 x86_64_linux:      "8e9a003d298cc8bdda7812a6451ba0f45be9b5b1c9fb16387bc624b1758dfcb0"
+  end
+
   depends_on "go" => :build
   depends_on "nmap"
 
