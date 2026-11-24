@@ -17,11 +17,12 @@ class OpencvAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "50100f319d175cd623b5dba8bae72f19bd039569bc212931cf45c30e9cc71ecc"
-    sha256 arm64_tahoe:       "9ee879c7351051ec38d8cd5ef15613c5da704f26c27b6e171a6ac6e3a94f8cce"
-    sha256 arm64_sequoia:     "3cc94997de5d22dbaf7fc185658131e9a92180c5f8baca9c22be7525558d2cbb"
-    sha256 arm64_linux:       "2c7fd71e18929a2da569ea531c13289527cb190a9293fbe763f81727b73998c1"
-    sha256 x86_64_linux:      "6b93020395ec50143e40d7af73e4430405cd76869ddc8861d5b453383c30cf85"
+    manifest_sha256 "bcb4f434944eab53c389d7f11f086a61cb2d3890ba6a264defcbfb52dd4ab5b2"
+    sha256 arm64_golden_gate: "fa3cc579f9fba9339a5ccad0fd853138277f8a4d25b3edeb8196661181fb2437"
+    sha256 arm64_tahoe:       "b0408885e97472440ba355272b02c375386d807f0ae167096c933699198d9162"
+    sha256 arm64_sequoia:     "5bb8b3b20a22894425ac1835ad2f999c13ea5c0017f7685287da88bca3f78feb"
+    sha256 arm64_linux:       "2bb3b132b0b7e4817a1e94e379205c430cf7c12084722fe6d65ab2a230dbd358"
+    sha256 x86_64_linux:      "cc35a942304806c7b34c5ea5ac9f4636b237a645da0cdd6672191ac142179bd7"
   end
 
   keg_only :versioned_formula
