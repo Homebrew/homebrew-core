@@ -1,8 +1,8 @@
 class Xcodes < Formula
   desc "Command-line tool to install and switch between multiple versions of Xcode"
   homepage "https://github.com/XcodesOrg/xcodes"
-  url "https://github.com/XcodesOrg/xcodes/archive/refs/tags/2.2.0.tar.gz"
-  sha256 "29fcc60507f1b226d1a7384dac34c2b0e56067575bb428fc7bb2d3d030683fa9"
+  url "https://github.com/XcodesOrg/xcodes/archive/refs/tags/2.2.1.tar.gz"
+  sha256 "b498c1fc59e649a771a48631d45a978e6d8feadebc6de13b99cc737343e181a6"
   license "MIT"
 
   livecheck do
