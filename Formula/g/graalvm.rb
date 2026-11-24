@@ -1,8 +1,8 @@
 class Graalvm < Formula
   desc "JDK distribution with Graal compiler and Native Image"
   homepage "https://www.graalvm.org/"
-  url "https://github.com/oracle/graal/archive/refs/tags/graal-25.5.5.0.3.tar.gz"
-  sha256 "aeeedf50bf8c65a150fab0ac719b2c7a829c206ec314af62296a89724aa899ba"
+  url "https://github.com/oracle/graal/archive/refs/tags/graal-25.6.5.1.tar.gz"
+  sha256 "3f7b06acfd347a37274c783cad95472c0d982d7ed81e0d0fe3ca6ad76e4e8172"
   license "GPL-2.0-only" => { with: "Classpath-exception-2.0" }
   compatibility_version 1
 
@@ -12,11 +12,12 @@ class Graalvm < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4276f6de7a07d530228b4960a659b8cf6a2133ed112cbff9a840cd22ab20fd05"
-    sha256 cellar: :any, arm64_tahoe:       "7cb69ac3709c9e24f6e47394e97ddccc26e60a21a7d7db4a39f4fa35e6c153e8"
-    sha256 cellar: :any, arm64_sequoia:     "cd1fd8d4e043ac5663fc7cd843fd18624a99c760e819b96e3412ae6b539ba001"
-    sha256               arm64_linux:       "0698ef97287afe7c884a04fb0437f587ef5f20dc3d8465ae92fb03c9cd378176"
-    sha256               x86_64_linux:      "989904fc55ee5a0d6741a34172933ad849141612b953b976cdf22f0e041e2adf"
+    manifest_sha256 "7e30c4d55744ba8f2ff7d6ad947ff44e71fb9ec0ad9f2d1d37b98464fa44ac0a"
+    sha256 cellar: :any, arm64_golden_gate: "123915038f75e55c3e2c9b2f843253f7e81fdbc1d3d7ec7e613d1148dc9495c2"
+    sha256 cellar: :any, arm64_tahoe:       "8c5e1dbac816916b36ba2474bbd2087622267abb1a5d692e28cf378eada4bb59"
+    sha256 cellar: :any, arm64_sequoia:     "8af3e6c4366e184d2f603adf45184a26efa729ef6c6220839329fd466a9230f4"
+    sha256               arm64_linux:       "f3b8268bb35194f404fe2ac972aea941de14570980ad2ded8d0723499136286b"
+    sha256               x86_64_linux:      "531182ffc1410ea3d40c50abc8b0cc4a8d882c0122fa5ee1c1f9e94755db8523"
   end
 
   keg_only "installs a JDK which shadows openjdk"
@@ -56,9 +57,9 @@ class Graalvm < Formula
   end
 
   resource "labs-openjdk" do
-    url "https://github.com/graalvm/labs-openjdk/archive/refs/tags/jvmci-25.5-b26.tar.gz"
-    version "25.5-b26"
-    sha256 "722989310da5d47fea8639a43e3c8884a06909f5f7777a4b36f9e5108b66cae4"
+    url "https://github.com/graalvm/labs-openjdk/archive/refs/tags/jvmci-25.6-b29.tar.gz"
+    version "25.6-b29"
+    sha256 "d83845116f0fdbe8c0d804e9450e776f192d610eb3ca4c011658ca9be475b8b4"
 
     livecheck do
       url "https://raw.githubusercontent.com/oracle/graal/refs/tags/graal-#{LATEST_VERSION}/common.json"
