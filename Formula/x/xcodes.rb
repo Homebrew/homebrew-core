@@ -11,9 +11,10 @@ class Xcodes < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81c13eb2a30b3eaaa45888af463df13ca68dca033d665dfc92be4544ad65b199"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95c6a67be6585a93475dd06bee1b8060d4a6673a7f83c8313962c97acbe98d90"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a072effea08e3d25e19cce9b838ed0d176f5fa178bb32a818aa05c904a3bb1c5"
+    manifest_sha256 "b1ec95da3a3be232bd5f15c348b4a9bdefea47d7f0e866761c9033c87de7a13b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d777effdc52421eb8a02fe7aafbb2d29d1c91fa48b5b3da3bc2235bf70a42ab1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "782c02a9dc9ededdaf4e6a0ed4c26a9fd47fd10be6e4f049add8e3d502248444"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03c72ff6484f60faf9b0108fd6de11fd40067d49c5a3a2ce1ba46bcd9c283612"
   end
 
   depends_on macos: :sequoia # older SDK fail to build on non-'Sendable' type 'Logger'
