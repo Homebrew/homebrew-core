@@ -3,8 +3,8 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/00/1c/b3b216e7c09966e504f78b241ff1e3e7712690262179ce2103553f821c58/apm_cli-0.37.0.tar.gz"
-  sha256 "1078dc4d5bd7d797f4924548f684daffd026df740b31f99b17fc13958e5da762"
+  url "https://files.pythonhosted.org/packages/c9/ce/da4a1df860d43c5d0a72f6160a4972332bbb9346a1c4402229734100a42e/apm_cli-0.38.0.tar.gz"
+  sha256 "6dfac2fdc8ab68586afb2b1a5a6db3c1b7ab569ff0edc525448aa85d0f92bd38"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
@@ -86,8 +86,8 @@ class Apm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
-    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
+    url "https://files.pythonhosted.org/packages/6c/bf/a895b0b8e83d0a64d134f658e393e83998abfc22bbb8b58181ce55268706/filelock-4.3.0.tar.gz"
+    sha256 "143407310acf479e82d88068e3b9a6486f45fb410c0ed8729fe7359eaabeb6f1"
   end
 
   resource "frozenlist" do
@@ -281,8 +281,8 @@ class Apm < Formula
   end
 
   resource "watchdog" do
-    url "https://files.pythonhosted.org/packages/e2/55/087e45c2a3ed8223bc9f30d6b65f051de35513cfc30c989c2b1a14bf862e/watchdog-7.1.0.tar.gz"
-    sha256 "d3861e255416f49a1384474cb2efa097de165fb330d4c5432ce6708b509ed922"
+    url "https://files.pythonhosted.org/packages/33/d3/38e18c9559b96fca53df98979e72cafcd498aba41b57f0830fc31008ffc2/watchdog-7.1.1.tar.gz"
+    sha256 "d7dc3bf0c3417c002ee976e958479c54d8ca18cbb3532fadbe69511fa389da15"
   end
 
   resource "websockets" do
