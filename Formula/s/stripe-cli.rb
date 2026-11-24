@@ -1,8 +1,8 @@
 class StripeCli < Formula
   desc "Command-line tool for Stripe"
   homepage "https://docs.stripe.com/stripe-cli"
-  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.55.14.tar.gz"
-  sha256 "32f939a97d38be16cb275d2ed836dc0f5ac596fb48f36cf16d9378c7fb5eb3ed"
+  url "https://github.com/stripe/stripe-cli/archive/refs/tags/v1.55.15.tar.gz"
+  sha256 "a514043797598ad7544276c387178776711a03811a961c1b22c21aeff08f6d22"
   license "Apache-2.0"
 
   # Upstream creates releases as pre-releases before promoting them
