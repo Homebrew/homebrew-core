@@ -4,6 +4,7 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.23.2.tar.gz"
   sha256 "2f23784e27d210a23b059a847c305e305034fb4a842fface3ff37283f85a2b40"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
@@ -15,22 +16,9 @@ class Onnx < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "abseil"
   depends_on "protobuf"
 
   uses_from_macos "python" => :build
-
-  # Apply Fedora's workaround to allow `onnxruntime` to use `onnx` built without
-  # ONNX_DISABLE_STATIC_REGISTRATION[^1]. We can't use this option as it will
-  # break functionality for any dependents/users expecting the default behavior.
-  #
-  # [^1]: https://github.com/microsoft/onnxruntime/issues/8556#issuecomment-1006091632
-  patch do
-    url "https://src.fedoraproject.org/rpms/onnx/raw/4de8a450afd87b1ba1931f50d841e9c50b63d8a0/f/0004-Add-fixes-for-use-with-onnxruntime.patch"
-    sha256 "d9ddb735c065fd5dae11ab79371e62bdcca157a6d2a7705cc83ee612abeaaa98"
-    type :unofficial
-    resolves "https://github.com/microsoft/onnxruntime/issues/8556"
-  end
 
   def install
     # FIXME: From v1.22+, onnx internals are hidden by default, which breaks
@@ -44,6 +32,7 @@ class Onnx < Formula
       -DONNX_USE_PROTOBUF_SHARED_LIBS=ON
       -DPython3_EXECUTABLE=#{which("python3")}
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # strip abseil linkage
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
