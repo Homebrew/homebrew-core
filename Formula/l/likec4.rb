@@ -1,16 +1,17 @@
 class Likec4 < Formula
   desc "Architecture modeling tool with live diagrams from code"
   homepage "https://likec4.dev"
-  url "https://registry.npmjs.org/likec4/-/likec4-1.61.0.tgz"
-  sha256 "892ea1363fa213f7425215bff61e59dbc4f336d0f855eef26a184e2697ed5853"
+  url "https://registry.npmjs.org/likec4/-/likec4-1.61.1.tgz"
+  sha256 "5d778c7adf94c81deef7c586c5585bfea9bf7a75478547cc80dfae5aa58f16ca"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "6e62f09bf7669ed6f901c5a9b1397ed094dbc5447bfc49c1b7a9aa1783fd0a1b"
-    sha256 cellar: :any,                 arm64_tahoe:       "6e62f09bf7669ed6f901c5a9b1397ed094dbc5447bfc49c1b7a9aa1783fd0a1b"
-    sha256 cellar: :any,                 arm64_sequoia:     "6e62f09bf7669ed6f901c5a9b1397ed094dbc5447bfc49c1b7a9aa1783fd0a1b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6cb79f79ec3d02ecd23f9ebae062682d60152e101d629e364905ac0e07f61d68"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "43798fbae80afcffb6f523b0d6d31b695736836eb56a102860e52888bd52e68f"
+    manifest_sha256 "379a8ef640abc96468593842796194555ba7fe87986833686da0fa771bc105db"
+    sha256 cellar: :any,                 arm64_golden_gate: "da03e66527c4acd001aff966b682f6837db125a07e5c484bae098c35644ec1eb"
+    sha256 cellar: :any,                 arm64_tahoe:       "da03e66527c4acd001aff966b682f6837db125a07e5c484bae098c35644ec1eb"
+    sha256 cellar: :any,                 arm64_sequoia:     "da03e66527c4acd001aff966b682f6837db125a07e5c484bae098c35644ec1eb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "684be4547db5cd7adfc63d24db64297467caec0addd1aa04ffb0d31c87371248"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0d88f1bdbbaeb9983b7f94a048e6695e687210c254f12665c73fcf126f55b9d7"
   end
 
   depends_on "graphviz"
