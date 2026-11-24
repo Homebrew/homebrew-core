@@ -1,18 +1,18 @@
 class DezoomifyCli < Formula
   desc "Download zoomable images from museum websites, image galleries, and map viewers"
   homepage "https://dezoomify.ophir.dev"
-  url "https://github.com/dezoomify/dezoomify/archive/refs/tags/26.11.19.tar.gz"
-  sha256 "ca822190ad74f3d5d8110f6135bced40053a94e74d3524b676276faeb9f87699"
+  url "https://github.com/dezoomify/dezoomify/archive/refs/tags/26.11.24.tar.gz"
+  sha256 "719bb3b2fc9d78f9e4e27cdafb59ae055e981bb2af14f9d6d6895b1a4d7bcadf"
   license "GPL-3.0-or-later"
   head "https://github.com/dezoomify/dezoomify.git", branch: "main"
 
   bottle do
-    manifest_sha256 "aa038a4402ccc5fa6d93c79871bbeb67686262fa80c3d2c13750cf5ea9f547ad"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47c213a9040e68dc25a8e1584c05416791826348014523379d8dd061cdd9a771"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "691ec215357bc33ac33ae6592155793771cbd9c251848adc68c5b2b8cee438ca"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac0103adf78429b95ef9fa1d197c82e4ede1b7bd7d2cc6c9d96ffb667ddbb7aa"
-    sha256 cellar: :any,                 arm64_linux:       "41f0893331069fbdaf7964669f65f86447c46184af7377e7475b9c3bbf97293c"
-    sha256 cellar: :any,                 x86_64_linux:      "c89869e914fd627787606d034ac8ed8ba898b6c497189b0f5bd2519f72d12206"
+    manifest_sha256 "6220dfe318d08070f56208185aa8b4ed121f850e2188877ccea421a778e8e671"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc3a24828307953017e543a22c4909765acc4c4b19857820d253909566fb31f7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa8f820fc0c3215015a94fac0f78c105c75be5341e3035e25a84c8c094f372aa"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "147869406a9e8d312628615377c83a66e6e1da6def06e4870b810c563066fb63"
+    sha256 cellar: :any,                 arm64_linux:       "82fa843c642c90f5cc70197cab8ce5b4433e1eeddc0d59c3b0a883886d5d1083"
+    sha256 cellar: :any,                 x86_64_linux:      "b22368cc7c82f9582bbc98af1f08b6f6af3ebfe4bd2be1a3f4fae70a82f92740"
   end
 
   depends_on "node" => :build
