@@ -1,11 +1,10 @@
 class Mysql < Formula
   desc "Open source relational database management system"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-26.10/mysql-26.10.0.tar.gz"
-  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.10.0.orig.tar.gz"
-  sha256 "984507622ddfa4d84ad23fc56ec5b5f18f4fda328af5a23e5f5b1a062301ea2c"
+  url "https://cdn.mysql.com/Downloads/MySQL-26.10/mysql-26.10.0.1.tar.gz"
+  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.10.0.1.orig.tar.gz"
+  sha256 "3d91f6b127ffd2fbd04794c1a11a364a4c73f89c8c44d1e2a07f5661a1b7a46a"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
   compatibility_version 1
 
   livecheck do
@@ -15,11 +14,12 @@ class Mysql < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "001dfd1b4f5aed976df07de0c1ae8820b20a589b0cd73d05e5c415d780209e99"
-    sha256 arm64_tahoe:       "dfb7e53b85c1287da1f7d25eee0df4b5a1944bdf4214a2f92cb5cb4811332174"
-    sha256 arm64_sequoia:     "102d1fd659336a5c50f2862c8f92f6ab5e78043611a5d97e6761b21e46a65863"
-    sha256 arm64_linux:       "45b0bc21b2d0864c46d0199c830d1091270934206f5944188d23c9d602cc70cc"
-    sha256 x86_64_linux:      "72ef41ad06530721ac66715e7f3560c20ffbb771f8edf000382cac4c8329d55f"
+    manifest_sha256 "61bdef8593b578a1f66cc3af295d7f6020b7437b28a3a2e6a797dbe60b2787ca"
+    sha256 arm64_golden_gate: "7c21269e5c10cb3f197d67d0e50da85c68ed8de2d544ace93c9c1a5e543124f9"
+    sha256 arm64_tahoe:       "c262317d6f177f75204f34cd25972a3eabfed3e6f85353a07cdad6db26aca38d"
+    sha256 arm64_sequoia:     "814bb091d27574eafafb787d1afa64b3b90f756fe799314abed9c06d37a8f5c0"
+    sha256 arm64_linux:       "96f70fb9b027d52e4ffeb770ca8c55230482fd8f9d4b7f67225ff71004331a9e"
+    sha256 x86_64_linux:      "8242a0b056be3cc11b7a9739a7fb86101e8a1e71c1bfa0e8e66b99f7dd5a8256"
   end
 
   depends_on "bison" => :build

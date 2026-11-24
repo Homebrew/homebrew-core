@@ -1,9 +1,9 @@
 class MysqlClient < Formula
   desc "Open source relational database management system"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-26.10/mysql-26.10.0.tar.gz"
-  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.10.0.orig.tar.gz"
-  sha256 "984507622ddfa4d84ad23fc56ec5b5f18f4fda328af5a23e5f5b1a062301ea2c"
+  url "https://cdn.mysql.com/Downloads/MySQL-26.10/mysql-26.10.0.1.tar.gz"
+  mirror "https://repo.mysql.com/apt/ubuntu/pool/mysql-innovation/m/mysql-community/mysql-community_26.10.0.1.orig.tar.gz"
+  sha256 "3d91f6b127ffd2fbd04794c1a11a364a4c73f89c8c44d1e2a07f5661a1b7a46a"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
   compatibility_version 1
 
@@ -12,11 +12,12 @@ class MysqlClient < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "1448e2cec677d0ffcfecc0b39d9f22fe2d1d7241dc603bf7a3ef8562c50d6279"
-    sha256 arm64_tahoe:       "1014c1eba3a9611d464abdcfd204dc54f8e2d44ca0b25e7a014504b5eccc46d9"
-    sha256 arm64_sequoia:     "ce20251d4ed4d0f4d02b8cd08c899604b192d2a6ef80a71453f9e8a0259945ba"
-    sha256 arm64_linux:       "38f815111faffdce34b6326a53350296fafcd65fe1737ec0e8156c322f948cf4"
-    sha256 x86_64_linux:      "43204ebce82b3396a61226368d0628aad4739919c2e8e5c5b622777fc325f12c"
+    manifest_sha256 "cc6bb74e90cf819a8cf7ddb3ab6a44d0fe4b6b6e4612bbdbb71d373bb63515ff"
+    sha256 arm64_golden_gate: "93312d43333561eacd21870eb39851d1e440f8e7bca2542be1a625a20353f60b"
+    sha256 arm64_tahoe:       "e47c9092b3f3566353f9203a85c659923bba79ff84930f13a13b4f607bae5efd"
+    sha256 arm64_sequoia:     "85699593804678b1e9c1fe3e257c016fea072e7af58df526a1544d84adafd536"
+    sha256 arm64_linux:       "fd219134d7f33d102eacded9f97c48862da2871b18885f01967aa70a17a355b6"
+    sha256 x86_64_linux:      "98c4108314b2c5d9111ec7df2f3ad617362ac8e066b34e9d5149c98273a9a4ea"
   end
 
   keg_only "it conflicts with mysql (which contains client libraries)"
