@@ -1,8 +1,8 @@
 class Libwps < Formula
   desc "Library to import files in MS Works format"
   homepage "https://libwps.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.14/libwps-0.4.14.tar.xz"
-  sha256 "365b968e270e85a8469c6b160aa6af5619a4e6c995dbb04c1ecc1b4dd13e80de"
+  url "https://downloads.sourceforge.net/project/libwps/libwps/libwps-0.4.15/libwps-0.4.15.tar.xz"
+  sha256 "5b29f1ccd5a0f0737d0f8ff49a1f1c01f5988833c028e7882525136c40674ccc"
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
   compatibility_version 1
 
@@ -30,6 +30,10 @@ class Libwps < Formula
   depends_on "pkgconf" => :build
   depends_on "librevenge"
 
+  # Backport upstream GCC patch
+  # https://sourceforge.net/p/libwps/code/ci/fb4ad0beb7aea9f3fdd18d8b4c06d7c28dd69199/
+  patch :DATA
+
   deny_network_access!
 
   def install
@@ -53,3 +57,59 @@ class Libwps < Formula
     system "./test"
   end
 end
+
+__END__
+commit fb4ad0beb7aea9f3fdd18d8b4c06d7c28dd69199
+Author: Caolán McNamara <caolan.mcnamara@collabora.com>
+Date:   Tue Nov 24 23:21:44 2026 +0000
+
+    use the long double overloads of ldexp and pow
+    
+    std::ldexpl and std::powl are missing from libstdc++ before GCC 14, so
+    clang with an older libstdc++ fails:
+    
+        libwps_internal.cpp:216:8: error: no member named 'ldexpl' in namespace 'std'; did you mean simply 'ldexpl'?
+        Multiplan.cpp:947:16: error: no member named 'powl' in namespace 'std'; did you mean simply 'powl'?
+    
+    since:
+    
+    commit 00a1a6001cdb37bd48b89f765e0b096e1001072f
+    Date:   Tue Sep 1 11:13:29 2026 +0200
+    
+        all: change code to use long double instead of double for main values       note: do not expect change as librevenge only accept double as argument. quattro pro[qpw]: accept to read unused cell styles.
+
+diff --git a/src/lib/Multiplan.cpp b/src/lib/Multiplan.cpp
+index 0365955..831a3ca 100644
+--- a/src/lib/Multiplan.cpp
++++ b/src/lib/Multiplan.cpp
+@@ -944,7 +944,7 @@ bool MultiplanParser::readDouble(long double &value)
+ 		}
+ 		if (!ok) break;
+ 	}
+-	value *= sign*std::powl(10.,exponant-0x40);
++	value *= sign*std::pow(10.L,exponant-0x40);
+ 	input->seek(pos+8, librevenge::RVNG_SEEK_SET);
+ 	return ok;
+ }
+diff --git a/src/lib/libwps_internal.cpp b/src/lib/libwps_internal.cpp
+index c5755cc..47938fd 100644
+--- a/src/lib/libwps_internal.cpp
++++ b/src/lib/libwps_internal.cpp
+@@ -213,7 +213,7 @@ bool readDouble8(RVNGInputStreamPtr &input, long double &res, bool &isNaN)
+ 	}
+ 
+ 	exp -= 0x3ff;
+-	res = std::ldexpl(mantisse, exp);
++	res = std::ldexp(mantisse, exp);
+ 	if (sign == -1)
+ 	{
+ 		res *= -1.;
+@@ -262,7 +262,7 @@ bool readDouble10(RVNGInputStreamPtr &input, long double &res, bool &isNaN)
+ 	}
+ 
+ 	exp -= 0x3fff;
+-	res = std::ldexpl(mantisse, exp);
++	res = std::ldexp(mantisse, exp);
+ 	if (sign == -1)
+ 	{
+ 		res *= -1.;
