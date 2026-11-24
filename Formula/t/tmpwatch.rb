@@ -31,6 +31,10 @@ class Tmpwatch < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2741db5b51e3d5cce2e16a2e200a5ac071d8ddb76255a3a4ae5b1752ec9cb33b"
   end
 
+  # `pagure.io` became read-only, release tarball is no longer available
+  deprecate! date: "2026-11-24", because: :repo_archived
+  disable! date: "2027-11-24", because: :repo_archived
+
   def install
     system "./configure", "--disable-dependency-tracking",
                           "--prefix=#{prefix}"
