@@ -1,17 +1,18 @@
 class Ktor < Formula
   desc "Generates Ktor projects through the command-line interface"
   homepage "https://github.com/ktorio/ktor-cli"
-  url "https://github.com/ktorio/ktor-cli/archive/refs/tags/0.5.1.tar.gz"
-  sha256 "dae763ded73a786dd183258e71af6001bea9b63fa357f50be78d0c3c2dcc8953"
+  url "https://github.com/ktorio/ktor-cli/archive/refs/tags/0.5.3.tar.gz"
+  sha256 "ce633bc15f8d15f79d438cf6aee1bf005714ae54551cf35dd4f6f2d4381f3fe1"
   license "Apache-2.0"
   head "https://github.com/ktorio/ktor-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0088c7a990eda7ccb705bc161fe753c1da32c18a1ddf629adaebd8fdd005b6b3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "855e7b79185c9d6e2bde31070b4b3b036a4df86ea5494c795be653e58b9d8736"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "228305902ce369c7415b24fc01ceec9eb6e07fb954b2df96ca5f23c65f72c773"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e06f73b85ed6aeafb44ff23b2616b0e4e865e7af49f5fded59994b7132672e52"
-    sha256 cellar: :any,                 x86_64_linux:      "de16e77e3bcd9876976edc30022a1b7d5ec99fd2c3c6d89241f6b40dd278d303"
+    manifest_sha256 "53d8b7dbfc6e5638fdb2e8bf464666054c52a4e22a1ae5607e073c2b1002465f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e01e19290b9091792d8b86095d2541fc41ccc71680fe324dd4e0ff8f7f161d6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf36667b503c7b500a4f4e23dfd44729aaf2184eca250f676ae99c4128173346"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "556a4b23d03fbbd2e54734decd1f7e92905fd2a13af8073a88dbcb727bc1c4c2"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c7c9b3dc318214a450edd351c3380489a208f28b8208f7d79934d820cbe99e6"
+    sha256 cellar: :any,                 x86_64_linux:      "527874c98005ccfae979f1ce783a0fa26c6bba78eec10450d0cb54bf61d3773c"
   end
 
   depends_on "go" => :build
