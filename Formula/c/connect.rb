@@ -1,8 +1,8 @@
 class Connect < Formula
   desc "Provides SOCKS and HTTPS proxy support to SSH"
   homepage "https://github.com/gotoh/ssh-connect"
-  url "https://github.com/gotoh/ssh-connect/archive/refs/tags/1.106.tar.gz"
-  sha256 "4f07eec36e6da2c4641a9ea9a2fd0617d6fc6aff5b65b6433f8a6447bea8a002"
+  url "https://github.com/gotoh/ssh-connect/archive/refs/tags/1.107.tar.gz"
+  sha256 "b15bd4d63356b789dc18fa608acb1aaebdfb70caf49ebc9760b89a09f651fa07"
   license "GPL-2.0-or-later"
   head "https://github.com/gotoh/ssh-connect.git", branch: "master"
 
@@ -12,13 +12,12 @@ class Connect < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b8cf5b5910939a526233e820220e438aad097667ba0e6793ba90da8f8a6d626a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7963a8e035492268bdaa843a6d79a88728f98abca2115bd50194384b5ae4cb0a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "22a3bbe8d775409efdddb1fdaa3bc59267524ac329cd061f93212de9fd4c75e7"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "3d1bc5a082a99f279f21adb0f8b7028e57f78f99b366cd77a5e008dd4b246edb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "ea352ab877ca1ad7156dcb9b3f90fba25d02cb286c8254dc25dfb4b1baa25d0f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cd13498f3a1e78e2269d207290950942aebc3216e9de777e32609756870de7a4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "157c7c54b61c285ee545c97a5c74e975cc44741c6cc845c82d0ae186cbc04a3a"
+    manifest_sha256 "6af70cbca67284eedda7e1e9a379582fec902b5447f7da675d49bb6a358f3209"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d0acbf1bdedc68b1cc2326123f45be1b4e8ef256fbb4f241214a64fab55c7351"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f608c73d4cca81335f6960901ec2eb3144f8cacbde2daadf583e0ecb2d82139"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dca592e0bc00026b0bb37ed6c750f4e76007927b50eca9ef122ac0933ea3ce2d"
+    sha256 cellar: :any,                 arm64_linux:       "e09203456e82f1b0ad6e5cb2d86924b736f2a2106cba568aa4432ca69f359281"
+    sha256 cellar: :any,                 x86_64_linux:      "600656245fe4d5159334aa95abed48524f75126c743d551688380d5f1789815d"
   end
 
   def install
