@@ -6,12 +6,12 @@ class TodoistCli < Formula
   license "MIT"
 
   bottle do
-    manifest_sha256 "10596de44f9c19143d8e5cf3e5b4071854380465f85249a862d5c845cdd51fd4"
-    sha256 cellar: :any,                 arm64_golden_gate: "7b08794562a0b8cd5c77632c267f9ba6a267a9c7b8b0bf1f256ee068ce33c414"
-    sha256 cellar: :any,                 arm64_tahoe:       "e69514d29bb4e6e119832e124ae38142e5bf1274acbf17b0d487cbe6ce6c1ae7"
-    sha256 cellar: :any,                 arm64_sequoia:     "d0ed10059e604391892f8bd032bc5b93198703c34cd2bc272b29eb1ed1a38164"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a5173070764d6bedd93a90c4482d5307ab7b00a503e6eb170b6f2097c781b804"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6ff12d00f0ce5e15341ae45fe2385ef68274de71a153aef51f91f76b81abf52a"
+    manifest_sha256 "ca6a03429513eb51614701a861a76be408b47e104dab4520d776babd8e7fb7ac"
+    sha256 cellar: :any,                 arm64_golden_gate: "d6072dd0ff2745ea82f8ee07ed1027b00ae9f79d8d2ddbebc6ed7b7b4cbb5f33"
+    sha256 cellar: :any,                 arm64_tahoe:       "98de48aaf1182c0074fcfbfdf6842407f054e68e12f7411f8bc44cd1f36ba929"
+    sha256 cellar: :any,                 arm64_sequoia:     "34d1ff90c879df8c4038238e60a7d4cc24a11628f994b4849ba77c5d523c764a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "dd52ba8a37964923e722615748e526b6d369bb13d2c1d3309f910476e84e3d98"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0d37f5a1c3e5ed211e07ca800558a55f00df03facacc1aa10d66a509aba73d71"
   end
 
   depends_on "rust" => :build
