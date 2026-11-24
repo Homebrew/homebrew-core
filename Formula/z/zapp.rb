@@ -1,17 +1,29 @@
 class Zapp < Formula
   desc "Flash ZSA keyboards from your terminal"
   homepage "https://github.com/zsa/zapp"
-  url "https://github.com/zsa/zapp/archive/refs/tags/v1.1.17.tar.gz"
-  sha256 "d271f22f252c05167a069cae44b632ded138012fa18b743cc5e896cfa3902444"
   license "MIT"
   head "https://github.com/zsa/zapp.git", branch: "main"
 
+  stable do
+    url "https://github.com/zsa/zapp/archive/refs/tags/v1.1.19.tar.gz"
+    sha256 "836aac5cfd7579c8a51ebe353c574afc0c5bfd1514e10c6530c44863e269bad3"
+
+    # Match the CLI version to the release tag.
+    patch do
+      url "https://github.com/zsa/zapp/commit/dd22bd7d11aa5b3990143927060e6404426e75c6.patch?full_index=1"
+      sha256 "f65a3fc777b60bcb33cf01a40ae4f9b3de0a78471f5858cad80aef0a8af17b03"
+      type :unofficial
+      resolves "https://github.com/zsa/zapp/pull/17"
+    end
+  end
+
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b6eb6ef49526ae48365f7bb7233578bb8d225531f5dcfb813f03a924d90f9c9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95015fd91c652035203cb3fbd8cf14f5edb3386990a44232a5d57c234bb3d287"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4fbf2474c5153579da52662e7a690ff555085b1959367a53ee17b8400be96c96"
-    sha256 cellar: :any,                 arm64_linux:       "19d82907012590034ecb119cbd22a38690869d3d04e69ed3f84bd6656d9bafc3"
-    sha256 cellar: :any,                 x86_64_linux:      "b88d8b34e2eac8da390b175de650a2401789b798979aa7fd7a15bf79d9225a5c"
+    manifest_sha256 "2da54f8b355d8cb84c9b13a84396fe68d0ef48f607b07a179ff4a42507510a1b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e681204b9f1ed0a0294f490178b8292f07bf4ffe40826ad38d2d61f984255a64"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "131dd509daabf3fe1c7d074d04d6f45f9ad5b0ce3927c7ea66de9aed82dc6437"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a8016802107f6b08edf28bea74dc1c5eb21574ca740cf6a446f6d7427e82ba3f"
+    sha256 cellar: :any,                 arm64_linux:       "e1f59b921be071638b9a1837efb69034f108456ad77cb97cdf7efa020bdf659a"
+    sha256 cellar: :any,                 x86_64_linux:      "7189ae5d3b894ea785e5d8210a9c97b82a32d0dd4cf4b86543b06c739b91150d"
   end
 
   depends_on "rust" => :build
