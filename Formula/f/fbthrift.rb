@@ -1,20 +1,19 @@
 class Fbthrift < Formula
   desc "Facebook's branch of Apache Thrift, including a new C++ server"
   homepage "https://github.com/meta/fbthrift"
-  url "https://github.com/meta/fbthrift/archive/refs/tags/v2026.10.26.00.tar.gz"
-  sha256 "6ad18cfc24297120a536a0ef9c5a84f409c9aa4376057328e8dca9d45587d5a1"
+  url "https://github.com/meta/fbthrift/archive/refs/tags/v2026.11.23.00.tar.gz"
+  sha256 "83255fcddbab9165590d272685695dd3c07a3cefcc3ac4bf69142eaa1e089063"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/meta/fbthrift.git", branch: "main"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "e88782413fa06aa7bdd92fb8dcd60a807078ae80af8adf8a0e455ce2237b9258"
-    sha256 cellar: :any, arm64_golden_gate: "131b296e6c93c52939cfd129237e29b651fccc6e902095e6cd0ea5a5682eaf38"
-    sha256 cellar: :any, arm64_tahoe:       "9a162e15b18f89a6faf7cff95c09ac8f7c2c2e87eaaedf9256e087f3c3939856"
-    sha256 cellar: :any, arm64_sequoia:     "7888b4c3ff8f28f59438336e8f3d56557e1b68d4f1e524008dade15b60e08613"
-    sha256 cellar: :any, arm64_linux:       "89584bc22e038290c4f23f970f93f3513bb1e76f4fe2492c60121d411aa8c4cb"
-    sha256 cellar: :any, x86_64_linux:      "bd46d4a7a4ef69015717aacf1dc733d3f8997396f2eef1fe41eb049c80ebcdb4"
+    manifest_sha256 "db8ee8ffe5cf2908dc9b233919fbd77e0f9fe18266d844a9cea402a03f8ad5bc"
+    sha256 cellar: :any, arm64_golden_gate: "abe6a2e8066fe7dc783ab79e4ecc793544c0fe89e91d9d062e268655820a19b0"
+    sha256 cellar: :any, arm64_tahoe:       "d3ab79e55c808f3f528c772d63b8b0578906ec4b9abc8b2e4182aa580128c48a"
+    sha256 cellar: :any, arm64_sequoia:     "6b5fe80a1f8bff1f6cea90beb91ad96951e3d4de1e7113f23d12e14b281ade10"
+    sha256 cellar: :any, arm64_linux:       "35420320d823f0e47a17e785d81247f8f453c3ac119cbc57398b321dcd05608b"
+    sha256 cellar: :any, x86_64_linux:      "c73986466bc1b182eef0862a2622bc88beeed73c2904fdea2675975e6811dc5a"
   end
 
   depends_on "bison" => :build # Needs Bison 3.1+
@@ -64,7 +63,7 @@ class Fbthrift < Formula
     (share/"vim/vimfiles/syntax").install "thrift/contrib/thrift.vim"
 
     # Save a copy of FindxxHash.cmake to test with as it is used in FBThriftConfig.cmake
-    (libexec/"cmake").install "build/fbcode_builder/CMake/FindXxhash.cmake"
+    (libexec/"cmake").install "tool/fbcode_builder/CMake/FindXxhash.cmake"
   end
 
   test do

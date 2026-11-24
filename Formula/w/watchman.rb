@@ -3,18 +3,18 @@ class Watchman < Formula
 
   desc "Watch files and take action when they change"
   homepage "https://facebook.github.io/watchman/"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.10.26.00.tar.gz"
-  sha256 "cb0ec3a700412f7ea83b4853783a51738cf7bfc3cbac30d324a14f603f83ce9d"
+  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.11.23.00.tar.gz"
+  sha256 "513a78c03fef7706eec77548c8f9d02f37215c5987e067bb4c462451b930fc9e"
   license "MIT"
   head "https://github.com/facebook/watchman.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "aee03473bcac1e27433a1a8d27e151ccf58d6ea4f1178df36cc2dcf0ad4a3614"
-    sha256 cellar: :any, arm64_tahoe:       "df1454a944e219eed47e58777317c5df5b736f1cf67f13b1aa6d2feb5c43c111"
-    sha256 cellar: :any, arm64_sequoia:     "3ede8e345c97ee34c2cd3407f78872c7891b5c15c717f1957c800096582f7e7b"
-    sha256 cellar: :any, arm64_linux:       "717165f4fe5e2f3d051a9d3784b15aabef2ff56be3ac5bb9cf000c9a9da933cd"
-    sha256 cellar: :any, x86_64_linux:      "1f82bc8e758614550019676dbbbc0c1e4a2d4f9c68f365f4897c02130e848ab8"
+    manifest_sha256 "2b87d35fbb1a6d8629d38a000549e028ae93e691cd8168f5cd15f0f0d02287ee"
+    sha256 cellar: :any, arm64_golden_gate: "bd43b5e86a7efd741f25710c2f0e2ed589af953b171842753cc77ec8b183d72f"
+    sha256 cellar: :any, arm64_tahoe:       "e0ca3add011238b26978f2de2f9e23116677691193eff25f73cf366df9820ab8"
+    sha256 cellar: :any, arm64_sequoia:     "8b0a11f6fd789b2049fd4f6a586c03d19380dcabc9905f17fe6989dc3a22c3d0"
+    sha256 cellar: :any, arm64_linux:       "95b950a865d98093095e4d1413ce7c929c6a2bf8d20cbacb1c91efad437d7df8"
+    sha256 cellar: :any, x86_64_linux:      "ca004712ce4da39bc9ae37edb660283a550440078e35c32e337018b8a145edde"
   end
 
   depends_on "cmake" => :build
@@ -42,27 +42,11 @@ class Watchman < Formula
     depends_on "openssl@4"
   end
 
-  # fmt 12.2 dropped fmt::format from <fmt/core.h>; include <fmt/format.h> where used.
-  patch do
-    url "https://github.com/facebook/watchman/commit/21e10ae9596a81ac95795ee0915f4308a9c34603.patch?full_index=1"
-    sha256 "be595623d5a520de9e1820f1388ebbdf3ef9ff5d665a33c0231fdba36b5d0dbb"
-    type :unofficial
-    resolves "https://github.com/facebook/watchman/pull/1348"
-  end
-
   def install
     # Match the F14 ABI in bottled Folly instead of compiling for the host CPU.
     if OS.linux? && Tab.for_formula(Formula["folly"]).built_as_bottle
       ENV["HOMEBREW_OPTFLAGS"] = Hardware::CPU.optimization_flags.fetch(Hardware.oldest_cpu)
     end
-
-    # Drop the `GlobPath` C++ type as its GPL-2.0 header is not mirrored to this repository
-    # https://github.com/facebook/watchman/issues/1355
-    inreplace "eden/fs/service/eden.thrift" do |s|
-      s.gsub! 'cpp_include "eden/fs/utils/GlobPath.h"', ""
-      s.gsub! '@cpp.Adapter{name = "::facebook::eden::GlobPathAdapter"}', ""
-    end
-    inreplace "watchman/watcher/eden.cpp", "std::move(name).intoFbString()", "std::move(name)"
 
     # NOTE: Setting `BUILD_SHARED_LIBS=ON` will generate DSOs for Eden libraries.
     #       These libraries are not part of any install targets and have the wrong
