@@ -1,8 +1,8 @@
 class Supabase < Formula
   desc "Postgres development platform"
   homepage "https://supabase.com/docs/reference/cli/about"
-  url "https://github.com/supabase/cli/archive/refs/tags/v3.3.0.tar.gz"
-  sha256 "febeca291130664ab6ac004675edbb9cfe6fd6cb4c12fb2fd78b81c980448f72"
+  url "https://github.com/supabase/cli/archive/refs/tags/v3.4.0.tar.gz"
+  sha256 "07df917b082137497f14961a67a8fb73494c7ac4accad923307a9aee471c6dd1"
   license "MIT"
   head "https://github.com/supabase/cli.git", branch: "develop"
 
@@ -56,7 +56,7 @@ class Supabase < Formula
     assert_match version.to_s, shell_output("#{bin}/supabase --version")
 
     system bin/"supabase", "init", "--yes"
-    assert_path_exists testpath/"supabase/config.toml"
+    assert_path_exists testpath/"supabase/config.jsonc"
     assert_match "failed to inspect container health", shell_output("#{bin}/supabase status 2>&1", 1)
     assert_match "Access token not provided", shell_output("#{bin}/supabase projects list 2>&1", 1)
   end
