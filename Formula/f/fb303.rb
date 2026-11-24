@@ -8,11 +8,12 @@ class Fb303 < Formula
   head "https://github.com/meta/fb303.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "42e98381944f489c9fd9fe3b75feec16f6336388c997a9d2ca446855b3e921e3"
-    sha256 cellar: :any, arm64_tahoe:       "5c059f0157ace566ec99f92b22bf35deb8b20dfa947f887d0c5987356b39a634"
-    sha256 cellar: :any, arm64_sequoia:     "64549c26fb453707d375d7caf05f74eaae93cdc433f110a134a5fcc963996fd0"
-    sha256 cellar: :any, arm64_linux:       "cf042e3eac64edf6f7a03eb500cd905b56b503ed3c3c649a9c9e51974f2945eb"
-    sha256 cellar: :any, x86_64_linux:      "8014bbb8e0f59037da8874bc2ac3098838e3ec3364ea29129391e5682dab025e"
+    manifest_sha256 "0572e4d6aa88ceb015e16a3f1503c9204953a813a5736bd4890e4c4aca6af095"
+    sha256 cellar: :any, arm64_golden_gate: "6d4aadcf80652b5c590fb81e41197dc4ddf304b10a23fab476fc5b905b4896ce"
+    sha256 cellar: :any, arm64_tahoe:       "aabba0bc11ef063c66be606106258205913dbdb3de2ddbb770e28d4f529b5090"
+    sha256 cellar: :any, arm64_sequoia:     "04980b65c76c73ab6d0c89831d6624307723a7b6ea24045a8cfa9107682cfa88"
+    sha256 cellar: :any, arm64_linux:       "cf131f5502d28ecfdef1a758ecefdcf7d364c28357a15ccdd6ce5c897897c22b"
+    sha256 cellar: :any, x86_64_linux:      "2d43b40d2897aaad44dd7622b24a349abfb63cc954a3879a75571b8f33c0c890"
   end
 
   depends_on "cmake" => [:build, :test]
