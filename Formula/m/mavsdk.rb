@@ -5,6 +5,7 @@ class Mavsdk < Formula
       tag:      "v4.2.1",
       revision: "417d1ccd328cd21af27c424fa6d72611e9889ccf"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -23,14 +24,11 @@ class Mavsdk < Formula
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "abseil"
-  depends_on "c-ares"
   depends_on "curl"
   depends_on "fmt"
   depends_on "grpc"
   depends_on "nlohmann-json"
-  depends_on "openssl@4"
   depends_on "protobuf"
-  depends_on "re2"
   depends_on "tinyxml2"
   depends_on "xz"
 
@@ -39,10 +37,6 @@ class Mavsdk < Formula
   on_macos do
     # `cpp/tools/generate_from_protos.sh` uses `mapfile`, which needs Bash 4
     depends_on "bash" => :build
-  end
-
-  on_linux do
-    depends_on "zlib-ng-compat"
   end
 
   # Git is required to fetch submodules
@@ -111,6 +105,7 @@ class Mavsdk < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DDEPS_INSTALL_PATH=#{libexec}
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
