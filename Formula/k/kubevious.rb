@@ -12,7 +12,12 @@ class Kubevious < Formula
 
   depends_on "node"
 
+  allow_network_access! [:build, :test]
+
   def install
+    # Avoid the-logger==2.1.2 which is missing pino-multi-stream
+    inreplace "package.json", '"the-logger": "^2.1.1"', '"the-logger": "2.1.1"'
+
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
   end
