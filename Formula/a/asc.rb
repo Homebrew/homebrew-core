@@ -1,18 +1,18 @@
 class Asc < Formula
   desc "Fast, lightweight CLI for App Store Connect"
   homepage "https://asccli.sh"
-  url "https://github.com/rorkai/App-Store-Connect-CLI/archive/refs/tags/7.3.1.tar.gz"
-  sha256 "cdd33a9d858659786b26f0b6e173fd179da4f221c1ab743b32236a1b16a04ef0"
+  url "https://github.com/rorkai/App-Store-Connect-CLI/archive/refs/tags/7.4.0.tar.gz"
+  sha256 "65c29c82cdbe8ef71264b47bb23f813d0a03f7bf327797846757c56a5b5f6577"
   license "MIT"
   head "https://github.com/rorkai/App-Store-Connect-CLI.git", branch: "main"
 
   bottle do
-    manifest_sha256 "7c82d7bf15cec908ccf559b46d46483d0b8524dc35454566c35dd462d8d681aa"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0fc8cd678dd105c08b553754a65599785965baaa2fc514631b36d5421c9ba82e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4b459b09abfae33231d62cb60fdaf8751069d76780c5c00fec1cb422fc8f81e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8cedc635c9ee7a52c8ecb518ed493abf3802addd1fd21915c96892af3387c52"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2fee52e63c02dd9b4187acb203e1951eed4d1a9551996710f349d8d0369ee914"
-    sha256 cellar: :any,                 x86_64_linux:      "c9ba9506580cd121b95da819a9d79568a8036a710ae029ecb8f632703b19bb4b"
+    manifest_sha256 "c443a28013d5de04886801eb71b3af2cf5711376842f9c37c1dd174d05f32356"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a899e33ac92c4e31fd02d9555a89f6c649db6dd88f7b360dfabbb4e345b6079f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc028c55e388d6051230f977d7d33c9fb61a058d95a41925cb7b691b0cf34c70"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fdcd2c390a5381d45e20140eb4e883e1853d0538ea68a807388ef3843270decf"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "429200bb8f086493d2d35bd8976212d71fe1f274e0a3e19f661bfb36ba507619"
+    sha256 cellar: :any,                 x86_64_linux:      "e7a2bfe8b8a4dffceb54e98dfd652bea3f5bf89cb3c6854c82fee794b228e938"
   end
 
   depends_on "go" => :build
