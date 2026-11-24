@@ -1,19 +1,20 @@
 class Zookeeper < Formula
   desc "Centralized server for distributed coordination of services"
   homepage "https://zookeeper.apache.org/"
-  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.9.7/apache-zookeeper-3.9.7.tar.gz"
-  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.9.7/apache-zookeeper-3.9.7.tar.gz"
-  sha256 "43142998ccb71a65cb18a354d1086163da9217a71d39b7c0464be9de41a286b8"
+  url "https://www.apache.org/dyn/closer.lua?path=zookeeper/zookeeper-3.10.0/apache-zookeeper-3.10.0.tar.gz"
+  mirror "https://archive.apache.org/dist/zookeeper/zookeeper-3.10.0/apache-zookeeper-3.10.0.tar.gz"
+  sha256 "a94a9ccc4f2816ac4ebcf9083da85fd9ddf4dac3422ca2bd79d696bea1a5fbc1"
   license "Apache-2.0"
   compatibility_version 1
   head "https://gitbox.apache.org/repos/asf/zookeeper.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1efde61644c462911189fc82e2021acea49fca8c8ab6e167ef2f8e4785f06fdf"
-    sha256 cellar: :any, arm64_tahoe:       "fc805bcac17a6dbeb9b4c6ea9972222a8b23d8e675b4bda5897b3ec5d7a8aa38"
-    sha256 cellar: :any, arm64_sequoia:     "bf1ef708334888ad6f50e75a4dd2da5a0b6c96f7f8032e58d9fff81fed9a3b51"
-    sha256 cellar: :any, arm64_linux:       "e247fe7ef875a324ed1fbe7e590aa12e8ad021b8461cff668d10964a67d65772"
-    sha256 cellar: :any, x86_64_linux:      "ca9587d2a981579c71d2181af0adce327e37281ecb9a10e864fe28f7393446c6"
+    manifest_sha256 "c826fcc62d72e3c3a96ef4013373fe2cb85159557cd39b635fec62808ff51f9a"
+    sha256 cellar: :any, arm64_golden_gate: "740a725fbeb3fc73936a6c646b11cac1255770b9fd3018ba536741768881de2d"
+    sha256 cellar: :any, arm64_tahoe:       "3c6d6efa9619279e4cd7ed22eb2f7a2c68dc9008eff34de63146771acbc761f7"
+    sha256 cellar: :any, arm64_sequoia:     "12489ee4b27e3e8212d94f671c0a8d28e73f7f49ec75b8bb68acc0377d48cd9b"
+    sha256 cellar: :any, arm64_linux:       "3b0522256c9229bca55d6640e35cdeaad13291b9caa04a8e7c271422ad15b173"
+    sha256 cellar: :any, x86_64_linux:      "60afb392ff0b4d26e804ab0d744e76246031abd869ed261de454ff0b2211a31d"
   end
 
   depends_on "autoconf" => :build
