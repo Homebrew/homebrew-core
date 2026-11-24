@@ -22,6 +22,9 @@ class Energy < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "b5dede6e5a0d45f8785b7b0d3fecdd443f7d5bab5195e74e81608edd7c7fa690"
   end
 
+  deprecate! date: "2026-11-24", because: :unsupported
+  disable! date: "2027-11-24", because: :unsupported
+
   depends_on "go" => :build
 
   deny_network_access!
