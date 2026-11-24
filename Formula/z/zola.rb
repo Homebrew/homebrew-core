@@ -15,16 +15,21 @@ class Zola < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "oniguruma" # for onig_sys
 
   deny_network_access!
 
   def fetch
+    # Bump `giallo` which depends on deprecated `oniguruma`
+    # upstream commit: https://github.com/getzola/zola/commit/88deaf202b3aca0073c7094d604bf8ee1831becf
+    odie "Remove `giallo` workaround" if version > "0.23.6"
+    inreplace "Cargo.toml", 'giallo = {version = "0.5", features = ["dump"]}',
+                            'giallo = {version = "0.6", features = ["dump"]}'
+    system "cargo", "generate-lockfile"
+
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
-    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
     system "cargo", "install", *std_cargo_args
 
     generate_completions_from_executable(bin/"zola", "completion")
