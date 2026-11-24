@@ -1,8 +1,8 @@
 class Garnet < Formula
   desc "High-performance cache-store"
   homepage "https://microsoft.github.io/garnet/"
-  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.13.tar.gz"
-  sha256 "3a6616b044b199c6b798dc34e16a6cbca34567de8f6520fc9cfafb8169fe8015"
+  url "https://github.com/microsoft/garnet/archive/refs/tags/v2.2.14.tar.gz"
+  sha256 "254f5e50773d59554671ec8f26dbef2ebcc3a127942498bd5213765b4d63f743"
   license "MIT"
 
   livecheck do
@@ -11,11 +11,12 @@ class Garnet < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1594447aff185207e52f78ef9bbbc320c1bacff5cec4a3f56570c8323a7b8937"
-    sha256 cellar: :any, arm64_tahoe:       "a146bc893c19e0c2d568b3055b82b4344a5ffbda506af75162068bc618e60c9e"
-    sha256 cellar: :any, arm64_sequoia:     "434a87822bd64dfc0b374104ce45f7285330cbd96f136d7be91c30f85b1b2c10"
-    sha256 cellar: :any, arm64_linux:       "d5a95bb47da1d25f646eebefb755bb2bf5764af0144f325b08a3857d0fd74f1b"
-    sha256 cellar: :any, x86_64_linux:      "e7dfc6e591ea16a434441c60158273fce6dfba7db932249eabda9b64e88abbe6"
+    manifest_sha256 "a1a27d8927927ad3c0288004d3c68d6ce26525995cbbe52064fac0acbf07eaed"
+    sha256 cellar: :any, arm64_golden_gate: "75d114adab724788669e244bfebc5c3fafec688df7aadda5a9fa8f8e86dd1a31"
+    sha256 cellar: :any, arm64_tahoe:       "9738e846c5bfc48bae2210d2d41c8d129457f39a911b1e69c02c350fe4e63fcf"
+    sha256 cellar: :any, arm64_sequoia:     "272c2cd834f73ffff75e54ffb27b6462656039374079a87c2ead85784df352ce"
+    sha256 cellar: :any, arm64_linux:       "f2c6de94294d36d55eb89806d5ebc66f6b60a455e605758bb9cd17da93d3a56d"
+    sha256 cellar: :any, x86_64_linux:      "0bed5fdcf3c6959eb02b936019fc006af1943d662adcd16c3473536eaaa4782d"
   end
 
   depends_on "rust" => :build
@@ -26,14 +27,6 @@ class Garnet < Formula
     depends_on "cmake" => :build
     depends_on "util-linux" => :build
     depends_on "libaio"
-  end
-
-  # Keep using Garnet's stream adapter when .NET defines the same type name.
-  patch do
-    url "https://github.com/microsoft/garnet/commit/3b7fa55c398b396d6eaf26c8b22df57d2475936a.patch?full_index=1"
-    sha256 "5ac2fdce31dc5e47add3694993459c287f5dece20c26d951185ed3e5cefac26c"
-    type :unofficial
-    resolves "https://github.com/microsoft/garnet/pull/2385"
   end
 
   allow_network_access! :test
