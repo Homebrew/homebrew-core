@@ -68,7 +68,7 @@ class PostgresqlAT19 < Formula
     ENV.runtime_cpu_detection
     ENV.delete "PKG_CONFIG_LIBDIR"
 
-    openssl = deps.map(&:name).find { |d| d.match? Version.formula_optionally_versioned_regex(:openssl) }
+    openssl = dep("openssl").name
     flag_libs = [openssl, "readline"]
 
     # Fix 'libintl.h' file not found for extensions
