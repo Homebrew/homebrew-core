@@ -7,11 +7,12 @@ class Zellij < Formula
   head "https://github.com/zellij-org/zellij.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7f7df89c09c039467b91f05b4f066e10b97a018d6c3bc52dce5219a2dfcad5e2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1e9395bb2b833cbf7f392f901e5a51dc4413ac74731feda81a6bef42f631bef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1963842abf5d2260c18f2d1efdf797c71ea6b13ad09612c4b5a675b5741faac6"
-    sha256 cellar: :any,                 arm64_linux:       "1fe71dfb39aec6bcd6886f41ac8212af1a0f27fc56f7e60c10f55e4a01520d00"
-    sha256 cellar: :any,                 x86_64_linux:      "55738c7245fecf08af4114fd6fe79b5ff159a8a28a067297de8ba4fd6c247314"
+    manifest_sha256 "49b204808faea3095ed9905b2e236ea3ec488f55d89e61127d7ccaea5b3549ee"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "669a0f13a411e37c041d881bd0b9c539d0d0c3dd39a31adb3c7d60e45c1ebb0f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4425d2be6ac9bfd1d430ac66206c8ac2dc07279bd75a64b5e599a243051ca20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ca96161d925e132f3e319dc73d787a32f00ccb1846262ad209d0607a885b250e"
+    sha256 cellar: :any,                 arm64_linux:       "18cd60e697c4748430ff30a4de1fc81f0945a8e9694ed336d6081979c897b580"
+    sha256 cellar: :any,                 x86_64_linux:      "45ba5683f68de058135dd3e2d18cf05a55ac98b90e54e7130a21498f2f9f1f5f"
   end
 
   depends_on "rust" => :build
