@@ -1,8 +1,8 @@
 class Vampire < Formula
   desc "High-performance theorem prover"
   homepage "https://vprover.github.io/"
-  url "https://github.com/vprover/vampire/releases/download/v5.1.0/vampire.tar.gz"
-  sha256 "80a4c52237618d451a344d1fbb42c932992b4eb1633049a9516a37501819ce25"
+  url "https://github.com/vprover/vampire/releases/download/v5.1.2/vampire.tar.gz"
+  sha256 "b90c97f24af05689b78218788bc8a5438016b340ca725c78b1c5e97aa9f0ec5d"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,13 +11,12 @@ class Vampire < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "636f89cb87a69d674563344ac1973b66ee3eeb3becfa703a65b5ccbf61aa7e50"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03f7dad715035dd222387a3631ece4133d90b54d89955cd2930a32fb56354bf2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "722420c1fb9b5e812d831ee663fdcbc00ded8f25c8e5f7066bafb292bff6812e"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "20196b618f28eacd86372743f549e36763642b262421e0663c77699bfe5545e9"
-    sha256 cellar: :any_skip_relocation, sonoma:            "89da007d0b6fb41231aca6bad7cd4f2e956c482384bd09205428d94af43e8ddd"
-    sha256 cellar: :any,                 arm64_linux:       "9b614fdded0ae6a296fa5dcdc0c9876472c2e1a0bc871c695b391a4d3955f13a"
-    sha256 cellar: :any,                 x86_64_linux:      "8eeeb7b30593bc00d0170f3727f1ec99a5ba5276e8c6f04c68118ded997de35c"
+    manifest_sha256 "1621cbc922cbbd3204ac422905f49f7fd0a510068c1a8bc034252d784eb2aa0a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a13da61c979eb8683edc6a9463872332c817634e651e2f275f1467e986555d19"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e8295fb3b8ddf45cb792430856c5c555125d31a43f2ecd131d89b0b8ab536d7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a2961eca77e5de741318d99970a2ecbb3672d2077eb91c6a9310ab728dd27e4"
+    sha256 cellar: :any,                 arm64_linux:       "741aa65ddf115d2333acb42942caf86dd9e94a053955000050b38554d62df293"
+    sha256 cellar: :any,                 x86_64_linux:      "a1ac00dcd0909c7c63c98b383a78d22b73808756a3d3e042e0278d6228fa29d3"
   end
 
   depends_on "cmake" => :build
