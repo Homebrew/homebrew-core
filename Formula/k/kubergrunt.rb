@@ -22,6 +22,9 @@ class Kubergrunt < Formula
     sha256 cellar: :any,                 x86_64_linux:      "ef45fedb7add395cec5ee1160aeb7bc21bb2ff7af3c48121385e015c2d64ef43"
   end
 
+  deprecate! date: "2026-11-24", because: :repo_archived
+  disable! date: "2027-05-24", because: :repo_archived
+
   depends_on "go" => :build
 
   deny_network_access!
