@@ -1,21 +1,10 @@
 class Zapp < Formula
   desc "Flash ZSA keyboards from your terminal"
   homepage "https://github.com/zsa/zapp"
+  url "https://github.com/zsa/zapp/archive/refs/tags/v1.2.0.tar.gz"
+  sha256 "46f7414f8407ad9e4d63b44d2a80e508cbcc36253c77e50c447e3f48d25759a0"
   license "MIT"
   head "https://github.com/zsa/zapp.git", branch: "main"
-
-  stable do
-    url "https://github.com/zsa/zapp/archive/refs/tags/v1.1.19.tar.gz"
-    sha256 "836aac5cfd7579c8a51ebe353c574afc0c5bfd1514e10c6530c44863e269bad3"
-
-    # Match the CLI version to the release tag.
-    patch do
-      url "https://github.com/zsa/zapp/commit/dd22bd7d11aa5b3990143927060e6404426e75c6.patch?full_index=1"
-      sha256 "f65a3fc777b60bcb33cf01a40ae4f9b3de0a78471f5858cad80aef0a8af17b03"
-      type :unofficial
-      resolves "https://github.com/zsa/zapp/pull/17"
-    end
-  end
 
   bottle do
     manifest_sha256 "2da54f8b355d8cb84c9b13a84396fe68d0ef48f607b07a179ff4a42507510a1b"
