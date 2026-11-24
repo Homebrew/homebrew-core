@@ -8,11 +8,12 @@ class Libetpan < Formula
   head "https://github.com/dinhvh/libetpan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "039ccd1b8023805c44efd0942439df0523ee8a555c80fc8b7fee728aaa1dc0d4"
-    sha256 cellar: :any, arm64_tahoe:       "2be23cadc5d1f3d5ca985765bb42d3cb3be90423625d302c27ffc31205aea892"
-    sha256 cellar: :any, arm64_sequoia:     "79ceb36126152151472816c72c5b188b7aa5f973677ec86345e45bd539b1e5af"
-    sha256 cellar: :any, arm64_linux:       "85c7525625658e477f6685307ea781c108e34a8a1d44e7f45994b93a7446274b"
-    sha256 cellar: :any, x86_64_linux:      "6e7d3988cc9551d976a7cfaeb739117a3b2cc5e5f675b102e69ee3c3c08d0d07"
+    manifest_sha256 "4f4287eb3e17c42a7febfde69689b0c4563b6edbccb260dab729a5e3f2f64549"
+    sha256 cellar: :any, arm64_golden_gate: "f54cb00f9dc9aad2869255dc52313706cb6556fdf1dc29a2c059489df5861fb5"
+    sha256 cellar: :any, arm64_tahoe:       "1495a0ea86e30d9c7e9d26783df0fe0f2e61ce2063863d018a397fedea79110b"
+    sha256 cellar: :any, arm64_sequoia:     "d1070fccadc0ee59eaf8d81bfd6fd5945788820973ecdc939b1b68db5f4be6ee"
+    sha256 cellar: :any, arm64_linux:       "997df26776a862d30b813a7ba9e5eb785c7f087cfc0bb17cfdbdb711c4abdff2"
+    sha256 cellar: :any, x86_64_linux:      "aa4a1db7b3c4f8fe1d173b53074612d11bb19edfe57e540073a70a099d582dac"
   end
 
   depends_on "autoconf" => :build
