@@ -32,14 +32,12 @@ class Proto < Formula
 
   allow_network_access! :test
 
-  def openssl = deps("openssl").first&.name
-
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl) if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(dep("openssl").name) if OS.linux?
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
     generate_completions_from_executable(bin/"proto", "completions", "--shell")
 

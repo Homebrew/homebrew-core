@@ -23,7 +23,7 @@ class Rebar3 < Formula
   depends_on "erlang" => :test
 
   def install
-    erlang_build_dep = deps(/\Aerlang@\d+\z/).build.first&.to_formula
+    erlang_build_dep = deps("erlang").build.first&.to_formula
     odie "Could not find build-time erlang!" if erlang_build_dep.blank?
 
     # To guarantee compatibility with various erlang versions, build with an older erlang.

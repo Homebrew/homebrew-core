@@ -26,15 +26,13 @@ class Reshape < Formula
 
   allow_network_access! :test
 
-  def openssl = deps("openssl").first&.name
-
   def fetch
     system "cargo", "generate-lockfile" if build.head?
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl) if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(dep("openssl").name) if OS.linux?
     system "cargo", "install", *std_cargo_args
   end
 
