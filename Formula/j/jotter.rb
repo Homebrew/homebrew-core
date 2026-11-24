@@ -7,17 +7,24 @@ class Jotter < Formula
   head "https://github.com/samox73/jotter.git", branch: "main"
 
   bottle do
-    manifest_sha256 "e640cd8825e06b04367147dadd5a5ebf61f2cf6f4259d7794f35ccf6bf164dc5"
-    sha256 cellar: :any, arm64_golden_gate: "f04cad751637782efebcc5771097b217cd5eb99157498aafca8f84a8356ed1ac"
-    sha256 cellar: :any, arm64_tahoe:       "cf200389686200b6044891c7a3c6abe3a2e44b623de8cf019990b7bd5cd5a2b8"
-    sha256 cellar: :any, arm64_sequoia:     "b02fd5dfc844bb44d0b70e34daa9f7bfa860f04841e68d6c113abfb49ae50800"
-    sha256 cellar: :any, arm64_linux:       "ce372b177ebe993510e62a8e4bf07782ea9090daa70f427e04351e36a9b340a2"
-    sha256 cellar: :any, x86_64_linux:      "039e71c5b06037f1ca2a3044965b8670122c1795943c0c04ebb8ef5616a520e2"
+    rebuild 1
+    manifest_sha256 "8c94e15848ad50cd69d7edebdfbdee57b8f09fded313bde2a207c56129de78c4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ed910ad37bb82785a674fd95293ca644e1d2ef02c599bed6c159fcadefa05b6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f47a05c6d2cb85391375c99c71d08a09eda8ee2648d93028ac652266c8ce6d69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6891b1300c160b07757ee73b1c1b100ee6903f1e128ec456ca429a0d28e127d1"
+    sha256 cellar: :any,                 arm64_linux:       "4c41183c5e347f53958f834857d88423b81fc8d0a10bd5bab184e9bb6b31cf27"
+    sha256 cellar: :any,                 x86_64_linux:      "61746144fb2ef866ca6d57778d1b3f68da64728b73308bd6831c36d3b26e0469"
   end
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "oniguruma"
+
+  patch do
+    url "https://github.com/samox73/jotter/commit/d70071b6a6b5346ae2f6a0805275d10b2b9e8f6b.patch?full_index=1"
+    sha256 "579143062ed72e11dd9b8c945158c101c1c038f57af49132f9f452d305986683"
+    type :unofficial
+    resolves "https://github.com/samox73/jotter/pull/24"
+  end
 
   deny_network_access!
 
@@ -26,9 +33,6 @@ class Jotter < Formula
   end
 
   def install
-    ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
-    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
-
     system "cargo", "install", *std_cargo_args
 
     system bin/"jotter", "--generate", "generated"
