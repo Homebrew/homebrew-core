@@ -18,6 +18,11 @@ class Oranda < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "38453321aae36b4c54631ebaa74ca576f791c4fd5e608bcb5e45088c96a3219c"
   end
 
+  # Last release on 2024-08-08 and depends on unmaintained `oniguruma`
+  # https://github.com/axodotdev/oranda/issues/721#issuecomment-3234127535
+  deprecate! date: "2026-11-24", because: :unmaintained
+  disable! date: "2027-11-24", because: :unmaintained
+
   depends_on "node" => :build
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
