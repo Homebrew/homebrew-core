@@ -37,7 +37,6 @@ class RakudoStar < Formula
 
   conflicts_with "moor", because: "both install `moar` binaries"
   conflicts_with "moarvm", "nqp", because: "rakudo-star currently ships with moarvm and nqp included"
-  conflicts_with "parrot"
   conflicts_with "rakudo"
 
   skip_clean "share/perl6/vendor/short"
