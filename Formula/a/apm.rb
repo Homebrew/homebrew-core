@@ -3,8 +3,8 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/c9/ce/da4a1df860d43c5d0a72f6160a4972332bbb9346a1c4402229734100a42e/apm_cli-0.38.0.tar.gz"
-  sha256 "6dfac2fdc8ab68586afb2b1a5a6db3c1b7ab569ff0edc525448aa85d0f92bd38"
+  url "https://files.pythonhosted.org/packages/2f/ad/de5073acb4dfee96d96900c7a1b56e8ce45292e7e920ac290fe008d8eaae/apm_cli-0.38.1.tar.gz"
+  sha256 "c2ddd1ea95f7223de2ced83c1bbb61b756a10de2651edc76b93346c925dc162b"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
@@ -61,8 +61,8 @@ class Apm < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
