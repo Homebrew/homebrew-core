@@ -1,17 +1,17 @@
 class PhpantomLsp < Formula
   desc "Fast PHP language server written in Rust"
   homepage "https://github.com/PHPantom-dev/phpantom_lsp"
-  url "https://github.com/PHPantom-dev/phpantom_lsp/archive/refs/tags/1.0.0.tar.gz"
-  sha256 "d9f5a1bda4a67e61ea0650ccb6ebe2f143b884e81cb5156d4cd0726888d2191c"
+  url "https://github.com/PHPantom-dev/phpantom_lsp/archive/refs/tags/1.1.0.tar.gz"
+  sha256 "b726026bacfa0214a9cace239c9265cd78e66821d25de40bb2abb7305703375a"
   license "MIT"
 
   bottle do
-    manifest_sha256 "d321c1c0670488fdb2d8dd84d6e41cdcf48796bde83ea9a631345d0f276da69a"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d4a8987f57cbc79e71a9a861267b622e43f74aa079fa9da9a8e0e779f1c0506"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86e69d48c515b1f4a8af4dc6a1e0d43b0023ae220d31a897d22f3fee93f160ac"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db17cf72c13f48f440b9a6436e55de0971b05fe2b2e330363f3252f8f2520dfc"
-    sha256 cellar: :any,                 arm64_linux:       "3707ece8a6de71a81f387a90f1c1e43ad3059f2bf1017dabd0d48e8fb37f2516"
-    sha256 cellar: :any,                 x86_64_linux:      "0564ed465e02e1096657204e2f239ac99e1363167c1bb8205e9157d188df8976"
+    manifest_sha256 "22e53ae92761ee38f2a0d401cb2e06beb694d3e378e2cbe8509956a960af87fb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fbac1e072fc717c8c8e2d56494b98506348a50bd059f66a3fa0d6e11f589d7a2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e1dc882b67f29f0bbbb32c59cfabd9ef18382a42c552e31166b44f619ddde1fb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb47dbd5242dafb910ffcc2f42031bddfef55f209218ac615f965abd2307ca17"
+    sha256 cellar: :any,                 arm64_linux:       "1ecb9a9204010ea07afb800fe0dd0efc6c8a27b632c97b049a64bb71e53be21c"
+    sha256 cellar: :any,                 x86_64_linux:      "c07ef1297d7310e8f24617fc28464bd5f3868792e667429497c2f98bcd72c79a"
   end
 
   depends_on "rust" => :build
