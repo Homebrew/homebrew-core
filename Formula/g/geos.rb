@@ -1,8 +1,8 @@
 class Geos < Formula
   desc "Geometry Engine"
   homepage "https://libgeos.org/"
-  url "https://download.osgeo.org/geos/geos-3.15.0.tar.bz2"
-  sha256 "d5e5192a686d065eaed082de14dd26244c5c8e02bff16b2c6cce3265f648e00e"
+  url "https://download.osgeo.org/geos/geos-3.15.1.tar.bz2"
+  sha256 "8eb6dc2ea78b00c2f5109c6b0dba9e028c60bad42d7b1b0cc9952b12dc71f571"
   license "LGPL-2.1-or-later"
   compatibility_version 1
 
@@ -12,12 +12,12 @@ class Geos < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8f09ce56a97b7714e978c079793a9595292542b0676c742f02bff008eafcb7f6"
-    sha256 cellar: :any, arm64_tahoe:       "ee2885091289736655eccd714125c4202537a81b91facf3033f9f6387b66a441"
-    sha256 cellar: :any, arm64_sequoia:     "90785c1140619743ebf629f93da255b7b490f44b4a2e143bd1b6cd9b4d2d64f9"
-    sha256 cellar: :any, arm64_sonoma:      "8313b72df2431403753009907bbef383805dce12087b0852d3c04489ac686647"
-    sha256 cellar: :any, arm64_linux:       "2801e57ff42aa35f5e52e6f9f3dad19633f7125a0da010e0886c22bbfc53bfb6"
-    sha256 cellar: :any, x86_64_linux:      "ae8443b99cf965e4828c172fab22be7a7fe3424e6d8f6b3c7c99fe960f7e7664"
+    manifest_sha256 "24191e70a4620dce11dbf7ba321b2dfcfb5926e05ad9b42da4afa3f699b1f2d4"
+    sha256 cellar: :any, arm64_golden_gate: "7355fc188c9cef6f9b726bbe95e1f5d6058f78e672cf4146c32afc57a3fe25ff"
+    sha256 cellar: :any, arm64_tahoe:       "be86a5e10f911c883285f609535d0f42dbe68ca42c821b186b2426e85a506445"
+    sha256 cellar: :any, arm64_sequoia:     "8baedc5643ae9f13cfc326ee8fbe810007de8863be3843aa68a346b5e3928ab8"
+    sha256 cellar: :any, arm64_linux:       "d10fe11f5e95bcdc5aae5ad50a5981a66678685ae782f262b89a66f845995765"
+    sha256 cellar: :any, x86_64_linux:      "0106c09356c3b1b808ea9055b7f0795345e36ab678af05b0259804e4eba3d02b"
   end
 
   depends_on "cmake" => :build
