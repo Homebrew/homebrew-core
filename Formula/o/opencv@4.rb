@@ -3,8 +3,12 @@ class OpencvAT4 < Formula
   homepage "https://opencv.org/"
   url "https://github.com/opencv/opencv/archive/refs/tags/4.14.0.tar.gz"
   sha256 "ee8fb9b30eb60850431b4656447080e3737b56e45719c92b67f245950609f86e"
-  license "Apache-2.0"
-  revision 11
+  license all_of: [
+    "Apache-2.0",
+    "BSD-3-Clause", # modules/xfeatures2d/src/kaze/, 3rdparty/ittnotify/, ...
+    "MIT",          # modules/gapi/src/3rdparty/vasot
+  ]
+  revision 12
   compatibility_version 2
 
   livecheck do
@@ -13,11 +17,12 @@ class OpencvAT4 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "50100f319d175cd623b5dba8bae72f19bd039569bc212931cf45c30e9cc71ecc"
-    sha256 arm64_tahoe:       "9ee879c7351051ec38d8cd5ef15613c5da704f26c27b6e171a6ac6e3a94f8cce"
-    sha256 arm64_sequoia:     "3cc94997de5d22dbaf7fc185658131e9a92180c5f8baca9c22be7525558d2cbb"
-    sha256 arm64_linux:       "2c7fd71e18929a2da569ea531c13289527cb190a9293fbe763f81727b73998c1"
-    sha256 x86_64_linux:      "6b93020395ec50143e40d7af73e4430405cd76869ddc8861d5b453383c30cf85"
+    manifest_sha256 "bcb4f434944eab53c389d7f11f086a61cb2d3890ba6a264defcbfb52dd4ab5b2"
+    sha256 arm64_golden_gate: "fa3cc579f9fba9339a5ccad0fd853138277f8a4d25b3edeb8196661181fb2437"
+    sha256 arm64_tahoe:       "b0408885e97472440ba355272b02c375386d807f0ae167096c933699198d9162"
+    sha256 arm64_sequoia:     "5bb8b3b20a22894425ac1835ad2f999c13ea5c0017f7685287da88bca3f78feb"
+    sha256 arm64_linux:       "2bb3b132b0b7e4817a1e94e379205c430cf7c12084722fe6d65ab2a230dbd358"
+    sha256 x86_64_linux:      "cc35a942304806c7b34c5ea5ac9f4636b237a645da0cdd6672191ac142179bd7"
   end
 
   keg_only :versioned_formula
@@ -25,6 +30,7 @@ class OpencvAT4 < Formula
   deprecate! date: "2026-10-09", because: :unsupported
   disable! date: "2027-07-09", because: :unsupported
 
+  depends_on "ade" => :build
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
   depends_on "python-setuptools" => :build
@@ -37,10 +43,9 @@ class OpencvAT4 < Formula
   depends_on "glog"
   depends_on "harfbuzz"
   depends_on "jpeg-turbo"
-  depends_on "jsoncpp"
   depends_on "libpng"
   depends_on "libtiff"
-  depends_on "numpy"
+  depends_on "numpy" => :no_linkage
   depends_on "openblas"
   depends_on "openexr"
   depends_on "openjpeg"
@@ -52,17 +57,12 @@ class OpencvAT4 < Formula
   depends_on "vtk"
   depends_on "webp"
 
-  on_macos do
-    depends_on "glew"
-    depends_on "imath"
-    depends_on "libarchive"
-  end
-
   on_linux do
     depends_on "cairo"
     depends_on "gdk-pixbuf"
     depends_on "glib"
     depends_on "gtk+3"
+    depends_on "jsoncpp"
     depends_on "zlib-ng-compat"
   end
 
@@ -72,6 +72,68 @@ class OpencvAT4 < Formula
 
     livecheck do
       formula :parent
+    end
+
+    # Backport missing iostream include
+    patch do
+      url "https://github.com/opencv/opencv_contrib/commit/b57ddd9c3fa4873bc6832c74155b0054779b0c1f.patch?full_index=1"
+      sha256 "83c5e812d5786a700cb4f0db02264a16140e5f3ee426e03bf789298d43b102ec"
+      type :backport
+    end
+  end
+
+  # ARM-only but not using on_arm block so that autobump can update resource
+  resource "kleidicv" do
+    url "https://gitlab.arm.com/kleidi/kleidicv/-/archive/26.03/kleidicv-26.03.tar.gz"
+    sha256 "1bb4078fd215565f3906c33f76a00e7b843328965230d765afcd0d51141c434f"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/opencv/opencv/refs/tags/#{LATEST_VERSION}/hal/kleidicv/kleidicv.cmake"
+      regex(/KLEIDICV_SRC_COMMIT "(\d+(?:\.\d+)+)"/i)
+    end
+  end
+
+  resource "wechat_qrcode" do
+    url "https://github.com/WeChatCV/opencv_3rdparty/archive/a8b69ccc738421293254aec5ddb38bd523503252.tar.gz"
+    version "a8b69ccc738421293254aec5ddb38bd523503252"
+    sha256 "7a16ad6ca511c620c2a4cbef2c7cf1ff5c31bd530ac7b43ee2ea8481683df20a"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/opencv/opencv_contrib/refs/tags/#{LATEST_VERSION}/modules/wechat_qrcode/CMakeLists.txt"
+      regex(/wechat_qrcode_commit_hash "(\h+)"/i)
+    end
+  end
+
+  resource "xfeatures2d/boostdesc" do
+    url "https://github.com/opencv/opencv_3rdparty/archive/34e4206aef44d50e6bbcd0ab06354b52e7466d26.tar.gz"
+    version "34e4206aef44d50e6bbcd0ab06354b52e7466d26"
+    sha256 "d93c783cdf799da7e4a9209d169390424c4c198c1c9b5eeb78ffc890afe5f332"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/opencv/opencv_contrib/refs/tags/#{LATEST_VERSION}/modules/xfeatures2d/cmake/download_boostdesc.cmake"
+      regex(/OPENCV_3RDPARTY_COMMIT "(\h+)"/i)
+    end
+  end
+
+  resource "xfeatures2d/vgg" do
+    url "https://github.com/opencv/opencv_3rdparty/archive/fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d.tar.gz"
+    version "fccf7cd6a4b12079f73bbfb21745f9babcd4eb1d"
+    sha256 "e9abccbabcace092e5424073168cc86d422585d15d25569f01fb6503b109e0e1"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/opencv/opencv_contrib/refs/tags/#{LATEST_VERSION}/modules/xfeatures2d/cmake/download_vgg.cmake"
+      regex(/OPENCV_3RDPARTY_COMMIT "(\h+)"/i)
+    end
+  end
+
+  resource "face_landmark_model.dat" do
+    url "https://raw.githubusercontent.com/opencv/opencv_3rdparty/8afa57abc8229d611c4937165d20e2a2d9fc5a12/face_landmark_model.dat"
+    version "8afa57abc8229d611c4937165d20e2a2d9fc5a12"
+    sha256 "eeab592db2861a6c94d592a48456cf59945d31483ce94a6bc4d3a4e318049ba3"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/opencv/opencv_contrib/refs/tags/#{LATEST_VERSION}/modules/face/CMakeLists.txt"
+      regex(/__commit_hash "(\h+)"/i)
     end
   end
 
@@ -90,8 +152,16 @@ class OpencvAT4 < Formula
     resolves "https://github.com/opencv/opencv/pull/29662"
   end
 
+  deny_network_access!
+
   def install
     resource("contrib").stage buildpath/"opencv_contrib"
+    %w[build_shared build_static].each do |builddir|
+      resource("wechat_qrcode").stage buildpath/builddir/"downloads/wechat_qrcode"
+      resource("xfeatures2d/boostdesc").stage buildpath/builddir/"downloads/xfeatures2d"
+      resource("xfeatures2d/vgg").stage buildpath/builddir/"downloads/xfeatures2d"
+      resource("face_landmark_model.dat").stage buildpath/builddir/"share/opencv#{version.major}/testdata/cv/face"
+    end
 
     # Avoid Accelerate.framework
     ENV["OpenBLAS_HOME"] = formula_opt_prefix("openblas")
@@ -99,15 +169,6 @@ class OpencvAT4 < Formula
     # Remove bundled libraries to make sure formula dependencies are used
     libdirs = %w[ffmpeg libjasper libjpeg libjpeg-turbo libpng libtiff libwebp openexr openjpeg protobuf tbb zlib]
     libdirs.each { |l| rm_r(buildpath/"3rdparty"/l) }
-
-    # VTK 9.6 stopped transitively including <iostream>;
-    # viz uses std::cout/endl directly.
-    # PR refs: https://github.com/opencv/opencv_contrib/pull/4085
-    inreplace "opencv_contrib/modules/viz/src/vtk/vtkVizInteractorStyle.cpp" do |s|
-      s.sub! '#include "../precomp.hpp"', "#include <iostream>\n\\0"
-      s.gsub!(/^(\s*)cout (<<.* )endl;$/, "\\1std::cout \\2std::endl;")
-    end
-    inreplace "opencv_contrib/modules/viz/src/widget.cpp", '#include "precomp.hpp"', "#include <iostream>\n\\0"
 
     args = %W[
       -DCMAKE_CXX_STANDARD=17
@@ -147,11 +208,18 @@ class OpencvAT4 < Formula
       -DBUILD_opencv_python2=OFF
       -DBUILD_opencv_python3=ON
       -DPYTHON3_EXECUTABLE=#{python3}
+      -Dade_DIR=#{Formula["ade"].opt_pkgshare}
     ]
+
+    # Requires closed-source, pre-built Intel IPP library
+    args << "-DWITH_IPP=OFF"
 
     args += if OS.mac?
       # Requires closed-source, pre-built Orbbec SDK on macOS
-      ["-DWITH_OBSENSOR=OFF"]
+      %w[
+        -DWITH_OBSENSOR=OFF
+        -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs
+      ]
     else
       # Disable precompiled headers and force opencv to use brewed libraries on Linux
       %W[
@@ -168,6 +236,11 @@ class OpencvAT4 < Formula
         -DWITH_V4L=OFF
         -DZLIB_LIBRARY=#{formula_opt_lib("zlib-ng-compat")}/libz.so
       ]
+    end
+
+    if Hardware::CPU.arm64?
+      resource("kleidicv").stage buildpath/"kleidicv"
+      args << "-DKLEIDICV_SOURCE_PATH=#{buildpath}/kleidicv"
     end
 
     # Ref: https://github.com/opencv/opencv/wiki/CPU-optimizations-build-options
@@ -206,9 +279,6 @@ class OpencvAT4 < Formula
     system ENV.cxx, "-std=c++17", "test.cpp", "-I#{include}/opencv4", "-o", "test",
                     "-L#{lib}", "-lopencv_core", "-lopencv_imgcodecs"
     assert_equal version.to_s, shell_output("./test").strip
-
-    # The test below seems to time out on Intel macOS.
-    return if OS.mac? && Hardware::CPU.intel?
 
     ENV.prepend_path "PYTHONPATH", prefix/Language::Python.site_packages(python3)
     output = shell_output("#{python3} -c 'import cv2; print(cv2.__version__)'")
