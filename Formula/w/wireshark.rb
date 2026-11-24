@@ -54,8 +54,10 @@ class Wireshark < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
-    lua = Formula["lua"]
+    lua = dep("lua")
     plugindir = lib/"wireshark/plugins/#{version.major}-#{version.minor}"
     extcap_rpath = rpath(source: libexec/"wireshark/extcap")
     codecs_rpath = rpath(source: plugindir/"codecs")
