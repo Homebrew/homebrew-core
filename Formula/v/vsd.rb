@@ -31,14 +31,12 @@ class Vsd < Formula
 
   allow_network_access! :test
 
-  def openssl = deps("openssl").first&.name
-
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
   def install
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl) if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(dep("openssl").name) if OS.linux?
 
     # Replace rustls + aws-lc with our preferred native TLS backend
     features = %w[capture license native-tls]
