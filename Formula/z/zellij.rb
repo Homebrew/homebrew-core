@@ -1,17 +1,18 @@
 class Zellij < Formula
   desc "Pluggable terminal workspace, with terminal multiplexer as the base feature"
   homepage "https://zellij.dev"
-  url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "2dfa237fea447f3cc98954e81b0097b9d25841010036720e11f67880fe7861f0"
+  url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.1.tar.gz"
+  sha256 "f512621f3f54970ba46fc736e0f6581a438db9da1e5c3a8b69b314296f938a80"
   license "MIT"
   head "https://github.com/zellij-org/zellij.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7f7df89c09c039467b91f05b4f066e10b97a018d6c3bc52dce5219a2dfcad5e2"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1e9395bb2b833cbf7f392f901e5a51dc4413ac74731feda81a6bef42f631bef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1963842abf5d2260c18f2d1efdf797c71ea6b13ad09612c4b5a675b5741faac6"
-    sha256 cellar: :any,                 arm64_linux:       "1fe71dfb39aec6bcd6886f41ac8212af1a0f27fc56f7e60c10f55e4a01520d00"
-    sha256 cellar: :any,                 x86_64_linux:      "55738c7245fecf08af4114fd6fe79b5ff159a8a28a067297de8ba4fd6c247314"
+    manifest_sha256 "49b204808faea3095ed9905b2e236ea3ec488f55d89e61127d7ccaea5b3549ee"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "669a0f13a411e37c041d881bd0b9c539d0d0c3dd39a31adb3c7d60e45c1ebb0f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4425d2be6ac9bfd1d430ac66206c8ac2dc07279bd75a64b5e599a243051ca20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ca96161d925e132f3e319dc73d787a32f00ccb1846262ad209d0607a885b250e"
+    sha256 cellar: :any,                 arm64_linux:       "18cd60e697c4748430ff30a4de1fc81f0945a8e9694ed336d6081979c897b580"
+    sha256 cellar: :any,                 x86_64_linux:      "45ba5683f68de058135dd3e2d18cf05a55ac98b90e54e7130a21498f2f9f1f5f"
   end
 
   depends_on "rust" => :build
@@ -23,12 +24,7 @@ class Zellij < Formula
     depends_on "pkgconf" => :build
   end
 
-  # Updates for yanked chacha20 and minimum openssl-sys to use OpenSSL 4
-  patch :DATA
-
   deny_network_access!
-
-  def openssl = deps("openssl").first&.name
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
@@ -36,7 +32,7 @@ class Zellij < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl) if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(dep("openssl").name) if OS.linux?
 
     # Remove vendored_curl from default features
     features = %w[plugins_from_target web_server_capability terminal]
@@ -58,33 +54,3 @@ class Zellij < Formula
     assert_match("zellij #{version}", shell_output("#{bin}/zellij --version"))
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 592e22320..72c51a0f0 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -698,9 +698,9 @@ dependencies = [
- 
- [[package]]
- name = "chacha20"
--version = "0.10.1"
-+version = "0.10.2"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "d524456ba66e72eb8b115ff89e01e497f8e6d11d78b70b1aa13c0fbd97540a81"
-+checksum = "65c35e4b699c7e15ccbe7ee35c005e4fc0a278d22238a2857e6ce2dadeda1b06"
- dependencies = [
-  "cfg-if",
-  "cpufeatures 0.3.0",
-@@ -3354,9 +3354,9 @@ dependencies = [
- 
- [[package]]
- name = "openssl-sys"
--version = "0.9.111"
-+version = "0.9.114"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "82cab2d520aa75e3c58898289429321eb788c3106963d0dc886ec7a5f4adc321"
-+checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
- dependencies = [
-  "cc",
-  "libc",
