@@ -1,8 +1,8 @@
 class Libnpupnp < Formula
   desc "C++ base UPnP library, derived from Portable UPnP, a.k.a libupnp"
   homepage "https://www.lesbonscomptes.com/upmpdcli/npupnp-doc/libnpupnp.html"
-  url "https://www.lesbonscomptes.com/upmpdcli/downloads/libnpupnp-6.3.1.tar.gz"
-  sha256 "1e6271dd2e641a5b095d994be6976031e5f6b32a22df3bb1988636f51b0f52b7"
+  url "https://www.lesbonscomptes.com/upmpdcli/downloads/libnpupnp-6.3.2.tar.gz"
+  sha256 "eedf9d9d05d048f88200d5226db065c16f7dcc2e3baefb0fed823185fa3fc024"
   license "BSD-3-Clause"
   compatibility_version 1
   head "https://framagit.org/medoc92/npupnp.git", branch: "master"
@@ -13,11 +13,12 @@ class Libnpupnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "fa9c584e2e1f01f12ac1e3aca0b018fb59017463606f4188c1bbfe4e87e065ad"
-    sha256 cellar: :any, arm64_tahoe:       "0f4a521d1f73de529303c5cb37a880367eb448717668159a353970582decbef7"
-    sha256 cellar: :any, arm64_sequoia:     "e10f1fde2bcab43fcc4fd4374b80ce56ba46f98d8e9ba960c4c88f09c3c1b88d"
-    sha256 cellar: :any, arm64_linux:       "1a5d36f6b7edfc79cb3a4373e20ddf400973572aa3b6bf9f70cac8811f098183"
-    sha256 cellar: :any, x86_64_linux:      "d8a18602a14cc31b3237f8b73ccc3119eb3e234a8181b85d7b1534be433e1a2a"
+    manifest_sha256 "a768a594ef548962459672959c664adca0712ac554fb56186fa4c1c39041abc7"
+    sha256 cellar: :any, arm64_golden_gate: "2c4028fae8cf4dd3dd0cb509f8648f8692439ed60df8edacc5b40a4be5376fba"
+    sha256 cellar: :any, arm64_tahoe:       "0780a3e3b7b65755da1d6a75f3e9dc400b1d6201f2135365ea83045f86106af4"
+    sha256 cellar: :any, arm64_sequoia:     "68b8e8af5de23debfca2d81c53493568bbf15550fff6192dd8f90f43f0dfdf15"
+    sha256 cellar: :any, arm64_linux:       "1c46d587a93f1954990839583aca215c961ad52ce1b5eef33b9bd01ce75e37b0"
+    sha256 cellar: :any, x86_64_linux:      "7653c5d8fa2cad066a6f8d67965e7e98c7caf04e62b85a8fc58912cb654dbe21"
   end
 
   depends_on "meson" => :build
