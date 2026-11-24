@@ -5,6 +5,7 @@ class Mavsdk < Formula
       tag:      "v4.2.1",
       revision: "417d1ccd328cd21af27c424fa6d72611e9889ccf"
   license "BSD-3-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -12,25 +13,23 @@ class Mavsdk < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9e912d0dbd86f51aaaf2a5a04c928d0b5864301920988b9c8d7a16aad8ec6c93"
-    sha256 cellar: :any, arm64_tahoe:       "385f104c866dd64c54eed132d7580578c9e46d0bebe5ffdb3f246c3391ee329b"
-    sha256 cellar: :any, arm64_sequoia:     "8ef51110a1abfc2013249d5f6c14041109fda7c5983af80a4e1f6483a4743142"
-    sha256               arm64_linux:       "30d2808fd5ed9ae2b3b5358b438aaebc14799a635015e2899bd34dd78e6afb66"
-    sha256               x86_64_linux:      "4af8f46c013293e10396ab16584bdf1c404ba39bce0fa1229352320641a47baa"
+    manifest_sha256 "6fa0d8a7c0d1588ce0284eaf492f1d5b39e6a86c6598c8b4bcf6aa5481c6dbe2"
+    sha256 cellar: :any, arm64_golden_gate: "8efe7ef22f07c03078d067e29f2cdcf5a5258564418239574007e74ca83d3693"
+    sha256 cellar: :any, arm64_tahoe:       "09b4e9710fddd03e6ffef0ba1b3c565af9262b8a505273b2e19ed44335bcc54a"
+    sha256 cellar: :any, arm64_sequoia:     "84df70902c3c07adef5b1362b68c2f8c69e0be48b70ff0e012045447cf9ad7b2"
+    sha256               arm64_linux:       "d67ce7a45b3c354389ba9e4c0599fceeadd6191c5e70c31ecd50016f6e873f25"
+    sha256               x86_64_linux:      "588076c516a9d030d3a81e77f6f8c7b8eb53b707373dfd6182b8240ccd684046"
   end
 
   depends_on "asio" => :build
   depends_on "cmake" => :build
   depends_on "rust" => :build
   depends_on "abseil"
-  depends_on "c-ares"
   depends_on "curl"
   depends_on "fmt"
   depends_on "grpc"
   depends_on "nlohmann-json"
-  depends_on "openssl@4"
   depends_on "protobuf"
-  depends_on "re2"
   depends_on "tinyxml2"
   depends_on "xz"
 
@@ -39,10 +38,6 @@ class Mavsdk < Formula
   on_macos do
     # `cpp/tools/generate_from_protos.sh` uses `mapfile`, which needs Bash 4
     depends_on "bash" => :build
-  end
-
-  on_linux do
-    depends_on "zlib-ng-compat"
   end
 
   # Git is required to fetch submodules
@@ -111,6 +106,7 @@ class Mavsdk < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath}
       -DDEPS_INSTALL_PATH=#{libexec}
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
 
     system "cmake", "-S", "cpp", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
