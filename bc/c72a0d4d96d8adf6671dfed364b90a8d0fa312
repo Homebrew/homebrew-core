@@ -1,0 +1,16 @@
+Formula/s/simdutf.rb
+  h_9df9c32c3f321d 7
+Formula/a/ada-url.rb
+  h_9df9c32c3f321d 7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "bcc72a0d4d96d8adf6671dfed364b90a8d0fa312",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
