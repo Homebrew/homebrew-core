@@ -1,10 +1,9 @@
 class MysqlAT97 < Formula
   desc "Open source relational database management system"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.4.tar.gz"
-  sha256 "9188eb1abec42b8ab8bb69948492f06258dd27e6aabd13e2d4c6197dbcde75b2"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.4.1.tar.gz"
+  sha256 "7f399c598797c6fc0de9a97cbd68008150396ab32cb27f8bcb9746217371237f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/9.7.html?tpl=files&os=src",
