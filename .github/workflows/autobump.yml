@@ -21,6 +21,7 @@ concurrency:
 
 permissions:
   contents: read
+  pull-requests: read
 
 defaults:
   run:
@@ -28,44 +29,101 @@ defaults:
 
 jobs:
   autobump:
-    if: github.repository_owner == 'Homebrew'
+    if: github.repository_owner == 'Homebrew' && github.ref == 'refs/heads/main'
+    outputs:
+      formulae: ${{ steps.bump.outputs.formulae }}
+      artifact: ${{ steps.upload.outputs.artifact-id }}
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/homebrew/brew:main
     env:
       HOMEBREW_DEVELOPER: 1
-      GNUPGHOME: /tmp/gnupghome
     steps:
       - name: Set up Homebrew
-        id: set-up-homebrew
         uses: Homebrew/actions/setup-homebrew@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
         with:
           core: true
           cask: false
+
+      - run: brew config
+
+      - name: Bump formulae
+        id: bump
+        env:
+          HOMEBREW_TEST_BOT_AUTOBUMP: 1
+        run: brew bump --prepare-prs=bumps.json
+
+      - name: Upload bumps
+        if: ${{ !cancelled() && steps.bump.outputs.formulae != '' }}
+        id: upload
+        uses: actions/upload-artifact@cf430e030ddbb5b0abf93d22962f4752f3646cd9 # v7.0.2
+        with:
+          path: bumps.json
+          archive: false
+          overwrite: true
+          retention-days: 1
+
+  publish:
+    needs: autobump
+    if: ${{ !cancelled() && needs.autobump.outputs.artifact != '' }}
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        formula: ${{ fromJSON(needs.autobump.outputs.formulae) }}
+    steps:
+      - name: Set up Homebrew
+        id: setup
+        uses: Homebrew/actions/setup-homebrew@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
+        with:
+          core: true
+          cask: false
+
+      - uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          name: bumps.json
+          skip-decompress: true
 
       - name: Configure Git user
         uses: Homebrew/actions/git-user-config@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
         with:
           username: ${{ case(github.event_name == 'workflow_dispatch', github.actor, 'BrewTestBot') }}
 
+      - name: Prepare branch
+        id: bump
+        env:
+          FORMULA: ${{ matrix.formula }}
+        run: brew bump --commit-pr-from=bumps.json -- "$FORMULA"
+
       - name: Set up commit signing
+        if: steps.bump.outputs.branch
         uses: Homebrew/actions/setup-commit-signing@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
         with:
           signing_key: ${{ secrets.BREWTESTBOT_SSH_SIGNING_KEY }}
 
-      - run: brew config
-
-      - name: Bump formulae
+      - name: Sign commits
+        id: sign
+        if: steps.bump.outputs.branch
         env:
-          HOMEBREW_TEST_BOT_AUTOBUMP: 1
-          HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
-          FORMULAE: ${{ inputs.formulae }}
-        run: |
-          BREW_BUMP=(brew bump --no-fork --open-pr --formulae --bump-synced)
-          if [[ -n "${FORMULAE-}" ]]; then
-            xargs -t "${BREW_BUMP[@]}" <<<"${FORMULAE}"
-          else
-            "${BREW_BUMP[@]}" --auto --tap=Homebrew/core
-          fi
+        run: brew bump --sign-pr
+
+      - name: Push branch
+        if: steps.sign.outputs.push
+        uses: Homebrew/actions/git-try-push@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
+        with:
+          branch: ${{ steps.bump.outputs.branch }}
+          directory: ${{ steps.setup.outputs.repository-path }}
+          tries: 1
+          token: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
+
+      - name: Open pull request
+        if: steps.bump.outputs.branch
+        uses: Homebrew/actions/create-pull-request@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
+        with:
+          head: ${{ steps.bump.outputs.branch }}
+          base: main
+          title: ${{ fromJSON(steps.bump.outputs.pr).title }}
+          body: ${{ fromJSON(steps.bump.outputs.pr).body }}
+          token: ${{ secrets.HOMEBREW_CORE_REPO_WORKFLOW_TOKEN }}
