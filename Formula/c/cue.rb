@@ -2,19 +2,18 @@ class Cue < Formula
   desc "Validate and define text-based and dynamic configuration"
   homepage "https://cuelang.org/"
   url "https://github.com/cue-lang/cue.git",
-      tag:      "v0.17.1",
-      revision: "fc6c0b2ecd3666da92f7053d13fcfbf009b7d7a3"
+      tag:      "v0.18.0",
+      revision: "81b90d2963ed1d60b99306e45507fe6d73f37bb5"
   license "Apache-2.0"
   head "https://github.com/cue-lang/cue.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b3c57de56e735c004d93735837226c43889b94d0100a3678d49a91ad3b866aa5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "28328657d4ede5a008dbc9bcf4d801da8a3a29655d972a262c9413c9beef01b2"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "28328657d4ede5a008dbc9bcf4d801da8a3a29655d972a262c9413c9beef01b2"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "28328657d4ede5a008dbc9bcf4d801da8a3a29655d972a262c9413c9beef01b2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "253990366845c4df79de18ce17e2ac59e3d2efd0770b7349bf8089853f95f64b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "610270ca741c90e91413b2373e676c68bbe113c2dd713e278ec41d91eeff66ab"
-    sha256 cellar: :any,                 x86_64_linux:      "55c44871b0e063cf490702c467b17c47498d48b3d0dc21a4755a7ae039265fb1"
+    manifest_sha256 "d79cf916edee1597f67a57d20ebdd6fffc043991ffc4730a0e4c1044b839675f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8facc2a3230639c2421c62ba785e3f33e203c5f56fb168fde3347a936e38bd40"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8facc2a3230639c2421c62ba785e3f33e203c5f56fb168fde3347a936e38bd40"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8facc2a3230639c2421c62ba785e3f33e203c5f56fb168fde3347a936e38bd40"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "32f1d3aee627df67f51507f680cc477c90d29f2f6244c92fac37265277e7373d"
+    sha256 cellar: :any,                 x86_64_linux:      "c55e4fd107f88acca784d5cbb20d3db564f5bfc8a8be5bee46e75978b6fc37fe"
   end
 
   depends_on "go" => :build
