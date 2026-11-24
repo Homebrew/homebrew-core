@@ -3,8 +3,8 @@ class Blint < Formula
 
   desc "Security linter and SBOM generator for binaries"
   homepage "https://github.com/owasp-dep-scan/blint"
-  url "https://files.pythonhosted.org/packages/69/b3/dd4898b70f09ed74a1ce2ca93af7b92dd7ecd379497397f7404c8c14811e/blint-4.0.1.tar.gz"
-  sha256 "7e6aaf6df449af2f8abc897848a5a145d09e0b7ecc333888842e1a32d7760f68"
+  url "https://files.pythonhosted.org/packages/bd/37/edd11d51f22115f736c06992d78be53b0f5a290b112df31302d3befb0c9f/blint-4.1.0.tar.gz"
+  sha256 "53922077a8c374b46ab71673de1f44dbc053a3360138a43d1d3538f1cddb4f56"
   license "MIT"
   head "https://github.com/owasp-dep-scan/blint.git", branch: "main"
 
@@ -56,8 +56,8 @@ class Blint < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "custom-json-diff" do
@@ -71,13 +71,13 @@ class Blint < Formula
   end
 
   resource "dnspython" do
-    url "https://files.pythonhosted.org/packages/ef/4a/50822184bd67cc6493f0fb6a880749158fcd31ab3fa07409acfd91f9fc85/dnspython-2.9.0.tar.gz"
-    sha256 "b44dc6b18f07a8b1c56676a19fbfdb5209415b046a9cece286baafa87ff3f7f1"
+    url "https://files.pythonhosted.org/packages/76/49/900383b471c645a3c397f47b3211d1fcecb3a540c98f683494cdf86b33de/dnspython-2.9.2.tar.gz"
+    sha256 "8d4d39a513e649d634004ce4d39ade2352efcea472a0247535a5c2d18a9d7ba9"
   end
 
   resource "email-validator" do
-    url "https://files.pythonhosted.org/packages/f5/22/900cb125c76b7aaa450ce02fd727f452243f2e91a61af068b40adba60ea9/email_validator-2.3.0.tar.gz"
-    sha256 "9fc05c37f2f6cf439ff414f8fc46d917929974a82244c20eb10231ba60c54426"
+    url "https://files.pythonhosted.org/packages/c0/4d/f5e9d9de19f4b8f9e33d802fe3efb0ef96e88d4d6d45d604f335bef2f1ef/email_validator-2.4.0.tar.gz"
+    sha256 "be487bc50bc3bd832a98515a55a15649d9bec06d954fa178663190714b6c4ee1"
   end
 
   resource "idna" do
@@ -106,8 +106,8 @@ class Blint < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markupsafe" do
@@ -126,8 +126,8 @@ class Blint < Formula
   end
 
   resource "oras" do
-    url "https://files.pythonhosted.org/packages/c5/d2/dc4a3eb07ac779455dbfbc85cd396025ad72450ed7673a323c685cfb6774/oras-0.2.43.tar.gz"
-    sha256 "761f2b518fce50e5e9482975363ff0230f63fc65f84c09510fbcc301782a047c"
+    url "https://files.pythonhosted.org/packages/c0/92/45719088d695714259d768a286639b3563e931db8e46e3820427ca6040e8/oras-0.2.44.tar.gz"
+    sha256 "4bc8ebf56f324f5ca8e2278e4ceaa906ffb5e5030d198b80c073e8338e54acf5"
   end
 
   resource "orjson" do
@@ -146,8 +146,8 @@ class Blint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "referencing" do
@@ -166,8 +166,8 @@ class Blint < Formula
   end
 
   resource "semver" do
-    url "https://files.pythonhosted.org/packages/92/f5/e1dfe8e1d91c54ce212fd93916eb01fd1c590f413be0a0978c39a97aa1bb/semver-3.1.0.tar.gz"
-    sha256 "14bc073439513d7773662a338f4db9829cf16c12b74b9568e2d2689975fbd7fc"
+    url "https://files.pythonhosted.org/packages/ec/a0/3d3f51a1304c0e8c93e06a23308f566f2d52d62f92dac903b85ef79dea6f/semver-3.1.2.tar.gz"
+    sha256 "bea193552413194252d33ff26ce0962b76669bd1c6fb17e8e203ac37f072feaf"
   end
 
   resource "toml" do
@@ -181,8 +181,8 @@ class Blint < Formula
   end
 
   resource "wasm-tools" do
-    url "https://files.pythonhosted.org/packages/da/f9/3a6260818f6b7b7aa23b204a06e8a8ea6cb1f7d64cd2ab47eb1afaefe332/wasm_tools-2.1.0.tar.gz"
-    sha256 "fbfd4a962462e6128eb37446957d9ccac4e18b34d2cb894821697139d12f26d4"
+    url "https://files.pythonhosted.org/packages/dc/dc/cab147acaa95ce52570eddfb8a3bd5d2cbe984ef16ef75f33dfd4679e5f2/wasm_tools-2.2.0.tar.gz"
+    sha256 "2453fbae76a802b4b7198991e862cdd5b87d34dc565d7e84b84bf4a143a513d3"
   end
 
   # Python bindings for the `lief` formula, so keep both at the same version
@@ -199,15 +199,15 @@ class Blint < Formula
   resource "homebrew-test-library", :test do
     url "https://raw.githubusercontent.com/owasp-dep-scan/blint/fc39d1202f550d701a9f6564230488aa96e8cc26/tests/data/android/liba5_static_arm64-v8a_stripped.so"
     sha256 "fd8fd1b3e5b31ffbb583b952aa7864a87fdeb969b97bccf6fbf9b74ceb836a0b"
+
+    livecheck do
+      skip "Test resource"
+    end
   end
 
   deny_network_access! :test
 
   def install
-    # Remove the Python 3.15 cap, as upstream did after 4.0.1
-    # https://github.com/owasp-dep-scan/blint/commit/d0a8b9e281a1
-    inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10"' if build.stable?
-
     venv = virtualenv_install_with_resources without: %w[apsw lief]
 
     resource("apsw").stage do
