@@ -1,19 +1,18 @@
 class ZxingCpp < Formula
   desc "Multi-format barcode image processing library written in C++"
   homepage "https://github.com/zxing-cpp/zxing-cpp"
-  url "https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.1.1/zxing-cpp-3.1.1.tar.gz"
-  sha256 "c3c02c29c0b519de7bd4e25b376e606e87f0761befd1282815642a2246613d14"
+  url "https://github.com/zxing-cpp/zxing-cpp/releases/download/v3.2.0/zxing-cpp-3.2.0.tar.gz"
+  sha256 "eacc2495f452be751d9dd453f4d6cccd0e9a40131e002bcf54d2580ce5c19ad8"
   license "Apache-2.0"
   head "https://github.com/zxing-cpp/zxing-cpp.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4bde0564907fe5b9e63f3d389853719d0452d2381aca015eb08f57e662683e77"
-    sha256 cellar: :any, arm64_tahoe:       "3795a6d9898fa8ef01980dc62af5663ea9c5095bd4632030ca912740aa70ee5d"
-    sha256 cellar: :any, arm64_sequoia:     "292f6fc70f5ffc2d7d92c22f211d3a0d78784760b59bd430e80f60f15ee38b7d"
-    sha256 cellar: :any, arm64_sonoma:      "7d236370587c353fc70e88d7967cb3529ee4d5c44d2ddb439d9609e69068ff34"
-    sha256 cellar: :any, sonoma:            "56c38ea9e718f8564f98baeeb3209411c5db1100608936bac2231aa03bf0d3c5"
-    sha256 cellar: :any, arm64_linux:       "528829b770cfe30f3b05704fd8f541fd36206b9dc9918451e0fe4209a1ad31fa"
-    sha256 cellar: :any, x86_64_linux:      "12434a21e3211b17cf5d7825a10e05e60d6d28d198476ecaf29dcbdb036e2f36"
+    manifest_sha256 "9ff94cccc76d7b894466e6c7b912bfffe47fda3e064cf72c64bc108542cd9e82"
+    sha256 cellar: :any, arm64_golden_gate: "0367deeaa96f6b7725346572ef388e83120dd3e3ce03af807e9f2d73c44f4e23"
+    sha256 cellar: :any, arm64_tahoe:       "a39b56acf9c3768dcf86a8ced01a40f62a79277f3fa1c22bc62f2848b44e6aa1"
+    sha256 cellar: :any, arm64_sequoia:     "81f68cff037e756a181f2a7f2dc44200d2c0bc25e730049b3991b8909f360335"
+    sha256 cellar: :any, arm64_linux:       "9563af7bae13dac07d6c87d5fc8121a8537986889861de3e222e6b8fc992b36d"
+    sha256 cellar: :any, x86_64_linux:      "6775e1a76e9709b07a4a1b71938c44268037e3fb9362e8a7a0cac1d351cf6469"
   end
 
   depends_on "cmake" => :build
