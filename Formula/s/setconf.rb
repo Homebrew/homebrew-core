@@ -3,8 +3,8 @@ class Setconf < Formula
 
   desc "Utility for easily changing settings in configuration files"
   homepage "https://setconf.roboticoverlords.org/"
-  url "https://setconf.roboticoverlords.org/setconf-0.7.7.tar.xz"
-  sha256 "19315574540b3181fec31a4059b9e058381e0192317f153d181e7e7e2aa84d86"
+  url "https://setconf.roboticoverlords.org/setconf-0.7.8.tar.xz"
+  sha256 "858bdf8fc1d351c2e5c95bc629a6fbc9ef5f89ac906f3f31e7117299e57917be"
   license "GPL-2.0-or-later"
   head "https://github.com/xyproto/setconf.git", branch: "main"
 
