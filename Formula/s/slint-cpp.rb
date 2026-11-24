@@ -1,17 +1,18 @@
 class SlintCpp < Formula
   desc "C++ library and headers for the Slint UI toolkit"
   homepage "https://slint.dev/"
-  url "https://github.com/slint-ui/slint/archive/refs/tags/v1.19.0.tar.gz"
-  sha256 "9c15a9f6dfe94fbe96cb97dcb38207907403a67c9b23d8a93468ea1bb132246c"
+  url "https://github.com/slint-ui/slint/archive/refs/tags/v1.19.1.tar.gz"
+  sha256 "9c921f375de12fcf8647ddf076cf13af579b5cff61db5800e378cbedea9bff19"
   license "GPL-3.0-only"
   head "https://github.com/slint-ui/slint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "19f43ad18bb266478f16453cb01be439d4715c6c43f5b4612e5b24db4ded7639"
-    sha256 cellar: :any, arm64_tahoe:       "7ff281d61f06400196381e90649bc962c27922f7448e1930fae7e2e4b3f52abb"
-    sha256 cellar: :any, arm64_sequoia:     "aa6cecda6368f9fac8832c05f6150b34a26c6386a41e82e1bbb6b1d6287a83fd"
-    sha256 cellar: :any, arm64_linux:       "e996ed9097de81132c665276da97eb457c64e88c3ca5c29caf3d9a085cf8d0ed"
-    sha256 cellar: :any, x86_64_linux:      "cf1be273661534a2894852b0137a2d0bb9c4ddb71f650d86a8ff9ac96dc42421"
+    manifest_sha256 "599e54f2db4f165e712edff723ec1e612d4f5efa158b537ad989c086e9948d15"
+    sha256 cellar: :any, arm64_golden_gate: "4771d6433dcec7df724d75c55599a1d68d6b4d99547eb5ad96fb7480263eb82f"
+    sha256 cellar: :any, arm64_tahoe:       "71ca56a265260ce1f7c45db3806567d56b2e8fef588b0726808a09e9a4366281"
+    sha256 cellar: :any, arm64_sequoia:     "309b04c96547842792d4efcc067abf65d2c5c19427776148df5925169fb4bd10"
+    sha256 cellar: :any, arm64_linux:       "61c4f0ff229eae8e867a883d07dbaac77bf8295bfa53f319a0c37a6fd1a9d50a"
+    sha256 cellar: :any, x86_64_linux:      "47799cd08ebe9d44e374db82b6e09ad5dd27e9677a8a9e792b2ba53a321453ae"
   end
 
   depends_on "cmake" => :build
