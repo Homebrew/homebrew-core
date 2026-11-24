@@ -1,8 +1,8 @@
 class Connect < Formula
   desc "Provides SOCKS and HTTPS proxy support to SSH"
   homepage "https://github.com/gotoh/ssh-connect"
-  url "https://github.com/gotoh/ssh-connect/archive/refs/tags/1.106.tar.gz"
-  sha256 "4f07eec36e6da2c4641a9ea9a2fd0617d6fc6aff5b65b6433f8a6447bea8a002"
+  url "https://github.com/gotoh/ssh-connect/archive/refs/tags/1.107.tar.gz"
+  sha256 "b15bd4d63356b789dc18fa608acb1aaebdfb70caf49ebc9760b89a09f651fa07"
   license "GPL-2.0-or-later"
   head "https://github.com/gotoh/ssh-connect.git", branch: "master"
 
