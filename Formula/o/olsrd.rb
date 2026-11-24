@@ -4,7 +4,7 @@ class Olsrd < Formula
   url "https://github.com/OLSR/olsrd/archive/refs/tags/v0.9.8.tar.gz"
   sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -12,13 +12,12 @@ class Olsrd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "157d6ab2956da30ad3fd55b452ba0014368e59842b0719ef813c814926b28d1b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1b1dd66b69be130d7b2114b401afac090a19e908169401ae0ec784c17690569"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3180890960307db6dc8d4cc7244f2da2772ec65bcba356698b3d6223feb6d6f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "a3aab48c75a5a1b850c781b5baac23b0b2a5b576b10da49b87734746051d3083"
-    sha256 cellar: :any_skip_relocation, sonoma:            "939cab603b98b8a89d3fc778b9c5dc7c4bebec64f731221a182442225ec6bf71"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "331929ce9da8857820aca9705abadb8681a883346e59031e2f43721d8dac0e70"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "d2a2c0d6260662fcf37251ef13bb25010103ebf8c4fd57f2268ca2640f850313"
+    manifest_sha256 "f3e61618d5719b3be42bc2592a5e96f178a1d9fee254fdb202496703de34a7e4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "251cf96cab79bc721c39a34108f66d64551414fa7e29b1507659f8ad4b790426"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24353431ac1cd81eebf2d8279efcce49ec4c4c9a3c57735fad457c7e7963a10c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad0ed6461d43a57ebf0bb24ff2bbfc553e3afea0b979ea209f3aa023ff517f10"
+    sha256 cellar: :any,                 arm64_linux:       "e0d08d6ae889658efdeb70861c5b970f34cd1cd972bcebd43fec7d4e578a7f93"
+    sha256 cellar: :any,                 x86_64_linux:      "f6642c210147970c4c713d2621f8144add08790a195e3f72d671b9234c3779f6"
   end
 
   uses_from_macos "bison" => :build
