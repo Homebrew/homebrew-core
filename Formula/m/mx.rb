@@ -12,8 +12,8 @@ class Mx < Formula
   end
 
   bottle do
-    manifest_sha256 "ce0a64a61a0bdf1d808897e09045a52527bb675df5958bb3b49e191a6209afe4"
-    sha256 cellar: :any_skip_relocation, all: "0c30a20ea4a043e82b7a88f0a5d26f7430710270ef120c3c5464f496d7b7de5b"
+    manifest_sha256 "7a1fbce0c1e3316b8212f50695673fd78f69569d828716faaf94204d7ae3cd56"
+    sha256 cellar: :any_skip_relocation, all: "17fdd79f10a4128a1ec2c186765f4dc5aeda32e7775cb98364c7cd407ab17c40"
   end
 
   depends_on "openjdk" => [:build, :test]
