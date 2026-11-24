@@ -1,8 +1,8 @@
 class Podman < Formula
   desc "Tool for managing OCI containers and pods"
   homepage "https://podman.io/"
-  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.2.0.tar.gz"
-  sha256 "cb182273c5c5e3ea079f8f88a9a30a574d247f80e0b9dd9c02df1d2e6f6f3705"
+  url "https://github.com/podman-container-tools/podman/archive/refs/tags/v6.2.1.tar.gz"
+  sha256 "10a56f6a36c4f7ea19956d7298615a6ff1f46978fc36d31dfe31be14899d10fb"
   license all_of: ["Apache-2.0", "GPL-3.0-or-later"]
   compatibility_version 1
   head "https://github.com/podman-container-tools/podman.git", branch: "main"
@@ -18,11 +18,12 @@ class Podman < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c21a88c10a7ccf879f3e7bddd71d75677816fc77487e23b7af6ae39b97a97cce"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "829a33f0a739006b65a7b226d17da3f1d6c6faa13194990ac1d345c8df700ca1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1b75338a8432d7804d9035553ff88f5629f70ab9246c1614e19bb54abe5ceb4"
-    sha256                               arm64_linux:       "3f29947d4a0e655f102d7bb3c237b362dc9321c72c1d5b94cc1aa1eb78650cb7"
-    sha256                               x86_64_linux:      "5d2c4f5436570e47e8784e97b3a68c4cda46403f92b7debc9251e531986b5744"
+    manifest_sha256 "4452f6a3bf6038e1391e0fcf5902fed036c9ae71a6fe41d313f719d4b432c5e4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22ab404742f777abfe41c9e88d2dad222cb5bb5adf23deeff1b061ce813a81e6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1ebd9073c77cb8833fc88999c0a6bfc39e583bdc2058b64996ddd44d22e25c7c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "778e336a5a8131398ea3120cf1152607b6e97850ed4a3d2598e16ca7bcb70854"
+    sha256                               arm64_linux:       "129f6a008433f53c3864c4a51b84dfbb26f089cb1448fba1ee298a8832c2ebf7"
+    sha256                               x86_64_linux:      "2d2ca628f8761c42a77077e19e6cac09d8b88ba83115fa7b80b835127e88dddd"
   end
 
   depends_on "go" => :build
