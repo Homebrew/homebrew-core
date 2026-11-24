@@ -1,8 +1,8 @@
 class Libetonyek < Formula
   desc "Interpret and import Apple Keynote presentations"
   homepage "https://wiki.documentfoundation.org/DLP/Libraries/libetonyek"
-  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.14.tar.xz"
-  sha256 "11b33496db3f36af0456086229d154e6d0e64f27bff96112e1036da1db38d631"
+  url "https://dev-www.libreoffice.org/src/libetonyek/libetonyek-0.1.15.tar.xz"
+  sha256 "ba81a37e1be25dcaf73035c4a3cc4787a1e053b3272b2383ed3dec899c6a884f"
   license "MPL-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class Libetonyek < Formula
   end
 
   bottle do
-    manifest_sha256 "a2660c8e503a32eb17d99c22e52cfb9faca726bfc3c9e4d95f917a0018802bc4"
-    sha256 arm64_golden_gate: "215ad88b396a516af14ac1a867bd11338d56372c0a7e89cf0e41c00cc145a66f"
-    sha256 arm64_tahoe:       "0f7f4c8697a67cc68d956138330739534b26699781c4e60ee79a169c9999527b"
-    sha256 arm64_sequoia:     "62da39ac496d37a5e77e8a39076a8bc95521f1a65e309903a7ab7aabbd35dd31"
-    sha256 arm64_linux:       "e6813a0c146f1138e434bb4df2f338787e008cd2adbff574995fb37b1e32ffec"
-    sha256 x86_64_linux:      "f595d776b8a737b91d605cf823ba606f31ac9cbdcab1d7102b1e06e3a846e1da"
+    manifest_sha256 "47cebc3e420799290297b76e9a81479b4e16f78cd441d14232662e1c3b21d1da"
+    sha256 arm64_golden_gate: "f408c6d9d7268dfcde3ad4cb88515c70373f09939e1053f2c4217f608c62eb22"
+    sha256 arm64_tahoe:       "a45ed8398054c802b66130e5f3793f1e8de954d48606bdc1db5a615bc8150432"
+    sha256 arm64_sequoia:     "a3e09230ead3fa931e0d49173a3e292c9f926ad85c0e169f3562279f89c1447d"
+    sha256 arm64_linux:       "82f632120fc0cb3bf80b34b626d4f4db67bc000d6cbfb0d48b65bc0ac2438161"
+    sha256 x86_64_linux:      "5258cae7e8fd923cbb98311889c9de1ac3287dc49e4c9a23aae515499b113540"
   end
 
   depends_on "boost" => :build
