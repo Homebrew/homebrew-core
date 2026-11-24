@@ -6,7 +6,7 @@ class Uhd < Formula
   url "https://github.com/EttusResearch/uhd/archive/refs/tags/v4.11.0.0.tar.gz"
   sha256 "1e53faec13ea2be9dd8f765956157d1434f41fa0a124fac8f7b2340f8445b026"
   license all_of: ["GPL-3.0-or-later", "LGPL-3.0-or-later", "MIT", "BSD-3-Clause", "Apache-2.0"]
-  revision 3
+  revision 4
   compatibility_version 1
   head "https://github.com/EttusResearch/uhd.git", branch: "master"
 
@@ -27,17 +27,12 @@ class Uhd < Formula
   depends_on "pkgconf" => :build
   depends_on "abseil"
   depends_on "boost"
-  depends_on "c-ares"
   depends_on "grpc"
   depends_on "libusb"
-  depends_on "openssl@4"
   depends_on "protobuf"
   depends_on "python@3.15"
-  depends_on "re2"
 
-  on_linux do
-    depends_on "ncurses"
-  end
+  uses_from_macos "ncurses"
 
   pypi_packages package_name:   "",
                 extra_packages: "mako"
@@ -75,6 +70,8 @@ class Uhd < Formula
       -DENABLE_TESTS=OFF
       -DUHD_VERSION=#{version}
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
     system "cmake", "-S", "host", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
