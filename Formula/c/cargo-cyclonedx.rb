@@ -2,7 +2,7 @@ class CargoCyclonedx < Formula
   desc "Creates CycloneDX Software Bill of Materials (SBOM) from Rust (Cargo) projects"
   homepage "https://cyclonedx.org/"
   url "https://github.com/CycloneDX/cyclonedx-rust-cargo/archive/refs/tags/cargo-cyclonedx-0.5.10.tar.gz"
-  sha256 "9a70987a8bda97615ba80127a76e73bb2c1a3cb285b76f1771e2f5c0b0cc2f6c"
+  sha256 "e32a1a7a6f3766c9bfe8201025f224f6270b3a3158062f9924dd262a669076c6"
   license "Apache-2.0"
   head "https://github.com/CycloneDX/cyclonedx-rust-cargo.git", branch: "main"
 
@@ -12,11 +12,13 @@ class CargoCyclonedx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "148381b33c196ec4791a18d2082dd1498135d7d6c25647244525b0965cc26859"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f61cb518ea956e560ac3fb3abc5a257d103b460c847ea49253fda1ea62d26f74"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32a9a2f59518d30571222bca661f98c1a41a7a11263b1bd9973ee19aefafeba4"
-    sha256 cellar: :any,                 arm64_linux:       "5c93eeb8045428d1a81252e0a420d9077558c4da552d9f6da247726834754ddd"
-    sha256 cellar: :any,                 x86_64_linux:      "ce21318a6e2fa478651edab8da829b39e0de771f63810e687fd52e176374d3e4"
+    rebuild 1
+    manifest_sha256 "5a60a13eb9bfb0ae1f07b081e94b42dbc29b1bfc4c3401abb35e29f45eeb1ec0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6b97a60ca7a1c1cb9efff230726c88e0cc4d11bf29e397cf47a0da256f622c3c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "801a7070bed32e6004d20c0abd06102d442639f6389951397ea352e6201b2c20"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c6d1bac217ad86bb5d105c5bee6c4ccfab293bcffe8aef7aa7cee10144631a2"
+    sha256 cellar: :any,                 arm64_linux:       "3a9d355033fed6db93f4168d9bdfab51f9bbcbdd8db722d28407b712a8144fc1"
+    sha256 cellar: :any,                 x86_64_linux:      "790444e6a95f59efe08c0ba19a3983e695deb8b39c543860cf168bc90c1a96fd"
   end
 
   depends_on "rust" => :build
