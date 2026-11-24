@@ -22,13 +22,13 @@ class Liblinear < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "19e580030c7fd50c867dce05065dfa908fa21f096c150389901db82b30a97d72"
-    sha256 cellar: :any,                 arm64_tahoe:       "084eda55e8b1e787d35ba4b64b07973f28c03ba3b80caf34476453bfc0aa6fd3"
-    sha256 cellar: :any,                 arm64_sequoia:     "1447af1433e4c22bb65f7d1483e80be28eef54f01ea4975cbaab5eeddcbf0329"
-    sha256 cellar: :any,                 arm64_sonoma:      "06d144b0bf2dc670bcdc8f6be989fd72bc4cfe0ca62b232af14af2695fafd9e0"
-    sha256 cellar: :any,                 sonoma:            "112816fd22beb8a5b8ee79f0fa0c6094c9813384de039df65874dad76fd4d090"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5c0831cc8dc54b0696cdeabb442f146bf430aa0547bb97e3240c5f51c0c135f6"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "746b7ce2c2f425061ad373dedcf34bb5daa031ebb059bbbc9424dbcd7f9ba9c1"
+    rebuild 1
+    manifest_sha256 "326526aa0ae4140e2400413451487e55cc69df85e6e1b908026b60161dac9165"
+    sha256 cellar: :any, arm64_golden_gate: "086adcd21fcd8282611df45aa50c11bba7c0f7853e67411b99f4b7c824a798b0"
+    sha256 cellar: :any, arm64_tahoe:       "ead4d4e962f26d4e2771f04c2c60256116dbc4390dcf688ee11e4e5d2884b515"
+    sha256 cellar: :any, arm64_sequoia:     "5813c0b3b108d40de56b17316ee0f6eb9c298f241477b1787b49b1a8b6b663ca"
+    sha256 cellar: :any, arm64_linux:       "f33603915c87542a965c48074503e3426f410da3823bb47ea7b3987878d1c016"
+    sha256 cellar: :any, x86_64_linux:      "6e1f3fdb7156a9a8ccf49c61a51f67ef1e0c26bcfa6d72a35ec3bc4df8f15d4f"
   end
 
   # Fix sonames
