@@ -1,8 +1,8 @@
 class Xnvme < Formula
   desc "Cross-platform libraries and tools for efficient I/O and low-level control"
   homepage "https://xnvme.io/"
-  url "https://github.com/xnvme/xnvme/releases/download/v0.8.0/xnvme-fat-0.8.0.tar.gz"
-  sha256 "2cee620380a7df8180825c0028cfb72ed9f1ed95a5e8ccf37351e3825bd93111"
+  url "https://github.com/xnvme/xnvme/releases/download/v0.8.1/xnvme-fat-0.8.1.tar.gz"
+  sha256 "3718417f4637949091815a77a3d4bf4512c9adedb5d0ca0886496e36a32fe8f8"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,12 +11,12 @@ class Xnvme < Formula
   end
 
   bottle do
-    manifest_sha256 "c8c0c1bcfc668b78a3813bbef270f13421881d8b8ed43722b6f43df04bb775f6"
-    sha256 arm64_golden_gate: "074a7b82762d56cf16e1d9383ab5c223e0d1ef1aa5dce60fd06d08885f655a50"
-    sha256 arm64_tahoe:       "8252a91117b1c44025e68495393804c20212adaba615716783f820c55c7e230e"
-    sha256 arm64_sequoia:     "ad1022655309654cc7ed637a79ef0cabe774e047ec06d8f6863559e162c9f4b0"
-    sha256 arm64_linux:       "9d5d4efbd7cc5e0df30e5338a39b337a394ea4c6266f81e7d4754864b3f706be"
-    sha256 x86_64_linux:      "18d55160e9b7424214929f4aa49b983fc9c7da9e343ac1a6b473f5752c46c5cf"
+    manifest_sha256 "e0ab19cfc66d3d55b2b148979d7c84342a061da1da15c18dae8276e0900537ce"
+    sha256 arm64_golden_gate: "46d270a82735bac8d4ca107cbb464382b1293f4978d8926e599a6dc78fda0893"
+    sha256 arm64_tahoe:       "fe79b0a39804dcf7f1c258989e6649756e0cb06bdb311fc52b44212b4de05938"
+    sha256 arm64_sequoia:     "1b786a2f878d6680518800812b059f0ca026a47803a8f46ef873c1281356900c"
+    sha256 arm64_linux:       "e59f3480ad4fba4cb298fe56b6302f1c3b3a0f1e5cc2d8d1d45ba8018e973185"
+    sha256 x86_64_linux:      "fa28bfa322c2a9e07efd380d06b4af4cef8c138980160358200cc8720b4e5141"
   end
 
   depends_on "meson" => :build
