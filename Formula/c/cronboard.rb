@@ -8,12 +8,12 @@ class Cronboard < Formula
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "4bf0bc406a8146a250dca354d6a84c494de76086497f5a9868d4c72e4764a3be"
-    sha256 cellar: :any, arm64_tahoe:       "9680c04bc41a86bb9970573159b67e8046959d71b8446fafeba9936b4d26937b"
-    sha256 cellar: :any, arm64_sequoia:     "3906a076b723db3a708cb5ebad6096ac5af055d4b5837f4bc9cbf88e0e5c4305"
-    sha256 cellar: :any, arm64_linux:       "6f9a934a22a187b8969ac09f15c74091a6853ce9c22929895bea5f1730891de6"
-    sha256 cellar: :any, x86_64_linux:      "4ca80a0e4cdc74039a121aa8fd8f094ec63e53f2c5d20bc12bb05a26c8fd38f8"
+    manifest_sha256 "da6ad4eec8b03e3692857e833658d145b1dfd7349e9cf512de170cdfc7b1a547"
+    sha256 cellar: :any, arm64_golden_gate: "a4bfeb4812502bfe96de82f34ceb4a1ca7a163f070289c3f21c2d13cdc094ea9"
+    sha256 cellar: :any, arm64_tahoe:       "bebd7cfad0d6f7b67741efb392f67a06eb457ec436053b3e71833023363531df"
+    sha256 cellar: :any, arm64_sequoia:     "2478ffcff72ec81c886313088bf2922c488838b100cbd47838290c3a0ea74505"
+    sha256 cellar: :any, arm64_linux:       "7dd32c6e98e922de5946427d2fc59fd586aadeaf065a467ffe29486b62c074b0"
+    sha256 cellar: :any, x86_64_linux:      "0e3149851c1686a610548805f8234cf358cd562fb9c2f216deee2ff92096249d"
   end
 
   # `pkgconf` and `rust` are for bcrypt
