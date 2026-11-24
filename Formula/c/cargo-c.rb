@@ -1,9 +1,8 @@
 class CargoC < Formula
   desc "Helper program to build and install c-like libraries"
   homepage "https://github.com/lu-zero/cargo-c"
-  url "https://static.crates.io/crates/cargo-c/cargo-c-0.10.26+cargo-0.100.0.crate"
-  version "0.10.26"
-  sha256 "5ff6e05531e58286d3c02ec0adb7f254e5d532a8d4b667f30b9942d802e1db25"
+  url "https://github.com/lu-zero/cargo-c/archive/refs/tags/v0.10.28.tar.gz"
+  sha256 "1069764333ff3ef36b8822be6a058d5241b4d12884ac003e7d66695a8a1238e9"
   license "MIT"
   compatibility_version 1
 
@@ -38,6 +37,8 @@ class CargoC < Formula
   deny_network_access!
 
   def fetch
+    # Tarball lacks `Cargo.lock` file
+    system "cargo", "generate-lockfile"
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
