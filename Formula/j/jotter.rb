@@ -17,7 +17,13 @@ class Jotter < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "oniguruma"
+
+  patch do
+    url "https://github.com/samox73/jotter/commit/d70071b6a6b5346ae2f6a0805275d10b2b9e8f6b.patch?full_index=1"
+    sha256 "579143062ed72e11dd9b8c945158c101c1c038f57af49132f9f452d305986683"
+    type :unofficial
+    resolves "https://github.com/samox73/jotter/pull/24"
+  end
 
   deny_network_access!
 
@@ -26,9 +32,6 @@ class Jotter < Formula
   end
 
   def install
-    ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
-    ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
-
     system "cargo", "install", *std_cargo_args
 
     system bin/"jotter", "--generate", "generated"
