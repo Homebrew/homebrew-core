@@ -25,6 +25,8 @@ class Clinfo < Formula
     depends_on "pocl"
   end
 
+  deny_network_access!
+
   def install
     system "make", "MANDIR=#{man}", "PREFIX=#{prefix}", "install"
   end

@@ -77,6 +77,8 @@ class Cinecli < Formula
   # TODO: Remove when a release includes https://github.com/eyeblech/cinecli/pull/7.
   patch :DATA
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 

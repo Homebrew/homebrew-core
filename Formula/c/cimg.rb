@@ -15,6 +15,8 @@ class Cimg < Formula
     sha256 cellar: :any_skip_relocation, all: "062e0ee6c28da0a74dcfc1e2407844ca62c17e6c6dd2c7f34c6b023af02541a4"
   end
 
+  deny_network_access!
+
   def install
     include.install "CImg.h"
     prefix.install "Licence_CeCILL-C_V1-en.txt", "Licence_CeCILL_V2-en.txt"

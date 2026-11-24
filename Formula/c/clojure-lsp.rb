@@ -19,6 +19,8 @@ class ClojureLsp < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "clojure-lsp-standalone.jar"
     bin.write_jar_script libexec/"clojure-lsp-standalone.jar", "clojure-lsp"

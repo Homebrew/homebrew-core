@@ -21,6 +21,8 @@ class Clean < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "68f82459bafc17933f5010fe2f35355f8d967809ae62d1ac91e13409f7baec88"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "clean"

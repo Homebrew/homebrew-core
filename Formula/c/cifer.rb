@@ -28,6 +28,8 @@ class Cifer < Formula
     patch :DATA
   end
 
+  deny_network_access!
+
   def install
     system "make", "prefix=#{prefix}",
                    "CC=#{ENV.cc}",
