@@ -34,8 +34,8 @@ class Ccmux < Formula
 
   def install
     if OS.linux?
-      bun_icu = Formula["bun"].deps("icu4c").first.to_formula
-      icu = deps("icu4c").first.to_formula
+      bun_icu = Formula["bun"].dep("icu4c").to_formula
+      icu = dep("icu4c").to_formula
 
       odie "Update icu4c dependency!" if bun_icu.name != icu.name
     end
