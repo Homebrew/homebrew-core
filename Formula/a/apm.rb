@@ -3,18 +3,18 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/00/1c/b3b216e7c09966e504f78b241ff1e3e7712690262179ce2103553f821c58/apm_cli-0.37.0.tar.gz"
-  sha256 "1078dc4d5bd7d797f4924548f684daffd026df740b31f99b17fc13958e5da762"
+  url "https://files.pythonhosted.org/packages/c9/ce/da4a1df860d43c5d0a72f6160a4972332bbb9346a1c4402229734100a42e/apm_cli-0.38.0.tar.gz"
+  sha256 "6dfac2fdc8ab68586afb2b1a5a6db3c1b7ab569ff0edc525448aa85d0f92bd38"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
   bottle do
-    manifest_sha256 "13a51443cc157e8397fbc25d64ecb0653f37f7e778bac71bc2459df3728f5428"
-    sha256 cellar: :any, arm64_golden_gate: "b034adb70537c7a73683c4a1f9dc0820c2e02b93ec52bda2fd96216fff033cc9"
-    sha256 cellar: :any, arm64_tahoe:       "6da7cffa48ab52bc064da19f354961dbf30b5f92c189c7cb145beb5c473dca77"
-    sha256 cellar: :any, arm64_sequoia:     "20f6891cacd07e6c3208e3c9d60637fb09c8f9fc5cdd117e347de52f27971e51"
-    sha256 cellar: :any, arm64_linux:       "105db33dcdbd870d2e72f936f554a4677fc5ce674b6bdd0475f19351583d4bee"
-    sha256 cellar: :any, x86_64_linux:      "258733b900c971413446652270e5a9b37885f4f8533f34f3f8872f44396365a7"
+    manifest_sha256 "8675af41c8edb3ac0c3e07aeb434004c08a5adf3abf257679f13225076ccd645"
+    sha256 cellar: :any, arm64_golden_gate: "bdf0f95b25e58a78769f0e6bab540c451b854c981527c3f83f90592b36629a29"
+    sha256 cellar: :any, arm64_tahoe:       "175021dce131326ddd78c9b47876932ee25f493a0ffc11312715944ad380b059"
+    sha256 cellar: :any, arm64_sequoia:     "a6c40984b17c13c4c0cb23ddc88d9185101679d6e2f4fafe65882fbf10e6921f"
+    sha256 cellar: :any, arm64_linux:       "7c4c54fc1d6b38c245f60da0e0416af966c1ae08e2b86aecf1b19505c9e98e24"
+    sha256 cellar: :any, x86_64_linux:      "c6155463a553aa7ee52be07498c58c4637affdbe170ab43df9f481aeef43f709"
   end
 
   depends_on "rust" => :build # for jiter
@@ -86,8 +86,8 @@ class Apm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/52/aa/8ccff8da9a27e089727fcffd3c5b61708383217e47eb1e1b8af37b1dd166/filelock-4.2.12.tar.gz"
-    sha256 "7e7da24d3ac39268b0f156e56870001de44886318f092f9d851e692f7114d6dd"
+    url "https://files.pythonhosted.org/packages/6c/bf/a895b0b8e83d0a64d134f658e393e83998abfc22bbb8b58181ce55268706/filelock-4.3.0.tar.gz"
+    sha256 "143407310acf479e82d88068e3b9a6486f45fb410c0ed8729fe7359eaabeb6f1"
   end
 
   resource "frozenlist" do
@@ -281,8 +281,8 @@ class Apm < Formula
   end
 
   resource "watchdog" do
-    url "https://files.pythonhosted.org/packages/e2/55/087e45c2a3ed8223bc9f30d6b65f051de35513cfc30c989c2b1a14bf862e/watchdog-7.1.0.tar.gz"
-    sha256 "d3861e255416f49a1384474cb2efa097de165fb330d4c5432ce6708b509ed922"
+    url "https://files.pythonhosted.org/packages/33/d3/38e18c9559b96fca53df98979e72cafcd498aba41b57f0830fc31008ffc2/watchdog-7.1.1.tar.gz"
+    sha256 "d7dc3bf0c3417c002ee976e958479c54d8ca18cbb3532fadbe69511fa389da15"
   end
 
   resource "websockets" do
