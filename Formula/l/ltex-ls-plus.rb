@@ -1,18 +1,18 @@
 class LtexLsPlus < Formula
   desc "LTeX+ Language Server: maintained fork of LTeX Language Server"
   homepage "https://ltex-plus.github.io/ltex-plus/"
-  url "https://github.com/ltex-plus/ltex-ls-plus/releases/download/18.7.0/ltex-ls-plus-18.7.0-src.tar.gz"
-  sha256 "8c5ad69fdbf38061bc511439473b081f2b2db35b0f4788f3516c632345788d2f"
+  url "https://github.com/ltex-plus/ltex-ls-plus/releases/download/19.0.0/ltex-ls-plus-19.0.0-src.tar.gz"
+  sha256 "639799f55909f59bf1c3802890680f053d173d2b7eca34e6c4bf137b59c5aa80"
   license "MPL-2.0"
   head "https://github.com/ltex-plus/ltex-ls-plus.git", branch: "develop"
 
   bottle do
-    rebuild 2
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "586bbfa6a458e146577e47aa1dfcadb941a77cd5aba14ba285cf87103ad1f872"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "586bbfa6a458e146577e47aa1dfcadb941a77cd5aba14ba285cf87103ad1f872"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "586bbfa6a458e146577e47aa1dfcadb941a77cd5aba14ba285cf87103ad1f872"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "fbbdce5a050ae2ae10a79ce7bc250b05b928cd60db5340907b4c74617772388d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fbbdce5a050ae2ae10a79ce7bc250b05b928cd60db5340907b4c74617772388d"
+    manifest_sha256 "991cc995a80502752c00d8611153e34cd34bc344b1226d58c3ea60d84c569807"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42d9873b3814d9e032f17211c29dc6b3c31a285737fb5f4acc4973a617887979"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42d9873b3814d9e032f17211c29dc6b3c31a285737fb5f4acc4973a617887979"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42d9873b3814d9e032f17211c29dc6b3c31a285737fb5f4acc4973a617887979"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ae00dd563b49ee49dad327ce82cb43c3681b96bbda14e40b2f63af39fec29d32"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "ae00dd563b49ee49dad327ce82cb43c3681b96bbda14e40b2f63af39fec29d32"
   end
 
   depends_on "maven" => :build
