@@ -1,17 +1,18 @@
 class DesigncraftCli < Formula
   desc "Headless DesignCraft CLI and MCP server to script, export and validate layouts"
   homepage "https://getartcraft.com/apps/designcraft"
-  url "https://github.com/storytold/designcraft/archive/refs/tags/v0.20.1.tar.gz"
-  sha256 "6c422a7bb8db1ac8acec20586483231944e174f093532a26e66e3cffd5317b31"
+  url "https://github.com/storytold/designcraft/archive/refs/tags/v0.21.1.tar.gz"
+  sha256 "e106fde2015783c69ad420ea9a3e5a1e33fa10d7261430a3515ed3a4021ccdac"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/designcraft.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03cded827dc1f0f729fe6e86eea922e8bc1d4478f728b46d5ce7a2df725dfbf9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d515255d33ea6dca68e4732e46872d71a12f748e084e020652c41dd82a0e204"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae362b2c3c65a030988832aa88250fe3646137906d2c989cc6e71362c2a89166"
-    sha256 cellar: :any,                 arm64_linux:       "9ba99b8ec26fd106c66c9355687964cfd328d52dd1abb574f43ad0d9b67583c0"
-    sha256 cellar: :any,                 x86_64_linux:      "b6369b093da0bf66b652acb861c1a480115b02a243b1e6ea43e330e839cddf38"
+    manifest_sha256 "b16279de77677a8c29143fccf3d6a8b514b078cf1914f2ea113fc5c3246b8532"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a3fd70ae5369d08b3d22df5cbef5d4746f13e2c2c829d3d42dbf28022dd02f5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "196198eec15b39defbea68ca03477c68e3dae12d03d7d11acaea1e0bd5224dfc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c73bd7c02a553d2d9207f5b959914e961781a75577bd2747288be27d30faddfe"
+    sha256 cellar: :any,                 arm64_linux:       "b991447f4c2a21eb86a7c69531ddb6f8ec47bade4ed1d89ad47327c4cb4b34c6"
+    sha256 cellar: :any,                 x86_64_linux:      "acbd95882e3201e1534a496f174286c5e217821f5574a01159db6559508da0eb"
   end
 
   depends_on "rust" => :build
