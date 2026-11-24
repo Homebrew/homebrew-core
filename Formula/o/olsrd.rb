@@ -4,7 +4,7 @@ class Olsrd < Formula
   url "https://github.com/OLSR/olsrd/archive/refs/tags/v0.9.8.tar.gz"
   sha256 "ee9e524224e5d5304dcf61f1dc5485c569da09d382934ff85b233be3e24821a3"
   license "BSD-3-Clause"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
