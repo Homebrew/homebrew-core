@@ -4,7 +4,7 @@ class OsmPbf < Formula
   url "https://github.com/openstreetmap/OSM-binary/archive/refs/tags/v1.8.0.tar.gz"
   sha256 "18ec63e28a42073db62e8fb59134b8bd410c29e8eb1d8ec1759efc9501fbf41a"
   license "LGPL-3.0-or-later"
-  revision 1
+  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "b69f3195192ae4d3d10c1439e2ef019f8c1c841a34be2ea99e52472bf3cf8662"
@@ -15,17 +15,13 @@ class OsmPbf < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "abseil"
   depends_on "protobuf"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
 
   deny_network_access!
 
   def install
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    args = ["-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs"] if OS.mac?
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
     pkgshare.install "resources/sample.pbf"
