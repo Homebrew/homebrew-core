@@ -1,8 +1,8 @@
 class Zellij < Formula
   desc "Pluggable terminal workspace, with terminal multiplexer as the base feature"
   homepage "https://zellij.dev"
-  url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.0.tar.gz"
-  sha256 "2dfa237fea447f3cc98954e81b0097b9d25841010036720e11f67880fe7861f0"
+  url "https://github.com/zellij-org/zellij/archive/refs/tags/v0.46.1.tar.gz"
+  sha256 "f512621f3f54970ba46fc736e0f6581a438db9da1e5c3a8b69b314296f938a80"
   license "MIT"
   head "https://github.com/zellij-org/zellij.git", branch: "main"
 
@@ -23,12 +23,7 @@ class Zellij < Formula
     depends_on "pkgconf" => :build
   end
 
-  # Updates for yanked chacha20 and minimum openssl-sys to use OpenSSL 4
-  patch :DATA
-
   deny_network_access!
-
-  def openssl = deps("openssl").first&.name
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args
@@ -36,7 +31,7 @@ class Zellij < Formula
 
   def install
     # Ensure that the `openssl` crate picks up the intended library.
-    ENV["OPENSSL_DIR"] = formula_opt_prefix(openssl) if OS.linux?
+    ENV["OPENSSL_DIR"] = formula_opt_prefix(dep("openssl").name) if OS.linux?
 
     # Remove vendored_curl from default features
     features = %w[plugins_from_target web_server_capability terminal]
@@ -58,33 +53,3 @@ class Zellij < Formula
     assert_match("zellij #{version}", shell_output("#{bin}/zellij --version"))
   end
 end
-
-__END__
-diff --git a/Cargo.lock b/Cargo.lock
-index 592e22320..72c51a0f0 100644
---- a/Cargo.lock
-+++ b/Cargo.lock
-@@ -698,9 +698,9 @@ dependencies = [
- 
- [[package]]
- name = "chacha20"
--version = "0.10.1"
-+version = "0.10.2"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "d524456ba66e72eb8b115ff89e01e497f8e6d11d78b70b1aa13c0fbd97540a81"
-+checksum = "65c35e4b699c7e15ccbe7ee35c005e4fc0a278d22238a2857e6ce2dadeda1b06"
- dependencies = [
-  "cfg-if",
-  "cpufeatures 0.3.0",
-@@ -3354,9 +3354,9 @@ dependencies = [
- 
- [[package]]
- name = "openssl-sys"
--version = "0.9.111"
-+version = "0.9.114"
- source = "registry+https://github.com/rust-lang/crates.io-index"
--checksum = "82cab2d520aa75e3c58898289429321eb788c3106963d0dc886ec7a5f4adc321"
-+checksum = "13ce1245cd07fcc4cfdb438f7507b0c7e4f3849a69fd84d52374c66d83741bb6"
- dependencies = [
-  "cc",
-  "libc",
