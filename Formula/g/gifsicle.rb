@@ -1,8 +1,8 @@
 class Gifsicle < Formula
   desc "GIF image/animation creator/editor"
   homepage "https://www.lcdf.org/gifsicle/"
-  url "https://www.lcdf.org/gifsicle/gifsicle-1.98.tar.gz"
-  sha256 "e9d4cc0816db95c64d32e79f778836db0f1f7eb15868490bd330104e5146b66e"
+  url "https://www.lcdf.org/gifsicle/gifsicle-1.99.tar.gz"
+  sha256 "c21a01f670a336f5412b1870e5a6c241252a3408a3e699d216d58bd41011ae06"
   license "GPL-2.0-only"
 
   livecheck do
