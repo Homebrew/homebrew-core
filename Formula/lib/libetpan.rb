@@ -1,19 +1,19 @@
 class Libetpan < Formula
   desc "Portable mail library handling several protocols"
   homepage "https://www.etpan.org/libetpan.html"
-  url "https://github.com/dinhvh/libetpan/archive/refs/tags/1.10.1.tar.gz"
-  sha256 "87bacdc62661a2a7aa5fe9f1f28d2f7c7a53256633ac5129903916c59f80c4c2"
+  url "https://github.com/dinhvh/libetpan/archive/refs/tags/2.0.1.tar.gz"
+  sha256 "a1bb4bde2791f09ff7ded771ec37584663e6af59e6e64a88dd86e98133cb1238"
   license "BSD-3-Clause"
-  revision 1
-  compatibility_version 2
+  compatibility_version 3
   head "https://github.com/dinhvh/libetpan.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "039ccd1b8023805c44efd0942439df0523ee8a555c80fc8b7fee728aaa1dc0d4"
-    sha256 cellar: :any, arm64_tahoe:       "2be23cadc5d1f3d5ca985765bb42d3cb3be90423625d302c27ffc31205aea892"
-    sha256 cellar: :any, arm64_sequoia:     "79ceb36126152151472816c72c5b188b7aa5f973677ec86345e45bd539b1e5af"
-    sha256 cellar: :any, arm64_linux:       "85c7525625658e477f6685307ea781c108e34a8a1d44e7f45994b93a7446274b"
-    sha256 cellar: :any, x86_64_linux:      "6e7d3988cc9551d976a7cfaeb739117a3b2cc5e5f675b102e69ee3c3c08d0d07"
+    manifest_sha256 "4f4287eb3e17c42a7febfde69689b0c4563b6edbccb260dab729a5e3f2f64549"
+    sha256 cellar: :any, arm64_golden_gate: "f54cb00f9dc9aad2869255dc52313706cb6556fdf1dc29a2c059489df5861fb5"
+    sha256 cellar: :any, arm64_tahoe:       "1495a0ea86e30d9c7e9d26783df0fe0f2e61ce2063863d018a397fedea79110b"
+    sha256 cellar: :any, arm64_sequoia:     "d1070fccadc0ee59eaf8d81bfd6fd5945788820973ecdc939b1b68db5f4be6ee"
+    sha256 cellar: :any, arm64_linux:       "997df26776a862d30b813a7ba9e5eb785c7f087cfc0bb17cfdbdb711c4abdff2"
+    sha256 cellar: :any, x86_64_linux:      "aa4a1db7b3c4f8fe1d173b53074612d11bb19edfe57e540073a70a099d582dac"
   end
 
   depends_on "autoconf" => :build
@@ -31,20 +31,6 @@ class Libetpan < Formula
   deny_network_access!
 
   def install
-    if build.stable?
-      odie "Remove workarounds!" if version > "1.10.1"
-
-      # autoconf 2.71+ probes -std=gnu23 first on modern compilers, which rejects K&R. Force gnu17.
-      ENV.append "CFLAGS", "-std=gnu17"
-
-      # https://github.com/dinhvh/libetpan/commit/9919beeea09850364ea966b0d9fb640858bd2b27
-      if OS.mac?
-        # Keep macOS-native TLS (CFNetwork/Security) compiled in.
-        ENV.append "CPPFLAGS", "-DHAVE_CFNETWORK=1"
-        ENV.append "LDFLAGS", "-framework CoreFoundation -framework CoreServices -framework Security"
-      end
-    end
-
     system "./autogen.sh", "--disable-db", "--disable-silent-rules", *std_configure_args
     system "make", "install"
   end
