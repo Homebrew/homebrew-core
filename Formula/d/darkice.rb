@@ -4,7 +4,7 @@ class Darkice < Formula
   url "https://github.com/rafael2k/darkice/archive/refs/tags/v1.6.tar.gz"
   sha256 "52807d887d60646776110b63543d3845ebe9ed52d3eea44bed7c4bdd95b6575e"
   license "GPL-3.0-or-later"
-  revision 3
+  revision 4
 
   livecheck do
     url :stable
@@ -42,7 +42,7 @@ class Darkice < Formula
     sha256 "c599afb642d374332d63220c80914d3e369400cda3b60068183460d1120fec35"
     directory "darkice/trunk"
     type :unofficial
-    resolves "https://github.com/rafael2k/darkice/pull/216"
+    resolves "https://github.com/rafael2k/darkice/pull/219"
   end
 
   # Support faac 2.2 `faac_params_init` signature
@@ -51,7 +51,16 @@ class Darkice < Formula
     sha256 "76b2b310d5052bff7902391e6676bf3e46f64dff3828773ca3f804bb6a99097d"
     directory "darkice/trunk"
     type :unofficial
-    resolves "https://github.com/rafael2k/darkice/pull/216"
+    resolves "https://github.com/rafael2k/darkice/pull/219"
+  end
+
+  # Support faac 3 ABI (`faac_params` renames, whole-stream bit rate)
+  patch :p2 do
+    url "https://github.com/rafael2k/darkice/commit/65d7f14c05702d021f1f2e70d51ff5e2fec5454f.patch?full_index=1"
+    sha256 "00e9e73ee41e9bc7cd17fb9d334728f2c25ee0ccaaaa24fc67cfcca5f030390c"
+    directory "darkice/trunk"
+    type :unofficial
+    resolves "https://github.com/rafael2k/darkice/pull/219"
   end
 
   deny_network_access!
