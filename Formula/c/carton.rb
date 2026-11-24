@@ -144,6 +144,8 @@ class Carton < Formula
     sha256 "8df87a10c14c8e909c5b47c5701e4b8187d519e5251e87c80709b02bb33efdd7"
   end
 
+  allow_network_access! :test
+
   def install
     ENV.prepend_create_path "PERL5LIB", libexec/"lib/perl5"
 

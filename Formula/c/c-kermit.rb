@@ -46,6 +46,8 @@ class CKermit < Formula
 
   patch :DATA
 
+  deny_network_access!
+
   def install
     # Makefile only supports system libraries on Linux
     if OS.linux?

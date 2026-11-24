@@ -20,6 +20,8 @@ class CalmCli < Formula
     sha256 "26bb2979bb3e8a3a8eea2dfe0bd19aaa374770be61ee42c509c773c2fcc6c063"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

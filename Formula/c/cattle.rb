@@ -53,6 +53,8 @@ class Cattle < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     pkgshare.mkpath
     cp_r ["examples", "tests"], pkgshare

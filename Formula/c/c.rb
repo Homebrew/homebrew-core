@@ -10,6 +10,8 @@ class C < Formula
     sha256 cellar: :any_skip_relocation, all: "ea0ccaab4e1a14f38642b582e2ab9c5c53b3bc8a4a90e34e51f6d3eda5a15976"
   end
 
+  deny_network_access!
+
   def install
     bin.install "c"
   end
