@@ -12,11 +12,12 @@ class Proxygen < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "c22519e43daae4dcd107d50557412c4f39af219e888afc0fb2d46c3d8fe923f9"
-    sha256 cellar: :any, arm64_tahoe:       "6b583b6df2a0d632ae402f8a4e3860cede7e21903ccdf7be62fd251cd66d1ed2"
-    sha256 cellar: :any, arm64_sequoia:     "f3716443df5ba9f8df940d9028b3c4b6aa202134335b8217d86ed2a3af030688"
-    sha256 cellar: :any, arm64_linux:       "22a04a1a66867e1086d2f5f3b46e6f4cd7aadf2a4e7cead3b49cde1965eaf23d"
-    sha256 cellar: :any, x86_64_linux:      "33a44dee6f03abce35455dd79847d9b138e053df2c26012433fd5073104b2570"
+    manifest_sha256 "29ecca332861e0890ee50b2a0c59ec4bfc686cdb84a90a49fe696bb6b9ac0000"
+    sha256 cellar: :any, arm64_golden_gate: "a5ccb836ad85b3a81866eb1338228e262566db3321ba91e9cc356314cdafe4ac"
+    sha256 cellar: :any, arm64_tahoe:       "2e120d61b9972af1e8239940edfb2c3baed65c088ba2dd93c24908c216d77edd"
+    sha256 cellar: :any, arm64_sequoia:     "b8aa2dffe25b789e3d9f4eabac9f9d4a0172448d85862962f3c9ef6313fbaf7c"
+    sha256 cellar: :any, arm64_linux:       "458af2972c72d992da06ac3e565e58fa4fe9f04021e76911b15225c5ca95254c"
+    sha256 cellar: :any, x86_64_linux:      "f898faf341015fcbc6d3ebe3a9342e5fd549c3b36886581e3676f9c136239a62"
   end
 
   depends_on "boost" => :build
