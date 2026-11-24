@@ -9,12 +9,12 @@ class Apm < Formula
   head "https://github.com/microsoft/apm.git", branch: "main"
 
   bottle do
-    manifest_sha256 "8675af41c8edb3ac0c3e07aeb434004c08a5adf3abf257679f13225076ccd645"
-    sha256 cellar: :any, arm64_golden_gate: "bdf0f95b25e58a78769f0e6bab540c451b854c981527c3f83f90592b36629a29"
-    sha256 cellar: :any, arm64_tahoe:       "175021dce131326ddd78c9b47876932ee25f493a0ffc11312715944ad380b059"
-    sha256 cellar: :any, arm64_sequoia:     "a6c40984b17c13c4c0cb23ddc88d9185101679d6e2f4fafe65882fbf10e6921f"
-    sha256 cellar: :any, arm64_linux:       "7c4c54fc1d6b38c245f60da0e0416af966c1ae08e2b86aecf1b19505c9e98e24"
-    sha256 cellar: :any, x86_64_linux:      "c6155463a553aa7ee52be07498c58c4637affdbe170ab43df9f481aeef43f709"
+    manifest_sha256 "622ddadc06f664be57f28b7e3f3e41b35e38e58fd6cbf32c30b32946220c4602"
+    sha256 cellar: :any, arm64_golden_gate: "a260f64d9827f3fd504ae52979035338e8d3e244ef4a37b91b49ac979b89d4fc"
+    sha256 cellar: :any, arm64_tahoe:       "ced0f0afca8dfbf66bc6e1e1743ce0a6e513cc31b569b161833f045051250427"
+    sha256 cellar: :any, arm64_sequoia:     "6864b3f52cb1dfe52a8a779c1e42be4a3e10dd2c1e86789b4781928f548b50b9"
+    sha256 cellar: :any, arm64_linux:       "a58babdfbaa8a9e017bed1040406ff01ac7e6a2bcb51edb18d2b9c78dff7d736"
+    sha256 cellar: :any, x86_64_linux:      "bc95a8f1b08649cd382586db4ebc8ac01d43b20b6c987905b7a61d64e1538982"
   end
 
   depends_on "rust" => :build # for jiter
