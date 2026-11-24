@@ -4,6 +4,7 @@ class Recc < Formula
   url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.4.32/buildbox-1.4.32.tar.gz"
   sha256 "a8c4e55cbcd7344848df7dfa2c78257cd1391c317c1efb2f2d65144a4baa477c"
   license "Apache-2.0"
+  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
@@ -20,11 +21,9 @@ class Recc < Formula
   depends_on "pkgconf" => :build
   depends_on "tomlplusplus" => :build
   depends_on "abseil"
-  depends_on "c-ares"
   depends_on "grpc"
   depends_on "openssl@4"
   depends_on "protobuf"
-  depends_on "re2"
 
   uses_from_macos "curl"
 
@@ -35,7 +34,6 @@ class Recc < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "util-linux"
-    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -59,6 +57,8 @@ class Recc < Formula
       -DWORKER=OFF
       -DRECC_CONFIG_PREFIX_DIR=#{etc}
     ]
+    buildbox_cmake_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build", *buildbox_cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
