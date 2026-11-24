@@ -1,16 +1,17 @@
 class SentryNative < Formula
   desc "Sentry SDK for C, C++ and native applications"
   homepage "https://docs.sentry.io/platforms/native/"
-  url "https://github.com/getsentry/sentry-native/releases/download/0.17.6/sentry-native.zip"
-  sha256 "40b4b70cbada5bfae5b73f8267831dd023ec676d9676fb0d890878f31d2b5055"
+  url "https://github.com/getsentry/sentry-native/releases/download/0.17.7/sentry-native.zip"
+  sha256 "abd241373670bcdc35d8ecf8e557dd1555eb38e1e65e3925fdbe36265b9438bf"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "8357a68aef226c674b5f868cc06e9cc8a7bd91eed9512a8edf8cc35e0755f516"
-    sha256 cellar: :any, arm64_tahoe:       "68c403267c3f0475498f4dd3631bdea55fed0525ab784ccaa3f84520606fe513"
-    sha256 cellar: :any, arm64_sequoia:     "1c75cbd1eca8f5dd91fb1252ca88d41447eed1e0703289c68985ac0391d6aba2"
-    sha256 cellar: :any, arm64_linux:       "9fc53889e9e63757f64a60b871382117a4ba9626dcc7508ded4861931f8580f5"
-    sha256 cellar: :any, x86_64_linux:      "4454f41a4916006e66aa41771d2c9d7926aa81308db00721637a14fedef9ace1"
+    manifest_sha256 "c749a5991267604a5d30f805916778c9d924b589ad5bdfc75fb7891e8a857ea1"
+    sha256 cellar: :any, arm64_golden_gate: "0d1683f3dca4e3db1a986dd9c6ca7fa00e115bb7e0ed04fd68b64f4ec4a66c66"
+    sha256 cellar: :any, arm64_tahoe:       "7925f4fa1544de65be467b6c8c69f6f0de5406d52055584ad6664d2c4121af87"
+    sha256 cellar: :any, arm64_sequoia:     "f945c2d251d5fc13e1a25f49452e16edfbdf7fe715d8bb33f1ad3ddba1fb9ba9"
+    sha256 cellar: :any, arm64_linux:       "2f16d2752e28b3545907397b4d9b92c571cb44e8f62862abb95b823498f26fac"
+    sha256 cellar: :any, x86_64_linux:      "8fab8c2b33ca49380861ef73c9f874216c96a26d4ae73e4c1da38e1f52d7f080"
   end
 
   depends_on "cmake" => :build
