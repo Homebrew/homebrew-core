@@ -9,11 +9,12 @@ class Blint < Formula
   head "https://github.com/owasp-dep-scan/blint.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4586811555d8ce189c012a33ec52784877c9f51ef3d163a722a0f7a4f9bc260f"
-    sha256 cellar: :any, arm64_tahoe:       "17823b6b1c00653cceb087469fda4f7adbcc42ca0d70eaf6bf4e91095b33c179"
-    sha256 cellar: :any, arm64_sequoia:     "ce0c1720df48c911e660f0ad78e9ec33edf533765fa5a5d71c2fbad222f1fae4"
-    sha256 cellar: :any, arm64_linux:       "288f1bcb8f1da3b16659b0e01c1446385cb3d01490b3849007ce4d9832fb9a5d"
-    sha256 cellar: :any, x86_64_linux:      "2392e0dd8ceda5692f90354c142be143a8c1e07df5e3524914255363fd476705"
+    manifest_sha256 "6d7c8812ef0e255671e51d2269b28d1e840aa1117b0e1d01e524d78a0e3cc9f5"
+    sha256 cellar: :any, arm64_golden_gate: "9a7012fb1572fa227091955fc389a7b62037c90051839173a984a62a082bcbf4"
+    sha256 cellar: :any, arm64_tahoe:       "5c21106a0a30181c6e0ed2484304317456ce9eb65f6a3216804441f5f058353a"
+    sha256 cellar: :any, arm64_sequoia:     "c9a607b665f304fac8b0f100e330f637a47eeaea691a4a3660878116f30066a4"
+    sha256 cellar: :any, arm64_linux:       "5f8a57bcf26b00347c3ccbb2a0b03f409b74554717d05bcae5693f106c4439be"
+    sha256 cellar: :any, x86_64_linux:      "f28d590ba1bc906a76d147228a403f606c26621288653143ffd6c77d51448e3c"
   end
 
   depends_on "cmake" => :build # for lief
