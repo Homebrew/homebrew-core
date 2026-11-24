@@ -1,8 +1,8 @@
 class Mp4ff < Formula
   desc "Tools for parsing and manipulating MP4/ISOBMFF files"
   homepage "https://github.com/Eyevinn/mp4ff"
-  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.63.0.tar.gz"
-  sha256 "dd623e7863c3d4e1ed6743b625b1f76c860e2fc3ccf199921647b620333e9f83"
+  url "https://github.com/Eyevinn/mp4ff/archive/refs/tags/v0.64.0.tar.gz"
+  sha256 "7d85938ea3e3aa5be1f24a7fa61dd0694fc2425f23e2258dc281a159f6ebd2ab"
   license "MIT"
 
   bottle do
@@ -106,7 +106,7 @@ class Mp4ff < Formula
     input_info = shell_output("#{bin}/mp4ff-info #{testpath}/prog_8s.mp4")
     assert_match "[stsz] size=980", input_info
     output = shell_output("#{bin}/mp4ff-crop -d 2000 #{testpath}/prog_8s.mp4 #{testpath}/cropped.mp4")
-    assert_match "endTime=2000ms", output
+    assert_match "output with duration=2000ms", output
     cropped_info = shell_output("#{bin}/mp4ff-info #{testpath}/cropped.mp4")
     assert_match "[stsz] size=260", cropped_info
 
