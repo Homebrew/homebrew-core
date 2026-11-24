@@ -174,6 +174,8 @@ class CyclonedxPython < Formula
     sha256 "62abae86504f66d0f6364c2a8520de4a0c47b80c03fc3a5f1815fedbef7c19bf"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

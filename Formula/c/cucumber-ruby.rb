@@ -117,6 +117,8 @@ class CucumberRuby < Formula
     sha256 "27337aeabad6ffae05c265c450490628ef3ebd4b67be58257393227588f5a97b"
   end
 
+  deny_network_access!
+
   def install
     ENV["GEM_HOME"] = libexec
     resources.each do |r|

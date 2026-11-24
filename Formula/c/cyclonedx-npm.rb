@@ -21,6 +21,8 @@ class CyclonedxNpm < Formula
     sha256 "f7570777484bc3f03041264dbe6e9c8ca46b02a55187cda849f3e338aa627d4a"
   end
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")

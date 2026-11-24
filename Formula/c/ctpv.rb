@@ -24,6 +24,8 @@ class Ctpv < Formula
     cause "Requires Clang 14 or later"
   end
 
+  deny_network_access!
+
   def install
     # Workaround for arm64 linux, issue ref: https://github.com/NikitaIvanovV/ctpv/issues/101
     ENV.append_to_cflags "-fsigned-char" if OS.linux? && Hardware::CPU.arm?

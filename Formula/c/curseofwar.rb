@@ -24,6 +24,8 @@ class Curseofwar < Formula
 
   uses_from_macos "ncurses"
 
+  deny_network_access!
+
   def install
     system "make", "VERSION=#{version}"
     bin.install "curseofwar"

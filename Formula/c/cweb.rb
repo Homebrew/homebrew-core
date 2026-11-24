@@ -25,6 +25,8 @@ class Cweb < Formula
 
   conflicts_with "texlive", because: "both install `cweb` binaries"
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 

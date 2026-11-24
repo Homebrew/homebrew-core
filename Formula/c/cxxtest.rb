@@ -14,11 +14,14 @@ class Cxxtest < Formula
     sha256 cellar: :any_skip_relocation, all: "71f0403e65f3e5a01559dc1a8154e77ac6e63c48ad999a96d5babb5a3913b8cc"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15"
+
+  deny_network_access!
 
   def install
     venv = virtualenv_create(libexec, python3)
-    venv.pip_install_and_link buildpath/"python"
+    venv.pip_install_and_link buildpath/"python", build_isolation: false
 
     include.install "cxxtest"
     doc.install Dir["doc/*"]

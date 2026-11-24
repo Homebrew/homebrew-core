@@ -26,6 +26,8 @@ class Cunit < Formula
   depends_on "automake" => :build
   depends_on "libtool" => :build
 
+  deny_network_access!
+
   def install
     inreplace "bootstrap", "libtoolize", "glibtoolize"
     system "sh", "bootstrap", prefix
