@@ -19,6 +19,8 @@ class Chkrootkit < Formula
     sha256 cellar: :any,                 x86_64_linux:      "eb514c894f14385a006309cc4c1fef86fe76a893f8b73ec2fd98b88ca843d5e8"
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
 

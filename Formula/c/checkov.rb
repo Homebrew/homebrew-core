@@ -458,6 +458,8 @@ class Checkov < Formula
     sha256 "cf474b90b07ea932637e17c6b9479de2b2882900b0d311bdaf4f5c000a15a97f"
   end
 
+  allow_network_access! :build
+
   def install
     venv = virtualenv_install_with_resources(without: "rustworkx")
 

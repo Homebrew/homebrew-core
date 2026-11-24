@@ -203,6 +203,8 @@ class CharmTools < Formula
     sha256 "c551ea1072d7717a273dd9a4a0adad8f45571af134b0f63a12430e85f6ac1c08"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     # Unpin ruamel.yaml to support Python 3.14
     # PR ref for 3.13: https://github.com/juju/charm-tools/pull/685

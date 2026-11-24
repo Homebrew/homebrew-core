@@ -16,6 +16,8 @@ class Chsrc < Formula
     sha256 cellar: :any,                 x86_64_linux:      "34a2da1cd4b1ca1ae81556b7eda7f9e7da37ef6160b7999ccec37dc0d87fcf0a"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "chsrc"

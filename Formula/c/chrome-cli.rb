@@ -19,6 +19,8 @@ class ChromeCli < Formula
   depends_on xcode: :build
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Release builds
     xcodebuild "-arch", Hardware::CPU.arch.to_s, "SYMROOT=build", "MACOSX_DEPLOYMENT_TARGET=#{MacOS.version}"

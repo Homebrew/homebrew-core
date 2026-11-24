@@ -15,6 +15,8 @@ class ChromeExport < Formula
 
   uses_from_macos "python"
 
+  deny_network_access!
+
   def install
     bin.install "export-chrome-bookmarks", "export-chrome-history"
     rewrite_shebang detected_python_shebang(use_python_from_path: true), *bin.children

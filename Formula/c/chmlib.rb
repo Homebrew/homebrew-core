@@ -36,6 +36,8 @@ class Chmlib < Formula
   # Fix implicit function declarations, for C99 compatibility: https://github.com/jedwing/CHMLib/pull/17
   patch :DATA
 
+  deny_network_access!
+
   def install
     args = %W[
       --disable-io64

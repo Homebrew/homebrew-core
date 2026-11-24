@@ -20,6 +20,8 @@ class ChooseGui < Formula
 
   conflicts_with "choose-rust", because: "both install a `choose` binary"
 
+  deny_network_access!
+
   def install
     xcodebuild "SDKROOT=", "SYMROOT=build", "clean"
     xcodebuild "-arch", Hardware::CPU.arch, "SDKROOT=", "SYMROOT=build", "-configuration", "Release", "build",
