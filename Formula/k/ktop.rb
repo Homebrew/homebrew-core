@@ -7,12 +7,12 @@ class Ktop < Formula
   head "https://github.com/vladimirvivien/ktop.git", branch: "main"
 
   bottle do
-    manifest_sha256 "faaa8062230c565461ee4be84d5ff5b58dd6a89a37a9abce8bc049472cadfe69"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80615cbe7697cac81cb228917a01103f5c06b4af06f0424a7174fbfce9d38333"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edad9e7375c4f15af23233cc13ac487321ed1d6e6013bd22475f1de72c7bf2ef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e4c2531144c993b7f032d1935eb667a326afe18eafe1a1af5173fb4a18806838"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "864d017a700f05998cb7008467c4e352002fd88744b8e2b9410fa89857ec56d6"
-    sha256 cellar: :any,                 x86_64_linux:      "e1c88441b2417d5034259d7cb955d8fa0ee1fa8cbe0d6267d5b3011225bad061"
+    manifest_sha256 "2329ed5ac2512564bbb962e8f43003c329b2e2313ebb9f6d4a72ae17e732d15a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c5d914ba55d316ca42dda14a9cda34cb7d355285f068b2f56e9924d647fccc5f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca11ccfad3b9ea2c8ac8d2af4b8bdacbee63ef42fe4af097f44c850239e69615"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02906b53d93cc1fbf5b5bdfcd785295b08c87b2940eca0aef17e1bebbbad26ae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1a77bd2da938d6082477f03af853de99b78ac136246366c083718955fd32a20e"
+    sha256 cellar: :any,                 x86_64_linux:      "ba1b15be2dccc1a99ef6311f9b8495a905e8e91f9e4f90b3f0aaf50f57451e23"
   end
 
   depends_on "go" => :build
