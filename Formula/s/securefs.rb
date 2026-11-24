@@ -4,7 +4,7 @@ class Securefs < Formula
   url "https://github.com/netheril96/securefs/archive/refs/tags/v2.0.0.tar.gz"
   sha256 "d7fac7adc70c09473173aeadee5b7041d7e63fbf392ef40bdd77888590bb12a2"
   license "MIT"
-  revision 11
+  revision 12
   head "https://github.com/netheril96/securefs.git", branch: "master"
 
   livecheck do
@@ -13,8 +13,9 @@ class Securefs < Formula
   end
 
   bottle do
-    sha256 arm64_linux:  "b5b05042aec54595b5545c3050eddd44ffdf303ac49e1a145a6336d725ecad70"
-    sha256 x86_64_linux: "8db7a45b6e3f6fbe5880131e433afc7e94f1a2137d8e18d27a0a66381dba4440"
+    manifest_sha256 "fdcf665a269a314d2eb24d2778ce5886f97910db1f2f0ae4e87438d6b95fda64"
+    sha256 arm64_linux:  "7a0704cd3a88a211ece046a4f3fddfd62b93a18e3be8452649cd585f422c9631"
+    sha256 x86_64_linux: "867baafa2fd005452913454c7c399759e9b06c2e96a0f76d169baaa927930496"
   end
 
   deprecate! date: "2026-06-21", because: "needs unmaintained `libfuse@2`"
@@ -26,17 +27,23 @@ class Securefs < Formula
   depends_on "abseil"
   depends_on "argon2"
   depends_on "cryptopp"
-  depends_on "fruit"
-  depends_on "jsoncpp"
   depends_on "libfuse@2" # FUSE 3 issue: https://github.com/netheril96/securefs/issues/181
   depends_on :linux # on macOS, requires closed-source macFUSE
   depends_on "protobuf"
   depends_on "sqlite"
   depends_on "uni-algo"
-  depends_on "utf8proc"
+
+  # Fix `erase` ambiguity with C++20 `std::erase`
+  patch do
+    url "https://github.com/netheril96/securefs/commit/ff95e6525aa6a5980ed9e0d45e14025efbdeb2bd.patch?full_index=1"
+    sha256 "fcb79c66774a4272e1dc5d1ec137dce0814ab40119927a2eb82095b36cfa7c45"
+    type :unofficial
+    resolves "https://github.com/netheril96/securefs/issues/236"
+  end
 
   def install
     args = %w[
+      -DCMAKE_CXX_STANDARD=20
       -DSECUREFS_ENABLE_INTEGRATION_TEST=OFF
       -DSECUREFS_ENABLE_UNIT_TEST=OFF
       -DSECUREFS_USE_VCPKG=OFF
