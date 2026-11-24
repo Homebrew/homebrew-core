@@ -1,11 +1,10 @@
 class RocqMicromegaPlugin < Formula
   desc "Micromega decision procedures plugin for the Rocq prover"
   homepage "https://github.com/rocq-community/micromega-plugin"
-  url "https://github.com/rocq-community/micromega-plugin/archive/refs/tags/v1.1.1.tar.gz"
-  sha256 "5ed46c62dfb7c06ad1df2f744bca5a39282ac9787c57433478a87a706e6e4391"
+  url "https://github.com/rocq-community/micromega-plugin/archive/refs/tags/v1.1.2.tar.gz"
+  sha256 "329fa0bf74a353deca8c0443b4a143f9072430e2c72e6f2c9136631f1ebe537f"
   license "LGPL-2.1-only"
-  revision 3
-  compatibility_version 1
+  compatibility_version 2
 
   livecheck do
     url :stable
@@ -43,19 +42,6 @@ class RocqMicromegaPlugin < Formula
     ENV.prepend_path "OCAMLPATH", buildpath/".opam/ocaml-system/lib"
     ENV.prepend_path "OCAMLPATH", formula_opt_lib("rocq")/"ocaml"
     ENV.prepend_path "OCAMLPATH", formula_opt_lib("ocaml-findlib")/"ocaml"
-
-    # dune 3.24 replaced the Coq build language with the Rocq build language.
-    dune_files = buildpath.glob("**/dune") << (buildpath/"dune-project")
-    {
-      "(lang dune 3.8)" => "(lang dune 3.24)",
-      "(using coq 0.8)" => "(using rocq 0.11)",
-      "(coq (flags"     => "(rocq (flags",
-      "coq.theory"      => "rocq.theory",
-      "coq.pp"          => "rocq.pp",
-      "%{coq:"          => "%{rocq:",
-    }.each do |before, after|
-      inreplace dune_files.select { |f| f.read.include?(before) }, before, after
-    end
 
     system "dune", "build", "-p", name, "@install"
     system "dune", "install", name, "--prefix=#{prefix}",
