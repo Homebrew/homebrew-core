@@ -3,10 +3,9 @@ class MysqlAT84 < Formula
   # FIXME: Actual homepage fails audit due to Homebrew's user-agent
   # homepage "https://dev.mysql.com/doc/refman/8.4/en/"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.13.tar.gz"
-  sha256 "f6ddc7f7fb6462bab8b533b13c06af3fff57fa9ca12259b81ab13cd9930b9d58"
+  url "https://cdn.mysql.com/Downloads/MySQL-8.4/mysql-8.4.13.1.tar.gz"
+  sha256 "e4b78afe83375e672f674662725049e17db17db2fb18060c64933e54e1ec6502"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/8.4.html?tpl=files&os=src&version=8.4",
@@ -15,11 +14,12 @@ class MysqlAT84 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "c325155097307355e3a59478b8c42d59c4187183b16d1768285788d4a401c388"
-    sha256 arm64_tahoe:       "9dc41262db0465cf09d100e9ab488977ad66b767fc1f5ab5d99ff6d8f5330053"
-    sha256 arm64_sequoia:     "4b8d6e56d6ce495dceb265bad4575d932f6b7dde4d1601b50027b501cf8d6fb2"
-    sha256 arm64_linux:       "2e46d94a23cc28a568c91e1cc2a3a3f765acf8ce6d2a5c39d8fe06743e6b154c"
-    sha256 x86_64_linux:      "49e4b5bf7399366b3a4819941bd3f9f40c5f203419d61ab43e39bc9fc6256fbf"
+    manifest_sha256 "27d829f97e8befe5b4d4e9a3f8116a95be8dc492473a1be7b52adf9bbed1c593"
+    sha256 arm64_golden_gate: "b4d320a2ad4ff409c5438b84b34448da47e8affead858e39dd0163d91f9e35bc"
+    sha256 arm64_tahoe:       "aeef9fe3e1bb61f2bd6bb557fe907aaf51716859ef24850c1ffdea938479e66e"
+    sha256 arm64_sequoia:     "8819a938a3035071bbe9e701d91599427d749383c7d026244e33174802c1973a"
+    sha256 arm64_linux:       "f732535122a71ed5aa51fc1d546433b3517b23c346a9fb3467d3b4ab7f58d8c7"
+    sha256 x86_64_linux:      "1aa804005cde10d53457bf679d757590bc5e52d4a69031fde9cf17a2dd564216"
   end
 
   keg_only :versioned_formula
