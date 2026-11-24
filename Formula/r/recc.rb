@@ -4,14 +4,16 @@ class Recc < Formula
   url "https://gitlab.com/BuildGrid/buildbox/buildbox/-/archive/1.4.32/buildbox-1.4.32.tar.gz"
   sha256 "a8c4e55cbcd7344848df7dfa2c78257cd1391c317c1efb2f2d65144a4baa477c"
   license "Apache-2.0"
+  revision 1
   head "https://gitlab.com/BuildGrid/buildbox/buildbox.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "1232bbd818c9cad318711b8a0f10e356a76c194695e185beb27de2b88324f104"
-    sha256 arm64_tahoe:       "e3e5548a32d1cd358affcab507f5425204b7fe1b27f19aeb548acb3a88c224eb"
-    sha256 arm64_sequoia:     "7a1b784b0444c9404777caf83af1d51e503192e7e3379671b8a8752c17858aab"
-    sha256 arm64_linux:       "c99ed45679db20b7a4d88fc8dbbd49728139c243cf491cd6e9b23df1611b7925"
-    sha256 x86_64_linux:      "a6d51ba9d208e9233b52062c65959a78b40cafc568db17e1c4ff646ffcf26bc9"
+    manifest_sha256 "3b4bfb76a20664c3e44ad17195b4c9debfd486d119447b4a0caf19256ef7ee8b"
+    sha256 arm64_golden_gate: "41cab55d8e1e0e5295a6db36ce889ff1464d07f1142d709b1fbbc45121f92575"
+    sha256 arm64_tahoe:       "0dad9d0c6c2bb5386e33ec54d6a1f1464164123fa7cdd06239b5294090123871"
+    sha256 arm64_sequoia:     "838f219a96bb917f05eaad02d309237ff666bedb64fcc99ea426b8e4425da8d0"
+    sha256 arm64_linux:       "a445da7a5caf9ae177b35f90a53c87241767c40f086ce17e6ecbf6f551a7e649"
+    sha256 x86_64_linux:      "c49cdf5720ab544e948cf8ebf8b23c25bd61c959e3434afe6b0af9f8958b0025"
   end
 
   depends_on "cmake" => :build
@@ -20,11 +22,9 @@ class Recc < Formula
   depends_on "pkgconf" => :build
   depends_on "tomlplusplus" => :build
   depends_on "abseil"
-  depends_on "c-ares"
   depends_on "grpc"
   depends_on "openssl@4"
   depends_on "protobuf"
-  depends_on "re2"
 
   uses_from_macos "curl"
 
@@ -35,7 +35,6 @@ class Recc < Formula
   on_linux do
     depends_on "pkgconf" => :build
     depends_on "util-linux"
-    depends_on "zlib-ng-compat"
   end
 
   def install
@@ -59,6 +58,8 @@ class Recc < Formula
       -DWORKER=OFF
       -DRECC_CONFIG_PREFIX_DIR=#{etc}
     ]
+    buildbox_cmake_args << "-DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
+
     system "cmake", "-S", ".", "-B", "build", *buildbox_cmake_args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
