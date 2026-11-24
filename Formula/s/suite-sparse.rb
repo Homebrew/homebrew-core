@@ -30,14 +30,13 @@ class SuiteSparse < Formula
   depends_on "gcc" # for gfortran
   depends_on "gmp"
   depends_on "mpfr"
+  depends_on "openblas"
 
   on_macos do
     depends_on "libomp"
   end
 
-  on_linux do
-    depends_on "openblas"
-  end
+  deny_network_access!
 
   def install
     # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
