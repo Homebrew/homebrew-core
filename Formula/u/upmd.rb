@@ -1,8 +1,8 @@
 class Upmd < Formula
   desc "Run tasks and dependency-aware workflows from Markdown"
   homepage "https://github.com/rezigned/upmd"
-  url "https://github.com/rezigned/upmd/archive/refs/tags/v0.2.7.tar.gz"
-  sha256 "dc662fc5fe25f6a0a4a7fb591d7271dcd67b2728b7acd74c5e2e549e744a6516"
+  url "https://github.com/rezigned/upmd/archive/refs/tags/v0.2.8.tar.gz"
+  sha256 "aae23b21cd499859dcea0be9951ce9ebf7d28c4c1d19ad5af8330526cd168da3"
   license "MIT"
   head "https://github.com/rezigned/upmd.git", branch: "main"
 
