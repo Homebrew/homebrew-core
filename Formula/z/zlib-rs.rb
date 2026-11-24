@@ -1,8 +1,8 @@
 class ZlibRs < Formula
   desc "C API for zlib-rs"
   homepage "https://github.com/trifectatechfoundation/zlib-rs/tree/main/libz-rs-sys-cdylib#libz-rs-sys-cdylib"
-  url "https://github.com/trifectatechfoundation/zlib-rs/archive/refs/tags/v0.6.8.tar.gz"
-  sha256 "10c2faddc8f0f150a4917c9641f49e350cb4c1ce187962bc88e7f7ce1411837e"
+  url "https://github.com/trifectatechfoundation/zlib-rs/archive/refs/tags/v0.6.9.tar.gz"
+  sha256 "3e0ede4c8cb9d8a050d1ab9d22a1cac11c8576beb894b7d0c546585959480c6e"
   license "Zlib"
   head "https://github.com/trifectatechfoundation/zlib-rs.git", branch: "main"
 
@@ -27,9 +27,7 @@ class ZlibRs < Formula
     sha256 "4fd3b0b41fb8da462d28da5b3e214cc6f4609205b38aaee1e20524b57124f338"
   end
 
-  # FIXME: needs to download a test resource. Brew changes are needed to
-  # allow `brew fetch` to handle this properly so it works in dependent tests
-  allow_network_access! :test
+  deny_network_access!
 
   def fetch
     system "cargo", "fetch", *std_cargo_fetch_args, "--manifest-path", "libz-rs-sys-cdylib/Cargo.toml"
