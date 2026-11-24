@@ -166,6 +166,8 @@ class Certsync < Formula
     sha256 "55ca7c70a75689be937aa27f8ff4b018f06ff4838fc73045560bf0f5a1291060"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

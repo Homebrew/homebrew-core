@@ -26,6 +26,13 @@ class CfrDecompiler < Formula
   depends_on "maven" => :build
   depends_on "openjdk@21"
 
+  deny_network_access!
+
+  def fetch
+    ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
+    system "mvn", "dependency:go-offline"
+  end
+
   def install
     ENV["JAVA_HOME"] = dep("openjdk").opt_prefix
     # changing the compiler because 6 is used by upstream and openjdk no longer supports it

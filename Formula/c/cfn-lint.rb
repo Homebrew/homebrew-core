@@ -63,6 +63,8 @@ class CfnLint < Formula
     sha256 "dc983d19a509c94dba722ee6abd33940f7c05a89e243c47e907eb4db6f1a43e5"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

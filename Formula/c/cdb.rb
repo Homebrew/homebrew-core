@@ -27,6 +27,8 @@ class Cdb < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "867db4ee654eb1fac410de5933f2ea5b98d18efd6c3e2d293fb15f3886633a01"
   end
 
+  deny_network_access!
+
   def install
     inreplace "conf-home", "/usr/local", prefix
     system "make", "setup"

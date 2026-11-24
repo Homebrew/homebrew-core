@@ -23,6 +23,8 @@ class Cdpr < Formula
 
   uses_from_macos "libpcap"
 
+  deny_network_access!
+
   def install
     # Work around failure from GCC 10+ using default of `-fno-common`
     # multiple definition of `timeout'; /tmp/ccw1Bjcf.o:(.bss+0x0): first defined here
