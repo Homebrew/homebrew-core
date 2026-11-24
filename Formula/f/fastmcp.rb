@@ -3,8 +3,8 @@ class Fastmcp < Formula
 
   desc "Fast, Pythonic way to build MCP servers and clients"
   homepage "https://gofastmcp.com/getting-started/welcome"
-  url "https://files.pythonhosted.org/packages/af/1d/dde86c523e3242e7d143e75478dc1604046da57665cf615f58d197e529f2/fastmcp-4.2.4.tar.gz"
-  sha256 "9039b0eb7cde12353ae60396015e9bf8bedd278ed7b6196ee4a8eb4b63d84b06"
+  url "https://files.pythonhosted.org/packages/46/7f/571da0ba9ba87efaae85d3938ae27b2dafd9f674155ff87e600695418024/fastmcp-4.2.5.tar.gz"
+  sha256 "f6703db40224101f90732f1a41e4a1e3c72811422a53764e093509b97f24454d"
   license "Apache-2.0"
   head "https://github.com/jlowin/fastmcp.git", branch: "main"
 
@@ -95,8 +95,8 @@ class Fastmcp < Formula
   end
 
   resource "fastmcp-slim" do
-    url "https://files.pythonhosted.org/packages/80/a6/bcea2e1e7ca3e60030e6f23170e5013feb9b6c6a9f541316b8596b4eeb8a/fastmcp_slim-4.2.4.tar.gz"
-    sha256 "2aa508dace0e5d9176fe116077cdbf22a18c62f97ddd1decf5625b9f4faf55df"
+    url "https://files.pythonhosted.org/packages/66/ae/bedf2135793da694fabce6732d2ae7ca39182c70f6b07ca293260a7d132e/fastmcp_slim-4.2.5.tar.gz"
+    sha256 "bcb07c8f81c223c102da1e6c74dcc547fa1e753b90d5441ead8161cd2d25bd97"
   end
 
   resource "griffelib" do
@@ -260,8 +260,8 @@ class Fastmcp < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
-    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
+    url "https://files.pythonhosted.org/packages/12/c0/eb8c9eec5c0e29ce2a1c4d4654ddfb06c77b52b4db63ab40226198456be6/sse_starlette-3.7.1.tar.gz"
+    sha256 "9a8256e3e80a0fdc8d1dec14f2bb0b3f304c99f23a6d4d26c61ff50145761597"
   end
 
   resource "starlette" do
