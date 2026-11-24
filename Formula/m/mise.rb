@@ -1,8 +1,8 @@
 class Mise < Formula
   desc "Polyglot runtime manager (asdf rust clone)"
   homepage "https://mise.jdx.dev/"
-  url "https://github.com/jdx/mise/archive/refs/tags/v2026.11.13.tar.gz"
-  sha256 "56e0897889c59edd79dfc7b3237e9b16b5cd09cc33ba22ce247e0dcc3e1eaa31"
+  url "https://github.com/jdx/mise/archive/refs/tags/v2026.11.14.tar.gz"
+  sha256 "02de295b741c6869f9e1e23c3cd58756706070a4f549467c8a83d5e16cf9d28e"
   license "MIT"
   head "https://github.com/jdx/mise.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Mise < Formula
   end
 
   bottle do
-    manifest_sha256 "825034732ac9ffe13cd9ccd75461aee347dde603e2668bf6e207f8cf41dc7551"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c17c3e3e788b08e1fd62d5dd7aae0c5a72d5da8a7bb3c14a9821cfe301fccf52"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d335196d0ad591385a107be3b082b2cfdb5e7d944baa0f2a3b600128b76a3941"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7714da4876f718448a01bb7e6dbe0fcbe079aa64d5c0dd9d350ecc6c92ea18f"
-    sha256 cellar: :any,                 arm64_linux:       "4e1af39f9fb18e23c5245ec517735c5e32928f42b0e81cba42100f848f921a46"
-    sha256 cellar: :any,                 x86_64_linux:      "c3fa12245b0f8bf16945b96d69ef98898c1f8ae0a05a3acdcc92394b1959ca54"
+    manifest_sha256 "8f29c58f13ae458a475e30d1fcc18e012c6eab94c4d142be7df91d1dcd969672"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e30e34dd7ebe8b9116e1d410906a38a5c1273ec5b527f3116eb7136bae2296d2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6768fe83fa6fca865a101c63b673a8f06fa33d17ad58103efafd3bc72c1116cd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "feecb9304398afff8b1706266b9437f8631fcb82279b38192008b5eb48836c41"
+    sha256 cellar: :any,                 arm64_linux:       "5b70e64ff2ca6f19a6333b93bc383c1e8590a33a7dd1159e0fe7c5ef3c4938e8"
+    sha256 cellar: :any,                 x86_64_linux:      "e4ab4a75cb8f11ae8307e51ee1c9f3e3fe0ba13ba098e40b5c7ca1d2084d764c"
   end
 
   depends_on "cmake" => :build
