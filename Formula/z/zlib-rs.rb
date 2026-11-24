@@ -7,11 +7,12 @@ class ZlibRs < Formula
   head "https://github.com/trifectatechfoundation/zlib-rs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b55812598da1212a923cbc3f2ae0a21aa7a476e6a8b77b46c3051b363da16994"
-    sha256 cellar: :any, arm64_tahoe:       "6f1b7590384f19467c52fa2871f7e9d418dea1f7d8cd42fb9f278c5c7ee91090"
-    sha256 cellar: :any, arm64_sequoia:     "49b35291e790790cad24aae2251aad9f3553d362b3d3a4905fc7468c2d390a61"
-    sha256 cellar: :any, arm64_linux:       "e4dd90a177b01e7ada61cb59ac46da99b56320e7b0f6b12d3241216646efafda"
-    sha256 cellar: :any, x86_64_linux:      "db4ecf8e5d245e697e8d4d552eb3b889fa4ffd8493d5cb75f4e4785a087cdfee"
+    manifest_sha256 "86c04b25f03dd8807927b51a72e1e2205ade938b56b81ca8e3f3f8febe132c0d"
+    sha256 cellar: :any, arm64_golden_gate: "eebf6ac26374c8d65efdada4c332db4bc62280ca3504febbca8f5ab0fe8ab89e"
+    sha256 cellar: :any, arm64_tahoe:       "6d6b161bc2ede32fb5404b09d81e1a75c2a0c44520f32368db2cff7da6fa6418"
+    sha256 cellar: :any, arm64_sequoia:     "f9f9b9aa18ac9d95aa964d84803d454972df798a2d4da26628ec50c990b873e8"
+    sha256 cellar: :any, arm64_linux:       "cfc4d7e4a844799753615b9aad4410389da8721035414c3506363baf2b3a20f9"
+    sha256 cellar: :any, x86_64_linux:      "ead1f4ef7ff1c9a2a1560a37cf85cc59fac336ffa7d1b226375aa73a8f82cc2d"
   end
 
   depends_on "cargo-c" => :build
