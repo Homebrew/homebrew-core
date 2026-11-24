@@ -1,18 +1,18 @@
 class DejaVu < Formula
   desc "Local searchable memory over the session histories of coding agents"
   homepage "https://github.com/vshulcz/deja-vu"
-  url "https://github.com/vshulcz/deja-vu/archive/refs/tags/v0.25.0.tar.gz"
-  sha256 "8efe4293648070b7f92b9ecc093cf4f347dbb283e1b939c3274e8835ba1fc3d9"
+  url "https://github.com/vshulcz/deja-vu/archive/refs/tags/v0.25.1.tar.gz"
+  sha256 "f58acaaff784ae5fa68bfede3630d03d53b0d4015697edad82dc3f75792a97ab"
   license "MIT"
   head "https://github.com/vshulcz/deja-vu.git", branch: "main"
 
   bottle do
-    manifest_sha256 "8356a1d7eb27045c3960bd6c2a55c275b4a931127f733a5b03dd1e683dedc4c6"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfbfd1c4abcc4bdf751f729358dbbf27442ac2eb647642d239fce455bb672e81"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cfbfd1c4abcc4bdf751f729358dbbf27442ac2eb647642d239fce455bb672e81"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfbfd1c4abcc4bdf751f729358dbbf27442ac2eb647642d239fce455bb672e81"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0693bddeffa2fc4df5b221251badb6c23b5426057e4868caf13648ccda4731e0"
-    sha256 cellar: :any,                 x86_64_linux:      "6f1d3d1cbffc9308b30c182c95e3743b1dc5611be38594bdf12c9c2f479aa752"
+    manifest_sha256 "e2a9b3d19d82cfb0f8e0e14cd8c44392941b76f3c8390adc720de0a9e1f7f805"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "677df04fb97c74c8cbea11c743ce2e3dcf9400295da99ab88a1d58d607fc0ecd"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "677df04fb97c74c8cbea11c743ce2e3dcf9400295da99ab88a1d58d607fc0ecd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "677df04fb97c74c8cbea11c743ce2e3dcf9400295da99ab88a1d58d607fc0ecd"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "68bd51e3eafe58c0329cb74aca6641aadb460b593b22824bdb2d4c512951b2af"
+    sha256 cellar: :any,                 x86_64_linux:      "b4cd2b6a8be58827b715e70c7893f2a4b73e93b75f3e87f83eb6c8c7d4f05e66"
   end
 
   depends_on "go" => :build
