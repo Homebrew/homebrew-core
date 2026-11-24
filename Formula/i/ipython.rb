@@ -3,17 +3,18 @@ class Ipython < Formula
 
   desc "Interactive computing in Python"
   homepage "https://ipython.org/"
-  url "https://files.pythonhosted.org/packages/38/04/0d945c72d5b77527273ecb4c66aa2436de7a3b3bbe3da345bf053232b886/ipython-9.18.1.tar.gz"
-  sha256 "6319c0f5372c196397899479e6db1783dd7937abae06815d1317e8d5d51aaaaf"
+  url "https://files.pythonhosted.org/packages/00/7e/26321a87b91702b94b62a8d90acdbff90d7d928e0216457c24a30dc25b86/ipython-9.19.1.tar.gz"
+  sha256 "8d717edbe293adcb1b9fdeaad7ccfb1573f62d91bc10f0ae62604dbf31e6acac"
   license "BSD-3-Clause"
   head "https://github.com/ipython/ipython.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f623bddd7d6380fd544a7226f5a7c3fe2522e528492c7b2ab460cb34cf0ee7d3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95e0fbca688ce50e60cf5457a671d569958faed8d12bc189307f4a461a5128f6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b78064b6a8d1cadc8dba64a4806ccc03a035fb9b93ecad338b178f6d15927ad2"
-    sha256 cellar: :any,                 arm64_linux:       "05118aa44444eca8cab10ac9d12b3faf4cee7157ffba46e1c0e03c65f5c469e5"
-    sha256 cellar: :any,                 x86_64_linux:      "f8af3b7b6bdcd68340ac29f23d7015cc815f990e655711a633d89b2f72e793f2"
+    manifest_sha256 "4afc15bc345d56dc4735c075a1b1e4743fb629f711bbe5a073bb3b9a6e688407"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9e1f243c33717760661b5a9386494403e5c2e674ccddcf653d77b1d06330f7b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b84a07ab59e8ad08215324235820cbdc644d72860de5a9a44af9d5a09ecfb9b2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4488e5d1abb0f318ec00c9742af5c81e6faf0c90c5612f42e0b8915d952192a"
+    sha256 cellar: :any,                 arm64_linux:       "d944df3cfbc79a4bb7da1e3aa40fe72099f14d3342da2e885048e82508c9f5ec"
+    sha256 cellar: :any,                 x86_64_linux:      "9e698ad87c5a9137ee9437fb1ef6a733f72f6e54b307e6b1bf59a90f29fed603"
   end
 
   depends_on "python@3.15"
@@ -89,8 +90,8 @@ class Ipython < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
-    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
+    url "https://files.pythonhosted.org/packages/8e/da/d59374b2c893ae70a41fdb064637ccef218f25df8c67e5431a96708235d9/wcwidth-0.9.5.tar.gz"
+    sha256 "713534e2ecb16e0fc39f19e0a5dda997da76d010953e9e8f803e7971f8accd80"
   end
 
   def install
