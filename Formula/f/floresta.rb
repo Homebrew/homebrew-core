@@ -15,13 +15,12 @@ class Floresta < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f93a8f22c9506bd74f7dedbc53e8a967402a2ad4e7cf7b889a17aa98845f8c03"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ba412b48e231c0e21051fa442177a6697709361495d100d6b6ee16e6d47d755"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e3c70b99d0b4fda14040188eea45f159209f983f8947b6144256323d72b2a4d"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "434e944254bf76417f6edc3742c7fe8660b7e2842d68def4e886d967a9771bec"
-    sha256 cellar: :any_skip_relocation, sonoma:            "7c0914f6e642b655eea1c5f5ca2c619723f65eadd2f78fedd7af795363190026"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f474d469550bf62d70d0ba7439d870285860f68ba24a1f87fef96aacf1a9b5af"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "dd56abbba28df8300678a7ef2db4570d9ea19dbbff35a44fe68ab4f767338fa2"
+    manifest_sha256 "240fc5920b9141f7efb15f1fa5f9115531304ff3b23bf1f76b779afe24607b61"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7110e171368143ded5455d58859992bad165df499d1234a4e60a649be75f7df2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "84484810a6b1741f79869c3b2936b7033a9d8be92f9fb8c735038301fe255a5b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2d2cf34f0f0767985577ec2fd55eaf5ade8a81ac68061823d3d25a3a7405bfc"
+    sha256 cellar: :any,                 arm64_linux:       "5389c1b5648070768965d3e767058399dd5d684c7ed522d2607edca6e09a5c38"
+    sha256 cellar: :any,                 x86_64_linux:      "78346f201611e830ffcb5d07a2b9a37b65493390cf97411b9dcc100fc3d435b4"
   end
 
   depends_on "boost" => :build
