@@ -15,6 +15,8 @@ class Tea < Formula
     sha256 cellar: :any,                 x86_64_linux:      "4c745d0d25e85a93f11252ec997fa4326c015813a678c4ddbb2ba81846f007d7"
   end
 
+  deprecate! date: "2026-11-24", because: "has been replaced upstream by gitea-cli", replacement_formula: "gitea-cli"
+
   depends_on "go" => :build
 
   deny_network_access!
