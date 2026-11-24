@@ -4,33 +4,22 @@ class Onnx < Formula
   url "https://github.com/onnx/onnx/archive/refs/tags/v1.23.2.tar.gz"
   sha256 "2f23784e27d210a23b059a847c305e305034fb4a842fface3ff37283f85a2b40"
   license "Apache-2.0"
+  revision 1
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4872a8c51537217c0821cd236a0064541fd6dcab565f641d3e3373b67e8b6e82"
-    sha256 cellar: :any, arm64_tahoe:       "7ab973b80e915c4820992315219ad134fd888c0b3ccc209b58cb2ec9cce38949"
-    sha256 cellar: :any, arm64_sequoia:     "88b768784e36f79fcc20e1eef3a48fce352c9b11b5b4a6e7c8bf14c28f4ba5bf"
-    sha256 cellar: :any, arm64_linux:       "e1ccf6d160726d65564ba109c48ab31585338645ba729859928b69064fb8c28a"
-    sha256 cellar: :any, x86_64_linux:      "265f8b31a813b42e5210993eb7f8497b41ecf193c3d185cc2dfa5ee2e4f6d712"
+    manifest_sha256 "7a65cba483e9ac2c71b18eed61f6f9a6079a25a79a0773139e985c601ce0da6d"
+    sha256 cellar: :any, arm64_golden_gate: "cb4dd9f517f285a3a252ac9437ad2271d7eb5797cb7cdeff6adda5ef42450ef7"
+    sha256 cellar: :any, arm64_tahoe:       "651b991b8b83aeeae108a2efdc2a1289744807928659c95e470d463a697a3677"
+    sha256 cellar: :any, arm64_sequoia:     "7c6eec29eb6829b7d7e17740a36d02112113446a3f3379b0b78d9feadd66b80b"
+    sha256 cellar: :any, arm64_linux:       "1ec8824b4abd68f920fc30905b041bece2754504bb9ba73a12b50c6cdcb3466a"
+    sha256 cellar: :any, x86_64_linux:      "fbf395b76bc944268ca72e890a78d76955d2aaeed71d9019c11c15f930fe3ca0"
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "abseil"
   depends_on "protobuf"
 
   uses_from_macos "python" => :build
-
-  # Apply Fedora's workaround to allow `onnxruntime` to use `onnx` built without
-  # ONNX_DISABLE_STATIC_REGISTRATION[^1]. We can't use this option as it will
-  # break functionality for any dependents/users expecting the default behavior.
-  #
-  # [^1]: https://github.com/microsoft/onnxruntime/issues/8556#issuecomment-1006091632
-  patch do
-    url "https://src.fedoraproject.org/rpms/onnx/raw/4de8a450afd87b1ba1931f50d841e9c50b63d8a0/f/0004-Add-fixes-for-use-with-onnxruntime.patch"
-    sha256 "d9ddb735c065fd5dae11ab79371e62bdcca157a6d2a7705cc83ee612abeaaa98"
-    type :unofficial
-    resolves "https://github.com/microsoft/onnxruntime/issues/8556"
-  end
 
   def install
     # FIXME: From v1.22+, onnx internals are hidden by default, which breaks
@@ -44,6 +33,7 @@ class Onnx < Formula
       -DONNX_USE_PROTOBUF_SHARED_LIBS=ON
       -DPython3_EXECUTABLE=#{which("python3")}
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # strip abseil linkage
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
