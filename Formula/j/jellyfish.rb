@@ -4,6 +4,7 @@ class Jellyfish < Formula
   url "https://github.com/gmarcais/Jellyfish/releases/download/v2.3.1/jellyfish-2.3.1.tar.gz"
   sha256 "ee032b57257948ca0f0610883099267572c91a635eecbd88ae5d8974c2430fcd"
   license any_of: ["BSD-3-Clause", "GPL-3.0-or-later"]
+  compatibility_version 1
 
   bottle do
     sha256 cellar: :any,                 arm64_golden_gate: "0fce3a4c4c253ece16a245dfee113c8798ae82d300371a6146c0d99bf18629f1"
