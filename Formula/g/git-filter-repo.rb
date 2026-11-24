@@ -16,6 +16,14 @@ class GitFilterRepo < Formula
   uses_from_macos "git"
   uses_from_macos "python"
 
+  # Fix crash when a git config value contains a line break, remove in next release
+  patch do
+    url "https://github.com/newren/git-filter-repo/commit/4697eeb37b7c3c30b0492e344f6b89f7139cef26.patch?full_index=1"
+    sha256 "3e9955e75df5d5c43e4adfde9fae62c0738b3e97df980d97f2e4451094806cd2"
+    type :backport
+    resolves "https://github.com/newren/git-filter-repo/issues/684"
+  end
+
   deny_network_access!
 
   def install
@@ -30,6 +38,7 @@ class GitFilterRepo < Formula
     system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@example.com"
+    system "git", "config", "test.multiline", "first\nsecond"
 
     touch "foo"
     system "git", "add", "foo"
