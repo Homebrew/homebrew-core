@@ -8,7 +8,7 @@ class Direwolf < Formula
     "ISC", # external/misc/{strlcpy.c,strlcat.c} (Linux)
     :cannot_represent, # external/geotranz, see https://github.com/externpro/geotranz/blob/v2.4.2/readme.txt
   ]
-  revision 1
+  revision 2
   head "https://github.com/wb2osz/direwolf.git", branch: "master"
 
   bottle do
