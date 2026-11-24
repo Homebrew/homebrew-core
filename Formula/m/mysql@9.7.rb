@@ -1,10 +1,9 @@
 class MysqlAT97 < Formula
   desc "Open source relational database management system"
   homepage "https://github.com/mysql/mysql-server"
-  url "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.4.tar.gz"
-  sha256 "9188eb1abec42b8ab8bb69948492f06258dd27e6aabd13e2d4c6197dbcde75b2"
+  url "https://cdn.mysql.com/Downloads/MySQL-9.7/mysql-9.7.4.1.tar.gz"
+  sha256 "7f399c598797c6fc0de9a97cbd68008150396ab32cb27f8bcb9746217371237f"
   license "GPL-2.0-only" => { with: "Universal-FOSS-exception-1.0" }
-  revision 1
 
   livecheck do
     url "https://dev.mysql.com/downloads/mysql/9.7.html?tpl=files&os=src",
@@ -13,11 +12,12 @@ class MysqlAT97 < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "4baee9285088c59bc59812a620ca87918241d44876a63b8d07636f5d515cdcb1"
-    sha256 arm64_tahoe:       "d6a15c98a2d2640c85a4d05ae221394b84f85bd8e0f0f0eee2755900c42e8b83"
-    sha256 arm64_sequoia:     "a730de3637917b6d3a1e2fd5f9a719944b3a8d374f32ca62e72e7900cf6a169d"
-    sha256 arm64_linux:       "0a40fde08bee93cd33e51c3b34493d64b594ae05d2096116149e99f3592d5823"
-    sha256 x86_64_linux:      "d43ac2a550d0f37b7346b00fecb1495e8fe7e3c2350ffac0099cca11986fddef"
+    manifest_sha256 "bc14f3653584d8112c63d515142e3bc1c2569a8b10aba1d4a8768a9317b9f619"
+    sha256 arm64_golden_gate: "aea3cb5d54b2fe6b393f009203555f9dd66b7c730bb4b56cef1222d0ecf39982"
+    sha256 arm64_tahoe:       "537bf26c1d22db6cd7c861de49c0c45a205e5630288aed615d60d035d5ad87b1"
+    sha256 arm64_sequoia:     "1963d0f50fec360a1bd5e68380fbe6cb47b537cf88970f94b120074be2bb3a2a"
+    sha256 arm64_linux:       "82d03cfa50c5518d9db0537ac4a3be6f48cddb84f96a9e57848467c4ce7b7318"
+    sha256 x86_64_linux:      "3057c4acef457e1bd901c14232a1e1bf647e0c35b9d2dc538369029936c33bee"
   end
 
   keg_only :versioned_formula
