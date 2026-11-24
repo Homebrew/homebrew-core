@@ -1,8 +1,8 @@
 class VitePlus < Formula
   desc "Unified toolchain and entry point for web development"
   homepage "https://viteplus.dev"
-  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.7.0.tar.gz"
-  sha256 "badbb6809618cba01ae311a4cb89591e35d15dfe6fee01efbfff8cc3d1dec04d"
+  url "https://github.com/voidzero-dev/vite-plus/archive/refs/tags/v1.8.0.tar.gz"
+  sha256 "f4ed3acae98b31d2be0bd29f2ccfd61e24dfeb1f03166be22946f48d72c904ce"
   license "MIT"
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
@@ -90,11 +90,11 @@ class VitePlus < Formula
     system "just", "build"
     system "cargo", "install", *std_cargo_args(path: "crates/vp_global_cli")
 
+    # Use legacy deployment because the workspace resolves multiple TypeScript peer versions.
     system "pnpm", "--filter=vite-plus", "deploy", "--prod", "--legacy", "--no-optional",
            prefix/"node_modules/vite-plus"
     node_modules = prefix/"node_modules/vite-plus/node_modules"
-    # Remove incompatible pre-built `bare-*` binaries. Recurse as `deploy --legacy` writes
-    # both the legacy `<name>@<version>` and the current `@/<name>/<version>/<hash>` layouts
+    # Recurse through both pnpm store layouts when removing incompatible prebuilt binaries.
     os = OS.kernel_name.downcase
     arch = Hardware::CPU.intel? ? "x64" : Hardware::CPU.arch.to_s
     node_modules.glob(".pnpm/**/prebuilds/*")
