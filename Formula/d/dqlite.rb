@@ -1,8 +1,8 @@
 class Dqlite < Formula
   desc "Embeddable, replicated and fault-tolerant SQLite-powered engine"
-  homepage "https://dqlite.io"
-  url "https://github.com/canonical/dqlite/archive/refs/tags/v1.18.7.tar.gz"
-  sha256 "7a9087460f3296313379e95a25761c88081c508ae0742bec6fb63e895eb807a9"
+  homepage "https://canonical.com/dqlite"
+  url "https://github.com/canonical/dqlite/archive/refs/tags/v1.18.8.tar.gz"
+  sha256 "09a4b6f498943bafdc3cd2455b698e85c60bebf8663dcb6734fdc685e901a1c7"
   license "LGPL-3.0-only"
 
   bottle do
