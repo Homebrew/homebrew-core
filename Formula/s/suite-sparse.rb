@@ -19,25 +19,26 @@ class SuiteSparse < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "38a8db6a267ddbbc864b84144565a2a2a06513d46efa82cb8e821edd7abb50eb"
-    sha256               arm64_tahoe:       "078d7908550e08b2702ce8b0a1b7887898071da304d057838150a2ed11d1e359"
-    sha256               arm64_sequoia:     "7e6ff57565ec5aeca3ddb9710325e466165123ccfd1f6e76e60bb155bc022599"
-    sha256 cellar: :any, arm64_linux:       "0d2e28554dabd53f019e170613fcb02d8126e53e5347a29751e940d7c98727b1"
-    sha256 cellar: :any, x86_64_linux:      "a1c4ec6dfff832ac77a4753f04879eb6f8b329a7575061259303945bd02aceaa"
+    rebuild 1
+    manifest_sha256 "249b722f763a46495ee908a83c78981e3c55e6074202967c984705eb9c62c1af"
+    sha256               arm64_golden_gate: "3687826825b545464078a37d460a688d755a0de50b5a8d44cf32761d3b7a3053"
+    sha256               arm64_tahoe:       "24fd62080d97f076644e233dde12b587a2ec1e0078ffd515dc391c82c96e7cc7"
+    sha256               arm64_sequoia:     "40786ce8e8f632b4536bfd9970d4a3ff5f476cc79e482702875e982001b27d4b"
+    sha256 cellar: :any, arm64_linux:       "968b1b4e76b0377ece9888becfd3b3abd8d19e6777eee5e50b34d7f089b78f13"
+    sha256 cellar: :any, x86_64_linux:      "a31d90920987265a2621624b15a831d33ea4ac7eb68288c0397cef30dc3fa1cb"
   end
 
   depends_on "cmake" => :build
   depends_on "gcc" # for gfortran
   depends_on "gmp"
   depends_on "mpfr"
+  depends_on "openblas"
 
   on_macos do
     depends_on "libomp"
   end
 
-  on_linux do
-    depends_on "openblas"
-  end
+  deny_network_access!
 
   def install
     # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
