@@ -1,8 +1,8 @@
 class Xnvme < Formula
   desc "Cross-platform libraries and tools for efficient I/O and low-level control"
   homepage "https://xnvme.io/"
-  url "https://github.com/xnvme/xnvme/releases/download/v0.8.0/xnvme-fat-0.8.0.tar.gz"
-  sha256 "2cee620380a7df8180825c0028cfb72ed9f1ed95a5e8ccf37351e3825bd93111"
+  url "https://github.com/xnvme/xnvme/releases/download/v0.8.1/xnvme-fat-0.8.1.tar.gz"
+  sha256 "3718417f4637949091815a77a3d4bf4512c9adedb5d0ca0886496e36a32fe8f8"
   license "BSD-3-Clause"
 
   livecheck do
