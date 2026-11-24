@@ -1,17 +1,17 @@
 class Pie < Formula
   desc "PHP Installer for Extensions"
   homepage "https://github.com/php/pie"
-  url "https://github.com/php/pie/releases/download/1.5.5/pie.phar"
-  sha256 "2ca0dff6868f1b53c095625674deef38ac698588e0a25e4321cd834a5b7553bc"
+  url "https://github.com/php/pie/releases/download/1.6.0/pie.phar"
+  sha256 "81041b276f4e23dfdfa6dc941e5745f9adec824a1bcf6141e226181ef43f519e"
   license "BSD-3-Clause"
-  revision 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6617801cfba6dc3e3870c6a96e58a052f4efce2916242487999d499824293e41"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6617801cfba6dc3e3870c6a96e58a052f4efce2916242487999d499824293e41"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6617801cfba6dc3e3870c6a96e58a052f4efce2916242487999d499824293e41"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6d5b2b744543caecdae374996514bea22f984496b6cc12c64c415da0a2e231bb"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6d5b2b744543caecdae374996514bea22f984496b6cc12c64c415da0a2e231bb"
+    manifest_sha256 "ecee352ca1107ded96a630963c5c86ada75a2834ba1e835085c290672ec6b7c5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77084e96c5f4569dda30f0c4fbb5420da171b5050f0c095e4df74b9882fc4dae"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77084e96c5f4569dda30f0c4fbb5420da171b5050f0c095e4df74b9882fc4dae"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77084e96c5f4569dda30f0c4fbb5420da171b5050f0c095e4df74b9882fc4dae"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c42a7e1ff9f71a974fe52928bb8b1dad11c898f748a3d95cd125f8f1a0874c00"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c42a7e1ff9f71a974fe52928bb8b1dad11c898f748a3d95cd125f8f1a0874c00"
   end
 
   depends_on "pkgconf" => :test
