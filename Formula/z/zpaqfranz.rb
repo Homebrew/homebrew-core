@@ -14,11 +14,12 @@ class Zpaqfranz < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d8363703190aff6ce408e40ac43b677240432582fc7e58c9ff30934e4dd2df5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a547e8f681d12642e433598494462dc76f48416a87b59a73560b2b5c811572e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "041ec22163b24608aab36a772740017f4a190df1e168018e3003b03fde2ad5a2"
-    sha256 cellar: :any,                 arm64_linux:       "0132facd50cd1f17b9310664fe597179cd9ff0774b6e4dadff0b739413ac5032"
-    sha256 cellar: :any,                 x86_64_linux:      "4b55bf78a8ec4810fe5b7d6a04c005c5030ed3303506974398beedd4a8ee97de"
+    manifest_sha256 "3bda26c91e1760ce372b3b257f53f15cfed2582303b12ca5f82fef19331ac50b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0a6d25b04c1ce7eb5f7e23b28a840a65ddcda15ea82ef7f23f348fd385f5fe6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd77444ce859295face5dc7949e6f3f547505d89b6517d96a3281e11ebf87f7e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1311f6d8ad8308d5691d4220d8bd60ed45aaef0e229766fb0c08e3ce084ada8e"
+    sha256 cellar: :any,                 arm64_linux:       "39ea818855373eff4e1a351c2e13c22a9262eecda9eec41383ff3b4ab7eb7fe7"
+    sha256 cellar: :any,                 x86_64_linux:      "60157647ea23c112156a0b822c709160f819c1269a2a136747ef6be25c761e39"
   end
 
   deny_network_access!
