@@ -1,8 +1,8 @@
 class Astyle < Formula
   desc "Source code beautifier for C, C++, C#, and Java"
   homepage "https://astyle.sourceforge.net/"
-  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.27.tar.bz2"
-  sha256 "cfb2e432fc03c0da61593c0cedce69111284a620e0c5e969ff3c1e4363f00064"
+  url "https://downloads.sourceforge.net/project/astyle/astyle/astyle%203.6/astyle-3.6.28.tar.bz2"
+  sha256 "816bbd1e3c41b0dc606ae10fdd5492253030fc5506903d61f3575bff9178b7d4"
   license "MIT"
   compatibility_version 1
   head "https://svn.code.sf.net/p/astyle/code/trunk/AStyle"
@@ -13,12 +13,12 @@ class Astyle < Formula
   end
 
   bottle do
-    manifest_sha256 "ae5935feb4853f86353d43d4ec74cf634cffcc9ca19afb98946e088ff47098fc"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3693c776b73420fe86e2379b57bd1d78bc4e3812863da47c63987502e3614fae"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7858ee62a74976dfe2baac2d9faa434137d66f02cee87cecdad19637bb5478be"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d180f74e61b243f5e5a87744c1114df2bb4d40c99347b0ca89d114989eb8e409"
-    sha256 cellar: :any,                 arm64_linux:       "2a6286b14a8356bb4e344981463c7ad2ad877fdf70141f5348db47417a4c1f98"
-    sha256 cellar: :any,                 x86_64_linux:      "c1cdb9573a336d3e3c9d4b4c9417fe335fbabc1532cea7b6b5cf0b33ccb559c7"
+    manifest_sha256 "7b583cf2cb2f81d56a8713a48f6d889b5d8848504002452f4188581b1c05469f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82d5bae4863e49689f66077b46da6f848aff3858cb2537b4e4288015f3f832cc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5bb6104cdf38f437d033574882004e83d6e9f9455af5b3e7d76f8a188f0c1bc9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d061043cb040271f73b85550c1f49cef9a5ae44368f3e64ba80486389920199f"
+    sha256 cellar: :any,                 arm64_linux:       "ea5d647cbbae2634ab9f3bb46701155bcc89d73ea54bad4f237b4b0f0bd07c1b"
+    sha256 cellar: :any,                 x86_64_linux:      "9da16dfbbb35eff3d7f3129f5c6c5122d15462bc518d7ae8e5843d9bbd4d8e77"
   end
 
   depends_on "cmake" => :build
