@@ -1,21 +1,19 @@
 class Libxlsxwriter < Formula
   desc "C library for creating Excel XLSX files"
   homepage "https://libxlsxwriter.github.io/"
-  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.2.4.tar.gz"
-  sha256 "e0db59fc248a5ffa465a05ea83a9d466d4bca0e53ab42771515d4ebb467a41c1"
+  url "https://github.com/jmcnamara/libxlsxwriter/archive/refs/tags/v1.2.5.tar.gz"
+  sha256 "41b7d307d7b579dada6a007b97b0b74d2e3068e1cf3f8b4a7774421873477215"
   license "BSD-2-Clause"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/jmcnamara/libxlsxwriter.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any,                 arm64_golden_gate: "1d603dcdff41334dcb1ac1c51a59548b826c1d849ce39ec353586a3229aad2cb"
-    sha256 cellar: :any,                 arm64_tahoe:       "c5270d39abf4b98ae78add1ceb9251066b8fcb804cdc3f379ade7689e37521a8"
-    sha256 cellar: :any,                 arm64_sequoia:     "6761b53a60a8b03860510381371b0c6841e4ca4b77ba5705c81172b2a0b6cefb"
-    sha256 cellar: :any,                 arm64_sonoma:      "3e9ecb49f206268f647c4c48f01008d5ba7ab9dbfd5695dba05f35993b90e318"
-    sha256 cellar: :any,                 sonoma:            "d925e1ecb73f059f5ad8d53ed6f2e9f90b4ad32d9c34042b6500fea6368c4e49"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "af3be196f27cb7c63a3755ff38f1f20a51cdf88b02d83503381c38eecbde32e7"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0178462a88fe85971f75fee9a92b90939594ee9c839e0dfab6e2b4e7c02edf7a"
+    manifest_sha256 "785789b6fa5cf56581d30660cee703f6da3a3375e3262b477e4b653088e5b460"
+    sha256 cellar: :any, arm64_golden_gate: "1c6c715e373c27c88f5f4d46e553ab0688f10d5560ad6dfca991291b698dc33e"
+    sha256 cellar: :any, arm64_tahoe:       "32582d12b4442717cefc82bd5bd1fb8ff5fd2b0be7a7b974cdf3a4f4a9e41f98"
+    sha256 cellar: :any, arm64_sequoia:     "47af4a70dd2f59055b185c5a572a24790d4d83c95f012a49ed2d58872cd0f945"
+    sha256 cellar: :any, arm64_linux:       "7540a9611a762ca78a41e2e49c7d5294f3a7cf91be31d9cadae2af7b575a1f5c"
+    sha256 cellar: :any, x86_64_linux:      "2f2501b1f153287f6f9c128d2e1e133c7182567fa7177d171c3009093359532e"
   end
 
   on_linux do
