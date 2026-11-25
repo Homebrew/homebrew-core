@@ -1,8 +1,8 @@
 class Io < Formula
   desc "Small prototype-based programming language"
   homepage "http://iolanguage.com/"
-  url "https://github.com/IoLanguage/io/archive/refs/tags/2026.11.20.tar.gz"
-  sha256 "62aa86656e65414ece414ef3a6ff5adbaf2bbe06e9847505d57628addc965e11"
+  url "https://github.com/IoLanguage/io/archive/refs/tags/2026.11.23.tar.gz"
+  sha256 "dd484ce9aa06014ed14b279fd4bd3116063cf8f2db91de92a892a3254e77cf6e"
   license "BSD-3-Clause"
 
   bottle do
