@@ -1,8 +1,8 @@
 class Task < Formula
   desc "Feature-rich console based todo list manager"
   homepage "https://taskwarrior.org/"
-  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.5.0/task-3.5.0.tar.gz"
-  sha256 "9ea64b411f8314414f440ec765dfdf5a86c9f6159df47e2f60cff3db6b31157a"
+  url "https://github.com/GothenburgBitFactory/taskwarrior/releases/download/v3.6.0/task-3.6.0.tar.gz"
+  sha256 "2873ca80feb03ac202816d69a57f06403bf1c2d7ca082ac9f3aa06ad9f1d7a8a"
   license "MIT"
   compatibility_version 1
   head "https://github.com/GothenburgBitFactory/taskwarrior.git", branch: "develop"
@@ -13,13 +13,12 @@ class Task < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "3edd99c11ebb6012d43a949dc983e67bc7b9d99f8e3be14b00dbab8304b63bc1"
-    sha256 arm64_tahoe:       "9d0de9d2e6ecb3f7ecfbceb621054965298cdda682c0d5e85b4ba9a51c858a18"
-    sha256 arm64_sequoia:     "ba9a2cf5c79e8f2828bccaee6eab9242418aee107c67b8e45133f1353cd902ed"
-    sha256 arm64_sonoma:      "b2e6749d6b62ce6d43d7e4dc1a6301fc44ccfc7eda19e0a096cce4f1ac829f3a"
-    sha256 sonoma:            "398a39a02ddf29d9aed6761867e62dd5d6c4b05ce5d81c4479b4850dd85dc846"
-    sha256 arm64_linux:       "aa013a48142f78958970b41aa6ceeaa6583dbf34295deef22eda7f38d388dc9b"
-    sha256 x86_64_linux:      "1a51f6c343c8cbe300b168c2748e1adf18f6705d423f73040abbfc2de5308e71"
+    manifest_sha256 "4cf4bc4fe04f37362260c79feb77d96bbffea86388a44d1c8c0a49cb5e067196"
+    sha256 arm64_golden_gate: "f4468b0306e1c9d46b866f2e17d7aa52c1a23862052a7bce8ff8f7e734cec4c4"
+    sha256 arm64_tahoe:       "a421f78fdbc6aa60fd93478e05d43d611b58fcfc5a21b701bb3867a91ef3ef7a"
+    sha256 arm64_sequoia:     "088c6c5d85755ff6356726ba2400b72e20c0bc27dd8d46ff20f082397dff2010"
+    sha256 arm64_linux:       "4c5c98cb80620e466dc2190ed9ca10d0131546976b190adc6822c7748fcc5d23"
+    sha256 x86_64_linux:      "6121a4b57df4034801e45b6bcc2ccfcf8a987e8f143054fa0b2008ed0c9b585a"
   end
 
   depends_on "cmake" => :build
