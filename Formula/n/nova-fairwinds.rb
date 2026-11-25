@@ -1,17 +1,18 @@
 class NovaFairwinds < Formula
   desc "Find outdated or deprecated Helm charts running in your cluster"
   homepage "https://github.com/FairwindsOps/nova"
-  url "https://github.com/FairwindsOps/nova/archive/refs/tags/v3.12.3.tar.gz"
-  sha256 "73007e27e4b60ccb6aa3d4244e53e900f692f830571909b45cf42cbfc6b58cab"
+  url "https://github.com/FairwindsOps/nova/archive/refs/tags/v3.12.4.tar.gz"
+  sha256 "0bb556e6aeb26a18c81d0b3dae7804b7c9aafc2ae2b5155b028de5a55e697261"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/nova.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f76da790e50c65efdb09e60694c6282a65d0c3fd2c6780fe8f6c67787490194"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f76da790e50c65efdb09e60694c6282a65d0c3fd2c6780fe8f6c67787490194"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f76da790e50c65efdb09e60694c6282a65d0c3fd2c6780fe8f6c67787490194"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0ac1bda495e60ba06c07e557bd3c287705c1379a15b0943585c03931ac9e7df6"
-    sha256 cellar: :any,                 x86_64_linux:      "f6a2b56c38baf9de07cf782db43a96bcea8c4b68743da79a431436d1a8cf76e9"
+    manifest_sha256 "6d86b17098aeee5eec9636c9c56766ca5daa8bfa81ee71575c2c1c1e0d77ea3e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac7d25c2c3123d418ad7b50cf35caceb112cfdc222f25045a6b73f9a5cc559f6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac7d25c2c3123d418ad7b50cf35caceb112cfdc222f25045a6b73f9a5cc559f6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac7d25c2c3123d418ad7b50cf35caceb112cfdc222f25045a6b73f9a5cc559f6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "60d9808500a4c8a6c980063bb81507aeb562130afb90f1a22540d3346e2d4c97"
+    sha256 cellar: :any,                 x86_64_linux:      "5ce7bf25f563e8c5cb7b0259a90826822ad92c9c0e5383afe62cbc152e934184"
   end
 
   depends_on "go" => :build
