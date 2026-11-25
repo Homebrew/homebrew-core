@@ -1,9 +1,9 @@
 class Ddd < Formula
   desc "Graphical front-end for command-line debuggers"
   homepage "https://www.gnu.org/software/ddd/"
-  url "https://ftpmirror.gnu.org/ddd/ddd-3.4.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
-  sha256 "b87517a6c3f9611566347e283a2cf931fa369919b553536a2235e63402f4ee89"
+  url "https://ftpmirror.gnu.org/ddd/ddd-3.5.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/ddd/ddd-3.5.0.tar.gz"
+  sha256 "458aa058f6b287bd7c37439bbb9b6eef068ddaec7046f34e13edbc1752456a4e"
   license all_of: [
     "GPL-3.0-or-later",
     "GFDL-1.1-no-invariants-or-later", # ddd/ddd-themes.info
@@ -29,11 +29,13 @@ class Ddd < Formula
   depends_on "fontconfig"
   depends_on "libx11"
   depends_on "libxaw"
+  depends_on "libxext"
   depends_on "libxft"
   depends_on "libxmu"
   depends_on "libxpm"
   depends_on "libxt"
   depends_on "openmotif"
+  depends_on "tinyxml2"
 
   uses_from_macos "ncurses"
 
@@ -41,7 +43,6 @@ class Ddd < Formula
     depends_on "gnu-sed" => :build
     depends_on "libice"
     depends_on "libsm"
-    depends_on "libxext"
     depends_on "libxp"
 
     on_intel do
