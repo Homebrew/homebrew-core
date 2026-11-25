@@ -14,11 +14,12 @@ class Coal < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "6659ecec2b29e75f6d2e1436231b6cb55b761a0174eee94a885726678016e4c2"
-    sha256 cellar: :any, arm64_tahoe:       "759bf90f11ecd64c433ef03fb5e6b0501f217e096fd6609a86b8882c3a92e64c"
-    sha256 cellar: :any, arm64_sequoia:     "2d12d563732f474726880e9f63a98dd32c458c3be361b331b98cfa19785804e4"
-    sha256 cellar: :any, arm64_linux:       "39f05a3b92125ed78d3649d9d05afa200e83c886f397bcdbdabcff91acb95cc8"
-    sha256 cellar: :any, x86_64_linux:      "dfb9ce4eeb055e2c21991567b6dd68b41b50f1851aedf9dba4dcfd44ca0fcb66"
+    manifest_sha256 "c279e603ab476222cd5e633351d9e5a2f9c2e12aba14a68987f490b2e91b6fed"
+    sha256 cellar: :any, arm64_golden_gate: "f1dade4205910ef0486c65613a4ac4a0a65e7559d02320c9b6ca9ab1545c77ee"
+    sha256 cellar: :any, arm64_tahoe:       "e896f2db34c07fd5e8068da02275b5061c2b032e3572dc4d7177f6621fbb9309"
+    sha256 cellar: :any, arm64_sequoia:     "d90ba638503e0e7bfc50030347a89bcd6b12902a6f0efe4383b6868f6c5794e2"
+    sha256 cellar: :any, arm64_linux:       "c836308dafbd3414427034cd132d65f3127688e85be95f176e39bb50e6238e71"
+    sha256 cellar: :any, x86_64_linux:      "aebe31571367eabb9855167eada5a173d875f39eb3e84b04871607d4cd852fb1"
   end
 
   depends_on "cmake" => :build
