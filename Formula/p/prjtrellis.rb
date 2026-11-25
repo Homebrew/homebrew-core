@@ -16,7 +16,6 @@ class Prjtrellis < Formula
 
   depends_on "cmake" => :build
   depends_on "boost"
-  depends_on "boost-python3"
   depends_on "python@3.15"
 
   resource "prjtrellis-db" do
