@@ -1,8 +1,8 @@
 class Cubelib < Formula
   desc "Performance report explorer for Scalasca and Score-P"
   homepage "https://scalasca.org/cube/"
-  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.9/dist/cubelib-4.9.1.tar.gz"
-  sha256 "d82a899af07ec6c34c88665a0dfddbbc33a760031b1a79f12d168301e8ea1e46"
+  url "https://apps.fz-juelich.de/scalasca/releases/cube/4.10/dist/cubelib-4.10.tar.gz"
+  sha256 "ebdee61f2da04886430c4f8991fc1ef336c63a5409d122f71ccf1910851d0d4c"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,14 +11,12 @@ class Cubelib < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "a5bab6bb187d68fe7884172de91c63afecb57179eeccdfdd91ee81b10150e25f"
-    sha256 arm64_tahoe:       "af8563eab21f130a1c32ffebcbc1808975d166316d8ec5576a83dc2ebbc437c9"
-    sha256 arm64_sequoia:     "1ccf40f98502d79ffbd32bcff4ae6212b8b96aa525e60db0665848183139da9f"
-    sha256 arm64_sonoma:      "09ebd4777ba76e31a2f4c41ee65144b9a797ee0d556278da43962164048fcfc9"
-    sha256 sonoma:            "d4013dbc7bb8da8188a0d17d09c52ebc14f36db09df5516150fe2a39ee2599bd"
-    sha256 arm64_linux:       "d9915686606c3dfa397292fdf87fec0a16af4407344ccacdadd10792a2542e45"
-    sha256 x86_64_linux:      "09faef23e866883d28efac0afb0d96a72cb574c558ff16ffe1b047b842b50fa5"
+    manifest_sha256 "1e2317063c8c1bb119c4b41246876cbd27d6e7927f993dfe197c5004e015b880"
+    sha256 arm64_golden_gate: "98424689be5e74ab970aa89dfa71e6db7092abcc4d80a1c3094e35122f1e1b0c"
+    sha256 arm64_tahoe:       "930efb74e7ee6cc1045a248abe572fee6dbcd2168509ebf54dfd310de5af0c93"
+    sha256 arm64_sequoia:     "fe7f7490fdb9221337b2f25629ebd209d0e6d854cace9555370c40bf9d345ea9"
+    sha256 arm64_linux:       "df85f2b5cd986d87ecdcd47f710e7507ea634582a1d3d40fae54ad4ccf4f6f1a"
+    sha256 x86_64_linux:      "377c239b0a1edace48f9e722831286851bae0bc0b0450e7f0f3826db38de0438"
   end
 
   depends_on "pkgconf" => :build
