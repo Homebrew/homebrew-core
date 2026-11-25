@@ -1,8 +1,8 @@
 class Reckoner < Formula
   desc "Declaratively install and manage multiple Helm chart releases"
   homepage "https://github.com/FairwindsOps/reckoner"
-  url "https://github.com/FairwindsOps/reckoner/archive/refs/tags/v6.3.0.tar.gz"
-  sha256 "64def77f2b165a8abe7c2b1f267cc88f61e598a82534cec031ca5ff111798c23"
+  url "https://github.com/FairwindsOps/reckoner/archive/refs/tags/v6.3.1.tar.gz"
+  sha256 "b5abed69ac46c99b105b2a80be26fd107a8f10ebc4ba957ff534c692ac201847"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/reckoner.git", branch: "master"
 
