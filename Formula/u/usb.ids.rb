@@ -15,6 +15,8 @@ class UsbIds < Formula
     sha256 cellar: :any_skip_relocation, all: "c9491342e01272aa6c99d7a721050ba0aea50334eb462541d2d657ff8b74707e"
   end
 
+  deny_network_access!
+
   def install
     (share/"misc").install "usb.ids"
   end
