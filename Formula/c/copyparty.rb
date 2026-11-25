@@ -125,14 +125,10 @@ class Copyparty < Formula
     (testpath/"testfile").write "homebrew"
     logfile = testpath/"log.txt"
     port = free_port
-    pid = spawn(bin/"copyparty", "-q", "-p", port.to_s, "-lo", logfile)
 
-    begin
+    with_test_process(bin/"copyparty", "-q", "-p", port.to_s, "-lo", logfile) do
       output = shell_output("curl --silent --retry 5 --retry-connrefused 'localhost:#{port}?ls=t'")
       assert_match " 8  testfile", output
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
 
     assert_path_exists logfile
