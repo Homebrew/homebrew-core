@@ -1,8 +1,8 @@
 class Eigenpy < Formula
   desc "Python bindings of Eigen library with Numpy support"
   homepage "https://github.com/stack-of-tasks/eigenpy"
-  url "https://github.com/stack-of-tasks/eigenpy/releases/download/v3.14.0/eigenpy-3.14.0.tar.gz"
-  sha256 "876fffa34eeed6789bc88d170e18d895a9fecfa2f2334d768168ac414218b3f7"
+  url "https://github.com/stack-of-tasks/eigenpy/archive/refs/tags/v4.0.0.tar.gz"
+  sha256 "4cdd66deb0002506ad38502b11db0f49510170e36d29f06b3252c8a731b4dc4e"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/stack-of-tasks/eigenpy.git", branch: "devel"
@@ -26,15 +26,27 @@ class Eigenpy < Formula
   depends_on "python@3.15"
   depends_on "scipy"
 
+  resource "jrl-cmakemodules" do
+    url "https://github.com/jrl-umi3218/jrl-cmakemodules/archive/refs/tags/v2.4.0.tar.gz"
+    sha256 "1e810d43d471e9a172458187fd5ec0746d3155e173f4fb387e6c7fb56906d359"
+
+    livecheck do
+      url :url
+    end
+  end
+
   deny_network_access!
 
   def install
+    resource("jrl-cmakemodules").stage buildpath/"jrl-cmakemodules"
+
     ENV.prepend_path "PYTHONPATH", formula_opt_prefix("numpy")/Language::Python.site_packages(python3)
     ENV.prepend_path "Eigen3_DIR", Formula["eigen"].opt_share/"eigen3/cmake"
 
     args = %W[
       -DPYTHON_EXECUTABLE=#{python3}
       -DBUILD_UNIT_TESTS=OFF
+      -DJRL_CMAKEMODULES_SOURCE_DIR=#{buildpath}/jrl-cmakemodules
     ]
     # Avoid linkage to boost container and graph modules
     # Issue ref: https://github.com/boostorg/boost/issues/985
