@@ -3,10 +3,9 @@ class Dxpy < Formula
 
   desc "DNAnexus toolkit utilities and platform API bindings for Python"
   homepage "https://github.com/dnanexus/dx-toolkit"
-  url "https://files.pythonhosted.org/packages/2e/3b/481347ef444726c9dc6ad6e4b4b2faee795dae89b132a4e9daeb1865abd8/dxpy-0.419.0.tar.gz"
-  sha256 "977bd62ee56bebc9fbd875243613e42229742535f03876c1cbb048aaf4a5d673"
+  url "https://files.pythonhosted.org/packages/fc/e9/81301d5635d1b4e54d3ad140dba5ed56609615ee8f709a59d8ba0123b5de/dxpy-0.420.0.tar.gz"
+  sha256 "59472289a6a114b021c1354285fe56620f1dc4ab657ba436b343482fdebab748"
   license "Apache-2.0"
-  revision 2
 
   bottle do
     sha256 cellar: :any, arm64_golden_gate: "38dadbb49f3f288b0fe8369202513de0fd81f01eaefc3541c96db95f5b0e1838"
@@ -34,8 +33,8 @@ class Dxpy < Formula
   pypi_packages exclude_packages: %w[cryptography certifi websocket-client]
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "awscrt" do
