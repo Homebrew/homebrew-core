@@ -37,7 +37,6 @@ class Watchman < Formula
   depends_on "python@3.15"
 
   on_linux do
-    depends_on "boost"
     depends_on "libunwind"
     depends_on "openssl@4"
   end
