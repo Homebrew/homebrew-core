@@ -16,6 +16,8 @@ class UmkaLang < Formula
     sha256 cellar: :any, x86_64_linux:      "44c64007151458d2943d83b9b9e1b65f38c5f521fd31efb89ad6b4895eab7cb6"
   end
 
+  deny_network_access!
+
   def install
     # Workaround to build on arm64 linux
     if OS.linux? && Hardware::CPU.arm?
@@ -37,11 +39,12 @@ class UmkaLang < Formula
 
     assert_match "Hello Umka!", shell_output("#{bin}/umka #{testpath}/hello.um")
 
-    (testpath/"test.c").write <<~C
+    (testpath/"test.c").write <<~'C'
       #include <stdio.h>
       #include <umka_api.h>
+
       int main(void) {
-          printf("Umka version: %s\\n", umkaGetVersion());
+          printf("Umka version: %s\n", umkaGetVersion());
           return 0;
       }
     C
