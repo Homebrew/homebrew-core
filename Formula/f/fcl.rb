@@ -2,7 +2,7 @@ class Fcl < Formula
   desc "Flexible Collision Library"
   homepage "https://flexible-collision-library.github.io/"
   license "BSD-3-Clause"
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/flexible-collision-library/fcl.git", branch: "master"
 
@@ -39,16 +39,23 @@ class Fcl < Formula
       type :unofficial
       resolves "https://github.com/flexible-collision-library/fcl/pull/649"
     end
+
+    # Link the octomap::octomap target exported by OctoMap 2.0
+    patch do
+      url "https://github.com/flexible-collision-library/fcl/commit/dba11957540eda3656429cdfd4b8ba03557b60d2.patch?full_index=1"
+      sha256 "d727a5a703a1a0f9304d9987b79734d2655193125fce5bc6dc14b6f22435dcc2"
+      type :unofficial
+      resolves "https://github.com/flexible-collision-library/fcl/pull/672"
+    end
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "de0218b5d148a4adcb6abb2d73c9303c726f92dc16b5793315419ecf4a9776d3"
-    sha256 cellar: :any,                 arm64_tahoe:       "520b5eb150c605c3d52439c344b97fc921978a7b766141f0deeb000d52a2be6c"
-    sha256 cellar: :any,                 arm64_sequoia:     "c3d2ac35822520051226489edef7331201d92857144d64a6fbc16339570bfbd5"
-    sha256 cellar: :any,                 arm64_sonoma:      "84514294768694993849b6182e1c24956c437a05d1b3060033e5fb63590a81b9"
-    sha256 cellar: :any,                 sonoma:            "c940f7e641313fc86f737a53cdee88816a34e0d89b67f626df78144c9d932147"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8a6759eb4c1576b674bdf4528dc205df0e1ded7d98701282abc1b5868084767b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5213117e4717273be6ea9baf0bccda5ad8ec98a258be6e125b41d151b0cc5e32"
+    manifest_sha256 "bae14e4a1a4540894c71732f3054ae5c610843e542e9df787dbdc66473c0f21c"
+    sha256 cellar: :any, arm64_golden_gate: "faa05739d19f3031309bc5dac7f2af8da0402fca8e53bcf5e0bb6b07eb4dba6c"
+    sha256 cellar: :any, arm64_tahoe:       "b608fba1ca24b458ef1e39d05fbb7c178dd315e9f7f098d159412d133f274d2d"
+    sha256 cellar: :any, arm64_sequoia:     "dbc8a7a22e55cab98662a731e113e547dd3beb533371c2979ee166e161ade375"
+    sha256 cellar: :any, arm64_linux:       "a9dbe25f0e5bceb190dec90424d48f32b34bc9d52cdab5d35964f6c8e66e068a"
+    sha256 cellar: :any, x86_64_linux:      "5dd32290d648be8f2fd5cd4c58eafa337acd054c4740c3080f1fa403ac5726f4"
   end
 
   depends_on "cmake" => :build

@@ -1,17 +1,18 @@
 class Octomap < Formula
   desc "Efficient probabilistic 3D mapping framework based on octrees"
   homepage "https://octomap.github.io/"
-  url "https://github.com/OctoMap/octomap/archive/refs/tags/v1.10.1.tar.gz"
-  sha256 "b6b6c10c99ab15701dd105840e7d4cf18e226eb68714dd4bdfe049dede5cd489"
+  url "https://github.com/OctoMap/octomap/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "a47231ec8b7cca3147e611caf31a100dfc24a2257dcc58cff1a047519586befa"
   license "BSD-3-Clause"
-  compatibility_version 1
+  compatibility_version 2
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "ebe6fd230093c36f670de6dde66f7f135a064f4953892a0cfe655e2280455c91"
-    sha256 cellar: :any, arm64_tahoe:       "341f9ad94e1234a57a01680062414ca5f729a3c3f497e2b1cec9f1a07566b1b4"
-    sha256 cellar: :any, arm64_sequoia:     "ee0e6c608e4dbfa6f0fa0388bbe0710cf602121d25d877c1ed86043752a901a1"
-    sha256 cellar: :any, arm64_linux:       "2faca0e4b7d529f5a098e081b167f994f58601dc759d40e61f416168ebf0c5ff"
-    sha256 cellar: :any, x86_64_linux:      "61d4e164f82d93c8c7fb050ccdfddcc965ce7bd1346687e6b73fa52efa512972"
+    manifest_sha256 "df858b90cdadbd0299204446bfd93b7c2794b5b2dd8a86049733f6d97bed1d5a"
+    sha256 cellar: :any, arm64_golden_gate: "267f21316912ef32434722e059c2e5e3a96c9220fa7595591539b3fcc02548a7"
+    sha256 cellar: :any, arm64_tahoe:       "491b5e4b8a83439616507ee532c609cb7bf1eb3109838959d4ad7857eb7646b3"
+    sha256 cellar: :any, arm64_sequoia:     "31266b172e6598747b42f594430e0b534c01897feab7143b8529f31d82d5884f"
+    sha256 cellar: :any, arm64_linux:       "639e63f27fc3e64740d45a2c82e70681000e2d3d249fc1f861d1274ab6cd8ab1"
+    sha256 cellar: :any, x86_64_linux:      "1da29ede1e46d8a335599c647f43bd9db4def224372c41494e3cb399eb584274"
   end
 
   depends_on "cmake" => :build
@@ -20,7 +21,12 @@ class Octomap < Formula
   deny_network_access!
 
   def install
-    system "cmake", "-S", "octomap", "-B", "build", *std_cmake_args
+    args = %W[
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpath}
+    ]
+
+    system "cmake", "-S", "octomap", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end

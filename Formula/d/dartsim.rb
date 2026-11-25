@@ -4,6 +4,7 @@ class Dartsim < Formula
   url "https://github.com/dartsim/dart/archive/refs/tags/v6.20.3.tar.gz"
   sha256 "da78699a52468ac0931a4e03026ad2ff8a6bb03da99a23ba3fa2f7c58ee85538"
   license "BSD-2-Clause"
+  revision 1
 
   livecheck do
     url :stable
@@ -11,11 +12,12 @@ class Dartsim < Formula
   end
 
   bottle do
-    sha256               arm64_golden_gate: "38dbfba70bb139ce1b26840e90904bd953f7833d4217f7107bb0980dbd65d83a"
-    sha256               arm64_tahoe:       "f11493ba4bccffaa0a9b12cde633ebe3abefc45c63113a076b34fb2f4dde1614"
-    sha256               arm64_sequoia:     "d63295e6a8c354a4f995d727b895947aed3a119868eeba1bfcb5e9d6a8d670b0"
-    sha256               arm64_linux:       "28eb081ce7c20f762ebc43693ad117b96ae56716167ddcfe703773a0dfbcd349"
-    sha256 cellar: :any, x86_64_linux:      "e38969f68227b72927ecf11bc493621287a9ed982ea1a16751cda1951d41316a"
+    manifest_sha256 "b9373cfbe2564a1bd0f55f29868f03822cc6131566fd31583c9faade2c85d434"
+    sha256               arm64_golden_gate: "ae5242fbd96634989b657511c859ddc4f932bca2cfae075c8cdbb6524e732e74"
+    sha256               arm64_tahoe:       "5a8ee29bd5999f529cba4929c6efe342d58c12b6a16fcee6ad75106d8b8e40a0"
+    sha256               arm64_sequoia:     "46ff954f3555a3c094d606938ba319bd5d021cc9098e1f7862dcfd82bb753c33"
+    sha256               arm64_linux:       "21667456fd45c36ac8e83bb0e02d06e821925b813302328ec10fd2a22aa7b6bd"
+    sha256 cellar: :any, x86_64_linux:      "e48d19338d17f86c712c1aba9cf42a50e3c65188aff34e1f7beb64f2dc5a44b8"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -56,6 +58,9 @@ class Dartsim < Formula
 
   def install
     resource("imgui").stage buildpath/"imgui"
+
+    # FIXME: octomap 2 only accepts 2.0.x version requests, so drop the 1.9.7 minimum until DART supports octomap 2
+    inreplace "cmake/DARTFindoctomap.cmake", "find_package(octomap 1.9.7 ", "find_package(octomap "
 
     args = %W[
       -DCMAKE_INSTALL_RPATH=#{rpath}
