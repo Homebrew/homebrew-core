@@ -17,6 +17,8 @@ class Ugit < Formula
 
   conflicts_with "git-extras", because: "both install `git-undo` binaries"
 
+  deny_network_access!
+
   def install
     bin.install "ugit"
     bin.install "git-undo"
