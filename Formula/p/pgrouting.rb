@@ -13,11 +13,12 @@ class Pgrouting < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab3616c9a9006bc18f8beedd3d71b9f9535695409d50898473598a2b67b06a0a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "88179814f31cdeb3b498a657d0d2c4369e85a9ee15d90d01318c86276872ec82"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43ccdc94ebafb14e4088e6433ed4df26c6e1239fb6533aba110587361c22daed"
-    sha256 cellar: :any,                 arm64_linux:       "886ea9b7defac34a9cbe9883a367dc7d211e0750aad32d5beca28d4fd6e2f8f2"
-    sha256 cellar: :any,                 x86_64_linux:      "73bd2d968bf999555f012f814a8f3f6ce6305a1d3e7b0f342a09d5fc15d52040"
+    manifest_sha256 "306cf6e684867f97ac6574709b19a78d9c3703f70fc03790d8d8da9e5251727b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "64ccbeaa43ef1a508503504c435bcd40a6e1dc1771caa3d7a6029fbc3dc145c6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43d54eb8008dfb8a990ec697c7b824f0782ae6e52ced2396f1d0b99b88197cf1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "185551421bc2bdcda2e816b90820fac668f2396d66a23fc1de746b600d8d3e2c"
+    sha256 cellar: :any,                 arm64_linux:       "b06ea750f3a41629be2ca62f66954e0cfc77cf2f3387bc2cb168111e26beccfc"
+    sha256 cellar: :any,                 x86_64_linux:      "2795256ba4e1798e25a5d2ed54adf0dae2082e154c19dbc3f1d8e262f73a6345"
   end
 
   depends_on "boost" => :build
