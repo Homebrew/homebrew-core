@@ -22,16 +22,15 @@ class Udp2rawMultiplatform < Formula
   end
 
   depends_on "libnet"
+
   uses_from_macos "libpcap"
+
+  allow_network_access! :test
 
   def install
     ENV["OPT"] = Utils.safe_popen_read("libnet-config", "--cflags")
 
-    if OS.linux?
-      system "make", "linux"
-    elsif OS.mac?
-      system "make", "mac"
-    end
+    system "make", (OS.linux? ? "linux" : "mac")
 
     bin.install "udp2raw_mp"
     etc.install "example.conf" => "udp2raw_client.conf"
