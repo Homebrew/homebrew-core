@@ -27,6 +27,8 @@ class Unyaffs < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8ea922f7eba91f9c6d6f3769fc9491e0f1414d9ecf006855414f8a544ef01638"
   end
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "unyaffs"

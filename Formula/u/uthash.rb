@@ -11,6 +11,8 @@ class Uthash < Formula
     sha256 cellar: :any_skip_relocation, all: "5ccdd063c00f0d308b33f2ddecd943e15d4ee9bfbdd8ad1e1bad30a334aec8ec"
   end
 
+  deny_network_access!
+
   def install
     include.install buildpath.glob("src/*.h")
   end

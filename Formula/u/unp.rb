@@ -17,6 +17,8 @@ class Unp < Formula
 
   depends_on "p7zip"
 
+  deny_network_access!
+
   def install
     bin.install %w[unp ucat]
     man1.install "debian/unp.1"
