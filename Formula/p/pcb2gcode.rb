@@ -1,8 +1,8 @@
 class Pcb2gcode < Formula
   desc "Command-line tool for isolation, routing and drilling of PCBs"
   homepage "https://github.com/pcb2gcode/pcb2gcode"
-  url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v3.1.0.tar.gz"
-  sha256 "1dc10343a16d291c058b3d79e6ded25f13a99584b1b0d572808cd33216358cc1"
+  url "https://github.com/pcb2gcode/pcb2gcode/archive/refs/tags/v3.2.0.tar.gz"
+  sha256 "4953f1a91b8fa4457a54268a9f22f8f596f3ddf5ed10654fd643dbc8112e95b8"
   license "GPL-3.0-or-later"
   head "https://github.com/pcb2gcode/pcb2gcode.git", branch: "master"
 
@@ -12,11 +12,12 @@ class Pcb2gcode < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "d7400a9fb093342400b9530044c0fa7fd5980c4be61525285e9f4a68346e9389"
-    sha256 cellar: :any, arm64_tahoe:       "9c6cd81020472d56114ff718e2f892c746efbb4b2569d1f42aca9467c3438862"
-    sha256 cellar: :any, arm64_sequoia:     "8d1608cd5be02000a701da77f6e5c527d0983c9942bd9468a845ba223fe31baf"
-    sha256 cellar: :any, arm64_linux:       "fcc5767aa9c7dbf1c99734af350dac94da76a4c31e52772105c646bae0fba231"
-    sha256 cellar: :any, x86_64_linux:      "a511d7c509d56215b41c3a72e4bc3d741b55b9d3d68f2c9add4d388bdf28af38"
+    manifest_sha256 "af342b5470bd864588134c70a21ba4ddbaa6e920bbd7bd215255376038a7d5ed"
+    sha256 cellar: :any, arm64_golden_gate: "13260e3ae4c71169a04f5ae32aa4e89b73af4222a4fc7c6bf33234045b5e480e"
+    sha256 cellar: :any, arm64_tahoe:       "dda865de4463cfa5f56318f9715ac72ee949bc90ba15c1dfe7a281f68577e1a3"
+    sha256 cellar: :any, arm64_sequoia:     "ee4c17cac58dc9305118bcb51306c9a96c1a8b47d6073346e13a4171a122496b"
+    sha256 cellar: :any, arm64_linux:       "5d42ffe2470c62f9a1feabe41c3c4825011950dc07863cc795db67376a1629c9"
+    sha256 cellar: :any, x86_64_linux:      "82bca7900fab6d8bc673c2db6b27077595d99ac58d3c7aae15520766edddc62e"
   end
 
   deprecate! date: "2026-08-28", because: "uses deprecated `gerbv` which needs EOL `gtk+`"
