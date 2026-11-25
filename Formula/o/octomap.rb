@@ -1,8 +1,8 @@
 class Octomap < Formula
   desc "Efficient probabilistic 3D mapping framework based on octrees"
   homepage "https://octomap.github.io/"
-  url "https://github.com/OctoMap/octomap/archive/refs/tags/v2.0.0.tar.gz"
-  sha256 "a47231ec8b7cca3147e611caf31a100dfc24a2257dcc58cff1a047519586befa"
+  url "https://github.com/OctoMap/octomap/archive/refs/tags/v2.0.1.tar.gz"
+  sha256 "b3bbadf9ee9f05792d08f626dd0e784489fdad662eb2fbf311683241706bf60f"
   license "BSD-3-Clause"
   compatibility_version 2
 
