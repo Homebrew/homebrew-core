@@ -1,20 +1,19 @@
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen/"
-  url "https://ftpmirror.gnu.org/screen/screen-5.0.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/screen/screen-5.0.2.tar.gz"
-  sha256 "ca9a2c7e240919bc7ac12124593ae4529bb4eb5f7349d8857829b7e3f0b3b332"
+  url "https://ftpmirror.gnu.org/screen/screen-5.0.3.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/screen/screen-5.0.3.tar.gz"
+  sha256 "941c98ffecdca4bff4bbd1cd6f08fbd18967353affc46521040a999dafbd39a2"
   license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
   bottle do
-    sha256 arm64_golden_gate: "b3618da110e1bddf4fe8c2395b2f2187f13495bb5e966b2e51b2f420596934c1"
-    sha256 arm64_tahoe:       "483ed088b80d3dfeedc0ab9c805f2ef7be4ea06488b64684dbda1b5c1af085f5"
-    sha256 arm64_sequoia:     "66938dde45a2e0a72eb173935163c7c13d0ac96259acb22feda8b8a8f09caac0"
-    sha256 arm64_sonoma:      "05ab2690b011d104de3996b26cbef6ca3fee0e50e72fc532c296b5089d1fe9f8"
-    sha256 sonoma:            "9779a73c79dc89c65d9b3c7fcf499362bf7e95773d0b04016726e2cd28f21689"
-    sha256 arm64_linux:       "1c2fa985e9ecd3ff54324061a74974d01de3f4346dedd4673c6fef9da8ecb343"
-    sha256 x86_64_linux:      "fb7bc859f277b060eefed76eaf63894a524c30215eb35ef286b0ccfc40d57be3"
+    manifest_sha256 "5c0d208ebe7794338d06ba98d6042dd85dd7d3b2bab4c57ced006728650baaf3"
+    sha256 arm64_golden_gate: "269055c0c68e1bcc34e6e9501ec711074934e537965283b78db31cc81c2d4da2"
+    sha256 arm64_tahoe:       "64ac04d0bbc141a1424f529e21511eec9cfbbf90d9bd87659c1bbc9672754b65"
+    sha256 arm64_sequoia:     "519f0d0865921dab35af21b3dadc359e6e5fb6ec80a86f70aa65eb24e1df7abb"
+    sha256 arm64_linux:       "ca5eecde146d1e0e3eced6a7e81a0f853ce5a199f95bf4ed9c709da073a6c273"
+    sha256 x86_64_linux:      "0d59f6f810d3302b8ffb1ef1b4e1e79d585369dcedaaf87252c7160e0b1a63f8"
   end
 
   depends_on "autoconf" => :build
