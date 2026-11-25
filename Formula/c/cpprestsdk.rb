@@ -5,7 +5,7 @@ class Cpprestsdk < Formula
   url "https://github.com/microsoft/cpprestsdk/archive/refs/tags/v2.10.19.tar.gz"
   sha256 "4b0d14e5bfe77ce419affd253366e861968ae6ef2c35ae293727c1415bd145c8"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/microsoft/cpprestsdk.git", branch: "master"
 
   bottle do
@@ -22,7 +22,7 @@ class Cpprestsdk < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
   depends_on "openssl@4"
 
   # Apply FreeBSD patches for libc++ >= 19 needed in Xcode 16.3
@@ -69,14 +69,17 @@ class Cpprestsdk < Formula
 
   def install
     openssl_prefix = dep("openssl").opt_prefix
-    system "cmake", "-S", "Release", "-B", "build",
-                    "-DBUILD_SAMPLES=OFF",
-                    "-DBUILD_TESTS=OFF",
-                    # Disable websockets feature due to https://github.com/zaphoyd/websocketpp/issues/1157
-                    # Needs upstream response and fix in `websocketpp` formula (do not use bundled copy)
-                    "-DCPPREST_EXCLUDE_WEBSOCKETS=ON",
-                    "-DOPENSSL_ROOT_DIR=#{openssl_prefix}",
-                    *std_cmake_args
+    args = [
+      "-DBUILD_SAMPLES=OFF",
+      "-DBUILD_TESTS=OFF",
+      # Disable websockets feature due to https://github.com/zaphoyd/websocketpp/issues/1157
+      # Needs upstream response and fix in `websocketpp` formula (do not use bundled copy)
+      "-DCPPREST_EXCLUDE_WEBSOCKETS=ON",
+      "-DOPENSSL_ROOT_DIR=#{openssl_prefix}",
+    ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # strip boost linkage
+
+    system "cmake", "-S", "Release", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
