@@ -28,6 +28,8 @@ class Unifdef < Formula
 
   keg_only :provided_by_macos
 
+  deny_network_access!
+
   def install
     system "make", "prefix=#{prefix}", "install"
   end
