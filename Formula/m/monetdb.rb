@@ -1,8 +1,8 @@
 class Monetdb < Formula
   desc "Column-store database"
   homepage "https://www.monetdb.org/"
-  url "https://www.monetdb.org/downloads/sources/Dec2025-SP4/MonetDB-11.55.9.tar.xz"
-  sha256 "c2edb5a930fc0c5aaf7fe1cac34be2bb125a1e52ee5fbdf1df9a993cc526cffe"
+  url "https://www.monetdb.org/downloads/sources/Dec2025-SP5/MonetDB-11.55.11.tar.xz"
+  sha256 "a078e6b2a97c5a586703875d95155e7dcd1145799d66eee8baa516beb7db46bb"
   license "MPL-2.0"
   head "https://www.monetdb.org/hg/MonetDB", using: :hg
 
@@ -24,6 +24,7 @@ class Monetdb < Formula
   depends_on "bison" => :build # macOS bison is too old
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
+  depends_on "libxml2"
   depends_on "lz4"
   depends_on "openssl@4"
   depends_on "pcre2"
