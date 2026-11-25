@@ -1,8 +1,8 @@
 class GeminiCli < Formula
   desc "Interact with Google Gemini AI models from the command-line"
   homepage "https://geminicli.com"
-  url "https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-0.71.0.tgz"
-  sha256 "d80135d4028598cb19cd92f66b531795bfb5801968bfe77e347b78cf1ae9a486"
+  url "https://registry.npmjs.org/@google/gemini-cli/-/gemini-cli-0.71.1.tgz"
+  sha256 "3381cebd8a58b43ab161fd9302d5b1f097ab2eb010278176e8afd3533d1c98bc"
   license "Apache-2.0"
 
   livecheck do
