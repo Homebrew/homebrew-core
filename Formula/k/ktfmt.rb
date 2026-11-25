@@ -1,8 +1,8 @@
 class Ktfmt < Formula
   desc "Kotlin code formatter"
   homepage "https://kotlin.github.io/ktfmt/"
-  url "https://github.com/Kotlin/ktfmt/archive/refs/tags/v0.65.tar.gz"
-  sha256 "e03e4627481c4b078a9f3b263b486161937770ba7f9babebf938dbc06c6a7fe3"
+  url "https://github.com/Kotlin/ktfmt/archive/refs/tags/v0.65.1.tar.gz"
+  sha256 "2895b71e2ebf144189cbd778a3d260269b8ab9de4752e8efe1318af2be7e6f96"
   license "Apache-2.0"
   head "https://github.com/Kotlin/ktfmt.git", branch: "main"
 
