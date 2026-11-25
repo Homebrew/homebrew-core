@@ -3,18 +3,18 @@ class Ggshield < Formula
 
   desc "Scanner for secrets and sensitive data in code"
   homepage "https://www.gitguardian.com"
-  url "https://files.pythonhosted.org/packages/be/2e/3af5151698baff481fbea82cd1d03084ca76ec633e01854096b5740ed656/ggshield-1.56.1.tar.gz"
-  sha256 "de2d62f13eaa8c7a9bde830449b901abad5e5d885e9b3ea5fa58fbae9bb99209"
+  url "https://files.pythonhosted.org/packages/b5/59/22f4c0326f9d82b6d6149dc76d08768a2f3d03b5335e43017f6a6b267cc3/ggshield-1.57.0.tar.gz"
+  sha256 "dec40be023a1c763c4df3da274b482e2280a243e10206a7f3f068e421e6c188c"
   license "MIT"
-  revision 1
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5c5c4030598cbb82d110f2ef19164cc097885320f8ed01bd4f800fbaf48c555e"
-    sha256 cellar: :any, arm64_tahoe:       "dcf947f42d977db05305114bf0f52f89c0792aa0aa3bd57177384e876fb63a7b"
-    sha256 cellar: :any, arm64_sequoia:     "36f2ee5d0aa37be3eba97a44ed8eadfabfa6d618751d5c387f95e861de994fbd"
-    sha256 cellar: :any, arm64_linux:       "b8d61114c7024d3772d07c3ecd541157b99d9db36a9e56bd5b01aa0a2bb70d3f"
-    sha256 cellar: :any, x86_64_linux:      "b221605165479c6bf959c653889983b06c9c14f75cb12eeed8cf5f1b402efefb"
+    manifest_sha256 "524716afc0c82304664a14d1f37a5c9b2fc073bce6478a80b1791483b68e2418"
+    sha256 cellar: :any, arm64_golden_gate: "b802f40daf9d2eb1d034e0e59ed7ba7b6c97305be8bfa5bf6092efa4524a22ae"
+    sha256 cellar: :any, arm64_tahoe:       "8236029dc2e5adc291cf32bf63dde87aec7e8d32377a1fa41d3ab90ab920f7d3"
+    sha256 cellar: :any, arm64_sequoia:     "da41a9cabde800a88a8f30d3286759945738104812905471e86414712f2018d6"
+    sha256 cellar: :any, arm64_linux:       "4956777fcf9c3f78a10a6091f94947bfbce08676948bdbb78a8483142811898f"
+    sha256 cellar: :any, x86_64_linux:      "31c7072f2d102134624c1bc8233ce15566ddea59eec746b8f3dcf3e0cb3ac53e"
   end
 
   depends_on "pkgconf" => :build # for `rfc3161_client`
@@ -55,13 +55,13 @@ class Ggshield < Formula
   end
 
   resource "email-validator" do
-    url "https://files.pythonhosted.org/packages/f5/22/900cb125c76b7aaa450ce02fd727f452243f2e91a61af068b40adba60ea9/email_validator-2.3.0.tar.gz"
-    sha256 "9fc05c37f2f6cf439ff414f8fc46d917929974a82244c20eb10231ba60c54426"
+    url "https://files.pythonhosted.org/packages/c0/4d/f5e9d9de19f4b8f9e33d802fe3efb0ef96e88d4d6d45d604f335bef2f1ef/email_validator-2.4.0.tar.gz"
+    sha256 "be487bc50bc3bd832a98515a55a15649d9bec06d954fa178663190714b6c4ee1"
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
-    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
+    url "https://files.pythonhosted.org/packages/e6/86/a5b9ec254b90efb180e390e31a4fa50a93b714d6e4174fa9a4ee25607159/filelock-4.3.1.tar.gz"
+    sha256 "4c5ee627c401f1863ac6a0de9a14a28d3bb5f8c730b45e2fd6e5dbc79cf34b9e"
   end
 
   resource "h11" do
@@ -70,13 +70,13 @@ class Ggshield < Formula
   end
 
   resource "httpcore2" do
-    url "https://files.pythonhosted.org/packages/c0/61/afa9d6b7452f9eca73f73d45324eb0bb52f098fd5e6049bf6b8263be9b4e/httpcore2-2.16.0.tar.gz"
-    sha256 "c72cd0413563b17e1cd8354677dff887466f8ec2551679759e93126534428643"
+    url "https://files.pythonhosted.org/packages/92/9d/df40b41f7db0370f82019820709244e7b660c52aa3da3c9e5c4e8141f6e6/httpcore2-2.16.2.tar.gz"
+    sha256 "6c519d0f7b44f7269fa9bbb4d2763db395a4a2370f046d8e8e0a4b38227815d2"
   end
 
   resource "httpx2" do
-    url "https://files.pythonhosted.org/packages/43/73/5ca2cedf5e4e50423d1c258877865a6b62793633b561c58499f8aeb33b7e/httpx2-2.16.0.tar.gz"
-    sha256 "0d54c98128e8f2ff7fbbde0fca8c359e5f032edeaaaac443cdb7f31f685bcd7f"
+    url "https://files.pythonhosted.org/packages/1c/77/6515121dc5ac3c743ad1bff5afe635bcd1a3f23cc40db3c5c89f7d02917d/httpx2-2.16.2.tar.gz"
+    sha256 "748b615678f07d8e3b183efe81ad13b655ca88bfc56ce4589219b2d442860574"
   end
 
   resource "id" do
@@ -155,23 +155,23 @@ class Ggshield < Formula
   end
 
   resource "oauthlib" do
-    url "https://files.pythonhosted.org/packages/0b/5f/19930f824ffeb0ad4372da4812c50edbd1434f678c90c2733e1188edfc63/oauthlib-3.3.1.tar.gz"
-    sha256 "0f0f8aa759826a193cf66c12ea1af1637f87b9b4622d46e866952bb022e538c9"
+    url "https://files.pythonhosted.org/packages/33/17/2bb072de0b990303c985f26869fd47bb179024a051f47e7f9d208eb92f8e/oauthlib-4.0.1.tar.gz"
+    sha256 "3d73febdb6faa00f277c81fb04be7b7586fb96fc3b7f0b9c772dada69a25ede7"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/d7/9a/8475be631fb33ca1466915e70fd594c42a4e84b512db650eaa14f90fe75d/platformdirs-4.14.5.tar.gz"
-    sha256 "32e9921db7385aa8169bee4fe9501923e5715ba9fb7ea3b9c69b0d8e0639f7a1"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "pygitguardian" do
-    url "https://files.pythonhosted.org/packages/e3/6a/2ff0e9a42bf6ef3a11bf0d9b2d53bc0bb3ca84531ef4435d856c187d10fe/pygitguardian-1.35.0.tar.gz"
-    sha256 "e9af79fe66cfd5e8063fc140cdaac95b987949ba1dc96941bb27b53ae2b8bc38"
+    url "https://files.pythonhosted.org/packages/02/44/34009805f24d266618eec3a02ef8e21127f2918ccf7ac56e93c6698f9ffc/pygitguardian-1.36.0.tar.gz"
+    sha256 "081aa7ed2c2c33be24be052e0fea5b55a7098d34aefe45c1fdbfa6ad6c0d5a49"
   end
 
   resource "pygments" do
@@ -190,8 +190,8 @@ class Ggshield < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "requests" do
@@ -235,8 +235,8 @@ class Ggshield < Formula
   end
 
   resource "sigstore" do
-    url "https://files.pythonhosted.org/packages/bb/26/0561ddc1fcda5a12e577b4716f3e345905fc5e98978def96bc78e2d538ce/sigstore-4.5.1.tar.gz"
-    sha256 "14accda8a7d4ef47cb25b4903829fb10f011048c261a5937724a43d073c4f34d"
+    url "https://files.pythonhosted.org/packages/11/10/349d460d275dccade8d5aa29e15290a7febb0c0bdeab8f2cd9d0ee61d9db/sigstore-4.6.0.tar.gz"
+    sha256 "dc9a7bd0e35ee381a6f70281f520f858d12b34a997c023f7dec835c0095a5067"
   end
 
   resource "sigstore-models" do
@@ -250,8 +250,8 @@ class Ggshield < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/cc/18/0bbf3884e9eaa38819ebe46a7bd25dcd56b67434402b66a58c4b8e552575/tomlkit-0.13.3.tar.gz"
-    sha256 "430cf247ee57df2b94ee3fbe588e71d362a941ebb545dec29b53961d61add2a1"
+    url "https://files.pythonhosted.org/packages/c9/85/4a7c68111c057a6498f5bc721ef93b388b420bb31d7020759f18a5f0c2ec/tomlkit-0.15.3.tar.gz"
+    sha256 "b3c3020ec1a4bd469d12e31fb4da938e7f6ba758cdbec3fd9047db63120eaf81"
   end
 
   resource "truststore" do
@@ -265,8 +265,8 @@ class Ggshield < Formula
   end
 
   resource "typeguard" do
-    url "https://files.pythonhosted.org/packages/b4/de/4420db493fa8fc0856d5e5c1b159c63a323d2de2317babe36b01568928e8/typeguard-4.6.0.tar.gz"
-    sha256 "e7414f09111317de3e335de92cd397c5c0ca00b1cc1676de12e1d444a79b3f21"
+    url "https://files.pythonhosted.org/packages/67/2e/ff27b371f3262048aa7b2a391f655a333e75a7774a920d5fc9e257a47991/typeguard-4.6.1.tar.gz"
+    sha256 "d94fd3552c5feb6bada6e8bb1167d9916c08d7442141aeb041b847ba9bd1afb1"
   end
 
   resource "typing-inspect" do
