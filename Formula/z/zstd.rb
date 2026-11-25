@@ -1,18 +1,16 @@
 class Zstd < Formula
   desc "Zstandard is a real-time compression algorithm"
-  homepage "https://facebook.github.io/zstd/"
-  url "https://github.com/facebook/zstd/archive/refs/tags/v1.5.7.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/zstd-1.5.7.tar.gz"
-  mirror "http://fresh-center.net/linux/misc/legacy/zstd-1.5.7.tar.gz"
-  sha256 "37d7284556b20954e56e1ca85b80226768902e2edabd3b649e9e72c0c9012ee3"
+  homepage "https://meta.github.io/zstd/"
+  url "https://github.com/meta/zstd/archive/refs/tags/v1.6.0.tar.gz"
+  mirror "http://fresh-center.net/linux/misc/zstd-1.6.0.tar.gz"
+  sha256 "289bb207935e5b4f241239f9832e665fa6b9636c3f87f479e125371e13842b8e"
   license all_of: [
     { any_of: ["BSD-3-Clause", "GPL-2.0-only"] },
     "BSD-2-Clause", # programs/zstdgrep, lib/libzstd.pc.in
     "MIT", # lib/dictBuilder/divsufsort.c
   ]
-  revision 1
   compatibility_version 1
-  head "https://github.com/facebook/zstd.git", branch: "dev"
+  head "https://github.com/meta/zstd.git", branch: "dev"
 
   # The upstream repository contains old, one-off tags (5.5.5, 6.6.6) that are
   # higher than current versions, so we check the "latest" release instead.
@@ -22,15 +20,12 @@ class Zstd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7fb4af03304cc4897326168cdcd53290311c5543150f5502a61c3e84b6d62765"
-    sha256 cellar: :any,                 arm64_tahoe:       "628a4ef53428d0078e3d76d297171ce8d0294f5ec1de3f20305e08c4dd333565"
-    sha256 cellar: :any,                 arm64_sequoia:     "d72adf48460a8384b256f88061cd7b9df4977df7fa2e0794051d427db754a565"
-    sha256 cellar: :any,                 arm64_sonoma:      "35b5150b27512a94ebaee7b4399aaa8adf42d247e6968319e4aeac3c05365281"
-    sha256 cellar: :any,                 tahoe:             "90c345a174a631a157f7ea056fe41205fb77778e65d4bdc91097a3fb3a62faa6"
-    sha256 cellar: :any,                 sequoia:           "8b2443dfa62b9d28cf0321e0e670bb096b2680fe72739999228291f36018311f"
-    sha256 cellar: :any,                 sonoma:            "8b8656acd6f30bcbbb9a033ae840afea299c9f0852f71b7540492b0fe7a36742"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "575617c1532fe90e212c052fb14fcd4fa295890e3bc9ac69dc52404a04a95855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3d5ca8948526a2e3a487db0cd0acec9f4b415d5a4b08cffe27e2ea0c339c9dbe"
+    manifest_sha256 "906c8306968cf73983cabf73b3f19d4da11cfd556abadee81392130a882c3eb8"
+    sha256 cellar: :any, arm64_golden_gate: "78df508100eba34ed911f4e3ced121d5d001f1a340ae800f38f2325df56bfe2a"
+    sha256 cellar: :any, arm64_tahoe:       "406c93bb4ed7d09e857ba4d00e30fb72c2f6e7d610bd5e888a498b9269c957c4"
+    sha256 cellar: :any, arm64_sequoia:     "7c49194de54641895c5c965446472552d4619e30170eb8fd9d10eef223919730"
+    sha256 cellar: :any, arm64_linux:       "0b6bc6c6f35848f5205ef7619a6f415bd149af2d5ab9e82317f12bd178c20406"
+    sha256 cellar: :any, x86_64_linux:      "f9fb6295ab9b8cbaef315f84ed29b42b86e4d54848d67153b2373b9d9a5dab47"
   end
 
   depends_on "cmake" => :build
@@ -47,7 +42,7 @@ class Zstd < Formula
     ENV.O3
 
     # Legacy support is the default after
-    # https://github.com/facebook/zstd/commit/db104f6e839cbef94df4df8268b5fecb58471274
+    # https://github.com/meta/zstd/commit/db104f6e839cbef94df4df8268b5fecb58471274
     # Set it to `ON` to be explicit about the configuration.
     system "cmake", "-S", "build/cmake", "-B", "builddir",
                     "-DBUILD_SHARED_LIBS=ON", # set CMake libzstd target to shared
