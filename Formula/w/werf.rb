@@ -1,8 +1,8 @@
 class Werf < Formula
   desc "Consistent delivery tool for Kubernetes"
   homepage "https://werf.io/"
-  url "https://github.com/werf/werf/archive/refs/tags/v2.84.1.tar.gz"
-  sha256 "e717da648c16275d9416ff6ffc10e370ab65d7c792983b7d18b43aa91e25560d"
+  url "https://github.com/werf/werf/archive/refs/tags/v3.12.2.tar.gz"
+  sha256 "2d8e034c39dba2a20285a2396d2d6c6f5cd12ca089a98df479268bbfb9bb5542"
   license "Apache-2.0"
   head "https://github.com/werf/werf.git", branch: "main"
 
@@ -37,7 +37,7 @@ class Werf < Formula
   def install
     ENV["CGO_ENABLED"] = "1"
 
-    ldflags = %W[-X github.com/werf/werf/v2/pkg/werf.Version=#{version}]
+    ldflags = %W[-X github.com/werf/werf/v3/pkg/werf.Version=#{version}]
     tags = %w[dfrunsecurity dfrunnetwork dfrunmount dfssh containers_image_openpgp]
     if OS.linux?
       ldflags += %w[-linkmode external -extldflags=-static]
