@@ -16,15 +16,12 @@ class Delly < Formula
 
   depends_on "boost"
   depends_on "htslib"
-  depends_on "xz"
 
-  uses_from_macos "bzip2"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
+  deny_network_access!
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # reduce overlinking
+
     system "make", "src/delly",
            "HTSLIBINCDIR=#{formula_opt_include("htslib")}",
            "HTSLIBLIBDIR=#{formula_opt_lib("htslib")}",
