@@ -1,8 +1,8 @@
 class NovaFairwinds < Formula
   desc "Find outdated or deprecated Helm charts running in your cluster"
   homepage "https://github.com/FairwindsOps/nova"
-  url "https://github.com/FairwindsOps/nova/archive/refs/tags/v3.12.3.tar.gz"
-  sha256 "73007e27e4b60ccb6aa3d4244e53e900f692f830571909b45cf42cbfc6b58cab"
+  url "https://github.com/FairwindsOps/nova/archive/refs/tags/v3.12.4.tar.gz"
+  sha256 "0bb556e6aeb26a18c81d0b3dae7804b7c9aafc2ae2b5155b028de5a55e697261"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/nova.git", branch: "master"
 
