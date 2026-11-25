@@ -1,8 +1,8 @@
 class Atf < Formula
   desc "Automated testing framework"
   homepage "https://github.com/freebsd/atf"
-  url "https://github.com/freebsd/atf/releases/download/atf-0.26/atf-0.26.tar.gz"
-  sha256 "bae70930bef565faacb95b10e5673601df0d7f25db720cc735060d115c92ee73"
+  url "https://github.com/freebsd/atf/releases/download/atf-0.26.1/atf-0.26.1.tar.gz"
+  sha256 "95b9755134842da125c58d93582e78d357c6bef11e856c7af2eb5bacbdf9edc7"
   license "BSD-2-Clause"
   compatibility_version 1
   head "https://github.com/freebsd/atf.git", branch: "master"
@@ -13,11 +13,12 @@ class Atf < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "d32c7b5fcf43bafd203f330128dc651ed926a13244746459a3a313e9a2127add"
-    sha256 arm64_tahoe:       "9f55f3f81952f127c042c88562d74acaeeec96a2d6a696bf6c708f838ffd8e19"
-    sha256 arm64_sequoia:     "aafaa35983b9a5de8703c4a84dd1443f1909ae8fdc1875637977a35d982e5b87"
-    sha256 arm64_linux:       "5acf9b4ba36a227f8894be8e15615786ac4b938a616dffb217141ea0ce9bda4e"
-    sha256 x86_64_linux:      "5e7ce4d277858da5ac1a3732a42995531fb2e95561ba1831daf9dd906c1cdcc2"
+    manifest_sha256 "d3dc0d5cb8e34c5e3e65e20379c69ceae953ed0ec64d9a9a4e3c7270eb46fd78"
+    sha256 arm64_golden_gate: "f37ecdce4e45b82d1c8af1a9dbe7660962ec17df8bb7d9e575bf8ccf96daa44c"
+    sha256 arm64_tahoe:       "d8cca69d5ae0bc6b1a09613ab6616707293e75006791e4cb8950b8786d2bde04"
+    sha256 arm64_sequoia:     "ec148c31104f1ed1f0aa8cefc3bceb731c58e8bb5410b31608a8c3701779c244"
+    sha256 arm64_linux:       "6bcce4a219f276dd34a0e27888570ca404d6eff6dcd5965aae2532700d29d931"
+    sha256 x86_64_linux:      "9f586fe1a3a777f71a9f2deb048f8e7c24e3c4ca65d5340229c385090b573a3f"
   end
 
   depends_on "autoconf" => :build
