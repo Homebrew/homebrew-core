@@ -27,10 +27,10 @@ class LinuxHeadersAT44 < Formula
 
   def install
     system "make", "headers_install", "INSTALL_HDR_PATH=#{prefix}"
-    rm Dir[prefix/"**/{.install,..install.cmd}"]
+    rm prefix.glob("**/{.install,..install.cmd}")
   end
 
   test do
-    assert_match "KERNEL_VERSION", File.read(include/"linux/version.h")
+    assert_match "KERNEL_VERSION", (include/"linux/version.h").read
   end
 end
