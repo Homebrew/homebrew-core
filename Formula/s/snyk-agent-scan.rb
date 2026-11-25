@@ -3,16 +3,17 @@ class SnykAgentScan < Formula
 
   desc "Constrain, log and scan your MCP connections for security vulnerabilities"
   homepage "https://github.com/snyk/agent-scan"
-  url "https://files.pythonhosted.org/packages/dc/e2/8869e18c521c88357fd089969ab1c5321ae127798d334dca28a8a7e668ce/snyk_agent_scan-0.7.0.tar.gz"
-  sha256 "f15724cff780bd32ef3ab34f9da30659558535cd26f77e8a92a58de56ee1d1aa"
+  url "https://files.pythonhosted.org/packages/1b/a9/9a1784fce03a37354831002916a2f34731a353f99e2e32af856a913ad78c/snyk_agent_scan-0.7.1.tar.gz"
+  sha256 "1a83cc994e6ed142dede9b11f05adb79926f09ff26ad7350743d6bee8dc8b6d1"
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "db899071611a7810e689a6d3e6fee83201d247be04850b984d1bde72697a9008"
-    sha256 cellar: :any, arm64_tahoe:       "20a2737ef2149c145f9a4a605a3aff0e02edde188670ecf73c8772af5b9bf00a"
-    sha256 cellar: :any, arm64_sequoia:     "b1a1bd1212487aa0e9439291d017b33c33f089101d18e33a3d8070bc5bae9217"
-    sha256 cellar: :any, arm64_linux:       "a64cef7d972e8b41531d71463497f3306473000e68ec4922023994f658563067"
-    sha256 cellar: :any, x86_64_linux:      "3bb08fd544cb7f1e4579cdcab6afa076a60acc78215d5a663ca97134dee636fb"
+    manifest_sha256 "9f36a8c51739fa98601e351457efab6708617b658cf204269c6ce43813f3dfa1"
+    sha256 cellar: :any, arm64_golden_gate: "7abc9f31c0451dc595f41c37a593f19669df6c1806e44d5796803b898d75220b"
+    sha256 cellar: :any, arm64_tahoe:       "564fcfa240e2ec0bcfc3686ab887dbdd95ff6a459381380016c4c8dce66962d1"
+    sha256 cellar: :any, arm64_sequoia:     "db0dedb5c5cc5bef6067884c9642d9b06effe2d6aaeacd8bc6473cdafe9ffa84"
+    sha256 cellar: :any, arm64_linux:       "a14c1f7f7878450f72e40b2bcbf8d466ba4ae06d340f587c18eb25ac9770f05a"
+    sha256 cellar: :any, x86_64_linux:      "fb61fb7e2fd562ce5192b59da3c6c5912bc4a9972d4a2c8aef87eddb75aea9e1"
   end
 
   depends_on "certifi" => :no_linkage
@@ -55,8 +56,8 @@ class SnykAgentScan < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
@@ -175,8 +176,8 @@ class SnykAgentScan < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "rapidfuzz" do
@@ -190,8 +191,8 @@ class SnykAgentScan < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/33/45/792b86c989c23c26031f758c7f3c4b578689b43936e96d86e59757e9410a/regex-2026.11.18.tar.gz"
-    sha256 "a408377998ab0fad811772c683ccbf6f4a0365a35a23b4fb2b2c67a8d8283b93"
+    url "https://files.pythonhosted.org/packages/33/ad/49412041262da587f74bdd0025ccf951efed14b5857ef1d6385298923a83/regex-2026.11.23.tar.gz"
+    sha256 "f933202c64dca184b783e1c97922170bb167146faa120476a310e90d0701a915"
   end
 
   resource "requests" do
@@ -210,8 +211,8 @@ class SnykAgentScan < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
-    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
+    url "https://files.pythonhosted.org/packages/12/c0/eb8c9eec5c0e29ce2a1c4d4654ddfb06c77b52b4db63ab40226198456be6/sse_starlette-3.7.1.tar.gz"
+    sha256 "9a8256e3e80a0fdc8d1dec14f2bb0b3f304c99f23a6d4d26c61ff50145761597"
   end
 
   resource "starlette" do
