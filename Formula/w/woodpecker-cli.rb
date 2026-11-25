@@ -7,11 +7,12 @@ class WoodpeckerCli < Formula
   head "https://github.com/woodpecker-ci/woodpecker.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4865c294f4f5a342cd3996b74a495bc9afed6ac739a530164910a6a099d94fda"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4865c294f4f5a342cd3996b74a495bc9afed6ac739a530164910a6a099d94fda"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4865c294f4f5a342cd3996b74a495bc9afed6ac739a530164910a6a099d94fda"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c6493a6fe14fb0a643a810a1efb4f68a8538c6d00e6f928d5c3811796d8ad271"
-    sha256 cellar: :any,                 x86_64_linux:      "3d087346b7840e0f349d15e221114ddbb458670f11f4020af0c2dcbc54a5ea32"
+    manifest_sha256 "f40344fe910d93f8ee9470c9472608d63988c86d1cea493feac93556e7390640"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b8e3b7c21065b9b9d2c2364b43ee141e3f92fed917b18b6d0d1bd769ab9c8d5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3b8e3b7c21065b9b9d2c2364b43ee141e3f92fed917b18b6d0d1bd769ab9c8d5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3b8e3b7c21065b9b9d2c2364b43ee141e3f92fed917b18b6d0d1bd769ab9c8d5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5ef09e67ca9d93af6a5602bfc3712874068fd07afac84277f2ecca47b62c1d99"
+    sha256 cellar: :any,                 x86_64_linux:      "5e709dbf1d8ec38f247f1aaf14da5d434fc2fd99763abf3da34ec26935193c89"
   end
 
   depends_on "go" => :build
