@@ -1,8 +1,8 @@
 class Dolt < Formula
   desc "Git for Data"
   homepage "https://www.dolthub.com"
-  url "https://github.com/dolthub/dolt/archive/refs/tags/v2.7.6.tar.gz"
-  sha256 "34916339bba65bab6ff57bc47182f1213bbf64ee507b59c8ef1040e22a5143b8"
+  url "https://github.com/dolthub/dolt/archive/refs/tags/v2.7.7.tar.gz"
+  sha256 "134d66722b154252c017b4c223cfba02f2d9fbcbcbfd223a4a3d7552f3ff56f6"
   license "Apache-2.0"
   version_scheme 1
   compatibility_version 1
@@ -14,11 +14,12 @@ class Dolt < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7ba9351cd6789bd4c645107bdcd79950fbcca5ffbf3570d4f2b856b12e72c20f"
-    sha256 cellar: :any, arm64_tahoe:       "9edd88874e4023fa34d7df60496363e2e413718aa382b79df301f3dc9ad6294f"
-    sha256 cellar: :any, arm64_sequoia:     "3812d6758a55d394d3faed00c6815ec5d61820c3bb8dde0ab0dd4b924756c8d4"
-    sha256 cellar: :any, arm64_linux:       "4d81126aabdb03c79eb913bdc623dd92e1fe6cab991f32d4d76417dc858695b0"
-    sha256 cellar: :any, x86_64_linux:      "b8adb1505642d36bd618bd16af76650ddb98e4347c8d705d9dea09ed0c54c51b"
+    manifest_sha256 "12b986b1fbc134ca905f6f91fadef5121750b007ebcf08e33f8e0986bcbfd895"
+    sha256 cellar: :any, arm64_golden_gate: "8008c49f2733604483e2ff6207ee3c71a129ae7f552d05449ba4d4e78b6bf544"
+    sha256 cellar: :any, arm64_tahoe:       "113f5826bd5d50a9d78b7c5fd46cdff3275b026b3b1fa77fe2dacdf910c81d33"
+    sha256 cellar: :any, arm64_sequoia:     "c6296e7b0cce9d33de8e9f10a1b4d7f47b94eb4de4c1ab16521a99206d06ac54"
+    sha256 cellar: :any, arm64_linux:       "20a45c7444332bd58c5de6dcb0fa9892da8ce0661155e31215000b68edaf6907"
+    sha256 cellar: :any, x86_64_linux:      "fa14b57c968d6558cdc8f862da1dd84477b7de614cc00fda9b63a58cd0de6ce3"
   end
 
   depends_on "go" => :build
