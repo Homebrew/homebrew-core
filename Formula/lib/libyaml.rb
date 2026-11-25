@@ -1,8 +1,8 @@
 class Libyaml < Formula
   desc "YAML Parser"
   homepage "https://github.com/yaml/libyaml"
-  url "https://github.com/yaml/libyaml/archive/refs/tags/0.2.5.tar.gz"
-  sha256 "fa240dbf262be053f3898006d502d514936c818e422afdcf33921c63bed9bf2e"
+  url "https://github.com/yaml/libyaml/archive/refs/tags/0.2.7.tar.gz"
+  sha256 "7f76964485c67dc4e1537fdfd4ad5c8772bcef501c5451b617e43f831034994e"
   license "MIT"
   compatibility_version 1
 
@@ -12,19 +12,12 @@ class Libyaml < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "afaaa073d70a7e69f0ff53dcdf1ee08d1ac594eb2e458afa665403adf4209078"
-    sha256 cellar: :any,                 arm64_tahoe:       "5cd5a1875da18599e25283465b2fb8735eb8717ee7158ef17f8f4260205404f2"
-    sha256 cellar: :any,                 arm64_sequoia:     "0ec9bf8082245c008803b42dcae3e6a0c8cd7a67aed589d9b6482b115c0a543b"
-    sha256 cellar: :any,                 arm64_sonoma:      "98c0cf81bcdf7577d5fdc8cc18732970b9ae7e0e7423a733f88f0f566ba483ad"
-    sha256 cellar: :any,                 arm64_ventura:     "11239e8f5066c6d0d0718208d4eab518da00c7289f33c9c76c0a09ba5c0417c9"
-    sha256 cellar: :any,                 arm64_monterey:    "a436da33a05f805258c5951a365dec4e8d70a908dbe5dacdeb6b2ecd0efd5024"
-    sha256 cellar: :any,                 arm64_big_sur:     "fe1082f3475a144261b41e2c3e0728b9331911b1cbfadfbc1f3d70d454709154"
-    sha256 cellar: :any,                 sonoma:            "4d6e02ce3a82b60033bc7e55bef841dcfef0c05c051176d96accb50744136c6d"
-    sha256 cellar: :any,                 ventura:           "b49e62f014b3e7d85a169b422b7521356700c7caaaea9f4901086cafe692a86e"
-    sha256 cellar: :any,                 monterey:          "dbd54ce703c6d8eb77e708f75b4730ad2653d28f6291c4a26dc22158beb3f210"
-    sha256 cellar: :any,                 big_sur:           "83547fba540a38c30705a59a2e746952c68857212e823c6ee97c186e088f75cd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c725eb08fc7ab6aad7f744a30b230f9b9efa33f8d694849a2d4aadfabb203df3"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "354677a745b6c62109e792ddbd0cbdaf9e6a471d84fdbde3a7d9bae36d832da8"
+    manifest_sha256 "ee50683c383d0fc75186f4331913f85acd97e3501e46c1ceb651018cb827ec0c"
+    sha256 cellar: :any, arm64_golden_gate: "af43cbb6cfc13515a520e8491b9a7e8a73fdac42a5a45f53e7c803eb3c99dcb5"
+    sha256 cellar: :any, arm64_tahoe:       "ccfa9b03cc309ee805fe13767172a1fb1698cbdda862919a883cdf052c60cb48"
+    sha256 cellar: :any, arm64_sequoia:     "a31294e0c9b02c3388c5b1b75c81074a1babb3a5c8663e350572012866e7ac54"
+    sha256 cellar: :any, arm64_linux:       "8780be35726cbfe7f35e5861848fb011f6c838860ecaf42520ef7c33afc3cba4"
+    sha256 cellar: :any, x86_64_linux:      "106d554ac52de1b20030a834fdcf383671c7a2619eeebb84b722c2518729d5d8"
   end
 
   depends_on "autoconf" => :build
