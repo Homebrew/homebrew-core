@@ -49,14 +49,10 @@ class Dict < Formula
     EOS
 
     port = free_port
-    pid = spawn sbin/"dictd", "--config", testpath/"dictd.conf", "--port", port.to_s,
-                "--listen-to", "127.0.0.1", "-d", "nodetach"
-    begin
+    with_test_process(sbin/"dictd", "--config", testpath/"dictd.conf", "--port", port.to_s,
+                      "--listen-to", "127.0.0.1", "-d", "nodetach") do
       sleep 2
       assert_match "The missing package manager", shell_output("#{bin}/dict -h 127.0.0.1 -p #{port} homebrew")
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
