@@ -3,8 +3,8 @@ class Apicula < Formula
 
   desc "Open source tools for Gowin FPGAs"
   homepage "https://github.com/YosysHQ/apicula"
-  url "https://files.pythonhosted.org/packages/46/a8/c47790d71916fbf560dbf54c2df1f6acd8e992511e6c872cfbed171b7c91/apycula-0.35.tar.gz"
-  sha256 "1fd15bdcf512eb8eedda48f11dc81fc35236a7ae904b1a887fd6ea44120f37c6"
+  url "https://files.pythonhosted.org/packages/0f/26/c4193044b39ad2c2282279273e642547776adcf6d11830e2fa4fe8028b78/apycula-0.36.tar.gz"
+  sha256 "19b0d9dc62d09cb9af2e6e9f8cd034da5a4c2e3b63296da89b91eec08fd1ab3f"
   license "MIT"
   compatibility_version 1
   head "https://github.com/YosysHQ/apicula.git", branch: "master"
