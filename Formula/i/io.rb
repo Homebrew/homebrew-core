@@ -6,12 +6,12 @@ class Io < Formula
   license "BSD-3-Clause"
 
   bottle do
-    manifest_sha256 "f511d41fbf396b5f9510aa9abe336c585d6b88fa1392300e550b7567a43ea285"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6a2188868a4c35901706ebad4dd1ece46392e1f12d1c77f374b6d480977c28d"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6a2188868a4c35901706ebad4dd1ece46392e1f12d1c77f374b6d480977c28d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6a2188868a4c35901706ebad4dd1ece46392e1f12d1c77f374b6d480977c28d"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1b4202ec4ca8ede4ab249b60e8d0b4634779913fac6b9dfefadd5ed4e86c26ac"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1b4202ec4ca8ede4ab249b60e8d0b4634779913fac6b9dfefadd5ed4e86c26ac"
+    manifest_sha256 "328ee0be80bd91a839a883d99cb9707680cba18ab7d78b5af299ca90d633574d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd53319ad43fbcede559cfabb40d6dc86b53b7ab2ce68a15f1ace4ee40de8951"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd53319ad43fbcede559cfabb40d6dc86b53b7ab2ce68a15f1ace4ee40de8951"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd53319ad43fbcede559cfabb40d6dc86b53b7ab2ce68a15f1ace4ee40de8951"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "463a088270d38b1281813571dc277704a37bb0c7126013770312623785061e65"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "463a088270d38b1281813571dc277704a37bb0c7126013770312623785061e65"
   end
 
   depends_on "lld" => :build
