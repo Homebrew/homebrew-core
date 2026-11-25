@@ -2,8 +2,8 @@ class BareosClient < Formula
   desc "Client for Bareos (Backup Archiving REcovery Open Sourced)"
   homepage "https://www.bareos.com/"
   # TODO: Switch to openssl@4 in 26.0.0 - https://github.com/bareos/bareos/milestone/16
-  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.1.2.tar.gz"
-  sha256 "adb393484d4b808f5f9b6321c7474f0d256c3fb472e2ff538af2645f4f5f132c"
+  url "https://github.com/bareos/bareos/archive/refs/tags/Release/25.1.3.tar.gz"
+  sha256 "6f95a7a1347d1dc3b33102cf6e6abf86b93398ada58164c72aea2b2559b2adc0"
   license "AGPL-3.0-only"
 
   livecheck do
