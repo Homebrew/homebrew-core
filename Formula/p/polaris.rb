@@ -1,17 +1,18 @@
 class Polaris < Formula
   desc "Validation of best practices in your Kubernetes clusters"
   homepage "https://www.fairwinds.com/polaris"
-  url "https://github.com/FairwindsOps/polaris/archive/refs/tags/v10.2.6.tar.gz"
-  sha256 "80cb945283bf2c50856054fd07c924d68b755d9f52fdb39b2a009ed360c5420c"
+  url "https://github.com/FairwindsOps/polaris/archive/refs/tags/v10.2.7.tar.gz"
+  sha256 "86697d668f0f9ccbb5e7b8d14910b0d9b609cbfa98796b72b5caf9244e7f81cf"
   license "Apache-2.0"
   head "https://github.com/FairwindsOps/polaris.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d197fa7173fdab4be849fdeb9104ffbc6d25718ca621022d728c1b66c917d75"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b2f44437e7a33be85b79c31ce5a4164c5124f1e7872bb6079cf647e72c1ac21"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "da5b92a1a88bf60c366e9337134a2e1883e158d88b9c3c34991cfb171b72ad44"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c4d287bfbf7d7fe440a55c6a4c4265d06e75bd55d688a410f0335afd8c31b0eb"
-    sha256 cellar: :any,                 x86_64_linux:      "31bb3c74a2ca1641daa142784dc250ba94e5b0b4109a2495b7c754588e54dab9"
+    manifest_sha256 "ba1110dd8794311c2a72bc0c93dfbb845f26f914bd14c851f6091e72f321e54a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6933d6ef32a40e293e5722ff52d2b0b59362fabf3982d80d0e33b5262ff3ac0e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa5406c8dc4c79adf9159a8d6732de3e23871e2d25ce99e9996979e507f1031a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3b4ab3ed41f90925d6b568a27512780a3641da24116a9ce06b29e22d765b17ed"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d0a0baf938e5ce9fe59bc9f7147753501c11c56803d845c3e6f764f6cadad2d4"
+    sha256 cellar: :any,                 x86_64_linux:      "180115537bf0b5a306dc5f311b443d578e70df6cadf86200590d573d6b2604d9"
   end
 
   depends_on "go" => :build
