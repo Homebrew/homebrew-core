@@ -13,6 +13,8 @@ class Vpcs < Formula
     sha256 cellar: :any,                 x86_64_linux:      "ebc21324e28853068b091234f119e29fd7aa011ee6cd4b555cbae84fc62b27c7"
   end
 
+  deny_network_access!
+
   def install
     os = OS.mac? ? "osx" : OS.kernel_name.downcase
     system "make", "-C", "src", "-f", "Makefile.#{os}"
