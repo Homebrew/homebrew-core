@@ -30,9 +30,7 @@ class Dumbpipe < Formula
 
     # We need to capture both stdout and stderr from the listener process
     # the node ID is output to stderror and the listener data is output to stdout.
-    listener_pid = spawn bin/"dumbpipe", "listen", err: write, out: write
-
-    begin
+    with_test_process(bin/"dumbpipe", "listen", err: write, out: write) do
       sleep 10
       node_id = while read.wait_readable(1)
         line = read.gets
@@ -46,14 +44,10 @@ class Dumbpipe < Formula
       refute_empty node_id, "No node ID found in listener output"
 
       sender_read, sender_write = IO.pipe
-      sender_pid = spawn bin/"dumbpipe", "connect", node_id, in: sender_read
-      sender_write.puts "foobar"
-      assert_match "foobar", read.gets
-    ensure
-      Process.kill "TERM", sender_pid unless sender_pid.nil?
-      Process.kill "TERM", listener_pid unless listener_pid.nil?
-      Process.wait sender_pid unless sender_pid.nil?
-      Process.wait listener_pid unless listener_pid.nil?
+      with_test_process(bin/"dumbpipe", "connect", node_id, in: sender_read) do
+        sender_write.puts "foobar"
+        assert_match "foobar", read.gets
+      end
     end
   end
 end
