@@ -3,20 +3,19 @@ class Apicula < Formula
 
   desc "Open source tools for Gowin FPGAs"
   homepage "https://github.com/YosysHQ/apicula"
-  url "https://files.pythonhosted.org/packages/46/a8/c47790d71916fbf560dbf54c2df1f6acd8e992511e6c872cfbed171b7c91/apycula-0.35.tar.gz"
-  sha256 "1fd15bdcf512eb8eedda48f11dc81fc35236a7ae904b1a887fd6ea44120f37c6"
+  url "https://files.pythonhosted.org/packages/0f/26/c4193044b39ad2c2282279273e642547776adcf6d11830e2fa4fe8028b78/apycula-0.36.tar.gz"
+  sha256 "19b0d9dc62d09cb9af2e6e9f8cd034da5a4c2e3b63296da89b91eec08fd1ab3f"
   license "MIT"
   compatibility_version 1
   head "https://github.com/YosysHQ/apicula.git", branch: "master"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "b783f701288b623569325fd398e29427b383ebc67f84c79704540afc4337d4a1"
-    sha256 cellar: :any, arm64_golden_gate: "5d31d9502866027d8d84f9002df879597c0720f86f17c8ce59552dd789f7ad00"
-    sha256 cellar: :any, arm64_tahoe:       "e8a643c8050bae955bb820807e1f0d19e362e4a1cfa6806c5e340e9cdb697b1c"
-    sha256 cellar: :any, arm64_sequoia:     "647263dffbd9cf98afbea50514326147da2ff4b32a3961a70870e20aea388dd9"
-    sha256 cellar: :any, arm64_linux:       "7be9ce332ae5cc6a0356cea3fae2cdb7a13ebe5ddc0217f72413a3abf95a1b7d"
-    sha256 cellar: :any, x86_64_linux:      "75cc9f6f36ee0e6a0e2900cc1503ee9fe8b6571faf2606d9887006a77414104c"
+    manifest_sha256 "199233766ceaba87c779c7b7600d7705cb1912758fec5b1c72209b702c000597"
+    sha256 cellar: :any, arm64_golden_gate: "a9ad842211467451b270e5c4ea59ed4b5aecac39464032d1dd1d05c351443ed1"
+    sha256 cellar: :any, arm64_tahoe:       "8041612970a882b15507555025210e4b8cbc7acece92e4de07961e36f2d2a6c1"
+    sha256 cellar: :any, arm64_sequoia:     "23036891b16e1b6442c02b0555232cd26b7a0ca0d5abc45b3046e3b22afb0632"
+    sha256 cellar: :any, arm64_linux:       "83684e7ed6026c65c49b818e66f8ddbde4aba2268399514713ef70ed0422279d"
+    sha256 cellar: :any, x86_64_linux:      "1905deb5e10fc98e9e8e00b7142a232a14decd869138d2e0574084f94bf54b29"
   end
 
   depends_on "rust" => :build
