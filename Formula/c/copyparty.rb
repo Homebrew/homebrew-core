@@ -3,8 +3,8 @@ class Copyparty < Formula
 
   desc "Portable file server"
   homepage "https://github.com/9001/copyparty"
-  url "https://files.pythonhosted.org/packages/2f/4e/f958260b5d669c18d704ca6d8933ac99da4e41045d2800477c96b46f0bfe/copyparty-1.20.27.tar.gz"
-  sha256 "b208c2aa00340a4590e8a0f10e428868973b85e2e8e3129b9d2d76deef4cabdc"
+  url "https://files.pythonhosted.org/packages/c9/bb/941ba833b3907f32cca56ee2ccf253f664c353fe4a227f86eeea4226e817/copyparty-1.20.28.tar.gz"
+  sha256 "642c6c46ce3bc268fb188504cd8019946c34d0b06913d4be5316fb8aa857b448"
   license "MIT"
 
   bottle do
