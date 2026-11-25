@@ -23,6 +23,8 @@ class Veclibfort < Formula
   depends_on "gcc" # for gfortran
   depends_on :macos
 
+  deny_network_access!
+
   def install
     system "make", "all"
     system "make", "PREFIX=#{prefix}", "install"
