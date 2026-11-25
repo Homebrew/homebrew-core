@@ -1,8 +1,8 @@
 class LivebookCli < Formula
   desc "Code notebooks for Elixir developers"
   homepage "https://livebook.dev"
-  url "https://github.com/livebook-dev/livebook/archive/refs/tags/v0.19.10.tar.gz"
-  sha256 "a4ddd8a73e1c663bdd1ec7b33aaaca5390912c0541a50301c7a8cf652b095538"
+  url "https://github.com/livebook-dev/livebook/archive/refs/tags/v0.19.11.tar.gz"
+  sha256 "924d9ff52260d8fc44fddd0629594c7f6e2e94b3265643dabbe0c039eaaf1c28"
   license "Apache-2.0"
   head "https://github.com/livebook-dev/livebook.git", branch: "main"
 
