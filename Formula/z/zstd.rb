@@ -20,15 +20,12 @@ class Zstd < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "7fb4af03304cc4897326168cdcd53290311c5543150f5502a61c3e84b6d62765"
-    sha256 cellar: :any,                 arm64_tahoe:       "628a4ef53428d0078e3d76d297171ce8d0294f5ec1de3f20305e08c4dd333565"
-    sha256 cellar: :any,                 arm64_sequoia:     "d72adf48460a8384b256f88061cd7b9df4977df7fa2e0794051d427db754a565"
-    sha256 cellar: :any,                 arm64_sonoma:      "35b5150b27512a94ebaee7b4399aaa8adf42d247e6968319e4aeac3c05365281"
-    sha256 cellar: :any,                 tahoe:             "90c345a174a631a157f7ea056fe41205fb77778e65d4bdc91097a3fb3a62faa6"
-    sha256 cellar: :any,                 sequoia:           "8b2443dfa62b9d28cf0321e0e670bb096b2680fe72739999228291f36018311f"
-    sha256 cellar: :any,                 sonoma:            "8b8656acd6f30bcbbb9a033ae840afea299c9f0852f71b7540492b0fe7a36742"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "575617c1532fe90e212c052fb14fcd4fa295890e3bc9ac69dc52404a04a95855"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3d5ca8948526a2e3a487db0cd0acec9f4b415d5a4b08cffe27e2ea0c339c9dbe"
+    manifest_sha256 "906c8306968cf73983cabf73b3f19d4da11cfd556abadee81392130a882c3eb8"
+    sha256 cellar: :any, arm64_golden_gate: "78df508100eba34ed911f4e3ced121d5d001f1a340ae800f38f2325df56bfe2a"
+    sha256 cellar: :any, arm64_tahoe:       "406c93bb4ed7d09e857ba4d00e30fb72c2f6e7d610bd5e888a498b9269c957c4"
+    sha256 cellar: :any, arm64_sequoia:     "7c49194de54641895c5c965446472552d4619e30170eb8fd9d10eef223919730"
+    sha256 cellar: :any, arm64_linux:       "0b6bc6c6f35848f5205ef7619a6f415bd149af2d5ab9e82317f12bd178c20406"
+    sha256 cellar: :any, x86_64_linux:      "f9fb6295ab9b8cbaef315f84ed29b42b86e4d54848d67153b2373b9d9a5dab47"
   end
 
   depends_on "cmake" => :build
