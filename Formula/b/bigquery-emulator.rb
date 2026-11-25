@@ -70,20 +70,18 @@ class BigqueryEmulator < Formula
 
     port = free_port
     grpc_port = free_port
-    pid = spawn bin/"bigquery-emulator", "--project=test",
-                                         "--data-from-yaml=./data.yaml",
-                                         "--port=#{port}",
-                                         "--grpc-port=#{grpc_port}"
-    sleep 10
+    with_test_process(bin/"bigquery-emulator", "--project=test",
+                                               "--data-from-yaml=./data.yaml",
+                                               "--port=#{port}",
+                                               "--grpc-port=#{grpc_port}") do
+      sleep 10
 
-    query = '{"query": "SELECT name FROM dataset1.table_a WHERE id = 2"}'
-    query_url = "http://localhost:#{port}/bigquery/v2/projects/test/queries"
-    response = JSON.parse(shell_output("curl -s -X POST -d '#{query}' #{query_url}"))
-    assert_equal [{ "f" => [{ "v" => "bob" }] }], response["rows"]
+      query = '{"query": "SELECT name FROM dataset1.table_a WHERE id = 2"}'
+      query_url = "http://localhost:#{port}/bigquery/v2/projects/test/queries"
+      response = JSON.parse(shell_output("curl -s -X POST -d '#{query}' #{query_url}"))
+      assert_equal [{ "f" => [{ "v" => "bob" }] }], response["rows"]
 
-    assert_match "version: #{version} (Homebrew)", shell_output("#{bin}/bigquery-emulator --version")
-  ensure
-    Process.kill "TERM", pid
-    Process.wait pid
+      assert_match "version: #{version} (Homebrew)", shell_output("#{bin}/bigquery-emulator --version")
+    end
   end
 end
