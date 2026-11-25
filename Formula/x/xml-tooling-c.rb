@@ -21,7 +21,7 @@ class XmlToolingC < Formula
   end
 
   depends_on "pkgconf" => :build
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
   depends_on "curl"
   depends_on "log4shib"
   depends_on "openssl@4"
