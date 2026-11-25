@@ -20,7 +20,7 @@ class Soplex < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
   depends_on "gmp"
   depends_on "mpfr"
 
