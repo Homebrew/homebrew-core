@@ -35,6 +35,13 @@ class Atuin < Formula
                                                       shells: [:bash, :zsh, :fish, :pwsh])
   end
 
+  def caveats
+    <<~EOS
+      To finish setting up Atuin, run:
+        atuin setup
+    EOS
+  end
+
   service do
     run [opt_bin/"atuin", "daemon", "start"]
     keep_alive true
