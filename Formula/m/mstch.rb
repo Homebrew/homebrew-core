@@ -23,7 +23,7 @@ class Mstch < Formula
   end
 
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
 
   deny_network_access!
 

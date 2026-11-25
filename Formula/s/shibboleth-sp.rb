@@ -23,7 +23,7 @@ class ShibbolethSp < Formula
 
   depends_on "apr"
   depends_on "apr-util"
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
   depends_on "httpd"
   depends_on "log4shib"
   depends_on "opensaml"
