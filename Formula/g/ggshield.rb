@@ -9,11 +9,12 @@ class Ggshield < Formula
   head "https://github.com/GitGuardian/ggshield.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5c5c4030598cbb82d110f2ef19164cc097885320f8ed01bd4f800fbaf48c555e"
-    sha256 cellar: :any, arm64_tahoe:       "dcf947f42d977db05305114bf0f52f89c0792aa0aa3bd57177384e876fb63a7b"
-    sha256 cellar: :any, arm64_sequoia:     "36f2ee5d0aa37be3eba97a44ed8eadfabfa6d618751d5c387f95e861de994fbd"
-    sha256 cellar: :any, arm64_linux:       "b8d61114c7024d3772d07c3ecd541157b99d9db36a9e56bd5b01aa0a2bb70d3f"
-    sha256 cellar: :any, x86_64_linux:      "b221605165479c6bf959c653889983b06c9c14f75cb12eeed8cf5f1b402efefb"
+    manifest_sha256 "524716afc0c82304664a14d1f37a5c9b2fc073bce6478a80b1791483b68e2418"
+    sha256 cellar: :any, arm64_golden_gate: "b802f40daf9d2eb1d034e0e59ed7ba7b6c97305be8bfa5bf6092efa4524a22ae"
+    sha256 cellar: :any, arm64_tahoe:       "8236029dc2e5adc291cf32bf63dde87aec7e8d32377a1fa41d3ab90ab920f7d3"
+    sha256 cellar: :any, arm64_sequoia:     "da41a9cabde800a88a8f30d3286759945738104812905471e86414712f2018d6"
+    sha256 cellar: :any, arm64_linux:       "4956777fcf9c3f78a10a6091f94947bfbce08676948bdbb78a8483142811898f"
+    sha256 cellar: :any, x86_64_linux:      "31c7072f2d102134624c1bc8233ce15566ddea59eec746b8f3dcf3e0cb3ac53e"
   end
 
   depends_on "pkgconf" => :build # for `rfc3161_client`
