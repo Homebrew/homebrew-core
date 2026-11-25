@@ -7,9 +7,9 @@ class Baguette < Formula
   head "https://github.com/tddworks/baguette.git", branch: "main"
 
   bottle do
-    manifest_sha256 "f7c9926cf38887b1d2d9acdbeb63aa39acb7902057ed6757618e2727b2209734"
-    sha256 cellar: :any, arm64_golden_gate: "93920750acedfea30f82444aaf8324ee7a001502c647e283f9f6e200f4e064e4"
-    sha256 cellar: :any, arm64_tahoe:       "d6ff06a33b1c10c770790aa58c776fdf06be318fd487067b4645b89055354166"
+    manifest_sha256 "88ad1bb36563f34a71875553e866670730f71eb3b684378c009f65f8c9c3b5b1"
+    sha256 cellar: :any, arm64_golden_gate: "63e3e13dd9e9659ecb5058304344b483cf848b2ebca3e62fb3375de3cfaad3cf"
+    sha256 cellar: :any, arm64_tahoe:       "51e814769cce9437ed0278bc9bcf3153e7cba9957fcda92fefce42da0150bc3e"
   end
 
   depends_on xcode: ["26.0", :build]
