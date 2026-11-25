@@ -9,13 +9,12 @@ class Pipx < Formula
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "afbeff85688650cb0317031a87c6fc3008ec7bcd79a3f909d77582b9cac175f7"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "177334d439e4068a6237fe82b55785650c18637c84005c55015e698fe0e7ec50"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "177334d439e4068a6237fe82b55785650c18637c84005c55015e698fe0e7ec50"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "177334d439e4068a6237fe82b55785650c18637c84005c55015e698fe0e7ec50"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0fd288a72c34e2f64fd8d6cf68a19316c098f82a2002910f49874aaad803e18d"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "0fd288a72c34e2f64fd8d6cf68a19316c098f82a2002910f49874aaad803e18d"
+    manifest_sha256 "14b55e760b4e2d6b4fbb118375eb3ce4f870705cd7f57df92ec30771424aacfc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfb1b18c4b3025b5c7baf1ec9c78dafe36b3d37172f20f585de619da416f4421"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cfb1b18c4b3025b5c7baf1ec9c78dafe36b3d37172f20f585de619da416f4421"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7107bf26fa572559b0c36643b9b8f6074d4c6261729cbff4484d2c2bd8107c7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "18551511a94a61d24f1051b27b384cab962bd75ca9964fbc4a2bc49f59fec978"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "18551511a94a61d24f1051b27b384cab962bd75ca9964fbc4a2bc49f59fec978"
   end
 
   depends_on "python@3.15"
