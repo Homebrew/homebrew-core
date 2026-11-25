@@ -45,13 +45,9 @@ class Chrony < Formula
     EOS
     (testpath/"client.conf").write "server 127.0.0.1 port #{port} iburst\n"
 
-    server = spawn sbin/"chronyd", "-U", "-x", "-d", "-f", testpath/"server.conf", [:out, :err] => File::NULL
-    begin
+    with_test_process(sbin/"chronyd", "-U", "-x", "-d", "-f", testpath/"server.conf", [:out, :err] => File::NULL) do
       output = shell_output("#{sbin}/chronyd -Q -f #{testpath}/client.conf 2>&1")
       assert_match(/System clock wrong by -?\d+\.\d+ seconds \(ignored\)/, output)
-    ensure
-      Process.kill "TERM", server
-      Process.wait server
     end
   end
 end
