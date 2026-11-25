@@ -3,7 +3,13 @@ class Scip < Formula
   homepage "https://scipopt.org", browsed: "2026-09-18"
   url "https://scipopt.org/download/release/scip-10.1.0.tgz"
   sha256 "fe8cfd15a03970ef45156ed56c6a4382485bd095e0e99cf7d7db87cdf8d47304"
-  license "Apache-2.0"
+  license all_of: [
+    "Apache-2.0",
+    "EPL-1.0", # cppad
+    "MIT",     # dejavu
+    "SMLNJ",   # amplmp
+    "Zlib",    # tinycthread
+  ]
   compatibility_version 1
 
   livecheck do
@@ -22,7 +28,7 @@ class Scip < Formula
   depends_on "cmake" => :build
   depends_on "papilo" => :build # for static libraries
   depends_on "soplex" => :build # for static libraries
-  depends_on "cppad" => :no_linkage
+  depends_on "boost" => :no_linkage
   depends_on "gcc" # for gfortran
   depends_on "gmp"
   depends_on "ipopt"
@@ -31,17 +37,15 @@ class Scip < Formula
   depends_on "readline"
   depends_on "tbb"
 
-  on_macos do
-    depends_on "boost"
-  end
-
   on_linux do
-    depends_on "boost" => :no_linkage
     depends_on "zlib-ng-compat"
   end
 
   def install
-    system "cmake", "-S", ".", "-B", "build", "-DZIMPL=OFF", *std_cmake_args
+    args = ["-DZIMPL=OFF"]
+    args += %w[EXE SHARED].map { |type| "-DCMAKE_#{type}_LINKER_FLAGS=-Wl,-dead_strip_dylibs" } if OS.mac?
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
