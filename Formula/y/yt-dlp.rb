@@ -9,12 +9,12 @@ class YtDlp < Formula
   compatibility_version 1
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "68984102743d4e5896b84ca53cea7ad053d1b039f628b38acccc11f2f2db1f56"
-    sha256 cellar: :any, arm64_tahoe:       "e624c53590582310879b51f0cb5ad237ab256356995de3b7a53c9cdb969012cf"
-    sha256 cellar: :any, arm64_sequoia:     "6ec7bd7975c6d64d9f7b6e2ecfdd8c42563a3b4052bd99e3432cb9743bb109ff"
-    sha256 cellar: :any, arm64_linux:       "ea1038d09b828ded2ebd8a9d92c282fe5a743cf0bc1de7a9db8b72714a286f8d"
-    sha256 cellar: :any, x86_64_linux:      "1c011ba3c90f288362813b38d316d488e1bd34317a5717a8a8f682207d3737d3"
+    manifest_sha256 "5a1d98e8ad6ac7efa68e63af3be441c9d5c95e20d967cf16a54bc79fb85e368e"
+    sha256 cellar: :any, arm64_golden_gate: "60fabee5e07eeef48072f5ee905bde20f829bc627515fc018e1ce4fbae7cf756"
+    sha256 cellar: :any, arm64_tahoe:       "d74d69b8cd2683b85f6d539fb1f8807801a570a90e9784cb2ea68bdedd80be91"
+    sha256 cellar: :any, arm64_sequoia:     "38a9429c1dd4491b04b475ce1d55cb67f751f84466df479c7e23cf60b741b3e3"
+    sha256 cellar: :any, arm64_linux:       "c27c1e4df2fb4c96d60ee8c638743aa20ac4c48d43351d2a9225f7e27421d214"
+    sha256 cellar: :any, x86_64_linux:      "c9244e17325bb9c7a6d4b824902936e6604eb71a1f8b15c7cddd91835ac0d9d7"
   end
 
   head do
