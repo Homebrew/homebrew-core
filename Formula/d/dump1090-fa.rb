@@ -36,15 +36,12 @@ class Dump1090Fa < Formula
   test do
     output_log = testpath/"output.log"
     port = free_port
-    pid = spawn bin/"dump1090", "--device-type", "none", "--net-ri-port", port.to_s, [:out, :err] => output_log.to_s
-    begin
+    with_test_process(bin/"dump1090", "--device-type", "none", "--net-ri-port", port.to_s,
+                      [:out, :err] => output_log.to_s) do
       sleep 5
       TCPSocket.open("localhost", port) { |sock| sock.puts "*8D3C5EE69901BD9540078D37335F;" }
       sleep 5
       assert_match "Groundspeed:   475.1 kt", output_log.read
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
