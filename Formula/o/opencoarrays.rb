@@ -7,13 +7,12 @@ class Opencoarrays < Formula
   head "https://github.com/sourceryinstitute/opencoarrays.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "ac8b98d75fd5a96c6ef907d9bdfab0e42be7049c0caba2f6788dca2be0c3f051"
-    sha256 cellar: :any,                 arm64_tahoe:       "d1754a06e742ffd50f899af3cf5a186a43aaff6960e26806587e3613589dbd7b"
-    sha256 cellar: :any,                 arm64_sequoia:     "a4946c282cb6a26c68ce00264b72cbe34fc9c11809a9fa2264a8eb4e9654e132"
-    sha256 cellar: :any,                 arm64_sonoma:      "7845bf8f56d7a2053eb7a23484a94bb3800d9fafc9385b6c19f4443be04b84f6"
-    sha256 cellar: :any,                 sonoma:            "15f31976e5b9b76817ce2c9e1967f2a88d5bcaa7ff363bdbb9935e6e903c7eb0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4399e9520d9d42d1df399004733966a82f39cb35b04a9917a088fa3fe8b0e83a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5518987ba0c0912603c3d75480c1cb80285c5608362155d374804f94d0332a06"
+    manifest_sha256 "f2f598af8f96d37a2d5ae54366f28d07d19648744003b396531e594f2aac22f8"
+    sha256 cellar: :any, arm64_golden_gate: "55143e44e60d610c878cfd7e842442bc107c617dd12c5bb95f4abd11ab5b2309"
+    sha256 cellar: :any, arm64_tahoe:       "0aee1c0422b4f8a3ac51a85ec8cb91301290a469af862012c168f87dd6cc46cb"
+    sha256 cellar: :any, arm64_sequoia:     "9231a9bd05d305efc9bb1c2879ce2db374f20bbfe7ed69a50ef5fedadfdae467"
+    sha256 cellar: :any, arm64_linux:       "b66dbb69e881db2b45e9035297275652378fb35d5d21abe8cd67c6c62bff3bc7"
+    sha256 cellar: :any, x86_64_linux:      "9f58af96570ec836ccc9ba8bf81d08b522966cb151fb4722dc72cf18cdbfa0d0"
   end
 
   depends_on "cmake" => :build
