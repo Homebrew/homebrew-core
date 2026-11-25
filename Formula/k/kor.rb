@@ -1,17 +1,18 @@
 class Kor < Formula
   desc "CLI tool to discover unused Kubernetes resources"
   homepage "https://github.com/yonahd/kor"
-  url "https://github.com/yonahd/kor/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "3556833e78da34d4ec66bd87ceaa12aa1550d2c2d250141356f6684a133e1eda"
+  url "https://github.com/yonahd/kor/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "0e568ced8149faadc8bcec2d3d4af35f6a0153c98604395a42e2b1244fbf455c"
   license "MIT"
   head "https://github.com/yonahd/kor.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6de6766b3c86e134cb5720ef454a92aba17460b60d63729712ab79c2b29b5bb5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a937de7d80bf6ee2ca0464940595b57bbea6f71bfd44f590b4fbc8ac2c62cd6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc164824872aff9254b00341068c0e6df62f6a214887c81798277f5b3964ccfa"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7a5008d7d63bed82ebcedf0fa8f7ae135091232a312014c59bc2a10315ed603a"
-    sha256 cellar: :any,                 x86_64_linux:      "eccc674970529c4e121d6b93723ba10f2d2bbbc7329d3e77a64f56d545fb5c5b"
+    manifest_sha256 "5d18ed31027e20f3c1a334c18462bb4680e2adadfc3df1c508d9132e441115e6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f13066f496019e978f5d5c3f7392d7acede3d824181056e49820e7b4add4cec9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5e1d4386c0e8375b5921f0270de4c6c55d4bf948e34abe4ecf5c78a019ccf0d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19a4f015ad6defb32bc6cc26a561876dacf64a5f8146f0fd671dd53e133f1d13"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5ca5d436274157d75071d31168e940e8dd4b674e66a3e9f9fb47e22eb9e6c06b"
+    sha256 cellar: :any,                 x86_64_linux:      "26b26cdb05c3d242acf36ae1a4c677cd2689c17f12706dd240624de413f1abad"
   end
 
   depends_on "go" => :build
