@@ -3,17 +3,17 @@ class Specify < Formula
 
   desc "Toolkit to help you get started with Spec-Driven Development"
   homepage "https://github.github.com/spec-kit/"
-  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.4.tar.gz"
-  sha256 "804fb58cf22a1f4b290543ba0af30d576dee4482fc2e63d695a9663f510ca72a"
+  url "https://github.com/github/spec-kit/archive/refs/tags/v1.4.5.tar.gz"
+  sha256 "41a077fd78c22475aea02e36e86ebf180712d56a7a35d2d069d3cb54a1cb975d"
   license "MIT"
 
   bottle do
-    manifest_sha256 "c3b125b65f98de90bab3d13c6d1001f44bb0be15ea43050052e851223326ce6c"
-    sha256 cellar: :any, arm64_golden_gate: "4037881d3288f25c44ea15cb3ec37bc80164e0a179ab3421246b2709706cc8ed"
-    sha256 cellar: :any, arm64_tahoe:       "aabeca7ac6f7a9840d112a8708875d09af309566afe07eb5360bf192ab79dc21"
-    sha256 cellar: :any, arm64_sequoia:     "29daad478f92e4d1280ab94e2a1a0041f67962db0217a5eaad1da1a49c033746"
-    sha256 cellar: :any, arm64_linux:       "9245077b49ba88e8c51a35cef2d7ae17658c961444faaa894c9121b49c94ce26"
-    sha256 cellar: :any, x86_64_linux:      "9a8a2275711881cb6f80523ff8decb7df8fe045373b9639f7ecc7e31b8571267"
+    manifest_sha256 "cc5fb34ad7744d7563b4e8ffe75bc96c6f977408ded7b2013b7187677bfbf25d"
+    sha256 cellar: :any, arm64_golden_gate: "5f4f5b384b6d2858954343b93017b3bb3b9f1632a17debc2d6eb191a1701ff48"
+    sha256 cellar: :any, arm64_tahoe:       "331b61f9925f6056412b3e08e292f704aafcdfc2c8f2d6c0cc78c81e08758b5d"
+    sha256 cellar: :any, arm64_sequoia:     "e8d2a886f0080389e16ffb6119a13b824c17a9a3972c0b881c7ab06dd368719d"
+    sha256 cellar: :any, arm64_linux:       "a7c1cf891e8689209ecf4ea9a4b58e7bb4cca022dcf2cf28828a7ca862d2de3f"
+    sha256 cellar: :any, x86_64_linux:      "20480949fe3fe79b6a2e4caadc7a8d5f2f0d288967148acd7cc59c81896bbae1"
   end
 
   depends_on "certifi" => :no_linkage
@@ -111,8 +111,8 @@ class Specify < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pathspec" do
