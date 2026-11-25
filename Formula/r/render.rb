@@ -7,11 +7,12 @@ class Render < Formula
   head "https://github.com/render-oss/cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ead4a6245c5004be21756be0dd4aaeea6c31871296bb9133be248e1c6e5d09bd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ead4a6245c5004be21756be0dd4aaeea6c31871296bb9133be248e1c6e5d09bd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ead4a6245c5004be21756be0dd4aaeea6c31871296bb9133be248e1c6e5d09bd"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e0777d38459bb62cab6db8c06e5ce611fb309feb0c9662049d9bfdba8a679900"
-    sha256 cellar: :any,                 x86_64_linux:      "71f31c8ef0d7ddf983f5edf2d4f6918c34809e804e42b48bbadeb9658aef0d6c"
+    manifest_sha256 "f69d22ed7558a545a876a5033c9e914fa0d31a6103136e15a74a31d9ddb7091e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "912479fd6cf95628202e2fe4d871628bb044d5f728591803ded702f21fdd0d2a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "912479fd6cf95628202e2fe4d871628bb044d5f728591803ded702f21fdd0d2a"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "912479fd6cf95628202e2fe4d871628bb044d5f728591803ded702f21fdd0d2a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8f09d6836a0c9438bf0c28bfc84df1cfb3bfc3bbc5f6e8d5eb121f464a56a066"
+    sha256 cellar: :any,                 x86_64_linux:      "5b995bdd2690522db4162340be47115d96d1ce5581b671033b7b2b34fe861491"
   end
 
   depends_on "go" => :build
