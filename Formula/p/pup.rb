@@ -1,18 +1,18 @@
 class Pup < Formula
   desc "CLI companion with 200+ commands across 33+ Datadog products"
   homepage "https://www.datadoghq.com"
-  url "https://github.com/DataDog/pup/releases/download/v2.7.0/pup_2.7.0_source.tar.gz"
-  sha256 "2355df2a7f5af70a4953bf569652d299dad469640f932dc172d1ee598f111053"
+  url "https://github.com/DataDog/pup/releases/download/v2.7.1/pup_2.7.1_source.tar.gz"
+  sha256 "11924393feb2e32ce4e69a1a2f817c35a6eedd597be4bb0e3114dd23b95cf75c"
   license "Apache-2.0"
   head "https://github.com/DataDog/pup.git", branch: "main"
 
   bottle do
-    manifest_sha256 "301fee4112fd266cba7ac32d00156a60a7c04f5848fd6bf98576cd1f693406fc"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14eab8e24b0d9ccfcfb44799c3e08afe3a26627fb9f22d2cf418245de4d85375"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1526d1820f4bbb9681272fd92999035b17817902dc37a92b42ee1cfabcf722c5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2897c88a124da8c82b9a6f4964e676c8db289c31f577441637e8a8b91485ebe0"
-    sha256 cellar: :any,                 arm64_linux:       "3406f31347039651e7d62aaedeb047f8b4ce4f02c68e2f1f49df82f119e50559"
-    sha256 cellar: :any,                 x86_64_linux:      "e6dd0c501a521b32e68f5149116072efa573a5e0eefba524b10ac3dfbdc7f5bc"
+    manifest_sha256 "2ce4091653f850c93c271f69ff22e028242117c9e9a763505a4729efb2819c9d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78d9ba4daca1068fe4ea1b3ad0fcc5d4a011852454f9ba9b19bbf121fa9d49e8"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb9efd4ed77be5da0d19a4b23564d0c706b7f1d51591092714edc29ea3f9be8c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "459773e6503a57de011bbb40672700183d74e3e6781ee1770e4ec7ee5e483637"
+    sha256 cellar: :any,                 arm64_linux:       "c37a2497cd3ce2ba0d9e446cdb48506c665aec9923a43bf463f6dad98506f803"
+    sha256 cellar: :any,                 x86_64_linux:      "7b0172e25d1df496668167ef782158aacfc9986d6acb52830dfaea25ee9b593c"
   end
 
   depends_on "pkgconf" => :build
