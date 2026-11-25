@@ -2,11 +2,11 @@ class Watchman < Formula
   include Language::Python::Shebang
 
   desc "Watch files and take action when they change"
-  homepage "https://facebook.github.io/watchman/"
-  url "https://github.com/facebook/watchman/archive/refs/tags/v2026.11.23.00.tar.gz"
+  homepage "https://meta.github.io/watchman/"
+  url "https://github.com/meta/watchman/archive/refs/tags/v2026.11.23.00.tar.gz"
   sha256 "513a78c03fef7706eec77548c8f9d02f37215c5987e067bb4c462451b930fc9e"
   license "MIT"
-  head "https://github.com/facebook/watchman.git", branch: "main"
+  head "https://github.com/meta/watchman.git", branch: "main"
 
   bottle do
     manifest_sha256 "2b87d35fbb1a6d8629d38a000549e028ae93e691cd8168f5cd15f0f0d02287ee"
