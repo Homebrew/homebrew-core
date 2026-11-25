@@ -1,8 +1,8 @@
 class DezoomifyCli < Formula
   desc "Download zoomable images from museum websites, image galleries, and map viewers"
   homepage "https://dezoomify.ophir.dev"
-  url "https://github.com/dezoomify/dezoomify/archive/refs/tags/26.11.24.tar.gz"
-  sha256 "719bb3b2fc9d78f9e4e27cdafb59ae055e981bb2af14f9d6d6895b1a4d7bcadf"
+  url "https://github.com/dezoomify/dezoomify/archive/refs/tags/26.11.25.tar.gz"
+  sha256 "556b0c421b7a2a53186eded521fe55961e5dfe5e5f705b818a70dd73057d0360"
   license "GPL-3.0-or-later"
   head "https://github.com/dezoomify/dezoomify.git", branch: "main"
 
