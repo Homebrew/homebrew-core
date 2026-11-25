@@ -26,6 +26,8 @@ class Unicorn < Formula
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
 
+  deny_network_access!
+
   def install
     system "cmake", "-S", ".", "-B", "build", "-DUNICORN_SHARE=yes", *std_cmake_args
     system "cmake", "--build", "build"
