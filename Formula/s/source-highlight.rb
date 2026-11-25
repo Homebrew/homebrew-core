@@ -5,7 +5,7 @@ class SourceHighlight < Formula
   mirror "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
   sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   compatibility_version 1
 
   livecheck do
@@ -25,7 +25,7 @@ class SourceHighlight < Formula
     sha256 x86_64_linux:      "09c0f664ede1dd50549c8cae4dd1a57b587c81da49a3f03b5d0b78e33f15a935"
   end
 
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -37,9 +37,9 @@ class SourceHighlight < Formula
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-boost=#{formula_opt_prefix("boost")}"
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # strip boost linkage
+
+    system "./configure", "--with-boost=#{formula_opt_prefix("boost")}", *std_configure_args
     system "make", "install"
 
     bash_completion.install "completion/source-highlight"
