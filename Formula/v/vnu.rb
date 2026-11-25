@@ -13,6 +13,8 @@ class Vnu < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install "build/dist/vnu.jar"
     bin.write_jar_script libexec/"vnu.jar", "vnu"
