@@ -6,8 +6,9 @@ class Sandvault < Formula
   license "Apache-2.0"
 
   bottle do
-    manifest_sha256 "bf0c66466309c083cf03f358d79e1241c37a08745777bf0279e94ff77f692a43"
-    sha256 cellar: :any_skip_relocation, all: "8699e689225dc6461378554b634a47b30e22e3d6445e167d95a377b18f6ad160"
+    rebuild 1
+    manifest_sha256 "fed97a16507c6594a9ce0d2d4cf3c1edc62b03abedcd82299a4ebd2e4eb496b0"
+    sha256 cellar: :any_skip_relocation, all: "9fb2aba17a472314a446ff2ec3758fd89e3355f8eb5264c3058a388ba92ed17c"
   end
 
   depends_on :macos
@@ -17,8 +18,8 @@ class Sandvault < Formula
   deny_network_access!
 
   def install
-    libexec.install "guest", "helpers", "skills", "sv", "sv-clone", "sv-agentsview-setup"
-    bin.write_exec_script libexec/"sv", libexec/"sv-clone", libexec/"sv-agentsview-setup"
+    libexec.install "guest", "helpers", "skills", "sv", "sv-clone", "sv-agentsview-setup", "sv-gh-token"
+    bin.write_exec_script libexec/"sv", libexec/"sv-clone", libexec/"sv-agentsview-setup", libexec/"sv-gh-token"
   end
 
   test do
