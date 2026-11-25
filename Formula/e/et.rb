@@ -61,22 +61,22 @@ class Et < Formula
   end
 
   test do
-    port = free_port
+    require "socket"
+
     # Avoid the default `$HOME/.local/share/etserver` fifo directory, whose
     # ancestor checks open `/` for reading and fail inside the Linux sandbox.
-    pid = spawn bin/"etserver", "--port", port.to_s, "--serverfifo", testpath/"etserver.fifo", "--logtostdout"
+    serverfifo = testpath/"etserver.fifo"
+    port = free_port
 
-    require "socket"
-    Timeout.timeout(60) do
-      loop do
-        TCPSocket.open("127.0.0.1", port).close
-        break
-      rescue Errno::ECONNREFUSED
-        sleep 1
+    with_test_process(bin/"etserver", "--port", port.to_s, "--serverfifo", serverfifo, "--logtostdout") do
+      Timeout.timeout(60) do
+        loop do
+          TCPSocket.open("127.0.0.1", port).close
+          break
+        rescue Errno::ECONNREFUSED
+          sleep 1
+        end
       end
     end
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
