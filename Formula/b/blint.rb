@@ -3,8 +3,8 @@ class Blint < Formula
 
   desc "Security linter and SBOM generator for binaries"
   homepage "https://github.com/owasp-dep-scan/blint"
-  url "https://files.pythonhosted.org/packages/bd/37/edd11d51f22115f736c06992d78be53b0f5a290b112df31302d3befb0c9f/blint-4.1.0.tar.gz"
-  sha256 "53922077a8c374b46ab71673de1f44dbc053a3360138a43d1d3538f1cddb4f56"
+  url "https://files.pythonhosted.org/packages/1e/dd/725045c70ee77dfff3952bce3dedbb960bd80e059d81c232a795b725189c/blint-4.1.1.tar.gz"
+  sha256 "3d8d5648e47d017d52951362bd7efe17a185c61d66e51856f3e58c01121d00b0"
   license "MIT"
   head "https://github.com/owasp-dep-scan/blint.git", branch: "main"
 
