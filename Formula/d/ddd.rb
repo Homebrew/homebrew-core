@@ -1,9 +1,9 @@
 class Ddd < Formula
   desc "Graphical front-end for command-line debuggers"
   homepage "https://www.gnu.org/software/ddd/"
-  url "https://ftpmirror.gnu.org/ddd/ddd-3.4.1.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/ddd/ddd-3.4.1.tar.gz"
-  sha256 "b87517a6c3f9611566347e283a2cf931fa369919b553536a2235e63402f4ee89"
+  url "https://ftpmirror.gnu.org/ddd/ddd-3.5.0.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/ddd/ddd-3.5.0.tar.gz"
+  sha256 "458aa058f6b287bd7c37439bbb9b6eef068ddaec7046f34e13edbc1752456a4e"
   license all_of: [
     "GPL-3.0-or-later",
     "GFDL-1.1-no-invariants-or-later", # ddd/ddd-themes.info
@@ -13,27 +13,24 @@ class Ddd < Formula
   ]
 
   bottle do
-    sha256 arm64_golden_gate: "886b70f023153550b1a00dc2b20c5192593f93a4a64221896dc331e7048a8d2d"
-    sha256 arm64_tahoe:       "25083bd2eeac8896b1406a713d5ca294cacb800fee16e0368e434e6715b72644"
-    sha256 arm64_sequoia:     "3c31137211b8185a0b8e3ceffce6474c803cf8790348211ad0690162697a1613"
-    sha256 arm64_sonoma:      "73e84236c870313e5a43e936998545961609c5f43104e6b57cd693a03dc52a5d"
-    sha256 arm64_ventura:     "d287abe1d656058174b03b2e1215e7eee7d996fad1e041fd8d14e573b3e0716f"
-    sha256 arm64_monterey:    "e2f58c650c498dd2ab90369baee0dad09b169e503e8616894f6814ba543310a8"
-    sha256 sonoma:            "19e15c98f1732a8c5032734ecdab5f4aec373ef3991bc65c7ce4e5f81b526861"
-    sha256 ventura:           "47ff49d7888461a987aee0ae62749dc96d6c44c6825f09a61d637f13cd736198"
-    sha256 monterey:          "33047c998d6856a9425df4fa92fd9f3fdfe7717921def4bb814ae82ceb928927"
-    sha256 arm64_linux:       "dc505cec52e34353405b1d359a97aa65f7b06a89cbba7be62ce119bd17c6d24d"
-    sha256 x86_64_linux:      "52266be4e6e825db9c2941e2ab44002d1d3707b379e0339d3ddf12af18f81ad6"
+    manifest_sha256 "629f11e2003ea7d101a55801f5b3c998affb73c499cd312bfe78f9dbc4bc98ac"
+    sha256 arm64_golden_gate: "b06eafbccc9586af01d8d12d3ddd1368984b531b8d26f8d541a9b5597508dce8"
+    sha256 arm64_tahoe:       "82f791380c205f628d48ea365343d1c42838c6aff4ec71bac19dcc8ff5c539ba"
+    sha256 arm64_sequoia:     "7d36a035bb3a5a4ee98154ed27443a9843b3d8a45757abfa537516bdf3676248"
+    sha256 arm64_linux:       "db91e20e05575528cdc14468848297e9e457d67e49c9b888d67a8f51ecea1775"
+    sha256 x86_64_linux:      "c525836c2d6ce20edd2bd84ea240db88950f1b11bf765ed5c9de640d836a5efc"
   end
 
   depends_on "fontconfig"
   depends_on "libx11"
   depends_on "libxaw"
+  depends_on "libxext"
   depends_on "libxft"
   depends_on "libxmu"
   depends_on "libxpm"
   depends_on "libxt"
   depends_on "openmotif"
+  depends_on "tinyxml2"
 
   uses_from_macos "ncurses"
 
@@ -41,7 +38,6 @@ class Ddd < Formula
     depends_on "gnu-sed" => :build
     depends_on "libice"
     depends_on "libsm"
-    depends_on "libxext"
     depends_on "libxp"
 
     on_intel do
