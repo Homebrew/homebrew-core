@@ -26,10 +26,6 @@ class Regenie < Formula
 
   uses_from_macos "python" => :build
 
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
-
   # Git mirror as the Fossil server (code.enkre.net) often answers HTTP 508
   resource "bgen" do
     url "https://github.com/nebfield/bgen-git-mirror/archive/refs/tags/v1.1.7.tar.gz"
