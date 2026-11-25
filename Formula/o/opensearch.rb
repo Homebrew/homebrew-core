@@ -2,17 +2,18 @@ class Opensearch < Formula
   desc "Open source distributed and RESTful search engine"
   homepage "https://github.com/opensearch-project/OpenSearch"
   url "https://github.com/opensearch-project/OpenSearch.git",
-      tag:      "3.10.0",
-      revision: "b9f09249b4a9922f0d0bc5bb8f62f90cf95e5eea"
+      tag:      "3.10.1",
+      revision: "8f41a7a09efd4fc25dfb52f8fa392a1bb930c260"
   license "Apache-2.0"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "532340d9c6b5769a4888973ddc9df2bc0ae2a1e824bfa236a07b69f64fa13e89"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c79a104da745504b112aecb443bbe716c40e2f0de068f35d6615726cd422213e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a2bbc64ef8c88b1ec8495504cb0080a44678ae9154c5bc371a9f6c1f8def7d4"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "00c62e5d5738c3ac32beacfde3e98304c9aa652b69e6afbb16e92e237fbf3485"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7d061dc3f9c4d9e2e4afc85e7aa3595ad610f9e71f92fde38d550dc68e8f983b"
+    manifest_sha256 "ed579ada51cd9db8955fd65846006b1308bc9ad18a568aba974199fdb398d650"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5e966d1dc0af2e08d7e5ffd25cf3786103f23e87fb22aedf4629364d30a2daa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4d65215427f7732e51a418f704de7cae35f2a4a62ecbca3b0e3689f81b125363"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2aec53381ea372fe440bd82537e894c59d852a1a644f283e9a97712db437a90a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8220f6b16426ec5722a178112288d243139bb09542d9d395b13084ddfd106b9e"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b4af1c7cc1f01ffbb3d268e82b3ad1bad60cbb25249ada97af0ce3027dab63e9"
   end
 
   # TODO: Use the vendored Gradle wrapper until its minor version matches Homebrew's `gradle`.
