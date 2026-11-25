@@ -11,7 +11,8 @@ class Checkbashisms < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "209862e6d0ef309830c3f26a14feb1452e1abea516c77256a34d6561271d8a39"
+    manifest_sha256 "dae445af1317692ee552a4e7ffc5dac93910109cf97a10d3e6974ddd7dba39f0"
+    sha256 cellar: :any_skip_relocation, all: "6ac82d1e25e4fa00f5ffebf6fc7df0a6d1160b68ec927798328cbe2faee76102"
   end
 
   deny_network_access!
