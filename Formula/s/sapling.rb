@@ -4,7 +4,7 @@ class Sapling < Formula
   url "https://github.com/meta/sapling/archive/refs/tags/0.2.20261103-145137+6282ac56.tar.gz"
   sha256 "0dd35dba5f99bbb97fbfbb18075aa183ae7d63d28954c2d92160ed50bba9cdfb"
   license "GPL-2.0-or-later"
-  head "https://github.com/facebook/sapling.git", branch: "main"
+  head "https://github.com/meta/sapling.git", branch: "main"
 
   livecheck do
     url :stable
@@ -47,7 +47,7 @@ class Sapling < Formula
   conflicts_with "sl", because: "both install `sl` binaries"
 
   def watchman_rev
-    watchman_repo = "https://github.com/facebook/watchman.git"
+    watchman_repo = "https://github.com/meta/watchman.git"
     max_date = version.patch.to_s.match(/^(\d{4})(\d{2})(\d{2})\b/).captures.join(".")
     tags = Utils.safe_popen_read("git", "ls-remote", "--sort=-version:refname", "--tags", watchman_repo)
     tags.scan(%r{^(\S+)\trefs/tags/v(\d{4}\.\d{2}\.\d{2})(?:\.\d+)+$}) do |rev, date|
@@ -60,7 +60,7 @@ class Sapling < Formula
     # Workaround to improve reproducibility as Cargo.toml uses branch for some dependencies.
     # Actual reproducible builds won't be possible without a Cargo.lock.
     #
-    # Related issue: https://github.com/facebook/sapling/issues/547
+    # Related issue: https://github.com/meta/sapling/issues/547
     if build.stable?
       github_hashes = buildpath.glob("build/deps/github_hashes/*/*-rev.txt").to_h do |revfile|
         commit = revfile.read[/commit ([0-9a-f]+)$/i, 1]
