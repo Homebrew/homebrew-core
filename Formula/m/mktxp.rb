@@ -3,17 +3,17 @@ class Mktxp < Formula
 
   desc "Prometheus Exporter for Mikrotik RouterOS devices"
   homepage "https://github.com/akpw/mktxp"
-  url "https://files.pythonhosted.org/packages/c9/ac/f2dbad0af8d668efa862e9d0af153b43c2a0a6ffa94c47c736d2da737934/mktxp-2.1.0.tar.gz"
-  sha256 "243c791a1d376613e00dc794cf5d2208f4b189c36dce5a71bf4597d120ea2045"
+  url "https://files.pythonhosted.org/packages/be/5b/5121c732c982091ef67aa08a86e46134d504bd403f4e72928d0b4bbb1404/mktxp-2.1.1.tar.gz"
+  sha256 "50f9f821f567c223738e3892bf8e7ca7e2642e3427c5e2031f21fc2fe47fe884"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "8221919640065bb1619015cc13a0d868065c47e09de71620c493a68258d1318d"
-    sha256 cellar: :any, arm64_tahoe:       "fa0d566f09be01a3f38c53f675ccabde367b52f7f925aaf0c6d85f72f6349eec"
-    sha256 cellar: :any, arm64_sequoia:     "23c6a67a3733fcb1f1bf0aaaadcae732b8905e7e54ef7ac802701ea72652b075"
-    sha256 cellar: :any, arm64_linux:       "30290df60d61d727da154daf8fd8ffa99e50777ee3e14b691f60a92f02faf6be"
-    sha256 cellar: :any, x86_64_linux:      "358cee7781a1154a4ac50d01cccf950b2f69172ba19b10e40e1ebb52cb86201e"
+    manifest_sha256 "d9b90b0b58ef2983ca37df340a5bfddd671eb9540f2ccc785f04b5b7cdce9b33"
+    sha256 cellar: :any, arm64_golden_gate: "40424e2a7406c1c62ff360497897aee531e62b0d8250d744748fc493f7e2db18"
+    sha256 cellar: :any, arm64_tahoe:       "8a8066bcd9e351c322eadf35c1cd7ffc238c6eadcaed192594ef78f31040c475"
+    sha256 cellar: :any, arm64_sequoia:     "293a8041475e5290fee3bd5b10d1d39a3fe1e8b613fd22cb381b03a4fd7c48cf"
+    sha256 cellar: :any, arm64_linux:       "b67fcf7e67639566bfb3793eb8495608852f7a37cbcf69dce0cf32e9cff82f70"
+    sha256 cellar: :any, x86_64_linux:      "e31c36cef084b81cc2ec47fd5dd876897a57d819f711ddb79234a5279a45bf1e"
   end
 
   depends_on "libyaml"
@@ -25,13 +25,13 @@ class Mktxp < Formula
   end
 
   resource "humanize" do
-    url "https://files.pythonhosted.org/packages/0a/ea/13a1ef3c12d12662905801495283530251918b70d62d368f1d2e0272c70d/humanize-4.16.0.tar.gz"
-    sha256 "7dc2244a2f84a4bfb1d36c37bac80cd78e35cdc5c119206d87b018e1445f3a3f"
+    url "https://files.pythonhosted.org/packages/d0/a7/5391f6db94bf16289ca63ce2632eef2eba7b9991e701016ac66f04539d47/humanize-4.17.0.tar.gz"
+    sha256 "1d6a36c453dbfbb3f0b34601d2e0b4ce5d48d780305cd45714843f0068fde6ac"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "prometheus-client" do
@@ -40,8 +40,8 @@ class Mktxp < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "routeros-api" do
@@ -55,8 +55,8 @@ class Mktxp < Formula
   end
 
   resource "texttable" do
-    url "https://files.pythonhosted.org/packages/1c/dc/0aff23d6036a4d3bf4f1d8c8204c5c79c4437e25e0ae94ffe4bbb55ee3c2/texttable-1.7.0.tar.gz"
-    sha256 "2d2068fb55115807d3ac77a4ca68fa48803e84ebb0ee2340f858107a36522638"
+    url "https://files.pythonhosted.org/packages/92/f2/2d43e9505895dc66929a26a46d89c7e96835aff72a28ec5ef54d6e96ee24/texttable-1.7.3.tar.gz"
+    sha256 "ff99aa7562c6cbcd0982cb6fae9145126b19878182496cdc46b8d6816721c5da"
   end
 
   resource "waitress" do
