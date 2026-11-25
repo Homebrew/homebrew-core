@@ -47,6 +47,8 @@ class Wordplay < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     inreplace "wordplay.c", "@PREFIX@", prefix
     system "make", "CC=#{ENV.cc}"

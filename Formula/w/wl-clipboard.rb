@@ -17,6 +17,8 @@ class WlClipboard < Formula
   depends_on "wayland"
   depends_on "wayland-protocols"
 
+  deny_network_access!
+
   def install
     args = %W[
       -Dfishcompletiondir=#{fish_completion}

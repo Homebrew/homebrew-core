@@ -29,12 +29,11 @@ class WrenCli < Formula
     resolves "https://github.com/wren-lang/wren/issues/1086"
   end
 
+  deny_network_access!
+
   def install
-    if OS.mac?
-      system "make", "-C", "projects/make.mac"
-    else
-      system "make", "-C", "projects/make"
-    end
+    makefile = OS.mac? ? "projects/make.mac" : "projects/make"
+    system "make", "-C", makefile
     bin.install "bin/wren_cli"
     pkgshare.install "example"
   end

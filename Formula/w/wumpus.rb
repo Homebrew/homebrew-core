@@ -25,6 +25,8 @@ class Wumpus < Formula
 
   depends_on "asciidoctor" => :build
 
+  deny_network_access!
+
   def install
     system "make", "all", "wumpus.6", "CFLAGS=#{ENV.cflags}"
     # Not using `make install` due to issues with Makefile
