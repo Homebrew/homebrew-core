@@ -25,6 +25,8 @@ class Unison < Formula
 
   depends_on "ocaml" => :build
 
+  deny_network_access!
+
   def install
     system "make"
     system "make", "install", "prefix=#{prefix}"
