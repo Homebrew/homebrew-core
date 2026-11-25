@@ -43,11 +43,9 @@ class Dexidp < Formula
     cp pkgetc/"config.yaml", testpath
     inreplace "config.yaml", "5556", port.to_s
 
-    pid = spawn bin/"dex", "serve", "config.yaml"
-    sleep 3
-
-    assert_match "Dex", shell_output("curl -s localhost:#{port}/dex")
-  ensure
-    Process.kill "TERM", pid
+    with_test_process(bin/"dex", "serve", "config.yaml") do
+      sleep 3
+      assert_match "Dex", shell_output("curl -s localhost:#{port}/dex")
+    end
   end
 end
