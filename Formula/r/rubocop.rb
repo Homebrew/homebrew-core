@@ -1,17 +1,18 @@
 class Rubocop < Formula
   desc "Ruby static code analyzer and formatter, based on the community Ruby style guide"
   homepage "https://docs.rubocop.org"
-  url "https://github.com/rubocop/rubocop/archive/refs/tags/v1.92.3.tar.gz"
-  sha256 "52ecb61f8ff367db41eda22f366ae9d13bc14ba8bd5ffa94f8d9cf11d5ab5c97"
+  url "https://github.com/rubocop/rubocop/archive/refs/tags/v1.93.0.tar.gz"
+  sha256 "5dd0af9f9540e536dc4c35a87481b573d414b8c9b3491aec1c30f22c3c3f00cd"
   license "MIT"
   head "https://github.com/rubocop/rubocop.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "972f5d0bc03599318d9d973d15a0dc37386f937432496e0a65c408948a282620"
-    sha256 cellar: :any, arm64_tahoe:       "4c3aed11bf8271f4b945f553417e41a63107d6278abdceb6927250ab1fd31679"
-    sha256 cellar: :any, arm64_sequoia:     "046513a3483c2c261d6d81dfc3ef2a2011e59859c665f50120e87a15505bd94f"
-    sha256 cellar: :any, arm64_linux:       "e29ee6e3c7444230a630098b080d4a3a983bfb7ee5f9480aa64b30035cca930b"
-    sha256 cellar: :any, x86_64_linux:      "513e03a0d6f458232661ca41ae76db633bd56a00f09e0c35a5f393c4386c1d0c"
+    manifest_sha256 "d7bf7c725faa3e7b19e9f87143354bc41d9e53f4984718e95fbf91a6a85c2328"
+    sha256 cellar: :any, arm64_golden_gate: "58192266dfd8e5fce07fdee54280ab9606d657486b567f186438f5b85a2659f4"
+    sha256 cellar: :any, arm64_tahoe:       "57d88a6e3ffc9aa98b50d1851aefef73bc18941bf0256f0a9ee154d5e61541cf"
+    sha256 cellar: :any, arm64_sequoia:     "5229406fe2b067484b0d556b7d699dc7271181de859199a0781ac6fbfc50b33e"
+    sha256 cellar: :any, arm64_linux:       "25a731075f80fa74bb7c4903105008ad877844bf1f869ef12e6061cc1a2d7c9b"
+    sha256 cellar: :any, x86_64_linux:      "ca17a00f5033f4148215bbb8644f74726c45fddbc3079aed5576fa63f3c9684d"
   end
 
   depends_on "ruby"
@@ -43,8 +44,8 @@ class Rubocop < Formula
   end
 
   resource "parser" do
-    url "https://rubygems.org/downloads/parser-3.3.13.0.gem"
-    sha256 "e02f9b63c2fe05b0c68f692ba4df89b3cb113b663964f75d988fbebfd6c3deca"
+    url "https://rubygems.org/downloads/parser-3.3.14.0.gem"
+    sha256 "62f8f76af7b919425ee2d811880e9dcb8011ab40bfd59970dfb583141697e58f"
   end
 
   resource "prism" do
@@ -63,13 +64,13 @@ class Rubocop < Formula
   end
 
   resource "regexp_parser" do
-    url "https://rubygems.org/downloads/regexp_parser-2.13.3.gem"
-    sha256 "c9833eb62afc9706ebdc61b2b41226c0ae3b45a2783f80174cffcf126453db27"
+    url "https://rubygems.org/downloads/regexp_parser-2.13.4.gem"
+    sha256 "1d0547814f57e6f00946957bd0ca201bc42f42cfb08eee89df60998aedcd8a3b"
   end
 
   resource "rubocop-ast" do
-    url "https://rubygems.org/downloads/rubocop-ast-1.51.0.gem"
-    sha256 "0ec311e36b191b3872d909078a35274e962ae97dbce64be6812d145ca59acfcb"
+    url "https://rubygems.org/downloads/rubocop-ast-1.54.0.gem"
+    sha256 "11f7cadec54e593e905b1bb78f2b28bdd4b8e13b34cb82fe49c876e3dd5008c1"
   end
 
   resource "ruby-progressbar" do
