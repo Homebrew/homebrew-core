@@ -3,18 +3,18 @@ class Blint < Formula
 
   desc "Security linter and SBOM generator for binaries"
   homepage "https://github.com/owasp-dep-scan/blint"
-  url "https://files.pythonhosted.org/packages/bd/37/edd11d51f22115f736c06992d78be53b0f5a290b112df31302d3befb0c9f/blint-4.1.0.tar.gz"
-  sha256 "53922077a8c374b46ab71673de1f44dbc053a3360138a43d1d3538f1cddb4f56"
+  url "https://files.pythonhosted.org/packages/1e/dd/725045c70ee77dfff3952bce3dedbb960bd80e059d81c232a795b725189c/blint-4.1.1.tar.gz"
+  sha256 "3d8d5648e47d017d52951362bd7efe17a185c61d66e51856f3e58c01121d00b0"
   license "MIT"
   head "https://github.com/owasp-dep-scan/blint.git", branch: "main"
 
   bottle do
-    manifest_sha256 "6d7c8812ef0e255671e51d2269b28d1e840aa1117b0e1d01e524d78a0e3cc9f5"
-    sha256 cellar: :any, arm64_golden_gate: "9a7012fb1572fa227091955fc389a7b62037c90051839173a984a62a082bcbf4"
-    sha256 cellar: :any, arm64_tahoe:       "5c21106a0a30181c6e0ed2484304317456ce9eb65f6a3216804441f5f058353a"
-    sha256 cellar: :any, arm64_sequoia:     "c9a607b665f304fac8b0f100e330f637a47eeaea691a4a3660878116f30066a4"
-    sha256 cellar: :any, arm64_linux:       "5f8a57bcf26b00347c3ccbb2a0b03f409b74554717d05bcae5693f106c4439be"
-    sha256 cellar: :any, x86_64_linux:      "f28d590ba1bc906a76d147228a403f606c26621288653143ffd6c77d51448e3c"
+    manifest_sha256 "3f59196b3b5331d5dabbfeb880db7593adb73986b4cfb1c434e05766da70f5bb"
+    sha256 cellar: :any, arm64_golden_gate: "8d99b7dc2c917bed814d2a7fc9cd124d8a710cc0c6cdda6e193c4a6ec678e77e"
+    sha256 cellar: :any, arm64_tahoe:       "424f2684788b618efb34d8934925017b61e2d786ac6eb7843809fbd3dc8ec68b"
+    sha256 cellar: :any, arm64_sequoia:     "29ac924eac21e11875f09083761a5b09c0f61c06538d2da25bcffdd9e403f115"
+    sha256 cellar: :any, arm64_linux:       "4764cc69280bb805eef2f9cfa441a6441f019538f6e694e138d62e7282208c2d"
+    sha256 cellar: :any, x86_64_linux:      "39aaac9a96660fc30b6fc31766c83bd31a24d758dc30d3fc96a0fbaf0945e102"
   end
 
   depends_on "cmake" => :build # for lief
