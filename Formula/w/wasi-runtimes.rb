@@ -4,6 +4,7 @@ class WasiRuntimes < Formula
   url "https://github.com/llvm/llvm-project/releases/download/llvmorg-23.1.6/llvm-project-23.1.6.src.tar.xz"
   sha256 "d3b86ab29cfb4445a6652e5c2642ccc75e04e38084dde3701d323320f35a31da"
   license "Apache-2.0" => { with: "LLVM-exception" }
+  compatibility_version 1
   head "https://github.com/llvm/llvm-project.git", branch: "main"
 
   livecheck do
@@ -11,11 +12,13 @@ class WasiRuntimes < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53baf45d3e63da209e97a8376d9d4cea63a639a28df24023d3fcf2af47abf750"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53baf45d3e63da209e97a8376d9d4cea63a639a28df24023d3fcf2af47abf750"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53baf45d3e63da209e97a8376d9d4cea63a639a28df24023d3fcf2af47abf750"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1b32cb31e5b86aa2fa1998b18a4c074ed6e52e76ad46efe940e0374aa2423e5c"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9ccaac132a536ee9d55872dddb437830ceb2ce755d11605e89457ebc6b96b2aa"
+    rebuild 1
+    manifest_sha256 "a77c296f345090839b5ed71bf67ec2879a6f45f7f17e908bbbe524afdf70a8ce"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2034ed9ebecc8cfd4321d644033a54bf8ab73f64dc5d0ddf3089ed91bf81b926"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2034ed9ebecc8cfd4321d644033a54bf8ab73f64dc5d0ddf3089ed91bf81b926"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2034ed9ebecc8cfd4321d644033a54bf8ab73f64dc5d0ddf3089ed91bf81b926"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e56e0070615bc854acb865787e05c6cc48c0dd81638646d88211eec5764cd137"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "5319c919fa9d818039d582df3b77da05ab8078611b0672ff68fd162cf3f76120"
   end
 
   depends_on "cmake" => :build
