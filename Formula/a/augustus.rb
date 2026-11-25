@@ -23,10 +23,6 @@ class Augustus < Formula
 
   uses_from_macos "python" => :build
 
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
-
   deny_network_access!
 
   def install
