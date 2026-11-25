@@ -7,12 +7,12 @@ class CodexAcp < Formula
   head "https://github.com/agentclientprotocol/codex-acp.git", branch: "main"
 
   bottle do
-    manifest_sha256 "503bd5c81b50de98ebd89328873970121b8b8efdb0443eae5bb221d232b2ab16"
-    sha256 cellar: :any, arm64_golden_gate: "58ba3b755b787c6384d43c3768f30db31611a79fd80e784d5a05a27c7ff4dfcd"
-    sha256 cellar: :any, arm64_tahoe:       "58ba3b755b787c6384d43c3768f30db31611a79fd80e784d5a05a27c7ff4dfcd"
-    sha256 cellar: :any, arm64_sequoia:     "58ba3b755b787c6384d43c3768f30db31611a79fd80e784d5a05a27c7ff4dfcd"
-    sha256 cellar: :any, arm64_linux:       "6cccb37e2d0d9309a2161e1b8f25b6e7266c258000712a86149fa5447b45d737"
-    sha256 cellar: :any, x86_64_linux:      "89ecca18435480498cca5c185619cdbbb3efcce52fbd33197c6280a418311b8f"
+    manifest_sha256 "119b8ce35b2361d2a154c67dcd2a52255e76972e89ab57b479e433ad93b96748"
+    sha256 cellar: :any, arm64_golden_gate: "7a482333b514e492a2f334363faffbff9aeb5d50a47d40f4ae28f8d37e109edd"
+    sha256 cellar: :any, arm64_tahoe:       "7a482333b514e492a2f334363faffbff9aeb5d50a47d40f4ae28f8d37e109edd"
+    sha256 cellar: :any, arm64_sequoia:     "7a482333b514e492a2f334363faffbff9aeb5d50a47d40f4ae28f8d37e109edd"
+    sha256 cellar: :any, arm64_linux:       "021dda2d99ce2c99ec5fdd47535a963844f6e8ba100f92369fb78d49a32f49ca"
+    sha256 cellar: :any, x86_64_linux:      "c16418ff6064f8ef90a0546b4c18a852bd33fbfb757179d3200ac14f90967299"
   end
 
   depends_on "node"
