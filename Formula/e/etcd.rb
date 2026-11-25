@@ -40,29 +40,28 @@ class Etcd < Formula
 
   test do
     test_string = "Hello from brew test!"
-    etcd_pid = spawn bin/"etcd", "--force-new-cluster", "--logger=zap", "--data-dir=#{testpath}"
-    sleep 10
+    with_test_process(bin/"etcd", "--force-new-cluster", "--logger=zap", "--data-dir=#{testpath}") do
+      sleep 10
 
-    key_base64 = ["brew_test"].pack("m0")
-    value_base64 = [test_string].pack("m0")
+      key_base64 = ["brew_test"].pack("m0")
+      value_base64 = [test_string].pack("m0")
 
-    # PUT the key using the v3 API
-    put_payload = { key: key_base64, value: value_base64 }.to_json
-    system "curl", "-L", "http://127.0.0.1:2379/v3/kv/put", "-X", "POST", "-d", put_payload
+      # PUT the key using the v3 API
+      put_payload = { key: key_base64, value: value_base64 }.to_json
+      system "curl", "-L", "http://127.0.0.1:2379/v3/kv/put", "-X", "POST", "-d", put_payload
 
-    # GET the key back
-    get_payload = { key: key_base64 }.to_json
-    curl_output = shell_output("curl -L http://127.0.0.1:2379/v3/kv/range -X POST -d '#{get_payload}'")
-    response_hash = JSON.parse(curl_output)
+      # GET the key back
+      get_payload = { key: key_base64 }.to_json
+      curl_output = shell_output("curl -L http://127.0.0.1:2379/v3/kv/range -X POST -d '#{get_payload}'")
+      response_hash = JSON.parse(curl_output)
 
-    retrieved_value_base64 = response_hash.dig("kvs", 0, "value")
-    retrieved_value = retrieved_value_base64.unpack1("m")
+      retrieved_value_base64 = response_hash.dig("kvs", 0, "value")
+      retrieved_value = retrieved_value_base64.unpack1("m")
 
-    assert_equal test_string, retrieved_value
+      assert_equal test_string, retrieved_value
 
-    assert_equal "OK\n", shell_output("#{bin}/etcdctl put foo bar")
-    assert_equal "foo\nbar\n", shell_output("#{bin}/etcdctl get foo 2>&1")
-  ensure
-    Process.kill("HUP", etcd_pid)
+      assert_equal "OK\n", shell_output("#{bin}/etcdctl put foo bar")
+      assert_equal "foo\nbar\n", shell_output("#{bin}/etcdctl get foo 2>&1")
+    end
   end
 end
