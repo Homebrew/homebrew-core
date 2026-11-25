@@ -8,18 +8,19 @@ class Apngasm < Formula
   head "https://github.com/apngasm/apngasm.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "34eb99ef62534d8959ddee800747b4054f8c309b74f308c4f5392348b70b02f4"
-    sha256 cellar: :any, arm64_tahoe:       "b6f8dcf3a802c7a363ab2baf2f266bd82a0f42e746761ee80bf28240af102097"
-    sha256 cellar: :any, arm64_sequoia:     "1640c525530ee781d02d2c390e75c2860b9bc6e8e46369d297454c3218679eb7"
-    sha256 cellar: :any, arm64_linux:       "6c16341e64e6f183ea9f4400003366858e0db45b5173e90f1ad9a104f58fc58b"
-    sha256 cellar: :any, x86_64_linux:      "738255c58d06c961675b647440bdee4ced5a4844dd197eedba3c8203ac4ea58a"
+    rebuild 1
+    manifest_sha256 "f3f25e97a75ef3e85c1906c1af35936ae75193776580fef9e633a8a700f91479"
+    sha256 cellar: :any, arm64_golden_gate: "75b1327544e974d85649c29f0459eac6121f140741b07af0d6bd4c2082cf243a"
+    sha256 cellar: :any, arm64_tahoe:       "cad720aa3a4ebf3e2daf37a133b3210d9f93acf077eb83942c8667415e8c43d2"
+    sha256 cellar: :any, arm64_sequoia:     "c725e8e680b67caee6618cfcc39344fbc78d85fe7e766599ba7b708ac989bb57"
+    sha256 cellar: :any, arm64_linux:       "ae3457772e3ad32de6dfd7c1c6566dd011434762073025d02e825563227a3cd8"
+    sha256 cellar: :any, x86_64_linux:      "83682c2d412d224f02281b2b7ac9d0d724f696a68075c70ec8d3b0b30bf7b11d"
   end
 
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "icu4c@79"
   depends_on "libpng"
-  depends_on "lzlib"
 
   on_linux do
     depends_on "zlib-ng-compat"
