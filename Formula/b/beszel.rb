@@ -53,20 +53,17 @@ class Beszel < Formula
     port = free_port
     url = "http://127.0.0.1:#{port}"
     log = testpath/"beszel.log"
-    pid = spawn(bin/"beszel", "serve", "--http", "127.0.0.1:#{port}",
-                "--dir", (testpath/"beszel_data").to_s, out: log.to_s, err: log.to_s)
+    dir = testpath/"beszel_data"
+    with_test_process(bin/"beszel", "serve", "--http", "127.0.0.1:#{port}", "--dir", dir, [:out, :err] => log.to_s) do
+      30.times do
+        break if log.read.include?("Server started at")
 
-    30.times do
-      break if log.read.include?("Server started at")
-
-      sleep 1
+        sleep 1
+      end
+      assert_match "Server started at", log.read
+      system bin/"beszel", "health", "--url", url
+      assert_match "<title>Beszel</title>", shell_output("curl -fsS #{url}")
+      assert_path_exists dir/"data.db"
     end
-    assert_match "Server started at", log.read
-    system bin/"beszel", "health", "--url", url
-    assert_match "<title>Beszel</title>", shell_output("curl -fsS #{url}")
-    assert_path_exists testpath/"beszel_data/data.db"
-  ensure
-    Process.kill "TERM", pid if pid
-    Process.wait pid if pid
   end
 end
