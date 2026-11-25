@@ -2,10 +2,10 @@ class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flow.org/"
   license "MIT"
-  head "https://github.com/facebook/flow.git", branch: "main"
+  head "https://github.com/meta/flow.git", branch: "main"
 
   stable do
-    url "https://github.com/facebook/flow/archive/refs/tags/v0.342.0.tar.gz"
+    url "https://github.com/meta/flow/archive/refs/tags/v0.342.0.tar.gz"
     sha256 "9964e7ba88755be8a23ba4bd910b57a115cf46b39c3a25c757c20e04f143c996"
 
     # Replace `box` patterns, which Rust 1.100 removed, with `deref!` patterns
@@ -35,7 +35,7 @@ class Flow < Formula
     system "cargo", "install", *std_cargo_args(path: "rust_port/crates/flow_cli")
 
     # Resulting binary name is `flow_cli` but in the release artifacts it is renamed to `flow`
-    # https://github.com/facebook/flow/blob/main/.github/workflows/build_and_test.yml
+    # https://github.com/meta/flow/blob/main/.github/workflows/build_and_test.yml
     mv bin/"flow_cli", bin/"flow"
 
     bash_completion.install "resources/shell/bash-completion" => "flow-completion.bash"
