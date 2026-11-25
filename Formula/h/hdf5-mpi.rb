@@ -1,8 +1,8 @@
 class Hdf5Mpi < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/2.2.0/hdf5-2.2.0.tar.gz"
-  sha256 "1a1ab8209b35586fbc1aa279ba76d102130b95badcb20ca329587219112d8c16"
+  url "https://github.com/HDFGroup/hdf5/releases/download/2.3.0/hdf5-2.3.0.tar.gz"
+  sha256 "cd462ef0578927ae75f9e010a806b0dd28f19152db2abf6919cb94f9d5b9b8b0"
   license "BSD-3-Clause"
   version_scheme 1
   compatibility_version 1
@@ -12,13 +12,12 @@ class Hdf5Mpi < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "66eec15b71655ce111274f0d2e07ab0ff7040775e96ef3e5af4c91799c53d7a2"
-    sha256 cellar: :any, arm64_tahoe:       "7619ad58ef3140d8e332b8bf8403eb0bbc2b4c1ced963ee6fd9cb8e3d53c5701"
-    sha256 cellar: :any, arm64_sequoia:     "e317498a31ac53e715a7e1a817457c9c95aabd6a1dc772bcd7609e821ff28031"
-    sha256 cellar: :any, arm64_sonoma:      "109e12ef3e81e7657288259a0ac95cc25373a258599c5575c9ff8da93ef0d2ce"
-    sha256 cellar: :any, sonoma:            "5f50a4bd64bf2ae3354e48c5a6d48b92564f834db54b6570e21245fb2688702a"
-    sha256 cellar: :any, arm64_linux:       "547b553ffd128e023ed935fe83634c68f90962fc8e863ecab2a94676a879aac7"
-    sha256 cellar: :any, x86_64_linux:      "38fe45a6fb92a1a150ecdb3bb654d405fd9ddde252ce50c4625bee78626f3786"
+    manifest_sha256 "f20380efe0c6d34ee4b7d58e22004cb78eb9cfacc866e71d3679d48970fee279"
+    sha256 cellar: :any, arm64_golden_gate: "d8286312ff6868766a3eb44b6e4ca5f875f4b2615dadd3c294243192159b4bc8"
+    sha256 cellar: :any, arm64_tahoe:       "1a6afc6dad63c3542623cfd1c80bf84d6e822be7f9be2f176bda9f33f40bc5b9"
+    sha256 cellar: :any, arm64_sequoia:     "faa59df2afaa78f7bf5b5e55957875cc1fec12a33bde0c9fdf57eb157e79f968"
+    sha256 cellar: :any, arm64_linux:       "5a769a53d4c463fddedeb17516f240d48fd6cb32406e7e0799fe8a0c372026c1"
+    sha256 cellar: :any, x86_64_linux:      "5efe48612ceda0792b7119254afb197a5c84d68f901eb1efb355ea489815d4ee"
   end
 
   depends_on "cmake" => :build

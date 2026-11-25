@@ -1,8 +1,8 @@
 class Hdf5 < Formula
   desc "File format designed to store large amounts of data"
   homepage "https://www.hdfgroup.org/solutions/hdf5/"
-  url "https://github.com/HDFGroup/hdf5/releases/download/2.2.0/hdf5-2.2.0.tar.gz"
-  sha256 "1a1ab8209b35586fbc1aa279ba76d102130b95badcb20ca329587219112d8c16"
+  url "https://github.com/HDFGroup/hdf5/releases/download/2.3.0/hdf5-2.3.0.tar.gz"
+  sha256 "cd462ef0578927ae75f9e010a806b0dd28f19152db2abf6919cb94f9d5b9b8b0"
   license "BSD-3-Clause"
   version_scheme 1
   compatibility_version 1
@@ -16,13 +16,12 @@ class Hdf5 < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e7175185f06cbaafd1951d254bfc233a18c5f555eafe4b713a7e02a9a1dd1efb"
-    sha256 cellar: :any, arm64_tahoe:       "e483a85cc085f9088d8cda575d7587b290c46c5c7bc43aaededd735bb08bd11d"
-    sha256 cellar: :any, arm64_sequoia:     "a541ddabf7d4838f985c42964d96b6fad284bf5356f8953efda5741f1329001a"
-    sha256 cellar: :any, arm64_sonoma:      "7228364d0740e864a1e4027730ea3193e6a18d33fc0986a4a2f8b408d6b9f5b7"
-    sha256 cellar: :any, sonoma:            "e5156eec696744c98eacd34b8eb68e3e95062498c4c2976016473c106bf355e1"
-    sha256 cellar: :any, arm64_linux:       "ac5a7628024f6a4d628f963e4bc421ab4153ddb32141efc6d817870559ba59cf"
-    sha256 cellar: :any, x86_64_linux:      "ca771bc9625c46c17d21db1603e394bd21b9bb32d6d0193b9e0020a5a7af412f"
+    manifest_sha256 "8643b31cc1f53513e753f129e5ca5a3581f086c5f6c5adbb2468d6d1410bd446"
+    sha256 cellar: :any, arm64_golden_gate: "4d7c4fa523adaaca33f70e194a2861b883b37de423f73cd2ab096189633d6d69"
+    sha256 cellar: :any, arm64_tahoe:       "936dabdc74b42bb0182d4a495909fc71caf528cd360cfb52a9e18bdc880ea59d"
+    sha256 cellar: :any, arm64_sequoia:     "2e9f3ffc99b54bc871e0e522d384d8066956e5c9ac2343b01695eaf496225dd7"
+    sha256 cellar: :any, arm64_linux:       "66420f57caed8381475e1689ac98fa7cc60fcf3fef9eb57ebe65f92878ba56fb"
+    sha256 cellar: :any, x86_64_linux:      "7673e1399eef8cc3fd0e2dd902754b2b6d8a2eabcd4cca5e27e8b906b13c589c"
   end
 
   depends_on "cmake" => :build
@@ -44,7 +43,7 @@ class Hdf5 < Formula
     ]
     inreplace inreplace_c_files do |s|
       s.gsub! "@CMAKE_C_COMPILER@", ENV.cc
-      s.gsub! "@CMAKE_CXX_COMPILER@", ENV.cxx
+      s.gsub! "@H5_CPP_COMPILER@", ENV.cxx
     end
 
     # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
