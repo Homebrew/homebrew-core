@@ -142,11 +142,10 @@ class Airshare < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"airshare", "-p", port.to_s, "homebrew-demo", "-t", "Hello Homebrew!"
-    sleep 20
-    # Bypass mDNS discovery by directly querying the server for the shared content
-    output = shell_output("curl -s --retry 5 --retry-connrefused http://localhost:#{port}/text")
-    assert_equal "Hello Homebrew!", output
-    Process.kill("TERM", pid)
+    with_test_process(bin/"airshare", "-p", port.to_s, "homebrew-demo", "-t", "Hello Homebrew!") do
+      # Bypass mDNS discovery by directly querying the server for the shared content
+      output = shell_output("curl -s --retry 5 --retry-connrefused http://localhost:#{port}/text")
+      assert_equal "Hello Homebrew!", output
+    end
   end
 end
