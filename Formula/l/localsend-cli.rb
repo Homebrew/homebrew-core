@@ -6,11 +6,12 @@ class LocalsendCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "907907ff149b8733cadab18c1d913f9ce67f221c16b2a97248590cc49574acaa"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "705cda98ce7b18d493457d26d0e10d24fb958b621e235405ee9e1d28e06f9e32"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b05f5f2a4c58d7a90505fa5fd2d38cda0d1dd1b7bd7e26ec08544b245f92b2a4"
-    sha256 cellar: :any,                 arm64_linux:       "0bbcf7adacf037c403e7517235b1d79a31bd659383144e826f6b080c4f1a5b03"
-    sha256 cellar: :any,                 x86_64_linux:      "4147287fa0706765e69269db4f66eac37b0556dee48a90f54e4c1c5d11a37e1c"
+    manifest_sha256 "ba8ab1128f1d980a0456bca3972b8bd632a6b5421e35bf4a424383d98940800c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9805a4310ff15c10902cb663e8ed09fc109277a11a8898c34d32ca08ca00e476"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1ddf9e4dac1d9248ad0973b796d2ab34949bf8cb8442729814efb562b86b0041"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "197b8893cb8943bb4e435eb6e21f3dee39c2467e9bbf74b787dd17aad6237575"
+    sha256 cellar: :any,                 arm64_linux:       "db78180674aab7db838653f4ff24772239e5d8bf326b225e00dca19325fb7c63"
+    sha256 cellar: :any,                 x86_64_linux:      "f7b178539ad086fffb4ef1111848801dbd1bec32c0ee8490df646b32f77249d4"
   end
 
   depends_on "rust" => :build
