@@ -31,6 +31,8 @@ class Vmtouch < Formula
     resolves "https://github.com/hoytech/vmtouch/pull/71"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}", "MANDIR=#{man}"
   end
