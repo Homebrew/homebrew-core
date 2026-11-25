@@ -289,15 +289,10 @@ class Buku < Formula
     # Test bukuserver
     assert_match version.to_s, shell_output("#{bin}/bukuserver --version")
 
-    port = free_port
-    pid = spawn bin/"bukuserver", "run", "--host", "127.0.0.1", "--port", port.to_s, [:out, :err] => File::NULL
-
-    begin
-      result = shell_output("curl -s --retry 5 --retry-connrefused 127.0.0.1:#{port}/api/bookmarks")
+    port = free_port.to_s
+    with_test_process(bin/"bukuserver", "run", "--host", "127.0.0.1", "--port", port, [:out, :err] => File::NULL) do
+      result = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}/api/bookmarks")
       assert_match "https://github.com/Homebrew/brew", result
-    ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
     end
   end
 end

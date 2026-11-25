@@ -75,11 +75,9 @@ class Aoe < Formula
     assert_equal 0, status["total"]
 
     port = free_port
-    pid = spawn bin/"aoe", "serve", "--port", port.to_s, "--no-auth"
-    sleep 2
-    assert_match "Agent of Empires", shell_output("curl -s http://127.0.0.1:#{port}")
-  ensure
-    Process.kill("TERM", pid) if pid
-    Process.wait(pid) if pid
+    with_test_process(bin/"aoe", "serve", "--port", port.to_s, "--no-auth") do
+      output = shell_output("curl --silent --retry 5 --retry-connrefused http://127.0.0.1:#{port}")
+      assert_match "Agent of Empires", output
+    end
   end
 end

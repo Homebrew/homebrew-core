@@ -56,12 +56,11 @@ class Atlantis < Formula
       --default-tf-distribution opentofu
       --default-tf-version #{Formula["opentofu"].version}
     ]
-    pid = spawn(bin/"atlantis", "server", *args)
-    sleep 5
-    output = shell_output("curl -vk# 'http://localhost:#{port}/' 2>&1")
-    assert_match %r{HTTP/1.1 200 OK}m, output
-    assert_match "atlantis", output
-  ensure
-    Process.kill("TERM", pid)
+    with_test_process(bin/"atlantis", "server", *args) do
+      sleep 5
+      output = shell_output("curl -vk# 'http://localhost:#{port}/' 2>&1")
+      assert_match %r{HTTP/1.1 200 OK}m, output
+      assert_match "atlantis", output
+    end
   end
 end
