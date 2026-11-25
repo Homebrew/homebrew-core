@@ -27,13 +27,11 @@ class Dcd < Formula
 
     # spawn a server, using a non-default port to avoid
     # clashes with pre-existing dcd-server instances
-    server = spawn bin/"dcd-server", "-p", port.to_s
-    # Give it generous time to load
-    sleep 0.5
-    # query the server from a client
-    system bin/"dcd-client", "-q", "-p", port.to_s
-  ensure
-    Process.kill "TERM", server
-    Process.wait server
+    with_test_process(bin/"dcd-server", "-p", port.to_s) do
+      # Give it generous time to load
+      sleep 0.5
+      # query the server from a client
+      system bin/"dcd-client", "-q", "-p", port.to_s
+    end
   end
 end

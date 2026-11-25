@@ -34,11 +34,9 @@ class Ctrld < Formula
     assert_match version.to_s, shell_output("#{bin}/ctrld --version")
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"ctrld", "start", [:out, :err] => output_log.to_s
-    sleep 3
-    assert_match "Please relaunch process with admin/root privilege.", output_log.read
-  ensure
-    Process.kill "TERM", pid
-    Process.wait pid
+    with_test_process(bin/"ctrld", "start", [:out, :err] => output_log.to_s) do
+      sleep 3
+      assert_match "Please relaunch process with admin/root privilege.", output_log.read
+    end
   end
 end
