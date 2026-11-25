@@ -18,6 +18,7 @@ class V8 < Formula
       # Check the v8 commit page for version text
       v8_page = Homebrew::Livecheck::Strategy.page_content(
         "https://chromium.googlesource.com/v8/v8.git/+/#{v8_hash}",
+        options: Homebrew::Livecheck::Options.new(user_agent: :browser),
       )
       v8_page[:content]&.scan(regex)&.map { |match| match[0] }
     end
@@ -243,6 +244,8 @@ class V8 < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     resources.each { |r| r.stage(buildpath/r.name) }
 
@@ -267,21 +270,22 @@ class V8 < Formula
 
     # setup gn args
     gn_args = {
-      is_debug:                     false,
-      is_component_build:           true,
-      v8_use_external_startup_data: false,
-      v8_enable_fuzztest:           false,
-      v8_enable_i18n_support:       true,  # enables i18n support with icu
-      clang_use_chrome_plugins:     false, # disable the usage of Google's custom clang plugins
-      treat_warnings_as_errors:     false, # ignore not yet supported clang argument warnings
+      is_debug:                            false,
+      is_component_build:                  true,
+      v8_use_external_startup_data:        false,
+      v8_enable_fuzztest:                  false,
+      v8_enable_i18n_support:              true,  # enables i18n support with icu
+      clang_use_chrome_plugins:            false, # disable the usage of Google's custom clang plugins
+      treat_warnings_as_errors:            false, # ignore not yet supported clang argument warnings
       # disable options which require Google's custom libc++
-      use_custom_libcxx:            false,
-      enable_rust:                  false,
-      use_sysroot:                  false,
-      v8_enable_temporal_support:   false,
-      v8_enable_ecma402_icu4x:      false, # requires the Rust `icu_capi` crate
-      v8_enable_sandbox:            false, # sandbox is not supported by use_custom_libcxx: false
-      v8_use_metagen:               false, # metagen needs the unvendored `llvm-libclang`
+      use_custom_libcxx:                   false,
+      enable_rust:                         false,
+      use_sysroot:                         false,
+      v8_enable_temporal_support:          false,
+      v8_enable_ecma402_icu4x:             false, # requires the Rust `icu_capi` crate
+      v8_enable_sandbox:                   false, # sandbox is not supported by use_custom_libcxx: false
+      v8_generate_external_defines_header: true,
+      v8_use_metagen:                      false, # metagen needs the unvendored `llvm-libclang`
     }
 
     # uses Homebrew clang instead of Google clang
@@ -319,6 +323,11 @@ class V8 < Formula
     # Install libraries and headers into libexec so d8 can find them, and into standard directories
     # so other packages can find them and they are linked into HOMEBREW_PREFIX
     libexec.install "include"
+    # Ship the public inspector headers and the configuration used by this V8 binary.
+    (libexec/"include").install "out.gn/gen/include/inspector", "out.gn/gen/include/v8-gn.h"
+
+    # Keep the headers for V8's bundled ICU separate from the standalone ICU formula.
+    (libexec/"icu/include/unicode").install Dir["third_party/icu/source/{common,i18n}/unicode/*.h"]
 
     # Make sure we don't symlink non-headers into `include`.
     header_files_and_directories = (libexec/"include").children.select do |child|
@@ -340,20 +349,42 @@ class V8 < Formula
     assert_match %r{12/\d{2}/2012}, shell_output(t).chomp
 
     (testpath/"test.cpp").write <<~CPP
+      #include <vector>
+
       #include <libplatform/libplatform.h>
+      #include <unicode/uversion.h>
+      #include <v8-inspector-protocol.h>
       #include <v8.h>
-      int main(){
-        static std::unique_ptr<v8::Platform> platform = v8::platform::NewDefaultPlatform();
+
+      int main(int argc, char** argv) {
+        if (argc != 2 || !v8::V8::InitializeICU(argv[1])) return 1;
+        UVersionInfo icu_version;
+        u_getVersion(icu_version);
+        if (icu_version[0] != U_ICU_VERSION_MAJOR_NUM) return 1;
+
+        auto platform = v8::platform::NewDefaultPlatform();
         v8::V8::InitializePlatform(platform.get());
-        v8::V8::Initialize();
-        return 0;
+        if (!v8::V8::Initialize()) return 1;
+
+        // DevTools CBOR for {"type":"object"}.
+        const uint8_t cbor[] = {0xd8, 0x18, 0x5a, 0, 0, 0, 14,
+                                0xbf, 0x64, 't', 'y', 'p', 'e',
+                                0x66, 'o', 'b', 'j', 'e', 'c', 't', 0xff};
+        auto remote = v8_inspector::protocol::Runtime::API::RemoteObject::fromBinary(cbor, sizeof(cbor));
+        if (!remote) return 1;
+        std::vector<uint8_t> serialized;
+        remote->AppendSerialized(&serialized);
+        remote.reset();
+
+        v8::V8::Dispose();
+        v8::V8::DisposePlatform();
+        return serialized.empty() ? 1 : 0;
       }
     CPP
 
-    # link against installed libc++; V8 15.4 headers require the CppGC microtask queue define
-    system ENV.cxx, "-std=c++20", "-DV8_CPPGC_MICROTASK_QUEUE", "test.cpp",
-                    "-I#{include}", "-L#{lib}",
-                    "-Wl,-rpath,#{libexec}",
-                    "-lv8", "-lv8_libplatform"
+    system ENV.cxx, "-std=c++20", "-DV8_GN_HEADER", "-DUSING_V8_SHARED", "test.cpp",
+                    "-I#{include}", "-I#{libexec}/icu/include", "-L#{lib}", "-L#{libexec}",
+                    "-Wl,-rpath,#{libexec}", "-lv8", "-lv8_libplatform", "-licuuc", "-o", "test-v8-sdk"
+    system "./test-v8-sdk", libexec/"icudtl.dat"
   end
 end
