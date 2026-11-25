@@ -1,10 +1,10 @@
 class Proxygen < Formula
   desc "Collection of C++ HTTP libraries"
-  homepage "https://github.com/facebook/proxygen"
-  url "https://github.com/facebook/proxygen/releases/download/v2026.11.23.00/proxygen-v2026.11.23.00.tar.gz"
+  homepage "https://github.com/meta/proxygen"
+  url "https://github.com/meta/proxygen/releases/download/v2026.11.23.00/proxygen-v2026.11.23.00.tar.gz"
   sha256 "15c877c472165a43801af4f35a145be28105adc577b7a908545b061e1baf760f"
   license "BSD-3-Clause"
-  head "https://github.com/facebook/proxygen.git", branch: "main"
+  head "https://github.com/meta/proxygen.git", branch: "main"
 
   livecheck do
     url :stable
@@ -46,7 +46,7 @@ class Proxygen < Formula
 
   def install
     # FIXME: shared libraries are currently broken
-    # Issue ref: https://github.com/facebook/proxygen/issues/599
+    # Issue ref: https://github.com/meta/proxygen/issues/599
     args = ["-DBUILD_SHARED_LIBS=OFF", "-DCMAKE_INSTALL_RPATH=#{rpath}"]
     if OS.mac?
       args += [
