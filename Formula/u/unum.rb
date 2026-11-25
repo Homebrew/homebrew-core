@@ -20,6 +20,8 @@ class Unum < Formula
 
   uses_from_macos "perl"
 
+  deny_network_access!
+
   def install
     system "#{formula_opt_bin("pod2man")}/pod2man", "unum.pl", "unum.1"
     bin.install "unum.pl" => "unum"
