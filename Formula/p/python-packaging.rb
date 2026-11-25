@@ -8,7 +8,8 @@ class PythonPackaging < Formula
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "58715fc706578d585033b5c41ef23ea5f33e3fcc0e1637431055a880bfc50bbd"
+    manifest_sha256 "2c7823c6c60dcc51884f19c43665650f7999782bd84538acd945d7817b8573b7"
+    sha256 cellar: :any_skip_relocation, all: "9ee62437879827ffd8db0f4da03f8d16afa4433e748f9016d6ba56de9b9dfe23"
   end
 
   depends_on "python@3.15" => [:build, :test]
