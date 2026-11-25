@@ -3,14 +3,18 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://jmaupetit.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/1b/de/850a9935cb8905f678da62358389f8dc1f11283bb511131c23d59fae702a/td_watson-3.0.0.tar.gz"
-  sha256 "1660811638b46e00ce9622be60147e5b93725e964494bfe71343a8748ddbbf40"
+  url "https://files.pythonhosted.org/packages/c3/fa/0c0a8de3e625fbbeb95cf5623b4664b41a1ae2ddbd3cf56482ad8f7a796e/td_watson-3.0.1.tar.gz"
+  sha256 "bfe3f9f70e62f05b9bafd4e313656b208495992c03b8f890795ef74df5b161c4"
   license "MIT"
   head "https://github.com/jmaupetit/Watson.git", branch: "main"
 
   bottle do
-    manifest_sha256 "8a05ca560323e74d15c92bc21f91df73208ba41662360c04e79eac9a4237773d"
-    sha256 cellar: :any_skip_relocation, all: "5ed598528f25ba156a4e71eb803b419c355fbe9b832c461f709441e01a01fad9"
+    manifest_sha256 "2f8c907fb2af8c41eee3df3ee199db5485447aaac3a3e507449a03a25ebd36d5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e942d8a70cf0eef64901a6e8913b3ced16d01815d52a5d3309229158a40e8691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
   end
 
   depends_on "certifi" => :no_linkage
@@ -24,8 +28,8 @@ class Watson < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
