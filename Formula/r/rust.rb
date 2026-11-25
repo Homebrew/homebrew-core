@@ -158,6 +158,7 @@ class Rust < Formula
       rustfmt
       rust-analyzer-proc-macro-srv
       rust-demangler
+      rustc-dev
       src
     ]
     release_channel = build.head? ? "nightly" : "stable"
@@ -198,11 +199,36 @@ class Rust < Formula
       lib/"rustlib/uninstall.sh",
       (lib/"rustlib").glob("manifest-*"),
     ])
+
+    # bootstrap refuses to build the `llvm-tools` component when `--llvm-root` is used,
+    # so link the tools it would have shipped from our `llvm` instead.
+    # https://github.com/rust-lang/rust/blob/#{version}/src/bootstrap/src/core/build_steps/dist.rs
+    arch = Hardware::CPU.arm? ? "aarch64" : Hardware::CPU.arch
+    target = OS.mac? ? "#{arch}-apple-darwin" : "#{arch}-unknown-linux-gnu"
+    target_bindir = lib/"rustlib/#{target}/bin"
+    %w[
+      llvm-cov
+      llvm-nm
+      llvm-objcopy
+      llvm-objdump
+      llvm-profdata
+      llvm-readobj
+      llvm-size
+      llvm-strip
+      llvm-ar
+      llvm-as
+      llvm-dis
+      llvm-link
+      llc
+      opt
+    ].each do |tool|
+      ln_sf (dep("llvm").opt_bin/tool).relative_path_from(target_bindir), target_bindir/tool
+    end
+
     return unless OS.mac?
 
     # Replace the renamed llvm-objcopy with a symlink to make sure it can find libLLVM
-    arch = Hardware::CPU.arm? ? :aarch64 : Hardware::CPU.arch
-    rust_objcopy = lib/"rustlib/#{arch}-apple-darwin/bin/rust-objcopy"
+    rust_objcopy = target_bindir/"rust-objcopy"
     llvm_objcopy = dep("llvm").opt_bin/"llvm-objcopy"
     rm(rust_objcopy)
     ln_sf llvm_objcopy.relative_path_from(rust_objcopy.dirname), rust_objcopy
@@ -238,6 +264,39 @@ class Rust < Formula
       +    println!("Hello World!");
        }
     EOS
+
+    # `rust-src` is installed via `--tools` including `src`.
+    assert_path_exists lib/"rustlib/src/rust/library/std/src/lib.rs"
+
+    # `rustc-dev` ships the compiler crates as metadata only, so link the
+    # `rustc_driver` dynamic library that contains them. `rust` links LLVM
+    # dynamically, so the link also needs `llvm`'s library directory.
+    # `-C rpath` and the additional rpath let the binary find both at runtime.
+    # `rustc_private` is unstable and needs a bootstrapping compiler even on the stable channel.
+    # https://rustc-dev-guide.rust-lang.org/building/bootstrapping/what-bootstrapping-does.html#complications-of-bootstrapping
+    ENV["RUSTC_BOOTSTRAP"] = "1"
+    llvm_lib = dep("llvm").opt_lib
+    (testpath/"rustc_private.rs").write <<~RUST
+      #![feature(rustc_private)]
+
+      extern crate rustc_driver;
+      extern crate rustc_span;
+
+      fn main() {
+          println!("{:?}", rustc_span::edition::Edition::Edition2024);
+      }
+    RUST
+    system bin/"rustc", "-C", "rpath", "-L", "native=#{llvm_lib}",
+           "-C", "link-arg=-Wl,-rpath,#{llvm_lib}", "rustc_private.rs"
+    assert_equal "Edition2024\n", shell_output("./rustc_private")
+
+    # The `llvm-tools` component is not shipped by bootstrap when building against an
+    # external LLVM, so check the tools we link from `llvm` actually work.
+    llvm_tools = Pathname(shell_output("#{bin}/rustc --print target-libdir").strip).dirname/"bin"
+    system bin/"rustc", "--test", "hello.rs", "--out-dir", testpath, "-C", "instrument-coverage"
+    system testpath/"hello", "test=1"
+    system llvm_tools/"llvm-profdata", "merge", "-sparse", *Dir["*.profraw"], "-o", "hello.profdata"
+    system llvm_tools/"llvm-cov", "show", "./hello", "-instr-profile=hello.profdata"
 
     # We only check the tools' linkage here. No need to check rustc.
     expected_linkage = {
