@@ -9,8 +9,12 @@ class Watson < Formula
   head "https://github.com/jmaupetit/Watson.git", branch: "main"
 
   bottle do
-    manifest_sha256 "8a05ca560323e74d15c92bc21f91df73208ba41662360c04e79eac9a4237773d"
-    sha256 cellar: :any_skip_relocation, all: "5ed598528f25ba156a4e71eb803b419c355fbe9b832c461f709441e01a01fad9"
+    manifest_sha256 "2f8c907fb2af8c41eee3df3ee199db5485447aaac3a3e507449a03a25ebd36d5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "e942d8a70cf0eef64901a6e8913b3ced16d01815d52a5d3309229158a40e8691"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
   end
 
   depends_on "certifi" => :no_linkage
