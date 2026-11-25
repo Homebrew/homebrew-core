@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/8d/d6/252cd843194f9161145ff20fd1c2637e4814018af1a2376d29a0236d170a/schemathesis-4.34.0.tar.gz"
-  sha256 "fa562dd11a9f866f70030860458ce6a8778d60d3c8363f2569cfe74a1d5c7ff1"
+  url "https://files.pythonhosted.org/packages/fc/a1/8f7d49c28ac07ea4bf512cef8bcabce1682a6733d358fae75217c70c24df/schemathesis-4.34.1.tar.gz"
+  sha256 "66adb27fad37fb54a68b96d09c6cfae7d9a068c448a6002c844359c8970cd37e"
   license "MIT"
 
   bottle do
@@ -32,8 +32,8 @@ class Schemathesis < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
@@ -72,8 +72,8 @@ class Schemathesis < Formula
   end
 
   resource "jsonschema-rs" do
-    url "https://files.pythonhosted.org/packages/4c/e6/e4e174bb12a079eff6ad65847015f99f919f547e34b5995b0baa6ddeb2c6/jsonschema_rs-0.63.0.tar.gz"
-    sha256 "075fd1882e4c9b6518a2ff7ed781f50c728bf78c7dbfa34b3cbfc29abaa8cd99"
+    url "https://files.pythonhosted.org/packages/97/01/5bd2786aff44d4535abb777206743ca10ede10f8bb7a65b2b8662bc49df1/jsonschema_rs-0.63.1.tar.gz"
+    sha256 "e4f96dea00aea944636d77fb8d624a73bcfda541c4f068089724199d1d0e5f32"
   end
 
   resource "markdown-it-py" do
@@ -92,8 +92,8 @@ class Schemathesis < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pluggy" do
