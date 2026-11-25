@@ -1,17 +1,18 @@
 class Skip < Formula
   desc "Tool for building Swift apps for Android"
   homepage "https://skip.dev"
-  url "https://github.com/skiptools/skip/archive/refs/tags/1.9.21.tar.gz"
-  sha256 "5b46923ed3144d0e5c0db07f6b243be32c323299eac709b4711da5b71d5669b5"
+  url "https://github.com/skiptools/skip/archive/refs/tags/1.9.23.tar.gz"
+  sha256 "b416b4e639ca45e636823d2342344dc5b43d016c00005cdc9324ac5ab7131da5"
   license "Apache-2.0" => { with: "Swift-exception" }
   head "https://github.com/skiptools/skip.git", branch: "main"
 
   bottle do
-    sha256 arm64_golden_gate: "ddd711d533403b04ce5e3a6ba48ab555665c1a11934072113dc34872911a60c4"
-    sha256 arm64_tahoe:       "868e36a59efa6da54bee51631bda3397cf432df9d6d065ac47e1410e45d3673c"
-    sha256 arm64_sequoia:     "38baf84db4695685e75f0100961257571284eda4ef35fed613452280b1cf9ff8"
-    sha256 arm64_linux:       "951b4daa59c02db1e6c552dbca078ae5967e377ae5908c6413e7225f76bcffdc"
-    sha256 x86_64_linux:      "141055148963b68c2a06181ac52392862c901309fc42c38330c4fb18d432b59c"
+    manifest_sha256 "4edca61cc5be092192cd6ace5ac5d88f8023094b4da45ed8064ac15663a5034c"
+    sha256 arm64_golden_gate: "330de528db24bec0418a5493ad206d6e51e4494a5ec783802584a5858ddeac15"
+    sha256 arm64_tahoe:       "b31560b8ccf199a8bdefe319c30117bbe495f1be41ba71a204cdcbedd9b6f1ec"
+    sha256 arm64_sequoia:     "7c3d7b4df7ff040b6166fc946997918fa1ebace0bc2bff29294414027b640328"
+    sha256 arm64_linux:       "7f894cbf155df29866ca660d6e291408bf1f4a2f338313493486f6f1fd17a6da"
+    sha256 x86_64_linux:      "d1b60a55eb40f294ad987b829b4ed65009762b6f66f814e49b130c10da8fe568"
   end
 
   depends_on "gradle"
