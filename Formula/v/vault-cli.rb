@@ -17,13 +17,15 @@ class VaultCli < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     # Remove windows files
     rm(Dir["bin/*.bat"])
 
     libexec.install Dir["*"]
     bin.install libexec.glob("bin/*")
-    bin.env_script_all_files(libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk"))
+    bin.env_script_all_files(libexec/"bin", JAVA_HOME: dep("openjdk").opt_prefix)
   end
 
   test do
