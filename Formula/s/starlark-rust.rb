@@ -1,10 +1,10 @@
 class StarlarkRust < Formula
   desc "Rust implementation of the Starlark language"
-  homepage "https://github.com/facebook/starlark-rust"
+  homepage "https://github.com/meta/starlark-rust"
   url "https://static.crates.io/crates/starlark_bin/starlark_bin-0.14.0.crate"
   sha256 "0c33c0ca1ebd9da2f735029e3815a49a593273567315a0e5b22dff4d2899f196"
   license "Apache-2.0"
-  head "https://github.com/facebook/starlark-rust.git", branch: "main"
+  head "https://github.com/meta/starlark-rust.git", branch: "main"
 
   bottle do
     rebuild 1
