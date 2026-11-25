@@ -1,8 +1,8 @@
 class Upki < Formula
   desc "Implements platform-independent browser-grade certificate infrastructure"
   homepage "https://github.com/rustls/upki"
-  url "https://github.com/rustls/upki/archive/refs/tags/v1.0.3.tar.gz"
-  sha256 "427d7d3692ad2ec66b28941dbd8a00b36928ec500b0e35d15d047d2469b721b5"
+  url "https://github.com/rustls/upki/archive/refs/tags/v1.0.4.tar.gz"
+  sha256 "4ec99d1e5281c6db788ec5f6929ba951d19bf84e87bad8494be75173d5332d9b"
   license any_of: ["Apache-2.0", "MIT"]
   head "https://github.com/rustls/upki.git", branch: "main"
 
