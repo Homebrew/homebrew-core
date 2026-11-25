@@ -1,17 +1,18 @@
 class LivebookCli < Formula
   desc "Code notebooks for Elixir developers"
   homepage "https://livebook.dev"
-  url "https://github.com/livebook-dev/livebook/archive/refs/tags/v0.19.10.tar.gz"
-  sha256 "a4ddd8a73e1c663bdd1ec7b33aaaca5390912c0541a50301c7a8cf652b095538"
+  url "https://github.com/livebook-dev/livebook/archive/refs/tags/v0.19.11.tar.gz"
+  sha256 "924d9ff52260d8fc44fddd0629594c7f6e2e94b3265643dabbe0c039eaaf1c28"
   license "Apache-2.0"
   head "https://github.com/livebook-dev/livebook.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a13fff8b5dde469b9b8d10dbdb242807a4fc5b4911c05b99de9470a5a16322c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4dbcc26b243423dd80f505b23a783f7528b361d7f404ba3ac7b13033f3e927a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "67fc352c30e977326071b2d45e813bd4b5aca625766a1232a10b6978d35b8da6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "97a38b960b65a5c21005ab4676f17d3ce1f93cf22e3b40601586dc6a84593787"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b1306b5af117cede744913ae2bfde5397a6aa304eb62bc949f3e4eafd0f70787"
+    manifest_sha256 "18fc6156dea6ba0afa72d9863ce00eea8f2a527109f45dbcd97edc8a0786e71b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8852cf1a56244cb057ca78213408aa7a286908d5561644f2e447b0fa432532c2"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "855ebf2ca7ee1f07a5fad8de2ea35f2c7b07d0db53d1ed2f168349cb8e0db313"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13786c4b2b14b83f7541c9a14ac36096acf17d07c21576076229478939249ee7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "5e5e3aff9a353c4041971736f2ea4fb7a794b648a46e17323e77a9dbd7858fb5"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "befd34fdb21f7417dec6f1d04c43b36ea39c12c5f6af5f1fc06bb4d242e5a52b"
   end
 
   depends_on "elixir" => :build
