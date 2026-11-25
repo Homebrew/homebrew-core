@@ -158,13 +158,9 @@ class Dovecot < Formula
 
     system bin/"doveconf", "-c", testpath/"config/dovecot.conf"
 
-    pid = spawn sbin/"dovecot", "-c", testpath/"config/dovecot.conf", "-F"
-    begin
+    with_test_process(sbin/"dovecot", "-c", testpath/"config/dovecot.conf", "-F") do
       sleep 5
       system "nc", "-z", "localhost", port
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
