@@ -1,10 +1,10 @@
 class Fpp < Formula
   desc "CLI program that accepts piped input and presents files for selection"
-  homepage "https://facebook.github.io/PathPicker/"
-  url "https://github.com/facebook/PathPicker/archive/refs/tags/0.9.5.tar.gz"
+  homepage "https://meta.github.io/PathPicker/"
+  url "https://github.com/meta/PathPicker/archive/refs/tags/0.9.5.tar.gz"
   sha256 "b0142676ed791085d619d9b3d28d28cab989ffc3b260016766841c70c97c2a52"
   license "MIT"
-  head "https://github.com/facebook/pathpicker.git", branch: "main"
+  head "https://github.com/meta/pathpicker.git", branch: "main"
 
   bottle do
     rebuild 1
