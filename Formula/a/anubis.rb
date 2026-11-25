@@ -50,24 +50,19 @@ class Anubis < Formula
   test do
     webify_port = free_port
     anubis_port = free_port
-
-    webify_pid = spawn formula_opt_bin("webify")/"webify", "-addr", ":#{webify_port}", "echo", "Homebrew"
-    anubis_pid = spawn bin/"anubis", "-bind", ":#{anubis_port}", "-target", "http://localhost:#{webify_port}",
-      "-serve-robots-txt", "-use-remote-address", "127.0.0.1"
-
-    assert_includes shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{anubis_port}"),
-      "Homebrew"
-
-    expected_robots_txt = <<~EOS
+    expected_robots_txt = <<~EOS.strip
       User-agent: *
       Disallow: /
     EOS
-    assert_includes shell_output("curl --silent http://localhost:#{anubis_port}/robots.txt"),
-      expected_robots_txt.strip
-  ensure
-    Process.kill "TERM", anubis_pid
-    Process.kill "TERM", webify_pid
-    Process.wait anubis_pid
-    Process.wait webify_pid
+
+    with_test_process(formula_opt_bin("webify")/"webify", "-addr", ":#{webify_port}", "echo", "Homebrew") do
+      with_test_process(bin/"anubis", "-bind", ":#{anubis_port}", "-target", "http://localhost:#{webify_port}",
+                        "-serve-robots-txt", "-use-remote-address", "127.0.0.1") do
+        output = shell_output("curl --silent --retry 5 --retry-connrefused http://localhost:#{anubis_port}")
+        assert_match "Homebrew", output
+        output = shell_output("curl --silent http://localhost:#{anubis_port}/robots.txt")
+        assert_match expected_robots_txt, output
+      end
+    end
   end
 end
