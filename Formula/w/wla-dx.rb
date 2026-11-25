@@ -1,8 +1,8 @@
 class WlaDx < Formula
   desc "Yet another crossassembler package"
   homepage "https://github.com/vhelin/wla-dx"
-  url "https://github.com/vhelin/wla-dx/archive/refs/tags/v10.7.tar.gz"
-  sha256 "38296a96bc20be873d17e0e88be0c5b20a15ef2ec4da5279600e56af30ad925a"
+  url "https://github.com/vhelin/wla-dx/archive/refs/tags/v10.8.tar.gz"
+  sha256 "61b1b41b2fa2350c811b9aff4b04a2ef087926642d796ec50bf7a6f5f44c7619"
   license "GPL-2.0-or-later"
 
   livecheck do
@@ -12,13 +12,12 @@ class WlaDx < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "863dff752bcd97df729b36118e45a756c504e6ebb9e453cc4c173e5572575447"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14835aed5364771805901495fdeca30f6f7c9f56835dbadea59173639a949abd"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dda35cea50a7e7f1149d1ef1e38ea8a5b97992bb06a6dff615e47c0440366373"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "5fe78c5b54142ff1711ec529839332910b15036262b5602b4190afec9e785aa2"
-    sha256 cellar: :any_skip_relocation, sonoma:            "fc58862171d224ff6f482a2e966c9ca83d7d71ee58c14babbdaaca8aa0867642"
-    sha256 cellar: :any,                 arm64_linux:       "9e90004ff3e66541a4bf3545900877008cb582bf7a9df7707bdf31e810cca33b"
-    sha256 cellar: :any,                 x86_64_linux:      "61f7c89346e1f7b70980388e89fea7babf8c53aa78af5012e876090d2ce193f4"
+    manifest_sha256 "ed66fd59ceefce76863dcc3a160dbeed9d864eeb50538daae3209b65123d44be"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7230f5650cac652adaca7fb136ce59fc971b990d57df21dad0a83ad8f24fca00"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4adc4db22f13df61bc519a47b7aa988c79ebc2bafb33b2da5921f0adecc80a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2aba608f95d91e16331e2b435a12f32672e80996fae0f12f298d8db8d69f176d"
+    sha256 cellar: :any,                 arm64_linux:       "efb043bba8643d279c1032ca415d53894f0d3e6dcd8228444cc44ffc869d3331"
+    sha256 cellar: :any,                 x86_64_linux:      "fef90611aa527277f0454bd1b47ddc8be785f3fd4f0ad6cc33d6178faa39c109"
   end
 
   depends_on "cmake" => :build
