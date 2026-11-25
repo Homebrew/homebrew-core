@@ -33,6 +33,8 @@ class Vipsdisp < Formula
   depends_on "hicolor-icon-theme"
   depends_on "vips"
 
+  deny_network_access!
+
   def install
     # ensure that we don't run the meson post install script
     ENV["DESTDIR"] = "/"
