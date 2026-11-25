@@ -1,9 +1,9 @@
 class Screen < Formula
   desc "Terminal multiplexer with VT100/ANSI terminal emulation"
   homepage "https://www.gnu.org/software/screen/"
-  url "https://ftpmirror.gnu.org/screen/screen-5.0.2.tar.gz"
-  mirror "https://ftp.gnu.org/gnu/screen/screen-5.0.2.tar.gz"
-  sha256 "ca9a2c7e240919bc7ac12124593ae4529bb4eb5f7349d8857829b7e3f0b3b332"
+  url "https://ftpmirror.gnu.org/screen/screen-5.0.3.tar.gz"
+  mirror "https://ftp.gnu.org/gnu/screen/screen-5.0.3.tar.gz"
+  sha256 "941c98ffecdca4bff4bbd1cd6f08fbd18967353affc46521040a999dafbd39a2"
   license "GPL-3.0-or-later"
   head "https://git.savannah.gnu.org/git/screen.git", branch: "master"
 
