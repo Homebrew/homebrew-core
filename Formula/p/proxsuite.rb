@@ -1,17 +1,18 @@
 class Proxsuite < Formula
   desc "Advanced Proximal Optimization Toolbox"
   homepage "https://github.com/Simple-Robotics/proxsuite"
-  url "https://github.com/Simple-Robotics/proxsuite/archive/refs/tags/v0.8.3.tar.gz"
-  sha256 "8bd4818895e66784c7f86e73997df4f9b318a9b06c233798f9ec169776656e07"
+  url "https://github.com/Simple-Robotics/proxsuite/archive/refs/tags/v0.8.4.tar.gz"
+  sha256 "54e1a9722786e7c064834677ba05d4708d523fbc8533adea9effa9c4451579a3"
   license "BSD-2-Clause"
   head "https://github.com/Simple-Robotics/proxsuite.git", branch: "devel"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40b5d7935c4a53416e33744f669279824559f0149125c0f29d718882008a4e37"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "233a6486d36942c9e72878a6b81381c6e0e7fb035514fd8b54c54ab990110a9a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bb324498cb2a017885c6c7b0b94dfc7e1b101e6017cba6290998cada7554a80"
-    sha256 cellar: :any,                 arm64_linux:       "1491f5742a385d95248eaf7bffd36b11baa34cdcc7d750d9fb03d4df001be66d"
-    sha256 cellar: :any,                 x86_64_linux:      "a6ae06fbab97a98e0961fa4d64f38f09ee3d218ec0cf709ebe5c649c26c66b4c"
+    manifest_sha256 "155b5aa0cf9962e26c5a0df00133a57d4e20631e379e5a0a861938cf7bbf866f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8ddb605f47a24575a901c3c8a5f4013cb332b9fa4a1d941243482d916ff7956"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0d1e1392c544c2d48c43031e1ae22ef305037b6bf872aca784982088ea08916"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b493370fe4b4b45f6cb2e862eef1771e678a48c501252b1ee2131e09597c9a42"
+    sha256 cellar: :any,                 arm64_linux:       "7310dbd6bf2ae99edd0edf908931225398a62b4693003358afbe98db70b21185"
+    sha256 cellar: :any,                 x86_64_linux:      "9e1173b88e6d589c4f0c364723185fdd63c7d2c258eb3d2e61c792b20764eb1c"
   end
 
   depends_on "cmake" => :build
