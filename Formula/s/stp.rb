@@ -25,13 +25,13 @@ class Stp < Formula
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+  depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "cryptominisat"
-  depends_on "gmp"
   depends_on "minisat"
   depends_on "python@3.15"
 
-  uses_from_macos "perl"
+  uses_from_macos "perl" => :build
 
   # Must match the `lib/extlib-abc` submodule as stp builds only the ABC sources that revision needs
   resource "extlib-abc" do
@@ -47,6 +47,8 @@ class Stp < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     resource("extlib-abc").stage buildpath/"lib/extlib-abc"
 
@@ -59,6 +61,7 @@ class Stp < Formula
       -DPYTHON_LIB_INSTALL_DIR=#{site_packages}
       -DSTP_ALLOCATOR=system
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # strip gmp linkage
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
