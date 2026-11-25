@@ -3,17 +3,18 @@ class Cycode < Formula
 
   desc "Boost security in your dev lifecycle via SAST, SCA, Secrets & IaC scanning"
   homepage "https://github.com/cycodehq/cycode-cli"
-  url "https://files.pythonhosted.org/packages/a4/6c/f91d45edbd0032367c3e5af790758aa5d375b5cd369d8e531299a3061ff4/cycode-3.28.1.tar.gz"
-  sha256 "65cbcc2df3788f3f17f1b03dcda9e3cbf16847aade0e143925e07837362a9060"
+  url "https://files.pythonhosted.org/packages/4e/ae/cae176abc701adc36591e80f278f7155c60d6e3cd1e2bdd0f8ce9c081560/cycode-3.28.2.tar.gz"
+  sha256 "9057466dd779e6c7a43bbc297d2a2d7191d444e7c93b0d12c573da8ddcd9895b"
   license "MIT"
   head "https://github.com/cycodehq/cycode-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b99c0f40e5bd6ac3ece45e83146c99ce18a56f67e2c49028b58e833a0b4ee4a2"
-    sha256 cellar: :any, arm64_tahoe:       "97d91889014eebfb95c7fcf74c811e007a7e679107136a74cff18c87f20ceab0"
-    sha256 cellar: :any, arm64_sequoia:     "b9511d1a453a69145510d01199caf1980bf8b3f7fd2a6c111edb153f98bdcc69"
-    sha256 cellar: :any, arm64_linux:       "c97c01e73493a31e1d7ccebc29d29a92606ead2ca3bd600c9d2c6874c72a93ac"
-    sha256 cellar: :any, x86_64_linux:      "3075b6cc11f50f5c0e370dc612f88c40c731449f4c0a9b219c787cc148489853"
+    manifest_sha256 "ea29bebba59f1d618d1340a93e4779502237429009968368e354ae3a78df71fb"
+    sha256 cellar: :any, arm64_golden_gate: "7d2901842dccb0f99e4633da91888ef5a3fd2f05daf6a9f940100bf6e9c0c733"
+    sha256 cellar: :any, arm64_tahoe:       "20b668afe77b0448f368b2a94841a1b0cb7990a49c2a8a565c4e46b6886eeac8"
+    sha256 cellar: :any, arm64_sequoia:     "b19d4e4fadbdad80f1d9e848aa770c822992e500a09974ec2c82e6b5bdaf7463"
+    sha256 cellar: :any, arm64_linux:       "70401b8aa25782665bfd28e7a55c392cdb335751323e9e159c131bd48e3af934"
+    sha256 cellar: :any, x86_64_linux:      "7997921100a8d4bd35466d4b46be7c22135d906d54da5d752ff4ac0aa72e593f"
   end
 
   depends_on "certifi" => :no_linkage
@@ -46,8 +47,8 @@ class Cycode < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
@@ -166,8 +167,8 @@ class Cycode < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "referencing" do
@@ -196,8 +197,8 @@ class Cycode < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
-    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
+    url "https://files.pythonhosted.org/packages/12/c0/eb8c9eec5c0e29ce2a1c4d4654ddfb06c77b52b4db63ab40226198456be6/sse_starlette-3.7.1.tar.gz"
+    sha256 "9a8256e3e80a0fdc8d1dec14f2bb0b3f304c99f23a6d4d26c61ff50145761597"
   end
 
   resource "starlette" do
