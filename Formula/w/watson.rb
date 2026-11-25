@@ -3,8 +3,8 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://jmaupetit.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/1b/de/850a9935cb8905f678da62358389f8dc1f11283bb511131c23d59fae702a/td_watson-3.0.0.tar.gz"
-  sha256 "1660811638b46e00ce9622be60147e5b93725e964494bfe71343a8748ddbbf40"
+  url "https://files.pythonhosted.org/packages/c3/fa/0c0a8de3e625fbbeb95cf5623b4664b41a1ae2ddbd3cf56482ad8f7a796e/td_watson-3.0.1.tar.gz"
+  sha256 "bfe3f9f70e62f05b9bafd4e313656b208495992c03b8f890795ef74df5b161c4"
   license "MIT"
   head "https://github.com/jmaupetit/Watson.git", branch: "main"
 
@@ -24,8 +24,8 @@ class Watson < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
