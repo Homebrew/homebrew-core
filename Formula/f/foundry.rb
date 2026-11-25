@@ -73,13 +73,9 @@ class Foundry < Formula
     assert_match "Decimal: 2\n", pipe_output("#{bin}/chisel", "1+1")
 
     anvil_port = free_port
-    anvil = spawn bin/"anvil", "--port", anvil_port.to_s
-    sleep 2
-    assert_equal "31337", shell_output("#{bin}/cast cid -r 127.0.0.1:#{anvil_port}").chomp
-  ensure
-    if anvil
-      Process.kill("TERM", anvil)
-      Process.wait anvil
+    with_test_process(bin/"anvil", "--port", anvil_port.to_s) do
+      sleep 2
+      assert_equal "31337", shell_output("#{bin}/cast cid -r 127.0.0.1:#{anvil_port}").chomp
     end
   end
 end
