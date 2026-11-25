@@ -1,8 +1,8 @@
 class CodeCli < Formula
   desc "Command-line interface built-in Visual Studio Code"
   homepage "https://code.visualstudio.com"
-  url "https://github.com/microsoft/vscode/archive/refs/tags/1.147.0.tar.gz"
-  sha256 "b3b7d5f314a963eba0dc430bf3ca88212a029e9c373a517a8a4d5e1872f9f292"
+  url "https://github.com/microsoft/vscode/archive/refs/tags/1.148.0.tar.gz"
+  sha256 "6dce37185f4be39d8e217e43f4008212cad38d069e1920d079194c8090f78b45"
   license "MIT"
   head "https://github.com/microsoft/vscode.git", branch: "main"
 
@@ -12,11 +12,12 @@ class CodeCli < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e24341534db24864d57784a27d799a664e3bbaa38b315c1edccc58872d4d1758"
-    sha256 cellar: :any, arm64_tahoe:       "04afe8071ce89c98fe7e659176a05fae9065e3802e1168767c69906474d632a2"
-    sha256 cellar: :any, arm64_sequoia:     "43e33550e9219aac520b49d8c3c73f7a398798dd22610bd89d82105166be927f"
-    sha256 cellar: :any, arm64_linux:       "fd3d5e27435be3fe081e8672596e5de06c21561f014b171467091db0d8afd10b"
-    sha256 cellar: :any, x86_64_linux:      "1ae504cbbe2a5921a8939ae2d7660efc0d6e98a5fee64268706d99d491bfcb00"
+    manifest_sha256 "b915cfa74ac689ecbf9754fcd2fbf3e2bee7b200153ced24df2ae34a2e73ddea"
+    sha256 cellar: :any, arm64_golden_gate: "f637713e941ffa49543e2a89696a23a30ff1736017c9bd618a7a2d91a6acbc03"
+    sha256 cellar: :any, arm64_tahoe:       "338f69e1f95e1556f5b26c34ec6cdaba1894a701d3d6aba6f3af3bcd63ef748d"
+    sha256 cellar: :any, arm64_sequoia:     "033f44ecb9ea434ca7bc56d932d8422d0318c04b8407d7017b2a2d2c79e9dcd8"
+    sha256 cellar: :any, arm64_linux:       "bd6989c6f2b3d2d4f0703317c8145df868d7b7deaffc79e19152c7dc5150f9bc"
+    sha256 cellar: :any, x86_64_linux:      "270e745cb9de2d63fc0111ab70263b56ee8c9a3f11a22543fbb31046c7c61769"
   end
 
   depends_on "pkgconf" => :build
