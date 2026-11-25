@@ -7,24 +7,23 @@ class Delly < Formula
   head "https://github.com/dellytools/delly.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "03846319b71b923de2ee7ab7b27235ee05a7c457c65fd8ad6184bc5f5087ca45"
-    sha256 cellar: :any, arm64_tahoe:       "96d2b9c398cb8545a349e98de0b38dfc3069b8af9413476982380f7c38962db0"
-    sha256 cellar: :any, arm64_sequoia:     "b81c231f05132b575eea46d5e2a39d2776632b0a664ce70391eae433bba5e667"
-    sha256 cellar: :any, arm64_linux:       "669ffac049cf677e14b01af8290878482c45a3bf187600e392ccffd713ceb08f"
-    sha256 cellar: :any, x86_64_linux:      "beacc8b71ad7070d1e90a74f3d73dccca9a7a841612dae5b80e63a094b2e4300"
+    rebuild 1
+    manifest_sha256 "b1548a73ca0c8a2b85fbd07163949a064ec7f937fe636246c19b6a4b9bf1bb79"
+    sha256 cellar: :any, arm64_golden_gate: "5243e32e929ff74b09dece73e9d2cf5d94b74fc6caecfb4a80e606add2a38884"
+    sha256 cellar: :any, arm64_tahoe:       "a019bfdd37cb0d21c411005f94f51fd879528ffb7cd6413dc8caaab6dcee7654"
+    sha256 cellar: :any, arm64_sequoia:     "427afeb21102c4119baa294eb4fe78131122db1abb3fe9855527e5d42ea32e0f"
+    sha256 cellar: :any, arm64_linux:       "d1263eb911c68074cdea0171aa49d370f79fd31766a150c599a0897851edef56"
+    sha256 cellar: :any, x86_64_linux:      "241398d36826caf2f30e105331b229c70630eb1694fcbb35db23876f857b1916"
   end
 
   depends_on "boost"
   depends_on "htslib"
-  depends_on "xz"
 
-  uses_from_macos "bzip2"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
+  deny_network_access!
 
   def install
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # reduce overlinking
+
     system "make", "src/delly",
            "HTSLIBINCDIR=#{formula_opt_include("htslib")}",
            "HTSLIBLIBDIR=#{formula_opt_lib("htslib")}",
