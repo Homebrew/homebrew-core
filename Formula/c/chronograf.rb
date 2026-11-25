@@ -1,8 +1,8 @@
 class Chronograf < Formula
   desc "Open source monitoring and visualization UI for the TICK stack"
   homepage "https://docs.influxdata.com/chronograf/latest/"
-  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.7.tar.gz"
-  sha256 "06c3edd7cae1ab8668fff6cc723695b6929bdca37a290cd959a2be455946f626"
+  url "https://github.com/influxdata/chronograf/archive/refs/tags/1.11.8.tar.gz"
+  sha256 "333178f5a93d13cd2e1041a1edc5f0c429b7f7d5969d3f71040b7184b7c47ba3"
   license "AGPL-3.0-or-later"
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
@@ -24,8 +24,13 @@ class Chronograf < Formula
   depends_on "influxdb"
   depends_on "kapacitor"
 
+  on_macos do
+    depends_on "llvm" => :build
+  end
+
   def install
     ENV["PKG_CONFIG"] = formula_opt_bin("pkg-config-wrapper")/"pkg-config-wrapper"
+    ENV["OBJCOPY"] = formula_opt_bin("llvm")/"llvm-objcopy" if OS.mac?
     ENV["CGO_ENABLED"] = "1" if OS.linux?
     ENV["npm_config_build_from_source"] = "true"
 
