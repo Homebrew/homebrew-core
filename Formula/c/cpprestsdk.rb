@@ -5,15 +5,16 @@ class Cpprestsdk < Formula
   url "https://github.com/microsoft/cpprestsdk/archive/refs/tags/v2.10.19.tar.gz"
   sha256 "4b0d14e5bfe77ce419affd253366e861968ae6ef2c35ae293727c1415bd145c8"
   license "MIT"
-  revision 5
+  revision 6
   head "https://github.com/microsoft/cpprestsdk.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9ea1345fb85aa7b276fba2a470fea191786be21a4771c605d07bc8bc36f0bf16"
-    sha256 cellar: :any, arm64_tahoe:       "bd5d0a3b380f3349bde364b87358b70b2cd1957b564225272f15557d3eec25c3"
-    sha256 cellar: :any, arm64_sequoia:     "5a5c4d8f9df5749653618a7f1b3186f4f3005fc28acffcee25e99a8c72cfe23b"
-    sha256 cellar: :any, arm64_linux:       "8d8db6f1654f6ac66d93c77ffa17cfb52df62192fd4a557789868f7c7b602ba8"
-    sha256 cellar: :any, x86_64_linux:      "ee9c25335f5ab8cb90eb4a4eed4ea28ce5362b2686b7cd5e28f4e887b5bf6f1a"
+    manifest_sha256 "3beee3586c89171ae1ef8022ede458e76c20c26f778bcfabca043162dcef4f86"
+    sha256 cellar: :any, arm64_golden_gate: "4374610a899c5fccfae72e8046214524e44efdee0dd6917f48d29796c9ac6922"
+    sha256 cellar: :any, arm64_tahoe:       "eba8604e61c0fbb86a6454d67d055eb04b9fbaec2d1f5cff061226e30f179e74"
+    sha256 cellar: :any, arm64_sequoia:     "0a2e8da8a13011eeb13977160d588f246ef4af7529a913663ca96dd6ca93cec8"
+    sha256 cellar: :any, arm64_linux:       "dbacd6afc0e299e42d21c98a9223137e2db980dad16223f9d453f430448797e7"
+    sha256 cellar: :any, x86_64_linux:      "78497093bf3b7b0c294b1a126ab591f3c819ebb2f9ed8d2402feb2fa522f1908"
   end
 
   # https://github.com/microsoft/cpprestsdk/commit/7c3f8782e36303c896d1b75a9d23160d4e76b4c7
@@ -22,7 +23,7 @@ class Cpprestsdk < Formula
 
   depends_on "cmake" => :build
   depends_on "pkgconf" => :build
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
   depends_on "openssl@4"
 
   # Apply FreeBSD patches for libc++ >= 19 needed in Xcode 16.3
@@ -69,14 +70,17 @@ class Cpprestsdk < Formula
 
   def install
     openssl_prefix = dep("openssl").opt_prefix
-    system "cmake", "-S", "Release", "-B", "build",
-                    "-DBUILD_SAMPLES=OFF",
-                    "-DBUILD_TESTS=OFF",
-                    # Disable websockets feature due to https://github.com/zaphoyd/websocketpp/issues/1157
-                    # Needs upstream response and fix in `websocketpp` formula (do not use bundled copy)
-                    "-DCPPREST_EXCLUDE_WEBSOCKETS=ON",
-                    "-DOPENSSL_ROOT_DIR=#{openssl_prefix}",
-                    *std_cmake_args
+    args = [
+      "-DBUILD_SAMPLES=OFF",
+      "-DBUILD_TESTS=OFF",
+      # Disable websockets feature due to https://github.com/zaphoyd/websocketpp/issues/1157
+      # Needs upstream response and fix in `websocketpp` formula (do not use bundled copy)
+      "-DCPPREST_EXCLUDE_WEBSOCKETS=ON",
+      "-DOPENSSL_ROOT_DIR=#{openssl_prefix}",
+    ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # strip boost linkage
+
+    system "cmake", "-S", "Release", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
