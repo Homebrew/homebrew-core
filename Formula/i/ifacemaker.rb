@@ -1,8 +1,8 @@
 class Ifacemaker < Formula
   desc "Generate interfaces from structure methods"
   homepage "https://github.com/vburenin/ifacemaker"
-  url "https://github.com/vburenin/ifacemaker/archive/refs/tags/v1.4.0.tar.gz"
-  sha256 "c14fb68397812f4ac487a2626262396d9f9a01a4da39023713795b04b5714a83"
+  url "https://github.com/vburenin/ifacemaker/archive/refs/tags/v1.5.0.tar.gz"
+  sha256 "55e0dfc64213827ee984048634cf4af29e96f02a839542f719c807fb6a204473"
   license "Apache-2.0"
   head "https://github.com/vburenin/ifacemaker.git", branch: "master"
 
@@ -43,7 +43,7 @@ class Ifacemaker < Formula
     GO
 
     output = shell_output("#{bin}/ifacemaker -f human.go -s Human -i HumanIface -p humantest " \
-                          "-y \"HumanIface makes human interaction easy\"" \
+                          "-y \"HumanIface makes human interaction easy\" " \
                           "-c \"DONT EDIT: Auto generated\"")
     assert_match "type HumanIface interface", output
   end
