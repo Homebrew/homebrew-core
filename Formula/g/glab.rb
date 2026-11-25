@@ -2,8 +2,8 @@ class Glab < Formula
   desc "Open-source GitLab command-line tool"
   homepage "https://gitlab.com/gitlab-org/cli"
   url "https://gitlab.com/gitlab-org/cli.git",
-    tag:      "v1.132.0",
-    revision: "00f5b8fe102e1a07471aadd5a2e44f6ff1befeeb"
+    tag:      "v1.133.0",
+    revision: "093bdd1b82d84dd066eefc9fac91d382e3128899"
   license "MIT"
   compatibility_version 1
   head "https://gitlab.com/gitlab-org/cli.git", branch: "main"
@@ -11,12 +11,12 @@ class Glab < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    manifest_sha256 "48dc4ba1e30d7823729e544d316bd6474ad61af72ebf1d88f79bfe63b1145696"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e706cea6adc85d144b39b75ff33cd5a7216c8e5a790a719e733e7360206cca7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e706cea6adc85d144b39b75ff33cd5a7216c8e5a790a719e733e7360206cca7"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e706cea6adc85d144b39b75ff33cd5a7216c8e5a790a719e733e7360206cca7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e85f0bd27a659fcc4c1ca322826a4b7c6192a98db9b4629e0df3883d79124ddd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "e430e071b629b61481d16e769efd76d3cf7ada86767c5048719f920d573779c6"
+    manifest_sha256 "db60e586ee69e7618faa051af2f88e5602bb19aada0ebc05946b773580b409c7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7110482feb20436bf3a1db1049fcd5bbdf9c0a72338d0759ed1de919da82ee0b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7110482feb20436bf3a1db1049fcd5bbdf9c0a72338d0759ed1de919da82ee0b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7110482feb20436bf3a1db1049fcd5bbdf9c0a72338d0759ed1de919da82ee0b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "d4b28e03c9c93f3d61581349c6ecf0dadf0edc2ec25f76e72ace953b6dbc2931"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "167e2f50210ed1193f7776070efe632f3a91ee3150e6b3439c2b46675d6c907a"
   end
 
   depends_on "go" => :build
