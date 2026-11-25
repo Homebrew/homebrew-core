@@ -116,20 +116,15 @@ class EtcdCppApiv3 < Formula
     system "cmake", "--build", "build"
 
     # prepare etcd
-    etcd_pid = spawn(
+    with_test_process(
       formula_opt_bin("etcd")/"etcd",
       "--force-new-cluster",
       "--data-dir=#{testpath}",
       "--listen-client-urls=http://127.0.0.1:#{port}",
       "--advertise-client-urls=http://127.0.0.1:#{port}",
-    )
-
-    # sleep to let etcd get its wits about it
-    sleep 10
-
-    assert_equal("bar\n", shell_output("./build/test_etcd_cpp_apiv3"))
-  ensure
-    # clean up the etcd process before we leave
-    Process.kill("HUP", etcd_pid)
+    ) do
+      sleep 10 # sleep to let etcd get its wits about it
+      assert_equal("bar\n", shell_output("./build/test_etcd_cpp_apiv3"))
+    end
   end
 end
