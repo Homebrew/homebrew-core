@@ -3,17 +3,17 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/5b/bb/deca653f9c59df5d4b445c048d7d5b01d09ef543f076866cc1ee2f81961c/rapid_mlx-1.1.0.tar.gz"
-  sha256 "2f2c310cdb99b11876d44ade83c48e5f00b908ade7f8b9283096b215250cab35"
+  url "https://files.pythonhosted.org/packages/c0/1e/14d496324cbe0ead28607702dd47a09b9727c652be9a25e3f7d584d9a7e3/rapid_mlx-1.1.1.tar.gz"
+  sha256 "1a3eced68164eb686b16f83b4d33b8e61c5f68d5445fc2816d8d810130722831"
   license "Apache-2.0"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    manifest_sha256 "738cf2eaeaee62c74869e8e6a157e287a0fdab37d0b64726b577d278cd6068a4"
-    sha256 cellar: :any, arm64_golden_gate: "b0f7a0038553acc9eb3728028d445faf4992be42ee872a1d0f8e2bdf77827578"
-    sha256 cellar: :any, arm64_tahoe:       "23f69edf10928e5be7230b7f9e6769a798307fdde841734241cfd4728845209a"
-    sha256 cellar: :any, arm64_sequoia:     "d75f62b2633f1b5b822d2fafdc5db24f93b8c29d49a832285b310ed3fc284eb6"
+    manifest_sha256 "ba31af3fd33d5714e259835ed1568a2b0cd80eae33a6c0f84aa4f9aad994f73d"
+    sha256 cellar: :any, arm64_golden_gate: "bc0a7e8da076ae52b00876b8f74edb9c2bad72798e7f65142bed6ab99f695934"
+    sha256 cellar: :any, arm64_tahoe:       "d8bf49deee774240d9fa52dd27325af377b36523ee2aa6cd950a7f5b9d94a50e"
+    sha256 cellar: :any, arm64_sequoia:     "ab91851775de3af366434f2c2c20f86b58f8bf653602839f78bd4eda54036257"
   end
 
   depends_on "cmake" => :build
@@ -66,8 +66,8 @@ class RapidMlx < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
@@ -166,8 +166,8 @@ class RapidMlx < Formula
   end
 
   resource "logfire-api" do
-    url "https://files.pythonhosted.org/packages/75/02/ea64660ba93b9a754d04acf19e8455483dc78bdbd2852821105c75a02b86/logfire_api-6.0.0.tar.gz"
-    sha256 "12e0a578878a84a1e24c816b1bd8d58d512965793837687cd6385d67316799a0"
+    url "https://files.pythonhosted.org/packages/d4/40/2fb5b8d8676dd366d152e370e7cccf1cf9babb899404cdb7962e31955de3/logfire_api-6.0.1.tar.gz"
+    sha256 "b2ee55ec65d4a6bddb53b3e67f7df92b9a6d658cd10e13afb83bb31d56d77969"
   end
 
   resource "markdown-it-py" do
@@ -221,8 +221,8 @@ class RapidMlx < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/90/b2/97780581dab39384d1de4bc15f1f6cbaff26ce965a46c23a10bd948b71a8/openai-3.57.0.tar.gz"
-    sha256 "5a0a89d6a542efc85e2a8cec701ca9265b795d578c777828e10fafdf80e333b6"
+    url "https://files.pythonhosted.org/packages/ba/cb/7753707676a915df954b8239da0b4a1604b523bb2de32943fcb4053f60a6/openai-3.58.0.tar.gz"
+    sha256 "8b9f4a166d6860a04f26e34de0ae9aa3f267cbe6da2df4ad7d4cfa8483f540b2"
   end
 
   resource "openai-harmony" do
@@ -351,8 +351,8 @@ class RapidMlx < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
-    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
+    url "https://files.pythonhosted.org/packages/12/c0/eb8c9eec5c0e29ce2a1c4d4654ddfb06c77b52b4db63ab40226198456be6/sse_starlette-3.7.1.tar.gz"
+    sha256 "9a8256e3e80a0fdc8d1dec14f2bb0b3f304c99f23a6d4d26c61ff50145761597"
   end
 
   resource "starlette" do
