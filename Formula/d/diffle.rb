@@ -42,14 +42,11 @@ class Diffle < Formula
     (testpath/"hello.txt").append_lines "world"
 
     port = free_port
-    pid = spawn bin/"diffle", "working", "--port", port.to_s, "--no-open", "--no-lsp", "--no-watch", "--keep-alive"
-    begin
+    args = ["--port", port.to_s, "--no-open", "--no-lsp", "--no-watch", "--keep-alive"]
+    with_test_process(bin/"diffle", "working", *args) do
       sleep 5
       assert_match "<html", shell_output("curl -s http://127.0.0.1:#{port}/")
       assert_match "+world", shell_output("curl -s http://127.0.0.1:#{port}/api/patch")
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
