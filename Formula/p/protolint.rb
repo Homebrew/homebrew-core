@@ -1,17 +1,18 @@
 class Protolint < Formula
   desc "Pluggable linter and fixer to enforce Protocol Buffer style and conventions"
   homepage "https://github.com/yoheimuta/protolint"
-  url "https://github.com/yoheimuta/protolint/archive/refs/tags/v0.58.0.tar.gz"
-  sha256 "7d5f4650ed23f68c34a6be1ba77fb3661dd4b7b28b64664a479b6835febceb18"
+  url "https://github.com/yoheimuta/protolint/archive/refs/tags/v0.59.1.tar.gz"
+  sha256 "dc8c48dc380f8ee362b7855c5677cc076995bcaf8633bf2b731add0f6052c0ff"
   license "MIT"
   head "https://github.com/yoheimuta/protolint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50c67b56b137888adabb258b436b96edc4aedce2a7184fb4da4a3bd152f4b560"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50c67b56b137888adabb258b436b96edc4aedce2a7184fb4da4a3bd152f4b560"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50c67b56b137888adabb258b436b96edc4aedce2a7184fb4da4a3bd152f4b560"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "00082246c3369183f579e89f4fa92bed037df29f17d3c8f0cc56a68d698e7a3b"
-    sha256 cellar: :any,                 x86_64_linux:      "a1d61eb911accd7cbce6f1087ca35102ff4572ddaf79c7652aa2f3ec61866196"
+    manifest_sha256 "dedb2169e51bcdaf4720726e66accdacd44e98535ba602dc8bf8d2cb736d66dd"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39a8d3b7e7b125ffb3870f4128603dfb14e24dd0439b01ed3353adfa87dfcf30"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "39a8d3b7e7b125ffb3870f4128603dfb14e24dd0439b01ed3353adfa87dfcf30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39a8d3b7e7b125ffb3870f4128603dfb14e24dd0439b01ed3353adfa87dfcf30"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a3c454a878a2d4c5fad4330b635396241c4bcd21c05e0eea5dba83eddd2c921c"
+    sha256 cellar: :any,                 x86_64_linux:      "875ce1d63a62881f03139a1ad8f2c9404c6f7f8c0b5ea8a4eca7d1b79d1afdb8"
   end
 
   depends_on "go" => :build
