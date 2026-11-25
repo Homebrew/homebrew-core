@@ -17,8 +17,8 @@ class Sandvault < Formula
   deny_network_access!
 
   def install
-    libexec.install "guest", "helpers", "skills", "sv", "sv-clone", "sv-agentsview-setup"
-    bin.write_exec_script libexec/"sv", libexec/"sv-clone", libexec/"sv-agentsview-setup"
+    libexec.install "guest", "helpers", "skills", "sv", "sv-clone", "sv-agentsview-setup", "sv-gh-token"
+    bin.write_exec_script libexec/"sv", libexec/"sv-clone", libexec/"sv-agentsview-setup", libexec/"sv-gh-token"
   end
 
   test do
