@@ -7,13 +7,12 @@ class Ktfmt < Formula
   head "https://github.com/Kotlin/ktfmt.git", branch: "main"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "8065da5a381d90ffcf47746bca095f0be1b85001986e824a41c454f56a04a4b2"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab443fce9a9f2058516331b17ac9393c82f0e769e48d0d630f344345d327ae8e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab443fce9a9f2058516331b17ac9393c82f0e769e48d0d630f344345d327ae8e"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab443fce9a9f2058516331b17ac9393c82f0e769e48d0d630f344345d327ae8e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6d6be5a4a2e3710ac9b375f4d5b0ad7c1b9f818d97e36d338b50ad9f97d30ee4"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6d6be5a4a2e3710ac9b375f4d5b0ad7c1b9f818d97e36d338b50ad9f97d30ee4"
+    manifest_sha256 "542e054149375027ff3afafd76e8ad7c228acff87202f4d11270df341ff523d5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52db0efa58e3f9bd27fdd707f73ed3a2fb94d3b1919754998cb933a70c7afcc0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52db0efa58e3f9bd27fdd707f73ed3a2fb94d3b1919754998cb933a70c7afcc0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52db0efa58e3f9bd27fdd707f73ed3a2fb94d3b1919754998cb933a70c7afcc0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "07ab245d48f3e3e6438c20ab6ae3515f4cc9227ca61e70ce455180a3d7a6a4e8"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "07ab245d48f3e3e6438c20ab6ae3515f4cc9227ca61e70ce455180a3d7a6a4e8"
   end
 
   depends_on "gradle" => :build
