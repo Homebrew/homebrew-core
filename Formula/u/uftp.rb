@@ -20,6 +20,8 @@ class Uftp < Formula
 
   depends_on "openssl@4"
 
+  deny_network_access!
+
   def install
     openssl_prefix = dep("openssl").opt_prefix
     system "make", "OPENSSL=#{openssl_prefix}", "DESTDIR=#{prefix}", "install"
