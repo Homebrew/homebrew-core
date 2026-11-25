@@ -1,18 +1,18 @@
 class Rustywind < Formula
   desc "CLI for organizing Tailwind CSS classes"
   homepage "https://github.com/avencera/rustywind"
-  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.28.1.tar.gz"
-  sha256 "da746179cf40b5c08f1affcc84cbb323dbf6c3e71b22517595c3e5858cfe1108"
+  url "https://github.com/avencera/rustywind/archive/refs/tags/v0.29.0.tar.gz"
+  sha256 "63b8f81d94a05130c985157824d491ffb1454e8afc3bc927d23c3980900da75b"
   license "Apache-2.0"
   head "https://github.com/avencera/rustywind.git", branch: "master"
 
   bottle do
-    manifest_sha256 "9fe7c50261e994afa332379f6aeec1d6bfb09cb58196e0c51c1e629ba2718ebe"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1fe5bd6d7926fa6a97e60b2dcd45f75be965b68794117e18ea4abac74701a97"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a0dc803476dba8e242ec8b0024feebce3072fbdaf0019c852d8032868361486"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2ce3f25b7bdd96d28599294ac02d7a596200992c2ee73fddc810df5e7f1eea2"
-    sha256 cellar: :any,                 arm64_linux:       "1a5b2c80febb46833c12bc12486b0c93bc260b388d3af8d1c58874f7a3a7a5aa"
-    sha256 cellar: :any,                 x86_64_linux:      "dffe020739aab0b5cce9dcfce9cd664adf90fb86f98dab66d7c941a062f84c4b"
+    manifest_sha256 "7124323ac6c209172f0acb8d1fdb4dd20135c2ec3c140f3eaa5a57c6bc246161"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9350cf11668e322eb07eed38334de61af25e3a9073a4da800242ed6786995e25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8660673c4d39736869ff69a8b74d369287d67a2561620fb5cc6c773a5fa9d760"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62b7a602f0804ce0c370528e5ded03e3adf68c6b95e18d1fa94b89bd9cde9372"
+    sha256 cellar: :any,                 arm64_linux:       "da1f490ea40dd12ffab953ba3c464426084b277893725e0aec6ae5c4661ece81"
+    sha256 cellar: :any,                 x86_64_linux:      "e8bc5e0a6aff3666bc503d60ea07e951ed0ce6056478f1daa352fc2022ddf503"
   end
 
   depends_on "rust" => :build
