@@ -19,7 +19,6 @@ class Apngasm < Formula
   depends_on "boost"
   depends_on "icu4c@79"
   depends_on "libpng"
-  depends_on "lzlib"
 
   on_linux do
     depends_on "zlib-ng-compat"
