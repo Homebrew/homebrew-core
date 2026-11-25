@@ -67,6 +67,8 @@ class Visp < Formula
     resolves "https://github.com/lagadic/visp/pull/1962"
   end
 
+  deny_network_access!
+
   def install
     ENV.cxx11
 
