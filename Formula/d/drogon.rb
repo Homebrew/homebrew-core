@@ -50,14 +50,10 @@ class Drogon < Formula
       system "cmake", "-S", ".", "-B", "build", "-DCMAKE_PREFIX_PATH=#{openssl_prefix}"
       system "cmake", "--build", "build"
 
-      begin
-        pid = spawn("build/hello")
+      with_test_process("build/hello") do
         sleep 1
         result = shell_output("curl -s 127.0.0.1:#{port}")
         assert_match "<hr><center>drogon", result
-      ensure
-        Process.kill("SIGINT", pid)
-        Process.wait(pid)
       end
     end
   end
