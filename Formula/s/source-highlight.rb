@@ -5,7 +5,7 @@ class SourceHighlight < Formula
   mirror "https://ftp.gnu.org/gnu/src-highlite/source-highlight-3.1.9.tar.gz"
   sha256 "3a7fd28378cb5416f8de2c9e77196ec915145d44e30ff4e0ee8beb3fe6211c91"
   license "GPL-3.0-or-later"
-  revision 6
+  revision 7
   compatibility_version 1
 
   livecheck do
@@ -14,18 +14,15 @@ class SourceHighlight < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "45d9335f39f9a9bb10bcbf5d06818e12e8d191b968a27607c4e1ac05a0eda4e1"
-    sha256 arm64_tahoe:       "e05f56b94a75e09f12a5653c3b48a960a72efba4f4c449e8f00967208f271e93"
-    sha256 arm64_sequoia:     "8cc450abef52155d24d50527365267af448fa9ebc15d8843e779fb46f0be96a9"
-    sha256 arm64_sonoma:      "e44e2d57c3193035e2e2a81bb5b1a4a58e9d390679679e200ed8226967d20b81"
-    sha256 arm64_ventura:     "7dcd24af23b31fc601b91e87309186ec0bbfdd6de9df721f25c6d3bf1589ba99"
-    sha256 sonoma:            "72290398f59884c5ccfb7960219c3e15199bbacecad195f464c8750f7e448863"
-    sha256 ventura:           "b004e32044ef67916ca8ef70324df7dcc5c01e777d76d17fcdb86e11a57595ee"
-    sha256 arm64_linux:       "05ca474d2414b0531fc722d5ee5977c5f0d61f32785f47761d0a8056cbc712bc"
-    sha256 x86_64_linux:      "09c0f664ede1dd50549c8cae4dd1a57b587c81da49a3f03b5d0b78e33f15a935"
+    manifest_sha256 "fb56b54a67d062c9d5e647a62b2a892aa527b7dbdd6e18d574c6e50bedd936b6"
+    sha256 arm64_golden_gate: "0e974eb82d796938a2d79cdf52763c72dc8f9294449cbbc32c818a36c99d7851"
+    sha256 arm64_tahoe:       "ce820a91da679e6eed65aebc738efe9e4ed3d60564a1407b9882d2fecf34c305"
+    sha256 arm64_sequoia:     "69bef5c333725bee8b5e69535c378d59c47146703164fb888601a0fd8637fc0e"
+    sha256 arm64_linux:       "1952a80273bcc8e1456917ade34198a5e7710d43736052517ca22f0f53fa9217"
+    sha256 x86_64_linux:      "ecb6f92e503af11624ca259452d09caa7b4b8efc01d59540b245048477668cf6"
   end
 
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
 
   # Fix -flat_namespace being used on Big Sur and later.
   patch do
@@ -37,9 +34,9 @@ class SourceHighlight < Formula
 
   def install
     ENV.cxx11
-    system "./configure", "--disable-dependency-tracking",
-                          "--prefix=#{prefix}",
-                          "--with-boost=#{formula_opt_prefix("boost")}"
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # strip boost linkage
+
+    system "./configure", "--with-boost=#{formula_opt_prefix("boost")}", *std_configure_args
     system "make", "install"
 
     bash_completion.install "completion/source-highlight"
