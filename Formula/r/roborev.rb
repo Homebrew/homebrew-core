@@ -1,8 +1,8 @@
 class Roborev < Formula
   desc "Background code review with AI agents"
   homepage "https://roborev.io"
-  url "https://github.com/kenn-io/roborev/releases/download/v0.75.0/roborev_0.75.0_source.tar.gz"
-  sha256 "b033f52eaa9d03d4bb646e7dee7fee57c0ba2db0145797f3bed311ba6c367bf3"
+  url "https://github.com/kenn-io/roborev/releases/download/v0.76.0/roborev_0.76.0_source.tar.gz"
+  sha256 "ab4bad18702c654a913d4672e0c8829ac55bd3ace8956bd41f2739e0a335afd1"
   license "MIT"
 
   bottle do
