@@ -1,8 +1,8 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.7.tar.xz"
-  sha256 "67cada96a2409c859f378e82fbe868b0e9c00a69e6b7b885d542c64ea2a1297d"
+  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.8.tar.xz"
+  sha256 "40a560efe9fff957376fd92358580839acc79e2065addbf8491f7a14438c5755"
   license "GPL-2.0-or-later"
 
   bottle do
