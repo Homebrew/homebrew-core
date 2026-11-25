@@ -1,8 +1,8 @@
 class Libstatgrab < Formula
   desc "Provides cross-platform access to statistics about the system"
   homepage "https://libstatgrab.org/"
-  url "https://github.com/libstatgrab/libstatgrab/releases/download/LIBSTATGRAB_0_92_1/libstatgrab-0.92.1.tar.gz"
-  sha256 "5688aa4a685547d7174a8a373ea9d8ee927e766e3cc302bdee34523c2c5d6c11"
+  url "https://github.com/libstatgrab/libstatgrab/releases/download/LIBSTATGRAB_0_92_2/libstatgrab-0.92.2.tar.gz"
+  sha256 "ff559fcd4da75a4023af986c02c52ad51d4b68ae83fc0c8c461026126a8ebefa"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -29,11 +29,6 @@ class Libstatgrab < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8984abcb585701a695fedbebd0c13cd61b08b95240c22485c75e2aac1575c57a"
   end
 
-  # Fix -flat_namespace being used on Big Sur and later.
-  patch do
-    file "Patches/libtool/configure-big_sur.diff"
-  end
-
   deny_network_access!
 
   def install
@@ -42,6 +37,7 @@ class Libstatgrab < Formula
   end
 
   test do
-    system bin/"statgrab"
+    output = shell_output("#{bin}/statgrab general.os_name").chomp
+    assert_equal "general.os_name = #{OS.kernel_name}", output
   end
 end
