@@ -16,6 +16,9 @@ class Ulfius < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "aa9e86ea46c664fe30c62b97cab094df477efab25d300e1c5e6cf9bfecc1afad"
   end
 
+  deprecate! date: "2026-11-25", because: :repo_archived
+  disable! date: "2027-11-25", because: :repo_archived
+
   depends_on "cmake" => :build
   depends_on "pkgconf" => :test
   depends_on "gnutls"
