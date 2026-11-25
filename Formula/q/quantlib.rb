@@ -21,7 +21,7 @@ class Quantlib < Formula
     depends_on "libtool" => :build
   end
 
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
 
   deny_network_access!
 
