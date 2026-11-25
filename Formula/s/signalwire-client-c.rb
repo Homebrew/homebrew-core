@@ -1,8 +1,8 @@
 class SignalwireClientC < Formula
   desc "SignalWire C Client SDK"
   homepage "https://github.com/signalwire/signalwire-c"
-  url "https://github.com/signalwire/signalwire-c/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "e49f1e2686058b1aa1ae30e84b00248da3d109b9b8fce682058f1b53c0e2280d"
+  url "https://github.com/signalwire/signalwire-c/archive/refs/tags/v2.0.7.tar.gz"
+  sha256 "8b06862b0535d8ff4e3f0ca7cf34cebcf24972744dc251080131e517b067e60e"
   license "MIT"
   compatibility_version 1
 
