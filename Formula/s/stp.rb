@@ -14,24 +14,26 @@ class Stp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f20949480e0757bce49451dc2daebf36031ff8beeedb5ea4f04ce845800d386e"
-    sha256 cellar: :any, arm64_tahoe:       "5727302d16e580e627c7dee12baf30b690332cd844f39ce118c8a86e437a75c4"
-    sha256 cellar: :any, arm64_sequoia:     "a78706e0ee2ab1b18a4c7f0883ebddcd3adf2668fe1775dd139ad46a2f86eecb"
-    sha256 cellar: :any, arm64_linux:       "1c991daf31f4d69de1f14d3d1915eb002063070a3ca4ffda915c573b2796c7bc"
-    sha256 cellar: :any, x86_64_linux:      "73675034aaf5c0029c9006edef7fd691082c4505fa39c46e3138b5312977b6df"
+    rebuild 1
+    manifest_sha256 "881473a855a1f61e68f8ed87b7e875c59c07972a60f70e0b2beae2db36914ed7"
+    sha256 cellar: :any, arm64_golden_gate: "41281347fbfeb8f59414020e6f13f462329814541a4c722ac272d1afc794fedb"
+    sha256 cellar: :any, arm64_tahoe:       "9ed629ee0192796326d57997ab3303864237546c5b786046e5e9148ed4a7373f"
+    sha256 cellar: :any, arm64_sequoia:     "9229f0e0d9b34120eba3cbcb35280dd1d9417a295d64e29790148f952473f584"
+    sha256 cellar: :any, arm64_linux:       "7f6f3e0d7e1f7a07411f2e597bb5e6155db424bf342e75de4569707a69f2b27c"
+    sha256 cellar: :any, x86_64_linux:      "beccd9007cedfa158ced9155d8531c198f516ce60bc2543efecd3d34fab4ec94"
   end
 
   # stp refuses to build with system bison and flex
   depends_on "bison" => :build
   depends_on "cmake" => :build
   depends_on "flex" => :build
+  depends_on "pkgconf" => :build
   depends_on "boost"
   depends_on "cryptominisat"
-  depends_on "gmp"
   depends_on "minisat"
   depends_on "python@3.15"
 
-  uses_from_macos "perl"
+  uses_from_macos "perl" => :build
 
   # Must match the `lib/extlib-abc` submodule as stp builds only the ABC sources that revision needs
   resource "extlib-abc" do
@@ -47,6 +49,8 @@ class Stp < Formula
     end
   end
 
+  deny_network_access!
+
   def install
     resource("extlib-abc").stage buildpath/"lib/extlib-abc"
 
@@ -59,6 +63,7 @@ class Stp < Formula
       -DPYTHON_LIB_INSTALL_DIR=#{site_packages}
       -DSTP_ALLOCATOR=system
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # strip gmp linkage
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
