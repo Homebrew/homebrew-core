@@ -64,6 +64,8 @@ class Vips < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # mozjpeg needs to appear before libjpeg, otherwise it's not used
     ENV.prepend_path "PKG_CONFIG_PATH", formula_opt_lib("mozjpeg")/"pkgconfig"

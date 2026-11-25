@@ -18,6 +18,8 @@ class VideoCompare < Formula
   depends_on "sdl2-compat"
   depends_on "sdl2_ttf"
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "video-compare"

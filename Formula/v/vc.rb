@@ -22,6 +22,8 @@ class Vc < Formula
 
   depends_on "cmake" => :build
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection
     system "cmake", "-S", ".", "-B", "build", *std_cmake_args

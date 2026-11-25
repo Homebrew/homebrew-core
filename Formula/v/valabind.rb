@@ -29,6 +29,8 @@ class Valabind < Formula
     depends_on "gettext"
   end
 
+  deny_network_access!
+
   def install
     # Workaround to build with newer clang
     # Upstream bug report, https://github.com/radare/valabind/issues/61

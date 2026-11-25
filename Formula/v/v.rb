@@ -27,6 +27,8 @@ class V < Formula
 
   conflicts_with "vlang", because: "both install `v` binaries"
 
+  deny_network_access!
+
   def install
     # Align documentation to generate `:all` bottle
     inreplace ["README", "v.1"], "/usr/local", HOMEBREW_PREFIX

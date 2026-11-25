@@ -11,6 +11,8 @@ class VimtutorSequel < Formula
 
   depends_on "vim"
 
+  deny_network_access!
+
   def install
     bin.install "vimtutor-sequel.sh" => "vimtutor-sequel"
     pkgshare.install "vimtutor-sequel.txt"

@@ -36,6 +36,8 @@ class Vgmstream < Formula
     depends_on "libogg"
   end
 
+  deny_network_access!
+
   def install
     # TODO: Try adding `-DBUILD_SHARED_LIBS=ON` in a future release.
     # Currently failing with requires target "g719_decode" that is not in any export set

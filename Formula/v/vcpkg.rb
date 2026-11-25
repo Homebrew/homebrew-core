@@ -34,6 +34,8 @@ class Vcpkg < Formula
 
   uses_from_macos "curl"
 
+  deny_network_access!
+
   def install
     # Improve error message when user fails to set `VCPKG_ROOT`.
     inreplace "include/vcpkg/base/message-data.inc.h",

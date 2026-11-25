@@ -24,6 +24,8 @@ class Vimpager < Formula
 
   depends_on "pandoc" => :build
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
     system "make", "docs"
