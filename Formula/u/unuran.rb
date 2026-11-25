@@ -28,6 +28,8 @@ class Unuran < Formula
   depends_on "texinfo" => :build
   depends_on "gsl"
 
+  deny_network_access!
+
   def install
     # force autogen.sh to look for and use our glibtoolize
     inreplace "autogen.sh", "libtoolize", "glibtoolize"
