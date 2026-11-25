@@ -29,12 +29,9 @@ class Endlessh < Formula
 
   test do
     port = free_port
-    pid = spawn(bin/"endlessh", "-p", port.to_s)
-
-    sleep 5
-
-    system "nc", "-z", "localhost", port
-  ensure
-    Process.kill "HUP", pid
+    with_test_process(bin/"endlessh", "-p", port.to_s) do
+      sleep 5
+      system "nc", "-z", "localhost", port
+    end
   end
 end

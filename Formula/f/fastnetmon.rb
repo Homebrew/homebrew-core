@@ -63,14 +63,12 @@ class Fastnetmon < Formula
     cp etc/"fastnetmon.conf", testpath
     inreplace "fastnetmon.conf", %r{/tmp/(fastnetmon(?:_ipv6)?\.dat)}, testpath/"\\1"
 
-    pid = spawn opt_sbin/"fastnetmon", "--configuration_file", testpath/"fastnetmon.conf", "--log_to_console"
-    sleep 60
-
-    assert_path_exists testpath/"fastnetmon.dat"
-    assert_path_exists testpath/"fastnetmon_ipv6.dat"
-    assert_match "Incoming traffic", (testpath/"fastnetmon.dat").read
-    assert_match "Incoming traffic", (testpath/"fastnetmon_ipv6.dat").read
-  ensure
-    Process.kill "SIGTERM", pid
+    with_test_process(sbin/"fastnetmon", "--configuration_file", testpath/"fastnetmon.conf", "--log_to_console") do
+      sleep 60
+      assert_path_exists testpath/"fastnetmon.dat"
+      assert_path_exists testpath/"fastnetmon_ipv6.dat"
+      assert_match "Incoming traffic", (testpath/"fastnetmon.dat").read
+      assert_match "Incoming traffic", (testpath/"fastnetmon_ipv6.dat").read
+    end
   end
 end

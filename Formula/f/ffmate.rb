@@ -62,18 +62,14 @@ class Ffmate < Formula
 
     ui = "http://localhost:#{port}/ui"
     api = "http://localhost:#{port}/api/v1"
-    pid = spawn bin/"ffmate", *args
 
-    begin
+    with_test_process(bin/"ffmate", *args) do
       sleep 2
-
       assert_match version.to_s, shell_output("curl -s #{api}/version")
       output = shell_output("curl -s -X POST #{api}/presets -H 'Content-Type: application/json' -d '#{preset}'")
       assert_match "uuid", output
       assert_match "Test Preset", shell_output("curl -s #{api}/presets")
       assert_match "<!DOCTYPE html>", shell_output("curl -s #{ui}/index.html")
-    ensure
-      Process.kill "TERM", pid
     end
   end
 end

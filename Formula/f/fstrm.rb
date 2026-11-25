@@ -56,12 +56,10 @@ class Fstrm < Formula
   end
 
   test do
-    job = spawn bin/"fstrm_capture", "-t", "protobuf:dnstap.Dnstap",
-                                     "-u", "dnstap.sock", "-w", "capture.fstrm", "-dddd"
-    sleep 2
-
-    system bin/"fstrm_dump", "capture.fstrm"
-  ensure
-    Process.kill("TERM", job)
+    args = %w[-t protobuf:dnstap.Dnstap -u dnstap.sock -w capture.fstrm -dddd]
+    with_test_process(bin/"fstrm_capture", *args) do
+      sleep 2
+      system bin/"fstrm_dump", "capture.fstrm"
+    end
   end
 end

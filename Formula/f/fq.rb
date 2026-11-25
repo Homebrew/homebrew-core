@@ -40,13 +40,9 @@ class Fq < Formula
   test do
     ipv4 = shell_output("dig -4 TXT +short o-o.myaddr.l.google.com @ns1.google.com | tr -d '\"'").strip
     port = free_port
-    pid = spawn sbin/"fqd", "-p", port.to_s, "-n", ipv4, "-D", "-c", testpath/"test.sqlite"
-    begin
+    with_test_process(sbin/"fqd", "-p", port.to_s, "-n", ipv4, "-D", "-c", testpath/"test.sqlite") do
       output = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
       assert_match "Circonus Fq Operational Dashboard", output
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
