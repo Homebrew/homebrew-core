@@ -27,6 +27,8 @@ class Vmdktool < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     # Fixes "call to undeclared library function 'tolower' with type 'int (int)'".
     inreplace "expand_number.c",
