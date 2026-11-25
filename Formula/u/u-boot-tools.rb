@@ -24,6 +24,8 @@ class UBootTools < Formula
     depends_on "make" => :build
   end
 
+  deny_network_access!
+
   def install
     # Disable mkeficapsule
     inreplace "configs/tools-only_defconfig", "CONFIG_TOOLS_MKEFICAPSULE=y", "CONFIG_TOOLS_MKEFICAPSULE=n"
