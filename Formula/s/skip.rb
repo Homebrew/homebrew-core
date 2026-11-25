@@ -1,8 +1,8 @@
 class Skip < Formula
   desc "Tool for building Swift apps for Android"
   homepage "https://skip.dev"
-  url "https://github.com/skiptools/skip/archive/refs/tags/1.9.21.tar.gz"
-  sha256 "5b46923ed3144d0e5c0db07f6b243be32c323299eac709b4711da5b71d5669b5"
+  url "https://github.com/skiptools/skip/archive/refs/tags/1.9.23.tar.gz"
+  sha256 "b416b4e639ca45e636823d2342344dc5b43d016c00005cdc9324ac5ab7131da5"
   license "Apache-2.0" => { with: "Swift-exception" }
   head "https://github.com/skiptools/skip.git", branch: "main"
 
