@@ -1,8 +1,8 @@
 class Gopeed < Formula
   desc "Multi protocol download manager"
   homepage "https://gopeed.com"
-  url "https://github.com/GopeedLab/gopeed/archive/refs/tags/v1.9.3.tar.gz"
-  sha256 "da8da9516fbe2a01db1dab11dda97c7e3096e43a14a7c13202a2f92976aa6db9"
+  url "https://github.com/GopeedLab/gopeed/archive/refs/tags/v2.0.0.tar.gz"
+  sha256 "76b15f02749276b212f9d0305e6e073de64ce078b62894202141ab0b078cb160"
   license "GPL-3.0-or-later"
   head "https://github.com/GopeedLab/gopeed.git", branch: "main"
 
