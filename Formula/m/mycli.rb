@@ -3,8 +3,8 @@ class Mycli < Formula
 
   desc "CLI for MySQL with auto-completion and syntax highlighting"
   homepage "https://www.mycli.net/"
-  url "https://files.pythonhosted.org/packages/ee/ec/07bf804ee6e523cc5254a6a3f3e5db5eeaf121ce961d6dc71d74c684511f/mycli-2.32.0.tar.gz"
-  sha256 "fb9a90ab8566c9f3535bf182dce7a6b90dc4ae2d7fad1d37726ce5ef5053f015"
+  url "https://files.pythonhosted.org/packages/96/1e/d24faf489daa8686981346adccf4103ea79c63199488526eebbe2d50c5d3/mycli-2.32.1.tar.gz"
+  sha256 "e52fd79530f92ea7395ac7a9c5fe9a22929c8480e3c9b1861f1ca5e8da481d13"
   license "BSD-3-Clause"
 
   bottle do
@@ -52,8 +52,8 @@ class Mycli < Formula
   end
 
   resource "cli-helpers" do
-    url "https://files.pythonhosted.org/packages/0e/9c/b52e0c1d6d15b16a98d5ddbeda318943f2c3638a9566f740aab251f1c3ad/cli_helpers-2.15.3.tar.gz"
-    sha256 "fde47d1495e49897acd3e084d93600dba5885a79073b89ead14c40d28c610c19"
+    url "https://files.pythonhosted.org/packages/2c/7b/e273eecff02bc336e51398ec4dbdeb1ba03c4b716d979f9ad8133bf0d2ea/cli_helpers-2.15.5.tar.gz"
+    sha256 "f5b1ec6c49b44c35a581f7660b20f09fd4d2332b5f934f6f58e3e0fd691df8f3"
   end
 
   resource "click" do
@@ -167,13 +167,13 @@ class Mycli < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/90/b2/97780581dab39384d1de4bc15f1f6cbaff26ce965a46c23a10bd948b71a8/openai-3.57.0.tar.gz"
-    sha256 "5a0a89d6a542efc85e2a8cec701ca9265b795d578c777828e10fafdf80e333b6"
+    url "https://files.pythonhosted.org/packages/7d/ca/d9d1549c71723eb8fd2af7173b1c22ed065d10107b1b6438453a1b3f2ae2/openai-3.59.0.tar.gz"
+    sha256 "e4e57d5c28bed6efe6483c9f61ba59be13fa16edde4b771cdaf5c7ca70bc9ff1"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pluggy" do
@@ -312,8 +312,8 @@ class Mycli < Formula
   end
 
   resource "wcwidth" do
-    url "https://files.pythonhosted.org/packages/ea/01/e5ac23733628a6bbb91913a765fcf55ee8070d8d991bc88fdaaf805052c7/wcwidth-0.9.4.tar.gz"
-    sha256 "fd8d57d3cdfe570e3265c8fab1885c24e34ef40889c0759c0c304a19e9835954"
+    url "https://files.pythonhosted.org/packages/8e/da/d59374b2c893ae70a41fdb064637ccef218f25df8c67e5431a96708235d9/wcwidth-0.9.5.tar.gz"
+    sha256 "713534e2ecb16e0fc39f19e0a5dda997da76d010953e9e8f803e7971f8accd80"
   end
 
   resource "yaspin" do
