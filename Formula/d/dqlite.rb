@@ -6,8 +6,9 @@ class Dqlite < Formula
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "c0e0c9554fcc850627af87326fb2485dc44c81857f3300fa1450704390c1fbe7"
-    sha256 cellar: :any, x86_64_linux: "6c9b9d13db577239d6131cd0a5475cd7e4353bff7b468c4aa7ee14de8b3917a1"
+    manifest_sha256 "8a311f1ecbcda90b39834257d1fe476f08e71243d99322218fb9a20b2dba534c"
+    sha256 cellar: :any, arm64_linux:  "d9f030049616e01621ac30642c6fc09f99ed887be08feaf00ef6d53a67d853d1"
+    sha256 cellar: :any, x86_64_linux: "9ec7579c9fc1d0ac5bb5f38678b1ae8324b18a28ecdca5a62492624ea22344e5"
   end
 
   depends_on "autoconf" => :build
