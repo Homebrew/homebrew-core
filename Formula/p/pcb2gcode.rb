@@ -12,12 +12,12 @@ class Pcb2gcode < Formula
   end
 
   bottle do
-    manifest_sha256 "af342b5470bd864588134c70a21ba4ddbaa6e920bbd7bd215255376038a7d5ed"
-    sha256 cellar: :any, arm64_golden_gate: "13260e3ae4c71169a04f5ae32aa4e89b73af4222a4fc7c6bf33234045b5e480e"
-    sha256 cellar: :any, arm64_tahoe:       "dda865de4463cfa5f56318f9715ac72ee949bc90ba15c1dfe7a281f68577e1a3"
-    sha256 cellar: :any, arm64_sequoia:     "ee4c17cac58dc9305118bcb51306c9a96c1a8b47d6073346e13a4171a122496b"
-    sha256 cellar: :any, arm64_linux:       "5d42ffe2470c62f9a1feabe41c3c4825011950dc07863cc795db67376a1629c9"
-    sha256 cellar: :any, x86_64_linux:      "82bca7900fab6d8bc673c2db6b27077595d99ac58d3c7aae15520766edddc62e"
+    manifest_sha256 "53bac47a19e7f5c9d7fdfb0ca5cd93471d9296ac9c68c7dd9099a3c6b9d18b19"
+    sha256 cellar: :any, arm64_golden_gate: "1e539e4140c67de3878df64924d2d57b812a56ce78fb87218050a55fc7568a2f"
+    sha256 cellar: :any, arm64_tahoe:       "82b806aef71b91a85d6822f5a74c01a02fddeaf97b44fe3bf053b7245724c936"
+    sha256 cellar: :any, arm64_sequoia:     "754b9fc3ace9835df97c70a48d745a7dea4f5c5a505fe336ca54cdb5747f1486"
+    sha256 cellar: :any, arm64_linux:       "c82255f4ab635b2fc8095043d7c626710d9fdc5edfe2c97f296100239e0fdb5a"
+    sha256 cellar: :any, x86_64_linux:      "ea406021d4eefcf05d6b4ddf1ecd282056cc3e8cafccd1ddcbb70a63ffda68e4"
   end
 
   deprecate! date: "2026-08-28", because: "uses deprecated `gerbv` which needs EOL `gtk+`"
