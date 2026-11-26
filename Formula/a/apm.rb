@@ -3,8 +3,8 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/2f/ad/de5073acb4dfee96d96900c7a1b56e8ce45292e7e920ac290fe008d8eaae/apm_cli-0.38.1.tar.gz"
-  sha256 "c2ddd1ea95f7223de2ced83c1bbb61b756a10de2651edc76b93346c925dc162b"
+  url "https://files.pythonhosted.org/packages/90/4f/d5b12765837bf43044610bcb7fc02f7617d316ab94937639d1b72addec08/apm_cli-0.39.0.tar.gz"
+  sha256 "c5b343d63a7294105e8e4735f58e87a3e04a89c358ed884abc7c84b65394869a"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
@@ -86,8 +86,8 @@ class Apm < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/6c/bf/a895b0b8e83d0a64d134f658e393e83998abfc22bbb8b58181ce55268706/filelock-4.3.0.tar.gz"
-    sha256 "143407310acf479e82d88068e3b9a6486f45fb410c0ed8729fe7359eaabeb6f1"
+    url "https://files.pythonhosted.org/packages/e6/86/a5b9ec254b90efb180e390e31a4fa50a93b714d6e4174fa9a4ee25607159/filelock-4.3.1.tar.gz"
+    sha256 "4c5ee627c401f1863ac6a0de9a14a28d3bb5f8c730b45e2fd6e5dbc79cf34b9e"
   end
 
   resource "frozenlist" do
@@ -161,8 +161,8 @@ class Apm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/90/b2/97780581dab39384d1de4bc15f1f6cbaff26ce965a46c23a10bd948b71a8/openai-3.57.0.tar.gz"
-    sha256 "5a0a89d6a542efc85e2a8cec701ca9265b795d578c777828e10fafdf80e333b6"
+    url "https://files.pythonhosted.org/packages/7d/ca/d9d1549c71723eb8fd2af7173b1c22ed065d10107b1b6438453a1b3f2ae2/openai-3.59.0.tar.gz"
+    sha256 "e4e57d5c28bed6efe6483c9f61ba59be13fa16edde4b771cdaf5c7ca70bc9ff1"
   end
 
   resource "pluggy" do
@@ -261,8 +261,8 @@ class Apm < Formula
   end
 
   resource "tomlkit" do
-    url "https://files.pythonhosted.org/packages/08/72/fc01563df95c189a9f65850096bdc205bc2fe37da6c740cd64afaf18d07e/tomlkit-0.15.2.tar.gz"
-    sha256 "83e32755ba1d20d9340bd069ee97e9f6232ba2346b63ffcba425de01f7e327a6"
+    url "https://files.pythonhosted.org/packages/c9/85/4a7c68111c057a6498f5bc721ef93b388b420bb31d7020759f18a5f0c2ec/tomlkit-0.15.3.tar.gz"
+    sha256 "b3c3020ec1a4bd469d12e31fb4da938e7f6ba758cdbec3fd9047db63120eaf81"
   end
 
   resource "truststore" do
