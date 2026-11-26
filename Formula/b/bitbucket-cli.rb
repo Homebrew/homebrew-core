@@ -1,18 +1,18 @@
 class BitbucketCli < Formula
   desc "CLI for Bitbucket Cloud and Data Center"
   homepage "https://github.com/avivsinai/bitbucket-cli"
-  url "https://github.com/avivsinai/bitbucket-cli/archive/refs/tags/v0.41.0.tar.gz"
-  sha256 "896ea45ef42bd72e92fb105cf59036bb87a2193c0bc7ffceb018749a5f3d8ad4"
+  url "https://github.com/avivsinai/bitbucket-cli/archive/refs/tags/v0.41.1.tar.gz"
+  sha256 "4e080843a60d11685b0856984f8ffb8f1095b3a17bba5c7a5d3fd232d7d76017"
   license "MIT"
   head "https://github.com/avivsinai/bitbucket-cli.git", branch: "master"
 
   bottle do
-    manifest_sha256 "9a9fb97226d6f78d73da38b9923f1821d6957ef1c5988bb3eee6b61ed050b48b"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e9aca42b097885ea7cb0f84daf7b8b4b71f6b100ca80046a9d83f77acba1106"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2ed84e7ec4b6cd8eb1b8aef8eb959e3f7f0f0a6047c51425424a06f3a2824be"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54a1bcbcc8813611fb0883c46c0c148da05f7a01b8515431e4f0b37e1fcb7377"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0f4c08b5687dbe8a24c7b4492f48dd6ac81a744701bdbbc7d5114bbc030deeaf"
-    sha256 cellar: :any,                 x86_64_linux:      "ecf3e7a3a0aaf0ba37517dcc2c4e0a7f26c04392b1edeb051cd3906b896854f8"
+    manifest_sha256 "f0cc41bf032a512dcfe26a4346f0f940acceb3b3bcda17264101404250d26856"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae387a2781a6c42999527c4482a879ad0e256842ac7e7a7b9c4e96e221a81058"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2516c217935e21431bc15cfb0f3e1567f00b25991f32ef99a8d903bc4f559090"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d97fbaad58c6e10a328f3e6ea50b2c168f7b3ffdcc960fa25d35bf744c6ec73b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "470e933ae745df722bbbfb6e824cc92c7737d817679b1f7a3a251572d087160c"
+    sha256 cellar: :any,                 x86_64_linux:      "284189c714067878cee6283c733c2f6bc452cd73d4dd07b526520ca82959f2e1"
   end
 
   depends_on "go" => :build
