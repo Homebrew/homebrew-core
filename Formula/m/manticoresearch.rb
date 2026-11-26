@@ -35,33 +35,34 @@ class Manticoresearch < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "5f97f47b4c24d067e56fe22d9b5abeeee86fd922b8608e173efd31fcad14e51c"
-    sha256 arm64_tahoe:       "0937b45d33ae6f44449f4d8ed29f71f20c022cc4ecfad6fdcb1fbd53e6c2f4d6"
-    sha256 arm64_sequoia:     "a057b52d8005a81133aed5b75f481835b7ef3e5354e973ad2142ee89506d95f3"
-    sha256 arm64_linux:       "daad6a7d7a98974f8924ceb7fd45cc9ea8c7d57896ebe0c9b4bd78c366614f7c"
-    sha256 x86_64_linux:      "b0e9f092910ccfa19b72f8236702d933795bc75802eee640af387d08b08167eb"
+    rebuild 1
+    manifest_sha256 "8f632e216b1182e5774d97a45a2d13917a304d69c4ed37437b0218736b890aff"
+    sha256 arm64_golden_gate: "ed6ebd45d8e46bf2ff2d553019b76f230e777feff8f182582dc6b90cad42c6ad"
+    sha256 arm64_tahoe:       "9af03c4f255de6af0f996efb40fa4015262397e619793af3d216b0c443ebdf2d"
+    sha256 arm64_sequoia:     "d71b79ef5fdf860e4a8ae7bf79e6baca4926f39fb91695ebea3e3d155f959aa5"
+    sha256 arm64_linux:       "f6a211268470a276a22b56ed66dde7fc141b1dc25e53850e73be69ca81881124"
+    sha256 x86_64_linux:      "204ed88e38f0209095b30e3dd6b3fc501c58bbf51cb119b065bdf96320f6bbfd"
   end
 
   depends_on "cmake" => :build
   depends_on "nlohmann-json" => :build
   depends_on "snowball" => :build # for libstemmer.a
 
-  # NOTE: `libpq`, `mariadb-connector-c`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "boost"
   depends_on "cctz"
   depends_on "croaring"
   depends_on "icu4c@79"
-  depends_on "libpq"
-  depends_on "mariadb-connector-c"
+  depends_on "libpq" => :no_linkage
+  depends_on "mariadb-connector-c" => :no_linkage
   depends_on "openssl@4"
   depends_on "re2"
-  depends_on "unixodbc"
+  depends_on "unixodbc" => :no_linkage
   depends_on "xxhash"
-  depends_on "zstd"
+  depends_on "zstd" => :no_linkage
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "expat"
+  uses_from_macos "expat" => :no_linkage
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -97,8 +98,9 @@ class Manticoresearch < Formula
       ENV.append_path "CMAKE_PREFIX_PATH", buildpath/"uni-algo"
     end
 
-    # Avoid statically linking to boost
+    # Avoid statically linking to boost and openssl
     inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
+    inreplace "CMakeLists.txt", "set ( OPENSSL_USE_STATIC_LIBS ON )", "set ( OPENSSL_USE_STATIC_LIBS OFF )"
 
     ENV["ICU_ROOT"] = dep("icu4c").opt_prefix.to_s
     ENV["OPENSSL_ROOT_DIR"] = dep("openssl").opt_prefix.to_s
