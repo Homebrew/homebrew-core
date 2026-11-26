@@ -1,0 +1,32 @@
+name: Check bottle pull request access
+
+on:
+  pull_request:
+    paths:
+      - .github/workflows/check-bottle-pr-access.yml
+      - .github/workflows/publish-commit-bottles.yml
+
+permissions:
+  actions: read
+  checks: read
+  contents: read
+  issues: read
+  pull-requests: read
+
+jobs:
+  verify:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read the pull request, checks and bottle artefacts
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.number }}
+        run: |
+          repo="repos/$GITHUB_REPOSITORY"
+          sha="$(gh api "$repo/pulls/$PR" --jq .head.sha)"
+          gh api --silent "$repo/issues/$PR"
+          gh api --silent "$repo/commits/$sha"
+          gh api --silent "$repo/commits/$sha/check-suites"
+          run_id="$(gh api "$repo/actions/workflows/tests.yml/runs?per_page=1" --jq '.workflow_runs[0].id')"
+          gh api --silent "$repo/actions/runs/$run_id/artifacts?per_page=1"
