@@ -1,17 +1,17 @@
 class Dicebear < Formula
   desc "CLI for DiceBear - An avatar library for designers and developers"
   homepage "https://www.dicebear.com"
-  url "https://registry.npmjs.org/dicebear/-/dicebear-10.7.0.tgz"
-  sha256 "9fef906a168742230b3a31e90bd0708a555a7a14d06c6ebd8d13e368d3336902"
+  url "https://registry.npmjs.org/dicebear/-/dicebear-11.0.0.tgz"
+  sha256 "642da1c89ca4826989581456d22c295e8e8337efaab3b3e16dce40ffedff9d47"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b1621a2a0b1c585bc02e4a57c24b20987bfb25b23d0334dc1fca2bb5c4f9aef7"
-    sha256 cellar: :any, arm64_tahoe:       "d626552a199dc6136d4551f129b10dfd60308e56a800add1345d9b9a78467075"
-    sha256 cellar: :any, arm64_sequoia:     "f691b220e0fa1b105c8c7b1f41ac8877f45fc42b5c131f85a78ecf80db1b846f"
-    sha256 cellar: :any, arm64_sonoma:      "ebd67b893a2e6c084328e5f06014d3f515ddf6330712d551906e0d2316ed6790"
-    sha256 cellar: :any, arm64_linux:       "ee4992c3ea57a9787ccc927af2d9ec097c81092b06a0d186d4a4a45bfe8568fa"
-    sha256 cellar: :any, x86_64_linux:      "69e77077274a8b6c499cf39570568d8f5b3f95ad07ddaeb39ece407deaf1a16a"
+    manifest_sha256 "dd2ccb69e50a1f378d7661c440b1988e7984196db25309d4bfd1331e3b437994"
+    sha256 cellar: :any, arm64_golden_gate: "9c625574cb4391717d6956a6165cd6dfca9f1095ac4f0617815c8c6f593be77f"
+    sha256 cellar: :any, arm64_tahoe:       "d45246ddc100452b8e50d156024e8fd979d77e0393d83e8ee636a26e183dd242"
+    sha256 cellar: :any, arm64_sequoia:     "0333c2f872807e69bc3e5644abc239b036e7b63e7d7aa1b361f08614699dbfd5"
+    sha256 cellar: :any, arm64_linux:       "db8ed8f0499cd1dc94446502629783e4d83d30c12ddaec1740e6d7c847ccba02"
+    sha256 cellar: :any, x86_64_linux:      "75e1b4f95e1d4efb9ef3b636925d86a3e6190ef061f47b484f02332ed00b18aa"
   end
 
   depends_on "pkgconf" => :build
@@ -47,7 +47,7 @@ class Dicebear < Formula
   end
 
   test do
-    output = shell_output("#{bin}/dicebear avataaars")
+    output = shell_output("#{bin}/dicebear create avataaars --output avataaars-0.svg 2>&1")
     assert_match "Avataaars by Pablo Stanley", output
     assert_path_exists testpath/"avataaars-0.svg"
 
