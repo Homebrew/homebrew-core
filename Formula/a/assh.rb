@@ -1,19 +1,18 @@
 class Assh < Formula
   desc "Advanced SSH config - Regex, aliases, gateways, includes and dynamic hosts"
   homepage "https://v1.manfred.life/assh/"
-  url "https://github.com/moul/assh/archive/refs/tags/v2.17.3.tar.gz"
-  sha256 "531cb10be20c86f464637428cc216525bb33e4651dc8aa801c09034521497172"
+  url "https://github.com/moul/assh/archive/refs/tags/v2.17.4.tar.gz"
+  sha256 "8fb62ecf5dbc3369cca56cebe9298c84791c688b05f98d155dc58ac208f541f2"
   license "MIT"
   head "https://github.com/moul/assh.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b885b3683a31398861f309b175c4f1a6b19f8b4f900f2b81dd6234e26ea139a4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c4f32ab8a470210c7c178888bb8b3d6570a246fea3a12a2e06c18ff987daeef"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f0fe13a870813c624a9f71b6df962460481515f457666bec65d6058dad41b2a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "1b9c43256e3a3cc9d43040a9b8697476ea965f653a5c1ee7e4478b9cc9596956"
-    sha256 cellar: :any_skip_relocation, sonoma:            "552f9a8e8998f56f1b59f0002e118561812d7907e8448e591f5bf237dd3775ed"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "c4317f8468e5e966c5f5345686f55f9bdbd0e430b4969cf0f984fb81d7f66e7d"
-    sha256 cellar: :any,                 x86_64_linux:      "039230b99b68a5546c8b85e8034175d70cfec690bd07c26ea59ebc38a6e45b6f"
+    manifest_sha256 "73fcccde0444b5df4a514fcc3cd4ecdfe618363f1db9b996f95ac890b307a811"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4352a460317174a1bd6e938863ac88bbba2263ada4492e5884f8cc61f486403c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29479cf2c9877d151a3c3005bc7441a786a0b33c7f0ebb48a9d1668fb972b1a6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e3f9ba92b95052fc644ba6b878a2bac7776bcac837432b19edba7cee19e766d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4ce5d3bd715471ea78b04462d46f792ea478a74e7d965410b00c39deaceae1f9"
+    sha256 cellar: :any,                 x86_64_linux:      "c0ebd519549c878449ec70ee8c1c003be8fcc16662326c70da6c31071f46d7ce"
   end
 
   depends_on "go" => :build
