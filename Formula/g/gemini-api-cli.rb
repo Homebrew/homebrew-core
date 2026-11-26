@@ -6,6 +6,15 @@ class GeminiApiCli < Formula
   license "Apache-2.0"
   head "https://github.com/google-gemini/gemini-api-cli.git", branch: "main"
 
+  bottle do
+    manifest_sha256 "13c40bbc80da3059a7d340d6c193c333c91976952452637c0293a4f2cad3f52f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0fe38356b9d2217aa9545c94c6a0fe76c46a7d0ffb67876e6cba692f7763bc25"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0fe38356b9d2217aa9545c94c6a0fe76c46a7d0ffb67876e6cba692f7763bc25"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fe38356b9d2217aa9545c94c6a0fe76c46a7d0ffb67876e6cba692f7763bc25"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ce0a656ac7a2a7d4f696d22d75a89a2395f6c7f34dd31c8e4b348c0d83e99423"
+    sha256 cellar: :any,                 x86_64_linux:      "a6c7ccabeedd83227931c1fa5601e8603c7421ba91f40757c8ac186c4ffb4367"
+  end
+
   depends_on "go" => :build
 
   deny_network_access!
