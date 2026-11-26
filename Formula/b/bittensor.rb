@@ -3,17 +3,17 @@ class Bittensor < Formula
 
   desc "SDK and command-line tool for the Bittensor network"
   homepage "https://subtensor.vercel.app/"
-  url "https://files.pythonhosted.org/packages/16/e9/3075647afee2c48885d2a6df0db88f654c216f42122f92a58c2e5c7bfd79/bittensor-11.3.5.tar.gz"
-  sha256 "17e761f5abd7a7ceb5cb391088bc1d5187f55a9be03cea21234a10cbaa805c64"
+  url "https://files.pythonhosted.org/packages/8a/49/933cb84be62267eba6d0b9e9837c5bb18c90144f603b0a883f1cafd13a01/bittensor-11.3.6.tar.gz"
+  sha256 "e551887a84d03bb97658c5f427d1838d1cc45ba2a48cb8b3629536746fbf9d69"
   license "Apache-2.0"
 
   bottle do
-    manifest_sha256 "9f702b8bfd0dba86c319bb32a2abef9d875d3035cc784b491689c64e54519ad5"
-    sha256 cellar: :any, arm64_golden_gate: "f6a2aa6f02c1845c7132ff84273aae44fa6e216230ff82c849debd7d54ac53b0"
-    sha256 cellar: :any, arm64_tahoe:       "c3d8d45c2f4792192e6fe3f666fc25434eebd55081b153b490cb4a5eaf5447cf"
-    sha256 cellar: :any, arm64_sequoia:     "9d82ea33e9791aa8f32d5f34294b95d67525c749a06f7901cc9fe3f5d7d7c124"
-    sha256 cellar: :any, arm64_linux:       "7bc4122b7069d5c54b82521faeca751268fc776158c3fb1f9c1833768ce9735b"
-    sha256 cellar: :any, x86_64_linux:      "1f39e75646c89b58d7e31a79d9365d1065acebda7125aa4b05277a2038bfd5b9"
+    manifest_sha256 "f8c03f88fb72528adecdc0bcdffcec0186636739244099e90aa98a7fb7d7ffa8"
+    sha256 cellar: :any, arm64_golden_gate: "bbec2cf9016ee6d3fed8dfb7ac33dd5cf2e2e51839e5495e90cae2b85c90bca0"
+    sha256 cellar: :any, arm64_tahoe:       "7183412461146ff4e1ac43e20e5595fd1bc1cba0d798fdf5524f811f74c17388"
+    sha256 cellar: :any, arm64_sequoia:     "3e245f093aa6a8ca8d95b46b6e1130dcf0a0d2df6b30d4322846861831e507f0"
+    sha256 cellar: :any, arm64_linux:       "c6a916b1557c0333040a66895f402ba4d76d83693040671c3daad5cb53122e4c"
+    sha256 cellar: :any, x86_64_linux:      "9f276b6410433c8bd379a3ab3347f832ea1e79f0d1c1addd29710b57005bbad7"
   end
 
   depends_on "rust" => :build # for bittensor-core
@@ -37,8 +37,8 @@ class Bittensor < Formula
   end
 
   resource "bittensor-core" do
-    url "https://files.pythonhosted.org/packages/83/43/5f8dfd7fe3fe44bebfc2107a54d60059d842509c16d51432c2f899b8e4bf/bittensor_core-0.1.12.tar.gz"
-    sha256 "8fb4a05289b18f4e958e66204a49640880b74b05c429ad424c60bb312fa5a283"
+    url "https://files.pythonhosted.org/packages/bf/cf/9a9c441f4c2f37593721b38e7d491e79c02332e94a4a6f6d238c73c14286/bittensor_core-0.1.13.tar.gz"
+    sha256 "bed13296ce15e6c68b29a766cc92c754e9b5bd099f207d7b211c8a9b73b7199a"
   end
 
   resource "ckzg" do
@@ -127,8 +127,8 @@ class Bittensor < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
-    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
+    url "https://files.pythonhosted.org/packages/e7/32/7c768de6489417ef32a49480af8a2dfba3adc5b1784d6e7142f32972018a/regex-2026.11.24.tar.gz"
+    sha256 "07f222de81cdcfd39eef8671e92d14f50f61f1666f756659b0e649cf700b1b10"
   end
 
   resource "rich" do
@@ -170,11 +170,11 @@ class Bittensor < Formula
     # Allow Python 3.15
     inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
 
-    venv = virtualenv_create(libexec, "python3.15")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.reject { |r| r.name == "bittensor-core" }
     resource("bittensor-core").stage do
       # The sdist keeps `[patch]` entries pointing at vendored crates it does not ship, which breaks `cargo metadata`
-      inreplace "Cargo.toml", %r{^(?:evm-gasometer|sc-informant) = \{ path = "vendor/[^"]+" \}\n}, ""
+      inreplace "Cargo.toml", %r{^(?:evm-gasometer|sc-informant|hickory-proto-\d+) = \{ path = "vendor/.*\n}, ""
       venv.pip_install Pathname.pwd
     end
     venv.pip_install_and_link buildpath
