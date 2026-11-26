@@ -3,8 +3,8 @@ class Erlang < Formula
   homepage "https://www.erlang.org/"
   # Download tarball from GitHub; it is served faster than the official tarball.
   # Don't forget to update the documentation resource along with the url!
-  url "https://github.com/erlang/otp/releases/download/OTP-29.1.2/otp_src_29.1.2.tar.gz"
-  sha256 "c79966661e35fe4aff8ec003db63682e3b33b10b672220d51bf93c0a9244b049"
+  url "https://github.com/erlang/otp/releases/download/OTP-29.1.3/otp_src_29.1.3.tar.gz"
+  sha256 "44d8ee7f0964537ddb328fe2f6307d3338c3fdd1b2826938d490907771ba70d2"
   license "Apache-2.0"
   compatibility_version 2
 
@@ -14,11 +14,12 @@ class Erlang < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f807b638f16f07123342a19cf905248246300bf65f1ed047d396a9dd82851eb5"
-    sha256 cellar: :any, arm64_tahoe:       "2244796c84b6ebfddcb57c6646001b3e3ccbba8c8f352ad39c5b4b1d2d096408"
-    sha256 cellar: :any, arm64_sequoia:     "732171b86c7c850291711a2520750e519b59cd73a76436a5083b5164d78d4ef0"
-    sha256 cellar: :any, arm64_linux:       "67e4a61cb9cf1208ec20065cae87607d25055618b1328a858b522835fb7071b7"
-    sha256 cellar: :any, x86_64_linux:      "64a50a2392cb85141431560cf24dc8252b6a82eeb8d007d0aea7dc97dd098b75"
+    manifest_sha256 "0b77e5dd692e1ddeb6138ce3bb2093af97eabd20fae97dcd87a006d253789ffd"
+    sha256 cellar: :any, arm64_golden_gate: "0a25aeffdf3720a0163ab866052395244567c9cd04730c381d672fd9746662a8"
+    sha256 cellar: :any, arm64_tahoe:       "cbc8a5a3edaf966aac8ac604377e42e8a2a28e463496fdb2dbef65a5a669b1e5"
+    sha256 cellar: :any, arm64_sequoia:     "4af8bb0d1520631aa9e67eb1fd6475d95bb3432e934a8bbc3363f4f7a01a014f"
+    sha256 cellar: :any, arm64_linux:       "684eed6eb98bf4a0c20405d653fc4ea405058499238541dcbc4955432f83f272"
+    sha256 cellar: :any, x86_64_linux:      "4aa459f32ee02dc23f07572db673651aa8b8b62aa023ad1ec2eeb11ed631463d"
   end
 
   head do
@@ -41,8 +42,8 @@ class Erlang < Formula
   end
 
   resource "html" do
-    url "https://github.com/erlang/otp/releases/download/OTP-29.1.2/otp_doc_html_29.1.2.tar.gz"
-    sha256 "366c3864be2c6a34b134e902fdc5977c6aa74933b0d335ead21b14a043929b36"
+    url "https://github.com/erlang/otp/releases/download/OTP-29.1.3/otp_doc_html_29.1.3.tar.gz"
+    sha256 "b83e6b0542a7e1308b9fdbf959c591849be37d395c15d9a778ee101ba5046006"
 
     livecheck do
       formula :parent
