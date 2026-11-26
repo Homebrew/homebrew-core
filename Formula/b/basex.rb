@@ -1,9 +1,9 @@
 class Basex < Formula
   desc "Light-weight XML database and XPath/XQuery processor"
   homepage "https://basex.org"
-  url "https://files.basex.org/releases/13.0/BaseX130.zip"
-  version "13.0"
-  sha256 "594cc5e4c3bb8b6e69da3febbb8c39de725112eb7fdffe09ca034b74fc994e72"
+  url "https://files.basex.org/releases/13.1/BaseX131.zip"
+  version "13.1"
+  sha256 "0f99e7aacb978e444525d49d3778ac55b22429bfe11c3a2b17daa825760b688e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -14,7 +14,8 @@ class Basex < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "0c640e86b5910331095db84c365e640bcd806878cc7c7009726a0dc89e517d23"
+    manifest_sha256 "70ca45a90d7625960814ae67e150fc2d45ccadb14b575e6a09488f8941fdc6fc"
+    sha256 cellar: :any_skip_relocation, all: "7e0b2d0fd153d90a266ad1444f60bc209dc603f09d25ef81328cc9b4988649b9"
   end
 
   depends_on "openjdk"
@@ -29,7 +30,7 @@ class Basex < Formula
 
     libexec.install Dir["*"]
     bin.install libexec.glob("bin/*")
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk")
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: dep("openjdk").opt_prefix
   end
 
   test do
