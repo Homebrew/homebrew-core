@@ -4,6 +4,7 @@ class Bnfc < Formula
   url "https://github.com/BNFC/bnfc/archive/refs/tags/v2.9.6.3.tar.gz"
   sha256 "f8d7356adcf8f068e6ae253402623cec0f19f1554c341f7346687a9654f5e109"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/BNFC/bnfc.git", branch: "master"
 
   bottle do
@@ -28,6 +29,14 @@ class Bnfc < Formula
   depends_on "gmp"
 
   uses_from_macos "libffi"
+
+  # Keep Flex buffer types private to generated scanners.
+  patch do
+    url "https://github.com/BNFC/bnfc/commit/00b6d08901f11d4e3a407ecabb2626e6025f763d.patch?full_index=1"
+    sha256 "db02606640140364851f0ae061181ca0921b8da569f3e1eb050f1be0e9cb81eb"
+    type :unofficial
+    resolves "https://github.com/BNFC/bnfc/pull/576"
+  end
 
   allow_network_access! :test
 
