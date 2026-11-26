@@ -25,17 +25,14 @@ class Dartsim < Formula
 
   depends_on "assimp"
   depends_on "bullet"
-  depends_on "eigen"
+  depends_on "eigen" => :no_linkage
   depends_on "fcl"
-  depends_on "flann"
   depends_on "fmt"
-  depends_on "ipopt"
   depends_on "libccd"
-  depends_on "nlopt"
   depends_on "octomap"
   depends_on "ode"
   depends_on "open-scene-graph"
-  depends_on "spdlog"
+  depends_on "spdlog" => :no_linkage
   depends_on "tinyxml2"
   depends_on "urdfdom"
 
@@ -68,12 +65,6 @@ class Dartsim < Formula
       -DDART_ENABLE_SIMD=OFF
       -DFETCHCONTENT_SOURCE_DIR_DART_IMGUI=#{buildpath}/imgui
     ]
-
-    if OS.mac?
-      # Force to link to system GLUT (see: https://cmake.org/Bug/view.php?id=16045)
-      glut_lib = "#{MacOS.sdk_path}/System/Library/Frameworks/GLUT.framework"
-      args << "-DGLUT_glut_LIBRARY=#{glut_lib}"
-    end
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
