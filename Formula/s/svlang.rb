@@ -8,19 +8,20 @@ class Svlang < Formula
   head "https://github.com/MikePopoloski/slang.git", branch: "master"
 
   bottle do
-    manifest_sha256 "c172a881bca20ea2b6b02ad8fd7c7da0a703b0723266bcfa74ff0aa3713c87cb"
-    sha256 cellar: :any, arm64_golden_gate: "70575f5208973121248520ea1d6c21e419923744e96a1c6d7769062e9e0be7b2"
-    sha256 cellar: :any, arm64_tahoe:       "0373fd04590509609318c5c41162a0ac5b4a320fee0d60d690fb76eb6b952acd"
-    sha256 cellar: :any, arm64_sequoia:     "68f7e159c94e32fe5f9fa4bc9ecd857d5e793bad49dd113b52dcb9d40f05e0a7"
-    sha256 cellar: :any, arm64_linux:       "f1365b0f10f6d210821aad87cfbe41f65ed955ed53f79c899f400a39dd54cdec"
-    sha256 cellar: :any, x86_64_linux:      "70584901a3f5345f4db69279185692ee474bdc5c7feb555f74697ad6a4b423de"
+    rebuild 1
+    manifest_sha256 "aa5480c164b4506947e5c55f9ea4b70cab85f8c80220abc6ac3eb46b306c0b1b"
+    sha256 cellar: :any, arm64_golden_gate: "9d0849c6f22e6f2f2f24676d123fe50e004ffe7592723dd6e6e82153063a42e8"
+    sha256 cellar: :any, arm64_tahoe:       "19530b3e481a6e6f4d7b751072729002d34b077b9c9254531f52334284905a52"
+    sha256 cellar: :any, arm64_sequoia:     "4267fb30cf46d0854e2b6204ed94b247dc386f93eb66cec7f0f1122f688550b6"
+    sha256 cellar: :any, arm64_linux:       "b8b64fe35535174a6662e29a4655e19cae86f600d04b713b808a08f399b77e80"
+    sha256 cellar: :any, x86_64_linux:      "f5f5a9634355b50d7e8c2c6b562912a05983c0efda62d2abc2fd1bc171d6e6af"
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "tomlplusplus" => :build
   depends_on "fmt"
   depends_on "mimalloc"
-  depends_on "tomlplusplus"
 
   uses_from_macos "python" => :build
 
@@ -38,6 +39,7 @@ class Svlang < Formula
 
   def install
     args = %w[
+      -DBUILD_SHARED_LIBS=ON
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
