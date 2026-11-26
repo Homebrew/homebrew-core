@@ -46,22 +46,21 @@ class Manticoresearch < Formula
   depends_on "nlohmann-json" => :build
   depends_on "snowball" => :build # for libstemmer.a
 
-  # NOTE: `libpq`, `mariadb-connector-c`, `unixodbc` and `zstd` are dynamically loaded rather than linked
   depends_on "boost"
   depends_on "cctz"
   depends_on "croaring"
   depends_on "icu4c@79"
-  depends_on "libpq"
-  depends_on "mariadb-connector-c"
+  depends_on "libpq" => :no_linkage
+  depends_on "mariadb-connector-c" => :no_linkage
   depends_on "openssl@4"
   depends_on "re2"
-  depends_on "unixodbc"
+  depends_on "unixodbc" => :no_linkage
   depends_on "xxhash"
-  depends_on "zstd"
+  depends_on "zstd" => :no_linkage
 
   uses_from_macos "bison" => :build
   uses_from_macos "flex" => :build
-  uses_from_macos "expat"
+  uses_from_macos "expat" => :no_linkage
 
   on_linux do
     depends_on "zlib-ng-compat"
@@ -97,8 +96,9 @@ class Manticoresearch < Formula
       ENV.append_path "CMAKE_PREFIX_PATH", buildpath/"uni-algo"
     end
 
-    # Avoid statically linking to boost
+    # Avoid statically linking to boost and openssl
     inreplace "src/CMakeLists.txt", "set ( Boost_USE_STATIC_LIBS ON )", "set ( Boost_USE_STATIC_LIBS OFF )"
+    inreplace "CMakeLists.txt", "set ( OPENSSL_USE_STATIC_LIBS ON )", "set ( OPENSSL_USE_STATIC_LIBS OFF )"
 
     ENV["ICU_ROOT"] = dep("icu4c").opt_prefix.to_s
     ENV["OPENSSL_ROOT_DIR"] = dep("openssl").opt_prefix.to_s
