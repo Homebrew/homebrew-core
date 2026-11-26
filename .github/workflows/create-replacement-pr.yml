@@ -52,6 +52,8 @@ env:
 jobs:
   create:
     runs-on: ubuntu-latest
+    outputs:
+      replacement_pr: ${{ steps.create-pr.outputs.pull_number }}
     container:
       image: ghcr.io/homebrew/brew:main
     permissions:
@@ -277,22 +279,34 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: gh pr edit --add-label automerge-skip --add-label superseded "$PR" --repo "$GITHUB_REPOSITORY"
 
+  mark-replaced-pr:
+    needs: create
+    if: always()
+    runs-on: ubuntu-slim
+    permissions:
+      contents: write # for `gh pr ready --undo`
+      pull-requests: write
+    steps:
       - name: Mark replaced PR as draft
-        env: # We need a PAT here. https://github.com/github/docs/issues/8925#issuecomment-970255180
-          GH_TOKEN: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN  }}
-        run: gh pr ready --undo "$PR" --repo "$GITHUB_REPOSITORY"
+        if: needs.create.result == 'success'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh pr ready --undo "$PR" --repo "$GITHUB_REPOSITORY"
+          gh pr view "$PR" --repo "$GITHUB_REPOSITORY" --json isDraft | jq -e .isDraft
 
       - name: Post comment on success
+        if: needs.create.result == 'success'
         uses: Homebrew/actions/post-comment@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           issue: ${{ env.PR }}
-          body: ":white_check_mark: @${{ github.actor }} replacement PR created at #${{ steps.create-pr.outputs.pull_number }}."
-          bot_body: ":white_check_mark: Replacement PR created at #${{ steps.create-pr.outputs.pull_number }}."
+          body: ":white_check_mark: @${{ github.actor }} replacement PR created at #${{ needs.create.outputs.replacement_pr }}."
+          bot_body: ":white_check_mark: Replacement PR created at #${{ needs.create.outputs.replacement_pr }}."
           bot: github-actions[bot]
 
       - name: Post comment on failure
-        if: ${{ !success() }}
+        if: ${{ !success() || needs.create.result != 'success' }}
         uses: Homebrew/actions/post-comment@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
