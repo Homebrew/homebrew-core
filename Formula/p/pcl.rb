@@ -2,7 +2,7 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 8
+  revision 9
   compatibility_version 1
 
   stable do
@@ -78,7 +78,6 @@ class Pcl < Formula
   depends_on "vtk"
 
   on_macos do
-    depends_on "freetype"
     depends_on "libomp"
   end
 
@@ -121,6 +120,9 @@ class Pcl < Formula
     # relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `...' which may bind
     # externally can not be used when making a shared object; recompile with -fPIC
     args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON" if OS.linux? && Hardware::CPU.arm?
+
+    # Avoid linkage to indirect dependencies like fmt and scnlib
+    args += %w[EXE SHARED].map { |type| "-DCMAKE_#{type}_LINKER_FLAGS=-Wl,-dead_strip_dylibs" } if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
