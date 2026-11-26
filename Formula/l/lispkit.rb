@@ -1,8 +1,8 @@
 class Lispkit < Formula
   desc "Scheme framework for extension and scripting languages on macOS and iOS"
   homepage "https://lisppad.app"
-  url "https://github.com/objecthub/swift-lispkit/archive/refs/tags/2.6.4.tar.gz"
-  sha256 "89e19cb34aa29aacea67a33a3187abf854fd2a5d0d0c608e59f50ba2073e2f5e"
+  url "https://github.com/objecthub/swift-lispkit/archive/refs/tags/2.7.0.tar.gz"
+  sha256 "7ca8cd4639e6246884beaa2ca6e13746df6395b7bfe49b0de537fe57167a1dda"
   license "Apache-2.0"
 
   bottle do
@@ -11,7 +11,8 @@ class Lispkit < Formula
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0e9190160fe1df00ae9be606f56673c70e5719c935516b4db5a718c0f1256a6"
   end
 
-  depends_on xcode: ["14.0", :build]
+  # FoundationModels `Transcript.Attachment.data` is new in the macOS 27.2 SDK
+  depends_on xcode: ["27.2", :build]
   depends_on :macos
 
   def install
