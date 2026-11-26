@@ -6,11 +6,12 @@ class Himalaya < Formula
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0fce62956ad39ea76c99df35da0e3301360686a056e57d5c09e89cb8cf48a0c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86cb65a5f5969464e2bf9a8f0ebb8104dd54f0fd758ad2a62d5811f97a8273dc"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76662dea6fd548a0ef1fcd53837ee76614420212181d15b2d1d1abfa5b7c4dfc"
-    sha256 cellar: :any,                 arm64_linux:       "f4c7254c48119c47597734987681d23027c3213a6ce9b3edee983bda09c0df64"
-    sha256 cellar: :any,                 x86_64_linux:      "4f371b48ca6debc1323bc92ad83da357cf031b93e918771bef33b39f473bb71e"
+    manifest_sha256 "08759b4605421953ec712924c9a2c2e6eba1f344352fc02bb97a7d784083d3ab"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a7d5977c465afc36e64023975ca64038b9f4f33904e7e579ee745cf520c87c7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c8f5a153ac8b7a7342a2c095407257a7c7d11f9342725c19f14ecb43eb666c4"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a91d1ab63881338d6c331c0928eb2ebf338ce2a0d85bb9e58685791d5972c38e"
+    sha256 cellar: :any,                 arm64_linux:       "0896700e40576addf2949189c2a60f5787dcbe2339f384f29902287e61e4e411"
+    sha256 cellar: :any,                 x86_64_linux:      "f04b6202f73092f3dc3c1d642341a2956bfad764faa987b0d687ae9fa7509364"
   end
 
   depends_on "pkgconf" => :build
