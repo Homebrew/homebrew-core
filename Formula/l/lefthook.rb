@@ -9,12 +9,12 @@ class Lefthook < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    manifest_sha256 "05764808b5931eee64c82a28ab8500fd53bdc66fc434f6527be6e881952c23cf"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e42ae96debf32997943109534c61fdfd3682d01295f44d2b19e48d77256b5b0b"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e42ae96debf32997943109534c61fdfd3682d01295f44d2b19e48d77256b5b0b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e42ae96debf32997943109534c61fdfd3682d01295f44d2b19e48d77256b5b0b"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "71b78f0c9c3199e423b8f9bd5e351c0d3e01d5aeaf8313a2ddd8f9473113ac05"
-    sha256 cellar: :any,                 x86_64_linux:      "568f1be6ce70d3fa341e0233cd698e62ac057fc1edf42ca0e3c18835e94afe2e"
+    manifest_sha256 "511b0c07be8f461cb36165122966eaf92c8cc0798c071bf90c620674e8ab3e43"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb0cc5f55ca4d34828e165c389422e412cccffeae73eaa68c791ef75b9e0d7b6"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb0cc5f55ca4d34828e165c389422e412cccffeae73eaa68c791ef75b9e0d7b6"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb0cc5f55ca4d34828e165c389422e412cccffeae73eaa68c791ef75b9e0d7b6"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fb44012a3a767319f2642c18da8714ee6f4675c797f1b287e223b36491f313a3"
+    sha256 cellar: :any,                 x86_64_linux:      "a6b63b40e56faeb3ca5b72b75308b79c55ec338de83a9bb53971b03232c6d5c5"
   end
 
   depends_on "go" => :build
