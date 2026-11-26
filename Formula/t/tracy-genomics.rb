@@ -7,25 +7,17 @@ class TracyGenomics < Formula
   head "https://github.com/gear-genomics/tracy.git", branch: "main"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "9fd9d4e6c7b203c4c21df49ab362bbc182b3986f21ccf0d30818d5e67760a7e3"
-    sha256 cellar: :any, arm64_tahoe:       "10879f7048d1bccb685f1568b5a0d26f889910cafba8cf2b9685260bb33ae311"
-    sha256 cellar: :any, arm64_sequoia:     "8afe0caa96c67c7436c2b2cfc9330a14940cb3f3ed040d942ff2c098879ae36f"
-    sha256 cellar: :any, arm64_sonoma:      "112acdea080d28492287493fae0875c886eeee1a9ad661352c52db03f740ec85"
-    sha256 cellar: :any, sonoma:            "fdb996e8eefcf1ed0f8ed139f599c6fb201e55712b426a51efb663b6b460888f"
-    sha256 cellar: :any, arm64_linux:       "bbe01d4d2320574f9c369d6c2767da469532ee7fc51ec32267125556c1f3706c"
-    sha256 cellar: :any, x86_64_linux:      "810c0fc55893f416aca8df62bbe37de39a122551c9225dbda9c8ae3524cc6f6f"
+    rebuild 2
+    manifest_sha256 "bbbcdad4ade2098687d503ba428856b667f7aa55dcc9836c86bd5e8aeb76f6a6"
+    sha256 cellar: :any, arm64_golden_gate: "7cc470153733a93eedece63262c46032f19e28f5f9fcd95c4a61326762fac475"
+    sha256 cellar: :any, arm64_tahoe:       "187a500f7b71709eddb06a5287a6baef46d3192e45d6a3d623a48f3794053024"
+    sha256 cellar: :any, arm64_sequoia:     "72006944e5ae05feeb00eab2487316ed0879cc8c94b018c76ace17f2422aca16"
+    sha256 cellar: :any, arm64_linux:       "d1ef5e546797f737d3ae40ffc40f67e690c8d176a20d7f18dbee28922ee305ec"
+    sha256 cellar: :any, x86_64_linux:      "c9fc878953b5bcef769a8a0edc49d14e38ee769fa91b9e7e5ba7b0bc185004e6"
   end
 
   depends_on "boost"
   depends_on "htslib"
-  depends_on "xz"
-
-  uses_from_macos "bzip2"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
 
   conflicts_with "tracy", because: "both install `tracy` binaries"
 
@@ -37,6 +29,8 @@ class TracyGenomics < Formula
 
   def install
     resource("sdsl-lite").stage(buildpath/"sdsl-lite")
+
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # strip linkage to indirect deps
 
     system "make", "src/tracy",
            "HTSLIBINCDIR=#{formula_opt_include("htslib")}",
