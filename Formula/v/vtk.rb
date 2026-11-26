@@ -4,7 +4,8 @@ class Vtk < Formula
   url "https://www.vtk.org/files/release/9.7/VTK-9.7.2.tar.gz"
   sha256 "fecef55df5caec6298ce190024060a90ce3bb515033c0f18968b9ab5c12bf796"
   license "BSD-3-Clause"
-  compatibility_version 4
+  revision 1
+  compatibility_version 5
   head "https://gitlab.kitware.com/vtk/vtk.git", branch: "master"
 
   livecheck do
@@ -22,13 +23,16 @@ class Vtk < Formula
   end
 
   depends_on "cmake" => [:build, :test]
+  depends_on "eigen" => :build
+  depends_on "utf8cpp" => :build
   depends_on "pyqt" => :test
-  depends_on "boost"
+  depends_on "boost" => :no_linkage
   depends_on "cgns"
-  depends_on "double-conversion"
-  depends_on "eigen"
+  depends_on "fast_float" => :no_linkage
+  depends_on "fmt"
   depends_on "fontconfig"
   depends_on "freetype"
+  depends_on "gl2ps"
   depends_on "hdf5"
   depends_on "jpeg-turbo"
   depends_on "jsoncpp"
@@ -38,25 +42,25 @@ class Vtk < Formula
   depends_on "libtiff"
   depends_on "lz4"
   depends_on "netcdf"
-  depends_on "nlohmann-json"
+  depends_on "nlohmann-json" => :no_linkage
   depends_on "proj"
   depends_on "pugixml"
   depends_on "python@3.15"
   depends_on "qtbase"
   depends_on "qtdeclarative"
+  depends_on "scnlib"
   depends_on "sqlite"
   depends_on "theora"
-  depends_on "utf8cpp"
+  depends_on "verdict"
   depends_on "xz"
 
   uses_from_macos "expat", since: :sequoia
   uses_from_macos "libxml2"
 
   on_linux do
-    depends_on "gl2ps"
-    depends_on "libx11"
-    depends_on "libxcursor"
-    depends_on "mesa"
+    depends_on "libx11" => :no_linkage # dlopen by vtkX11Functions
+    depends_on "libxcursor" => :no_linkage # dlopen by vtkX11Functions
+    depends_on "mesa" => :no_linkage # dlopen by vtkglad
     depends_on "zlib-ng-compat"
   end
 
@@ -70,51 +74,26 @@ class Vtk < Formula
   end
 
   def install
-    qml_plugin_dir = lib/"qml/VTK.#{version.major_minor}"
     vtkmodules_dir = prefix/Language::Python.site_packages(python3)/"vtkmodules"
-    rpaths = [rpath, rpath(source: qml_plugin_dir), rpath(source: vtkmodules_dir)]
+    rpaths = [rpath, rpath(source: vtkmodules_dir)]
 
+    # Using bundled pegtl for 3.x API
     args = %W[
-      -DBUILD_SHARED_LIBS:BOOL=ON
-      -DCMAKE_INSTALL_RPATH:STRING=#{rpaths.join(";")}
-      -DCMAKE_DISABLE_FIND_PACKAGE_ICU:BOOL=ON
-      -DCMAKE_CXX_STANDARD=14
-      -DVTK_IGNORE_CMAKE_CXX11_CHECKS=ON
-      -DVTK_WRAP_PYTHON:BOOL=ON
-      -DVTK_PYTHON_VERSION:STRING=3
-      -DVTK_LEGACY_REMOVE:BOOL=ON
-      -DVTK_MODULE_ENABLE_VTK_InfovisBoost:STRING=YES
-      -DVTK_MODULE_ENABLE_VTK_InfovisBoostGraphAlgorithms:STRING=YES
-      -DVTK_MODULE_ENABLE_VTK_RenderingFreeTypeFontConfig:STRING=YES
-      -DVTK_MODULE_USE_EXTERNAL_VTK_cgns:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_doubleconversion:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_eigen:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_expat:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_freetype:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_hdf5:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_jpeg:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_jsoncpp:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_libharu:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_libproj:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_libxml2:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_lz4:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_lzma:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_netcdf:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_nlohmannjson:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_ogg:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_png:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_pugixml:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_sqlite:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_theora:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_tiff:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_utf8:BOOL=ON
-      -DVTK_MODULE_USE_EXTERNAL_VTK_zlib:BOOL=ON
-      -DPython3_EXECUTABLE:FILEPATH=#{python3}
-      -DVTK_GROUP_ENABLE_Qt:STRING=YES
-      -DVTK_QT_VERSION:STRING=6
+      -DBUILD_SHARED_LIBS=ON
+      -DCMAKE_INSTALL_RPATH=#{rpaths.join(";")}
+      -DPython3_EXECUTABLE=#{python3}
+      -DVTK_GROUP_ENABLE_Qt=YES
+      -DVTK_MODULE_ENABLE_VTK_InfovisBoost=YES
+      -DVTK_MODULE_ENABLE_VTK_InfovisBoostGraphAlgorithms=YES
+      -DVTK_MODULE_ENABLE_VTK_RenderingFreeTypeFontConfig=YES
+      -DVTK_MODULE_USE_EXTERNAL_VTK_exprtk=OFF
+      -DVTK_MODULE_USE_EXTERNAL_VTK_ioss=OFF
+      -DVTK_MODULE_USE_EXTERNAL_VTK_pegtl=OFF
+      -DVTK_MODULE_USE_EXTERNAL_VTK_token=OFF
+      -DVTK_USE_EXTERNAL=ON
+      -DVTK_VERSIONED_INSTALL=OFF
+      -DVTK_WRAP_PYTHON=ON
     ]
-    # External gl2ps causes failure linking to macOS OpenGL.framework
-    args << "-DVTK_MODULE_USE_EXTERNAL_VTK_gl2ps:BOOL=ON" unless OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -122,7 +101,7 @@ class Vtk < Formula
   end
 
   test do
-    vtk_dir = lib/"cmake/vtk-#{version.major_minor}"
+    vtk_dir = lib/"cmake/vtk"
     vtk_cmake_module = vtk_dir/"VTK-vtk-module-find-packages.cmake"
     assert_match Formula["boost"].version.major_minor_patch.to_s, vtk_cmake_module.read,
                  "VTK needs to be rebuilt against Boost!"
