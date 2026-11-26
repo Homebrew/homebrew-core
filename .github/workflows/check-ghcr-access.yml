@@ -5,6 +5,7 @@ on:
     branches: ["**"]
     paths:
       - .github/workflows/check-ghcr-access.yml
+      - .github/workflows/publish-commit-bottles.yml
       - .github/workflows/dispatch-rebottle.yml
       - .github/workflows/scripts/check-bottle-write.sh
       - .github/workflows/dispatch-build-bottle.yml
