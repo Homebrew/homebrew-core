@@ -1,8 +1,8 @@
 class Autotrace < Formula
   desc "Convert bitmap to vector graphics"
   homepage "https://autotrace.sourceforge.net/"
-  url "https://github.com/autotrace/autotrace/archive/refs/tags/0.31.12.tar.gz"
-  sha256 "0db44ad1be129ccc679f5c314d3f041528fcc111e1210c27f2546dad9793cb6f"
+  url "https://github.com/autotrace/autotrace/archive/refs/tags/0.31.13.tar.gz"
+  sha256 "56ab571d9c1213582fe73614c045f60b80024a06c88e7940d94aaeac77382a4c"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
   head "https://github.com/autotrace/autotrace.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Autotrace < Formula
   end
 
   bottle do
-    manifest_sha256 "45a0cdaf5ee134c77e6713eeafe02ffb253d960898f69af9db0a4a0cf388804a"
-    sha256 cellar: :any, arm64_golden_gate: "e26e35d0c385ff46b0a12d8f16ff30077e85c4d92c591870517907a84b58d6b2"
-    sha256 cellar: :any, arm64_tahoe:       "fa8decd260ca7ffd12dad62ed80482a5620384adea834a14fdc30e8dadaa0645"
-    sha256 cellar: :any, arm64_sequoia:     "cc13bdfe7c314d3cd77fd39da2c4a84abe9dea3231acea52dcb0cd09edeaaca5"
-    sha256               arm64_linux:       "cf648a7d2b5b3215d8af58f1dcb1cb36bc2f349bbec117e298312837710e74ec"
-    sha256               x86_64_linux:      "07d670cad403020630f77c5a3c02ef128804b2ee7436d4d20aacc7ccb74b07b3"
+    manifest_sha256 "5c9d62b9ebc44a0b68341e865f2719cefcbb0945f656b3be32d7a011b529add9"
+    sha256 cellar: :any, arm64_golden_gate: "3f0778e7c5a803b71521b593db8e9ee4fbfc4ced8249cdcccb4b5f5c280c9cd6"
+    sha256 cellar: :any, arm64_tahoe:       "85ab58537aee3d2ca5d6f6165f6c8ccc7ac0a807931ce1e48f06b5dcf04cd1c1"
+    sha256 cellar: :any, arm64_sequoia:     "1ac6b37d85f89fe58f8ce49eec5fc973a02583f49325cf9f6dcb2a45dffdfb59"
+    sha256               arm64_linux:       "54a79aeca4f6b7116d9cd2203b7cf4856fde62f13bc13838ea6d35b647783a5a"
+    sha256               x86_64_linux:      "309530080f40c943f9e9df9ae99edab9bf8d417840cd20ff9f329c8c5704a5cd"
   end
 
   depends_on "autoconf" => :build
