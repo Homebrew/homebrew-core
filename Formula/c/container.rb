@@ -4,13 +4,14 @@ class Container < Formula
   url "https://github.com/apple/container/archive/refs/tags/1.7.1.tar.gz"
   sha256 "ef497b524624048ee45d57b0f7fdd675d6d420fcb30ab4a039779d752d9dea66"
   license "Apache-2.0"
-  revision 2
+  revision 3
   compatibility_version 1
   head "https://github.com/apple/container.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c4ea95904c6d746848e2b499a89b9154e52ba9d4a48b7cb1eee06edd9676b71"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63f7ed909bd54deb08d5fb86a537d07ba9b94abb326d9194a66657b7e804221f"
+    manifest_sha256 "048c6f587d92a0d3743d9c6bf5ac9331f42e524f6c5ffdaffca3d307d1186b92"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5564a34d63b414dc2e19ca4f4b660239347d79bb0b0c6fe7532759b2eae36450"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc0db1c67876d943388d430251b0de909ef762ba90674e73bd3a7608eb950ed3"
   end
 
   depends_on xcode: ["26.0", :build]
@@ -68,10 +69,6 @@ class Container < Formula
 
     generate_completions_from_executable bin/"container", "--generate-completion-script"
 
-    # Shims export CONTAINER_INSTALL_ROOT: the lexical fallback breaks under symlinked bin.
-    # Binaries live in cli/ because libexec/container is now the plugin tree.
-    bin.env_script_all_files prefix/"cli", CONTAINER_INSTALL_ROOT: opt_prefix
-
     # Upstream's third-party plugin dir (apple/container#1617), symlinked outside
     # the keg so user-installed plugins survive upgrades.
     libexec.install_symlink HOMEBREW_PREFIX/"libexec/container-plugins" => "container-plugins"
@@ -86,6 +83,13 @@ class Container < Formula
   # Ref: https://github.com/apple/container/issues/551#issuecomment-3246928923
   post_install_steps do
     run "ensure-container-stopped.sh", args: ["-a"], base: :libexec
+
+    # container resolves its install root from the unresolved executable path,
+    # so plugins must live under the prefix when invoked via the linked bin.
+    mkdir_p "libexec/container-plugins", base: :homebrew_prefix
+    symlink "libexec/container", "libexec/container",
+            source_base: :opt_prefix, target_base: :homebrew_prefix,
+            overwrite: true, remove_on_uninstall: true
   end
 
   def caveats
@@ -94,12 +98,9 @@ class Container < Formula
       automatically. Install the recommended kernel before running containers:
         container system kernel set --recommended
 
-      Third-party CLI plugins now live in:
+      Third-party CLI plugins live in:
         #{HOMEBREW_PREFIX}/libexec/container-plugins
-      and persist across upgrades (create the directory when installing your
-      first plugin). Plugins installed into an earlier keg's
-      libexec/container-plugins were removed with that keg; reinstall them
-      into the new location.
+      and persist across upgrades.
     EOS
   end
 
