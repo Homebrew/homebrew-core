@@ -8,9 +8,10 @@ class Xcodegen < Formula
   head "https://github.com/yonaskolb/XcodeGen.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d20524b1cb9a331f28a8ff2a162ba1b74ae8bd5a212610743e05177db1113e36"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f1f226f08b93f37e5ce22b5ae5cfad3f973eb975056cf3e0d7e8aadde94cc7b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0db8dbbbbc06aaf2e3a84540075301ba817a91ad939fc977032c305c4f2b7e78"
+    manifest_sha256 "51eb3836846f11aabdb09b069fdd428d9fb7269a50376da2712a54c1410d8eca"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "152837535a99288aca640010d35485374fb24827123d683524f6b5316c3d7096"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a9f2b5fe6ce80e5d03b9dac388323c2830349fd209e4e38d453f87697613ddc2"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "340bb75318c9ee470eadaaba9bbd7f55020e77946b1990dec54395f75a8b6929"
   end
 
   depends_on xcode: ["15.3", :build]
