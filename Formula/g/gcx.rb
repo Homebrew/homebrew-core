@@ -7,12 +7,12 @@ class Gcx < Formula
   head "https://github.com/grafana/gcx.git", branch: "main"
 
   bottle do
-    manifest_sha256 "b07ecd05a37f9951c66fe097762cec3fdb526cba0099b522e86deee9ae6e1048"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7e20efc42d4145a95dbf6e479e0c11593e92e2f224e92d0633afbd0ae30f6ca"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4d0d833b427ac149f04b405eb2b5fe53171ff9393736ebd1be0e4451c5358919"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1edcb218ac81946b2de3a7e24fbaca655ebfad9f70dfc7b8a5be4268b856902"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7923095049ab66e4dfa8cfe5356ad1c7bf7cab0d1f8d21b9e7d0db2333454bdd"
-    sha256 cellar: :any,                 x86_64_linux:      "5b0da408662f816c622b29c5cdbb7eed39d9da97e5b18fd38fe6c0262f0bd5a5"
+    manifest_sha256 "3f467de019cf7fb221e1bb0d02caecc7aabeeb8e0666e7bfcd0768916ac6ee90"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ca979433d465b22e5627c157b2a347514eb74064692908310c6d386bd2a45e8b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a847046488420b803eb018eb605ae1b93211b1e38b10d7e3c1361bc22299b84d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b84beb591f5a8e47acdf10759f35cb8235fd61c76196ab21e9a3fcec3f63ef31"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "a52f9e9ec772efed6b76c563df823d59e5d97498aadc6e5ea5e5bd17ef395f71"
+    sha256 cellar: :any,                 x86_64_linux:      "f14960bda5105e9dc40b042c08dd8f79a7f38e0e7cb34f124cfdb8143a2f2177"
   end
 
   depends_on "go" => :build
