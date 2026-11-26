@@ -1,8 +1,8 @@
 class Renovate < Formula
   desc "Automated dependency updates. Flexible so you don't need to be"
   homepage "https://github.com/renovatebot/renovate"
-  url "https://registry.npmjs.org/renovate/-/renovate-44.260.3.tgz"
-  sha256 "4c4382b241e00d1a096e6a22df60fda07b9629cfa26cba0351a54a3f6abf14f4"
+  url "https://registry.npmjs.org/renovate/-/renovate-44.261.1.tgz"
+  sha256 "347734c74a0ea38b6d58cc1ea0f7a60d0a0ae25ce49293eab9fe5e5603906bf0"
   license "AGPL-3.0-only"
 
   livecheck do
@@ -10,12 +10,12 @@ class Renovate < Formula
   end
 
   bottle do
-    manifest_sha256 "dc02624c29cc5afd74d7c34b80328859d84f8c86260f1c4b3a26466626a8e0a2"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2a341373efca1c310d922eff7ddbfad7614ce29928a2bda23a508e7f9cf9e8af"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a341373efca1c310d922eff7ddbfad7614ce29928a2bda23a508e7f9cf9e8af"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a341373efca1c310d922eff7ddbfad7614ce29928a2bda23a508e7f9cf9e8af"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "47d4fbf230412cf7caff2678165f9d08bebac5ce14875f6cbe7c3bb2939769bd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "47d4fbf230412cf7caff2678165f9d08bebac5ce14875f6cbe7c3bb2939769bd"
+    manifest_sha256 "1e2ac5bcd30c0ea8c2dab3ef4fba92364892db9c961f832c26eb91e52f6922ff"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22b44915df4b2f5b8e6839e712178cdd760a0a43b5acdff381ccc0c9fe1494ff"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22b44915df4b2f5b8e6839e712178cdd760a0a43b5acdff381ccc0c9fe1494ff"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "22b44915df4b2f5b8e6839e712178cdd760a0a43b5acdff381ccc0c9fe1494ff"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c0f53ae67cdd7377bff1787dd5d337db622aa6d7caa97c141221fb8d19ebcc6a"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c0f53ae67cdd7377bff1787dd5d337db622aa6d7caa97c141221fb8d19ebcc6a"
   end
 
   depends_on "node"
