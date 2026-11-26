@@ -7,6 +7,7 @@ class Opencv < Formula
     "MIT",            # modules/gapi/src/3rdparty/vasot
     "OFL-1.1-no-RFN", # modules/imgproc/fonts/
   ]
+  revision 1
   compatibility_version 3
 
   stable do
