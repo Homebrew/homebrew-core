@@ -7,12 +7,12 @@ class DockerAgent < Formula
   head "https://github.com/docker/docker-agent.git", branch: "main"
 
   bottle do
-    manifest_sha256 "dd87ce8e2b66bcf8d58565809b6f8fb8201373bc943db0dcf53d5cd0338f3dea"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9619ea19985088a4d5d43eb7f28c87fcce73a5180dc82c58337daa656781b67"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "baa39aabfc46caed8291e6f9b256b8e63bd37609689ec6b216bb6c0e04646bb0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3031b3eab8eca946acc82c2caa2b8f4530255df1eb7fee83b6d8aef100914b2"
-    sha256 cellar: :any,                 arm64_linux:       "623559581ad0d1bf90e4cb362fac75ae08f7730e6a9bfe88c343378af4f957c2"
-    sha256 cellar: :any,                 x86_64_linux:      "664431ce15e1c17c9dbc1ab0b5c59342344996dc6646231bdf1b88f92920e64f"
+    manifest_sha256 "550c3527ba1913fc375f819feaa5cd15e7c9f463a7deecefd85a2184931658b1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9926c9eec5193f0d03f372713e233f0b32b95cb2086c8fa7b6c992169b6e36a5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c20e9b789483d62c2e2ec49be8103ceb830e5b31b2bf0d6455b19bfcd4a51a24"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8651f58947a973c8d3ce1da7d64fe768aa2f054770752d6ef6777c7efe9dba9"
+    sha256 cellar: :any,                 arm64_linux:       "c1880d14020a8199e1c7c0eda808714ae2afceea90c3800b895c91b593618064"
+    sha256 cellar: :any,                 x86_64_linux:      "61054158409b7745956699ddca89bd9f8bc3685c444f366585736d4515b98113"
   end
 
   depends_on "go" => :build
