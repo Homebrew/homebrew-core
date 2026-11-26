@@ -3,8 +3,8 @@ class LlamaCpp < Formula
   homepage "https://llama.app"
   # CMake uses Git to generate version information.
   url "https://github.com/ggml-org/llama.cpp.git",
-      tag:      "v1.0.0",
-      revision: "b1b770d90d94cad9e9ea5b993bdbc383a522fb28"
+      tag:      "v1.1.0",
+      revision: "171527522610996f5f0acf12334e185156ca8f44"
   license "MIT"
   version_scheme 1
   compatibility_version 2
@@ -32,13 +32,13 @@ class LlamaCpp < Formula
   allow_network_access! :test
 
   def fetch
-    cd "tools/ui" do
+    cd "ui/apps/chat" do
       system "npm", "install", *std_npm_args(prefix: false)
     end
   end
 
   def install
-    odie("we do not want to bundle ggml") if deps.map(&:to_formula).none? { |f| f.name == "ggml" }
+    odie("we do not want to bundle ggml") if deps.none? { |f| f.name == "ggml" }
     args = %W[
       -DBUILD_SHARED_LIBS=ON
       -DCMAKE_INSTALL_RPATH=#{rpath}
