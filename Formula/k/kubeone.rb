@@ -1,8 +1,8 @@
 class Kubeone < Formula
   desc "Automate cluster operations on all your environments"
   homepage "https://kubeone.io"
-  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.15.0.tar.gz"
-  sha256 "f7614214f85da4c652e1aa6882ae9e1edae8d6d558e7eb93306dc37c2c5515c2"
+  url "https://github.com/kubermatic/kubeone/archive/refs/tags/v1.15.1.tar.gz"
+  sha256 "1c67b92fab6e495c4ba4cc3f2b12d488510b1a835c25245e8337ff8e43b2ffae"
   license "Apache-2.0"
   head "https://github.com/kubermatic/kubeone.git", branch: "main"
 
