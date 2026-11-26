@@ -1,29 +1,18 @@
 class Flow < Formula
   desc "Static type checker for JavaScript"
   homepage "https://flow.org/"
+  url "https://github.com/meta/flow/archive/refs/tags/v0.343.0.tar.gz"
+  sha256 "fcc19bd507fa397fb30582fb068a2a0b2eae0f5b641e3ef47d330b4e30318230"
   license "MIT"
   head "https://github.com/meta/flow.git", branch: "main"
 
-  stable do
-    url "https://github.com/meta/flow/archive/refs/tags/v0.342.0.tar.gz"
-    sha256 "9964e7ba88755be8a23ba4bd910b57a115cf46b39c3a25c757c20e04f143c996"
-
-    # Replace `box` patterns, which Rust 1.100 removed, with `deref!` patterns
-    patch do
-      url "https://github.com/meta/flow/commit/9976dbf5c6220ea90555d25ac97a1e7496ab203c.patch?full_index=1"
-      sha256 "2ede7443733e6e5a126b4f7508cd74eb9b0acd55c3ca130c7b03fc42dbcf8f9a"
-      type :unofficial
-      resolves "https://github.com/meta/flow/pull/9536"
-    end
-  end
-
   bottle do
-    manifest_sha256 "6e7a6a90c2359d1409bcee2727a35dcd5cdad8b34c69e14df5bdc3e91c2d92c8"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4c1493ff48e332c54f3855a35ab33cd757165a1b5ed78967257fe79cfe1afe5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "665ab1139153e25cb737eb91766f48eed753332b091c0826816c0e8a4d84f7a9"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce6a9094f57ef8cf14e87f8d9b72c57b519b2a588a4cc51eb65f97fde721e173"
-    sha256 cellar: :any,                 arm64_linux:       "f7555364cb11489bfb06140583e7fe4335c6b3e8719835b43f57ede7c2f242e5"
-    sha256 cellar: :any,                 x86_64_linux:      "e62105b5dbcef89d17791364b93ea24d9326b1037892e855c49d6625e6b87ff4"
+    manifest_sha256 "85a9aec2197aa8a0011e8a4f186dec5722919d7eedcd82cb70de386ce4097d5f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cce29113494ba5799374e69514fdc9e9698885360df66375e93503ecc54e8038"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2d13b9543f75799fbfffaa69d7f8124dac78d13a02b0271b98a5c44ce24e29d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57226639ce8508392f91d0bcdfeb85fd60ffdd9549912f0ba281d98a79f47dea"
+    sha256 cellar: :any,                 arm64_linux:       "15b8738759af663c4361097d28cbbe7e785fab50565c367171be783ed390ec12"
+    sha256 cellar: :any,                 x86_64_linux:      "63a0427aef67826c06774cc0eba11d0cbfc1979e63f8fc3a300cca2e2e66fb1c"
   end
 
   depends_on "rust" => :build
