@@ -1,0 +1,38 @@
+name: Check GHCR publishing access
+
+on:
+  push:
+    branches: ["**"]
+    paths:
+      - .github/workflows/check-ghcr-access.yml
+      - .github/workflows/scripts/check-bottle-write.sh
+      - .github/workflows/dispatch-build-bottle.yml
+
+permissions:
+  contents: read
+  packages: write
+
+jobs:
+  verify:
+    if: github.repository == 'Homebrew/homebrew-core'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          sparse-checkout: .github/workflows/scripts
+
+      - uses: Homebrew/actions/setup-homebrew@ceec4e8419bb3c97ce96e9dda7738499ed5f869d # 2026.11.14.1
+
+      - name: Install ORAS
+        run: brew install oras
+
+      - name: Write an untagged blob to a regular and a versioned bottle package
+        env:
+          HOMEBREW_GITHUB_PACKAGES_USER: ${{ github.actor }}
+          HOMEBREW_GITHUB_PACKAGES_TOKEN: ${{ github.token }}
+        run: |
+          cat > "$RUNNER_TEMP/check.bottle.json" <<'JSON'
+          {"hello":{"formula":{"name":"hello"}},"openssl@3":{"formula":{"name":"openssl@3"}}}
+          JSON
+          bash .github/workflows/scripts/check-bottle-write.sh "$RUNNER_TEMP/check.bottle.json"
