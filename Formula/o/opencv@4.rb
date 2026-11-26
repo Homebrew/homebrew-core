@@ -8,7 +8,7 @@ class OpencvAT4 < Formula
     "BSD-3-Clause", # modules/xfeatures2d/src/kaze/, 3rdparty/ittnotify/, ...
     "MIT",          # modules/gapi/src/3rdparty/vasot
   ]
-  revision 12
+  revision 13
   compatibility_version 2
 
   livecheck do
@@ -193,6 +193,7 @@ class OpencvAT4 < Formula
       -DOPENCV_GENERATE_PKGCONFIG=ON
       -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
+      -DWITH_AVIF=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
       -DWITH_FFMPEG=ON
