@@ -6,11 +6,12 @@ class AwsAmplify < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "7141f7a1604d069e4b4d00cee99562f76d175c4bbe83ccb21210424be24302d1"
-    sha256 cellar: :any, arm64_tahoe:       "7141f7a1604d069e4b4d00cee99562f76d175c4bbe83ccb21210424be24302d1"
-    sha256 cellar: :any, arm64_sequoia:     "7141f7a1604d069e4b4d00cee99562f76d175c4bbe83ccb21210424be24302d1"
-    sha256 cellar: :any, arm64_linux:       "9a1934e1380dc3558f9da69b110c8c5fed491d1408e97f525aa18b96c8b3dc1e"
-    sha256 cellar: :any, x86_64_linux:      "9258d6fdc8a34c56fea6b90a99a633c8dd493f88e2dc750c2574b1529acc8017"
+    manifest_sha256 "a5eb8431ec3577f5aff3ec7fc9db124a8eab338270a8c9ce7abba596436b494f"
+    sha256 cellar: :any, arm64_golden_gate: "84490ec496ee0d20cca9763d6e29fe027585c9121107c3a98bc4f891bb26f978"
+    sha256 cellar: :any, arm64_tahoe:       "84490ec496ee0d20cca9763d6e29fe027585c9121107c3a98bc4f891bb26f978"
+    sha256 cellar: :any, arm64_sequoia:     "84490ec496ee0d20cca9763d6e29fe027585c9121107c3a98bc4f891bb26f978"
+    sha256 cellar: :any, arm64_linux:       "1b0b965d60dba497f369e3b1287f6b70ad141ce5a054841504e026ad49d7442a"
+    sha256 cellar: :any, x86_64_linux:      "eebd7bd29b5d4228964290c456c4ee9c1427093d7234044b371a7f3163b5da9b"
   end
 
   depends_on "node"
