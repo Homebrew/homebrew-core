@@ -12,12 +12,12 @@ class Bismark < Formula
   end
 
   bottle do
-    manifest_sha256 "4462c1568b74bedfa8027d663901b6f69c89bc71541bfd2562b0d6734ed110ee"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b868ab1ed75851d2cd37f2ee34ebbfe1e0571b9e446c3bec45d443028639241"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a1ce574fc1c062df2112d51815d2d214117d58101656b0f0373715955821952b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3123b9b06e867451b6521f69c4805f5f2a8777de941f3e70e0e731ae11a32612"
-    sha256 cellar: :any,                 arm64_linux:       "f88d96cd6e8c66a91fe8b7ad9bb29eec195a368af1e0c8f1ea021e5892c2da81"
-    sha256 cellar: :any,                 x86_64_linux:      "86a59d8eca54a24a6c1d80d7aa7cfada1858774d461cba08f5ca650fc6454197"
+    manifest_sha256 "b9fe5ee157769e13fc6c7292128ccca339303fa8e0e78d68f85deabbd12f426d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad132d3db498156295dbb1fe6f54a44f38644ae0d879c687d2bb422b05458f45"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "039c171563d58638b7663b13d93a4862f807ecea0f9fdc05543da1f7635671c8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37650678f4e60ca346fa66f69238ffc8223820b9b06dc4cc770c0fce3153941e"
+    sha256 cellar: :any,                 arm64_linux:       "16f83cc4e822c9b578f4288fa12bb8eb7fb5e3e7ed3e2b8cd59922bd0100e873"
+    sha256 cellar: :any,                 x86_64_linux:      "1be71673ad53f0430de7967b4111a4120ec6b845d14e6d62d17d76aa914232ca"
   end
 
   depends_on "rust" => :build
