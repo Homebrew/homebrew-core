@@ -1,19 +1,17 @@
 class FileRoller < Formula
   desc "GNOME archive manager"
   homepage "https://wiki.gnome.org/Apps/FileRoller"
-  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.7.tar.xz"
-  sha256 "67cada96a2409c859f378e82fbe868b0e9c00a69e6b7b885d542c64ea2a1297d"
+  url "https://download.gnome.org/sources/file-roller/44/file-roller-44.8.tar.xz"
+  sha256 "40a560efe9fff957376fd92358580839acc79e2065addbf8491f7a14438c5755"
   license "GPL-2.0-or-later"
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "578cee84b0e357a54f9987b9674ae4ab5bb7a84beebac540c9f0a485e6256718"
-    sha256 arm64_tahoe:       "9a76432dbf3de2b5f978893f3bfab338e71b100b81ef0cef68a0d51e509851f5"
-    sha256 arm64_sequoia:     "7531ab1b2228e2df76eec7f3de2ae197772801a52c1df9daf66102e246f6a521"
-    sha256 arm64_sonoma:      "45933a7e7fb0a10406e8229d3457caa327d3373c3750bbac0e5ede094f91584d"
-    sha256 sonoma:            "607c23912d7aef061787efc23d8358c6affbdc5c72265d2c1045530d778e8435"
-    sha256 arm64_linux:       "3eadf2c56bffc406f031216e18a65eff6fc20d3a34c2c03aefa42e8a4c1bfcaa"
-    sha256 x86_64_linux:      "62ae864f882eee7f9ddafd770ad20762db0d5638982747e67722a341504be546"
+    manifest_sha256 "052a0fd570620f2c6ab2a3ab71fc3541f7ec13ce57dc67df47234680e1fe3dc9"
+    sha256 arm64_golden_gate: "3c3dc6c47c4107cf489201e47eb5e2d69c4f56cdfbd58eda151d4bbd5de515f2"
+    sha256 arm64_tahoe:       "709d9681bfe54f3605b9a5f14f15f8c40b998231f7aabc0179eb93463a43d60c"
+    sha256 arm64_sequoia:     "a11745caeb911951a4103ad42640733644a0be448a3cb6583c2e013045156af5"
+    sha256 arm64_linux:       "0af07070a0f6a0fdd157d92f8b54df3441e3078c7af318f8af325ec3d812d042"
+    sha256 x86_64_linux:      "32b70469ab052631fe7f09e25e0f5d9aa5f473fd78f934bdd2bb83fe38a58348"
   end
 
   depends_on "gettext" => :build
