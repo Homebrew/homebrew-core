@@ -1,9 +1,9 @@
 class Basex < Formula
   desc "Light-weight XML database and XPath/XQuery processor"
   homepage "https://basex.org"
-  url "https://files.basex.org/releases/13.0/BaseX130.zip"
-  version "13.0"
-  sha256 "594cc5e4c3bb8b6e69da3febbb8c39de725112eb7fdffe09ca034b74fc994e72"
+  url "https://files.basex.org/releases/13.1/BaseX131.zip"
+  version "13.1"
+  sha256 "0f99e7aacb978e444525d49d3778ac55b22429bfe11c3a2b17daa825760b688e"
   license "BSD-3-Clause"
 
   livecheck do
@@ -29,7 +29,7 @@ class Basex < Formula
 
     libexec.install Dir["*"]
     bin.install libexec.glob("bin/*")
-    bin.env_script_all_files libexec/"bin", JAVA_HOME: formula_opt_prefix("openjdk")
+    bin.env_script_all_files libexec/"bin", JAVA_HOME: dep("openjdk").opt_prefix
   end
 
   test do
