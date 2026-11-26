@@ -1,17 +1,18 @@
 class SignalwireClientC < Formula
   desc "SignalWire C Client SDK"
   homepage "https://github.com/signalwire/signalwire-c"
-  url "https://github.com/signalwire/signalwire-c/archive/refs/tags/v2.0.6.tar.gz"
-  sha256 "e49f1e2686058b1aa1ae30e84b00248da3d109b9b8fce682058f1b53c0e2280d"
+  url "https://github.com/signalwire/signalwire-c/archive/refs/tags/v2.0.7.tar.gz"
+  sha256 "8b06862b0535d8ff4e3f0ca7cf34cebcf24972744dc251080131e517b067e60e"
   license "MIT"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "244579c2acb67012e0ce31458b0eab069e962c0e1a92ecdbc390e357ea9c353c"
-    sha256 cellar: :any, arm64_tahoe:       "5fc4dabd44395ee6138c56b70983395ba02605039b7abcfd994596ce0a1032b3"
-    sha256 cellar: :any, arm64_sequoia:     "97bdf557640c8cb51188dffb81081d06df728fb9e4ccb6934d7d63da7da2c8c0"
-    sha256 cellar: :any, arm64_linux:       "5d91ece6b7924ab5e7bd5fa684fc53ef906162b658fff438059bf63eab6b4659"
-    sha256 cellar: :any, x86_64_linux:      "10a26e9f0dc4cc36d9b8f3dabb3e2657fd915e2f96f84d8357564a161924f3ed"
+    manifest_sha256 "37573e070198eafce5f6c126f77255c910e37997806b8813410e5ff1d4e90947"
+    sha256 cellar: :any, arm64_golden_gate: "8c31330ccb9cd50213220968b94849caa6da9d6a4d15b8a4e87eff08f625b89b"
+    sha256 cellar: :any, arm64_tahoe:       "38dcc2fed510be5a934c16acf00f2ec7b693ae1dcad2a070980956ed421676ae"
+    sha256 cellar: :any, arm64_sequoia:     "0fb0887338fc85b4e3e0527628bcbac9411310513b6c0a911bfc75d2eef2b09c"
+    sha256 cellar: :any, arm64_linux:       "f4f4889674bc81afda958ffa126a869c38019952ba8297db98614fdd1136a9cd"
+    sha256 cellar: :any, x86_64_linux:      "c76a7e6322bfee339309835b2e3168245f64e3359f45f9a71be247d6da41f1fd"
   end
 
   depends_on "cmake" => :build
