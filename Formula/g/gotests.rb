@@ -1,19 +1,18 @@
 class Gotests < Formula
   desc "Automatically generate Go test boilerplate from your source code"
   homepage "https://github.com/cweill/gotests"
-  url "https://github.com/cweill/gotests/archive/refs/tags/v1.9.0.tar.gz"
-  sha256 "1a36874dd5beec211e9b9aaf7d72be8839e76b5ad0a002cb4e83b80ad948697b"
+  url "https://github.com/cweill/gotests/archive/refs/tags/v1.10.0.tar.gz"
+  sha256 "9a2261435dae1002bafa596be86ab50b180f4d4642ed5bc293471a2c150b8115"
   license "Apache-2.0"
   head "https://github.com/cweill/gotests.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95430e13040ec7d51e35ee7ba2910b7b6ab5e309b12e764fc41e3239e9f19d12"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9df20fdd667942ed0db364896b9d3ec5dea05ba66569cf265319c892bf16922a"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9df20fdd667942ed0db364896b9d3ec5dea05ba66569cf265319c892bf16922a"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "9df20fdd667942ed0db364896b9d3ec5dea05ba66569cf265319c892bf16922a"
-    sha256 cellar: :any_skip_relocation, sonoma:            "cfa2259d33d113f8a7800ca1ea057cf0aba2025bf27f9c76a298e66bdbc475da"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e0c504b5b5866a465e6ee748d60d33cc96f65af20f7270c8db0c6d4291c948f2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7ac759554a3d2758bc73f3f0fe37bf65cc2f75e02adbc876a01b4378e073a87d"
+    manifest_sha256 "7c117481a55087475741c7472e7a4bfd5b5fee2eeecff1ba6e89e32fce5d751d"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6763f50ae384e7857d6c32b6d7d5ac18063c39457aa5d2dd2c00898328441d0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6763f50ae384e7857d6c32b6d7d5ac18063c39457aa5d2dd2c00898328441d0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6763f50ae384e7857d6c32b6d7d5ac18063c39457aa5d2dd2c00898328441d0"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "df0855fd02c736b190a03a0654fe935aefd627efb36d705fcdf153ccf7e3912d"
+    sha256 cellar: :any,                 x86_64_linux:      "13c8eab06b4412c833fbaa45cf950fe79207848d8af88dfe8c835db504b5bf2c"
   end
 
   depends_on "go" => [:build, :test]
