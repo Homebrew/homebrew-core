@@ -3,18 +3,18 @@ class Pipx < Formula
 
   desc "Execute binaries from Python packages in isolated environments"
   homepage "https://pipx.pypa.io"
-  url "https://files.pythonhosted.org/packages/db/3d/987759d8bfeaa834a92fae4dd680849c36fa048c57fad7915012848c076e/pipx-1.19.0.tar.gz"
-  sha256 "9db512f0553b81f3227ab2613fabefc4fde8a51b3834b11add3ff5a026191361"
+  url "https://files.pythonhosted.org/packages/51/18/db2093a6337de90daad9937e9dce5e8bde7fe077cf678f75baa1111f3956/pipx-1.19.1.tar.gz"
+  sha256 "fd654c9468cf5238fae49bb0c924a863ebb8237dd4635855f08cbb010aec0196"
   license "MIT"
   head "https://github.com/pypa/pipx.git", branch: "main"
 
   bottle do
-    manifest_sha256 "14b55e760b4e2d6b4fbb118375eb3ce4f870705cd7f57df92ec30771424aacfc"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfb1b18c4b3025b5c7baf1ec9c78dafe36b3d37172f20f585de619da416f4421"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cfb1b18c4b3025b5c7baf1ec9c78dafe36b3d37172f20f585de619da416f4421"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7107bf26fa572559b0c36643b9b8f6074d4c6261729cbff4484d2c2bd8107c7"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "18551511a94a61d24f1051b27b384cab962bd75ca9964fbc4a2bc49f59fec978"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "18551511a94a61d24f1051b27b384cab962bd75ca9964fbc4a2bc49f59fec978"
+    manifest_sha256 "2be84bec97e1f1e12b7f82475e9de938869d8c9ba1970de520aeab4fd6674fcf"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1766d9a465f72b4e6e2758510abf4d36acb9246786840ebb58f4db1bed5fccb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e1766d9a465f72b4e6e2758510abf4d36acb9246786840ebb58f4db1bed5fccb"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e1766d9a465f72b4e6e2758510abf4d36acb9246786840ebb58f4db1bed5fccb"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f65914cd6f91b5e2a07cd9021cbdbcf1e5b696a863f8be2c5543b115c4632372"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f65914cd6f91b5e2a07cd9021cbdbcf1e5b696a863f8be2c5543b115c4632372"
   end
 
   depends_on "python@3.15"
@@ -35,8 +35,8 @@ class Pipx < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "platformdirs" do
