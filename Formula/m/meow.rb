@@ -1,18 +1,18 @@
 class Meow < Formula
   desc "High-performance, rule-based tunneling proxy kernel"
   homepage "https://meow-rs.github.io/meow-rs/"
-  url "https://github.com/meow-rs/meow-rs/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "e92c0979cd95f16246bfb763da7cab8d66f23a8ec914b61e5dd5813b29b68a11"
+  url "https://github.com/meow-rs/meow-rs/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "2d3ef7f76907e45713345c4a8e7148ba5279d6a45d3d6e90b4848fae7249fe88"
   license "MIT"
   head "https://github.com/meow-rs/meow-rs.git", branch: "main"
 
   bottle do
-    manifest_sha256 "d8a26fb6c74c4d2bfbd63e79df3c15df1d4fe93dc7e0870c7811729041a1f03a"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "907c388993675f1684877b26a6db5ceac696ad62cb435b3bf2cf4e37ade390b9"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5347bf4b9acf4e7006892a87b125dbe6030a96aa02c5f5af995d88e638cdd750"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6dd46e1f73a4c803a69d6290727c7047cbae83393e3b44ab8a8f7ef4f04f1b8"
-    sha256 cellar: :any,                 arm64_linux:       "cae55ea93b8c04bc90f55930764f05eb346d257c8a77d3800491bdf6610e9e48"
-    sha256 cellar: :any,                 x86_64_linux:      "2b5d9c0554679b5c5873466a51fd6757f53205ccdee561b7b1984cd68a945b4a"
+    manifest_sha256 "8b9b51d793b7c0bd9c0ce3494a6a921005c35a020e8835eaad7a77a593640cdb"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60d1d19e5ac34478fac27ca7c8c93de8b6ff6948ec8fc2d349e49f16e978eafa"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a15e030738f258f96b27bc02df92aaec4a200d7f5e81eebabcd78202313fd008"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9117285c656f42526c0298f677f3a2a225ab20b4f59f6d4b3f4a982f072415c8"
+    sha256 cellar: :any,                 arm64_linux:       "db524414d58909f0b3127f2ac561749c0adb50c5b25e7817720601f929b78de9"
+    sha256 cellar: :any,                 x86_64_linux:      "7877041983b4135801b216b22ce2c44380b6fe7e38f40f9e49772cee2a616c58"
   end
 
   depends_on "cmake" => :build # For the vendored BoringSSL library
