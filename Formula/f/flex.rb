@@ -7,12 +7,12 @@ class Flex < Formula
   compatibility_version 2
 
   bottle do
-    manifest_sha256 "4a8ba867c404925325e7627f7c0bf11dc3b1742c7de0f07e842fabb94d677521"
-    sha256 cellar: :any, arm64_golden_gate: "ac057fe506079bbfcca8375db9a2ad6446ebc9be1e2619929479b87653dc0c32"
-    sha256 cellar: :any, arm64_tahoe:       "238e9bc47470a9faec05eb438395edca7909b6af0a2908d34c375e5187316abc"
-    sha256 cellar: :any, arm64_sequoia:     "9ee4923e8c9e4b22439d33ed8a788c2c2ff91b610bfca4acddecbe1ce6ac987f"
-    sha256               arm64_linux:       "f6692692ad1f374e36b08673fdd3deb8a99f20bdaf286036567ea3b9d4f16a87"
-    sha256               x86_64_linux:      "a35c96d56c28214b4d0816ec8cda4e5fdb92b4bbb070eadb831f96e99e0ee72e"
+    manifest_sha256 "b7eb67f24bf7433bba3034cc4fee2b60e45c7658ca507cc66599941c90fea93a"
+    sha256 cellar: :any, arm64_golden_gate: "c119cdf80b2d52aa4bd6a92d582b47637ea1abaf44e1d54db7a6ab375cc0c9f3"
+    sha256 cellar: :any, arm64_tahoe:       "a0fe86b40574ee5990f0c899c2d04e51a96e4801892583af356c318ff1a70d30"
+    sha256 cellar: :any, arm64_sequoia:     "15e0d7cad6001bbb32b7b052ecd260d41bc56e0cb78168e78e2a665fa3d2837d"
+    sha256               arm64_linux:       "e0edb162eef07505a18580e34ec6f8acbe40278035c01f0a17931974f661e557"
+    sha256               x86_64_linux:      "269803cdd0feee1216fa9a8e5a36180d4fc03973ed0cc822f68c5d79383f2069"
   end
 
   head do
