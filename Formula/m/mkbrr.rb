@@ -7,12 +7,12 @@ class Mkbrr < Formula
   head "https://github.com/autobrr/mkbrr.git", branch: "develop"
 
   bottle do
-    manifest_sha256 "38dd4f81a1138231d52d89dec32cabe7e405c92d6bad8e9d933e10ba5a78baf3"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0fb37fba29de3e8a390dac3248e381bd83616bc04b90abaa01699659ff16737"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0fb37fba29de3e8a390dac3248e381bd83616bc04b90abaa01699659ff16737"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0fb37fba29de3e8a390dac3248e381bd83616bc04b90abaa01699659ff16737"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "788e56b26d05c536d2a0080ba4e1aed98a8cc5ae6f2204ade71c985bdc61cf80"
-    sha256 cellar: :any,                 x86_64_linux:      "a4e599283424dca6dd4e86cd74fcc89da529976495c16bb5cb534b517cfeb275"
+    manifest_sha256 "92a966c1001baf683b2f3371a1696bf0cf8a16f6fdc87cf5cc490506b8fe05dc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "421323ebf14d1869cb04ba8c01a72773905bc48d600b3307f1232d11952b3919"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "421323ebf14d1869cb04ba8c01a72773905bc48d600b3307f1232d11952b3919"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "421323ebf14d1869cb04ba8c01a72773905bc48d600b3307f1232d11952b3919"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "564fbe1d4b832dd7096b44cc1ebe76e6b9e0ee22cb26ea74d3beda9b0561bfe0"
+    sha256 cellar: :any,                 x86_64_linux:      "59f12127c6f50e63091bf7d1396a1f6ffa824d818446472020ccf2400381d441"
   end
 
   depends_on "go" => :build
