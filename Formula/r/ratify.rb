@@ -1,8 +1,8 @@
 class Ratify < Formula
   desc "Artifact Ratification Framework"
   homepage "https://ratify.dev"
-  url "https://github.com/notaryproject/ratify/archive/refs/tags/v1.4.8.tar.gz"
-  sha256 "c2ecdb37ee6b2fd8128003ad47ebe7ef0a9766379ebc7ff83b999b7ea90e06cb"
+  url "https://github.com/notaryproject/ratify/archive/refs/tags/v1.4.9.tar.gz"
+  sha256 "d899555e0961d92a656921b6387dd9f928cab179c95f2c68359f5067c46dfb55"
   license "Apache-2.0"
   head "https://github.com/notaryproject/ratify.git", branch: "main"
 
@@ -14,11 +14,12 @@ class Ratify < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17c5d7c13787bf5d34b20bb60f69da4fdbd4d74753fbae759d6c388a867efbcc"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ede6ebddd54e6511ff76997353049abac83be0eb91b80ad2a6541518c9c3a4ff"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07236f83be05ce8606bc920d687603d120528c997724a52180a3a152e4208dd5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "94b992e4d5fdb0422a62c884509b7424ac84c75f77153d78981ca6478cb1ce5e"
-    sha256 cellar: :any,                 x86_64_linux:      "8f559bafd0034579f63391f6cc9277501b9bf2500bfc06be30b39c8b47a2f350"
+    manifest_sha256 "0fb3dec1b954d320359ee247a092f67b0a6074338f44de13725205e555c32a98"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1072de7c4e5ac1872f25ff98a304ef9e852238636febbb4b16c1f5eae4d71f10"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0a446ee4ed0f4f08c12b5332b2bf1c619cc7a7dcecf997bd60075937d670a63"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26c234d4ec108b42f7d8924221542a370e9eae3239c83e2d68d8f554a2ecc215"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "8e5013fb806a483a9cfc686f44ba51a8fb7da7ee84b264fefa89e25e76893bed"
+    sha256 cellar: :any,                 x86_64_linux:      "8ab9f324bbfee1ad8d32713dd786f666e259a5664e379c342811ffcf675653db"
   end
 
   depends_on "go" => :build
