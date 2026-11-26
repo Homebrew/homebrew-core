@@ -8,11 +8,12 @@ class Dxpy < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "38dadbb49f3f288b0fe8369202513de0fd81f01eaefc3541c96db95f5b0e1838"
-    sha256 cellar: :any, arm64_tahoe:       "5d133b9989507cb3a0d66c981e9f700566fa34cb95900354b94c29409947d4e8"
-    sha256 cellar: :any, arm64_sequoia:     "9402dde5873dc7b0cb59ff82311e7a142d6c762b349fb33c45d6de9dfc372ba2"
-    sha256 cellar: :any, arm64_linux:       "d0d55aaa37996a7e88a6ab9de8391514b0b18dd48201656f3bcab9eee5bddc1e"
-    sha256 cellar: :any, x86_64_linux:      "f26b7ffef85be90a74a24148ab2f783ee4e64d610ba45b1b57209c498d37f208"
+    manifest_sha256 "7fd6ba14564f9bad5fd7308be12ab41be55b9c383a77727f4cf643cc7beab8bf"
+    sha256 cellar: :any, arm64_golden_gate: "c15f56307934ed57997a9675f00bbc1741dff68971d3ca759d1751b8caf2c21f"
+    sha256 cellar: :any, arm64_tahoe:       "f9e1815ebefa3a8a9938dc0ccaa299acbcd74f89c570b253b3e65962ad9811f8"
+    sha256 cellar: :any, arm64_sequoia:     "01562713a33a971b7ecf9493de63ad21f9521df3e54f26dadd6b312f6b434275"
+    sha256 cellar: :any, arm64_linux:       "388650134e22b572268509b6c6e6bf1256473cff65fc466c36ea6a1ed37915ea"
+    sha256 cellar: :any, x86_64_linux:      "0f3aa6975cb6bd2c8e24e2374164174e45c6bd3be4ea18a451b76bde37b7a074"
   end
 
   depends_on "aws-c-auth"
