@@ -6,9 +6,9 @@ class Lispkit < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8cfd449fcfdb274a8633f4b1808c0cd9d0708f320f30c71138cb6c70b1849ada"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ef5bd9698b8c13705b15195ae97a7bb98379b0b4d5200d502849cea29a875a2d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0e9190160fe1df00ae9be606f56673c70e5719c935516b4db5a718c0f1256a6"
+    manifest_sha256 "35b96c5f70b41844f03b783e45888018d0dc42905f60651b5349f627010bc53e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "208691b3a4a2938f07823686593dec6ba7b303cad19e5a154cf7af7a8d6b70b3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53b20620a0a9a248a3276bff432cf09e3289404aab6e9afa2dd70b136268ecc4"
   end
 
   # FoundationModels `Transcript.Attachment.data` is new in the macOS 27.2 SDK
