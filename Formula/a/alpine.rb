@@ -48,7 +48,7 @@ class Alpine < Formula
     sha256 x86_64_linux:      "3a326ae9048a1ea6fe4403478254a7bb403c1a565486b96d7224138f1b2e3072"
   end
 
-  depends_on "openssl@3"
+  depends_on "openssl@4"
 
   uses_from_macos "krb5"
   uses_from_macos "ncurses"
@@ -60,15 +60,22 @@ class Alpine < Formula
 
   conflicts_with "macpine", because: "both install `alpine` binaries"
 
+  # Apply Debian patch to support OpenSSL 4
+  patch do
+    url "https://salsa.debian.org/debian/alpine/-/raw/26c14e11301031cf83bdb405f9342e4224e57390/debian/patches/openssl4.patch"
+    sha256 "0ef6cec1703ed928227832abcfced3aea430f54ea2c7afaf5e3687406029db62"
+    type :unofficial
+  end
+
   deny_network_access!
 
   def install
     ENV.deparallelize
 
-    openssl_prefix = dep("openssl").opt_prefix
+    openssl = dep("openssl")
     args = %W[
-      --with-ssl-dir=#{openssl_prefix}
-      --with-ssl-certs-dir=#{etc}/openssl@3
+      --with-ssl-dir=#{openssl.opt_prefix}
+      --with-ssl-certs-dir=#{etc}/#{openssl.name}
       --with-bundled-tools
     ]
 
