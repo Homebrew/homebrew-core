@@ -1,21 +1,18 @@
 class Gocloc < Formula
   desc "Little fast LoC counter"
   homepage "https://github.com/hhatto/gocloc"
-  url "https://github.com/hhatto/gocloc/archive/refs/tags/v0.7.0.tar.gz"
-  sha256 "9375f6699a7bffad42da661b4ba7988af23dd01191da4a4b21eca8f9bb676d9a"
+  url "https://github.com/hhatto/gocloc/archive/refs/tags/v0.7.1.tar.gz"
+  sha256 "1a1295e5814acfda39a3050cc5543084efff399b19a5d42d699a9fe59a18c1f1"
   license "MIT"
   head "https://github.com/hhatto/gocloc.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9eb62c5f5060b2cb82112177d53f698ccc95e3ae21a2c7480754b93d9a8f2bd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0536e1c6850047551d8d75a41777e563613d357efa9d9c7ca487de21cbf5d6ad"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e452e9000a544b1086039bd90fe518fdc8926255f7a274b0170d5c7b6d761e57"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e452e9000a544b1086039bd90fe518fdc8926255f7a274b0170d5c7b6d761e57"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "e452e9000a544b1086039bd90fe518fdc8926255f7a274b0170d5c7b6d761e57"
-    sha256 cellar: :any_skip_relocation, sonoma:            "b823c57b1e74b2f39fd119e41bd39582f023dd8d8afef45267c77f361a7c24c1"
-    sha256 cellar: :any_skip_relocation, ventura:           "b823c57b1e74b2f39fd119e41bd39582f023dd8d8afef45267c77f361a7c24c1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "04d88a1716d37d1d9c14cdcc9a3804e8e2f4959b8bb614482a2f9c71c2c2a372"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "1583c49ecfb4ccc1ae98e917f9c53021afbca5641bdcd70ed934064255034c71"
+    manifest_sha256 "4ca8884c71345f556e04782bad3fce487e1f7b135e36902a11f336ab530a1eea"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0cfbb41e354f38ed3a6a184ce6f2c3770b21c185b15a64f2b27b6ab8684edbe5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0cfbb41e354f38ed3a6a184ce6f2c3770b21c185b15a64f2b27b6ab8684edbe5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cfbb41e354f38ed3a6a184ce6f2c3770b21c185b15a64f2b27b6ab8684edbe5"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ea43befbffa1323c3d8ae582b2d115469ec3eef525c9b4b37293eff953ca306b"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "352bcb225db213cf821e464e05e507297e219d7a500868e2bdef5d8e91019634"
   end
 
   depends_on "go" => :build
