@@ -16,11 +16,11 @@ class Svlang < Formula
     sha256 cellar: :any, x86_64_linux:      "70584901a3f5345f4db69279185692ee474bdc5c7feb555f74697ad6a4b423de"
   end
 
+  depends_on "boost" => :build
   depends_on "cmake" => :build
-  depends_on "boost"
+  depends_on "tomlplusplus" => :build
   depends_on "fmt"
   depends_on "mimalloc"
-  depends_on "tomlplusplus"
 
   uses_from_macos "python" => :build
 
@@ -38,6 +38,7 @@ class Svlang < Formula
 
   def install
     args = %w[
+      -DBUILD_SHARED_LIBS=ON
       -DHOMEBREW_ALLOW_FETCHCONTENT=ON
       -DFETCHCONTENT_FULLY_DISCONNECTED=ON
       -DFETCHCONTENT_TRY_FIND_PACKAGE_MODE=ALWAYS
