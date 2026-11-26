@@ -14,34 +14,30 @@ class Colmap < Formula
     sha256 cellar: :any, x86_64_linux:      "84264bbea6389eb057dc663abdb050dfdd88f3ac21dbd19833224239744e6ac1"
   end
 
+  depends_on "cgal" => :build
   depends_on "cmake" => :build
   depends_on "boost"
   depends_on "ceres-solver"
-  depends_on "cgal"
   depends_on "eigen" => :no_linkage
   depends_on "faiss"
-  depends_on "flann"
-  depends_on "gflags"
   depends_on "glew"
   depends_on "glog"
   depends_on "gmp"
-  depends_on "lz4"
   depends_on "metis"
   depends_on "mpfr"
-  depends_on "onnx"
   depends_on "onnxruntime"
   depends_on "openimageio"
   depends_on "openssl@4"
   depends_on "qtbase"
   depends_on "qtsvg"
+  depends_on "sqlite"
   depends_on "suite-sparse"
 
   uses_from_macos "curl"
-  uses_from_macos "sqlite"
 
   on_macos do
+    depends_on "gflags"
     depends_on "libomp"
-    depends_on "sqlite"
   end
 
   on_linux do
