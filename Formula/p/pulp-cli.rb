@@ -9,11 +9,12 @@ class PulpCli < Formula
   head "https://github.com/pulp/pulp-cli.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "05b969f942350fe6b681114e3825fef60a0abe99549c04617e56caa480851d6f"
-    sha256 cellar: :any, arm64_tahoe:       "7b3f8b139b9fcba58c4cf3747223412062ad31eff4065b5f8ed615b07c5aacce"
-    sha256 cellar: :any, arm64_sequoia:     "08d028508b492eb6d7910f778ba0960e59eb6ae2822bdeb6bab0057e78e684ff"
-    sha256 cellar: :any, arm64_linux:       "04a14e97014c8f0d1c76207af824dabe8a5ad2a6a8d1169c345a8a22381b74e9"
-    sha256 cellar: :any, x86_64_linux:      "490a94bc5c17fdc65a1a5f2643e237840a6f9a2b345f7f6fe2e93b1a280c10af"
+    manifest_sha256 "8b203c303a469648c0d0962aa6a295b743fffc54ef25d6d9b3986e19a38fed90"
+    sha256 cellar: :any, arm64_golden_gate: "3af494c7a499ee2079fe11e4154355a995978210a1a760c4e2e3120aae97a0bb"
+    sha256 cellar: :any, arm64_tahoe:       "c7684ff64364a84d5fa668ae7dda5ddae3d92638c1cec2215afa21985d8ffc80"
+    sha256 cellar: :any, arm64_sequoia:     "e4b545062d00ca6b8ce87c253dec53e6de6e02468e0cb155e31a9b2092fc2df6"
+    sha256 cellar: :any, arm64_linux:       "b93b06dc9fe43b6c3dec05e2af97611987082725b2acd77209cd8baf1600970b"
+    sha256 cellar: :any, x86_64_linux:      "426e8e8be96b3db6e500d7f398e71dd5d391ba6ef1c3e3a53326971f615dc948"
   end
 
   depends_on "certifi" => :no_linkage
