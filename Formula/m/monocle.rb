@@ -1,8 +1,8 @@
 class Monocle < Formula
   desc "See through all BGP data with a monocle"
   homepage "https://github.com/bgpkit/monocle"
-  url "https://github.com/bgpkit/monocle/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "4aff8f4d13b300f87d6ef49dbb417dc2cbcdbbd3cc64babb0affdc2c3d663aa3"
+  url "https://github.com/bgpkit/monocle/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "fb5c5f88f347591152d342fab85870596acdbe620da61ee55dc486771c6811a7"
   license "MIT"
 
   bottle do
