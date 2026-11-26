@@ -3,8 +3,8 @@ class AnsibleCreator < Formula
 
   desc "CLI tool for scaffolding Ansible Content"
   homepage "https://ansible.readthedocs.io/projects/creator/"
-  url "https://files.pythonhosted.org/packages/b6/d2/3aacc0516acf2b93e967fb11453604cd0b2ad3d657b8e1e8e67fd5b32ea1/ansible_creator-26.11.0.tar.gz"
-  sha256 "6d676f78ee4e1adbfd097f753552d5fe84e140ac71d009c88dc9549e28dba6dc"
+  url "https://files.pythonhosted.org/packages/7e/51/0092ba38b3dda96dcf626d5df9b8238c92332dc36605d40820a7f66ae9c4/ansible_creator-26.11.1.tar.gz"
+  sha256 "99eebe6dba30539eb76549d2bdcaee692dd0b2b48e6f942abc5728ce2ec9f4e5"
   license "Apache-2.0"
 
   bottle do
@@ -29,8 +29,8 @@ class AnsibleCreator < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   allow_network_access! :build
