@@ -83,15 +83,15 @@ class Llgo < Formula
     # Let LLGo select an installed SDK supported by LLVM 22.
     ENV.delete "SDKROOT" if OS.mac?
 
-    go = find_dep("go")
-    goos = shell_output("#{formula_opt_bin(go)}/go env GOOS").chomp
-    goarch = shell_output("#{formula_opt_bin(go)}/go env GOARCH").chomp
+    go = dep("go")
+    goos = shell_output("#{go.opt_bin}/go env GOOS").chomp
+    goarch = shell_output("#{go.opt_bin}/go env GOARCH").chomp
     assert_equal "llgo v#{version} #{goos}/#{goarch}", shell_output("#{bin}/llgo version").chomp
 
     # Add bdw-gc library path to LD_LIBRARY_PATH, this is a workaround for the libgc.so not found issue
     # Will be fixed in the next release
-    bdwgc = find_dep("bdw-gc")
-    ENV.prepend_path "LD_LIBRARY_PATH", formula_opt_lib(bdwgc)
+    bdwgc = dep("bdw-gc")
+    ENV.prepend_path "LD_LIBRARY_PATH", bdwgc.opt_lib
 
     (testpath/"hello.go").write <<~'GO'
       package main
@@ -129,7 +129,7 @@ class Llgo < Formula
     GOMOD
 
     expected = "Hello LLGo by fmt.Println\nHello LLGo by c.Printf\n"
-    system formula_opt_bin(go)/"go", "get", "github.com/goplus/lib"
+    system go.opt_bin/"go", "get", "github.com/goplus/lib"
     # Test llgo run
     assert_equal expected, shell_output("#{bin}/llgo run .")
     # Test llgo build
