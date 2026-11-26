@@ -23,7 +23,6 @@ class Lgogdownloader < Formula
   depends_on "help2man" => :build
   depends_on "pkgconf" => :build
   depends_on "boost"
-  depends_on "htmlcxx"
   depends_on "jsoncpp"
   depends_on "rhash"
   depends_on "tidy-html5"
