@@ -1,18 +1,17 @@
 class Mdless < Formula
   desc "Provides a formatted and highlighted view of Markdown files in Terminal"
   homepage "https://github.com/ttscoff/mdless"
-  url "https://github.com/ttscoff/mdless/archive/refs/tags/2.1.68.tar.gz"
-  sha256 "e7fa23436f97f03f141d5fed8f8c8b178e56a9c2712574b7dba7988f64e7d171"
+  url "https://github.com/ttscoff/mdless/archive/refs/tags/2.1.70.tar.gz"
+  sha256 "5ac948be56777e861fed3230b16b6c8741eb81fabe60d681fbc592f7bdee5b48"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "9d86514dd1e08aeefbe652215a47ef59272657caf374ece289ee4e85a3af6960"
-    sha256 cellar: :any, arm64_tahoe:       "156938662d3caa5020cbbfd92a8c4ec479dbf5df4c8a3cf38e41ce83b9a7c837"
-    sha256 cellar: :any, arm64_sequoia:     "394d89b8c5980274665df2b875f0754340e62104def5417dbc78e49ba89b1567"
-    sha256 cellar: :any, arm64_sonoma:      "273a684e3ca1e912d8e157ba1a7dd8bc462b2307ccb51887ff6f9443e3e22578"
-    sha256 cellar: :any, sonoma:            "1061c553b4bc28eeaac83eec95fc52657adaf3483b6be139e27ea84aadf18f73"
-    sha256 cellar: :any, arm64_linux:       "ecda127eb6855bc168af73b595fd21e1465b3dce9a12ca7a4996d4bce3b9da23"
-    sha256 cellar: :any, x86_64_linux:      "22f57dbae96b5f24e0b480ca5498325b3694aabad7145d3a2ab7c22733f883c1"
+    manifest_sha256 "2488691c2b07d79bf51adf025752ed959501ca22801251c97ef5e5ab7e1177f3"
+    sha256 cellar: :any, arm64_golden_gate: "583f02a0e2ebd8e0541a921a0c08308696aade5375475ea143e8dde3d817359c"
+    sha256 cellar: :any, arm64_tahoe:       "fa3415b714f359a971d170ea7fd45273344b04ab29c78f7541639f6b19231890"
+    sha256 cellar: :any, arm64_sequoia:     "f3a83124031476c39c8e26b820be47f8c132a95859b9b07a74c014a45ee2ca73"
+    sha256 cellar: :any, arm64_linux:       "d4c774ddb221547726631c3fae27ce44dd4b921b032fe2bc45ce122da3dd17f2"
+    sha256 cellar: :any, x86_64_linux:      "2aff47c0897112efbe7b34a1356d58540961dc8c4b88202a7ebcaa040baf7725"
   end
 
   depends_on "ruby"
