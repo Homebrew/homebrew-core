@@ -1,8 +1,8 @@
 class Dtop < Formula
   desc "Terminal dashboard for Docker monitoring across multiple hosts"
   homepage "https://dtop.dev/"
-  url "https://github.com/amir20/dtop/archive/refs/tags/v0.11.3.tar.gz"
-  sha256 "5594a10a5ef41431309e6d15a44c0d44aae209bdee9782be30acf77d66923b42"
+  url "https://github.com/amir20/dtop/archive/refs/tags/v0.11.4.tar.gz"
+  sha256 "88bdc359149367a2037dfe5dc13ce9881358ae45d03036a27946fff3753d6720"
   license "MIT"
   head "https://github.com/amir20/dtop.git", branch: "main"
 
@@ -32,6 +32,6 @@ class Dtop < Formula
     assert_match version.to_s, shell_output("#{bin}/dtop --version")
 
     output = shell_output("#{bin}/dtop 2>&1", 1)
-    assert_match "Failed to connect to Docker host", output
+    assert_match "Socket not found: #{testpath}/invalid.sock", output
   end
 end
