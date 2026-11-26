@@ -3,17 +3,17 @@ class RapidMlx < Formula
 
   desc "Fast local AI engine for Apple Silicon with an OpenAI-compatible API"
   homepage "https://github.com/raullenchai/Rapid-MLX"
-  url "https://files.pythonhosted.org/packages/c0/1e/14d496324cbe0ead28607702dd47a09b9727c652be9a25e3f7d584d9a7e3/rapid_mlx-1.1.1.tar.gz"
-  sha256 "1a3eced68164eb686b16f83b4d33b8e61c5f68d5445fc2816d8d810130722831"
+  url "https://files.pythonhosted.org/packages/69/8a/103003e27e2839ff49b3bafd39feb0e2bb7b3c58195d179c5e9ca76d0919/rapid_mlx-1.1.2.tar.gz"
+  sha256 "569cdda88c2a84d48c731aa5992af32e89dd3053ed94f451400471d34900036b"
   license "Apache-2.0"
 
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
-    manifest_sha256 "ba31af3fd33d5714e259835ed1568a2b0cd80eae33a6c0f84aa4f9aad994f73d"
-    sha256 cellar: :any, arm64_golden_gate: "bc0a7e8da076ae52b00876b8f74edb9c2bad72798e7f65142bed6ab99f695934"
-    sha256 cellar: :any, arm64_tahoe:       "d8bf49deee774240d9fa52dd27325af377b36523ee2aa6cd950a7f5b9d94a50e"
-    sha256 cellar: :any, arm64_sequoia:     "ab91851775de3af366434f2c2c20f86b58f8bf653602839f78bd4eda54036257"
+    manifest_sha256 "35c1e67f4b0164e8590161371df91187fa3fc1d8477f8420c2af38adf41f76ce"
+    sha256 cellar: :any, arm64_golden_gate: "918fd898a286f19563ac1aa1de922593e7e8ac640b832a0cdd3eeff09b4e75b1"
+    sha256 cellar: :any, arm64_tahoe:       "a80b7cbe0a3deccbf280b6ccea96079ed76b9ead30967193a4a03985f25e0cb6"
+    sha256 cellar: :any, arm64_sequoia:     "616d58d5b50c6a33335c94b70293bd64932799fee7793147b6eafdee00882882"
   end
 
   depends_on "cmake" => :build
@@ -221,8 +221,8 @@ class RapidMlx < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/ba/cb/7753707676a915df954b8239da0b4a1604b523bb2de32943fcb4053f60a6/openai-3.58.0.tar.gz"
-    sha256 "8b9f4a166d6860a04f26e34de0ae9aa3f267cbe6da2df4ad7d4cfa8483f540b2"
+    url "https://files.pythonhosted.org/packages/7d/ca/d9d1549c71723eb8fd2af7173b1c22ed065d10107b1b6438453a1b3f2ae2/openai-3.59.0.tar.gz"
+    sha256 "e4e57d5c28bed6efe6483c9f61ba59be13fa16edde4b771cdaf5c7ca70bc9ff1"
   end
 
   resource "openai-harmony" do
@@ -311,8 +311,8 @@ class RapidMlx < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
-    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
+    url "https://files.pythonhosted.org/packages/e7/32/7c768de6489417ef32a49480af8a2dfba3adc5b1784d6e7142f32972018a/regex-2026.11.24.tar.gz"
+    sha256 "07f222de81cdcfd39eef8671e92d14f50f61f1666f756659b0e649cf700b1b10"
   end
 
   resource "requests" do
