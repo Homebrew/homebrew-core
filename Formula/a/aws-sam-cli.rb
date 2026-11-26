@@ -3,8 +3,8 @@ class AwsSamCli < Formula
 
   desc "CLI tool to build, test, debug, and deploy Serverless applications using AWS SAM"
   homepage "https://aws.amazon.com/serverless/sam/"
-  url "https://files.pythonhosted.org/packages/13/f6/08d3f3bace2eed19ec6f68b038c3161fbac811eda2ef378c6f314d4f4137/aws_sam_cli-1.174.0.tar.gz"
-  sha256 "dab9f50ad8fbd5b5137176a37a898aa2873bb60ca150240b861b1c95c4dd245b"
+  url "https://files.pythonhosted.org/packages/4a/ba/9b77041ddfd31e7e084e7becdb188acdaf9c1ffd6f78ef227fc084769868/aws_sam_cli-1.174.1.tar.gz"
+  sha256 "efa3a80a6268d7ca621d20ba5da315061fdf24e08f0a798d1a1309265753fbe4"
   license "Apache-2.0"
   head "https://github.com/aws/aws-sam-cli.git", branch: "develop"
 
@@ -78,13 +78,13 @@ class AwsSamCli < Formula
   end
 
   resource "boto3-stubs" do
-    url "https://files.pythonhosted.org/packages/6a/3c/beae8c4da7c351034bf4e5d8b5d4e2e42d189b38b88aa2b127947507128a/boto3_stubs-1.44.7.tar.gz"
-    sha256 "a4d5636edf47aee3e3eb9254292bcb8dda0f35d822f0c5d61987fa88b4f867b1"
+    url "https://files.pythonhosted.org/packages/13/a3/cc159729254cf56001ed86cc919e3cd11367fe6d81f6a5d2d26f36c230f0/boto3_stubs-1.44.11.tar.gz"
+    sha256 "8ee4fd68b5ad7397e9d110290f4fd2e918549d3d3d664a914e659266c0604e75"
   end
 
   resource "botocore" do
-    url "https://files.pythonhosted.org/packages/fe/b8/2140072cf06a608114614d8efde2ecd76cc24edf81d83263269412d0aa93/botocore-1.44.7.tar.gz"
-    sha256 "3cbf1d9f50b5f1f95b715e570bc03b8c7c94b86777f96dd647321134f57290b2"
+    url "https://files.pythonhosted.org/packages/c3/d5/4adb74ed2633ac703e7574d8f48765a3ac7b0b3e38d82e5a24711af55c09/botocore-1.44.11.tar.gz"
+    sha256 "c889792a88e04cc9f0b6eebc742112e5edb2710fe932f4c9a3ba784f92f09d75"
   end
 
   resource "botocore-stubs" do
@@ -98,8 +98,8 @@ class AwsSamCli < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "chevron" do
@@ -268,8 +268,8 @@ class AwsSamCli < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pygments" do
@@ -303,8 +303,8 @@ class AwsSamCli < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "referencing" do
@@ -313,8 +313,8 @@ class AwsSamCli < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
-    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
+    url "https://files.pythonhosted.org/packages/e7/32/7c768de6489417ef32a49480af8a2dfba3adc5b1784d6e7142f32972018a/regex-2026.11.24.tar.gz"
+    sha256 "07f222de81cdcfd39eef8671e92d14f50f61f1666f756659b0e649cf700b1b10"
   end
 
   resource "requests" do
