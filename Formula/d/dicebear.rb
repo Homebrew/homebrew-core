@@ -1,8 +1,8 @@
 class Dicebear < Formula
   desc "CLI for DiceBear - An avatar library for designers and developers"
   homepage "https://www.dicebear.com"
-  url "https://registry.npmjs.org/dicebear/-/dicebear-10.7.0.tgz"
-  sha256 "9fef906a168742230b3a31e90bd0708a555a7a14d06c6ebd8d13e368d3336902"
+  url "https://registry.npmjs.org/dicebear/-/dicebear-11.0.0.tgz"
+  sha256 "642da1c89ca4826989581456d22c295e8e8337efaab3b3e16dce40ffedff9d47"
   license "MIT"
 
   bottle do
@@ -47,7 +47,7 @@ class Dicebear < Formula
   end
 
   test do
-    output = shell_output("#{bin}/dicebear avataaars")
+    output = shell_output("#{bin}/dicebear create avataaars --output avataaars-0.svg 2>&1")
     assert_match "Avataaars by Pablo Stanley", output
     assert_path_exists testpath/"avataaars-0.svg"
 
