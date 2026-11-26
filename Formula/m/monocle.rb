@@ -1,16 +1,17 @@
 class Monocle < Formula
   desc "See through all BGP data with a monocle"
   homepage "https://github.com/bgpkit/monocle"
-  url "https://github.com/bgpkit/monocle/archive/refs/tags/v1.6.1.tar.gz"
-  sha256 "4aff8f4d13b300f87d6ef49dbb417dc2cbcdbbd3cc64babb0affdc2c3d663aa3"
+  url "https://github.com/bgpkit/monocle/archive/refs/tags/v1.6.2.tar.gz"
+  sha256 "fb5c5f88f347591152d342fab85870596acdbe620da61ee55dc486771c6811a7"
   license "MIT"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "717863ac871ca2a23689d7bf2608d90a29d84a9892a0c462e26c8a8ce4efe941"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d45c95a584a8a539210a47700489e61c9e66ee4d491c0771d1cf179aeb9a0656"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92e9008c7af307dca992a817e103c3781d9b43a0ebd07a9c970636affcc905d4"
-    sha256 cellar: :any,                 arm64_linux:       "befc7ad74af3aae3810347c9ae044567d0443c9fb0947e640fbb25c23aac5123"
-    sha256 cellar: :any,                 x86_64_linux:      "6846561db60afb904409ea4daac7241f50f683c851b6b08749b17aa04437b706"
+    manifest_sha256 "267250aafbd26003db98754ea0fdb0dbf6256043e5b198ba33e682aba421e5b0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4efb55a7f9a31c2deafa26f217557bef27c885ca10d2b10904c535eb7bfb8a6c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6bf9ce730281ebc2e0ad95ee5475204e3f36a652bf95939411dc98caeafcf54"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a2f975e1ac5548495a84a4f66577d753a6d435a2389d556cee73ce69398e57d"
+    sha256 cellar: :any,                 arm64_linux:       "b12c829788a0d378e8cc0ec7755bccbcc848e8a1b76fe791c4e78a857995ecbf"
+    sha256 cellar: :any,                 x86_64_linux:      "7572754fcb1548415a69aad51c5d59c59ab806d8147b17f0e35d8381fb9f52c5"
   end
 
   depends_on "rust" => :build
