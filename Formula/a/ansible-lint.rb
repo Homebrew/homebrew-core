@@ -8,12 +8,12 @@ class AnsibleLint < Formula
   license all_of: ["MIT", "GPL-3.0-or-later"]
 
   bottle do
-    manifest_sha256 "739f7b8b63a5d5cbe4fa603483866c7a7321ff7dd44269550a6f0fc8d0e48950"
-    sha256 cellar: :any, arm64_golden_gate: "c902a95f761719552480801ad2156d1bde2ba817e2067ecb5605fc8471e21dee"
-    sha256 cellar: :any, arm64_tahoe:       "cd492a0bee375467a3c322648e27a9f08d09a0a6991eafa2ce6c4ef9498ad932"
-    sha256 cellar: :any, arm64_sequoia:     "b5a0c69381ed19e8f10fcad893bed8c07a5166638c77276efaf27dad11957f4a"
-    sha256 cellar: :any, arm64_linux:       "0f59776b46eccb5d44307833dd5161f530dd5d8ac3bc14eb003f70ae4b59c9af"
-    sha256 cellar: :any, x86_64_linux:      "7cb730b6eb60357703e3a8513d489a412535dc8284c7a8fdf0382916b57f7cb0"
+    manifest_sha256 "6a0f537ec8622b2c0ea01b697ef76872954621da2911249695daa985f76a735d"
+    sha256 cellar: :any, arm64_golden_gate: "a0ab4a16aaba3829feccd36dc06a949790dcc71c6af11457792a25668f279c47"
+    sha256 cellar: :any, arm64_tahoe:       "1638d995652ebfb994a19640d0dd75e1f63b815d9c477796dd9463e0a77670ca"
+    sha256 cellar: :any, arm64_sequoia:     "2b78b53dbddea85a4516829823a936eeff9a1ee889469e18c75668cfd597fa97"
+    sha256 cellar: :any, arm64_linux:       "b70c9dba16fc882235473aecd7953b9b098da81a71234178c1f13c9707f0c650"
+    sha256 cellar: :any, x86_64_linux:      "a47be6889150fce5a255ef39461b1bc001331c1b9f9cf03b6d1eae753dd68d07"
   end
 
   depends_on "pkgconf" => :build
