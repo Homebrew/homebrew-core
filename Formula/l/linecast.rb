@@ -8,8 +8,8 @@ class Linecast < Formula
   license "MIT"
 
   bottle do
-    manifest_sha256 "7ad8af51368d2e05be4a7bd35e9518b7933e1dd37af77806dde14f9327a000d4"
-    sha256 cellar: :any_skip_relocation, all: "d9532bdffe390b6f7664bb25170865e2b02baf7c9a1cebae630b5e961b431494"
+    manifest_sha256 "51593f4d07fc20e25c7e38767b13290de72adca298eeb8af7f728ef1f62cb505"
+    sha256 cellar: :any_skip_relocation, all: "ef72df130dafa38eb72733a8424ace2c2bdf7ec44a9ecad0adf5dd70ee1f2c6f"
   end
 
   depends_on "python@3.15"
