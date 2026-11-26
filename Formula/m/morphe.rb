@@ -6,12 +6,12 @@ class Morphe < Formula
   license "GPL-3.0-only"
 
   bottle do
-    manifest_sha256 "7012b2206b4bccfbcb635a98258f6ea050bc4e3fb0eeb598f361954f79c4b193"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e434e117c2e8fa79067eccfe800c4c948cc3bebcddbaced66e79163bb1ead746"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e434e117c2e8fa79067eccfe800c4c948cc3bebcddbaced66e79163bb1ead746"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e434e117c2e8fa79067eccfe800c4c948cc3bebcddbaced66e79163bb1ead746"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "63260b75bf77850c2a31473494401d35eb8719fd8580fdabe8aee77834dba8f9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "63260b75bf77850c2a31473494401d35eb8719fd8580fdabe8aee77834dba8f9"
+    manifest_sha256 "0a9bee99226fdeb7af61a21399c7dcb9a80c90a9af60759c8ac85d3250de7430"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d08e5b84224d3507451e72101a4b80e0b004d2db2c1109580acf2e4944a80183"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d08e5b84224d3507451e72101a4b80e0b004d2db2c1109580acf2e4944a80183"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d08e5b84224d3507451e72101a4b80e0b004d2db2c1109580acf2e4944a80183"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "c5c8ade2beca08d3a3c325cb35f00f2eb6a17f9f030dfea30a6c66dd334760a1"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "c5c8ade2beca08d3a3c325cb35f00f2eb6a17f9f030dfea30a6c66dd334760a1"
   end
 
   depends_on "gradle" => :build
