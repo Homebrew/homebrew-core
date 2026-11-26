@@ -14,19 +14,12 @@ class Libstatgrab < Formula
   end
 
   bottle do
-    sha256 cellar: :any,                 arm64_golden_gate: "3c10d5b662ea0a106771a5bc70ff4b62c6c3ccb2b57779d1baad275159fb4c20"
-    sha256 cellar: :any,                 arm64_tahoe:       "22b0adf587cf3abc79ab1bf64cce1f5fa418cc2516981fe4db0ea33cd54ce274"
-    sha256 cellar: :any,                 arm64_sequoia:     "666c2bc394e1533387652704633873d2ad01670f67503bc8dbf8c66e6b53e4ac"
-    sha256 cellar: :any,                 arm64_sonoma:      "896492a8a90fe3c6f335ad15785a8fb7521b1200c3e88d1989136a17eebdab60"
-    sha256 cellar: :any,                 arm64_ventura:     "7c52741c5bc27ba569e9d97c89ab5258f51f0b66c46e678f35fc8770f0fa6655"
-    sha256 cellar: :any,                 arm64_monterey:    "d8fe01051dd20bebd918d8d4e0634218121d1a9b3b0be2e5830cdf24bc1d9fd5"
-    sha256 cellar: :any,                 arm64_big_sur:     "ce70f4a494445f8afde960c4ceea838e48b98fcf4c4d9513f705afae83193433"
-    sha256 cellar: :any,                 sonoma:            "0a4526da3d4c86b1ceaa98ca701ddb3a6a34db17643a6b75c129cda9a6bde856"
-    sha256 cellar: :any,                 ventura:           "35cc23ef8a82b0b187d227e801d66aec5f561464c353234ee5aef30b3894c0d4"
-    sha256 cellar: :any,                 monterey:          "5154065582dbae8bf645834ccabc9b878a77dc21d5a85d307366d78b6ee7ed91"
-    sha256 cellar: :any,                 big_sur:           "08aba9012402bf7611ddc2fb0f6e0dfcb31c97ce067dd83d6ae73830b5d30aeb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "20fa34ce8b897ffc1d9ef30d7c1636fb86d2b1299dad7d730a000f47ff4691cd"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "8984abcb585701a695fedbebd0c13cd61b08b95240c22485c75e2aac1575c57a"
+    manifest_sha256 "65a23f9a0fee19b510722e1e7457745daa03d76f1a816a42ddf7e2c6a7740802"
+    sha256 cellar: :any, arm64_golden_gate: "cd290d05291a4188886137d494013bfe00c3cdc012db5055d0fb9820a2305ef7"
+    sha256 cellar: :any, arm64_tahoe:       "d8d91c63f0cd32e8babc1ab931772ee6b39c8abe877466654781605336b02503"
+    sha256 cellar: :any, arm64_sequoia:     "0120622ba014ca9cc64eaf8147d78439eac57388ad2606fcb79d546d145a5ad5"
+    sha256 cellar: :any, arm64_linux:       "8598dd9e92ce149beb38a1bc57ae377e55fe8fd62ec444a2594b95a4fe0e0ebb"
+    sha256 cellar: :any, x86_64_linux:      "123a985b9646d2b9110fc3b75bbd120cf04eceb1cc01b5dce1975097948341cf"
   end
 
   deny_network_access!
