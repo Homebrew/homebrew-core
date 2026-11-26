@@ -3,18 +3,18 @@ class Fastmcp < Formula
 
   desc "Fast, Pythonic way to build MCP servers and clients"
   homepage "https://gofastmcp.com/getting-started/welcome"
-  url "https://files.pythonhosted.org/packages/46/7f/571da0ba9ba87efaae85d3938ae27b2dafd9f674155ff87e600695418024/fastmcp-4.2.5.tar.gz"
-  sha256 "f6703db40224101f90732f1a41e4a1e3c72811422a53764e093509b97f24454d"
+  url "https://files.pythonhosted.org/packages/85/1d/9f024f5eef8be87e0a57dec143fdabd087adbbc27e9b3f52b1409be86e60/fastmcp-4.2.6.tar.gz"
+  sha256 "df629f183202124342a2cad58b069b4058d8bb53696a015694e41b128bf21651"
   license "Apache-2.0"
   head "https://github.com/jlowin/fastmcp.git", branch: "main"
 
   bottle do
-    manifest_sha256 "33b6f53c100aa34bf28acc49d4a70be7338566f1a502799d31f700a3fdc566aa"
-    sha256 cellar: :any, arm64_golden_gate: "5de52c509666e9bc6f8d9467bc3d6861113299828938d6da5e496ffebdc33c4a"
-    sha256 cellar: :any, arm64_tahoe:       "9ec018d5fa95e94a050d364352d18450a62534d595a18c313dee945cbef1cc8c"
-    sha256 cellar: :any, arm64_sequoia:     "3d0ab1ce553050041625e177e6b238942c61522da372e9f2547b8c4da27f61ba"
-    sha256 cellar: :any, arm64_linux:       "2c9c038abf5bc3777c8bcf985bdd0210da992d1894ae8eac1b6ed11dc28e64c8"
-    sha256 cellar: :any, x86_64_linux:      "d9cc0219935a058c20dde7696a293400bfbcdbf21c21bf124efa861c06c68e0d"
+    manifest_sha256 "8ecdeda238ee4596cbabeb66b3ce658a406383bec225a8d9f7fb72720e6eb63f"
+    sha256 cellar: :any, arm64_golden_gate: "269598103072540dce937d8a92899e35c6e4e14a3d220b9673d48e3ae30d024c"
+    sha256 cellar: :any, arm64_tahoe:       "a1c4d1617284cdcea22319170755a545e24ac1a368e9409c001ad6df1a66dbd3"
+    sha256 cellar: :any, arm64_sequoia:     "f0bf6e3d4d962e98afe0fec5b0b92da0f8ead63fd191276519a3bd7f455c6542"
+    sha256 cellar: :any, arm64_linux:       "ac372c565ce49d40e23150951973839525b72938feb0b5f15d7e7dbee40cc92f"
+    sha256 cellar: :any, x86_64_linux:      "a25e1eee89e07c521e1ede666eb2e64d0176db4942a7bb426f52c99aea6bca4b"
   end
 
   depends_on "rust" => :build # for py_key_value_aio
@@ -44,11 +44,6 @@ class Fastmcp < Formula
     sha256 "d03ceb89cb322a8fd706d4fb91940737b6642aa36998fe130a9bc96c985eff32"
   end
 
-  resource "authlib" do
-    url "https://files.pythonhosted.org/packages/a9/7c/e1963d10d1d7203ca913a20e377893ec27489db27f5115f25ff50ef7b5bd/authlib-1.9.10.tar.gz"
-    sha256 "f7453c4a3f5975f94cc55223c4d48ff9c7d8d3b4e3d727ed2549edaeb9b85d50"
-  end
-
   resource "beartype" do
     url "https://files.pythonhosted.org/packages/79/34/c0cfdaee9c796c8381439fed0fcab62810753b8b0adb1ec88fa7f41eaa5d/beartype-0.23.1.tar.gz"
     sha256 "8b805f246b32931c74f2b321ea0939fe5bb2ff43c12a3eff19cc4c854b832e1d"
@@ -70,8 +65,8 @@ class Fastmcp < Formula
   end
 
   resource "cyclopts" do
-    url "https://files.pythonhosted.org/packages/49/5d/cee0096dd8c5ad13ce516599c4823637d0107643666a03ddc43a9580391f/cyclopts-5.5.2.tar.gz"
-    sha256 "c0339b7ddd7b1c886f13bb8b68a6a65aa7144d3027f1d0e290be514b8fe1589b"
+    url "https://files.pythonhosted.org/packages/ca/08/3cac2b682eb7cf561fe886d8322b3b65025193ed8753877ad3d9616aca45/cyclopts-5.5.3.tar.gz"
+    sha256 "784ddcc8847f69f96e6ff1b4222c8939ba8f47cea516b8eafb8f56c4a4fa5900"
   end
 
   resource "dnspython" do
@@ -95,8 +90,8 @@ class Fastmcp < Formula
   end
 
   resource "fastmcp-slim" do
-    url "https://files.pythonhosted.org/packages/66/ae/bedf2135793da694fabce6732d2ae7ca39182c70f6b07ca293260a7d132e/fastmcp_slim-4.2.5.tar.gz"
-    sha256 "bcb07c8f81c223c102da1e6c74dcc547fa1e753b90d5441ead8161cd2d25bd97"
+    url "https://files.pythonhosted.org/packages/b6/2e/1dd46ee862200b104f57833c88db89f5203bef50090b4e74812b8326f372/fastmcp_slim-4.2.6.tar.gz"
+    sha256 "15467ae9bb3fc80897dec7b37eab5310b47b75066b56720e286a3c08fd469577"
   end
 
   resource "griffelib" do
@@ -185,8 +180,8 @@ class Fastmcp < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pathable" do
