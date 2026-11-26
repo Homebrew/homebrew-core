@@ -24,6 +24,8 @@ class Voroxx < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "2b8a79d25b9feaedc06ed05f9affbe8e78443e20344b561b85daec8cbed9a089"
   end
 
+  deny_network_access!
+
   def install
     inreplace "config.mk", "CFLAGS=", "CFLAGS=-fPIC " if OS.linux?
     system "make", "install", "PREFIX=#{prefix}"

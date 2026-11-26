@@ -62,6 +62,8 @@ class Vte3 < Formula
     cause "Requires C++23 std::out_ptr"
   end
 
+  deny_network_access!
+
   def install
     ENV["XML_CATALOG_FILES"] = etc/"xml/catalog"
 

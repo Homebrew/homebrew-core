@@ -47,6 +47,8 @@ class Vsftpd < Formula
     resolves "https://github.com/djarosz/vsftpd/issues/3"
   end
 
+  deny_network_access!
+
   def install
     inreplace "defs.h", "/etc/vsftpd.conf", "#{etc}/vsftpd.conf"
     inreplace "tunables.c", "/etc", etc
