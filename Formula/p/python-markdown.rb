@@ -9,7 +9,8 @@ class PythonMarkdown < Formula
   head "https://github.com/Python-Markdown/markdown.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "d32d44d24259c81cc73cb52d25be38d84c12ad490bdae34476f0ac78f9013a37"
+    manifest_sha256 "7f5938b79c5c758d0b8c1f9d2ee1dc3c034b4b1f3bf8f467b31b97b4e1c59b9e"
+    sha256 cellar: :any_skip_relocation, all: "0a3daf78b54ec07de8d4f2459f8a8d9a0ba7b2165ce1f51b8fd5f18263e2971f"
   end
 
   depends_on "python@3.15"
