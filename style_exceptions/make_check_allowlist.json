@@ -15,6 +15,7 @@
   "mpfr",
   "nettle",
   "nettle@3",
+  "newsraft",
   "ntbtls",
   "open-mpi",
   "openssl@3.0",
