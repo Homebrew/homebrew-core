@@ -4,7 +4,7 @@ class Visp < Formula
   url "https://visp-doc.inria.fr/download/releases/visp-3.7.0.tar.gz"
   sha256 "997f247f3702c83f0a8a6dc2f72ff98cfe3a5dcbd82f7c9f01d37ccd3b8ea97a"
   license "GPL-2.0-or-later"
-  revision 11
+  revision 12
 
   livecheck do
     url "https://visp.inria.fr/download/"
@@ -23,12 +23,10 @@ class Visp < Formula
   depends_on "cmake" => [:build, :test]
   depends_on "pkgconf" => [:build, :test]
 
-  depends_on "eigen"
-  depends_on "gsl"
+  depends_on "eigen" => :no_linkage
   depends_on "jpeg-turbo"
   depends_on "libdc1394"
   depends_on "libpng"
-  depends_on "lz4"
   depends_on "openblas"
   depends_on "opencv"
   depends_on "pcl"
@@ -38,18 +36,7 @@ class Visp < Formula
   uses_from_macos "libxml2"
 
   on_macos do
-    depends_on "boost"
-    depends_on "flann"
-    depends_on "glew"
     depends_on "libomp"
-    depends_on "libpcap"
-    depends_on "qhull"
-    depends_on "qtbase"
-  end
-
-  on_linux do
-    depends_on "libnsl"
-    depends_on "zlib-ng-compat"
   end
 
   # Link OpenCV 5's relocated geometry/features modules.
@@ -71,8 +58,6 @@ class Visp < Formula
   deny_network_access!
 
   def install
-    ENV.cxx11
-
     # OpenCV 5.0.0 renamed the `3d` module to `geometry`.
     # PR ref: https://github.com/lagadic/visp/pull/1962
     inreplace %w[
@@ -104,83 +89,63 @@ class Visp < Formula
              "C Compiler:                  #{ENV.cc}\"")
     end
 
-    system "cmake", "-S", ".", "-B", "build", "-DBUILD_APPS=OFF",
-                         "-DBUILD_DEMOS=OFF",
-                         "-DBUILD_EXAMPLES=OFF",
-                         "-DBUILD_TESTS=OFF",
-                         "-DBUILD_TUTORIALS=OFF",
-                         "-DUSE_DC1394=ON",
-                         "-DDC1394_INCLUDE_DIR=#{formula_opt_include("libdc1394")}",
-                         "-DDC1394_LIBRARY=#{formula_opt_lib("libdc1394")}/#{shared_library("libdc1394")}",
-                         "-DUSE_EIGEN3=ON",
-                         "-DEigen3_DIR=#{Formula["eigen"].opt_share}/eigen3/cmake",
-                         "-DEIGEN3_INCLUDE_DIR=#{formula_opt_include("eigen")}/eigen3",
-                         "-DUSE_GSL=ON",
-                         "-DGSL_INCLUDE_DIR=#{formula_opt_include("gsl")}",
-                         "-DGSL_cblas_LIBRARY=#{formula_opt_lib("gsl")}/#{shared_library("libgslcblas")}",
-                         "-DGSL_gsl_LIBRARY=#{formula_opt_lib("gsl")}/#{shared_library("libgsl")}",
-                         "-DUSE_JPEG=ON",
-                         "-DJPEG_INCLUDE_DIR=#{formula_opt_include("jpeg-turbo")}",
-                         "-DJPEG_LIBRARY=#{formula_opt_lib("jpeg-turbo")}/#{shared_library("libjpeg")}",
-                         "-DUSE_LAPACK=ON",
-                         "-DUSE_LIBUSB_1=OFF",
-                         "-DUSE_OPENCV=ON",
-                         "-DOpenCV_DIR=#{Formula["opencv"].opt_share}/OpenCV",
-                         "-DUSE_PCL=ON",
-                         "-DUSE_PNG=ON",
-                         "-DPNG_PNG_INCLUDE_DIR=#{formula_opt_include("libpng")}",
-                         "-DPNG_LIBRARY_RELEASE=#{formula_opt_lib("libpng")}/#{shared_library("libpng")}",
-                         "-DUSE_PTHREAD=ON",
-                         "-DUSE_PYLON=OFF",
-                         "-DUSE_REALSENSE=OFF",
-                         "-DUSE_REALSENSE2=OFF",
-                         "-DUSE_X11=OFF",
-                         "-DUSE_XML2=ON",
-                         "-DUSE_ZBAR=ON",
-                         "-DZBAR_INCLUDE_DIRS=#{formula_opt_include("zbar")}",
-                         "-DZBAR_LIBRARIES=#{formula_opt_lib("zbar")}/#{shared_library("libzbar")}",
-                         "-DUSE_ZLIB=ON",
-                         "-DUSE_MAVSDK=OFF",
-                         *std_cmake_args
-
-    # Replace generated references to OpenCV's Cellar path
-    opencv = Formula["opencv"]
-    opencv_references = Dir[
-      "build/CMakeCache.txt",
-      "build/CMakeFiles/Export/lib/cmake/visp/VISPModules.cmake",
-      "build/VISPConfig.cmake",
-      "build/VISPGenerateConfigScript.info.cmake",
-      "build/VISPModules.cmake",
-      "build/modules/**/flags.make",
-      "build/unix-install/VISPConfig.cmake",
+    # C++17 is minimum needed by PCL
+    args = %w[
+      -DBUILD_APPS=OFF
+      -DBUILD_DEMOS=OFF
+      -DBUILD_EXAMPLES=OFF
+      -DBUILD_TESTS=OFF
+      -DBUILD_TUTORIALS=OFF
+      -DUSE_CXX_STANDARD=17
+      -DUSE_DC1394=ON
+      -DUSE_EIGEN3=ON
+      -DUSE_JPEG=ON
+      -DUSE_LAPACK=ON
+      -DUSE_LIBUSB_1=OFF
+      -DUSE_MAVSDK=OFF
+      -DUSE_OPENCV=ON
+      -DUSE_PCL=ON
+      -DUSE_PNG=ON
+      -DUSE_PTHREAD=ON
+      -DUSE_PYLON=OFF
+      -DUSE_REALSENSE2=OFF
+      -DUSE_X11=OFF
+      -DUSE_XML2=ON
+      -DUSE_ZBAR=ON
+      -DUSE_ZLIB=ON
     ]
-    inreplace opencv_references, opencv.prefix.realpath, opencv.opt_prefix
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac? # reduce overlinking
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     # Make sure software built against visp don't reference opencv's cellar path either
+    opencv_prefix = formula_opt_prefix("opencv")
     inreplace [lib/"pkgconfig/visp.pc", lib/"cmake/visp/VISPConfig.cmake"],
-              opencv.prefix.realpath, opencv.opt_prefix
+              opencv_prefix.realpath, opencv_prefix
 
-    (libexec/"post-install").write <<~SH
-      #!/bin/sh
-      set -e
-      sdk_path="$(xcrun --sdk macosx --show-sdk-path)"
-      for file in "#{opt_lib}/cmake/visp/VISPConfig.cmake" \
-                  "#{opt_lib}/cmake/visp/VISPModules.cmake" \
-                  "#{opt_lib}/pkgconfig/visp.pc"; do
-        sed -E -i.bak \
-          's#/(Applications/Xcode[^[:space:];]*/SDKs|Library/Developer/CommandLineTools/SDKs)/MacOSX[^[:space:];]*\\.sdk#'"$sdk_path"'#g' \
-          "$file"
-        rm -f "$file.bak"
-      done
-    SH
-    chmod 0755, libexec/"post-install"
-  end
+    # Replace versioned libraries, e.g. libopencv_core.5.1.0.dylib
+    versioned_lib_regex = if OS.mac?
+      %r{(/lib\w+)(?:\.\d+)+(\.dylib)([;"])}
+    else
+      %r{(/lib\w+)(\.so)(?:\.\d+)+([;"])}
+    end
+    inreplace lib/"cmake/visp/VISPModules.cmake", versioned_lib_regex, "\\1\\2\\3"
 
-  post_install_steps do
-    on_macos do
-      run "post-install", base: :libexec
+    return unless OS.mac?
+
+    # Replace versioned libraries, e.g. -lopencv_core.5.1.0
+    inreplace lib/"pkgconfig/visp.pc", /(-l\w+)(?:\.\d+)+( |$)/, "\\1\\2"
+
+    # Replace versioned SDK paths
+    audit_result = build.bottle?
+    escaped_sdk_path = Regexp.escape(MacOS.sdk_for_formula(self).path)
+    gl_path_pattern = '/System/Library/Frameworks/OpenGL\.framework/Versions/Current/Libraries/libGLU?\.tbd'
+    inreplace(lib/"pkgconfig/visp.pc", %r{ -F#{escaped_sdk_path}(/\w*)* }, " ", audit_result:)
+    inreplace lib/"cmake/visp/VISPModules.cmake" do |s|
+      s.gsub!(%r{(?<=[;"])#{escaped_sdk_path}/usr/lib/libz.tbd([;"])}, "z\\1", audit_result:)
+      s.gsub!(/(?<=[;"])#{escaped_sdk_path}#{gl_path_pattern}([;"])/, "-framework OpenGL\\1", audit_result:)
     end
   end
 
