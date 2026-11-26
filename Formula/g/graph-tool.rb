@@ -3,10 +3,9 @@ class GraphTool < Formula
 
   desc "Efficient network analysis for Python 3"
   homepage "https://graph-tool.skewed.de/"
-  url "https://downloads.skewed.de/graph-tool/graph-tool-3.9.tar.bz2"
-  sha256 "812ab3575cae13dd6faad96e4d932797a7a71a84480a1eacbb874f2ebafc7c69"
+  url "https://downloads.skewed.de/graph-tool/graph-tool-3.10.tar.bz2"
+  sha256 "70444c2c71dc246eee3a8a31cd9807b450a647364249d43882bd32ed4f2c5a0f"
   license "LGPL-3.0-or-later"
-  revision 1
 
   livecheck do
     url "https://downloads.skewed.de/graph-tool/"
@@ -14,11 +13,12 @@ class GraphTool < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "f005f71d159c33828d4fa3e434017df5e3bf1e53c852adfdbd8ecdf096447748"
-    sha256 arm64_tahoe:       "696b68b78a4ad4a66b6b723e9be9d4cdae41335517d67957e01395c585737759"
-    sha256 arm64_sequoia:     "6bd9993eb0f9dd84bb5d913cc9b75a73080741b0c8bf80bb21d284858d5689ed"
-    sha256 arm64_linux:       "d5e5f094002d172ee1cfd8b620b71729304e792635d39118490a900ee1ffc241"
-    sha256 x86_64_linux:      "0d6e3f45dc72551d76afd7de96139a2d7be22fa927ee53254616be7434ae2fb3"
+    manifest_sha256 "1f88a481097d2bff9d9fbc4ea1267af3c16311026968f7e19764927fb48baadd"
+    sha256 arm64_golden_gate: "a246634bae203f4f746f06cc278224e27c609187f567a18c2d49d09f8f692916"
+    sha256 arm64_tahoe:       "6ae957399796e751cb356b55a8add83913af9265e5ad5cbb4a57d3057ea1ae60"
+    sha256 arm64_sequoia:     "171c58e404e4797d34f966c34cfe6ad1748926301b63aba688f38d2e62cb6d5d"
+    sha256 arm64_linux:       "0761b6be2a8f5fbc11fe011675a8ca246a954dd5170fdfaf3de40d352b99e284"
+    sha256 x86_64_linux:      "68cad65bfc7fa959c7df18462c774558b8dfe0d394ce2bce4fd1aecfb9247db2"
   end
 
   depends_on "cgal" => :build
