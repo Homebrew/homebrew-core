@@ -1,13 +1,14 @@
 class Dqlite < Formula
   desc "Embeddable, replicated and fault-tolerant SQLite-powered engine"
-  homepage "https://dqlite.io"
-  url "https://github.com/canonical/dqlite/archive/refs/tags/v1.18.7.tar.gz"
-  sha256 "7a9087460f3296313379e95a25761c88081c508ae0742bec6fb63e895eb807a9"
+  homepage "https://canonical.com/dqlite"
+  url "https://github.com/canonical/dqlite/archive/refs/tags/v1.18.8.tar.gz"
+  sha256 "09a4b6f498943bafdc3cd2455b698e85c60bebf8663dcb6734fdc685e901a1c7"
   license "LGPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any, arm64_linux:  "c0e0c9554fcc850627af87326fb2485dc44c81857f3300fa1450704390c1fbe7"
-    sha256 cellar: :any, x86_64_linux: "6c9b9d13db577239d6131cd0a5475cd7e4353bff7b468c4aa7ee14de8b3917a1"
+    manifest_sha256 "8a311f1ecbcda90b39834257d1fe476f08e71243d99322218fb9a20b2dba534c"
+    sha256 cellar: :any, arm64_linux:  "d9f030049616e01621ac30642c6fc09f99ed887be08feaf00ef6d53a67d853d1"
+    sha256 cellar: :any, x86_64_linux: "9ec7579c9fc1d0ac5bb5f38678b1ae8324b18a28ecdca5a62492624ea22344e5"
   end
 
   depends_on "autoconf" => :build
