@@ -1,8 +1,8 @@
 class LovableOj < Formula
   desc "Experimental next generation frontend tooling"
   homepage "https://github.com/lovablelabs/oj"
-  url "https://github.com/lovablelabs/oj/archive/refs/tags/v0.4.23.tar.gz"
-  sha256 "c340fb70036c638c4be793ac45deefe468adf7d87c44511ee566df419edbf884"
+  url "https://github.com/lovablelabs/oj/archive/refs/tags/v0.4.24.tar.gz"
+  sha256 "4a8daa342584c6ee6e5a5a1ad84e8d09e89799c4a89013ccf74ccb671354531e"
   license "MIT"
   head "https://github.com/lovablelabs/oj.git", branch: "main"
 
