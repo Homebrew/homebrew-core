@@ -4,6 +4,7 @@ on:
   pull_request:
     paths:
       - .github/workflows/check-bottle-pr-access.yml
+      - .github/workflows/create-replacement-pr.yml
       - .github/workflows/publish-commit-bottles.yml
 
 permissions:
