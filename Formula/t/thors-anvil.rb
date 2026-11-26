@@ -21,14 +21,9 @@ class ThorsAnvil < Formula
   depends_on "boost"
   depends_on "libevent"
   depends_on "libyaml"
-  depends_on "magic_enum"
+  depends_on "magic_enum" => :no_linkage
   depends_on "openssl@3"
   depends_on "snappy"
-  uses_from_macos "bzip2"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
 
   def install
     ENV["COV"] = "gcov"
