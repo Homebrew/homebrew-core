@@ -17,6 +17,8 @@ class Umlet < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     rm Dir["*.{desktop,exe}"]
     libexec.install Dir["*"]
@@ -26,7 +28,7 @@ class Umlet < Formula
 
     chmod 0755, "#{libexec}/umlet.sh"
 
-    (bin/"umlet-#{version}").write_env_script "#{libexec}/umlet.sh", JAVA_HOME: formula_opt_prefix("openjdk")
+    (bin/"umlet-#{version}").write_env_script "#{libexec}/umlet.sh", JAVA_HOME: dep("openjdk").opt_prefix
     bin.install_symlink "umlet-#{version}" => "umlet"
   end
 

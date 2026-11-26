@@ -35,6 +35,8 @@ class UcspiTcp < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     # Fix compile with newer Clang
     inreplace "conf-cc", "gcc -O2", "gcc -O2 -Wno-implicit-function-declaration -Wno-implicit-int"

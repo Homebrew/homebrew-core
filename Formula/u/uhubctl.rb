@@ -21,6 +21,8 @@ class Uhubctl < Formula
   depends_on "pkgconf" => :build
   depends_on "libusb"
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "uhubctl"

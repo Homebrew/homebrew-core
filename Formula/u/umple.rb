@@ -19,6 +19,8 @@ class Umple < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     filename = File.basename(stable.url)
 

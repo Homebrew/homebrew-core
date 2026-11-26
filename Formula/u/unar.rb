@@ -40,6 +40,8 @@ class Unar < Formula
     sha256 "8e8532111d0163628eb828a60d67b53133afad3f710b1967e69d3b8eee28a811"
   end
 
+  deny_network_access!
+
   def install
     resource("universal-detector").stage buildpath/"../UniversalDetector"
 
