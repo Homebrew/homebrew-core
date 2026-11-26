@@ -1,8 +1,8 @@
 class Meow < Formula
   desc "High-performance, rule-based tunneling proxy kernel"
   homepage "https://meow-rs.github.io/meow-rs/"
-  url "https://github.com/meow-rs/meow-rs/archive/refs/tags/v0.29.0.tar.gz"
-  sha256 "e92c0979cd95f16246bfb763da7cab8d66f23a8ec914b61e5dd5813b29b68a11"
+  url "https://github.com/meow-rs/meow-rs/archive/refs/tags/v0.30.0.tar.gz"
+  sha256 "2d3ef7f76907e45713345c4a8e7148ba5279d6a45d3d6e90b4848fae7249fe88"
   license "MIT"
   head "https://github.com/meow-rs/meow-rs.git", branch: "main"
 
