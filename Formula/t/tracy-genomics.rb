@@ -19,13 +19,6 @@ class TracyGenomics < Formula
 
   depends_on "boost"
   depends_on "htslib"
-  depends_on "xz"
-
-  uses_from_macos "bzip2"
-
-  on_linux do
-    depends_on "zlib-ng-compat"
-  end
 
   conflicts_with "tracy", because: "both install `tracy` binaries"
 
@@ -37,6 +30,8 @@ class TracyGenomics < Formula
 
   def install
     resource("sdsl-lite").stage(buildpath/"sdsl-lite")
+
+    ENV.append "LDFLAGS", "-Wl,-dead_strip_dylibs" if OS.mac? # strip linkage to indirect deps
 
     system "make", "src/tracy",
            "HTSLIBINCDIR=#{formula_opt_include("htslib")}",
