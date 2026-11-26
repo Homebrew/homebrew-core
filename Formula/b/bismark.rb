@@ -1,8 +1,8 @@
 class Bismark < Formula
   desc "Bisulfite read mapper and methylation caller"
   homepage "https://github.com/FelixKrueger/Bismark"
-  url "https://github.com/FelixKrueger/Bismark/archive/refs/tags/bismark-rust-v3.4.0.tar.gz"
-  sha256 "f08d353a458932ab4b56c25ce556f1cbc3d321fb4f1ab4913688f96dabf0b491"
+  url "https://github.com/FelixKrueger/Bismark/archive/refs/tags/bismark-rust-v3.5.0.tar.gz"
+  sha256 "d81688b1457be6e1238cf2e353face61d5c2cb91ebcf1a108934517a3074e440"
   license "GPL-3.0-only"
   head "https://github.com/FelixKrueger/Bismark.git", branch: "master"
 
