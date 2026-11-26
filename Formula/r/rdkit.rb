@@ -16,11 +16,12 @@ class Rdkit < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1d437257db16b6726fe3f7dbf24f6ac0558c19a804d1eb284ba9bb494c4d3b1e"
-    sha256 cellar: :any, arm64_tahoe:       "d7de29b71ce3ebdc3f2b892eeb00a0b458bd47280895ffb3112a1f4eb78fa9ea"
-    sha256 cellar: :any, arm64_sequoia:     "81bcfc4a361e3b6d434752c39e023a29f245fd5199027f5686cf6decbb9ca99b"
-    sha256 cellar: :any, arm64_linux:       "47a9b0ef796f08ee8e602d1de96b7754e9c0048b793f41cd03ede7c6f9829298"
-    sha256 cellar: :any, x86_64_linux:      "e6b2f5fc1e6ba7a98e092196fec9eb6ae2b233ed8c6c1c507ffde85f2c6098c4"
+    manifest_sha256 "740c773fc954bfc35dcb18a6fe3e7ef9dc4961a6892dddd95f55c86cd3239bb2"
+    sha256 cellar: :any, arm64_golden_gate: "e86c1140eede5ff97d878ced120e48b78b215003101c77f5dfeff84ea6dd98a4"
+    sha256 cellar: :any, arm64_tahoe:       "f155149a33d4ffcd46cb23fb429ed1382d403997027a4fb062996196686dfa48"
+    sha256 cellar: :any, arm64_sequoia:     "1068408ad61215dd68ee717333707eaa3c616f4f7fe4cfe0b4f54d32d50777b5"
+    sha256 cellar: :any, arm64_linux:       "0b98c8e1b0382c34dcd42a1e64701097f3b8248a368d815adf360c311e2ded25"
+    sha256 cellar: :any, x86_64_linux:      "ae53d2b11a8029eb366033e7ed93eea26e2f976f493cad78395b62afc0b8788d"
   end
 
   depends_on "catch2" => :build
