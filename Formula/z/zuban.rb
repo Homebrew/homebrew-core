@@ -1,25 +1,26 @@
 class Zuban < Formula
   desc "Python language server and type checker, written in Rust"
   homepage "https://zubanls.com/"
-  url "https://github.com/zubanls/zuban/archive/refs/tags/v0.10.2.tar.gz"
-  sha256 "70b9ee27d93d1615cbfa24e7e40d44698066e2e0723383554a9403bda3e4165b"
+  url "https://github.com/zubanls/zuban/archive/refs/tags/v0.11.0.tar.gz"
+  sha256 "79a51f5a6720dc3be091edc566c34ab6aa5938f22e8f1cc3dc7f90a4dc989030"
   license "AGPL-3.0-only"
   head "https://github.com/zubanls/zuban.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db3fa4be19f6028eb338b3167943fcdd89573825f7e49fd5ddee6dcd97e06527"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cddce86c5fa5c7a73ea7c3df7cc947fcfed0bd9047619a3a88e5eeeef680575c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45bad6ed56c494d41ad16f526d766e887077804690658fdd97d84dc89577c156"
-    sha256 cellar: :any,                 arm64_linux:       "7212f35ab6bfff6c18ff15179286e83db2983ee9f2d03346d18c9706bd3736b9"
-    sha256 cellar: :any,                 x86_64_linux:      "4e8c4f60a1a0aef96ac89e894c810df888e8533931658e9c5e3f84f5e2896438"
+    manifest_sha256 "6d1767c9c5b4ee1b3eed569967fbd49a3fd5624ea8c871a7bf60a58be8b26ab8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0432afe8748b41dc42c111601f1b607fe108969099ee86d3638dfe2d052321e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bceea8b5542ac376580104a669c50c23c1c4be86525eceaecec7c53418c5ef2b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80717248002ff8465b18f6b3f6e6181b938ffac5c5e6406c56bfedb3762dbb7e"
+    sha256 cellar: :any,                 arm64_linux:       "e4035341466a4996352b96525a10b43b5367e78a1a8b853456b3119c4d0481c6"
+    sha256 cellar: :any,                 x86_64_linux:      "c4e6c9f89138e853f84c260ce442359098a41b58dfd1154b53942860c2fe2df4"
   end
 
   depends_on "rust" => :build
 
   resource "typeshed" do
-    url "https://github.com/python/typeshed/archive/e75a39fec6f375f5002d54c5607b44bedc025a4b.tar.gz"
-    version "e75a39fec6f375f5002d54c5607b44bedc025a4b"
-    sha256 "05c0f2faeaa57766ace6f334e9aa667e5abc16a6f611f0c9b1b42c92d8676f7f"
+    url "https://github.com/python/typeshed/archive/bfb82380a8688a981897d923a90f5d210623081c.tar.gz"
+    version "bfb82380a8688a981897d923a90f5d210623081c"
+    sha256 "d2c8796875fdd6dc16f8d0afa043ca602340a99ec159878d0c455433bac20ecf"
 
     livecheck do
       url "https://api.github.com/repos/zubanls/zuban/contents/third_party/typeshed?ref=v#{LATEST_VERSION}"
