@@ -1,21 +1,10 @@
 class Pjproject < Formula
   desc "C library for multimedia protocols such as SIP, SDP, RTP and more"
   homepage "https://www.pjsip.org/"
+  url "https://github.com/pjsip/pjproject/archive/refs/tags/2.18.tar.gz"
+  sha256 "3b5e875d6023e608b3230901cc50b08582d8483a647d0c11578ac29f39101634"
   license "GPL-2.0-or-later"
   head "https://github.com/pjsip/pjproject.git", branch: "master"
-
-  stable do
-    url "https://github.com/pjsip/pjproject/archive/refs/tags/2.17.tar.gz"
-    sha256 "065fe06c06788d97c35f563796d59f00ce52fe9558a52d7b490a042a966facce"
-
-    # Backport support for OpenSSL 4.0
-    patch do
-      url "https://github.com/pjsip/pjproject/commit/3923fad2e4f6f3403c3d6f1176b113c1c1b91066.patch?full_index=1"
-      sha256 "6958040fc0b0502381aa1514cacf1d947ea1a6104b2da388e1c99870f67bc998"
-      type :backport
-      resolves "https://github.com/pjsip/pjproject/pull/5036"
-    end
-  end
 
   livecheck do
     url :stable
@@ -23,12 +12,12 @@ class Pjproject < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "0569bd6c0aec33fea3a8f97f7e57e2536041ce987c0a44d6263d4ac91c4eddea"
-    sha256 cellar: :any, arm64_tahoe:       "2d834c5d4559992257c1bff7ee49665c5cb97ec1ed2882f70740e0821863698d"
-    sha256 cellar: :any, arm64_sequoia:     "64e9ca3a5a794470f0396fcbe5d7222e1801870e42d378d28d33329c03c56d74"
-    sha256 cellar: :any, arm64_linux:       "78625608c7dc0e5f407f829e281ce25b9dd7b32cf71d363814552d007d0df235"
-    sha256 cellar: :any, x86_64_linux:      "7d2c1b161eec50c23a1c1538a38c5e00c2b0362c3b524720fbce5fec98476070"
+    manifest_sha256 "50836992056a18c007bf296e36c87075a02e9c718e42e6d69f4a251f4ff38b48"
+    sha256 cellar: :any, arm64_golden_gate: "c4e145703e8964de139a1d8fb9d82505b3b171493743248d2a070809ded929e0"
+    sha256 cellar: :any, arm64_tahoe:       "3ff6414d6f902b6cf489ab5c6247fc1a1823407dadd7cb0f5aeb109381216671"
+    sha256 cellar: :any, arm64_sequoia:     "d04bca532f712bb4ebaf7dc6dc8a32cfa735935b1cdee863139f6fa2223e3043"
+    sha256 cellar: :any, arm64_linux:       "7c79cc0103c4b28a52ad745996f6d8cb897c6d17a133ef93bd49708643ff3253"
+    sha256 cellar: :any, x86_64_linux:      "67d9c78bcc5da5b60adc4738a76f3aa02c90ad497eadb34a439f4c2399337a1a"
   end
 
   depends_on "openssl@4"
