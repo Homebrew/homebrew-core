@@ -6,12 +6,12 @@ class Concord < Formula
   license "GPL-3.0-only"
 
   bottle do
-    manifest_sha256 "ea3127ad60ca6b52a089b86996de4f70a865d8c248f08c9f05a97fca70e46e6c"
-    sha256 cellar: :any, arm64_golden_gate: "b22c3888b7c394caadf7c006130b9963a38fbebcadccf19cf2c753649a2d2549"
-    sha256 cellar: :any, arm64_tahoe:       "ce34203e3e1a8e72774f95a49de06d95f11562ecb8a43cb2821611b0e4e96381"
-    sha256 cellar: :any, arm64_sequoia:     "47d9b12cdf47535be13cb6473d9b62be3313e0b2067565a34471b3abecf957d2"
-    sha256 cellar: :any, arm64_linux:       "f8d32fdb7642546bd3176a6327e119cdbad312970678fbc6488434456b116f0c"
-    sha256 cellar: :any, x86_64_linux:      "65a13b463f15724aeef250a07479606e31a27558ed4d7d8bc068581a9a4ab3ad"
+    manifest_sha256 "192a04daa8599dfd6717c0803935f4112c21340c70a612284baceadd634574ed"
+    sha256 cellar: :any, arm64_golden_gate: "0230d80be73a5cddb586b52e5f59214f40e867fa1e0ac355d9ea44a54e8170b4"
+    sha256 cellar: :any, arm64_tahoe:       "4a7da09e1b12bd548e9836a5eb37032b1a15bde2088ffe3296a3a7e21ce602cd"
+    sha256 cellar: :any, arm64_sequoia:     "0d8d4e07b845b671578865c929dba24a61bd77dc1331cf389caa099a3d0f07c4"
+    sha256 cellar: :any, arm64_linux:       "1b93df1140fd09567d88a27418383c22b8a6d9bdcdd387df9b2f08b5a87535e1"
+    sha256 cellar: :any, x86_64_linux:      "11af6d7ffde37ce2394a60366078ae12ca334b99f8b254cb17beceb80dbb1288"
   end
 
   depends_on "cmake" => :build
