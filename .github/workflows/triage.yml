@@ -266,6 +266,7 @@ jobs:
                 influxdb|\
                 libtensorflow|\
                 llvm|\
+                lovable-oj|\
                 mame|\
                 metashell|\
                 mycli|\
