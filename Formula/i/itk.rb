@@ -4,6 +4,7 @@ class Itk < Formula
   url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.8/InsightToolkit-5.4.8.tar.gz"
   sha256 "f4f6900f5049c3dbdf5d717798615615b21efc20bab883daf4498905c6712824"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "main"
 
   livecheck do
@@ -21,8 +22,9 @@ class Itk < Formula
   end
 
   depends_on "cmake" => :build
-
+  depends_on "utf8cpp" => :build
   depends_on "double-conversion"
+  depends_on "eigen" => :no_linkage
   depends_on "fftw"
   depends_on "gdcm"
   depends_on "hdf5"
@@ -33,14 +35,7 @@ class Itk < Formula
 
   uses_from_macos "expat", since: :sequoia
 
-  on_macos do
-    depends_on "freetype"
-    depends_on "glew"
-  end
-
   on_linux do
-    depends_on "alsa-lib"
-    depends_on "unixodbc"
     depends_on "zlib-ng-compat"
   end
 
@@ -98,6 +93,7 @@ class Itk < Formula
       -DModule_ITKVtkGlue=ON
       -DModule_SCIFIO=ON
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
     # Cannot compile on macOS with this arg
     # Upstream issue: https://github.com/InsightSoftwareConsortium/ITK/issues/3821
     # args << "-DITK_USE_GPU=ON" if OS.mac?
