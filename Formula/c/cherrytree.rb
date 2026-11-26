@@ -4,6 +4,7 @@ class Cherrytree < Formula
   url "https://github.com/giuspen/cherrytree/releases/download/v1.7.3/cherrytree_1.7.3.tar.xz"
   sha256 "c7da94b3e249d6edf64a57bdf51a53749fd9b36a13b0fbaa34cc30270347c71f"
   license "GPL-3.0-or-later"
+  revision 1
   head "https://github.com/giuspen/cherrytree.git", branch: "master"
 
   livecheck do
@@ -12,11 +13,12 @@ class Cherrytree < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "73f7ef21806feddefaea739c0649353d58e2e0a14531740cb2a1057b994b282e"
-    sha256 arm64_tahoe:       "822dbedd15e0884df6bd50df6dfaffcdb458e482a4f30acb12811a7f7d282684"
-    sha256 arm64_sequoia:     "254a3c3aca9798cad42de2949123a264faaba946bd6c9af10ff2e65ee20c4648"
-    sha256 arm64_linux:       "8b58e9d8abb8851cf3625a664217f0dc3b4bb5132bd18dca31cd7460ccaf9f65"
-    sha256 x86_64_linux:      "520b8acf1adbb5fa797fb3f66794ed2f935d9e9c0830c0d3c3dd31b1410f6ad3"
+    manifest_sha256 "47c0cf0aaeedbfee72176c7e8b56cd256a56a877774e588311e57bf5dbaa659f"
+    sha256 arm64_golden_gate: "3a6d7b0af1a7a5e748492be1f1daee743aa5da9279ade0309e292090bca66583"
+    sha256 arm64_tahoe:       "9da34eb4568a17158361f80744ed79fb0d82f14ecf1694771ff04e0812bfdb64"
+    sha256 arm64_sequoia:     "cddde2c071dc5d1e7f856e841d15ae50a22860af49b184cd6b122f04bf69d694"
+    sha256 arm64_linux:       "aea53e960c33356a616e459836ac35fa55f39ecd9ad2a781c264d6a56b9c54a8"
+    sha256 x86_64_linux:      "755fbc5bc04783fa58d0931cd038602be94e91a5886b7e9a466734c601b74dc4"
   end
 
   depends_on "cmake" => :build
@@ -59,11 +61,7 @@ class Cherrytree < Formula
   deny_network_access!
 
   def install
-    # Link libxml2 directly: cherrytree uses its C API but CMake only links libxml++
-    ENV.append "LDFLAGS", "-Wl,--no-as-needed" if OS.linux?
-    ENV.append "LDFLAGS", "-lxml2"
-
-    system "cmake", "-S", ".", "-B", "build", *std_cmake_args
+    system "cmake", "-S", ".", "-B", "build", "-DWITH_LIBXMLPP5=ON", *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
   end
