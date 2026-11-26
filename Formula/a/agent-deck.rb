@@ -11,6 +11,15 @@ class AgentDeck < Formula
     regex(/^v?(\d+(?:\.\d+)+)$/i)
   end
 
+  bottle do
+    manifest_sha256 "b4539f92fb8a543adf3bae140bc319cc4058903a287f60df8109fc64266feef6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0762167fcb2dd368980f8995118f015b8c809e6880e0eba8906f6dcce88a225"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0762167fcb2dd368980f8995118f015b8c809e6880e0eba8906f6dcce88a225"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0762167fcb2dd368980f8995118f015b8c809e6880e0eba8906f6dcce88a225"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "ef2861c7fba3b48428cc9339a63c19f40e0e6bb6434c4ae08ddf24afb249ad9b"
+    sha256 cellar: :any,                 x86_64_linux:      "5bbe1d8475322e8dcd09acf48265193f5bbfb35ce4dac0e0081f28fc727e6d01"
+  end
+
   depends_on "go" => :build
   depends_on "tmux"
 
