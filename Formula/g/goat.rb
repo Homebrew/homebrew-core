@@ -1,8 +1,8 @@
 class Goat < Formula
   desc "General purpose AT Protocol CLI in Go"
   homepage "https://github.com/bluesky-social/goat"
-  url "https://github.com/bluesky-social/goat/archive/refs/tags/v0.2.9.tar.gz"
-  sha256 "4bb6694de3b5621de3b6cc309671ebe3366cc68eea77b58b7118954cb974f863"
+  url "https://github.com/bluesky-social/goat/archive/refs/tags/v0.2.10.tar.gz"
+  sha256 "259ade7fab8301c65a88d3a4add23b1a286bc3ff0b7bc233c5e45cb03679c498"
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
@@ -29,7 +29,7 @@ class Goat < Formula
     assert_match version.to_s, shell_output("#{bin}/goat --version")
 
     output = shell_output("#{bin}/goat get at://atproto.com/app.bsky.actor.profile/self")
-    assert_match "Social networking technology created by Bluesky.", output
+    assert_match "\"$type\": \"app.bsky.actor.profile\"", output
     assert_match "\"displayName\": \"AT Protocol Developers\"", output
   end
 end
