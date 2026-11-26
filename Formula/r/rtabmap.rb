@@ -15,12 +15,13 @@ class Rtabmap < Formula
   end
 
   bottle do
-    manifest_sha256 "8241c96ad2d8d0bb13f54d22870af06968e3f60a2bb41bd9836b17bb65d496e1"
-    sha256 cellar: :any, arm64_golden_gate: "d639196fce1643dfb8723e30a87cb2ad947579eb22c74bfffcf6553bef72e53a"
-    sha256 cellar: :any, arm64_tahoe:       "48cc0dc523b4dd9cec50a902d22f2933d9630e5a2491a0a0ff667985e26dabc6"
-    sha256 cellar: :any, arm64_sequoia:     "0219956bfd7466ffca7ef0c03161d1a7e3bfcaa138055c0870df9d764870ac22"
-    sha256 cellar: :any, arm64_linux:       "dfc94d2b259de3a32dedda80ae2e4e12ed618185b19386c940a18f3965348007"
-    sha256 cellar: :any, x86_64_linux:      "5f4ab3de67b3d7967f8ce2bff7c639c88b4e51df9fa0d25f4b5108318fa42336"
+    rebuild 1
+    manifest_sha256 "11d0a2674f4f3cb72a072dd1d7eb6681ae2c57618e5e377e26c54d30929e7586"
+    sha256 cellar: :any, arm64_golden_gate: "f773dd3ab09c09ca6e7011f9cd67d595c503de7a9a78f42a10b26ef657e1b4f5"
+    sha256 cellar: :any, arm64_tahoe:       "1b2c5df7ed307024da0444fd597ee9d0861b1444db0974047b626dfba721cff3"
+    sha256 cellar: :any, arm64_sequoia:     "049c72f18c35dc7a1cd60dd21148607063967db5958757a3283787307132c69c"
+    sha256 cellar: :any, arm64_linux:       "57e44009397643347f3814af4a1157f10d73c26d4fbc1165ed22342820861f12"
+    sha256 cellar: :any, x86_64_linux:      "fad7f2e32803a15daec98b2961f37ac8afab823a428f047f33a3eaf103ae85fc"
   end
 
   depends_on "cmake" => [:build, :test]
@@ -36,16 +37,7 @@ class Rtabmap < Formula
   depends_on "vtk"
 
   on_macos do
-    depends_on "boost"
-    depends_on "flann"
-    depends_on "freetype"
-    depends_on "glew"
-    depends_on "libfreenect"
     depends_on "libomp"
-    depends_on "libpcap"
-    depends_on "libpng"
-    depends_on "lz4"
-    depends_on "qhull"
   end
 
   on_linux do
@@ -60,17 +52,31 @@ class Rtabmap < Formula
     resolves "https://github.com/introlab/rtabmap/pull/1836"
   end
 
+  deny_network_access!
+
   def install
     # Use eigen's cmake configuration to support eigen 5.0.0
     rm "cmake_modules/FindEigen3.cmake"
 
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    # Toro license is CC-BY-NC-SA-3.0 which is DFSG-incompatible
+    rm_r "corelib/src/optimizer/toro3d"
+    args = %w[-DWITH_TORO=OFF]
+
+    if OS.mac?
+      args += %W[
+        -DCMAKE_INSTALL_RPATH=#{rpath}
+        -DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs
+        -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs
+      ]
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     # Replace reference to OpenCV's Cellar path
-    opencv = Formula["opencv"]
-    inreplace lib.glob("rtabmap-*/RTABMap_coreTargets.cmake"), opencv.prefix.realpath, opencv.opt_prefix
+    opencv_prefix = formula_opt_prefix("opencv")
+    inreplace lib.glob("rtabmap-*/RTABMap_coreTargets.cmake"), opencv_prefix.realpath, opencv_prefix
 
     return unless OS.mac?
 
