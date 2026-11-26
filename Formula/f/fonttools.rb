@@ -3,17 +3,18 @@ class Fonttools < Formula
 
   desc "Library for manipulating fonts"
   homepage "https://github.com/fonttools/fonttools"
-  url "https://files.pythonhosted.org/packages/0c/b5/672312ae80ce8b8eb9779c56052a24c8f36652aa7293a1a420553bcf03e5/fonttools-4.68.0.tar.gz"
-  sha256 "73294e233070f71e2b3653b6bd8564af676d57f26d075761fb06d1ab2e4a7a5d"
+  url "https://files.pythonhosted.org/packages/06/7a/83dd380d74b56a57c3eafce90265035d8727469d05ca4d2942d14367a6c7/fonttools-4.69.1.tar.gz"
+  sha256 "d09a2ea8ed4c71ac52e789ba9313da3e26cee3f812400d7e8a8b3a38d0f98dfe"
   license "MIT"
   head "https://github.com/fonttools/fonttools.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90adf249d853cb752f0dc594586c6ecc4a2488869f20c0682bb197947d04bb30"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "650cfe269249c05a500f1c16ef9b8dc01c2895291bae0d17075b96fdab8d55e1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fea285c9fb3d319671a1d636f48759a826b23b6b77befcde1b6217df7d42a20"
-    sha256 cellar: :any,                 arm64_linux:       "40bf2c27fa0edf420a211bf728a575d6cbf7952b7f5a3f7815b0eb313bcf0870"
-    sha256 cellar: :any,                 x86_64_linux:      "6885f05e0c1b34446cd654f2e6bb6c9aa0deb045be43b0af6d691746e8dcda5e"
+    manifest_sha256 "6ddbe01fed1c0dbac14723a8ccd928a5abb4a746a28c378690351f7016c1d3e1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40416ec5a9685137b460bf41f3e85b1d620530dd9e6483bd15fdf1d885ec7396"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f465a1ab6fd74e9592de39158112ae782d953295e597cf359d816caa310662ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36b90fc365b79d50a8dcf18732fb132dc15b112771697cdcf2f466e19a357c85"
+    sha256 cellar: :any,                 arm64_linux:       "8e7c408c17ecd3e806e8805236bfea7f5c8b100882d8101335ea3c881a2fc2bb"
+    sha256 cellar: :any,                 x86_64_linux:      "454a17e629f68464155b7bde0c85dcebd935c9431fc0be76477e996e3da43ad7"
   end
 
   depends_on "python@3.15"
