@@ -3,8 +3,8 @@ class Dnsdist < Formula
 
   desc "Highly DNS-, DoS- and abuse-aware loadbalancer"
   homepage "https://www.dnsdist.org/"
-  url "https://downloads.powerdns.com/releases/dnsdist-2.1.3.tar.xz"
-  sha256 "41cc224817ff0f7753b46fe5b814ddb9221dd9dbf76e9eb1a09f01c3c5cbb4aa"
+  url "https://downloads.powerdns.com/releases/dnsdist-2.1.4.tar.xz"
+  sha256 "9a9d3088716468a885bcf255ee5daf17673cf01ad67d6fa4be1bbab14b4da201"
   license "GPL-2.0-only" # with OpenSSL Exception (non-SPDX)
 
   livecheck do
@@ -13,11 +13,12 @@ class Dnsdist < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "8ec01506fe21d155b3a93583fce041548fdd0a5f7e11f8b77b4cc468c5c00f7a"
-    sha256 arm64_tahoe:       "e6a4274e091d9a3078604e01b77a22ce1a363f6d816c48c98766c814535ef951"
-    sha256 arm64_sequoia:     "b95ce0d07446bdb830c0d9b872be838c7cbef132fb8023c81fdc319d3428e252"
-    sha256 arm64_linux:       "a7d8a17a86333cbf27357b1cc358d543f3c18917f665a48a37c89478b94fc625"
-    sha256 x86_64_linux:      "f27dd0d8e2da5d7d51229e64c47d91e296e226b5914b43f3a8b3a16e729adbbf"
+    manifest_sha256 "9a37fe531b4f3eb0885a6662560f8b871623c4c0872a78a4f0318d1e4f25c23f"
+    sha256 arm64_golden_gate: "0f94c442b4bec949ff9327de9018d158e85dd40c83433fbcdec783877a460c40"
+    sha256 arm64_tahoe:       "a37899adf14161f196a445a783271e8da7df9bb0198c2ff9bd845c9f68f1876c"
+    sha256 arm64_sequoia:     "cf30a8b788b2aed45aa37ec1eec5fb88e51bf29d856e7bc242cd3dd7c55017cf"
+    sha256 arm64_linux:       "765107200f70dfdc03f1dbc4d1107159edd511f850528943544c3bf9ce1f5ba1"
+    sha256 x86_64_linux:      "b7a7cedfe5dc3c12656f3dfe028382fde0aa87ecbced7869aec5b9552d24682c"
   end
 
   depends_on "boost" => :build
@@ -38,8 +39,8 @@ class Dnsdist < Formula
                 extra_packages: "pyyaml"
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   def install
