@@ -3,8 +3,8 @@ class Bittensor < Formula
 
   desc "SDK and command-line tool for the Bittensor network"
   homepage "https://subtensor.vercel.app/"
-  url "https://files.pythonhosted.org/packages/16/e9/3075647afee2c48885d2a6df0db88f654c216f42122f92a58c2e5c7bfd79/bittensor-11.3.5.tar.gz"
-  sha256 "17e761f5abd7a7ceb5cb391088bc1d5187f55a9be03cea21234a10cbaa805c64"
+  url "https://files.pythonhosted.org/packages/8a/49/933cb84be62267eba6d0b9e9837c5bb18c90144f603b0a883f1cafd13a01/bittensor-11.3.6.tar.gz"
+  sha256 "e551887a84d03bb97658c5f427d1838d1cc45ba2a48cb8b3629536746fbf9d69"
   license "Apache-2.0"
 
   bottle do
@@ -37,8 +37,8 @@ class Bittensor < Formula
   end
 
   resource "bittensor-core" do
-    url "https://files.pythonhosted.org/packages/83/43/5f8dfd7fe3fe44bebfc2107a54d60059d842509c16d51432c2f899b8e4bf/bittensor_core-0.1.12.tar.gz"
-    sha256 "8fb4a05289b18f4e958e66204a49640880b74b05c429ad424c60bb312fa5a283"
+    url "https://files.pythonhosted.org/packages/bf/cf/9a9c441f4c2f37593721b38e7d491e79c02332e94a4a6f6d238c73c14286/bittensor_core-0.1.13.tar.gz"
+    sha256 "bed13296ce15e6c68b29a766cc92c754e9b5bd099f207d7b211c8a9b73b7199a"
   end
 
   resource "ckzg" do
@@ -127,8 +127,8 @@ class Bittensor < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/b8/17/ef8c46a9e7cf2304968eb260f594bbd4220fab6281e64c090cdd85884511/regex-2026.11.19.tar.gz"
-    sha256 "2826a006b68acfd3ed5074433caafe21d7f9d026eb82cb856724a4a893a70915"
+    url "https://files.pythonhosted.org/packages/e7/32/7c768de6489417ef32a49480af8a2dfba3adc5b1784d6e7142f32972018a/regex-2026.11.24.tar.gz"
+    sha256 "07f222de81cdcfd39eef8671e92d14f50f61f1666f756659b0e649cf700b1b10"
   end
 
   resource "rich" do
@@ -170,11 +170,11 @@ class Bittensor < Formula
     # Allow Python 3.15
     inreplace "pyproject.toml", 'requires-python = ">=3.10,<3.15"', 'requires-python = ">=3.10,<3.16"'
 
-    venv = virtualenv_create(libexec, "python3.15")
+    venv = virtualenv_create(libexec, python3)
     venv.pip_install resources.reject { |r| r.name == "bittensor-core" }
     resource("bittensor-core").stage do
       # The sdist keeps `[patch]` entries pointing at vendored crates it does not ship, which breaks `cargo metadata`
-      inreplace "Cargo.toml", %r{^(?:evm-gasometer|sc-informant) = \{ path = "vendor/[^"]+" \}\n}, ""
+      inreplace "Cargo.toml", %r{^(?:evm-gasometer|sc-informant|hickory-proto-\d+) = \{ path = "vendor/.*\n}, ""
       venv.pip_install Pathname.pwd
     end
     venv.pip_install_and_link buildpath
