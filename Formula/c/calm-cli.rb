@@ -6,12 +6,12 @@ class CalmCli < Formula
   license "Apache-2.0"
 
   bottle do
-    manifest_sha256 "51f8bb8eb4048199126e11278daf1cd3f41572326e14c4c7d661e0736e209111"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0cdbffbd9199389cedad70f4663f253e612bc8b222f48f500526f5bd744a4b15"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0cdbffbd9199389cedad70f4663f253e612bc8b222f48f500526f5bd744a4b15"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cdbffbd9199389cedad70f4663f253e612bc8b222f48f500526f5bd744a4b15"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "69427464a6ec5ae0ed4b36a1f2617af315ca53ccc9512f182ad536bf53714666"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "745e0f4d2eda5ad70f9c24187eff825b07f32c43011df104edb28b36b9cd1f3b"
+    manifest_sha256 "dcf0facdec344ac436d4a2da0eb3b5720cf6d6062165d657c6566c031036b0f5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1501235fea78b0e24ae13232a825a17389b15985455c94f2f3e15bf55d8bca67"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1501235fea78b0e24ae13232a825a17389b15985455c94f2f3e15bf55d8bca67"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1501235fea78b0e24ae13232a825a17389b15985455c94f2f3e15bf55d8bca67"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1b045c5520e222274d80c7e8ff42edd9e46a5840eb018f26276616d2395936c7"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "3fd15f59f8e7ada0b1a2a295a70356076100af8cb40b334d0ebc2cae6c775f80"
   end
 
   depends_on "node"
