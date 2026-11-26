@@ -1,0 +1,14 @@
+Formula/a/agent-deck.rb
+  h_9df9c32c3f321d 1-3,4-5,6-8,9-13,14-40
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "a3a80df861d3e7762cd8717c2e90ca946dbd25bc",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
