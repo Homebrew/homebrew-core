@@ -8,8 +8,8 @@ class Termaid < Formula
   license "MIT"
 
   bottle do
-    manifest_sha256 "1bcd2a87572a37dcfffccfbd3b607c64e08ddae945b6e209e0152328e7ea4493"
-    sha256 cellar: :any_skip_relocation, all: "a7a7bd82fa2414330b6ec94b9991013989a79e398ed323ee3573ae33d670ac5f"
+    manifest_sha256 "3625ebfeec5a4553c6d5054370597a106dcf62206ea6c81ba391a68fc6fa37ad"
+    sha256 cellar: :any_skip_relocation, all: "83392319bfea46ef1ddacb8fd1e2448ac94c09074a2bdbbe016dfd887032d782"
   end
 
   depends_on "python@3.15"
