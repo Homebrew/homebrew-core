@@ -13,14 +13,12 @@ class Metals < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9cd670ae2dc986dfdb37552453aee0a1444396f5c42eedccf8f3a6781e6d55f5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1150c8b545397175d0eb64eed9e49a62ec12bf033e372416fb6315fa7a136d02"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab4c66ec63e993ce9ff6a90793fc0adbbb9d830057b82a8c9476583a4ae1ffde"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "dc3d7f509dd0e044656e2082113cfc82cbaad6d7780a392598922db2465b02d7"
-    sha256 cellar: :any_skip_relocation, sonoma:            "26de98eab7d29c763fa549c5fa47095a8f7914d081d272a2b64332c9295cde85"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "50e4423559e8c3981a556371e787bc3feca8bb48d6fa8f7cef9d00c2b6d53485"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "785031b654d0f6735a1ff5428089c6f86765f00952ba2c10ea4ae0ad565bba83"
+    manifest_sha256 "fe470fabbb36d112b1675d4372debbb8f93f5092e03f5d05bb16ddc96e99ea76"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba81751d320ac4a5f92d529cc837703021d93d8ac7e8c778e796d799c3eee3fc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58e9048516d9ad89c944e32e22e7d3a0e9dea70a19a9b8cd705a70c1be0a308b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "739b6a1a7378e23627390c67fb6b6ad36bf984c0ef63a0c0396cfb27e1528b8a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "178be3f1a15de80e98d1194a6c5b3dece895fe18b6b5a8c2c655fdbfeb777149"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "6dcb51de888b4ece2d4c618318ea5d25c59bc6b3b0f3a1498ca4625baa78f791"
   end
 
   depends_on "sbt" => :build
