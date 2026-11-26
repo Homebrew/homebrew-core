@@ -1,27 +1,16 @@
 class Root < Formula
   desc "Analyzing petabytes of data, scientifically"
-  homepage "https://root.cern"
+  homepage "https://github.com/root-project/root"
+  url "https://github.com/root-project/root/releases/download/v6-42-00/root_v6.42.00.source.tar.gz"
+  sha256 "9649ad16d5773bd05199eb5e3cca1580847a30c959e3e68c3717b471c154c4b2"
   license "LGPL-2.1-or-later"
-  revision 2
   head "https://github.com/root-project/root.git", branch: "master"
 
-  stable do
-    url "https://root.cern/download/root_v6.40.04.source.tar.gz"
-    sha256 "44ada253b1935d34b6801222232d50731fe7c5e3cbcfab47734c85031cfbe4d3"
-
-    # Backport fix for PyROOT to use macOS libffi
-    patch do
-      url "https://github.com/root-project/root/commit/b2212ae8abdeb01eaed633b7ed243a72763f939d.patch?full_index=1"
-      sha256 "9839dd1bc50635643fb4c8d69a52b60f7f8e2ae6721a8c57388eb860f3d48d91"
-      type :backport
-    end
-  end
-
   livecheck do
-    url "https://root.cern/install/all_releases/"
-    regex(%r{Release\s+v?(\d+(?:[./]\d*[02468])+)[ >]}i)
-    strategy :page_match do |page, regex|
-      page.scan(regex).map { |match| match[0].tr("/", ".") }
+    url :head
+    regex(/^v?(\d+-\d*[02468]-\d*[02468])$/i)
+    strategy :git do |tags, regex|
+      tags.filter_map { |tag| tag[regex, 1]&.tr("-", ".") }
     end
   end
 
@@ -89,13 +78,6 @@ class Root < Formula
   skip_clean "bin"
 
   def install
-    # Skip modification of CLING_OSX_SYSROOT to the unversioned SDK path
-    # Related: https://github.com/Homebrew/homebrew-core/issues/135714
-    # Related: https://github.com/root-project/cling/issues/457
-    if OS.mac? && MacOS.version > :ventura
-      inreplace "interpreter/cling/lib/Interpreter/CMakeLists.txt", '"MacOSX[.0-9]+\.sdk"', '"SKIP"'
-    end
-
     args = %W[
       -DCLING_CXX_PATH=clang++
       -DCMAKE_CXX_STANDARD=20
