@@ -1,8 +1,8 @@
 class Morphe < Formula
   desc "Desktop app and CLI for patching Android apps with Morphe"
   homepage "https://github.com/MorpheApp/morphe-desktop"
-  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.3.0.tar.gz"
-  sha256 "462ca76893b88620e3113acf0f441467ab30d16f52e6c2d363aab316c91a2983"
+  url "https://github.com/MorpheApp/morphe-desktop/archive/refs/tags/v2.4.0.tar.gz"
+  sha256 "901cc9200ac5e727629499803b0c70fcf5589769377b3e5de8269276a9524bf0"
   license "GPL-3.0-only"
 
   bottle do
@@ -15,36 +15,15 @@ class Morphe < Formula
   end
 
   depends_on "gradle" => :build
-  depends_on "maven" => :build
   depends_on "openjdk"
 
   resource "morphe-patcher" do
-    url "https://github.com/MorpheApp/morphe-patcher/archive/refs/tags/v2.5.0.tar.gz"
-    sha256 "dcbb8afcff5f47f47a2788740c90ff1f381036e3d452e2cdc4fd98db3caec0d8"
+    url "https://github.com/MorpheApp/morphe-patcher/archive/refs/tags/v2.6.0.tar.gz"
+    sha256 "b1b795049b70a2140d3a0fd9e9a1e9afb00e5c44de15bac1c84866e9104781f5"
 
     livecheck do
       url "https://raw.githubusercontent.com/MorpheApp/morphe-desktop/refs/tags/v#{LATEST_VERSION}/gradle/libs.versions.toml"
       regex(/^morphe-patcher\s*=\s*"([^"]+)"/)
-    end
-  end
-
-  resource "morphe-library" do
-    url "https://github.com/MorpheApp/morphe-library/archive/refs/tags/v1.4.0.tar.gz"
-    sha256 "b6c78c45e90b44bca6c3aa12f7ea9281396eac4dbdecaee23ee30b312f4e2b50"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/MorpheApp/morphe-desktop/refs/tags/v#{LATEST_VERSION}/gradle/libs.versions.toml"
-      regex(/^morphe-library\s*=\s*"([^"]+)"/)
-    end
-  end
-
-  # Unused by morphe-desktop itself but still required by `morphe-library`
-  resource "jadb" do
-    url "https://github.com/MorpheApp/jadb/archive/refs/tags/v1.2.3.tar.gz"
-    sha256 "d2391d34c46d5844eee225e37e8b8b56ac5c4378073db1379cb9414b07b74da7"
-
-    livecheck do
-      url :url
     end
   end
 
@@ -53,13 +32,9 @@ class Morphe < Formula
   def install
     ENV["JAVA_HOME"] = Language::Java.java_home
 
-    # Build these from source as their published packages require GitHub authentication
-    %w[morphe-patcher morphe-library].each { |r| resource(r).stage buildpath/r }
-    inreplace "settings.gradle.kts" do |s|
-      s.gsub! 'file("../$libraryPath")', 'file("$libraryPath")'
-      s.gsub! "app.morphe:morphe-library", "app.morphe:morphe-library-jvm"
-    end
-    resource("jadb").stage { system "mvn", "--batch-mode", "-Dmaven.test.skip=true", "install" }
+    # Build the patcher from source because its published package requires GitHub authentication.
+    resource("morphe-patcher").stage buildpath/"morphe-patcher"
+    inreplace "settings.gradle.kts", 'file("../$libraryPath")', 'file("$libraryPath")'
 
     # Keep public dependencies on public repositories; Morphe components are built locally above.
     inreplace "build.gradle.kts", "credentials {", 'content { includeGroup("app.morphe") }; credentials {'
