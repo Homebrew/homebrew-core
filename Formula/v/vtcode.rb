@@ -1,8 +1,8 @@
 class Vtcode < Formula
   desc "CLI Semantic Coding Agent"
   homepage "https://vinhnx.github.io"
-  url "https://static.crates.io/crates/vtcode/vtcode-0.185.1.crate"
-  sha256 "add529c4e9f98c7e07e6baf40ed64a9816535f368bdfb8e0fd2a1b938e8c0459"
+  url "https://static.crates.io/crates/vtcode/vtcode-0.185.2.crate"
+  sha256 "34ffdfde47186576b8dffe76d64a3c940c6575b2e0c8c939ee4533655d0c8fd7"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/vinhnx/vtcode.git", branch: "main"
 
@@ -11,12 +11,12 @@ class Vtcode < Formula
   end
 
   bottle do
-    manifest_sha256 "15d9533246f504b13d84635abf212381be2a93a5e11eb8aa6c524551eb389d2c"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f860ceb3a4cb6410b978ff5753e796181168542b013e18a9f6a3de57421bd02a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4810a1955fe9e0ba6fa15030adf567a4e7b861edb8b087510311041ad06821d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d62b76524b40057fdf9645cdbdf9577631506f03466ac3d5ce41e2d09cc24274"
-    sha256 cellar: :any,                 arm64_linux:       "922f392651340ef0993d9b508407810b9ae54e2e29493e77df3d844fa80d29e5"
-    sha256 cellar: :any,                 x86_64_linux:      "596bf5176e86b8fef9e5931ed7dfb040ebf3d5c27f870c07f91c5d8f39b4279c"
+    manifest_sha256 "e3acc3308bd43ffd2fc1e9e6f841c57ad9bef9c7111eb8dff30d5042243ec4dc"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c707e9e15535eb33373e1f54000f10bc2eb7bb55f15ef80548c8c9860e9cd142"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0e348c129c434c2f650ae80e3458e4f35ed5862386ee74dbacc668e8e9c7ce79"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "174b5afbcf217e2b3831800bfc044744feeb6daf4a319f66e4cbe4e723cbd838"
+    sha256 cellar: :any,                 arm64_linux:       "ef6a912002e13f79254fe960deff7095305febea39b6df79eafb146cd375674d"
+    sha256 cellar: :any,                 x86_64_linux:      "1de8716d4dcb326fde91ad78ccdeed8ef70ed02e370e12121eb81c4f405e8025"
   end
 
   depends_on "pkgconf" => :build
