@@ -26,17 +26,35 @@ class Age < Formula
 
   def install
     ldflags = "-X main.Version=v#{version}"
-    (buildpath/"cmd").each_child(false) do |cmd|
-      system "go", "build", *std_go_args(ldflags:, output: bin/cmd), "./cmd/#{cmd}"
+    # `extra` contains the age-plugin-{pq,tag,tagpq} compatibility plugins,
+    # which add the age v1.3 recipient types to tools linking an older or
+    # plugin-only age library (e.g. sops).
+    %w[cmd extra].each do |dir|
+      (buildpath/dir).each_child(false) do |cmd|
+        system "go", "build", *std_go_args(ldflags:, output: bin/cmd), "./#{dir}/#{cmd}"
+      end
     end
 
-    man1.install "doc/age.1"
-    man1.install "doc/age-keygen.1"
+    man1.install Dir["doc/*.1"]
   end
 
   test do
+    # Ensure age finds this keg's age-plugin-pq even if the keg is unlinked.
+    ENV.prepend_path "PATH", bin
+
     system bin/"age-keygen", "-o", "key.txt"
     pipe_output("#{bin}/age -e -i key.txt -o test.age", "test", 0)
     assert_equal "test", shell_output("#{bin}/age -d -i key.txt test.age")
+
+    # Round-trip through the plugin protocol using age-plugin-pq.
+    system bin/"age-keygen", "-pq", "-o", "pq.txt"
+    system bin/"age-plugin-pq", "-identity", "-o", "pq-plugin.txt", "pq.txt"
+    assert_match "AGE-PLUGIN-PQ-1", (testpath/"pq-plugin.txt").read
+    pipe_output("#{bin}/age -e -i pq-plugin.txt -o pq.age", "test pq", 0)
+    assert_equal "test pq", shell_output("#{bin}/age -d -i pq-plugin.txt pq.age")
+
+    %w[age-inspect age-plugin-batchpass age-plugin-tag age-plugin-tagpq].each do |cmd|
+      assert_equal "v#{version}", shell_output("#{bin}/#{cmd} -version").strip
+    end
   end
 end
