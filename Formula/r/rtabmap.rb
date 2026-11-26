@@ -36,16 +36,7 @@ class Rtabmap < Formula
   depends_on "vtk"
 
   on_macos do
-    depends_on "boost"
-    depends_on "flann"
-    depends_on "freetype"
-    depends_on "glew"
-    depends_on "libfreenect"
     depends_on "libomp"
-    depends_on "libpcap"
-    depends_on "libpng"
-    depends_on "lz4"
-    depends_on "qhull"
   end
 
   on_linux do
@@ -60,17 +51,31 @@ class Rtabmap < Formula
     resolves "https://github.com/introlab/rtabmap/pull/1836"
   end
 
+  deny_network_access!
+
   def install
     # Use eigen's cmake configuration to support eigen 5.0.0
     rm "cmake_modules/FindEigen3.cmake"
 
-    system "cmake", "-S", ".", "-B", "build", "-DCMAKE_INSTALL_RPATH=#{rpath}", *std_cmake_args
+    # Toro license is CC-BY-NC-SA-3.0 which is DFSG-incompatible
+    rm_r "corelib/src/optimizer/toro3d"
+    args = %w[-DWITH_TORO=OFF]
+
+    if OS.mac?
+      args += %W[
+        -DCMAKE_INSTALL_RPATH=#{rpath}
+        -DCMAKE_EXE_LINKER_FLAGS=-Wl,-dead_strip_dylibs
+        -DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs
+      ]
+    end
+
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
     system "cmake", "--install", "build"
 
     # Replace reference to OpenCV's Cellar path
-    opencv = Formula["opencv"]
-    inreplace lib.glob("rtabmap-*/RTABMap_coreTargets.cmake"), opencv.prefix.realpath, opencv.opt_prefix
+    opencv_prefix = formula_opt_prefix("opencv")
+    inreplace lib.glob("rtabmap-*/RTABMap_coreTargets.cmake"), opencv_prefix.realpath, opencv_prefix
 
     return unless OS.mac?
 
