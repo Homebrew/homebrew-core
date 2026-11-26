@@ -1,8 +1,8 @@
 class Libupnp < Formula
   desc "Portable UPnP development kit"
   homepage "https://pupnp.sourceforge.io/"
-  url "https://github.com/pupnp/pupnp/releases/download/release-22.2.4/libupnp-22.2.4.tar.bz2"
-  sha256 "3beac41548eac76d22633724d13324a391cc656c6bcf070ed9957abb87efd2de"
+  url "https://github.com/pupnp/pupnp/releases/download/release-22.2.5/libupnp-22.2.5.tar.bz2"
+  sha256 "1d690f7ef211017f27b36d79fac7d79a2c0c232d99c44a27bfde067fcdd7dafb"
   license "BSD-3-Clause"
 
   livecheck do
@@ -11,11 +11,12 @@ class Libupnp < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f4b0ae309b376a09e6d9d5005702d218f09a2ad685bf75f60f840c4aa60b47ee"
-    sha256 cellar: :any, arm64_tahoe:       "279f4ae1a13b37c8fc7b4306daf4f3825e5c99890bf78484622728f536c8ad34"
-    sha256 cellar: :any, arm64_sequoia:     "b46923afac99d576e49641ddc59bee28b7a5327bcf5caf6f8a19d025f2987a9b"
-    sha256 cellar: :any, arm64_linux:       "4a2dc03e7c26707e87e8fe24e3554b580aa797e21416e81c2e17d946dfc628ca"
-    sha256 cellar: :any, x86_64_linux:      "50dd581bc9b5af4c2242aa8dadf75bff35fef3fa5f60fc28e2e4809a1c4307c3"
+    manifest_sha256 "3194ecca29b7a7ea32a13aca7c9756315b9457d40f282e1b043e1ff6d6a45c80"
+    sha256 cellar: :any, arm64_golden_gate: "2e7536cd4c437c14d11307848f68284c934f8a345efe938db2a8f2cf133397b2"
+    sha256 cellar: :any, arm64_tahoe:       "367aa6d3f24b34175f067ab7a485f91d958199962509b40f4085f395ca42c28f"
+    sha256 cellar: :any, arm64_sequoia:     "c3ebc83835ae8493707ee72bda0b793ba74129698e91ff3f47885d5d48ff2056"
+    sha256 cellar: :any, arm64_linux:       "34de799f50de2b636b7d0243e2c54f923cbbfd3d0470a6c09703eacfa71b4cdc"
+    sha256 cellar: :any, x86_64_linux:      "a947552a61fb975a76e28bce13b6dc5c89baea9da345ecc353de9e0f6d5fe8cd"
   end
 
   depends_on "cmake" => :build
