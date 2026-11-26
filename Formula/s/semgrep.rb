@@ -5,8 +5,8 @@ class Semgrep < Formula
   homepage "https://semgrep.dev"
   # Pull from git tag to get submodules, https://github.com/semgrep/semgrep/issues/10877
   url "https://github.com/semgrep/semgrep.git",
-      tag:      "v1.186.0",
-      revision: "a5844e7c2d9d04548f86048f525d467a00742656"
+      tag:      "v1.187.0",
+      revision: "082ca45478ee4dcc4275d805c0325a7fcd509990"
   license "LGPL-2.1-only"
   head "https://github.com/semgrep/semgrep.git", branch: "develop"
 
@@ -16,11 +16,12 @@ class Semgrep < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "1ffff539fb371eb32668456c80f47805528bba0cc422aed811c4e356773e0e78"
-    sha256 cellar: :any, arm64_tahoe:       "81e0c50e8b8a50b7b7d3d703e8d3d1efd686335b9529ea81c014b95c86abaf92"
-    sha256 cellar: :any, arm64_sequoia:     "31882f2d99011309fcbb91275ed8372dc8139465d840977ae3e9e1b253766edd"
-    sha256               arm64_linux:       "63f9640fcb1b2c6f7ddebb336a0832ebef090c582ee1b1c82aa6273ccb0ef110"
-    sha256               x86_64_linux:      "af2255f47a38e7c56c6ef695866f696def523fc4623e20a7656a162b1cef8948"
+    manifest_sha256 "bbad120db2b09b1087d336b16bf9e30d2135871c74485c9fa2da20aa0945dbb1"
+    sha256 cellar: :any, arm64_golden_gate: "a202c1eb5d9482d8e681c62272e1360153e736ffb3b209d330e2bdab1ba3e082"
+    sha256 cellar: :any, arm64_tahoe:       "f49a927657e7985471978b7f9064f49515efd9612bd0cd04b3358a530c3a6ac4"
+    sha256 cellar: :any, arm64_sequoia:     "c0df43801cf81e6e4b5d20514408267a17f11c1c325908e5d1d6e45081c56939"
+    sha256               arm64_linux:       "d250bc1681697a0c96830af79555ac649c994e7d1128af63753f1a695f359f2f"
+    sha256               x86_64_linux:      "80dd18fe743b3747f27b34e24748147496b4a169359063335b6087404df4bb13"
   end
 
   depends_on "ocaml" => :build
@@ -66,13 +67,13 @@ class Semgrep < Formula
   end
 
   resource "bracex" do
-    url "https://files.pythonhosted.org/packages/42/39/9ae971118d77b86cc3f03ab5a467ddb58de352d8ef29830c81531d22010c/bracex-3.2.3.tar.gz"
-    sha256 "8fbf92b4db3c31de999145e22a47d4ffdbefb983a98583c3272bd7d570f9a343"
+    url "https://files.pythonhosted.org/packages/66/6f/95a6fcb1c430007cda4122c77aace4541fba297f08e2be791ab235a4c548/bracex-3.2.4.tar.gz"
+    sha256 "c1e67eb59f81445dee15b2c588b7c81352b697cfbd6c4931a2943ea6b71eb5ea"
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
@@ -216,8 +217,8 @@ class Semgrep < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "peewee" do
@@ -286,8 +287,8 @@ class Semgrep < Formula
   end
 
   resource "sse-starlette" do
-    url "https://files.pythonhosted.org/packages/41/43/a232e3cd804293bd4f6d01e8895bc0f6f83ea148d712baf9d783c7d93d23/sse_starlette-3.7.0.tar.gz"
-    sha256 "326416da2ab52e9a41b3f409d3ff897eda45aa68c9f3b7b17d0913aab8d219c3"
+    url "https://files.pythonhosted.org/packages/12/c0/eb8c9eec5c0e29ce2a1c4d4654ddfb06c77b52b4db63ab40226198456be6/sse_starlette-3.7.1.tar.gz"
+    sha256 "9a8256e3e80a0fdc8d1dec14f2bb0b3f304c99f23a6d4d26c61ff50145761597"
   end
 
   resource "starlette" do
