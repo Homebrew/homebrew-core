@@ -8,6 +8,7 @@ class Legba < Formula
   head "https://github.com/evilsocket/legba.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d559a9bf069d5f295cd0cdcd0f4b6cf78d243c416ed40302d0287b0e862556d8"
     sha256 cellar: :any, arm64_golden_gate: "7fb9ce31373429f6566c8ccc85e4568e4545cf8365e70a0bb6c84fdffcb37491"
     sha256 cellar: :any, arm64_tahoe:       "18ce5957c6d07b386002de9d2f83dc318ce7788e2fc7ec7816e027aa9f2b6abc"
     sha256 cellar: :any, arm64_sequoia:     "7619abab175637216660f5d31d97d4073cd58be4287d60288f6c52a0cde2d620"
