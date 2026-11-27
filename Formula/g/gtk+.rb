@@ -7,6 +7,7 @@ class Gtkx < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "70f893988dac471bf38df3c881527f0d30da2958ef8ab19ddeee5a5ecf1de6c4"
     sha256 arm64_golden_gate: "574cb52fd43a2200c4275d4e108a7f62c810d7680471ed9876d86c0b84360ddf"
     sha256 arm64_tahoe:       "50bf4d48f706e87bc7bff60b97ea41bc0ca1d4616390be8fe2781360531244c2"
     sha256 arm64_sequoia:     "a431feb1110a7b24050d4115bf8a0701eefb6ea735c276acc99c23a9260f72e8"
