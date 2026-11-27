@@ -14,6 +14,7 @@ class Librest < Formula
   end
 
   bottle do
+    manifest_sha256 "fa956e70e062db4bb67601f361699195fd7a97df11725041cf9a258f44c81402"
     sha256 cellar: :any, arm64_golden_gate: "6fb76b8a031a24d8ef1a3f2cf476f7dc9d59cbb0e870d1fc6b3fdf98ac18dd5c"
     sha256 cellar: :any, arm64_tahoe:       "4953ad6e88b6646bcf562d66193b617cbd2bba6c9dfecb37eed108f971be575b"
     sha256 cellar: :any, arm64_sequoia:     "22bd743bb1c8dd2453fd90278636395f2cafb6fe2adb734e67f1cfc2e7ac4333"
