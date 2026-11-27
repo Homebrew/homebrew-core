@@ -13,6 +13,7 @@ class Libdshconfig < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "21fe6343906e56e6704f7f72b4600455efd6558a3ad7d000728d9c3ec278586e"
     sha256 cellar: :any,                 arm64_golden_gate: "34def335b09e374b0e6606219666b7dcb31b88822b8a8675fec3ede7572f3c6d"
     sha256 cellar: :any,                 arm64_tahoe:       "7d835c92dc8a1d1ce812a79d4fbbe8a900a77711f9a959362a1d03db8b7bfe8c"
     sha256 cellar: :any,                 arm64_sequoia:     "97fa8df11dd460eff2f15e043cd7529eae0fbbedb5f06419c1f05471381505eb"
