@@ -11,6 +11,7 @@ class GitReview < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "abdbb0b82fbc53d0a28936779d8f9a20226aa6b99d63d652478ee31cac98316f"
     sha256 cellar: :any_skip_relocation, all: "0077cc4a5621c15d3ab6476bdf292247360b99368b61e673c6c8468ef741b081"
   end
 
