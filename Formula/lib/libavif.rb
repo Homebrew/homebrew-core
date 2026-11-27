@@ -7,6 +7,7 @@ class Libavif < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3641a48dcd874c264d9d88985692f3932d630b35bcfed51b2503d068142d2517"
     sha256 cellar: :any,                 arm64_golden_gate: "f615b9691140a7dca60456cc6fa89f797039567d44637c5bedca28b7065a3190"
     sha256 cellar: :any,                 arm64_tahoe:       "584d41a9ad0fd601fac27735b928483c3f8494d4e08d6461599f7fabc915783b"
     sha256 cellar: :any,                 arm64_sequoia:     "0d1a9ce6320d9ddacb3e7ca31bb2ef3216529755ab1df24eac833fec27b25c95"
