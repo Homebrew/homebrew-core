@@ -14,6 +14,7 @@ class Lpeg < Formula
   end
 
   bottle do
+    manifest_sha256 "b095595bcebeaef2be59b38b2a13f2f7be527b013af8e57bb7775b1eea4ce0e9"
     sha256 cellar: :any,                 arm64_golden_gate: "4a1e2547aba2e3bed89690bc398b8dacbb43d4d821c2cfa933a1af73f81bcd4e"
     sha256 cellar: :any,                 arm64_tahoe:       "f3ef5600e2a654aea26c48469ab8ffee9fe117c71fe4d617646939b0f74059bd"
     sha256 cellar: :any,                 arm64_sequoia:     "afeb8aa90c0d61871094edc33f8992b478791bb24bbe07ddfe45b3e0da38e118"
