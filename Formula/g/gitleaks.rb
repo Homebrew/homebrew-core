@@ -15,6 +15,7 @@ class Gitleaks < Formula
   end
 
   bottle do
+    manifest_sha256 "2a04d5040ffe2cd9ad5ad1d906fda6c3739317ad8a1a5345dd02f5dc77b035c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11192492d91199628ff63ac1ebff313857de2a5fdfbeb79dfdb430190f86aa02"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ea543daa28d39acc7af3aab4491ef53d62c0402b540d087008ff4dce7e2484b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ea543daa28d39acc7af3aab4491ef53d62c0402b540d087008ff4dce7e2484b3"
