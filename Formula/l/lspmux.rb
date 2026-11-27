@@ -8,6 +8,7 @@ class Lspmux < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "978e4ab56b637ef3bf74b4572acfb74b3c3cf7d803c5df01f705a0b122a04fe9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "279fe596c19fcd82a323008a0a2b35618bf7011331749281e3288d3eff0de54e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6b268e66689a372808bdd6f377c76ca5ab66b7fea7952d9769babf50e96fe0d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a5820e425d62ac80fdca33bafec1d9dfabb210534d23be782a51032d129e84e"
