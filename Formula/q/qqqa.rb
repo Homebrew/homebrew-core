@@ -7,6 +7,7 @@ class Qqqa < Formula
   head "https://github.com/iagooar/qqqa.git", branch: "master"
 
   bottle do
+    manifest_sha256 "179fce718d3069b768935926dc76a820292e5788eb25d4a7cf425e9953909714"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "301de9c3d5cd100268b535f98017100ddeccffbad22b48402249ac9b08d231e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "465127bbe5e08e26b9ce1e561a6139e81b3f107299aca1a083923fbb245d1291"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "58adde921b57437b9092344b008902f22ab456a0cb778b43152c7c926abc65ab"
