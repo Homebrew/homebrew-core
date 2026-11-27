@@ -14,6 +14,7 @@ class MonoLibgdiplus < Formula
   end
 
   bottle do
+    manifest_sha256 "4a4aa0ef5b3fdfad5a3bf0d658bdf8bae1aaebe0bfd320ed27ae1bd1cab1a0e3"
     sha256 cellar: :any,                 arm64_golden_gate: "8eb45c5b293d9a9930bee6a06deb3e1245399163ecdceb80b68ccfc9b0d7ee37"
     sha256 cellar: :any,                 arm64_tahoe:       "d6660ea5c589c9a33ad3ac95463935c5374e524e7bb8b924a4ea5e5c257085f4"
     sha256 cellar: :any,                 arm64_sequoia:     "98055b3665fb3bb6d5af85a6e7e16f1a5be9f2fe201b6d1ef72a5bfa49e5d07c"
