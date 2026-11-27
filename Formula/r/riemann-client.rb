@@ -11,6 +11,7 @@ class RiemannClient < Formula
   head "https://git.madhouse-project.org/algernon/riemann-c-client.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3300356894320cdaa94131c78785cb8877f2cf8e3dd686d97664efedba53f0ec"
     sha256 cellar: :any, arm64_golden_gate: "2e70c2d1cf344a868f00c4becb77522d02cefbd29f26065bb13d0262728e08b1"
     sha256 cellar: :any, arm64_tahoe:       "08a1843e189bd5d712a548acb00fbd65ed8a3b5860cfc97450bc6f83468072a0"
     sha256 cellar: :any, arm64_sequoia:     "a86f02ef998ec3675abcffb7d34b6d5e9a9322d0b2c2d440b4dbac689233a5b2"
