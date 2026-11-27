@@ -5,6 +5,7 @@ class Scnlib < Formula
   sha256 "ece17b26840894cc57a7127138fe4540929adcb297524dec02c490c233ff46a7"
   license "Apache-2.0"
   revision 2
+  compatibility_version 1
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
   bottle do
