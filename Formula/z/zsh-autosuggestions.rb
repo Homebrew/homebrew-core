@@ -6,6 +6,7 @@ class ZshAutosuggestions < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8ccb647ea805a5ae32dc3b53099578e061c44496fbc43d5161d10afcfcd932ad"
     sha256 cellar: :any_skip_relocation, all: "b81edc29e7e71866042bb3e06be7c23ce5501b6cd72be6cd5f3fdfd14b311c71"
   end
 
