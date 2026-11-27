@@ -7,6 +7,7 @@ class Burrow < Formula
   head "https://github.com/linkedin/Burrow.git", branch: "master"
 
   bottle do
+    manifest_sha256 "df5ab8dee6201f2864d0751fd753addffbe4fc9361af9f182b3acdc2d11d80f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9cff75e373ec1c9a22acbfcb25293419f4374fa5288be6d31e7802325d458d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "243ce0a894c45933fa1c2fe39556babfe07671abfbdcaec3ab14235b3dfda27a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7ef8b2be08cbdf13d7e9ee11416561152f0febd300210ca820b9aa57dba38b3"
