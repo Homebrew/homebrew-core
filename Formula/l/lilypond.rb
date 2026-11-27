@@ -21,6 +21,7 @@ class Lilypond < Formula
   end
 
   bottle do
+    manifest_sha256 "4dad7acd2e6f6feb3c11b278b9e905fb47acee44715dc5c36d9625f741d1d6a2"
     sha256 arm64_golden_gate: "2d6b242b5afb5565e67b319a22e05cd97b631302c99ce0afa4566f2d06415495"
     sha256 arm64_tahoe:       "e9516501362b90f45cb9a4fcf9dda925317257daacccc86de6a1752fe04dc79a"
     sha256 arm64_sequoia:     "02c983c870f58c9a83fbb56bf97c2187dbea7b93b86a4f05bc73326d50554e03"
