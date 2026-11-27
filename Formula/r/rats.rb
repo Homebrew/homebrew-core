@@ -6,6 +6,7 @@ class Rats < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "0cf7b534f1e251b6c76e638764305c239bf328ed6ee3e37275e2b7c27645d8bc"
     sha256 arm64_golden_gate: "af45952c49de78552edfef57637c2e2906df07d2957385dbddea312a8e783bc4"
     sha256 arm64_tahoe:       "b310ca257b3697a46004e64f9c06bce6ae79bb75c86d832bc74c28cbd1f99a7d"
     sha256 arm64_sequoia:     "0957ff0fe765a50f6ec8a12edc3119741fe39133b438ee114ace6d05288fb06c"
