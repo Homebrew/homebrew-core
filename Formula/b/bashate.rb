@@ -10,6 +10,7 @@ class Bashate < Formula
   head "https://github.com/openstack/bashate.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7711b810b67fdc3ccfc53cd872e2512d18ee346051fc71c27db429b879717105"
     sha256 cellar: :any_skip_relocation, all: "fa569171730e9b35fcb109fe707a4df0e73ebc2c494b3668863c5ef4f3499df2"
   end
 
