@@ -13,6 +13,7 @@ class Nopoll < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8a5eda1b367bbb5544cf58f80637043805c215967a3be818bb52de1f69125364"
     sha256 cellar: :any, arm64_golden_gate: "a28e9e44fdb915f72599a5a4325b58c1bf2603ff2892333c48bf7ab486a43218"
     sha256 cellar: :any, arm64_tahoe:       "f12009f63116bf0ce0e3ddfe4dc6024902b03f9b49b4e15805d3909c88bb8c09"
     sha256 cellar: :any, arm64_sequoia:     "2dc5037a4374c03cbfd126965368102ce346c3cf8d723c50f634453d3edcfa0a"
