@@ -7,12 +7,12 @@ class Muffet < Formula
   head "https://github.com/raviqqe/muffet.git", branch: "main"
 
   bottle do
-    manifest_sha256 "2e2861014d344a3f627cb4dd6c6bcb72af4205ac68bf3456f9b0aa3497cebb2e"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0959d81885c46a71c7a2d59ef46570472c939f896a12fd40a7218254e60f6723"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0959d81885c46a71c7a2d59ef46570472c939f896a12fd40a7218254e60f6723"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0959d81885c46a71c7a2d59ef46570472c939f896a12fd40a7218254e60f6723"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "6807b77ab33ae49ce73ad8186e7a374be2ede0b5ec007df5a0f2936e922f7e31"
-    sha256 cellar: :any,                 x86_64_linux:      "99a81cb55d0384b6666b7c9eeaeae082fcbd2a0e063ccb1f1bb831e4cb77f0c3"
+    manifest_sha256 "646ef92646258a7035f287f92111b0320f0b90af425635b738a9140a5332aae8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "76fa88797c42b640a4d401ddc905e3db4710c6546c1514a2dfefaba4cd9783f1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "76fa88797c42b640a4d401ddc905e3db4710c6546c1514a2dfefaba4cd9783f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76fa88797c42b640a4d401ddc905e3db4710c6546c1514a2dfefaba4cd9783f1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fb31ce4075c5a55c3dd2023f9de4eabb75f24f01624360cec3a2b478383a0864"
+    sha256 cellar: :any,                 x86_64_linux:      "5703747176b5f8555dde422a351601866f1f4846d6fe3bd0cbc9fd90d102c012"
   end
 
   depends_on "go" => :build
