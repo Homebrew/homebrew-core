@@ -13,6 +13,7 @@ class Riscv64ElfGdb < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "6365065125b173ef7be48c7ad0d1a8e0b834918eca66748d196287ff14c75fa8"
     sha256 arm64_golden_gate: "2f402a649b4485ccd65bbb18d9cec1d20f04cfd20b55ecf79cc604af1c3e2913"
     sha256 arm64_tahoe:       "9f60cfd3a02d0ba1cbb6b979e70a283f6c1d333bb396892d3b7d0f36c8422120"
     sha256 arm64_sequoia:     "4b236957e4a8d2ecc6f88e6f29a6ddb4ef3c0b5ebdfdd7b46d970e9f6c2bc03b"
