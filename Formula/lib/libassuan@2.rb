@@ -12,6 +12,7 @@ class LibassuanAT2 < Formula
   ]
 
   bottle do
+    manifest_sha256 "a8e41f53c078b2d210ff73d7dae7f4975b4e634b44b6750f9e3037d72195828d"
     sha256 cellar: :any,                 arm64_tahoe:    "8605812fa5527576a5b1eb54049a068fda2444fcb1a3bfc6d04787dc3b2a59ad"
     sha256 cellar: :any,                 arm64_sequoia:  "24910ee0977d721b85bd2df1372698beaa6d11716b81e7a49512ccc9c79ba4da"
     sha256 cellar: :any,                 arm64_sonoma:   "0d4fd656fbf3db20892da64bec2eb966842de215a23c2008ecdf9198a68d5211"
