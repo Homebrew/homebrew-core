@@ -9,6 +9,7 @@ class Mdformat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d310b1e8cb6bf7d5873df6791e0ca04aeba2222e0380029aa0f1da613c73b5af"
     sha256 cellar: :any_skip_relocation, all: "3aafda9388350518995bbb5612c3c42dd240b71b9b779d6353bf1f78277933b3"
   end
 
