@@ -7,6 +7,7 @@ class GoCamo < Formula
   head "https://github.com/cactus/go-camo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c8058e5a0b1c2d806f9eead99bd1c96e92c58aef3ecf892ae0a9eb4afdb137e2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "58a649464b802dac0e5c4050fe81711b62615a9544768cd05dba663def3f312f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ffc650849bbf9725325b120fc17da6dd6d45cc3ab55af252575c23bbe34288f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eabaadbe864707dd5c80d4db8f23436bb8fe5d6ae56ae27adb3c49008080fff7"
