@@ -8,6 +8,7 @@ class Lief < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f48b5aee03fede65d785738b7ecb800bb67323ef5e779312e2c11fc67f5d2917"
     sha256 cellar: :any, arm64_golden_gate: "0eaa9b6a3944aeefdf7526e7d61628b7f6088df3b14cdc1673ad662d2849ce8e"
     sha256 cellar: :any, arm64_tahoe:       "d040da382b3b781b0ee299f2f2d1af7fe0b0b66a4a9bb325482d01d39b62a348"
     sha256 cellar: :any, arm64_sequoia:     "33bd4f306ee19669671244135261875dbcbf49d1602c438c923ffb2e5195ab02"
