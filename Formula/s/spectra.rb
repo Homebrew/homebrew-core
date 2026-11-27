@@ -9,6 +9,7 @@ class Spectra < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fa903db442db9437cdbf55c302a133a2106d6605057749450fd9641a9f520a26"
     sha256 cellar: :any_skip_relocation, all: "edd1c8fc5c4b6ea0ba64a9b48a0b86f986b0b24c4f6b624b45908b84ea3963f1"
   end
 
