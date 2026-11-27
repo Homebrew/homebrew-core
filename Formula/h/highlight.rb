@@ -12,6 +12,7 @@ class Highlight < Formula
   end
 
   bottle do
+    manifest_sha256 "9a140a1fea5c44294bd76ff7607105787a05027347ece0a63bdf920d8e9a40e1"
     sha256 arm64_golden_gate: "25ab003f609075f3f80cde8c4481bc5f7df7ed066a99dbb315224abf7e361d01"
     sha256 arm64_tahoe:       "9be8d982574fd2c34401e23df2392694cac7992cd009b92020989606447ca847"
     sha256 arm64_sequoia:     "d345dcaea7b36d45d79c8ab4fcc34498b35ce8c76467a9375ba82316eb43fb90"
