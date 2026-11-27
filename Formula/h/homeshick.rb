@@ -8,6 +8,7 @@ class Homeshick < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ed07a18d5776457e8ad2662178b5e05e695822c6c6b9bba4a21c481804970284"
     sha256 cellar: :any_skip_relocation, all: "9a93b6514577c36a3de2d9c6a8c3cf9474a6534cc9547407f49ebc0325b20a8d"
   end
 
