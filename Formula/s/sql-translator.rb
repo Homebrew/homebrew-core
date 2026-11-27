@@ -7,6 +7,7 @@ class SqlTranslator < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "766b81c607b3f6eb0139575022e2b3638fb574f460fb7692078abaae8c9ced52"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4ede4454e51243113692025e5c0247c654724ab364580895bee0c84252fa0b6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f0a9452de4ebb2cb2cdce95a4c6c915d635a2a7ee0bdfd456e1adf19c7e7ccc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f0a9452de4ebb2cb2cdce95a4c6c915d635a2a7ee0bdfd456e1adf19c7e7ccc"
