@@ -12,6 +12,7 @@ class Most < Formula
   end
 
   bottle do
+    manifest_sha256 "99d642fe7a500ad9fecd7a8a1dc5acbc8c8387ef769c8e49ae4deead4ab732af"
     sha256 cellar: :any,                 arm64_golden_gate: "d884802fd9a440e3d8474dbf0d801e485c1660f2f60240d35041e5a5810f7523"
     sha256 cellar: :any,                 arm64_tahoe:       "31f896dfc693f1cd1014b870faad91a036405d61a943941ea61f5010fc2c9525"
     sha256 cellar: :any,                 arm64_sequoia:     "2d8b015bce1f30f98a2a60a907ac22a7a38d01d4aa86bd8332c243870a0b184a"
