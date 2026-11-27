@@ -8,6 +8,7 @@ class Scalaenv < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "57ef2cba4e838e89cecdec3f7bc9408e05c7d9b286f44b7aea353d2b371536de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8be772f6a9b4e864c90faabba99e7697323b253dac598d0e06fb16fb7bb70909"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14d04b14c8bdf554e6fd5482b937cf3fc21faba00487083d64a02d4d847de6ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "039eef152a101d05fde0923798a63bf7e04c5c96cb9d5b9cbe73011d9b5210de"
