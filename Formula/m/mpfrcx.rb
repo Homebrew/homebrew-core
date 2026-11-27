@@ -12,6 +12,7 @@ class Mpfrcx < Formula
   end
 
   bottle do
+    manifest_sha256 "043334be6f8dd43df878f205f859e4891501b3bf70f0850047d83088cb587077"
     sha256 cellar: :any,                 arm64_golden_gate: "2dcd28ef27fb0ec2a4d9c4d8a0e4a1e34c81d77fb801f0d54214181819649218"
     sha256 cellar: :any,                 arm64_tahoe:       "0040f42d09efca8b3d759eb4b6f52158d89edbd1019d4919152d56666eb9de81"
     sha256 cellar: :any,                 arm64_sequoia:     "e9d9fcb8796dc03e08d4f3b1d1e6e1cd054befac43f75f20f6592891e01c366f"
