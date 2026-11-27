@@ -7,6 +7,7 @@ class Protozero < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bbbc4c7a2c13b58621ed27714a907987e7c7d6e4090a26a586127fb09123bf27"
     sha256 cellar: :any_skip_relocation, all: "e17a824e97d2e4740dec4d3182c5334376871adde4d099ee6c93d24f769bfba1"
   end
 
