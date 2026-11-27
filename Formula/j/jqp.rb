@@ -7,6 +7,7 @@ class Jqp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fd094a5709bb967034ad25c7c24659b24f4147c3267fa4aa6fb33358ac891fee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "091827ac5bd8bf976e2392f16b0f18299f063c04d6c14216a846f31f04860310"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aad8b70dd5386d6cd26c7aed40cafb238ba26175ca3592c0ccc9c29720ff82b1"
