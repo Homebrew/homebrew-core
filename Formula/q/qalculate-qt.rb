@@ -7,6 +7,7 @@ class QalculateQt < Formula
   head "https://github.com/Qalculate/qalculate-qt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7e3af859b8ef438e1c527539876e8d6dd5072f9bcb98042a944f748de4d2ede6"
     sha256 cellar: :any, arm64_golden_gate: "c8201eb801250bc7650fde43eaf45e4f6b74b2d5e9f875aec5f5edf9dc2ab5b5"
     sha256 cellar: :any, arm64_tahoe:       "c8201eb801250bc7650fde43eaf45e4f6b74b2d5e9f875aec5f5edf9dc2ab5b5"
     sha256 cellar: :any, arm64_sequoia:     "d19947c29f17e1783e187b95a10c980fd44cdb699ee2b5e57746cb4befe9f110"
