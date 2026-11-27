@@ -11,6 +11,7 @@ class Sfst < Formula
   end
 
   bottle do
+    manifest_sha256 "4ab053bc4e6f58eb447f0d267402b8438350a5088b76c02938746d125e11f1be"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "828d946db1ca69de2021906c808d18ed41b2e8c384446a0c9b39befcc42c0a7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a99c2a6f971ef8282e2196127b4a5b13415caa66df89cf5d5b2ff586a7bf2dc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f55745637948632398775bb967e65e61faf24c7d25edaefd72c1cdb3694358a3"
