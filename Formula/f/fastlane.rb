@@ -12,6 +12,7 @@ class Fastlane < Formula
   end
 
   bottle do
+    manifest_sha256 "c14c4c62eb1ab51c45f3e3c6367a11c3e4ee3dae5966183675e13268dfb64c3a"
     sha256 cellar: :any, arm64_golden_gate: "4db2bd0e3a1323d1edbcc01c59a4526fae36b1c3f8d389dc3edad002cdc01969"
     sha256 cellar: :any, arm64_tahoe:       "71882a3e1dc6bc8e149d1c13c896007be9c4462fd7dbe0cf3b2099adafc7911f"
     sha256 cellar: :any, arm64_sequoia:     "4a393d3f8f1f28d1773497f8160736830f8da20e796d475cdc6b94ad4022da05"
