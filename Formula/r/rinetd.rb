@@ -16,6 +16,7 @@ class Rinetd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cff592f24faf706e00e9bdbd673833faa472e5f043dd62acb02d95f272d12a6b"
     sha256 arm64_golden_gate: "ebdcc93b3c10aa8630f79d8bf987cdb112f4312eaeafe898150a840fcad8c80a"
     sha256 arm64_tahoe:       "ac09912351ca2587bbea4572cbc2d5101d93b14a1ccf925cff8cfa83aedf5128"
     sha256 arm64_sequoia:     "1bbfcadccec37315d56385b18334084654fa2176c6b8c6f11c4a059be3541acd"
