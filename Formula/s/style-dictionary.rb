@@ -6,6 +6,7 @@ class StyleDictionary < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "9c60745778d09c9e70c160072af4de88144f9b3cfc8bbffee6308d5902947428"
     sha256 cellar: :any_skip_relocation, all: "1c12a49bd91dd3dddcbb4f44bac9507dcfab81ebf8a144c44277bf500343cf42"
   end
 
