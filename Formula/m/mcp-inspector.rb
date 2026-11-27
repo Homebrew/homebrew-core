@@ -6,6 +6,7 @@ class McpInspector < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5249bb12b0cdca34c67bea1997a10b88b99fc3edd2c8d8f607dc4f373b282420"
     sha256 cellar: :any,                 arm64_golden_gate: "56a0d4e466208c6bb4230c129cf1108476447f2128cc0725d77c4f7e35cfcb47"
     sha256 cellar: :any,                 arm64_tahoe:       "a772ad9002d6883a0a2b68e7475b43f4603fddcd2659e7c687327fce913e7e89"
     sha256 cellar: :any,                 arm64_sequoia:     "ce0421a701f43d8714a45adee69b3abfc2a784498911862ccfd4e245f38a302a"
