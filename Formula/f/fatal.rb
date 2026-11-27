@@ -7,6 +7,7 @@ class Fatal < Formula
   head "https://github.com/facebook/fatal.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e5afb7bd524e6acac97499897f2224614e42a11f51c64c37be16116490ab1987"
     sha256 cellar: :any_skip_relocation, all: "00f4a4f24af792f102425ba6e653b99c3add770fd1106abf0053b44939325b34"
   end
 
