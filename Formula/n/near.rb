@@ -6,6 +6,7 @@ class Near < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    manifest_sha256 "a98413399f2debc0879b5ee2013bd2f9747f71dda53fd20bfc87a579876c33ea"
     sha256 cellar: :any, arm64_golden_gate: "95ec8579bb167e2049aabe2c913993009b5972b591c00534c1d0b09fbf9aeaca"
     sha256 cellar: :any, arm64_tahoe:       "12c130f9c1e48fdc3c44479676738281e12992c4ad30f02e3cfb4555f7098299"
     sha256 cellar: :any, arm64_sequoia:     "552d89071903b66ed2b8570b4e33b896801a63b19d6d754565b4b7d0de05aa59"
