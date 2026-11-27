@@ -14,6 +14,7 @@ class Nftables < Formula
   end
 
   bottle do
+    manifest_sha256 "c9f97ae87eadd785c7b31597c345bc4114b21cc1682175798398b1e473197a60"
     sha256 arm64_linux:  "f4e88eb3601de61d4bc143f045de22842b58c7768b19cc5eedb6df38769382ad"
     sha256 x86_64_linux: "5dd3c91e659a0215036dea0d2d3a28e46811f71980fff946a06deea11d89ae3c"
   end
