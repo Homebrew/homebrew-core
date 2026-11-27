@@ -7,6 +7,7 @@ class Rink < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "14114f09d945175fcd768c70e1850e867c63732558792c8f965d1ec0a1f0412a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e985d83c66f57da6a0aaf73c17edd73e26a8f853f50f5f3eae80902b1361b02"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24817050850c9a65be6a4b25840c4f4298b69f3937c9bcc02c93111fd257681b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5dcb189aea4b2546735789169e0d4ada2fe938ee90a92cf83bc43255b353b2e"
