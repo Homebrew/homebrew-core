@@ -15,6 +15,7 @@ class Libssh2 < Formula
   end
 
   bottle do
+    manifest_sha256 "b62fc0d19544b7e4fcfc536184d4c3bdc361fb5daf08275392d08f5c791a7c47"
     sha256 cellar: :any, arm64_golden_gate: "5556a728575577915ed43171a3881c8aeed3d0d62c24d1eb13798f8a6a03834d"
     sha256 cellar: :any, arm64_tahoe:       "d51f26fef662c9f562f8d6bee348c9e9fdd2a917cc96bb1b26aa53116b9e7481"
     sha256 cellar: :any, arm64_sequoia:     "e0cd7666188510728b2e133ddfab7357437f4df5c347dfbe12cc89d8c06bd2ee"
