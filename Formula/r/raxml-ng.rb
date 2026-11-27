@@ -7,6 +7,7 @@ class RaxmlNg < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "3528b1aced43bcc83ac5949d2cf5c3a0ad5f0af61ad715f66a55ee079160d6d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69f538593adc3d032ee4e3177b4aef428669606b8b493e297a3d942d25fdc176"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "73dd969d016e8229cabb33eca14a519dc8499fea54dc8776676b6b4b7f676970"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f61e3237c383b35063a5f24ac1093bca22cf47d1111bc94c9ae05bf0b7e39ae6"
