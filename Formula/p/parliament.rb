@@ -11,6 +11,7 @@ class Parliament < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c880f6e61d2e6451a3373200b2372403c1ec97cdf565e965fdcf872a66954935"
     sha256 cellar: :any, arm64_golden_gate: "f39845987b80f583d51223490907646a76382feb787e8be05153ce295c6d5f5b"
     sha256 cellar: :any, arm64_tahoe:       "9e880878226940d4391c8fa490e9ac0aa62015eca8b265f7a865b221348f965a"
     sha256 cellar: :any, arm64_sequoia:     "4ad6aec97846a442b667a0c62ac71bc81d23d4be0ce4693925fc8dc45c5b0578"
