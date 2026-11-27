@@ -11,11 +11,12 @@ class Logcli < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d454d90279296ea8caa487a10c634cf70f03775baff942523ab605065b27776c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd0557a36ffdf9d910ebb10583d3f978488d9ed8b825f8f70da2526f5891bb9d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7c646c669929eccb0a7c9324c0d0a4c5bc412440b7e4344ce97c2f645e7d979"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "88de6a46f2ad7accc639248a92165949ea770364907aa5e860fdb2d5c0bbace9"
-    sha256 cellar: :any,                 x86_64_linux:      "6ae17e66f068756d8fc42181babad604f041200d9ab46fe19dd23b0794f29778"
+    manifest_sha256 "00b4abe32980dc0153b0e96770e10642182970b067672c63c8f42b5e85014b33"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5bbd72adfa3c2f69beaa3aada6af031ecc0dd937295ed267178e188b4aa8961"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b79e71854c142c2782a47ef39bd434fecb4379c4b7d55d37d582f4fa0c4a23a8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6675992ee6f89e79bc7eb296b5393e66c610201aac04adb4ec85bcaf9570d8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0c33029aa7f066e2e1e494312a9bf7c4397b5411e8bfe1c66c8732d29dc299f1"
+    sha256 cellar: :any,                 x86_64_linux:      "40c57f3295dc05a52c023863f0b21db101a029b841696bb63e620456546fb657"
   end
 
   depends_on "go" => :build
