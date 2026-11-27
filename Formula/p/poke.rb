@@ -6,6 +6,7 @@ class Poke < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "8df0cbe6d6263bc5de85bde35795564b561b243d09a998ad4675dc6c3837bb6a"
     sha256 arm64_golden_gate: "6497ffd366511b6c3f78817c56c88ceb50f774c9cf07f900b92d5bcbb6b2f6d9"
     sha256 arm64_tahoe:       "28d460a367b8e841626484f9eab13782ce77f08dc5540279ef6383045b513592"
     sha256 arm64_sequoia:     "bc8a3b20c5fcec70416f76a2de3cc298261195f34b2d33abdec30e539c1f6862"
