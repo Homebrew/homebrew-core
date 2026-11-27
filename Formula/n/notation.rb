@@ -8,6 +8,7 @@ class Notation < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "66faca54727004ddad6c36b480ea900a288c8254ad7cc31860138bbc8db3c59a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41e1f558bfc74ab792827eee8c4687f1d8876006079c5987abdaf07678c8c8c0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0c86c17163bb958756fcdc3acceb03dc2305e4d773be66bcf955d6279de3b94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0c86c17163bb958756fcdc3acceb03dc2305e4d773be66bcf955d6279de3b94"
