@@ -15,6 +15,7 @@ class Gpsbabel < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ca7b3d40e3850500b90aafb404dc9522b1e99f61fbb3494201c798066998183e"
     sha256 cellar: :any,                 arm64_golden_gate: "6060cf85038c69e4e07b4ad571b0ac4eeef88191a5758de9e60cc58bda857d99"
     sha256 cellar: :any,                 arm64_tahoe:       "f5a6e165e7d310ead14a3f4eba01ea1d7367fe5feb7e0736cdbe1291e25cf9f1"
     sha256 cellar: :any,                 arm64_sequoia:     "ee0edd5748373bc587c31d0d97064f2b23058e2c8cd2627ed49e5e14cbe0b23a"
