@@ -7,6 +7,7 @@ class Fruit < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b0d71e1126adbb955a0b9286739ea2bc5579c398a403a1934019a09db018cd9f"
     sha256 cellar: :any,                 arm64_golden_gate: "9593026b0314c0dd6c495c5a97eada952995f108fc0da4bd57d578bf61050f23"
     sha256 cellar: :any,                 arm64_tahoe:       "4bda90128aa536a15d5e5cff13df7542d5070289c6c16674915b3470ab6046b9"
     sha256 cellar: :any,                 arm64_sequoia:     "ecf666939daa1621d37416639a69c85c8b75c73ee09cfdfdad8613296097c2cd"
