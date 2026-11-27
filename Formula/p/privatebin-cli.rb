@@ -7,6 +7,7 @@ class PrivatebinCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da1e1a779eca436d93427c364f140c2e8f661d15ca0367139362e2d2ff5c4f9e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99db7f7e3771688d69e97535e6b84054fd127c5f8bdb0bda936ff8efafc5ed04"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf4f261b7a6b91ce1d1ea15257b2e533dd47b4e9a7d635c2d9985c033698c48a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf4f261b7a6b91ce1d1ea15257b2e533dd47b4e9a7d635c2d9985c033698c48a"
