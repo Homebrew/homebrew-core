@@ -15,6 +15,7 @@ class Akku < Formula
   end
 
   bottle do
+    manifest_sha256 "e31e53e1f502c629e68854b408c62feb90a80c468da7f45714e533fda96084f4"
     sha256 arm64_golden_gate: "37e126f095dc67e5b18a65b47b7a355469bc342162cfe3ef887d127483033326"
     sha256 arm64_tahoe:       "457250776255ad2fb9c09e9c6f1359e1abf0a27c2149f79ee2b22905c181ce6c"
     sha256 arm64_sequoia:     "b0bb1fc129fb8dc57b718a680b48ba47ba06b9355292ba58fcae8e63a20c2881"
