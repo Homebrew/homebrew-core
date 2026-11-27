@@ -14,6 +14,7 @@ class Rtf2latex2e < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "2bacd14a320634a51a774efd34af77c423cb0eb2b17d83a4f332138ac1389497"
     sha256 arm64_golden_gate: "a5910bc9e26e6fe8e0caafadb381aab5e940923a246a8d8f8b07383ce9ecbae5"
     sha256 arm64_tahoe:       "7b023787b6ca5b67c6aed5da197e586269857f3d0ca369d7bcb1f8104876def6"
     sha256 arm64_sequoia:     "831e4f4beb242fc95b2fa79b14e9cd22cedf31675de00c15e39a63445a2f59cc"
