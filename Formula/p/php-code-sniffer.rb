@@ -11,6 +11,7 @@ class PhpCodeSniffer < Formula
   end
 
   bottle do
+    manifest_sha256 "c6b0388cc3df67008e3e035e52d88ba135c9ef42cc60420973f7ba65bc7757f5"
     sha256 cellar: :any_skip_relocation, all: "a31c6cbe534d07e4f55743870286fff4374d73dee107f7d912e257a3cbdb1424"
   end
 
