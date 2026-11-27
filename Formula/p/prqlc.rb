@@ -7,6 +7,7 @@ class Prqlc < Formula
   head "https://github.com/prql/prql.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7256f968751e81bfb155d82940a775dd7d749d1ff51484ee60d583375afdb341"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "058fac9920020b34ee8d9b5531e818159bb5ea9b75768ff1725470dbf7a2c204"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5992b5af2fa82c7f0bb8b5a0f43ca403d0c8b3a6162e818fd20d1b7deb0c770"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aab1b6b25ed90584c6e9bb73b1a4db1cc2d281c7ca641d9380036d4e252046db"
