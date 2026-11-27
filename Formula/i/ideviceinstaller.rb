@@ -8,6 +8,7 @@ class Ideviceinstaller < Formula
   head "https://github.com/libimobiledevice/ideviceinstaller.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6ae14f221fe7e61851a94fad4d50d9347c46a0271aff3e196543c919df1ac249"
     sha256 cellar: :any, arm64_golden_gate: "783a52cd63a8bd83da70629412867b42951c032ab636a3e30c1623c3d9c6d68c"
     sha256 cellar: :any, arm64_tahoe:       "cba84b18352c707bb4534a221338c05b19a24998de67e3320c8d175c185ddbb4"
     sha256 cellar: :any, arm64_sequoia:     "2f2b9109bfa4982df1cd3e130ba6db7ff539a9c943811b33145b3638effb78f2"
