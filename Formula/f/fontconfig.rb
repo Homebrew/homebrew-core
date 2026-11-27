@@ -19,6 +19,7 @@ class Fontconfig < Formula
   end
 
   bottle do
+    manifest_sha256 "00a200f5ffb81349500672bf08cb1b6e43c65aad1cde0456d6b62871cda94425"
     sha256 arm64_golden_gate: "824ffef57aa041532e77a53bdbe901520024407d24e12db562a7dcc1eb9eaa6f"
     sha256 arm64_tahoe:       "3eee46f2e8f28d1afc33ca4cecdddfc7af61bbb91a63909e35b4801e788f088c"
     sha256 arm64_sequoia:     "cec32d9ebf57d27a1c7e7b306d6fa3fdbbaeccfeec06d14ab5a6d46662b1820b"
