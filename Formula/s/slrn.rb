@@ -14,6 +14,7 @@ class Slrn < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "289c220a4780a554a4add6dde171f08304f997aeb0010a74a587f4d49401e77e"
     sha256 arm64_golden_gate: "d35692c90fa33ff4897c9d1751fafb62f8bcfb4b97c228872337576cb2a332a5"
     sha256 arm64_tahoe:       "d12aa6f4674216c6c7ceb66061ea61501d3ef0697e2544309b9534b22072cf77"
     sha256 arm64_sequoia:     "2414f63cb9c68b2fcf95b67d049d1399b444731a278de210f593cbdba0bf3bfb"
