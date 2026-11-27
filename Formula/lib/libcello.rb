@@ -12,6 +12,7 @@ class Libcello < Formula
   end
 
   bottle do
+    manifest_sha256 "e4cd40d457a330644acb5c0f5d83c3632663073b9d4ea12a47a5bbd337cdbec7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c960d90f8243b9502b10ae5ce5fc5096aef58f208695b374887786f1d96bf3f6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f29b04252a3f79f89b5ed93d519639c4cf6c6033036d42d8a60567f466a19a96"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0e380cf6073b22792954d22559177ff5ff3cbaf11fbe00948c27b675338ff116"
