@@ -15,6 +15,7 @@ class Rogue < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "de49ed1f8692376d1c37fcb743648953544a9675a80022fd6c86aa2f94a4a2c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb66d519f8babebcd01225f18b8d61cca9b2d97ed13ddb6e10f0bb80a9c640a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b327fe2a04af7f0560f1bbfc71cb580398b772fa3078151e7e11aacc629a15c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78ece502084d54a61267fe5b312cc9a85161bc428fc6f8785f7e5e738bcaa237"
