@@ -11,6 +11,7 @@ class GobjectIntrospection < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f78cab0dd01f3512bf22a0cf746a9c15184725c0a08b4f13b0fa2e5bfa2ebb1e"
     sha256 arm64_golden_gate: "63be135be0568cc8afe5e9ccf1a2a6e4ea80e2697be161f3969bf90be2644327"
     sha256 arm64_tahoe:       "110ea2facc0e93d90a1d28b21e532bd7d0a716b24c41be62f8f2e3543505dddc"
     sha256 arm64_sequoia:     "75f33d27b15bd5b9f92c66068a6c8dbe7cb9fc9b9fd62006708b2d86cd2536cc"
