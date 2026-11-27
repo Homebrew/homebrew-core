@@ -7,6 +7,7 @@ class SbomTools < Formula
   head "https://github.com/sbom-tool/sbom-tools.git", branch: "main"
 
   bottle do
+    manifest_sha256 "88d4e24400a56d0e55d7f774121e2c757bcd21e39c6c851424be5d414dc243de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec4f93834feef291420ce786cbfd3c2bd979ae3b1dc26b9d24042efcaf66ee43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16e47546e1be8f788f880c17c01eb4b7b655d7f2f89c98879966a496fe20fafa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd262e5b19b4c73ce402c345afa08047348f4c5ac5b2f5647a5a2b9f37712448"
