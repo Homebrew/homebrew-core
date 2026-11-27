@@ -12,6 +12,7 @@ class Scrcpy < Formula
   end
 
   bottle do
+    manifest_sha256 "80998ba72d1067f31e815fa7b208f5058eb56e0aaaddbcaae79eda7d4e11ed52"
     sha256 arm64_golden_gate: "9d2b278e630c10b9edea811ca98e24f911a598422a8eac9a8fd1a63a8cc9d54b"
     sha256 arm64_tahoe:       "2be4dcfa74bed0423ad50e09f0ce1d355a353e0d5797272b7392550729af6246"
     sha256 arm64_sequoia:     "310036896e90273ac26f052f3c70f8f07cf48a376620bf84fd977fe2a51de34b"
