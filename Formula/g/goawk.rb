@@ -7,6 +7,7 @@ class Goawk < Formula
   head "https://github.com/benhoyt/goawk.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7134689f18deaed4f11e957f84fdc1508649d069aa373309a055a3ff1490ca59"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86a2e75f2d3d6d6ee48156bba246b0c8a46dbee8f3e7ed74ad017cebe5f1f7b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86a2e75f2d3d6d6ee48156bba246b0c8a46dbee8f3e7ed74ad017cebe5f1f7b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86a2e75f2d3d6d6ee48156bba246b0c8a46dbee8f3e7ed74ad017cebe5f1f7b2"
