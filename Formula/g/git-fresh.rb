@@ -7,6 +7,7 @@ class GitFresh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c857d561633c6961baa73fe5d4ea5b52027e1f5accf28a11ad2e45759399080b"
     sha256 cellar: :any_skip_relocation, all: "2ef148bdcba28587b794c4a63178151165c088648dcedda3fc6ecb1bd1ecf09e"
   end
 
