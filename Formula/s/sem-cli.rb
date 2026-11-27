@@ -7,6 +7,7 @@ class SemCli < Formula
   head "https://github.com/Ataraxy-Labs/sem.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e03d21ca802823d92cf75b0e66811cf3a2cf889ccaebe60dffe69a13ead8d5f9"
     sha256 cellar: :any, arm64_golden_gate: "62651cbb4bdfabfa1c6cfb56f960b320147c526b8aeba15ac34e7613b4715ca6"
     sha256 cellar: :any, arm64_tahoe:       "6aae75a425c7620dd5e65bb9d7aef5b2dffd5705535d4387a0ceb207cfcc050c"
     sha256 cellar: :any, arm64_sequoia:     "008e20fc9b4e30613b67a8cd0d9625a149c725e5560e9d660f5a56b5bb148886"
