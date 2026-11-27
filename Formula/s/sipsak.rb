@@ -7,6 +7,7 @@ class Sipsak < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "2fa9e5109dc36b9750bc5695a438222b5a583cbdb8237ed51197fbe1326b70d4"
     sha256 cellar: :any,                 arm64_golden_gate: "4f665ef249c5e60d6c75b649fb459f180f6b9786c2aa3025b530017c7f98ab18"
     sha256 cellar: :any,                 arm64_tahoe:       "bdeab1f200d7259201cc9b730e4cccc64b1f44bb459ef0b0469dfc326076bd61"
     sha256 cellar: :any,                 arm64_sequoia:     "9e6d41d992b086dc75abab233eafc9d363b597fbfaa2cb2521d2c5678442540e"
