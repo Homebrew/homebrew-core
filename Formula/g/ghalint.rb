@@ -12,6 +12,7 @@ class Ghalint < Formula
   end
 
   bottle do
+    manifest_sha256 "b0d443f7029c31122ea3f09755b3f4f46c628d118317d44b80f119c7d2d4cb0e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "560814b4fbcc5a4fad30663658cd85cf9147095afa155a63f63d5f3f7f09259e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "560814b4fbcc5a4fad30663658cd85cf9147095afa155a63f63d5f3f7f09259e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "560814b4fbcc5a4fad30663658cd85cf9147095afa155a63f63d5f3f7f09259e"
