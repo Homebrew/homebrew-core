@@ -8,6 +8,7 @@ class Menhir < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "69ed3f28f277bad5a310c90480142129d16ee17400d01801f9f8b9d842dd2c6d"
     sha256 cellar: :any, arm64_golden_gate: "546e1cd4ba8a7893da26fec78ce33d2eaefad4b3118b5fc841d544e61d8ade54"
     sha256 cellar: :any, arm64_tahoe:       "78e2e65727781c9c4e63ab1b3d31810f6439dcdd8027e9eb75827ca7f5a7629a"
     sha256 cellar: :any, arm64_sequoia:     "6ff99714f26c7c8dfa9202d955855b7498435c9c7695ddc944ec399bf6796ef8"
