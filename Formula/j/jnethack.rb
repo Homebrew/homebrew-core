@@ -9,6 +9,7 @@ class Jnethack < Formula
   head "https://github.com/jnethack/jnethack-release.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e9e8fecf079be45671c143c76c2bc4a2793bb9d002443620d2c03cb454fe7504"
     sha256 arm64_golden_gate: "0ede3c3839f104719ae96a01c6a18c613e0488d890c3bdd9da7d7ac127740136"
     sha256 arm64_tahoe:       "962c6ae677dc1591d7e034af45093bfbd32d24151a7d88c94ea5ade9af0f29a3"
     sha256 arm64_sequoia:     "d4d2241fb4a159cfdf7a72cb9552c06dd7f6433d15b17f24c4bbd8bd9129ce79"
