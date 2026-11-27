@@ -8,6 +8,7 @@ class Leaf < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "90a237fff95832354bc8c2513d7168fef28ddea64ff17462eda3ae0ce0aaaccc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e6afbb50ac1e629f44c65a1ff9c3446a25d70a39ef1f85216861c23c20f7638"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ebb44dcb74ad80d90acb4b54b656e836b214a3de0bfa14e4121324a65de2015"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ebb44dcb74ad80d90acb4b54b656e836b214a3de0bfa14e4121324a65de2015"
