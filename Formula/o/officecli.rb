@@ -6,6 +6,7 @@ class Officecli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "9866a771cb477338732065e4b7f614d879b7e37de6983c914a065651132b4d74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "250f33e3ae994dfdd12f01f93be553006a3131e4fefcdec452babd3925768bb7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8dca8af165e4fa34b5f57de839603cc4a881e059e9df757bdd574a98b7c3e37d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "960a9a66cffab89d883d1e939a0b8200888227908ed816383de08a259f610382"
