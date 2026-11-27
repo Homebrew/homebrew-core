@@ -13,6 +13,7 @@ class Execline < Formula
   end
 
   bottle do
+    manifest_sha256 "e8262351d324265342311f9819ce7732c43b26c877d6ca5ef9080c7f7fe0b16e"
     sha256 cellar: :any, arm64_golden_gate: "1beaa54d4fce539e9d73b51061b85a96547f963eab99c1e27077112bfd26d260"
     sha256 cellar: :any, arm64_tahoe:       "ba5af333c7b57916d7973b957f2a228dc3cb06f127460c8230e1f64d5e8003e5"
     sha256 cellar: :any, arm64_sequoia:     "c6d8358a272179ca4f0a75674b7c7adb51f00b9a2b5a5598f2947838e985edaf"
