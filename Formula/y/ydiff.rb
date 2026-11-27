@@ -9,6 +9,7 @@ class Ydiff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f7b7cfae915106a2cb5ad7b74b344517cd7811ae8e3aa44e2e97901238f70540"
     sha256 cellar: :any_skip_relocation, all: "34d179fef2287e1ad0b48843f5fb935f3b7be9d18e825703f802f292557efbe4"
   end
 
