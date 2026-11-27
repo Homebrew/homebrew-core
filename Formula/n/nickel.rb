@@ -12,6 +12,7 @@ class Nickel < Formula
   end
 
   bottle do
+    manifest_sha256 "166ccc8c5a0f5d229e2edc2556d96ba189a1d229336e6114a5f918dc5872bb09"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b652400ef82c68c03fad36128e1bf4f361e2f9006190fdfb9c60ca99af3c85f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50096729e16d9b3a11bf1b4da3493a23f1f63723a7b7004716a55db64d58172c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "989e1583ec8154a4a95987e9cf6ec0d1461f22c89d6b7f77f28b1e33f569dcbb"
