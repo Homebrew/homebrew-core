@@ -7,6 +7,7 @@ class Glyr < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "b9e2d55e7a2aa0875107f14a07b60e88f9644240120572a4b8fb8add2446b89d"
     sha256 cellar: :any,                 arm64_golden_gate: "10f4fe21fe5abf4a66886dda38af7874b055462347f13b5d6432f01f23a448d4"
     sha256 cellar: :any,                 arm64_tahoe:       "b4f97cce0791e26fdb4ada285bc982bb96548886442bde705a9c5d9656bbc8e5"
     sha256 cellar: :any,                 arm64_sequoia:     "9ff02541efeba578a7e20d6d3ba1cd80c71d4f80e37306a35cb9b13e1e9ef4e8"
