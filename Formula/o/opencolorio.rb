@@ -9,6 +9,7 @@ class Opencolorio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fc62ea0e3d2680fc7387adfa6838e1c68f0a3ac69d47a7fae8f3eb927e1fa503"
     sha256 cellar: :any, arm64_golden_gate: "1875fc9c938fc6d92a14e6737f2916a22f61ddc4d6c86c138de626ff1e37a3ea"
     sha256 cellar: :any, arm64_tahoe:       "d810e410ab8cc4a5f070e328bf1242a474b7ec1e45c741d7e555fea37a988247"
     sha256 cellar: :any, arm64_sequoia:     "b07a8386e0461ee5ab116478e538b2a4e954a05bad8398e3df63586c5ee0e38a"
