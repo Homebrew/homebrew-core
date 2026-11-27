@@ -11,6 +11,7 @@ class Mpgtx < Formula
   end
 
   bottle do
+    manifest_sha256 "a7663595bf1dcf2c6ad36e41c41511d45a072387e623638f7b47246536d9ae9b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f967e3d97a4f3243041c950de9c0b1f504baddad2a4c63ef28b3881f66a9b1b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6a9e46221da11c97decd1340aa411ca181d6c0eb331470e61e5c08b96cf6823"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ad9aa8dd08b96ea82867c569333e92438e2e7131c287a1f4a2f9ab8be6a3755"
