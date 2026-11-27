@@ -6,6 +6,7 @@ class Naga < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "e3c88d567f69539c9948bc1cc7e120b372df69c69f78ec0b81be667c8c4584fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75b1a63725eeabeba216584ecc2fed00616d0d2aae5e35048293babe06ba0900"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2e548adf90a520aa549773229c0dfe0efd998f3c002d42f8816001ccc6d2cd8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ff5ae52821845aa9ac4bc84d74ec1554a08984c37767fc5facba882ff322f98"
