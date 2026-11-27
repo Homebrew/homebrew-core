@@ -18,6 +18,7 @@ class Mgba < Formula
   end
 
   bottle do
+    manifest_sha256 "97e0f4334f114fb67e9a6bc195b04d3ad24debac5065ec6f1f4cf101746777bd"
     sha256 arm64_golden_gate: "41d672be2ee03a082154c9851afd73117826243bbcfe5373bb8ea1099163585b"
     sha256 arm64_tahoe:       "8411364c77931ae04e12dd3b53f2774340b1b57bf38a13feb4f3698d629acf31"
     sha256 arm64_sequoia:     "4159fa434f32672ec81962e42b2d19793b4a7f0cb785e9813efd365edec522a9"
