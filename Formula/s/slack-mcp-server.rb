@@ -7,6 +7,7 @@ class SlackMcpServer < Formula
   head "https://github.com/korotovsky/slack-mcp-server.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bd1cd96a6dc987c6bc4723acf59798e441b77a0f47d838fa496222b1110cacb6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20a9fe26d6af273089c36170825eb0efe5799e1e5c1f001b4110b792a2836a4a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15e366083bce32ec803d35696e78194e86ae63dba5feb887c7f401bce88b50b1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15e366083bce32ec803d35696e78194e86ae63dba5feb887c7f401bce88b50b1"
