@@ -7,6 +7,7 @@ class EnterTex < Formula
   head "https://gitlab.gnome.org/swilmet/enter-tex.git", branch: "main"
 
   bottle do
+    manifest_sha256 "46487754b2d5432e1cca289b93ed35fc6883833e944466e570b6773dc03df338"
     sha256               arm64_golden_gate: "44a65a569aeabacb64fe050c0cf9a29c88d3e36c6b02b097ea3aaca52a127ffa"
     sha256               arm64_tahoe:       "75c234cc67340d64125d0028d52941f0322cd26586b5e8cbab4df971dc766ae0"
     sha256               arm64_sequoia:     "c6ed7968ff27170a16f3e1174bc7308006c2d9af854adac61937ce70c6ac8f33"
