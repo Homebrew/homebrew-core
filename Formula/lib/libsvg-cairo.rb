@@ -13,6 +13,7 @@ class LibsvgCairo < Formula
   end
 
   bottle do
+    manifest_sha256 "5ebe77f1543571288fe5a849193406fc17d8b5f1c7f7b0f971fbe94265afb951"
     sha256 cellar: :any,                 arm64_golden_gate: "daa1fe55eb09b2bcf33e6cfe4a4390b56d15d6891c2176d365f5c622c60f1a77"
     sha256 cellar: :any,                 arm64_tahoe:       "081812b09f3aa7da3467f583323424b3cec95d2f371b0745f6e3569857c31d5d"
     sha256 cellar: :any,                 arm64_sequoia:     "fb922d8f987fcfbf1a37e34cb527ce24345328d188e2fc453a5c70de848dbd41"
