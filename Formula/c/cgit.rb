@@ -14,6 +14,7 @@ class Cgit < Formula
   end
 
   bottle do
+    manifest_sha256 "710619ec01b9efc9dadcb8bb2883cbf650ae62d114078a46ccaee2e8f4bf318c"
     sha256 arm64_golden_gate: "606c596e02fe6ed8940051bc9d7f4857908f2d93a5fd0f357302677df5b17512"
     sha256 arm64_tahoe:       "c89e460548f705e949484c9b1440fe1269314b6fcc809ca4f0533de2f12d096b"
     sha256 arm64_sequoia:     "8f18ed5941bb5b0efad997723f474a7c3ff04b481ac04e7f82fa25ec9cdb792c"
