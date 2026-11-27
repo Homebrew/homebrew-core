@@ -12,6 +12,7 @@ class Neo4j < Formula
   end
 
   bottle do
+    manifest_sha256 "c08ad5fd1fca3188ebb5009603e79a2310e7ded35dd393bddd7cd7206289e5be"
     sha256 cellar: :any_skip_relocation, all: "f62f7ebc10a907414bc4ddbb6f11aee5041c05ec21fd60aa07cec523d78ded7b"
   end
 
