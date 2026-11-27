@@ -6,6 +6,7 @@ class PowerlineGo < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "c3bf5a9c5c32aff2924b8d27914f7172e0139226af38a71367a12f3d81090fb8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9052522adc6dc4ceb6b579c6e921096ff3bef1778f57754c018a2e3045d73700"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0480d19fab072ca6629e01d8227f0b024a311d388bbd3fb0a19fce84edc3bc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a88579eb3e6e19d6f79aa2e400ee1802a99d768dfcc741d101330bd6c7db64c"
