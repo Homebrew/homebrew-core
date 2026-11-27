@@ -7,6 +7,7 @@ class GitterCli < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "a83e1c4b114763c36390792a386abf0b92e733cfd534a5ccd8fdf1c0597b2697"
     sha256 cellar: :any_skip_relocation, all: "fc3d9fc87869b22fb03bd8a53405527174c3a9cc910332d8c906dfd79b34ded5"
   end
 
