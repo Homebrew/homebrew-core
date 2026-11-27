@@ -7,6 +7,7 @@ class Rrdtool < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "49d9088937a2bebbdd6893f400955e4e4805407c208df0a5b2958d7ead546eb9"
     sha256 arm64_golden_gate: "f1532fe1f8760d04a510c1c692dbca24ab0eb216ac84f425052b1e24d73e4fae"
     sha256 arm64_tahoe:       "5b5771f9ce22660d34ebf057b623c98f28074469d89740d325741eab55b8df39"
     sha256 arm64_sequoia:     "043da3c2de7470fe44ee49730373e7bb40c12c62ed0158500c04e7c07d64ee51"
