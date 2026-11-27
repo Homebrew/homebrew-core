@@ -7,6 +7,7 @@ class GetFlashVideos < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "7d7fe639856cbb9213938767a5f2dc528482b9a87e4f966a27b701516b7604e9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1792f9d20bc21a285d0034483f1701f505c64c8a18cc9d75b0befa92c63ce662"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "4e9585360bd6c0eedbb61d69471027f381bb98b90ec603d27e6054c070ff0bcd"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "c98e92953a3439040ea3927924daf3752535f29b6f090d7110f2f4f27cd07aec"
