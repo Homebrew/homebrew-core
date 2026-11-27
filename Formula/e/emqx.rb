@@ -7,6 +7,7 @@ class Emqx < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "dfbc17ff46bd7b5cc7ee25733da217301a3ae71bf7d5e410acea9a00be8bc931"
     sha256 cellar: :any, arm64_golden_gate: "3aee423290d705a6278a2a408b967c30bb06f462a8fc4c5ff477d2282fa01b43"
     sha256 cellar: :any, arm64_tahoe:       "079191e3f9d1772bfef9e622545ae4efb7774e28c839708a26550df9e273a5e9"
     sha256 cellar: :any, arm64_sequoia:     "a326711e60e87d6b5d1d286ec79715715e6cd3cc6c9fc88df4544c944985b0a2"
