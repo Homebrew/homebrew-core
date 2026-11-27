@@ -15,6 +15,7 @@ class Nzbget < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ccba5fa1057b5ff1aa64fcbee8afd7736cdd1a31da23ff7c75ceccd5aaf694cd"
     sha256 cellar: :any, arm64_golden_gate: "d6cd2be80c4eed77d5eedaaa2749fadca1255e924def4ac12507e0664b1ecf94"
     sha256 cellar: :any, arm64_tahoe:       "928e9f4486cf45d1806ef6dee8a99d6de7f38c656217c5c9b51ed7ca8e3b8d3a"
     sha256 cellar: :any, arm64_sequoia:     "2e962f0bf0eefbcf4dd5e914b14a38f884cee57fa283903276e4310c6cea12f9"
