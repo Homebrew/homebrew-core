@@ -13,6 +13,7 @@ class Fastme < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0277e22347371f568db8471fca4aac292f8e72c9d905a2bbaac779ac6396413c"
     sha256 cellar: :any,                 arm64_golden_gate: "d1b985781c580dc8a0e41debbe36195952392762dad0f3402558c7b78751e8f3"
     sha256 cellar: :any,                 arm64_tahoe:       "4e5a8fb8bcbb621a2b49132177b1d4672669a8994b6bc31e5fc654082689c50c"
     sha256 cellar: :any,                 arm64_sequoia:     "7429f457373fef2d2419f738d603b26316c7c605628332078ab9e0160887c27e"
