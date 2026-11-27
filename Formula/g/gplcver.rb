@@ -13,6 +13,7 @@ class Gplcver < Formula
   end
 
   bottle do
+    manifest_sha256 "e29749c1704393e6211c5ab66bcc093e1194edd39ccfe8a0ba9d60be21207c57"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "747887fbe672aafb301becace8f1ee554f1236fefa6876f981dd7816ea983694"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f8b601689942c43e4f0d69e8abe71ae861b8ab7ab6e35d30e8786fa72ef0d73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0add15edb99e15d1f6436b96c3030d44351f54bb81196948a16ee292d5d8b5b6"
