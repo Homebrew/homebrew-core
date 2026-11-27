@@ -12,6 +12,7 @@ class Sersniff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a6eb745c75924c2562692156c8f775d66f9c9f821a4677a3497b15ed3c855d64"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23920a4a9ac0eb70dfbc8c9522a1c8978051d8bd7d24b44ccfa4631d62a0c161"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a497adbb93a2bfefadc8e54b0d25dca7829014ae9dc1bab68ba32d6308fb8dc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b6380a7ceb537b939e10a5cd9a128e95dd0eaf249c80889ba0e5b81173258dc"
