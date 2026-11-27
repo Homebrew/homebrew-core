@@ -7,6 +7,7 @@ class Katana < Formula
   head "https://github.com/projectdiscovery/katana.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "76a80f19abe5d6dadc8de2295a963df9f05206f395c326642ee1eeea985a92e9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dec77e1c8dfff87af921ad817adaa35430a6906935c51ced600cdace4fa6fe25"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dec77e1c8dfff87af921ad817adaa35430a6906935c51ced600cdace4fa6fe25"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dec77e1c8dfff87af921ad817adaa35430a6906935c51ced600cdace4fa6fe25"
