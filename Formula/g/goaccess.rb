@@ -11,6 +11,7 @@ class Goaccess < Formula
   end
 
   bottle do
+    manifest_sha256 "bf5ba8e769f7f449fec66f812993c08dfca9b7f88b7a2f34a84bf74e50c5592c"
     sha256 arm64_golden_gate: "28598cdadafc44cc2bf2aa8657faecc7feeb1d761090d2e0c5477ad673b4db13"
     sha256 arm64_tahoe:       "e718f0d4c244e03e9fe8598864e27aa04b12a34b3dd316de308dab48d4700b2d"
     sha256 arm64_sequoia:     "b8e456822cbc356e0d5cedc96a437947dc1efb83ac3c8a5e7b91f87697c3fcc2"
