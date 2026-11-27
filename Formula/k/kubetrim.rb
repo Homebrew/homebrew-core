@@ -12,6 +12,7 @@ class Kubetrim < Formula
   end
 
   bottle do
+    manifest_sha256 "f73f19b2e0d8692425cf8c632cd4b90a175644657964187915df8e6490157499"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60312e501a1ab9a034a7e013cd55a6e4ab95b897af49d4102a9a842245ece92d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60312e501a1ab9a034a7e013cd55a6e4ab95b897af49d4102a9a842245ece92d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60312e501a1ab9a034a7e013cd55a6e4ab95b897af49d4102a9a842245ece92d"
