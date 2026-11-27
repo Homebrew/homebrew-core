@@ -11,6 +11,7 @@ class Graphqlite < Formula
   end
 
   bottle do
+    manifest_sha256 "02222fb11570f78ced25430391e81e4157ecf0c5b8f94484fff3da878cbb4f05"
     sha256 cellar: :any, arm64_golden_gate: "5404cb86426c77d02184619a6fec55a0aff49f54bd0dbd8a64a701b24d4be8f9"
     sha256 cellar: :any, arm64_tahoe:       "6d643c8d993361fc3909d981420020d533a12904103c64fc2abb83baa5b4bb18"
     sha256 cellar: :any, arm64_sequoia:     "938fa7fdd1832ca7cb039d867cbc2121374f315c86a2f952ac1b87538991779e"
