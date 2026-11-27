@@ -13,6 +13,7 @@ class Sf < Formula
   end
 
   bottle do
+    manifest_sha256 "c8a5649edd34d906eceb7f1aa0144412b56e23a7258867061c1a7bdeb39db7fe"
     sha256 cellar: :any_skip_relocation, all: "07938d1a0b28a0b196dbb420482e1fa213e3fb1b8e81b427618aa699e9a07b84"
   end
 
