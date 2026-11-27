@@ -7,6 +7,7 @@ class Jo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2d7cd0eea769b95f65d98aa0f34ed44353216560746767f79e9855441451405f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b57a10283b084b8ceaf0d307136e10f8f67133f36d4530a3cc5d5bd0adcbaf97"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4aab533e9fa8e5cdca40d4275cae1c956d9de52e30bfa02ac30092562a7f40d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92ff2f6f6fb52d6ceb30e458a3a402eb49094671947f028a2abe78dc822ffd58"
