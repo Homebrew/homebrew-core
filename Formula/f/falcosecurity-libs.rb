@@ -15,6 +15,7 @@ class FalcosecurityLibs < Formula
   end
 
   bottle do
+    manifest_sha256 "7d40ae88a7d1ca695e9d6925d1466d678fc09417b9f5a876265556b5f4704d06"
     sha256 cellar: :any, arm64_golden_gate: "7faa0312af9cd0e728a6fb559661244844e30d2e4240f8af8322184e447434a9"
     sha256 cellar: :any, arm64_tahoe:       "4358066777cbe6488a6dda0c13138a19e79ace55afe5a44a86f5ea1bff8bd456"
     sha256 cellar: :any, arm64_sequoia:     "22380eb8a07e5c78185ec00e8ba8ce4f022417ea4b94a6377074afebc36f3466"
