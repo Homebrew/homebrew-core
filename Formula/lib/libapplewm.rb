@@ -7,6 +7,7 @@ class Libapplewm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6e65cc666e4f52a0ecf81c9a9ccaeddae7b67ddd67ff4c28e77902c6e703daf3"
     sha256 cellar: :any, arm64_golden_gate: "e1c364b61cc6bd20793b935c90718d4c0966fed9f795a6e6a69d8e74d0eb0f87"
     sha256 cellar: :any, arm64_tahoe:       "4b8eba3bb855a350470232642c48f34eb601408e1b7a4650bed5934bf0e6c6bc"
     sha256 cellar: :any, arm64_sequoia:     "9aed87eee9abadbc7e94ee746f6b54588d3eacd9fb455b2d94a96c4b7a19425e"
