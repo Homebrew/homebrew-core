@@ -7,6 +7,7 @@ class Libice < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c85081c930f4d5f96f164ee04e436a3b9669f0a1b24c7665301aae95d604be3a"
     sha256 cellar: :any,                 arm64_golden_gate: "730ef576d2aea4bb5136d97ed21102305c91e973d96712683eefa01317ffc3a2"
     sha256 cellar: :any,                 arm64_tahoe:       "7c7fe005691e3b774bd67fd52e5a16bfe335a6a326a53ee47dc7027ccc26c911"
     sha256 cellar: :any,                 arm64_sequoia:     "03325eb9b5e663073aedb7f13e975a91d5aa8edb943e71ba52d065128105651f"
