@@ -7,6 +7,7 @@ class Nuspell < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "be393f70b30e3f8425a9fbe87cd40757a95ffc2f95887f3c4817df530f4c957a"
     sha256 cellar: :any, arm64_golden_gate: "6ce5bc25046ec320f50c92381b0a5281acac6065ac4464d7b4f508b4c4fa78c7"
     sha256 cellar: :any, arm64_tahoe:       "98356bfbd20766ee9c159949bfa28406842f35845533d5f0c967c4686e2fb1f3"
     sha256 cellar: :any, arm64_sequoia:     "03ff40e178ddeab40c63f112ff0195bcea199de886b85d0321f19e364be53612"
