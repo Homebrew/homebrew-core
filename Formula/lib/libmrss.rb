@@ -7,6 +7,7 @@ class Libmrss < Formula
   head "https://github.com/bakulf/libmrss.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4d9a4bef31bcf441530ae904386bc1fa13a7155af9adf359e04331fefd579892"
     sha256 cellar: :any,                 arm64_golden_gate: "bdb615250f1cb515071d2b2dcd12bd2c9d4a16d924d4f864d7c7b11aeb58631e"
     sha256 cellar: :any,                 arm64_tahoe:       "ff549d15087ee2c00bcf2645bb8626106f785b8a351590211b3e95e9e10b5907"
     sha256 cellar: :any,                 arm64_sequoia:     "183934eb440639c9d4506bcc74cc7c86da915e1bc65d041d79ebbc6eff5f6f1b"
