@@ -6,6 +6,7 @@ class VimtutorSequel < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0b050f9d45136ec1ecdd96b9d30e75dd508fe67b01fbaf7f69ebdfb7ea4250ff"
     sha256 cellar: :any_skip_relocation, all: "4861ae2b888e47e777fd3f78ef878aea6b007147ec561ecc430d7abb61a85cb0"
   end
 
