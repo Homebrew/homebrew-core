@@ -7,6 +7,7 @@ class LibomemoC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8720b1c2ccedeb1a826a231abe68615c5540e58694d64a4506a9d81d577079e8"
     sha256 cellar: :any,                 arm64_golden_gate: "33a9923f6dfb7e70280d857d626e83901b94523635d1072ae7013a75f5602548"
     sha256 cellar: :any,                 arm64_tahoe:       "6aeea5ebef3efeaa6574535934720c669623385944ba942643c71826b54b2e09"
     sha256 cellar: :any,                 arm64_sequoia:     "10b6d82f6c30e6f9434ed1655ddebda4c01cfb37e1814dc7cbf87b6dbcd683d0"
