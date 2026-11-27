@@ -12,6 +12,7 @@ class Libdivecomputer < Formula
   end
 
   bottle do
+    manifest_sha256 "5e8347221d70b5f2ec530579e6fb3c255fa579aca39fcbe09fd8b51119fb4f1e"
     sha256 cellar: :any,                 arm64_golden_gate: "2544b57389df64104b63e934fa04323a30706bb6e5f119b25f38f163a21360fd"
     sha256 cellar: :any,                 arm64_tahoe:       "39dad657305fee0b4e643603b728a4c316395d17c0f7b88bd0919b662c25f827"
     sha256 cellar: :any,                 arm64_sequoia:     "ad377c021c9476344507c25b95fdb96413bca2f0279e8dd61b75db2483058dd6"
