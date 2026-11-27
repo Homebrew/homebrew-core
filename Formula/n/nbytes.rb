@@ -7,6 +7,7 @@ class Nbytes < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4e8fbdd7072c42de97ae1e348a2a7f1df7338c4a1650ef3f9c6ebb29a388849b"
     sha256 cellar: :any, arm64_golden_gate: "38a76d911a5ac69042db2acc0f639f672e1fe26e4f8372dcbf993bed6af4c367"
     sha256 cellar: :any, arm64_tahoe:       "5a2accb231bac27986c58efd5552413830213723ebc3d62cd8de5058ac82a749"
     sha256 cellar: :any, arm64_sequoia:     "274197cd3d7ed773e8693a715bb5d0d5498f1d799e82275ad28d4bb359cad127"
