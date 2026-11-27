@@ -8,6 +8,7 @@ class Pdfly < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "19bdaab38b55a7beee834dcfda1e81c39b0fff7b98e5a0fc3a961f234e1e898f"
     sha256 cellar: :any, arm64_golden_gate: "789da6e5b473ebca966e1c61dca45c1a6dd776e6145499253ebd640f0aacd75f"
     sha256 cellar: :any, arm64_tahoe:       "f1fa41964116e8aaaf7038a0568f3a9e9ef3c2bcc9cf5cc49ba65596d70629fc"
     sha256 cellar: :any, arm64_sequoia:     "2fec860da2fb72b2c9ecc2aa1375fd3eca67ea76ed3bb32a0bf918dea91a0fce"
