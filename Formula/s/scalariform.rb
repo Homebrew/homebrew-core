@@ -12,6 +12,7 @@ class Scalariform < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "763e457d6637ea056d4ec3ec33ae3665e1c80b960d493d78710868672527133a"
     sha256 cellar: :any_skip_relocation, all: "57e890f720dfb6cb481d8ea3898b8d4706a33bfe02a6f71a8db118b7cb918e16"
   end
 
