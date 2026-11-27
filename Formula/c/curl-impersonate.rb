@@ -3,8 +3,8 @@ class CurlImpersonate < Formula
 
   desc "Curl build that makes HTTP requests look like they came from a real browser"
   homepage "https://curl-impersonate.readthedocs.io/"
-  url "https://github.com/lexiforest/curl-impersonate/archive/refs/tags/v2.3.2.tar.gz"
-  sha256 "027e0cc1efef9ff9587f7cd33da5a6a0df1eb285d860fbfd78bc86c8c45f7f23"
+  url "https://github.com/lexiforest/curl-impersonate/archive/refs/tags/v2.3.3.tar.gz"
+  sha256 "7667300ac44accd34db5fd56006a401d6c3e16695299051a47acd53b5111101a"
   license all_of: [
     "MIT",
     "Apache-2.0",
@@ -116,8 +116,8 @@ class CurlImpersonate < Formula
   end
 
   resource "zlib" do
-    url "https://github.com/madler/zlib/releases/download/v1.3.2/zlib-1.3.2.tar.gz", using: :nounzip
-    sha256 "bb329a0a2cd0274d05519d61c667c062e06990d72e125ee2dfa8de64f0119d16"
+    url "https://github.com/madler/zlib/releases/download/v1.4/zlib-1.4.tar.gz", using: :nounzip
+    sha256 "02dd159783677a749c04adbdd02b55b8a2bcc7e054f51b76b549199a916ad584"
 
     livecheck do
       url "https://raw.githubusercontent.com/lexiforest/curl-impersonate/refs/tags/v#{LATEST_VERSION}/CMakeLists.txt"
@@ -126,8 +126,8 @@ class CurlImpersonate < Formula
   end
 
   resource "zstd" do
-    url "https://github.com/facebook/zstd/releases/download/v1.5.7/zstd-1.5.7.tar.gz", using: :nounzip
-    sha256 "eb33e51f49a15e023950cd7825ca74a4a2b43db8354825ac24fc1b7ee09e6fa3"
+    url "https://github.com/facebook/zstd/releases/download/v1.6.0/zstd-1.6.0.tar.gz", using: :nounzip
+    sha256 "2ba599ae2a257976278e7e71e998433a387bfd18aa7b78678229fd5d84f5e9b8"
 
     livecheck do
       url "https://raw.githubusercontent.com/lexiforest/curl-impersonate/refs/tags/v#{LATEST_VERSION}/CMakeLists.txt"
