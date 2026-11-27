@@ -12,6 +12,7 @@ class Pixivbiu < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f8e306845ab0e858274584d2a885fc3a592290cabaff4c8ba70f8c890e10a8a0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8687012e2a773c20c37fee1a7110205aed05d663b3d92f6988150d46fdfca9f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "623caa67051af368fa0ca40160aaf9e183e3246e2b1cdbb0019536ffbf0ce95d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "217334546aa4ebeed7510527492eb35547107cdc8d80bdaf630447a87f0f9d0e"
