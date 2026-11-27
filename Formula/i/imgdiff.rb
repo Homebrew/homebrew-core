@@ -7,6 +7,7 @@ class Imgdiff < Formula
   head "https://github.com/n7olkachev/imgdiff.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fa399bdbfdf7790cfd0438a3ec546228e62c1db1b57bcc0a20d584f6c3d23709"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c39f72685ec458e06c9ef930b8e870264b3109696e180c016bb3b855447011ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "245066f106ba02042598e6735c482b506b45f82be5e583ee83f39c2afe5afcc8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "353d0253fe941d4505520098a05f9be091e7c4cdd1ce77dd192f20b4021df88d"
