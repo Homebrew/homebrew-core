@@ -7,6 +7,7 @@ class KubernetesCliAT132 < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "a79de12b729443b06fee33e26d1df11255964706ececeb4b843c192b8be16b05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1480fcc3b7de658c55b7e22009f52567c2ace6fe2b85c4d4b50596e7c69a658b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e4b4394e40d4cbba21b447ba8cf06cda90db26fe10281f2a4feec0f3301e7b5e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "3bea9edd150d89054e5ccda7a43f41405cdf6283c5749fc009ce5cb42477b5f4"
