@@ -8,6 +8,7 @@ class Libass < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4435db5d03dcdcdc64dd1a40132c75b1b876a3c388f5831739f04b9613933828"
     sha256 cellar: :any, arm64_golden_gate: "a066041fedbe188a5330faff55c9e3baac12f5d2ca156b7ae7d4cb1826ed8d84"
     sha256 cellar: :any, arm64_tahoe:       "29ac9a179908bc0c3d918b0f41fc40f7fbdfbc8819fa774ac85f0620b9281dc3"
     sha256 cellar: :any, arm64_sequoia:     "b893a0f114554c1b9ea3e046d8102d59c6cf98106936da144835310cab2878f3"
