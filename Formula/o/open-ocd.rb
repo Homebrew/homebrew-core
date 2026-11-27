@@ -12,6 +12,7 @@ class OpenOcd < Formula
   end
 
   bottle do
+    manifest_sha256 "8639e634285dabaf4d06bb81cf8fd30e1c4babec450d388424f4ad062b76f3f0"
     sha256 arm64_golden_gate: "c20949b2f973f464cacb65cf04d830fd27a92c80c2a0c0d5113908eec3939580"
     sha256 arm64_tahoe:       "2f69ce7044f8af47279213325e0e46feae77ec451c1d0277a2619f62f4f3c370"
     sha256 arm64_sequoia:     "68476caa858a611c3026458d2d00620c5b9eddcdcf63f6d36e06ca89b6734d15"
