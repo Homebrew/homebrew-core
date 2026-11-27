@@ -8,6 +8,7 @@ class Libtomcrypt < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f88d1df83d50d20eeeaab67e1b7a684edad75641f76e07e34f73ef3cb7f7c318"
     sha256 cellar: :any, arm64_golden_gate: "d95dbad31ee81e2c711d4175d9e135b9d426110e2d5533caf764ead1c47c87f1"
     sha256 cellar: :any, arm64_tahoe:       "d82b0b852bedb11cdfe7f28a254014746e93a0328be95bd8e766651bdf0de2ca"
     sha256 cellar: :any, arm64_sequoia:     "244b29efcfb583713abea15ac3f2e9db78db69e446590a0fde61f7f95e68312f"
