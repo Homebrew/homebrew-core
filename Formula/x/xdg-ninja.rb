@@ -8,6 +8,7 @@ class XdgNinja < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "ce129446fca21dfd8ede02b69e5e4935933ba083288b7bc2c61e7fddfb109440"
     sha256 cellar: :any_skip_relocation, all: "1fe099d79ef105b5a0272c820ccc1c774807c554c3e5e3bf180205afa50703ec"
   end
 
