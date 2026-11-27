@@ -8,6 +8,7 @@ class NetTools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "266edea51fb2164565d4a35f70e093a8ce8940070a2dc1179b25fde8b9f6fc1a"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "a7d523b6843e87fd1b0791952b634c66f5918b78b97e4b851d9d2b3a413e9886"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "eecef80de080f3957e605ff06292e6bffc51f34385307f70896b64d1dd2c823b"
   end
