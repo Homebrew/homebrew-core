@@ -12,6 +12,7 @@ class Mozjpeg < Formula
   end
 
   bottle do
+    manifest_sha256 "ce99e9161446d3c3c756f477c92dc47eadca8f61b81cefb75294940ee917c371"
     sha256 cellar: :any,                 arm64_golden_gate: "3a3d8f5b133c78c3cdb9d6ede5dbfee13c01aae3027d79d7283fd8601b4a78c3"
     sha256 cellar: :any,                 arm64_tahoe:       "ae8b8e5b56ea7d13b5f68225ade34c5e8818d169d8df8a1aa8f12b445dfbe6ff"
     sha256 cellar: :any,                 arm64_sequoia:     "93eea531e7d81f0aade7c403f3e0c65d545d9eade6e0e50bd43bf01cee48f110"
