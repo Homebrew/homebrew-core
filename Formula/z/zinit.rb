@@ -7,6 +7,7 @@ class Zinit < Formula
   head "https://github.com/zdharma-continuum/zinit.git", branch: "main"
 
   bottle do
+    manifest_sha256 "81caf09d89fec700171838372bcbd1ade4681d5e17f2bd8f4fa6a9ec8c039f19"
     sha256 cellar: :any_skip_relocation, all: "d72543217b842908b9eb1343af62de6dd5c33766c1d691437e2ec29893de5261"
   end
 
