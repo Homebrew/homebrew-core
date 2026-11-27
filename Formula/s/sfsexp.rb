@@ -7,6 +7,7 @@ class Sfsexp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1f6d3d6cdec9bdea06f8d9079179613a3362915e6d035038e0ab338f5196cb9e"
     sha256 cellar: :any,                 arm64_golden_gate: "63481e034e12e9a48cba6db8416f52b6fec9eebd35b36549589cd1d8070f3cd5"
     sha256 cellar: :any,                 arm64_tahoe:       "309d53aff505ea3cca51ada4c8820ec0aae2f41666c750131f7d4c6ec60f80d4"
     sha256 cellar: :any,                 arm64_sequoia:     "f03b944967fd032f7538cafe2d1207790c47445922ecc8720b176ed8c1f747e9"
