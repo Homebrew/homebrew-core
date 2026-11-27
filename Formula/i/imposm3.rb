@@ -7,6 +7,7 @@ class Imposm3 < Formula
   head "https://github.com/omniscale/imposm3.git", branch: "master"
 
   bottle do
+    manifest_sha256 "62f75d019b8a0dab76be0aec5a27c12c42f2b52487febc75bf8b50cad061b351"
     sha256 cellar: :any,                 arm64_golden_gate: "245f77d8a90a6b3b76d7a86583a951bf020d75bb40af30ceef0876d6b2b93e48"
     sha256 cellar: :any,                 arm64_tahoe:       "8541b92a75fb1fc113a02f87794315e3f8f6638950eb3629d1bd79ac31965576"
     sha256 cellar: :any,                 arm64_sequoia:     "ef0edd9832c108b40a6eea993c88ce7c2716f05dbac67e18f4c45085acdef838"
