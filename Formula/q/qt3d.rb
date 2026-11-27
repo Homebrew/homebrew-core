@@ -18,6 +18,7 @@ class Qt3d < Formula
   end
 
   bottle do
+    manifest_sha256 "229b4136f39dd5fb4825afc59f57f0926fcc4c26e984fa5dd18a965aa2d64457"
     sha256 cellar: :any, arm64_golden_gate: "ea8a51b7c696adba02f1be4e5c4e84b44965416e29e5a619516153c562f54813"
     sha256 cellar: :any, arm64_tahoe:       "0ab93fd0a6448735eeb72d8bbc6c1d1c9e962dbcc2c2b4206d0986e798a04bc7"
     sha256 cellar: :any, arm64_sequoia:     "fe7c4a922801af5a658764e45f97a785bc1d8ec597efbe268db2f61d88909500"
