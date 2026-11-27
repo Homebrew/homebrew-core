@@ -14,6 +14,7 @@ class VulkanHeaders < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1e5cf1aa05ff6f83c4fd7ad2971b3ccadc4b8b5a27aa435c49892728fdaadabf"
     sha256 cellar: :any_skip_relocation, all: "64cb4ed61848cac6cbe070562d383f6d50a402524dee42f2a19ec0546736fe10"
   end
 
