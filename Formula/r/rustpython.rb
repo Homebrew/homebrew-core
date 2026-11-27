@@ -12,6 +12,7 @@ class Rustpython < Formula
   end
 
   bottle do
+    manifest_sha256 "3f82d926c4de81b964354052268cc1e34885a4bf2686a387f4bae670012f1e58"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "027b8d2ac35fc6044ce6a29208a751c28d4886f7f3ba8b1688175b27caaa246d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c023db1f504419fcf1b784d729f8d223fcd4a3aaf569d563b10d5712887cd6a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "efc8dd046f37dbef10db87660808e3893792292e04d4f95088f65b53aa10aef8"
