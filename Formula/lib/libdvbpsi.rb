@@ -13,6 +13,7 @@ class Libdvbpsi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3b08b6402335d4055687d824d10fd2a9850b882efbc48974008bc70961c0f380"
     sha256 cellar: :any,                 arm64_golden_gate: "47ba2bb0a032bc49356a7b2844a87f15bb80b7f7d2263fef1af5cb18a7831495"
     sha256 cellar: :any,                 arm64_tahoe:       "8ca5d9293581da05648c293b9d1e0b67b1f33263c3fc57023f76822c5e2c2d59"
     sha256 cellar: :any,                 arm64_sequoia:     "cdb91a9f85c8f2f255cc0269d01bff6ccd1952f4895a6d26c6cb26e7e5bcb2f7"
