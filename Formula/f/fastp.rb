@@ -7,6 +7,7 @@ class Fastp < Formula
   head "https://github.com/OpenGene/fastp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d90ab094251032a2862c713447ef534ac21f54ec28fa9561097ab99dfaaf6d10"
     sha256 cellar: :any, arm64_golden_gate: "7b18c03f4b78f860f7a59a04898a97faf07a32c9380c286dcdac0648768c0ec5"
     sha256 cellar: :any, arm64_tahoe:       "995312e7f01fa658e4d2c4d29c0350819fc48d2bcd00a37a51c82c867fab4f55"
     sha256 cellar: :any, arm64_sequoia:     "fe550341fb5db9415ef784843397dbe04f26459ba5d14c2707f5bcb3bc30581b"
