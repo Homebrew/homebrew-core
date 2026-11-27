@@ -7,6 +7,7 @@ class PgCron < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "8bd96cff9789b697a6746beb0517313202f607c459f42efa313d87129d6569c8"
     sha256 cellar: :any, arm64_golden_gate: "3e83853bf9ee22e7c27fcc9d3813e2b97b47984a94452d745224f10c3a8ce5c5"
     sha256 cellar: :any, arm64_tahoe:       "2721a0e6777877ad7dedba04e3e37bf789b42194ed0258f74c48eb2136e62b33"
     sha256 cellar: :any, arm64_sequoia:     "b24e95b802f4cedaa19ad93a6b2ef678246780bda14abc3de6f7569a6671eeb9"
