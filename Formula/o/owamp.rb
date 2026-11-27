@@ -12,6 +12,7 @@ class Owamp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "77f7fc82e054f08e158854f2c1e8bf3567307a5e24118e7d162ab832d82952ac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d342923c25e5d3f2052db4b3b0f1ba283537a42fc09381552ce2187f8dd22522"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "408c62feb4e3c55838e9c1d60474f7e5f4879abee08e1a60ac341dc7098f4117"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9060c36f5f038c5d1b43cdb45319a414b214dc8ddef7745658b64ea756cd68e8"
