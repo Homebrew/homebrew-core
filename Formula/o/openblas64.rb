@@ -18,6 +18,7 @@ class Openblas64 < Formula
   end
 
   bottle do
+    manifest_sha256 "4d15ed559cd35119a7d4ae2a51cc377747ddc9d072b31f619831f1326345b41d"
     sha256 cellar: :any, arm64_golden_gate: "ce137451c1aa26661a1206cc39b1a03ee041578218eb54debf2a289aa6233493"
     sha256 cellar: :any, arm64_tahoe:       "ad0701a4ae17e4d0cb2b44b353c98c277d0eff01ce172ff4382d97832e3e0ca6"
     sha256 cellar: :any, arm64_sequoia:     "cf29492c76448a831a2ffea618c20a1c494dc49dc878c586f1cc3c8c0816092a"
