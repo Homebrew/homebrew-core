@@ -8,6 +8,7 @@ class RangeV3 < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "e309b41c9bc2d5f9d892ddf76e3aed98d6c5d5357fb33f10e26b4a530c302cbe"
     sha256 cellar: :any_skip_relocation, all: "6e8ed329dcadb543381b45e5fac6994216dd9240da78df421272e3a9672c5182"
   end
 
