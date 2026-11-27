@@ -8,6 +8,7 @@ class Psql2csv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e382da2aca105a9eea9c8283569440e3ae02ebc37338fb2eb2e4f75758d342d4"
     sha256 cellar: :any_skip_relocation, all: "2bd408af21ea8fd340ab8a95d11c4a0b0d0c106a2aa9b87cdd9d8f4c09390290"
   end
 
