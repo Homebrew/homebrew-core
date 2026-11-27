@@ -7,6 +7,7 @@ class Llhttp < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "1020f34c3ac9062ae4b5b80e29a82b755f8be6396c18c932534b33f7450a404f"
     sha256 cellar: :any, arm64_golden_gate: "f4e39eb8013d06a5c1024ed858e1078fb50cc7d3d1ad7ea5d98c997116887056"
     sha256 cellar: :any, arm64_tahoe:       "f10729546842aeb4a2a3103e59ee508759f4a6f05229c31c8361ec0e18adfe14"
     sha256 cellar: :any, arm64_sequoia:     "e26231647b5093b77bc7d0a92328643efe1f58808971a7ee0a1ca3bddf0dbc57"
