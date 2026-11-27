@@ -12,6 +12,7 @@ class Javacc < Formula
   end
 
   bottle do
+    manifest_sha256 "98f04d5b93cd78b57011755b53564b193ca69008d66f1a99c192bca50e276b51"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "794eba6d97722877934af0f472992b3a0be983deb512a93280108503f2d4b8b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2736d09dc1c90d1e95a14c99d8e1682120930718d32d8bede69b16e279a7508f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9095c2d3b973f05a81fc336594a9adcab73f8a65634827167fad98f831719fff"
