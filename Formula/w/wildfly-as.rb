@@ -11,6 +11,7 @@ class WildflyAs < Formula
   end
 
   bottle do
+    manifest_sha256 "37ea78cee59e4678d5c5f0b39f3bd5c003a2b4d93d174430fb1ae3eccfc3a410"
     sha256 cellar: :any, arm64_golden_gate: "e15ba595522ebff78f2a3f47cbf76604712f5972da053e739bee05b9c912e954"
     sha256 cellar: :any, arm64_tahoe:       "e01973832f9f060ee7986e6309d7483883f1d72e83663c3a61af0e7939e3c321"
     sha256 cellar: :any, arm64_sequoia:     "ca64ad72e71315d85e54617590a638adae720940286ab64382164fad5cd9e8b4"
