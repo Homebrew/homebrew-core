@@ -6,6 +6,7 @@ class ClaudeCodeTemplates < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f443ed8cf8de7a10c67a9245a3dc81166e59844299b50b10f3a3793bf613f9fd"
     sha256 cellar: :any_skip_relocation, all: "0ff8dd55a0511906210e648c4031eb12d2e653aec300a8e8dd42b9a31d5a39f6"
   end
 
