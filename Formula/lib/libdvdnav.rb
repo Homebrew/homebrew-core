@@ -13,6 +13,7 @@ class Libdvdnav < Formula
   end
 
   bottle do
+    manifest_sha256 "1f078e57926a847c8baaa58922e6422379bf9280d3ebe9adce71f6f7060438f2"
     sha256 cellar: :any, arm64_golden_gate: "7008f6233374660d3b30cab484f2258afe4a78f8d9d4bcca3c3d01b42ce6470c"
     sha256 cellar: :any, arm64_tahoe:       "de06e1e44ed91415e861f0bd79e41de8136e9786fc430d4cb81b46be8bdc9643"
     sha256 cellar: :any, arm64_sequoia:     "572d32a3743e5b4aa64e8db20ebe4c524709229e167247e7563063d4d4a1fe43"
