@@ -7,6 +7,7 @@ class Popeye < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8cd054ba4c3bfc90b4b73d88e1f7ef5f22e9f762e203cf458db459a01da3705f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d5182b94ef65114c5980d6b6366a1ea948296a670e219bcddc3405751f51e97"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "de4eb07bc059e0cfa41014bce3619f91f6d4cf60cdff0eea2b697dff007fa473"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ceaf3bd7cb2f1566cda40e6cc3531fc1da09a98f9c7799fed9a54fb09529cb24"
