@@ -16,6 +16,7 @@ class Mt32emu < Formula
   end
 
   bottle do
+    manifest_sha256 "ef00a39041c8f4e905f6dd3ff640338072d85c233eb90f99814f6bf169a57c9c"
     sha256 cellar: :any, arm64_golden_gate: "dc6558c0fa7a50037252e9e702ab3da1e6d7bea349c3f6862831ac7eb93c0038"
     sha256 cellar: :any, arm64_tahoe:       "9331d8b6c89d41c2134a29a06e4e037822288952f2d1880ac42f066d338df89f"
     sha256 cellar: :any, arm64_sequoia:     "37eab2ccf702b957b92e2e6b03c8ee87d7ec361ed8754d4043edbdc99849063e"
