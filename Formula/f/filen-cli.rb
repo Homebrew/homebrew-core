@@ -6,6 +6,7 @@ class FilenCli < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "bb0990dc3bffe8bc93d38ff7851c9ca5e98071efd6ca5bf5bdc19c8d89af0121"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1b7262885705cdaa4cf77267cee1bf41b369941ebb7d85879583b142b70d7456"
     sha256                               arm64_tahoe:       "01bb3644754303d6376205e6341922a8a874c479c20272c452e0971998010951"
     sha256                               arm64_sequoia:     "a2aa4f39e876f8831b242287f71c802e90f21c3495cee97271067dffc32da845"
