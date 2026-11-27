@@ -12,6 +12,7 @@ class Ghz < Formula
   end
 
   bottle do
+    manifest_sha256 "697ca98a788f431b0f2ec2a1e70abbf4a64be618e55d46f3c6a19a4c649f7f17"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20f203a2ff7da636e0f4222fbf7e8d9b37cb00efd177a5a1a664edf758d3f7f2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb0c6428ac5a6800e2ce447b2a6f316421953e830d6c64286db3952c28819653"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb0c6428ac5a6800e2ce447b2a6f316421953e830d6c64286db3952c28819653"
