@@ -7,6 +7,7 @@ class Frps < Formula
   head "https://github.com/fatedier/frp.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "936034f2cf261eb373ccca20c786d867ef91ea4c37b9a3cb541e7d139bbf8665"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1720ef2beaac60981bf5c2394f34a5392b2a7feb4881a91af74330e7d3d6e013"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1720ef2beaac60981bf5c2394f34a5392b2a7feb4881a91af74330e7d3d6e013"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1720ef2beaac60981bf5c2394f34a5392b2a7feb4881a91af74330e7d3d6e013"
