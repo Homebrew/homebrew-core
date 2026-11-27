@@ -9,6 +9,7 @@ class Gmime < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8615bff2cf4169e8545423d8886c689eb5e4d6ee383fb5eafbb7d5369d40d678"
     sha256                               arm64_golden_gate: "fb0d502cd79c462ca66e749c4d3ed587d1fe1fe1e8eb4ce844a7872f218f4d57"
     sha256                               arm64_tahoe:       "e78cfa945f251f0e714eec649d9a2eeff2757f70c01f4e6e3e08a8b9006ca06c"
     sha256                               arm64_sequoia:     "b8ac67284de81e8196b96900938780ad0ca73aa0b0411ba2aebddf162b37618c"
