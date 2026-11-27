@@ -9,6 +9,7 @@ class Internetarchive < Formula
   head "https://github.com/jjjake/internetarchive.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f56a0f890edac38eeef998383b8a2d30dbc6caddcdcaf0be73cfcd4865cfe34c"
     sha256 cellar: :any_skip_relocation, all: "220eae4cdda94a9f456c23e529b5fa8db528503e2b52bc402d27e0ba357b1954"
   end
 
