@@ -21,6 +21,7 @@ class EigenAT3 < Formula
   end
 
   bottle do
+    manifest_sha256 "95b458d7d770d66e988c812e5bffed585a5824a9e75078410fe6b8b2531227eb"
     sha256 cellar: :any_skip_relocation, all: "213fb8af2b98a2329bb16d3e3ed14e657af1ba01ac48c2c59613f465158196d0"
   end
 
