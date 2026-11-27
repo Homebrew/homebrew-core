@@ -17,6 +17,7 @@ class Qtwebsockets < Formula
   end
 
   bottle do
+    manifest_sha256 "3fb2bf18bde0ef332d4839da43e0147930b9844c9021f83c2b3981afa704686a"
     sha256 cellar: :any, arm64_golden_gate: "2265906d1929f3bcd18496faf8e0d65f62b934acde50d2b17d0e994a482cc51d"
     sha256 cellar: :any, arm64_tahoe:       "f99e1f761af9d09da2a526f46db24c0982a5ff86724736daa7f4a7442e0e8ffd"
     sha256 cellar: :any, arm64_sequoia:     "dbfc7acfd62a7af4c40630af601ca50809e83a4b360f4eb6433ee05551077bee"
