@@ -12,6 +12,7 @@ class Glyph < Formula
   end
 
   bottle do
+    manifest_sha256 "d4e9285155b55f35240ba8c1c455cad05885418a3a730342f1f77f2738cebd90"
     sha256 cellar: :any, arm64_sequoia: "b02ed837b5d2195d730ce7ddcd189907ef6d39b2ca99b09deaefa38286e40525"
     sha256 cellar: :any, arm64_sonoma:  "2c9fecb839cda3e0125e815cc6c716ce02b483d5d533d69afa72867e6a23670b"
     sha256 cellar: :any, sonoma:        "99fd425ed184792fb3d3b37514bd00e90f6fac2b7d6f8c330144ba2ec1058ac1"
