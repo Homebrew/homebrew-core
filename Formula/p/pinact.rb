@@ -14,6 +14,7 @@ class Pinact < Formula
   end
 
   bottle do
+    manifest_sha256 "d436319b001336733fbe0ffa24ce251afa546d88d20cff18629a385deaac52d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff38858510913e93caeb1d84b0a8bbc5677b133fe857132ad6fcf6d30b9011ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff38858510913e93caeb1d84b0a8bbc5677b133fe857132ad6fcf6d30b9011ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff38858510913e93caeb1d84b0a8bbc5677b133fe857132ad6fcf6d30b9011ec"
