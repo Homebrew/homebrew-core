@@ -6,6 +6,7 @@ class Rmux < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    manifest_sha256 "32a50e18c737138efbf03dde859fe5be8b0e0f57517b8b7fa6a3a5656f1c7929"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7745ad2e1c297097c35365c37ea8e948f0b3d5e55f8a4327211eee6d58fd4034"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8e9047c0ddac0865a462f0438e3109f8fc1a84e8d7699686621a90b3dc496fbc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0acbcfa31d5c236eaf8f8bacbfae1df60dc09119f076cf34d74dfbc041d706a6"
