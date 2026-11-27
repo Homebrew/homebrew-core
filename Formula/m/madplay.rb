@@ -12,6 +12,7 @@ class Madplay < Formula
   end
 
   bottle do
+    manifest_sha256 "b26ad1d6d296c5b5376960ce2d5525e23b58417f548dcb96b6e9c92eed5e7b9d"
     sha256 arm64_golden_gate: "b3d7188dacb125bb33cf8ebbc3fe2dff493f0c6f1ff725a4fc03a6df74a49924"
     sha256 arm64_tahoe:       "72e70d67702779f7e7afaf31037db5b66789f54396a574e1932f222ca3bac912"
     sha256 arm64_sequoia:     "ba09b6ca2c1a89b49f0df90e4d4330c7271dd39f11d35cf165cb26a9899a6584"
