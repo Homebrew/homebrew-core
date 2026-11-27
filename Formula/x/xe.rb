@@ -7,6 +7,7 @@ class Xe < Formula
   head "https://github.com/leahneukirchen/xe.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a30b29827cdfe367621db72a1c16e0f0c304dcf9a66d74384215cd0225bf20ab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f6609aa22b5301b86584e5c525a794eeab4db1d8f470fa39455606a4799e8ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a86047483f4a438ba53a00fbff31112bcb4b3919e860427384a067d7e2c106e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41b532af620346e9afe4665a07ffe03f81110990f9fa032ddc4b7a84926bf36f"
