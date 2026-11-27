@@ -7,6 +7,7 @@ class Pdf2image < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "9c58450ecf0ed61d83e9ea073df7be3bfcc06cce649158813c2d1503c59f5159"
     sha256 arm64_golden_gate: "593f2e537fb2f2ad5161497cedfe611a7435b742e75c732fe022f6043ec46c63"
     sha256 arm64_tahoe:       "3441323b63b2667e68a90b70633c40813b10f0597933aadd8a46ff7a36413f8a"
     sha256 arm64_sequoia:     "412c25b88af18ef42fc4c705a409449b38f3fab9a792b40067ce2c510e524903"
