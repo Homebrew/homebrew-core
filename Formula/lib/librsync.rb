@@ -7,6 +7,7 @@ class Librsync < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a5d1f81337269e3bff939c73c9b67e35213155e9f3d99ee0865653c4099f1d03"
     sha256 cellar: :any,                 arm64_golden_gate: "642b95546456933ff57ad6f9f76931e8c7ee2984a43c3eb7b202af5b8aa35e1c"
     sha256 cellar: :any,                 arm64_tahoe:       "ac21e04cfd6723188b3894b674f618c9bfbeafc6c980c69edc49b1529d0f6d39"
     sha256 cellar: :any,                 arm64_sequoia:     "d9636c7490adcc95354151caa325f5a88d79eae4579427afe070624cf0704ce8"
