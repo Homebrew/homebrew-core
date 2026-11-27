@@ -12,6 +12,7 @@ class Ktoblzcheck < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3fa83723c5cc4bf75dcbe69b472c1cbd2619b5fddbd67bf364eb4523574c7b98"
     sha256 arm64_golden_gate: "e62bc704239383a34267beb55fce405d2a8c2f7b006c2cc2758716ba1deffd54"
     sha256 arm64_tahoe:       "bfb13def3ffbf8b7d1169bda69a633268bcc40f76f1156851759bc8addeffa57"
     sha256 arm64_sequoia:     "edc711ab543ecbc5f5d2ad7b16b5233ce548e4533414a67631757740f2aa2876"
