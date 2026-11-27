@@ -10,6 +10,7 @@ class Fred < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fb8e64c06c220141922d060ae82948820dc2677b0ed04416e4e7594bb8ce0590"
     sha256 cellar: :any_skip_relocation, all: "6d6ab3235fe432b975df52376d88933d6abb4387c72b79659c0508bf82df2a98"
   end
 
