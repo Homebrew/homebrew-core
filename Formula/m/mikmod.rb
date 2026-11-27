@@ -11,6 +11,7 @@ class Mikmod < Formula
   end
 
   bottle do
+    manifest_sha256 "b264153978c7e8320bf5ae670ebcea04d71c4d896baee12c2751df6ab873dc26"
     sha256 arm64_golden_gate: "afb351852f98b9a57e0b5c56abba7818be7ebdbe6ad3ed484dfb12311757a17d"
     sha256 arm64_tahoe:       "df149f89ada0bd17a538f133d9d67ac90dd70c747b0b9af21d9e00512bbc6ffb"
     sha256 arm64_sequoia:     "2d94a2007d6292b56c23ff35152f1c83619184d514eaca702ad3dcbf070e2f3c"
