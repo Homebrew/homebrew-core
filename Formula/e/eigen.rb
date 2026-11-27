@@ -21,6 +21,7 @@ class Eigen < Formula
   end
 
   bottle do
+    manifest_sha256 "b54f1f422700c575461805cb3a2e1fe346cc65a4dd0c642645df69cc942322e3"
     sha256 cellar: :any_skip_relocation, all: "563e391400dc4eab1a9cf164c14082db589cd39d0546b454a8b4f7ec56237be6"
   end
 
