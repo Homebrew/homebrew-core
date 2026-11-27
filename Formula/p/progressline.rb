@@ -8,6 +8,7 @@ class Progressline < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "aca18f18bd23fdd4060343727b0c04c80be61b7bd067807bc2078a8656e361cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7734c8c122125611a35f8a409de996091766eaa37a04f94b5e174006bdfcaf3e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e82f5a1a3adf652f5e8bd8b6941507eb9fd2b995ec36fb5a673c66208c128d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "045e5418e7f4e6b95b5466c1305de384ebe61c46751d945ab9b85e2eff18dd06"
