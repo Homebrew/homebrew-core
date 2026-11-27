@@ -10,6 +10,7 @@ class Howdoi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "29ab586c01fb299eef1220f1124e7ccfde9c3995cd667a94bf0ecaeb4f777c7e"
     sha256 cellar: :any, arm64_golden_gate: "466185edf37e64608f6619536c8c3631e7966208656aafe358464f9041610752"
     sha256 cellar: :any, arm64_tahoe:       "5c0ea25bad6bfefc54612024d5d7e4a0ab53e8d12b73d0d9f48da9af01f4b95a"
     sha256 cellar: :any, arm64_sequoia:     "33172821ff95e7ba056c2e21e64d374c844b70d0311d4d01577506004c0c9b95"
