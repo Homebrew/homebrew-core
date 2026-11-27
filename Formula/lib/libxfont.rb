@@ -7,6 +7,7 @@ class Libxfont < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2f5f3d7b9645964f2c8205531ae7ca9969d420dec6f516a8c62c97a94115dd08"
     sha256 cellar: :any,                 arm64_golden_gate: "77a9bc56f3343e69773bce619c3c51d778ef2e698ed5f6bdd65256560356600e"
     sha256 cellar: :any,                 arm64_tahoe:       "e67ab6488122aaf72e62534722893856d438840f8c2be91950e922f6b2aa509c"
     sha256 cellar: :any,                 arm64_sequoia:     "4e2981c04822c7efdc9cd2b29625f52f5406db53613ef8474c57e9f32ff79b65"
