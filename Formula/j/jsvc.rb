@@ -8,6 +8,7 @@ class Jsvc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ebf1f94a277ee611718bcd680376989c5a7b5ac3eb2fdb0e4fa50f8c7eb9bd86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3309797c94703710f44550b3fc2c56ae915618aa0bba2c58864ea104d45c2ec1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bfb95067226cb4e693882972be5e517fa75fa82eb1d5593a64ac849b2661291a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aea93d34c2841c28e484ee9a9c12ab8ed6512c8ce1aca82f1d6436d7edb64de8"
