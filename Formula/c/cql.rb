@@ -8,6 +8,7 @@ class Cql < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9c1cc19516ce01613ba0997e4a7cda831c62acfb97eec04ca38ce147ce96496f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "069730fa28a953da7a1033d4b5d22a63648e20b61831f9af7cd5d63ee090e207"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2ed7ce113b81fa92f86a376923fd42bd294320b892005b8996f8950fe40e19a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ea4a0d072fb6b236bdb26357b95284f657ddfe7e4eca59274b267a14c5692b8"
