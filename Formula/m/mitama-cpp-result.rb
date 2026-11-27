@@ -7,6 +7,7 @@ class MitamaCppResult < Formula
   head "https://github.com/loliGothicK/mitama-cpp-result.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8a67fa202265805283a72d8d9e4df53ab324bf1079ad3122a455ae26d35c429f"
     sha256 cellar: :any_skip_relocation, all: "28440190e9a47c233c1ad311a8adb5d4ecee78b57ee8b790c35a12ae27110419"
   end
 
