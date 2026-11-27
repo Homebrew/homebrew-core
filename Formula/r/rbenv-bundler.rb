@@ -8,6 +8,7 @@ class RbenvBundler < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "75028f6d62c66aac53d2eeb1a6c36187ffa2f3d863746c34f5e8f700728f379d"
     sha256 cellar: :any_skip_relocation, all: "726653ee51529beb50ed43932c59c357198c1c61d252c644a88cc05b0fd1e0af"
   end
 
