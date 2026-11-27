@@ -10,6 +10,7 @@ class Touca < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "123caec74b3c927cd026ba93239c388fea7f0eab6b76df0f62e88847776d3f7d"
     sha256 cellar: :any_skip_relocation, all: "2aef71401d6fa95a1c2a1d9ce7ccf63c49e0131602a7876914ddbb373246b6f3"
   end
 
