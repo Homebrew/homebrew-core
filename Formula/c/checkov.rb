@@ -3,8 +3,8 @@ class Checkov < Formula
 
   desc "Prevent cloud misconfigurations during build-time for IaC tools"
   homepage "https://www.checkov.io/"
-  url "https://files.pythonhosted.org/packages/00/4b/b39218bf1fafb6bfca1e63a7b43a909510d21be700f9a40df3d586c016aa/checkov-3.4.10.tar.gz"
-  sha256 "5626d5115d91b23a5de2ad898efb13c64d00d8fb81176697ab3c64c89e16635a"
+  url "https://files.pythonhosted.org/packages/cb/93/919055143c942c39df2f14e50aa4127d2be109052b0eed0d80404af1fcbb/checkov-3.4.11.tar.gz"
+  sha256 "c0ffd36a53b3c9fa9e75db5d6a6ee0d7b0c23be2a1ea2cb10ea07f71732930e1"
   license "Apache-2.0"
 
   livecheck do
@@ -75,8 +75,8 @@ class Checkov < Formula
   end
 
   resource "bc-detect-secrets" do
-    url "https://files.pythonhosted.org/packages/21/0d/09252ed447d0f17400d466ba126205631d22dbaba54e8c018100272453ed/bc_detect_secrets-1.5.54.tar.gz"
-    sha256 "25163b28aaab9a8083191f714d1a349eb3514cced10e94dc164f672ba7c426bd"
+    url "https://files.pythonhosted.org/packages/5e/15/0b96fa6d08e5a60fbacec144a5b132412a3b54f1e6479c74a0476b52b9fd/bc_detect_secrets-1.5.55.tar.gz"
+    sha256 "67fee7aa5d5c35767a4a81ba5dd11c68f3a0714721f588fe6d9734456b0b806d"
   end
 
   resource "bc-jsonpath-ng" do
@@ -255,8 +255,8 @@ class Checkov < Formula
   end
 
   resource "markdown" do
-    url "https://files.pythonhosted.org/packages/ca/eb/dc0fd6eff604bfb870b7fb68b90985a32caaf3c76f67736bbf7f438acd59/markdown-3.11.3.tar.gz"
-    sha256 "81eb91631dc97ad1efbc76019ef0f80fe90ca49ddf81546752d79989c3bfff3e"
+    url "https://files.pythonhosted.org/packages/1c/ff/8644daa33bfdf552c9cfec8d1fc2c690f57a347808f62c406ac6557329c2/markdown-3.11.4.tar.gz"
+    sha256 "c911a757f33d64a2578bed2d20c57e007b2aedd8a67bceabd593b31143d54ead"
   end
 
   resource "markupsafe" do
@@ -355,8 +355,8 @@ class Checkov < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/33/ad/49412041262da587f74bdd0025ccf951efed14b5857ef1d6385298923a83/regex-2026.11.23.tar.gz"
-    sha256 "f933202c64dca184b783e1c97922170bb167146faa120476a310e90d0701a915"
+    url "https://files.pythonhosted.org/packages/fa/b8/61d96601b737305a04161da340499cbb3299029d4ea0f9c717bc35977c2b/regex-2026.11.25.tar.gz"
+    sha256 "d3ea8d9698f13f3fd08c65f9bed0bb07bcfff80b61dfa14d86b8cc398f886588"
   end
 
   resource "requests" do
