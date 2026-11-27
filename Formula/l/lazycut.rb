@@ -6,6 +6,7 @@ class Lazycut < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "800236f327ff981c5d6abc0832412d8329436972633880d474e6b3b77a157c4d"
     sha256 cellar: :any_skip_relocation, all: "a6df308891945ccea5c3811321485874a4a2745fbc71ceef87b07f8797a55b8b"
   end
 
