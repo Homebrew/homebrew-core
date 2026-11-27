@@ -6,6 +6,7 @@ class Libdmx < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f263b7a7f5540fc58b7601330a31c206c359c1776fe9a47c54f570af8e35b4a1"
     sha256 cellar: :any,                 arm64_golden_gate: "1344756549cfa166848e15c8223f420ed11a8696e75ddff763c677ea8e7b8fa3"
     sha256 cellar: :any,                 arm64_tahoe:       "14977e0ecc11da42c82528f3c0d13d68df037f55e615ca95af6434cf214c2471"
     sha256 cellar: :any,                 arm64_sequoia:     "e5034cca46b4ff523130888f6d8bf0d75937e0f1b490a0cf0c0c175f32d8be2d"
