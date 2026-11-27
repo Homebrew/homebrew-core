@@ -9,6 +9,7 @@ class GitRemoteCodecommit < Formula
   head "https://github.com/aws/git-remote-codecommit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "33564394aa5f44da93b571c43d16c9fcf9f1bfc610a4dedfdccbee24f80f6b26"
     sha256 cellar: :any_skip_relocation, all: "799a0401214822d31ac9248b0b2c536f101393e8ff8f9b075b5ee4aa0ade3419"
   end
 
