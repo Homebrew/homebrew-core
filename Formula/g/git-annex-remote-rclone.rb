@@ -7,6 +7,7 @@ class GitAnnexRemoteRclone < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1865df350302adb65a47489f2d90b5ec1c2e5598c4cebd2495b04e5496f37771"
     sha256 cellar: :any_skip_relocation, all: "60ec135de845b97d8eafb3de716f93fda72c9c69a99c58e6b9669eec71006cfc"
   end
 
