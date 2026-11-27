@@ -8,6 +8,7 @@ class Hashlink < Formula
   head "https://github.com/HaxeFoundation/hashlink.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a6c84cfc496b1d8f605d0f14f89f2f9d82f9c4c9f1317dfe63fbda5af94dabd6"
     sha256 cellar: :any, arm64_golden_gate: "5a3f7bb9afc8b15ee6c6b908d5573e5ae79464b3f0570906597e29663481ccdc"
     sha256 cellar: :any, arm64_tahoe:       "d56e01dc93c896bf944bc4bf2681e3b07e21d799b3efe6b76c4782aac1d8220a"
     sha256 cellar: :any, arm64_sequoia:     "8c5c6d5360b4fc4736b2f309a504f4f484ed5df51eb56f305964392597ac407a"
