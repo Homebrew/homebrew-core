@@ -7,6 +7,7 @@ class Gosu < Formula
   head "https://github.com/gosu-lang/gosu-lang.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0eddd93834e0eb7a331bc92f663a45ebf4911466fffcbec2747bec66c2947e2d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe3905b642ca1a33ef529c6ee6fbba4db168787f8b975352d4fc52604aee1e05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba7115bb23e4547ad04131f3f4568700a830a766be3bd9d8a4926207893812f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4fc537941ce2a0d853f0261546952c1080438f04dc09fe86b18f6be60183008"
