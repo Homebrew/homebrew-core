@@ -14,6 +14,7 @@ class Ntfs3g < Formula
   end
 
   bottle do
+    manifest_sha256 "3accfcb074888de667968c458fdefdf3fba0e7ed6947ab1f30266901362e5aff"
     sha256 cellar: :any, arm64_linux:  "0fe401877e6a03904563450a90dfdc6cc6b2706af0877672e9b3e365203c1a27"
     sha256 cellar: :any, x86_64_linux: "60da469cb04ac47158f1ca829de37e3305a89ae441516091868aa7ddda216615"
   end
