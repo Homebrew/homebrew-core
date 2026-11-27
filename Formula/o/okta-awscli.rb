@@ -9,6 +9,7 @@ class OktaAwscli < Formula
   revision 12
 
   bottle do
+    manifest_sha256 "851da34aa6f2675b406f94bdc30e10799635fb43250f35eb17f77ae874d055ce"
     sha256 cellar: :any_skip_relocation, all: "16604a2f3d6597d55c480d8e8efab380c22e858985714dbe69e3fdecd4df286a"
   end
 
