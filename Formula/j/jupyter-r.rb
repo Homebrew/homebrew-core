@@ -7,6 +7,7 @@ class JupyterR < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "49021f235b3a4cc256173127cf414b10ad770e403a506e0778fa1e1e71cf95d5"
     sha256 cellar: :any,                 arm64_golden_gate: "11d0c71feab8b6cc11800beeffed2df1de1f21853484ff0609611416d87cf7eb"
     sha256 cellar: :any,                 arm64_tahoe:       "8b52a2ecd5cae8b0e7f26d340f9070721b0b4b9e7b6160871f3723366c2fdeac"
     sha256 cellar: :any,                 arm64_sequoia:     "7e058343e45031f0b0cc2400d979731b51837b30e9a35a5d26bf02e2af1695ea"
