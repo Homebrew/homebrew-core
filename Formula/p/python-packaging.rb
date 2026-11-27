@@ -6,6 +6,7 @@ class PythonPackaging < Formula
   url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
   sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   license any_of: ["Apache-2.0", "BSD-2-Clause"]
+  compatibility_version 1
 
   bottle do
     manifest_sha256 "2c7823c6c60dcc51884f19c43665650f7999782bd84538acd945d7817b8573b7"
