@@ -21,6 +21,7 @@ class Mame < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "e6ea340eac375051eb8ee791d2c3718dc5f73537cd6824e67565c37ba21e4173"
     sha256 cellar: :any, arm64_golden_gate: "5838d6ec08fd4a0194946d99b553783a0cfbd294a8fd64ea5af269987ca3db43"
     sha256 cellar: :any, arm64_tahoe:       "8b15aa506cb2926763edbdb69833e7b308e3ba4904afa0ca32cd966cc8860ba4"
     sha256 cellar: :any, arm64_sequoia:     "d16d30d95cba83260dd91600f6b7b37d708d36f182a338e9d4994e273f222bc7"
