@@ -8,6 +8,7 @@ class Kafkactl < Formula
   head "https://github.com/deviceinsight/kafkactl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "71e38277228c8c802e679640e051229b3d04073e81bb6967a69127423db56419"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7d06f2fa80e91143c41a1ae9777f48ca9205769f6552fe505f1b96519bd6554"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7d06f2fa80e91143c41a1ae9777f48ca9205769f6552fe505f1b96519bd6554"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7d06f2fa80e91143c41a1ae9777f48ca9205769f6552fe505f1b96519bd6554"
