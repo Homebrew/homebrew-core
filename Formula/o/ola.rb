@@ -27,6 +27,7 @@ class Ola < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cf05a021fe1a18e474e25d3628c7ad8dbe60f7d7f07abe097ccbf557cb736669"
     sha256 arm64_golden_gate: "780433d941b21616c4e714356aa0b3eebe1c89664e7324b2e6a0a5b4ef3c8911"
     sha256 arm64_tahoe:       "cee7cce0bf4c66b9d8c6e75bbf73f86fb984c0f80f5d2752f5b4dcd1a6aa9424"
     sha256 arm64_sequoia:     "0986e282c4872f092ac572a9ce5982800cbc1e6edb94e0b2b4be5ee4626f505c"
