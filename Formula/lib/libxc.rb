@@ -8,6 +8,7 @@ class Libxc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b9b939c6ab6bc7ab8e93db5993d6a5163fd33836a9735aaeb24ea5ae219833fd"
     sha256 cellar: :any, arm64_golden_gate: "062054526dde4f93321c133195566032b58113ca69d501c26ed5c0acc3b884d3"
     sha256 cellar: :any, arm64_tahoe:       "ab2639fc70474d5f0470a8da67bce3f303071d185a470b9c059c5ce5f82d1a6a"
     sha256 cellar: :any, arm64_sequoia:     "e31f695c5452672c85950d0aa3beb4900f807b03571243b4618e047891c482a7"
