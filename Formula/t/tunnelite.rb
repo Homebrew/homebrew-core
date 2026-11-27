@@ -8,6 +8,7 @@ class Tunnelite < Formula
   head "https://github.com/cristipufu/tunnelite.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5399dbf8fc7758c337068a4a5c65798a82b227c0e72b55d3f84efde266a1c00b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "385f05239ee2e68b1fb7761733270a7118f7be2d3b3cd8e8d24281c61d2ffa3c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb199688b93d47ecfcbaad2d7d44934383458f2a5e02cf06cad30e83e09a697d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d78dd84b3bc1ad4f0b2c86e9a5a3aa2b5b4b475337e7c544a2ac999ed9949735"
