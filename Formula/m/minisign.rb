@@ -6,6 +6,7 @@ class Minisign < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "17afa4c5e2b3a9030a6ec093316f170b4c9cd4a4f7c3b27c938bfea20c3502f6"
     sha256 cellar: :any,                 arm64_golden_gate: "0abf371613391340e46e2a84128b85048cc16cda90bec37230eb8c401d75055c"
     sha256 cellar: :any,                 arm64_tahoe:       "3978ab782bb253378c31e91a018a64f5ebffd3f7094f7a731e47b09ed1424123"
     sha256 cellar: :any,                 arm64_sequoia:     "3d5eac1ba12087334cafe44e836860f6ebe56bf82260e1347ac8c25dc9aa77ed"
