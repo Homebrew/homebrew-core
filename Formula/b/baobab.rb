@@ -7,6 +7,7 @@ class Baobab < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f9703b6760e6b531b0fce645d67d31a74af2ad640bf06890130e1fc204eb66be"
     sha256 arm64_golden_gate: "a8b591173bf42b9bc6b6c0013e244b93d138c07d1fb3545ba8d9e7eb0ab51717"
     sha256 arm64_tahoe:       "e7e8fdd100af709c6498bf6e52ae10b1a112e17a7bed316df7c176080b0763ce"
     sha256 arm64_sequoia:     "c4704affacdd5892cdbeae931c8806b9aff5f448bdc84aed9284f406a1f466ae"
