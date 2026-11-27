@@ -8,6 +8,7 @@ class PyenvVirtualenvwrapper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "191f4ce6c1faf32617d15f7770b8536005f745783f1515f10101e3492bd3c79f"
     sha256 cellar: :any_skip_relocation, all: "0aeb3455529d63f4cd1ca55acb525e4f38e1fc7b8dca986302f475bc8596a650"
   end
 
