@@ -7,6 +7,7 @@ class Libu2fServer < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "4450b799fc1a979baa4d8cdce2913f3df749c14210bcf98480256bc8bcdd9c12"
     sha256 cellar: :any, arm64_golden_gate: "59f0515b756b791b09d679388ad5c7b43a9f0f00b9f58d7132811aa236ca0be3"
     sha256 cellar: :any, arm64_tahoe:       "a76f87a11f1a8f488d21d4d3669f70113665921bdd469875dd13b4ce5aec3bb8"
     sha256 cellar: :any, arm64_sequoia:     "6314feddac6c047aaf6e5225c275a1908e39c162685b45c39be866dca77091e3"
