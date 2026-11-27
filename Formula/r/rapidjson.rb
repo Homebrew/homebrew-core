@@ -20,6 +20,7 @@ class Rapidjson < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "02b6b284604d20c4a2efa9792dab4655d68ad76e5b329bed338fb1850f156b7c"
     sha256 cellar: :any_skip_relocation, all: "ba505c9a587b3c26539eae5dd732ae36bca53b67daf94579fee177d88094fa52"
   end
 
