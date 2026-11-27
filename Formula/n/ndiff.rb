@@ -11,6 +11,7 @@ class Ndiff < Formula
   end
 
   bottle do
+    manifest_sha256 "57cc105db6dd7cf0b14d7f2011a5e919e0454c742bc3bc8abd9d0539fd993bb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e3e690a851f55bc667a520fb47c43d134f3b23ee03897248ad33f43af738d0b5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdab0b2f97b5b9256157324af89023d7e61e7a3789a30d0ffd39064fc71fe219"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a23ac16ac1bda1aa63ff7e64c8a101bc5a1bb1dfda6ee25ad6e6aac1eae3e2b9"
