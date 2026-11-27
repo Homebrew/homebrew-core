@@ -8,6 +8,7 @@ class Pulumictl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4d0e17b28ba49aa601362595cfd6b034b929fedf2bd524fbe0cec0d7fa2ea4c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99bec228174b3200adf2944a6d9a52f328a4d43c8e00106ef769172eaaae7130"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f16c5f57ad6bc4f89f15f468b9330118ab430700aba5d8277fb1c39afbd700ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f16c5f57ad6bc4f89f15f468b9330118ab430700aba5d8277fb1c39afbd700ef"
