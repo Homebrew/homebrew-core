@@ -6,6 +6,7 @@ class Rbspy < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2d7d8a11a5cd8554ed78586d42febb36c1dea85ed0ea4246834456da9e5ff93d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8110804d5150b2e7ec98213d50f86f100f9dc36c815798b9ca2cc715244331a6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb0b474f4f1096c43bc3bad1a69a54eb171205565b7a0eac53bc31bffd9aaa1b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d73099add17f5f11f9813e1e6b452474a5d17ccb8fce020409035f576758b2ae"
