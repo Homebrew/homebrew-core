@@ -7,6 +7,7 @@ class GulpCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c1d8a2fd33be1254be0fde09945d0135822619f0171bfcd84d6562361b7d02a8"
     sha256 cellar: :any_skip_relocation, all: "240302d96e2d2ded3a74ad80abc51db6c8539e32421a6026a081879c1387dc3c"
   end
 
