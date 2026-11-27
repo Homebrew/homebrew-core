@@ -7,6 +7,7 @@ class LibpthreadStubs < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0be5583e1ac8ae6cf96c0bbe7dd7dda46b6f1d9d554321118326c09bf6f6d8af"
     sha256 cellar: :any_skip_relocation, all: "1d085ebfa893354c02fb1a3c37dc6a5b16c8ecc8ba1fcfdf618be7068123c0ed"
   end
 
