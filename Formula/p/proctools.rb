@@ -11,6 +11,7 @@ class Proctools < Formula
   end
 
   bottle do
+    manifest_sha256 "a85a4b50802c277c297dbec41a6a218b55639c0a9b8b82e0cca7a11d02bb84ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15f6eeb76eefea31f038840eba32af9518e9617e45c8390ad9279a4fe8d3613d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a04c37c6e995cbce8ff70386029b5b3a00c61cbd1e9c7399cbb177670035df8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f9cc18c0b6d9837cad062ce69de2544bf534d4bcc7380230b81ac126dc2ca4be"
