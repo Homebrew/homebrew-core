@@ -13,6 +13,7 @@ class QobineTui < Formula
   end
 
   bottle do
+    manifest_sha256 "53845263ef250b95e5b1cdd59512cbc405d69d5131a877b580e1c1a929c42d2b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dc4087d728bc4d689b1ddd34e36e16297d1013705f1c20b56c44a3b903a178fd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8b1bef123fe6dd05f0431087e5de825b5ce3703546cf0f2b5727deb766d2723"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0dbe8a7ea36db802c255bdd03734e4806b404b773e4ff20ebdf6b7337426a836"
