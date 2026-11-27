@@ -11,6 +11,7 @@ class Plakar < Formula
   end
 
   bottle do
+    manifest_sha256 "6392805e221a5a90489fc6b12215d16cca72867f99957b28bd1e2a3ff0fbb885"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0538efac4d572f0c18455ee66140828b0964769c1c2d59c5b288be08ff7e2087"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d90873ca05bd07c45b169d88a05f12a968d951f4e129efdcb6042b4a80b0f74"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ef02950db3917ed603d22fae51efc34458e21e9a96b428f2a001f7ddefc95b0"
