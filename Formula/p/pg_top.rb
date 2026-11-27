@@ -15,6 +15,7 @@ class PgTop < Formula
   end
 
   bottle do
+    manifest_sha256 "09f9566d25448a6f72304d5ada418ccdd0d2d36081a32f469086dcdc90f011fa"
     sha256 cellar: :any,                 arm64_golden_gate: "2b942d86fa039282ce25edcd9a7d87dce2a28fbf505e256164955375d939d1d9"
     sha256 cellar: :any,                 arm64_tahoe:       "9adc494d9d026662d8e072527c22e736fe60bf0153eecdc5d3d4b6271abfc8a9"
     sha256 cellar: :any,                 arm64_sequoia:     "b9d888449873a35c6f29b43698da65bda0e4136eb1f2d0176338fcbc617e4e5b"
