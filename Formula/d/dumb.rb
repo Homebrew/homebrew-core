@@ -8,6 +8,7 @@ class Dumb < Formula
   license :cannot_represent
 
   bottle do
+    manifest_sha256 "b3aee0d23067225e835935031487b9baa297898ceed398c75a2176a8b667b4a1"
     sha256 cellar: :any,                 arm64_tahoe:    "d04fae5e3adcd02d608e3f3b8238a5702b0e74ab1c295128f3e65af4f494e3f4"
     sha256 cellar: :any,                 arm64_sequoia:  "7158a40eed75a578dd615fdf83840be91a4fd565b0ce5170c4e91d494e0a0a16"
     sha256 cellar: :any,                 arm64_sonoma:   "f9510e55b969457e77567594f6963a7a6470f86dac7f252ed3c01757314c44dd"
