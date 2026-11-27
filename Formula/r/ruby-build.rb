@@ -8,6 +8,7 @@ class RubyBuild < Formula
   head "https://github.com/rbenv/ruby-build.git", branch: "master"
 
   bottle do
+    manifest_sha256 "851d7a48a5582441268a78a5cf53732f245829640b6d1766c04fbd6f8c4bc784"
     sha256 cellar: :any_skip_relocation, all: "cb985682641ba8a1fe1c68eb406b57aeb11fa37c03f749d32a47cd139cb04109"
   end
 
