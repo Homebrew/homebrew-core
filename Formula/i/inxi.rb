@@ -8,6 +8,7 @@ class Inxi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9a52f1f4a2736e3e5f5703f017ff8bcaa93e29565f15a1eb41b5a68a00821b7a"
     sha256 cellar: :any_skip_relocation, all: "3f06e25a279e48f71e849cc46705a885a905d165156f6a5145d629fd0e7589a3"
   end
 
