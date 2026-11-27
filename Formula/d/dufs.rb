@@ -6,6 +6,7 @@ class Dufs < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "f2bd8baa41f91dca9f095a9885a68be3ad0530faf07e472b78eb95639fded09a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6baa9d5e40b56599699c831aa4adc697219ab735584104bfe715ffad07a7ea3c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca0fc8ecbf366d49cdfdbc5015005a9de1b209d6c57a271c86e2b08499033ad1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ecc87a1101986de063f156f6c5bfec989694ac966d82ab0cc993e8556d4eca8f"
