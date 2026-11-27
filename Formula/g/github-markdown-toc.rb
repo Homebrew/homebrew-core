@@ -6,6 +6,7 @@ class GithubMarkdownToc < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "787cea2bec604e6fd3ea4d86cb8782e9b7482c7f5f621326eae74bedeeb5b713"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a0a1cce477f3f5d19617b6ce600f2c799f8bfc36857151e12188d870852f766"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36a03267be083fccd7d83378a25ab9e9d9819f52b3a30b1eb2b0ad9e7bf8a329"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36a03267be083fccd7d83378a25ab9e9d9819f52b3a30b1eb2b0ad9e7bf8a329"
