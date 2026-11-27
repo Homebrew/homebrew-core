@@ -7,6 +7,7 @@ class Mikutter < Formula
   head "git://mikutter.hachune.net/mikutter.git", branch: "master"
 
   bottle do
+    manifest_sha256 "52ff5459019afb67cb7435c9e5171e4d2b6049e001667a427d1829a524ee611c"
     sha256 cellar: :any,                 arm64_golden_gate: "6a499ea9a2fe473f16789cf449aa8de5368627e14df997e6a8675a542d1a57af"
     sha256 cellar: :any,                 arm64_tahoe:       "7490c04f633cb2be02befd113c2808f4157c64d8e4916d84c2c8db1f531a4c2e"
     sha256 cellar: :any,                 arm64_sequoia:     "6d80163010cc21ea16cac7c096b33a687c2616e6fbe6bba46b00aed1ff5b0819"
