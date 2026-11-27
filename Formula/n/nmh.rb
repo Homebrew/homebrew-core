@@ -13,6 +13,7 @@ class Nmh < Formula
   end
 
   bottle do
+    manifest_sha256 "47d025b0baf5c0e34ceecd21d48c47cf79a4993b6cf05489fd88ffe037ffb2e7"
     sha256 arm64_golden_gate: "3b5d9260ade160babccb2bdfa1d35504e7fb90abee69f95155ff176e5a663988"
     sha256 arm64_tahoe:       "1ea68fd3a7442d3a21e79a1dc9b22538a4da3160ddb9ea66daac1f366de1ebd4"
     sha256 arm64_sequoia:     "06ec8b1da1291cbc28b99fb6973651c69b8753adcd13e7336300f63a22747f7e"
