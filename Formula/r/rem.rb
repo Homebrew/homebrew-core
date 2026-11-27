@@ -6,6 +6,7 @@ class Rem < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "2c91e585f136f19e27ead7ac998b438edb78612e67b0996fad9defc9fa60fa1b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c88c8cca7db37a19e206706226a633832b23f87a87ccb2ed405235313c92854"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f0f26a3c93f78baac169c18c7fa119e351fdb10d8cce429fae0f45942676775"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18d24b6a8f332bb30a204b078ae06569a7fc851895aea755e5c3771a24b60ddd"
