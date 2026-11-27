@@ -10,6 +10,7 @@ class OpenaiWhisper < Formula
   head "https://github.com/openai/whisper.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d5d5217c23e6b440aad7bbfc9c408b343b1c5d734fc44e1a172b0304f02e306b"
     sha256 cellar: :any, arm64_golden_gate: "dc5064298320d54e5ee2eebcfe591dd1ad0cd4922a98d3f488e0d0ad35a8a121"
     sha256 cellar: :any, arm64_tahoe:       "9947572517722534757225b638c99524bd01f394f2be922f0862b823e1e96de4"
     sha256 cellar: :any, arm64_sequoia:     "db1377441a1934d0cec56668574a891baf97c48ba6b3f04a7ef477919838a605"
