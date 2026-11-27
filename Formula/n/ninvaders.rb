@@ -6,6 +6,7 @@ class Ninvaders < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "22a883cb91ffe8b4c040da1067b4f1e734dcea01857f225ca750b750afad0675"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de2f72776bf8e19abed0c82ed8589688c2ab38655b1fba015fb5a4561316b85a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67f7a9ab2212b5b2ddd49e6bf8cbe915606186a4b1d0ff2523d23bd87ad59372"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "89cd69d1df23bd848757897116b0dbbb8a0535d65264cf8956e5323bae0fac4e"
