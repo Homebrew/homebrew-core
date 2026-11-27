@@ -8,6 +8,7 @@ class Redshift < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1a0f20ff9eb72ba8f78c2755b2c92191faae12b98a3055326fb1a0009d01d166"
     sha256 arm64_golden_gate: "69697cfc2d595ae169538a4fe32ecde3eef04699924d6c2d1626c9dfc741bf80"
     sha256 arm64_tahoe:       "b3f728c06b42f585bdf50685e7613ee66f639d43f85030942edf712b6ad928ab"
     sha256 arm64_sequoia:     "82b1df8db7796fa1af92a7b3ef4ea428e4d94a65850a5e2cdb90f354605cf065"
