@@ -6,6 +6,7 @@ class GoAT123 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "b8c7aaabb0e5b00088910a604f03dc9bf83df5330a523f2fda4c4282fe1ce288"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "645e0a126fdc94ae63d6ccf5c8bfbda011eff7d512ac4fe04bf39edafa4b941e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "7402b2b0c649679d3fdaa22d6b0f44a5fb18fb1ca2f52d27b0d791e530542764"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7402b2b0c649679d3fdaa22d6b0f44a5fb18fb1ca2f52d27b0d791e530542764"
