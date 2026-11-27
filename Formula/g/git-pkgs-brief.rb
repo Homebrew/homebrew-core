@@ -7,6 +7,7 @@ class GitPkgsBrief < Formula
   head "https://github.com/git-pkgs/brief.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f4fcbae5cca73fbbb2f5d2868e91ea0007cec4b50010fccce5e30fa44d459ca3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65870be58c23282f5c11b5a1cfd2e42d5f7433ff79110a1ac7405ae835891143"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "65870be58c23282f5c11b5a1cfd2e42d5f7433ff79110a1ac7405ae835891143"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "65870be58c23282f5c11b5a1cfd2e42d5f7433ff79110a1ac7405ae835891143"
