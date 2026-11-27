@@ -15,6 +15,7 @@ class Qsv < Formula
   end
 
   bottle do
+    manifest_sha256 "6150eae0e9ec617e65c59f2889288ff30a66040cd9686ecc6b47d9fc8ec06aa9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aca813ad12890400d74acbe7fce28317ffd27ae03ec9b91ecb4de90d6a7b34f1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc26fd62dce9f5960e871a93a6b039dee3b60c275b4987c6e6b05e38ef1e3095"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "731db751c3d76e4866f1982446031cbe53f2f60a29fe9f139e877504aa3d60fc"
