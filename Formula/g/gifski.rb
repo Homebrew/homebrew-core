@@ -7,6 +7,7 @@ class Gifski < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "072c207b3b74b92074dfb6e5e23711afacf425b7c14904885635f1f9e49b91da"
     sha256 cellar: :any, arm64_golden_gate: "8aea11250f33c38379b099786c919d52c94ef014bc0f49606ef9b7f91844ccc3"
     sha256 cellar: :any, arm64_tahoe:       "bc0bc2dede2d44b3bede26fd615733f25ef2faf753df1bd584b1a8e4f993319c"
     sha256 cellar: :any, arm64_sequoia:     "720ae663ede6ce14847b83b39b78c46b032690f2c0901b9e5a400b6fd6bb5b99"
