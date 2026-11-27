@@ -25,6 +25,7 @@ class Saxon < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "226c1b87e524b6acb3d922a2aeb91334dbd889fb0be9b800ee2f5e9690690d59"
     sha256 cellar: :any_skip_relocation, all: "2b7a415763330016dde1427ac8308a61bfe0d642b13ebeb9ad819c302adb6b37"
   end
 
