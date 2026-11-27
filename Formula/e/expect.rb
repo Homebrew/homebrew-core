@@ -12,6 +12,7 @@ class Expect < Formula
   end
 
   bottle do
+    manifest_sha256 "8807ab9a9530ccd8499510b5b758fb14b9165ae424f0517b498519d04c80a0d1"
     sha256 arm64_golden_gate: "37a73083cba27d264ac23b0fbaba5d2e4fe252a0841d742147ab56fd561b1634"
     sha256 arm64_tahoe:       "02453adc4b8102ccdea2eddf5bb2a282ad6a62ad373121bf6ee6d9273e3d6d4c"
     sha256 arm64_sequoia:     "bc49887735929062d3e347a111a7b53a0de95813652d626f00d9b5663ecb0c1d"
