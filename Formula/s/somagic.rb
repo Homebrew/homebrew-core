@@ -6,6 +6,7 @@ class Somagic < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "0ef107a40cada7b915df0d03b7be74117dfb534da6cce84167a61859c1d84fe6"
     sha256 cellar: :any,                 arm64_golden_gate: "fa68576dd2a65f596622d661dddcec3a255b4e519b7a53a599465d9aea51589d"
     sha256 cellar: :any,                 arm64_tahoe:       "f077c27f36c94d14196836cb4f397c6d720cf39a399d64da000c62d2d0faac16"
     sha256 cellar: :any,                 arm64_sequoia:     "f2c83c2ff15da271002454ee3f3b73863d3143954a5d761bcabd7a1412824fb9"
