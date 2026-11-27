@@ -6,6 +6,7 @@ class Multitime < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ccce8269432081a17bee7e393e5fa156414147e00e8a7675316397109459b59d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24cfb06299c12388d435086144645501eae98944e16d373d4e56d12281bd8b18"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2149b8b5cbf1c8628f8363ad1cf3722eb7378aa6ab0f24a767c3bdb881f137bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62e1d329fb812b4643c0b7ceb79ddb031276f4fa1c630147394b83c41ec4348c"
