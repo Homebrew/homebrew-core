@@ -12,6 +12,7 @@ class Etsh < Formula
   end
 
   bottle do
+    manifest_sha256 "cfc992bf410484f6db29078a674e9d2f3b9d3030c9eb269224f7dbb323592786"
     sha256                               arm64_golden_gate: "52db71247b7f050a9f0388e8ebae3117ba29afe7770ed172ed513cb4c6e75fbf"
     sha256                               arm64_tahoe:       "563a005afcf2e27e22f7be999febc8c5f2cb26659f6e12a8ef2081531f6ded4f"
     sha256                               arm64_sequoia:     "d67ffc1ce7bd60251ea6a60da6f2c4676d2ee3c32cdf22743398de0c2eb7cb05"
