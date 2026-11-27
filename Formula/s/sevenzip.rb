@@ -8,6 +8,7 @@ class Sevenzip < Formula
   head "https://github.com/ip7z/7zip.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8607fe16b72bc663ca60ec4654929b649842030c2cdc863551edd25b0bada454"
     sha256 cellar: :any, arm64_golden_gate: "28e834b5f6d943cf336273c6b8c6c72be8a52180ff75aa6750551a7cdd9a4311"
     sha256 cellar: :any, arm64_tahoe:       "02b5ee9892c402efad773bdcfbc33bb34648870258ae090190b66f1bd2356a1a"
     sha256 cellar: :any, arm64_sequoia:     "3a2a69f415e709b3f961f1ef9596537bc82d611359bfe6c494ad085281a17aa3"
