@@ -11,6 +11,7 @@ class Minised < Formula
   end
 
   bottle do
+    manifest_sha256 "37fc38b99cec714d66eb986307e8d5ddae0acc36ee74414ee75db7cb6c8e8620"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10b68c4e16e0387c1e43aec720b775de18938de9719e21e78b6cdbdad23a155d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5793a31a1201a62923112332d5197945ba6dc946d207b333f5f32ed0eeb2d045"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "97b244949148f54cfd90253c3d903a6b07efdc7b3cbf3da2606bfef854354977"
