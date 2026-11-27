@@ -12,6 +12,7 @@ class Libfishsound < Formula
   end
 
   bottle do
+    manifest_sha256 "f6edbe94b37a01e2cff019d7ba724b7cc801824a253a6744f1b1115f36b273b8"
     sha256 cellar: :any,                 arm64_golden_gate: "31b5a63921caeed47ee409385157e63c0efd115215384742f3ef80e072b28bf8"
     sha256 cellar: :any,                 arm64_tahoe:       "99677e9c5c6e576666daa65e86023c2c2172c338e9ea3a137b199b719cb21022"
     sha256 cellar: :any,                 arm64_sequoia:     "316f6dd41ed7a843e382feacdaae02401cdf541c064f6802b95678aa1457a6d2"
