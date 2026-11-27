@@ -56,8 +56,7 @@ class Podman < Formula
     depends_on "systemd"
   end
 
-  # Bump these resources versions to match those in the corresponding version-tagged Makefile
-  # at https://github.com/podman-container-tools/podman/blob/#{version}/contrib/pkginstaller/Makefile
+  # Match the macOS helpers to go.mod and contrib/pkginstaller/Makefile at the release tag.
   #
   # More context: https://github.com/Homebrew/homebrew-core/pull/205303
   resource "gvproxy" do
@@ -66,8 +65,8 @@ class Podman < Formula
       sha256 "b83e6049623845f626aa09720ba162e630188f3a5d539d5a773457bc5ab61023"
 
       livecheck do
-        url :url
-        regex(/^v?(\d+(?:\.\d+)+)$/i)
+        url "https://raw.githubusercontent.com/podman-container-tools/podman/refs/tags/v#{LATEST_VERSION}/go.mod"
+        regex(%r{github\.com/containers/gvisor-tap-vsock\s+v?(\d+(?:\.\d+)+)}i)
       end
     end
   end
@@ -78,8 +77,8 @@ class Podman < Formula
       sha256 "ff496bd6ee6772ed070f286c4282a8a2e2f5231d4f8e98b2255b883ba69af42d"
 
       livecheck do
-        url :url
-        regex(/^v?(\d+(?:\.\d+)+)$/i)
+        url "https://raw.githubusercontent.com/podman-container-tools/podman/refs/tags/v#{LATEST_VERSION}/contrib/pkginstaller/Makefile"
+        regex(/^VFKIT_VERSION\s*\?=\s*v?(\d+(?:\.\d+)+)/i)
       end
     end
   end
