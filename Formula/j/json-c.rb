@@ -14,6 +14,7 @@ class JsonC < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6829b0cccf59df3cef1e87b4cf5ef0f8a6bcdf70ccbe6712f7e3dc5a63f92f5c"
     sha256 cellar: :any, arm64_golden_gate: "6b45746f31780a84ae3ed11d056bd101d1b0a6d0f16bf91aad2d35a18f6107dc"
     sha256 cellar: :any, arm64_tahoe:       "f2da9c816501d9c3c0e5f883b60b3d2758b35a3995e20d541d4b029d8b35ef13"
     sha256 cellar: :any, arm64_sequoia:     "5624048dbb067f1a6d3784081029c3d738edeefd57188ce6724bb93d01aa53aa"
