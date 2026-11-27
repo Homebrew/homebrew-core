@@ -7,6 +7,7 @@ class Libnfs < Formula
   compatibility_version 5
 
   bottle do
+    manifest_sha256 "ba756dcd3db99fadb7814a2377019c73d371271f9e52c6dfc59c97f7611ac2dc"
     sha256 cellar: :any, arm64_golden_gate: "ce03871a2b1e7ca9003f64f8496a98f9fb9ef1e1703585ebfe51e22438a469f8"
     sha256 cellar: :any, arm64_tahoe:       "e4ec8be7b787f8882d5fa9875755decdcfdb6d05674f7be8dedb2ec8bade3d7e"
     sha256 cellar: :any, arm64_sequoia:     "658cfe5d9957efeab49b514e03cd22b325c10a3fbf81286e0d73f68e93760b9f"
