@@ -8,6 +8,7 @@ class Libiscsi < Formula
   head "https://github.com/sahlberg/libiscsi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "495f4918fcb15dee759335329832cb489cbf46933e28b1cfdf52504e2dd4785d"
     sha256 cellar: :any,                 arm64_golden_gate: "fb95d86acdc57f522aa724dea16868e3e4acb14839b6aeb6876999a743abdc4f"
     sha256 cellar: :any,                 arm64_tahoe:       "228ad58b2cfd83ee90f023e8eb33a905b2fd142121ac57ed7cebd4eab871aad2"
     sha256 cellar: :any,                 arm64_sequoia:     "e64e00ae751658e12a5ca6338aa6567bb8c7dfa2cb2fe6ab763b4db200a05d70"
