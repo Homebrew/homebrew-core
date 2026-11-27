@@ -7,6 +7,7 @@ class Oauth2c < Formula
   head "https://github.com/SecureAuthCorp/oauth2c.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e43080b36b7d81e7a914d12b44576e5364663e750c0ff09b7e8cbf678223cb76"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d75d44a4993f6232df595f26415b5391523d2bf5f81c0f8ec355a8ec731b0be2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d75d44a4993f6232df595f26415b5391523d2bf5f81c0f8ec355a8ec731b0be2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d75d44a4993f6232df595f26415b5391523d2bf5f81c0f8ec355a8ec731b0be2"
