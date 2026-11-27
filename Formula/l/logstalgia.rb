@@ -8,6 +8,7 @@ class Logstalgia < Formula
   head "https://github.com/acaudwell/Logstalgia.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a70945c6c4f50c535cd243e797415369b38c3d3d830bd1bb3cd4bb50f76485bf"
     sha256 arm64_golden_gate: "e9c9657db153094eda271fd6fd691b403c3ab28c277d563a7759fedc1b2f59e6"
     sha256 arm64_tahoe:       "968fb21de628f1134ff9658143f311a4308d50a70640c56e4cafaaabaa50d6dd"
     sha256 arm64_sequoia:     "ad39fc4b76c2fa15e0dd1c96a7d68138854eac7c140ed672286921e230de1d16"
