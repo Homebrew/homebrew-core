@@ -17,6 +17,7 @@ class Snapcraft < Formula
   end
 
   bottle do
+    manifest_sha256 "4b00e346e3547e484eee75383482eb2f367a1e9f8bd8ca556260af84d5d1fc74"
     sha256 cellar: :any, arm64_golden_gate: "a12a8f06dcfecb4f6a89f7b996463435336ffc40bbd7f560d6e6b3e6483be1a0"
     sha256 cellar: :any, arm64_tahoe:       "fdb3fe716a59b2e30ed4bede70fdc36c1d6e0b96b0dd21fcf8e99a932a793d93"
     sha256 cellar: :any, arm64_sequoia:     "2cd4256846147023e601633ee749c5189fd37bece1404976191f6b1b1e17e15e"
