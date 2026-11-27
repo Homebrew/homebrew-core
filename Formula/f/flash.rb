@@ -9,6 +9,9 @@ class Flash < Formula
     sha256 cellar: :any_skip_relocation, all: "7ba28ca5b0372393c667b70b7841d4b9b6f587e9ce0c0c1a6bf9bb67dddec577"
   end
 
+  deprecate! date: "2026-11-27", because: :repo_archived
+  disable! date: "2027-11-27", because: :repo_archived
+
   def install
     bin.install "flash"
   end
