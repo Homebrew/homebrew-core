@@ -8,6 +8,7 @@ class Libfyaml < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "861593589b164f9b48cf4800b27b3a2f20ee4c36daf858683ac58507370161f6"
     sha256 cellar: :any, arm64_golden_gate: "4b02b2f71758d2a79dba3699c9d0755a816a4ba278278ed22150bdcd007ff7d3"
     sha256 cellar: :any, arm64_tahoe:       "136a14b21e893b22e406404feccdcb478056fe48dcd9ad9449202ac1620e5294"
     sha256 cellar: :any, arm64_sequoia:     "e9dfc578d1d8a9b612a439dcae6bf01b7b8994556be9aaad47d115c777b87022"
