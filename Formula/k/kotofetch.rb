@@ -6,6 +6,7 @@ class Kotofetch < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "bbf91711a357b2378afd8912982bd326011459c1a1840f87a577a589f5dd852d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "273ad98dbbed88bb285897ff60fc2c6afcbcc3df45c3566d8f4a85cccd3be506"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3e775684bdb03fdc6e2c477a3c8251e5290e1e9898a3dbdc57442f4d0a38184"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b93523c0e12a58145cf9df0ee72317a3c6f072f6cd752334f97fd07adc104b30"
