@@ -8,6 +8,7 @@ class Duckscript < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "002b3f4129823590df54ae2741230206080594168ecd59f854278915a20bcfbe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85dff50620212b1131a69adc0c3d049d3f104b0a5f1d893736412aee39dea451"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fac39965b287a7a902b514a7aa9c1e735925914521e5b477001a74fc8353db50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88738c2f2440ce279be8dc4a4be77af2358d214a74f809fb7b3bff6672d56cc9"
