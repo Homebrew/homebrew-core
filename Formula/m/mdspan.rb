@@ -8,6 +8,7 @@ class Mdspan < Formula
   head "https://github.com/kokkos/mdspan.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "fa1c0f4e1bca95023121b8853ded5dd0cb381698b97248b32a5631aa125e505b"
     sha256 cellar: :any_skip_relocation, all: "3d399e86060ce7fb382eab770752f8d56408da0b30bf2d3d0b80b235d23b4315"
   end
 
