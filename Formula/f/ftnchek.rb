@@ -11,6 +11,7 @@ class Ftnchek < Formula
   end
 
   bottle do
+    manifest_sha256 "8836d754904c7355cde355e666ba501c789d893e0c9794f1e3d6dd36c8278eaf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9d6593fa1558380ca96eb929c3fde75e546529e5c697e0430d1095644e99ce1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51bc89f67465eed6818e10244d47118c0710024a7d27223df320dce824035774"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b24d6d02b408a6348e92e426db421e6026f8fe8d7a0b6bc3b7ed11928ed3b1bd"
