@@ -7,6 +7,7 @@ class Qrkey < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "39ad0e80874c8efd2c2221b7527ab58d8e754f67155b919608ec547a9c26ce27"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e5c1197ba23a791af65d3768ead429011119e1aefc124a1ff7d224e3263ea4b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "000b8efd1105c3c7ada0fcd77de138f093678fa63e05d0d34a7a7edaa31336aa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "000b8efd1105c3c7ada0fcd77de138f093678fa63e05d0d34a7a7edaa31336aa"
