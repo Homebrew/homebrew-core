@@ -25,6 +25,7 @@ class Libzen < Formula
   end
 
   bottle do
+    manifest_sha256 "49d35fce92ca643198c1cb85b6a6d08a86ac7e3cb332d1fbee6804e96f0a4b9c"
     sha256 cellar: :any,                 arm64_golden_gate: "e00a437bbe86cae8dd2ddca1c8cc15040ef744f25b77b6adf575ba67038e9f9e"
     sha256 cellar: :any,                 arm64_tahoe:       "ac591a473fcc4560644040121ea380ff05b3c9d376cae1e9126c40a62e2daf03"
     sha256 cellar: :any,                 arm64_sequoia:     "de3f0317ed82fd66a7bf6d5a4e876693c932b1a32f2974b02c4abf7b9ab79221"
