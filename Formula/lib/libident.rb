@@ -13,6 +13,7 @@ class Libident < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7ad02d4dc0f271be07d12a373f6efcc34405ce0884aa3eb7252c7162b61b51f1"
     sha256 cellar: :any, arm64_golden_gate: "6b861ec0af132f3c2d86d08ddae33e192040da20d28a518f5158d4742705bdd3"
     sha256 cellar: :any, arm64_tahoe:       "5bf318f1e22090881f6f7ee6f7d27bea66e0738da64488e8a2c23b358b00fe05"
     sha256 cellar: :any, arm64_sequoia:     "ebf7a988b65d7a6c90e56d121775a417a245e07d7332a6425725044b87182994"
