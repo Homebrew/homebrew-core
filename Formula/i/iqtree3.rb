@@ -11,6 +11,7 @@ class Iqtree3 < Formula
   end
 
   bottle do
+    manifest_sha256 "9a1fe9043968974069f9014b49ba89d94baea1712201085b5f6aed72331072ce"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc257799778fde421211fcbd0df317c84ec53587696550f03e6daeb339792aaf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e33ff1f5963b4ac45ef6a4b40ae9541ee891b4011c1ef524dc4f38595b1345d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6ce71f60f683e1fc6b5366ee0ad54dd287010dd864c2168b350497bc629266f"
