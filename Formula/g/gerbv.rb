@@ -10,6 +10,7 @@ class Gerbv < Formula
   end
 
   bottle do
+    manifest_sha256 "016589a51d345d4fcc70377c58d69fc756dfd917ed4eaf30e1ba4abc4bd1bd43"
     sha256 arm64_golden_gate: "c9f41308438d5a9ebff69e437751772ee790fa627b17d0489855016ccc816fb8"
     sha256 arm64_tahoe:       "788e066539724b16e264114157b1aeb7f250d68fbf26209f563d3b2f615391fb"
     sha256 arm64_sequoia:     "3a0eb6d8a1e72b1b5486a63301f7c34f4ed7e9be7c66b7ea46198d0f720e212c"
