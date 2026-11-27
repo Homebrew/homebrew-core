@@ -8,6 +8,7 @@ class Sdl3Ttf < Formula
   head "https://github.com/libsdl-org/SDL_ttf.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4ccbf13bebc1852dce4061eadcfa96f5c7657dc0eb72c53ed4bfea6ac8d4f9cf"
     sha256 cellar: :any,                 arm64_golden_gate: "647af38ea9163ffba231afb8efdaceaca391f583e489e683688de94f0a5b8ea0"
     sha256 cellar: :any,                 arm64_tahoe:       "ec74409d1b465395c8729c489d256b309154222a3e68d371077038fccb19d793"
     sha256 cellar: :any,                 arm64_sequoia:     "472dbc6423662615b135349d3a51e7e71f8bcc143b8ce53e8cfff168680bdebe"
