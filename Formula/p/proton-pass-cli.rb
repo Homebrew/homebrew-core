@@ -6,6 +6,7 @@ class ProtonPassCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "ed973a16dc05069a9f4b460124e61d8fb5e3a6766fca17013ccf8bc8a0e71dc2"
     sha256 cellar: :any, arm64_golden_gate: "9722b3c2220a846359afd70eb10af4aef10c92175a2043050bbf0963d24cef4b"
     sha256 cellar: :any, arm64_tahoe:       "c70c438d5ad8347833a08a3ffb43c79367a51dd5b7432475dd03f9d5fc7b5ad2"
     sha256 cellar: :any, arm64_sequoia:     "1ed571b53bda14fb37e9444cdffcfd6bade098deaa523ddd3b004086ef2a464c"
