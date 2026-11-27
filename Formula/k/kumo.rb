@@ -12,6 +12,7 @@ class Kumo < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "64d7edb6b032226de1c420a6f9f50a4f250c6253ac2205c880b06d7ed5eea2e9"
     sha256 cellar: :any_skip_relocation, all: "964493ca566d7dc73ab4519fa820e7360981acd9d8d343920f843b83642cc008"
   end
 
