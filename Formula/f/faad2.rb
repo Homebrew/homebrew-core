@@ -7,6 +7,7 @@ class Faad2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "9e170e8b781160ed5db760779efb935ec4d314fb8eb92667eef1bdff53db46fb"
     sha256 cellar: :any, arm64_golden_gate: "15d889dc25b77a061642b62d94aafae9989197babc254580666e400ce25fb485"
     sha256 cellar: :any, arm64_tahoe:       "a1c6012d8a4d604d30f684d72ccf39c5c0aab2c724a4868f2cc143f52fed0dfc"
     sha256 cellar: :any, arm64_sequoia:     "b9875c841217859d9c92d675b4cf719d53145cbafee9bac95273713822f55281"
