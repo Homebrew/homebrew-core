@@ -6,6 +6,7 @@ class Nyancat < Formula
   license "NCSA"
 
   bottle do
+    manifest_sha256 "48121cf8dadde6d8c459b9a10d315f55a04beaa68e598e8801c3c4cd036d9751"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a06b68558dda7497c3528f3e72c3eb526a72bc9e79a2d3f71a249255670fbcc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4063d47ab6f498ff5b7dc2baef313c16f68e20bf302f219c43ef7f6ef24c611d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc5741eb96d5bd24301b288f9d2500c635c2b9c0ffc1654ed4ee1b1bfd02c303"
