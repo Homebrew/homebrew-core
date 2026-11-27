@@ -15,6 +15,7 @@ class Lapack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a2e9a474a69964b67ae2a661ed65cac12e6b615355c2ffd94302f1f7cff1904b"
     sha256 cellar: :any, arm64_golden_gate: "11ac29e3ffa3112e6f12bd39a759d16fe77e071e48dc3f1b37e5f7b563e5ae46"
     sha256 cellar: :any, arm64_tahoe:       "47bfbef26340ca9eb6f7e705d9bea6068d50c5e040f71d39a7bfa9bc3bbeb425"
     sha256 cellar: :any, arm64_sequoia:     "584aa15009434e3fdea6a01ddcb2dc980bf3747edafa87bdd6190075632ae79f"
