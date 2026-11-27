@@ -17,6 +17,7 @@ class Intercept < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d49188c4dd7f0727863b1241eb684a55b4bb95b8f5f164c5bdeef4df3c318a04"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c9c3cc670ba9707b3646f1c471551bbdca1909a25d7180ae1ca7005b94c12d5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9fa98c582dcb9d81e29e90d3d67aeb93e4840b39a02e7a89d46e8e6e9f6ebf3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9fa98c582dcb9d81e29e90d3d67aeb93e4840b39a02e7a89d46e8e6e9f6ebf3"
