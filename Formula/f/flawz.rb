@@ -8,6 +8,7 @@ class Flawz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3884a1e20749456f326670c21d801b83d3137bf2f608744de9182926df47c77c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7701200ca9a319e1630bdd0ae229fdf4cfe2ec8c0f630e29cfb997f22b0a651c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5391e6b06f900858eae6f6b6b56daf0d488c6c839adb184164b777be4d6502e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bb8302663275870e215fca1308fe23cf7caa0d6eefa1e21073f3bf3d43fd503"
