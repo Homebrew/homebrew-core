@@ -7,6 +7,7 @@ class Eza < Formula
   head "https://github.com/eza-community/eza.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cd61e883693df8759429f161bae1cc93dd93654e4e3c09a261ee759fa2f5a602"
     sha256 cellar: :any, arm64_golden_gate: "acc695dd30baf5b466a5d62ec8a48aebb667e2614124ad4d2c2d9f6e431e495f"
     sha256 cellar: :any, arm64_tahoe:       "49b4351a61ebedbe102726fadb3638998cbfd98a81cb1a5f0e4fd0f1be30444e"
     sha256 cellar: :any, arm64_sequoia:     "94b3b640649a5e89a6f75c15fa2fa66098cf78c4faf742a6d43771fe377f31a0"
