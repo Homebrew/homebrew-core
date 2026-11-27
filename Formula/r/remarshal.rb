@@ -10,6 +10,7 @@ class Remarshal < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "04893ca5be67e8b39d2de580ac4880e365402224e001e26ced11b5209a71b9f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b6c25d2667bd00593415155fa5a8a80ddc22b4ebfacefc870dd448ed9219698"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c27c6585ced0c8ba2d95be74405e5b8dfbd98fa94931a0e9e6727717e0cb82ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f4122c3ddc738739c1f62a834bb9e8ea4db8d5e60f1f3a1aceaca9b67903102"
