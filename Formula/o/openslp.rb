@@ -7,6 +7,7 @@ class Openslp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f93c92770de0d7104367d9a0600fb5e43c430e693833e5d455a45056dc71c210"
     sha256 arm64_golden_gate: "49ac73ddf88e8d725f7e0d56981afbd58b88558d6b226ea79a17ed8e43dc28cd"
     sha256 arm64_tahoe:       "03318a808866a33ea675a2520d6d889c9aa74f6817b9a30bed9bbc0cf4a6938d"
     sha256 arm64_sequoia:     "8ad62fa05cfa66977820ce7095c95f7f3f9573fe8c11565cc80adb9767bb3ae2"
