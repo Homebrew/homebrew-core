@@ -7,6 +7,7 @@ class Fastani < Formula
   head "https://github.com/ParBLiSS/FastANI.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ce18d3764725b256ddd4576e1357472a4f693398a4675d614d49c89b3b96597a"
     sha256 cellar: :any, arm64_golden_gate: "acb8422de23482e9d97284948ef533e18d707855a87aaaa3890c1627610504b1"
     sha256 cellar: :any, arm64_tahoe:       "8cc460f3dec2f9607eeb148cb206153f9b70f9ff1781e274c555ae9829c08fe0"
     sha256 cellar: :any, arm64_sequoia:     "dcd4709d2759c833baadc72446b5843b3bee5ef16347273450fedc04668687d4"
