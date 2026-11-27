@@ -10,6 +10,7 @@ class Jrnl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c3ca45c1ecafa8efd69ef4411b0379dfa1479d61b725a44eea218a0bf1d10da8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4085ecba9046a2cda15d7cb41d9c0ecbbb01717b9b423e26d18eb84c3b312a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7e6b5e6113949bd718abc223357cdfa45dd91c50fb993acb927c7c1d1bb6f5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "214f21fbd7dd695c1e3a1e470d01840eab8c3b721b91c867032a9d8d31997e9a"
