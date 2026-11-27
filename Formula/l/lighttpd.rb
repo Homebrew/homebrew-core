@@ -12,6 +12,7 @@ class Lighttpd < Formula
   end
 
   bottle do
+    manifest_sha256 "55d08cafb374f8236404e4812f72cab90b58ad8ae3229848d56fe71a69eb0205"
     sha256 arm64_golden_gate: "bb69103596c6d5b04302ded5975f29a2a39ffb122e600e25c425497a6df935c5"
     sha256 arm64_tahoe:       "caaeebba435c9d6237f049fa4a06044d33c399e5b1fe3f8be70cf7e8e4040b8d"
     sha256 arm64_sequoia:     "0991c84254249a542ac502c1834be45c1ffa25de91fcd1b1f9ede7935a6e1120"
