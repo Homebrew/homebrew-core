@@ -9,6 +9,7 @@ class LueReader < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "2ad3d030bf581712b57f796dd55db6954ff8e9a85f39fb9a1015772fa14ed7f4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3466ec2fb32e22e2ef7f39a7c2452f0f92c3d556209d789aea888f9dc445c09"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "312ea4096ac0abb72839a6e736e7cc8f75b4b2f678af82747fe09a2c22636fb6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ea7f23a21f5cb923497ee3dd798be67a996ea0b3cae16d5ffb5eb81575c622d"
