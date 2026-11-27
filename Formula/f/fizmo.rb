@@ -12,6 +12,7 @@ class Fizmo < Formula
   end
 
   bottle do
+    manifest_sha256 "56ff92061c30f68909a55b5f249ee5b7e4b4aff23eb6753dd6507ee0638eb345"
     sha256 arm64_golden_gate: "242f001faf8eb64c684d96ea2c3dbc8dc5113d65aef3c9cc88f645dba8b03f80"
     sha256 arm64_tahoe:       "84b3dabce41fa7fd0883ff4cc412d65b73d42da0b9f5968db0570df314ba20d7"
     sha256 arm64_sequoia:     "25c9f7c41969ef25f4487be678d26f761384e6f13aed58856138c6c5cea6a3f1"
