@@ -10,6 +10,7 @@ class Pwncat < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "a059829a2edb6b7973970309a6a6d9059a7cc2610301bfa6970bc37e4ab7daec"
     sha256 cellar: :any_skip_relocation, all: "b22ee1bd975d21853635c9bdc1880f25a39a83cd3085ffd2cff2692bbe162b02"
   end
 
