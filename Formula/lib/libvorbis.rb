@@ -14,6 +14,7 @@ class Libvorbis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "98f8989aa1cfe565e34743bb8b9e96ee1bb63de0e4e528de14f8673cc00e3518"
     sha256 cellar: :any,                 arm64_golden_gate: "d68d75f926e7734a08aea51e75c69139f09dbedc8c5b9eb5f580831e56ceff4a"
     sha256 cellar: :any,                 arm64_tahoe:       "99c0de7ff87f4648bb17acd0324a15563e975b7492dbd4f11fd656a8eb6b5622"
     sha256 cellar: :any,                 arm64_sequoia:     "c28d1e0b461a4cf6f5aee72e664ac6f5f6f3efaab44f15b91924f08474cfafe1"
