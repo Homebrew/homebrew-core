@@ -7,6 +7,7 @@ class Nodenv < Formula
   head "https://github.com/nodenv/nodenv.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d10035081c9221a6c4cc3a20087db3caa2a7d70ed5ff506085a24111c46bbad3"
     sha256 cellar: :any_skip_relocation, all: "a01dda203871fb80f56351ebb37f528f1f65de52f681a57e98d38d5fa6911792"
   end
 
