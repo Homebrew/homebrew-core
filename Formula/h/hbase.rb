@@ -8,6 +8,7 @@ class Hbase < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a9ec43e97e43f2d3b066c01c5ddbeebc435eba5ed2f6442e87b79753fbda5147"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c6d118044288e0fa75281ec90e5ed5f17e36d1836314f67a1bb339afceb5a63c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7025d1ec841d5776d393dea3395791ceec2fd6d74b31a619916d16ba8c812f3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7025d1ec841d5776d393dea3395791ceec2fd6d74b31a619916d16ba8c812f3d"
