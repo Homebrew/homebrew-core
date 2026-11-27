@@ -17,6 +17,7 @@ class Qtspeech < Formula
   end
 
   bottle do
+    manifest_sha256 "4ded314817859caa820fb88cbcc9baf86b9ccd90df70ed1b62df8bf80991bacb"
     sha256 cellar: :any, arm64_golden_gate: "d2b90d48c9b2f0e5e000060c360d536088ea4220810efcc5105dc5a44f5a3d28"
     sha256 cellar: :any, arm64_tahoe:       "9ddbb7fb6484edf036f581f4c4b1328b2216ae4cabe51073f9e58ada1d4693d2"
     sha256 cellar: :any, arm64_sequoia:     "803df3b6612d164b97e482165bc614302b14b978b26ef79c5038ae9330088f16"
