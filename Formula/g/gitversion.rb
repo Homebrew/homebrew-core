@@ -8,6 +8,7 @@ class Gitversion < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "50e2f6ec252c1eee34dcd9ada0abdf8db07f3e6f4ef1a40f0c45578c38501183"
     sha256 cellar: :any, arm64_golden_gate: "992f61fca409cb148c6ac95e02ea1c082e1285e870ae274d17da31cc638540ea"
     sha256 cellar: :any, arm64_tahoe:       "35d54be91f8f4363667456822404fa6f724919142e1ac51c6745703d63ea14c3"
     sha256 cellar: :any, arm64_sequoia:     "ac4ca570dc73cb0af8b79d5d8107a5166648f400e7c022da6580eb5d2cd66443"
