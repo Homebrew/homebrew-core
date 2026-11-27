@@ -7,6 +7,7 @@ class GoogleAuthenticatorLibpam < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "6c1d963d5ce35ba7ae3d3b89ac3cdb50afbc1d293fea2869fc9814e664a38684"
     sha256 cellar: :any, arm64_golden_gate: "e2bb341adb84e7f469fc5384e92471d246ba5515a7cf0ae9faf65ec11a67e30a"
     sha256 cellar: :any, arm64_tahoe:       "a17099cc9735309f5d725c89fdbba27bf1e1e935e1c2cd82e67a109af595cd9f"
     sha256 cellar: :any, arm64_sequoia:     "98e2cf64e941d7fa153e15a3ebd7998614442951fc5e99c9745c988b7b582ba0"
