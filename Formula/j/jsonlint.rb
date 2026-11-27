@@ -6,6 +6,7 @@ class Jsonlint < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2d8575ce43dad9b969eb6fb344573d0ec782d59424c940194f85af6ddfbb31f8"
     sha256 cellar: :any_skip_relocation, all: "f385934d75bcc430e766ac449f35048cb99579b9179f8d7e38bf38459047bac1"
   end
 
