@@ -8,6 +8,7 @@ class ProtobufC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b56fa608e66218127900452b79c8e6c5f2a0d9e196a87f3dc6247550e419598c"
     sha256 cellar: :any, arm64_golden_gate: "85448989d575d6446049b55ceb00e124fe10926a7e821260267751e46f40e6fa"
     sha256 cellar: :any, arm64_tahoe:       "5e0c76470b2d4a38b1da787b4c4c4f8068777fe539ba246671c430caa2b4944b"
     sha256 cellar: :any, arm64_sequoia:     "69edb8458f7665eebf89cbd4a17a5440da7916d395301b8daef1d0495fb1d6c3"
