@@ -13,6 +13,7 @@ class Gdal < Formula
   end
 
   bottle do
+    manifest_sha256 "1b710ed310f3b938feb16686613242b2f2c83be5d6dc0b8cc113d3049bf1c6bd"
     sha256 arm64_golden_gate: "679a8015e90480dec96876b25cb17388f2339ee45c5b22f04e6f664cc3ab7046"
     sha256 arm64_tahoe:       "911f155bd8c2599f6dd986e1ec681f9eac66ab16276b20276358cea4de62d9b4"
     sha256 arm64_sequoia:     "87bdf577304f6fd7280dcb12ac83931998ba98c9b6934b7aa3d4ce4105e6b306"
