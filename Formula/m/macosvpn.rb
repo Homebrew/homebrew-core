@@ -11,6 +11,7 @@ class Macosvpn < Formula
   end
 
   bottle do
+    manifest_sha256 "f8d6acabfb738c791970652bbf759343e287286ad0016c7532adba71b84f14b0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4dd88a4d3668899ae943e71d9bad5f7eebf78100574b05c3a2b3c4406475420e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5eb27f50fea31e5fba9f320ee8a43ce8a1a393507a9a892864712fd37f73f5e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ac4947917a99f3fd96ac3a81a6dbe18be590d25df2bfef024dd0c3e564e9b1b"
