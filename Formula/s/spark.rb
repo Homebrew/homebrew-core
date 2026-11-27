@@ -7,6 +7,7 @@ class Spark < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "68214cc04c5a548f4964ae695578848efc4242d531eba96a5ee710b0ae5792fa"
     sha256 cellar: :any_skip_relocation, all: "538b171dbbf8740d4bd1ead547ed1928f3fc03d6846fd9ab1cc4a6c37707d09c"
   end
 
