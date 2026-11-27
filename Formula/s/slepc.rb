@@ -11,6 +11,7 @@ class Slepc < Formula
   end
 
   bottle do
+    manifest_sha256 "3efe8838d25b58f62a00cd65489ef49248e4753a78a79a96870d883fc6484591"
     sha256 arm64_golden_gate: "b2d3679e2908d87c0b2c921ccd81b767e34fa773b84a6f41b05c994c3eb6e3cd"
     sha256 arm64_tahoe:       "8a37985bac8805d059d829f644750f10fe4d3c049502ec3829cf4c08aa7667f5"
     sha256 arm64_sequoia:     "2351ccbf993f718b851b37bc1903f8f2981ce881a6e63f66c4f0a9bc81d6535d"
