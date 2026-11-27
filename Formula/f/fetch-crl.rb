@@ -11,6 +11,7 @@ class FetchCrl < Formula
   end
 
   bottle do
+    manifest_sha256 "4679edcb7d84ca8e87c5f415b1060f8027ec40e4542eb59a8641102492372388"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2385527f2d6cb73580e951ac76bcdfa89cfe526695db164b39304e1b58a97146"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2385527f2d6cb73580e951ac76bcdfa89cfe526695db164b39304e1b58a97146"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2385527f2d6cb73580e951ac76bcdfa89cfe526695db164b39304e1b58a97146"
