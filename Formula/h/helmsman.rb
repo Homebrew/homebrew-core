@@ -8,6 +8,7 @@ class Helmsman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d28e5710f58b55c94464bebf8307ddaa7e6681cdb54e9b3f63ad8d6487fbd60d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "64a5592b6e5e5a071b254e3e884ae3148dd3709c0c670521cfd90d6827b49450"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70b190cca08b6c8bc0131a07817b87830a41d1462e19fd9f91dfa07dc09accb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70b190cca08b6c8bc0131a07817b87830a41d1462e19fd9f91dfa07dc09accb8"
