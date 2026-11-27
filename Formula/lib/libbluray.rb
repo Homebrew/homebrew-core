@@ -13,6 +13,7 @@ class Libbluray < Formula
   end
 
   bottle do
+    manifest_sha256 "5caaca703e3b8c996704d308487a5f17583315ca3881d5a4813cb5d500c24a0c"
     sha256 cellar: :any, arm64_golden_gate: "e92e34f2aeea2d18dd5c3e39afc361aef1215ecd00d943922349760c468a0586"
     sha256 cellar: :any, arm64_tahoe:       "6f27f52be0330c4e36c59a6beb6a12255e8e6d51448d35d889246419d20ac042"
     sha256 cellar: :any, arm64_sequoia:     "90d5839c5058c8fc7a1b5504a75c350bdd4ee65617a47c02c80d992fd3bba70c"
