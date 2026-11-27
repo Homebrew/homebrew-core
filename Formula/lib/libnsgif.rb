@@ -13,6 +13,7 @@ class Libnsgif < Formula
   end
 
   bottle do
+    manifest_sha256 "2838c63f3db05a3c9172f8de4207ea8e7e308ea8bb5e220de0f535e54330c789"
     sha256 cellar: :any,                 arm64_golden_gate: "aac51c6cd1d27c915404b273d13f86e5a0284e89df1077201e286ebe6702d4f8"
     sha256 cellar: :any,                 arm64_tahoe:       "24a59de1bad99d2d805e0054f54b09fdadd75c69f50aa3d105d34aaeee184d21"
     sha256 cellar: :any,                 arm64_sequoia:     "1b496d526be94479c22a33a721be3f7c5afe6ec2c0c62d2a9be03b04cce5cb19"
