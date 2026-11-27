@@ -7,6 +7,7 @@ class Sdl3Net < Formula
   head "https://github.com/libsdl-org/SDL_net.git", branch: "main"
 
   bottle do
+    manifest_sha256 "678354f24be71a8f3e46d530f12182e92fecccd33de1f8cea7587471fd05e932"
     sha256 cellar: :any, arm64_golden_gate: "377e11c316047e051ff89c91f0081949a902d52a4b2ac32357a2ccfe61d49593"
     sha256 cellar: :any, arm64_tahoe:       "86c2fac77dc6d19cccb56e691994de9e6c0955f3e14f8612c2d4c3ed8ec87e58"
     sha256 cellar: :any, arm64_sequoia:     "77b305b714ad317207b7c54d915760dbd6850d135cf44f8ea7e0956cd9a1e36a"
