@@ -6,6 +6,7 @@ class Gearman < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "f565cb9305612792eec7ba22b528e25527431502ca3b5daf708688df8112c490"
     sha256 cellar: :any, arm64_golden_gate: "da498d8e5e0e1fa3fba4f9b80abbd7a16813a9927d9af78cb477d8f1a2bb0378"
     sha256 cellar: :any, arm64_tahoe:       "032a27a02aa3dc453fbc8e53d63bb0e96fba75d3fab28c975b92f28ef09b99e4"
     sha256 cellar: :any, arm64_sequoia:     "07bf9cfe00b8256dbef7c2675f0bf2ca775867020337163df1b0cf5abc355e54"
