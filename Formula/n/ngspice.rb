@@ -12,6 +12,7 @@ class Ngspice < Formula
   end
 
   bottle do
+    manifest_sha256 "f4f5d96626f6c166b6b2411412320097650ad78e8ecad0c67d3048b9d5a8d422"
     sha256 arm64_golden_gate: "2cde49d7335722f1f2773396f4c4c24d0cbd73e9cf37d7ec6020ab8a1fce46b1"
     sha256 arm64_tahoe:       "0da9798c61ce91057391c0e954ac1bcfbf1104ce037a07cae8f76e00fdbe4798"
     sha256 arm64_sequoia:     "d929329a10079a6291b36549b1ace8a0dfb2956d7569135e7dad1795239e2959"
