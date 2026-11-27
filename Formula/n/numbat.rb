@@ -7,6 +7,7 @@ class Numbat < Formula
   head "https://github.com/sharkdp/numbat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "784e92cb61d980896d807b271c917902edb75fc7ef8bff0d3a25f118265582af"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ff8425cd0572f664d89e7046d6c012850de710f69abb98dee3081d9200128b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "28cef94d64d123003d870720448134cc3a4470a7cbad936eb64f5b0c3486961f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6a4dca114674d1b064f394bf26efb806d61b37539d814bbe3d7a6763e4b8486"
