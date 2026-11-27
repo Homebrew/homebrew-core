@@ -12,6 +12,7 @@ class Jasper < Formula
   end
 
   bottle do
+    manifest_sha256 "f242535ca7dcbc6b58b6cd6fe2ee9a8669782046bedbadb561ed3cd64e039151"
     sha256 cellar: :any,                 arm64_golden_gate: "b2fd38a58326e4784c9336c4541627d35d993b90b6a84683ecc205d0933d4b94"
     sha256 cellar: :any,                 arm64_tahoe:       "bc734fadc3ec13b979742b8be1aec388ae7ff06f514057253397af67f302ff96"
     sha256 cellar: :any,                 arm64_sequoia:     "ff2667bbb901e39492d5e814f13d435ddc04dde4344e507cac25161c8797626b"
