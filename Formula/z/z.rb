@@ -14,6 +14,7 @@ class Z < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5cc99df05139579e7982c288c6f2a47d483f8c3459f3c4e244f2c708bf89696f"
     sha256 cellar: :any_skip_relocation, all: "8d048cdf7dd88dfdfe1e89e73a842fb91e743d6e0ec6c60fc99607e0c3d511b0"
   end
 
