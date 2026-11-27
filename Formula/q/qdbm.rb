@@ -12,6 +12,7 @@ class Qdbm < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "5332205455fd340ca0076b1e94aaa367af92e2f3a44f24b6734a31722d5a9d7b"
     sha256 cellar: :any, arm64_golden_gate: "2ac9f0535a8950ee5b039c0274dd4a31aff23840d2a0574e5fc44b467c421d32"
     sha256 cellar: :any, arm64_tahoe:       "39f437a07c0042d360d21bfb1d6001d1af034aa544b19ef62bccf7be4f858e8e"
     sha256 cellar: :any, arm64_sequoia:     "85643dc7b30d1c9743d008801ca71631e93cdcb1c1e364c8cf71a1df4b248bed"
