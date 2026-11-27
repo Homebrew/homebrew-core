@@ -7,6 +7,7 @@ class Pgtoolkit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "26d452291da63c37c105d10c89928470e72267609989f0dc7b79d623422f1262"
     sha256 cellar: :any_skip_relocation, all: "2ff68677e0eea7a722a102fabbb166117a3e199cb010d10a65f73a2427026a71"
   end
 
