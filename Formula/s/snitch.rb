@@ -7,6 +7,7 @@ class Snitch < Formula
   head "https://github.com/karol-broda/snitch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e7629fac15c75da1fd8f3198ca0e6f24f0fa4634277eff726a43e4f7eb495412"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0aa8bdd949a370b4c526816bc50c7d0a59456c98dd088657b3046ee10da59b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a89f1ef41e5f83a56f4fa0b118fd514993fa22dac5b031cb4e6f087e05680e7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60b586aee24f23eea1ef1078541c07a8aaaca8c72de11d829a11da4898ed4ae4"
