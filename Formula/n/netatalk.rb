@@ -20,6 +20,7 @@ class Netatalk < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "ca1fc6baacfe44b81fcf3b35d5bc0d2300caf9b1ec3e41c4ab7630cc8519435a"
     sha256 arm64_golden_gate: "08c2caee748401e936f474aef60e3bd0d4dbc59bd6a5112e5ed3ddd533f99c0e"
     sha256 arm64_tahoe:       "8fbac1d7eb89c27713d3c95128842b857a8f209e03f0277d33a7a67967239813"
     sha256 arm64_sequoia:     "5822fc3d52d64a08cdbef179387a9e45203d03f506fffbc6f2169c74996c4093"
