@@ -7,6 +7,7 @@ class SpotifyPlayer < Formula
   head "https://github.com/aome510/spotify-player.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f5bfac1e672b65c80d0944237d17517b791e46879b33b4f70c33f41cd3434ac8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef0bdc1161439fcc3ea673b05f2928690e2c4e962abc17a5a4aa08346e9fb523"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04917bcdbefe0824841fb8dd6bf067da00abffaa0e7b4c3840d3f94697998e9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e17806aa52cff776c7794e3904d0a8becbcc1587ed3fa39a44307c4a069c447f"
