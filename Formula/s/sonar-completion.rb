@@ -8,6 +8,7 @@ class SonarCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4279fd3edce8e1d08638756169478e943b028f811d9ae5775f416d361fafead4"
     sha256 cellar: :any_skip_relocation, all: "26ce38d7913a1a421b3ea7dc99d32b9f3bab8e2bf95c50a1e2fbfca0419dd376"
   end
 
