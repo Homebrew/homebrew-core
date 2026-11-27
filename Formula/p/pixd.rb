@@ -6,6 +6,7 @@ class Pixd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1f88f8c028d0a5780b6179c1201c6663fba299d25275c3db5f6379bc8564e197"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2bae781f36819887e7799546e5f6c3092c9bc00511c6168c789b68f4e2eb6c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00a4d99285c81b2948df43e3e25515596d12980af8f535419d1665ba77b5ef33"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c41c69c03c8f20507a9014e41e7e02cc6813abe0c919ae40a16f82e0b01fe899"
