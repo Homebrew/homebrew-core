@@ -10,6 +10,7 @@ class Pympress < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "c73ba3b3c518abba47bb7a8bb205262cf3781b19f64eb74f90a32b48123b3058"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9ece30038f7171daeed1e1fd39e45dbdfec149ed669176a535c437f99b0f362b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e1fe447005a3459ad98e3f28544777ef762c54d7f3cd48ed70829b572f584c36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "173e3e14c3497bb7598f07904904d0481df16fb487f2c27c57512bb90511b829"
