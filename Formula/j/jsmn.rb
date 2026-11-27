@@ -7,6 +7,7 @@ class Jsmn < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "464ec2e3c088c36e3e2c4db711b54b58b49fd1e378c8c59700f404f9c81b112a"
     sha256 cellar: :any_skip_relocation, all: "14d421cf40a85a3edc9d909bf6ea5be806deee891e3f08b086292f1c1a9eee57"
   end
 
