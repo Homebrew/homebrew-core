@@ -6,6 +6,7 @@ class Retry < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "e3d7889d7e9f9930c35ad4541dc5c49ddfa1c8fa8cda4f220215ad848f28f04a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da33a5e97f32fc809d45071ccf84d230b9647c14092eb7ce36b415df2b8b8c34"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60acf30cd8124a07ca056a042cc970d73801333d61358e57a63c6b04d2fdc896"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c52292ebe19072bb8aa91d19d49e5741d17839166b309c37fe130e22c7f545bc"
