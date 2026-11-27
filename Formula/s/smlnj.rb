@@ -12,6 +12,7 @@ class Smlnj < Formula
   end
 
   bottle do
+    manifest_sha256 "eb54fd0c622af4093abf86530e2742c2900f0e54188464be688a5e48d6bb6dd7"
     sha256 arm64_golden_gate: "89eeed55fbcacbab4b4e9f5e9140c5001aeeca353fafddddccfd783f229e3686"
     sha256 arm64_tahoe:       "90c2bca668f52f10f627b96bb805ac09d53448e03f499bb57cdf87dd3a40d91b"
     sha256 arm64_sequoia:     "f7e037738fad6b2bf09053dcb28dc99f4ad2dcb578145bbf86f80f675a912cd4"
