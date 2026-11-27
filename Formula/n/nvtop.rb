@@ -6,6 +6,7 @@ class Nvtop < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "390be4e76c9c24ac5058a24584a8501c309ea867e3a36f6d8b78200f0dd63895"
     sha256 cellar: :any, arm64_golden_gate: "51f654b4dc7a59dea8752df811b77801eef3244d73faaa47ea6415bc187fe873"
     sha256 cellar: :any, arm64_tahoe:       "559c770e90849e10b207bb0cac9a4828f74b39115b607c54edd65073ccaed1dd"
     sha256 cellar: :any, arm64_sequoia:     "2573b08206524a93f5a56e9ab2c294e261c97fe09fed65992eface285dc7e1d3"
