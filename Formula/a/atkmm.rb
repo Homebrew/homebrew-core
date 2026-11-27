@@ -6,6 +6,7 @@ class Atkmm < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "4e7a110d1ddd076a75f11ee2f26ae967bbeb149cb16042bb645c86de0f2e3654"
     sha256 cellar: :any, arm64_golden_gate: "3c105e610e6f30c0dad33b46a30db3f97896f9d140c79d78925d3c5214f95fba"
     sha256 cellar: :any, arm64_tahoe:       "7ddb83b502756b3e2e066918173a8bd07b2e3a3b2a2716832bdd7fe9f6d3c4c8"
     sha256 cellar: :any, arm64_sequoia:     "913a93e6e25e13412b80bacd1839a6bc84f0a4d863982b9d1d5a8d678b1872f5"
