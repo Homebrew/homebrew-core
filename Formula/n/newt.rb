@@ -14,6 +14,7 @@ class Newt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "03a226585eb86307fe23c0b29f9b4c76afb93f1e764a09498847094c4dd4599a"
     sha256 cellar: :any, arm64_golden_gate: "a9f3e8cd8dde3c9954293d474798f020a3b7866a4073c11da7042a3ca871dfc9"
     sha256 cellar: :any, arm64_tahoe:       "d0a7c444dc42b1d60566ba9c09075e15d849c8ab98ac200bf4ca3a4935904879"
     sha256 cellar: :any, arm64_sequoia:     "81ed2a2917d7b6f396b3d48045e230f7919aba2217ce03a415f5c4274578dd97"
