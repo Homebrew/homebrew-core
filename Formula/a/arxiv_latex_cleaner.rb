@@ -3,8 +3,8 @@ class ArxivLatexCleaner < Formula
 
   desc "Clean LaTeX code to submit to arXiv"
   homepage "https://github.com/google-research/arxiv-latex-cleaner"
-  url "https://files.pythonhosted.org/packages/e9/0f/a3fe5b578a633043e0ba3a5f62f22f504c22adb72df97dc32e22b363b347/arxiv_latex_cleaner-1.0.12.tar.gz"
-  sha256 "e9ebb423ebca5351b5f7caadd7746eec450a8d6f9909cfca57d7379bd1be2281"
+  url "https://files.pythonhosted.org/packages/e8/c4/edd686daabd0a853ca2754b91ea54eb546639cb2ff8ed49a3d4d0e21b046/arxiv_latex_cleaner-1.1.0.tar.gz"
+  sha256 "ebe6e52b910a424348be2712f1764e69b0b1f7446e59f0fdf23f5f92e67a2a47"
   license "Apache-2.0"
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
@@ -29,13 +29,13 @@ class ArxivLatexCleaner < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/61/27/a5afeb952577b84ee5fe48b8b9ce47ae662dbb69cc5b76c28eff98f83b1e/regex-2026.11.9.tar.gz"
-    sha256 "316a70fbd70e999c9664681cb0eb5b4982b2cc0f623c7c86a8a112e1bd4c6277"
+    url "https://files.pythonhosted.org/packages/fa/b8/61d96601b737305a04161da340499cbb3299029d4ea0f9c717bc35977c2b/regex-2026.11.25.tar.gz"
+    sha256 "d3ea8d9698f13f3fd08c65f9bed0bb07bcfff80b61dfa14d86b8cc398f886588"
   end
 
   allow_network_access! :build
