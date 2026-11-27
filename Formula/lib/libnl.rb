@@ -15,6 +15,7 @@ class Libnl < Formula
   end
 
   bottle do
+    manifest_sha256 "fbe330dee966e4679f61d0476ebbd8e5147dad6c076187d9c04651f1591b0171"
     sha256 arm64_linux:  "75c3dff2c1bd4a952ab0b661639b0629829b1d447e20cb6bb7471655d13ffe83"
     sha256 x86_64_linux: "1d3128ef9d8dde95c5da2f454abc2b4b62670fd72528f4a0b9f62e7e163561f7"
   end
