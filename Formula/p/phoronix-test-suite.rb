@@ -13,6 +13,7 @@ class PhoronixTestSuite < Formula
   end
 
   bottle do
+    manifest_sha256 "4e68fd403f4f6282e31d6d90ea3add2553f1656f5f320f3fec8625236445148f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e3c5de427c3bac5d9e7fa95ef70e6afd82f041768e49d5512d118620601e653d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "71a7a32f236bc22d0990168e1fceb1d8811748295c064741177f9bdba6f905fb"
