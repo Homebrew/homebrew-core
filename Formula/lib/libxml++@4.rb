@@ -11,6 +11,7 @@ class LibxmlxxAT4 < Formula
   end
 
   bottle do
+    manifest_sha256 "5de1eb21a74f16bb9d717d9f1b7a58c080671584563b896fd2d41131c7655a16"
     sha256 cellar: :any, arm64_golden_gate: "7a71fcaa9b45fdba586a92290001549ef6509aaeb66f93477ba3914c59e3a0a9"
     sha256 cellar: :any, arm64_tahoe:       "74c88e82cc26ff66b8ae3e718b45b190ca61129c2f8956e9955c2599b632262d"
     sha256 cellar: :any, arm64_sequoia:     "5dafbc9ef052479db900d124e96eeea36bcafb3c27f3836652bd6cf722b4dc7f"
