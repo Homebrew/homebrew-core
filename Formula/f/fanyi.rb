@@ -6,6 +6,7 @@ class Fanyi < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "28646373270a133135d0c0de46aed08738824d931d8ca6dc673c4fae9acc2dbd"
     sha256 cellar: :any_skip_relocation, all: "5fe2ffae948f281c5470a09341e19afa59d82eb6e35fc0c91d31dbe2651a9547"
   end
 
