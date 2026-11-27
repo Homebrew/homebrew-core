@@ -19,6 +19,7 @@ class Libagg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5633bf561a81140c92fc8efc33758b0943ae2129fda0bd3d35876085088fcc28"
     sha256 cellar: :any, arm64_golden_gate: "82e8aa03fbebfdbbd8ee05acc598f3e8c0f9ae4ac283dd75f53712e0bca2905a"
     sha256 cellar: :any, arm64_tahoe:       "2a584e6f356275a80289a9969392fb203b5dad15796747deda4f2c8388fd7350"
     sha256 cellar: :any, arm64_sequoia:     "a3f905d901e3d9d54c9839a5239270140b6108c6c1d72b366d2bec5aef7af9af"
