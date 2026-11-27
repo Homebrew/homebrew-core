@@ -6,6 +6,7 @@ class Httrack < Formula
   license "GPL-3.0-or-later" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    manifest_sha256 "3ec0e92420d576dc5ad3abd1e7784ddda603bc9ff4186f6211d079c031d0a302"
     sha256 arm64_golden_gate: "4316907b3240798feb96c0ccac246806d4c502ade968c066ed2b9cc44ecec386"
     sha256 arm64_tahoe:       "734be379b4d142c51786562ff8378033c673e5d59f6cefd8d407f7feaa162d4d"
     sha256 arm64_sequoia:     "4a0d677e57916c1017c1145b976154f0c2e7dafe6c885e3904413a696cf8e5f6"
