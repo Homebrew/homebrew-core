@@ -6,6 +6,7 @@ class Pgformatter < Formula
   license "PostgreSQL"
 
   bottle do
+    manifest_sha256 "d42778b96b0b1be430b799e55dcee9f075e7104f7005a35069bdf3196e1ca6cd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba1843b9849b308a16ac7aa0b6ab7f3ffe983614ce231fd02910a420a5b861e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba1843b9849b308a16ac7aa0b6ab7f3ffe983614ce231fd02910a420a5b861e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba1843b9849b308a16ac7aa0b6ab7f3ffe983614ce231fd02910a420a5b861e1"
