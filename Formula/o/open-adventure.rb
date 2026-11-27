@@ -16,6 +16,7 @@ class OpenAdventure < Formula
   end
 
   bottle do
+    manifest_sha256 "86255f72cd8abb036b65ea28aadb54a9aed9e769c4c7636a139a4e9a9140f679"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e48978f06f304f9e3c27df6f76d556cbfa3d519fbac827c6fb25768d8fc57b82"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a85e36b9ca1263f3c649ab8901c626948771987728870c9e06a1f5e739be23b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "84e3ba5f82737e3f2d69144e443a0cbb042cec9ed646c2e3648890d72d73085c"
