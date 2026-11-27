@@ -15,6 +15,7 @@ class SpiceGtk < Formula
   end
 
   bottle do
+    manifest_sha256 "2333b3202f8e386e82e69eb65a3ebee31f9fea9349890b532d35832aca219b41"
     sha256 arm64_golden_gate: "1864f18dbeda602def2ef63a652dd723b23c121f048424d8b58bdcbf21a902b0"
     sha256 arm64_tahoe:       "ac1200b9df94da7b8038adfda6190681d4b80a62504791df234fe8528ab0c9fb"
     sha256 arm64_sequoia:     "342a8c77f2fe122518eca2f734612e254d077159bcaeff8949e74dac431949c5"
