@@ -20,6 +20,7 @@ class Rpm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "16ef2046bdab876fcc66900ee087d6b0359452787ee3403ce94361f63c300458"
     sha256 arm64_golden_gate: "2b5916fb69a8e3c55701b74c7d67fe53eec5850363197a76abe21137c124995e"
     sha256 arm64_tahoe:       "33d39e2d3e1481aafb3faccdd4a36062b06df14eb2f143bece294db6e4a6d47d"
     sha256 arm64_sequoia:     "314f950d2cdbae36c3e790012232d44e29735ecab9d96f63e555c26444cc7f35"
