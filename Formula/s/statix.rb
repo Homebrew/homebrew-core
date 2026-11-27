@@ -7,6 +7,7 @@ class Statix < Formula
   head "https://github.com/oppiliappan/statix.git", branch: "master"
 
   bottle do
+    manifest_sha256 "870aab197cc7487c86a2d654a101edf5f37902a58ce2fbe96a395228d44cfcc4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ad150513e23b01009d630b87c7b45b8fcac021132c37c81768a15d169d527e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fa52bb92332387d05946edc0f239ee829806fb2df9db218b9a1fdc93fb71f3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b21020e92407c357003a7aa16dffc9449c53323f717ef2696ca9d07ad3535aa7"
