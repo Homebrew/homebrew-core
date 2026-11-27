@@ -16,6 +16,7 @@ class Libcouchbase < Formula
   end
 
   bottle do
+    manifest_sha256 "931b6742ac975a5ff4832fb14f955d0eba760c4ce51269237fa4535f77a67f17"
     sha256 arm64_golden_gate: "66dee8b4524dbeb7480c6a2c0bdbed525ea51ff0f30fd5cf89a1156c806f6fa3"
     sha256 arm64_tahoe:       "81ec43cd3784d8b0b9644297bfc2741cb69968318bfa6950fde6283c17acad98"
     sha256 arm64_sequoia:     "6028414ffefa002085d3eae1cbcbe7bce8c803ab8b10d43b59914bdfdb080a86"
