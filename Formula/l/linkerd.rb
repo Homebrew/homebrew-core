@@ -14,6 +14,7 @@ class Linkerd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f5911f4e76858003bc47f5d55052c61d4d9d1d36a1fd6371dcd3f568a6e3f5a0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "be2585052db28e5b9762789e694938d42ef5ac168e900e0186e25f84d0645237"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3f1493693e431d57204f5a426c6237eb7e90daeb4bca2b655f13535efafaf19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7356359d889a89f9b4879faaec0b00b799e927be9cb0b2f96c8456328ded6fa5"
