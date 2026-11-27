@@ -17,6 +17,7 @@ class RedisAT82 < Formula
   end
 
   bottle do
+    manifest_sha256 "a87d5a043ea705ec7b8bbedf61607ff0570c62193a22515d0e28cc64e82765e7"
     sha256 cellar: :any, arm64_golden_gate: "2437f13575a06fe650b06b60f498cd9d6999bf0af3accfebccfb9702c3f97756"
     sha256 cellar: :any, arm64_tahoe:       "259a321b90c0d0bca18a4878ad5429dab239f73064e4354c1daca088674c9181"
     sha256 cellar: :any, arm64_sequoia:     "4879c4e8d1b2be1958672229e9464b8d995d28bcc560ed1f06b18731e8a03d5d"
