@@ -12,6 +12,7 @@ class Patchelf < Formula
   end
 
   bottle do
+    manifest_sha256 "4f63fbc71f59e772ce2f9379a95d85bd6f5b505a36e5fb2e803d733a6dcfd701"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f785866740a9c4010ce961214e5fd8734be9369d06d1282adb75da699322799"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5adbf0b87fc96a767414bbed42dd2dac926d6a6340a9148f50835ba727b6660"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce4c7e8ae70eb6dca9823a6682be92d3a9caa5d9f0a105991e021b00092f553a"
