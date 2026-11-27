@@ -12,6 +12,7 @@ class IrcdHybrid < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2dadd19bd6f98757ec6b27c389764756a9dbfd988b97751b008f10cebb9e7266"
     sha256 arm64_golden_gate: "e9276cb8e64c822896016e2855e398371b2970fbee6b55ade0b0422bd3b07330"
     sha256 arm64_tahoe:       "7a5ae94ff8e74327e53938df7ea6b2a065b413ffc9b97a5e316ecf9974b68d0e"
     sha256 arm64_sequoia:     "17d62791a7e1ef3d9d3093594f222cb78920f407191d716c7fd535215bf659ad"
