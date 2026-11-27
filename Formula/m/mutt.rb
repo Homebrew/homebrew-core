@@ -22,6 +22,7 @@ class Mutt < Formula
   end
 
   bottle do
+    manifest_sha256 "d017f19503ee031f9fcb46f638bff266835bb4c317b610733a0eb68b07d0b62b"
     sha256 arm64_golden_gate: "919e6e5ba8d967a2b36270c11a19b2b1f77e6713c4a276342a0f148b7b9a5443"
     sha256 arm64_tahoe:       "3eb26fc7b2b55bbb084c710489952b428070d952829243538f742b4f916268bf"
     sha256 arm64_sequoia:     "b0627a57334416c3a042c4a622958099d908dfa472aeafa49eb1f309371e0bf3"
