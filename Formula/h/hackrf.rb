@@ -13,6 +13,7 @@ class Hackrf < Formula
   end
 
   bottle do
+    manifest_sha256 "11a13977da545db3e8be6503b8dbbd1b0c5eda015b935c02d6ca82bea8cb6822"
     sha256 cellar: :any,                 arm64_golden_gate: "ed1e20e8911fbaa53cd54f8d2c393e722a52e452f974c4da06fe7ea464ef886e"
     sha256 cellar: :any,                 arm64_tahoe:       "d76b5c4bfbd77bee1f5e1f48481773c5128ffccb9188bd218801e6f9b3d6d30c"
     sha256 cellar: :any,                 arm64_sequoia:     "c3d36821448dcbf52035462d67fcf6ad31049039cb1e6e5a9c4852b887f46382"
