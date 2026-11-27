@@ -7,6 +7,7 @@ class Dungeon < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "b211e15f3d493a207093f07f1b5dc1f62919eeed39827af7574bb85d3b1347ba"
     sha256                               arm64_golden_gate: "713d506d080f7727d71bc38af2bd444c01d99be7f349d5fa27b03534160841d3"
     sha256                               arm64_tahoe:       "f2275404ff5d7dc7bb33a0b5f90d2828faad83a4172b4678521fa6b248a99cee"
     sha256                               arm64_sequoia:     "d50cc1299d0c1d287a9528d49f0f93e2e208eb7cc6e766cab75a892063e2264f"
