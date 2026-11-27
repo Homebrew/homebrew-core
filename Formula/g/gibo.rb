@@ -7,6 +7,7 @@ class Gibo < Formula
   head "https://github.com/simonwhitaker/gibo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "92a204d46c42764ddd3c1fec1f36c1273e922870dca035d4f5dc7f5aae49762d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0637f449bcff29b242d6fb81905f740e49706936bca9dd525ce16d4a2547fc7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0637f449bcff29b242d6fb81905f740e49706936bca9dd525ce16d4a2547fc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0637f449bcff29b242d6fb81905f740e49706936bca9dd525ce16d4a2547fc7"
