@@ -6,6 +6,7 @@ class PlaywrightMcp < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "10f0d8b89f0e0b76acd2a2ccc63478a2d97befbd83346c4454876ae97fc2472a"
     sha256 cellar: :any_skip_relocation, all: "9780efa804fc1879d188e06be7ef77a7f6f59d28e6823000b479a73dcc3d0130"
   end
 
