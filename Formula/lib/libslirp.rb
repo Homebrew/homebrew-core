@@ -12,6 +12,7 @@ class Libslirp < Formula
   end
 
   bottle do
+    manifest_sha256 "913a75c642741e78d912440b5b2ede1a9dcb58e79b92a62d5fb1229458197351"
     sha256 cellar: :any, arm64_golden_gate: "5081aebdcf1a0c08f2b7bc92c2279c2a7b9d93650c2ba54d421aac888c67e935"
     sha256 cellar: :any, arm64_tahoe:       "4a5b0100041e92a6b61b01cb7b393b76c7a9a1391d706e7da52267507f004535"
     sha256 cellar: :any, arm64_sequoia:     "c42971e7df9e9a58df62547c10ce1621ec994db2fd274e21692680b11b538432"
