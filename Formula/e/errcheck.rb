@@ -6,6 +6,7 @@ class Errcheck < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0bb6e8e72fe696cb735b462f84d2873c3c2785b74726a8efaf8c097340ffc3df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "00cac7449214a85a9b27425cc474e78c38f48fa2d95339890e42173e0bad7c75"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00cac7449214a85a9b27425cc474e78c38f48fa2d95339890e42173e0bad7c75"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00cac7449214a85a9b27425cc474e78c38f48fa2d95339890e42173e0bad7c75"
