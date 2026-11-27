@@ -7,6 +7,7 @@ class Mergelog < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "261839d37d7d0d24e5b8723616b6dce918436bbb67de454f8754639a473db5f2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a4ffe1eabf7c0fb2df2c7505492d1f9aaae6e688c61bd9dbd5e8c0e91b6f6f3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ce8e33c95e90e9caa5bffd174dc681de874f7e20aee45d2c28888586dcd6ee0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c9a6f46ecb8eecc32382ed046e0193aedef56b46f6edc613a72277b54af4327"
