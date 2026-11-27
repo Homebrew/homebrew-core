@@ -8,6 +8,7 @@ class S3Backer < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "f52f45429049f38ddbe7ff76c821e065d4483a1af05d749e8b155b54fdd2ed7c"
     sha256 cellar: :any, arm64_linux:  "56b20c0440559cb149a1c09c82665eecf0ae32c68658ce7f2218d998296d2074"
     sha256 cellar: :any, x86_64_linux: "76a55ed24c79463df4d088432c751ec341b29ff84c61a37af2fadad4501c326f"
   end
