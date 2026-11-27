@@ -7,6 +7,7 @@ class Gtkglext < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "75062dad3989f345f9a1217657d602747e52a67589fd3f0f2f4823b1c462e981"
     sha256 cellar: :any,                 arm64_golden_gate: "dd7b07a12929549f8f9360b2115b695b5a140380f73de7334d332a4a01af73e8"
     sha256 cellar: :any,                 arm64_tahoe:       "764e97c887571389641f45ef171ca06af71ac4bc5fcaaff56e85c9d663cad92a"
     sha256 cellar: :any,                 arm64_sequoia:     "c7d1eb4cd50853e471d11db5256550eb6eea8d0b66424e66bf4662f54bbcfc64"
