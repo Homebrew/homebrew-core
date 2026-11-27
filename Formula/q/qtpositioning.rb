@@ -19,6 +19,7 @@ class Qtpositioning < Formula
   end
 
   bottle do
+    manifest_sha256 "506a44080d7baa6e1f06b3788f2a37e3d1ed9bb2fb7cbd56b1fd9854d7934407"
     sha256 cellar: :any, arm64_golden_gate: "12125c2ec3766ce780fa7bd9339dd254163e7526a96d27c7ac3e87d493cc0020"
     sha256 cellar: :any, arm64_tahoe:       "55d3d1b360b6b960f7589d461f558cdcfcdf4dc278083b021213424fe32b47a7"
     sha256 cellar: :any, arm64_sequoia:     "1810c555ac2c8915746e0567b643c4a40e81c2a7bca7783d686bba18237315ae"
