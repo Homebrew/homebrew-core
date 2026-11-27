@@ -16,6 +16,7 @@ class Ldns < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "65563b019393a29631af21fb1316951135cfe2a633774e042f343e5814cdaa0a"
     sha256 cellar: :any, arm64_golden_gate: "bd5f2fd751a447da77cb8528bda0019d8230d0045dd094bafac0b40579280ff9"
     sha256 cellar: :any, arm64_tahoe:       "b091aad44eaf206d452c168760e542ab1a288241670dd06b4e8854b98db3d22a"
     sha256 cellar: :any, arm64_sequoia:     "ea5496fc061586e2b9f4547ed614d2f18ba10b771524fcff4ea3080c63447288"
