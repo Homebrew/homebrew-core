@@ -12,6 +12,7 @@ class UutilsGrep < Formula
   end
 
   bottle do
+    manifest_sha256 "8739a83bd4c715e62db5f4efdc2e34f21dc1aaf1fd8e2818b93dd3da13f81d5b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "984801484e5d2a0f49f770ef2e9102d6abd760a58be266fba5ba388c4eb83227"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b768cb03db8c9e3decfa900cd1daf4428809d0386eafcf8f6dd16f66d901797"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "802f217809f43e0b9a796955d91dbd2fe01a4a125ea4448daef0f13587560c1a"
