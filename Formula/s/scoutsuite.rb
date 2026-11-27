@@ -10,6 +10,7 @@ class Scoutsuite < Formula
   head "https://github.com/nccgroup/ScoutSuite.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bee5696d0baad0d9d514fad877dc11c082d77cc715ce6a0e8797ffb55c081665"
     sha256 cellar: :any, arm64_golden_gate: "437d42c7d45339e3fba109270ce781b44f3b73a91d6738ed44912c8b67ac74a7"
     sha256 cellar: :any, arm64_tahoe:       "ebc8f7edfbb0540b59db4f5a8196b117518f2768afc55b040eb75465abcdfe5e"
     sha256 cellar: :any, arm64_sequoia:     "790b770c267b8e798bdf4d76f63a5c64dcdbc57a5b396baa28338390f4dccfb5"
