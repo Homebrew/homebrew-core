@@ -12,6 +12,7 @@ class KubernetesCliAT134 < Formula
   end
 
   bottle do
+    manifest_sha256 "79633f32e573c0d30b6e4b36afaba001ad56de7853b83ccd78293fc7ddfb0fca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20cab07242b18a54bab5f265f58edd3ad87cc0f0587b80e701b0c6528f001c3f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6bf1fd06054ce91d6cfbbc794646e9f89eca432f370d4a607f285b944d5df489"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e5d97dc7e99f6394220d3eebc7a023ad0b7b80b0439fa808088f8f3df4163d6"
