@@ -26,6 +26,7 @@ class Libpinyin < Formula
   end
 
   bottle do
+    manifest_sha256 "e1d347d7a4ef570daba8d72997ee1c7723efbee4eb1c29e5c82120b48c367506"
     sha256 cellar: :any,                 arm64_golden_gate: "a934dfd8b84c59e7293b06057bff81ce472f8064bd62f2a8acec565fca6a2d77"
     sha256 cellar: :any,                 arm64_tahoe:       "de407b23ef3deebd69bdda4160591705884a7b45fcf63518867f7218534dce74"
     sha256 cellar: :any,                 arm64_sequoia:     "73fe3debe8e55d78e4e2ba3fc01fa84aa97ef89dd60adf41596eadee37ddb040"
