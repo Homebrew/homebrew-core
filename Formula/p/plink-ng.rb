@@ -13,6 +13,7 @@ class PlinkNg < Formula
   end
 
   bottle do
+    manifest_sha256 "c70162dd61fe81c684e09a94cd51eac5dfa4864993d2d407c1ab7e4bed585353"
     sha256 cellar: :any, arm64_golden_gate: "f6359412571e9277befad0099da7833928de45bba814f9d72fde197f843eae4e"
     sha256 cellar: :any, arm64_tahoe:       "36daed01944c32b0b1f3f4c2b31dbd03d0c5a54e7c09de642f3e21fa36db7552"
     sha256 cellar: :any, arm64_sequoia:     "921ba8f5dbafc140a16fbfbb765522fcadd6d72b324dfd035dd8e4e8a4f82682"
