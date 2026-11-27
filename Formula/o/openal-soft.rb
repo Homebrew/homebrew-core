@@ -14,6 +14,7 @@ class OpenalSoft < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "edf9cdc6a995ec3b4aa5be9c757d449fdc49714055fd926084c525f26ddc69e2"
     sha256 cellar: :any, arm64_golden_gate: "f732c34f549bc105ac74a2c57eea035e8d8a4588956dabdde97c3a8993f0b6f0"
     sha256 cellar: :any, arm64_tahoe:       "a6ec50b9050cf2aebd3403dae993d37499a56f5b3aa7e034088970f4864e6117"
     sha256 cellar: :any, arm64_sequoia:     "1648060f2a8454167d03de328d509551a3629f5c0f240d18d1715baf4695428a"
