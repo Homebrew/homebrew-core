@@ -7,6 +7,7 @@ class Spicedb < Formula
   head "https://github.com/authzed/spicedb.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5ca460e349afea0e18b79b9b06b14db77298a0914137842c4c6816e2ce630b72"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f06f824b363a4fc038b9a56e59c84c632cf603ee53e94f7d422826c38fe087be"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e38e17c5e9ecccefe9bc213452144db38bd8ca218ef43695ed6ad4521b3a92ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d17c0841b9870112fc85cea0f4bd8552ab875ab19bdfff0a53909fbb4652a55d"
