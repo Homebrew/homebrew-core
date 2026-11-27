@@ -8,6 +8,7 @@ class IcalBuddy < Formula
   head "https://github.com/dkaluta/icalBuddy64.git", branch: "master"
 
   bottle do
+    manifest_sha256 "67ce82b2aa3a6b99e40379a27060748651deb71ea64f2acadb5ba989ca8d8b61"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f7dbfcc576f682adb475d195cca83eed4bd9652c794bc184040c495790ecc1bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "681a0fc1f19e99c61a954df34f2a9b834afa0984587fe43fe3bfc0cc71ca0355"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be7bf233e7a634c48779b5567de34e3f2a5af0e3b7b85fe1036cd899d665d1e6"
