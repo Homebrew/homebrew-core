@@ -7,6 +7,7 @@ class Gemmi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "360b7764e83b2f34431aec5ccafaba3555b04875433fc9c0c0a40a91d8b52112"
     sha256 cellar: :any, arm64_golden_gate: "af7c76cd39c839899b27f43d101e2ba59680d4567b6d3824986fb5f7b9833bb0"
     sha256 cellar: :any, arm64_tahoe:       "3dc2a4467fa0ed0928090f9cd53ef636ef03dd68902a1922d298e09b992f6c4a"
     sha256 cellar: :any, arm64_sequoia:     "2077899d6278a7f1ca8ccb53baafdf1b99eb9b236ac8564ac2c4920043941f55"
