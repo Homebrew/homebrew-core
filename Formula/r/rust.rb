@@ -6,8 +6,8 @@ class Rust < Formula
   head "https://github.com/rust-lang/rust.git", branch: "main"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.100.0-src.tar.gz"
-    sha256 "e8904548563117043c24a67c4967119b7c9ed304821988283e7681122ceec98b"
+    url "https://static.rust-lang.org/dist/rustc-1.100.1-src.tar.gz"
+    sha256 "67a6e519b177b5f62cb3685a200527fc0fc685df40a33ca2017f14bafd6bf710"
 
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
     # HEAD does not use these as it needs a nightly rust
