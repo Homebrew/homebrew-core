@@ -14,6 +14,7 @@ class Koka < Formula
   end
 
   bottle do
+    manifest_sha256 "874734a016a1656942b3aabfc447bbdda57ef204e4bd77fc84104c74b6e82f96"
     sha256 arm64_golden_gate: "eb1e4b165a587a815b45f8127b6b8c25142dcfd94adce794d6fd5dcd81b7d877"
     sha256 arm64_tahoe:       "6ac7623df6083e39385639ee53511a4bc3c946110e527f4b863bf8dcaeb1161a"
     sha256 arm64_sequoia:     "b3127a13564e8669f177aaa012b3619c983c6a08ba1671f67d1f163e1ffd0c78"
