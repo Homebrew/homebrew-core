@@ -8,6 +8,7 @@ class Jlog < Formula
   head "https://github.com/omniti-labs/jlog.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0a561d9993fd6010ee8d05fe4cfb7108b017a79024dfad6ae87e7ca7a9525135"
     sha256 cellar: :any,                 arm64_golden_gate: "d8f05cb5669b4d0dca5898a0032d5f7fd68ca0c6c22e733e5138d9ba52d5013a"
     sha256 cellar: :any,                 arm64_tahoe:       "f724763ab3cb0f20315a2e5b3248cb93a5f3ae752233eb22604ab31df032c6b0"
     sha256 cellar: :any,                 arm64_sequoia:     "2a78a80b0f6624a86af2e2f4ac2ddff08d2182d801d88213c14a816225b66e45"
