@@ -13,6 +13,7 @@ class Qemu < Formula
   end
 
   bottle do
+    manifest_sha256 "4eace43c6a13722c5267a22fd7da1ee16151128a5a4808479213ab2826d3ae44"
     sha256 arm64_golden_gate: "633b1cb3f1fac3e73e0dc7b686284c634a8344c1235f04e0d84d9c5727e221a0"
     sha256 arm64_tahoe:       "40e8e0197565187e4cf61c17483cf802938ce2371c44c55f383f7bf4bf104fdf"
     sha256 arm64_sequoia:     "a99cca4450c91f471e8e546b8fb48780e0cb2104ffbe15d394c1b431d44df620"
