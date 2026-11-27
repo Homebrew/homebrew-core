@@ -13,6 +13,7 @@ class Lzip < Formula
   end
 
   bottle do
+    manifest_sha256 "0a84cb7e2b0a98ba55d8ceaca50a21d975e6908559d8e7af72758b7ae02e2a62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5af0a8e723f96b20d28c9a2dd1e1c4c1eed54876cd71c3ba45b42c0697544f80"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7450bd58e628ca9ed2747dbf9b858f840a655f1ad0f1c7423dddea54162651d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83c1d91f244efdad75952169fd7b24f7a909057f48095bbe82b17afd567e0efc"
