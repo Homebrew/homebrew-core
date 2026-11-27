@@ -7,6 +7,7 @@ class Kwok < Formula
   head "https://github.com/kubernetes-sigs/kwok.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3f9ce6d4b628fac5bbf5e086d6ff673b742dd5e97408a6c4eefed4093b429362"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bcf9baceeb0b952fbc9821078e6bd9dc7272f5b2aa8b98c4f9ebd11a6a36a71"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "420e35fbbd71f2f9e1da1f0de80749516abf71b8672a0fadd850f097ec65f851"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d78bef0f7271b0483309997c9a475f2ed0f26024b50e7f975b930bfdac983e92"
