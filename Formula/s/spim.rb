@@ -24,6 +24,7 @@ class Spim < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "09f718b1ca4b27a7894b988ed5808f93cb90e0d14e4e565f7823617d1f11f9fe"
     sha256 arm64_golden_gate: "bfa493c9c80e365fe5721ab6226f244528ab8cebfe6dca8899579d1ca8eedf1d"
     sha256 arm64_tahoe:       "fecdc6101845049336385f58800dc0c996698568336e6d3165f3c673f18f8f7c"
     sha256 arm64_sequoia:     "0ee17f876d15fd6b88452e7d19f2c1a182ce248aef26c1182deee6ba30538d45"
