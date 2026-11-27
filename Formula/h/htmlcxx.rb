@@ -7,6 +7,7 @@ class Htmlcxx < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ad0e84607f749d5d5deb5e9de6d16db782cbba719fa0c07b857b2b42fca15a45"
     sha256 arm64_golden_gate: "b633e444043da2d1a93d06aef2530b60a31ac1519b3e956969c1b6f76b4bc4db"
     sha256 arm64_tahoe:       "8d731c143f491da872ee21c1ea5b39b216113ceab22b26212e1b249edce7b0c1"
     sha256 arm64_sequoia:     "e1cb2639240425d10dcaea3639f09ae7b7795141d85b562d5df0fd79709c6edc"
