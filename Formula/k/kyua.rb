@@ -13,11 +13,12 @@ class Kyua < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "6fdb8de88659d594876e883bdbfa0f0a943d894783323a0bd769cb73f8a6d557"
-    sha256 arm64_tahoe:       "4905d096a462bd0097740684d968bf204140269a1c7982a40bd7149c9235e0ca"
-    sha256 arm64_sequoia:     "963855fa6f8e41b41fbf9ce5d43bfcb4bf04ee3e7cb7194315b5c1f47c8c397e"
-    sha256 arm64_linux:       "a5e2e755f72e1c5bfef5116abcf557751b83995ec1670c419f5a03296b5ecb24"
-    sha256 x86_64_linux:      "eb3d40d567c56e6467bc765ac6218a339ec5e4da382c5f16b94317c1c9a28739"
+    manifest_sha256 "e038bd1f20ff456c4438e8db91b3d3d9030999bd557a586fd89f4145762653c1"
+    sha256 arm64_golden_gate: "7172a8473d0287b071ede11452992535a294318c42065f033fba6809d117de23"
+    sha256 arm64_tahoe:       "25fd8164cac9153fc714b3f08998e6c1eb5fee3b0ac3e90c3a7dd84e73279e02"
+    sha256 arm64_sequoia:     "6ab256cdeeb7b8b84ccdf4ba4d1f014c5366ce83d0b6eddda0414c48d5d1e423"
+    sha256 arm64_linux:       "c6ead836de8d2a0a9f3575ff69ff63dc6c5ffbdeee78eccebe7f5a6ab52454b9"
+    sha256 x86_64_linux:      "5d67667f81d6acdd87b4d0d4f4d93f27b62535fc934ff491fa3f6217055f4ce1"
   end
 
   depends_on "pkgconf" => [:build, :test]
