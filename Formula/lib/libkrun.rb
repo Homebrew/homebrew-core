@@ -8,6 +8,7 @@ class Libkrun < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "630b096d8f8d2273bf8c50475ab6026c1b2aac19a2d1ade5543a9635fcec4a10"
     sha256 cellar: :any, arm64_golden_gate: "2fb39b9ca45eaeba82a0ec11af8575f3577e0ceaf1e8d2c289fdab64bb0a4364"
     sha256 cellar: :any, arm64_tahoe:       "5b95ca7f72b490afda382247646d82c5906e3c764d1c8841df672ef517efa955"
     sha256 cellar: :any, arm64_sequoia:     "fe35cf544d2e0cf454fa3bb5edffac7e0994f853271db3b8f5241cf798a15c48"
