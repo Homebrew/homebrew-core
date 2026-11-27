@@ -17,6 +17,7 @@ class Kdoctools < Formula
   end
 
   bottle do
+    manifest_sha256 "509aab6c3987ca7f164e33624f1a540bfc0597309e86094720efd05ca432efdf"
     sha256 cellar: :any, arm64_golden_gate: "c0980319f3b79e89650e9dc1559ddebaed31bf43f3e818b4b9bd83f43dee4335"
     sha256 cellar: :any, arm64_tahoe:       "94720c45505a8838e21a46deaba0a5764e0bd3c7f50249a52be83e6f42a84115"
     sha256 cellar: :any, arm64_sequoia:     "0f0610d5ec5ce32bce253f01effde8a2735290b9b21d7e473ce98e0ae2a43778"
