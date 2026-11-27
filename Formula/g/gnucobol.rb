@@ -14,6 +14,7 @@ class Gnucobol < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5ed5b6067ed9dbd549e37b2f194bc7a6b489da5c418651539d4db29f06b915fd"
     sha256 arm64_golden_gate: "776fa8cbc41d668202461df9dd98cddae9cba211c34fd7a753a854fe70a38621"
     sha256 arm64_tahoe:       "0da362ef857db439f16aa86c368d1bcd1fa1817c053b7ce4738df232560d4616"
     sha256 arm64_sequoia:     "db7def7151f5ab71dc6c6cbb1c1e243b80e57d078aa439803a965d7a16513ab4"
