@@ -7,6 +7,7 @@ class GridcraftCli < Formula
   head "https://github.com/storytold/gridcraft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e705eafbacbb4bc474bd2c69c79906ab02d4710dbde4c04f8e8d49235030c59f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b21bf56f2327f7752a019e620eca3f90ed6e48bc32db4e237c532b2be392346"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad75edfdb0cb767cafe513f360ac6041cac9587c6ebab96e3553615f8d03c384"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c5f5100bfb06212b27b3fb485957c5e807d3704ce480fc1cc3aadca06fd48bc"
