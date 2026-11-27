@@ -14,6 +14,7 @@ class Gom < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ec1b23c1f881a490a4c88dc244d5434b10521cc40d02a74dd3c5649daf7088c8"
     sha256 cellar: :any, arm64_golden_gate: "5bd51f701b73b8146758870182f539e5ad15ef7ed2987fd87006df71bf70b129"
     sha256 cellar: :any, arm64_tahoe:       "0367b23bd13c51fb41cbd7d536488ef34d798321a7d64b6aa4c6a85d9c0661c5"
     sha256 cellar: :any, arm64_sequoia:     "ba98021d67f1f966727723d8f99662c1dfd91326bbbddb712cf8beaaa7d89023"
