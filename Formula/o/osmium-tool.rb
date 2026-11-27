@@ -8,6 +8,7 @@ class OsmiumTool < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "baaf14a97ab7b5595420b341734a72a6d8ad6752d816e8fd2a8637fef7925c5d"
     sha256 cellar: :any, arm64_golden_gate: "495c9d0a5b0567d5c72468b35b357fa8a59e2b339286ad5a25645d2ca38ad964"
     sha256 cellar: :any, arm64_tahoe:       "bbd3f3446f65fb406c0b9edabc4824610e8a74cd1c92671004a3be8346c0c996"
     sha256 cellar: :any, arm64_sequoia:     "37ee8165ca3d08b499c78c2c97d84ba40afed80579e4123d98e17b6ed85cb0cc"
