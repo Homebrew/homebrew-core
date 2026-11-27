@@ -8,6 +8,7 @@ class Eksctl < Formula
   head "https://github.com/eksctl-io/eksctl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "02ffbfb002dbd6b973de45dbae92cdd1b04752ec29b6d446f4a2efa16870565a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dee1619c05f66c06e827a6e6c9f8263d7be561f35f4364a33876388a5afa1d0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7969714c4a6e1bc0c0c6d07645da9bcd87db141823ce6ec6d79144e6813ded57"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "71949195ee0d6f28d8e19e6b21b0f9d95cc79557a50bb018544f30c666fcd967"
