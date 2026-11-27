@@ -12,6 +12,7 @@ class Hunk < Formula
   end
 
   bottle do
+    manifest_sha256 "9b2d7915fda0fd6f16b911697837999f4892b5cb59802acc905fc1db19fe7f2b"
     sha256 arm64_golden_gate: "9b2d86e05f4675f79747fa172b75af2306e2ea6b9fb79b7a1bbca3dd4db4ca31"
     sha256 arm64_tahoe:       "2efcf9ae89374d50364fa0c3e81c92276637e9f79a27eaa2319a2716afa3e09b"
     sha256 arm64_sequoia:     "097afeb522bc2a56d6e18dc542a582c56b0122335e036dab274180c8b35f46c6"
