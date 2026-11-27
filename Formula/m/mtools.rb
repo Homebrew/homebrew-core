@@ -8,6 +8,7 @@ class Mtools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4bb05cce7a921a6ffa82998d1049cd31d2f9bd6ae982b3c561acb4908a377cbd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "00f0c85b01d488a9932455e5b7989191fad2c4839c889f2c934e21b901408bf7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9abaf0b9f5a39215bf8891e55783246cc1cbd306d9301662a933f6987284c872"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "48e16e404b64817ba6b3339fb50b34dc90b22412b93e9f64958d97ded24ecd9b"
