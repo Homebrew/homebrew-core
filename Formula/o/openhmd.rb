@@ -7,6 +7,7 @@ class Openhmd < Formula
   head "https://github.com/OpenHMD/OpenHMD.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d4d1782f9588af78055466f5aa3736e42a6a8898f65229b4f018b1229728c0f7"
     sha256 cellar: :any,                 arm64_golden_gate: "f963d5e6a70230e6c2508b30b100c35a891ec97e45ddeed37c04b7787a8aa37c"
     sha256 cellar: :any,                 arm64_tahoe:       "67a5d2f64c142bf6a00d24f1b1e1af1051db91de9af1487980702af8f9d49759"
     sha256 cellar: :any,                 arm64_sequoia:     "743ff7cdd099472c22867b6883dbebb8731898e770c6c9a9c16e42a99de5b10a"
