@@ -12,6 +12,7 @@ class LibcdioParanoia < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "93ce63f60e1a8d65c2436d1e2e317b6da5b1767ee07db7ac6cbc9377dd253033"
     sha256 cellar: :any, arm64_golden_gate: "73894e64234ec2b9b845bec9d7639b6e9ab9d187916f7a0c10f99ce669a15150"
     sha256 cellar: :any, arm64_tahoe:       "73510e98664655e2f3034b967cc480fa20651cc241e3516452ad8ec826c74484"
     sha256 cellar: :any, arm64_sequoia:     "82158889e0e871069ebf270e7f5d16492f63e2333b987d5a350ae33ff3f178b7"
