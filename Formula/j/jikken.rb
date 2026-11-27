@@ -7,6 +7,7 @@ class Jikken < Formula
   head "https://github.com/jikkenio/jikken.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0cf1ccaea607abd2f2e86c114524e5f7f8335d25ae977892ba0a83699067a5e2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da3c81805c37d22a3eaedda0abe2d534e7dd04148f4e70ea90837f7343efbbd3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a08977b9623af344b43062e18859d610b5c793d87f565bfe956fb374d81a162b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a652a4be75136def2174478df62ca556b35f68a67f226050dc36a7b00ffdd59"
