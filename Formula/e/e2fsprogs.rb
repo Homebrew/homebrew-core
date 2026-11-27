@@ -19,6 +19,7 @@ class E2fsprogs < Formula
   end
 
   bottle do
+    manifest_sha256 "e1cb1e4c86245f0dc3eb54f74a81ee42fad524dc084a7433a4582a5218d22a37"
     sha256 arm64_golden_gate: "0973c1fb0fbc8a20d7890376c52e992ba79433ee7e3fd79a43639f318bf35ee2"
     sha256 arm64_tahoe:       "f8024861ae8b5a645374d7960a5b5e3c41576c792712925d55deb186a74a1d06"
     sha256 arm64_sequoia:     "753c95aef34725e1bc3a4778a6c3073596b8b3a2b32bb18ec4f361fce747813b"
