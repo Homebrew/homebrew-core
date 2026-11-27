@@ -13,6 +13,7 @@ class Qttranslations < Formula
   end
 
   bottle do
+    manifest_sha256 "7677c2b6e4b8ec91f67b16891a9825b4958732a4693da584163b3d3b8423ab4d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62b7150d75ca2a2ee84fa565f1a911af6af94e266501128de82f49b6be5c52a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62b7150d75ca2a2ee84fa565f1a911af6af94e266501128de82f49b6be5c52a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c011fbfec5da00acc93cad982cf0353ef59272266d05ba6f9865bc66f02e9956"
