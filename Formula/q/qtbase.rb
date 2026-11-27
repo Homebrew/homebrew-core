@@ -40,6 +40,7 @@ class Qtbase < Formula
   end
 
   bottle do
+    manifest_sha256 "a5b89800362b8eb4a9691bd62994d264bf4834eb30f4c77c52a985f8f3e2c56d"
     sha256 cellar: :any, arm64_golden_gate: "178ff42e7d82f5ed7c6164f6c7c4e8b735e03a4b61bd96eb970341f7329214fb"
     sha256 cellar: :any, arm64_tahoe:       "27e5c88a59fa45e3b8b5628d739d64a7bbd57c384db9501936ddefaf6352e08a"
     sha256 cellar: :any, arm64_sequoia:     "78614b676f994884c49c04f304fabb9320221adbb6769f64b02c3e5cca788edc"
