@@ -11,6 +11,7 @@ class Libmspub < Formula
   end
 
   bottle do
+    manifest_sha256 "c57160bf9a45efcd4e5f47a521f80588d9b4daaa77956292c25758e5f01338a0"
     sha256 cellar: :any, arm64_golden_gate: "c3174720121f8245c480cbf4080dbe920d193475c782a2a4d39b3a739113e0b5"
     sha256 cellar: :any, arm64_tahoe:       "47dde38d071be4b4b72042259950a961724c6a40222d0d5785b23e67a3e7e15e"
     sha256 cellar: :any, arm64_sequoia:     "07afd3addc982da7d55bd3de982171df04c128397ef4bbd8d7b0917ac924af0b"
