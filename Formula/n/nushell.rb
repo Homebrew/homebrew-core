@@ -13,6 +13,7 @@ class Nushell < Formula
   end
 
   bottle do
+    manifest_sha256 "9bbf35c86ac1bb1e0b091fe6ac3654e88d70bdfdb6835153142ee2293cf73c5b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6140577dbc3fd54dfef8b8a74d7952be152d1fe780389fbd9361e9d4b3e994c6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac90b102a7fe43b30d6aa75f560680d4fb29c9e76d6456942adf14fd41f9685a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3323239e4bf69c8ef9ddc9f67a92d4d335dfe8c8ef13a647779f6207edc0cbb"
