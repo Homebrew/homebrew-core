@@ -6,6 +6,7 @@ class Miniflux < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "5bf6087457cbbb841a904d8feb298cda1839fe17369b2ed5e7d8b16053097999"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a44552fdb0f0b6b0c92865ea94cf5b297eab909218148e07b454ea8998624e4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c794922821c04733b17a800e6a6071e2f921dcc0f05b855e81eaccd86a3e0c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c3e1546f0bdb42d0d5f2ee8bab480399a313c1340509a47f4a0d2930acf4937"
