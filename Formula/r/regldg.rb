@@ -6,6 +6,7 @@ class Regldg < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "bc5509e1985821581c315562d7b53feaba9636d9fbf5389d123c1f239a8f4196"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f4eabf9207ddbe78f5aff12f7eff23e3398cf42cbb56e4c226b28a878d044b02"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5000f3d0e8bce79454c084a21166ce9603c839e1a535f7777dbc2d39bd1125d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "95d8adc13413bbb6abd01895354b0e47b03ab86dff6c33de659516dc9b301d95"
