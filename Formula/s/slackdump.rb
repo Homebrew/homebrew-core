@@ -7,6 +7,7 @@ class Slackdump < Formula
   head "https://github.com/rusq/slackdump.git", branch: "master"
 
   bottle do
+    manifest_sha256 "715373ccceb6a64eb9e6efbcda6585336de46710495a22f3ea5b4394573dcf00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d3a2ab57bdd4ec37aeaacafdf9beed938d0fac193e335235172cb6289608be0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d3a2ab57bdd4ec37aeaacafdf9beed938d0fac193e335235172cb6289608be0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d3a2ab57bdd4ec37aeaacafdf9beed938d0fac193e335235172cb6289608be0"
