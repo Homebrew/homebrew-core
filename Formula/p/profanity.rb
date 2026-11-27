@@ -7,6 +7,7 @@ class Profanity < Formula
   head "https://github.com/profanity-im/profanity.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ec688c51c079adca48b5f66cff1f2d7fb7f404f6cfe6d8236b24efec82a60da1"
     sha256 arm64_golden_gate: "5a28ad0761eedf5992728ffab64fe33d53f3d1f1131e6b7974dbb4ad63fad817"
     sha256 arm64_tahoe:       "5fb38ee91e6cc8108526c585e3a4ebfb129c369c49f3aea6e4031555073e5900"
     sha256 arm64_sequoia:     "64e3e150bb8624ecef473365be54eaf86145909b8a397455f020d97925e6f29a"
