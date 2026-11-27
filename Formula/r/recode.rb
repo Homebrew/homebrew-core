@@ -7,6 +7,7 @@ class Recode < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "39748277cac442e42dc5413cbd1c0d2d6195925b8072f4fb05cb6b5b63bfa455"
     sha256 cellar: :any, arm64_golden_gate: "5347c12db883be84b0b18df0895ef8bd1575d0c4a907c02d69c39d0d35fbc994"
     sha256 cellar: :any, arm64_tahoe:       "c4371f38696b416718869824909e9935820d6e7b3008fea921757133ab3e8394"
     sha256 cellar: :any, arm64_sequoia:     "6b7e9e184a490e5118ca6179dabf74239fc1ffb477dbb6eb8032c2cd298a2df5"
