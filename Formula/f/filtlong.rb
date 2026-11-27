@@ -7,6 +7,7 @@ class Filtlong < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "65b968f0669fadcbc7ca1af8c4c6a1a6dcc2fb726d021bbd4cbcd1bd9800fdc2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c22b47eda99b93a97f299e344428b64ad11f10323f3cde4675eebaac92f5b32e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d967c6236ad5842685f8544adbc7ef6453daa89ec80878b6f246b41c481f2e45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9159034511e6b82c8bf41baf7b975bfea55a2f2ccc33526753f444bf6f42063"
