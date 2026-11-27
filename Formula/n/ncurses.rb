@@ -14,6 +14,7 @@ class Ncurses < Formula
   end
 
   bottle do
+    manifest_sha256 "88bfccdd8ba4b78c9341cdf8f4e77f2e052a47ca1e3ebe51cd737844265f34f4"
     sha256 arm64_golden_gate: "36a1f053f1be8ce8dce8a92b68395fb1483b077d313077e9c8f4b20b6f712602"
     sha256 arm64_tahoe:       "b43443ba3c3c8728e79413c7c3fed4a0eb293bd77c8492c1ec4c5d05233a97f1"
     sha256 arm64_sequoia:     "3fe0a6d4482023f880e9542af63e9229c6fcd7456b46e88b5d2d4703eb2ec943"
