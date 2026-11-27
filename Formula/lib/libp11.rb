@@ -12,6 +12,7 @@ class Libp11 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f197fcfc526fb3f333310691d8906675428b79254531dc861828c5636d6d188a"
     sha256 cellar: :any, arm64_golden_gate: "f5b19e4558fa37afa2c3c3a3deeefaf8d425ccd23a269a7e85fffbd8fa580ce9"
     sha256 cellar: :any, arm64_tahoe:       "b0af52e43f671ff8da921e1a1190afe177bca853d0acfd93b524d8485b42e365"
     sha256 cellar: :any, arm64_sequoia:     "0100187fd64dd40d62334fd6f913a7f5f30e81d1ff2cbe00801e3da4ac1cd8c5"
