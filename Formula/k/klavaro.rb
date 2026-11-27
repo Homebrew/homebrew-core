@@ -12,6 +12,7 @@ class Klavaro < Formula
   end
 
   bottle do
+    manifest_sha256 "a887944e69dfe9c2ae8a278341d9230d47f988011b0c0b61455a1c80c5606436"
     sha256 arm64_golden_gate: "f6aeb1d62bac20a945218c8e53acd53e049b27cf1d5f2ac35834662ca0437075"
     sha256 arm64_tahoe:       "1953be5367f25a7ff30e60797c10c98d1c7a5cf28911c512e4904faf5f9f9519"
     sha256 arm64_sequoia:     "f51c0783c7004a02723e01896663c837923fe3ef5efc576821e68deb3383387c"
