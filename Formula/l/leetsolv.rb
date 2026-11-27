@@ -7,6 +7,7 @@ class Leetsolv < Formula
   head "https://github.com/eannchen/leetsolv.git", branch: "main"
 
   bottle do
+    manifest_sha256 "859ed15d1d55cd19bd74eb60bce5d7a1c9db45a5bbe5786e0e15a2731556a07f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "213e5a3b470687ece87a9bae5894a787fd7e32a95c1ed94d0bbd6dc1b8196243"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5cd16d7e328e6be2865e869e531fbad280aaf9d565cbd77d60ca153d9515e741"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5cd16d7e328e6be2865e869e531fbad280aaf9d565cbd77d60ca153d9515e741"
