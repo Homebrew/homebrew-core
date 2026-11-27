@@ -11,6 +11,7 @@ class KeeperCommander < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
+    manifest_sha256 "a288dcfbf4f945b6ce015d3eb487653772aaf8bb060839ce13483124650e1f97"
     sha256 cellar: :any, arm64_golden_gate: "877846ebcf2afd9c18648d70d8e4b2f2f2e450cb77da8ad4ae257de5f35de9e1"
     sha256 cellar: :any, arm64_tahoe:       "3dd9f841e83c8b53e5cc21fe3c9d8383f0ca32a96568d2727c57ab65a5fdf008"
     sha256 cellar: :any, arm64_sequoia:     "28ed4e040f0915315275fa8502b2117844098ad941d83ab7b6a968247998e59a"
