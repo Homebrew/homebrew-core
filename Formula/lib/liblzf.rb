@@ -16,6 +16,7 @@ class Liblzf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "eaec004a84f3188e116df8f9fca75befeea088fc07e0a4d2885ea73366775810"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de368cc199b0ec7ae7bf17aee6686cb1dcaab4c1171fbc9e30950904c319cad4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37954669600f0312c44a03a73a69df9467bba75628f0bc56747b7df6734f58e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c85befbd00a98a67ac1cc0b265f220bec476aef8f011b9fda2ee5aea9cd29b5"
