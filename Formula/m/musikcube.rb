@@ -22,6 +22,7 @@ class Musikcube < Formula
   end
 
   bottle do
+    manifest_sha256 "93035d9af22f522929372734a22f231f8ee81910fe42306e2fe10a77dc9e0163"
     sha256 cellar: :any, arm64_golden_gate: "cc12ec4777c26ea49c38a5c6024b27c3c9ee18e89abf25155bb8d55c3b576c82"
     sha256 cellar: :any, arm64_tahoe:       "bab5ac692f3b01ce87371d891bbe15765b154d3c79f641b82905a3548be609a1"
     sha256 cellar: :any, arm64_sequoia:     "4da016a929309c881a429f48a5466ca0a71a0347ae59ca1a485e0db8aad59284"
