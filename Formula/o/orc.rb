@@ -12,6 +12,7 @@ class Orc < Formula
   end
 
   bottle do
+    manifest_sha256 "1e993258db413db377fd44592970a0e53981325e23c07f8689fcccafedc7bf44"
     sha256 cellar: :any, arm64_golden_gate: "21bb6e15481ce8c8faf8214fe7cc2042a258fb09697e26249b733045d327b5df"
     sha256 cellar: :any, arm64_tahoe:       "4b326411003fdddfd8bf3dea9815043d962e748b6fd550be1322e1c6d2afd38c"
     sha256 cellar: :any, arm64_sequoia:     "f491eb26689b8f223f4681cdd85da4342a7c9504da4380ee99d3f23938df3430"
