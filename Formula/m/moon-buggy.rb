@@ -14,6 +14,7 @@ class MoonBuggy < Formula
   end
 
   bottle do
+    manifest_sha256 "e1848519c902a56da63971a05632939a304c7a78fadc68c8ba6061cd55d2cacb"
     sha256 arm64_golden_gate: "d668822240a844b25cba6b7ca0586bcdf667cf9125c88c0842c69fd5e9ce8ed8"
     sha256 arm64_tahoe:       "53f6259b504aa18f7ee6f00e8609de83f5dcaf145f271223c1b84097d03ee187"
     sha256 arm64_sequoia:     "b3e325dda761378e3fb26ff514d1cdf7e2e93b3348d965320de0c73e2726ecc2"
