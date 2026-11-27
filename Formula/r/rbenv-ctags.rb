@@ -9,6 +9,7 @@ class RbenvCtags < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2fc09d29f45ceb1f97f707a8a50cfce98352a79a62bbbbc2882c0a537a1839f9"
     sha256 cellar: :any_skip_relocation, all: "b002adad54827245a53792a5da722075e8662e65cde9ce26a628510a6b1b3ee6"
   end
 
