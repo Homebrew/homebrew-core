@@ -13,6 +13,7 @@ class Kubeseal < Formula
   end
 
   bottle do
+    manifest_sha256 "75e0470f3b0906079c13ff8081864c559d20b36ad3495fef1ba32cd35c5ba1d1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d227e2c5c127da29836f8ce23f90b44b7cc52df8d82efd097cec84d6ad90a0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e144a53b4e6992d1bf17ed85aaf9918c4e097fd136a6cfd13ae1da6ef6106630"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae410afc9a28dc28cc2925304b6548eb5d88c7fc969ea5ba2518f8b347ac94ec"
