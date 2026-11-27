@@ -11,6 +11,7 @@ class Libswiftnav < Formula
   end
 
   bottle do
+    manifest_sha256 "a8e8f2b8b9cd691e6905e9a664c82b1978f0a913d730dc8e3435b9471237f0f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6abe8c7b6678ea3c99479b3a75283dbecc9c6a70488d2b0939052ac941dbddb7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "33463f96c4b94f36447f45dcd3fb5c039e374a1ccbf8e3ca7b5f8cddf2627d68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ddd75cc7bfb08208ea88e3bbc3f3d5549c9c72511dc9378ab31101d50591c48"
