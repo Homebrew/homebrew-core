@@ -8,6 +8,7 @@ class SpacemanDiff < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "97f2328fd28ff02c0698b2d117b7f744947c0f5942d6e7101b64a4cc16be9aa8"
     sha256 cellar: :any_skip_relocation, all: "36d9e7a82debbc9f11c998ed776c67172a8ee7dfc08ced8c840dc430c906fba1"
   end
 
