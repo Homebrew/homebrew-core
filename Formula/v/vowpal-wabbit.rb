@@ -7,6 +7,7 @@ class VowpalWabbit < Formula
   head "https://github.com/VowpalWabbit/vowpal_wabbit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "762e853c51f9ed0fa3112246add08182128aceca1b921061873a5f8ee2a8c9f7"
     sha256 cellar: :any, arm64_golden_gate: "0127e0c5ac8421b623c0308436697107d674db7d1ca00c1bd22fcd7eae3402af"
     sha256 cellar: :any, arm64_tahoe:       "b4e38c242072570fc8d401cb9a8b3dfa9662d08df23b0d102b1cf6d45b387442"
     sha256 cellar: :any, arm64_sequoia:     "b263f2259db973515a37b3aa94c5eb85a00419b1256347783fe10400f6163aa5"
