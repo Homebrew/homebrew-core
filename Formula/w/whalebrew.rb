@@ -8,6 +8,7 @@ class Whalebrew < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "68621010217a4549c2e39cdbdb6b97e2ca517746316c081401ac2fdb27071da8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39725362ba75cd91939db0e03343ea48d56c61236724bd1fd36a73e261247852"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1f6830e7d52fc290dc2436ff9c6284990599dcb4c0425ea5f88e7010e0e6e40"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1f6830e7d52fc290dc2436ff9c6284990599dcb4c0425ea5f88e7010e0e6e40"
