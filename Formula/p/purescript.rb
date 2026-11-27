@@ -15,6 +15,7 @@ class Purescript < Formula
   end
 
   bottle do
+    manifest_sha256 "97ec1a2a40a5608228bd3bb51eadd0ebd9b59dcb899022982651672b6e525a76"
     sha256 cellar: :any, arm64_golden_gate: "4e72779d2a8eb53130a068d910252049522cea40808c689c118ee9689c298b82"
     sha256 cellar: :any, arm64_tahoe:       "e4c221120015d3fd023a9203a494a212891a773adb3d6bbaf4555d6d5c5e9f74"
     sha256 cellar: :any, arm64_sequoia:     "197217b63df2f12b97d25c3fedb75b484555296b9aafafd167e41f28af72801e"
