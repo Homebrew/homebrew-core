@@ -10,6 +10,7 @@ class Rtmpdump < Formula
   head "git://git.ffmpeg.org/rtmpdump.git", branch: "master"
 
   bottle do
+    manifest_sha256 "db91f12960957dad718203b65227061295e4179b4ebf856eee86006b7b385aba"
     sha256 cellar: :any, arm64_golden_gate: "2e68aa9521c8b2a3701128c07e6e32fa826a1a485401014735ef57c5a1a84a10"
     sha256 cellar: :any, arm64_tahoe:       "821e2455e7920733f38c766cb53ade2724e88987bd1e22b9fdce1540f8edc20b"
     sha256 cellar: :any, arm64_sequoia:     "c456358649bdfcd817cb89a2d7da1fc0f0bb6b0c50265e44a43c3987ed02c535"
