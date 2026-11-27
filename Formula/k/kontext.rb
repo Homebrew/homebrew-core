@@ -7,6 +7,7 @@ class Kontext < Formula
   head "https://github.com/kontext-security/kontext.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cacb4beecf4832b90c5c6ab2a025332ddaf6b2b10e05103c0a0c94012412a45f"
     sha256 cellar: :any_skip_relocation, all: "bd9bf4660edb5bab760d057569429f8c30c5731b7cbbaedc5d53d251c6ea180e"
   end
 
