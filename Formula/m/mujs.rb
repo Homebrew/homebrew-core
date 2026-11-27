@@ -13,6 +13,7 @@ class Mujs < Formula
   end
 
   bottle do
+    manifest_sha256 "8558c8c66f1ffcc07c8b3fc6b17f5d28d3afbcc522030a81b2d6dade0b1beec4"
     sha256 cellar: :any, arm64_golden_gate: "d15dfccde9045998d8a69ea2b2152730bd294247c16d89dd5c6dfd24e2d06456"
     sha256 cellar: :any, arm64_tahoe:       "462a216d223d3cf43356216410830a2618ed18dbe8f0149e2dac38a78a5ea75e"
     sha256 cellar: :any, arm64_sequoia:     "aa9870c50c9719b443e085dc8391d133971b66702d69752f1ecb48e71355e640"
