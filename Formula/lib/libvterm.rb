@@ -13,6 +13,7 @@ class Libvterm < Formula
   end
 
   bottle do
+    manifest_sha256 "f76b42f4199caf714883559f29c00940af1073b7ecfbc0448cf5cbad6c822df0"
     sha256 cellar: :any,                 arm64_golden_gate: "f1deab623330de3423dbcda237961857e4626dd93d8068208fc7e135ed30c9c2"
     sha256 cellar: :any,                 arm64_tahoe:       "8fdcd31d15a6c4f58e1dbd5818a18f17518766defb4548b5ad869e72adb23a20"
     sha256 cellar: :any,                 arm64_sequoia:     "1f9b512f3881f954e48acad23f8c6bcdc76ee979c89baaf0cabb9438843be999"
