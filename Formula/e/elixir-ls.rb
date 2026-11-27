@@ -12,6 +12,7 @@ class ElixirLs < Formula
   end
 
   bottle do
+    manifest_sha256 "7f1ea66b8388d963d1d0f7a13daf44f60743cef078843d419f8108c85d18f06d"
     sha256 cellar: :any_skip_relocation, all: "0788f842a7ba329056572b0aaf459f265d1044e7493de645ac9e83c3713021d0"
   end
 
