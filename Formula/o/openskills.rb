@@ -6,6 +6,7 @@ class Openskills < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "fc83776ecbd13e54d0ae3367199bc21c95b781a4e92442160403c0b2dbcc08ac"
     sha256 cellar: :any_skip_relocation, all: "e2026c6d2ec9ba496ba0be75a24794d328cb23cfd8ede1922f0be3b1a81da9e8"
   end
 
