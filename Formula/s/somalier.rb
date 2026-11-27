@@ -7,6 +7,7 @@ class Somalier < Formula
   head "https://github.com/brentp/somalier.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2bf2dd231276c42790d294ee35d665ef1292db64422d88781e51c653b23ddd9c"
     sha256 cellar: :any, arm64_golden_gate: "beafc77bce682f16063a9b51c3443b5c80082851ef91eef2a6e0c9bbf0274e31"
     sha256 cellar: :any, arm64_tahoe:       "380b4604938feb667bbbf710fa19173280c64753fb87a4aff7a7fe84ed745c86"
     sha256 cellar: :any, arm64_sequoia:     "67f8bd8bfd082e974dab7975f7dfa7ae9ee04eadc3588ba2c70fedf70e1741a7"
