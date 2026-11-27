@@ -29,6 +29,7 @@ class Gnuradio < Formula
   end
 
   bottle do
+    manifest_sha256 "a3ae711b16d4b82b5c7e6f4f9e2dddca1f13ce9fdc82c1a51629ebca1493f415"
     sha256 cellar: :any, arm64_golden_gate: "e86a68884ed012e785d99241e01372cf29d88000b64c8eba7702110eda6dc0a8"
     sha256 cellar: :any, arm64_tahoe:       "01c8ca0800998201bc579f286d1016975609dcb2e3ca7adf7355dbec1e67d12e"
     sha256 cellar: :any, arm64_sequoia:     "1e2d9b5fe5fe3f893b82c600845b6d957c8c3b0fcb2625eec8c2a9037e79f8f9"
