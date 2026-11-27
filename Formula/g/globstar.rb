@@ -7,6 +7,7 @@ class Globstar < Formula
   head "https://github.com/DeepSourceCorp/globstar.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0ab3f638b21336f7527da130f5c8136984afc9bab197ed8072d06c902076454c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b04704d41c72327d19950aa12389aa1e6c8bf63855ab552dd526f11829aba3a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d98b7e98ef732c439eff65683513fa96817dde23e8deb1ce2b20ea16586b0fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c858f8619c5e029a36027e5f37561c9464e739df67ea4ba51c8caffe9c48199"
