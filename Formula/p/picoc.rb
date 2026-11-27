@@ -21,6 +21,7 @@ class Picoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "acf5210cc998d582d6d07d34a9c013c081652805f588f5a385747ab674d37cc5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8fd4b15f053f0f6031f734b208ffd569073567a855855dffc163bee1aa520035"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "190a69c827d572ea5c16c28021907f6eb657eaa4b3381fc379ebeeda16e1c102"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43e537db7d3f77463969b213bbb8fcaed5bef26c4c1600989140bc4c8ce77f80"
