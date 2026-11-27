@@ -7,6 +7,7 @@ class Libmtp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e3652b546c8d857843ca4a0e727714f204f1dc4a2ef76675ef3a263d338e316f"
     sha256 cellar: :any,                 arm64_golden_gate: "151523d3e1cb19adf95de432b63b0f52b1d64bceaba3d289145d5ce9a316457f"
     sha256 cellar: :any,                 arm64_tahoe:       "6bd6b1027d7491cce853f34578cfecad1645e95c5002619c51f28e261122b7ba"
     sha256 cellar: :any,                 arm64_sequoia:     "a8fccff1e5fb87a33287fdccd00ff301e97377a899db19e200b0101a40631c8b"
