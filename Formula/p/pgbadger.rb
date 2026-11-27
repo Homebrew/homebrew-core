@@ -7,6 +7,7 @@ class Pgbadger < Formula
   head "https://github.com/darold/pgbadger.git", branch: "master"
 
   bottle do
+    manifest_sha256 "40ab156fea87bce71189260be5ca7c4c9e0f84e984f7b30fb4e34e3e00e1a9e6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32d54a823d4dcfc9e32f85cdaba1b14257816d67127a5159f3c495d846592238"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32d54a823d4dcfc9e32f85cdaba1b14257816d67127a5159f3c495d846592238"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32d54a823d4dcfc9e32f85cdaba1b14257816d67127a5159f3c495d846592238"
