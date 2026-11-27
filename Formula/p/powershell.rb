@@ -12,6 +12,7 @@ class Powershell < Formula
   end
 
   bottle do
+    manifest_sha256 "d87fc90901dd3e74c7916ef46bf55f7c344c88e02a6bcc4518f094e83ad97fc1"
     sha256 cellar: :any, arm64_golden_gate: "ce2df10df0a1cd31d271f4237e9020a0bb1150b5759fa66c50712ff99a11e6a3"
     sha256 cellar: :any, arm64_tahoe:       "b8ebaf8a76f974ffb39ee3644ebcfe7b0e22af724b48d693e7b604ca3821c282"
     sha256 cellar: :any, arm64_sequoia:     "2cbcfd2ccc2fbeaa328cac4e36d19b8242052b570d0343cfa759a265b27aba8c"
