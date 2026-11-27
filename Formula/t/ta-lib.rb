@@ -20,6 +20,8 @@ class TaLib < Formula
     depends_on "libtool" => :build
   end
 
+  deny_network_access!
+
   def install
     ENV.deparallelize
     # Call autoreconf on macOS to fix -flat_namespace usage
