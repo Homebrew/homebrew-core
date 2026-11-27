@@ -15,6 +15,7 @@ class SpidermonkeyAT140 < Formula
   end
 
   bottle do
+    manifest_sha256 "768d61f57735fc44b61711742eaf5f3e6e90b221d41be2ff94b06aff42ea8767"
     sha256 cellar: :any, arm64_golden_gate: "bdd545ed24b1d5a0e6decb92ee0f1fb8a697d8668e9fb2c0f3e7ba6ca29f9dad"
     sha256 cellar: :any, arm64_tahoe:       "f58e587b4c9c5366f0ff26267ea2598c5717a7120eee795b36ba7940f926a846"
     sha256 cellar: :any, arm64_sequoia:     "962ad454f64c87be0834f8ffc9c6cf453aa47c84bdf748bbbb605b9d1dc27c6a"
