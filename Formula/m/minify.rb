@@ -7,6 +7,7 @@ class Minify < Formula
   head "https://github.com/tdewolff/minify.git", branch: "master"
 
   bottle do
+    manifest_sha256 "29ebfea556447bedfc7138c18876cccd4386ef79357a517e4f9468b091dd85f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7225dc0aa1da97d5094630980d732b24351b1e151e239192f714e117d217f33d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7225dc0aa1da97d5094630980d732b24351b1e151e239192f714e117d217f33d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7225dc0aa1da97d5094630980d732b24351b1e151e239192f714e117d217f33d"
