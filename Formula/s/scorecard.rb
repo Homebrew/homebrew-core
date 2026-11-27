@@ -16,6 +16,7 @@ class Scorecard < Formula
   end
 
   bottle do
+    manifest_sha256 "5686fabf3cdeb5c84f352268d84413f4a8808d4b5cd9f7b0583021afa7532ddc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05d9482a837f1e6026b75fb5b849ea05cc9602be17e578a6e509cf7c73147683"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e3f8bf84060df953762b65d75f7a68d59c28c26984d60bdfe365a978221896b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2053401d4740fc10ef0249776f4696648e32edecb36382a0b4a63e3fe98e635f"
