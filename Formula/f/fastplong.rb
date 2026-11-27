@@ -7,6 +7,7 @@ class Fastplong < Formula
   head "https://github.com/OpenGene/fastplong.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2a6f85984922c0d144c5ae8cc1fa30207f4f135ab16b06a63c576a15776aa045"
     sha256 cellar: :any, arm64_golden_gate: "b19af367fd97514e55d41079b2abc53eed849ebb2b2e1e0022b082966250e5d6"
     sha256 cellar: :any, arm64_tahoe:       "9902ccee778382b88435ff5c3bc3c75d35af206f233c6e5a1bd0c5704a037628"
     sha256 cellar: :any, arm64_sequoia:     "f49674cd5ab99ba7c3a1b1a795176e5c7220e7a8f8d85e3a36e3f98616e91e6a"
