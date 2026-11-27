@@ -14,6 +14,7 @@ class Libgovirt < Formula
   end
 
   bottle do
+    manifest_sha256 "04d8d2966494e17cae7129714dd36ce557a9023aedc66dba06d0fa594a5a9547"
     sha256 cellar: :any, arm64_golden_gate: "91db71b22fa5d555412e8b53caea35d9344fb8a489e86084f0ad026141317ade"
     sha256 cellar: :any, arm64_tahoe:       "55bbab848a8611ad1243add6a52d72a72e3df60633e12cf3b9afa6fae3b5c13b"
     sha256 cellar: :any, arm64_sequoia:     "cce3ae0c65ce6feb8cc6271b67c115e214648570f76991628e72afd78d528d0f"
