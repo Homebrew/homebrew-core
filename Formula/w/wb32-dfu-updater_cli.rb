@@ -7,6 +7,7 @@ class Wb32DfuUpdaterCli < Formula
   head "https://github.com/WestberryTech/wb32-dfu-updater.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ea8568693c4d47d5c307b3f054dae9bfd1110c562d91a28c7f23f40958c5aa08"
     sha256 cellar: :any,                 arm64_golden_gate: "8bd1d42b827cea4a8bb6feef9e7e977cdc521f04c27ac838e213232c56150944"
     sha256 cellar: :any,                 arm64_tahoe:       "934c190218de4e881ed04b18bf537a15710600e07055dec9a0adbca436afab65"
     sha256 cellar: :any,                 arm64_sequoia:     "ac239ddaa16c7c73763bb0e7fccf0e832ba3dde536d90115ac65fb1ac58da4eb"
