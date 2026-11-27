@@ -6,6 +6,7 @@ class Preevy < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "11fc1f99918b3db2972198065a8173f46b0fcdcbb9200e62ab64a48b5ba446f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b499e41df93ff4350593477424d40eb8b6c7eb395bc7a5baf8ad242cc4df4d9d"
     sha256                               arm64_tahoe:       "0ecfe50451d749ef862d67a719df6877d1bc707ae3a4254fabd37635ac0581a7"
     sha256                               arm64_sequoia:     "13f0d0eb46761af3cfad9914316e60ff0a57b9c66de29c6ff5a36c075a126c5e"
