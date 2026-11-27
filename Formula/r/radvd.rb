@@ -6,6 +6,7 @@ class Radvd < Formula
   license "radvd"
 
   bottle do
+    manifest_sha256 "a32cd1a9d75433b74e748d3b673a6420d7f0f8b12b840c4e768e5eb6acf7c36a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ff9f74631572de3db631ccd8ce62b75d2cad66e6f8c490ae7c00c59cc87fc1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d64fa035f9ba5b0ac270c6371632a00245fabaa7b1672da886973cfaed249ac3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e297345eb63b45c4a464c83887ed49cb664fa638a75bad620a2d64354c9fa66"
