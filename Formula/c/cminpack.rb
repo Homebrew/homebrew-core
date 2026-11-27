@@ -8,11 +8,12 @@ class Cminpack < Formula
   head "https://github.com/devernay/cminpack.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "5c3b2e9fe67aa283195c193431b8ae141856e41948755b8f5478e733ea547184"
-    sha256 cellar: :any, arm64_tahoe:       "c6e7ac92386ae7ab658b6f9f422dfd11da82e39113a803308984fc77e7255f5e"
-    sha256 cellar: :any, arm64_sequoia:     "1757084529d88dfad798bc6041453dda44e8c07f6b8c0cd953f64ac126c76dd4"
-    sha256 cellar: :any, arm64_linux:       "b323456f5bcf44bb111a135c09c757feb8fbaede96134991da9ce5e242f02879"
-    sha256 cellar: :any, x86_64_linux:      "0c3aa3236b2dfad9a1e71ed70875ed802d126ac36e61aa7ad3a58200ea43f0c8"
+    manifest_sha256 "91d7c52cbce1a61d96aea538ed2b49306ca06623eaa4bae50d64efaa39c2bb74"
+    sha256 cellar: :any, arm64_golden_gate: "18a60e267697f7556b78b776e55968d1e5adc7eb8f2f5259d96ad4a410af330a"
+    sha256 cellar: :any, arm64_tahoe:       "3ac84c4ef83cff7ceb7fa742edf14fb0970b8a63489989405af5aee05bea427c"
+    sha256 cellar: :any, arm64_sequoia:     "ad9feca5fe9f0fe387c473f52fc30d610e2b2989aca56749e9787190dcbcad87"
+    sha256 cellar: :any, arm64_linux:       "732e273ed55867e7bdb577b7fea995d05dd302300aab5246fc1799d46301aed6"
+    sha256 cellar: :any, x86_64_linux:      "9bdc45e79620b84c25a4ff96681ba93e0bc1adb40458275f533a4816ac4326a3"
   end
 
   depends_on "cmake" => :build
