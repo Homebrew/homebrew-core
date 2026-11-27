@@ -6,6 +6,7 @@ class Rmlint < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "c686498e4c2939ce87021c33931e8608acc9031731d621f494d9c6e2f457a85d"
     sha256 cellar: :any, arm64_golden_gate: "331ef960fb7ed5264bd9d46e6fe842e55954fcb3041070dcb66d26fa8a901a55"
     sha256 cellar: :any, arm64_tahoe:       "07f50ddbf1af0b241e62ec1e6c30015d1c795dcb57ea611f6fe7dbe1169e8112"
     sha256 cellar: :any, arm64_sequoia:     "db7662a9bb848c8d6d188fc2ef83f542647d26e35f77d942798303638b548b12"
