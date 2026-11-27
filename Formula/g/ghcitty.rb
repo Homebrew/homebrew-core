@@ -7,6 +7,7 @@ class Ghcitty < Formula
   head "https://github.com/mattlianje/ghcitty.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bddcb0362e9cb9fdf1ac28109ed1aa9a25663210333cbcd67e8652f95b28e424"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cda3696f77434a34734e73997d4a0e80be71db888390b64af0de2a5d8b662d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed0864413a064715f5274cd1f42bf2d96d222a05a1d9e65fd7fc6fc31546bfac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8cf74e25ed7dab735b699a5f2123297dc424578aaf80adac2af5d52a7c98a7af"
