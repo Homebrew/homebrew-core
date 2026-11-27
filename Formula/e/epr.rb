@@ -10,6 +10,7 @@ class Epr < Formula
 
   bottle do
     rebuild 8
+    manifest_sha256 "27d4ae676d7d1ad04bf550c3757d258f28a469251ac03a330f2b74c7ebc5a8d8"
     sha256 cellar: :any_skip_relocation, all: "f51b3a6546519f864f1fa41ad5844033bcf1f41cb84a22a020555cb7644e8a9e"
   end
 
