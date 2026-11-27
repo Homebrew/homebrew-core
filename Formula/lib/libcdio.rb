@@ -12,6 +12,7 @@ class Libcdio < Formula
   end
 
   bottle do
+    manifest_sha256 "752809e440ee600ec44e81eec7996683ba2c1ed27a9209b65456ab385ccf5abf"
     sha256 cellar: :any, arm64_golden_gate: "d5bb3febb5aedf72f5af7f0547f6c16b45d6ef4894a7ed4cb0e28387592e39fc"
     sha256 cellar: :any, arm64_tahoe:       "63b83d23d846413492957f23dbcc2067fd6b6cc390070589f504d29536185021"
     sha256 cellar: :any, arm64_sequoia:     "0ab9db75edc2dcd8cbfe0fe99c7b70adfc20571c4fc6a99aa11887e88ff13247"
