@@ -10,6 +10,7 @@ class SphinxDoc < Formula
   head "https://github.com/sphinx-doc/sphinx.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b8c2080a3b4ccfbe0eb861e71893fa50a55017ec9b921d5f3b1f00ae5af2261d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f64c9383acf03dcfea724f2d41b984afb622cac65427dbe31a973f6f1dd62ce"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f100fe7fe707ba4b8b9b72db24feab67d1732dbd2ae106c029768278cb3d379"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c36688c0a70497f75a9289b92cd4a0213118de94b407eb95b9eb912832a9aed6"
