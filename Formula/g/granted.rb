@@ -7,6 +7,7 @@ class Granted < Formula
   head "https://github.com/fwdcloudsec/granted.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55bb85eccb4e92a4a9f2cbf4f519ccf2fbb4da2896f1d5de112ba4f6f9d7f183"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43daf9b080c466caef450e7e058954cc2f25b794da90ad0184eb3f97f62f47d2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "363277496c26f442a65f7615d35d0042ec29f5f6a64eab8952f2891fb469cd3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe2f49a68ef6316074e4f821f81b3eec881d600ee9ada24788b1ad5e7a1af3f8"
