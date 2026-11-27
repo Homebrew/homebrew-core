@@ -7,6 +7,7 @@ class Dud < Formula
   head "https://github.com/kevin-hanselman/dud.git", branch: "main"
 
   bottle do
+    manifest_sha256 "049c0a2026186aa63c4b9161a8ae4c79a248c7d2ec5e27a9c2e50634e93b3d1c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "375f79e37b5121e9c7f3e368b3a9983848b3ff803d2f41e24adda463ede54b5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b03ec73614b941708e676a4c170549a563d888265df0a547155ccb997973552a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e40fc688de77f2aa11aaf87d123516aa14883010c37e6ba1bc8e035dc6ee1dfb"
