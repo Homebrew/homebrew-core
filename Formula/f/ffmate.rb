@@ -7,6 +7,7 @@ class Ffmate < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "7a7c766204e6c1354e23c8f61bca90da3f0ce225621fecef25fac1a3c8d58aef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c05808a09d4c1d29fcf1e70a6a8f3cdab07070a6503b16b8209c45e3f62baa7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "694078c893cbe70a68fc18656a286169f9f8e6f787d0619455805b9011f604d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2659f026a220fd368d9f90f1678755a496834e993b389d4353a46c6b1d69d90e"
