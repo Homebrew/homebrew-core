@@ -7,6 +7,7 @@ class Imagineer < Formula
   head "https://github.com/foresterre/imagineer.git", branch: "main"
 
   bottle do
+    manifest_sha256 "196658ef6c9834a46ba33ac6d2d486e249026f4eb7f2ac5e1cae66d67ea958a5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ada417e06a5b52199491b90c658c0ca86035cb107bba8e0482169e34382d2a2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00367057842b1f302abb944b53da00977ff54fca5d96e949249db9120707745e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5c9856905ec63041ee0c0d60e7d42352fa63be836d37431430fa6bfca5f98a5"
