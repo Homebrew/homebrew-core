@@ -14,6 +14,7 @@ class Opusfile < Formula
   end
 
   bottle do
+    manifest_sha256 "7462500801ccfb52cda7a6da711799dd5d2f04f4cc1c6fe87c97228620ef32a9"
     sha256 cellar: :any, arm64_golden_gate: "580b2a76a003a6d5afe91122cc0f010218b1e7dc32f7325e3b6ab8fc8afda755"
     sha256 cellar: :any, arm64_tahoe:       "b0226b89dd01ee7b757ca8f0a683bb3486ebd56a066333bb7f0c4df1f9b1ff7c"
     sha256 cellar: :any, arm64_sequoia:     "14df475fe484095b299c6fb39c5f63eede59b081da7ca468561a0a587507ecc6"
