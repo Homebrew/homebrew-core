@@ -12,6 +12,7 @@ class KaitaiStructCompiler < Formula
   end
 
   bottle do
+    manifest_sha256 "edd72cb080bf0c55496783cd7d6f37d23584a1e289aa21fbea2f95ae2273c7c9"
     sha256 cellar: :any_skip_relocation, all: "66821f7ac017603678d4c0d615f1421a9a68996d5a7592421e72dbea54f829b8"
   end
 
