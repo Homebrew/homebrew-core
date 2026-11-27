@@ -13,6 +13,7 @@ class Gascity < Formula
   end
 
   bottle do
+    manifest_sha256 "dda685d118739ca1be2ff4e3e0f895327eccaf51f3091d2aecee42b944b2eade"
     sha256                               arm64_golden_gate: "5db6dad98919814a4ecb77cad1acf1f84f25d32d7337e05af6a2f2380f9328e4"
     sha256                               arm64_tahoe:       "5f981fc987235130365f092e8c32d26d72d586cb042c3a7cced7e4a7a07433d1"
     sha256                               arm64_sequoia:     "ffd0a1b922a012d94ca0e814f5a09644871a6528f0ebb715a2dc0d798f422373"
