@@ -6,6 +6,7 @@ class Ps2eps < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "9b54d93682151c7bccc71feef63d163b988400c80eb831d0a47891afb5fa02d2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e614f533ddb0aebccbd70e89a4fee6a93720896dea44ea06495ff4d91525426"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23f0a910cf3c5b530be5011b50666016d7d5cb27285355d46063442b6e98af34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5152b64948cc7677eb73600d2273b89d056786e6479483dcc00fc1ecb71aa3ee"
