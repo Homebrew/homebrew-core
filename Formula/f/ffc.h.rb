@@ -7,6 +7,7 @@ class FfcH < Formula
   head "https://github.com/kolemannix/ffc.h.git", branch: "main"
 
   bottle do
+    manifest_sha256 "072d242b146b7b7fbd3ec75f40b68c89dba665df6f92b177290bb0de417bc059"
     sha256 cellar: :any_skip_relocation, all: "1f1690dcf82b6729b44e933db4aeb0b75a119d4726b35965c16c66ac6849cf10"
   end
 
