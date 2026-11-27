@@ -9,6 +9,7 @@ class Raven < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "0b890e0bda727161b040511b3dbf1bb47e7897cd533f2c4cb5a669bc76b5f761"
     sha256 cellar: :any, arm64_golden_gate: "905c5480df3e288357ac5c99c9fad0864e3417bdd9bfa970507da6ba3d74ca41"
     sha256 cellar: :any, arm64_tahoe:       "0f332623bce5bcb2aa0464cdceaefdeaca376ef7bce3519a65f76deb88d66541"
     sha256 cellar: :any, arm64_sequoia:     "caafc5679fedbab92575c72453eeba751ff1fdee03b5cee923e68ef4a9c4630d"
