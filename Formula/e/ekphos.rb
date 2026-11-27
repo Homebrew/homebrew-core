@@ -7,6 +7,7 @@ class Ekphos < Formula
   head "https://github.com/nostacks/ekphos.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e9a7262d573bf9f3d58b12180f40a698216f89356b808f6e07537a2577db8a4a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c92f6d8e746cb19162a200625d87c9f42ebc92f4bf2bc6e100a96a9b8e7d23e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1cbcb94dbcb6efa3cd565b36e49f3ccdbb11d4d7c9ef12b56adb9dfe48c56f7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87ad0a14f5515897e654b169249b31e89def39ffd404797824e76550d34a541a"
