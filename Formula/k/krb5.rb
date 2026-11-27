@@ -33,6 +33,7 @@ class Krb5 < Formula
   end
 
   bottle do
+    manifest_sha256 "43075ebe16adcaee6039fc7d0eb79c1f66ce089acc2edaa5f2d66e59a63e83ad"
     sha256 arm64_golden_gate: "9ee71115230780fcf77473cbe412f3abea1b7ec672b0d9c34c70b59d39902dbc"
     sha256 arm64_tahoe:       "4827d11086d9f6d699be5403572eb6e9fbef3699c2f8c7001947eb78f2d6b384"
     sha256 arm64_sequoia:     "465873b2f5bb5751fc01e086648cb54fc30a4b975e3bc00e393e00e763931015"
