@@ -23,6 +23,7 @@ class Opam < Formula
   end
 
   bottle do
+    manifest_sha256 "680ae9a0081e724bfa1cdee310f1e8c8d0d33bc9248a17dd8b40cc1ea5a762d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65aef9939bb8a7d25547e9d5997c6c02026e6bcec2e85b39560a690a64ebd8c9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82d27fc543dfa4ba9c8724432511b325198626d1f314e4915e2d129d24598116"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0588e2f9616926a171ba59287de00181b3a65aed3e5d185e97fa50ba26c7444"
