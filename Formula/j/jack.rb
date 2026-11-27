@@ -14,6 +14,7 @@ class Jack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cf699750147061989c1344497f54ebfc075338ec471909949f1e3f96b003668a"
     sha256 arm64_golden_gate: "a66efd3c8fc11345c0e664ea6d1e89ffbfa41d89550a64850af99655cbb49d30"
     sha256 arm64_tahoe:       "fff5cd2469005f7ce17c430b5b0702ddae63ffc10fffeee4265eaa4eff14d586"
     sha256 arm64_sequoia:     "db8845aed88dd26297e2b9e128b0a6325b57e83c977c82c9764dabab0f5eb5a2"
