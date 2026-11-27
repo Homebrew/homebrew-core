@@ -11,6 +11,7 @@ class Rustscan < Formula
   end
 
   bottle do
+    manifest_sha256 "d1dc0862c0214d82a95045e45f451fb97e1b5eecdbecbf2e2db8d7762c7e3130"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f80bc29149655a25d29608023319491ec229d3a0d5ff3c7d9e227def273a28a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "920f4b2a297025ca7b330f4366ef530a2ce9b23de84e9a901de47e7cfd59969e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50ebbe3662730650662c6f4438c06b70c8bf4c635975ecf3bcf9e081a7862af4"
