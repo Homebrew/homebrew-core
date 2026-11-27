@@ -7,6 +7,7 @@ class Scrub < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3ee72a492b93d9b8e10b0ec290b68bbbe9694a7e680074ddca8f892b471b4392"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2bbd3edcb57381509112a4a3eb86666bbb97d8c1995cc9e2e7be5db2ea46920"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "88a91308307502a58e67619fac1f906ec12cc8f8199f0a409312a82ce4fe0c3e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b5104b893d57f47767bfd57cd943551d95cd9b322645a56fdb18ba325904b02"
