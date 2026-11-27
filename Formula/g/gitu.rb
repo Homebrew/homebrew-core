@@ -7,6 +7,7 @@ class Gitu < Formula
   head "https://github.com/altsem/gitu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cf8a6f2ce738f901a53f2784f04415fe042cd21b8a0ee79c8f1c2fb34ef80d36"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06d49a280dfddfcc51786f40c3d27069f3082b05d08f3c70da99b94cf254c08f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54321464d3a8e92f7ce38a7d7737d3db6929fcbbc111fb88d06c39b6b2a1e1e7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "abc65c5200a9cad96cc568a62a703c70eaf239df1c38d5b7c1e3289aabccffef"
