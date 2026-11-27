@@ -7,6 +7,7 @@ class Gnuastro < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fc77c89f5109a8fcb926b68fd90888243d0311f6b9b5a715cf655278d52e58ce"
     sha256 arm64_golden_gate: "2a78487271fe0e52121f127ab3047b1551f0b04875ba3b779408bd9af11fa551"
     sha256 arm64_tahoe:       "0ea7f7c21d2c2cb5bfe5e28bc5c713a054eaee0dc0a9332bbd6fd35513f786a8"
     sha256 arm64_sequoia:     "bdecce536f87dfd5990e32a7ba2fc20eae8e454bbe5d78a54636205f53317a8e"
