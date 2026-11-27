@@ -8,6 +8,7 @@ class Libb64 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4e9a4bbd36346ef018b472141db78e00e8a2b9ab2241bc347ae46b1c6edf4983"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e68f645a1a05fccb826987069257a725416e5bad80c6da9bce638aabe66f9fe2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3b92d742579da7f5934e8b7d99144b42167ff17b40144299d86924f828148368"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "210e5acb036ffda3a85af650cdcbda27c8ca804cb099d556a1dfd4779ec17fb7"
