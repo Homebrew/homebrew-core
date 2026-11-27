@@ -7,6 +7,7 @@ class Localtunnel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2c7a5336b7f0528424122528d8e74e367cc324c5fc2f282e573298905bdecfab"
     sha256 cellar: :any_skip_relocation, all: "b5425789666cab50aa13978b6bec08b978f7be5d53e13b9e447ed712dc2b3c60"
   end
 
