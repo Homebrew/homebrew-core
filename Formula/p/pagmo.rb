@@ -7,6 +7,7 @@ class Pagmo < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4d4b3681c59d5a5f337cf91d69ed8e61b8aa611a404655ea636dd8080938b609"
     sha256 cellar: :any, arm64_golden_gate: "09411ccb768026f9cde2978003397d0ab70917d0b56111a37390584045b3d359"
     sha256 cellar: :any, arm64_tahoe:       "f5785dbbc6f6b93ee9cc435f8b7f737866e49da979aa332c15773b457180474b"
     sha256 cellar: :any, arm64_sequoia:     "ff4fe138739435578d77b6c1624fcb93e775977c82505d18741eac6ce98bbad0"
