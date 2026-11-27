@@ -7,6 +7,7 @@ class Owfs < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "56c50f47b89c0d8e2b017e6993a41d9ac7b1be4a08bc3c421290410cb53873ea"
     sha256 cellar: :any,                 arm64_golden_gate: "00e80fca48cd1f125207dde517234524c138e1648f94074ba49850c266f268c9"
     sha256 cellar: :any,                 arm64_tahoe:       "cfce021f58090c3ca7128b8cd83544f67ee1305486f639e0659f799381b2c0ea"
     sha256 cellar: :any,                 arm64_sequoia:     "9ffbd0a7e7138e0e41418388b894e28c1afa188d2182acd3f8518dfad76fd4a0"
