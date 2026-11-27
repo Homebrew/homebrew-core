@@ -7,6 +7,7 @@ class Libpanel < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f3f8d752121b76f7173613e1b77a24ad8ddbf9fe0cb286481939bdff306f8398"
     sha256 arm64_golden_gate: "699059b3b574a1913299b519504ed61b2b4c76468dc43665802fbc13585b3c3e"
     sha256 arm64_tahoe:       "6a216b47f6d3b8df07769ae54d79e77fe2f2b0e7eb16047ff8db33a84f0cea27"
     sha256 arm64_sequoia:     "95582ebb4c8e063b70512ab54d77412704e028012961a854fcb18cbe982433be"
