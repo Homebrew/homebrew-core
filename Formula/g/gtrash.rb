@@ -8,6 +8,7 @@ class Gtrash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e7e4c7bd118c3947729ded8fba3e4ce2180ebe123e1db99399c5868932e36d2b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e209896f68b2a0a96b0b776537c3bb0948724b1c34a1ec871d80d9f6e684504a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb3b1bd8138c592581fc7ce7f3258e8cb63f0b249924bc868e73f24d6ddb2738"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb3b1bd8138c592581fc7ce7f3258e8cb63f0b249924bc868e73f24d6ddb2738"
