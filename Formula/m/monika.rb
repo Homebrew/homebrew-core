@@ -8,6 +8,7 @@ class Monika < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a75ac721dbddec54f107f21c3ad16264234a13bd3c9bbbbb387bc6a8cd0d369a"
     sha256 cellar: :any,                 arm64_golden_gate: "855f9bd4dc330fa9e0d66ae195591409826acb49aa69183f8408751c3b8edaa2"
     sha256                               arm64_tahoe:       "8758ea33703b5c0c17a2761f32c97f0deb21c08c6795eee47de06031645110e4"
     sha256                               arm64_sequoia:     "64bd0c4aa6bfa2b191d6e1442b248430462730b10be45546714d27eb7606898a"
