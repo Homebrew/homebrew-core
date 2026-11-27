@@ -7,6 +7,7 @@ class Dura < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "8e73f3648145910f5811f99dd9cdf10c28e5039e90ddeb618bc1ba9d29ab41b5"
     sha256 cellar: :any, arm64_golden_gate: "adfa4cc3a97674be422ae3c72b288bc3ebcb93a864de9cee18494388f4424aa1"
     sha256 cellar: :any, arm64_tahoe:       "a30a1ed09056cceda90d2fcc53196016437d8cb5847da7748ac4d778d411e406"
     sha256 cellar: :any, arm64_sequoia:     "e3ca39ded3679352e80e205b5b1c544522cca4db4c1aaf248b35a2a07b57d442"
