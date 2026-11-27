@@ -7,6 +7,7 @@ class Kubefwd < Formula
   head "https://github.com/txn2/kubefwd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f321adccbe117844849aaebaf3e9f45e545cf708aac1647d1563188439a0eab2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5589c67ebb429b699dacb123d1ff919f4c33538259c4937173f69b4d3a1f3246"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7cfded812f4412a791c339acadd33e8688d2b8176e7f2dea030d7fbe14354293"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c009b30d2a3732a101908da60cb085cf379a833d64023968595083c491e93bb"
