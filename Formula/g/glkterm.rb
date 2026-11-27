@@ -13,6 +13,7 @@ class Glkterm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2da91dc8ebd9aff8b8796683a1cf7d2bd51a0709b98d35dd42ed457179031cd2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aaeae1ffb023f408ca615a02dd5914cae8f7c819ac88bbb1a434b2acba3ed66f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43e67c7a7245b3260330d9d23807520aff007e05341b510dbea4818cd387cb45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c2738ad6a679729b197e17a7ed259e5e4440ba7076d9d496ee9dc8e107b634a"
