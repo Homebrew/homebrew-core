@@ -7,6 +7,7 @@ class Gitmoji < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c6f7f3ba2e1ee181df496dfc4ae7c311c0c45f48066502fd5b4b9147d5869caf"
     sha256 cellar: :any_skip_relocation, all: "3caa7ff08fc6f9e6845699bd0390bef6d4529ec07a1e7fd1fc1bd9846ff1db6e"
   end
 
