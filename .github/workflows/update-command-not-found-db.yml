@@ -74,7 +74,7 @@ jobs:
         run: oras login ghcr.io --username "$GITHUB_ACTOR" --password-stdin <<< "$GH_TOKEN"
 
       - name: Pull executables.txt from GitHub Packages
-        run: oras pull ghcr.io/homebrew/command-not-found/executables:latest
+        run: oras pull "$EXECUTABLES_PACKAGE"
 
       # The pull request may already be merged and its branch deleted by the time this runs.
       # `brew which-update` only needs the bottle metadata and the pull request's file list.
@@ -91,22 +91,8 @@ jobs:
             --summary-file="$GITHUB_STEP_SUMMARY" \
             "$GITHUB_WORKSPACE/executables.txt"
 
-      - name: Push to GitHub Packages
-        if: fromJson(steps.update-db.outputs.updated)
-        run: |
-          oras push --artifact-type application/vnd.homebrew.command-not-found.executables \
-            ghcr.io/homebrew/command-not-found/executables:latest \
-            executables.txt:text/plain
-
-      - name: Check upload
-        if: fromJson(steps.update-db.outputs.updated)
-        run: |
-          shasum --algorithm=256 executables.txt > executables.txt.sha256
-          rm -f executables.txt
-          oras pull ghcr.io/homebrew/command-not-found/executables:latest
-          shasum --algorithm=256 --check executables.txt.sha256
-
       - name: Publish and verify the homebrew-core index
+        if: fromJson(steps.update-db.outputs.updated)
         run: |
           oras push --artifact-type application/vnd.homebrew.command-not-found.executables \
             --annotation "org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
