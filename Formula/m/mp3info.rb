@@ -12,6 +12,7 @@ class Mp3info < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4fd7297aaacb23ad7f2b1d199a34b70e548a637963de89a44d1516ec50daa162"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbad299030bcf207e35e0fbd6d5174b5536f3da565e6dcae184cc33701f850e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d0639d384ade218845be170da852cfc449bd37d136857ed765e42af992ca260"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e37b7f219ffcd93287b959d108fd79cf870a3e980f989962a8e7edd8b3d90106"
