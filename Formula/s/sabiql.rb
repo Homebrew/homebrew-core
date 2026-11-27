@@ -6,6 +6,7 @@ class Sabiql < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "15b816c085bd543176139c9c7283f3f56b2e04a5c2bfe048d8bb42c91f103e7b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9b7a5f1f4b686c6556631f3d56809b48bdc4feda40704b037beb9ef6c40dd65"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a23c4c1d626806444ed389434a589dcd815ffc9625411c553cb41debdb404d48"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6029c9cf183785af7d7f6f9f0f4e18cc14d82c85083f9a781467897be2a5c472"
