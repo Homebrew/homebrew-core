@@ -15,6 +15,7 @@ class Sapling < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "436228e739a70b165fb00bccb983a801f5e72b4031b5f7b041d5ac017a731085"
     sha256 arm64_golden_gate: "6dca61c1fac4aafc98fe53f8e93ad1a53e647ab8700137643dd72239a85f475d"
     sha256 arm64_tahoe:       "da1fe12a02ea54125c7a95fe5c37788f832279c490cca9cca7783d53b18d946a"
     sha256 arm64_sequoia:     "7d498da8a2906c4ee2bb4c4792da413676ae6ade743070257886bd848462a720"
