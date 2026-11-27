@@ -11,6 +11,7 @@ class ScmManager < Formula
   end
 
   bottle do
+    manifest_sha256 "a9e9844ff6d0c32b0709870c35f9f1490af03f8bc63c54b17e12a9e0850f1a65"
     sha256 cellar: :any_skip_relocation, all: "8e5b5b860366b0ad13da769c4c804271e07e4ef86cedb050aee42414ccbd3286"
   end
 
