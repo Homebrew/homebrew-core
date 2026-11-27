@@ -15,6 +15,7 @@ class Libfixbuf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "514a39e8ed261e6d1426b5833414e0cc80da3a63df71e9f1c976c3935421677f"
     sha256 cellar: :any, arm64_golden_gate: "06a5af7406b391531dbba99e4b0459c9b6577108f4d0eed1a8f2af8e344af234"
     sha256 cellar: :any, arm64_tahoe:       "882ab760594b41aa9201adb97609adadbc5687b18e99e1c515aa6ec3d14ee224"
     sha256 cellar: :any, arm64_sequoia:     "55fd6d658098efbc3bedd78c1d308e08a25217ce572bfdb3ea35a74b08ffad42"
