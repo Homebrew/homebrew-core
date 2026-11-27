@@ -7,6 +7,7 @@ class Gitql < Formula
   head "https://github.com/filhodanuvem/gitql.git", branch: "main"
 
   bottle do
+    manifest_sha256 "35c4bbdbf375519a6a3bee33c3dbe702020b3f463d2ed04b93ee92e5c85de7a0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da49f2e55b5f9620af03aa21af567c125b3bc44a51ea491bf97e71eec570297d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d618f75c432dbdc17d9bcfeeec547b258b34a1146de33c9f1da2d7c771992e59"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9a80a375a5dd73ffcfbba747167f029ea4c3c97d631d9f4a8c75e83f415fef1"

@@ -12,6 +12,7 @@ class Cortex < Formula
   end
 
   bottle do
+    manifest_sha256 "f6247133a212a460ef4bd88dbb75877ad8ea607383c9f250398aacdb3b073757"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32a087ddbca6e0c5b73f4b20f93a578449dbc7ee8f4220eb13a3f0dfea707626"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22f5b203a7b4a4bf86e956d8540b2907d87b04651fc9ea9391ee9990efd62f81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0703caa7d4badfe64627df32a8ace39d1c98db4d2f61de83c322a2222575240f"

@@ -8,6 +8,7 @@ class Svlint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "84936ccab5b58a66a21b25ac8facc1271bf381b5e5f83df273e022db1805b9e4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96d82c4e20a82bd080beea579bf022a7b3fa90d81f8bd7aa854f9233353d6f31"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "594c7da5ccc947555a915789ce5ec36c7e0a233f76b9c6220368bd33b5c99aad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "da54138563d1a7adcac56310d131b4f35f1205d5ff4ee0b6a2ea4a189f00c14b"

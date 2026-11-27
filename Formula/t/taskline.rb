@@ -7,6 +7,7 @@ class Taskline < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2c949193bc68d220cb9a60e6f525559e31caa7b5d7c45421032fccae850e27b6"
     sha256 cellar: :any_skip_relocation, all: "8f69fa2b84dbf39b6e680e834da139733f2276129b1d98a7c3a19b4e880f10c5"
   end
 

@@ -13,6 +13,7 @@ class Thrax < Formula
   end
 
   bottle do
+    manifest_sha256 "2d132fd8f03c1c61ca0d3872bc6a2376a46164fe3fe2026d8add0cd53fa2feec"
     sha256 cellar: :any, arm64_golden_gate: "67fb338929a5f7bacf6a31fdc62fff7024c29448d4da116ec44d868d7dea44bb"
     sha256 cellar: :any, arm64_tahoe:       "d21f145cc76bc57df426ef5693cc37018225c6756254a40f78a1e65a3de1f3f8"
     sha256 cellar: :any, arm64_sequoia:     "1d006e65d56ae1d4828fec2513300a9c6593a39930fd787a922c67e6f361ac0a"

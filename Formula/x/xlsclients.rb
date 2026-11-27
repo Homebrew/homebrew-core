@@ -6,6 +6,7 @@ class Xlsclients < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0515dc38f5ea2b5161e1d0a035968b092bc727c09bd12ac360f1a4ed2d8a565c"
     sha256 cellar: :any,                 arm64_golden_gate: "fd14f51bd76168469093dfb300f9ea530b75e4d93099ac6430081a1a2bf8b9cc"
     sha256 cellar: :any,                 arm64_tahoe:       "de8b373a41ebd5e17c797c17c87b95b5d0e0711625ffd981f4bb5b7e92e16154"
     sha256 cellar: :any,                 arm64_sequoia:     "3f190e3dce6a1e068753fccf4c63afcb74cd5264a6abda2662238ed9a502d3fc"

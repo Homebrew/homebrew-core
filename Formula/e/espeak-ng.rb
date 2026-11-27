@@ -8,6 +8,7 @@ class EspeakNg < Formula
   head "https://github.com/espeak-ng/espeak-ng.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f8a91251b4a2eee5ab00471e0d332d9d409692d3f20935811a2658888858e71c"
     sha256                               arm64_golden_gate: "85a30cdb4737560deb851af11bb91a9c5e0b87fc260ece00a9e725191cc2614b"
     sha256                               arm64_tahoe:       "6e937d9aa97fead6b24f70f09e48a6f769db48efa4d9fd7a52b2b7a7ccd2b6f4"
     sha256                               arm64_sequoia:     "330873deca13228ec98927f86fb4e18e990e8707f888aaf665b6e12a55efaf47"

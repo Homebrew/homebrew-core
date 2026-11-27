@@ -8,6 +8,7 @@ class ArgocdVaultPlugin < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f941fdd3fb476f2390922eaa69316b52cda02ae2a948a0602c6ae6e5e64b5c8a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "970654a4b8bef5d591523361516f75776feef6ac7493623407ace0d879b03f83"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5d4dd6c1a4f16a3c0fd46c1721e996d152df50986c46a1fa43698f6e31ac095"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5d4dd6c1a4f16a3c0fd46c1721e996d152df50986c46a1fa43698f6e31ac095"

@@ -6,6 +6,7 @@ class Opendetex < Formula
   license "NCSA"
 
   bottle do
+    manifest_sha256 "325c7b1c6f97de94117953f82e332240e08dbf725a7d3d05d6ae42b79d24df1c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bfa66a9b4172b77de3ee11c3af36945f1fb8a3dd5f8b8bd6c2f27aa128ddcd60"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe24ff34b790124f1528f9e4e31250e9cb3800625fe64ca656b99cda5be12658"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f3322e3a1707997a3e4da82976c226a5bc261c30c7f7e234cc1c1e491b105fd"

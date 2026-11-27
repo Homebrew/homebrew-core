@@ -11,6 +11,7 @@ class Mpdscribble < Formula
   end
 
   bottle do
+    manifest_sha256 "2165969466e2678c3b558854b8e3ef8bcb2ecee2b0248c96209b1faaca76b447"
     sha256 arm64_golden_gate: "caa6f204b0575768cc0764789b86d2d47317922df25d2779e1f7f5188393347a"
     sha256 arm64_tahoe:       "458200a4d9cb5fa04ccf1f71264f72a8d96e47523201122d0be17a40b84ee5a1"
     sha256 arm64_sequoia:     "9f5bbd434c0f8488dc1fff4aa04588ddf3686f34c7bbc38f9d41d5f7b89b3e29"

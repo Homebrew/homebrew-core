@@ -7,6 +7,7 @@ class Dwarf < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "e3e0a6fc43a6a54304f75dd06b06fe7a58de2d0d550dd18217a0d81ab6160ab1"
     sha256 cellar: :any,                 arm64_golden_gate: "44ba0280d63e5c03c3345441e5afa13a86a1d8d622b10570083f99573a49d086"
     sha256 cellar: :any,                 arm64_tahoe:       "54cf031b663cb175ebbdb2d6a9015afe24864ea2e46b531a67b6097e648ab636"
     sha256 cellar: :any,                 arm64_sequoia:     "18e5a2ac12431c5fd538a6c1101b53b8fb2c45652d0c6c9c84b30c36534293e9"

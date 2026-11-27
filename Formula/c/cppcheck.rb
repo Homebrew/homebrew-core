@@ -16,6 +16,7 @@ class Cppcheck < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "38d6390ca78ce9d61586c85df550342ae2a455e8804169fb9b0e76a6b789b162"
     sha256 arm64_golden_gate: "bd7b079af9a1f52309e30673db29183b705a271c190a7c2af802f98de5c7c9bb"
     sha256 arm64_tahoe:       "ea278ea54a1a81510bd4b8a1beae0d7c29793a697ca3819de9e24ba9b3fc30b1"
     sha256 arm64_sequoia:     "dcf0b01f72efeb7099ff7b7e9071a7826521bcf463e1a359cc45c83cfa9388b5"

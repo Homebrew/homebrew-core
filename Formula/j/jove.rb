@@ -6,6 +6,7 @@ class Jove < Formula
   license "jove"
 
   bottle do
+    manifest_sha256 "69eef193edad365efb4be8a1efcce75c2cc03834a2811f8155a73c9234727936"
     sha256 arm64_golden_gate: "37e0e78412b4aec486bb770717228af53e4d825c9c5f9bab62f099e5b12f7bd4"
     sha256 arm64_tahoe:       "ee1248e197df0c81afc0548004d8ae314d911b63470761a839421d4b3a4b4ba5"
     sha256 arm64_sequoia:     "718cb56f6abe1b157dc232e68f311473651619b07d09491ef7515f4879ef79fe"

@@ -7,6 +7,7 @@ class Blazeblogger < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "7e6d91ab046f83d21dce167489aa72559fcce9c3ae1d3723720c2e650bb97b11"
     sha256 cellar: :any_skip_relocation, all: "4f76e3eb4cb3ab302fdf746ec68a54f42422913c10916429788affadad93209c"
   end
 

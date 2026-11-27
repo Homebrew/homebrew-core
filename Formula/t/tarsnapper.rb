@@ -10,6 +10,7 @@ class Tarsnapper < Formula
 
   bottle do
     rebuild 9
+    manifest_sha256 "744748a78a0d3a2f191b47452b7a69f2b7ceb9a5f7de4fba48cc83cf0e302b7a"
     sha256 cellar: :any, arm64_golden_gate: "afd50b26f881005c7475550bd820f07b7315c0d0c280907ed3cd245e1a903901"
     sha256 cellar: :any, arm64_tahoe:       "4132ddba92421d31c3174aa898460bbe51de1d10451e91e41864e19083d57059"
     sha256 cellar: :any, arm64_sequoia:     "0dcdd36e1f1344a967c926b8ad6ae4a8ae4333654e6fba074210be075297da86"

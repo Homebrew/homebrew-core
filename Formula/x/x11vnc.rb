@@ -8,6 +8,7 @@ class X11vnc < Formula
   head "https://github.com/LibVNC/x11vnc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "eef8af22ab17f30791b72e4c3c497232d996108d698b67273cbeba60a1d497e9"
     sha256 cellar: :any,                 arm64_golden_gate: "8b75b5e1c131b21cb749704f020af7a6c0424a61c804bab37ca81ad87becb425"
     sha256 cellar: :any,                 arm64_tahoe:       "102cee00c05c862c030ae03b910f7c8ec47f48248bcc770776887d1d9e132b01"
     sha256 cellar: :any,                 arm64_sequoia:     "7ebcb43dc4ccf3d7ac18cf408a2d5d21cc362ff3e7098c9026fb569e532ced4d"

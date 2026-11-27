@@ -15,6 +15,7 @@ class BrewGem < Formula
   end
 
   bottle do
+    manifest_sha256 "61ae8a0c4ff5c35144ff50ef4bbf918f2c2661018faaebfa903097b8030aad99"
     sha256 cellar: :any_skip_relocation, all: "a322402a45384a5775ae109821bc3d7b9123914696a9a42fe6d7ada9e7680f04"
   end
 

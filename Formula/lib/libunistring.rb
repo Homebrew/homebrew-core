@@ -9,6 +9,7 @@ class Libunistring < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b3cdb5514cf3add0e18f63a51437d7d800f4f5c5a56a312099194ed563c9daf9"
     sha256 cellar: :any, arm64_golden_gate: "fec6be46cabaefd1dc5d5ecd029c50aeaef6c93d9c7de4425968047811575e81"
     sha256 cellar: :any, arm64_tahoe:       "b803434415743b204ffc6bc5415ebfceeaf3dbcb86c0c4ea8a6fc63d2a04f441"
     sha256 cellar: :any, arm64_sequoia:     "5001abe192babcfaf0f97ad322e2e59958d0d991de3da9f2e941b24924b8a2b8"

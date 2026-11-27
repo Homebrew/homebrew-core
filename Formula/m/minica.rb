@@ -12,6 +12,7 @@ class Minica < Formula
   end
 
   bottle do
+    manifest_sha256 "e1e503c55396415a719eaed8dbce272c3491439b66f0b8b78dddc235e268cb88"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e1e3b2dd1c4d2ccfc581c45f4216552e7271b9f029cd9501afe89fd99aaa8fe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c9feab61490a6975219259e16f34d0d1f283775bf3554b77f56f3796958162a7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9faa299c46a22bc87e87ed7a480449aa5642a0e110f64cd6d28e12c305d9ecc0"

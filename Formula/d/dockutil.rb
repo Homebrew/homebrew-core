@@ -8,6 +8,7 @@ class Dockutil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cb071835ccfde21cc38e7e5b3fea1ee83204c951e095b9d1e9358c28dbe1253b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b404dea4a24a11843626be14e76e38a112b5fc166f1b7beac7a64801b153edff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f404c2ab7fcf02ede4213e5a5a81c92b27fd55c5e508bdb773a01e1bfe64c56"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "736b77305847eff297dface1a8e14f35e3c94fd8ce9a68efef0c6d4395abf1f3"

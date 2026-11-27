@@ -11,6 +11,7 @@ class Efl < Formula
   end
 
   bottle do
+    manifest_sha256 "ac3182b2daa8ec52ea39f624f6273dba30b59b337271c3fed956a3226c935c1b"
     sha256 arm64_golden_gate: "dc4103c6c07e0aa7d98a760407124148c7e11573db0bab26b14f64655425a1f7"
     sha256 arm64_tahoe:       "02b4765b2d84f0b9c921c86754140ddc204d1fbdbabe32bade328d3a283661a3"
     sha256 arm64_sequoia:     "fb7e94400484464d6258c55231fe7ee188de9fbf710fa68a9f0b483fa9d5ed65"

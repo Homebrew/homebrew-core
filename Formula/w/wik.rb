@@ -10,6 +10,7 @@ class Wik < Formula
   head "https://github.com/yashsinghcodes/wik.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f1098a3271f69e1812f58a0f38e9cd03560191a3ebf704558fb793fdefa895c8"
     sha256 cellar: :any_skip_relocation, all: "63845707dfbf00dec4cf02a6917347eb093ec2e3fff1fb7970f08202fe4605cc"
   end
 

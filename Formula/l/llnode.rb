@@ -7,6 +7,7 @@ class Llnode < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "e97c01947733c042f845fd981f618236ad4c686882d86595d5ec807d71a32b57"
     sha256 cellar: :any, arm64_golden_gate: "773fcfb71dbc8965cb0b0a460ca1bb3480ccd92bbd05afa45847dc855e83b8b0"
     sha256 cellar: :any, arm64_tahoe:       "54c5851be0beb8120052a165ed72dd8476e567abb3f2de41c1c9b428df5d8f75"
     sha256 cellar: :any, arm64_sequoia:     "e65ad5f5498e21f7996650ba55c4fda69e6238965481761a8d363c473a4a5087"

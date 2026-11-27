@@ -6,6 +6,7 @@ class Dz6 < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "15272a2038f9c4e9a651eadbb2a0216ee7d1fff9f1c71bebaa4f0309348cbb33"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6714e44499788b1b780e0a0968cfaa5f4582e0f65d13d7ec969d941e0865c236"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94906ff03e9935e65f160c04bdf4299fc778db974b750a0f978a9e67974fe0fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "babd7e0b19d8831e449289b532247bcba8f2f85f4fc8275410447f9ecaf14859"

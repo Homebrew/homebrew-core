@@ -8,6 +8,7 @@ class GnuSed < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c62688806ce68a737b473d377a7a655b5099b63608ab0fcdcbf78d04d601a6ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "33192da126a68c860fefb24382243d89d1be1ff4ee857671b6318ddeafa925bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "046672d06b2dd62a59d7088c58cec29749e436366e81dbe18f1b42cbad96fbb2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2afabbecf1e1a0f324af43c3a7d76714e30afdc97a9d29f46d9d07dc80059ca4"

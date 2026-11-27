@@ -6,6 +6,7 @@ class Shellz < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "0a9ca826c016ddc99e3653e7691c8dd6a3710d81b2451c16272e62810edae1fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50dc69412364a66213c10912c0c5e06837b5b38b179a110a0b9d3b9407155bd5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "253878a341fdac25066ac6e51bbd4dc9c265a4fbaa51b796750582de0f9910a5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7da7409e05430d93aa136b8dbd83e40aa4ee2c8abb708606b27f5d42867096e"

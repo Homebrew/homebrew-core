@@ -6,6 +6,7 @@ class Apachetop < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "56529b68cb6a03ae3d887f7aacea67371c49cd30b517dcd672c57a80cd4cc54c"
     sha256 cellar: :any,                 arm64_golden_gate: "389e4bc159a263ac6d53b0094b65341e45d426294e8844ac6d26328ef68e72c9"
     sha256 cellar: :any,                 arm64_tahoe:       "b43b64c9b48fdef15d11d7dcb99d20bf65a31c05b36e7468c3e9e8bbd16f3f5f"
     sha256 cellar: :any,                 arm64_sequoia:     "5fca6d39ff40dc897dd1051087db749f0f6921515443fd6dcd1dbc9150847c3a"

@@ -14,6 +14,7 @@ class Bcftools < Formula
   end
 
   bottle do
+    manifest_sha256 "391c8643b7b0c9488e6ee2895fc0ccf726679f8d02690cfb9047cd5a0cb23e7a"
     sha256 arm64_golden_gate: "2d5b76e3eb12c96e82f928673e1e9268086c4959b1a6b2705e77441084ec2932"
     sha256 arm64_tahoe:       "788fda609666ad0d17b1345da17fdbc1bae4543e5886e5795e5a4cf0ead42579"
     sha256 arm64_sequoia:     "1d18e3822d3fb8e0e5d9425989a54e0f747740564cdc3cc03b37d6d0175e91f5"

@@ -6,6 +6,7 @@ class EaskCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "ac609c62260117dcde2f77140b1f8782965965aabb3bfc4dbd854e7f17a6079f"
     sha256 cellar: :any_skip_relocation, all: "2ab54d08c719a69368634c7827130436b13c88de78c6c3c533c12796322d34c8"
   end
 

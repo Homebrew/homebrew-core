@@ -11,6 +11,7 @@ class Arcadedb < Formula
   end
 
   bottle do
+    manifest_sha256 "b562d24c4cbc75c0fe636d0671a4407bee16e055f0b3e23c1abe147e7b62e1c3"
     sha256 cellar: :any_skip_relocation, all: "7bc58c5b9be8de908be7d71b58e42a6f3024228d575cc9ad0e75795ca974d24d"
   end
 

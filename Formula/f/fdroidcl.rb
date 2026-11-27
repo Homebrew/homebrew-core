@@ -7,6 +7,7 @@ class Fdroidcl < Formula
   head "https://github.com/Hoverth/fdroidcl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "483988cee453121cd49721c3a0dbac4d29d4ca89ae7a5f1c22f68200bc128c30"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d87e587398f4706822f5c3895c0c8fe43679b26ceeb7e174569e91533f212d68"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eff5d8a8992263ef5309e08d50b18767ec8ce4e4900916161a0b94de35e271d8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a59042086a507fe60f17c0460f85ac81bc0e9ad650738e0b8c4c12879dcdd5a6"

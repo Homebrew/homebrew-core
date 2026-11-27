@@ -12,6 +12,7 @@ class RubyAT32 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4503fee0111c30f079ba233e1659aee8aa2d51b6490d5bb0cf2786e1ff24eae6"
     sha256 arm64_golden_gate: "83dd99f4cc09c2e9333d5262cccdae7ab05877459811bbc2644a5da8a75d0363"
     sha256 arm64_tahoe:       "779e20d3ac0ef4c7ecc61a230193845ffa45d4c073731558dc1c1474c4893b21"
     sha256 arm64_sequoia:     "f717713eb2b6b7717cc943d7382e2a74e08dc7245eaaa8a675a1dd56708e9a36"

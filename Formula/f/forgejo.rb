@@ -7,6 +7,7 @@ class Forgejo < Formula
   head "https://codeberg.org/forgejo/forgejo.git", branch: "forgejo"
 
   bottle do
+    manifest_sha256 "196545339c0275bfa601652e276c9fe18b57363c3bb23b0bc7516285af0cc801"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "354dc0fa293e15a71dca25bfcb6d8fcbd4b5dbe26cecd214d3e4dc36d46b372a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "847a83896586d2a391e877b36fa659a9c6557f454891cc853dd3c3d2a3f68fa3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92626791cfefa2aa12200059559f56cf2e99c10d9d44625a9f516c0d4231a1dd"

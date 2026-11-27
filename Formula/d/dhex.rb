@@ -11,6 +11,7 @@ class Dhex < Formula
   end
 
   bottle do
+    manifest_sha256 "bec97c32e68a0fce20de63317d159b1ad76e9b168fed1d95262a75548ac59005"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80aa73bcfdf39180407d8ce414482759bac97630549b9bf79b07c7c8503fc413"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c43035367348acd1ea2109bfcae68108766e691eeaaf7b921f68e9306f7d9fec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ce6ef0c4079748f07bbfb1f8f74f39caf377df59e244555fe508c63c63367a6"

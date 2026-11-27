@@ -8,6 +8,7 @@ class LizardAnalyzer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fefa47dc2e54b37e33bf2cd6cc9f8143dd2814f3cca9b5bc82a08340b4e6ddeb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "560b869733a216747c372c4ce5723a318fe4d8fd1b97e543c345cd5706341e57"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3f5be283c5363c35c66a676599f5137b331ddee20c08f96427260d30310cd76"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e67b8fd450751c887db1127355a806aa5cf1b2afb7c912f2d66e9724f2d7fce9"

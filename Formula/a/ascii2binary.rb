@@ -11,6 +11,7 @@ class Ascii2binary < Formula
   end
 
   bottle do
+    manifest_sha256 "7e1854e0018ce8116b9358431a350191e268bc1ac9a0881e0f7c7f5c1ebdcf62"
     sha256 cellar: :any,                 arm64_golden_gate: "a69efd95a7ba4092bf7cc513f5f3ce0b8a88999a6d45ccfa1287ebcf063ad8e7"
     sha256 cellar: :any,                 arm64_tahoe:       "04f82b33a8a3806b57864a4295dc727744275e1d57494803780ea373cadaff54"
     sha256 cellar: :any,                 arm64_sequoia:     "5fa97a3db89565045338e7d0a725a0dfe87995651b8987d271bfb5eeb07e7728"

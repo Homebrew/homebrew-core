@@ -12,6 +12,7 @@ class CairommAT114 < Formula
   end
 
   bottle do
+    manifest_sha256 "3315ff8aea7c5f7116d94305ac3f97e7b2dfc2c42a615c5c066669e8e87eb49c"
     sha256 cellar: :any, arm64_golden_gate: "849a46a263c88b15e591ced3d4d29cb06f686b80ebe9fa5f4444cdfe26f051c7"
     sha256 cellar: :any, arm64_tahoe:       "6657f08fd9b8775951f39f9c97a1cc917e3ae77e9bd4a4aa9df3ca55cfade320"
     sha256 cellar: :any, arm64_sequoia:     "e33f2d072d63f550e21c87789221905a84f4d9437719edf3120723dd63dc7a3f"

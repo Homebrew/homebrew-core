@@ -11,6 +11,7 @@ class Logcheck < Formula
   end
 
   bottle do
+    manifest_sha256 "863e24f49de38ba91f46c4b977d291b80473b8af401b4fcbb65f6ac0a7c2f6fd"
     sha256 cellar: :any_skip_relocation, all: "19ea8aec29460a47f04121aea1ff7151a215179bff66fd3091cb546664ed74dd"
   end
 

@@ -7,6 +7,7 @@ class Hidapitester < Formula
   head "https://github.com/todbot/hidapitester.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55599ef086a13bfefd41c9781bc7a9e5c5627e217190cd86d9a87c83aa9398f8"
     sha256 cellar: :any, arm64_golden_gate: "92b3acd725d9737c5bf926b6ca3b404821fb0774cbe27db5e64d980a83d64891"
     sha256 cellar: :any, arm64_tahoe:       "7558d2ab90eb61bb206deeb1f189c5c3eef85531024bffc7ae4f229180766902"
     sha256 cellar: :any, arm64_sequoia:     "c9daf7ce18a77f84d6cc5bf55744293ff22522b80caf775d7e9f61fc72341a31"

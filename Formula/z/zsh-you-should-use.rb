@@ -6,6 +6,7 @@ class ZshYouShouldUse < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "90c31699434cee038891fe215dbc56f00603b49bd03ea1522943edbf0c6e9ee9"
     sha256 cellar: :any_skip_relocation, all: "01d4355f8d2ac4b7030007a49e4c96f37277569d3e76aa8791ffa60988d2a873"
   end
 

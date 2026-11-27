@@ -11,6 +11,7 @@ class HappyCoder < Formula
   end
 
   bottle do
+    manifest_sha256 "47ff659aff2ec5e4e406f28e2ae94a0dcf810757360a73c581b752ec1e1e542e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d704260106cd9ecda3700549f7ca2a3f49b50ee9cd568f3fa1f6766580bb100"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03313b663fe8310e65192bf523cec55c71aac6c6921a19812e713789647cc11c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03313b663fe8310e65192bf523cec55c71aac6c6921a19812e713789647cc11c"

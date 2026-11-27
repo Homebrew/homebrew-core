@@ -7,6 +7,7 @@ class ActionsBatch < Formula
   head "https://github.com/alexellis/actions-batch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f9f184879e4fa362c4d650bb31939c0a326dc9104514495f83aeeb93130d423b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75798a96bdaf14e0d4735fddefcbc98867cc1ca382fc637726886a35a95d70b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59536a5a9f181ae349d14c6c2b55d6a8e022365f1ae425321e6ceccb43d9f4b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "275c7fbcf663d2acb91d05bde500b7138a1cb7f5df5f1247c887ca7bbe823019"

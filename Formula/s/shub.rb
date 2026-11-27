@@ -10,6 +10,7 @@ class Shub < Formula
   head "https://github.com/scrapinghub/shub.git", branch: "master"
 
   bottle do
+    manifest_sha256 "62498586037973926db94625a6d44e36db0e48816bd0d4d5af322c705829d5c4"
     sha256 cellar: :any, arm64_golden_gate: "7f46bd1bede4980dc8caccfe48b6f71204941771cb22127325a2110ab85de400"
     sha256 cellar: :any, arm64_tahoe:       "cd9ff0011163011b29e85e9c302a78c9a45a5017924c9ed77627154b7f7c6521"
     sha256 cellar: :any, arm64_sequoia:     "4d71fbb076a90c20fad7aebbada1eabd6ea0c986d7810ece95147fad74a12c38"

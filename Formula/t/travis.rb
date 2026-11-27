@@ -7,6 +7,7 @@ class Travis < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "b98f7c78881b61b501df67361ef453967edc3e07cadf4da5348ce592816b0411"
     sha256 cellar: :any,                 arm64_golden_gate: "25ba3b0a9bb2c25adb6d697865e5067d7d29ac823f09e43e1242c7b871dcf201"
     sha256 cellar: :any,                 arm64_tahoe:       "7b1d54790aeac9a064ea9447f0a40c26ee6035a2985ec9e75f0f6d77f364a932"
     sha256 cellar: :any,                 arm64_sequoia:     "0f9bb3574e12920aba886efc69c9ff09612387722a52143c489aa6474536881e"

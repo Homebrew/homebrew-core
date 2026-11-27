@@ -8,6 +8,7 @@ class CodebergCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "df1e6823230c70a4f91d702cfe5d7fd27503f552f84c033801f192aedb637b22"
     sha256 cellar: :any, arm64_golden_gate: "77f8c01faa4ebee7f9176752b985a17e8bf7b0c9b6a8825bb10b39b6a4ff1361"
     sha256 cellar: :any, arm64_tahoe:       "a1cbaf6e9a5b077d36c9a784ff4ae275fef953cfc0f05316a1a5c767788fedff"
     sha256 cellar: :any, arm64_sequoia:     "7db56fb4b4a99261b7e404233545e9313e4ecb44f47f5f18775206d972f43325"

@@ -7,6 +7,7 @@ class Libgdata < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "6a857e80b70072be21f1a3b87adc156f803b96f122bdfd6ce7ab470ebc89ac38"
     sha256 cellar: :any, arm64_tahoe:   "e14a620ed4e4745cdd03a4a29a8704eecfa725a8f1ea3807e8c2e2721573c165"
     sha256 cellar: :any, arm64_sequoia: "5768f5f98b620b962d800ec3eeac032546b5be0be8c78df288cec2a5b9e21d68"
     sha256 cellar: :any, arm64_sonoma:  "83575935d840f1863306d2114a51841316b7d6977130242e301f05ee9c9e4218"

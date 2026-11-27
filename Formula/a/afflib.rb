@@ -10,6 +10,7 @@ class Afflib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "537426ecfbd8a0b00dfe199c3fda2d6f9f0a75f10da78c6943a555b13af4d58b"
     sha256 cellar: :any, arm64_golden_gate: "90996fc8d4b5dbdbd9b02e3795fd0d886a360a7e891694319d76a0830f243e4c"
     sha256 cellar: :any, arm64_tahoe:       "b73486404c29ee831a959795099c203fc73472382d834ef7586940f04e7a9dbd"
     sha256 cellar: :any, arm64_sequoia:     "e68577d51e2fa64fd91ef49a0554df97aca13fde14cd69402c45a438cea5e6ba"

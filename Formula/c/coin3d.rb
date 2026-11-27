@@ -20,6 +20,7 @@ class Coin3d < Formula
   end
 
   bottle do
+    manifest_sha256 "6e2e8a8b1083691da215443c4b6308b4f0d4812b17fe5a4d4382fe125175d3c6"
     sha256 cellar: :any, arm64_golden_gate: "7644df270bc1d7a7ed61560b4d7731003aa91cfc7e03c62f2221adbaef42b16a"
     sha256 cellar: :any, arm64_tahoe:       "1df1994743016c28aa47a458e72cee88fe56fb4572ca846c73ea61f4de50af87"
     sha256 cellar: :any, arm64_sequoia:     "2e4a7cec5eea666534b2336bb2cffc67efe004d644f647562b56890a17af47f2"

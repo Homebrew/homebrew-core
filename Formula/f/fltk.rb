@@ -12,6 +12,7 @@ class Fltk < Formula
   end
 
   bottle do
+    manifest_sha256 "e3ad98c0609f377e7eb253a9288a4c5c6e87fe2fb958b86408cc74b80fe9ef42"
     sha256 arm64_golden_gate: "3023f8abf48fa5341591cd5d022563c1f0e5650626dc65b472060567df49fb2f"
     sha256 arm64_tahoe:       "486b747ce5c87b2e0292feb5f9556090388f70ca4697d2ea5165c886f765ffc6"
     sha256 arm64_sequoia:     "9e50dae565ef381c5ea41fd176c1ece2190d8666983d745f4ad4d7efb86c8d4b"

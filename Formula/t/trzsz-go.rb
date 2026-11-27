@@ -6,6 +6,7 @@ class TrzszGo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d6409165fe4ea91e52f2635a11e8d312494cfbf65c4fd3bbe644b4b8b48eb8f2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "89876ece5e8c8d7db54c7d61641d3d09e55e43769974312febf492ff484f8434"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a5410c23c2797a9ef8e138d8b14c20692f6bfb57c49ad1bc90695b3a82c7be1"

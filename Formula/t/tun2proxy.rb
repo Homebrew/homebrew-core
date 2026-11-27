@@ -13,6 +13,7 @@ class Tun2proxy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "489b59936395dbadd8db145e97c06219257a0e30de5a3469bc39c5dd6570eb93"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a14b27d9ce0204f60052714ba992da88e76f974d35c22e3eb66d2c06ba5ffadc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd928d889203c515849ead18944ba560cba0e5d0539175092188bb891c9fb948"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc620b66cdd4d3c3c40f513f76a238e5a336aedadee90fc2ed5b28cf1f9d6692"

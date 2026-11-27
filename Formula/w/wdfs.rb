@@ -8,6 +8,7 @@ class Wdfs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "88cfea0fdc75c35a4d6c74423ef9d9a6e25c21c3d5c4e241247bf6b4f9fde9e2"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "d5bef8c1e794e7fb184f7a04210de8a0e1d4e409ef20317d091abc2e6d4db08b"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "8e9e8b67d2d470f355a46983ac2a52cb2c34a6ebd63e1720e5ceb010c7bd9298"
   end

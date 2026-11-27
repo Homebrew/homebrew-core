@@ -12,6 +12,7 @@ class Dagger < Formula
   end
 
   bottle do
+    manifest_sha256 "4f64c30d0ee94e6696924bf153415dd26cfd697fc626364f3ec0084f3122e809"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8fe519acf057c5affac4953fde422658c584b91122c8a700388fe996c26648f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8fe519acf057c5affac4953fde422658c584b91122c8a700388fe996c26648f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8fe519acf057c5affac4953fde422658c584b91122c8a700388fe996c26648f"

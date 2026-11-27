@@ -6,6 +6,7 @@ class Colortail < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "fa49b935e6a6df93cbfeabd1b059be3fc42a3a6d374cbaaa8326138a9bfde0df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c1bb806fcd975bd0bd162f3b4f770c3dfb96c28bd406a88dc9c374b7438e8d7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9862416bf5401f2a2a61f90bdac87795f7445e95cf4baf6e0d0d73e984740a99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46881ac8087481d7f575b911883807e424a02ab942a7af58d9c38b4d2b73ef85"

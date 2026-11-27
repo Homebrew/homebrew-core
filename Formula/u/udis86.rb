@@ -13,6 +13,7 @@ class Udis86 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d35ea4446dbd5b89acc4d07f663a0ed1fa03a0a9a233b04bc351c3f4f19ceeba"
     sha256 cellar: :any, arm64_golden_gate: "43ffd7492dd24a7ab0ca827bb0d6a341f53f0a8c2ecd9df3a0e7ccc13d37cea3"
     sha256 cellar: :any, arm64_tahoe:       "6a4f65773f826eee44097f7dc87595becdf9eb9e4cfda3582c28548a46815889"
     sha256 cellar: :any, arm64_sequoia:     "00dbd553b6e18ce7463ee3b5b16ab9eb3faf64a0ff6fa4876400ac11080651f4"

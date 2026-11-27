@@ -7,6 +7,7 @@ class CfnFormat < Formula
   head "https://github.com/aws-cloudformation/rain.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bfb86ea4afc4c38196128be8a032d6fea865159ee455a73524e4dbd3de9360cf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16de37f0ddb74a671448553b56b5e5b1ec42ee04f7fe2bf9f2ee8088a7e593b7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "49758cff5c060a914dd2517a7c2d2d5bae834904e76ce7456734de86f94a4d58"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49758cff5c060a914dd2517a7c2d2d5bae834904e76ce7456734de86f94a4d58"

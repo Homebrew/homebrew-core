@@ -10,6 +10,7 @@ class Minipro < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "54ba94a73dcd6c7c658c56b65d584ec0e624b6f3e3f5f071dd2fa78ccdedb82e"
     sha256 arm64_golden_gate: "d100f0bda8b52d4524ce756df79b814c918ea501e3281979e581b9dbf4cce8dc"
     sha256 arm64_tahoe:       "0f1f6aceeab9c9545b8adcf8f16300f09b0b5355195e2a3a83bfadf18da57557"
     sha256 arm64_sequoia:     "be96b6beb97aa8686d476989a0eb5ed0f9bb92341c08a251029e94fdcd2f99eb"

@@ -10,6 +10,7 @@ class Kin < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c66d18c1dd538bc75b7093c5c073edc832ead43dd66b52bd129327f26b95aefa"
     sha256 cellar: :any_skip_relocation, all: "7205f562207cb046de9f1029c956a689d815f35401472060e8f5bb438f45c5e3"
   end
 

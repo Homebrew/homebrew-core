@@ -11,6 +11,7 @@ class Libfreehand < Formula
   end
 
   bottle do
+    manifest_sha256 "c0df54d439b4d03acfcc9a8969b2e5fc726dea236de8eaa4a9ac3e242b7d1d18"
     sha256 cellar: :any, arm64_golden_gate: "a123c892432f9612a58cc7fb78182ce76f9cce010cbf767db0bfd82d05eba685"
     sha256 cellar: :any, arm64_tahoe:       "04e2f344a5b0a5c219055eb85bf8226699d818b47830b854e7cd0100ab21bd49"
     sha256 cellar: :any, arm64_sequoia:     "ee4e45db0dbda886e39c8edf5159b308777aafcb0f36162ba52c488e1a7c5eed"

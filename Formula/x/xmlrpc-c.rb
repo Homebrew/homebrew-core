@@ -8,6 +8,7 @@ class XmlrpcC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "484c05c65ae79eab1da465d9052fb849042858bb6b8a50532bc99a2dd973f562"
     sha256 cellar: :any, arm64_golden_gate: "320d56ff6025d45887470bee950ecfb5cdfda6f7739cefd2b6845e3de7ae3ae1"
     sha256 cellar: :any, arm64_tahoe:       "e6b25a7720dd3c8f45f6d0e39d0e571b6e07af1a63a1b88ef50af33c56f147b5"
     sha256 cellar: :any, arm64_sequoia:     "5cad13b02fa09ff044cc43d72f4f19a6893799d9b28b14df5eb724b82bfdfac4"

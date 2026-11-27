@@ -6,6 +6,7 @@ class PatchPackage < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3ec7366d9a2f85de8f663ae25d50ce61a0b2a633cd1d433bfeead32bbf3692e6"
     sha256 cellar: :any_skip_relocation, all: "6bc435f63e2565dd2a21b9502465d52188b934b4e926f1511fe18597d18d50ee"
   end
 

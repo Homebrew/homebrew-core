@@ -8,6 +8,7 @@ class TechnitiumLibrary < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "92f0a1d1e91c775a60f598e2b458c881a6fd65642f86d20ae2042ab946b8e36e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a1edec6890fdc1ee779c1d160ba19802f2cdbf558d1f3c6610c41332d3941a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a8951d861eabae1b1063070370b86e833df6aa901f47b042b3068906bbaca01e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2851a1c1c8660c02f408fed599ab659bf813cd59506357d509a5b201f8ff3bbf"

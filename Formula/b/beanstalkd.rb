@@ -6,6 +6,7 @@ class Beanstalkd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "66badd396e0f4fda57a3ddc2dc753df94f47d98319ac4edb3f43af26924f1114"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34d6f0b36436ee589125cd79721b7411f6ec71fba7ded2afb26198333dad7247"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3822e7705185398f263482d69e922ffee29ccc195eb491bcc765a020ac6728ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74b984c41b74f63386b6125681be1f37529341179a754f0556ed9d2d621b9088"

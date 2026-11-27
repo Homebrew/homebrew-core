@@ -20,6 +20,7 @@ class Bindgen < Formula
   end
 
   bottle do
+    manifest_sha256 "2f5be609c089d8cfbf6c9ef9bb20f81400eea66f01bc8714de9ecdf92070b991"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "233f5ef309bcb2552916b19ee35a58303242658ead042361f9dcf7d237d17e73"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a2e36f26086055c9d97dbd9a00f016f23722a1e4e35687fbde5861e385fc01fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4727fb2c47f3db6e467d9bde023287bba803eaee791bec099d58394cf57e27f5"

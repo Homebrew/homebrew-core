@@ -7,6 +7,7 @@ class CargoMutants < Formula
   head "https://github.com/sourcefrog/cargo-mutants.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f9f188625feffcd515fc62be634fc731d83facaeb9272c5457312f8e71b189f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "127c2957c81fbaf8e54d4cd5ce8ae8438d76939e929e0258e2c32526ef9c4f12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82dd60237c62d705eb5b3ece26d1df32384db2388724d9ca901f5736dff406bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab41e4212d8574327a5e869cfed4c57adb297a99e137896865dddb6ddda77201"

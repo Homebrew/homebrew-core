@@ -8,6 +8,7 @@ class Weggli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cd40067b63e206a55835c83b9270f01440a2052bd3a10cee702ad8a5c4d67eca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86c4a3e7d7152c217b6e6fb78910b9affa5aaa699a16d0fd66a3a03248d6a50a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3fc8c3f005f10421cca236fb2992ff2d7a8fa9470be9fd5e30d51d667a95971f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab791d77777007ec1ce49438d30a79c424b97fd64434b8f42f439cffaf439bc7"

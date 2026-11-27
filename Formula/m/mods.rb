@@ -8,6 +8,7 @@ class Mods < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "79967eaee567f7b841e362f79a6d2dfb5e0c70a89b001d83e4f21c53b843cadc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8c91c4930d4c160e342ec698d70350b29eecea4e699c36a46d8cb7d61fbdb1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cabb69b0f13a40d880de4f499d8858967b59f9eb53dead33c2791991cbaeb533"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cabb69b0f13a40d880de4f499d8858967b59f9eb53dead33c2791991cbaeb533"

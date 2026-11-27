@@ -6,6 +6,7 @@ class Faircamp < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "f36461b4fbf41262de511e422e974650471b249932404423d58f938fd8f3572e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a76e8bf8a3b41adccc3ccf30ee0dd3f4a52f323e1b7e3cf08ba4e3909e1a3867"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92fa031f292f81c056843698482ea657f46036a47ef7bffc97d2e9d412db8799"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "afedfdaa940e2fb17ff1ed029fc227eb2e78b88bd132514c0993f89a90d7b967"

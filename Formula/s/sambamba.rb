@@ -7,6 +7,7 @@ class Sambamba < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3d13eead1559bca1e81f12ca8fb87cb173213d64dbf217637ad05541ac3bf6f0"
     sha256 cellar: :any,                 arm64_golden_gate: "a0340db2d03612997ebcad2f05ef5250fb6e901decf692ed22cf242836d3a8d6"
     sha256 cellar: :any,                 arm64_tahoe:       "995c464037926a0520fba05804aa852d59632359ca69fc5790f01a408c6ca23e"
     sha256 cellar: :any,                 arm64_sequoia:     "44b20d7fcc0b1828d02be2a4806ebce8186a037de50bb00b81ae78d41b7e9897"

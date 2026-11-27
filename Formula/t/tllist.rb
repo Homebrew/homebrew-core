@@ -7,6 +7,7 @@ class Tllist < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "59207bf667813fdb838c8ad8338d2a56d6fc0fc71b769913b50b7d8b03f4b1c2"
     sha256 cellar: :any_skip_relocation, all: "77de1b3da7cd1dabd452b4275407c913e1b43152a8617515d3bdee49124a094e"
   end
 

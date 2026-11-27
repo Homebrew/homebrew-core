@@ -12,6 +12,7 @@ class Traildb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fb02b2a329715b83bf936d1f55e4f51bdbd88133201fcb42c31d6d96fd37ab56"
     sha256 arm64_golden_gate: "5667be18ca0040e8df3e02b8a2f3e377741b06b0f72646294438a5c0f1899882"
     sha256 arm64_tahoe:       "2595608345bc29813fa5bc78ab86cd54a890e8d6a70e04889ccc3205f8ecd143"
     sha256 arm64_sequoia:     "6855e108a52b0df9a4f13492f09ccf0d8ae7efcb2b25441f88a9d1e214137c4c"

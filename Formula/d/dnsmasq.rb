@@ -12,6 +12,7 @@ class Dnsmasq < Formula
   end
 
   bottle do
+    manifest_sha256 "34c34d4612f7e4b75ed8f73c5c39138432442080622b6438e7b6f241c6cfdf28"
     sha256 arm64_golden_gate: "6c9695a4c0087c79ff03d18e7dac0f96faecf5917a5b23cb717b6257d5e0b941"
     sha256 arm64_tahoe:       "936e819cb25b03d11a4c25a62aba45a577eea309d86bde77c95a397de862d45f"
     sha256 arm64_sequoia:     "e64cf295c597ad396d43ad626758e842259df423ff4040e718a7ad2aede7f1f1"

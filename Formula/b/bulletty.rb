@@ -8,6 +8,7 @@ class Bulletty < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "746a816a109b40aca8e9c252118fe3f0efe5de6ca990e98bd90010d69b2aea79"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "343c40afa97cf836303f63c6961e5ca930b84d1960f59ce61c16bf1c2f646e12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0489b8d9ec6050527d11bd57996dee30fbff8973c4e2553c8c91fb3e5b979187"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a270ac782a1b7517824fc0775f3da86cceedc7c3d17aa5ce047ab2a0308ea5f1"

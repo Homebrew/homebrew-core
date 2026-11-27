@@ -7,6 +7,7 @@ class Noti < Formula
   head "https://codeberg.org/roble/noti.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f98ad457127d2b8accbf523dd629afb39c9c2a9df9c3a8639d323ec8a7e91330"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "46cf9dcdeaaf7fa5489023fbe2e04bbd31f429a4a92e311e70f954e4a982bff4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "593d9bd0ba1d76a703c4e3df96c307ce77298933e5cd599495cdb2217a962ba0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "593d9bd0ba1d76a703c4e3df96c307ce77298933e5cd599495cdb2217a962ba0"

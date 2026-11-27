@@ -6,6 +6,7 @@ class Yamlresume < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a5eef072f123988b34201387e3934d2d56b6dc16e04f74959034c4f8418fe182"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d7eb260904f85e7e6ef8998bcbfe51c7d409309d63246f0eb2682fce1374c4a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b5b54fbd77f473a8d10b2c3e8c4945c7110450fe2b85253728cff9808991991"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "666037e5c2913645df76d78439f917300f4f1935c9958882f8e47c87cf3b94da"

@@ -6,6 +6,7 @@ class WalG < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "a30cdcdccfa4a18f5715d8cb788ed78ea2cf455e50386f42cd4033f52ea6edc7"
     sha256 cellar: :any, arm64_golden_gate: "c5b264e5782f90cf982fecd8854925a6ac91622cd504497f11bea91312bcb2d3"
     sha256 cellar: :any, arm64_tahoe:       "3018cffa57613f9f4031794009d8c12f8323eb7467968f1d8ffef9c735b2bf91"
     sha256 cellar: :any, arm64_sequoia:     "a12f8b663830fdde49cabf7004f82d3cf7bfa7003798e9936496ed228c47be62"

@@ -7,6 +7,7 @@ class Pyscn < Formula
   head "https://github.com/ludo-technologies/pyscn.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8aadb1bbe3e431f79ac5aab93e0bbcd937de0fef13c21962b7353e5b79c29e34"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4a7ded6a924da4a3dc92dc84983b591890b0f0a0b5c2479c91a398d2a4195fd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aad1b4ab2ab5c38fc8bc02f915aa1123a1a556562436d49bf83dc1290ec78b6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fcec953ef124eee1a6f08a5e78395b5dbd6713d3073bc629f911182146b777bc"

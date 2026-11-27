@@ -6,6 +6,7 @@ class Diffle < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "829c02f3d03e3b3b92440ec3d5f9aa80d6a3236b3c64f2a08001d236ccaae0ef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb59899ea69e13b1cc2973184fb07dc21e62fac28f9081af6c6f3e8a805ed9ba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a735daf08b1abf0df703f2b27e1371ae10855b79927ea70e803a8c99561b49a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c95a324fcc23e2e1bc2814b94b9accb6ed688f62ce51c099cd402dc06f906e64"

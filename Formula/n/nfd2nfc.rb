@@ -7,6 +7,7 @@ class Nfd2nfc < Formula
   head "https://github.com/elgar328/nfd2nfc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6737de9b75758f5525662ddca30e63a0d05b77b6e415028ed2636de8b7302355"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94e8471b1c06986472b1c0b4a88bd533f379d4d1ef2d094775817cfd47a0094a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "758878a854fcc43aac88516abac91bed3661382cc01ca32662da3bd102ff2971"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2427d41aa6715e1c6988495abeda198c5f58ce2cfff32e6686e4c68457d1462d"

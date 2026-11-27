@@ -7,6 +7,7 @@ class Gitbackup < Formula
   head "https://github.com/amitsaha/gitbackup.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fc90b07b21949a7af6dab673de3b9bce12ec66ad1a68fa5375b14ea2cdd0f5af"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ade149980ca0bf6097fc83fea6d87a53632cf483dd906026a8094e2f78312922"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10cd40fec14b449158896a82ded36a16654218713d9fd2842e6dac83cf5d6826"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10cd40fec14b449158896a82ded36a16654218713d9fd2842e6dac83cf5d6826"

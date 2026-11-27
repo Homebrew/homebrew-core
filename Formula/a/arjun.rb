@@ -10,6 +10,7 @@ class Arjun < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1419763f87d8980104ae126f3932189ab60f9c076254903b97a08e0d466f3440"
     sha256 cellar: :any_skip_relocation, all: "56274ff0f58273d721180e2ac212e87dd55de677e191d004faa3afc78f562b0b"
   end
 

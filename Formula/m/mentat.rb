@@ -10,6 +10,7 @@ class Mentat < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "cbe7cf856173f25e82cf9902282f1b981deb1bf6f046a3dfe7ee4d6bb68a37db"
     sha256 cellar: :any,                 arm64_tahoe:   "29e8e9e61b56996a38f093018e5571698d718e5e7fe72e9c0d7500b6ca005e8a"
     sha256 cellar: :any,                 arm64_sequoia: "1d07fc287f43c6e3b0dad334a32b02674f4aab925c3612fd3d8cc31a7d9d294c"
     sha256 cellar: :any,                 arm64_sonoma:  "5674640e99703ff7f27b7be8c8dce0ddd092baaf192006de4a0b28977a38de09"

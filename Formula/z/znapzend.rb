@@ -16,6 +16,7 @@ class Znapzend < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6481a8eb839077d8cc85f45e278de7fcb9220e8ec25e3ff2d6b234334807a6f8"
     sha256 cellar: :any_skip_relocation, all: "051815a5a7dc66b5b31187d81767ccd4f49d213e4816311222b186d583c21a91"
   end
 

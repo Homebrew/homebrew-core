@@ -8,6 +8,7 @@ class Bc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5bbdcababbab383a046463cfded45072e84fab0e9733380a7a27df915ae709b8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e129dfc6e7eedd55788419244abfddc702ea840fd161d5dca69c026809b06011"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0651089dd302a018f373870702769aee045e37420816f31f54d63d61ed92eaa0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1817f18a3e007d00b9128d225cc1aa8c18ea8673d954bea60e5a4d95fc8b4ff9"

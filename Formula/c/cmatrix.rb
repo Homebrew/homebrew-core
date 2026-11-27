@@ -6,6 +6,7 @@ class Cmatrix < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "a49b664f6912c2a054b80ae8c26e42b22bedf6397dff395e66daa207b6a1193c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "371ce6bdc251b60b8e0c31e110323add943e7ea9f7f72b17915beb9d0d9669dc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e9a355625f0fde46f71845797d28ee84f3613df8ede85373b754f13ca156170"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4dc801fdcf6bbf449a1b6a73a68c1ab8cfe990de6d9fbcf686c40998cd5c9f31"

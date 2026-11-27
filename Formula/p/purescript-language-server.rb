@@ -6,6 +6,7 @@ class PurescriptLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "67a20f87d3c4dc58ae09726dac76bc3625fe4daffaa955b0a165e8aab11494d6"
     sha256 cellar: :any_skip_relocation, all: "dc5f49524090444f724689302457dff282c2ee7655893e172c47cdaf83ebb533"
   end
 

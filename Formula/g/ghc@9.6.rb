@@ -16,6 +16,7 @@ class GhcAT96 < Formula
   end
 
   bottle do
+    manifest_sha256 "53e24a9294d9bed0b7aee3282c0b7e55705da3b1e0fdcd986b45da0dc219f4b3"
     sha256 cellar: :any,                 arm64_tahoe:   "dd60a4884f86dfbdaa5c449e491b881d6c2de4ceba80c3945fc153f5606e17b0"
     sha256 cellar: :any,                 arm64_sequoia: "4dcf5e47d790fe743ca3b5c071619ca00630900c269e7bb279ac69b7cf705bb3"
     sha256 cellar: :any,                 arm64_sonoma:  "846e69dce0f0c5163b0814e9bb3f0f2e0cd0d935095811f0d070e92564e6f2d2"

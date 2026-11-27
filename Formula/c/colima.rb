@@ -13,6 +13,7 @@ class Colima < Formula
   end
 
   bottle do
+    manifest_sha256 "806fdd791dfc327b283a6c44d4eb301db2eabd9287703b2efd6f4f8843a2293d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ca04c8325d83d475dad786b1e946b1aa7f2c9e19d81e1121ef29ffa431e65d87"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a9dfd1fa0a4aee62fef75974f39f174e4da774f7ba495c43dd0bcc23633381b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56ea218ab2b408e940c4d690a547c082b5be3cd3cf581ddbfe0f3a0166434ae1"

@@ -6,6 +6,7 @@ class Dispenso < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5f1d35f5c2663333b749ed78564761037db9b529d1d274c8d892e36299c01cb3"
     sha256 cellar: :any, arm64_golden_gate: "895ed79851badf3b801474edf6d501e2f50c254b0e01e3d950ee8d8f47e6a53b"
     sha256 cellar: :any, arm64_tahoe:       "1683251bb66439c05113af8b801ec85da7cafaea986a322dc03f0cab906e174d"
     sha256 cellar: :any, arm64_sequoia:     "fad3b39753c1ccf1437783ab5bcde5d416d3980669fd8133d2f080b8041bf23f"

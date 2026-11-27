@@ -8,6 +8,7 @@ class YubikeyAgent < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "831902a4d26c9b3273f01a0b1252d6dbbb5cc835b1a70310e6ebac1553372c33"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "620bac1e940123d988d0560ce59e1695d9fb94900987ce22540d3845df9c6a2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58e734ee1f173c8f04aa349617af6f29276a966ecaa6d0a9e0c0988994493f6b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9496f56ac8c4afd814f2edcadbaa15be410ea87b55b1b60876233b52bd28cdf6"

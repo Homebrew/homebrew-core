@@ -6,6 +6,7 @@ class ZshHistoryEnquirer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "101ba48ce45bc52f9b656817b88f2227f3c9158c800ea830353e6ad7809f3989"
     sha256 cellar: :any_skip_relocation, all: "60dedf5a5d359d96f5bdb7ce3bfbf3e87c145b95082781a364e39437b17fea86"
   end
 

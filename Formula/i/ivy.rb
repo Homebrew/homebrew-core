@@ -7,6 +7,7 @@ class Ivy < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "dfc374bdbd4f4a46bc729a78e674157f88de36eb37f504caf6feb6733b2475c9"
     sha256 cellar: :any_skip_relocation, all: "bf45fa90dd574a280c73748a8add44d6c3d1bcf11281d5459bda8d75df60531f"
   end
 

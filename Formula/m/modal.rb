@@ -8,6 +8,7 @@ class Modal < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "b2c18180d111f1b14ee7fedc284f8304d9b62ee51cc6d8c685a9592efd01a0a7"
     sha256 cellar: :any, arm64_golden_gate: "200aec17bd44cc357d82f4a7f21aa2675500b2ec1ac3300c7db716a08707b2fd"
     sha256 cellar: :any, arm64_tahoe:       "b0659f9b1ae976a40f41cca6f68e1d04576f1a5c4e89320c5a10229d83630494"
     sha256 cellar: :any, arm64_sequoia:     "abf4ab3036f58701cebe224565c65564599040ce10f6776357ac06cf7c6c29ec"

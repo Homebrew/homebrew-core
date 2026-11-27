@@ -9,6 +9,7 @@ class CyrusSasl < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "82720433564b45d3a15866f041fea2c64b763d29a37ae7b5d41cda3160b374c0"
     sha256 arm64_golden_gate: "244e8389554db8ee28e01455456a62e72e18f006430ad95536609a1db4fcd090"
     sha256 arm64_tahoe:       "f852e28532a0e63209f6704134adf775f2df531753d507ab4c9e2babe6543a3c"
     sha256 arm64_sequoia:     "16e3956c0ff2617a467953aa8591b55cee40c0285d3a3fa59ce0d439c471ba58"

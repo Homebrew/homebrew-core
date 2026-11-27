@@ -11,6 +11,7 @@ class Daemon < Formula
   end
 
   bottle do
+    manifest_sha256 "5b2d872a8409f4fbc718a4ade63e8aa20036916c63ce24a8be983751edb6b311"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f4089bb5b2b97d799750d37eba7a4a280d2d926ba927cbc8b6a8ca65d83312c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9accc09cd67f7ea55479b1d0aec44f2fc6a2d88df38e3d93e51900b970ae8f29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f167ab77722eb90a0346e5ecaaef90b7e4c25dc74ad5ce5797d3417cc4d672e8"

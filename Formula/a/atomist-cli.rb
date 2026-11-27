@@ -8,6 +8,7 @@ class AtomistCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8a54bf1c83cbd77806e4ee478cd2c0628e9131d971eb958351f41318339fbdbc"
     sha256                               arm64_tahoe:    "9096d4a8b1d236daa97853083e811de728f31d36cca61907d27e959fb827bb1c"
     sha256                               arm64_sequoia:  "54a93f92a1ab76bd418aea3c87bede2490e9db5605238ba1b501717dd54377d4"
     sha256                               arm64_sonoma:   "6f7f8b016f46718325419bda88b5b605070f6caa951007a1479d009490f2b25e"

@@ -13,6 +13,7 @@ class CloudflareQuiche < Formula
   end
 
   bottle do
+    manifest_sha256 "63008df868440901bb0a0283ad560d802232fdaf1fd7d889f1cc8c7f33d7f10e"
     sha256 cellar: :any, arm64_golden_gate: "9d6c4f8b3936075503f9626cd5ae802b1d44b85df0378be5700c5446a48236b4"
     sha256 cellar: :any, arm64_tahoe:       "58efb22f599205c17d359384e27e351e76cbda47a36f58e3255ce68ca8ef5f93"
     sha256 cellar: :any, arm64_sequoia:     "b668d76758f8c791fa66c18636fbe25ff895e0e6f639b873bce234e030282b99"

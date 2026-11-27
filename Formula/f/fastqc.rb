@@ -7,6 +7,7 @@ class Fastqc < Formula
   head "https://github.com/s-andrews/FastQC.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f93de553111a4eb4c7fae2bccae60f827e963953991a9a6c9a6024b19fb7644d"
     sha256 cellar: :any_skip_relocation, all: "1c7fe2b894185e522e6d136bc612f491c7fab0f2d5d02c8bd11bb744a3863afd"
   end
 

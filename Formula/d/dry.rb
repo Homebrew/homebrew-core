@@ -7,6 +7,7 @@ class Dry < Formula
   head "https://github.com/moncho/dry.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9c5e15f9c8514a3abc170c116fb5c66337fb5a44a17fe91e6ac7ce239f8c7488"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a2d193f8e7c1732db5602878411ceb79ccf94d5197436c1eafcf15242a13b6e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ad59335cbcad844568a7115a7f12f1b298fba6658cb1eadde84cc4a1edd5493"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ad59335cbcad844568a7115a7f12f1b298fba6658cb1eadde84cc4a1edd5493"

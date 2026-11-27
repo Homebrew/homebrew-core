@@ -7,6 +7,7 @@ class Czkawka < Formula
   head "https://github.com/qarmin/czkawka.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6393f3d7aeb21825c47a0680a3a21c305091eef9fe5f4d6ce888232b0b4faef2"
     sha256 cellar: :any, arm64_golden_gate: "11a32f82785ff96537f5bb64a72be6b1829f585e137e786375bd8d483e96e4f8"
     sha256 cellar: :any, arm64_tahoe:       "513666a7487a0ab16a9818e1daa75cc045279ad7d742b4de45380e6871a84f9c"
     sha256 cellar: :any, arm64_sequoia:     "3f92eaea49acc4c8e885f7ff3ff363761337d09a82e4f95725d0aa9eb8694229"

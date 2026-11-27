@@ -8,6 +8,7 @@ class AwsElasticbeanstalk < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "43121864ddbf7d9bb426db39b206ef2539b1bddc53b16ededfaa2f66c4540bb6"
     sha256 cellar: :any, arm64_golden_gate: "f2063a22d73b8835663d1007bc77451611740744d5522b6ba4e4e133cd758a4f"
     sha256 cellar: :any, arm64_tahoe:       "48767dcc989fd438b534a96138e5aa93273e594192858f589677941bc09b93e2"
     sha256 cellar: :any, arm64_sequoia:     "642c25245508801f321793b0cee318abfe191a0aa465c97ce34392d33cd9290c"

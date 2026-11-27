@@ -7,6 +7,7 @@ class Libsquish < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "683fb4a9c0cc7437cf4a0c7d4e3e222d7cf44c187e6e2251d49ed5e847823f52"
     sha256 cellar: :any,                 arm64_golden_gate: "8173960168431d7bbdf1f9a48f1a8ba44847564ae383b1a8bab0c13d13a77a58"
     sha256 cellar: :any,                 arm64_tahoe:       "c15bdf4ca7dde73653792c819df794092170e884ca1e7aeb006810955c3db6eb"
     sha256 cellar: :any,                 arm64_sequoia:     "e8c9dcc536fed98d8b68dc6187b2ccbd47dd3fc08d4590811ca605c4ff6c6a39"

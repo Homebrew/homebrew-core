@@ -8,6 +8,7 @@ class PyenvPipMigrate < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c8039da2e210407f50e3d9cbf8f4b71d0924b11f08d8201a06525e178c6025d8"
     sha256 cellar: :any_skip_relocation, all: "22d0416340223bd3821c6f57f00515c5dff2d92772f0613dcd81ee13730fab6f"
   end
 

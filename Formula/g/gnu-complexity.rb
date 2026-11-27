@@ -7,6 +7,7 @@ class GnuComplexity < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "576dd07260f37f5595cb2ea6d6b1bf358871670292e6c3d85bbff3da0ccbe4c1"
     sha256 cellar: :any,                 arm64_golden_gate: "fcb7d2a549133544618ffdaaea8c9d964a243654d68b3d5dfabb79ec4a6e002c"
     sha256 cellar: :any,                 arm64_tahoe:       "edf8e7fe3a3c8d707ff63dbd5d5ef0226653cd76bf7c6d5faf077f09f1fb2b31"
     sha256 cellar: :any,                 arm64_sequoia:     "cd060b26ae921fe515fb597c86e07eb82c0cad595d8eab8547cd421db5a249e3"

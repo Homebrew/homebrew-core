@@ -7,6 +7,7 @@ class Swctl < Formula
   head "https://github.com/apache/skywalking-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cdc3efcb390f6f0fba97ac38ae2c38341174222b773f68c476eb6018bdfd2347"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d025e483d0218e3321a43867f0236a69eb2ed408b4ad60050f6430fc5224ef7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a902147d5ed5fe7009b2bd2dbb6fd683aef52dd1b5e02bab6fd70a6773db7f7b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e67fd627a8e2f5b996beffdd3dfb693a2fa004557faa69030b4dc4cc4c7e4aac"

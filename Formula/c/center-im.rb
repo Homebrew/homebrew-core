@@ -11,6 +11,7 @@ class CenterIm < Formula
   end
 
   bottle do
+    manifest_sha256 "bd1bb321b1983fa2253f9d303f23ec7d75796354b35363b0af9eb829d7a30eb8"
     sha256 arm64_golden_gate: "9d99fbd63e95e86d5d4bea35b574713e65c458670fcad2bfb98b571c03f84bec"
     sha256 arm64_tahoe:       "0144e5a04086b115b6c21b4c9dd9448ec8a43f965737aaa7ca21213d5d78a1dd"
     sha256 arm64_sequoia:     "70d910d088f565556129872ef5a54c802a0ff2e938e05d2f9315efcd4794fe4f"

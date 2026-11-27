@@ -9,6 +9,7 @@ class Cutadapt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da170de3ffec530b66fec122a106518273bc49be974609cff01270e7fc1e8a72"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82b1a218e71c6a6064949edf56bc918103c7b8afcec3b89fcf16be8a10014d5e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fcd8478351c67f2ff26dc78dc11cda886607417dfe8b4870859a750503106fd0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec95a806a3a9cb72096e44994d171fdc808c3dc6f1ed6b881c60b9489daeb336"

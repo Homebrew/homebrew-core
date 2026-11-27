@@ -7,6 +7,7 @@ class RofsFiltered < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "b3ee026d9d4bba10815914b8beee7116ce35944aef82969676dc91aa0c1673fd"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "01d57c6c071aacd6dc92a36f807b1e718f6178b8078f1d871d59941a7228670c"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "ae07e1e4a0daa79c067329aeafc4078dd7f74c793ccb1a2ade7c3dedf0f05ade"
   end

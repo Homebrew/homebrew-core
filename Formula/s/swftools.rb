@@ -14,6 +14,7 @@ class Swftools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0d84324e103720c5ec1d00c807099f5a00bc218d363b266e9c5d337396f7df42"
     sha256 arm64_golden_gate: "aceb6f343c98fb43784c5b183dd3a1645390b576a4173c71ce9dc740d9d6efcf"
     sha256 arm64_tahoe:       "31fb92ff926fc96545a474c61befc91c622e4cfc4651bfc73b05f2872e12a869"
     sha256 arm64_sequoia:     "42b6962749fa8b8cb8b7a7ddf8c4eb9fe6d184df6dd91e0935f4e64af47972cc"

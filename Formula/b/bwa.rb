@@ -8,6 +8,7 @@ class Bwa < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "afb879cae2507f34fcdf0cf14e7984baff0d9b23ec3f85ba8ab57723b16415d1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60e484f562ea9926c970cb2f23b8bd2bdc2399325ebb80a5b4c02327d24ebfc8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd17b7367cbda46d49bba96116e29ec1ffae87d4595bb599180608d3d2bd8f36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bb4e7a2c62091c64124fe181f164b3bfe693862a2d84b48774dd0478c11c5a2"

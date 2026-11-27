@@ -21,6 +21,7 @@ class PariElldata < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "7812209237292d6c0cb3be695fe04f2e0fdb866fec9f71f672ef78a35a7710ac"
     sha256 cellar: :any_skip_relocation, all: "efddcd3fd04e286ddae07d4f77bfede80a52397c7a312d083859266c3b495233"
   end
 

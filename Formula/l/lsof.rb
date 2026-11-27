@@ -8,6 +8,7 @@ class Lsof < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "793f5e9a5a393f0587038af988ea61f37ffd74c806655841c6e7ee2998122ba9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "72ca0618c4cfe96570e455bc5dc591e8f33bbe2a11766faec9f8bec442681fe3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14b4cb8fb5459fca28129c2ccca4d432cde66972cd6740daa8a541114280ba9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edc185eb6b043833e035449c9fd5020885261bb4eca62435a24fd2f909a6602a"

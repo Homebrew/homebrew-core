@@ -32,6 +32,7 @@ class Distcc < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "91881b4f192fb1fc27176e34561d7f0f321a9e9bb15582c84618477b4e1e203f"
     sha256 arm64_golden_gate: "a66627ecc1e0a1900115180abb461071f455d40641a0c69d953ae7fc51560c4f"
     sha256 arm64_tahoe:       "9f900b2ebc2e4c934e04e2c943997a3cad07ac5b7551c7106f22f62291939de5"
     sha256 arm64_sequoia:     "050f3a4ba825136de3a4f446135c895d53d0d66056f15a3126aa70e306dbe44d"

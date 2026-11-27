@@ -7,6 +7,7 @@ class Gffcompare < Formula
   head "https://github.com/gpertea/gffcompare.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ff8aef45dcf966b68c8e48a135bcc78d5579f6aced0b56d83acb8067bb842304"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7e48ddd13711cbfe92c3265f19b02cede674e1ab746d83f59c7311799f7d9a93"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad288135f38fb28d89c01280587280ffa47c766c647c3ea5d29ce5cb7ec67a8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b52e739d06fc61c999cb98a625df36435e0dde817ec36c5aa7b07c6c6aa7f9a"

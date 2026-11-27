@@ -13,6 +13,7 @@ class Libdvdcss < Formula
   end
 
   bottle do
+    manifest_sha256 "fbda5cddf45c65b80ff13d945543ae058a3eb7a96168eb720f20b6d03d62d581"
     sha256 cellar: :any, arm64_golden_gate: "671ecf80fbf6d810f459bc0ff61e3f94e6c5410672e57d80ceb1b8c599d5c366"
     sha256 cellar: :any, arm64_tahoe:       "bb4858cde27c4653a31994c596f158eb2c3d11bf72657bf2774e69f91a253835"
     sha256 cellar: :any, arm64_sequoia:     "d3753d4f5e4d4fb74e2129125bf1d5931a61e47ce199010ab55ffd8c27ab9958"

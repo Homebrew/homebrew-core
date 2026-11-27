@@ -15,6 +15,7 @@ class Zigup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e5bc46a1edfe04f3c46f22068234a6b0d699627ba6b3f685e3b4cec752493690"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "50aaa33ea1e56a31d29c250dca2e9b0996a6d6ac61b80371dc29206764291574"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "775c5aa1aef28d3f2894d23725e54b6a34dd710c0eaae2d19cf9bb4aca2f6bf4"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e917b9c89562ea0129c9b17120e4043aea935170d243a2c8f8ded2a18761960f"

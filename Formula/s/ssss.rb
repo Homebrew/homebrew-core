@@ -13,6 +13,7 @@ class Ssss < Formula
   end
 
   bottle do
+    manifest_sha256 "15d3dd263760cc2707b3ee3964c2829848f2cfa4b6984800c44229080a3ee0f3"
     sha256 cellar: :any,                 arm64_golden_gate: "ddb8317473c62c329aeacd00b0f9aaf7b32683390240d02defeac771accceb89"
     sha256 cellar: :any,                 arm64_tahoe:       "55d52ba91f9417c0fac93458bad42528c79b31f96c718f8d0ffeb614196344a7"
     sha256 cellar: :any,                 arm64_sequoia:     "0baf04283135acc3f522af4d516f783c646cab07e6bc3ff9be9cd7c8f09d0059"

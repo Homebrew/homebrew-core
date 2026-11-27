@@ -12,6 +12,7 @@ class Grace < Formula
   end
 
   bottle do
+    manifest_sha256 "e46effa9b19f03c7459b90521feb99cc33e8163ac9079d52978654c3e61912cd"
     sha256 arm64_golden_gate: "641a1bbfe66509cf1c418bb875fddf0934058b22c0e1b52113cb5264a448a9fd"
     sha256 arm64_tahoe:       "f930e961b7d6dd7d104e8f786247a044113ff0b7e58be16061d5a04ff4365188"
     sha256 arm64_sequoia:     "61fed352c42b6211971448d69512dd09726ef1daa1fab3f52d3ceeec048ad6d9"

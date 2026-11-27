@@ -7,6 +7,7 @@ class EpicsBase < Formula
   license "EPICS"
 
   bottle do
+    manifest_sha256 "e8cfbacab2e43891e0e7cc16d692c4b89d2b8eb4ec82e5a9815a4bd4205ef60f"
     sha256 arm64_golden_gate: "ed77fd6ad61f706d1e35fcda9f0600b6d8877a6cee59722dac39cefba59bd165"
     sha256 arm64_tahoe:       "fae2436bdcc40f6c1c563997827270e24ef61a96e7a7cbfeccb384c7f2c2c3e3"
     sha256 arm64_sequoia:     "778f9ff0bd8eecefffebe17c556adb40b5aa5fbf3068f80904074a2d1c1c78af"

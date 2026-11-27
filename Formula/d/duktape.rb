@@ -12,6 +12,7 @@ class Duktape < Formula
   end
 
   bottle do
+    manifest_sha256 "f1a0e7c3b1de015a0de173cf0bc4fbff733583e637bbec7a7013acb2724a222e"
     sha256 cellar: :any,                 arm64_golden_gate: "771698d6baf725880204531c3151bc3a5986c4da7061effc47114f43cda136aa"
     sha256 cellar: :any,                 arm64_tahoe:       "5fe1dd30da74b054c84215502091d01461ee22644b32f278cb883bf8e65d71f7"
     sha256 cellar: :any,                 arm64_sequoia:     "3d744482873a3e4aee3ba9a4471a7d75c1065519466e1730169b2d47a6ef8a18"

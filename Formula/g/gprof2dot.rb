@@ -10,6 +10,7 @@ class Gprof2dot < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2288020e3ffb7863e44360552791ff3e892dface5c9c111f517e3519b870814a"
     sha256 cellar: :any_skip_relocation, all: "622db685b7875f54dca12bea87b9c86cfb9addf6e1bc1460d94a5899385a9c9f"
   end
 

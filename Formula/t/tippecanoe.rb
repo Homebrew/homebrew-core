@@ -12,6 +12,7 @@ class Tippecanoe < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8709cd59a4f0926470b5701bec1da048452f5040665b6ebf864753246c459178"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df217ec3fba650e5749a80f06f8e35a22017dac5e62e692e17055ef953c7e16a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "789f0c1726dbfe2e753ee90977c212738d1435b6217c4d20df7e2e1a6fb09732"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08faa5cd2a23753e7cea762bc9d69c2c3403086a923423158bee845cdf1c4eb5"

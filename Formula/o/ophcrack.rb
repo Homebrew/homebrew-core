@@ -9,6 +9,7 @@ class Ophcrack < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "26e2c5c239b392f1ea8fe70c5978f665333d9f698b31b22833928af02ad48e33"
     sha256 cellar: :any,                 arm64_golden_gate: "885bf96aa8afb706d266e340d1c0444f1a29679eba7d110404c7148455d5a81b"
     sha256 cellar: :any,                 arm64_tahoe:       "9bbddef8954e48336a179c36c62eef0a235511bdecb8c341c623a462e7511951"
     sha256 cellar: :any,                 arm64_sequoia:     "8c86de3d503ed9186c88fc7beec9e69f4530ab19c35bc7a981ef7fd0be1b14ff"

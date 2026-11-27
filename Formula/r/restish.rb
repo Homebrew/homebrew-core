@@ -12,6 +12,7 @@ class Restish < Formula
   end
 
   bottle do
+    manifest_sha256 "8bab63952aa490f520a299736eb326c1f010f79afdbb5c94cefdadf2fe44c9b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bb72869e66e6aa1ea89c2428f3eab05f2193a19560aa4f3ce2e69db3b2b9c26"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f4c7976ab83ce80da6e823f11c8f4a714b9aaee7589fa95fe0b50580e96e4e4"

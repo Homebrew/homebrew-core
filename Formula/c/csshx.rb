@@ -10,6 +10,7 @@ class Csshx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1dfb123ed8fb1a746bb85b9c529c0172d077af307911de16299be77bb81a4879"
     sha256 cellar: :any_skip_relocation, all: "b8bdc972870bbf205b870ecd86251a2975d517f0da679aecdc0299b9472ef338"
   end
 

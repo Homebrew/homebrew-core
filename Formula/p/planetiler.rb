@@ -6,6 +6,7 @@ class Planetiler < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "a79147f8c32963cbb2673a8e5d14c857e60aae0a901957e254f177bc5847fb97"
     sha256 cellar: :any_skip_relocation, all: "d1f58fea561d0c15ccc6068617745051f1742d5453deecbafbe858e643dcd0d7"
   end
 

@@ -13,6 +13,7 @@ class Glulxe < Formula
   end
 
   bottle do
+    manifest_sha256 "dadc859bdcf06dff90ccdfd05d3461db3802000622ea348f49a6a83059c2468b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5cedf47e1317ab8f98596d7dd100def3a43fd6074db85ab1b3d38aae265e12cc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e50d971e530488c405300c86b204007beb91ded9fb87dc8936cfee6374075d24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bdc5dcc5eba9d4e5417b56c4cdee27958bd6ba76e5cecc60e46fff7aa4b754ef"

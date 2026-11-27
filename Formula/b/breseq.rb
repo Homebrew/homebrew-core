@@ -6,6 +6,7 @@ class Breseq < Formula
   license all_of: ["GPL-2.0-or-later", "MIT", "BSD-3-Clause"]
 
   bottle do
+    manifest_sha256 "b8d78b4280cac4b47d6a0f97875fe79be40e4d9db61cc9412648da302e373ae5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c462c15ee597fc4e12dc374c635bb7795e0e043d63051b8bc2f93678e6cb39da"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "846c5cd36fb225f17a4f2cf2ce0e1d2036d59750fc9bb32dac6924c96a31a70d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd605a578b171d8b5e11cee880724ce766782cdb97b30e9ab7fa9124925f4fee"

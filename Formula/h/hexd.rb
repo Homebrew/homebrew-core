@@ -6,6 +6,7 @@ class Hexd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "950ae8981dd33d740a97d545021e8062967953ac06296b6e9bb778c5c07a0d90"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad9ba02e0fb0f5fab41a767305f2aaaf8a5d13cec6ca2d64134cedc8fcdb3c14"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78fb673214aece803927239e51d3b92a134d2dc71bc13bfec30a41cf49f8ef2c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05ec65d79e0eae2ee7291cbb5fc523358b97e0f93a5b5cab039d02b27aa39230"

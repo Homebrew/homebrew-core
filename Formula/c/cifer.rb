@@ -6,6 +6,7 @@ class Cifer < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "ebfc30488703bca7a4de0390ad4f52839033eb8489510fd5f94f71591aef5ed0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ffdaa7fe94341c8b726180fae3d6c52e019d35eb0c571cb3994ff6a66cf3c60e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ddcaf5c7910b356424491a71c0b42587701427aba17e0fdc02a9c088c148590"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d9f5339ed8c92d74cc50214716df2c6082a559fdf26b004ff69e0468e3faf0e"

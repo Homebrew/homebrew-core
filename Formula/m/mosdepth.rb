@@ -7,6 +7,7 @@ class Mosdepth < Formula
   head "https://github.com/brentp/mosdepth.git", branch: "master"
 
   bottle do
+    manifest_sha256 "31b13f635bdd068ae0ae0624ee69b1af2ad62cd5e4f094ddb6dab2b78a76d364"
     sha256 cellar: :any, arm64_golden_gate: "aca29bbd3d039122e9fb5ee700c758d2d31a88ffaa40ef083b8e07b5580a4876"
     sha256 cellar: :any, arm64_tahoe:       "6fbc754534b3214dac991c1ff6462e3d2c0076ab6398b98f0e26ce174bcbf137"
     sha256 cellar: :any, arm64_sequoia:     "34f181713614749647b2b7e301b6cdfed540983ef5a81bc6081827b01686d7ec"

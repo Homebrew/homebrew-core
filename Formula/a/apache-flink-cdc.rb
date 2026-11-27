@@ -9,6 +9,7 @@ class ApacheFlinkCdc < Formula
   head "https://github.com/apache/flink-cdc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1defeb17d9c25ce4aa64fa1e011c6d8080817bad22b41d435cf13731648995af"
     sha256 cellar: :any_skip_relocation, all: "09a708542b335241347e26a148296b99b7d679d4a4d72c248d1871321b759580"
   end
 

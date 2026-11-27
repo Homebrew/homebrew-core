@@ -9,6 +9,7 @@ class Durdraw < Formula
   head "https://github.com/cmang/durdraw.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fcf6ee46994be14ef44f22105af5a178dfc5fe5bc3e7001854683e1ef893908f"
     sha256 cellar: :any_skip_relocation, all: "d9e9b2ead603ff760c2725961a1b7efece1994dfa49449ce9437295d31ddfb62"
   end
 

@@ -7,6 +7,7 @@ class Elvish < Formula
   head "https://github.com/elves/elvish.git", branch: "main"
 
   bottle do
+    manifest_sha256 "276d07aef9c5d40a9a50852a285bb802bdc6b075a0ac4b312f32339957eb10d1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "945fcd395bfe6904f582e8e544736ce2465657e360403c681fcc370b30c8eba8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6965613c8e432735d93e6db58d0cfeab81638acb8ee0f2b81db3e75560687c20"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "84aa59f755bdb4654c0c2e10bb08008df2d72a7f3469f889c68eae28e0dbf227"

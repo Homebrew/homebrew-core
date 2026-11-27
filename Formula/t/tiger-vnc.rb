@@ -12,6 +12,7 @@ class TigerVnc < Formula
   end
 
   bottle do
+    manifest_sha256 "de3be0d542417721174d47afdd04c6c85d8fb123e39bbe2c3f350674db236c10"
     sha256 cellar: :any, arm64_golden_gate: "2e43c674a37c37a68ecf5f645e1e75c757f8c4d20da383f02f1ec91306a583c3"
     sha256 cellar: :any, arm64_tahoe:       "8d12a23c7b45cb2e6e0378d10e8eb6204e53e122c12c242c8980e942ac4f0281"
     sha256 cellar: :any, arm64_sequoia:     "e7f98cddf036ea8f48b3201b7cdd2865e5c31650ce2b42e350d54005cf255e7f"

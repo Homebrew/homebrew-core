@@ -7,6 +7,7 @@ class Bdftopcf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8eeec83d16ded0fcb86a9aa70c3f7ab59916b1f8cfc95a56df46b969a6976e67"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b21a37a8bbe1db3535b3711e5c449c87a1a510dc0e2edd0fe1208f0113fb0ed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5cce829845d0c176e814c40a20e018c9d04a9fe01774bba881526ec0c85023b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ece11c5aa3b020507c597dcedfefe2b513903cdf4577147115a4cd77d39b0277"

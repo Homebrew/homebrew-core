@@ -7,6 +7,7 @@ class C < Formula
   head "https://github.com/ryanmjacobs/c.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dc9f47dd0377008cf917abe0191ff006b7558f9586cb9c59cc65b2d63c5735df"
     sha256 cellar: :any_skip_relocation, all: "ea0ccaab4e1a14f38642b582e2ab9c5c53b3bc8a4a90e34e51f6d3eda5a15976"
   end
 

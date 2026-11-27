@@ -6,6 +6,7 @@ class Typedb < Formula
   license "MPL-2.0"
 
   bottle do
+    manifest_sha256 "6782ed1cdde374b05b2ab44555fdfcee5aa991e62b902a7c70836819c0ccfcca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0e0bbc8b621c2c8676b5b63353a4be893ea13e0448d39bd15e3d0bbba1657da"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "293988d846632c0b7bcb915d63f968deff4cc06e5c1404cb26e7601a15f128bf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0158a50bcd5cc28a78aa0bcccb280ae6138f772fc69ede2dfc4c1bad589aae2"

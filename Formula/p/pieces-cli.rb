@@ -11,6 +11,7 @@ class PiecesCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f0b50ccca33a1c86cc6b805bde19b22b0e9f2393c18de381a27e066e0896bd1f"
     sha256 cellar: :any, arm64_golden_gate: "d732d50cb0e42b50905c404a67e026c626f2aa032ec4296280ad78697a68c0ef"
     sha256 cellar: :any, arm64_tahoe:       "c1fc9470bee9a712e33e6d78135eb0a28fdbb630e10af074853dc93dee67ed73"
     sha256 cellar: :any, arm64_sequoia:     "3b3d7545097d10b299408a49ee5fa51b32c515b79a15ffc0e63063eda82baa3c"

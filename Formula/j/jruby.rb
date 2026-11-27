@@ -11,6 +11,7 @@ class Jruby < Formula
   end
 
   bottle do
+    manifest_sha256 "8772acd05b3b82dc539ba3dad6a093409da265fc733eaa46163c8192be077420"
     sha256 cellar: :any, arm64_golden_gate: "a13eac35582c548fb83bb933e35dafdd98120a08fad13904cbd802b975e8be60"
     sha256 cellar: :any, arm64_tahoe:       "dc76d17f8c561f9f5e01a0dd0aab19ef7526ac528da092c2fe64866a08904452"
     sha256 cellar: :any, arm64_sequoia:     "afbcce81a9121c10e95c10b1bd64848bd272bba81f3265d5bc217a38e4b66077"

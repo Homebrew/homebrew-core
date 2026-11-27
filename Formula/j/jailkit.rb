@@ -13,6 +13,7 @@ class Jailkit < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "2840c71b5f0c2675bfa8fd8cf6f1e3c55fdef9eed2d8d2bb0bc42478fdc2fe77"
     sha256 arm64_golden_gate: "d529a63479995c394fb67c4e3714f5ffb2b1e983465068ea1a29fa2ca79d6005"
     sha256 arm64_tahoe:       "ca7605ff12b5dd62ff98cba78d2d62471722a7e42dd3ae849dbd54b242b96ebb"
     sha256 arm64_sequoia:     "bebadf4a159d48a919b8365cf561f41681b77ff3e698d000c1fc38899019f838"

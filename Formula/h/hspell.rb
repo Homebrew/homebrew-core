@@ -13,6 +13,7 @@ class Hspell < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "fa5e60d927375695937384ffc4b3a49d3ae3a5034bb1bf93ad583716b9de92a5"
     sha256 arm64_golden_gate: "37ba0b5de423be1dd2880eee9178d8f6f5dcb67080c3bf8b8a13639c47c13960"
     sha256 arm64_tahoe:       "ced3dddd83e4e604b53384cc4cecbeb45fd53d35867d8ff244abf4e8b3082b5c"
     sha256 arm64_sequoia:     "b2efb812718a75549385d7d46080ea9f365388fc69a1ee2b3432f9eb5e10f060"

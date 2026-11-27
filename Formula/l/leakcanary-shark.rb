@@ -6,6 +6,7 @@ class LeakcanaryShark < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "5f837d1e2dda4f8953f0e5a9f6692d36c390f1c1f767328cc621af9070f92e6b"
     sha256 cellar: :any_skip_relocation, all: "0cebacc85e3f690e603a7f298e342d248c5ed6068da7edff8cfac07d4c59ab43"
   end
 

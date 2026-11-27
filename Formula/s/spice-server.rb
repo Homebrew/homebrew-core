@@ -8,6 +8,7 @@ class SpiceServer < Formula
   head "https://gitlab.freedesktop.org/spice/spice.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a746a973534b20496118be51eb95ecb558590dea11b7865972324d5f34f44e59"
     sha256 cellar: :any, arm64_golden_gate: "ee519d2b1a6707336149094a3c67985f2645c917af937939db333cd21a3b9c1e"
     sha256 cellar: :any, arm64_tahoe:       "208555b9383d1016fde6343e6b92d2b5ca89928b7d743675198f921566cebc43"
     sha256 cellar: :any, arm64_sequoia:     "853367dd10048ed383c9a3544996ff80d40988f19d5312de43d60d628fa3eaac"

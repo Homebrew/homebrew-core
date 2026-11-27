@@ -8,6 +8,7 @@ class Bao < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dd98117559707a1be556b1e12f9434885fcf4f0d63239dd812de34446a4340e7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d536920c98ba7cdc59be1e52cf4efeb312d8d24817bca8efc38c91d86f3e555c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b7036473864fd7fc885910aae5c8b43404d5ddb208c13259c9b94aa8f3957d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0834b21ae3308c428a8f600306d8df40d983c281fc64cc11303bedfba5e9c474"

@@ -6,6 +6,7 @@ class NomadPack < Formula
   license "MPL-2.0"
 
   bottle do
+    manifest_sha256 "76ab5d9315b43ec6877baa09ea04d1197dc4bc39d76942e010881fc82748dd62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14bb0f32ee16b39c187011f1b2c3f0797a8238d6197233e87a3dd27a750ae13e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9761fdb20f5158538de20b69389e72f4e27b9d6b5afa3d9ef4e84ad628662b4f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9761fdb20f5158538de20b69389e72f4e27b9d6b5afa3d9ef4e84ad628662b4f"

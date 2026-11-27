@@ -8,6 +8,7 @@ class LanguagetoolRust < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4a6041798f8df3f6e0c1a4f9b9c1ea09f5d7fd732934a74768ffa72e01304602"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b545ad2bd2bcbd455b619a5b86bc88df5dd00df8210ded8d7c65da7db1995d7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5fec5c6b9c67855eb67a081cf23592084b04a8707b4d6de948f62e64c77ac401"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "085ea279b93c2306d1338207e4f7314f2ff116bc76ab668caffba6380e127fe9"

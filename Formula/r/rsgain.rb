@@ -7,6 +7,7 @@ class Rsgain < Formula
   head "https://github.com/complexlogic/rsgain.git", branch: "master"
 
   bottle do
+    manifest_sha256 "94fd47c8efcd44637d6544cf4cdb61fe2f73dc9031197f20e2b1da9c14ae6396"
     sha256               arm64_golden_gate: "f045e22f8ccd6a14e0009433317dcdd86c4e84d07ed6007c07cde5cc21716eea"
     sha256               arm64_tahoe:       "41a574f2dfab8c882de7d84a70590036aa529ca1c4c7dc48c227c715e8049589"
     sha256               arm64_sequoia:     "0470e68a04fe0bfbefdcaef840270b545f326bf4696f471dbc71cc39f3a77caa"

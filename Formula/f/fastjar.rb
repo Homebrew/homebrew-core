@@ -12,6 +12,7 @@ class Fastjar < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b58e228b7b37a6a21a24540429fe6424aecdb7673cda15e6bc1cbdcbbd6cd1b1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd728c2e8c94b17fc10290b93d154c26a7fb9340b33a0e8c2688fe7540aefebc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cb7800d86e7f8733755399304f9ccc3ea3d44c7d7ca6fd81b2f6aeaf5cc6061"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "329d6b5ec4a5bf54fff26334797bac30f2205512ae96f20b873e2f1722936272"

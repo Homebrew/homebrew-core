@@ -6,6 +6,7 @@ class Asciitex < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "663d3f1e4ee3b658b2db3f3b2737ec0f61c1ed3b895da44f3ee107cef4435ae9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09b0aac628c08f3069d48f5ec254bd42e3d79c81fb9698ab703b740ad499d92e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b71c04bd0a92fe7d693aff5674b9464532b0a6160b918832dcf299354b2adc5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d70918544a7191e90ce55d8b2cc02b5602ef6210dc6f0269e9667bdc0fce8a26"

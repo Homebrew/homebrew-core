@@ -7,6 +7,7 @@ class Pdftoipe < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "0587e0d86a4ea1c06de2e56d41666565dad31aee04865fa30675d6082b4109cb"
     sha256 cellar: :any, arm64_golden_gate: "edf83419cfbde36e51c327b00c770607d14a6f649873dd3eeb2326abcfe87493"
     sha256 cellar: :any, arm64_tahoe:       "a6fd642d05f852ee573833a9efef3eaf7f1a3329d316fab24114c6cc471bbb08"
     sha256 cellar: :any, arm64_sequoia:     "141130711b964a9de82d9094dad77f1a71b6c877bc28e53b9e69f1cf6086d6de"

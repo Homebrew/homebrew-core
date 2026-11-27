@@ -6,6 +6,7 @@ class CppPeglib < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1d2525e1ce830f85c899c8163738d2745aa0ba4cfeb635a52f9ee00156bb6217"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b458d4471bddbab8797ff8bc628a0e366c1597ef68d8f9a51959f52b12fbff2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ce0dc0b0b72b00b317fb7db2f0ae4521c045f6cfd081a75defe87a70390526f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ea4e4572d1b7ece429d2bc620dd62b66b889ec0df10eeab5a56f97fd0032ce7e"

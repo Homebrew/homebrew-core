@@ -11,6 +11,7 @@ class Angband < Formula
   end
 
   bottle do
+    manifest_sha256 "ce2d8c9936307b1a595f61fab191d526805223c2a58b40be0828c9ccd3aac290"
     sha256 arm64_golden_gate: "0b83be1bcdb48dc44b484c2a3211d3d92b025ec615f0e989fc431d9416174566"
     sha256 arm64_tahoe:       "d4aef25f1be9724500e460e68ca2da76fd2294d56e4467bb4f85b156e5193934"
     sha256 arm64_sequoia:     "be8f704be3323d08b76ab1fa16b997450dd9b0aed4d7895d56c2ca591c64756a"

@@ -7,6 +7,7 @@ class Takt < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "49fba3a8b70aa4c4d9d034bbba7bfbce5fa82e8c8a52af416af6ad4ba9c56212"
     sha256 arm64_golden_gate: "3b43fee60760773e12919c1a1e8ce1493a61ba2689cb690dfb6c7fe506f46d77"
     sha256 arm64_tahoe:       "fb1c2a27bc7182659239d0ef52d07617a56aa6e0fb1498f531cd12e7b045d434"
     sha256 arm64_sequoia:     "89999aa891436126770e5d390013ec55a9f2eff6e569e046443de74b9cd648d5"

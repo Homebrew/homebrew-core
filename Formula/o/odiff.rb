@@ -7,6 +7,7 @@ class Odiff < Formula
   head "https://github.com/dmtrKovalenko/odiff.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f3225d2c32271344514e37251dc983adac0a98a52d6ef376f4ec420c8fe1f225"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2a3646a46241f933cf08698e038c21fe09514a33969c26f1ed6790a4fd535892"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b3ce73c55f0cf7f612a7bb65d21ea20d5cac2312887a7fc228b7053113cacb37"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e188cd66caee072bd69b70963159d00b7bab0ca9b26dc1561a23269ec24d19a8"

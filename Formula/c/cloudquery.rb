@@ -12,6 +12,7 @@ class Cloudquery < Formula
   end
 
   bottle do
+    manifest_sha256 "22572fd4767ee45169237d117283b99425c518d12e899f414f947f21b04ccacf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae15f21fe72f9d57dc660a02d7b9c016daaeac370ca82209798a7e539f1980a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae15f21fe72f9d57dc660a02d7b9c016daaeac370ca82209798a7e539f1980a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae15f21fe72f9d57dc660a02d7b9c016daaeac370ca82209798a7e539f1980a8"

@@ -7,6 +7,7 @@ class Tinyice < Formula
   head "https://github.com/DatanoiseTV/tinyice.git", branch: "main"
 
   bottle do
+    manifest_sha256 "891f686b4afac7303920a9c0cfe0e90fbcbefab239c267da91df9301a5c8e255"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a75752a781a67cfa7c6f5a34f2acac8b72d821482328ee5f5eefb75107bfbd6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a75752a781a67cfa7c6f5a34f2acac8b72d821482328ee5f5eefb75107bfbd6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a75752a781a67cfa7c6f5a34f2acac8b72d821482328ee5f5eefb75107bfbd6"

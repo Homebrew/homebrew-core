@@ -6,6 +6,7 @@ class Xprop < Formula
   license "MIT-open-group"
 
   bottle do
+    manifest_sha256 "b11b8c651a93671d4c13fa41f10800861ad4b8cd611f5ffbd6ea200c1306af0e"
     sha256 cellar: :any,                 arm64_golden_gate: "1f6e71b26f8777e90fd48cb4f466016906c4f4d398b48ab14cb9cc9dcb3b5a13"
     sha256 cellar: :any,                 arm64_tahoe:       "16498c5be35fa49d3fb077e47270d30e791d045f9ad1a6ec52b5e375168b56aa"
     sha256 cellar: :any,                 arm64_sequoia:     "cdec0acd7bb65c8b5c8817d838fdfa701a0320d87eeb34297641c87c91724bf7"

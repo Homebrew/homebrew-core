@@ -10,6 +10,7 @@ class ZigAT016 < Formula
   end
 
   bottle do
+    manifest_sha256 "90be996257bea5439b8473cf400f5c3f28541b80a32e31dc0609311f6a51cd65"
     sha256 cellar: :any, arm64_golden_gate: "903da9c678fe088d1385a1f5d58d547cbf6ed786ad4d1d398f06927f06be9379"
     sha256 cellar: :any, arm64_tahoe:       "298f134e117990b66d111149c857440701c1960be92adc74198b114206d9a211"
     sha256 cellar: :any, arm64_sequoia:     "836e667257f5a7c83b040697de094f5689a44be20eeff4140765ef01df66b0fb"

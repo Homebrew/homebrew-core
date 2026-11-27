@@ -11,6 +11,7 @@ class Swiftlint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "08599aa807b27d6e9443637f0e4dbfe173c2d029f0d09764be831394a9abb6c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e986deaff3ecaa4dd5c1f169a0900131dd5ff56c5ec4cbf96b73b1033196e593"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d50373afecfb6ad0dbb527de4bd678d38cf9f9a42c248e85b7235055a8db68a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a08a9e47fe0ccaf6c4eacec3961a6897393d9431dfd0fcb52767994f2ea197c4"

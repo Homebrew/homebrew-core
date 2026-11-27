@@ -8,6 +8,7 @@ class XkeyboardConfig < Formula
   head "https://gitlab.freedesktop.org/xkeyboard-config/xkeyboard-config.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4a1b3d6a135ed10fe55a37cdcb5fc846ee7fd1eec1a82a73d32477a1750af16d"
     sha256 cellar: :any_skip_relocation, all: "38ecdc9a6c476d429383108b2424d6e160c1bd31f768ae93ad1ae33e57490025"
   end
 

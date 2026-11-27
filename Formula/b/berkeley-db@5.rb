@@ -12,6 +12,7 @@ class BerkeleyDbAT5 < Formula
   end
 
   bottle do
+    manifest_sha256 "5d704746fb7197a21dd165843931d6ec9294bec18b139d81e98ea7ad55e0b3ae"
     sha256 cellar: :any,                 arm64_golden_gate: "b5986ff6a8fdab802d6d49303d376db0a7ade0a9aadf3ada99ad9ea6b8232eac"
     sha256 cellar: :any,                 arm64_tahoe:       "a713c6c74511eb18a8dc92c92bbb1b7ca3f1e7c71c3325ab584634e6275ab1bd"
     sha256 cellar: :any,                 arm64_sequoia:     "ac64ff01e9897372c22dd2f9c90a2e5ffc5b66876c243d20d1e107b7c3785fba"

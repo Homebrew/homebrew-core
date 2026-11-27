@@ -14,6 +14,7 @@ class DeviceMapper < Formula
   end
 
   bottle do
+    manifest_sha256 "edbf3484d8a685ac705728f35e2adcf31fcbb44abdf36558257e7ff97113dd96"
     sha256 cellar: :any, arm64_linux:  "43d427ddbb0f61c455d415a79415705d850489807d241e163b2528d0d251bc43"
     sha256 cellar: :any, x86_64_linux: "eba39145ebad82fc636e6f765b5bf62b9bf6b81595d9a7a3857ed4e4c95cd318"
   end

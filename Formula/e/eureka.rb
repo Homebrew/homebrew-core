@@ -8,6 +8,7 @@ class Eureka < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "83556f124e26ce07001bd7724cfeb09a3fbc854d305bfa0ad80dc8db9783e673"
     sha256 cellar: :any, arm64_golden_gate: "fcca826a0c490097e7e3243bb2568e8d9c9609221086a8bcc29d908af53aed4c"
     sha256 cellar: :any, arm64_tahoe:       "95e8d555017dd25c4ac2b99589e1b476a2c7fdd9e8a6a345795a007e7fb23ae3"
     sha256 cellar: :any, arm64_sequoia:     "58a6ab0a632ebc3ab366b1d5f25919a3b56cca97a8b656156ed0e24891013f14"

@@ -7,6 +7,7 @@ class Savana < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "cad5e0a2bb8f27708890d5aaa8cb942de928776d6f66f570ffb4c242c75848a3"
     sha256 cellar: :any_skip_relocation, all: "def842802d985d741c12f61a00788780ada018db5837b585f2c58540109339e2"
   end
 

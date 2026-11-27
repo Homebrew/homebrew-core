@@ -7,6 +7,7 @@ class Beakerlib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "657a3599484e3869a8aab1c363ab94b5afe697f65496dd7220806b39794ce63b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a69831a8a5a170e2d3a2cb888a40429cacce5dad1caef1eb7040be3bcb0d72e6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a489cceb18ba2a9b035810dd8af210e150915aa11937a1d6efd1a35a75d70c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20e1a9475a34b43787d529ce0c846ee8ea928514c2444a4afe0a1911b2febb54"

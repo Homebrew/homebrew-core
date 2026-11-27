@@ -8,6 +8,7 @@ class Tuisky < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b39ee05be8601fc9e484feb522a065c1f569c9d9704f8df15d087dea1d374cd2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8016522e174aafd3ef5b3e07acf13f40a4527b59a46d5ea61bcacb778da17694"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04e8e26ee06f440a31135e5f4992e8687acdbc3a94f5e00212ca2fb3e767bbea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6eab316d240901713ea4ad33331423d6c77e131cb26f46821b081572656658e2"

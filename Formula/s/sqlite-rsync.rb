@@ -13,6 +13,7 @@ class SqliteRsync < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "ed39b41b6a8c1c1781c47f3a83288c74dff755db867a0f6c9c0dfe8ab2a90582"
     sha256               arm64_golden_gate: "ab5a91aa3f348951f3a228c71048aaa0633032a3b30c8319d6a06802657ca766"
     sha256               arm64_tahoe:       "fdfd5bf20e1d5ffaa1396c901072366e712b04bdf3c90a867a3f6f223809ff0b"
     sha256               arm64_sequoia:     "232359b75127e38b32a994b8c92990bbbedd4c3d38f038df9c9c6c19452d4e0c"

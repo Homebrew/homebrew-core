@@ -6,6 +6,7 @@ class Tpack < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1effcc0cafec62c3a803f6646bbb6bea9bbba8a5273ffb5a7cc50bf5d65f38ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db5abb348c763c4c00589b280dad6d927375d85291b81cb203e100f5bfb0e0a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db5abb348c763c4c00589b280dad6d927375d85291b81cb203e100f5bfb0e0a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db5abb348c763c4c00589b280dad6d927375d85291b81cb203e100f5bfb0e0a8"

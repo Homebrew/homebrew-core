@@ -22,6 +22,7 @@ class Portaudio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "adb4b4ea1e4c71fc6251231c5d9f95f8f0c393cebfbc0a3513131abd8c58d51e"
     sha256 cellar: :any,                 arm64_golden_gate: "d3d969f7125456cbafe67d64ca9758b9c36d531bc611e07a90119a830afec10e"
     sha256 cellar: :any,                 arm64_tahoe:       "7c24f222a11d112034b8a5e95f01feb4b610022c63bdc85d1ae2fe6abbd712e1"
     sha256 cellar: :any,                 arm64_sequoia:     "8ad9f1c15a4bc9c05a9dd184b53b8f5f5d13a2458a70535bfb01e54ce4f8b4bd"

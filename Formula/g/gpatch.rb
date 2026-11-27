@@ -8,6 +8,7 @@ class Gpatch < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7b3abe32c0b2a2905d80c4aac5ee0c797e84faf83be24b7ede86eba6a02ab480"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b1381f45a7565f59b5e14294855454764e6e5464b784f2cffa3467a1b449834"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eae0f543c862bce1c2c4573bbb6ad58d2b28aa9afbf9d1e384b922474e82481a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "035c677c43e4d3563c180b7d628fcf227469e2207219d86c8d0059a1a5d63e0c"

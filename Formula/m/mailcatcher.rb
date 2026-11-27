@@ -7,6 +7,7 @@ class Mailcatcher < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "57aa67670337c4cd24713a3cdd15177f0c5b172b5d14c80c16779a8aebfd0c40"
     sha256 cellar: :any, arm64_golden_gate: "ea74ae070fccad891c9fd20f08bf085e2ea95d8dea5a840f7db8eabb1379acf9"
     sha256 cellar: :any, arm64_tahoe:       "374eb24bc9b4bb16f262b72bdc74ad38aa486ebdf44dc2876ef9c058d4e1aa1c"
     sha256 cellar: :any, arm64_sequoia:     "f161cba4425310c55c772cfdd4e19275fb0053165003ac73bd9c0081c49105d8"

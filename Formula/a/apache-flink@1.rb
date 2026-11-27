@@ -13,6 +13,7 @@ class ApacheFlinkAT1 < Formula
   end
 
   bottle do
+    manifest_sha256 "60e9144401f83374596f2bca1576025f235debbf124d4969a01f819b9a554230"
     sha256 cellar: :any_skip_relocation, all: "fd12cd7ee56c5ad2e91726ae5cb9e3d99cdbee37771085ed378e5d6839b7735e"
   end
 

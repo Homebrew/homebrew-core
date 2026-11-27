@@ -12,6 +12,7 @@ class Conserver < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c09fba4225db44d1e7fdcefab445a42146cf9f9e1253fb2250793c77cb20acb1"
     sha256 cellar: :any, arm64_golden_gate: "2b8c2a619a595ce76f5223d646c29fc498c66aa4fcef1531e066d64152bada23"
     sha256 cellar: :any, arm64_tahoe:       "b9639002703fb39131f766f5bf9b59fc92c223a8d561fca26888bdbe76878489"
     sha256 cellar: :any, arm64_sequoia:     "b867d5ec6b846f4ee3aab4f7f868d3dc4f2bd59cf10614821f014e4850b8fb5f"

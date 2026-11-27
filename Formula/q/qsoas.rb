@@ -20,6 +20,7 @@ class Qsoas < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8270374d73ec59e70b95229c5061599c01b73735a54c990ea790fa185db0ce90"
     sha256 cellar: :any, arm64_golden_gate: "42dc3f046f8b07e9a2c660ad2fab02624b0806be8d6b930a57d4f05963b9dda8"
     sha256 cellar: :any, arm64_tahoe:       "19888b18f9cde40f6b7b7f366345da60612d94d09134fd0480fd05f4e06f201d"
     sha256 cellar: :any, arm64_sequoia:     "08dd560419d14904c9dc2f91e60da338774d3c88daa8c8f820b2e2d46e6377e1"

@@ -8,6 +8,7 @@ class Thriftgo < Formula
   head "https://github.com/cloudwego/thriftgo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "291e2716fd26bac7eab2cb0e87541923c57007dc75a92914ef7b3a8a1347e707"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebaed08615be71458325b611a3eaab87c92fc49d9101c2f97e140b9102179677"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d21e7f4fcfe6e416ca12f60946f9fba844d3655c5f55ee74464a8d68df99b7c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d21e7f4fcfe6e416ca12f60946f9fba844d3655c5f55ee74464a8d68df99b7c8"

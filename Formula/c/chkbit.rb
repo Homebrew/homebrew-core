@@ -7,6 +7,7 @@ class Chkbit < Formula
   head "https://github.com/laktak/chkbit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b0b47716fefbb16a31844d9a29aece1d05eadb9a02b33d6fa337375788b3c119"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f0fb4856c8f22a277db4137f58b662d00a43520d1c793e8aa4a63ef1ad13a7f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6315ef336fb679f12d36330f33eaf3478dce829eab2ad3739c84ee4731971b42"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6315ef336fb679f12d36330f33eaf3478dce829eab2ad3739c84ee4731971b42"

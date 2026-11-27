@@ -21,6 +21,7 @@ class Ucg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "392006992c099b71d073c5eae6eb07f9a24140fc07eef4767323837d8a477a20"
     sha256 cellar: :any,                 sonoma:       "1cfae5edabc50ba8598a2212217b22f8d7b1d81c118f86e52ce94b1b889a98a4"
     sha256 cellar: :any,                 ventura:      "afbb657bc288953de91236ba95f3c609ba4e411e8602f0efda43770422436c43"
     sha256 cellar: :any,                 monterey:     "3ffc7fcd491433d72238d232acc46f48e08e1c85b40a147f67dabb7de8ec830d"

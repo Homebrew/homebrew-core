@@ -12,6 +12,7 @@ class TodoTxt < Formula
   end
 
   bottle do
+    manifest_sha256 "145e2a7caa2d19403e2bec1b5c378c31a3c4b3c9cf7b3c5c0b269919b8cdaf0d"
     sha256 cellar: :any_skip_relocation, all: "e1c6671d40bdcdfb08ba1ed0cd23d6cc758dc61b087dd6b546e399aa3417b74e"
   end
 

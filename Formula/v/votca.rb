@@ -8,6 +8,7 @@ class Votca < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d53e7ddbaf9972d7c618f3ff8e5a67881fe9f97c7578b21d6f4188b9a8fdfe11"
     sha256 cellar: :any, arm64_golden_gate: "8843069deb25ea8cbb65f1bd99f8e8528f4fd71a421aef90d0ca0ab872677e18"
     sha256 cellar: :any, arm64_tahoe:       "f264b49374e4e87cf2ee83d9dc9b7c83558da3de7376d6e3a26f834240efa98e"
     sha256 cellar: :any, arm64_sequoia:     "e2bd52073625eae2a3900b6228909ab1a165d7b0536faaf282277ad789f7bac9"

@@ -6,6 +6,7 @@ class Squiid < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "88c9f237067a08ab28395490f31f65fe3c335496c85bd9a5282c86629abc291a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "977db6130b00a2db5f874132b1ab8a172c9d5d1447b6362008224069089ef9be"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fafefb958aa0ca0e0f13a3dbc8b7f320ccba065c07b2648074edff7bb022cdc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91d532cf3d6df4d588888343fa5ce18f7c2f3dc3b95c435aec001afc51404f58"

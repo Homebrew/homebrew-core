@@ -6,6 +6,7 @@ class Dskditto < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "3702f1a68798e31a893907bf854a30fd3b4586a20f15b464f387e119468275db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dc3b03b384127ac8ea76b3c4cb94818c0e723b1723c3d73d3adc51ce36d5c53e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec7db1d2e4da9ed21f7ddf628adbb460fac9e6bd2f69688e1d30bbfc48217233"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "891c1d95587e1f64db1457a9248bb39676cd76fd7b86b25593b764c92c1f7797"

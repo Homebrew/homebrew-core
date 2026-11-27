@@ -13,6 +13,7 @@ class Antlr4CppRuntime < Formula
   end
 
   bottle do
+    manifest_sha256 "07201a2ced30cd723343d5e312d5e1c074065a231d94d19cc8c2bfa0f23caf2a"
     sha256 cellar: :any,                 arm64_golden_gate: "d57585d540e9bd85a3c4897c9504615b4e64b4f2c64f520f6ac8272488e2786a"
     sha256 cellar: :any,                 arm64_tahoe:       "68f3e05f2ec65f4b039a3381102d3a470be23033a934ff1cb0a7897c5d6bd019"
     sha256 cellar: :any,                 arm64_sequoia:     "b1444f15d65fb7fbb4da3a05739b00b289535261b973cf5d9c0d0e8277aeb197"

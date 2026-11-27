@@ -7,6 +7,7 @@ class GitOpen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c1974f1ba98fedc428dba6d037ca9663f2474a89a6ae1b6adc8d0e2060f5ffcb"
     sha256 cellar: :any_skip_relocation, all: "142aaeed12d42b049c0414d59f19f8dfddf1c1c83dee8f208b1af1e745fd432d"
   end
 

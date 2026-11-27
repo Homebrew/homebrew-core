@@ -7,6 +7,7 @@ class Cjson < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5161934edec525293eb98dd86cf03e53928465f20fc442d4117da8f9d5d64920"
     sha256 cellar: :any,                 arm64_golden_gate: "0689e1f80f8e45c022c86625962c0aca3afdc4e0624ec4c565acc6b3a970371c"
     sha256 cellar: :any,                 arm64_tahoe:       "3949c4efc1e2bb3de33dff83f7bb3322465f4e459b05b9c8ecafb50f9589453a"
     sha256 cellar: :any,                 arm64_sequoia:     "02864d4e743d0b31edf050ab99325b77cbd34bde4a0fee2258c4903fb7cac621"

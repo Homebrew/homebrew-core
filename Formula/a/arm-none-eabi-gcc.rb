@@ -12,6 +12,7 @@ class ArmNoneEabiGcc < Formula
   end
 
   bottle do
+    manifest_sha256 "63a69811605d573e16201366e102454e5b791d6fd35e220656b6830d44fdaa69"
     sha256 arm64_golden_gate: "c93204c206d528363dc8819eb6520448ee1b7c9096656a34d2ea697687ba8b59"
     sha256 arm64_tahoe:       "eca2997512a4b0350f937f5c8f79ad0ff7abb35c3afb68de50915f4c4892a4c7"
     sha256 arm64_sequoia:     "cf2282ea2fc14517113f9dc32a74d13b07520523be0b7561082c21774015fca8"

@@ -7,6 +7,7 @@ class TerraformLandscape < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "548678c041eac7661db978ec6313fffc30fdfefa48b2fc89a3703d46561096c5"
     sha256 cellar: :any_skip_relocation, all: "6e403181c8828200717e99f9c86505f294c787db63060d1a356b4d95bff92f62"
   end
 

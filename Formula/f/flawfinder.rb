@@ -13,6 +13,7 @@ class Flawfinder < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a98b9ec076917f67a5d61d686e0015cc408700270751f9764ebe9135d868f2b2"
     sha256 cellar: :any_skip_relocation, all: "aa87731edffcda8ecab4d8338635f5dff27567eab1bea3ec4e2c8f56f5153d9b"
   end
 

@@ -13,6 +13,7 @@ class Ncompress < Formula
   end
 
   bottle do
+    manifest_sha256 "52a3683f4d1107bb8b31f10178f1b010d98f3a837f0d1ccf5f629461885493f4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f722bdfed6c4d831e38223bfe0d343eb5dbc29415e6c1a497002ba93ca9d445"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb300d3e1ef4dc25fab6344cc7e6010bd55f0fa66403c3371f8d6b3f449d7645"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f7e39b3e6471d9335023fcc1434352de41fe4521adff432f237c4167c7de71fc"

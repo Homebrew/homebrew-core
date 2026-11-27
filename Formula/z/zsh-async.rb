@@ -8,6 +8,7 @@ class ZshAsync < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1bb2718bfac3c9f1b6309e31bf457dc51401b606b301a8d979fa14c5218e8546"
     sha256 cellar: :any_skip_relocation, all: "d743c80fa4ea6850e397fc6a987f826dc7ed1503c038c5ef9e799fb0ce620b40"
   end
 

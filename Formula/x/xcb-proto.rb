@@ -8,6 +8,7 @@ class XcbProto < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "de40542293c7f9261898ae3aa82964e95a012ffa25904fc2b7d92c9ee2ca325f"
     sha256 cellar: :any_skip_relocation, all: "019dc0c8c057b145fb308abe073a0c30da2ea309f61a12a8f03c303e7bd27de9"
   end
 

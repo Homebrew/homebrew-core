@@ -6,6 +6,7 @@ class LibvisualProjectm < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "b57bd36805688b7693ae82a73f007799fb555e10a4cd19653a19bc3c3637b673"
     sha256                               arm64_golden_gate: "e34810e34d368a8a3203e98878c626dcc2d0f3965cb452898785195d2f45cc86"
     sha256                               arm64_tahoe:       "859857caed5c2cd954dbcbc27024d76eab9c9b6d34444d3a941d00577a4cb723"
     sha256                               arm64_sequoia:     "2cf5ca8c0590b88e843a67b0b45c3e169403474dbe7789bf4e7653dc005022d7"

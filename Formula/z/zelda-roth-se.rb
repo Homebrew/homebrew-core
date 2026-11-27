@@ -11,6 +11,7 @@ class ZeldaRothSe < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bf1a2d40ad1d7cff4df1d60e110d473e56ab266133046d9ca034cd64c389b68a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "994face40ef1e372654b43dd7c3a7fe27f015150b570992b5f60408701c4d752"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3bf751b6f5b6313d54d4c4356a07dbad2134d30574d18706a761272ad4fef7c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b160b73bd9daf53b08f48c16e6642a054c2823114f7651d83270ab468694064"

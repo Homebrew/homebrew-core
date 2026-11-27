@@ -12,6 +12,7 @@ class Tarlz < Formula
   end
 
   bottle do
+    manifest_sha256 "4e8682c2db7faae8294e53434b6c7c1190c34456b026d2e11b171ef8f208b5e1"
     sha256 cellar: :any, arm64_golden_gate: "d07bbea8b6e086d0cf9b3fef70922c4ea94bd63a9624a76e676123c038e0b638"
     sha256 cellar: :any, arm64_tahoe:       "731345a4ea45bf6b6fc35d5a3bfc2bd8c1249cd60db89a3a7730f822112e4951"
     sha256 cellar: :any, arm64_sequoia:     "9f670f14e056431a696da9dc113d749e2ca47129436c4ac01fe96a628a425f54"

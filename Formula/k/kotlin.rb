@@ -15,6 +15,7 @@ class Kotlin < Formula
   end
 
   bottle do
+    manifest_sha256 "adf90f4e3aaa51d8d3a0ef4e9943659a8d7727a98162c1c8606356dc688ec560"
     sha256 cellar: :any_skip_relocation, all: "45a2d7b02d60962892ad23b601ea2e225a69fc420bbb1a6bd60e447b485e8b1b"
   end
 

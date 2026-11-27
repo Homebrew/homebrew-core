@@ -10,6 +10,7 @@ class Ykman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b37fdcf24491beb6a70e00ba361ba9772d6027400c006201d58a1727f075dec9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bae7e956f8ae1c060e11b616737b2943e94511609c2ff015fb788b5766efa7a4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad9c315604e0ab84fa167f2adfe41923bb8e6d3366342b272e8ba81faff6e13a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "690d4f00a86a91d8a0e92de42549ee6541c076bb6841bf553eac750650084857"

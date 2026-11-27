@@ -12,6 +12,7 @@ class Libwpg < Formula
   end
 
   bottle do
+    manifest_sha256 "cd9848e5b4a5a9f6d6fa6c40f0fdc76ddbe95628bf184b7515b6f2d1df4774ab"
     sha256 cellar: :any,                 arm64_golden_gate: "73185e6827960373948acb0bbab1e9230b1f5cd2072026a1ec7600829b8d2383"
     sha256 cellar: :any,                 arm64_tahoe:       "2aaaa4050e20a26525852f0cfe451e805728c7b03597e883e088c7eb234eea89"
     sha256 cellar: :any,                 arm64_sequoia:     "a062020deb99f826a9d7db555d3205c8fb56f431d19e916f7b17319641b9a00a"

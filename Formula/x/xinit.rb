@@ -7,6 +7,7 @@ class Xinit < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "eae970941c7e8d6b6a941d1f70dada43c78813aa12e1e4ae86e280f597eb9721"
     sha256 arm64_golden_gate: "0c877dd24259cd1bf5a2955f66ff37e4dc28d7dcca5e0867a4a08984af7f5fd1"
     sha256 arm64_tahoe:       "f053c34789bb75669b4afd247a5d9e735c2439a4337ce08a6901d20d99439ba7"
     sha256 arm64_sequoia:     "679e5e4c52c1a10ad16584abaece9f95e0f39acf14692c5492b6ffe3408be5fb"

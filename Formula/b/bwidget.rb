@@ -12,6 +12,7 @@ class Bwidget < Formula
   end
 
   bottle do
+    manifest_sha256 "0a19ddc1aeb6091f2fe0de093b1bdfd6ccbf604091c5312791b22fe6f567b62f"
     sha256 cellar: :any_skip_relocation, all: "d524a18515be797d08ad291537351a3688c6ec100c38663f4729f50c938204af"
   end
 

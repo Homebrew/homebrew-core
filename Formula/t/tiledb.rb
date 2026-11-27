@@ -13,6 +13,7 @@ class Tiledb < Formula
   end
 
   bottle do
+    manifest_sha256 "1355735bbb2a90baf77f9dbe80238d156a796ce40798816d521d76d5491dee31"
     sha256 cellar: :any, arm64_golden_gate: "298d95be049b95731ce7e03a00aa8b857992d95e6eb690676048adb2f7377349"
     sha256 cellar: :any, arm64_tahoe:       "f8dd6df4d325b33de752df5be73d5e9bde02f5a3407f6e26783d59b050e6e0a6"
     sha256 cellar: :any, arm64_sequoia:     "ed4416fc2bc014863ba71f74e3b77e6d24abcce30aeda6226eb22ae85e394cac"

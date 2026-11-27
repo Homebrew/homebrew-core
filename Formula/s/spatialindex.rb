@@ -11,6 +11,7 @@ class Spatialindex < Formula
   end
 
   bottle do
+    manifest_sha256 "62ca708907bf9b4bef8f3c7562c8181b618554924c21b2d98d3cc10d5d300e3c"
     sha256 cellar: :any,                 arm64_golden_gate: "ab20cd4082b9a1478f8e99bb00a33078be510794bf86633290a7201a2ad11b6f"
     sha256 cellar: :any,                 arm64_tahoe:       "5b53e1ab281e72ef97d3cedf3e2fccc27d21d8e821b608e6a7e5de0f296153b4"
     sha256 cellar: :any,                 arm64_sequoia:     "2a84ec0d1a739824971183632c46cd8e1a6e0c8584e00d4ad1d9460d712ee481"

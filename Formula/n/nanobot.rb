@@ -7,6 +7,7 @@ class Nanobot < Formula
   head "https://github.com/obot-platform/nanobot.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a9e5de8c7a6dfe8f363e97e4722e21f54836943b41364298fef4c87144a494d9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3f7124301001304996198c896fe606a2bdfc755131606335b6e9d237660fe87"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4c1b343a99644071dd99df10a4f80561230212e092c67905f6c3a3e71d4d1d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bef8fc765c60209df6b4a5cfde9b1dd95e3d98236ee712ef62cbc6e7cd6056b"

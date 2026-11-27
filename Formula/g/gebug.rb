@@ -8,6 +8,7 @@ class Gebug < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5699136e81ae1652b2851b4242607bc03a2256c3d6bf4c859309d36c9d618301"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85952e1b0f43714f25ccb8071ac849748fdf9557e0bdc12f8a7b4a9de5e3740c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e4d6f729ca5b8587e2b444e3a4f8f75f1cb6dcb8561f5b40c0f06aa2bb84513"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e4d6f729ca5b8587e2b444e3a4f8f75f1cb6dcb8561f5b40c0f06aa2bb84513"

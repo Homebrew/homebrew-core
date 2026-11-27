@@ -7,6 +7,7 @@ class Xfr < Formula
   head "https://github.com/lance0/xfr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b1d978e7451b4f1332fea3c9e3d5f6792e764b0cb03ef7233ce8090ba5827a47"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "529fef810b52517fc9015f2455c97fb6fe7ee448d4befdda08bd4f78b8f05a8a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61c3ff4ccc616efcb87282392761dae750832859bcdf59061db36e584fdfdd5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13271f0f279e83e4d2058971cafc79171bfab2a4d85ee003668bf1ebba76567e"

@@ -12,6 +12,7 @@ class Wwwoffle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "06dbf53e3155f33daefdaba32564c73d7301b1a063d92fccd048fdfefef30a0b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "abf06f89fdfffa4fa0935333f8e4aa3c835b1c38e82c6e97975410f3783f44fb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4271aaf534eb22540919ee96421505f563d10d36ce5739e601c4dc081ce4aad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5a78e7a96141163fc8dd6c96eabdc4f9b6e0dec096fa2f1a1c10ea265821217"

@@ -12,6 +12,7 @@ class Quadcastrgb < Formula
   end
 
   bottle do
+    manifest_sha256 "49e0e831fee9d4e3f86544a09a5236bf493b9532987acb43068b2c813b67d974"
     sha256 cellar: :any,                 arm64_golden_gate: "6c54c79a21a255fa2a6be38eb4e8a230dfdad3952aed324cdb5ef95832c2a54b"
     sha256 cellar: :any,                 arm64_tahoe:       "4f5fd1f115292a34a1d8c04ff306313c41c37d97a174d933d08197654e6dc2ea"
     sha256 cellar: :any,                 arm64_sequoia:     "e1684c8f4af8812803239f4a03601d5eaf2ac7e6ed0f49be43968e3b0f41b60a"

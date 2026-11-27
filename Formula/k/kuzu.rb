@@ -7,6 +7,7 @@ class Kuzu < Formula
   head "https://github.com/kuzudb/kuzu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a20f65cc52197058676b7559dcc8496fad28bbf020bc23ac65a3b86c2e7eaa6e"
     sha256 cellar: :any,                 arm64_golden_gate: "f1c8f5bc9f4a2eb56ca6f3534f52b3e57f55b8724ba628ee2e496b2eb5ac42b1"
     sha256 cellar: :any,                 arm64_tahoe:       "243bde67ad2135a10f649a5914d9f10e0838b3daf60f974af3812bdd095c9f48"
     sha256 cellar: :any,                 arm64_sequoia:     "10f12c53e501bd51cab6f7fa22633409bcea799022497b47ba2886412eb8b2c9"

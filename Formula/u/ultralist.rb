@@ -6,6 +6,7 @@ class Ultralist < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d87fc20280078e66acd9d11d3903b75ed45840c469421a7c36ecd227382b5bd0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13f704407bbac6d0fff3374154ae6a5a13668e0f23759a146f226a854465976e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf20c183b0f002e46e7120e832512041e727cf95055558a4883081888df4daa8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "110edc14d3b119a73a5de437726450fb928f436c94743d94db437bfe132b37be"

@@ -6,6 +6,7 @@ class Qxmpp < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "b264bdfec4ac941f01aaee3a0b9a6afcd6c198b1eacc6d8ec48194353048d19f"
     sha256 cellar: :any, arm64_golden_gate: "1eaa50568977f306197bf1d376baff881c74f8d6f1a6eb7caa1caf0f855da4e2"
     sha256 cellar: :any, arm64_tahoe:       "ed9afe14573f3f3104ce5ef43595175fa37028e746e141598cddf1f9dce3bd47"
     sha256 cellar: :any, arm64_sequoia:     "5373331d3539268cf328e16dc1faec4fcddc9c41221c735a4f91bc02347b9c63"

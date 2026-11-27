@@ -6,6 +6,7 @@ class Licenseplist < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ca71e5b00db65e9fc96a7ed6853428a7e2580c1a5046a655a3365c898d46aab1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "352f7dfb1298a9e044fecd09d28207e47e3d83baea07701c46db530912a26197"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "73585c84fdc083e751d9bec8a72992b591a814fd34cb075dbe88f0656f30fdec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6113e8950f5b958465c945859fd52467b8d82d63e2d4735886dfcee05746ef3a"

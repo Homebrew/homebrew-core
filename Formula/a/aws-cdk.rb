@@ -6,6 +6,7 @@ class AwsCdk < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "054f6d9c151c121b143b377178d271698b00f4c598cc68cf74af2a6dc52ad089"
     sha256 cellar: :any_skip_relocation, all: "c87badabdbdc6df2ffd1b0f7546d2b32345f03ee1346615267ad160ee3943fc4"
   end
 

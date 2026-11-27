@@ -13,6 +13,7 @@ class Xmedcon < Formula
   end
 
   bottle do
+    manifest_sha256 "94fb8628155084074762923335ef6553053d7a9233ea35c715a649575049f3fa"
     sha256 arm64_golden_gate: "8f7daba3d125ffdcba3b00c59b7eb01fdb85905e9bd631fc8dc524676ebbd678"
     sha256 arm64_tahoe:       "1fee4aa59ac8f21772d17208e7dc675ec19a0dfdf3118312c0711c0e0ee152e2"
     sha256 arm64_sequoia:     "45b73ae10dd4fef8fa1f6756ebe61477d622104dec80d402705240bbcb268b14"

@@ -9,6 +9,7 @@ class OpenBabel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bea202f8065718bc60af83f50fee08baf23187f63bd2e49a9587f02626e1bac4"
     sha256 arm64_golden_gate: "603093a5e4deab773c1f1fbcbe3fc1778a45e0e26a1a950d8435b362982e39f4"
     sha256 arm64_tahoe:       "7980fe2ac4bc44fb8836c6fbe47781c5cc449184287a711953417cec0169d5e5"
     sha256 arm64_sequoia:     "c463a919a8c1c96967ae4f97b0fbf6ec9c093510955830c2c7dfe836ab451843"

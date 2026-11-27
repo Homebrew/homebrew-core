@@ -7,6 +7,7 @@ class LunchyGo < Formula
   head "https://github.com/sosedoff/lunchy-go.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8cf6468131583ade201e06926d598205706d0bfef92b730a09e0d31e20ab9093"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c75d7ee1cf852570c51b87daecdd9c153af9ee91c5b581bd0f9f62e8b797bf9e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9073ddcd234f04940378a64e36b1657daf2f1519ad98e61691c7066b2fb881ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fba65395dd87db751184f0d6a5023465484f321d47b4cd62ff0095837656c1e6"

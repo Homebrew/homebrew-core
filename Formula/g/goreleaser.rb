@@ -13,6 +13,7 @@ class Goreleaser < Formula
   end
 
   bottle do
+    manifest_sha256 "12268979e7920d4ef8a64960f7fd7400427da68420b903b93a2a24880c100f49"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b933049185b6d69593810c05ef6272e3fcc7199e4f2b5ae46e17b63e2bf0e293"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df40e93efc610f7256aa79a7db493506e3563c0093568abab6ab4739dfb1984a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "212b8cf1b909a3dfd94bb2a73bfdb9ab23a56b94fc6ddb9a0c1cac28234f1f21"

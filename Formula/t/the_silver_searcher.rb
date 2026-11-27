@@ -8,6 +8,7 @@ class TheSilverSearcher < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "71f18780cdb4f2eead0d39d48fc6db58ed2925382758ea91eff2a2265dbef715"
     sha256 cellar: :any,                 arm64_golden_gate: "f9e7332efd1236d215a74b0e36542a33ec1f1c3b12cc2cf86a0497f62822cfb8"
     sha256 cellar: :any,                 arm64_tahoe:       "9e15a76d577686e2f6157918b498668861690527fb40186768b91ed2a6e423e5"
     sha256 cellar: :any,                 arm64_sequoia:     "ce0f3d875b0d467b70050499f70e718e299bea7757798828bfa724c33de78cf3"

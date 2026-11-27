@@ -7,6 +7,7 @@ class Libxmp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "774d589ebb56314722cc29589b342b4629404e0e608016daff87bfb4ae4df10c"
     sha256 cellar: :any, arm64_golden_gate: "93fda5c152b511eaaee3cd362886f86ea0492e08be785ce0f7bcc095bbb075c2"
     sha256 cellar: :any, arm64_tahoe:       "f50aeb7e74e46c1c34934382db3c5847389ba5351e7ccaac6b822e8a3114bb9b"
     sha256 cellar: :any, arm64_sequoia:     "998f473fab874225a675bcbd165dea19ed8d4efb9a08093bee2e453e3a9167cb"

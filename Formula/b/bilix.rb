@@ -10,6 +10,7 @@ class Bilix < Formula
   head "https://github.com/HFrost0/bilix.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0fea7843276c9b256cf122bdabc27587112298f6d3ab6ac8bca6780965e7d53d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f7d34db6cc059d4d0174f6315823b3bed04e3cc6a22371bf6e0bb7e732f5e08"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bcb9e7b34492bba2eb1cab625cb07e687c6c6a07eb9fdda46e007f58ac48fbcf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba850cbd45d6aba6953929e7fdf95f172a211656f848c88fef52faeb2481d622"

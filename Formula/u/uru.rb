@@ -6,6 +6,7 @@ class Uru < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "d90a2cb3df64681bcb2bd7adede4b06cfd9481d37bf33e352bcb8fdf4bafa5d1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a058d1acb57ce49ad54c2c8f265d8a7089ed2d6982b284196f3d52476b5134f8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93a4aa65b18a37ece4076353fdfee72392dae4a84118ac70e25d0cdd2829ae63"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5422b52374d4e7de9f934714fabe3b984a1e76fb795cc82cdac81c7477bbcf5"

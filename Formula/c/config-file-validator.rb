@@ -7,6 +7,7 @@ class ConfigFileValidator < Formula
   head "https://github.com/Boeing/config-file-validator.git", branch: "main"
 
   bottle do
+    manifest_sha256 "764880b1b328ab0b37c3c060540f4ee9ec0596e0ece16c7e3006f4243f79a504"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b386849468d88e8d2ab4290fa305c52b032e742a6275d11cc8b0880b100e7116"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b386849468d88e8d2ab4290fa305c52b032e742a6275d11cc8b0880b100e7116"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b386849468d88e8d2ab4290fa305c52b032e742a6275d11cc8b0880b100e7116"

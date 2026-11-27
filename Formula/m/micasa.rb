@@ -6,6 +6,7 @@ class Micasa < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "043a763b491ad2ff957a7ec345744b2f52fe50f7575c339c9556fb1f6a81b780"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3afb0919e7cb736e73bc0b0c40ca38d865a5fb771de0e068cdd50a10c67018f6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3afb0919e7cb736e73bc0b0c40ca38d865a5fb771de0e068cdd50a10c67018f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3afb0919e7cb736e73bc0b0c40ca38d865a5fb771de0e068cdd50a10c67018f6"

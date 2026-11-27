@@ -6,6 +6,7 @@ class Lerna < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "eff8cbfdcaeb4da08604b15f7cd543241e95efc11c55f5b1e1fe6d0d0dfb1258"
     sha256 cellar: :any,                 arm64_golden_gate: "37568a187d3ff22c3be0a765f89d6652f84fe36535032ded64310d339c1ba34b"
     sha256 cellar: :any,                 arm64_tahoe:       "37568a187d3ff22c3be0a765f89d6652f84fe36535032ded64310d339c1ba34b"
     sha256 cellar: :any,                 arm64_sequoia:     "37568a187d3ff22c3be0a765f89d6652f84fe36535032ded64310d339c1ba34b"

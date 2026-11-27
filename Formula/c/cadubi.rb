@@ -6,6 +6,7 @@ class Cadubi < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4b5115b8919e185ed73a85bcffd8e83b7b9406e348583ffb83cd971e9032a3a9"
     sha256 cellar: :any_skip_relocation, all: "9c2832e6449cf5fd7ebbadd2427732b242633ba5ad041046e94e80da63e963e6"
   end
 

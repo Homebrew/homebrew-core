@@ -15,6 +15,7 @@ class Yaz < Formula
   end
 
   bottle do
+    manifest_sha256 "22a1d8f8cf42a78679861b208b866ccead4a410915b6ae0be532eac893895460"
     sha256 cellar: :any, arm64_golden_gate: "dc3e9293442755aa6edba7f3e5cf501f97ceba18164a787db1168b94309d3e1c"
     sha256 cellar: :any, arm64_tahoe:       "d4919b92294b43ebb36e61f4b3f26177061371e996d601dce948af47d60444ab"
     sha256 cellar: :any, arm64_sequoia:     "dc594cb1418b46b6bc42807565f354ae28b93ee009a062b01b8c58fa65e2cdc7"

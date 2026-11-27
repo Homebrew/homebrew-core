@@ -9,6 +9,7 @@ class Civetweb < Formula
   head "https://github.com/civetweb/civetweb.git", branch: "master"
 
   bottle do
+    manifest_sha256 "358fc39edee08fbc50038aaee6612d4e8f9d0d81a1eac79651331f616bcc5b34"
     sha256 cellar: :any, arm64_golden_gate: "024d02e19a39eef52b853e38e13edc39eafe8e0585abb6c8d8931ec75d28618b"
     sha256 cellar: :any, arm64_tahoe:       "88c28b02f684f70e0d8470a38a66e61f25cbe08efbf0fe66dfc39cef93cf029b"
     sha256 cellar: :any, arm64_sequoia:     "d04577184b0a9cfa245de4b96ae76734a97a4ab44ee04a21b8d04b17b3944dc1"

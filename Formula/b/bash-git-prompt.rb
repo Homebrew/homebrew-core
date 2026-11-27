@@ -8,6 +8,7 @@ class BashGitPrompt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9f7a489b278293aa6e1ae0cfe85fe092899f99911656a44cbc7f29a5015e4f76"
     sha256 cellar: :any_skip_relocation, all: "5049efb01e5ceb83df920dfe1c5dd23595401e3c700064fee74afbf9949d4f8f"
   end
 

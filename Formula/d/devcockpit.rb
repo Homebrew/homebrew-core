@@ -7,6 +7,7 @@ class Devcockpit < Formula
   head "https://github.com/caioricciuti/dev-cockpit.git", branch: "main"
 
   bottle do
+    manifest_sha256 "874daaac5bd52b45441d0cb16cb37e4068b760d1be7f18b8ac8ce906c0fa9ab9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c12a38fb9fe8b0cd21abae41ff99523b00e4028a54d92a9bcf938b48e9b43fbc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d289d6a1f9a8e61492837edcbcf4276eb7d88d0f5ba5ab6321eab4f4741a0fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "503d130e526e7dc94e1e45d9978ffbb838ca040eda24dd5b106869a74ed92008"

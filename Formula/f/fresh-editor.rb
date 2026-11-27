@@ -6,6 +6,7 @@ class FreshEditor < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "936a5a0a2dc9ddf0a23565760c14227c52d6f6f75f13785f9b2660c24c4bb3c8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47b58e1078b8e490afd436ca25b92d7df134ed2ac42f2779c894abc7ab549ab4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ee2f762ecf517c432617eac723e2f62bb4443f9ad128c4137ac6ccb148d6428"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e10c486dc0a727f3a42f5788ebb15c1971872436fd45ac842c6c5f31d7f2d04"

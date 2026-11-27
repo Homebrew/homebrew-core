@@ -8,6 +8,7 @@ class RabbitmqC < Formula
   head "https://github.com/alanxz/rabbitmq-c.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c730c89cf99ba48815eed471abb1217f143bc6e1c3f15b4fb8239bc4c86275eb"
     sha256 cellar: :any, arm64_golden_gate: "0dae886d1dcdb87c121a9418521e3f876c8a47a3b813df14de62410ecfd44237"
     sha256 cellar: :any, arm64_tahoe:       "71a0c2d2f3b8345971bdac35f5ff640d55bca66b6ba8ba2236623dc58e648b1d"
     sha256 cellar: :any, arm64_sequoia:     "2d24f97e779ca7e0d301a3c328f25ea7298f3623355208d744fb5f93d2b36aee"

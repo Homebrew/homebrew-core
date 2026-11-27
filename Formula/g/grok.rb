@@ -20,6 +20,7 @@ class Grok < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e4f74fca859b5c4141410a4f8a347bd3f0eedc4ddca14f7809b7a822b42ef97b"
     sha256 cellar: :any,                 arm64_golden_gate: "b7dec41631a86291e55fffb01e984a1db0b72efb2390efddca76e20de7c98763"
     sha256 cellar: :any,                 arm64_tahoe:       "aae7022d4d10e22471c089584b5b02b44277647fa982c9491cf6f58648be6f3a"
     sha256 cellar: :any,                 arm64_sequoia:     "b74690719200cd67624f98e63ed4df5bd400ddc82ab728da9ce152b2bb4f0250"

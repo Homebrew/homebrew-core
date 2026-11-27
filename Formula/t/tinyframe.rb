@@ -7,6 +7,7 @@ class Tinyframe < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a7d7e9fed728d8a9186a271c29bfcbadf0ae25b0d863a830e13c529e577f6422"
     sha256 cellar: :any, arm64_golden_gate: "7c4a52ea7a2018bf86a62e6fe77450e7273ad3270332657fe723b5cd835c95b7"
     sha256 cellar: :any, arm64_tahoe:       "45c5916e69f53b359e526884988785d523e80fdbc62a8e9ff45b63839d68eb4f"
     sha256 cellar: :any, arm64_sequoia:     "10e9111fef322f83934a25fd824796e014340dfa3d530da1df69807bdde33e1c"

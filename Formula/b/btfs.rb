@@ -7,6 +7,7 @@ class Btfs < Formula
   head "https://github.com/johang/btfs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "23fa5afe43e50e5f460b3fe9dc7536a77c8a9deafb838d2879aa2f92629cce74"
     sha256 cellar: :any, arm64_linux:  "eb948a0bf2357f0e472063f8d92dd06541c129c111420276db81c700d4045101"
     sha256 cellar: :any, x86_64_linux: "6b2a70164a0ebbd38b1f8b5fcff95d70d1428077eccaa91c0aa040265776930c"
   end

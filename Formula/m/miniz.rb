@@ -12,6 +12,7 @@ class Miniz < Formula
   end
 
   bottle do
+    manifest_sha256 "9fa0f5a7077c3a75e5ee58e1ce34b1a76825eda5e9a005a3510796845783194a"
     sha256 cellar: :any, arm64_golden_gate: "bf2f581d34d739acedf29071e3c5c8d9c27aa5a2a0ea34ef47273ca242ba662a"
     sha256 cellar: :any, arm64_tahoe:       "c3b7fcfb9025975a0bff330b1920424cfa310246f567f19774a08170f4114b80"
     sha256 cellar: :any, arm64_sequoia:     "2072f21aa15040df0a7153ecfdcf09b381e740523c3eb615f83433497984e3ea"

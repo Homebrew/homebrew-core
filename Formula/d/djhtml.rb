@@ -9,6 +9,7 @@ class Djhtml < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ee31ec843a21f06271742ea2338ae9423509a7d3d23022e910c10e895066d686"
     sha256 cellar: :any_skip_relocation, all: "8441d5afd859c62854e98c9cc4e20fb2016640dd31ba83b916d8205b46694dea"
   end
 

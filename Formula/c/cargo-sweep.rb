@@ -7,6 +7,7 @@ class CargoSweep < Formula
   head "https://github.com/holmgr/cargo-sweep.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7866274c3be07dbf2ba23d675974246dd63bae301cb0508cd87d06c75a98aace"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "069fff9f54f921a496734828f43c33e31d86d810672c2a4d5b52241d81f070c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6898879b0fbfae34dea047911dced41d23ed79879886559688c94e4049255d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a0c608db46539071bbb09fbb997fe699f2561ad815ad7a5eff7b5bdaa567b69"

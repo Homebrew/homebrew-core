@@ -12,6 +12,7 @@ class Cidr2range < Formula
   end
 
   bottle do
+    manifest_sha256 "26989416ae4c6788df96799e6aea74591a6ef14950e93793c9f51f24150756c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed1f6a33718cd9599007d74182ffb81c8951af956392892065bffcf5df0edde0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed1f6a33718cd9599007d74182ffb81c8951af956392892065bffcf5df0edde0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed1f6a33718cd9599007d74182ffb81c8951af956392892065bffcf5df0edde0"

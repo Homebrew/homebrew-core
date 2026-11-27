@@ -11,6 +11,7 @@ class Scheme48 < Formula
   end
 
   bottle do
+    manifest_sha256 "74664a3745ec8bcd0b7d3d943ba41e9e50a290e7e6fe8d9e145141abb2ae27f1"
     sha256 arm64_golden_gate: "4b1e3aa672b52e7605da9ffe85e9e2b8882b3468025bbbe557566f61493f5967"
     sha256 arm64_tahoe:       "dd9573e777e45950f016f490b3d37b0e5fd1257d3869dbde62a834ed11aed64a"
     sha256 arm64_sequoia:     "e60e8422a87777d6f55e02a4a33e510d30d86b593b2f67dade9df8836d8cdac8"

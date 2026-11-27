@@ -7,6 +7,7 @@ class ZshAutopair < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a281ae7e8f1c969b57fee3da3302fe132090b770bafef90bd7050decf0c21c08"
     sha256 cellar: :any_skip_relocation, all: "c9208ef9b9a923475ace7d3c397458eded12a4d8bb3961276d4196cc10329a0d"
   end
 

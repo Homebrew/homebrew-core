@@ -9,6 +9,7 @@ class Chruby < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "75b7d3da0a7ee7c791826e57003618eff72fa54e10a87d030983a9cf8f3817a8"
     sha256 cellar: :any_skip_relocation, all: "a93d7f31af99177bb1884086e94e0c9dcb99ba4ef1ffb1f6fe33bff584c385de"
   end
 

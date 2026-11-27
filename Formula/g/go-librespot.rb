@@ -7,6 +7,7 @@ class GoLibrespot < Formula
   head "https://github.com/devgianlu/go-librespot.git", branch: "master"
 
   bottle do
+    manifest_sha256 "59be69d60478b4f1e1c3f79b7222379000fdfd27525ddd29d761343057291e1f"
     sha256 cellar: :any, arm64_golden_gate: "cebc8b3b5e82b2b04661a27e45cc8a707da8d26663b418d4871ccff95e9356ec"
     sha256 cellar: :any, arm64_tahoe:       "9c44f9814a81bf068b70220989f89f45a1fd97d314884f55490076e27e022a27"
     sha256 cellar: :any, arm64_sequoia:     "9b5920f20633bd58413a074402920f92c530390b197850af08375b3dda17a641"

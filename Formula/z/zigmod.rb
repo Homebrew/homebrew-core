@@ -13,6 +13,7 @@ class Zigmod < Formula
   end
 
   bottle do
+    manifest_sha256 "03c76a89cad6fa946b1caac1b68db914fb8761ee6034de6cef4b30262d0b7c9a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "566f26869092260bbad93032711fbfca01d0c4e415d100b488fc3cd4d207f6d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61bdccd7913c453c2edc27ef7ccc7ed308801908b55ae3893f614a79a613b1e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1c7323a3e78481e79801d875d5e87b90537daa8a6b6848fa8c7ca5a55abc0eb"

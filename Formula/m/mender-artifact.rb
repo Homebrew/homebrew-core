@@ -12,6 +12,7 @@ class MenderArtifact < Formula
   end
 
   bottle do
+    manifest_sha256 "67a23bbcd29a5fdb34a7ddbda3bb4c64fbf82c77517c6d4b493a60f8e66cde00"
     sha256 cellar: :any, arm64_golden_gate: "b209b7c78717019270f7a2382ee493746c1dcaf40b3dbd48642aab94c7cdbd30"
     sha256 cellar: :any, arm64_tahoe:       "71f4de471c92087249e9c38eb2daee56696ecd2eb26e3f4f6373777a11933a6e"
     sha256 cellar: :any, arm64_sequoia:     "4db17100096cc70d59d000e50ec020dc2db58861b4df6a1b9026e4802be611f1"

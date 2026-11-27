@@ -11,6 +11,7 @@ class CodeServer < Formula
   end
 
   bottle do
+    manifest_sha256 "5d2105fe584986d6b7c3e7710b44d43141e8bc6d9a4e9384394e6a4587d462f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bed9325e10dc948418c3a91263d5eedb5251a3088a9e36dbe8442577f85b6dda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f7ac4b3e3fe166cc6d861b4135796fdb9d2d30fb1b29987b50418b4a4b34ff8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8487c2ddc85086993dca155ec5b946c8289592351ca6cc66ef607bc7be99c62"

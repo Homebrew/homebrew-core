@@ -13,6 +13,7 @@ class Uavs3d < Formula
   end
 
   bottle do
+    manifest_sha256 "a7bc90a05fb30980ba301f0fba4c6986bfa046530bc8c384befd075e18507456"
     sha256 cellar: :any, arm64_golden_gate: "eda7fa1489cc168c2389312629f3b26c5676a14e0ecd8fdc4f5a705f5417960e"
     sha256 cellar: :any, arm64_tahoe:       "5981193421a0dc1a92b007040f29ecd6ea88f6bec231425efa025ac4c9b5bbe6"
     sha256 cellar: :any, arm64_sequoia:     "6bc8a367ecfc45dfdd775fdcc37bc548f48b513d6b238b4b35e40dfffb75669c"

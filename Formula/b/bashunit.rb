@@ -6,6 +6,7 @@ class Bashunit < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8d3aae502679812ae048c69525196db22a4a1e0bec8833bce079cc7414740ecb"
     sha256 cellar: :any_skip_relocation, all: "a148cf32b76ca43de82060970edc752ca54491157c51425f630fc2dc08ba3298"
   end
 

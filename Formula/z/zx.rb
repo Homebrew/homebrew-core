@@ -6,6 +6,7 @@ class Zx < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "ddaa1ca1ea9a5fed269ce116eb18ed81c3ff2ac1a8cb29385073eee89cdd40d3"
     sha256 cellar: :any_skip_relocation, all: "7b9906d0d69c0dcf726b2e8287fc62518b2f4dc08be0cc72cbfd1b92aa79b55e"
   end
 

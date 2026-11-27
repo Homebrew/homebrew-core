@@ -8,6 +8,7 @@ class CondaLock < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c92216235c00b4db54054e37d99631566123342abd5ac9df77b3e7fc54d31ea6"
     sha256 cellar: :any, arm64_golden_gate: "a324090142c5320d36c6a1c98a0ab1b9156dac4f721d9cf062e031e76867ae6a"
     sha256 cellar: :any, arm64_tahoe:       "d4e32614581df22e1f5256fb351405e2c987a5af95741068b488c36e10ce5e52"
     sha256 cellar: :any, arm64_sequoia:     "dc23ab5aa8adc84a666ed2ef048a924041cf2cef57d923a9d67f7dc5ee14781e"

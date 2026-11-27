@@ -8,6 +8,7 @@ class GmpEcm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "97e00e771ae90d7c24b77608018ae8fcb6c45dedee128a7fd5d38a0c38964d5b"
     sha256 cellar: :any, arm64_golden_gate: "d22859d1c9cc8bb391b53c2850d9845bd4abaa512a2fec6339bf70fcdd2e8894"
     sha256 cellar: :any, arm64_tahoe:       "910a4e7d0f0571f1c81ff8911ce572848b8a0f9b0418078b14212f2631b54e03"
     sha256 cellar: :any, arm64_sequoia:     "2751998af4e5ac3635c65af6e7ad8cc9d6903e12f10fd4c8d0fea310a3d37f08"

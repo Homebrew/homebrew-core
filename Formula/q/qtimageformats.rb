@@ -16,6 +16,7 @@ class Qtimageformats < Formula
   end
 
   bottle do
+    manifest_sha256 "ebf549a29e294cb98b4cbd4ef3e7831319d373aea9d20155f40e4c7ce3876384"
     sha256 cellar: :any, arm64_golden_gate: "c3bb1fbcb22b84c98229a39ba7e3db6d98bdb21a084a93a31c1d225ef49ffe3c"
     sha256 cellar: :any, arm64_tahoe:       "bd485b9e112bbc4fde980efc51dac679db1c773ece989b3a881eb0d1c1b1360b"
     sha256 cellar: :any, arm64_sequoia:     "6aa5b957ba3d1e64b4954774cd66178d620236244bc24727232c6f5fd61c66c0"

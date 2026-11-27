@@ -8,6 +8,7 @@ class Shush < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d0c9240fc6a7d43149de94e0a078cbce934c5ca157bea58a1f564d0071f252eb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11725e80e6a16348788a41363f383b583cd810f5943b463553f97aa649e5b230"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb7a0c98b5ea7620cc88ee17ad45fcb0897fec6752592c0ce4c177602e3f3700"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38e8b3daac478d4f716b340df549741e7bd46d2fead43762a20e896357f73697"

@@ -9,6 +9,7 @@ class Whois < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9f72be96b2a2b19a12b6afc928177e4be5535a00af0efc95ac8b5691f55edb23"
     sha256 cellar: :any, arm64_golden_gate: "02d9a47393f5b1225324ce5f53e52da6dd6bb7121667a7d7364b2e628aba9145"
     sha256 cellar: :any, arm64_tahoe:       "b03c6f60e1696b0a4f35db508e63332de37554fe43cd114de5a85efaeef24d93"
     sha256 cellar: :any, arm64_sequoia:     "d05cb2e45d5f7022c7c3d93eef166a280b55d6a20fa8c68a81736186b9c419dc"

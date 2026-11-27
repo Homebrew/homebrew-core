@@ -8,6 +8,7 @@ class BoomCompletion < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "967006336bd5fb8d1d1e9e01c5f7b6117584798b5ae45cb77f60c93dd7fca555"
     sha256 cellar: :any_skip_relocation, all: "3804dd1b6ac824126d7b5a3456482ccfa6a84afb568b3528cd9fc9be939b157d"
   end
 

@@ -6,6 +6,7 @@ class FdkAac < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "e986b94d008b1a73745071a19d48549c2ecc5d5331259a07674c67efe877577d"
     sha256 cellar: :any,                 arm64_tahoe:    "3219079b606e1be7284a0b184c6ccb57676190d199261a0bb67556d28da94c2d"
     sha256 cellar: :any,                 arm64_sequoia:  "d25f4bc81d87c69c9d26d29ae088caeae1778b87f6ca2e13e759ef9d5e723c9a"
     sha256 cellar: :any,                 arm64_sonoma:   "bf2bc2ad387a9d717432c105936aff9fd49b22b0f18fac097e59dd55778ca9e0"

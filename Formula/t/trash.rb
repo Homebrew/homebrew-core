@@ -8,6 +8,7 @@ class Trash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d7ae8536e9b7a9c24c10334139657b5ad4e044e1ce974ba612debbe697d6ae57"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66e07a3176fe3385ce7e3a6a67ef39fb5a592a349aa128ccf93d5170c1428fc5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8ea446c49b05c3be652742ae95a0be1bda3354746add8c2721c337462fe8bdb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3b7a766bcc683b339c145ab7d8b484f2bbd65aac6903fd952dec7f4521efe5f"

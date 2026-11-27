@@ -11,6 +11,7 @@ class Girara < Formula
   end
 
   bottle do
+    manifest_sha256 "05bf8005e11ae498918c6271edd62a4bf1686ed239f3ce8c0f50ddd3d99de303"
     sha256 cellar: :any, arm64_golden_gate: "a105cab3439bbed8b458705f983fc1d7a1243facf6b60ae1feff045121bee67f"
     sha256 cellar: :any, arm64_tahoe:       "0d9959fc9b718f52108608d374bed4231e99ebb539eca0ab531ef767c29c6b79"
     sha256 cellar: :any, arm64_sequoia:     "a96b96abc4486ba56ea0ef1d2a8d8be75af2c39b2775c2aa9d9cff14040cf252"

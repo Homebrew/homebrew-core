@@ -9,6 +9,7 @@ class Csvkit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0afd2d7a9c5a2d141cc75c0771cf07a0865028b46b1a6ca757a614185871d5b4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2d7d0460a853ae6c31b1fe3eb54b4dc60f6bc47d9f625bb36d3d87ac62cb7d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb3eaa8d13cc298bd3f2c98d6809d2ff6ff7b5de9e66d5c1baac6b1e27b5b2ae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd023d0a99815d167883bfef7f316fa230f4dffa2eecaaefa9adaf475c82b521"

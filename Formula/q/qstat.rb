@@ -6,6 +6,7 @@ class Qstat < Formula
   license "Artistic-2.0"
 
   bottle do
+    manifest_sha256 "11b0908f41daba419623fa6f10443ae1ed25717e611e12547edf465f31c9af24"
     sha256                               arm64_golden_gate: "5e11d099b65d8406cf374d22920d18417f73507a3436d0885c5d853e38d8b489"
     sha256                               arm64_tahoe:       "c7a13c065f07c78ac3ece908defa738146039d54b9d3642e06d06766031e5d8e"
     sha256                               arm64_sequoia:     "6268312f03fbb890419d8c4343dbff526567b7aa2aa537915160fd60f1080706"

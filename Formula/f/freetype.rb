@@ -14,6 +14,7 @@ class Freetype < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "59f091ba809d9f035bb99f51ed0a2581f8fca4019a4f378f6bfa62b1878861d5"
     sha256 cellar: :any, arm64_golden_gate: "14bc1768b07e0c28391877d3ead21f66f76fd70fea699ad996a693c01a5f660f"
     sha256 cellar: :any, arm64_tahoe:       "ebd689edade12b47b19101a31ee018dc6c156b0f4fb2f852741c0c44fbf99fd0"
     sha256 cellar: :any, arm64_sequoia:     "74ee3577ff475f019e379070f89dca205e9d90742fe18623722ea455482a4d05"

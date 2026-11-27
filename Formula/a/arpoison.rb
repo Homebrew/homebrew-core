@@ -14,6 +14,7 @@ class Arpoison < Formula
   end
 
   bottle do
+    manifest_sha256 "466ee5c3d09ff21d6755055dd33ccc9e848022f6d55749eb946e89b638db49dd"
     sha256 cellar: :any,                 arm64_golden_gate: "0ef1e1a629741a22bb2807ce442e680285ee3756e93d27e09598787bf345c8f9"
     sha256 cellar: :any,                 arm64_tahoe:       "befc347407af6f1c5581b82628c49605b87c84b2ce0b2d75f4641496c9ad8789"
     sha256 cellar: :any,                 arm64_sequoia:     "5290454e5c88457099cf20619c7bbb8368c13c8a33365791781c7ef693fa6a1e"

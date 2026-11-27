@@ -11,6 +11,7 @@ class Knock < Formula
   end
 
   bottle do
+    manifest_sha256 "ab8663c51283a09ec9e2ed11f47642916727a260f969173aef623a1d31a381fa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed2ef024996bed1e67e6aaaee3434c71e2f49990d2ee359cd6a39a7252a32d26"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ccb817325238596bec85da5437875f0abb6080f8572406e0a76a1badeb3c922e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6918a15821559b226ee8e3844a439277a1cf6b4dcd6fa503fd71531fe541fe8d"

@@ -8,6 +8,7 @@ class OcamlZarith < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6bb8d528f919bf66466e138b5d86a4895879a6d244e2749577f2541f6b099f54"
     sha256 cellar: :any, arm64_golden_gate: "2796d9feedfae5f9cf45b4742d4eee43c5062b4d6ec765d879be7a2f7021fc14"
     sha256 cellar: :any, arm64_tahoe:       "4b0d2155bccf49bd37725767aa82e1d28bb889423aaaaa180def10dcb3f748b8"
     sha256 cellar: :any, arm64_sequoia:     "00dc5230b27e5cec0baffc31c4177c2216c5061bcf16e8c24cf0ff045257e21e"

@@ -7,6 +7,7 @@ class Libtins < Formula
   head "https://github.com/mfontanini/libtins.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a5b9e29875f45f1547aaad9ea16ed59ac7ab17031eaf139ebbd1c48ad95c0e87"
     sha256 cellar: :any, arm64_golden_gate: "94d340bd79d618fd533589f17ef24b4ebac6bf65d0e7b1bacfd72e27ffe281c8"
     sha256 cellar: :any, arm64_tahoe:       "5f9dd0ceecbbd2b48bcff2ece82a88d8133b5634b832eb5cf85944b24c634417"
     sha256 cellar: :any, arm64_sequoia:     "e7ea99156bc05bfd80c3ebbb119d773c5ea73204e176598ebfc9b514777b1009"

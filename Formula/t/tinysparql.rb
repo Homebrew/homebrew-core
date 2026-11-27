@@ -16,6 +16,7 @@ class Tinysparql < Formula
   end
 
   bottle do
+    manifest_sha256 "0b49c3050bb68725c5fd23e6eb6cbe63f5c5ff2ef2c074e61e65ad0c7039308e"
     sha256 arm64_golden_gate: "f3a3fa79d247071aef1693e23736493547f6451d1023980f31d48eb83687c0e4"
     sha256 arm64_tahoe:       "41f53597b99d193d0b0d97d3acfaf5749fae91e40508ce489bcb184ac1f33ac5"
     sha256 arm64_sequoia:     "698818722e7f8cbada0871b90ffa22acb3d64adf3d533ecccbb3c5df3bb67385"

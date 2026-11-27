@@ -11,6 +11,7 @@ class CargoDepgraph < Formula
   end
 
   bottle do
+    manifest_sha256 "9c00c75d0d449f353c19467e988d2f9fdfbc294a2baa49e7bfd2c45aa0443ca5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "299f7eca8ef0a514947a9f31d28102f7b0366f14265593b547aa1ca56f1a9574"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd2394a3c3307df33e7845282787041cc43c4a0d3ba648c8a8f440c1b4e90ba0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd0ef62d3b9309511017388b14d90f770ef95ff5e37c789a36702692885cb051"

@@ -8,6 +8,7 @@ class Snap7 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "646433725c3d21e89565f363443385ed4db08e62313e5be0e0ec4d8946a75c0f"
     sha256 cellar: :any,                 arm64_golden_gate: "dd433eebe02205727cae05460175bd3681c1c19ef665f43e5f0ba3051a3cdbc9"
     sha256 cellar: :any,                 arm64_tahoe:       "abb76d2d02504c5bbc694f446a88b35f5d6c5e44c06cdf9f2ddef874eada0a8b"
     sha256 cellar: :any,                 arm64_sequoia:     "0251dac8097c7643fbbf1003e422e44773bc86d6c356a8497b2a07bfa163fbdf"

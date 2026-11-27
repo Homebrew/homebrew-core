@@ -13,6 +13,7 @@ class Embulk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c589e9333abab940f32d66409a50652969576d563df698c0d6c5160196704f50"
     sha256 cellar: :any_skip_relocation, all: "fc718acf04dd0ffd6e04dc816490ba13bc8af9b0de9d45b169cc6b55a9e936f7"
   end
 

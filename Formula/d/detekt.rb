@@ -11,6 +11,7 @@ class Detekt < Formula
   end
 
   bottle do
+    manifest_sha256 "adbd321bc28749943f9416451df8cd10050179e4f348b8589002c25c7254e1a0"
     sha256 cellar: :any_skip_relocation, all: "37152acb3b7195f62c6e972c3deb2d8423a59f907e1e3452a94628c6e4023ea0"
   end
 

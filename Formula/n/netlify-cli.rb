@@ -6,6 +6,7 @@ class NetlifyCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fa0432f25da67c4ac839e5d260b2ef38ed867cbde727b815bece0d07a82ea13b"
     sha256 cellar: :any, arm64_golden_gate: "795aeb28d0e10bebc06b304a3a65ae11551d423c349525898cfabd38699239c4"
     sha256 cellar: :any, arm64_tahoe:       "59f4ec3edd052aa4b8720c5503016ed07d03fb1b796c890ca0456e19035f303b"
     sha256 cellar: :any, arm64_sequoia:     "38598bc6af63139f414e174450a91f6d90abb6fcf191342cc42401395facbbf1"

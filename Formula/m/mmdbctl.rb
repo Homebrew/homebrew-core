@@ -7,6 +7,7 @@ class Mmdbctl < Formula
   head "https://github.com/ipinfo/mmdbctl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0b5aa624ce7a530c14ffa34a153389892eabb658f5615b7839c62dbc09e22932"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb3c7b9b3847287e8bf65859d86e9c2d64f0dc43ded1296a2c45f483ebc7702e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb3c7b9b3847287e8bf65859d86e9c2d64f0dc43ded1296a2c45f483ebc7702e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb3c7b9b3847287e8bf65859d86e9c2d64f0dc43ded1296a2c45f483ebc7702e"

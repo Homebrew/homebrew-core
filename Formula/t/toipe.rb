@@ -6,6 +6,7 @@ class Toipe < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a68ca780f2e36df7e056094ba1da54d63717214d6f46387dd4d8ed51b838d7b0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cc09ccf7623623b8c953314de0f913bce6e7702e8d3bbf6c51569f13a5a338e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5069bda110d16a90d262f87fccd6e4029d144bfa2f3f3c5a33e47117efb2221"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d409f827261750a1cee4855aaba29da4ca9dca009b7e82485e079d4e66b38de0"

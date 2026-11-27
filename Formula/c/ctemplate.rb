@@ -9,6 +9,7 @@ class Ctemplate < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "93845e6d1b07a566a5e374b05241a3f1b529c7425b86116442b835dba2efd7eb"
     sha256 cellar: :any,                 arm64_golden_gate: "aae2231b36732de687d8fca002a6dae9f74c4eee73ebc258c6671cd682545beb"
     sha256 cellar: :any,                 arm64_tahoe:       "d6900c980a0644c4e4e8d8884d7393e6bf9fb28108901ad207206d93c5ff0508"
     sha256 cellar: :any,                 arm64_sequoia:     "acd3dba90331797c66b476e02edfb172fc67566fa46866d4b6c72605bb331030"
