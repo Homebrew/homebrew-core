@@ -13,6 +13,7 @@ class Sdl12Compat < Formula
   end
 
   bottle do
+    manifest_sha256 "40d70ee1d7154f2121f0a99a9f419d289d24c0f43bb80ea911c087400b74f487"
     sha256 cellar: :any, arm64_golden_gate: "183ea3dc6721c9dae9d361bd72b94e9730ec5e9f531140bb0313a8aa5711fc4f"
     sha256 cellar: :any, arm64_tahoe:       "2f89409c4fea3a58ff48c41e09251f233f75663c889d6b118ae3a55b864dd36e"
     sha256 cellar: :any, arm64_sequoia:     "fc3cbc762465580e1e5e06dfbe735b12b7dd4616c14770851ada7efa995f8f62"
