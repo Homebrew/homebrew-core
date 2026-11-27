@@ -15,6 +15,7 @@ class RattlerBuild < Formula
   end
 
   bottle do
+    manifest_sha256 "b5f0cc84645861210cad5318b39dcf262840acb0778660660677f51b3d883fbe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5351dcb3c00acacf70fade0d5196c5af597af0415e535568ee853559db6ebb78"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b98d399fb772e0bc0cbb5101e43603cb487eafafdde7e8670b1a43fb7647766"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3270dbe518ab06c28a09e151bc93f728635bae36b442b7b9c21f7b0e25958e9"
