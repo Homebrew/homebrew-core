@@ -7,6 +7,7 @@ class Fedify < Formula
   head "https://github.com/fedify-dev/fedify.git", branch: "main"
 
   bottle do
+    manifest_sha256 "96588904573e1f8affc899ed03af549944acd11044b7426eafa5669cd049d805"
     sha256 cellar: :any_skip_relocation, all: "8eee8edc7f404afffc540db759531ab35e84144298b80c4be931488ff8342005"
   end
 
