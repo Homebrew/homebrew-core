@@ -7,6 +7,7 @@ class Karn < Formula
   head "https://github.com/prydonius/karn.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e6f81b801818ba8d0fda840b48d42e9c2fb179f3d09e231ed1401d8c30393eaf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c1c87b75f3816afe96010a1f5d0a6870c51bc791fb042b9e294c16e68d140b64"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c83b76119af53f55175126422dc60581a71961a4cec4ae02da465243d0a2fba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56a2e364302364891e18fb7856a51e2d9bc3143ad3b98d59367b07e632ddd817"
