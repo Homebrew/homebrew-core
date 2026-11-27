@@ -12,6 +12,7 @@ class Sc68 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b3ad66e9d6f48b4a4bf79830c2b5a34bc51fee8b603110d8e05326b5f9325586"
     sha256 arm64_golden_gate: "6f9e93e22d5100786d11f44c87eb3539802c925fea6fd8eabc18ad91f16db720"
     sha256 arm64_tahoe:       "53d85d767390195f2981d328f9454b5df20000eedb86dba469cb3c2283f44362"
     sha256 arm64_sequoia:     "4b0cd49f4b77db5e2de07e8aff83a53f15f14f4e7a28586586211f2e6684fbf8"
