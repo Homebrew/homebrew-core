@@ -8,6 +8,7 @@ class Gtkspell3 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "786fa788b8fa002904c68598f5a8f17700c73a169569d7d6bbe84b630d8ca536"
     sha256 arm64_golden_gate: "aae3fc468e4de416ebbee759476a9abc610848e17b92d4c558b9e2b69c970989"
     sha256 arm64_tahoe:       "b64eeabbec9be14150c26d9213d525edb028af2546a0a1d85ea26e55d26d3b9d"
     sha256 arm64_sequoia:     "f182f8a623b04c25479cfedab38fcc1bc4c6df7f548b7c3b1ceab211fbe16115"
