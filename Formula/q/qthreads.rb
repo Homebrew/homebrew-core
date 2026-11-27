@@ -7,6 +7,7 @@ class Qthreads < Formula
   head "https://github.com/sandialabs/qthreads.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bb5844d7e97ddbbd1a518360fa356bc33b21e06509bd5c1fbac85b16227b0df0"
     sha256 cellar: :any,                 arm64_golden_gate: "1cf48298df9af7bb4def33fb3a7bc10e580f742dc4c2b0e39edaf39ca8425d72"
     sha256 cellar: :any,                 arm64_tahoe:       "f455a5b42d23a1151bfcff2b905895f1a0c3e3fff9bd7c6db3f3c7532edb580b"
     sha256 cellar: :any,                 arm64_sequoia:     "1e6f3e2eb3912d28d4090a64c205d6fdf25fc8e5f24d5eb9b0f0e4aef711f052"
