@@ -7,6 +7,7 @@ class Glow < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "15a26773165ab9cbaa4174d893033b3911f49346ef0fd826c9c7c47a8e71c5b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a55f20d527f6bf83323afc12169689584a42f9be1f33382b8eeb6885c7d7547"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c98cc5916747344f2d89f9c0c0900398992e2c85866c600ee5543df4276728a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c98cc5916747344f2d89f9c0c0900398992e2c85866c600ee5543df4276728a"
