@@ -7,6 +7,7 @@ class AwsNuke < Formula
   head "https://github.com/ekristen/aws-nuke.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ad233e002ab099fe83d7bf17386965e5965f16ab87fb973a15d880f1c7e28635"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "923dc2bec65ef0e2b026293f36cee27ca5135ce6b43cdaf4c31d81d565231743"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "923dc2bec65ef0e2b026293f36cee27ca5135ce6b43cdaf4c31d81d565231743"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "923dc2bec65ef0e2b026293f36cee27ca5135ce6b43cdaf4c31d81d565231743"
