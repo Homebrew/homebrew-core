@@ -7,6 +7,7 @@ class Gammaray < Formula
   head "https://github.com/KDAB/GammaRay.git", branch: "master"
 
   bottle do
+    manifest_sha256 "69924f33b57fc9168699228c7e36fdbc25b787cca5dd65fb8db21ced26d83a05"
     sha256 cellar: :any, arm64_golden_gate: "7cc4d656ec29e288cde7f67ef54a6feedf8e579e0f8f10ec3028d35557e04704"
     sha256 cellar: :any, arm64_tahoe:       "3f8f07614cb0b93347c43efac6e6fd0252f66db651ea8c1dc543334043f6eb66"
     sha256 cellar: :any, arm64_sequoia:     "cee87e550ee7c82d1887372c330fc48d6042a7270bb4aead270632738ee7b4d4"
