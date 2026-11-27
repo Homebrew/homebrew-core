@@ -14,6 +14,7 @@ class Qd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3ff6cf1bddd445d44a2338d59f552c0f1efc70e017e3e20320a6f4c329764d6b"
     sha256 cellar: :any,                 arm64_golden_gate: "45ae0e93bfce75493eae5657e88d5aab69dc0b9b71cd9f64dea08fc7d366b780"
     sha256 cellar: :any,                 arm64_tahoe:       "3ca655810301b79586645117410defae98de1cd731c33980836abdb4d35d8515"
     sha256 cellar: :any,                 arm64_sequoia:     "1cbee32662495e167dce863c774fdd9aa87c4ee3650da5da477daccdc685a46e"
