@@ -9,6 +9,7 @@ class LinodeCli < Formula
   head "https://github.com/linode/linode-cli.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "810f48e49a397df08080be4bff5dbc9e60f8a9793ebb39e8a146274a7c8b1748"
     sha256 cellar: :any, arm64_golden_gate: "f12bbdf8144b2dbf5ea37256438a6b0298773c336aaed8be5ba7b624df548ced"
     sha256 cellar: :any, arm64_tahoe:       "daf2eddff6bfb10a7d6db584eb25759286bcd15b027b8f68bf106be08ede2226"
     sha256 cellar: :any, arm64_sequoia:     "0cf2caba6f0f211388b89253a8aca2ea438a466bff0ef1807348a21fcba12479"
