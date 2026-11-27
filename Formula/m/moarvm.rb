@@ -12,6 +12,7 @@ class Moarvm < Formula
   end
 
   bottle do
+    manifest_sha256 "2e32a6fc6bd708c87389bde38b2e361b902a7634654c0fc93ea37bccc5db7aec"
     sha256 arm64_golden_gate: "67b458811eafd8b591b4e453485db99ebda781210c68f9280e8d9ed050df749d"
     sha256 arm64_tahoe:       "7c745a7aa6c4e637ae74ed2f9a920ad83047f0049b4727801a8969605095689c"
     sha256 arm64_sequoia:     "8828a9bbea189206c61fc38c5afeca18489df9aaf76efaf1e53545eb227c66d8"
