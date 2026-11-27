@@ -12,6 +12,7 @@ class Libjwt < Formula
   end
 
   bottle do
+    manifest_sha256 "cbc81ceb89c407e364de0c2e5401a307f6e23f7baedda39f8027954412d251bf"
     sha256 cellar: :any, arm64_golden_gate: "6049ce8a9026f5e9f625fc971b1fefb33094e7704826ab10fab5d7a8312cf741"
     sha256 cellar: :any, arm64_tahoe:       "286fe3134fb2f276422922c54b037cc61b8fc1e8b9155cdcf4522792d65d23b3"
     sha256 cellar: :any, arm64_sequoia:     "150c7297d7eae2afccd6f5a3f6cb76d4c6b5cd17148d1d5f04c8aad735354349"
