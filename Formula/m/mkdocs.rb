@@ -10,6 +10,7 @@ class Mkdocs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3a7591e2b31c671d70f0cba853b2a66a6bb251c626ef1d45bf292332416e8b62"
     sha256 cellar: :any, arm64_golden_gate: "2774d89113575ac77203ae44359f479550b179b7d11b72863a3b09038e9c13e7"
     sha256 cellar: :any, arm64_tahoe:       "72b17cc753fdfe6d6f8db25d177b2939dca594fc6263f6636cf335f726fb4801"
     sha256 cellar: :any, arm64_sequoia:     "dad139e0018df5f1558788d4d6fa034424859aa371ef454d5c6f7836f91b1470"
