@@ -11,6 +11,7 @@ class PgpoolIi < Formula
   end
 
   bottle do
+    manifest_sha256 "709f0effa6583762e021c5e9a6dff6a46bbb94b61f6ac532a2f77ace0d4a39eb"
     sha256 arm64_golden_gate: "cb71b494c300df3e12cc09c5dd3dacc261758ec35692981c8a21d69a2c981d5e"
     sha256 arm64_tahoe:       "9d74be8e67d2a9b5fe4b9cb0d3582dada5118aeaaf5cb8ecdf579b32d29f43c4"
     sha256 arm64_sequoia:     "0cb3474abf61352c568ab77dae2f380425804ed466d2df25653aceb5c09bcae4"
