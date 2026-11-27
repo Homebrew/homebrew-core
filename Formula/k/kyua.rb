@@ -4,6 +4,7 @@ class Kyua < Formula
   url "https://github.com/freebsd/kyua/releases/download/kyua-0.15.2/kyua-0.15.2.tar.gz"
   sha256 "469499eab896790a46b2083dfe89f09c8cad3bf79ce45848619a61f287b68837"
   license "BSD-3-Clause"
+  revision 1
   head "https://github.com/freebsd/kyua.git", branch: "master"
 
   livecheck do
