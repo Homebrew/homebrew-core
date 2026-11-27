@@ -11,6 +11,7 @@ class Ogmtools < Formula
   end
 
   bottle do
+    manifest_sha256 "76df3a726894d18d97faa3ad8f49edeffddf63e04f4636d027cca91bafd2751c"
     sha256 cellar: :any,                 arm64_golden_gate: "632e79d6cf49148eea158c29498ba7e36a0166ededda74b77703624ba48a71c9"
     sha256 cellar: :any,                 arm64_tahoe:       "86153da84a3749d259955192038722ee1f4adc2142f382cc29c2885ec07b348a"
     sha256 cellar: :any,                 arm64_sequoia:     "789b9bad9d0902bf85da322c80b14401105d4307a1affc78e523e9c9e22fd8ce"
