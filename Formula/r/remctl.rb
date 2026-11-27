@@ -12,6 +12,7 @@ class Remctl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e9634d3d2456d43a0e4466150c72c9fe65a10d8451f0f555bb8226a72f5ad8d"
     sha256 cellar: :any,                 arm64_golden_gate: "241d0acff8733507fa10879c12fc46d4cbfd1d156f8b9c1052be55f29e5b3fda"
     sha256 cellar: :any,                 arm64_tahoe:       "65ed94e43fc5b48a50c38a417453622fda2f57d2845db6555cda4b1366f7da8e"
     sha256 cellar: :any,                 arm64_sequoia:     "a22e6463332dd82c82e286ebfdcb40577f163967c473d012c468c8b215e905e8"
