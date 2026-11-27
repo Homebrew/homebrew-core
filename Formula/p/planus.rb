@@ -7,6 +7,7 @@ class Planus < Formula
   head "https://github.com/planus-org/planus.git", branch: "main"
 
   bottle do
+    manifest_sha256 "36352306cf22d90d81979693ead08b3032e4f9b58dc6e29840c723a93be6ec63"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bcfe88f64ee14e71d9e842082c48f6f587d9d33056cc6036a33361d53642bb1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5305b7ce3f3309166104fc02522883d8bfd22ae452cde7dbae926882e5ea7fef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "71741fd531fb3eb105cb8a9873d10970eeb1d2cd1b270c1aa017e1b2ee9c15b0"
