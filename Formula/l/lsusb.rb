@@ -7,6 +7,7 @@ class Lsusb < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "502684abeb372aca523b23fdb5f227f06b3477640cda10f2b101f53c50d1da62"
     sha256 cellar: :any_skip_relocation, all: "2bb1064f475b6066dde9e1ad55789b66bbc7335765f22ccd7e5961d20af59508"
   end
 
