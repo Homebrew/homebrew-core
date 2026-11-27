@@ -7,6 +7,7 @@ class Intermodal < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b0c481ece5287624141228136e709d244e0915075338441b1cb6bf81170b8854"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6182f32f8d3f901ce2b36018df5a6587299b3a97c6318651b71784ce3e03c7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48e2b42b49eeb7957a74d2e52b44b497049ede8a3cc90aa6589038337e40a605"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2837a22ce775db6f40debefd3fd0741209840616585b25bfadad4d6bf29e2fb9"
