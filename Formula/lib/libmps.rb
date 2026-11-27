@@ -7,6 +7,7 @@ class Libmps < Formula
   head "https://github.com/Ravenbrook/mps.git", branch: "master"
 
   bottle do
+    manifest_sha256 "97037cbdb27618d890369e96137c4d648c67e15bf0d68cb1a9b5c5895bc6d955"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d360f5fac401022c51afd8e62a01997db3be1a3beda1c314fbc5a9d41b8a247e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c615224288aff51fe425cc3ab91473dbf05f95391c883ca5764e0de227992891"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c651514f2ee9c277517272b328db0e41ab0cc06b3998302e591db274dc70f104"
