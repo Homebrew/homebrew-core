@@ -13,6 +13,7 @@ class NumUtils < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "a57915c287ce9610132c4beccae932d669501ffa46dc5ca34620a41b99014f56"
     sha256 cellar: :any_skip_relocation, all: "9d5185fbab175569c61a97393d00d32ed091c41c2ea6fc16b2d80e1d77b81106"
   end
 
