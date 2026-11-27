@@ -12,6 +12,7 @@ class Log4shib < Formula
   end
 
   bottle do
+    manifest_sha256 "67f3aba7b6adaae815f3217eac2cc41605e640b041b9d8ab09467255c40207a0"
     sha256 cellar: :any,                 arm64_golden_gate: "50b82a4e736e55ee1e2e6805f01ddd08076587818754f464eb06fc28884a08b9"
     sha256 cellar: :any,                 arm64_tahoe:       "904dcc273d28ad65713782b2a01ee3a25997236147ac2281f3193148f5b22d16"
     sha256 cellar: :any,                 arm64_sequoia:     "8f3ca9cfd6b2cdc5d7487bcba05d48704e32a91a976addec41677d45525522a6"
