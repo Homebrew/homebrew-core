@@ -7,6 +7,7 @@ class Gickup < Formula
   head "https://github.com/cooperspencer/gickup.git", branch: "main"
 
   bottle do
+    manifest_sha256 "43dc2c61ee037b4e70d5d956538d73e3dcc486ec1bdaffcb5664cf434623bd34"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26533b07a5f0731f1a9542fc9ea6489862702fb78d494c57d79718f215075f5f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a26b5ebbc8e5fd22d8df790621d088e441459e97bf4a0c2559e9fad4369158f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4f225e258233adcd7ad10a9a1d3843a5e4aa1d7770303e2e43aef2cc345669b"
