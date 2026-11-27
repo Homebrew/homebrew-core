@@ -12,6 +12,7 @@ class IpinfoCli < Formula
   end
 
   bottle do
+    manifest_sha256 "e409e2b05eec982504c4669171908cd7435142e1c887cf0214933bde195f22de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "997776d2a075b800bedadb7f30b11105d140b35da80a8f798ff7d61940d780e9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ecfb071b20462f6047533b2ba3362eb149c429490c258969531f4d9aeae5465"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e27c413463d04d20cc00a1292b13c7f556dae3d3c4c5d130e6cf9551b7586041"
