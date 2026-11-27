@@ -11,6 +11,7 @@ class Forbidden < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "31f646701615706b0d710e3fa3eefd5f79246047a3f02167940b3ee7c65d1b34"
     sha256 cellar: :any, arm64_golden_gate: "d80e61a72686b81ed5733c7a02f6e90151ff5989eba9c25f09b9b79b58fb013b"
     sha256 cellar: :any, arm64_tahoe:       "a371f6d19deaa3e096bac512c40e08f509a08e923c4a0418354f4bb08e49de53"
     sha256 cellar: :any, arm64_sequoia:     "c262822dee2838acdaf320cf0016042eba7fb36352db785360efe65b60df9fcd"
