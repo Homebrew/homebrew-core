@@ -6,6 +6,7 @@ class Readerwriterqueue < Formula
   license all_of: ["BSD-2-Clause", "Zlib"]
 
   bottle do
+    manifest_sha256 "d277acce6aadb52b447bb72d6de60c305df1a5c9c9d3d0bf8f5767f9d995271a"
     sha256 cellar: :any_skip_relocation, all: "907ae19ab677f362e0f4e54395b94da1703ef246bcc6083787fd4de3f0fb33a2"
   end
 
