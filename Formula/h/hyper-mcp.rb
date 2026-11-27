@@ -13,6 +13,7 @@ class HyperMcp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9d3f033938c3b85b10fb352c4d674237286f56643d051967451eed72dff0ac80"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09b7ad4ff52e8e7f54e81c467976c2d926db93ea5f37fb77551a6e10f2322114"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ab6b007bdb1b691d9edf3312cb828b2325014583ecb1560a374bf6f5ebfd43a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "980278ec3c0f8be2510d30449a1998e68585291416ec0c763454751ccf350ff4"
