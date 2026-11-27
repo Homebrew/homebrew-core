@@ -12,6 +12,7 @@ class PureFtpd < Formula
   end
 
   bottle do
+    manifest_sha256 "473a2b454345db6c46c6001520bbd737a054612b24f393693fb19de7cdb074bc"
     sha256 cellar: :any, arm64_golden_gate: "d56b653caa9fe8125947e025d3ddcacb9e1aec9855de22386e5a15923d0aef7a"
     sha256 cellar: :any, arm64_tahoe:       "b66cf2bb6d7f300cfcd30e70e90cfc1cc9678bf82487468d69f2939d1a8b3eb8"
     sha256 cellar: :any, arm64_sequoia:     "b24971fd167c7d137d2082ddfa81837756fd003eadf42dd8224eb406dd95edaa"
