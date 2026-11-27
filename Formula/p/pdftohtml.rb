@@ -14,6 +14,7 @@ class Pdftohtml < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7f5cbd8ef52cffe95f9752b87f5e6eb1fda95cbc7c66b915b9b94494a600b48c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4713c9b7c29a731ff7920376c5d8f0a3290ef7fc7dc63111e2fe637d6cd661a4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4d29ea04949e3054a63667e1563e018cf7b289cee59357ee46955d70f47f6cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09de57926ddbd85906d6ed7dabf427f6314d13cab5de1c0e073a1288a3ea0b2a"
