@@ -6,6 +6,7 @@ class Honker < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "2c387c5d220439541c15a6ba7e0d8691ff80f3d611862a94289bcf314211ca8e"
     sha256 cellar: :any, arm64_golden_gate: "ca1798b6ed4958e9f68558bdd6c1cd0d51367f04ed730075250db26db10bb548"
     sha256 cellar: :any, arm64_tahoe:       "562bf73b8888259b4e1613e0567652fdf2ee502e4673212b49445de55d8f5908"
     sha256 cellar: :any, arm64_sequoia:     "8719b00e1fd3e2ab3cfba52260c1174e2e325ff6273032aeb7b03b47a8619d8c"
