@@ -12,6 +12,7 @@ class Porter < Formula
   end
 
   bottle do
+    manifest_sha256 "d1fe0838ab70e463a557cdcb85ae42055e3f79bfe2a9a02cea2f99b12fb03e6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6243954ed826a2320e2403e5b0cd125d1faef5fada6b193ee5fc090a289e48ba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f3c2143f49fa57f9c248e05abb60e7939333e64b942216846d5152cdf69fe4b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87e94d06c86b8daadf3947be9588c75e36b40629793aee7ed48b735ca211934e"
