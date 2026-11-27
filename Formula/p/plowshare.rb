@@ -8,6 +8,7 @@ class Plowshare < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3ce002f07a5d7207f8c3d2381af579e1515dc2b984a1f080377f00d2c14e6a1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d56bde789de222c59703aa2e66671196e4fb7f658018d4ed0b1bcbdb7401b04"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "66557c80ff43f15110e291740e2316392dc18ba4fb54dae5a15af57f5979e7db"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff9bf36ebaba8ea4c9caf8bb17ab50cf057ece008d833c9c223425a093694fd7"
