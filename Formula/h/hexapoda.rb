@@ -7,6 +7,7 @@ class Hexapoda < Formula
   head "https://github.com/simonomi/hexapoda.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3bdc0f220a6666918a233943976f4bc6b8637267a9d79e2a7d89f604cf46bf9d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0d90f453345898097e6633dab6f8e545e9c7a22bf70702d6838c1d82d990783"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f2a7f637ae2e7c192cea4055d3345a784c02f28c6a24d2d2e708841c96e867b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e55f1e1abca45d4cc1b981ae98dca58a42b4d35706e43c6aa4013cb617f54d7"
