@@ -16,6 +16,7 @@ class Libadwaita < Formula
   end
 
   bottle do
+    manifest_sha256 "55c9392a9467aa1c148bbaf869330b285a140ff95a038942f66a6348b2878a03"
     sha256 arm64_golden_gate: "abc50622e19f686ab417acf15c4cf3c43f0f0737cd82c0a9e26459ef3c388599"
     sha256 arm64_tahoe:       "1deeee6e4691fa17639ec9c5e7931a69136d6e413f2b0bfada7427b4adce40ae"
     sha256 arm64_sequoia:     "a62f507386c532e378cb4a7d8e64762e91a0e7e32561f87396a2129fa34960ee"
