@@ -15,6 +15,7 @@ class LibusbCompat < Formula
   end
 
   bottle do
+    manifest_sha256 "90d742aab5d7ac2ed22cc4ffe2bc38e375b4e223acf20dcc8f43e1722796b384"
     sha256 cellar: :any,                 arm64_golden_gate: "2a711e6acff04b2f933a69e311f1b89171e14e63d8928d06c0b89fe7d365fa6d"
     sha256 cellar: :any,                 arm64_tahoe:       "ede303d531c123cd3a5e6c118d0ce048ef9388cc16299e0185b3c1569d7d201d"
     sha256 cellar: :any,                 arm64_sequoia:     "5edda2497fe18ce3d0ffaf638b8b2d78bbb2adcfe17aee9f609ff43866df2a34"
