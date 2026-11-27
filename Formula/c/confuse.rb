@@ -7,6 +7,7 @@ class Confuse < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4415da79e0c28a4baed80e0a9888faa8501186a9dc909501108ffb50e6d2c6f1"
     sha256 cellar: :any, arm64_golden_gate: "17c2bb81226f8236bc3000edcd76f48e430c7a44536b69badaf6f547b1ea0e47"
     sha256 cellar: :any, arm64_tahoe:       "9587a497f55f655fc94c7a357b9d8f6d407def51af0dbf35f18f2defe57941e9"
     sha256 cellar: :any, arm64_sequoia:     "324a29d5b8b347ba4d9fbbe1b6ef51eb73ed617ca4431f7a062f700f88844849"
