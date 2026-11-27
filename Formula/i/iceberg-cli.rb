@@ -6,11 +6,12 @@ class IcebergCli < Formula
   license "Apache-2.0"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2b38eb44e2c67ac5052a75ab9558b170fe5f751ccea9bc1ee64b1283e91c423"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2b38eb44e2c67ac5052a75ab9558b170fe5f751ccea9bc1ee64b1283e91c423"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2b38eb44e2c67ac5052a75ab9558b170fe5f751ccea9bc1ee64b1283e91c423"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "17b536fbdce49bffd7e5c5b2d46ad529f7938f896acd1a790f70b94c6a586730"
-    sha256 cellar: :any,                 x86_64_linux:      "62bc87b45b98b11f6efaee5f4b278eb3e290fb348997383c2d5540faf8b544a7"
+    manifest_sha256 "2a9e6be72e19883807303a8183fe2aea81635970b2b631c4c82281b004c8b83e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "92e05be721ef818f0abbcdbdf798ce910fb0997597265293452aef053de5ad8d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92e05be721ef818f0abbcdbdf798ce910fb0997597265293452aef053de5ad8d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92e05be721ef818f0abbcdbdf798ce910fb0997597265293452aef053de5ad8d"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "047d49a02cfcd8c66fcdbd3236384a997b02b8a7b422d613586f9403059c06f2"
+    sha256 cellar: :any,                 x86_64_linux:      "27c26cc7c109e81c6ea0b4c7e7e13141cffaee79ba24cd13a20ca3adc3a11f66"
   end
 
   depends_on "go" => :build
