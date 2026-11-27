@@ -11,6 +11,7 @@ class Nono < Formula
   end
 
   bottle do
+    manifest_sha256 "9ec1d3b2358e96a27fd0955a70242e5ec77be748a3e5bd9aa43c56bcc3265f31"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6b2561479b9f4511afe0aaa0f31a750924520a55fdf55f74e57e77d8fb47fa55"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc941ac53eb2db39d5e7a9fc2dac8bd759488700402d2940827309f56b12702a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "40f98cd85f78f366a4390ff181963afe7df01fbb0263d3e5163509883c0b1563"
