@@ -7,6 +7,7 @@ class Hevi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "275585b1ea9f942184fd12e0693b52c0b8c29e53be6b97b223c59cd878ac231f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de8bb248c08b11f7c35fb074a1960a89193665e9edfe22e82dd8fab4c5c9680a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0cba222f5ed2e7041cbf1db8d47708a8586214fd6d7d653f6e7cc61d10f67b34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "84edf1a33b439f87ce715488d40ff9fbcd7cfa22dbf7ac98ba1cc6c95445021e"
