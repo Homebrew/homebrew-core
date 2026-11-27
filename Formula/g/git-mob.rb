@@ -7,6 +7,7 @@ class GitMob < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9c3b7956dc7c7e7183db43f66f38de06b31c60f2300c86c4555503a80cf42298"
     sha256 cellar: :any_skip_relocation, all: "e1d543c5bd84b8924a1ca7a6a9e840998f2178e56f76272e4ff39c21ac6e31a6"
   end
 
