@@ -13,6 +13,7 @@ class Pybind11 < Formula
   end
 
   bottle do
+    manifest_sha256 "072d8929763f0a264bcff69a8b76c6350e9d8bfb577d29a0900e4b431a70b321"
     sha256 cellar: :any_skip_relocation, all: "50efc761973bd6d81b9cb1d5dc4c75680edecc65d1ebae73e33e586058e8e82e"
   end
 
