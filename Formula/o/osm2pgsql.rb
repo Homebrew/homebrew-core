@@ -7,6 +7,7 @@ class Osm2pgsql < Formula
   head "https://github.com/osm2pgsql-dev/osm2pgsql.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bd5062a825656c1fdf7edf7c307b45a6b3ad51667d618114ec07b3142315ba00"
     sha256 arm64_golden_gate: "d833f1a61803b53126ef3557d0759044e4793194294e46afd11d8667675673ee"
     sha256 arm64_tahoe:       "522d9266142eff6e01870ecb9ce4a3ab322d89cdb92b108481b005f7acccad2e"
     sha256 arm64_sequoia:     "fdb18378a006c5797178a76a00be72348b2b658612af277fbe847b6973ec2f0e"
