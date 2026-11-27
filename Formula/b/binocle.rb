@@ -7,6 +7,7 @@ class Binocle < Formula
   head "https://github.com/sharkdp/binocle.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5eeea998d61256f8c2ee479076722328838d297adc27a000187bc91425915052"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e7762c3a2d152b646c2da0ad3157b9a1cd76fde68d2fd27ca1e111686424c57e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0424cbc18de1317d37bd6716b7923f617c800b2bf4afaca3284cdd37dab4e795"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed724155e7422f1dbdb1336e55beb128771c94d7508824dd3218a2aa4f833b05"
