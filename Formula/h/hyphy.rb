@@ -7,6 +7,7 @@ class Hyphy < Formula
   head "https://github.com/veg/hyphy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "44b2f56c7f34c895a5115fe5cbff2876fa448fd8ca58628c4b3fde82ce7a88f1"
     sha256 arm64_golden_gate: "b1018e682c0a1c86a6e520c2c66bcef1e77aad6934038f75bd6688374301b75a"
     sha256 arm64_tahoe:       "b067ed0bbd1da88d831fa6b1c8a15ed4e293cd2b94132fc97f3e64e69cdd5c65"
     sha256 arm64_sequoia:     "6090d09d58c263cc947290f1db06e7522902c571e4529c36cf0edd32ee61b729"
