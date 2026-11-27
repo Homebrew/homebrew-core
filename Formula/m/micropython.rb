@@ -6,6 +6,7 @@ class Micropython < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2902138fbba7480017f275139cb5ebc0be33d00950e3adeebc0e5b2a3eb6d1f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6907d511cdd5e334bcc8e20e06fe661bac2c30607de06871de7b409ef12366a4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94590668f87b4e8c68591b0ebaefa7ec7aa739082a66abfc87327fb40e188046"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e753189ff0d5b5b8c23c5d586d466ea195ed0fd54c6ce396791d7da063c657d7"
