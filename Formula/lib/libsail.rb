@@ -6,6 +6,7 @@ class Libsail < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d056bb6e07693829a9569c814b137121b24ff4eb8c0aa6314ac5726a802c206e"
     sha256 arm64_golden_gate: "5d9234aa13a9ae3af643f6cc3e651fe02ec40913f80bf059bb5c0108e58a1ce0"
     sha256 arm64_tahoe:       "c1811b00c767ac93d55ef94c9aa7d90b596b667a7e71071157a02805220e01ab"
     sha256 arm64_sequoia:     "7ff5ba41dd881cc9cacff7ea2031241647279369d59d12a9b958d0a3d6e4db0a"
