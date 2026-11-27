@@ -9,6 +9,7 @@ class Id3lib < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7fdde0e5d0c2a6a0f472773a6d20c6e1c8c3e9ea6842c052bce6cea823371306"
     sha256 cellar: :any,                 arm64_golden_gate: "d69d9e51d30546e2a25aa97aa226282d41195a847aaaa94ec795f0af416f7525"
     sha256 cellar: :any,                 arm64_tahoe:       "c32250cc13c45be4e25507819ad3fb788b3031ad781d97b61bb721c95e6001f3"
     sha256 cellar: :any,                 arm64_sequoia:     "dd2afb2b4e882de0fbdc279c2a993064a6b07527f0dd67298ffa568d1b445dca"
