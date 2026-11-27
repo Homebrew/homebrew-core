@@ -7,6 +7,7 @@ class Goyacc < Formula
   head "https://gitlab.com/cznic/goyacc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e700fdb5ecebb78413f45744c900ea911316110b722edd64e4a5f8bf3c4026bb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ba84dbbe1e9372ac88016095bb7c7ba140de77ff0181ed8cdf069ce3b7054f9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c200a6f48e69a0a02aaa20cb0face2d581c44fdc868517beb5eed571074ebcc9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b225608148f3a4a021cf2c97288a15a0896f98772c89f2908c8abb359ffb0138"
