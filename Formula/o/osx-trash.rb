@@ -12,6 +12,7 @@ class OsxTrash < Formula
   end
 
   bottle do
+    manifest_sha256 "6ea9d354fb83ceaefc4d2638e1c85df64ac1a6445dcb807f33b0cc1540e278d8"
     sha256 cellar: :any_skip_relocation, all: "1ff2a7e4c4d9e83a5cf38815cbbae8407295d8c830d85211677d6041add46bfa"
   end
 
