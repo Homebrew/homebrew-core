@@ -10,6 +10,7 @@ class Scdl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "79a3e0a12b789f74f2f629c503f44b71cb141ccf9d93a5dd53394c38254542b2"
     sha256 cellar: :any, arm64_golden_gate: "8429aeee05abb6897e240abaf639ad7b5fde4294e464895ed10c49768e353848"
     sha256 cellar: :any, arm64_tahoe:       "37ef92c2304e945065d538f60607789f1db7fa53c569ebac52a1df5152228d6a"
     sha256 cellar: :any, arm64_sequoia:     "30c4f4ea97c2953f936e0b0ae8163574215d46955720eae25d082df2c1498e5c"
