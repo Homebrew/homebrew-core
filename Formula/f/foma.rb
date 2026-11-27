@@ -13,6 +13,7 @@ class Foma < Formula
   end
 
   bottle do
+    manifest_sha256 "56bcfeedde16b8b3a0ad1ad2ecd577a98bb616e4768d64502d5dc76d063a9ef8"
     sha256 cellar: :any,                 arm64_golden_gate: "f73577263db3f8dd48e4ad7314cf1a69c28ec2a101cf6bc5c16e18c74b3f847a"
     sha256 cellar: :any,                 arm64_tahoe:       "585a4ed242e82fa06b31fffea4747c3dcfb370d15b774ee2c099e89352494185"
     sha256 cellar: :any,                 arm64_sequoia:     "54a82aed63a09cf0195f9473699e03bb64873b524684a4bab75eba204f80a97a"
