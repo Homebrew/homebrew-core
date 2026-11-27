@@ -7,6 +7,7 @@ class Flecs < Formula
   head "https://github.com/SanderMertens/flecs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f6f1402065f517040f9c007dd36775ae1fce7bd75d992283cbdab9b5c0d7384a"
     sha256 cellar: :any, arm64_golden_gate: "b6b3139b50c2923791debf442e03f5e8e05cb7b98103f65a609774e7e2cb9f03"
     sha256 cellar: :any, arm64_tahoe:       "60d7e71aab61edc9ffa1bbd42fe91485903d39ed5e2911551b56ac5fe89c8114"
     sha256 cellar: :any, arm64_sequoia:     "ee69c0ad9864e7773abfa164c62d1d0ae15ad5c952d61dc8220bdd7508180eef"
