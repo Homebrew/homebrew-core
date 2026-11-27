@@ -13,6 +13,7 @@ class Picoclaw < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ba3171f2929cdd33b0ae73509fdf47d57d76bce953233ad88e6b7691dc5569ef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eabc1cd97627962e7bff8f1ffb50336d36592dbb9cf6b9a080511af7437c42d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8aa92ded18c2e78270f5bf67b7cc61f3fdf75300354804163d0dc34f735a5848"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8aa92ded18c2e78270f5bf67b7cc61f3fdf75300354804163d0dc34f735a5848"
