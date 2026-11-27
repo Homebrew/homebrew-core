@@ -9,6 +9,7 @@ class ProtocGenJs < Formula
   head "https://github.com/protocolbuffers/protobuf-javascript.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5936372eb9d4d16479f0db996540bb5b7d285ff967f662a9261addeb8945119e"
     sha256 cellar: :any, arm64_golden_gate: "d29eb46440e0f82228cfda805b96aaf6c68b3909609208c68551b37dd113c350"
     sha256 cellar: :any, arm64_tahoe:       "3aaabe229adba9040578852d0a37bbf74a2176d4cb85df8bdd3b827c45217587"
     sha256 cellar: :any, arm64_sequoia:     "07524eb5725a28a9c2df8e6b3a967173398c18b401e938da0c354bfefba2d9a2"
