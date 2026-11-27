@@ -12,6 +12,7 @@ class Grepip < Formula
   end
 
   bottle do
+    manifest_sha256 "48a98679bd985c97acd1f7cae2097eb170b149c60a35486dd3fa6f2897a5389e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f43ab994d404c100b91448e83dc90f6b16d596b68f4c6e548ad6bc65a901e3d8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f43ab994d404c100b91448e83dc90f6b16d596b68f4c6e548ad6bc65a901e3d8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f43ab994d404c100b91448e83dc90f6b16d596b68f4c6e548ad6bc65a901e3d8"
