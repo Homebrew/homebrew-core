@@ -12,6 +12,7 @@ class Msdl < Formula
   end
 
   bottle do
+    manifest_sha256 "2a4638b90370e6e7265c645de4335c16c2d017808a184b68b591f6d5295cd711"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ea6892e87885cb8eedf71236ff0776d668693b39993bbec8c19fd12e5c88f60a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1624aa62efe3286085580bfc9482ff6e163e9dc3be33a0b485ebca7a0a91dd3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ab0083cb6623f31de8bd191354b00f627c0b7826646eae177337a2adc823dae"
