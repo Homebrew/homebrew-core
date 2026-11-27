@@ -6,6 +6,7 @@ class Phpstan < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a85d3eeedd0ce7cc434b94b0ad85a3fff88c96b2ca5b37224f5335bc1af8bbd9"
     sha256 cellar: :any_skip_relocation, all: "489e6990be90d839dc0aad077b4d5b8faa4a2386271b2f113d9e80156a2d60a7"
   end
 
