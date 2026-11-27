@@ -7,6 +7,7 @@ class Openfpgaloader < Formula
   head "https://github.com/trabucayre/openFPGALoader.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d79a7989ec6186f2d53615f4a874c00195ee1e10d228ebbaca948ec4caebf8e6"
     sha256 arm64_golden_gate: "5a9b6f924cbe2768a0dde221bdf79ed470d022154b7f3792d1b62c5e9fd1db16"
     sha256 arm64_tahoe:       "ed2945e869e924658e54682aa59b4da277bf82f4c051a396b66abc4c974cf0df"
     sha256 arm64_sequoia:     "bd2f4c86f02c64db798d79ba1efc49cbaa9725401596d9ba3bffa80d9c02b2d9"
