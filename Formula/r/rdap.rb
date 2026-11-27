@@ -7,6 +7,7 @@ class Rdap < Formula
   head "https://github.com/openrdap/rdap.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6fe9494952c18125519c8fc547e99718f4d0f86f5b929b1ee47e3b94c60ebd51"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b05cd27d41d07fad35309ea77f9968beff9872ab9e9ce51b062576a86b6dbef"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b05cd27d41d07fad35309ea77f9968beff9872ab9e9ce51b062576a86b6dbef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b05cd27d41d07fad35309ea77f9968beff9872ab9e9ce51b062576a86b6dbef"
