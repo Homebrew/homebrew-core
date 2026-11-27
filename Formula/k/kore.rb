@@ -13,6 +13,7 @@ class Kore < Formula
   end
 
   bottle do
+    manifest_sha256 "59a93ea619625509a10a33e5c64f38a194fbbce984fe3cfe4bcaa63044393519"
     sha256 arm64_golden_gate: "af15301f6f32345dc918b1a1edd783fa8c0fed51e38c8457056baf98e020288e"
     sha256 arm64_tahoe:       "3147b297014a79e06b6a7ee03cbeab03736d02b1d94fd2886263309e79426aad"
     sha256 arm64_sequoia:     "89189fa27de08b5e348fe2fade868237614af312b3e5793d265d3317df0f176e"
