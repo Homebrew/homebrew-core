@@ -13,6 +13,7 @@ class Libnice < Formula
   end
 
   bottle do
+    manifest_sha256 "c55087562b7e2a5b354b051d51178dd56dc0a5786697dcfd62cd3a01ebb46914"
     sha256 cellar: :any, arm64_golden_gate: "16d679567bd1dee436e90c55e17b29cd0b945da26f8946f8a0d9a2f55237ddfd"
     sha256 cellar: :any, arm64_tahoe:       "e6ea7526c0b8a0b26fdcc03455328d79f7455a84a5187ae4ba4f7e689e5a7bd9"
     sha256 cellar: :any, arm64_sequoia:     "6d4020030f85a308f0597286c1393e36a0db1496e58e422bf4388905de82a811"
