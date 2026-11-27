@@ -6,6 +6,7 @@ class Fastgron < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "55f8d86416627ff2e9bf0789938178abe22f18362a382d2f94e95136f20f5027"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da483095fd4c96a3eb3d1a04c65d27fadef0f55176484a3abaaafeb8d60301b4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0ba70774cc9059d34d06e9f02cdcffe2f4c0aa7913b91e1d7de51172cec688b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a9d6d87cbb8c5643bd1ab68dcbe7004a28d7743ca4213e83be2c40ed5978348"
