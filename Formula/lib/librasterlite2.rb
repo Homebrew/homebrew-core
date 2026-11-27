@@ -14,6 +14,7 @@ class Librasterlite2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "11e889c6e7a037d83577183c98e4160eba42fb6a704f9101e9f54a8d0ce9dcc9"
     sha256 cellar: :any,                 arm64_golden_gate: "83955c6a63ee605c72504937c475000571f8e10f64e6687f7b3589c3e0dc3c45"
     sha256 cellar: :any,                 arm64_tahoe:       "aedae0439b69ea9c2e069dd3d4cb868db71deb9e953806354bd57ea476f4698c"
     sha256 cellar: :any,                 arm64_sequoia:     "f02cc5381292362b7128c25c0ece3cbcbba43ef9fd0e61afa994eb22044032f0"
