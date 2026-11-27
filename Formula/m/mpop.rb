@@ -11,6 +11,7 @@ class Mpop < Formula
   end
 
   bottle do
+    manifest_sha256 "c9b48df4b476038c7fff5a52522cb9d09c0310091e6ea35197d1f27a4e43d8ae"
     sha256 cellar: :any, arm64_golden_gate: "86ffbd3695a0319ac849da015a5aa4bc7b309abbdace830123c76a6bdace507d"
     sha256 cellar: :any, arm64_tahoe:       "e6c27bfca49caf2fd741cec067bed4f15b3fcc5974b0a84ea608d89a3b7f32bb"
     sha256 cellar: :any, arm64_sequoia:     "7e068e36b842bd8fb000b54bf191d1b407fe66749a07bf9f92b8a7aa7cc3a7dd"
