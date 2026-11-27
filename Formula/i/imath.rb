@@ -7,6 +7,7 @@ class Imath < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "65942defb60fcbe85f7acc34835541d4a4447035a6db128f87353f71c4e0c0c3"
     sha256 cellar: :any, arm64_golden_gate: "f5857586c62cd0498c95c82f9d77825b01cd8eb7dc1043ceaf311950e9b33423"
     sha256 cellar: :any, arm64_tahoe:       "cd0092341705d6b55ef5e9cf76ef8d5b079af1e4bb3a0d403ae0f308e9775e19"
     sha256 cellar: :any, arm64_sequoia:     "4f6c05dd778e795b70d60af8daacc72dfa4b92ecbaece682ad98c36df92be150"
