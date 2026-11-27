@@ -8,6 +8,7 @@ class Netcat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e3af7ede3b6757311bec6843629c6b5841c75e3cc332fdb3112e4f6beef75a00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e670cc0145759e2fd488c25122bee85dc10a23b059bb5c36e2d39eac27a61ff4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c63948ab48476670f1d13d254c3d9ee3ce57fa9d06a5dbe47454ae9ec36f5977"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9da6c99582155faec7fab7c54a568ea80695bb01fd04adc1ed646da91dd93367"
