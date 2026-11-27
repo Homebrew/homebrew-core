@@ -8,6 +8,7 @@ class HttpServer < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d9c6b475faf39de79c0dd91f970f64f4cbf9f9432a4e8bbf90e02647a4674f12"
     sha256 cellar: :any_skip_relocation, all: "255fa4f7d541f2485fc11af34b8d240785fd6b364d7e98eae44800da7dcf87d1"
   end
 
