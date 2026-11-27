@@ -6,6 +6,7 @@ class Fcp < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "20de05599f1f62a9e34cf8e59b23f9eee3244eb959fa3a901d3db7429ad90258"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "726a6e02c898303b23176423dea7a525bd4146fefdf544ed7f8f4e3a4ed1e133"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9cd7cac8e1836e0bcd97890b29c61a6c4121a8e1ae29f653a535da53996319e2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2256850c5d557b19ea7e27b0cb1fb62b1b011eb2e3605eae0b61f68bb835380"
