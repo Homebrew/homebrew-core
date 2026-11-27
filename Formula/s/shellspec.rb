@@ -8,6 +8,7 @@ class Shellspec < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "338d1dc37a51acedc5ba3004dc3c54f0f2aae0a8d558795dac846856f2fa7b87"
     sha256 cellar: :any_skip_relocation, all: "c39e6acfcb13b4e82fdaf4e2a2788c5b43eacd7be9d2f98d5d786d0e741befad"
   end
 
