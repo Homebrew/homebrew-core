@@ -7,6 +7,7 @@ class SpirvLlvmTranslator < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "eb8101d7633281ecf07998e4c7d427d0acd48cb4a3bf51e3f4ce7d36a3ea9d53"
     sha256 cellar: :any, arm64_golden_gate: "d3b90cbd19c5683973cfb07a885eb6b597da8f504814b016e9514175496a2678"
     sha256 cellar: :any, arm64_tahoe:       "1aa572ac5ef17979ff283d00789276c76be93aab4f4a8f853522cec65462e372"
     sha256 cellar: :any, arm64_sequoia:     "bd5cb529d44295fc0800fddf9ec00b6252d21f9b736dedfd155efafd649f88d5"
