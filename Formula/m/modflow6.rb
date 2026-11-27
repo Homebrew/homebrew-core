@@ -7,6 +7,7 @@ class Modflow6 < Formula
   head "https://github.com/MODFLOW-ORG/modflow6.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "627792598a9b941b6c29b0e6a47ad4e3cd72413f659865370778d7d1f0ab8e82"
     sha256 cellar: :any, arm64_golden_gate: "2b9b464b0b1cebc7dc22822b1df9e21f1b83a2fd40df5d62b65f7811e915510a"
     sha256 cellar: :any, arm64_tahoe:       "cc8c167ce65886751d438a3ebff4033ecd70b516e4d90b918900201681298e71"
     sha256 cellar: :any, arm64_sequoia:     "07a4ad99135c42d13edeb566db37e73b4ade8573496bd304d93e6b6782f29c4f"
