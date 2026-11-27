@@ -38,7 +38,7 @@ class Mpg321 < Formula
 
   # Apply Gentoo patch for Clang 16
   patch do
-    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch?id=ba6b4630d2b4cc294a3057b1f4770650bcb12c87"
+    url "https://codeberg.org/gentoo/gentoo/raw/commit/ca7af246ae4876e9a3e594d236322490892d55cd/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch"
     sha256 "bafc5868a8293fe465449ab27bececc6039001b1519af872ecf4178afabc1a5c"
     type :unofficial
   end
