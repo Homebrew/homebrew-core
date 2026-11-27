@@ -12,6 +12,7 @@ class Hsd < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f52991714d4dac692581ffdd240756a9f5e2885e10dedc34f66f0e60608f17c5"
     sha256 cellar: :any, arm64_golden_gate: "8a85892f70479ce2220e75b73555fefc130511d48c76eda38777697538314953"
     sha256 cellar: :any, arm64_tahoe:       "36611c3df02c5cdc5ca4e1d0a5ccff743dbb13bae2ef19a4c26047344b3b0436"
     sha256 cellar: :any, arm64_sequoia:     "6d90276a5d657b913adce32aa66275711de9e470110a786e073d011f82ddd588"
