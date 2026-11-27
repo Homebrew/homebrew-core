@@ -17,6 +17,7 @@ class Squid < Formula
   end
 
   bottle do
+    manifest_sha256 "d8ae4a43562cd3addaccea5ca56ac2c33e23a3bde6f5c8592c0ed34b30736103"
     sha256 arm64_golden_gate: "a3aaf0ea08eab1c8945bc96bc97f6e890870aeb8365c97f68ab0d42b803f22ab"
     sha256 arm64_tahoe:       "adc996cd5bd1b34ba2414e82bb2d01e57b41888d15ab3d27242413b4213e5ecd"
     sha256 arm64_sequoia:     "5f616f7e3606d0d87e4c66c63ee997f1affa51f0930c28f991dfc978f9e3a89c"
