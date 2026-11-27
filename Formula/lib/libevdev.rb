@@ -7,6 +7,7 @@ class Libevdev < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "097edbba130cdfc619aa23cfe544ff20cb2e62d1b995688dd980625bddec0176"
     sha256 cellar: :any, arm64_linux:  "73e7c8138dd0955c482fa9e6fd87bbdfb89a3045b75deb1f4b4fda8a33d69bdd"
     sha256 cellar: :any, x86_64_linux: "92d31e986391308838c15131b8bc4acb64c0399ea85387cfae58ffacae3261e1"
   end
