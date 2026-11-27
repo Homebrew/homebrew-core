@@ -19,6 +19,7 @@ class Qt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ef78569af2d08f165a4291a1a5e07f760d0d798d223bac2a70b2388a41e931df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ab95b3a2a95bdc8ff6f6a5ed125d9e40c02604475a51bacf9a991b00c106dee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ab95b3a2a95bdc8ff6f6a5ed125d9e40c02604475a51bacf9a991b00c106dee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ab95b3a2a95bdc8ff6f6a5ed125d9e40c02604475a51bacf9a991b00c106dee"
