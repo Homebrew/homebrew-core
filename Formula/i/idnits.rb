@@ -13,6 +13,7 @@ class Idnits < Formula
   end
 
   bottle do
+    manifest_sha256 "2d74a5591e53dee9d4e98ed080f896503ba0fd810b90ecdce8c4a5f7828a31ca"
     sha256 cellar: :any_skip_relocation, all: "c1dc336ce88447beec8ff60b6a741b8a0174aa0169038bb88fa9075a8d08c0ed"
   end
 
