@@ -13,6 +13,7 @@ class NettleAT3 < Formula
   end
 
   bottle do
+    manifest_sha256 "c6ec1f853008eeb69b32072ccc015828caa310725357c01b49ca1c97282831e3"
     sha256 cellar: :any,                 arm64_golden_gate: "570ce0b20a8ac6c1ad34c9a219dfcbde875c763efdccc5730ff36115868966d9"
     sha256 cellar: :any,                 arm64_tahoe:       "c72342029b69116096dc2de6b67106706c3fc0b0d85cfb1090e3e4c4b01cc147"
     sha256 cellar: :any,                 arm64_sequoia:     "4af74cceda18a0684e64e1c9681a9f5b55ddcd49c6530ee50cdc320eaa2ec0b7"
