@@ -13,6 +13,7 @@ class Elixir < Formula
   end
 
   bottle do
+    manifest_sha256 "24845d92a142fd2312adb6c977c752c192d2d10ace82f8cff39a9ccb42a91a12"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a1e59d4ce68758273299a6d1a4540e344578b18e5888b0624c2a5ce95d2a7326"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09c90bfdc94d21cc5b0a45629d1636e2d1e4ff54cb6e37efcb063dde38a1e317"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e7b79340a0d6677f80cad16f65ffbc568f080c5bdeb779b6c95a3cb8c5b07f3"
