@@ -7,6 +7,7 @@ class Envelope < Formula
   head "https://github.com/mattrighetti/envelope.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dc1b996b59653df2e7e86db786d41338ba39aa229b164b5fda5fd2d5d9ceea44"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2007742a8dec2324db789f6be4aa2fce8a670a9a256a77f76a3544f1d924ced"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5c78e1cb7b0f4243005ad306712befd7c831451cbd51d1c3d14dcfa24cbf3e58"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d863abc6c6052ce1796467ea4a0fb02d603906b3ce60a5242686f88f9dca280"
