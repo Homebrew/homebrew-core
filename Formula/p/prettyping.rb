@@ -6,6 +6,7 @@ class Prettyping < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4540dbd8a683d3a52aeb03576eb7b62f6f22e06e2f98d6ef77d20abdb9a56b70"
     sha256 cellar: :any_skip_relocation, all: "34b060c257cb158f76339e83dc74f498fce30be734f9d007b203f7f95699d5e2"
   end
 
