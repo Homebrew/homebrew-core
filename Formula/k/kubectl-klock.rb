@@ -6,6 +6,7 @@ class KubectlKlock < Formula
   license all_of: ["GPL-3.0-or-later", "CC0-1.0"]
 
   bottle do
+    manifest_sha256 "196e7f02bb37cc6b348bef1d8df215b5caa733d4b0afac2af0c651e5455916bc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a4681cc233eadd8ed81bfc6479e7675fe8edacf699e0d29dc2a84932345c8e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f29b9279987a99360dda140780976b30a440e856ed1282a9e2b18d200988fc09"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1baf999ff858612bb0a8036e0306fe178e661a4de0004a327e21fceed3c0c81"
