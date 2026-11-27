@@ -6,6 +6,7 @@ class Havn < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "93de8ac81e22c29156eacfab8bf4b2f3a9cd5201b19b17f05c4bbbb2a0f67bec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b635e3319e966a8c6beb65313ab1246871ac6e88da33679e61a90cc97231a596"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aa4b542a823aeb5a162447dc435099ee2b22a8ae0e81863ab546d5d50ee0b0c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3b98ab02fc66e741cf2cba35b66767ab1cf4e6bae1ec23efca311f2975e4207"
