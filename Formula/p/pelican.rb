@@ -10,6 +10,7 @@ class Pelican < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d14d59b214c9267b8ce677ee596aacbd38070849d92b1dbd62ecf78df42c6751"
     sha256 cellar: :any, arm64_golden_gate: "e4d4b234a114e63ac7918f18c23c817c9a6061f3ed342b4ff162e68ecdc23d5b"
     sha256 cellar: :any, arm64_tahoe:       "2b256eeecbffe79c2402b59de863d0fc6aea32c53e4aa3b24e9ef9dbce3a7d04"
     sha256 cellar: :any, arm64_sequoia:     "d68daee02086b1576fd7c06e5638dd420109def37f5fba8817e153251c9dcaca"
