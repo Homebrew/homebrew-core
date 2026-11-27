@@ -13,6 +13,7 @@ class Legitify < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7f1eed91cb3e5f678875436bc99e1de43014433305b765b241c2f5265989edd7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fed46f8cf3320d641c5b4f41abb59bffe0c1a1c676fe3cb48d095803d558d9e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2ad85e946db932a1562a409f65349e4bbea50e7775e5c053cad0e214362fe9be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ad85e946db932a1562a409f65349e4bbea50e7775e5c053cad0e214362fe9be"
