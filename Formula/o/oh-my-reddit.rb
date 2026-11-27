@@ -6,6 +6,7 @@ class OhMyReddit < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d0cb4cf45bfadab0e3ee8df9e0cf975e5c2f4f88d2820803e0f3231752ce92d6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "970c9dc8a8e855a400e8d05ee96099f83c59920e3076be7490c255edd26cac85"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4d84be470ad928d3440bfc4c27821328e6bdda8828de6b5b4eb649a26bbaf3ce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "515d42c879fd0c0596fb8e456e7f757bfdcfb6fd834d0cc483a7fca22d1d2b21"
