@@ -8,6 +8,7 @@ class Kty < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "52853be913a8bab8819287e1843fddea0e8bcb9bb3db42243c852b01f819ec66"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "88593e7982a8fc2929ac521ba89f57271b9b2daed351b307b331f0d5d1ea2886"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "794ce6ac8ca031f30ca1a065287c1819cbbdb0535880ec775eaf45151ef903a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ce2b07cbf056aa2e8ce27717228a7dff0698a1c76bdf8063f5f0a0ef18aada5"
