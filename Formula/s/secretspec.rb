@@ -8,6 +8,7 @@ class Secretspec < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "be87024f93d6d11a8cf1a4aed3feed85fbb9af3f75fcb329e277e4fa90b7d872"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0815a21230679e80de3cca652f5f43601afcfc7a7475323832fd3d728172b69"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf9569aac906124e37c94dad60f94edcc7c7824eb7553edeff2f19fb576cce90"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08c14f6a6807b2997605633ab2679b66a08ff4387f25c12c2f27665d542b00e8"
