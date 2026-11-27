@@ -23,6 +23,7 @@ class Flang < Formula
   end
 
   bottle do
+    manifest_sha256 "a0358de4ade93ea43111b363688738a1c04e36010413407eb097e996ad2e47fb"
     sha256 cellar: :any, arm64_golden_gate: "24425e0f396e5ff192725c279c4854e699c59a1968750f6b3d7749de8fda8cd0"
     sha256 cellar: :any, arm64_tahoe:       "6f99350984ea6036bc0a343c3edfc88a9d0a70004888b797e4cc9413e8e5132e"
     sha256 cellar: :any, arm64_sequoia:     "0f542713a73cad4a035c4d108595332c738d34926e47047940f34ac91a9558e7"
