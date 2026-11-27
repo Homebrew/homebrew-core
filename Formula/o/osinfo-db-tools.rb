@@ -10,6 +10,7 @@ class OsinfoDbTools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "210e316f73eacaab7f1094e09c9280d7bd70977fe7dcb08f89922d21cfde4aef"
     sha256 arm64_golden_gate: "b0fac1abd622023d38a5c7cb0f062ae69fecc7a6eaf023249801bf4b7f0eafc6"
     sha256 arm64_tahoe:       "520fac157eeaa4b2700c01b2912f7cda755e936feacd628f09ce3b459665629d"
     sha256 arm64_sequoia:     "f5951365a1e4ccc19c8e462cd054dcf818bbd6b8a60f4f283e86387c6bc398bb"
