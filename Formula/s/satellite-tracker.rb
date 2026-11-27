@@ -6,6 +6,7 @@ class SatelliteTracker < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8a5ac94f9bb43602fa1f37f7e1f3196e398e908a9dc06975c294152238858042"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "449f90c16cf63783f9a5cc7c8267c89b9ee374fb138878a98c1f4aa217b42d22"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7dcc00926d667b08827468779c5bd6f21a654e200bc1861d8bf176d99be751ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "891082793dede1336b80e8ea07abac8db7053d2296768027b3b7530c59b5692f"
