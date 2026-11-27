@@ -7,6 +7,7 @@ class Mani < Formula
   head "https://github.com/alajmo/mani.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b3cfc25d224606c1f7e42f650fca2a9b5a1a79c0fcb805e9568ce5887e7210fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a25d80d8e58444288e18d3439b71d016f79bf643013f936dbb3d2e84f0078969"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e336167638d0959a709f181cc49df2291513cb39c3695eae0fafec647ec796ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e336167638d0959a709f181cc49df2291513cb39c3695eae0fafec647ec796ba"
