@@ -12,6 +12,7 @@ class Murex < Formula
   end
 
   bottle do
+    manifest_sha256 "0edcdbc39b94e670aa85f3a2cbe4b713770a3fb5eab0ee60f171826e78a2c714"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70b0e1f1b5fd20835c230a918c0784d3747a929fefeba1f2b88a190c1d1a6790"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70b0e1f1b5fd20835c230a918c0784d3747a929fefeba1f2b88a190c1d1a6790"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70b0e1f1b5fd20835c230a918c0784d3747a929fefeba1f2b88a190c1d1a6790"
