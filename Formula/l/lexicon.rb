@@ -10,6 +10,7 @@ class Lexicon < Formula
   head "https://github.com/dns-lexicon/dns-lexicon.git", branch: "main"
 
   bottle do
+    manifest_sha256 "80f20c5cf7bdd48b2286ec6aa5c379d6f61f5dfcf5bdca013e8fd84e9ac5d75d"
     sha256 cellar: :any, arm64_golden_gate: "ed31640c254a6192afdfb1d507af1da2e53235a737128ae622831e862bc9a1a1"
     sha256 cellar: :any, arm64_tahoe:       "e6fd9bdac5e82d2bb7476e6877d24e0b59203ebfaf8be9b7d07c5ebdbfbc9510"
     sha256 cellar: :any, arm64_sequoia:     "71e3bba17fe00d33f666191ed2101603d1dcc9674ccce1539b69a3db9fe6b54b"
