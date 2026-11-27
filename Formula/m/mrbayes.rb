@@ -12,6 +12,7 @@ class Mrbayes < Formula
   end
 
   bottle do
+    manifest_sha256 "90a3f58aa0728fdbb159575e3dbba8b836a0c21425e7368fd0f90d8423286af7"
     sha256 cellar: :any, arm64_golden_gate: "2198adef427b45f96b95d14dcba9b9e30e857f643212e96c4c3435ee9e48d774"
     sha256 cellar: :any, arm64_tahoe:       "c9871b950fc0607aaf979461cf5d067c01f670f8ebac0ceaa9ee2be6d5c2faf4"
     sha256 cellar: :any, arm64_sequoia:     "85913540941f7795ca1dffb21cda7a1b13f4966bbe45efff26283a412fe2e363"
