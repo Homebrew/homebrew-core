@@ -7,6 +7,7 @@ class LibpostalRest < Formula
   head "https://github.com/johnlonganecker/libpostal-rest.git", branch: "master"
 
   bottle do
+    manifest_sha256 "889c400bb18eb8a16edcda72237da5316f91136ee605a79556cf28544828f5a2"
     sha256 cellar: :any,                 arm64_golden_gate: "ffbcbf2d958921fdc59b3a47eca9347fc54026e4900b1470180fd3a8afca8721"
     sha256 cellar: :any,                 arm64_tahoe:       "905fe876b881844842cf56c6e4f5098bc59b23d0b9eee15e70ec7d07953f25df"
     sha256 cellar: :any,                 arm64_sequoia:     "fd5d9cfcd9ea16dd5b1990b18ec200eef3de42b32dbcfc71e74d60dc1e77d5ec"
