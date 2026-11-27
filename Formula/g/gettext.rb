@@ -12,6 +12,7 @@ class Gettext < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0266b0e899d7f49c1531e8a2e7a07ed8358bbfb42678f4cc7998e436a87958fb"
     sha256 arm64_golden_gate: "4db034aa2ae4b1f18d86906707ece14c895198090ad028d2fb1ae4fbeb3ca6fd"
     sha256 arm64_tahoe:       "3af5392939e50a6ef73e42799fc3ead6ef72fe0040c0a45183d04a4008306d6a"
     sha256 arm64_sequoia:     "98a116d35792ccd730360ffc8c0d8fc5799b2282b96bb7696192c573f064a331"
