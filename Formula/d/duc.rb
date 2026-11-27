@@ -12,6 +12,7 @@ class Duc < Formula
   end
 
   bottle do
+    manifest_sha256 "57390f9562475369a0cd58032a7bd180884d553f50d64a26e94c6bf9ab036dd3"
     sha256 cellar: :any,                 arm64_golden_gate: "08332dbb64b5ba601c95403375f3273c216e0f789d851cd24b6e120d644e5ae7"
     sha256 cellar: :any,                 arm64_tahoe:       "9bb01ec4d71dab368193198a600df30283f0e4ebb59bb92b5fee3640d2de14c7"
     sha256 cellar: :any,                 arm64_sequoia:     "41cc6c35c2c0291137556ddd2c07e7d690cdac67b5cd220c0935ee3a19a20aef"
