@@ -12,6 +12,7 @@ class Libpaper < Formula
   end
 
   bottle do
+    manifest_sha256 "d99fab190ec191201d89aeeed3b27146d24d5eec024d6ab9a76770cf824ee800"
     sha256               arm64_golden_gate: "e78dadbb9f11d60cf3820c0a6ad8c6a7f0a6ea5964f2117930f80d78ff6c7fb4"
     sha256               arm64_tahoe:       "e6500bd1b2096cc88b3289610bd7a651a2ec40e1749b549e09e8f74ca20cc125"
     sha256               arm64_sequoia:     "39b2f9ec39466dbc44bec4b7dad83c5c2f83f1aa9689a23e3b2f92f119daba94"
