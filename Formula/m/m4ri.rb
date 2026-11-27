@@ -7,6 +7,7 @@ class M4ri < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "18567f55f98d848023d01152c55ce5d36acad4d553e40c22760b36bfbe495968"
     sha256 cellar: :any,                 arm64_golden_gate: "00a8b67fe3c1e4886a481f584abb169582c3333c1d3471c1c4cc53c7fde1cea9"
     sha256 cellar: :any,                 arm64_tahoe:       "86ce9e345f247c809a92ddd82507f17b08e045257d79bfc7ec46ad4586a84bb4"
     sha256 cellar: :any,                 arm64_sequoia:     "c81300628bad5a1186de3e62ebb707bb007fa48d5d92935e21495eee74717cef"
