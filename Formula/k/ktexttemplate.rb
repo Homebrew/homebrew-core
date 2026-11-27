@@ -7,6 +7,7 @@ class Ktexttemplate < Formula
   head "https://invent.kde.org/frameworks/ktexttemplate.git", branch: "master"
 
   bottle do
+    manifest_sha256 "63f40fd0dd16738ae6b350cbd54a5d15d1782e3c224e3e2ed1d33d94ca614dbb"
     sha256 arm64_golden_gate: "fffbb65e121cac61c87a9db484a2e4cb8f0a27891c3a501109b330ddc3ca74ff"
     sha256 arm64_tahoe:       "f9d3c9f3d4619addfb5c7acadd195df16e144096ab4bea1d4231ed860ade58ca"
     sha256 arm64_sequoia:     "4f215d4a27fcec3b26503b1f481ec271f457b97c662598f5dfc5adc3fec3fd0a"
