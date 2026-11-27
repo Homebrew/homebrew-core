@@ -7,6 +7,7 @@ class Gource < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "27d0e18220220bb68b3d041594e8ba6c8a5b66506eaa67e87264a31310c9d83c"
     sha256 arm64_golden_gate: "710479a5b69423ccbb4cbcbcafa0423207b9233bd808c4928eb78b98697c37b1"
     sha256 arm64_tahoe:       "cdd8bd1399f1a13c3cb16530798465f1f48b66d581fbec5ec4c88c5a69099518"
     sha256 arm64_sequoia:     "e2568b1c0414ac98c980879dfcd5b95f4ab5465f24bbee26172639c2cb7852e5"
