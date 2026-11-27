@@ -6,6 +6,7 @@ class Sitefetch < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f63d4e37698ec9678d0ab801e26d8be7daef34ec77237420351b77097cbf34c1"
     sha256 cellar: :any_skip_relocation, all: "5f514ec63a1829bd85a7cb8f5aef1f4712ab83e21480f583a05d4e231f90ac83"
   end
 
