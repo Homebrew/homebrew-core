@@ -8,6 +8,7 @@ class Glui < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6c4c2b85b2f8ba92c428cdb570f684a45410fee7665024fddc26e99572f5f749"
     sha256 cellar: :any,                 arm64_golden_gate: "ef22111c3cef9fa7240cbf9a794b87b7a04d8f0b34382766a6fdce83e5b0ebdd"
     sha256 cellar: :any,                 arm64_tahoe:       "291a1781d586b21b5ff3260f10e82cf9604a364ff5396b5eba33a28e6fce90cb"
     sha256 cellar: :any,                 arm64_sequoia:     "8571bc2053756921d417d2ffbd49259fcc18f9068f3647cbfeaf4c310cf1f23d"
