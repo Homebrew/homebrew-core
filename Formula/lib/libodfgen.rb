@@ -13,6 +13,7 @@ class Libodfgen < Formula
   end
 
   bottle do
+    manifest_sha256 "0215d6b19a72de9d604b6abfc32745abbdee07c713bcea2ec22c90870501669d"
     sha256 cellar: :any, arm64_golden_gate: "21de7b0286b5f16a232fbb4456b4ccddc335e12b80ef1df9a7aa318c4fa6c1e2"
     sha256 cellar: :any, arm64_tahoe:       "e5ac413589685636fca66be3533d82b03871f6212b7b3ffa07ea79247ba86407"
     sha256 cellar: :any, arm64_sequoia:     "c5139571193f9ce15055aef6f5ce47184987a813f8b7bb65ba2dbb1cf853362e"
