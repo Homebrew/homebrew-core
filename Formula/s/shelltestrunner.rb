@@ -7,6 +7,7 @@ class Shelltestrunner < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a67a981e601e2fcc5c147df8f6965c27106dfdc09643a95964dae97e968eec80"
     sha256 cellar: :any, arm64_golden_gate: "9e0a0be8b8890cdeb41b3da40f07f363523bf057a853a2c9996b60cafef899fb"
     sha256 cellar: :any, arm64_tahoe:       "ec8369c12e98173330963627f5a46010b3f21cf9a63791fd8fd34f723b23c173"
     sha256 cellar: :any, arm64_sequoia:     "eebdab863d9d345eea451899f791305c7acc161c9d74bb123dc29f1abe05c546"
