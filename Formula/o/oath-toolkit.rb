@@ -14,6 +14,7 @@ class OathToolkit < Formula
   end
 
   bottle do
+    manifest_sha256 "9d2fe3e256a3f7ea74e4a1867768006c9590e710e863d7995e63d500c2c2057e"
     sha256 arm64_golden_gate: "105e3fd83b633bf6997782f273b543eca735f70486fe89372aa0bb3f41999d87"
     sha256 arm64_tahoe:       "2bbd6a571051d2636fe7d17d6d55ac1b69ba9e04375f39dae39909b14dd5a4db"
     sha256 arm64_sequoia:     "0615216e69455c0f2a2f6f8e2ced8e7c73da55ca2f636e43aa21c887f04ca1cc"
