@@ -7,6 +7,7 @@ class Fluxcd < Formula
   head "https://github.com/fluxcd/flux2.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3301a9de6779b029efa4a3a96dc95e704996b0520d2bbe6e5a02bb93f4fb063d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce5dd3590102cf588f927c22257cd0066271267a7af7cee0206e8628727f2711"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13cca67741c8d0db250f06f6ed552f80f889afa05830dc92935d2808359e41a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a24ffd8e8825e7ee16aacb216ac63147c97fa51574108fa846fb4df81f05d25"
