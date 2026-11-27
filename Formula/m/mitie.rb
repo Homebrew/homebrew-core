@@ -9,6 +9,7 @@ class Mitie < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "55934b84ead071f128cbc8d79f18fdf81ab1ef32a520c4639679b37c0397d7ba"
     sha256 cellar: :any, arm64_golden_gate: "1ca2c42d4b8790ff3dac7d5b718198d0fe0e54b3813ce9c6e4f2716ac6138738"
     sha256 cellar: :any, arm64_tahoe:       "0dd6bab4c4a4a9870b4da5bebcf14a6a2837bdb36e7ec67e156b7ad8b72c370b"
     sha256 cellar: :any, arm64_sequoia:     "23d8154eeeb960958f53947bb3371496320b0303ede2982a05b6fa0306bce2f6"
