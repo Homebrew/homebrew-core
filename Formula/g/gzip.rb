@@ -8,6 +8,7 @@ class Gzip < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3395c8434e42cec47a64cedc3942057e4d82ea3807cb0d62e46118b6c904bf5e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a4fc6cf11086f1848bd0bc4d9797cafbaa79cf2ab4098bde4aa034837af517d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a2b422221e96dd43b7c7778439f6437073ab1181a6a48796d3b17e1c5ce4cc8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91a7889ad537212365620a25f0596c9b4928ad517e7c37d1282deb32a63c0977"
