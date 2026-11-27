@@ -7,6 +7,7 @@ class Libnfc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "af18c1ccc6d2da178a3b5ac3d734829fdffad46ea8bffef0b7a485ad02cbfe22"
     sha256 arm64_golden_gate: "64b49670a621c282352df292ecee2d95b05c65913ad49fdfd59df35f96119768"
     sha256 arm64_tahoe:       "433f60511a9266fb1693203fbf2c91222603118e9057fb8cac76eb897edffa61"
     sha256 arm64_sequoia:     "2b82cd576da101ec339171c4a8ded0fee90ab4cf072513c8cd0a1b99721c72f9"
