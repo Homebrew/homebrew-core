@@ -6,6 +6,7 @@ class Lci < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "bb14b3aad3c8f81f017aee7ebd7fe8e8ee42bfa79adc67ce78903dc47d244ad7"
     sha256                               arm64_golden_gate: "c95cd5247b8b3be4a356916ea8210f2637cd18451be4a5e5936a83f689bddba0"
     sha256                               arm64_tahoe:       "8489fde41d750512814a3aa95a72fe1df512d724e9d543b7c05a0f515a0b8007"
     sha256                               arm64_sequoia:     "13a9869c2bc147eb19005e15ed2ccd27a6afec14b8ec661b535e6a8a288b47bc"
