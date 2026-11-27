@@ -8,6 +8,7 @@ class LibpahoMqtt < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "dd7d5369b002cb944c2d3ce31be3fe1c77ec96f05d4ec6ac16919d9bb2f24814"
     sha256 cellar: :any, arm64_golden_gate: "07546812ea899bd199fa038cfbf8c25135b66e222f9abe11435e4f9c3d82c629"
     sha256 cellar: :any, arm64_tahoe:       "a6696485cf5500d5304600d65498656d5c6a4850f1389585fe2f616a636bbee9"
     sha256 cellar: :any, arm64_sequoia:     "5a298cd63176a48ce31d8db4f7d37e9e56e1501c09a41135a85fa98528388c32"
