@@ -1,8 +1,8 @@
 class Mpdscribble < Formula
   desc "Last.fm reporting client for mpd"
   homepage "https://www.musicpd.org/clients/mpdscribble/"
-  url "https://www.musicpd.org/download/mpdscribble/0.26/mpdscribble-0.26.tar.xz"
-  sha256 "b9d5829b89c465707256c140000e1a04b1d9d3afe50db46a843cf5ee54bf6309"
+  url "https://www.musicpd.org/download/mpdscribble/0.27/mpdscribble-0.27.tar.xz"
+  sha256 "f87aff9720c8a33ced436995bbe05543b54c97d2b8d3e08594d39a0693936d7a"
   license "GPL-2.0-or-later"
 
   livecheck do
