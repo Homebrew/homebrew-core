@@ -13,6 +13,7 @@ class Nim < Formula
   end
 
   bottle do
+    manifest_sha256 "0d9bc4daaceb56ef6b0c141f72cfbd2d62384de14c75528f6710c5c47e6e7afc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f647299518dd3a172cab3cea67f8df1ce4cba03f23ea3b140c0a14771b30beca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14e031d28e045c0480509f8f9b9d51f17bee197fc3b57a057ca34b5a43974c7a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31ff16855a4b7a29ad845e6a3798eaf133378d9fd2f1876182adc9110269ae06"
