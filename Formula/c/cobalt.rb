@@ -6,6 +6,7 @@ class Cobalt < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "a8139f633e6a576de4931da0eaf16ab5531e663eaa612794d2d568cfc9c6e702"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d59aaa8165de3f8da6ccd0783c3b4a485854d481c9bb29f1a48642c1eedd566"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f3e66329a31b4bd2cfc2c4104c33fa18c8e3d29b8e31ec8bacddc433e9eeee3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "366acaee9d6f099ef35c78f4c343ed150462a46907c1b29e66f83d295c3b6ded"
