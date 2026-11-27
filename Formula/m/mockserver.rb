@@ -11,6 +11,7 @@ class Mockserver < Formula
   end
 
   bottle do
+    manifest_sha256 "5f235541a9f1ae044487d4eb2a6cd68dd126b7bcda9a1ce7e0cb6bbed5fc477a"
     sha256 cellar: :any_skip_relocation, all: "d845bea868d120b7495a7be3c013940c777f141f936cf529b1fa4f3e5e9a9e05"
   end
 
