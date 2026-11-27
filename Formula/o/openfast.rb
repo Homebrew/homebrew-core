@@ -7,6 +7,7 @@ class Openfast < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "d425b252e0d7083f69eee1272eed092934c137abde048b6d692826d81ca3a084"
     sha256 cellar: :any,                 arm64_golden_gate: "22ca2b41eaa2f8245f36404389c49db2b164a777ffb145eb5c0aed6dd8a988a6"
     sha256 cellar: :any,                 arm64_tahoe:       "6ecde78845e6ac56c38f2fa722a7c87704836d010bf68bc97126cf18ca2684fd"
     sha256 cellar: :any,                 arm64_sequoia:     "56d2e317f70a8aa4127817299328a11e0372badb8fbde48d61c5cbcdb9a9231c"
