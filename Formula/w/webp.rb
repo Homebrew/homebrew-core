@@ -14,6 +14,7 @@ class Webp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3277df6c6ec4c86fd4f3167d8856d5c20eb011963c17a13ee585a51687beb438"
     sha256 cellar: :any, arm64_golden_gate: "85d3cb86c87f53f027b48cdfe15a31e82932caa43344a6fe06e00e5de402a3e7"
     sha256 cellar: :any, arm64_tahoe:       "89d7380c156284433cf5a130b82423b1a3d83b4aac88fe88ba35d174bcc9d3b6"
     sha256 cellar: :any, arm64_sequoia:     "3f5c1ccc592312b2170bc1ea673f902aa65fc479aa9a4c308ff0b1b1a35315fe"
