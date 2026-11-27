@@ -11,6 +11,7 @@ class RakeCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "e23e585e2e1e94367947916281d776b9bc08a687b44712cb33a2e4e5b9e6800c"
     sha256 cellar: :any_skip_relocation, all: "5004cd20889962fc9ce3a921f56e27cb5a28e0f88fde57ae1428e28e0dbf89bb"
   end
 
