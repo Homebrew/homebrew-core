@@ -8,6 +8,7 @@ class GitSeries < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e3181dfd57f558222069409af785ff0554942e329c50224b4d97830333fd7a5f"
     sha256 cellar: :any,                 arm64_golden_gate: "3165b12def1a4b91feb29b5f8212eed680fc387685c28a7550985133a2f7a299"
     sha256 cellar: :any,                 arm64_tahoe:       "6c0d251705744036205ea82afac6a4851e9a4cd1cc02023283a87c69aa776d6a"
     sha256 cellar: :any,                 arm64_sequoia:     "cd487be11dce61dae6298686b051d08ed7ac9310ba31d7d4e746d0dbadc619a6"
