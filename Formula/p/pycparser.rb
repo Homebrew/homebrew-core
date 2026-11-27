@@ -7,6 +7,7 @@ class Pycparser < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2d9b8acf820a3c000cf7851cad51dcb47ef1b98d156b1c9b0977795ae3c2de0b"
     sha256 cellar: :any_skip_relocation, all: "a7a56dfe603baa785cb95e964e6e726284786b4cc5ef1d61b0e6aeb016680dce"
   end
 
