@@ -8,6 +8,7 @@ class PythonAT310 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1c43e734d860e50fd32d2d9cdd82e134fddae56f69e84074ad0863f6a5b5f21f"
     sha256 arm64_golden_gate: "3e0cc28d77d7099b06b9b92cafaa18aad1dbdc71f941b28e26f3b5200edae535"
     sha256 arm64_tahoe:       "937976ef51396eb7259ea45a3df2439df3a5bdc81f6f1c95072411f3c5875c21"
     sha256 arm64_sequoia:     "e16f7daed7561cfba57dcfc7537f97b28c55d655bbf17bb0a1f2a134c53494a3"
