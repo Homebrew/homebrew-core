@@ -7,6 +7,7 @@ class Csvtk < Formula
   head "https://github.com/shenwei356/csvtk.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7223c519c05239e9d297340c397089785a77695e541a1eeb3aebe9c808be0f61"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1cf8f1a09fb9999a1086e098c651210e1981c53d6233378ba2c4a493f66d6407"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cf8f1a09fb9999a1086e098c651210e1981c53d6233378ba2c4a493f66d6407"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1cf8f1a09fb9999a1086e098c651210e1981c53d6233378ba2c4a493f66d6407"
