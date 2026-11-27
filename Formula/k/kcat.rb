@@ -17,6 +17,7 @@ class Kcat < Formula
   end
 
   bottle do
+    manifest_sha256 "3a9fc2fb46097b3707e28015069d81151fe3eb75ccc4df0d77949e0095c4ea4f"
     sha256 cellar: :any,                 arm64_golden_gate: "fc04b240c21d062be20f1bf382ba5237ba5f840e100542a41e0b7eee33014069"
     sha256 cellar: :any,                 arm64_tahoe:       "25860a3013a5c54e65ed107ead46eb16dd845230fa7606070c12201c616a5a75"
     sha256 cellar: :any,                 arm64_sequoia:     "f684d065bf86b82d9911cbbb86e555033f970923d02bcbadad8073f0601876ab"
