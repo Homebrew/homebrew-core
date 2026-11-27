@@ -8,6 +8,7 @@ class JenkinsCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b9585c90d07be84f59411ddeac508b54793b2f6fc1826f22e3da242addbd596e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0c85349d88837fe5265dcf262dcb2706b89d269493d3d95902a5513650e3636b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff9e6197d69c4a7985cafc84070c77acac3fdff42bb3df03ffe95de4af87856e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff9e6197d69c4a7985cafc84070c77acac3fdff42bb3df03ffe95de4af87856e"
