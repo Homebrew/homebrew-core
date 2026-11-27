@@ -7,6 +7,7 @@ class Rtp2httpd < Formula
   head "https://github.com/stackia/rtp2httpd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ba50bd600818eda0797f7f44c00b51a72830fa39774dbab3e1aed4ebd4d711e9"
     sha256 arm64_golden_gate: "0a5c8ccf2c236d874fbc2ee7aa978e45aa860667acab10521ff2270542f369c3"
     sha256 arm64_tahoe:       "82e40d2fe11c5350bfee687493453e116af38e840d524561476b7bf7084605ee"
     sha256 arm64_sequoia:     "d9e1f4b04ed160d2fb45adc74cabf0bf0c2520a731fa624276cb64d1e863c440"
