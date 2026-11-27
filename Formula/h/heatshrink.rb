@@ -6,6 +6,7 @@ class Heatshrink < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "821d9ef45073f689779b7ee86b4e9e30e051c46f36f39b414e270a03f842c9c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f422d56df684320ea1b4c847bf8d5942ccf679db06f98876938a77dc040c2ff1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e516025ca4b7b5efb7e5aeb7f8977a7b2b09be3cdcd2d41a4f430a70c7b92b5e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4135d8d01abb01a3864191897728bddbc0791fa9356aa2537eeab61bdef9e1ff"
