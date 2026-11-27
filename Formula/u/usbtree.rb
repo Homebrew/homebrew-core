@@ -1,17 +1,18 @@
 class Usbtree < Formula
   desc "Live USB device tree in your terminal"
   homepage "https://gnomeria.github.io/usbtree/"
-  url "https://github.com/gnomeria/usbtree/archive/refs/tags/v0.1.2.tar.gz"
-  sha256 "09631627589b43ac2e93f6d2a1cf6a10e490f62a159396f35b6871180ad03617"
+  url "https://github.com/gnomeria/usbtree/archive/refs/tags/v0.1.4.tar.gz"
+  sha256 "dbff9b0c186dd973fad69fd952ea7644fed402f66d4ee1844b78d7bda29b4f23"
   license "MIT"
   head "https://github.com/gnomeria/usbtree.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c06d4f12e4afd69f4f958022125400bbbfe53081be44af3179e77f7ad0e2a558"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7ff27115f1567627277e9e11a5eeea4fdb78ef0d939afb0a257885dbe0cd3de8"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f7d42292fc39f57fa827bbbaaebc8624357316b83c6cf960e363a45bfb52fc2"
-    sha256 cellar: :any,                 arm64_linux:       "6a0e24f10bb263f3e9fe482b3b6bf024056fd18c94c5c680f993b8c07b576aff"
-    sha256 cellar: :any,                 x86_64_linux:      "8c6d0f0b333dff457f1ce64f2a91234833fac46883d14a37db769d08bec2d3b6"
+    manifest_sha256 "b880bd71ceaac35d115f93c1af9ae30bf9aa931f277e109bff9e3d108050ea95"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "321b6c5304da843cd0df48866572145bbc0bf3605f231d8f7c97b134888b692f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82e4a5c16b51519754e2462e53421889b41e6b6287fe853fb2c8c28f378c1c8b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7dbc6c15acaec2741f0384fdd8f9e7d26b59d56b511fb2d48aec696e7d69f522"
+    sha256 cellar: :any,                 arm64_linux:       "539ac4448ca031e673795492609bd372ded369a73841ac0abadf173fe91a1818"
+    sha256 cellar: :any,                 x86_64_linux:      "513304aa46552da5005043c8cfb957d26310efc3420275c7d2d8eac845995925"
   end
 
   depends_on "rust" => :build
