@@ -24,6 +24,8 @@ class Tfenv < Formula
 
   conflicts_with "tenv", because: "tfenv symlinks terraform binaries"
 
+  allow_network_access! :test
+
   def install
     prefix.install %w[bin lib libexec share]
     bin.env_script_all_files libexec,
