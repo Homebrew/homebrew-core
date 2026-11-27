@@ -20,6 +20,7 @@ class Urlview < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "e2aacd149f43152e78184b7dc31ebb50e6d70831ff9441ab3eb3f51f03c80c43"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "58516b6a73a615392bad56f92e421d70f45d4cb8043265c8733f416a0bcdaff0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b6e3087bd014b40df019a8836f5f478181677742d8b45636acba03c5a7c956fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2a05f008302affc74e6cab2a4fc76d212678746d4d167252e21d0a7f50d49e0"
