@@ -19,6 +19,7 @@ class Musepack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "113c77fdeb6ff70e0dab6f48b4aa41fb2e598780f11bfef4013fea8eaab571ec"
     sha256 cellar: :any,                 arm64_golden_gate: "4fb6fe2cbe3270f9a3503d5c9980904cd3c374938cacc707db7cd4139ea0c78f"
     sha256 cellar: :any,                 arm64_tahoe:       "545fb3f5f74e2fc5acbbbfbad61b0dfb6c261cd7dbd26f998c1931c939086bd0"
     sha256 cellar: :any,                 arm64_sequoia:     "d84a9ad759b25d445781d6e1e5af5247431427e00e90bfb0b1014d9c2e6e4bab"
