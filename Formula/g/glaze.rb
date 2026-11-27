@@ -6,6 +6,7 @@ class Glaze < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1f85617b0ce428c1ae9df57dc55113f956f8c94ea31623ae321859edff58da50"
     sha256 cellar: :any_skip_relocation, all: "db4c5f7e256452f4ecb2852c57d2fc6bc8dffd070b2b80280329f02eae9e27b6"
   end
 
