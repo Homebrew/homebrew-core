@@ -7,6 +7,7 @@ class Mkfontscale < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "73b8b4c3fe72bf08c05ef0e333dab70fcf83f7ab9635c86e3fe93d71bc29ddd4"
     sha256 cellar: :any,                 arm64_golden_gate: "332e69e25071a760b49590b8acd901458c83eeabc71934591aec4f8a7d4417b5"
     sha256 cellar: :any,                 arm64_tahoe:       "3bf96e2f1889d39f29c6732ae5199503fc11de4c02c658748909af183aad0953"
     sha256 cellar: :any,                 arm64_sequoia:     "82f78c357339cc9200ce7a80c4b4289fe5b6e53b7aaa50c36861be5ab2222a6e"
