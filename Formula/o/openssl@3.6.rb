@@ -11,6 +11,7 @@ class OpensslAT36 < Formula
   end
 
   bottle do
+    manifest_sha256 "c784c4d9fa4b14a81a2acc8d7835e7c2d92762cf66595e711dbc0d65b720d654"
     sha256 arm64_golden_gate: "9b26d88fbeef0006bea7ff1dce2cd18b77924d199607135092dbb6af1bf4df80"
     sha256 arm64_tahoe:       "af714c3eca585a0a9b2ab707a9cc9d54966ed34d6db09eefca0e1ffe4bfd092e"
     sha256 arm64_sequoia:     "815c8d6a5ebdf26cab2d7f5f7a7e5a1ec5916f34cc9afe29ebf04aa7c7c97053"
