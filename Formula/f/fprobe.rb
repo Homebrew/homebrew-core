@@ -6,6 +6,7 @@ class Fprobe < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "9368504f0bc7523e47400b4dfb00344d1ec1082eca69171b9b4c9a78da0d39c5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "735547c532d581ff0885719770655b752f10a4b3e3d95d48819b0f71231e6457"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4cbf791e6fc38eca3bf5be7634eedee0a1b970783f0f1516227838541d708b47"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edcd1f7fb0c159ed2363136b500af38948c8e4a9a1cb26b4b3c6e745f2ef67c4"
