@@ -8,6 +8,7 @@ class Resvg < Formula
   head "https://github.com/linebender/resvg.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0ad63a25430f1ae97c71186eae5540401d9d26d6defad528f3e0612636012cc5"
     sha256 cellar: :any, arm64_golden_gate: "bee962801aa9a1fa67de082d9e0d8f6d6d40792dbd961ea16429835caaa53d28"
     sha256 cellar: :any, arm64_tahoe:       "b92a80348fde01df804e1b876ff05a658d982c7008add6c2a275787af945f42f"
     sha256 cellar: :any, arm64_sequoia:     "cb35c9612c4e1dc2d785fe58e60677152c202e856eb60fdd5e33755ebfc8d0ce"
