@@ -24,6 +24,7 @@ class GitFlow < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7e3c7acfbc23eb9b81826db5d433b7834b49e9e1d7eb4a1cd395d056bd134cd2"
     sha256 cellar: :any_skip_relocation, all: "053355d898d7f3c171eec04b984fb2f4e06588b7ef58dd8f6024c5300933d27a"
   end
 
