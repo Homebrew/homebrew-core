@@ -9,6 +9,7 @@ class Gptme < Formula
   head "https://github.com/ErikBjare/gptme.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0c7e6b0e3931494fd8cf515f790241c72e5e5c4791bac258f8c51a9d46cded35"
     sha256 cellar: :any, arm64_golden_gate: "10ae08f31e6d9e67495ed453aeae878477874a7b6fa9c076851b21210f78015e"
     sha256 cellar: :any, arm64_tahoe:       "0a2bd2c7d1bea6bbf8ebbb7e864e61e94671b35b9a28cedce8252774c29f513d"
     sha256 cellar: :any, arm64_sequoia:     "63f909c8ce7b9b1106fd7162bb076bf060e41e26e07415e048245213b7a3d950"
