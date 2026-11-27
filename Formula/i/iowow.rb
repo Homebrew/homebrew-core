@@ -7,6 +7,7 @@ class Iowow < Formula
   head "https://github.com/Softmotions/iowow.git", branch: "master"
 
   bottle do
+    manifest_sha256 "66541bacfeeebadb329304d2ec7d6e17eaec731d881835b0f1ab3257507d08c5"
     sha256 cellar: :any, arm64_tahoe:   "4dac6d27bde72bded22b86df1abc9a6e8b15cf9aec1b06600264d8865e999f3d"
     sha256 cellar: :any, arm64_sequoia: "a8bdcd631fcc6a10ac91ca6b7bc102a067b83e4c08a0b972dce7107dcb7e54ee"
     sha256 cellar: :any, arm64_sonoma:  "29b88ad755da56b931a27a0feb45225ff32483a102fff3c58ef26662054d4075"
