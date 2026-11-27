@@ -7,6 +7,7 @@ class KubectlTree < Formula
   head "https://github.com/ahmetb/kubectl-tree.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d7cc789c9af749db9473651e5199e06175606ad615419a8f2b280dd8d3b14c9c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1226181a7fc2df776dcaba11f5076b8931fdcd101ae883ba9498cab471ac0f43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8c9c1a1c4e2a65ea14c2d7f9990bd8f2fe6c8e3e830919ad640c869e166d046"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45fd6b68d10fa64ce250f52d574634672c210570ab0b0960a9c84ce42178efa9"
