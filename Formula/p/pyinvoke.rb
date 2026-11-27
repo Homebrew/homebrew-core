@@ -10,6 +10,7 @@ class Pyinvoke < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "af09c39f8cf8ab3edf1190d6192b3fe879d3dc9027add30bcc17fd85192899e7"
     sha256 cellar: :any_skip_relocation, all: "d235da7eec7c59bbed91f9313386cf2bb18bdbec988cda9b229b28f373097974"
   end
 
