@@ -6,6 +6,7 @@ class Selecta < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2f56701d693fe978319c753c8e3cac944c3f5ff506dba503beb5a3074febd0f3"
     sha256 cellar: :any_skip_relocation, all: "9fb1dc1bfe59101569e6aea3522d36cf406a2c9b2b86464fce089cc36356b75f"
   end
 
