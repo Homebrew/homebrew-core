@@ -13,6 +13,7 @@ class Libwebsockets < Formula
   end
 
   bottle do
+    manifest_sha256 "23708da8f862499c6da5d40f712cf97593b96108e4283da51e0db3b4e2b464c6"
     sha256 arm64_golden_gate: "e74adf9d584a856321f9f296b4247274592c23c954a3168998c8f8bfc1932df1"
     sha256 arm64_tahoe:       "df4de90c24f08b522aebdd1b3925f15815b15dfa62150612244a1e48d4254cb4"
     sha256 arm64_sequoia:     "7d7fc8c203694dc167b40a796165369591e3efd20b0384f071d3210a6eb53221"
