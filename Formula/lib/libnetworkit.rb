@@ -11,6 +11,7 @@ class Libnetworkit < Formula
   end
 
   bottle do
+    manifest_sha256 "e5b0d42fefb05b657e2303521942e9503dd988fc62bfdce9fa1dfbe21bfd7359"
     sha256 cellar: :any, arm64_golden_gate: "b1c4aee8b66167207a5f62aee082bfaabfcb9e178f3e836e829af8f199391c2e"
     sha256 cellar: :any, arm64_tahoe:       "bf10d3a4fe3552ca92ffdf6e790a6a7031179f18aa52e15b7899cb530a9e4edf"
     sha256 cellar: :any, arm64_sequoia:     "e5f5148869a241cf86959f0a37f8cd3f12989d363c08ebb50f208e2ab12ce0dd"
