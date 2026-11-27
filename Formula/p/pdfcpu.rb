@@ -11,6 +11,7 @@ class Pdfcpu < Formula
   end
 
   bottle do
+    manifest_sha256 "faa2e2b6292085ab5173b2623adb8d5007365fde4c2bda4d755ed729702f3a2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d0d57692e77c6b626c1fd3096d7ec10dc995732793641c2d75dac72f76ff353b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d0d57692e77c6b626c1fd3096d7ec10dc995732793641c2d75dac72f76ff353b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0d57692e77c6b626c1fd3096d7ec10dc995732793641c2d75dac72f76ff353b"
