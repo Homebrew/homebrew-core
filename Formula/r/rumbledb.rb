@@ -11,6 +11,7 @@ class Rumbledb < Formula
   end
 
   bottle do
+    manifest_sha256 "3a054b42f3d6d1853cddf635b06b2ed9b3895f72cbf2651d87e12cdb075968cc"
     sha256 cellar: :any_skip_relocation, all: "c4170f03feb4049f38fa8493c01ec723bfbea79e798766932edc9fd5c3a24a32"
   end
 
