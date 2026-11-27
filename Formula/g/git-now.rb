@@ -26,6 +26,7 @@ class GitNow < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "89c28daecbc9a1f4c9d8f935232b4dc585727ec6594e312a0a571c4e1e538ff3"
     sha256 cellar: :any_skip_relocation, all: "3ab8b27aefe8c9e0580cffc3c996028dbfcbca7f9c0c90a9141585d682f816b4"
   end
 
