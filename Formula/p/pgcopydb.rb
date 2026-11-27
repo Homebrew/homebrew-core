@@ -7,6 +7,7 @@ class Pgcopydb < Formula
   head "https://github.com/dimitri/pgcopydb.git", branch: "main"
 
   bottle do
+    manifest_sha256 "987a1c0580ec921cba919db70cda21f50f14cfd7f13785068471a9d6bce38b13"
     sha256 arm64_golden_gate: "989d4b1790ee122c25b5f052050ddd4ff044ab5ab36835fbb12e9ba775dea763"
     sha256 arm64_tahoe:       "0abe2100b8618872b68755752dc2d39a1ad730eb34e2732d6121724a2e7a844c"
     sha256 arm64_sequoia:     "2434673cf48fbbab5e75f2cb7f03fb1f5b32a14c06182a5f5666ba9b1bf50234"
