@@ -12,6 +12,7 @@ class LibvoAacenc < Formula
   end
 
   bottle do
+    manifest_sha256 "4b1d2c0488cbe0cd4c861d7ea51306b22027ee760d85083580c862e4dbdb70da"
     sha256 cellar: :any,                 arm64_golden_gate: "32a3e45a97f64173d37f491a121921375b1439f71e9f35ec653453dd77bf1dc9"
     sha256 cellar: :any,                 arm64_tahoe:       "86707b69dbdb8c92aa266ebe65b67721e688fcf078e66106a578ddcf0ab6c3f0"
     sha256 cellar: :any,                 arm64_sequoia:     "364ec1b50f38e6b1b0dc5e1ea7b12b624e249aea41810491669c9356ff96feac"
