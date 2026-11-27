@@ -7,6 +7,7 @@ class Json5 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d781f681397a2dc6d285b9eb0ae7a31604dbea58e33e38c671b863131a9b124e"
     sha256 cellar: :any_skip_relocation, all: "549882eb4bc333f0952050c2578e929cf4d653d3834467aa364ef0b07f4133d3"
   end
 
