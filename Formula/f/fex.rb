@@ -6,6 +6,7 @@ class Fex < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "4d865d074723e48cd7b5eb1454b0427b1a1b501148a691fd466b11a3afe8c40c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec3529ad68f485d8b993f1c1db17e8e9fcc71881b2a2c7d9e4cb0d92d357f4c2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "176a130c8c8b14eee48303c89fcab8d8dd6534e43fb042d8fab5b30486e2641b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0777ac160fda3d6860d6a7077e98e05e0a7a80f75c4c15e39c58699bd9c22ff"
