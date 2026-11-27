@@ -12,6 +12,7 @@ class Smenu < Formula
   end
 
   bottle do
+    manifest_sha256 "7365c50ba4059b4dcc896875a4b8b1a5eaee130d8c820acc640cb78ccaa63e6d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9613f6e672ec4724e72b07149f6a8d4f31285e07de935cc071a7239ce919331b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78a219ab9e9b09653e73a48168c5acf40cf2f2cbe40d4cb3280baab5fbd6bd60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "680882f063d437bba1303cea04f8f9124f0b968c842c2604684146716631eade"
