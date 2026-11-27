@@ -17,6 +17,7 @@ class PipCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ad1df9d652297e384c52f68e7ff1c1fda55e4496d8010b884e4a642fcfc07311"
     sha256 cellar: :any_skip_relocation, all: "ea3a13ea2cc0274e22c8afff04f203677ea90969ff2a6bcb9eb7eb7d072d1f17"
   end
 
