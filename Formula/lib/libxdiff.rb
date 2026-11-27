@@ -7,6 +7,7 @@ class Libxdiff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2d800e4ad03dfe913530ebee2a82b1f02a1dc00c32a1988b31d358d4dc301dea"
     sha256 cellar: :any,                 arm64_golden_gate: "e59583c07522b27f6ba6d0af85581808b95a62bf2c38eb32a705321458865e05"
     sha256 cellar: :any,                 arm64_tahoe:       "52f89bab5540ae76ddffb01090a41adc4ca1f11696aa0f64274307b1fc84bfcc"
     sha256 cellar: :any,                 arm64_sequoia:     "044f8ca7045a788d7096478af46442537dd601d92b6d73c8808f6c2337d0990c"
