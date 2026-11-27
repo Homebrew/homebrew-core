@@ -12,6 +12,7 @@ class Jhiccup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "abb364f58ecd01b3b6821ee5881c1b9f2809aa84b27ca2c7a945bc39d744eaf1"
     sha256 cellar: :any_skip_relocation, all: "010529211ca43ed531a37e60a1c33ee7a38b823038d204992713461c4ef4b56c"
   end
 
