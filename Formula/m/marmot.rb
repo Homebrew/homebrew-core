@@ -12,6 +12,7 @@ class Marmot < Formula
   end
 
   bottle do
+    manifest_sha256 "9c22ac0b1b496cdf0154361814e233ec3425bd6096cc6e2f1b0a4626e1f792b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f1edfb25fc55715bb7576101152bfe47271f8f0200e3debb4dc0b47abe365364"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f1edfb25fc55715bb7576101152bfe47271f8f0200e3debb4dc0b47abe365364"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1edfb25fc55715bb7576101152bfe47271f8f0200e3debb4dc0b47abe365364"
