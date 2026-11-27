@@ -17,6 +17,7 @@ class Picat < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "879c590e5dcb318495885c1f49a01c0dfee7118206866967cf5f9b7c3f5a9285"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c78f2020d268c556bf9ecf324b7ed75e230177aef48f02b4dc23abcc674a489"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "96e54aaf25f40b328f5b46086782d64006789a374a3b9d20fb909e4851bc1f45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bcf8820453e7a55a6dd0e0abed110cf3cd60e071c7e0599c7128afbf1f88ad6b"
