@@ -7,6 +7,7 @@ class RustypasteCli < Formula
   head "https://github.com/orhun/rustypaste-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "42845e96831fd38880dd6e02d2088c8960ec1b85b24374d2b99185019dcb77e0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ee5dbe1ec9093d7c7591777535c6270855cc0e186e7c4ce704488275fb60adc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c439aedd2a1b304aa65c67e268a720a0e927bf21052b74839b8a2ed99c7b0041"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5820b5ec3076f8de2890df7df221a7aea838298ef505a275bce60b0603ba601a"
