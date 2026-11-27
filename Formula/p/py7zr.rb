@@ -10,6 +10,7 @@ class Py7zr < Formula
   head "https://github.com/miurahr/py7zr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b797b1bceb2234fcb1160705b3fe1d418baeec6dc076fd629a9dd3e26314ac3c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3fc40d3821676e4258cf6f4aa25b530a194c64a7e83fea7f788a1ab1bd089cde"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c851f016a5d219506dd234f22f3d2e2fac03ba403a586d425b59447b11e4f8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c559fd0fd37ec78e1be22747f598255e67ab963f8088ea17edc3863035e7ec2"
