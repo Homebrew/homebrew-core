@@ -13,6 +13,7 @@ class John < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1d06b2f99beb80e5306cb85f5dbf11018103b2ec8d13df0b36f66e132e3860a7"
     sha256 arm64_golden_gate: "28fe4531586662faf952417180bd98dda46aab365e4688853054fab355dde0cb"
     sha256 arm64_tahoe:       "de355d8210ec0ecde0806a9934c6f14600943b18ae9e98b67571e7b1f7f215f1"
     sha256 arm64_sequoia:     "838f0767e0ffb76971a2a0c05c76edb7c0bcd457446ac25eb6b6ac003668197e"
