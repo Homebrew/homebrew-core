@@ -7,6 +7,7 @@ class Permify < Formula
   head "https://github.com/Permify/permify.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e3c98e73a1c1cbf7070dd80c72bde319d00693d84470d425fb87a15862c575a4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "325a1bc8dea04da4e0fbbf196de07d86f2d94c5e69957934daaa2d1be7250e12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29544133d92d635f2ff3e8988b7dd16441e5158302d15e08689e8eccda114d41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b39f73a0a9c224280cc35240afee09bca0fbe1c3589ed0aee63fd7fd0d5254d5"
