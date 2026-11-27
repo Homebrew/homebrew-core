@@ -9,6 +9,7 @@ class GnuTar < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "204ecb5602c1b1dc4178ff696925a3f8f3cc48d8f14c97de4892030891694fe5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "98f372e8005b4f963a3c507f02ee212a9b20f9d9e4d8309c598ce331aab2e359"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "522c584c74e1ce6a685feed68e135353ac42262b9253d26d562fccf5b176df41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa81f1c558381733e4506ec7b918d3cd39ad233ab74ed9b90bbeb6d709e47c21"
