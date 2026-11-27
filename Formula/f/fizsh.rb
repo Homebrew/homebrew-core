@@ -13,6 +13,7 @@ class Fizsh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7819664e46c9c3b0c0951e874ed17d8b9fdc1258bb95428f40c573d286daa557"
     sha256 cellar: :any_skip_relocation, all: "f893871f51a8542bbc01321935e948a6753e4eb5865885307dbdeed9882e7192"
   end
 
