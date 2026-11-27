@@ -13,6 +13,7 @@ class Libparserutils < Formula
   end
 
   bottle do
+    manifest_sha256 "8442e0e550a8969ed1a34de184e7d50f2f8dcd38f09eda0ccc5e0c9fb439f110"
     sha256 cellar: :any,                 arm64_golden_gate: "b73523be106c5dcab6cf602d5a163a16776ee47ba36a944dead58a6b05180a4a"
     sha256 cellar: :any,                 arm64_tahoe:       "f611219c6ad2fa78766ef8c18c4518dedb5f4c271266107cdac37b35100e8a48"
     sha256 cellar: :any,                 arm64_sequoia:     "e35b156576ddb9a5048e030e4bade56807a40b535d424c2d80fdbd9a322b761b"
