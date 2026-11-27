@@ -12,6 +12,7 @@ class Kanif < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "be737c1317cb859bbb9e5fc57055be9e13edb10ce5e18be489c332afaa856c21"
     sha256 cellar: :any_skip_relocation, all: "f8e0c833384c4479f288c31b55223157190f271ca6489bbcc47cfb8c9c2042e8"
   end
 
