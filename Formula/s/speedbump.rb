@@ -7,6 +7,7 @@ class Speedbump < Formula
   head "https://github.com/kffl/speedbump.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bffb514ee621e961a5a91938e454e18638f29143b3bab47369227984980aaaee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2eeff7436e05436b5f0b414d470733a83a639cf40f1f7366c784492db633f0e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f991bd2a54623cf73881d495c86a2d7b4bba3c5af8fae3a74d85a1bec5bb41cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a52604fc55f69494bce2c79dfe29d9b85ad5b8828242a10358aad3d5f82dd161"
