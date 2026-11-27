@@ -13,6 +13,7 @@ class LldAT19 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "17e0f8e8b6337c346eae446440b92f8abebd6b975aa6f0a451bad4d941b19e3d"
     sha256 cellar: :any,                 arm64_golden_gate: "66194715013e326b9985c0a437772a37e62145567d3894636ee2fabc5fa896eb"
     sha256 cellar: :any,                 arm64_tahoe:       "9ddd9901b7878ee213380fac1b20ea3623f69071bda4d78582762434604c21d6"
     sha256 cellar: :any,                 arm64_sequoia:     "91bf5d8928c18a461e1b3223513526b176194a7873597eaf21298aee1fc1510a"
