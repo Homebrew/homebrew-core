@@ -11,6 +11,7 @@ class Erg < Formula
   end
 
   bottle do
+    manifest_sha256 "52e546c1c90f693ff6498bef0469a356f7b36d5253a1dc53d9bbed9a9fd5a265"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25d0aa480c986c0e3a9db8d3d0b88c0a95f39755b0a41264386af67087781cd9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e023ac2edc96a64a6018908035a57dae257571215a9c07638c51163412f17fb6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ede4eb6b4dc1753b90e42e7f9c9e583e81f259eab1c6d651ab673706b79747eb"
