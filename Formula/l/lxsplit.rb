@@ -6,6 +6,7 @@ class Lxsplit < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "c851c8f10452fb1815b14f4ecf843260f4ce1a7f4b0fab1ecc89119fd21a6561"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9f79ca80ab0cffcdf0d5feabbb3c797bee99ad7eafe8978c6b06ccb01a20ecd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e8aad7fc027ed1c5b9e42964483b596d5c1cfd98853f5d1cfb64a8f3155b98e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af8c07cc79161f9f81048ef1dadeff7098887526cf5e178ae9d80383d2a2fa53"
