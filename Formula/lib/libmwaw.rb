@@ -6,6 +6,7 @@ class Libmwaw < Formula
   license any_of: ["LGPL-2.1-or-later", "MPL-2.0"]
 
   bottle do
+    manifest_sha256 "873c1fca1c7d634f186e9fc98cb2551d2729a3bd0089120f48ea7cabd5c94f01"
     sha256 cellar: :any, arm64_golden_gate: "6f372934ae8275146efffb1601416fcfb1bcbace27b1808d84f0075ad90b780b"
     sha256 cellar: :any, arm64_tahoe:       "f8d25c7c58f0171849af7f60db0d87f2086ff27075a126f55c8524a765353caf"
     sha256 cellar: :any, arm64_sequoia:     "876db022c48d3d9bdfc7974d80b9410bf29b5df4e6be016b84b914819f5abfeb"
