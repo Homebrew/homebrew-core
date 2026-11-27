@@ -6,6 +6,7 @@ class Grt < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6f0a246af90d6a76d90b9b261746746cf2031052476652b71ae8fec8822f09c0"
     sha256 cellar: :any,                 arm64_golden_gate: "1a13acbb2022cbc30b1559a16ed4f9e76e8cd8fe22e556f4a5edc9a756da02e6"
     sha256 cellar: :any,                 arm64_tahoe:       "c6059dfbaae19edd07d9b9c4df53dc8797cfe6d918ce9cfec5628bfefc6ca3f7"
     sha256 cellar: :any,                 arm64_sequoia:     "074ba306d1024617ace8a0f056a9c55cf8cdb53ede10471eb77eeab5435f6e6d"
