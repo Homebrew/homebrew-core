@@ -13,6 +13,7 @@ class Gtkx3 < Formula
   end
 
   bottle do
+    manifest_sha256 "76040c3bc78383d48891f10b54b5f86a696fd2470b446e935657f2db552ba575"
     sha256 arm64_golden_gate: "a999458cf54e8d440673da8f4c110481081b775b8258aaf7b47561792bdf9802"
     sha256 arm64_tahoe:       "cfb433ae2b1ac08ef423491c7236861c7b25c31743bd1de899b103e7f9cb1a05"
     sha256 arm64_sequoia:     "1e73c5fefdf1c6395fd3398eafbb484a70fc0059750973ced3c8b3ac9eb7bd01"
