@@ -12,6 +12,7 @@ class Lilv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "abb2a409013d523c32398204543eeae1e8b1ce004e77dd0682ba73fdae94bda3"
     sha256 cellar: :any, arm64_golden_gate: "5defe8a7361e21a452aec3724fde3459e1e25cfa40577faf86167f9a72d828b2"
     sha256 cellar: :any, arm64_tahoe:       "403ddd2d07bd03b70179ad59fadd51dc3845c948bff2d24aab720e5ba659dc69"
     sha256 cellar: :any, arm64_sequoia:     "46cbff610130f72c345a23cf8e24ca6cda1f778fbd676bac1bea80011df9bea0"
