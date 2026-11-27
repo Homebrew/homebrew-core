@@ -7,6 +7,7 @@ class Mubeng < Formula
   head "https://github.com/mubeng/mubeng.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e73bb8b5ecf7e2d48eeb5d303ff8a4b92eb8b953e2e6a73c95d571f928bba840"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "28dcb4299478739fde0c7691c610e7a500f2ff9a5f2335e2a4f53407c506ec00"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "180f314d468ebc17cecabecfc0986cead05b47c09c614d1211781fd55dbff0ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d861eb83c6ac431a6dd5f3b4ac21886702859ecc595c273c0fcf3648fd6c9601"
