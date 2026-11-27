@@ -8,6 +8,7 @@ class Rclone < Formula
   head "https://github.com/rclone/rclone.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8434551f7b440c7d5b2511420da2764ebeef16045239b7676d00c87c8308ddcd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9222bbcbc32e6fccacb45a6f1624d4019faee553efbf8e93824c0ec4229db49"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c596fcbb3a8697223402498a227723ddf14c295b71b675fd5d85448cfa8785d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5929f2f0dd6357480d68bfa6b504238b36f18ea87bd82cd5abf29f7f27b73975"
