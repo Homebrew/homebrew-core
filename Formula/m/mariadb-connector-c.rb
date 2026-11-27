@@ -26,6 +26,7 @@ class MariadbConnectorC < Formula
   end
 
   bottle do
+    manifest_sha256 "42221b5441a0614f2748e003fa21a9438cefa0cc2a61a8324d8eaf60f393a2a6"
     sha256 arm64_golden_gate: "ddf397ca3f6fc16c8a0e2e07327de560a767712afdd3e95e0b08cde122580347"
     sha256 arm64_tahoe:       "87595e0874db22f73ce3851878ef6a1b1c245329483ab62bfea941192effefaf"
     sha256 arm64_sequoia:     "17f850c2acfc88296813e47293805498c8138f9bc1bb2d8818602619445cf674"
