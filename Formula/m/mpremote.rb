@@ -9,6 +9,7 @@ class Mpremote < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fb692da71022a0dcd9bb0ff8dbc3b96e58c43728a026f4e3a574ff29bf4c61b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "473071f1fc70e954d08258b295f52826843cbdafed173d79bc4c3d269d0a2491"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "473071f1fc70e954d08258b295f52826843cbdafed173d79bc4c3d269d0a2491"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "473071f1fc70e954d08258b295f52826843cbdafed173d79bc4c3d269d0a2491"
