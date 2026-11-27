@@ -15,6 +15,7 @@ class Sheldon < Formula
   end
 
   bottle do
+    manifest_sha256 "10ae310ce73d0020a6f6ac351b6d4b0ed567fbdc144e751a2df7eedecc0200d0"
     sha256 cellar: :any, arm64_golden_gate: "6673cece9d7a8cf47b5a942825ba4f926f64eddfad1ffe760110c5fcb1576e05"
     sha256 cellar: :any, arm64_tahoe:       "a20cb1247992a8d40185c0e7517cdc8d6d9e3f208efbfc952a3c62e92b1cfd80"
     sha256 cellar: :any, arm64_sequoia:     "880a8185076345b4f60261561624eefd5977e15a987d4062c62bc389d707afd2"
