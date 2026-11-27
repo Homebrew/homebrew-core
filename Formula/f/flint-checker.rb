@@ -6,6 +6,7 @@ class FlintChecker < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "11e6013a3eacc0d1ecae3f8a15d8cce566b6e6b03f418fdf5689b527a8f9f3fd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "56d6a98b43b96933e9e0a41867ffbd3a639c3c781c9ae73a021d19c61bcecc1c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dcbc6af7ead098630fa98be1dddcad97432d65ccfbed01d7fb98120cadab7257"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f101ecd31a4b9eca93ee5d2147e9179ce0e9a6f90919b00c7151859ec66fc14"
