@@ -7,6 +7,7 @@ class Openturns < Formula
   head "https://github.com/openturns/openturns.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a1b2f2975bea9fab623b9b2fec923f8f3f3659bca80f7a71548defe13652d87f"
     sha256 arm64_golden_gate: "2b7d69d31b131a7a9dacb8c689e1320cd4351665f4a122a034edfe22f26708c8"
     sha256 arm64_tahoe:       "ba4fa215dba6f8ed923bc3e2ef276a908283afb63793ee2c573d391f62b38e4c"
     sha256 arm64_sequoia:     "3a2951fc5f3652e0da6a30441b7fbfd2cac5e48b9dc67a4ec87b0a9812dc18f0"
