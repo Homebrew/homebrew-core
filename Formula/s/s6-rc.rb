@@ -7,6 +7,7 @@ class S6Rc < Formula
   head "git://git.skarnet.org/s6-rc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "12b0c57e0faa8f29c4fb64e0550c1570b8b55bb785e4bb4a796bd02aa05be636"
     sha256 arm64_golden_gate: "6c4298ada36a6658090c900fcb6598732a707925aa9de244bf035fb23ae5efad"
     sha256 arm64_tahoe:       "6cd387ca2a7d859c9cd2b63ba8beca1e3df02f6cd9365c990035fb6edff71267"
     sha256 arm64_sequoia:     "f44e1d58420361aba18f5796f8b5bcb480b6fec077ee3820d0354ee2927380f3"
