@@ -7,6 +7,7 @@ class LeappCli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "fa1f86d7fddc95c9cc8262201d028e543c56956871a32e3fe43f50f8d8879287"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ecc6de45eedbb13cdfd6657b15eeeb24ef368d4424c70ee3537d659cdc401c61"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc1e7ec357d22e8c68abcb8f5b2621df647bd6a08e1c4bbc5a728ffee04c0c3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94ed65f571e7a93cafbdfd13e3c48a5d2f8124775e4362267391f181099d66f9"
