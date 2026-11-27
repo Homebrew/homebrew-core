@@ -6,6 +6,7 @@ class Nvc < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "9194e73f6db07095221a94c6e62cf4441bca654e77004d74795b1dc026ef6d0d"
     sha256 arm64_golden_gate: "3f02b1685f4025a60c17ae1ec48eb6749bc1b47f190b80d61cf0f2f97d9f845f"
     sha256 arm64_tahoe:       "82433b55e8597004f2bc83802922116c09b36231dc5626db2137d868cab4c3f3"
     sha256 arm64_sequoia:     "e331069b4c5ec9eea363bc619829e865def0c3ca27d4d7cc144613389e5cd657"
