@@ -8,6 +8,7 @@ class Regclient < Formula
   head "https://github.com/regclient/regclient.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bc6585542555fe6a1a354096c83effea71632640cebfdf56486b40bfb66dfd1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dfb3204f430873c6f5a7bcbbe605fadbdc26927139c2a1dbbcef5c53a3347487"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dfb3204f430873c6f5a7bcbbe605fadbdc26927139c2a1dbbcef5c53a3347487"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dfb3204f430873c6f5a7bcbbe605fadbdc26927139c2a1dbbcef5c53a3347487"
