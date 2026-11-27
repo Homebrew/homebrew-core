@@ -6,6 +6,7 @@ class Flake < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "d6e8eb8958a64c73c9ad4d646733a3ce0bc61e5b5f9772d0a92bf39894cc80c8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52a308e66f1a04fbff2490112d6f2856a1fa0ac32fda90623320b7959b57d64a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a74ce50f62b9fcfaad31673092ece8fb2abed1a710117f8ed0bd0e62d01bfe6a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d0c8523afc14e96a58b6494cf494b13527d6ba7f11c125b779999b1ad088644"
