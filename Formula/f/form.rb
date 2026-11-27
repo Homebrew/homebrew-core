@@ -11,6 +11,7 @@ class Form < Formula
   end
 
   bottle do
+    manifest_sha256 "e9a76a0b551e824aef6f6d30d7be61062e3c395dbaf18e84680d915b9547ec6e"
     sha256 cellar: :any, arm64_golden_gate: "91a588458025f662e3d469bcdeb1ca00af618bec583793225cf930cf031990c9"
     sha256 cellar: :any, arm64_tahoe:       "1c2d7cfa2efa9ac28d44008f71d4986657a005111bc9d7e133d7bda36e4e5f6b"
     sha256 cellar: :any, arm64_sequoia:     "243cd6d28cff1929fd5dcef809dbdf352422bd9cd89ec54a4a7430ac01f9af70"
