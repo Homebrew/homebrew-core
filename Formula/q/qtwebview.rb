@@ -17,6 +17,7 @@ class Qtwebview < Formula
   end
 
   bottle do
+    manifest_sha256 "65d0d932b58f2ee04cf065645fd37d4cb8ed89236ef7748d6a7dd1cb69b88b22"
     sha256 cellar: :any, arm64_golden_gate: "7306cdfd14f09e86ccd6a591ccc421de2fe571046f991c9aca2f61cc13164d53"
     sha256 cellar: :any, arm64_tahoe:       "8cbc8b44707b0bf28e8869325b223718463651737491773af18b9426b84a2bbe"
     sha256 cellar: :any, arm64_sequoia:     "db07ff8f985dd4faa817eb7782cbdc7e24fdb38130e7e4a860725ad5544069fb"
