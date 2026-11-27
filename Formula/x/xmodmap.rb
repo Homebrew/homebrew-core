@@ -8,6 +8,7 @@ class Xmodmap < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a63589bbacf399c056eede438578a99bd410247cd5c55cd6f383757ef35ce62f"
     sha256 cellar: :any, arm64_golden_gate: "bee38f85e975f72f62bc3e4045bddfd96ad344519354ad0bc43694c6801a057a"
     sha256 cellar: :any, arm64_tahoe:       "68bb9f8b47204fe1f7e13491cd67366a224ffb333f5025d6340ad87cc49b16f2"
     sha256 cellar: :any, arm64_sequoia:     "b2ab244fd297cb7ee7d5f41e95daf61c5b2414a662ab84d79e4898576a91dee5"
