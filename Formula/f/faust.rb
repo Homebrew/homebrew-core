@@ -16,6 +16,7 @@ class Faust < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1bef62445e5374a32895a99bd26b7aa48c8bfa1ec8b5e71f97e0e253a570ab76"
     sha256 cellar: :any, arm64_golden_gate: "34a3941af70ab72e0e60629b3fdb71d1c66ab73668c0e42168e8149ed590ed02"
     sha256 cellar: :any, arm64_tahoe:       "112897551733808454cde5b271078ca8dab4fc7081a537cb3ce5b047420c1495"
     sha256 cellar: :any, arm64_sequoia:     "aebcac66afe6236c588f226d09438f2a6d69eb4f92547594682820b77c406b40"
