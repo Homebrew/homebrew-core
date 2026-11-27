@@ -12,6 +12,7 @@ class Ivtools < Formula
   end
 
   bottle do
+    manifest_sha256 "c4c343be64742cfe9de645bfe936b8962cc7e8cd9955d95c274245d423a76664"
     sha256 arm64_golden_gate: "c0fb5cf339425f2c81f96b03e40aca7142546147f6db26341de06dd7fbf4fc62"
     sha256 arm64_tahoe:       "0ba68cb5a4d04966ae25bd30ada3ff3cddb192e9f3927792f41a528f96bcaa80"
     sha256 arm64_sequoia:     "750fb2fc78a73d9fbe7282ab27f514e142d77655dda84d2949bec51fb1838bd3"
