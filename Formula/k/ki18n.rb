@@ -17,6 +17,7 @@ class Ki18n < Formula
   end
 
   bottle do
+    manifest_sha256 "27fa734d32ef281f1b400a39946e25ca41ba833545d0df169d84e37b818ee5df"
     sha256 arm64_golden_gate: "f5cba2ee272625c6e2f1acd155564102f6fe4608798f3bdef4a705f63f025bf8"
     sha256 arm64_tahoe:       "4b10da778bee5f9a57d759d7858de8db215ba87bebab02eca0e0900675e19e13"
     sha256 arm64_sequoia:     "b84358c3961084aff06b52e583a08e7f4581b9735bb95a6dc2fb8f6f3a1b0908"
