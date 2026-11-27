@@ -8,6 +8,7 @@ class Pulledpork < Formula
   head "https://github.com/shirkdog/pulledpork.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d430cda2ba93243c888c7829f4ccfee5443f9dc1a662ad9660635499c5acc205"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba1a9de9e974dd6a18972b171e40e437876094f345377ceb8a681ba923b172b6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "291de857f6a091088c7b8d91b0a49e34401673649fdcebee214df00735faa49f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "291de857f6a091088c7b8d91b0a49e34401673649fdcebee214df00735faa49f"
