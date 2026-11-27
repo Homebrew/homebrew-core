@@ -17,6 +17,7 @@ class Qtdatavis3d < Formula
   end
 
   bottle do
+    manifest_sha256 "caf8e134e5d201a0a7307f34f31d885de339c97e846022c98e752a446c477268"
     sha256 cellar: :any, arm64_golden_gate: "6d50b8b0760fc06ce06343c3bbe008bb129a7300570f0949d953595da9d86851"
     sha256 cellar: :any, arm64_tahoe:       "36cf8c70cd02348f5e579e775f03bcb3ce7e1f7a5f72a15641736645a07a015a"
     sha256 cellar: :any, arm64_sequoia:     "987721425856d7ad2ea8f7a0a088beb9500cf34be59ff5b05dd26001319878b5"
