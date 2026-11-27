@@ -6,6 +6,7 @@ class Lazymake < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "cb1383120e0721c99047b6ad427066e53e6658db36094b1ea1de7d866be10bfa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75d04df33a570496571f15b9ac3394f24760a43e4160f277ac283d24fe849ba7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "75d04df33a570496571f15b9ac3394f24760a43e4160f277ac283d24fe849ba7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75d04df33a570496571f15b9ac3394f24760a43e4160f277ac283d24fe849ba7"
