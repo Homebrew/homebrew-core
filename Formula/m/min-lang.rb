@@ -12,6 +12,7 @@ class MinLang < Formula
   end
 
   bottle do
+    manifest_sha256 "f0ebd67c9798ce53f2c93f75cffbb38245b0f2615bef4cee75822d6fab09ec86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42bb96674527a495de466c096dbe2036e57c5171d48b4c6ff7bc02e25c916e8b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "acd0b9d8103075210e4a98887b144d37c8e1bfac09b68a0377610b34e800fad5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5653b9a583a31ef5927eb66f72422322c2d7de976d26f4ab75a68b2dca986313"
