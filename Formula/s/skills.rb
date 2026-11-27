@@ -6,6 +6,7 @@ class Skills < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "efd73ed3767074f09fcc9bb417fa7eaecfaa41d6d27d703c1e42f1c9d0cfb165"
     sha256 cellar: :any_skip_relocation, all: "ecc38669a342e387cf14cddc6402eb4816d41fb84db9070d5e65e71ff3e3215b"
   end
 
