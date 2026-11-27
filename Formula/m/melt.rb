@@ -8,6 +8,7 @@ class Melt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0ac9a5800f9002083efa43517bbaa3b47dd0dc7d655017db2408252df5bd7eed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "786d0b373d98f0e726d1ed74a2e00c988d509593179e792e1dfe0c47169680d5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6064c885c390d6c1b80356c097549fc1eea43ab0a1d12d50e2fb6cc3c1369321"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6064c885c390d6c1b80356c097549fc1eea43ab0a1d12d50e2fb6cc3c1369321"
