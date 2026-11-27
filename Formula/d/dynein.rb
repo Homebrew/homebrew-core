@@ -24,6 +24,7 @@ class Dynein < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f12ec1da2717b1f82e751a0065d4801ee48d9a0d225e918b5db773d6289dc0ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2f67983c1ee4e2ea57e211854b2762f47fff012698f4aeb5063bf2c5f19b18d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03b76825a0eaa0ff6ea61348406e1a07237c3bbf80b96fb529ab528e18439da7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6274450d91604af5bcaac30b3c071696eca8d7b5f3cb4578b2015f53ec90808e"
