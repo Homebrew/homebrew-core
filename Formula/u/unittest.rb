@@ -11,6 +11,7 @@ class Unittest < Formula
   end
 
   bottle do
+    manifest_sha256 "73407370268f2f617f97434127219371c4b75e599960c60cdd5de9dc4270e734"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aaec3f996465b6979ce4617ded5eb101720f07892c4dc8e186de6118adb92460"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1dca828fc584f8c03ad644362e528a803710f424773a437bb3cd22a28356cec4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "21c093f62ed5f62198f1a5275ea0e1793db566cdf0b6893e0a153a84ed41253f"
