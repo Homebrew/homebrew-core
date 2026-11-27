@@ -18,6 +18,7 @@ class Qscintilla2 < Formula
   end
 
   bottle do
+    manifest_sha256 "644955157f08eb985f942f5c3f989bfe977b0b44395e3ddce0ef9e77cebb7c25"
     sha256 cellar: :any, arm64_golden_gate: "93a24d7ccc16cd7a9f8d60b13454e967e454c53e1cb2acaf8822982e1da2256a"
     sha256 cellar: :any, arm64_tahoe:       "93a24d7ccc16cd7a9f8d60b13454e967e454c53e1cb2acaf8822982e1da2256a"
     sha256 cellar: :any, arm64_sequoia:     "56b396fd81246ea9521595ba013b1363c8ed63560d6327bde0085c9a4e3ed40c"
