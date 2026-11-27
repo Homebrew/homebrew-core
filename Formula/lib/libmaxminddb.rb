@@ -7,6 +7,7 @@ class Libmaxminddb < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "89553be5bd5c6e6b2149ac99af0cb8f2e146b76c7acb24ae08fff4c1c57f834e"
     sha256 cellar: :any, arm64_golden_gate: "2f0ae54b073b78c2dc1d526bfbb4882bac43fc9bdde1992aa81bb9a1c7aa7c47"
     sha256 cellar: :any, arm64_tahoe:       "29fad65e40df8a8665da3b5cd76f1488aec0161ac0da386bd66e01930aa246a1"
     sha256 cellar: :any, arm64_sequoia:     "a39f2ebe92607371937c715c6a22e1fec6895fb5e5f48682a33ea24be67abb67"
