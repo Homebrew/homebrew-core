@@ -1,8 +1,8 @@
 class AnycableGo < Formula
   desc "WebSocket server with action cable protocol"
   homepage "https://anycable.io"
-  url "https://github.com/anycable/anycable/archive/refs/tags/v1.6.21.tar.gz"
-  sha256 "af9cc9a79e758e4ee125bd6d74850fa747817da205c69fe0ecfe999fe06a336a"
+  url "https://github.com/anycable/anycable/archive/refs/tags/v1.6.22.tar.gz"
+  sha256 "6f3253a90a64b6cc1be1b7dd32a734d3f74f34be7060357a7314b9bc1b6e1190"
   license "MIT"
   head "https://github.com/anycable/anycable.git", branch: "main"
 
@@ -40,11 +40,9 @@ class AnycableGo < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"anycable-go", "--port=#{port}"
-    sleep 1
-    output = shell_output("curl -sI http://localhost:#{port}/health")
-    assert_match(/200 OK/m, output)
-  ensure
-    Process.kill("HUP", pid)
+    with_test_process(bin/"anycable-go", "--host=127.0.0.1", "--port=#{port}") do
+      output = shell_output("curl -sSI --retry 5 --retry-connrefused --retry-delay 1 http://127.0.0.1:#{port}/health")
+      assert_match "200 OK", output
+    end
   end
 end
