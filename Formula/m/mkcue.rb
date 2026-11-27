@@ -13,6 +13,7 @@ class Mkcue < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3d792d87b5296d4d793bd912e6346dacc65902d2c65e73c0c497e711d6eefeed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e11232c2f62c19688e0bfe0c6ee50aff205337def819dc5c500f34273b24b06"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d749706af2c32c59bc8bc5faa3c64d98ea35cf5e2f758d2080201b6feda10930"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86b0008a011b784913cbf754e986e22b8164c5d75cc872c599f668c7061f4f8b"
