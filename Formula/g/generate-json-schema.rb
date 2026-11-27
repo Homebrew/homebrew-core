@@ -8,6 +8,7 @@ class GenerateJsonSchema < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "f7aeb18555b9d2dd370aafafd5b533361f69e3f5cb26bb9adcb658cbd2932d8d"
     sha256 cellar: :any_skip_relocation, all: "455469fbc5354030c4c7e62fcaba25fb9610bd32078ced0b95502195f9b6972a"
   end
 
