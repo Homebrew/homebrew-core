@@ -10,6 +10,7 @@ class Flite < Formula
   head "https://github.com/festvox/flite.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b8f5493afc86ff970c9a8264fdf7cc2058b6bbfbec3e1326dd5e1b74891b0656"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d821a5fbe8b1f543c653f467c27a6b820442c07732dd54c90c65ab86d1769245"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1efab899bba7f6bec83d5f8db07dcbe12cb6af0f48d84dca73240ac3b483091"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3804878f6959a164a1632be059ddd81724d27ab50d7b161e39a90586b205c30"
