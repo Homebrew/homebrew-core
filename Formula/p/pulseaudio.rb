@@ -26,6 +26,7 @@ class Pulseaudio < Formula
   end
 
   bottle do
+    manifest_sha256 "e0f6f39e76aa09d9ed2f27c1b12bfd4c67e9cd83e63a8eae97293384c6d1870c"
     sha256 arm64_golden_gate: "76c4d4eea0d3f8a452577dd6083cb1961866fb4a2d3062c9bfbf415c70e681d0"
     sha256 arm64_tahoe:       "205b0d4e91803d44c893af002afd2d001f61edc426f7aa332b55994b86834a7a"
     sha256 arm64_sequoia:     "1a26b32a8d3e13d7d9c31b0ab2c0caef7846fcc2b148704254b555e1f8579e6d"
