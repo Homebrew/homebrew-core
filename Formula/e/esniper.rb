@@ -9,6 +9,7 @@ class Esniper < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "1bcf812e480fdfc3a9d5154049c79b310e39f05423acff5c1b9319964fc0f041"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e8e0e5a5654cb020be6525c6809032c11447340bc8274aee78b124a132535a5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0009b1cbccaa056103dc110ff59bd1bebc1f2581bf91b64ffd5aee76009efda8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ffcb434110b0fb16092defe371f445e592abc9119d56a2204bad258d266c6e3"
