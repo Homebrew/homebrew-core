@@ -6,6 +6,7 @@ class Rmpc < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "0836d5c463bbe67a5b63276f49658fb148142a1e32f8f250d323f2c506283d00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f46c31a45550b94057d0f554b33c643e060ed7a3fecc8047c26e97313621a1c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eae3f3a66d109441455c7d5a9ba1715b9acc66e3f9895a5cf78a68a723ff46eb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68c43267335e51ed5661c97ac724fe0e596d4fa9b0b78eca3f9545e2dbd658b5"
