@@ -6,6 +6,7 @@ class Hblock < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ab0ff0dbd6dff1dab575dbcb7773835298adba46c6238a84a06c1872546d7c2e"
     sha256 cellar: :any_skip_relocation, all: "6c09fc931678743d58339fdd89bba47265c00deb2037a3670e21de7957fc512a"
   end
 
