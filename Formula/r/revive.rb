@@ -8,6 +8,7 @@ class Revive < Formula
   head "https://github.com/mgechev/revive.git", branch: "master"
 
   bottle do
+    manifest_sha256 "abedac6e2f2f98de3d6c33060fe492e595e8598a5bcec50533a8176ee5a88d80"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8904d4423c264c19996af00d262ca04615eca6c78c0979403970ac08f47569fa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8904d4423c264c19996af00d262ca04615eca6c78c0979403970ac08f47569fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8904d4423c264c19996af00d262ca04615eca6c78c0979403970ac08f47569fa"
