@@ -9,6 +9,7 @@ class Lv < Formula
   head "https://salsa.debian.org/debian/lv.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f5f6a34138342969ea87daa1a39203b42d3a4cde481b2d2eb501b2641357a9e4"
     sha256                               arm64_golden_gate: "3dfee5fae1612af246fff036926f594fa9940d4d3b66d676b31d724d7059a1f2"
     sha256                               arm64_tahoe:       "ecb4b2ddef16ba003c1bed5ba898b4d7938b86d06b8d47a1a2f10bd1b9e1b34e"
     sha256                               arm64_sequoia:     "efaec6f504463810396e09314511c35269bf24a9e032190aff1be242605d3245"
