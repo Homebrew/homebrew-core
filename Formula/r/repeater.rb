@@ -7,6 +7,7 @@ class Repeater < Formula
   head "https://github.com/shaankhosla/repeater.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9a1e1e731c864222411d6765174e17d8999a3cae0416af82e06f6ac2eccf4841"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0fcbe87e46a29cc2fc6587b05075ee829567e0a8fa3e6150f0bf4392ce32e0d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a566c99d100550c20273ccc979c1d63bbb9634c43101ed6e502851a08b0f6366"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ef48e0527e73fc6a6e3bd91e2ba0ca405deefa0dd42544cc66f8877df206310"
