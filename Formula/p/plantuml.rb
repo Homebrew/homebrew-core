@@ -12,6 +12,7 @@ class Plantuml < Formula
   end
 
   bottle do
+    manifest_sha256 "eb7ed08bc979d1bbd0f3d94fba4e0f793714a0cb5a63c496e556875593c8af11"
     sha256 cellar: :any_skip_relocation, all: "34ee70d40f7c24c9bc9ec1a0c7c5bd21ae223687ab2862350d488b01180a973c"
   end
 
