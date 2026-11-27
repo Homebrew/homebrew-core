@@ -12,6 +12,7 @@ class Orgalorg < Formula
   end
 
   bottle do
+    manifest_sha256 "50917c25c94fc816ebc52c4f603d8ae0fb53602aef799127e6e1db0965357faf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62b8c96f98fce64a132d038ca42c4ef48c1196571000dfe5058bbdb55907ed55"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aa11bd3501767c0c1057cdda65730e8893f9dc2f7da4cb96aaf78219df1a1fcc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc20b9130dfde0b22594c6e0956e25ca597ad7b8d5bc1fab464fd27265ba9604"
