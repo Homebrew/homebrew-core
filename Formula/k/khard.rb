@@ -10,6 +10,7 @@ class Khard < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8a33c06a4f78785ac2e4de2791b0157b2cf6bdcf74126de44a647e4f9b43f4d1"
     sha256 cellar: :any_skip_relocation, all: "4c195f3132769a2c3f54d34585f5aaf9434f5b9c6d7f2f9d5cb05e8a3a060f5b"
   end
 
