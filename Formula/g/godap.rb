@@ -7,6 +7,7 @@ class Godap < Formula
   head "https://github.com/Macmod/godap.git", branch: "main"
 
   bottle do
+    manifest_sha256 "63e27343a30db944241bf122c8f0d7a0a55d94c2aa65df1ae93a4ec522637767"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82dcd4dbc91cbdf424088ece95557c393db936998f583891ac2b1a9765098b52"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8dfffa83e0b66a22702b543ad5f55648e02e92b479924f488d447df36d1f13b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8dfffa83e0b66a22702b543ad5f55648e02e92b479924f488d447df36d1f13b7"
