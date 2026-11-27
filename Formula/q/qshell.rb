@@ -7,6 +7,7 @@ class Qshell < Formula
   head "https://github.com/qiniu/qshell.git", branch: "master"
 
   bottle do
+    manifest_sha256 "36e1ef7fd56b61d185bcc0a6d0a226e44705d28c6b21571f4abb232d0b4577ca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "602ebaed92b790db5809b692abdd7573af4a02232b301e3cf7889cdb783c0229"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "602ebaed92b790db5809b692abdd7573af4a02232b301e3cf7889cdb783c0229"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "602ebaed92b790db5809b692abdd7573af4a02232b301e3cf7889cdb783c0229"
