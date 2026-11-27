@@ -7,6 +7,7 @@ class Libfontenc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "59ab342c9ca988d069536a77033a6cb762ddf15b9a316423f7b7c64e3aa71fde"
     sha256 cellar: :any, arm64_golden_gate: "c9b39562d9eebb24ca9dcb46ccc7fca6fcb8fa9f2ff9905207c240243cb18c3c"
     sha256 cellar: :any, arm64_tahoe:       "da90d84d049c0b846db3aab5dfda0b45c3f3cc230fe0f371cfaef11b82b1355c"
     sha256 cellar: :any, arm64_sequoia:     "5f88fc36263f3fe0ef0f61ab56ba58950ee5951f31213e3281fa9836987ff7ff"
