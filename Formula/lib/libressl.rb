@@ -14,6 +14,7 @@ class Libressl < Formula
   end
 
   bottle do
+    manifest_sha256 "bc5db202007f375f267f69bc8eeb1fb1bce469628c6d792d7e41243afdf30df0"
     sha256 arm64_golden_gate: "e349a8c3490ae8d9119467135c2e068f6fec359d196b809fdb1d6623677bae61"
     sha256 arm64_tahoe:       "aebf532e1c5a0a09848bc0908c32146df91868b610c3fbe05367b27a4261e1b5"
     sha256 arm64_sequoia:     "ffb499a0617f07c4390820afc1e075861e058fc0acd66c3041ef1c4669c0ec6a"
