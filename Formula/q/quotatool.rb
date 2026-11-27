@@ -7,6 +7,7 @@ class Quotatool < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "58662416a6688c12cfc315fa6ac73ea5f87cdbae1b08aa8117ff6f649dab7166"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "badbc7789884179f26f459091309b7684966888dbab9ae535a432c56379aebf4"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d9915dfded9da0855dba04c841dc3c7c1ac33b94dfb68ce10dbcd18552f313b0"
   end
