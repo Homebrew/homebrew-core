@@ -8,6 +8,7 @@ class RmImproved < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1a7603c94a71bd12065b665f9c9ba5efd44209cf871be22aea1b62706c10cfcf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "660e12ba9009e18e8a0bfd2be915afb5ba712523fe14461f26556889a5f09dc1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e73f26e21be0940c1377902b1c9c4497cc372327d56478b4cc54e3520be44b45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d100fb8045d0e637caf2931dc7c6acf352d8ebfdebbd2bc879c7668885f9b879"
