@@ -12,6 +12,7 @@ class SbomUtility < Formula
   end
 
   bottle do
+    manifest_sha256 "48cb9e42362c123f7d3799f63b0e82d3cc06738c92b61c9540601c933cb85887"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d62991b662189d14662a87e297629fb663c454adcd6a365ff6935c0bd83d7f9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f007f8c7f74412af69ca172963772a13d642e1781f8952374236cab1e7d727e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f007f8c7f74412af69ca172963772a13d642e1781f8952374236cab1e7d727e0"
