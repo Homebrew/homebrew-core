@@ -15,6 +15,7 @@ class HicolorIconTheme < Formula
   end
 
   bottle do
+    manifest_sha256 "d3e1fb879f2650851465d7f999115a035b2aa8919842c1315a5ff8cc61e9e361"
     sha256 cellar: :any_skip_relocation, all: "76779247990b538d304e98b042fde85677491e428d0381a59383264ce8ef199f"
   end
 
