@@ -7,6 +7,7 @@ class Skinny < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9f8aab4e1073d59b6e9d4905d0f4ea7e3569c282b4fe8f330401de47437260d1"
     sha256 cellar: :any_skip_relocation, all: "fe3e73f7ce63036df9780b6681a13aa48da130e968bbd84843c12ac2b7940f25"
   end
 
