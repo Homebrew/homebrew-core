@@ -11,6 +11,7 @@ class Jetty < Formula
   end
 
   bottle do
+    manifest_sha256 "ffc4915f7b9445a80ad29dfe66ec83b166f9bf7b5ff470b0c11d511b5c72abde"
     sha256 cellar: :any_skip_relocation, all: "cbb0ca28eee23273d4a49537d9a4f1f9342c2b0a1edaa682c18d6f7c638bd059"
   end
 
