@@ -8,6 +8,7 @@ class Pstoedit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a9e273e8e8ef64791956768967f9a8fc77a62f2b5d56ca61d6712c6d05e9659b"
     sha256 arm64_golden_gate: "ecddb1c076538b20cc2ff511f77dfb7b85301e473edfe30b9bd4fe1c24edff4d"
     sha256 arm64_tahoe:       "71b16f3464e1314670842c663a4cfee626a740a6bc39f7ea6219cb7f21329fee"
     sha256 arm64_sequoia:     "fff1ed2e7e57c3852c5fe36c3908938d19ec278a852e1aa8ef48cc2a175c747c"
