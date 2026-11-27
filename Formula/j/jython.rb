@@ -11,6 +11,7 @@ class Jython < Formula
   end
 
   bottle do
+    manifest_sha256 "0fe260263498f98baa5ef0ac0a665df68556333181c83d26981018abf38fa527"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70a8df59583c90a31e2e59f033915fca422f2fbf66550c9365f925f0989bb0bc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c529b39cca604a3c60c7aaf3582f95f2c34dda67db1ff5ec50e6b276635f520"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13e057d004350aeb89d008269280f5342064efc7cb4e66779bbb7661097a4492"
