@@ -7,6 +7,7 @@ class Rye < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "014eca22d66a65ac961b919a5e7b1523b8e4cfea00bce0f66fa7391451801e87"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "698508449b2199f07b4fa53f575e0ac39441af255e04b96a6b31e679a7e175cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "1fd55a7654c655daadb3a8d6a7849dbe07eaf050c453977716bc9c9675b12e3b"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e717a03a4088f7f6c176a4563e1988d8fe04e3512ef7c885fad645ed3f07c03c"
