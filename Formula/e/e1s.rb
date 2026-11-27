@@ -13,6 +13,7 @@ class E1s < Formula
   end
 
   bottle do
+    manifest_sha256 "827917b50dd0e440ef11a5caed38f3e069e61e4f7de328a2521297d75ce81ea1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "079be6764c8e19e17fa3a67a97fa48619623abda1db780697d147d5481074777"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "079be6764c8e19e17fa3a67a97fa48619623abda1db780697d147d5481074777"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "079be6764c8e19e17fa3a67a97fa48619623abda1db780697d147d5481074777"
