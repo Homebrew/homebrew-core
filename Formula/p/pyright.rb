@@ -6,6 +6,7 @@ class Pyright < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "788a7e242535784bde3c53d485dda67969ed949e6222268f14bbd5ed2ae6c7d2"
     sha256 cellar: :any_skip_relocation, all: "78ee22639f80dba179b653fdbc7fde85e646bfe9d2922ffa4dfa5aa78e12117b"
   end
 
