@@ -8,6 +8,7 @@ class Fmpp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1aa7b683fc295593f4037d17ae4f71548fb831461e26d5a8a6a96426ed7e4028"
     sha256 cellar: :any_skip_relocation, all: "fd2a84f1e4cb90f27ac04f99af1b5da3499c81e111e78370ebd71f448dd97d12"
   end
 
