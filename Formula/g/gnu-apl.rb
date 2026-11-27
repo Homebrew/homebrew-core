@@ -30,6 +30,7 @@ class GnuApl < Formula
   end
 
   bottle do
+    manifest_sha256 "cfb951d41769220c49909a32aed95226a37110c08fdb31a02680129621604519"
     sha256 arm64_golden_gate: "2063be39d2ad488f60ce2f1d08a77000ad669363e66d42c875ee1154c82b0400"
     sha256 arm64_tahoe:       "415920b4c553171c5a0eceb1953989049b462e4134daf8e04cb7209fa267e8c7"
     sha256 arm64_sequoia:     "066f0d40a60f92a1d7f4b0fd5aa8d18012c976ec7cedef011f2979ff7cea2176"
