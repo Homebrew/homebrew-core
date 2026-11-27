@@ -7,6 +7,7 @@ class Mufetch < Formula
   head "https://github.com/ashish0kumar/mufetch.git", branch: "main"
 
   bottle do
+    manifest_sha256 "356269d9e7dda12a6b46c63189ccd270c4aab8953b6217b1bdec2ebe5ebb97ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6f35de2653a4836e93423b3ce3e282fdce7c752da537060f522ba4aaab3dc7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "81a98a5e506fa81b66474770b31ba74505f78611bc9654c5277c568d64a8f036"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "81a98a5e506fa81b66474770b31ba74505f78611bc9654c5277c568d64a8f036"
