@@ -9,6 +9,7 @@ class Mypy < Formula
   head "https://github.com/python/mypy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5cf69aaac9909508952cb4a276938a2726f187f52019e3d6ed1028fe584ed7c2"
     sha256 cellar: :any, arm64_golden_gate: "bee3c4d12b801e8ba2af1674e81e12f5b52ebe5ac13630be79072caa7bafca6c"
     sha256 cellar: :any, arm64_tahoe:       "e37a855ce6a4e74234e3f445ccdfc5f95dada1f92279d19f17c573fd84fd6c2e"
     sha256 cellar: :any, arm64_sequoia:     "3fbce133d2be663cee53b21291f176720675e7166d9da925c6d997bc2c0199a7"
