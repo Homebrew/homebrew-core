@@ -15,6 +15,7 @@ class Virtctl < Formula
   end
 
   bottle do
+    manifest_sha256 "028e91a6ee79406592276660e433a5f26d7c991fd3dce24c9d39e06943c1ab24"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f49513422a200108079f8c307368ed6ed55cb56d9faa8ce1582b80a02964b9d3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23960112fbd3a58e6c9f44d6631935257468df2921e048bf950cbbbb7c2f6110"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b857df2db1875d42fb0aa96413a306f46af664b097459b3c5cf73a98652d0a9b"
