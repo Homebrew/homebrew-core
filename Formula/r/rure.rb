@@ -10,6 +10,7 @@ class Rure < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "18f33ecddcb4c4ac12f8ea27f132d39afeb2604ba4dcfa23f0202f22224dc1ea"
     sha256 cellar: :any,                 arm64_golden_gate: "407912c8d3b29efddfdde5d1736980cafd17dd5200d604e12010aec7d493a3b3"
     sha256 cellar: :any,                 arm64_tahoe:       "62ec3ebb9421cfbb27839d929284df57577b0acf86f2cef8d65cf46654d64f1d"
     sha256 cellar: :any,                 arm64_sequoia:     "bfd9bfc2d13004898934ba27a34f09647df7c02a6dfe576866c53dcbc5505ac4"
