@@ -9,6 +9,7 @@ class SnowflakeCli < Formula
   head "https://github.com/snowflakedb/snowflake-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "31a7db1828d24fd94642a73cfab483c2b3fe83d91ed61ff4385ddb455a3a2b08"
     sha256 cellar: :any, arm64_golden_gate: "84ae37e7ba05ccee4a8a0f3be091e99204abd622400d4d942037e920e72ddbff"
     sha256 cellar: :any, arm64_tahoe:       "2af41e479afcee764e200b82e93e321f561265c9b24ecf3bf075d5a4e064c5ce"
     sha256 cellar: :any, arm64_sequoia:     "b54fe26ce3feee792deab7832a79663a6ae268d3dead34a251c4ce30f22efe70"
