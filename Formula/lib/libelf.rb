@@ -14,6 +14,7 @@ class Libelf < Formula
   end
 
   bottle do
+    manifest_sha256 "959f7b69ade6f023aa1fb15f675ccbe71155aa66be9802d4e02f265cc0294cb5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66d9403316056490b1f571d8fc507e82419f7dbeb2fcd1ce54c1f9b5f9a9c872"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03f9c0c79cd12a3a0ab46052037033ef676960079c27be5aca7072abe80cc4a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f4135950b4b898f046e748266d309126a4c87e0e86a19d476192f9619660819"
