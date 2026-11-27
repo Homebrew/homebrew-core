@@ -12,6 +12,7 @@ class Autossh < Formula
   end
 
   bottle do
+    manifest_sha256 "f34945c32872d26acd3fe81a5a03df6164290df968b242ef7eb9601f409e5f9b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b23212c6cac25e973c0d1384d776a60a1eca96e336ef342a83d8e599a24e4c1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "33e051fb258b827ab535ba5909806f87dc63a82f3d3fe9117be1f3c0aa7f4045"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "66600f6f9ea804ec6342ea35c6bd26c068802f31dce3eb09ec161eb67fde8415"
