@@ -33,7 +33,15 @@ class Libswiftnav < Formula
   # to identify the referenced commit hash in the swift-nav/cmake repository.
   resource "swift-nav/cmake" do
     url "https://github.com/swift-nav/cmake/archive/fd8c86b87d2b18261691ef8db1f6fd9906911b82.tar.gz"
+    version "fd8c86b87d2b18261691ef8db1f6fd9906911b82"
     sha256 "7b6995bcc97d001cfe5c4741a8fa3637bc4dc2c3460b908585aef5e7af268798"
+
+    livecheck do
+      url "https://api.github.com/repos/swift-nav/libswiftnav/contents/cmake/common?ref=v#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
   end
 
   deny_network_access!
