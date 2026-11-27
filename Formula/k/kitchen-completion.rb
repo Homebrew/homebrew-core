@@ -8,6 +8,7 @@ class KitchenCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0dc8002c380094216cb5aea16bf29a1ed2908483ee920dc2b727a6fdd24fcfba"
     sha256 cellar: :any_skip_relocation, all: "2db54abff94a93a95e8cee31a46ad86210e556d2f2c25d1f7f3d8a8dd1853514"
   end
 
