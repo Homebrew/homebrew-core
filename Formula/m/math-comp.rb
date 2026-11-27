@@ -8,6 +8,7 @@ class MathComp < Formula
   head "https://github.com/math-comp/math-comp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "08bbed8149ae191edd7e93ed44be01f3f0f456772aa12934c51bcb7413bfcc0c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1087eea832702d8615c81bc41ee7961f136791566e662e483657bd63ff12dc46"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cde6f1dbe7eb10969f11a565f04deb3abf3e3835f311c9771703f7ef90bad3db"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc07567cac33180ec2deeed51680b405d5087e834e9d896671540596e2c73b80"
