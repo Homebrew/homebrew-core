@@ -6,6 +6,7 @@ class Rkhunter < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "e325a4b05a8e7e2aeeff9a9ee606e8043a5161a3dc15e01b9336e2d515874fa4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f3b275cd9295b106c7b0d56fab661492a8b9685eccc0fbfa9249ebca3e66806"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b58dd966408841d1c6bb19fa135f3eec96744806fba465a04b294c28c906839"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5635d3ac60704bc062b8336a912daa80d97cf9fd8d847572c55d82b8e87bbd60"
