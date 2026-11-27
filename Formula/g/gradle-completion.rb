@@ -8,6 +8,7 @@ class GradleCompletion < Formula
   head "https://github.com/gradle/gradle-completion.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9e7520a7b0dadb1b49e76ac386f5984b2407849ec9a6900d745bb3889ecd0109"
     sha256 cellar: :any_skip_relocation, all: "0d36610aa4c9370f5d9d2450cc2ed410873cf739bc5c7593b50d608a26dccf5d"
   end
 
