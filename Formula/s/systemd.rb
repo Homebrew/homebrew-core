@@ -31,6 +31,7 @@ class Systemd < Formula
   head "https://github.com/systemd/systemd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5571e003b524a5a7b069300a2085c8e0bb6c7643c50b4d612bdbf98f54ab20e9"
     sha256 arm64_linux:  "f5bd02faabb94d8f1f5d1032023c2387f87549d7bbebbfffe424305828420e3c"
     sha256 x86_64_linux: "7fd66c1eced33a927c0713cf6bec221235c6f404794ca917639552dea09b4257"
   end
