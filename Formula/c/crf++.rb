@@ -19,6 +19,7 @@ class Crfxx < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "9a6fdde8402438141dfbe687d15804f53def7bf8afa7dd0538113e1ec599ced2"
     sha256 cellar: :any,                 arm64_golden_gate: "4f1016ed8444f8d6cefecf2bb16c636267b1b334b2f222fde59e714dfba63e6c"
     sha256 cellar: :any,                 arm64_tahoe:       "6dc7eda56c3ad4d066a9f4a244ec02d9bdb4b1fe482abfd632fdace270c68936"
     sha256 cellar: :any,                 arm64_sequoia:     "af1f4415e133ec77e5dddfd4d967b16069928b8da16a49ee2fa27c77cb3ef616"
