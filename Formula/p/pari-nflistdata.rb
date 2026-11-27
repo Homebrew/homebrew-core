@@ -11,6 +11,7 @@ class PariNflistdata < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0c9b8f921897bd2c69acc12c8e7ad261a776e01ad4fbea19502809ea69882b1c"
     sha256 cellar: :any_skip_relocation, all: "4498f10e0cad3f1a03b38a31d0e50744c586b0dcd0a62902a97f32d7b663d710"
   end
 
