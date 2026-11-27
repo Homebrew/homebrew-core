@@ -14,6 +14,7 @@ class Lv2 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0ea82e2c657cd203f5f23b268d4e256a5824c31ca0987da4bb76c8cf3d4ac057"
     sha256 cellar: :any_skip_relocation, all: "25dce655720f7e01dee8e5b7db09049d887a4a0633ffac40a5333eec39283ce8"
   end
 
