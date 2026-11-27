@@ -11,6 +11,7 @@ class Libntlm < Formula
   end
 
   bottle do
+    manifest_sha256 "8d5c49536def9db50253fae5e9d4b514253e39455f0554ef1df53661cb8c84c7"
     sha256 cellar: :any,                 arm64_golden_gate: "f27a72d85fed469629999dbb069655ced2fdc1ef387989460fc882c61c2d42b3"
     sha256 cellar: :any,                 arm64_tahoe:       "881bfa38e82c41ce3dde641b5b8127ca0e5d906cf4c7e5f6787a3ce3b465d9e1"
     sha256 cellar: :any,                 arm64_sequoia:     "bebdb2ee8c5ef33fc95cd079147d06234b5661f869b6a88d23d68d4abd6fb28f"
