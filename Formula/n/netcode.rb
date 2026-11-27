@@ -7,6 +7,7 @@ class Netcode < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6fffef07c8485710912dc84958e317736b3d88e98b9106bc690b4dd56f6c3ffe"
     sha256 cellar: :any, arm64_golden_gate: "79a55986f366f73712edad24e28999a23d99dbfcd7485505e62f0a5969538565"
     sha256 cellar: :any, arm64_tahoe:       "6aac5a6fb2d82a766333112f1559d3c6c5b494eedd1d4a1ae508e22ba3b2b6d6"
     sha256 cellar: :any, arm64_sequoia:     "358b025a51f9ca0af276c4172c144fa6767978b6c6f89c2b96a75e64d3fa4b87"
