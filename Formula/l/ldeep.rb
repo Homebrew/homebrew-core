@@ -9,6 +9,7 @@ class Ldeep < Formula
   head "https://github.com/franc-pentest/ldeep.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4769ba94ea23f3706f9738cb28061e721765eaf0443e46435f625a8cdec394d8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7595632fb1c25cd068f2900c08b2165533c8671655b23b8205c2ee904475c30b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1019cb59a3b033c012276dc574563c9fd4c67c49f537fd75220519b117c48ba7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19dd32a3c9484a4d95fb519e6460b81059f89c135ff5c8971c3d3a07f48b3410"
