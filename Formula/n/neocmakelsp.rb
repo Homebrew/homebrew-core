@@ -7,6 +7,7 @@ class Neocmakelsp < Formula
   head "https://github.com/neocmakelsp/neocmakelsp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f58b2e6101548ea40b98fe7e70d6d3b05b4f18c977c7a9a1c890d3ca4c9b3083"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "961a9e9b5b845388cb9756fba960ac51c3fa86b80e77d17b87a97032ca36fc76"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bc2cb500ba3ac3d237bcae1ce0b30cfad343ff36bd6c60f71b75e9cc9585b2a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f012bae5cb932655e22581ad5981e6b4bb15f60880ffd86106e64b9198d2c1d2"
