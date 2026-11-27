@@ -6,6 +6,7 @@ class Pop < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "e5a3b36a34d79e72ee02966ba4f3ecf9c6c2b6fd9229d47223477ef2711b614c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4d61534133d1051db43b4ae91b9dedf2948634ac22f8717a5500ceef8957384a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14e534422878d8bd5f21a115f639daaf9fe0b90f0b81fe8204fc481ec4b25463"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "14e534422878d8bd5f21a115f639daaf9fe0b90f0b81fe8204fc481ec4b25463"
