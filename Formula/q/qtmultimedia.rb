@@ -21,6 +21,7 @@ class Qtmultimedia < Formula
   end
 
   bottle do
+    manifest_sha256 "1c64e63bd0d9094ed7e876d48191d318b8d2458bbfafb2ba927fa6637f6edda7"
     sha256 cellar: :any, arm64_golden_gate: "4faf4cbe2cf29955823b1ea917ed787040c38a4c0c03bccb5f1a0b31dbe21ecb"
     sha256 cellar: :any, arm64_tahoe:       "5442c1ba479b6b589d98c3429db5b03c6358fb136cd063e355edfc845cb9a76c"
     sha256 cellar: :any, arm64_sequoia:     "cbe62faafd224dcf14272c815da062d05c8d881740b4cd08f9ec9e6266eef347"
