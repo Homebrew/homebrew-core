@@ -13,6 +13,7 @@ class Ospray < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "85c0b9f056c126c2fd151c053e7480ee0cc0ab2619d901936287340397316882"
     sha256 cellar: :any,                 arm64_golden_gate: "77714d0885664cae584ce8927f622f218ff8b8dc7268352dd54767e05f6d09f5"
     sha256 cellar: :any,                 arm64_tahoe:       "37889fb9d563aaffcfd8b7fee60874967a6d4d16e10f5a9947d629f977222c1b"
     sha256 cellar: :any,                 arm64_sequoia:     "3df35dfd82214b9ee97e1a56a867d8c01c94f37537160d0e24b11b4656e94afb"
