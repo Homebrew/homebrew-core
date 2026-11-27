@@ -12,6 +12,7 @@ class Mdfried < Formula
   end
 
   bottle do
+    manifest_sha256 "6827dd1911262c8021009b0e01c10a67a038e93eb496cfaa4aadd64229017773"
     sha256 cellar: :any, arm64_golden_gate: "b5bcf103808b47687e5a01e64410bedce14289cd1cf763decd8cf6a3e6a4e27d"
     sha256 cellar: :any, arm64_tahoe:       "ccfbfb1c3672b95779cab7d4d49553df089e93ae27c47c8836ec226ebfcb6612"
     sha256 cellar: :any, arm64_sequoia:     "0ef65c20ffd6bdf17532a6373db7554d249f3624590d4e131616cfb96117cc22"
