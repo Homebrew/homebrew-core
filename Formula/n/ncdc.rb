@@ -12,6 +12,7 @@ class Ncdc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "20fcb75f72db5ea01fc905346045032b385a3c5a44e472006df6809df58663af"
     sha256 cellar: :any,                 arm64_golden_gate: "36e4073a1fc76c724840b1dc10996cbd7a2eb192391cb88d152c292ba64439d7"
     sha256 cellar: :any,                 arm64_tahoe:       "63721a456161299dcfacead5df5422fa0f6d45029024f3f1fba5d3d237035fdb"
     sha256 cellar: :any,                 arm64_sequoia:     "276d92cc9c94019497087d4a45b42523bd85363cf7c7d2963f23279151c29915"
