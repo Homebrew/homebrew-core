@@ -7,6 +7,7 @@ class Gpk < Formula
   head "https://github.com/neur0map/glazepkg.git", branch: "main"
 
   bottle do
+    manifest_sha256 "32d1e5d7a896c2518925f325af9f783bd24c23bfe6a1e586d1f1038c6c935df9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41a72a1e8c838bac6af7d62d97cfcefbcd6ae919ab0a95c20a39cc3fc2151b3a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41a72a1e8c838bac6af7d62d97cfcefbcd6ae919ab0a95c20a39cc3fc2151b3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41a72a1e8c838bac6af7d62d97cfcefbcd6ae919ab0a95c20a39cc3fc2151b3a"
