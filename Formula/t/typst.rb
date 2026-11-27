@@ -14,6 +14,7 @@ class Typst < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2cf151a4cb2cb7cc5aa1a8515864a0c173b2c0a7c9754a431dd8538c9ecc8051"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "534233338dee13f1b93c2e1c08d1e0c6c5fe201f793ba640d938d58666388808"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37bfa441d1641d246e8663d742f940811688b7cd56b50b29a6177928ed949beb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baa3a28555bff94f9f6f6154b8ef34458733daec86f22ffb1fd9af01fe9956b8"
