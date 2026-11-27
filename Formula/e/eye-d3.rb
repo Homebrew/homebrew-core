@@ -11,6 +11,7 @@ class EyeD3 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f88aed1bbb505543ca28f991962eace1c8c5b778b663845b91c8dcaf990cf27c"
     sha256 cellar: :any_skip_relocation, all: "142ba7fcb3a819564420acfff7c4c0eca80fab07ab32a5bc2d78cf699a2fe9d3"
   end
 
