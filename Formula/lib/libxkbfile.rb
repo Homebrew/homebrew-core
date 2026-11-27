@@ -7,6 +7,7 @@ class Libxkbfile < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8ba4eefbe39d1f7275d4cfe58e78dac65af3630a308b123d557137945cbe8f6b"
     sha256 cellar: :any, arm64_golden_gate: "ed812d4a6287a371d9a9026132d11cb34f43836fc54ac054036f6cdc04fcd3b1"
     sha256 cellar: :any, arm64_tahoe:       "d232816434655702f1c58d0d1039355d200d8285ebcc02b0680942b4747f4015"
     sha256 cellar: :any, arm64_sequoia:     "30c6f2323590d8bdeed7bdac55b00f1f9de960ec490d2421cb6789277f375462"
