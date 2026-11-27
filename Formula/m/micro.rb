@@ -8,6 +8,7 @@ class Micro < Formula
   head "https://github.com/micro-editor/micro.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ee7093a1e783094b082a8baf4cc56023cfa95b6cddb85608028d3a70326208d2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "076f381ce386530f6fc7146fb7e2314e33db6e84e910d04ae2bd48d394bc257c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d25910f57cce5ca973e4972f2d44981bd55028d76b0ddd44837f2b1d0dce67c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18b6e23ed8e653d39237e6c1cffb7d428f04bb367b33f0dab9cedf11b3826633"
