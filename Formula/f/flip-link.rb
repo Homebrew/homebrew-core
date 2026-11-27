@@ -6,6 +6,7 @@ class FlipLink < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "026cb5e0255614b127b56bff6606a43824fd0df789991d51f14f3038804e5d62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63b5248ad6ea518d671dec35d18211d487805148f0a5a7abff5746f2146e17b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ea90aef07c426e04b66ea2397ce1e2e22dabc52774f2d50d8015ec46978cfdb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b05e6b93858ca017be251d2446d44ac72fda26bc824bedbd8e5ee31837f4e858"
