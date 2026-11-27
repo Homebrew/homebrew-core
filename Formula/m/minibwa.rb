@@ -6,6 +6,7 @@ class Minibwa < Formula
   license all_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    manifest_sha256 "8b17fdc40a64041312870b26a80905ea0875eb6bcc1ccf957a43217b2a31d7dd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23f0965faca4eac9b6344cd7166d6a2b95c9729e0d99b3704fa3eb929a257bac"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e3eca6bb22984e2f53701d6a567bc0da1f483471b877c10e3f6ddd8b0cbeadd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2da3ab5ffbdf523d8fa6db56acff2edd542557c5353e7053c3bfd6b9670cee3c"
