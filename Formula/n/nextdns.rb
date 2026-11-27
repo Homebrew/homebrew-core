@@ -12,6 +12,7 @@ class Nextdns < Formula
   end
 
   bottle do
+    manifest_sha256 "a5b22dadf1715956f071409cc627f0c47cdecc87d6446e929bf791fd5bf64293"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2daf3f9593a8622cee095e2f0686a09a3206749a2bebbefc615226787f2a025e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41269034e2b8263f1e3185ee3f0bc8010fb85f8c8694cb97be396fecd96d8295"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b1c922b306a564759d0256bf459d19f8b93a26c73d49a2c2a313315f8476253"
