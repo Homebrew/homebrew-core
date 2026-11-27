@@ -15,6 +15,7 @@ class OpenMpi < Formula
   end
 
   bottle do
+    manifest_sha256 "c4fa95d06b48437904bafac4c68aa72ce7b3f2bbf320393756635d1d0b13df3f"
     sha256 arm64_golden_gate: "dfff4ff05401c1ffea4f9b7484499e949ed0e75f1dca4b57b593d08bc281a1c6"
     sha256 arm64_tahoe:       "d095a9ea0c14990e346727304518721a182e3303ec04d8f1768a0cc5f418748e"
     sha256 arm64_sequoia:     "4553b1769afb3afbb1d42f7cc14f2953e3ad965549d42ca52667c6be4cc74259"
