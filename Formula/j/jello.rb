@@ -10,6 +10,7 @@ class Jello < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "39af7044b90a97b2c65abe713d91090e0e3b048e15594f3e1601e85a0cd364cf"
     sha256 cellar: :any_skip_relocation, all: "c8309f9add296020c8fd450140fe405ecf2a8888b53b48c9e96d58ebed9f1a56"
   end
 
