@@ -7,6 +7,7 @@ class Fnlfmt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cf44138513c6ddbdba4736f012205895faac8a83b8be3d192588a2a0c3ed99ee"
     sha256 cellar: :any_skip_relocation, all: "a7de2d24da3f34f61af506004712abe8eda829b888fe7a565dc1ff931524ce12"
   end
 
