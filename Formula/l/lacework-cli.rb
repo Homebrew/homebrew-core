@@ -16,6 +16,7 @@ class LaceworkCli < Formula
   end
 
   bottle do
+    manifest_sha256 "eef03a159491160077712b21ae898913ea6ceb22c1297f937684ffa19e577e27"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "584ce84e5cb6175acc707d565399805926bf10b7f60379642acf56ac771be93d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "584ce84e5cb6175acc707d565399805926bf10b7f60379642acf56ac771be93d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "584ce84e5cb6175acc707d565399805926bf10b7f60379642acf56ac771be93d"
