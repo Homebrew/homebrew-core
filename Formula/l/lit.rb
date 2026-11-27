@@ -6,6 +6,7 @@ class Lit < Formula
   license "Apache-2.0" => { with: "LLVM-exception" }
 
   bottle do
+    manifest_sha256 "f7e8f4db5d8959b8c8b3a3966d5bc84e7800184d5c9e01d58d9244f4ca8e2ccc"
     sha256 cellar: :any_skip_relocation, all: "82fd9f80f80561dcce78b0b3a2856390f9b97d5ac7ad60fdcd8d1c034b7bc119"
   end
 
