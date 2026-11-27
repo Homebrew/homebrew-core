@@ -6,6 +6,7 @@ class Labctl < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8d8f87b3d0082d1f89ad424cb1cccff80f4834aab1e303456d5d46d8e782baf6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f1f0d785d5d76089849e9f0f552aebdab09bba44a6bd0790a1102c65c02490e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f1f0d785d5d76089849e9f0f552aebdab09bba44a6bd0790a1102c65c02490e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f1f0d785d5d76089849e9f0f552aebdab09bba44a6bd0790a1102c65c02490e"
