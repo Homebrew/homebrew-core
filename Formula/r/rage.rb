@@ -12,6 +12,7 @@ class Rage < Formula
   end
 
   bottle do
+    manifest_sha256 "047ecd07016f061503b3884049e16bb4ccac616a88e60549a95e564e4ef13cbb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5980b0b808d5fe6be1dc98294e04502d1a7bc51a6b1a8b73a81be4eecf4e1c36"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9250e8f6fe6570b0114a6fd5c126321bcdd61a3992d37b091ca54057cc755e6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3247d880b679a63e3e43a0e88e6eb7d572fbfe7b1f3d2c5f763e516b0703444"
