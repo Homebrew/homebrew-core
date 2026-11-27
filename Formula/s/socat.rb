@@ -14,6 +14,7 @@ class Socat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7a379a3d17e22eb1678db9825d1577657640b04831775d87af9bc74e1699d9e9"
     sha256 cellar: :any, arm64_golden_gate: "8216d9bb5ee04d0c8c8099711a81846dbd5b90e8b012ba9be3205a5e4cd3be6d"
     sha256 cellar: :any, arm64_tahoe:       "f59f7e2df3f1428f970cd4d7c260f316ff1378895319a6de915836d27eaf7ead"
     sha256 cellar: :any, arm64_sequoia:     "31d9e7870de62e53e7735298a2f1757581053ddc78fddab97eec0a53097b999e"
