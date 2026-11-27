@@ -7,6 +7,7 @@ class Kagent < Formula
   head "https://github.com/kagent-dev/kagent.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c0a708addf32ffe286172d3a0e51611453070d21a1c2dbf520a7b87857270027"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aac4a073a4a130f756483b3ee972b60393519b96d5c122d28dd7cf03fc461595"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0b197724451d84f641b96368bbd8a5f307dfe64035ea353d959f7e3b742ba89"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a469152ac63318bf83842df786bba16da7d50769d8d4dad2359cd10c4421708"
