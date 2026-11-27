@@ -7,6 +7,7 @@ class Sgn < Formula
   head "https://github.com/EgeBalci/sgn.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5479c7937f086e7c3036f5ca7a1034c25eceee0695f30a5ec1ea8ff997fee95a"
     sha256 cellar: :any,                 arm64_golden_gate: "9752f2059aa6784ed42d4540f7479aba2562c1fbcf65ee11c31cb1c8f24ac6e1"
     sha256 cellar: :any,                 arm64_tahoe:       "07eccdd132aee13fd1372292119fe9c0626bed3fdf0c162a2ed61e9d5e89d279"
     sha256 cellar: :any,                 arm64_sequoia:     "5725e674f35d68b61e9c90b6de698aadb6e8345e4558a3b106d81e2930fa2e6c"
