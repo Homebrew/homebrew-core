@@ -8,6 +8,7 @@ class Goread < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da186e7ad31d5715461d02693c47cb0910fefdc5c30e02e4868a28f0c71d28c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da54d63cfb0ced8a1125abdc1267716cd046ce3341fbb173ce0fe1c08d552c80"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3f2abcbf279010d6288ba9103f6f06e98f06293bd5b175fd047e4529cdfc644"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3f2abcbf279010d6288ba9103f6f06e98f06293bd5b175fd047e4529cdfc644"
