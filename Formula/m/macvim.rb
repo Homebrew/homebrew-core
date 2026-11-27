@@ -25,6 +25,7 @@ class Macvim < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "46335de4aba7f2194f71ba5124ccf571b1536c7dd9898b821096d5324c76d377"
     sha256 cellar: :any, arm64_golden_gate: "661234fd4eb2f71a096d9a43334381f7b6242126c6b31a1cfcb50f027094fe51"
     sha256 cellar: :any, arm64_tahoe:       "370d2e7d96b1eb3eaf14222fda1c7c310f32169adfe1cf3d49d957169410af23"
     sha256 cellar: :any, arm64_sequoia:     "d5d3094fd0e7439579eef6e8c503207d1395fbd8e3bfbadf0849e3bbfe2ae4b3"
