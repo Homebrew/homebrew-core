@@ -7,6 +7,7 @@ class Tfk8s < Formula
   head "https://github.com/jrhouston/tfk8s.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2df8b14a2e13839a17ecb52fce4d6e6254564e41620c3881b0ac24a8d32609bd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c08748c8e4ea877d0a5ee216624495d511b1e587d3e32ea0180b6909efa3e43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f9b07f68aa49e570daa4a68138d7f16893d524b2e2715df5de719be05da6a61e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e499b7011e3ce354ecbcc659a9dfbd792a4c27a434bc433b591878417c0e1d2a"
