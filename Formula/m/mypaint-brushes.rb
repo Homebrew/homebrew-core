@@ -7,6 +7,7 @@ class MypaintBrushes < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0d62f55833720c8ea452184171348f509c9ddea5b45122cdc9b76a09ffbb1eda"
     sha256 cellar: :any_skip_relocation, all: "c919364f08de423bd1b2e8c674b76e277adebee4157b49c75dfdf38d84777878"
   end
 
