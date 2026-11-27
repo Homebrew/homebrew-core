@@ -12,6 +12,7 @@ class Rofi < Formula
   end
 
   bottle do
+    manifest_sha256 "8ee615d5bcd3c885733e04e4804826832685ea500f274818cdda8d5124b2a2ea"
     sha256 arm64_golden_gate: "e805d21f6c7e84f04666d70ad1f024c52782717771e38c24a58a1fc36a81c52c"
     sha256 arm64_tahoe:       "c40c67a1afdd8c62c0fbcc51ff980a68dd353e236154894484e4bb8e1e9c12a1"
     sha256 arm64_sequoia:     "c9e40bf4c510310374b7b875b771c73d3937ccd1c775acd7c6c39dd4e2439c7e"
