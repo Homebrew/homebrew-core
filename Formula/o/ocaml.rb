@@ -23,6 +23,7 @@ class Ocaml < Formula
   end
 
   bottle do
+    manifest_sha256 "9c054a5ad49c59a1d0ff33a17395e66bd8acf010468bc6ca95d81c2e03c5fbe9"
     sha256 arm64_golden_gate: "70d202877721d3441f384974a537bfb4b9291ee23e0a8ed3fb7a00257ee824ac"
     sha256 arm64_tahoe:       "2d6b73c411a5a5658f846cd549f909f73a07a9b14afd37be56a9dd20bf552dce"
     sha256 arm64_sequoia:     "f7b18f86268ea9883f0ac60683ff31cdb71dcdfcde82712e452c3fcd6eb0b7ec"
