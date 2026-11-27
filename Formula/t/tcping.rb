@@ -28,6 +28,8 @@ class Tcping < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "16c2e18d02839e6b0e79ac685045de38f37afd44543cd43c82ae1e0cec435282"
   end
 
+  allow_network_access! :test
+
   def install
     system "make"
     bin.install "tcping"
