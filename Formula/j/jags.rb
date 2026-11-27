@@ -11,6 +11,7 @@ class Jags < Formula
   end
 
   bottle do
+    manifest_sha256 "e45f6fe9138a82187d3dacc18911e7c8c0d6abae8716d8bb392977a4eb214a13"
     sha256 cellar: :any, arm64_golden_gate: "ee9ca81f81bd8cc51c3f6d4922e5c05c9475233d845ce07a2618fec4e46c0cff"
     sha256 cellar: :any, arm64_tahoe:       "3ee5246381f181b375f2797af904507ddf417eedac7bf9aed396f450f53232b8"
     sha256 cellar: :any, arm64_sequoia:     "93bf956341fe1f63ea9b3f37a561e2d9596e30eac6b70a67eff66aff8792c395"
