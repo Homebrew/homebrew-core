@@ -7,6 +7,7 @@ class Mailsy < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "10f92f36ddbb8582342f6dbe6414920051fcdb2aad0070748eddca3ca95df64b"
     sha256 cellar: :any_skip_relocation, all: "458e2530def02e452e870febacbd9fa372d0c504b16b721ab0610fd4e57043f2"
   end
 
