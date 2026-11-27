@@ -13,6 +13,7 @@ class ProtocGenGrpcSwift < Formula
   end
 
   bottle do
+    manifest_sha256 "fd056206b556ec9ccf527e578470d01e98cd17707ffaa50bc6ba466abe1a6619"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21d30314c4fac094a6ecb6911dc8718d334878f930a0e7f362096f8d4f1878c0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "196b5a47be2e46144ea958a7c46230845ebe66fb5706370f4a882d72b15fdba4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1669300e51c9bab8195b7ff0ee8ae07847e0cc62f07d2c0d479fc1a5ac6e3e42"
