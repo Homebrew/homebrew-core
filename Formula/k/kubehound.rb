@@ -13,6 +13,7 @@ class Kubehound < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "091df94d71e2ff0661722c6bfc5d77e232fc3b5fabd5e50f0cae3db925621ffd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34549e5f1426b7e84c4f2c64d06c75a3507bb322081e0f4d44f6b03c19104749"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ed0e5bcc02c1fe5fd9097597ec362a713a01d8dba8aed76a1dc35dca5423458"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "22a99818f4c97fa26941886c33aafdacfb5c90ba0d6891d3004a0917dcf27ea8"
