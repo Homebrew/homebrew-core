@@ -9,6 +9,7 @@ class Nvchecker < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "a2f740f640304849faa2e10b60d5793da5a992110bb9df5e85b738b690a0424d"
     sha256 cellar: :any, arm64_golden_gate: "519c6daabcf15100e7be0992071944b3ba58c836f3849996bb9be8f343d2771b"
     sha256 cellar: :any, arm64_tahoe:       "0addcacb0e328b872c8d32f789dbb5e0bde0ee0526d27daaf4e10aa96049c09a"
     sha256 cellar: :any, arm64_sequoia:     "106aa316d6a0948a380fb34a315699bb298fb448ae1df3ad020faca4437763c1"
