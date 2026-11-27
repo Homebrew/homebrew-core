@@ -11,6 +11,7 @@ class Fypp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "49e21a1e7c8e2396d562bca2ab926e6eabaf780491b2b0738fa447729fb8ff58"
     sha256 cellar: :any_skip_relocation, all: "f6b6a6d36e74518217f6d23f153428bc0e46ff091eee77e5afbc63605af3822e"
   end
 
