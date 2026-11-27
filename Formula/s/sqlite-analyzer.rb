@@ -13,6 +13,7 @@ class SqliteAnalyzer < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "1d4fd79e1fa0ed4970439e64e79c6c9678db07694d08e025b1305a0448ff59f4"
     sha256 cellar: :any, arm64_golden_gate: "f53f7a6dd5b6b29e48a5f8d9cd046fcc9b5086678594d2ad2b232ec42191949e"
     sha256 cellar: :any, arm64_tahoe:       "c2709a1c058a4f2d2f3d8c157781d4ae9d3f5a347690ae016f9d907fa9a7faa9"
     sha256 cellar: :any, arm64_sequoia:     "8f75db3ed61dd7d432fcbee5d3d726151cde09b18d62a8c84e4cc18698f4c0fb"
