@@ -8,6 +8,7 @@ class Icu4cAT76 < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "940d798fcc8f1dea154623f89555ada63f7f8a361d0fd1daf4df607c11fb838c"
     sha256 cellar: :any,                 arm64_tahoe:   "e722412a607bd9986c2f9843897329f32977bea3bdb999c9dc9dd69a060daa7e"
     sha256 cellar: :any,                 arm64_sequoia: "36740927f8bdb436e6a4fa4066ac13d32edaaf4125ba3f20ca12e18d7eecbd6f"
     sha256 cellar: :any,                 arm64_sonoma:  "75dc3baf41567d78c356904dd11c66d4a052dc81fc8f06b574d169a10f373b94"
