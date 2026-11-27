@@ -13,6 +13,7 @@ class Librespot < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "68566d4c7a1f746e1c7c1d41a29d7e44efabbc1654a3f792befc625c8078301a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "28bb8d675fe59691e4bee6f1a31b682e68fe5252411ccfc5b710d434bcd4bfe1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7132ecdab43ddbf1ed6c0c79401fd335a20390c02b377b6d58cac6a81fec67d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6146c0048e5addc89d937d7fec449f236f3cdea6252fff2231d493ccabcfdd5c"
