@@ -15,6 +15,7 @@ class Ispc < Formula
   end
 
   bottle do
+    manifest_sha256 "0a6e45d7e6f1ade7f21fc41840372be83297771e82c73fe1cfb1aee922f4110e"
     sha256 cellar: :any, arm64_golden_gate: "58a32becf7ec6476e04c77a74ed8b7a3b1ec16956bc7862b5212c7670663a643"
     sha256 cellar: :any, arm64_tahoe:       "82bec983967c0d8fd9ac4390227cd1c1aa278d7127cdda7b766bf4ed51c22987"
     sha256 cellar: :any, arm64_sequoia:     "2fe0d82015851d5cdab69354091881fa7a1ef4d6f408763302da78517445f292"
