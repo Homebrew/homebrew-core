@@ -11,6 +11,7 @@ class Libblastrampoline < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7619bb22e0c31f645d94e42b779391764e79477cdff3f870f027f728f9f4f74b"
     sha256 cellar: :any, arm64_golden_gate: "59cbab5b3da6915ee96a4679b2c967609d042509774b610b4aca260460e6dc43"
     sha256 cellar: :any, arm64_tahoe:       "be4220763373b3e66590e14be7b5481e997bbe8bd54156571210e4f9636126cc"
     sha256 cellar: :any, arm64_sequoia:     "d402d97b4d342aa444e39bed5e19193659d3120779e6209f3be42294c75c108a"
