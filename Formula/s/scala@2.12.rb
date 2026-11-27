@@ -11,6 +11,7 @@ class ScalaAT212 < Formula
   end
 
   bottle do
+    manifest_sha256 "7bb33673674dbc4a8891c8d1274524fefa3937b3ab3d259cf07b93194dcf3c83"
     sha256 cellar: :any_skip_relocation, all: "48f14673e7538c7586c25225e850c0a74da39d21a34d8aa15e5a1331565c9ae3"
   end
 
