@@ -7,6 +7,7 @@ class Fortitude < Formula
   head "https://github.com/PlasmaFAIR/fortitude.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4d381f019ff0e764be7615cbe101cac56b974cec3e1b4b8f12a4fc22184da272"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3171afb506b4cfed8e1e0c46884378c022baacfb0cd634db0c0151485deda2c6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cfe64c5e4f99dbb1d7c59ebe31c6c36bb96687b810ed107153cfda100b0e9c16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00595d6bd8317b93079c06fca3360b8462833e54cf125efe94e448f202fa1058"
