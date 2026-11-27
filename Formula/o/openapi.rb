@@ -7,11 +7,12 @@ class Openapi < Formula
   head "https://github.com/speakeasy-api/openapi.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb4e3a7ee8dc2928029ae62a9d4e99102366a108a5a2537799c563ea9053a9c3"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb4e3a7ee8dc2928029ae62a9d4e99102366a108a5a2537799c563ea9053a9c3"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb4e3a7ee8dc2928029ae62a9d4e99102366a108a5a2537799c563ea9053a9c3"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "1372eb87ef7cb67cf38fdf9faace46bf551401f1a308c86fb32aa1d8448b169b"
-    sha256 cellar: :any,                 x86_64_linux:      "1dead32fc7fc16bfbf862ed609fd6524889b6d08f0d2128c2a01b37c7ee4ab2b"
+    manifest_sha256 "3470c293d6f78fb1ceca71d3dea7440bc53b261c9a4c75a6fe5f2c3ce8dbabc6"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "302db710e32fb3f346dba707131dbcc1454ff35edd1ef9a250ce4eb0247fdf9b"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "302db710e32fb3f346dba707131dbcc1454ff35edd1ef9a250ce4eb0247fdf9b"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "302db710e32fb3f346dba707131dbcc1454ff35edd1ef9a250ce4eb0247fdf9b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b1b1697de16f582c4c4cdde8463327e1a05d4242a9dac51e20a499cb0faa3fef"
+    sha256 cellar: :any,                 x86_64_linux:      "9d1820fae7c28f1a0234487e9716c788c6d1c330373f150ce8871f59bb1e1cac"
   end
 
   depends_on "go" => :build
