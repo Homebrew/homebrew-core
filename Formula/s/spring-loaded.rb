@@ -8,6 +8,7 @@ class SpringLoaded < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7b46509fce1bc4937ffabf3bfdde917f022afc66ab2478e3898754613a88250c"
     sha256 cellar: :any_skip_relocation, all: "56e262bc88aebe0ac04e149b8ae57d346e60d2c04e4306a53ba57b69947acb01"
   end
 
