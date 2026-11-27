@@ -7,6 +7,7 @@ class DashMpdCli < Formula
   head "https://github.com/emarsden/dash-mpd-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0473609c39e69bbb91cf4c56e2e247f1c3d8b485ad35209306f6909296e053df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eb8437f41e7303b52475188d6111523fcd07b5128fd0713bf892dafc58b319a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f97be0533323e9116a537e2ea2ce8c100c01c4a272558b8de6918e5bfbdfa8be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af026f7b7140f04d80acedd2cb8d22482f8f404c8990564a3deea8e901e49a86"
