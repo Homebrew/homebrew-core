@@ -8,6 +8,7 @@ class GitGerrit < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "bcd101607203621c01ed90867054479ce462291c2a48792851db41378996542d"
     sha256 cellar: :any_skip_relocation, all: "2b2647c6487fc6987733e3ec0d88f6c3cb87013244b69d91027355548868cf35"
   end
 
