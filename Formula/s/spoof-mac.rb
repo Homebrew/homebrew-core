@@ -11,6 +11,7 @@ class SpoofMac < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "aec9ed8eed6d9ae5fcf115f312c1dae21be66937c16d2bb873b2de35ea1b5097"
     sha256 cellar: :any_skip_relocation, all: "1ec7bdf0400b71026e91cf744f9cfc9ecfc278755a7fb0392826a10eb9f64716"
   end
 
