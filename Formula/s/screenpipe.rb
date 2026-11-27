@@ -6,6 +6,7 @@ class Screenpipe < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d51a139e802a86b2812f4931cf03aaffb2a2dda26c56617a9745072d0ba2e139"
     sha256 cellar: :any,                 arm64_sequoia: "e19fe81711f2b581441d5ef4e4894229ff0b40bcb7ec97620649b41ccfac3784"
     sha256 cellar: :any,                 arm64_sonoma:  "b029a73f249a978552cc4d6e7fcd35655bfc466f0f343a8dc7ef3e47feeb6f07"
     sha256 cellar: :any,                 sonoma:        "fedcdd0173129e061e5dec07b3ee9f178cabb5af29e775038a29de39eec50a63"
