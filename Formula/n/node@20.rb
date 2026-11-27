@@ -12,6 +12,7 @@ class NodeAT20 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "914936e9cb9013e9516f1daab085233b974f1db074d42295d90a70e83ca93586"
     sha256 arm64_golden_gate: "b4624bbdb59e4e18d60d66c18e37035c37692eae8b8caf55e6b2c5c63378afdd"
     sha256 arm64_tahoe:       "ecdcb6357c02e973fe7bed1b85fa142166e743aecde394046a4278e8d7acfa65"
     sha256 arm64_sequoia:     "76829440870e8535079d7b600a15e3c2c66f31499981ac91bd4f6b7a10af91ed"
