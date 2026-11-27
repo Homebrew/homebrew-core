@@ -7,6 +7,7 @@ class Lunarml < Formula
   head "https://github.com/minoki/LunarML.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5240065b8088df4c5fbefd46dd39858e12f2526919dad0f3d4a48f54acaea7b9"
     sha256 cellar: :any,                 arm64_golden_gate: "9975b40ab05f6f78f71ec4006c69eaeedf8e62f9412f203df4a018af69806c62"
     sha256 cellar: :any,                 arm64_tahoe:       "2df11728ca3fb49958d60145918c3dba582f0d87c1491bcfd9c2f8407cf241f8"
     sha256 cellar: :any,                 arm64_sequoia:     "7750dd7c517dbbb3b0ab429db707b9c804ed7686a859c98f1430f0c086886123"
