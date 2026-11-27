@@ -10,6 +10,7 @@ class GitWhenMerged < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "0d971575d057578a6a90b20b36d71d26f5d19a7eee24ac66dfb543516471eac9"
     sha256 cellar: :any_skip_relocation, all: "8c5accfbda69a2a247dcfbd78b1122f6cd9456b24f4b19830dbb81441c95d6ee"
   end
 
