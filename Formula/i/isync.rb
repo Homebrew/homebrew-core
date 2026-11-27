@@ -7,6 +7,7 @@ class Isync < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "24558d160059341f1d2693df280d68cc805a37dd5066c36393f132183a056142"
     sha256 cellar: :any, arm64_golden_gate: "aac10990f0035a59af38824b644835090f4f40d35e74b1ed8efdd164ec3c9a8d"
     sha256 cellar: :any, arm64_tahoe:       "b4c6e597e2d119bc81bf052a2c25ae0a648692e987d144e0e4752bd806e91f7b"
     sha256 cellar: :any, arm64_sequoia:     "ebf1eb759ae36f017092f94daa95c07ead59c8de411e5a2c81aeddac3591368e"
