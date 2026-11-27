@@ -7,6 +7,7 @@ class Babelfish < Formula
   head "https://github.com/bouk/babelfish.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3dac8696c94429b791236a09a2a98bec87851e3b86f210520c2de1c36a00d9a1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a284ea421cad7644bab4fe6086331f367133bea6a021602b558f41516343f2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67fa97472345f1e6a97179815c7c741904c41b6d0c349e9cb94076e2dce9cf02"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f8115802286fe41309a1b8b9291312e08f2b0ebdb65c4d928d59b8189bae38c"
