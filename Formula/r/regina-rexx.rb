@@ -7,6 +7,7 @@ class ReginaRexx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "09be73ce7bd350241742ee5d54dde825317f252fcf3a8bd32d6e474a2819217a"
     sha256 arm64_golden_gate: "5e6ce8921e567b2f7ecf98c4e8a781c5489f2b969b797860ea1fe9b208b94af6"
     sha256 arm64_tahoe:       "d76bfed5b0028c56cafecba2170f782ed8931dd6407df7d000bd96d0efdf8e40"
     sha256 arm64_sequoia:     "d46186cbae2e186143060856047562350893ed578530dc613bf6937d6256fd03"
