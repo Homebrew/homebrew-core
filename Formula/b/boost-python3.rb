@@ -13,6 +13,7 @@ class BoostPython3 < Formula
   end
 
   bottle do
+    manifest_sha256 "c9bb96d321f9a0a7949c4c927e7566a9f2c1780e1c50dbb3d87341360a0176a4"
     sha256 cellar: :any, arm64_golden_gate: "6bb5059ac4bb4e34957bfd6f2a02670c2dd4fe25ffea6987992f2b8fdb0b2c30"
     sha256 cellar: :any, arm64_tahoe:       "56e49a5b7ee435ec5379b9a3f73567e0d1724661433eaffea2e44ca7a2189184"
     sha256 cellar: :any, arm64_sequoia:     "ed6d7e52dec067bcc3df8fe9efa5b9117f55359fe38b1bafae3a0c769cfb69b8"
