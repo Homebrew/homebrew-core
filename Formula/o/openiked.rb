@@ -13,6 +13,7 @@ class Openiked < Formula
   end
 
   bottle do
+    manifest_sha256 "bd76cdc2a684ef69f2c667dac02b599be395b38717efd91f05b4bab060488a98"
     sha256               arm64_golden_gate: "33bcb994c40956c0140f65381acad67ffdff557806bf3cd322bfa14f111d49d3"
     sha256               arm64_tahoe:       "4d2f7d979b3d054e50191123d8bd20d83339b9ff3a64f57d20dde48113ca57ec"
     sha256               arm64_sequoia:     "9ff8004892fc3038ba5a93f414d6744c83744afe218cbd7d667edfb932d3e733"
