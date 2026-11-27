@@ -7,6 +7,7 @@ class Benerator < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "61a9afd090186665b75e81afbbaaa78870b7f49ff3ef4926e892e03e40910e19"
     sha256 cellar: :any_skip_relocation, all: "f36cf8f7f24ff1551582eb0e052ea5365709c807b642c8fc38c8ef551e974e67"
   end
 
