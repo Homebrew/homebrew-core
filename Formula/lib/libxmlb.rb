@@ -10,6 +10,7 @@ class Libxmlb < Formula
   head "https://github.com/hughsie/libxmlb.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d03a31f90299029f10fa0d833d73917d775140580bbc46cd36090c4d9d9215b8"
     sha256 cellar: :any, arm64_golden_gate: "173ffe8a5811ca458180b310e47d9b4e64735d4368d55160d100015648304c05"
     sha256 cellar: :any, arm64_tahoe:       "46ee8c6feea335867472b2b7c9031ea7bce340fcf84cd308e081dc02c15bad49"
     sha256 cellar: :any, arm64_sequoia:     "169787720f5f4f63bb19f6cfa8b307c0cf126b8b651b4d8a58ed642ee4c27884"
