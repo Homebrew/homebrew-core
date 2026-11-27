@@ -14,6 +14,7 @@ class MitScheme < Formula
   end
 
   bottle do
+    manifest_sha256 "a8be03909642f3c58ad7b2dac7d2c3225be913202726ac23fb69735013d44606"
     sha256 arm64_golden_gate: "08fcaed3211591dd297abb0177904883fb61799517938e03b66ddc9515bad5d1"
     sha256 arm64_tahoe:       "6091fa88278d223d1f892c9f9383dbf81833e007c34f6eed625720d9e9c7457d"
     sha256 arm64_sequoia:     "5b2f5cddeb07d989aeb50ed587357c3da57bc2cfbe13dd5e3cc29b754ec6dfc9"
