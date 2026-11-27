@@ -7,6 +7,7 @@ class Imlib2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "99919d326bd51a224da07550b61126d45333c90f869d594e383a7fcff62e7c03"
     sha256 arm64_golden_gate: "d6ebbe07332d273b036e21081b15a36ebfc39367e2a1b0e3ffa2d29b5ea1a823"
     sha256 arm64_tahoe:       "d9dfbf6f483a2bc8c60ee8ef1bc2a0b04c39c8f0716b6600a339cd785050e1bf"
     sha256 arm64_sequoia:     "53a037e4c07768b6b0ce5feebc078074a62bb374dc7d74f08159b27cd000f13f"
