@@ -12,6 +12,7 @@ class Libdicom < Formula
   end
 
   bottle do
+    manifest_sha256 "6f675754dbc47debd421386a7e89bc031b6739c921f7bcb3182ac428250ac164"
     sha256 cellar: :any, arm64_golden_gate: "1583abc7de0679f583f5c1f0eec409a696b437970a05792cf3f49e2662e43545"
     sha256 cellar: :any, arm64_tahoe:       "9c79eab7fd6a8172a56e70bc79ae146e61ce972dae33a4f96a241cfbc350aa80"
     sha256 cellar: :any, arm64_sequoia:     "bfd30b76fbad43ca1d1b9e2a7495d6e3f3fc4db0fd2bc5dbf329b7fe30a8cab5"
