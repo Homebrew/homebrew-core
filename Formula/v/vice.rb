@@ -19,6 +19,7 @@ class Vice < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0f4299797316eb36ead1200b4d522f6954438727b9b4f3d376adec36499401ec"
     sha256 arm64_golden_gate: "66420952cf6db67feadc2f5d4e83c8441a89909d3319018ac464e4f4bfc7ab2b"
     sha256 arm64_tahoe:       "6418080055eb645bc56525d0d902c9df649addb24ff8cef9756c149e6cfdbb29"
     sha256 arm64_sequoia:     "f174235f11f4a31dbcfe8e5d1ca149c2b0b925db9783b35d82fb1a63e6d7c664"
