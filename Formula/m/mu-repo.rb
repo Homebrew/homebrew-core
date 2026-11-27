@@ -9,6 +9,7 @@ class MuRepo < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "33c7bf8d08887cbc3363ebbd386315febc2eeb094b94d523f2c43c15dca15d6f"
     sha256 cellar: :any_skip_relocation, all: "7e8bc07a6e1626120f16e38977d58dd0b9ebfc2ed7379b474e068165285d8c4e"
   end
 
