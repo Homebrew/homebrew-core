@@ -7,6 +7,7 @@ class Zns < Formula
   head "https://github.com/znscli/zns.git", branch: "main"
 
   bottle do
+    manifest_sha256 "62581b282a94572f0363ed021ccc272eaad0c9d2e1b6913fd07671acecb278fd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5cee06521d62eb7647bcfde64b003c4c39bc5b24d07e74d16e77888db082beb7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8610f17339cf2a4b507db3de681f008e90d7b05931d5c80fc84e0c7564385e9d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8610f17339cf2a4b507db3de681f008e90d7b05931d5c80fc84e0c7564385e9d"
