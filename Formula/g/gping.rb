@@ -18,6 +18,7 @@ class Gping < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "d752cc4b6b0026a8e9c1f93b51b1879b8a0131dae854e90499672de9307ec3d6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20fcfe6677455e589630a9de9fd1e4b8c89bb9f49baacaef6e37300ed0db26b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "793bbcdfab111fbef18dc6361980e3026d7ef753ab21b94dca43caaa1670e702"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90472e76aa23d33ae21abc5f119af31ab385cfe3412361e6cf8698fcb16c1a62"
