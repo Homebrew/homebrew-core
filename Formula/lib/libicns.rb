@@ -8,6 +8,7 @@ class Libicns < Formula
   revision 5
 
   bottle do
+    manifest_sha256 "50ffc0090819a61c36010151493b2078a36d7f590d35ae1b8891ba6d4c6896bf"
     sha256 cellar: :any,                 arm64_golden_gate: "fb8a7fbb6e6a3b32911a9905bd9902b22ea950ad877d0dbcf6b9d05e4845bf4b"
     sha256 cellar: :any,                 arm64_tahoe:       "1392fb2947748ea7d1156f9d66e18f28614106d0e25f0977ee14502e57a1201f"
     sha256 cellar: :any,                 arm64_sequoia:     "4f513b025e1f28cadb969f9546d4b9c0b77021310a3b634c0f6edf2ddcbb8c93"
