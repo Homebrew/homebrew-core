@@ -10,6 +10,7 @@ class ChromeExport < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "00caf2d668a28f5e0f41c485a3e338a4ae1903716e5d14d4c0ffcc1be4ff2a70"
     sha256 cellar: :any_skip_relocation, all: "4eb537cddb8040188b19d7e91771f1e85f31760b36b053f57d606e2356110f2a"
   end
 
