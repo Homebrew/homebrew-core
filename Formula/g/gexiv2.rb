@@ -9,6 +9,7 @@ class Gexiv2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2c93828ba6df259798f298d598463bf2438d407c7d1472453b75657b8a92e616"
     sha256 cellar: :any, arm64_golden_gate: "2e204499e2c5020da2f9444a17a74b1f5e54766d488391df23aa434f13759843"
     sha256 cellar: :any, arm64_tahoe:       "b1ead16882a5901c4fce3e577f80a619eb28ee3d118f25055887a1827ba6d255"
     sha256 cellar: :any, arm64_sequoia:     "983259b8361b35ad3b36271e2f700b6501f0a7f8fe321569bc31bf7598a7e143"
