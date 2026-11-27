@@ -24,15 +24,17 @@ class Tag < Formula
 
   depends_on :macos
 
+  deny_network_access!
+
   def install
     system "make", "install", "prefix=#{prefix}"
   end
 
   test do
     test_tag = "test_tag"
-    test_file = Pathname.pwd+"test_file"
+    test_file = Pathname.pwd/"test_file"
     touch test_file
     system bin/"tag", "--add", test_tag, test_file
-    assert_equal test_tag, `#{bin}/tag --list --no-name #{test_file}`.chomp
+    assert_equal test_tag, shell_output("#{bin}/tag --list --no-name #{test_file}").chomp
   end
 end
