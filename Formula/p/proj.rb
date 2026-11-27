@@ -14,6 +14,7 @@ class Proj < Formula
   end
 
   bottle do
+    manifest_sha256 "7ff44d9eaffbb7bfc2d7fcd1df5cf4bf17bf3a5401467c7d56968b8a34491181"
     sha256 arm64_golden_gate: "448e0ca2bcb98a0b5df650a414bee47ea40b2eab716dafde9b7140bd4aedfb02"
     sha256 arm64_tahoe:       "8a4962d2d4ca39f6556c829a94cd00e9727ea1faa64a6950817da69f75401738"
     sha256 arm64_sequoia:     "d3a42ecb622133bc6dab5cd9955a7acad277cc232bd481850b4214dc83656891"
