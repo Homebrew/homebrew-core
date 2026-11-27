@@ -8,6 +8,7 @@ class Solo2Cli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3a6c52ec46655ef1791edbfb0b674f82ee0789e85a605637c9c1ee330ddea56b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8fdf355677e18fb3d89593613acc85835fa20134b3bee8ad8d23ef362a365d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56e93747406fb09f278a2dc2506e8006c5105744580b3af8c65d83e5df2f675a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50ee660ad214d9fa3cf5e103ae11482ca620796956e8d8e4ddc862c60ffa8a13"
