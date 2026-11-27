@@ -12,6 +12,7 @@ class Gambit < Formula
   end
 
   bottle do
+    manifest_sha256 "7cc3cd89f4777f7d5f06f3f410a980bfbf8d9940cf5848a63dfc4759621443e5"
     sha256 cellar: :any, arm64_golden_gate: "f46acacbe1b2876f9e40c0302a4a1450d41e918a6f18330940fef2f25e6f5030"
     sha256 cellar: :any, arm64_tahoe:       "bfdbad8876f7eff5732d31db66adfb98272a4e72f08da46aa19e9f1e40f65203"
     sha256 cellar: :any, arm64_sequoia:     "d1247f5d4adb15e628ef6aabf123aae33f5f813a0562d1038542590d42f23df1"
