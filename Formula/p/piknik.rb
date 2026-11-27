@@ -7,6 +7,7 @@ class Piknik < Formula
   head "https://github.com/jedisct1/piknik.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ca13398a33fa035c75b0d3a19a0f66dc7ac0a95ff150d6c9f483af72ea667089"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3551867b5a2f0e77f27420073272a8252594dbd4b55697e52338518ae8491773"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f7929f75bf041543fa64ab97f1d36ae8bda93d70ab052e9e6e886c1fad752e6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5c60ad4cad0bbf6a504f28053f1668b8b209a6bf473a8c477f53a5bf7b4665b"
