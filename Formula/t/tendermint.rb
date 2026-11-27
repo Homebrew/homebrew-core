@@ -13,6 +13,7 @@ class Tendermint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b6ac1ecef5a547e5f19184ce4f729cac514e557892b98abb59a86dfc3f6eef41"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c01bdedbb1d9e43fa6859956139c1becc69b94330471c928bf1fbd13877807ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ddc9b6cc60737cbd10628628ad914d6e1330a2a327eec2795674ae15b7f0c714"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1511d60c1245cac653fda123d49181a5041a49edfc6c33649161c032035a5d1e"
