@@ -6,6 +6,7 @@ class SigsumGo < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "0f9b3089dee11bcd69a4793f63b976d4a7930da56508f185f3048e3f60dbc716"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f226c3b60127bbc0fedd38392559de3ce2059ed6a91d61c5b4283e5a98f6cf4e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f226c3b60127bbc0fedd38392559de3ce2059ed6a91d61c5b4283e5a98f6cf4e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f226c3b60127bbc0fedd38392559de3ce2059ed6a91d61c5b4283e5a98f6cf4e"
