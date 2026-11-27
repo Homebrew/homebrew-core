@@ -7,6 +7,7 @@ class Rustqc < Formula
   head "https://github.com/seqeralabs/rustqc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bf450fdfb1eb33991c54c14d191e35f8185431a1a87a9f419b884ee78c677cb7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "993c0a29d1c51a2890b8cb0a41221f6b57f90c97349daf7ea61f3bf087be7f2f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b1419ed17b22f68162252b1f4ada6162e2d14d030bc5591abe4d5971be73492"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82cd229a6d4de7d597bbabf4a2e5817f5445649afe72d6b52bd9e5296501a66f"
