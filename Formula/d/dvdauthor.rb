@@ -12,6 +12,7 @@ class Dvdauthor < Formula
   end
 
   bottle do
+    manifest_sha256 "b90efc48ee2923716ad8d39a85b0550b1fe5ee9fac728f47a6adf0b041456fa3"
     sha256 cellar: :any,                 arm64_golden_gate: "f1512e93c5687a1ec120dbfdfe16822cbb1877fa9bc1a8c178aa0df6a52601f5"
     sha256 cellar: :any,                 arm64_tahoe:       "ed44deb629315e130b499c9e41a1cdfd789d62ed26e410c10d480a27ea93abec"
     sha256 cellar: :any,                 arm64_sequoia:     "17b2f6a33354311992ca16d0f2455671df0f23b65cdb83088ff383b0fd78daff"
