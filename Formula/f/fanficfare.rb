@@ -10,6 +10,7 @@ class Fanficfare < Formula
   head "https://github.com/JimmXinu/FanFicFare.git", branch: "main"
 
   bottle do
+    manifest_sha256 "84ac05fb01d31691418a47ade61e56108c8c9178fb10dcec7a62159ae8df5eb3"
     sha256 cellar: :any, arm64_golden_gate: "2f289397e36cfbccbf41ba3622fc88670723f2d7de8c77a55519c248dffdbd26"
     sha256 cellar: :any, arm64_tahoe:       "fce02858d240194be6dab52bf2d4a76e3f772e60ae04295895fb8e9ba84a9464"
     sha256 cellar: :any, arm64_sequoia:     "f1f668b16eca3f80afbdf9981b780c606644673a60c21044f16ddfc1c7106562"
