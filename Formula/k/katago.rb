@@ -18,6 +18,7 @@ class Katago < Formula
   end
 
   bottle do
+    manifest_sha256 "3a23230f10f371055b2d9a18a5dac06c5495635a4a279cb8f0aa60c08c2801e2"
     sha256 cellar: :any, arm64_golden_gate: "d89cdb99b223b3d4cf26c5984fecacf0142a5cbe20fb62b8dfe16f298584df0d"
     sha256 cellar: :any, arm64_tahoe:       "72e07d097c976c0d57802a81c6dfda3e3ec6d885397d77666b355da5db6ea2eb"
     sha256 cellar: :any, arm64_sequoia:     "7ff0aef28c12264c64b8d03f2b0168a7e92a7b5c9e6bd5ee1cc5ea2a54cd865a"
