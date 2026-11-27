@@ -8,6 +8,7 @@ class Rtmidi < Formula
   head "https://github.com/thestk/rtmidi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "59f3bf54c9d4776ec01df0a75d7ca3d60bd3281039090bef2939a4fec68072ed"
     sha256 cellar: :any, arm64_golden_gate: "6dea7bb61e9391f3a3ab65d0cdafcbaf7a4edf521b49bbfaea66aa385cc9c16a"
     sha256 cellar: :any, arm64_tahoe:       "dfcb4642bc30dc2c458c2f60999ec20ddd344bfc27c9601cb808ef9b02f081c4"
     sha256 cellar: :any, arm64_sequoia:     "c7cff7e6397c37c658322393b98996ae2795421f8d6cbed6b85b005977cdab75"
