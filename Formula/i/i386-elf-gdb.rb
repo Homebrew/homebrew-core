@@ -13,6 +13,7 @@ class I386ElfGdb < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "af6ffe0bc243348aa95664699e83515ef2c6f14c69245febca6965b142ed2e30"
     sha256 arm64_golden_gate: "a922484692da27abbe570a4e6b0cf489c1896322e4fa5707b9d87939b4430f63"
     sha256 arm64_tahoe:       "98176f08a40d03a835ce9eb9ff3895bb79d8bd34cb093a3bba00136bd430cd3e"
     sha256 arm64_sequoia:     "a71c5e0caf5072501052f80fe75f471a4d1d5790d4107aaab7db028ea3e32ac1"
