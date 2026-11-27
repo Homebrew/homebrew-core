@@ -9,6 +9,7 @@ class Certbot < Formula
   head "https://github.com/certbot/certbot.git", branch: "main"
 
   bottle do
+    manifest_sha256 "022c7d13fb9994b4f9dddc70976044dabe3a99d646bfd9dcdc43380677992815"
     sha256 cellar: :any, arm64_golden_gate: "31f847afd66bf3f9e491a23f768d21d5c72f80bc4a6c238a7f6a570fb65e1f1c"
     sha256 cellar: :any, arm64_tahoe:       "0e4b3472d7aa0c3e19fd73ab5e6b00b5e849510a33101dfc42363a5a4f72d025"
     sha256 cellar: :any, arm64_sequoia:     "bab021a95242b7a2db3b9ef19c08e00ca01fa5cff4ae5cfcab696562dd7ef1fb"
