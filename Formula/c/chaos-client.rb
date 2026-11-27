@@ -7,6 +7,7 @@ class ChaosClient < Formula
   head "https://github.com/projectdiscovery/chaos-client.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b69da84aceaed556b63eb6eb9274c648cb2c6aec1f3b0e4e7eb5c1dc811cd490"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ebfd5af2bce5b39e164954638d7646ae490266d47435b79d5a7b20a5564fe77"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a285bcf99b8a399a6c8c64334ebd2b381373c7e3b0e0f25fe4cc6872b3e47ee1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0fad8ac3817b56bacd3383d334d2a33c7542dc71ee557afce144a82d759eac5"
