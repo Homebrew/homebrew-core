@@ -8,6 +8,7 @@ class QuickjsNg < Formula
   head "https://github.com/quickjs-ng/quickjs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "900122159ea39349de6ad36a9edaf31fe30be1c49305a0ad104205ec482461a2"
     sha256 cellar: :any, arm64_golden_gate: "3548576e9dc7d1902a7eceb38e5064308e29d064f107b81440f6d1110dc58605"
     sha256 cellar: :any, arm64_tahoe:       "fd7674dfed0b220af4314c5019c6269cafb24b9a1c5e0eae564b5fefafb27737"
     sha256 cellar: :any, arm64_sequoia:     "afe831ce1bf92ee1be4e11bc028525f36f6892e0d231a67996144fda7377f8b0"
