@@ -15,6 +15,7 @@ class Skktools < Formula
   end
 
   bottle do
+    manifest_sha256 "b5708d56b3b4ea600cd1a9a17f5837035a718a678ab8be91b2b156050c1d1e99"
     sha256 cellar: :any,                 arm64_golden_gate: "fa1c041b1be18592ab4c88978e5d123958caa5a1ab20ea7052364151af175385"
     sha256 cellar: :any,                 arm64_tahoe:       "20ab94e9dabb1954777337c8abb6d98e39fc9da6963e7ec852cf96b65bae7f5a"
     sha256 cellar: :any,                 arm64_sequoia:     "84de631d3930f335f030cfa8a3c8669d76c0052c26213b5321496087c4a156ec"
