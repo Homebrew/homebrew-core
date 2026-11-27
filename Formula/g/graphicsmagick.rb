@@ -13,6 +13,7 @@ class Graphicsmagick < Formula
   end
 
   bottle do
+    manifest_sha256 "c744d17725505ffce726f2e6d0ca904a879d5dd000a8613caa41ed306bc7fca8"
     sha256 arm64_golden_gate: "859a8ab109c74c1bfafec8bb195b8982219e6a1c3f6b4e5938b4698f59520ba4"
     sha256 arm64_tahoe:       "99811e2ae94bdbf091a63ca5b24ede0126d09d3ff4a866c577e3d070265f065f"
     sha256 arm64_sequoia:     "12761c952da81986d3aaa5b8f89b2d1f7eaf74ac0521591153287792fbbbb5cd"
