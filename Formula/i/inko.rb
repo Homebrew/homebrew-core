@@ -16,6 +16,7 @@ class Inko < Formula
   end
 
   bottle do
+    manifest_sha256 "fe00ada73d4271156d3269efc56aa485f6f8b81531a7548494dd923c19a006d8"
     sha256 cellar: :any, arm64_golden_gate: "2e8c529596ab78b085543352215f19cf0630a393d7eade67e56e86f93dd94619"
     sha256 cellar: :any, arm64_tahoe:       "d4be7624bff53913f827d02ced2806d64a2fde5cda782a7cee3bc029b37bccf5"
     sha256 cellar: :any, arm64_sequoia:     "8dbdc956a1e421c368ba1cd2a627fd351f7ffcda4f584f11e92072b4a2819201"
