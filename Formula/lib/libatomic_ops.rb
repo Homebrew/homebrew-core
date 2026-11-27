@@ -17,6 +17,7 @@ class LibatomicOps < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "105df21f35ff4ccaca596cd247724158630fc9b0e17b2e6b35e708e3493f75ac"
     sha256 cellar: :any, arm64_golden_gate: "8f10f8d13ee303ae24ca83b076f17bc78de8aa46a0a985e9d057abd9905fc9d5"
     sha256 cellar: :any, arm64_tahoe:       "3248b78c7c787a075c8f8b94d7aebebb19f078352a302f0c014809fbb563c7e5"
     sha256 cellar: :any, arm64_sequoia:     "cf518c8ee38c9ad886165accc2c3ed5b4dffa99f95ee58c737ab375e2c2c02a5"
