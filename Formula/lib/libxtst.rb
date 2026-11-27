@@ -7,6 +7,7 @@ class Libxtst < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0e7afc7b510321103f580d8a7b064b63998360df1f1e1ada558c230629b00f6c"
     sha256 cellar: :any, arm64_golden_gate: "99e1bb69e67e3f12060f65a963b42f7a414e42304af01c19cac344fe7fe8bba8"
     sha256 cellar: :any, arm64_tahoe:       "4cccd2f54e0b00cf2e0be69f1f978ab36f033851b091a22a7413174bbdc6ad7e"
     sha256 cellar: :any, arm64_sequoia:     "1c3749e2a12829869eb8b6a85feb805cb0abcbb7ad928cdf7c706de4d9a5a75e"
