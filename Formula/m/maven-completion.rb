@@ -8,6 +8,7 @@ class MavenCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2f5a9e777e39dc2407ae0f659d5735ba10cf7f5304bdcde8b38c85d885ea8e6f"
     sha256 cellar: :any_skip_relocation, all: "ac7e72e1637a50e24735e49aafdcaab5e1a71ceeff85a1836489f6d12a2de263"
   end
 
