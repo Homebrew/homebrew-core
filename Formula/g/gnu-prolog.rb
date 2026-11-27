@@ -13,6 +13,7 @@ class GnuProlog < Formula
   end
 
   bottle do
+    manifest_sha256 "a10e23573f29117cd7da4c76f49df57748a830da01260578dd2a2997c891ca7f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81af95ae90360eca4088252e026595afbe895a79aac2180787517e5d03b4a41e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47608f61774ab4abb61279ebad504f55aec87807f65c9399f63aeec15fae16d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "311488f7874b46d9e06c9499df180ab4008260935fbe5f6335eb4cb37d303f84"
