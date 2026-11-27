@@ -8,6 +8,7 @@ class Gwctl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d0cdefff0597290c941c32513ac33ea6eb3f865397f2da5c621c4b3c47d4694f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd1f2dabfe0e6697f9c9358cbdcf8b6549d5d17a8cfeb9307a8cac553d5867cc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efbf9a8653386ffd5de1672d8a2c537b4f4068ad8c2dae1f56bfb95564ed7b1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68779cf2b96309d2e1c5f208ae3a1dbd73bd04880e8eabfaa662c0eccc23969d"
