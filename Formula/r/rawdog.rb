@@ -11,6 +11,7 @@ class Rawdog < Formula
   head "https://github.com/granawkins/rawdog.git", branch: "main"
 
   bottle do
+    manifest_sha256 "02df9df0695d507c507a45b8e49b9b11c23a766ead10923d0652145d81ff3337"
     sha256 cellar: :any, arm64_golden_gate: "a985f4f9c4219e46fee0b8a24ea518c30de85ab6a41be75644059a76a0aa33ef"
     sha256 cellar: :any, arm64_tahoe:       "b5657965aa35899427d825f30c2221c111f5d98fd7c4ccadc01ddfdd910d5a5a"
     sha256 cellar: :any, arm64_sequoia:     "e27ee138fd725d4d2359cbe734632ebf5c08eafbbb7489924d34583f45add458"
