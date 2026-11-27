@@ -6,6 +6,7 @@ class RpgCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "661c028a1ce38de3baec41112cf8daf18b8a4e976ad6878aa9fd11898d01b8e4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d118dc5e89bc762f65d23fdaca6708047359b865239bb9e96aafe82039fcf4db"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edd64ad86609935c99c399b86b814c9a7a610ab4cb5c4f18f11e5af5ff740d3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a8df05e6cd29026836157d0d4e353c0bedc5f6e2277bce65c6fff92a05de4325"
