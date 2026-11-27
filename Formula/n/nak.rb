@@ -12,6 +12,7 @@ class Nak < Formula
   end
 
   bottle do
+    manifest_sha256 "b1ed9082870a25b6aa914a24b681d08e2c1560350f05f88f2b5c5a97c94df728"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6272bb74ceed6bcb079c5681ca309bc3f9fb0f26d725aee85781d1b8df0ccd2c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6272bb74ceed6bcb079c5681ca309bc3f9fb0f26d725aee85781d1b8df0ccd2c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6272bb74ceed6bcb079c5681ca309bc3f9fb0f26d725aee85781d1b8df0ccd2c"
