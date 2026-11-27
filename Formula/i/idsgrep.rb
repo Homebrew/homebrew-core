@@ -12,6 +12,7 @@ class Idsgrep < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d2eaf61a0c2addacd17684441ad1caeecfc396e89328ef52b6ed1725a057fc2a"
     sha256 arm64_golden_gate: "463032c5015f21c24cd972ea7051072e2840c8fbc4ce3acd12c3b5430b6d691c"
     sha256 arm64_tahoe:       "599f0677a847ef317bb1cf0a80501b84531bf0a3083f6cf31052bb5f70bab0fc"
     sha256 arm64_sequoia:     "1c94fbfcf90ac7576c2b006a8ee3c80f07a4013eebb232eec219b47203b8a765"
