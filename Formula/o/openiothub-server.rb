@@ -8,6 +8,7 @@ class OpeniothubServer < Formula
   head "https://github.com/OpenIoTHub/server-go.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bf2dbcc667b6b60d3fd5f5e664196ae0b055b81e4d459c5d7492f68d493268f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c046b858bcff9b08aa39e236f55b7a7326d744e1708d7308fcc4e6f87cfae10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5757632fdd6d54d98a0ec8d16d6515c79e93c4ad801b79e4730fccf02e386290"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5757632fdd6d54d98a0ec8d16d6515c79e93c4ad801b79e4730fccf02e386290"
