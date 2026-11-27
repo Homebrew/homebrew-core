@@ -9,6 +9,7 @@ class Osm2pgrouting < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c6eb7484490726f57b9b2be0e51fa18843f9d97819e483a9d036ece5913ca901"
     sha256 cellar: :any, arm64_golden_gate: "a11f518deb6602c82ec60eaa826ad59270aaeacb5e1feb603d4d7abe9411ab19"
     sha256 cellar: :any, arm64_tahoe:       "81afca2457eaf617b3bebeed932e4f6e1c28cc427097fc26017f5941081cd31f"
     sha256 cellar: :any, arm64_sequoia:     "8f1f0ffca4049b7768e8679c7e13d6f38c77fdad7c066e0145c5c07fd9116681"
