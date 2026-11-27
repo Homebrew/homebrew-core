@@ -11,6 +11,7 @@ class Mpck < Formula
   end
 
   bottle do
+    manifest_sha256 "86dd15f70aa1f588b7f0e1c4b77975e05e92426afff7bf3db2a28b2f073095ce"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "79cfebd954e23769957b0f14e6832d7ef024b514d259f47b9f1fb3c49940083c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1998cfe1d10043a5304f0ca5d157fa43569569c7e0316f3b5f09bcf2f9ed1c7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd158561858d161569f1d79edd398437c9424c9312ec59c8da588e23fb3c61eb"
