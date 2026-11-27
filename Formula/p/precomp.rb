@@ -7,6 +7,7 @@ class Precomp < Formula
   head "https://github.com/schnaader/precomp-cpp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f00ed493dcbb170d8c7f80dec4a921e51f5133fbda17f5c50ae7190ea91cee81"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ca4ffb4e211be9dbc8ef05ecc76e3f743ab0f2a43087faf3f79efb07a686814"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37a2fbc9d8ef7f210168e5c4f2a3ce13944482c26207fb06ed6cec0138464395"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e17e36888fa003ff01ce0af6dd634576f21c2f303cea989f507730c95af6f827"
