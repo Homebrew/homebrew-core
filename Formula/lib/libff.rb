@@ -10,6 +10,7 @@ class Libff < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "40d05c667f8f15580a1ba04af5e910726d132e98cfabd3f627e11862b239eb3f"
     sha256 cellar: :any,                 arm64_golden_gate: "ae0ea1830966e28d6cf7bc9d79789c90521e2af006d581f9b1262c4c9a689884"
     sha256 cellar: :any,                 arm64_tahoe:       "6d548d433ca79ddd1e4c06bd46cd8ef42f62fda7de2ccbcc801be541ee8737d1"
     sha256 cellar: :any,                 arm64_sequoia:     "98d30e843fc0146a9f665ce977f9ef8fdcd1f54900f3fbeea53a1237e95ec89b"
