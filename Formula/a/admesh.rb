@@ -6,6 +6,7 @@ class Admesh < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "309d926642f3ca24291d45786edaba83509c73ac0c40759b7e97f686a1f2f8da"
     sha256 cellar: :any,                 arm64_golden_gate: "67caa2c41f39ca064a7cf88c8fe9bdc698386106f8071ae2415bc2a009f4cdfc"
     sha256 cellar: :any,                 arm64_tahoe:       "446f3774fd018994f5f040279c0198a80c6f7144023f465e6a5cbb7183225b66"
     sha256 cellar: :any,                 arm64_sequoia:     "c88ef051413ca638240add2cd10c366fc81c3b8d1cd29387cb137d7d3ef411c8"
