@@ -13,6 +13,7 @@ class Libexosip < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1d5df7ce612e77380ea85ae56d700234e849ad85b7bc7029d88d6675cf338d67"
     sha256 cellar: :any, arm64_golden_gate: "2d36e210652e3d69b74813ca3df06b03b4cd4a31734fd1026e066d9bba213ea4"
     sha256 cellar: :any, arm64_tahoe:       "fd656403b8e8d5437cb745a7bdd4361a91e7d2189f047feb8fc666e2986ea6d8"
     sha256 cellar: :any, arm64_sequoia:     "5ef1ade494065b22d7fad22c10f08cba832b76773fca7de7bae22661f13af8df"
