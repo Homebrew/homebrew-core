@@ -12,6 +12,7 @@ class Nuxeo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "895c0e140ac731b139f559832271df312192a69639edc50dbce39bc6d3e16e80"
     sha256 cellar: :any_skip_relocation, all: "f770ff60d304faa14d16aa72548f2601afbdd6f622a5ae481aa1a460cfc19b9f"
   end
 
