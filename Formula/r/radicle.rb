@@ -13,6 +13,7 @@ class Radicle < Formula
   end
 
   bottle do
+    manifest_sha256 "55dfa31b1ecfe15e8175472ef5a97c9f3106685a90f897c65b0edf7826a13a44"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6081e218c21ccbf474b4eba38f71e5e450c7f208d18a828faf3180f4ee7ac96"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "050d509c4ea0d0ae41f526ed33308f1417e172190e99e9373cb3dc2527f15cb1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a21583b757ddec1183f0374a9d16cd240bcccfa0949b54c1bd5100797cb1a2a"
