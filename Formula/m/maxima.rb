@@ -13,6 +13,7 @@ class Maxima < Formula
   end
 
   bottle do
+    manifest_sha256 "be4775203a121dbd5792dcf4046a4dca34d12ce753991be428f052410b99d273"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e240785d9f40b667d0dd06145ab4101ebae90a79f68295785cf4c2ada787b4b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b25abed4d6ca7622bd311fd486f95c939af1a1e0a6158808024ee6a5cc503d67"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e2ebd59edcd730e469ba4b3c9522efdfe6707b0cfa968b8b45046faf6dc615f"
