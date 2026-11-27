@@ -12,6 +12,7 @@ class Rmw < Formula
   end
 
   bottle do
+    manifest_sha256 "62728afce83ee8ff6c206d42c006a667cfa62e6a52b24a3dc7a3bc5d295d7186"
     sha256 arm64_golden_gate: "aa08f6549af1bbe06dfe4596d1d5ebd27f63f24be0deba4451247afd7426cd15"
     sha256 arm64_tahoe:       "582a1e00f4cfa06abc1d1c928db5e6e9ddf37e6b510b6be414991ee75b9b6b0b"
     sha256 arm64_sequoia:     "6ac0b6ae8b0fdb7c34048cbe2b65a32e8e1c18a75b25cc6ec5486cf487e05882"
