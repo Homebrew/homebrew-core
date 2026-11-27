@@ -7,6 +7,7 @@ class Navi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c1f63bdb4c9c6fecfde221f1ed6c91845ea4e3f941756cb8a2a86ab97d3d6f2b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e0387fe0c21784460d44be2d15304911472af9deb1fe72de0ee280601d5081f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b3ff7e21fcfa5d67d3f1a241c072dae09d25e53db64b17b08f32ea31af16ac5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1e8788887b0af9311ae2ec08e2e8b79f2c8eb956fe83c6a626428bd8f31ca52"
