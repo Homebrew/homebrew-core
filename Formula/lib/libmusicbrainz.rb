@@ -8,6 +8,7 @@ class Libmusicbrainz < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a1f5acf5fa24dfb2726c25d11d5789ea7541aae5c3efffb8fd4fdf0bf871e37d"
     sha256 cellar: :any,                 arm64_golden_gate: "ba24b8ffc3a73978d7fbb23d92fb05538bed4bcdbfb9e8917c176c92b7ed5896"
     sha256 cellar: :any,                 arm64_tahoe:       "bedefe5a0086b73a7ccfa342df5af7238cdd9851d541d19b6069549098f507d2"
     sha256 cellar: :any,                 arm64_sequoia:     "c8db1669bb8869f5812eb0d46e9a84dce7ec3370bcb5405d9071612c5bdd4ec2"
