@@ -14,6 +14,7 @@ class Metabase < Formula
   end
 
   bottle do
+    manifest_sha256 "7a5c7cf9825facde1ade536cfce3a80122b45111371586f65542fdee77506705"
     sha256 cellar: :any_skip_relocation, all: "a394bfbb1b8aa878426302d5bd2e21027cd61d18e3c5556ced432d2eb9c83de9"
   end
 
