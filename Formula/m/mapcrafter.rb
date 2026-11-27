@@ -7,6 +7,7 @@ class Mapcrafter < Formula
   revision 17
 
   bottle do
+    manifest_sha256 "c95437d6e01b03e97e328dd10d39a8206f59a682391d43ec71c9ff3ce80f5e5e"
     sha256 cellar: :any, arm64_golden_gate: "0b3a07ad1bd95bea54ff02c6409b39ba96d4af32d347483ecdcee6326cdb8ee4"
     sha256 cellar: :any, arm64_tahoe:       "dd44dccfe0adeed4db160301b2a776afeb3589ad30c39713e3d82c72b5cdeba5"
     sha256 cellar: :any, arm64_sequoia:     "ef540323a00f9c74a70826a6935af233177dbdbd3b91fd20553f7c8a4a1acd7f"
