@@ -7,6 +7,7 @@ class Smartmontools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bfb58ccd861b85d3c09759761c2c96eb6a6e2b96eefae87bc8e16429738bb9fa"
     sha256 arm64_golden_gate: "13ec6b1ddb243fbe38c2490cff32444e5799d2ba9d0bc15ca89abd81f6bffad0"
     sha256 arm64_tahoe:       "1059107fe65fbaa54f25cba7f2d9160cba2ca90cb0b9ba3d3635f78639c46a29"
     sha256 arm64_sequoia:     "40ae2e7c1fe5a99587149ea92c170bd8a89f97b44cb0b1d616635c45dfac2074"
