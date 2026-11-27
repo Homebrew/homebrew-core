@@ -12,6 +12,7 @@ class Libfastjson < Formula
   end
 
   bottle do
+    manifest_sha256 "7aad166b2d7e37c6e902f2b3407d3de78152bf9a33c9eb2a591e203e35075c95"
     sha256 cellar: :any, arm64_golden_gate: "78aa402a365cbdfe23042ab82037bbc55093dbbdedcb83c03c2ef3944727adb2"
     sha256 cellar: :any, arm64_tahoe:       "c9f3da9126446e3f611b4f20baac2ee72c8d54e6f96479b4225fa1a10e32174d"
     sha256 cellar: :any, arm64_sequoia:     "b2303ac802a20bad042e646029a0ceb69fe1eb60dae775cccbccf9381748d2b1"
