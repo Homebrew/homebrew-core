@@ -7,6 +7,7 @@ class Oksh < Formula
   head "https://github.com/ibara/oksh.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca8b9eff82bbb3e88eca08b7ba2b8ff3a62ff84c3ef466941f6430ebf2528a6e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b32986999c16f06f951203496ca2235f753778aa1aaf9c6ee328f055a5f0ec2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af1d2a4ba7461132c05d6d8b534d9ef1d2643df9076a2151fefb6c2e92fe49b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8abfc1a1b116b56400e2d37dd93e342637f929c20897d31c4d89d44149581d8b"
