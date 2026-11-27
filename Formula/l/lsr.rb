@@ -27,6 +27,7 @@ class Lsr < Formula
   end
 
   bottle do
+    manifest_sha256 "e2ebc5ba2feb6d4182c5cf6476cc65dde8bd2347ac6f4b0d6021319c5e75723d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "577ac57e8263c5b755eeb0fb4338f3c53fbf01cd79d24a6e22122ff9b8ce95cd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ccd32988799221a3430bb80dc827baf0e2a9f7be6d81d752abbd45ab60c77132"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cf5a8ca472e8a19995e38950a377fe0ea877f90eb245f26ed6f02bad5cae1e4"
