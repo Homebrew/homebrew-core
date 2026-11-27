@@ -8,6 +8,7 @@ class JpegArchive < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9db20f44355eff599a25767a7e8087cf88d389afed659b800f5a44fcf32416c3"
     sha256 cellar: :any,                 arm64_golden_gate: "80f77109155cce59ddb40ab87c851669aea25f36348178d8f3a1b49bb606e0ed"
     sha256 cellar: :any,                 arm64_tahoe:       "183d8acbdeec71e01c7848052ebb5e40dc3598dc2c9f86eb663d17e4e055220b"
     sha256 cellar: :any,                 arm64_sequoia:     "0aef93bf72c6efee42cf3329fe9975550d977c51a389bdf5f7bee98e3c9b0cac"
