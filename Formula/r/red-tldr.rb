@@ -8,6 +8,7 @@ class RedTldr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a7ad048206e731cdbafcbc09a830b36e236c8e86c39fee24beacb53fe97c140e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "791b2fff54414b06fe85b1815a947348d2092a2f1fb421eb3f3f46f753a9b7e3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b899f36c60a21b05cc3e16a051e0db36d90a60882864f149b812204a7e427652"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b899f36c60a21b05cc3e16a051e0db36d90a60882864f149b812204a7e427652"
