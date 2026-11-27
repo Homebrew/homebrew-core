@@ -18,6 +18,8 @@ class Testssl < Formula
     depends_on "util-linux" # for `hexdump`
   end
 
+  deny_network_access!
+
   def install
     bin.install "testssl.sh"
     man1.install "doc/testssl.1"
