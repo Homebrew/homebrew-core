@@ -7,6 +7,7 @@ class Elfio < Formula
   head "https://github.com/serge1/ELFIO.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a092f4d338cebc07e3c84a0dad92f11552b7f3ac698c3c648f3c4e1ba02abcae"
     sha256 cellar: :any_skip_relocation, all: "195ef71a662681ff1d1eb3f822c1853680911960d9487d4056493a438694c5e7"
   end
 
