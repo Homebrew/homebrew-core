@@ -13,6 +13,7 @@ class Opencbm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7a368bc1e3c6ca66a6bcabaf8c07d81ebe7040c58f31945ec27eeee317dd9bf1"
     sha256 arm64_golden_gate: "f79de5e2de2bdeeb8d26b18c4e7c86fcdaccffa2da422099b0ecfad8b208bcbf"
     sha256 arm64_tahoe:       "d5e8f6b89063a3de0040990afe6bd3a5e135bf0ed37bf05f51af658af12a58f5"
     sha256 arm64_sequoia:     "529ae3225eaf83d45e82682ed1e4a209f92e6998c1c646e24532f9e711a8eea1"
