@@ -11,6 +11,7 @@ class Rzip < Formula
   end
 
   bottle do
+    manifest_sha256 "5c22571950371275627fb845ed1fe8598cab0c76ad1822bb234adb059fab2298"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9645a5159dd2686db2300e5566753d2fa8a39d2c1f0771c586ce5037de5c34ba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "122e356a47499a7c1b8e7d4b4b86fe1f8ff2f32223165464ba2a1c9c68cdf1a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e831e4f90ea7d39b9e846ab0d18048bca802d65a6ecd3b61bfe1e55bbe831345"
