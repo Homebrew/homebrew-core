@@ -9,6 +9,7 @@ class Badread < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3ca7d30522b2948d6f388d9ed9b74447212b366266dc6a143f458bef186ba3c5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cdb0f92903f07557ac3a79fdaf9d4217c1bb7f763f48e769a4a7a0d54914dd5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2bb8d984f5980457f37533b08732fc31f63a65b909c09eea43ff2fb518402ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "512e9b1c4cab516ccdb1771482c57ae3f9c9204e126c818984cda1d15d0ef5cd"
