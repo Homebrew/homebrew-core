@@ -6,7 +6,8 @@ class Openfasttrace < Formula
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4ac3e3e4b3f754b2ca13027ff6c1601a37e1859d6d307e506a197ca5365cfa52"
+    manifest_sha256 "79ebc13a8f27dcb296fcb7ea648b0c3068136e5b597220d6161a178733c8cbd8"
+    sha256 cellar: :any_skip_relocation, all: "25e0423d85f4897de73c20345a047e7323453faaf31827edb1b7ab6beb54ff0a"
   end
 
   depends_on "openjdk"
