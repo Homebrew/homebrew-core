@@ -6,6 +6,7 @@ class Rain < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "51d0109990702349cbe632955302cb6b445c5dcdf1cbdfce6db9442b14b17ddb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a309ebefe7b13c152996e97af1c76851cdc0edd58bf2ab5cf04be0170d8ece7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a99d3acaca2c207112e76910fb6cc54190cac115ba35ac5e7ae6d1a083499fa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc71aeefb4f73507004dc0eed7408a5ca01f2c9c39ebb9e357265a48cd93d61c"
