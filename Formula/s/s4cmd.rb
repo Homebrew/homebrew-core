@@ -11,6 +11,7 @@ class S4cmd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7d53a46ee6de4dcd9aef38e600e7cbf3ce9878bd1ecd884aa21f3cb1fabd7a34"
     sha256 cellar: :any_skip_relocation, all: "ebfbd2f2a2c76dfd89b9864ead841385babe604052b43cb67c4ea307c8a78985"
   end
 
