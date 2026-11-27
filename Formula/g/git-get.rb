@@ -7,6 +7,7 @@ class GitGet < Formula
   head "https://github.com/grdl/git-get.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bd6994a715e1612890b5a5a05be897a9cffdbcd4d84ed0e91a2f10e68b8c5633"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f031c8de3addfe7bdc88c768211f2578e28d943c2d289d9515047c86b4f852c3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "464f062000fe3f6e5525d2a5f0394b7b003a2f193a8312ffa3cdf2761223d754"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "464f062000fe3f6e5525d2a5f0394b7b003a2f193a8312ffa3cdf2761223d754"
