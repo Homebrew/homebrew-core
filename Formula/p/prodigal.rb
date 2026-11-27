@@ -11,6 +11,7 @@ class Prodigal < Formula
   end
 
   bottle do
+    manifest_sha256 "348775ef319943c41db9e9c96ff8d5b9489f166200e172eea105d36a3b34ad00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3a5b2e66e2033bc2d82f19257122ce3bbc79f26787ebd6296b62773aa3916fca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53b753a4ebac8132ae38ba5c35f9c5466ea322b76bb87d4b408a11ace114ae9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0586dd1f22c8cdb1ed73c2eefc20f80ff3ad711cfb16e2f72ca7f72798161f51"
