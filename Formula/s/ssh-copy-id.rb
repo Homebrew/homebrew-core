@@ -13,6 +13,7 @@ class SshCopyId < Formula
   end
 
   bottle do
+    manifest_sha256 "3aff2ca610019739c165151c4e23c5c5a9bead908efb6743695bf3ea0dfc5bed"
     sha256 cellar: :any_skip_relocation, all: "b877311a14df7cced2cc07321f6b489e8f47adffafa0c7f80cfcb609be36f8b4"
   end
 
