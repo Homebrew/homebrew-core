@@ -14,6 +14,7 @@ class Libepoxy < Formula
   end
 
   bottle do
+    manifest_sha256 "52830fb91e033ae45d0566e8ce569cd3f60bce371dbafb2aa09bcaa33520b6b0"
     sha256 cellar: :any,                 arm64_golden_gate: "fe559478270cfdb9b25975bd1102b5daf37cdee11dea4e821190857d3a2fc144"
     sha256 cellar: :any,                 arm64_tahoe:       "b6b93f3e18a09a60f0a2e7b6f91eef274d0a34840d5141446535f6ef949377b4"
     sha256 cellar: :any,                 arm64_sequoia:     "8567ad4e5598374741b4762cbbff1a2aa57cf97947b4742304c49613b0abd419"
