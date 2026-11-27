@@ -11,6 +11,7 @@ class Hivex < Formula
   end
 
   bottle do
+    manifest_sha256 "7fcca6b1ede2cf939c90f2bee62df42b9ca419fb000a8c5e1d82157b0a444ddf"
     sha256 cellar: :any, arm64_golden_gate: "c5487e5f00f415838d08d5f85332e7050263ebd865661068a3b287c079a2558a"
     sha256 cellar: :any, arm64_tahoe:       "388c7e0f254b34c93a7b4c06461cecdc74da595a13cdd8e5fc1f9f394341a117"
     sha256 cellar: :any, arm64_sequoia:     "92f96d59734b9ff898f9f6dd03279ad085cce2a0c1a5f8c3385c4530590a09ed"
