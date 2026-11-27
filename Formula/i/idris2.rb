@@ -8,6 +8,7 @@ class Idris2 < Formula
   head "https://github.com/idris-lang/Idris2.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8b1d307b2cd9bcfa36463a4b4c603b0785c8aee26223b64993fa0ab91ad58859"
     sha256 cellar: :any, arm64_golden_gate: "d16bf31e7aa9f167f3f911909fa740a8452ddca5b031c089781c257c0a7f3790"
     sha256 cellar: :any, arm64_tahoe:       "b24e19d4055957fccaacd37f3c43d091fd71083cb481e665bacb2e78ec2a4b1b"
     sha256 cellar: :any, arm64_sequoia:     "c26756474e5e042aadd67188a4fe924b82e12537b7df11f872b9d744caf6d26d"
