@@ -16,6 +16,7 @@ class Unixodbc < Formula
   end
 
   bottle do
+    manifest_sha256 "360e2e4f867d4de04d2796d4cdd259ae4e7b2ea295598e7e5134813180543437"
     sha256 arm64_golden_gate: "6f32ea57dad323ab65185f585787172a966b2fbd984fe6527ecafa3ef1ac3833"
     sha256 arm64_tahoe:       "16b4c2a9d565749bae947c75a100ec4628e57c427af5b542593f67474077b3cb"
     sha256 arm64_sequoia:     "e1522105d20545743c713e90c17bf6393d7a829ec01137ec0d6942bbc04ea2d2"
