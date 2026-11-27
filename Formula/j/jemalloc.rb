@@ -7,6 +7,7 @@ class Jemalloc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7a76ce8d399270c9d337440bbc8b9d9d9703b8a848def86513850d9000a7915c"
     sha256 cellar: :any, arm64_golden_gate: "ebc856c594fac98560d03ee45b1a74dafc7564cfd1cc54223c717b8976697096"
     sha256 cellar: :any, arm64_tahoe:       "2d6b12cd49be74b19e4fbae76ee7d7cb8b9556bbc3ee8a16a001742ab866675b"
     sha256 cellar: :any, arm64_sequoia:     "100f278db6678ee5e3487e6e56c679759739195010755498d2c25d5f9013b6f9"
