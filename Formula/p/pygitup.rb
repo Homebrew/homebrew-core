@@ -8,6 +8,7 @@ class Pygitup < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7d7ecdfbcedacbb9a279921e3cc054a915c11b03ae20b55b1272a68aa65768d0"
     sha256 cellar: :any_skip_relocation, all: "f19c7f12d11ee83705ee1f9cfebd477482cc6459bbc6872d8afc62797353b004"
   end
 
