@@ -7,6 +7,7 @@ class GithubRelease < Formula
   head "https://github.com/github-release/github-release.git", branch: "master"
 
   bottle do
+    manifest_sha256 "175b4ab6f1ccc4f8daa1dceb9f8448ec55072239852dbc65c25ae5c6d1f33ea1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6f89a7495d76374975a092cfae3e244bbec27b42160e1b79458814b0457f0d2f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a699dd62fac62ae63696f53b9bb8ab1daf2dac9fa89d3826c97bf99dead45c60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "783735e7a1d5f4bc00ebfb61e97c31b815af39718562f6efd8b3aa228600e2b0"
