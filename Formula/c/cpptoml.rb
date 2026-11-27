@@ -10,6 +10,7 @@ class Cpptoml < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "392011b6739c9cf804ecba97e84205c7c49f3a07def7616706fe6122438c2324"
     sha256 cellar: :any_skip_relocation, all: "e72f93b179af9b4fa32b68d95740bf75b33e35fe035c25f05f63e625f7658a0d"
   end
 
