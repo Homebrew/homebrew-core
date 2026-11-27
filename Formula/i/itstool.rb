@@ -13,6 +13,7 @@ class Itstool < Formula
   end
 
   bottle do
+    manifest_sha256 "a2a38deda37690d19470ad1c726fb80073fd9d85a78bcc77d0360cb2ac535c3d"
     sha256 cellar: :any, arm64_golden_gate: "a31dcf345f29a0fd0fcfc1d6cf0c34bc7e7482f87349f458acdd8c54b0dfcc85"
     sha256 cellar: :any, arm64_tahoe:       "798b7493e61251f654eeef9e0d2b83be3a320e2e61c4d812315a8c9febb57d5d"
     sha256 cellar: :any, arm64_sequoia:     "88fb9fd3d60d99ccfef02dafc07ec1dab2fd420c5b9a0e1720f9cfecb357ce3e"
