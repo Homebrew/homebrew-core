@@ -8,6 +8,7 @@ class Pgpdump < Formula
   head "https://github.com/kazu-yamamoto/pgpdump.git", branch: "main"
 
   bottle do
+    manifest_sha256 "33f4292171c29d5d6f7126694641e18443f88670dcdab28218b1d36ca17f9c56"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "461263e1f721e46bb5673ead579b1fabb6c5e9c462a3003f4e14ee879e10fa52"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fc69f799ea95e3e89ccb78bc8661153a67343db86b19d92d822e6428b71e7d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc5590a7b082b8c32cd7fb39b62906eb31d08b742b8e4faa095a75b2c81d46f8"
