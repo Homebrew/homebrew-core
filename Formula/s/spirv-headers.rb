@@ -13,6 +13,7 @@ class SpirvHeaders < Formula
   end
 
   bottle do
+    manifest_sha256 "75ee964701f3c7ab27e744ff79cbd4741623f644491a798f176de4b3a8ce3f12"
     sha256 cellar: :any_skip_relocation, all: "281120edad71f06ccd2fb24cd1476382311664cfd914ee45380a336d58a4e157"
   end
 
