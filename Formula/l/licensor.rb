@@ -8,6 +8,7 @@ class Licensor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1e7fca204163a198a03b7cc1eea2dae69cb84c0de76dc125f002c6c2cd77278d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a002e243a53c77d565edcac941aff68a57e86bb496f566b95a8736eb8c5d273"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7072a1c2d29961fce1e5293dbd58ec4868d7bfa912647dd6373b89b2aceaeb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac1e3430727502de790d4320731f6108f02d5514a81e9577f963ce4f8294d39c"
