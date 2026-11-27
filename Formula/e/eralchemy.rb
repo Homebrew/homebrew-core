@@ -10,6 +10,7 @@ class Eralchemy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "077fdab1c7b07cc9df110a27dcd26497f553f85eafd7ac823a267b2225277176"
     sha256 cellar: :any, arm64_golden_gate: "4394105ed86de197b8dc0eeb9089fa7f2bd60870263963e8c9671e4ba72c51af"
     sha256 cellar: :any, arm64_tahoe:       "73c2f4d4258c3e8d0f6099eaa6afaeeca4c21e8b542d067e63df8b21376cf832"
     sha256 cellar: :any, arm64_sequoia:     "333dbe99f334ed3ed6b24a15404229373391655538a85c8b40df56c4bb0f8317"
