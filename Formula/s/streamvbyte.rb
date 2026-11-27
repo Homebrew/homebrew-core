@@ -7,6 +7,7 @@ class Streamvbyte < Formula
   head "https://github.com/fast-pack/streamvbyte.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d413db5badb60ed92b4aa9d3637f1213e98fdf10e7e3d17320c384374439dea4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03c10418da8dfd646123f4764a6ef8e0a73ccdce992d5b41ccea5da4901737e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc1360bb97ba6c24aa88f363917d57d3e5871de85473038aaf14416ecc8e827e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae894655b86b7fdabd395ad63690fc938afa2610f7f9e493cf52b2b831fc4185"
