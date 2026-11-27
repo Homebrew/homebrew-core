@@ -15,6 +15,7 @@ class Roxctl < Formula
   end
 
   bottle do
+    manifest_sha256 "9761fa2479231b9af9b40bc6f6072c49534798b79fca2e715a00fae243c21b87"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3cd54eebd61efcd3be5904bd34d7ac76187ad3dba2573236098be34055a39e03"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7459b80a91bbdb3eb69d1929ab6027d448df28811a8948278e1f885abc814b66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0e397f7a3531000c8890a7176e299a22e5e86410872ee00d6d6332acdc44bb0"
