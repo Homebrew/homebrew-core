@@ -8,6 +8,7 @@ class Libkeccak < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fcebdb107928ec08c3d40ef064a38a2e5358c90765ff5558ce20112d8439b9b1"
     sha256 cellar: :any, arm64_golden_gate: "c09af3598189595fbc21e867b9edb19a963b5531385dabe842f630e82ec79a02"
     sha256 cellar: :any, arm64_tahoe:       "b81a5c31bab9c20bdda40840bed85b7c2c7e4b7c6dcfdcf16c8092d2eac56900"
     sha256 cellar: :any, arm64_sequoia:     "e2f6aaa634828a1954117730a8aa2f81d4e79fcf0a5d5032b54731a4e656903f"
