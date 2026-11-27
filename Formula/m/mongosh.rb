@@ -7,6 +7,7 @@ class Mongosh < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ebe82dde4117c7769a130905f3c09f2de5929088e5461b088410de14dd8aca00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "070ac2f0cb2f938c45875b3092f653be20d734bc47ca4af26de30f8aab9b6006"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "070ac2f0cb2f938c45875b3092f653be20d734bc47ca4af26de30f8aab9b6006"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "070ac2f0cb2f938c45875b3092f653be20d734bc47ca4af26de30f8aab9b6006"
