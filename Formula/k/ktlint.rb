@@ -11,6 +11,7 @@ class Ktlint < Formula
   end
 
   bottle do
+    manifest_sha256 "22ed4a2d46a8f11a7130351a792de6c2b6629d64d96d0372688666035f3af520"
     sha256 cellar: :any_skip_relocation, all: "6ceb6042ff9dd6daab3eb7bb071ecca7c5227ab327a11e4a7e8bddcea27f029f"
   end
 
