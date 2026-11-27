@@ -7,6 +7,7 @@ class Graphqlviz < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f1fdb588d4fc9905e3d7ff75599b2ee89f8043e9f0dbeeb474afd0ed6ca26273"
     sha256 cellar: :any_skip_relocation, all: "4db2299d2acc437a3c3603bd69bca3baceade220abde52ae69b2146c9746cdd9"
   end
 
