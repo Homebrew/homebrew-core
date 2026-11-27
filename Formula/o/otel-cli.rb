@@ -8,6 +8,7 @@ class OtelCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "46745fb7a45b5c4679fc6b33e2c9c13ba15e441b3fcbce4e7aab44eb44afb152"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36b567a4968a325c063047376b9be9c77937f396eee6c1b367f9dcb15f87f365"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a313a9133dd11b8af9799ab905e85d5621e0f39bf352644e507b50d917acf8f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a313a9133dd11b8af9799ab905e85d5621e0f39bf352644e507b50d917acf8f1"
