@@ -7,6 +7,7 @@ class Ctail < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dbd97e76e39ed0a6ad6774cf0aee84f783c681d93e2bfe9909fe08910b0e8b89"
     sha256 cellar: :any,                 arm64_golden_gate: "ff8af56742cf003e69146f6e38e44cb13fdc2559060e10b113b267afe4824a45"
     sha256 cellar: :any,                 arm64_tahoe:       "90852c66651a883f061c0c6d2b2c1281e6b8e1cad687fd14e94a056f4fb62554"
     sha256 cellar: :any,                 arm64_sequoia:     "21800dfc7f1557473cc6fe1b4e0716d4fb100c86acbd6bbfe3751b36b02a37f6"
