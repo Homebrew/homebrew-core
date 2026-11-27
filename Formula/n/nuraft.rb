@@ -8,6 +8,7 @@ class Nuraft < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "fd05bbed1569ba91ed8c7b18d1f1c450696faa2147d7ca6debfb755b0ba128ee"
     sha256 cellar: :any, arm64_golden_gate: "517e0a885621767c861246519db093fe346ab22726f7ea48401944b11c040890"
     sha256 cellar: :any, arm64_tahoe:       "3fe144bec835ae99558360ce66dba39bf6d3c4ca19e38c66a579e14927e11418"
     sha256 cellar: :any, arm64_sequoia:     "31b701afa908f0ab05f611ce43f4fc12dd462ad5284ca17a00a70c4e0c11b76c"
