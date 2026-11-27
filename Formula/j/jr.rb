@@ -8,6 +8,7 @@ class Jr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "094c95d7048ed712609eaed1a25afcbbc92b39ae6976967fc7b8090c5069da1d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ce13f489706c9d5a56beb415c5a37d7b038fed2b0f51915c5f3ebbaa2d6090e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "399634610161df53cbbeceed8121518a1e3ed856aed4058b4d9877563f639fb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3287aeddbe1d654e4de4c907ab86aeb2f667e026e4a6e42ff20b432d0a9623b4"
