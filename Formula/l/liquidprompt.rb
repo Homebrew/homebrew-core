@@ -7,6 +7,7 @@ class Liquidprompt < Formula
   head "https://github.com/liquidprompt/liquidprompt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a3aaa683942b1ba5781ccc4966471a30bd81c9c5ad720146f3ad7865ea8677fe"
     sha256 cellar: :any_skip_relocation, all: "9d8b913cfb66a0e7470cc5696cc9d3afcf93d0143f714dbaeea9d408eb402e26"
   end
 
