@@ -9,6 +9,7 @@ class Sail < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "fbf33339cebf38bbc2ea84bd3694430dfdcd8191ce8ac0b271db37b36f786173"
     sha256 cellar: :any, arm64_golden_gate: "eaa8be2f39900040a5f880ba7bd34a9b12e63fc625705ee5ac238d9df4f17321"
     sha256 cellar: :any, arm64_tahoe:       "2c3262e029123976d44d6272e9b990a8f97e9c1d6159c6ad2dbc32467d0babbe"
     sha256 cellar: :any, arm64_sequoia:     "7dfff695ea5060dffdb7bcbae43b782ac5c288dca16dcc41f1da384f0ab0fb5a"
