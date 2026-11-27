@@ -7,6 +7,7 @@ class Gauth < Formula
   head "https://github.com/pcarrier/gauth.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0231bcec64864db2af4da69c93492224d2ed487fed2f2074c1e3aaf07f0af0d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f44292529846ca90abf2a7345224184cc7d3f9218638c72695582cc1de32995"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e07c7cf508ea13a153defdeb3c81b662d5672d7572edecac06920a093cecb1ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d91ac9029a1df98f1c2a3b5318f364c4b826c3f267e8d420fa389b5fc536dd1"
