@@ -8,6 +8,7 @@ class Lab < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e8e9541db7c72b3befb949d39070d41f5a048b430fd1eecb13c1687a80e00eb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f342162516adaf1cbdb1d757de8debf1fdc40bf24e84d65b28a9c0f8f568b6f1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e797c832335a5532813bc21bb9b373cec8551469955c9dea5826787f0053ed87"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e797c832335a5532813bc21bb9b373cec8551469955c9dea5826787f0053ed87"
