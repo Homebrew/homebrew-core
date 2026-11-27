@@ -8,6 +8,7 @@ class Instaloader < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5595284ee0f9a915baf7a8eb8e80e70afc016035eba98580e21189a552157a70"
     sha256 cellar: :any_skip_relocation, all: "d99824a2a7ab99d4d923f426db4f7236e8acf5db5bacf6b39ef16c0b26ac4e4e"
   end
 
