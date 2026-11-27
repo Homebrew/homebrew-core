@@ -7,6 +7,7 @@ class Myman < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "29f3e183be274dc02c48b85521e9298e82c65d6a1dd8efa08627bf35d45716dc"
     sha256 arm64_golden_gate: "e4d101025e878f46f85a4b94cbbb012041544c6aa6c4ccf485efd84fe50e736c"
     sha256 arm64_tahoe:       "ad0b203a8eb32295e620487891e41c177d0b4fb923060421f7b12dfab97b5c03"
     sha256 arm64_sequoia:     "0dc21521eed45cafe254d4827b33de42b08fd4be2eeae5dc0bfe88f6fe6dbf6f"
