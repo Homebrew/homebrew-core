@@ -7,6 +7,7 @@ class GitPkgsProxy < Formula
   head "https://github.com/git-pkgs/proxy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a9c0f913c50703d13f08166549ca760c88e3547731f6b693530842c2e4ad5c97"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a25616245c80eae43935db9b41c3cf8203720e4c08ca3fb0d06891f32d4f10ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58b7556473de82b4389c0cb3a01ae5ce5e31e3cb7ab7f03a47478188995349b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2f9a5c8ff8ac40f47ba0821bf52958237f1192bf7f5040a9d2d0379aebc69b05"
