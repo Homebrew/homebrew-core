@@ -12,6 +12,7 @@ class MavenShell < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e39329ad8da60fa2a5dd4a913a6930c73be8226e75f4f119d0446ae5d5c242e4"
     sha256 cellar: :any_skip_relocation, all: "5a843fccb7f0f9c53ab493d82fe2d2579cdce60d16f3274437bb7a01c9475b72"
   end
 
