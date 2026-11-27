@@ -9,6 +9,7 @@ class Mcpm < Formula
   revision 6
 
   bottle do
+    manifest_sha256 "baa55d7c4601f4456c8fdceeb514ef6b71a5a555416da4f486ee4c69308364f1"
     sha256 cellar: :any, arm64_golden_gate: "b64fed8184ebc5e6b74b837e479fd26e624efb10a71367ff545007fd4908d592"
     sha256 cellar: :any, arm64_tahoe:       "1a612100ad2ec24487774ad62d926af8cd3d3c2ce47b35c68ad7e37bfe723df1"
     sha256 cellar: :any, arm64_sequoia:     "780c3045f8d9306e4aeb1eb19f7402b241c418546832288b9e6c4be138d020e3"
