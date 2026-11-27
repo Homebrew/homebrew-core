@@ -12,6 +12,7 @@ class Libngspice < Formula
   end
 
   bottle do
+    manifest_sha256 "0d721fcf6a6b6072dd8b2aade4237043572b03894bbef069a2e90a6581697662"
     sha256 cellar: :any, arm64_golden_gate: "90fb49d7383d7ece63a108ee82be820bb49622ca9571cd5640e16e0648bec4a5"
     sha256 cellar: :any, arm64_tahoe:       "3eab32be60e72229f3d94f6a4360ec55f2a0d7786a2b913163fb675ac7bcc7aa"
     sha256 cellar: :any, arm64_sequoia:     "d69dec3cfc225c7a5e4145d2432e9ba3bb3efa2e85ac70b18a82e16ab00ce5b2"
