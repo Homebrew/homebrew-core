@@ -9,6 +9,7 @@ class Gensio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d21a7d55f9bda78b5feff08f8100b7b64b4130df4f7d9e96ccbcab7264c2daa0"
     sha256 arm64_golden_gate: "060ca9f89e9d2deaf99e760862a2126681eb6ec47442b36ddf32a5b35312583f"
     sha256 arm64_tahoe:       "a5c3a8ab7365409caf6f4dcff3502026bf14e282d9481632a41e8f39895515d7"
     sha256 arm64_sequoia:     "b564a7a57d9f33c88a38986d60946fcf615f86b2d574179e4e497f9a8f07f40d"
