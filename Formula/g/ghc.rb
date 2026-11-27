@@ -17,6 +17,7 @@ class Ghc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b1c2f30d2bbffc1b9e17bde92356ba05ff7f6bec519a22db4c193515621a11dc"
     sha256 cellar: :any, arm64_golden_gate: "7d73833d6670f99dd90255042318d2d109d7a1a7b138cc825253ef7246b95451"
     sha256 cellar: :any, arm64_tahoe:       "69ab0221afe0fa73b2819d8e288a60e5ce6e00bcdf6c933c9ec4cc306cabd448"
     sha256 cellar: :any, arm64_sequoia:     "a129e3570a5e3e094260dd7a8a50f479b6039144bce68b9dc7926e9a051208ec"
