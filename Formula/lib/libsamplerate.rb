@@ -8,6 +8,7 @@ class Libsamplerate < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ba137d9986e2ee6b5210195b5bdfef4003ff4022feefa486d939f61a18d0b70f"
     sha256 cellar: :any,                 arm64_golden_gate: "d55607bb0cdb6a0bfa31e73a7490e99f459bbde18b2822ff50a0d377f4946e41"
     sha256 cellar: :any,                 arm64_tahoe:       "a5245adca05c76e8f9593494b5909903ffe44c5173b7b713b6c5dec75005953b"
     sha256 cellar: :any,                 arm64_sequoia:     "d51907988e3ab62f6e49ddd1253a723fd5964b78a0361453e8d9b75a2106b4e7"
