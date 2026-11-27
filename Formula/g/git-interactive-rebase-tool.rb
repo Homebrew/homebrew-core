@@ -13,6 +13,7 @@ class GitInteractiveRebaseTool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6a1fd890d1fff4c17dc6857cbb13f6f82eee20e87ad66477b63c8ce93dfa8d40"
     sha256 cellar: :any,                 arm64_golden_gate: "0925eeb2d879f097e6d43b341f664f95d7c66881e4aadf0a3a9a87d28f2b0818"
     sha256 cellar: :any,                 arm64_tahoe:       "6deb4776ef5eb24799282fc8b4489e643c97c8d56303287763626f350ed79cd1"
     sha256 cellar: :any,                 arm64_sequoia:     "835c61bf47166e53349a684b49dffc494a454da85ac7f246cc86274490614219"
