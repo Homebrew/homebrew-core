@@ -17,6 +17,7 @@ class Qtquicktimeline < Formula
   end
 
   bottle do
+    manifest_sha256 "3454edb3e636219e6e0a8fbf11c41ada455c7a4eaf89ffa94cfdff9d3dc64280"
     sha256 cellar: :any, arm64_golden_gate: "8e1c25ac92af0b667d7a65f85ede01a78ebb71026bb56efd161c6cd23d435f38"
     sha256 cellar: :any, arm64_tahoe:       "df48d1792b7b60237609af44156cdf90c835a419643f341a5b103280a8bbbcc3"
     sha256 cellar: :any, arm64_sequoia:     "c8287d3680eb2a02d3cb5245e4961b64de4924c5ba849e4a3c6ca9600e83ce4b"
