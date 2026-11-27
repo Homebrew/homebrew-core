@@ -7,6 +7,7 @@ class Lightgbm < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "345c1c70e7700634c82e0331fe37b23ab4b410648720fc73fc15b0ba043eec52"
     sha256 cellar: :any, arm64_golden_gate: "fef018045a9df29f4c4f258e54ce91c40b71b6f40535e7d9716b7eb2183e90e8"
     sha256 cellar: :any, arm64_tahoe:       "81a2c2e9d6c58ebe62d3ee5ae2bf5afe07967be9ad67320dafbdb799dfe49766"
     sha256 cellar: :any, arm64_sequoia:     "6be02dfd098823dc8835851fc93f0669fd885204bfb30f583c708741a60bc9b7"
