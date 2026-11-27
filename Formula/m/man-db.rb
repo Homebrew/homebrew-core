@@ -13,6 +13,7 @@ class ManDb < Formula
   end
 
   bottle do
+    manifest_sha256 "2e6847fe4e633b5e0e34a6821d60087080197df9ec10ff75d4e48f42c8f53eb4"
     sha256 arm64_golden_gate: "9b67dd6448e96805aa09adbe66721057c8bc371e6e62f62aab9f167b2e7c695d"
     sha256 arm64_tahoe:       "1bb35850898ac2ff7f139facb81c0ffd97a703e42b2e088d772d8d706ffd32eb"
     sha256 arm64_sequoia:     "d20ee12ab73c56b9c7db6a572f09d9a867fe7cc700812ee0a4dffcbf363bb9ed"
