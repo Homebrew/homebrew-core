@@ -12,6 +12,7 @@ class Fastk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b1fc4bb169210337f9f9c92b495a1736951215a25243f2e0b0ea070b12b0d09e"
     sha256 cellar: :any,                 arm64_golden_gate: "c7880d3f141f8241a23ba7adaf8a68173cd8bb97a75e652804289ff4836061a7"
     sha256 cellar: :any,                 arm64_tahoe:       "3c5879f5bfe08955fd1efa5c04ce712c5fa2d3c614f987b840c936c78fcc56ac"
     sha256 cellar: :any,                 arm64_sequoia:     "7948d902262e70e4fa643fb0d53edd9a528e60aaea4e4c3b856169dfb8f53162"
