@@ -8,6 +8,7 @@ class Avce00 < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "902329f21abc5b101d1357ce66bfe1ddd3d59dc3136b7577574d8a52dbe78401"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6068c2b5d4279a562dbeb2e606a4dba22c50a7c053e44962cf73ba43e3044fde"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "380d933d3d32aa65c7afd933544c0f8a3d4b9fd349288627eeb6211753ad8c0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cbfe81486e3dc61f284643a89726e5d94927eaa359f3fe63664baaae8c9bc0ec"
