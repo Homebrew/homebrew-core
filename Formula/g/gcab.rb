@@ -15,6 +15,7 @@ class Gcab < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "35e83da4f7d1361c0f79473083ec38fc2e9e42675d5eae2633b82493b01136ce"
     sha256 arm64_golden_gate: "2301c5ac2a7aece6092596ac99f448a6a5dbef10e69a779de93e5a5084afc33e"
     sha256 arm64_tahoe:       "c75545ed9d16ec696c778a2d77108ad14afbf285827ca9ddcfeeae4c484b5b37"
     sha256 arm64_sequoia:     "62b5353419de06fbadf4cd171f811b8f851a44e708536846c8aa3a13bf5f7e45"
