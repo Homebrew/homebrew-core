@@ -10,6 +10,7 @@ class EcsDeploy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "61ff0d8138a11bd81aefa76b06579ef7b0a76fd22981cf0b6f0df46314c14301"
     sha256 cellar: :any_skip_relocation, all: "a763ab2874616a81ac1f5d1169a340ae45911ca9b5135b25e9ddfbc380ded63a"
   end
 
