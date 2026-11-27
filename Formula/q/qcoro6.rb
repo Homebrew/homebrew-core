@@ -6,6 +6,7 @@ class Qcoro6 < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7588a0f3799a267b7f96d66c12a86e71e4e905a64e9a7c9a20ee8eb6003c9ea6"
     sha256 cellar: :any,                 arm64_golden_gate: "7d7784ebeb08734dbc0d99c0966427d3784809be9e31c53c5b02a5618bcefea0"
     sha256 cellar: :any,                 arm64_tahoe:       "e9ed424fd8ae02a63a497b56cc2572a003ce650d53431b0860581c77c223322b"
     sha256 cellar: :any,                 arm64_sequoia:     "7bddcf4fa5cb6f63f5135dbb6a0da3c71d864fe4875dcbf307c932d62cc1a027"
