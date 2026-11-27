@@ -21,6 +21,7 @@ class PerconaServerAT84 < Formula
   end
 
   bottle do
+    manifest_sha256 "8df2dfa3ff4a52d0ee0701c0551b1223d744ba41e6f8618ef7242f7af7294ed7"
     sha256 arm64_golden_gate: "add2efddb3585b052628be4e86939d88ad10bf66002fe9a4b63fe5636b4337f5"
     sha256 arm64_tahoe:       "030dcc84c143d228b416ce00541e904ec7954d4021f44e4fa28ed99fc305fd36"
     sha256 arm64_sequoia:     "41da6ecac6730a14b9e9f36dd46b0df6a76c09f05a8cec01e6995c1dea0e8c20"
