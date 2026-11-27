@@ -13,6 +13,7 @@ class Ngircd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "22ebd694d32005f6badc74cae47856709bc7846b282038381bf50c3cfc45072d"
     sha256 arm64_golden_gate: "2dad8f0e52214c496bbce97abd6cd1b7b64232b35089ff3278dd1b575ce4e732"
     sha256 arm64_tahoe:       "87bc6a006ee2a63d03860f388378b53405cd2bddcfaa702e960f7d7af502eb1e"
     sha256 arm64_sequoia:     "e8f213f92636952b0a7616a3022c32ec026af92c16c210b85b4131f5b722e158"
