@@ -9,6 +9,7 @@ class Rasterio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "05a8bd9741d94aa1ede72715ed052cee7a1277e807ffed7b37b729c63dad68c3"
     sha256 cellar: :any, arm64_golden_gate: "de60db45f209fce6cf75514631ea76903b8275b561a018fc63bc1dabcb1ce277"
     sha256 cellar: :any, arm64_tahoe:       "994f0dedeca6f9e441d56b1b7b191e736a7923392006ae9c70fc847d55fa4f0d"
     sha256 cellar: :any, arm64_sequoia:     "91be3a8993cb05942c3921d96b5d66d4ae608ec39f9db7cd3c99ee0a0b046b51"
