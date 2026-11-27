@@ -14,6 +14,7 @@ class Libjodycode < Formula
   end
 
   bottle do
+    manifest_sha256 "e18bd073a9dee2f20f266afa1db58fefa5db02045f2a415978d7bd4ef908aafc"
     sha256 cellar: :any, arm64_golden_gate: "83e23477ee5a814cd9f6801c5d8fcad6161ba6dc1d941cfb620474a25eaa9176"
     sha256 cellar: :any, arm64_tahoe:       "073330f62fd7c97addcf3b43fd146b401b9cc2801fc5fc44e7369f55f2b6c8af"
     sha256 cellar: :any, arm64_sequoia:     "2431749499aabc426faa6f7108f5eea6b5112ed9160cf32232dc4a8e3e9bc9ed"
