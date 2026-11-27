@@ -7,6 +7,7 @@ class MagicWormholeRs < Formula
   head "https://github.com/magic-wormhole/magic-wormhole.rs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "240ab0853293511667aeb1e97a9244763d06776d76a9ca43b22269c8eeeee1f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f24fe869ccb1e8c82a69ed9e8c13d3644260bbdfd891a933c00fd3fd2305a464"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb6fc9ebd5dd3e8938121a9f5fe30a7f4da6761a6149aaa397815cfc55c4e730"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13959efef8fb4cf5e870c1985756dd83b3ec84cda92716d23ca10495af073a58"
