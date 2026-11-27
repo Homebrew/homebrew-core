@@ -12,6 +12,7 @@ class Sntop < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "62e4b4696aefe99c8ca5185eedc26a0b0e40439a0a1c2e99081f592fcb3a508e"
     sha256 arm64_golden_gate: "0a9f69e12e52c1779d1bff4b5c8aa64526e65e053d0f54be2aa1b21bb0e5d982"
     sha256 arm64_tahoe:       "e40298eeb9619591443c8ba0e977cc63a5d61a2508e4d3695dd0dc8292eb9f34"
     sha256 arm64_sequoia:     "f815f00571ebdc127b745bd5e895cc486b35b3a38380c3be316ec453c47c0e62"
