@@ -16,6 +16,7 @@ class Rockcraft < Formula
   end
 
   bottle do
+    manifest_sha256 "3ab1c034a4645860cce0d7e817b03a3334682af8def99b8386183abec538e996"
     sha256 cellar: :any, arm64_golden_gate: "0134b37695d9a57df37be4999bc62e3c19faf794f433a7994fd4cfd42971c349"
     sha256 cellar: :any, arm64_tahoe:       "4137daf24726682019d0f4567f54bfd47630349e63421658e79f1e8e1cae6479"
     sha256 cellar: :any, arm64_sequoia:     "03cd1dd10a468357214398aa01ecfdaed57003bcab44aef428bf2de8bbb8f7d0"
