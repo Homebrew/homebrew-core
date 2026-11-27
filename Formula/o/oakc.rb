@@ -8,6 +8,7 @@ class Oakc < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "82659e499954f3fee22a863b52f60acff1d0c24eacb7caf4040ea599d4547de4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85a4e1908b872b3cb23bdbf538fd3b605c00acec2480d1062636aecbea8700c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60abd2db575988443d770ae177888cff9366de42bbe23c1da3fede13903385c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07e3a3b23965b457f71c6938c55dd7dfcccffc666746863345e301f4888a4f13"
