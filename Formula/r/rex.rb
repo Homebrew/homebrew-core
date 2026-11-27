@@ -7,6 +7,7 @@ class Rex < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "7a324228a93e63444132cc3b99249a2337a26bf02b82c6d9a494daaabe1cb88f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a48bbb4988161adf12f284c3108c501827f7390b34e5c83f18e365f6e6cb419"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51ee814ebc7ac1e43048122830b94485875cb64390ba335931093839b40e29e9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "51ee814ebc7ac1e43048122830b94485875cb64390ba335931093839b40e29e9"
