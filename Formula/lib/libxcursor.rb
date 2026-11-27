@@ -8,6 +8,7 @@ class Libxcursor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c3ce3dd6c4da6e46f1feaea16594ec6c5a71944e475a7f1fb360ac8e81634d56"
     sha256 arm64_golden_gate: "2c4a7bc7940a286ecb8a6fb90a3380ea01da85468856f50279555c6b14926540"
     sha256 arm64_tahoe:       "0ce9a15234d8fed400468ba6071d6d6d981e7e64fdc4d6f492fa95fa78ee4f27"
     sha256 arm64_sequoia:     "89433fda42917b2845ab4b45f70a307ea34dcc030d8f19ee9269e60db8dedb12"
