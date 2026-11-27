@@ -9,6 +9,7 @@ class PassGitHelper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a87367907396c06edb75d89e32e6aa7a8e2316d7b27704d8c2d0922467b5423d"
     sha256 cellar: :any_skip_relocation, all: "1ef9f0971b8205ff9d3da1b5b9eadd9026bf5f25d267bd98bf87788b41f35d82"
   end
 
