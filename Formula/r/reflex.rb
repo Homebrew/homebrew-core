@@ -7,6 +7,7 @@ class Reflex < Formula
   head "https://github.com/cespare/reflex.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55d4c906e73857131f226466046f96a239919e13e94c944d9677b760d9ef049b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77c46d082ec916ab9400867443311c1bfdc6319873c07d3f11931f234847f739"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b134833b43caa9d4fe46d6e7e44c53abcde8ab5a0b8749c0f79ce74597ee92ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b134833b43caa9d4fe46d6e7e44c53abcde8ab5a0b8749c0f79ce74597ee92ca"
