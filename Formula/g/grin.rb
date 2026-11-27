@@ -6,6 +6,7 @@ class Grin < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8d272b3fca7dfd23bcb0a975b233ca0fc77ce60354f851a550b7a9113151376c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ad750e572786954155600d9390fa677c28a0bd9636e950d27088b95da650782"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a743286e3d8034b3b49180fd7a0247f1a1dbef51d0f5d84403eebf9a9772e6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3fda40993933e667d0f21ae8aa5646abac06d4e40a017be8a0d17ece10509c4"
