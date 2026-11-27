@@ -10,6 +10,7 @@ class Keepassc < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "4a4457d608c5c086b547ab99d734313ccf02992de6f5d9080a19c352bac24ba9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e5d68d75a32b6b99b746bc2a391fa4b0de0ae57634715d3fb34d8fcccb6f14d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9bc6becf86b14c06d92cd8ad72d3c56678813cc8372dd4107b9d2437b09b2c92"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1dc15687e0e1a0cf07e05a70ea58e24c9c30737b180583cc63f016591c9a0753"
