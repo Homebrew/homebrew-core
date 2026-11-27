@@ -8,6 +8,7 @@ class Doubledown < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8769a67891483a90b1771d5934d95b00ee2b8f31bff5d955264184eaf084c18a"
     sha256 cellar: :any_skip_relocation, all: "7e93ea6b6323a89639c314a3f44364e2aa3ab4e5d7017d6b352c8761e5f13fa5"
   end
 
