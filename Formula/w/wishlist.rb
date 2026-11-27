@@ -8,6 +8,7 @@ class Wishlist < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d74d6f917f5de52f3c5fc19fe2677d92660dd3277117d414574b249213a2bf92"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ca7d9b0b7dbcb4e0f69e816bf8d29584ebb758d424ab2a3ae2563ba2b4cf666e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd6459f6fa4774495cadc75ab3fb08547c72126193931309609eb2e9eb872061"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd6459f6fa4774495cadc75ab3fb08547c72126193931309609eb2e9eb872061"
