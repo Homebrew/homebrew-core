@@ -9,6 +9,7 @@ class Sleef < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f584b6ab159a19eedb457ecf635a576f72a9e04f6da785274b82aa9d722394c0"
     sha256 cellar: :any, arm64_golden_gate: "76dad3b8d2c979892b3070c7bb357729ea389fc683c5d6a3584ae8dcc96d44c9"
     sha256 cellar: :any, arm64_tahoe:       "231f4874823402017c6c4d530da4880de1b75280be9efd3a3ed58f20f85355b4"
     sha256 cellar: :any, arm64_sequoia:     "43a0be3a50217071368ed54a8cf45a1c2ac07c4d512fb45a71e62a438666d077"
