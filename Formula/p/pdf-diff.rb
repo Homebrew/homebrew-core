@@ -7,6 +7,7 @@ class PdfDiff < Formula
   head "https://github.com/serhack/pdf-diff.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bc7a1f1972275d7a15801e8d7bbc3a98fb06672ea6978afe565519449f2c8038"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9dddee5f03966d7f1232c0e54ca04567b6c1a0117ba9d84e752e14f1080e2f19"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3109937918e55155cabbc7db5bbe153bf22cc27f0f315e13c8539ccf8cf94529"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "33b71b6dcebe2687113628450e3a414db0c5abc4c27b4eda4090477c089f102f"
