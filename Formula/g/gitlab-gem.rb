@@ -7,6 +7,7 @@ class GitlabGem < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "51c6316dc169e8497cb2b7a36a7a955447cbde7bc0cb93772f17b468e2bb97ac"
     sha256 cellar: :any,                 arm64_golden_gate: "a33716cc84b230aa9ccbb009ac6a48956979174bf7e60819528d37ee690ca4e6"
     sha256 cellar: :any,                 arm64_tahoe:       "28a634a10d64dd6205d560f27a925cf90f44a9dc65df22e4a3459f73a3f2a2a9"
     sha256 cellar: :any,                 arm64_sequoia:     "e1a7e8d12754a76599ab213a19a4b493d129a5b789f6a6f0e148c46deee4c893"
