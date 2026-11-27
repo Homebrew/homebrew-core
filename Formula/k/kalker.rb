@@ -7,6 +7,7 @@ class Kalker < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "46b49adf7b4c9e1740832be55fc8c639e21fe6060aa755b073f6ab9e11772474"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05f2c2e0ff63be5e6fe533ff70307a78e790a7dee0f762f3518c9b87dc31d2ad"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4773ce70ff3b360a0a077a3998e466dcc8d1ae993a62bea335dcf16d857a4b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "930aba26c13acd165e86fb81edfa147d4395be2047318ca43c4c374c295b22e7"
