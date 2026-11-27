@@ -7,6 +7,7 @@ class Hjson < Formula
   head "https://github.com/hjson/hjson-go.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fd12ee9502251fda563ba44ad2e7ac34f9396996a296fe7796476e5974d6ef7a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a33156f50c63285d3df45038349df02997e8f177138201d44d19b313a3a2ed7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a33156f50c63285d3df45038349df02997e8f177138201d44d19b313a3a2ed7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a33156f50c63285d3df45038349df02997e8f177138201d44d19b313a3a2ed7"
