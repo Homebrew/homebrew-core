@@ -8,6 +8,7 @@ class KertishDos < Formula
   head "https://github.com/freakmaxi/kertish-dos.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4491775650be98e3af7e4db7da64710d0beeecf941f2bccb21bacdf51ec40450"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a08b5def06373bbd7e03ced6263a7ec0deb90f53506174b9aa8f4a13c91d9570"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bce3b8645b27f84f8c8452740dfd4494c747fbee848d8d667148fd1e0cc19db8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b3abc8c569185063a1ba3d2e6d634c446cad8ee07d4ae36c31221aa875dd6bd"
