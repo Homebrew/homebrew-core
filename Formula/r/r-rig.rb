@@ -11,6 +11,7 @@ class RRig < Formula
   end
 
   bottle do
+    manifest_sha256 "f3b58b373115d823b1f52d32b336e43a6f62549b9db3d4ddf7f24ed0ec38166d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "930e63fcb6daaeb0c0737b4872bb980f1ce4d24ae0643f441babc0d02e81e1de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00d7873e7fe117e0851062d991c1431cc51da993d135258c504cacfdc2c9d761"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a547dd661605d52f41651e9da9fff524465d0f8680da7056203508b23d5920b"
