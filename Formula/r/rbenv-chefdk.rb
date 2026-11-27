@@ -9,6 +9,7 @@ class RbenvChefdk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "acfeb512f233f1dec5030d0ea7b01a07ff1624c87d6af9c65308c8553ab0e471"
     sha256 cellar: :any_skip_relocation, all: "dcdf8e0ad350e940be7783e378bf8c146bda6e446a13109511a9d4ed705170c0"
   end
 
