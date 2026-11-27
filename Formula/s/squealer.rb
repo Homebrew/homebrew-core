@@ -8,6 +8,7 @@ class Squealer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e88a5c4b44e0fcd8866102d8d5b59c6c418ca604b12c5f582be4ccfdd10039df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e880bbb6a5f142b9b021b23c9c52b2e79e6cec36b886b8c08c1fc4c933f8f96"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c0a6bfae29e084026e7fbe3601704dfc3a2065a8fba3dc586947b8112aaccc0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c0a6bfae29e084026e7fbe3601704dfc3a2065a8fba3dc586947b8112aaccc0"
