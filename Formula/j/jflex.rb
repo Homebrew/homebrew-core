@@ -12,6 +12,7 @@ class Jflex < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c9addab42254bf7601631cbe15ebac74c2fdb9392f8fe06241046327530f958d"
     sha256 cellar: :any_skip_relocation, all: "0e6a95ad6f0aa8fbe269ef4f17eb27227c43456e925a39baafa5bca7e25c151f"
   end
 
