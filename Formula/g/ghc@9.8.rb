@@ -17,6 +17,7 @@ class GhcAT98 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fc1119e00a000982172ab43611159bcc628af949af799f1fdb3cb3e28c5cc5e2"
     sha256 cellar: :any,                 arm64_tahoe:   "9480b6b54cbcaf29cd4ad8cae23cdb03bad48485186926d66685c40c90771fcf"
     sha256 cellar: :any,                 arm64_sequoia: "489d55cbc7c039f9f97aaeb74ac050735ab3218739ed41805ef1b7a714d06e1a"
     sha256 cellar: :any,                 arm64_sonoma:  "9ad0baffde0368e14afb9c9f01373c05842e5a30f4094064e4deb9e8e67192f1"
