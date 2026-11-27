@@ -8,6 +8,7 @@ class Dspdfviewer < Formula
   head "https://github.com/dannyedel/dspdfviewer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7d1ba2b7779ad956fd5b5be751bfbe9f103361f34f8e8541574a527141e6f786"
     sha256 cellar: :any, arm64_golden_gate: "7011f24fb109a34ee71468f59d05f79a835a6e2631dd3aeccee117f09affca41"
     sha256 cellar: :any, arm64_tahoe:       "7b9d8549baa17f6f2f8ad9cc797c06e65a53107dc548fbc21ce628ba6f16f7b0"
     sha256 cellar: :any, arm64_sequoia:     "46fc2736a9cf97d2da1ac0fd6601bb7b42dac5cc4958d61178d4bc0a232fb10c"
