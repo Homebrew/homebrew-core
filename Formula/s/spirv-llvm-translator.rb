@@ -26,7 +26,7 @@ class SpirvLlvmTranslator < Formula
 
     livecheck do
       url "https://raw.githubusercontent.com/KhronosGroup/SPIRV-LLVM-Translator/refs/tags/v#{LATEST_VERSION}/spirv-headers-tag.conf"
-      regex(/^([0-9a-f]{40})$/i)
+      regex(/^(\h{40})$/i)
     end
   end
 

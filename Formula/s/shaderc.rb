@@ -16,7 +16,7 @@ class Shaderc < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/google/shaderc/refs/tags/v#{LATEST_VERSION}/DEPS"
-        regex(/["']glslang_revision["']:\s*["']([0-9a-f]+)["']/i)
+        regex(/["']glslang_revision["']:\s*["'](\h+)["']/i)
       end
     end
 
@@ -28,7 +28,7 @@ class Shaderc < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/google/shaderc/refs/tags/v#{LATEST_VERSION}/DEPS"
-        regex(/["']spirv_headers_revision["']:\s*["']([0-9a-f]+)["']/i)
+        regex(/["']spirv_headers_revision["']:\s*["'](\h+)["']/i)
       end
     end
 
@@ -40,7 +40,7 @@ class Shaderc < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/google/shaderc/refs/tags/v#{LATEST_VERSION}/DEPS"
-        regex(/["']spirv_tools_revision["']:\s*["']([0-9a-f]+)["']/i)
+        regex(/["']spirv_tools_revision["']:\s*["'](\h+)["']/i)
       end
     end
   end
