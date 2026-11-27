@@ -8,6 +8,7 @@ class Fcft < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "33e96f5c5bb9bcf104ea60392ad7bf3f0a848fb0345b1848adc552e7ac6adc5b"
     sha256 arm64_linux:  "422fc6622e50b8938d35ef4c65ea4c712425925eaa7e53eda599de004fd239f5"
     sha256 x86_64_linux: "686fdf37a1c72b3078e5b2ff4ffabfb44c0d963034f5dc6d4fa54702dc4e0144"
   end
