@@ -7,6 +7,7 @@ class NetcdfCxx < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "3b07909808319cf4d76971bdeba3a948ad452c37077f5747387c75bd89719eef"
     sha256 cellar: :any, arm64_golden_gate: "f44f7a735f164facbde33e928bb7173359b57057e95ab1625a62ca905757b528"
     sha256 cellar: :any, arm64_tahoe:       "99c1c86b1ab186f4ba17658f17c1df632cad1a7034aec69dc4b2a6935115d6b7"
     sha256 cellar: :any, arm64_sequoia:     "de135267806b271052aa12181c0ef8f97f9ceb70bc0db0f54817d5e42cf20bd0"
