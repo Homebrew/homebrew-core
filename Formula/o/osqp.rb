@@ -6,6 +6,7 @@ class Osqp < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "0c995caaf8e96cf276aceba6b5d889321b00e52e2a29257047a914b600c8d982"
     sha256 cellar: :any,                 arm64_golden_gate: "425e6f167ccbe2ecbc152e32c7e20891bb2df068800eb36f547e45b534002953"
     sha256 cellar: :any,                 arm64_tahoe:       "c954c2ec86a360b05b33c2adca519d53f4b4a668ec21dd1843c0a03811239b5d"
     sha256 cellar: :any,                 arm64_sequoia:     "ccb60f0cfb872511bca80235ac7a946fa63b37a5a3dd12824225233b53da0a0c"
