@@ -6,6 +6,7 @@ class LibbitcoinConsensus < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "464fb5705273f8c2dac9c415463b0d3863e100be965a3cf12da961f500f255b1"
     sha256 cellar: :any,                 arm64_tahoe:    "a208eab2c355028b035129dac7a3f1316dff9cec8d84aeee74a0ffc66fc94ac4"
     sha256 cellar: :any,                 arm64_sequoia:  "0becb75eb0a0540a4cb6554887c3b345777278ec8ed8e5fafd76057722c755c6"
     sha256 cellar: :any,                 arm64_sonoma:   "12ab6ca60756919e7347031905778cf42151bc6d5294cf9826a7341a69c6b3dc"
