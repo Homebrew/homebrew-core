@@ -6,6 +6,7 @@ class SmitheryCli < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "ea20489b5c3375e23a56116eb0736954f1848fc7a286da496031e58d3d0666b8"
     sha256 cellar: :any_skip_relocation, all: "7953d52a012f6401ce602007ddf769460798fc32feb2e35a60ca9c64e897ee27"
   end
 
