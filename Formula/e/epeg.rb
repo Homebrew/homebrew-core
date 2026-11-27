@@ -7,6 +7,7 @@ class Epeg < Formula
   head "https://github.com/mattes/epeg.git", branch: "master"
 
   bottle do
+    manifest_sha256 "297584068b671fde74f55127decabc71c4c4febf00de90c97432c841012166d5"
     sha256 cellar: :any,                 arm64_golden_gate: "679e589e185cceb042f185a2b63bca4e77f062bf691b805473d7eb8d48e9c316"
     sha256 cellar: :any,                 arm64_tahoe:       "b3d13a2831b4be8bb1314371dd6bdc343309fcd125083e6634f3ed55932914c6"
     sha256 cellar: :any,                 arm64_sequoia:     "f76fb3cb8de88a494ad312352ac1cf1c34091c19f042ff330ff9bcd0ec8ea47c"
