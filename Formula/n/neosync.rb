@@ -8,6 +8,7 @@ class Neosync < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "138dde06fc8e6bfd268bb0dee1f40141f11969b929b01f56c6db11f473d40c42"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0fdec49d7b3be0ca25e22db170c6c13ebf8046dcd36cafcc9a84d971192676c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc8511aed8b89a42f541a67b4dad182c92b035ccdd80b9c72876f4eba0b0ba83"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc8511aed8b89a42f541a67b4dad182c92b035ccdd80b9c72876f4eba0b0ba83"
