@@ -27,6 +27,7 @@ class SimpleAmqpClient < Formula
   end
 
   bottle do
+    manifest_sha256 "696a7af867e981af2dd5918132a735befeda2965b9ad439c13196f5023e6a867"
     sha256 cellar: :any, arm64_golden_gate: "f423f874fc4c51303d756f478eedb9fc192e0497b6235c0d996d83d487ead3ca"
     sha256 cellar: :any, arm64_tahoe:       "db26e0a40c159daa4680c3b23a6a53ced0bf4fd240cf181c897c92cd0851d255"
     sha256 cellar: :any, arm64_sequoia:     "2010ef5df3e2d1e685739897f2f7ff55f510c406803e16e60853a54299638260"
