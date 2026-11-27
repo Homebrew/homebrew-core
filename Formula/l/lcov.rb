@@ -7,6 +7,7 @@ class Lcov < Formula
   head "https://github.com/linux-test-project/lcov.git", branch: "master"
 
   bottle do
+    manifest_sha256 "783d420d5a9c0e3704911d7e1d2c7ef9942c31cd36a318a3dd4d586f6fcb9bfa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b4d31d0b102db3d36832c1c97304ee2b38bf3ce0c2a444084403faa1e3c2b5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0273a9b6e2d9a07f1051916bf3815d06bb6a2a5b665a2bc4c882aa8eb094db68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a76c9453e453f1ef5f998c8858337fc7cc1307d8e09ccd8dea2a46958a9c848"
