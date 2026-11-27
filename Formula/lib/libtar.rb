@@ -8,6 +8,7 @@ class Libtar < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "3791fecea67bd7f319efcaba9988d4aca397bb541bf5762508de4fbe17cc9bd2"
     sha256 cellar: :any, arm64_golden_gate: "0bee5a7daf113533848ee50ebd90c8c966850ae12540f09f7b441b6a8d1fd9ab"
     sha256 cellar: :any, arm64_tahoe:       "1ee318fdf6d06e8d670cedcd4e9d5a8df008104c3fdc2aaace8caa3ec04ea0f8"
     sha256 cellar: :any, arm64_sequoia:     "48ccf141f62ae2175f39795d088a23af7d984d5fa226c5ff0accd8fe051a9136"
