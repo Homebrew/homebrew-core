@@ -7,6 +7,7 @@ class Scrypt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7f3cdd49304949c8c136d87518c93fa8aecb171df8f41286638859f085aafc8f"
     sha256 cellar: :any,                 arm64_golden_gate: "3c60ce251300d39ce1b6b9135276848459a63cc195583ad2f63f4e02d58f1ae6"
     sha256 cellar: :any,                 arm64_tahoe:       "26cdc2a8154fdc20524a0e52a2da50b65be10ba0c6c98499b9a5d1742a9d4e84"
     sha256 cellar: :any,                 arm64_sequoia:     "630bc5c3e348ee1c810b3546504bbff8329e58983f792cf2d007c6f0657b0502"
