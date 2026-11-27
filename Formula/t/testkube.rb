@@ -12,12 +12,12 @@ class Testkube < Formula
   end
 
   bottle do
-    manifest_sha256 "f198dbd480ed5a22f4d97b8b14898251b5ab53619102c0d110fbf2cdf4f910b5"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e97962c0fdd8e673ad6bf2d8cfb47d4d8da9cc490fc19d2d9647b2d0db2fb64"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b89f492785fa2f353e9d4b89ae63bfc79ce09729f8d77b4e5c2228bd4de4e210"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d52096645a4957e609016283a1496368d4f6f5c3d145d6a42bb90ec5353c60cf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "0b0e83d4f6efb4d13910bd90bede349d9877093d4f3d4dbf2762ec484cea1e2c"
-    sha256 cellar: :any,                 x86_64_linux:      "f3e21afc8ee546421a775e7bd6ab3c1e8d3bcee323ba721b466c4c57d79dc26f"
+    manifest_sha256 "021d6159bcb8f32749ecb69d400d5a12839953ae33c300234079f922def497e7"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f74f5c17fa9337f356532cd4bec9ed7c391f8a1c8b7bbb8306f957501d6bd17d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2995dc5bafcbf7b0e14d5f8e3181ded9ac561573864efddfd0ddb147dc155ea"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d78ce4f46a6ba4b56d10538e90fe3e078c34e45f9416188be154416e99c0d1b"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "1be759f7affb7df5abbd79cdaa4c19f2ebeba866bf8483be9428d40acd0f862a"
+    sha256 cellar: :any,                 x86_64_linux:      "64cfedd132516514917463bb69a90ebfc01551d8f4919008d52788430db592fe"
   end
 
   depends_on "go" => :build
