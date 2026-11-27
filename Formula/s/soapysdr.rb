@@ -9,6 +9,7 @@ class Soapysdr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "57e3bfe47949e2d72d064530d0493d2a33d73444a4d1048f87ff805067b58674"
     sha256               arm64_golden_gate: "03ad4b177ad980188fce89ccc390525225c5524fc98aebb84ff364490b06db09"
     sha256               arm64_tahoe:       "7cc27887c271fee034f0aa63c2130059ac39349f3443da4b84e24f591a45339d"
     sha256               arm64_sequoia:     "e098f6a65671bacfdf27830af5bc5518c386fac38ce0965d3e3aec58967dd993"
