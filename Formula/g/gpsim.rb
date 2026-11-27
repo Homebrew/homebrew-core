@@ -13,6 +13,7 @@ class Gpsim < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "998175fdde3c57c9f06e19472bb89a19dea934718d22a45fbd24fce33560e25f"
     sha256 cellar: :any,                 arm64_golden_gate: "4a833d1a792be5e9ea0012dd631ad055a335d0bbe9cdb3489ebf38112d187025"
     sha256 cellar: :any,                 arm64_tahoe:       "eaff4cd77c4e03aff25bc78d8a4a817ddd1772bb4f11f6af22f55bea64b1e1f2"
     sha256 cellar: :any,                 arm64_sequoia:     "0e00390c7ead8acdb2ecffe0c1181c0fdd1fbaa325cd50304c98652e61c2e15a"
