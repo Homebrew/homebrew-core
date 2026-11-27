@@ -12,6 +12,7 @@ class Dwarfs < Formula
   end
 
   bottle do
+    manifest_sha256 "bdb805cd713b4ea54807b6828fa4223c7d4549e73d825314d637a58d9c8b4a8a"
     sha256 cellar: :any, arm64_golden_gate: "5e05181690b5a7811e445cb5787654a8c89afce6afbaa4ed7ef77f9b907c027b"
     sha256 cellar: :any, arm64_tahoe:       "c6144bd876c57ab6f34ed5624ac9a5f7f05d49d672d5d7d1f905901c5bc97923"
     sha256 cellar: :any, arm64_sequoia:     "7eea38c0156f1e1e550a9cfbb3e0eccb728ec12f1bbd8e6551a86509826e9af6"
