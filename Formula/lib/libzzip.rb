@@ -7,6 +7,7 @@ class Libzzip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9ab9fb15fb7c6951dd023bf0cfa5db6618937fc3b1c0dedc1044098ad794d648"
     sha256 cellar: :any,                 arm64_golden_gate: "029e70175740c7c4d0b8ed2f3e4bd1b4525a65c37dff4640c98332ccf479444d"
     sha256 cellar: :any,                 arm64_tahoe:       "69735dbc14d4c13a8f0c66f8dd6012e2f9618a79033d87a899cac0c84e31cf22"
     sha256 cellar: :any,                 arm64_sequoia:     "41c0248393555b1c550213bb84e033a57182585de9f305a2834b371911842261"
