@@ -18,11 +18,12 @@ class CurlImpersonate < Formula
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "5f474d82fffe482f77670bd20c35e59a5f952a5f0b0a2555fe1fa9d0733fd229"
-    sha256 arm64_tahoe:       "75b4b7479d54341f51ded9a64ca0496d762700c964f8dcdd6b14a9d71154da3c"
-    sha256 arm64_sequoia:     "df1ee235b951383a376db272081c1b181e177ff81fb9b145c28677cdbdfaa4bf"
-    sha256 arm64_linux:       "8dd1da087f977884e42124f368cfc5b154d78b3467d4fccac7a826685d30017c"
-    sha256 x86_64_linux:      "7ada8493ff09ae6864f826e11b780132b5a821143095a28bbf62a8cd9d1336f0"
+    manifest_sha256 "09937e0621bb20f3791b63b341b58d8bae05b26d3978970b1e5baeab2d61dd1b"
+    sha256 arm64_golden_gate: "e84967f6c92457b3572415c2e6d5e9dc01c93f017836f710891978b2092ea9e8"
+    sha256 arm64_tahoe:       "7ae1a63a85fa88cf03a00c194d5ee5eed983b53c77948b0ce54fd45b0e7ddc02"
+    sha256 arm64_sequoia:     "79a3762667c0937f4847b66efdba02b3466b7656eb415a6997ec88088d1d1599"
+    sha256 arm64_linux:       "2b01e68d4e1f4ba032fc41bdaca3a158b6e1bdf33c750554d70ffdc672ab0027"
+    sha256 x86_64_linux:      "94179377607a3be2538f0b397014638db9e2ad4bd729907cd95d7158552e426b"
   end
 
   depends_on "cmake" => :build
