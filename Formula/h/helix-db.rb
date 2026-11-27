@@ -6,6 +6,7 @@ class HelixDb < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "a78e178be27b9cdfa3377926ee212cde8eed8f07c5d3724354898addcac2f352"
     sha256 arm64_golden_gate: "d0d98847a1c2589225ce7fedb218ae2389e72dfd1e6b08e196ec58416b4e42e7"
     sha256 arm64_tahoe:       "39301d39f9553d0707e89ac4e3855e69c9505fcb599be2e18924a6c0157e0e90"
     sha256 arm64_sequoia:     "4943c8cc938142651ed133fedce60a0ffd77255c3619fcb360a39a1a1b4ff392"
