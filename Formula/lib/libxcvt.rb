@@ -8,6 +8,7 @@ class Libxcvt < Formula
   head "https://gitlab.freedesktop.org/xorg/lib/libxcvt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "70bf751317e41eec22bb8be2502318eb742d2702d2a7ba7b2e5e420a64c1958f"
     sha256 cellar: :any,                 arm64_golden_gate: "ca2374a57231b7b914ee543131ce0ccd4d4c8af283b0333b16557c7ff3f23439"
     sha256 cellar: :any,                 arm64_tahoe:       "eae2b3f52d4a28cdfaade3594be5e65169b0d397a9c5d265e53407f8eec26f3f"
     sha256 cellar: :any,                 arm64_sequoia:     "190b2e04bf9616a948e8fa075bd511d0f85a215f2442989ba8930c56ac175963"
