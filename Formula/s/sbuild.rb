@@ -13,6 +13,7 @@ class Sbuild < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d141bad575c54f5e2849b01eb10173e6b5c1871559dbe6bd87759a1defbfada4"
     sha256 cellar: :any_skip_relocation, all: "0a8af36def5cab55a8a4ed2a793572ec0f0f9f5afe15681f3b6bef38d571a389"
   end
 
