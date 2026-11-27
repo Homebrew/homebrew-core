@@ -12,6 +12,7 @@ class Elfx86exts < Formula
   end
 
   bottle do
+    manifest_sha256 "24e9edebbce504099ee0227a0356bab1fd1ce4142ca7440442fd257012573eab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "405739c040955f558b72e96c8706ee2b412ee51f702eb1b839e0d4988b99dfd6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26364ee7fa3dc23dedbb5ec80e551b0cc406919876a757bf2285e7df6b5f51d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "082f25260e328fdec04a35804170ad6f0918521c7f146798c0375ff8ee85e7b1"
