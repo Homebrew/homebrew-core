@@ -6,6 +6,7 @@ class Packetry < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "b6ae344eb10f251cd25697056de630d450735a35d668a54659909c1bae105c64"
     sha256 cellar: :any,                 arm64_golden_gate: "117f4a2f0901edf6571bdc24463aca5d597ab8e5bafb507d987b90b9d6ab8278"
     sha256 cellar: :any,                 arm64_tahoe:       "7b44a327337008bac85d41e08c6c01d443ec193d25671791275bb846fbb49a98"
     sha256 cellar: :any,                 arm64_sequoia:     "96b22357843f520ea804060b1a2016ca1597d2944bd9ba421ee18cb4400aed5f"
