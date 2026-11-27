@@ -11,6 +11,7 @@ class LibpqAT17 < Formula
   end
 
   bottle do
+    manifest_sha256 "799f6e83d1ff8854652327c5a1f66c21229406fad9410a1a03c7a8890dca94c1"
     sha256 arm64_golden_gate: "1c59e474b739b3122c236a9e4e7f98dc61dc3083bcfb5b89cd9aba09262ad539"
     sha256 arm64_tahoe:       "cf4e955e989a86a74531f13f42d66efb4e39f02606b248c802c36b131850ac7e"
     sha256 arm64_sequoia:     "6385e1b88a67dcdb3a718b90a7dcd1c83d1f0000621868b3ab79e91c99a0a244"
