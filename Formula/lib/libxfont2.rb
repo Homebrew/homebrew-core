@@ -7,6 +7,7 @@ class Libxfont2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e3571e257a41db07d1139ded39ef7ca5b3938c85637dcf78fb5d5f99f96e707d"
     sha256 cellar: :any, arm64_golden_gate: "fdf812eece2209a7bf52fed52b6658bea7b651aee03a95996fb69dc6968a4136"
     sha256 cellar: :any, arm64_tahoe:       "ce5c825e6595df717295ca49419962867c400fcc10a86d2acb79b7a28209f884"
     sha256 cellar: :any, arm64_sequoia:     "1315cc810bc802797f0250acf4eacb23de0851d251b21ce8284b33f80abea9e1"
