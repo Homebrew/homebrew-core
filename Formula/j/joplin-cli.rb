@@ -6,6 +6,7 @@ class JoplinCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "23070f011ad4fd5ec37d2a4add22e7314ef24707d0d082fcf79330455c9666fe"
     sha256 cellar: :any, arm64_golden_gate: "1f01e130ff52d36091c70ed66f7e9a295903334aa9e94d3ec43dbf315b70d28e"
     sha256 cellar: :any, arm64_tahoe:       "603a6389e61af84a635f36b39563e33832f3e4ff04e6fdf336544cef573b3aee"
     sha256 cellar: :any, arm64_sequoia:     "557862a881e2557577d9e3a83d77f3a220b06e3717fe7d0ca0c8eab5805e90bb"
