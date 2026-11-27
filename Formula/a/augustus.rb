@@ -1,10 +1,9 @@
 class Augustus < Formula
   desc "Predict genes in eukaryotic genomic sequences"
   homepage "https://bioinf.uni-greifswald.de/augustus/"
-  url "https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.5.0.tar.gz"
-  sha256 "5ed6ce6106303b800c5e91d37a250baff43b20824657b853ae04d11ad8bdd686"
+  url "https://github.com/Gaius-Augustus/Augustus/archive/refs/tags/v3.6.0.tar.gz"
+  sha256 "d1c50bb2b2f79c86c1dfa4ef52a5a082d9f4f24cf28f9a3e181207e80eac8757"
   license "Artistic-1.0"
-  revision 13
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
   bottle do
@@ -40,7 +39,7 @@ class Augustus < Formula
 
     # Set PREFIX to prevent symlinking into /usr/local/bin/
     (buildpath/"tmp/bin").mkpath
-    system "make", "install", "INSTALLDIR=#{prefix}", "PREFIX=#{buildpath}/tmp"
+    system "make", "install", "INSTALLDIR=#{prefix}", "prefix=#{buildpath}/tmp"
 
     bin.env_script_all_files libexec/"bin", AUGUSTUS_CONFIG_PATH: prefix/"config"
     pkgshare.install "examples"
