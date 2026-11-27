@@ -6,6 +6,7 @@ class Gnuski < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "2a2c302499ad822a5f686dd7d9b8ff4b8946cb820601d8feec52e46e5d74856e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efa37c9db32da3bf7638df00ed4acddffa8e9915032ee1094d525cdb6170462e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2302fda0228835c20f3158b0f0a8500c85d70d7fe58d698133da7ea792be282"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa3056f32083991e84354204c559e07b61f5b79b0a24ca13cd655da45815b5d8"
