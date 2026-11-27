@@ -12,6 +12,7 @@ class Libgoa < Formula
   end
 
   bottle do
+    manifest_sha256 "096b0b79b73f0f3655623916bee7e107cd905808eda82de7ba8b397488e0a717"
     sha256 cellar: :any, arm64_golden_gate: "5210c49e98e9ea1e07c4eb5eda136b5769409cc460a64c6e1f330abd4e464fb6"
     sha256 cellar: :any, arm64_tahoe:       "17106a0d2deae6786612b0c40bcee1d22a156179417314cd8a4d249f1f02bbe3"
     sha256 cellar: :any, arm64_sequoia:     "a3c65593935f0041c93a4b0682e19f2fd0223bcb008f8396fa7911ba60727c8e"
