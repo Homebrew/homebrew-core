@@ -8,6 +8,7 @@ class Ginkgo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "85729e8b183a43eb36df19fb4c634309747e285ce108edc5376c572754aa9af4"
     sha256 cellar: :any, arm64_golden_gate: "e9dc001ce0561f3b456a832f55c20ce2f4149c43a079a1eca2e75b958a7cb972"
     sha256 cellar: :any, arm64_tahoe:       "3ff463015e01cd53930559ccf943e7a37ff7a943575c46049c58ef28bfdf0904"
     sha256 cellar: :any, arm64_sequoia:     "1c0ca68f48b47019a9f735a4233b0143fa698c360e789e608932630809465a97"
