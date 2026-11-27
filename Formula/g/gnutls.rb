@@ -31,6 +31,7 @@ class Gnutls < Formula
   end
 
   bottle do
+    manifest_sha256 "a09a1795039eb09ca5d079166ef6651871354c9f1a57f4d4ab88e01ede8b5403"
     sha256 cellar: :any, arm64_golden_gate: "c118d53b47033725a76201d0f0c65bbbffa7176a5f54021c067c84381b194b50"
     sha256 cellar: :any, arm64_tahoe:       "5509d03e9fe545ff0848d3a5ee1c23a2e6ae077e6755cd0b04cca4b2d15b7872"
     sha256 cellar: :any, arm64_sequoia:     "0f91625c5ac8e6d4542de6eb8b484fa78074dc9b23c01afa7471cd08f2d9791f"
