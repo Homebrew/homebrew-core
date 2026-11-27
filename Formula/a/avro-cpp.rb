@@ -10,6 +10,7 @@ class AvroCpp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d8a20a4731b0da908a78b4e943da9168c4bbab5bdbae8eaee89072f4677bf64c"
     sha256 cellar: :any, arm64_golden_gate: "21142b405460be24f275d5e3f2eaebb501b5dcaf1b7d70dc8665e1d3e8fa5c3b"
     sha256 cellar: :any, arm64_tahoe:       "d3f9da71b7a04552306ec72c454aab24080d3be40b0d207f1ca1dabd1d98b830"
     sha256 cellar: :any, arm64_sequoia:     "fb3bcc0a37022f4aaf52dbf6293a07b637e2e336c9d3302c202b9638be97e132"
