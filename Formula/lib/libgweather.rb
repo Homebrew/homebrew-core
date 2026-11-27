@@ -17,6 +17,7 @@ class Libgweather < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "559e86c2fd2461e9a9f3b1da9598f1ea4b347f09c3ee888506521eaae0e2e8e9"
     sha256 arm64_golden_gate: "b2c105c7e3054a6fda863e2173788dd8fe275f59567b8d692607a219c128a646"
     sha256 arm64_tahoe:       "9fd00f76cad9cad7c3458915abfd3c74822a820d0f742bd06136590ec3eb6f37"
     sha256 arm64_sequoia:     "d782557928860afcaede44976c28aaa2cbd1395cd309a1b9d277f7e1477f8991"
