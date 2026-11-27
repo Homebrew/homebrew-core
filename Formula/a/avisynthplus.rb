@@ -13,6 +13,7 @@ class Avisynthplus < Formula
   end
 
   bottle do
+    manifest_sha256 "f28732bf65f454f996a829b2b85e6b1ae2a1c3cc5269525b5a9ec54ff8f705f6"
     sha256 arm64_golden_gate: "9f8926380d3e19a56eb2222e149e5383e8f670c428f9a34405b32ea39301db95"
     sha256 arm64_tahoe:       "41b2bc58ddf5cfbf87c78705239d3c660741fdb8dc50a91076939d4e0340aa7d"
     sha256 arm64_sequoia:     "69f00da4f099e889cca4d58a0f69344533332093b4061bca6b12534aa58114a5"
