@@ -11,6 +11,7 @@ class Plplot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "440cb4629570c872b17bfe543329dc5ac7dedcff5e7c05d146935f993d7f3a0f"
     sha256 arm64_golden_gate: "cf383dbda3de2b2c63f3062a7831cf968fb7b5208c4f535dbd591dbebc8b0052"
     sha256 arm64_tahoe:       "8299e82b21073d81694f33383bc0dd37931cfc8f468be9107b8c7b8fcd1cf501"
     sha256 arm64_sequoia:     "9305edca28268f6aed4efa7da578545c70d5feec4c2161da9f0e60aca9d3ace0"
