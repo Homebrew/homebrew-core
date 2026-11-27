@@ -7,11 +7,12 @@ class K0sctl < Formula
   head "https://github.com/k0sproject/k0sctl.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f64f8eb78e39a76c1aa03141b89848c7b168415ecbb53a9ef6151f9c9b34f5a0"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f64f8eb78e39a76c1aa03141b89848c7b168415ecbb53a9ef6151f9c9b34f5a0"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f64f8eb78e39a76c1aa03141b89848c7b168415ecbb53a9ef6151f9c9b34f5a0"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "df43757bc601b51fffa82e48ba0ed667a349c1064cbb200b50f744f24bd77ddd"
-    sha256 cellar: :any,                 x86_64_linux:      "15ab9327be914beb2671ef18f82aeacfbb3492b62e37be2e22ddec87b6b4777f"
+    manifest_sha256 "8a533148b87d379cb3e3f23c5ffac56f325dcba5fa854a08c1bd990a472b9961"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b37335fb8fe64e16f0fcd4f731c4f8cf921811c0904e602341c93abbf316994"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b37335fb8fe64e16f0fcd4f731c4f8cf921811c0904e602341c93abbf316994"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b37335fb8fe64e16f0fcd4f731c4f8cf921811c0904e602341c93abbf316994"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "0396c60ee9a2e4ae96eb41e020d605ca6b413e3ccd8453bf040cb223c7731cc6"
+    sha256 cellar: :any,                 x86_64_linux:      "5c01d61d116fb7fc868524f7cd6071064f25832620f2e35180bea0a1587bba30"
   end
 
   depends_on "go" => :build
