@@ -8,6 +8,7 @@ class SourceToImage < Formula
   head "https://github.com/openshift/source-to-image.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1ebdd0bbed7805253890a1f3f29e34eb4ebcf33d1848c953c883f97442acb00b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7efd521c16af4025e1ec8d1429ab09daff18e4513a1e2f83b77f874364830581"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c06e0f36e185aaaa07d0b4bdedbf52f09f291564da99049d8d739814ec7bcbc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e814e974a12fac44340415b99c12008244fca6cb062e30af392b3f8c1aade3d4"
