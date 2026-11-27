@@ -8,6 +8,7 @@ class Pter < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ad3f404f57c525c359354b255af01554723558c99cfb9e9b9684571e08ee6308"
     sha256 cellar: :any_skip_relocation, all: "7f2929556d7109c0266bc442351b7d3330ee08fde36369a51888fd5d15f7a129"
   end
 
