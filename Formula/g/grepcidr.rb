@@ -12,6 +12,7 @@ class Grepcidr < Formula
   end
 
   bottle do
+    manifest_sha256 "a567fe7f7a44c2bedc19a8f21e899247f0f3e72579e1765736d03694211d1cbb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53d85d8fc2a1e544ff0101c03fc29fee0417c90147f523167f0f0424331a9a63"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abdf37c44368707f096b0fe3d2b5bfab47418823ffc48cf5137e4efdd58670d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5eaf72370f021e79e6cc7d25139a7789fad25fdef67ce5ceaa0f69dbd655b97"
