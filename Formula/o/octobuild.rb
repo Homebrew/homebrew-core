@@ -7,6 +7,7 @@ class Octobuild < Formula
   head "https://github.com/octobuild/octobuild.git", branch: "main"
 
   bottle do
+    manifest_sha256 "93a60ee64075871b337521a524f7134edf420d1f0da815722763d5705a1f87e7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "795fa73f3a6b09f2d31291259713b08c65a1fb344946a9ebe08fe8adc6692b7f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "774070041d50dfd51c7187e8af49ac255094d0bc5f8a429390e634e7276ca54a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bcead0bf62c999991c870bf8c0f4b5fdf8dc1125c4eef7723c47344a4bd37a65"
