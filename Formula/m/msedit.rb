@@ -6,6 +6,7 @@ class Msedit < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "16121bb55f968931b9c9fcb4f72a74c066c226cb8d5646914a3bb086b8de2425"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6e0f368c0704f360ae13f9d55823d5b87f9c54429547d49d7b5713f9c818e51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e53e7fda41c9669f4d7c785352edd9b93b2257c1219b4ee3600eafd4133c7d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43f68f519638f1ed15f065e7d64ab430719fe6a0d6eb079a40f712e61241caff"
