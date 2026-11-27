@@ -8,6 +8,7 @@ class MinizipNg < Formula
   head "https://github.com/zlib-ng/minizip-ng.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "ca80a3eac2b60f216f4895eb6a88dedd6ba2e99d35581d4caf87547263a116de"
     sha256 cellar: :any, arm64_golden_gate: "81460fc2051e9935453ba3a1f8aa8cceedf986ac71117c092fec33e31f1c9fff"
     sha256 cellar: :any, arm64_tahoe:       "8cab9fe8070040f62235accd234ee50857f8499dc42866edbe6575e20899afe5"
     sha256 cellar: :any, arm64_sequoia:     "a6bddf61850919db0f00c2db6e8df33b590b255765c26fe47fc7fd0dd314852c"
