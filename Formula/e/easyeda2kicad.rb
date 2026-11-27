@@ -10,6 +10,7 @@ class Easyeda2kicad < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "14eb892198573ba4528d4ebb51e7c56a595adb56cdacd04940795034a0e169f2"
     sha256 cellar: :any_skip_relocation, all: "7c1e166f88a02e77a511aaaf035367da444e79c02db7743e36f0301685e3f648"
   end
 
