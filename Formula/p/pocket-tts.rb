@@ -10,6 +10,7 @@ class PocketTts < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4bce21eff572931b51732e967d24f3a51bcbcf78d84be31bd8baf6f8c30cfbfb"
     sha256 cellar: :any, arm64_golden_gate: "5cb18ae2f8193b7ed0e72568c9723ef5cce4cac2fdc3817e70e8cc5b0dd48eab"
     sha256 cellar: :any, arm64_tahoe:       "fc0f3418f2765f2a77fb7942fdb90d0540b6aff631d085556459446ae4a982c6"
     sha256 cellar: :any, arm64_sequoia:     "0ed0105139276b6bc588e5961fd500890b91568ddcbc14b1ff14bcefbe51d7de"
