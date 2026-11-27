@@ -11,6 +11,7 @@ class Spot < Formula
   end
 
   bottle do
+    manifest_sha256 "95d0d283e02a4b8fd54d2fed3e819f6680c744425f4f98ec3a60d9922edb2857"
     sha256 cellar: :any, arm64_golden_gate: "81d7fdd0b4950782364aa3916e5da0bfb7078bb28bbabb8e3a83fdfb6516c283"
     sha256 cellar: :any, arm64_tahoe:       "d7e316cda28c8730c444e7f926fda350113cd506221189ba0f09381698e64102"
     sha256 cellar: :any, arm64_sequoia:     "7ef567f4f5724b91a4ee3a91e323c2379db55de57d47787567ff6a6d9d95d471"
