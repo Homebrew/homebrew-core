@@ -7,6 +7,7 @@ class Shunit2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4dceefd97b396234fdf4edf50d5f332b16bd8c2a90ad9c34e55ed38649117c6e"
     sha256 cellar: :any_skip_relocation, all: "b706f44b77486bdf9fc7629b0fed435e9e5592055c847f7d2bda9f4ed84d8cc2"
   end
 
