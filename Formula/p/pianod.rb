@@ -11,6 +11,7 @@ class Pianod < Formula
   end
 
   bottle do
+    manifest_sha256 "165a464adbe8018cc41303e870ddd942e473b5bf14ebbe3ae23befb9294d983b"
     sha256 arm64_golden_gate: "478af63f2a4611f3c8c922a5085fa7511a18f87fd1ac442f24ed5bfc07764090"
     sha256 arm64_tahoe:       "dce8f5d16200cfc55895051aa6b2a569e2766d781422ca2d3c257419f561b4d2"
     sha256 arm64_sequoia:     "b587d434a5e1e0e7d3f1faf1858d8473dcf121dae6dd3a1f7142f0b0007f4854"
