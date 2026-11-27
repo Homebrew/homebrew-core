@@ -18,6 +18,8 @@ class TerminalNotifier < Formula
   depends_on xcode: :build
   depends_on :macos
 
+  deny_network_access!
+
   def install
     xcodebuild "-arch", Hardware::CPU.arch,
                "-project", "Terminal Notifier.xcodeproj",
