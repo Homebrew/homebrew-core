@@ -1,12 +1,11 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.90/gjs-1.90.1.tar.xz"
-  sha256 "05ceaa80f48e3782e5c44938572fad863e02b8c4a6c55657a99aa81db8ce9efa"
+  url "https://download.gnome.org/sources/gjs/1.90/gjs-1.90.2.tar.xz"
+  sha256 "f52c8e3d4185a6436dde44f9f2311684c9afa7eb68a5b2a98e3355343ba6f261"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
   # TODO: Move to latest `spidermonkey` once gjs supports mozjs-153.
   # Also set deprecation date on `spidermonkey@140`.
-  revision 2
   compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
