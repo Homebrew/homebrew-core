@@ -7,6 +7,7 @@ class GitOctopus < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "0bd057d6394a693d9c3501704990d8d2c787ea66cc0cedd979e4db90aad6c448"
     sha256 cellar: :any_skip_relocation, all: "85596e8a14e47ed9ca1982b4ae0fb3c3afd7bc991722d8e19045a406055d13e0"
   end
 
