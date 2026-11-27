@@ -14,6 +14,7 @@ class Mosquitto < Formula
   end
 
   bottle do
+    manifest_sha256 "ae43f095031868aa89960c96c7218c770431728b090e4ff0042cfa3f2fb02fbf"
     sha256 cellar: :any, arm64_golden_gate: "10d1a49e02b3f57afac64a0bee721a4594e65544694aa944e768f4c8f8708917"
     sha256 cellar: :any, arm64_tahoe:       "f19137f77ba9372109fa328d20f834ba5d201f7e27847a8f387b22bf06efac4b"
     sha256 cellar: :any, arm64_sequoia:     "d7e5da6f1a009780178b054678d08e08035b025cede910975ecdddb9f02a34d3"
