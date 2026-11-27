@@ -10,6 +10,7 @@ class LibniceGstreamer < Formula
   end
 
   bottle do
+    manifest_sha256 "cbf2879e047db8083dea8a6f5a1efcd21c887766c0164fc5da3558eb051f98a8"
     sha256 cellar: :any, arm64_golden_gate: "eafc930427dddbb9a543d13e039c53779bc93f93cdff7a4fc7f41d518cb190a5"
     sha256 cellar: :any, arm64_tahoe:       "4534e775b787529c00fc1f4954c4cb2cd0162e90bd0c687302580d65f5d3ece5"
     sha256 cellar: :any, arm64_sequoia:     "3244ebe9c99c296fff087230259455ca9ec34a70ccf51edf2f9300eaa5290012"
