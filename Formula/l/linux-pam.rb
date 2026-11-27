@@ -8,6 +8,7 @@ class LinuxPam < Formula
   head "https://github.com/linux-pam/linux-pam.git", branch: "master"
 
   bottle do
+    manifest_sha256 "302308743061c75ea76123728d8677a900fa7af4ca55e4f342db40933f363807"
     sha256 arm64_linux:  "1b1ee1c55ac3aa9ddcf51eb00fde23982106d7da5124bb2bb3729c693e528f68"
     sha256 x86_64_linux: "5b9c7fd6a89d4b214a47fc950263eb7d49af426db375cd14e95bbaaaea6eef2e"
   end
