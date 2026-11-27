@@ -12,6 +12,7 @@ class GitGui < Formula
   end
 
   bottle do
+    manifest_sha256 "fe4099aef5753d08e43f3efed636bcb8cfb3aad767aa65263586f924991aae5d"
     sha256 cellar: :any_skip_relocation, all: "0be414352f3d9bfed6b5137abb4333a9754fe1b6b7f664cd42877878c37c77d1"
   end
 
