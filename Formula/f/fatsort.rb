@@ -11,6 +11,7 @@ class Fatsort < Formula
   end
 
   bottle do
+    manifest_sha256 "b89823aca0d2b28a7cfe9cc8467ddec96a0b607b68d1a2175e4c5e41e80ec8b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82b4cd97d7dc1aaa71cac12eae3717078144a896f342c043cbf18f1e33f31f78"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0a364630ad4617dfd97e5af2275f62c91d1371b1452a2cdc5a9cae4c9724b058"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "145bea2b1961c492f9adc4d52df66a1c4e74465388470f320f30378418e81742"
