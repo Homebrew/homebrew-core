@@ -7,6 +7,7 @@ class Try < Formula
   head "https://github.com/tobi/try.git", branch: "main"
 
   bottle do
+    manifest_sha256 "81072345ff86fbfd51d9cb4e29cb0ff47c64b96861880400f96ccb486192edb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c2572aca263b9badf6a3333954b3d4a81f8ebf351038db13efd16b567c5298f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1cdbdc391c8eeb6f51ec4bcf5a621dc12b75a5de804fc3f8713ece0be14f491a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1cdbdc391c8eeb6f51ec4bcf5a621dc12b75a5de804fc3f8713ece0be14f491a"
