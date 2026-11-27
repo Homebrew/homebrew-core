@@ -12,6 +12,7 @@ class Ispell < Formula
   end
 
   bottle do
+    manifest_sha256 "92182db2b7dd7b561273feee1193d2d9f01517d6bc9877cc84513e81aafa8d7c"
     sha256 arm64_golden_gate: "3255accb33a10483fd2782320867c179fe6df79e767529e3bfac99908af4b108"
     sha256 arm64_tahoe:       "46a439e8c57a40cc6102c1884e11c9e261286787efcd5b72fd3df42487216d17"
     sha256 arm64_sequoia:     "fc52b0f23b84dbe44eba8d0ef80ae93927f90591678155d6579af7e04819abb0"
