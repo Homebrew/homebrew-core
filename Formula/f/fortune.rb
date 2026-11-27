@@ -12,6 +12,7 @@ class Fortune < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "8b60948a37df1937dd227ccb744b6b0fffdc8f0d25232a89743d35344bb08a79"
     sha256 arm64_golden_gate: "85cdbcf25d52494fe819e98518352bcb85b4b8f3a12115ba5d5f321099d081bc"
     sha256 arm64_tahoe:       "547b04ec0f01dad4bd92dc49811686b2a6ff159d9040ca79a17f0ee1494cb39d"
     sha256 arm64_sequoia:     "cec3df1e416f4c47846f0fd770bb29bce8185f4832bb897d5cb4e5f94fa86c32"
