@@ -12,6 +12,7 @@ class OpencoreAmr < Formula
   end
 
   bottle do
+    manifest_sha256 "8859ec244e4efdfcf646b74d45e9614a794b883cb82a7b3e1f03897cae537a96"
     sha256 cellar: :any,                 arm64_golden_gate: "6e4baa631ac8873d5fcb614f364b380df16229e97b85adeafa877048d7497c4e"
     sha256 cellar: :any,                 arm64_tahoe:       "38dea780c6b453fcae6c1addb3054b0d14a4c216183a319e26575f61fda8050b"
     sha256 cellar: :any,                 arm64_sequoia:     "48a7944b5baf1d23777ff16d0f1b44ba3fb1872728e578e245993019895b0075"
