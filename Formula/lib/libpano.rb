@@ -13,6 +13,7 @@ class Libpano < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d27b1393ca4ee0fb440c14a89e337126672e2d9457f655291c29d082ab8da57f"
     sha256 cellar: :any,                 arm64_golden_gate: "6bc994ced20ad908faf1d4e890dcd8d8d01ab4cc2126c4eec4e90771bc31bb06"
     sha256 cellar: :any,                 arm64_tahoe:       "bed5e7b25e2109ea77ea76567c3197f60752d2e866aefaf18ac4ddf2c248cce4"
     sha256 cellar: :any,                 arm64_sequoia:     "a4d99700b3f78d2d2127aa44af61277d21aa9af993af1561bf37d8709391480e"
