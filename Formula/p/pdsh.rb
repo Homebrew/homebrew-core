@@ -7,6 +7,7 @@ class Pdsh < Formula
   head "https://github.com/chaos/pdsh.git", branch: "master"
 
   bottle do
+    manifest_sha256 "09f5be8e1c8010874e8c510aae86a6900193801b8c427bf27379b9afe587bfde"
     sha256 arm64_golden_gate: "7d790e622c175dbf53b6243ba78d36299906342611ac2f3778e8031d61240637"
     sha256 arm64_tahoe:       "a564810e0a1cb41ec26b36c13c8b2b6c61142b40247a9757c913736f8944229e"
     sha256 arm64_sequoia:     "762213faa587a650e47efc58e3f3f98ef3cd9a9098dd53a4d5b79e0b3c22a07d"
