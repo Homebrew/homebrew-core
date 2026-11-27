@@ -8,6 +8,7 @@ class Roundup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f5ec236553d40cd36d3ec3dc39dce74a5f8e6880baec4ca80282ccae5499eae3"
     sha256 cellar: :any_skip_relocation, all: "8e7150a458867eba0d53eae749b908b7bb9f8f2d8838471025e4570aee54e846"
   end
 
