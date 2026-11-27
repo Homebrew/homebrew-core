@@ -11,6 +11,7 @@ class Ford < Formula
   head "https://github.com/Fortran-FOSS-Programmers/ford.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3eb4e95dd755e57f3e166cd31aeab6f9c04e7bf4c8d5dba592bf8ec0584a249e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad8247861bcd56db9cb4d606578a002b30a75d8ee0b042e4e3fe91dc0b273c2b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1adc854981264e0521e401fd9b598d19338b73ef18002e2ac5867a4ca966e5a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e623195fff3d0f8978aeffd37c835a998d1b0582185ec263f6d966b5cfd6599a"
