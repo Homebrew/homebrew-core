@@ -48,7 +48,15 @@ class Openvino < Formula
 
     resource "onednn_gpu" do
       url "https://github.com/uxlfoundation/oneDNN/archive/a3d459721b72c3a9d2685b46c03dafee7af0f25c.tar.gz"
+      version "a3d459721b72c3a9d2685b46c03dafee7af0f25c"
       sha256 "cf6b29b5b41c8f2de1a05c3dd0013c4ee773724b0d20d6fa7dbb9b332e698180"
+
+      livecheck do
+        url "https://api.github.com/repos/openvinotoolkit/openvino/contents/src/plugins/intel_gpu/thirdparty/onednn_gpu?ref=#{LATEST_VERSION}"
+        strategy :json do |json|
+          json["sha"]
+        end
+      end
     end
   end
 
@@ -57,11 +65,27 @@ class Openvino < Formula
 
     resource "arm_compute" do
       url "https://github.com/ARM-software/ComputeLibrary/archive/7f8a8ab512ad8d1c1c207003ac5f96c4445da36f.tar.gz"
+      version "7f8a8ab512ad8d1c1c207003ac5f96c4445da36f"
       sha256 "040222d5e80191dc3c1f6c855b35638d9e0b547f6c1bf81b0618778c26d8307c"
+
+      livecheck do
+        url "https://api.github.com/repos/openvinotoolkit/openvino/contents/src/plugins/intel_cpu/thirdparty/ComputeLibrary?ref=#{LATEST_VERSION}"
+        strategy :json do |json|
+          json["sha"]
+        end
+      end
     end
     resource "arm_kleidiai" do
       url "https://github.com/ARM-software/kleidiai/archive/dc50c2e68d2eb28efe17c835c754f1d6421f30e8.tar.gz"
+      version "dc50c2e68d2eb28efe17c835c754f1d6421f30e8"
       sha256 "e2032ce93f2cdd2cd7f698ba2a5f216a446a12a8c918d79e7e398476dba80c8b"
+
+      livecheck do
+        url "https://api.github.com/repos/openvinotoolkit/openvino/contents/src/plugins/intel_cpu/thirdparty/kleidiai?ref=#{LATEST_VERSION}"
+        strategy :json do |json|
+          json["sha"]
+        end
+      end
     end
   end
 
@@ -72,22 +96,56 @@ class Openvino < Formula
     on_intel do
       url "https://github.com/herumi/xbyak/archive/refs/tags/v7.37.tar.gz"
       sha256 "eb66c5d23d3983dd855cb230e0dcb02fa24307bdfa826844ec94491a344aacaf"
+
+      livecheck do
+        url "https://api.github.com/repos/openvinotoolkit/openvino/contents/thirdparty/xbyak?ref=#{LATEST_VERSION}"
+        regex(/project\(xbyak\s+.*?VERSION\s+(\d+(?:\.\d+)+)/i)
+        strategy :json do |json, regex|
+          revision = json["sha"]
+          next if revision.blank?
+
+          cmake = Homebrew::Livecheck::Strategy.page_content(
+            "https://raw.githubusercontent.com/herumi/xbyak/#{revision}/CMakeLists.txt",
+          )
+          cmake[:content]&.scan(regex)&.map { |match| match[0] }
+        end
+      end
     end
   end
 
   resource "mlas" do
     url "https://github.com/openvinotoolkit/mlas/archive/d1bc25ec4660cddd87804fcf03b2411b5dfb2e94.tar.gz"
+    version "d1bc25ec4660cddd87804fcf03b2411b5dfb2e94"
     sha256 "0a44fbfd4b13e8609d66ddac4b11a27c90c1074cde5244c91ad197901666004c"
+
+    livecheck do
+      url "https://api.github.com/repos/openvinotoolkit/openvino/contents/src/plugins/intel_cpu/thirdparty/mlas?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
   end
 
   resource "onednn_cpu" do
     url "https://github.com/openvinotoolkit/oneDNN/archive/1289c3b65dd6a119a5ed12a816517d9c3a21d81b.tar.gz"
+    version "1289c3b65dd6a119a5ed12a816517d9c3a21d81b"
     sha256 "726a93992e65152f338fa7bce536fa9ed6c9f395de80d1e55f01ecc3fece7f11"
+
+    livecheck do
+      url "https://api.github.com/repos/openvinotoolkit/openvino/contents/src/plugins/intel_cpu/thirdparty/onednn?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
   end
 
   resource "openvino-telemetry" do
     url "https://files.pythonhosted.org/packages/71/8a/89d82f1a9d913fb266c2e6dc2f6030935db24b7152963a8db6c4f039787f/openvino_telemetry-2025.2.0.tar.gz"
     sha256 "8bf8127218e51e99547bf38b8fb85a8b31c9bf96e6f3a82eb0b3b6a34155977c"
+
+    livecheck do
+      url :url
+    end
   end
 
   def install
