@@ -7,6 +7,7 @@ class Goleft < Formula
   head "https://github.com/brentp/goleft.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a197b2e8aad7cb8e18dfab49a1f6322e27537b3cf2bfb5955cc73953faba6d3f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2282aff08320904721abe0ee8c931fefe5bf5a3e8e8ee5f90631f55cb7791c33"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2282aff08320904721abe0ee8c931fefe5bf5a3e8e8ee5f90631f55cb7791c33"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2282aff08320904721abe0ee8c931fefe5bf5a3e8e8ee5f90631f55cb7791c33"
