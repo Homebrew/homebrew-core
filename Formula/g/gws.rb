@@ -7,6 +7,7 @@ class Gws < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9ebdb03f29fb42bac60a957a5b9f1cdb8b08ab05a9590c971f936422507b8314"
     sha256 cellar: :any_skip_relocation, all: "0d31f65a9ff26f5e0d80055636889fe835445ffcdcccb144333e042ae2b771aa"
   end
 
