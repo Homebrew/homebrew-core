@@ -12,6 +12,7 @@ class Libseccomp < Formula
   end
 
   bottle do
+    manifest_sha256 "dbaf2d3a367780c34ff48bb118274b61c18eb0879b22f4092aa87e016cadf7e9"
     sha256 cellar: :any, arm64_linux:  "c0fcbf64b62f0c2f52d373094a8b995eae04b741c9913e7444a13385a1607ad4"
     sha256 cellar: :any, x86_64_linux: "cfb7331e0f2524d22aeeeacd1832ff2426adc04ccaf2fdc75fff48610da88624"
   end
