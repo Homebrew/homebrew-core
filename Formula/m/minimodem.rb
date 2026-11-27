@@ -12,6 +12,7 @@ class Minimodem < Formula
   end
 
   bottle do
+    manifest_sha256 "981471c063024a694dff8dd95a9993c15e6e951744f0dca1fbb67be99402e46e"
     sha256 cellar: :any,                 arm64_golden_gate: "b85bc18a931ed6cbc9dd3aea165759af36e674f19dc60436508d35f8f31f57e0"
     sha256 cellar: :any,                 arm64_tahoe:       "733a179f707e522c3b44c603a5fddfc616d22a4c94dc0a721f76f000c3499a66"
     sha256 cellar: :any,                 arm64_sequoia:     "4bf7e151ffff1de41f8ce86bab303b7afb6e40b0f5417fdfada6a73fe633b6d6"
