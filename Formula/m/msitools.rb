@@ -14,6 +14,7 @@ class Msitools < Formula
   end
 
   bottle do
+    manifest_sha256 "43bd3d8b6a86f045cf3885a8ca6f42e4f22f8537eba1d2f14f2943d853444711"
     sha256 arm64_golden_gate: "266d6ea0cdccccb591c1cd3ffd2c5db2e0ed01a072a842828f5b045c1111f6c8"
     sha256 arm64_tahoe:       "9184769d09209b3400d048bd93277ce6cdd0402cba3dfea7737522387162080a"
     sha256 arm64_sequoia:     "6c3299c0e9abfac5e3dc049380e2affab3504bbe00f397009165ceab06e96be5"
