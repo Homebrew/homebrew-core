@@ -8,6 +8,7 @@ class Gowsdl < Formula
   head "https://github.com/hooklift/gowsdl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d0e75bcc913ca84e54bd95537328424fccfe4bb410e66be3134f8ccf6731b330"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31f06f1760f2f38bda27799e1123d5ab2feb60558729acb86c195ec2d3940c16"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edb60eca3fd4b0d9c9bd17ac76d1830d0acb28b4cdd5bf85330ef6d2c0b14572"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9720d824c3c5726f0efb61954537792efaf5ccaa1710fa9395053b89208dc82"
