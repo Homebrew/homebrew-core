@@ -9,6 +9,7 @@ class Pyp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "27bcb70c21b5a5404cd8fa6f555889c7c18a1444165565ccb2a0ba5cf5287fe4"
     sha256 cellar: :any_skip_relocation, all: "83133553a92fc04cf6dccfd8c57cdccc6555b4012e1a2f318539d3042bdc276d"
   end
 
