@@ -9,6 +9,7 @@ class Emacs < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e3a56fec0ae638bd57139c7e9c0930a3832e9b8ae78f3874c23e4b97f2a033d2"
     sha256 arm64_golden_gate: "5e69cc44d20e2ec48437bec2b875e9665c86513eab0aec88ad0ab797d2e2cec5"
     sha256 arm64_tahoe:       "94788c3c3a722d705b8d9c1be997082937c7d0dec2b55c2d041e31ecbe0e2444"
     sha256 arm64_sequoia:     "c09a5cb576342b2b84c661335361746cf80e1ce79f90660a11112a726606fb10"
