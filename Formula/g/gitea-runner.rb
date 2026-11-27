@@ -1,8 +1,8 @@
 class GiteaRunner < Formula
   desc "Official Actions runner for Gitea"
   homepage "https://gitea.com/gitea/runner"
-  url "https://gitea.com/gitea/runner/archive/v6.0.1.tar.gz"
-  sha256 "302baec8d250021ce518f477f59ca774ca2bd79a27f87143e468dea29ddf9630"
+  url "https://gitea.com/gitea/runner/archive/v6.1.0.tar.gz"
+  sha256 "b44cc601dfdc12393aa8af42c886b5761af71d1d91a43a87d1380f5df24e3031"
   license "MIT"
 
   bottle do
