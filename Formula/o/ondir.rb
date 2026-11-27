@@ -14,6 +14,7 @@ class Ondir < Formula
   end
 
   bottle do
+    manifest_sha256 "3c87ba8ce3696deea69b03671696d81d05d0b0274a320330f39b27aaa1a8f299"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7f647132b810b944eaf8c5b962874755bd6fb66d6e3af8d89497a2557a874fe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6f550cf69ebab666d5ec20472e6f8c0989624a985768cf983637269a4689829"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a50815d50ce3b1e89cb6b61c496948a36d189436512178182080e6480a86cbc5"
