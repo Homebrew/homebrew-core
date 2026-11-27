@@ -6,6 +6,7 @@ class Brename < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8c679ef0b2c8530e54149051775516bc9f5495f2ea53d4323a6980162ac21354"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2212ccc939cbfe057695a0162921a22598766d7cd89de84a36f6349a6de9a3d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2212ccc939cbfe057695a0162921a22598766d7cd89de84a36f6349a6de9a3d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2212ccc939cbfe057695a0162921a22598766d7cd89de84a36f6349a6de9a3d1"
