@@ -7,6 +7,7 @@ class Mle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5fb80686c46109e372107b9db52472a3f17870ec8575e658f77353866efe1fe4"
     sha256 cellar: :any,                 arm64_golden_gate: "9b34cd5e87768af487b467fbd1eb59a92794211978f9b7a70ebfef2085ea87f3"
     sha256 cellar: :any,                 arm64_tahoe:       "d1fca3abdacc62e424b44f3c6b1fd986636ed1db3b4665ab66c26127e36bfd5e"
     sha256 cellar: :any,                 arm64_sequoia:     "404813ee668f4f176f9ca668a77f6b2aef7247e40c4ca154178c8fff5862bc4b"
