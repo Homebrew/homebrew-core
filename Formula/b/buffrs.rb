@@ -7,6 +7,7 @@ class Buffrs < Formula
   head "https://github.com/helsing-ai/buffrs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "df1a5ad39b05a7fbc5fe2d64703b41f40227363c998d23920d03921a2b49172b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e6eb8bc4a3766f8a732995bd844fb11c01626c5665045d7957d56f401e061f8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d403bf5b706b0006471852fde9efaa74fe2c72eec3d457375c09f32e06463148"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64dd534e007f88da216b6d08d54fd661fd525de63dd974742c073599c32525dd"
