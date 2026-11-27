@@ -9,6 +9,7 @@ class Mackup < Formula
   head "https://github.com/lra/mackup.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d8d481dbeda091ba64160e54d83c269a74d1cbdbd97a41c317c15a3848a7fab5"
     sha256 cellar: :any_skip_relocation, all: "df41d70b2de6ee88cbf92eb532a0874e81851117be4a1cd77ee5315eb251b6dc"
   end
 
