@@ -8,6 +8,7 @@ class Parlay < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "58caac800241b2d0b1b8bdc3d6721bcba0c75e8c8a51ecfe12027ce7fda3eb7a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20d41b693a3ba4c6e828fe07e65b39641a4fd10316f4c16fb58a0496687d912b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9297b5a3bb7c1157e04ff6306b7c32dc5d7ed64993fe4b10cf6d1c75cd2c6896"
