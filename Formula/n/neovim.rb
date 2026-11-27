@@ -83,6 +83,7 @@ class Neovim < Formula
   end
 
   bottle do
+    manifest_sha256 "f6afbcef77ebe406c9aa8dc387795898aa27773351d90474f4bc821182b064fa"
     sha256 arm64_golden_gate: "cb3a81a4a98cd20e17968e1d8fde4b0b4f52277ab92e3163c6d05157504e33ce"
     sha256 arm64_tahoe:       "0c4372daf046ead32eda05f3b2d98be59ae59942dcdd5040f97eab7e6c04dcec"
     sha256 arm64_sequoia:     "5aec5f3fdaf78c6bd269d083b2e64e2dbc260bff96496c2f15f9ea07a78b6dd6"
