@@ -10,6 +10,7 @@ class Opendoor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cecf7c84431baf1e74ea5cfe9052b51096cc24b7ab442e31e83b8fdd004aafd2"
     sha256 cellar: :any_skip_relocation, all: "019f22d6e8a7629e5def6a7efe5cd216ba237b2270eaf12ddf0ffb742921a720"
   end
 
