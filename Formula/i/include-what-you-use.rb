@@ -16,6 +16,7 @@ class IncludeWhatYouUse < Formula
   end
 
   bottle do
+    manifest_sha256 "99358ef34d83be9c1448cf65f0449ff3269f5173dea9e24b3c615ff6f9fbbf54"
     sha256 cellar: :any, arm64_golden_gate: "4fce5918451b08ad5cd0a827748950af2b538d4f282fabbe342bfbfbc2b71dd5"
     sha256 cellar: :any, arm64_tahoe:       "351fa8bc1e7418609ff30597104d5dc987f941f5a5129543de1fc8c1449def9f"
     sha256 cellar: :any, arm64_sequoia:     "66c6f3859580a31a845875d49c30f5c3adc9adf66069765850c9d1058ba72413"
