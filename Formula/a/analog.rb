@@ -8,6 +8,7 @@ class Analog < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "23d3154a753852409332cfe8a9631bca25f85c1304fdfd07b4b162449f249216"
     sha256 arm64_golden_gate: "952f1300bdb7399e17aa89b4b6e02531de058464dc3feebfbba8d283da9475fc"
     sha256 arm64_tahoe:       "f22cbd76f12ee0e8c0d4b1796634aca86f5e3201c1803314de1e3c454b5e8c16"
     sha256 arm64_sequoia:     "c00525c34d51ac0b67b85e4f9801ea066182af4d2f43fb6062275c4591a40ebb"
