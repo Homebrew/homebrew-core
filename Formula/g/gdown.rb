@@ -9,6 +9,7 @@ class Gdown < Formula
   head "https://github.com/wkentaro/gdown.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7a78c11dd0a9fe6aaf20660c602be263e1aba2f01f0883b2c69eccc2491737b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bb32da450666386a6130c1cecc0abe3269cdd92d1e5739b5b54a21dd72aab98"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bb32da450666386a6130c1cecc0abe3269cdd92d1e5739b5b54a21dd72aab98"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bb32da450666386a6130c1cecc0abe3269cdd92d1e5739b5b54a21dd72aab98"
