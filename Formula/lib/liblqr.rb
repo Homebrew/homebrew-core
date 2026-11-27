@@ -16,6 +16,7 @@ class Liblqr < Formula
   end
 
   bottle do
+    manifest_sha256 "60ec9c12fe292e82be2198f7bb78123fa7c7b463fec85e23845fec0dff9b58b0"
     sha256 cellar: :any,                 arm64_golden_gate: "9ad38967fd2059d0359a706aad4766d24f709d4129c1485951c60b11013cce9a"
     sha256 cellar: :any,                 arm64_tahoe:       "c28916c964572477462f09ac74d07c2d633a21e36fae33ff5f63d6902a726613"
     sha256 cellar: :any,                 arm64_sequoia:     "0adf2f9c0c8b464c301df3595f6dab6a86944b1227c7934a2cfdaedce985bc69"
