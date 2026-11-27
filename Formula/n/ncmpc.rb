@@ -11,6 +11,7 @@ class Ncmpc < Formula
   end
 
   bottle do
+    manifest_sha256 "00adf3a528481dd0ee5b1832e6d74b85e9b4fd481c361c3f2891dd8195f2e879"
     sha256 arm64_golden_gate: "98dbae46af76ebbdd9cb07ec1d18920aceae7e74a1602f0c78601d4470734790"
     sha256 arm64_tahoe:       "380d5542e059f7207c9bb1f01561514940261aa200d243fd16aee9b708cefb16"
     sha256 arm64_sequoia:     "3fc654fdaa68ef86af67e22acb40369111f73cf2bf30c14a5a8748b19e50985b"
