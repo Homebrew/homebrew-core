@@ -9,6 +9,7 @@ class OrganizeTool < Formula
   head "https://github.com/tfeldmann/organize.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c07cd40cdb61bb13f634fdada50c949a989bf741d14be3e0d11fedcfd442e461"
     sha256 cellar: :any, arm64_golden_gate: "ffca0a8e61e15e566cb9c750caa3de31ffe8050b3d5536995b1e23d94d8ecfe1"
     sha256 cellar: :any, arm64_tahoe:       "ba73629e465e3bdead83e3f2c09bc3ea22469eeb5620b775c3c34020d9268101"
     sha256 cellar: :any, arm64_sequoia:     "df611b355b5135c8d1c4916ad73fcd3a3afe4145b2074049d6eb838f952bbfb5"
