@@ -7,6 +7,7 @@ class Libirecovery < Formula
   head "https://github.com/libimobiledevice/libirecovery.git", branch: "master"
 
   bottle do
+    manifest_sha256 "29120ccba0d43cd2cc33ba3fee9a3ecd402e6ae6ac9c44dfef0dc50b55738e01"
     sha256 arm64_golden_gate: "d4efa47a1f8b3f6f880075098a71f7e7ad71abaf49b723d6c848962c6fe16b50"
     sha256 arm64_tahoe:       "28c6f513e78ac8c5a11b6f8288e2cdeb1de71d5de850beaade5f705414df9385"
     sha256 arm64_sequoia:     "a834994f2c368e3aa99f4ea11d2f8fd451b113f14ff9e45d4f3191cf58ab11dd"
