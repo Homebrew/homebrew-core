@@ -7,6 +7,7 @@ class Re2c < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "62668843971faabe04f45581916847a4bf2ac35f033e561ea07e66b00738afaa"
     sha256 arm64_golden_gate: "a0a9457636b8ded11407dc23378f3e9cbcfee8700dc943d968754b575d14cf28"
     sha256 arm64_tahoe:       "11e413256b8ce9f791e8709f60eef3953154825a687e7ddc00ff69735f9b474a"
     sha256 arm64_sequoia:     "2b97c4a1267cceb5bebdcf944a8dec891754d8eb9af6839b2632e7434ff2905c"
