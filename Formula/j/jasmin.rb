@@ -8,6 +8,7 @@ class Jasmin < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f3e733b054755e39617f8ad032fe46ad567d3dd546c18a0f85e8db6b35ca1636"
     sha256 cellar: :any_skip_relocation, all: "5ca0d0e4caaf51963cbbc63ffa2b3b2506737c8c0cc8a2773acb76f185221b11"
   end
 
