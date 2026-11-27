@@ -8,6 +8,7 @@ class GitMultipush < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "943734364ad80702728d2ebdda9c6c200dda7a685766197b7d50a092c97df1c6"
     sha256 cellar: :any_skip_relocation, all: "74cbae277a623c4ffc3d8b597734d05741cc549a2021de8c25eef4fc9ac4aa25"
   end
 
