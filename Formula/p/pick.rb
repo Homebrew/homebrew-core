@@ -7,6 +7,7 @@ class Pick < Formula
   head "https://github.com/mptre/pick.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a71635b3b9a58fa40e2370cacdce7027c8e437774efcd303ebb530f7671412f4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7395bd7fd6606886297cc72843cda77d667a358b5e5bfa42195a76dea9cd7799"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "562b847ced07b32f1858a7c45887be26552e663c013f447e0f18b747790ff24b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5df3f1f792d5df3784e7d7e8204de908bb43f7ec0830bf576eedc58de28c683"
