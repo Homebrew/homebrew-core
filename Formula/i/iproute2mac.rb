@@ -9,6 +9,7 @@ class Iproute2mac < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "755ab79b1eb524c6e9265a13a620d5397154d10d15c38776c8321e3ce08abc42"
     sha256 cellar: :any_skip_relocation, all: "dc08505a778949bea7abc673bcb928910ada16494911e2ab142daef517a35c28"
   end
 
