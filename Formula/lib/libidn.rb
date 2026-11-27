@@ -8,6 +8,7 @@ class Libidn < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2d4139dc0e3880ef250687440a62fe4bfb3093df90478402910f23d3a3af65f5"
     sha256 cellar: :any, arm64_golden_gate: "9214f788eec9940b4e229560f0144ef22c472d96c4e686b5b6ade8c0b5d3fbfb"
     sha256 cellar: :any, arm64_tahoe:       "56332a793245f898e13eefa84d08e42819d83c249c982687f045c7da71522549"
     sha256 cellar: :any, arm64_sequoia:     "cca2f1b581655791c18cfb0384074b78c49ff32b3c13d9ccab12f5fbc949cb4d"
