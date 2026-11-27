@@ -7,6 +7,7 @@ class Hwatch < Formula
   head "https://github.com/blacknon/hwatch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "741f3b2411011c4fc1e1f95410d87b319884ddfbc80c251e0436f4e45091008f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "462bd37ecf4d6c6ab3d3a1ef0c53a04c0c30aa633032bf42f2d03fe469aaa539"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71dff6498d09e57195888320ddb66176ff6b57f9dde0d174b8cb52998f60bfd9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4de6b83445b84c2267a981d19631fde94aaba0de0db94bc9c23e1682e5c6e02e"
