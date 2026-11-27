@@ -13,6 +13,7 @@ class Freexl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a1bedc541e0faadb021888883dcafba826b160effcf0b6c2fa8a20d4dd97272f"
     sha256 cellar: :any, arm64_golden_gate: "1a5cd8e6505e6c5f99116b3de3319a94ec1f8372b29bdc5fc7bf3d403966f1ea"
     sha256 cellar: :any, arm64_tahoe:       "a3eeadb863696639ca30ce87c4f27b4afda4389b705423244abfd83f3479a5e0"
     sha256 cellar: :any, arm64_sequoia:     "9fdcbb2c4a1ea545ed78a6587928e08f4805046aa01ffe56101c6efe2957be9f"
