@@ -7,6 +7,7 @@ class Komac < Formula
   head "https://github.com/russellbanks/Komac.git", branch: "main"
 
   bottle do
+    manifest_sha256 "75836305c8aa0023998a036ad3fa952e666fafc150408bbab97bde14dc3e5324"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86dcf382b51d75c27fa966263eace30814c7cb9ef32afb6229f49b40b849308c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7df747656b1c5b2c20f51c982e30bf36dca7e0917a39f86284ac3ebbb044890d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "255c4d7fe632388ad7bbf115500289d223c882650e08d42ac0ec2a3ece96e867"
