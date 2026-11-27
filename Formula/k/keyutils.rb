@@ -7,6 +7,7 @@ class Keyutils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "50d46a3942c6104bc0dd03844946c80a6b044668314bb79d2e01283bfbb7b56c"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "569fc190618bdad81896e66145fe832b1d858644d19c87a59ce417158e0cea7e"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "d5b06c4e38d2c4b7decb5b7bc0431b3416993231e5fa688950e4df83686a298d"
   end
