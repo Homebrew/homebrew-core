@@ -8,6 +8,7 @@ class Httpx2 < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "be1b0479429c176cc6607081f71b13382f94d2dce839dbcd3820f48d2d8e8946"
     sha256 cellar: :any_skip_relocation, all: "a5e8015df5d122f119cab95de17ce01157ebb39850f239b4a41449cc4aa1e4d1"
   end
 
