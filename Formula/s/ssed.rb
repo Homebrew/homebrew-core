@@ -14,6 +14,7 @@ class Ssed < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "449dd8f57dc6ef29aea69f4cdf3b099c54fdff90a27524eef209e7464d60b5d6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac0344a899cb6d01665d2fa1316c7274e512fcedb528abd9eb1c505bcdc6102c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f320800bb3b956cc9b1c04587ac2c93bf44dfea273107a9930a767bfa970f44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92006e68fb2c4e57950c340c9ccef34132c2577f7341b79c168ca906bd400018"
