@@ -13,6 +13,7 @@ class Librealsense < Formula
   end
 
   bottle do
+    manifest_sha256 "a6996c46ff8e83ca808074c2567708aa69c11212d0dbfe41e41b15fdae50033f"
     sha256 cellar: :any, arm64_golden_gate: "5a6495f8932eee2712d7476c894e6cc245ab16c79c48837e7b4e82feaf9f918f"
     sha256 cellar: :any, arm64_tahoe:       "f05dcc00148f5cf7a5c9db9684272d71b3691cb47e7608778c73663f7f2749ac"
     sha256 cellar: :any, arm64_sequoia:     "69a3fd8b5f56abb4dda234f842b872a70db9f17ab986e7813a0f68ca0424d630"
