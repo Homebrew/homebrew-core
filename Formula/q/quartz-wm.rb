@@ -10,6 +10,7 @@ class QuartzWm < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "1f67472ed55c46c8efa3fae63830bd7257cc6ea8b989a2a15a461a61371dd505"
     sha256 cellar: :any, arm64_golden_gate: "5c45dff67907359874750e33ae7dc8d03cbacb8d4da83173fe5362dcf0ab8ce9"
     sha256 cellar: :any, arm64_tahoe:       "06ea0e9f6b34bc42af50738f3d878afd8cd0ebbf1cb5df938fdd8b1295e9c965"
     sha256 cellar: :any, arm64_sequoia:     "4c47db2f95f422bf84be4900c8ed90c96f5337a34c0a6279f524b618671c2425"
