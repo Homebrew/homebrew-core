@@ -7,6 +7,7 @@ class Libx11 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6e265e537ad1b2da590e8ab1b8b3f5ea3c8873302bdb02096652b482b58fdc46"
     sha256 arm64_golden_gate: "f16e804d426ea8b43df43c0a6207a106a342b35275e5c061ec8f89ad032140a1"
     sha256 arm64_tahoe:       "38fbafb4e0ff48cf924f110e1e11442df06091298dfce50b82866dcb7355cb1b"
     sha256 arm64_sequoia:     "fdc6503c67fb5814bf7de665629b8dbda0807eda7b07d3c2668807768b4ae103"
