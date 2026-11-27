@@ -12,6 +12,7 @@ class Redress < Formula
   end
 
   bottle do
+    manifest_sha256 "55738e0bb762434a45c6609e5d5fd6b1d6238b5fd4de419a73dd9e1e81d1f9cc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d30142775038e09d8fbf3a68838e125e327479efb7636ff7b4a0e9740bbc808"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70aa7535c7101e6abb1562580ab46926c56d8c3c6a155358882ab8f7c69df6fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e9538f27b67f5d823eeafe6ad313a04ee9ec522adda1d219e2fb016d38b0a6eb"
