@@ -7,6 +7,7 @@ class SqlLint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "98cdef7812e82cf80d17e663d36d057ece88ca044a445c09f6491de0002ea457"
     sha256 cellar: :any_skip_relocation, all: "5003c2e4717f5ae3f32a0bc1656a9fdec5a130cb54cec5dceeef497367a277b6"
   end
 
