@@ -26,6 +26,7 @@ class Root < Formula
   end
 
   bottle do
+    manifest_sha256 "69a5ca4e5d460fc2b7e3de4deca2393d88e995e9a3a9dd575bd07704be365d4e"
     sha256 arm64_golden_gate: "ee0f291732403b9e9df260f0fe4192dc2912b1eafb41ad545e444056b16bce15"
     sha256 arm64_tahoe:       "320859c2da9b45e6959027dbd91b1595f256e55e3a021cf3cefdb759e651469c"
     sha256 arm64_sequoia:     "428d6b679ffa193c5480057067b8cb4586bfb7d51e486a3eae79388ca4513bec"
