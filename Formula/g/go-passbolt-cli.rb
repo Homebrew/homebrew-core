@@ -7,6 +7,7 @@ class GoPassboltCli < Formula
   head "https://github.com/passbolt/go-passbolt-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "20154c6a43f1de1842ae5711850d8c4f7b694cf3845b732b95ab38aeb3aac30e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4cc014f014df5cefae49817268b7c8f802643665985edb91b4aaf3850632ddb6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4cc014f014df5cefae49817268b7c8f802643665985edb91b4aaf3850632ddb6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4cc014f014df5cefae49817268b7c8f802643665985edb91b4aaf3850632ddb6"
