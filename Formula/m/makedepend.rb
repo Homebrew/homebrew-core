@@ -12,6 +12,7 @@ class Makedepend < Formula
   end
 
   bottle do
+    manifest_sha256 "79439e758fa6b61220632166671e54acdca89c6b090a9bee78d8fac1a1fc66c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb01ebb5ed2a10e3bff7e483b700c41d41ede7d90366fff19384892c85a7f3e9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8931f9f30c9bf58f2d70db17cd2f09b12f8929f889754dad832cc3efb6e02433"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ae50c4cf4ef49c6993f39eb2871a81b8d6e08ea3ddb9f72dc4d8b574f75b09c"
