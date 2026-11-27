@@ -12,6 +12,7 @@ class AtkmmAT228 < Formula
   end
 
   bottle do
+    manifest_sha256 "46c97a0f91a8a62ee1f56655bedd5712ab73f067c57f02d4dea8b6a58f1aac7f"
     sha256 cellar: :any, arm64_golden_gate: "94fc056e6ef8b9f997bb6cec2110fb711b4596b8b60a652740e8dab6b746865d"
     sha256 cellar: :any, arm64_tahoe:       "705de48adab70c424550dc780e5605f793cdded64693e31ac89dfc89b6cc78b8"
     sha256 cellar: :any, arm64_sequoia:     "33cf53b6543685306f355219df4868756989754d68241ed2261f60166a1e9d84"
