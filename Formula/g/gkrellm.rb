@@ -12,6 +12,7 @@ class Gkrellm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e5c1526cb82c89fe90c62b1356c0cb02cbe52bb42c70634a6107e787d5186d30"
     sha256 arm64_golden_gate: "b2f3336e082ca1453e99d97a93e9ed430995a675a5e77a208ee58ac208e2910a"
     sha256 arm64_tahoe:       "581345f1aeb95ba675efa58f0146116db5753788c370d4f7c47adf58acbdd565"
     sha256 arm64_sequoia:     "a916eba8009a177b6361c20b42ee40c5db0dc9ffd5d36af504ddff64a61f939b"
