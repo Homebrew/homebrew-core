@@ -6,6 +6,7 @@ class Ovsx < Formula
   license "EPL-2.0"
 
   bottle do
+    manifest_sha256 "62cb828948fed36f5736e9dce7609773205dc0dfa7168d94b81a05c10003148f"
     sha256 cellar: :any, arm64_golden_gate: "49322d118b873d4b950b319122594f814eae8400314c99b10f2a5ac8565b2bc2"
     sha256 cellar: :any, arm64_tahoe:       "49322d118b873d4b950b319122594f814eae8400314c99b10f2a5ac8565b2bc2"
     sha256 cellar: :any, arm64_sequoia:     "49322d118b873d4b950b319122594f814eae8400314c99b10f2a5ac8565b2bc2"
