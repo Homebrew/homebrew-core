@@ -12,6 +12,7 @@ class Enzyme < Formula
   end
 
   bottle do
+    manifest_sha256 "fb9c1af00efec7e4bd5afa995e3f25240a59f4d903241e570d9c6706a9618364"
     sha256 cellar: :any, arm64_golden_gate: "0639f4bd00d8e630b2e3298fde8d6a3fddfb9a1a4e8a7faa555cb9d1c81de729"
     sha256 cellar: :any, arm64_tahoe:       "f458bf0aed3aa60a956dfc2f8738a2731a133650835b3450ea89d4c2b7cc40dc"
     sha256 cellar: :any, arm64_sequoia:     "a166e878d4b74b65c205795f49d12b9211fab6aa8e05698fe9eb59524d9ed428"
