@@ -7,6 +7,7 @@ class Grafanactl < Formula
   head "https://github.com/grafana/grafanactl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f1c24dd75b91f4e0606631b629d0daeca219b84ee2ab97a4591e265b1f762c5a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43970652cde78acc31439d04c91f0ac77c31e49a6dae6de4fe9defcbae4e1327"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8681101d7ce09ad2f0bbe19bac3729a733a9005aaa5e6a4fdd57a555f8c130c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8681101d7ce09ad2f0bbe19bac3729a733a9005aaa5e6a4fdd57a555f8c130c8"
