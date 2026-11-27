@@ -6,6 +6,7 @@ class Mbw < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "0c388de967d829e7a1a53c52a6dc491c589c5efa2fd4dee295df20fdcdc32f06"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f395582c9e801c022957806361cea8ef61a3e6ab1a5f99a7e9c8133f9e6eeeb9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c8c88e772ba5c6cc57af7b79c0520750566523f94d643c00f5355333d176836"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5d07a9cad29f80e14aa0abab7e8b5519729e401d876e84b59b400f5413a85a3a"
