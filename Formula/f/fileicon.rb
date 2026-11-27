@@ -6,6 +6,7 @@ class Fileicon < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "afce14785e8b30840ef49e60b7d1ec575e69ccf99af13fd39783682e05f34028"
     sha256 cellar: :any_skip_relocation, all: "f949b99b0a677468c315be200854ef1480a72e225a3f3cef028504030389a62e"
   end
 
