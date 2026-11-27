@@ -8,6 +8,7 @@ class LxiTools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "407cea01d2e106e6d3d1d0991b6ab2c249d8e95aa8d9924501760618f7df7a7d"
     sha256 cellar: :any, arm64_golden_gate: "16c46a10aede4d39aca83941b371712952a3737964988e570054d73a71288ceb"
     sha256 cellar: :any, arm64_tahoe:       "5d9424421034893f420799c531a9732e9719d5f69798d656e40b155f276b9ff2"
     sha256 cellar: :any, arm64_sequoia:     "05e3f24a9480e787374399aff7fc7e544ce0722ff0ecf8f6dd02295f8a567da1"
