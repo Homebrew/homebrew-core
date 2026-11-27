@@ -7,6 +7,7 @@ class Rnr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1b629cc43772faf6eeeb06587d15c328bac70726e02dd29b46c2f385f00eea1e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b02c6eb19e40e1f7e4b36bc0faf1d1f77592258b89dcb0ba15563a6aa0d31fdc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "35316f34e9c60a278d5179f0d05d729b2c9ae5cf85bb43223898467b3a41f177"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2264df39b495fb1648d1713ce8948d7a9c6465371b87734d458108a45f2a9c03"
