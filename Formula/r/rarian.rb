@@ -12,6 +12,7 @@ class Rarian < Formula
   end
 
   bottle do
+    manifest_sha256 "70c9f8db97f310a6d32e5b357804cc70085c7ef45b565b122ad1903054e95174"
     sha256 arm64_golden_gate: "35aad39ae50e831b5d0be40ebd6326bea17ed79988d60310cb1fc10077d85a85"
     sha256 arm64_tahoe:       "9902862041d1a77fada33e8ebaabedf67f77b3bc8050ea988f78f8650c2c4ce3"
     sha256 arm64_sequoia:     "0c5d1dc2a38bdba34aee85a1704dd7fe8c4a5d8165888fd96d6844bbd9b6dfc9"
