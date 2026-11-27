@@ -16,6 +16,7 @@ class HermesAgent < Formula
   end
 
   bottle do
+    manifest_sha256 "4102af75b70e0c6b4ec40834d9380692f534407a5ea23e7bb0084d7f6f01d157"
     sha256 cellar: :any, arm64_golden_gate: "30a8960ce7bb452756f1c16ad729f563b4d1ec1ecec2dbb91dcf362164121e68"
     sha256 cellar: :any, arm64_tahoe:       "cfdbdbff73901691faf881622ed3d220704f18f500c9241299ddd302640f4382"
     sha256 cellar: :any, arm64_sequoia:     "1208d615b4d0776eca38b6e272b8ebefc34bda098bfd88a15f5436e765ffafcd"
