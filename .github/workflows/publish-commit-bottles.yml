@@ -273,6 +273,9 @@ jobs:
       attestations: write # for `generate build provenance`
       id-token: write # for `generate build provenance`
       actions: read # for `brew pr-pull`
+      checks: read # for `brew pr-pull`
+      contents: read # for `brew pr-pull`
+      issues: read # for `brew pr-pull`
       pull-requests: write # for `gh pr edit|review`
       repository-projects: write # for `gh pr edit`
     steps:
@@ -319,7 +322,6 @@ jobs:
         id: pr-pull
         working-directory: ${{steps.set-up-homebrew.outputs.repository-path}}
         env:
-          HOMEBREW_GITHUB_API_TOKEN: ${{secrets.HOMEBREW_CORE_PUBLIC_REPO_EMAIL_TOKEN}}
           HOMEBREW_GIT_COMMITTER_NAME: BrewTestBot
           HOMEBREW_GIT_COMMITTER_EMAIL: 1589480+BrewTestBot@users.noreply.github.com
           EXPECTED_SHA: ${{needs.check.outputs.head_sha}}
