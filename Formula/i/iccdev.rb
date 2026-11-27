@@ -12,6 +12,7 @@ class Iccdev < Formula
   end
 
   bottle do
+    manifest_sha256 "92133424cb84522ea32c708637ef7a9fee52d26d1741473cfcd6a6ea75f3c8d5"
     sha256 cellar: :any, arm64_golden_gate: "896f7bb0936bd8bca5698a2ff348e042b55e98b64f98fda29a51be77f8f7fd24"
     sha256 cellar: :any, arm64_tahoe:       "dc066f3caf74c0a80bca4173af88f163e0256bac7512403a41bfbfc906639a72"
     sha256 cellar: :any, arm64_sequoia:     "e459f822eead20a77b2896e23fd5e01582a58f5c706b7ae728ec9e88ce2aef8f"
