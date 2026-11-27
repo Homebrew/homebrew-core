@@ -6,6 +6,7 @@ class MsgpackTools < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ed2832436f400304a0101863cf63a9b3abbbe9281fc3f135362df47aa9395e60"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f1ea6104876084aba59beab22bd409f04a971ce33100fa2598f1ced1369de092"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d93b03564547f8828bbf33256496b8d132d362bb57a19dc31eaf90bb91f257a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "89db8ac554a849076b6b033ccd4d01758772b92c528107049b1ad0df61e3adcf"
