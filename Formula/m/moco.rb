@@ -11,6 +11,7 @@ class Moco < Formula
   end
 
   bottle do
+    manifest_sha256 "f0cc1430e67475298ae16b172e0596fa0a16d6979c137d0a79dd114355a2818d"
     sha256 cellar: :any_skip_relocation, all: "75d231201d51d05d699392664c9d9a3bd979c863dcb09e6a75ed646251975019"
   end
 
