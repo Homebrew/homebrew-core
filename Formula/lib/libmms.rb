@@ -8,6 +8,7 @@ class Libmms < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "980fd46d6ae7a33cc9308219f64d0dfb6e0c872b2faec639324b65f84489f2c2"
     sha256 cellar: :any,                 arm64_golden_gate: "b470cb27f52e757b47095b87e134581ee5dbece7142b58cdeb82aa0074f7860d"
     sha256 cellar: :any,                 arm64_tahoe:       "aa6cb8c3240b6fbcc6e58fc69c3e117ff0a1c1c1a3eaa22b6374d13a91b2c2fa"
     sha256 cellar: :any,                 arm64_sequoia:     "3bb78466780c6a9b24cf16bb0c333e5e62e8aca7b7f27a1175dcce96d369dd92"
