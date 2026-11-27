@@ -8,6 +8,7 @@ class Fastd < Formula
   head "https://github.com/neocturne/fastd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c739c9c6bdc7cf889f3c28ac41aa8ae60ae9dd4ebf81cccc716ecedb57e56d4d"
     sha256 cellar: :any, arm64_golden_gate: "a30e24296be1730e9d54fc943a37d93469c56c8624509fdc62f53ba2d724b78e"
     sha256 cellar: :any, arm64_tahoe:       "07d1fa9fdd6b0e6c1003db1de59d2e2f67336898787d755348a899215509f9cc"
     sha256 cellar: :any, arm64_sequoia:     "8f4a44d8de63f43b4cf7af18de73f28a2a6505d6606b256ea0e79710019a06d0"
