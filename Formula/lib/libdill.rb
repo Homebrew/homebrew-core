@@ -6,6 +6,7 @@ class Libdill < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2be98911efae83fa35fe008cd1848e75f5976d0eec80e43e429f230686db113f"
     sha256 cellar: :any,                 arm64_golden_gate: "3f707ab2660660a0bd7ae0e4bd1eacde38c798226650bfc80335762b35e9c6a9"
     sha256 cellar: :any,                 arm64_tahoe:       "7a6b319ff538280ed829e03970bc0c70b273080bb71a26bc83ff62bf396dd608"
     sha256 cellar: :any,                 arm64_sequoia:     "cfe256a0ada19b9c8405be0b3b95885137548fe38e0f3938f28bb50b8245b561"
