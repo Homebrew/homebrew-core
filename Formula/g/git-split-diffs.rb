@@ -6,6 +6,7 @@ class GitSplitDiffs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "047247a87522939c3d0dad769b3d4cb9d2a0405f34717aa98f2af57d5bfc52f3"
     sha256 cellar: :any_skip_relocation, all: "2103d2b959bb461d8752cef4f0bd669bf22825c1c90ce375c9c84edaa4631c85"
   end
 
