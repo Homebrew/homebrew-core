@@ -6,6 +6,7 @@ class MimoCode < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "cecb95e0f0d73818449bd7cfe390fe17d8295f194dd7933043db290d73c3bc81"
     sha256 arm64_golden_gate: "17bb02569607d389a8b0b42283d1f796c6b36acc2ce8cb901abdc2de01619179"
     sha256 arm64_tahoe:       "ca2a1195e5d683b2abc9c43a40696f0ed02d5990c4fce146009496c1c66904da"
     sha256 arm64_sequoia:     "a488a9c80509e3541a151be7cc384c76876079135092122a55d5376ecda3d6ec"
