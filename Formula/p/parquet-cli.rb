@@ -7,6 +7,7 @@ class ParquetCli < Formula
   head "https://github.com/apache/parquet-java.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2671414a89cbcc9f84ed18b4eabc8fef2f43e61fbc7018cd87288efb9501ce02"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8713f55ba235584eaf9f96d63bbb247307bd466c35f8c23cd79d352649f64b94"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8713f55ba235584eaf9f96d63bbb247307bd466c35f8c23cd79d352649f64b94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8713f55ba235584eaf9f96d63bbb247307bd466c35f8c23cd79d352649f64b94"
