@@ -8,6 +8,7 @@ class Nsq < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "cd310eb630f507db106fa45d6d41937b48a5e83c03e300f55d3eb7133e10ac34"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27e1330bc2728771b3338dd05503e94b845e739623ad29c235ec1b757a143858"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "174c639dceac725941538d1b137001671ffdda041952e3f656d15e34d8655a8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f5d80fef901dbc92e4f9b37f37da27917e47f3d5447ee6cdfbffd4580fec614"
