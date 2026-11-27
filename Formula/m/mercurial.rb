@@ -16,6 +16,7 @@ class Mercurial < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f3a3a4760bb21a61f0735c66b1a731f203439427a136554b90bbe5300dd7d210"
     sha256 arm64_golden_gate: "f404695a2f2632b2850044689d3f7928c2eb8cbdbdf0ce99eef4646383b1f480"
     sha256 arm64_tahoe:       "f9afc817efd2545b02f89429025d09d102b718389f062be37a3a0e68ec9e301c"
     sha256 arm64_sequoia:     "f4845ec09190626fbb87ca93cd9d6204043fb20c4c2c27ceaca5f64125e028f6"
