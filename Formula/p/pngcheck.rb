@@ -7,6 +7,7 @@ class Pngcheck < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8e7f71a40b90c385c05c9414afb611f64eed7baf627dc72dec18d17b8561fcc4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3e52bfa833e7607b099eb67819c312eeb6ed91405b3132e72b989939b642370"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06f4655ebdc1cb9a83d502e514cfcd8c5fa108984ac7e9536e117b3b6978a471"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "de3eab5fa5af3e288a31c498cb0f3778efaae124ffc636570e5bf7e4d0c09b39"
