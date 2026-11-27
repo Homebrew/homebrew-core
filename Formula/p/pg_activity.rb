@@ -9,6 +9,7 @@ class PgActivity < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2b14f2336626a45a9c4e9ae915b6f54a2461c31f1a59170fd417f58afe79c746"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fbc86bbcf4f8d597da51680be64538106333f5526aed945f09f2b62263ceed02"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "39b1c3a579e0ad780c13140b9f1a5a66a552cfb0a04565f204a37cb9d74c6a3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7225c666d8a8d43ac5c9afae5221195922cb3babb09fdc09b1f61e9c4a461a2b"
