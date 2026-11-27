@@ -8,6 +8,7 @@ class PandocCrossref < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "443412c39971d2194fdd76c420be924bd26ca810db59f4c870c5cf8518e547dd"
     sha256 cellar: :any, arm64_golden_gate: "74cd8696e6620b2aaaec1849704b3f9ce7d8f67eaaca7793b099cf4b56615ee0"
     sha256 cellar: :any, arm64_tahoe:       "8d7f71cb31f0e0546588b280f84cde52adbcf911e8403aa725bf0119bcbb7993"
     sha256 cellar: :any, arm64_sequoia:     "0c4f7d51ea1cc61510da16c51da816dc844854027d28901424ab5894ca844c28"
