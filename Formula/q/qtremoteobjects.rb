@@ -18,6 +18,7 @@ class Qtremoteobjects < Formula
   end
 
   bottle do
+    manifest_sha256 "eba2137730390c62a1e1f0e94d5e27d27f7cb7162aa81c906c5a4dd17b570ec4"
     sha256 cellar: :any, arm64_golden_gate: "91fb3dd8cae44195eb225e367c13358509cd966f466a0619aea0e27b3821ce8a"
     sha256 cellar: :any, arm64_tahoe:       "84f2d9cdb4c9475f1ec7761f435eb398c8691a373457176fbb1e8820875afa06"
     sha256 cellar: :any, arm64_sequoia:     "86d5a3ef38ea893c7c08bc8752ff8734bb68d7dcb551d8d0cbcfc5f9b52916dc"
