@@ -14,6 +14,7 @@ class Ltl2ba < Formula
   end
 
   bottle do
+    manifest_sha256 "bd3125b3ef6a9f37cac4e688deab0d2d265814bf6ffe5143b4e6982d9624833b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "44a57dc7940bcc24d5f51bb8124fa42df617bc5889c231f1d68b3d084784e766"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44343a3a706997bce508f8376785fa1f113926565bc18a57b0409545e1dff44d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18b178bd47a42ca3c5ab755e80cb5ec5a087807c1bef4fc064aa97a3ff18d76a"
