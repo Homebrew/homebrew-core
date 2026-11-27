@@ -15,6 +15,7 @@ class Pwsafe < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b7e7caffcdf7f7f46e1cc31c90ff9fb6767d787bde26e64c0bb6691c901ac4f2"
     sha256 cellar: :any,                 arm64_golden_gate: "6c718ba50413f0f805cc559980d8f7a29a168dd7009c44be63222f9e40ad6983"
     sha256 cellar: :any,                 arm64_tahoe:       "57e90fcf7be8f03f512d7627c4fe7ffb07704c39aa4fe07aa09d5267c1825f2d"
     sha256 cellar: :any,                 arm64_sequoia:     "5714557f1ea1dc35e1a78aef4e0efaa6c30c5d67069e2d6c9f4cf7a2da28b601"
