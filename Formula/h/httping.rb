@@ -16,6 +16,7 @@ class Httping < Formula
   end
 
   bottle do
+    manifest_sha256 "6568693e5f63c4e53956282fbbf41a4557ea0d55ac6b5cf7b74ded6b80a95a6b"
     sha256 arm64_golden_gate: "908cb84f0962fdeea8ec60c08beea174b739d461a59ee388ee06996c489f1e41"
     sha256 arm64_tahoe:       "7c3aa6d130bc657c32526f90b94cac8847c38d58e0bee1de4efa0e61926afe88"
     sha256 arm64_sequoia:     "097832cdd90f95bd5223ae4f8d0be9e358dc9426f9c19a50da8ab9961e9b2687"
