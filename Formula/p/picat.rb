@@ -1,9 +1,9 @@
 class Picat < Formula
   desc "Simple, and yet powerful, logic-based multi-paradigm programming language"
   homepage "https://picat-lang.org/"
-  url "https://picat-lang.org/download/picat39_12_src.tar.gz"
-  version "3.9.12"
-  sha256 "05322b324ee904a62ca5b892d99c0f3abcf3e8f2bad1ce64732c03d70ef5fadc"
+  url "https://picat-lang.org/download/picat40_src.tar.gz"
+  version "4.0"
+  sha256 "aad17a0a6051d783b4920d539cf7b652b0577f0a1e9ab8331f3d176f2abf29e2"
   license "MPL-2.0"
 
   livecheck do
@@ -25,6 +25,8 @@ class Picat < Formula
     sha256 cellar: :any,                 arm64_linux:       "f7af4ba06b779531cc0619e23988afb47302b8f2c79fa543ae6dd58911208aab"
     sha256 cellar: :any,                 x86_64_linux:      "d766512892f2c060ed297311fd7a0adc0f582ccaef1eb1cc9d98aa18a2200822"
   end
+
+  deny_network_access!
 
   def install
     makefile = if OS.mac?
