@@ -12,6 +12,7 @@ class Onedpl < Formula
   end
 
   bottle do
+    manifest_sha256 "1fd6236ddf836c995b310b8eafc2fa2c02abd58c5a2f213c5db629011b21f17f"
     sha256 cellar: :any_skip_relocation, all: "18ffa11fff8224f7f04c18f2c76f5f5ca02d1b44225a9ab70d1748b7b94f1be7"
   end
 
