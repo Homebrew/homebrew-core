@@ -7,6 +7,7 @@ class SiscScheme < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "073e4ccd392abd52fb7b641ec4b8fc7558f13354050602b479f6399e17e0b91f"
     sha256 cellar: :any_skip_relocation, all: "cc07c73860b9acfbad278e89277cacd790f4b5ac3de3800352d8ac6d6e833ccb"
   end
 
