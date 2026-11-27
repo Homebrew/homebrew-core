@@ -14,6 +14,7 @@ class Keychain < Formula
   end
 
   bottle do
+    manifest_sha256 "435b5a1123023e8c39a78b85b357a515cc90a9505b902e740365942a99b0ee48"
     sha256 cellar: :any_skip_relocation, all: "f0e239b2dc35c2ce8fcb51c11d384defa420a410665d9ada3a20b5bb732ad9fa"
   end
 
