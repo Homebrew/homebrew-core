@@ -7,6 +7,7 @@ class Quill < Formula
   head "https://github.com/odygrd/quill.git", branch: "master"
 
   bottle do
+    manifest_sha256 "71a8ef7b52f3260b3a83c230e7aac15a10c5f2f743b1abd333b151783d2dcbd3"
     sha256 cellar: :any_skip_relocation, all: "c6b462a71591c6bd608db5e0e53d4511c58ac1aa71c04a4771b1e08ce8dd5c69"
   end
 
