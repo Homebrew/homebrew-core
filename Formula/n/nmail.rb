@@ -7,6 +7,7 @@ class Nmail < Formula
   head "https://github.com/d99kris/nmail.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c588b8bc2a37091357213d209289e308970c8de965c0dcae4f08c2aa67454514"
     sha256 cellar: :any, arm64_golden_gate: "3c32e01bac7910a4c9a19ca82c80300c58d5e7f14b871554416ebce5aa4bb74f"
     sha256 cellar: :any, arm64_tahoe:       "6cb20ef8667f43781d7200c2d00bf015d85f3e44536e69026f66bb2aff4849d6"
     sha256 cellar: :any, arm64_sequoia:     "08290551ee8926016396e3481fb1e8d1b811777164c374e4d20211c8562d8c42"
