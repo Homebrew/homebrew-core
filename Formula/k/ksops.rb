@@ -12,6 +12,7 @@ class Ksops < Formula
   end
 
   bottle do
+    manifest_sha256 "63dc7762e96fb3b9fffe22f620be3b5a9280c48090af162b9b8de480f7b898b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "991033bbba8f56938d0f7b1e6f82592dac9af1aff1ab4817a9caebcc2cc77069"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5cf3c5fab0551b7ba2b5bc1b166046bce3b1050d5876ee09ecadf36bae9d5130"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5cf3c5fab0551b7ba2b5bc1b166046bce3b1050d5876ee09ecadf36bae9d5130"
