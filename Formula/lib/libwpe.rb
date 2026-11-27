@@ -13,6 +13,7 @@ class Libwpe < Formula
   end
 
   bottle do
+    manifest_sha256 "0f48ef14f0642bf166ce688b9e145f97fdd8cca9bd78aad41c73875006131f62"
     sha256 arm64_linux:  "509848541dbc05034cdce7e67cb1d06105ee409094296f46a98d286def80ffbb"
     sha256 x86_64_linux: "e9adaa0604d9498c7fe4401bc9d8c482f4840155f5d107e04e8014c2249289ab"
   end
