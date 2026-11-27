@@ -6,6 +6,7 @@ class Libyang < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "f34d9ed4e6a32989ba5cdae020e518e3512204bbc70b99d35d279bbbc738bfda"
     sha256 arm64_golden_gate: "cda40e72aaeca6bcfe1fce5de806d3327822c60219ee4e6ab96791ae10ea10a8"
     sha256 arm64_tahoe:       "2b2f9e9250633843249a274168940e6103a785691cef820a4da691ee46a19591"
     sha256 arm64_sequoia:     "0736495a772692d11043f9cbee93372540930db413ef1514fa2c2e0b3ba940e0"
