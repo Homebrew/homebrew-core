@@ -7,6 +7,7 @@ class OvhTtyrec < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b857a9879cd937e09c10d44d488cfba213524f254922ee142b64efbc3546fb4c"
     sha256 cellar: :any, arm64_golden_gate: "49c76ef839781713412995467ac6eb9b13cb53a921572c2e23141022e1c54da3"
     sha256 cellar: :any, arm64_tahoe:       "eef33b07caa38cf80d5c3e9d985697b1d8308e8c42b6717721cdb013f3ba36e7"
     sha256 cellar: :any, arm64_sequoia:     "a9cd3deebf729a009eb87270b33e6f634bddb5116ab2e444a54ea8dedd70ea46"
