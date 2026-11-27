@@ -1,12 +1,11 @@
 class Gjs < Formula
   desc "JavaScript Bindings for GNOME"
   homepage "https://gitlab.gnome.org/GNOME/gjs/wikis/Home"
-  url "https://download.gnome.org/sources/gjs/1.90/gjs-1.90.1.tar.xz"
-  sha256 "05ceaa80f48e3782e5c44938572fad863e02b8c4a6c55657a99aa81db8ce9efa"
+  url "https://download.gnome.org/sources/gjs/1.90/gjs-1.90.2.tar.xz"
+  sha256 "f52c8e3d4185a6436dde44f9f2311684c9afa7eb68a5b2a98e3355343ba6f261"
   license all_of: ["LGPL-2.0-or-later", "MIT"]
   # TODO: Move to latest `spidermonkey` once gjs supports mozjs-153.
   # Also set deprecation date on `spidermonkey@140`.
-  revision 2
   compatibility_version 1
   head "https://gitlab.gnome.org/GNOME/gjs.git", branch: "master"
 
@@ -19,12 +18,12 @@ class Gjs < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "7725fd75c35240caa3c96f7b2e1a20d100a3cb39ad42ae3dc6792c30f4983cf7"
-    sha256 arm64_tahoe:       "22cebb7cf538f9b49d288ff8400125de9efbac44869c5ea391a4f85922c59457"
-    sha256 arm64_sequoia:     "4a2b86d73fa23bb853f5f6510e9ad67b4a482b1636628f2d626218ef3d0123b2"
-    sha256 arm64_linux:       "f0d6471dbb8db2f744a55b2174bbd4db9fe18186a0ba60774857a247033c5b42"
-    sha256 x86_64_linux:      "f40d198c3eac86406c2d2eddfccdc4d728151ae3374be0dd9de8301a5218d877"
+    manifest_sha256 "4be364b7e9f087a6ce1a1ffc93569f48879b38df25514de555443c9dea6568dd"
+    sha256 arm64_golden_gate: "7d18102d51a2d1ecfe24bda60f92b6697c7c69847148cb933d7a5cdd95f2b270"
+    sha256 arm64_tahoe:       "d2e6167902aaaa5f76043f2b2852b22eb4f4d2302d490df0bd7ba4ac6eb4ac87"
+    sha256 arm64_sequoia:     "585b58a6feaccea2921e71468e71f49f1e01063358bbd9a8ac0b77b35d8b5023"
+    sha256 arm64_linux:       "e903ab014d730dfd95bd566a11129d961a40f84c0668c0617b9941d565c512fe"
+    sha256 x86_64_linux:      "7de67e24c33aaf0a614398e24d49fe97526f591f7dfbb8dcc6e5496eb0fc0a4c"
   end
 
   depends_on "gobject-introspection" => :build # for generate_gir
