@@ -7,6 +7,7 @@ class Libvmaf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c4634de95776c3da217d6ab01cf09db5f2a112272215e1dee108c5d26e2cff6e"
     sha256 cellar: :any, arm64_golden_gate: "962e5b553f735b609bc632da6da1dfa0774b4e84aeef8dce638b748a9aff2966"
     sha256 cellar: :any, arm64_tahoe:       "703f56cd94ba6bb86ee1463bec792d8ad6f9841f67152fa6e93040b966bbf82f"
     sha256 cellar: :any, arm64_sequoia:     "d3cf35724639ceb6d9d92ee25a7fa4953f7ff952dc4be90aa83eb006910248b4"
