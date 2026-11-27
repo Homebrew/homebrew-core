@@ -13,6 +13,7 @@ class Libnatpmp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3f071501025a748576baaa8455c002c2f6d7d8c513cd341c83886adccd075b74"
     sha256 cellar: :any, arm64_golden_gate: "2b116cdd78f36020d0fb816671973f6ad2ec880647e2bff2915d7645ec4b0ce7"
     sha256 cellar: :any, arm64_tahoe:       "4398ea5d9d517fdcfe67a1e14364423156cdb6e5b4b38c3402f040de145ca363"
     sha256 cellar: :any, arm64_sequoia:     "a3613d14e472288a40a3c5bbc3727b815fee73976d6fca7d519b3ea49dcb2406"
