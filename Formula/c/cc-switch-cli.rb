@@ -7,6 +7,7 @@ class CcSwitchCli < Formula
   head "https://github.com/SaladDay/cc-switch-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8ef14b20cd2f20b7646587ba356642b9e55e5b624472b79edb4179a23747157a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ec3117ebf4ed1868851ceb64b8a77a8c386a5a75697ac63607bb89b57a6d416"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d52b56d0d32ab018bb5b0ec6b38a25bbc16be34bafc34c7eec51043375b89f6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2ee6b8cf8417a982f1c990004cbdeb368bf0acb13bab1e4a4e12f146a0b31d6"
