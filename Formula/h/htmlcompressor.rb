@@ -7,6 +7,7 @@ class Htmlcompressor < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2842f8473b01595f2e9f0e374edcd454f69473b96bba76ff6ae10405bc7c36f9"
     sha256 cellar: :any_skip_relocation, all: "a8323e2d6001cc0effb3c29900f977118d35fc4a0a86be9cd49d0fa133d04f23"
   end
 
