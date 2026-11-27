@@ -7,6 +7,7 @@ class Ftxui < Formula
   head "https://github.com/ArthurSonzogni/FTXUI.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1fcc4844407863a8441e34a025c2b65bfebad933019012f0e7b0abe84e596efb"
     sha256 cellar: :any, arm64_golden_gate: "8ee0d5c02c2accc5d0666e915f0e1f1d0e28fd8b999a765739576483e027b1ec"
     sha256 cellar: :any, arm64_tahoe:       "d7ba2853c0c1b554fe08a209722f0fe1744dc1b907477fc14a6158470207abc8"
     sha256 cellar: :any, arm64_sequoia:     "b9c336f9befa2aea3b617a8becf250f6fcdcbcf32a92b5bea0ceac2d28bafcac"
