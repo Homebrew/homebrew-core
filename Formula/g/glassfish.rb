@@ -12,6 +12,7 @@ class Glassfish < Formula
   end
 
   bottle do
+    manifest_sha256 "7def27e9a6e9d4e9dd484aa5b0b97bfd7d4b682de6d134a26fd0b1752ef7c6cb"
     sha256 cellar: :any_skip_relocation, all: "1908efc2b6b64c122b34ae77c3588d67cdb10ff33ff89f8a08942c22625393eb"
   end
 
