@@ -9,6 +9,7 @@ class SequoiaSqv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c5f6f3b4840acf87204c340416985303289bc1a228d7c9e30950054ab730641d"
     sha256 cellar: :any, arm64_golden_gate: "4901e4a68f1a3041e3289605044783cf056958c4d0ec735f94dd62afb73b99e1"
     sha256 cellar: :any, arm64_tahoe:       "a0be56817a575d08053d42ff37df1662a28cf3e92317b84b8fe85b7d8da9b370"
     sha256 cellar: :any, arm64_sequoia:     "77974f2e835e41c29c22fde6cef4f64fe9a4440c96a474ee90b39bfab2a865ca"
