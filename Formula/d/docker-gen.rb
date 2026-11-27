@@ -1,19 +1,18 @@
 class DockerGen < Formula
   desc "Generate files from docker container metadata"
   homepage "https://github.com/nginx-proxy/docker-gen"
-  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.17.2.tar.gz"
-  sha256 "dfea32f45e8b3f0c61f93927375d538de6bb94c2089b0fb4adbbbce3289df378"
+  url "https://github.com/nginx-proxy/docker-gen/archive/refs/tags/0.18.0.tar.gz"
+  sha256 "abfe428a64997c1333911845efece7c83facea0fec86091136d985f027368c5f"
   license "MIT"
   head "https://github.com/nginx-proxy/docker-gen.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "58a5b43158f5884ad53d7069cdf654800a2fb17ccca08a8f314981f7aa3ed1b4"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e26612f4c00564bde9145c6f571b25a23af2beeeb09b7ea6dc56be98db3bd69f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e26612f4c00564bde9145c6f571b25a23af2beeeb09b7ea6dc56be98db3bd69f"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e26612f4c00564bde9145c6f571b25a23af2beeeb09b7ea6dc56be98db3bd69f"
-    sha256 cellar: :any_skip_relocation, sonoma:            "a5354c4a97e7c8ac8ce8c08aee51cb556153e60b4b2897ba86e9c09d552fdb43"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "8bcbb7cdfe7534c6827b44e9e2b07bc1ac28f3543f8c648a678b5692c3039034"
-    sha256 cellar: :any,                 x86_64_linux:      "e3a0a26d527a2ab7033d8e401389637931e153fdcdd711563f9df77d8c9f81f7"
+    manifest_sha256 "f19c8ac0261a29d0f1ca5b510a304ce013bccf05d626ceadb90f58b1b87ca84c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1243e74a4c9fe25bbc65db3c6b399db299661706e6830ab6076a8d76c7911139"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1243e74a4c9fe25bbc65db3c6b399db299661706e6830ab6076a8d76c7911139"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1243e74a4c9fe25bbc65db3c6b399db299661706e6830ab6076a8d76c7911139"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "604b075422f454b9ffe757fc5d6e693e3fff07a792040ff16d68a7c165916920"
+    sha256 cellar: :any,                 x86_64_linux:      "b59005ef2f517ea5f822fd44e2c7cecfb3b14e8c48656645b591ce537047b268"
   end
 
   depends_on "go" => :build
