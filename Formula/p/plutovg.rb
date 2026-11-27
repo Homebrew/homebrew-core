@@ -7,6 +7,7 @@ class Plutovg < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f75795cad1e7b41e07bf2b45de2a9c57ed12c4a42517715d3d6935e8817e0d10"
     sha256 cellar: :any,                 arm64_golden_gate: "39ec3e914d244f7507272a31e1790fb33be09cc164f53f2795cdd67757e6c041"
     sha256 cellar: :any,                 arm64_tahoe:       "ba1963811e934ee5e50b058f92c139ee4d1d9870713e5583fd12196f9bb91bb2"
     sha256 cellar: :any,                 arm64_sequoia:     "9dedd7db6202d75e290907b95cfaea5d02ebbf745633d99cc2acd303dec235af"
