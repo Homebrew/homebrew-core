@@ -12,6 +12,7 @@ class Risor < Formula
   end
 
   bottle do
+    manifest_sha256 "351083ed23e1c4c45ca0b748ad1e17889689a149c7f271a6d292e1ef8acdfadf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "943bc2410e0ac04b563a19670945dfa483c4199be96b15b2271a2983646745d5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7bc21d4e333d70e16c7280b8ac97a47c4ee8316de5e92363ee5667ce7958c488"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7bc21d4e333d70e16c7280b8ac97a47c4ee8316de5e92363ee5667ce7958c488"
