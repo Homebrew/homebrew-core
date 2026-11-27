@@ -7,6 +7,7 @@ class Skm < Formula
   head "https://github.com/TimothyYe/skm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4dd4fe80987745bb4ce3b634b1b6ff69bd41e8d753f1072794e7b1f242c99b77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11df57a020890d7ccf24417cc4c17d8bddacbd6b53ca498681486ee8062580ef"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ed415bd3d35429d897fa14d0a1aec89c66c03e7705c87550160403acc33c7c6"
