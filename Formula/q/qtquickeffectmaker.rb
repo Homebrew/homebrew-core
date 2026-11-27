@@ -16,6 +16,7 @@ class Qtquickeffectmaker < Formula
   end
 
   bottle do
+    manifest_sha256 "1b3a37c47200df175ec8ade16332ddeaa7afbfe5d1fe2cfec55beb13da13bd1a"
     sha256 cellar: :any, arm64_golden_gate: "efda551e457394bd03122720f0ad95101411a8f1e75e522d131a698014ebe236"
     sha256 cellar: :any, arm64_tahoe:       "2aded4d52980af19190eafb38bec8db4b1f618793d058ca4a9ebcb8456be70c8"
     sha256 cellar: :any, arm64_sequoia:     "cd1cdcef88545df623c99e2e90a333306779211c4208c179dcc7f336f43a531b"
