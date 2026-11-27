@@ -12,6 +12,7 @@ class JavaServiceWrapper < Formula
   end
 
   bottle do
+    manifest_sha256 "ffc1ff08b51f338b0970da9e4069af5ca93945722189055bc5b0a7de706abfd5"
     sha256 cellar: :any, arm64_golden_gate: "1e651d620cedc5a7181020b116f9934dc26573f6f73d9202dc92c85706ec9e7c"
     sha256 cellar: :any, arm64_tahoe:       "9a7a72187165750e8557fdefa324a45190d8bae5bad3a7620c53de9dad4cc0fe"
     sha256 cellar: :any, arm64_sequoia:     "a13d5d3891727ae53a31bd25211daee9010cf31384ac7d2abecb6ce8d34ee9d3"
