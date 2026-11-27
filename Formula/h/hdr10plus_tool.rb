@@ -12,6 +12,7 @@ class Hdr10plusTool < Formula
   end
 
   bottle do
+    manifest_sha256 "683a5a8fec7dc5ad61a30a7c6896e3b730063786ed2d7bad4829e3338c7fa170"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11f7b7b77cb4826569b259b1e9f7b5636f1901cc356fcf879333a57bfc85d356"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19047e28a0a09f67a3468de226119e6ef0f9bc75fcffee81369b8a6605ecaf36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0d80db9a201aa675b80359047ff378ddae88e0c43e545eafd641012a891ddb9"
