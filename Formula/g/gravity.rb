@@ -7,6 +7,7 @@ class Gravity < Formula
   head "https://github.com/marcobambini/gravity.git", branch: "master"
 
   bottle do
+    manifest_sha256 "81e6f50cb18183119f869c2ae4e09701ed9349fb427e0bab589ff7d019217e3d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9e8301fce9e751f3123aa5f7a58a81d650ce05785727c98a2843452d3dce602"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9838676d3fe8c10e9149c6f90bfdb53fe9f162343a72bfb70170728126046bfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "541343331427bf176eeb65f78a5068ba403e4b2a1964995af109a7dc2444040c"
