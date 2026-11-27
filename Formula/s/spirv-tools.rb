@@ -14,6 +14,7 @@ class SpirvTools < Formula
   end
 
   bottle do
+    manifest_sha256 "5aca4f09e99e0ae429260b2f37db42cc7430776bf8e3c55267f0fa6b34a0e6c3"
     sha256 cellar: :any, arm64_golden_gate: "be9c608d9d4062e661bf54c48df8eefcda66503655a68bcf251621eb4b4592d3"
     sha256 cellar: :any, arm64_tahoe:       "f1b075c2a107e314872144082b0ae49c18c15d7002e818fb60fe62f2d1c72e5a"
     sha256 cellar: :any, arm64_sequoia:     "bb9db0cc79ff0ac541fb4324840527101fb7f57dce9a8c43d92b9252ab12983a"
