@@ -8,6 +8,7 @@ class Ramalama < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b344c55457bce84e6a5cdab635cda68c421b6d9e286421ada666ad64f558fc9e"
     sha256 cellar: :any, arm64_golden_gate: "26703d5c3012d1e11fc28ae475b92eef041b1d6fb723510c41847e3bfdfa4f08"
     sha256 cellar: :any, arm64_tahoe:       "154393c3bacae9d4b749d0660a86df67bd40d3df7210e7b959553a9adb660cd9"
     sha256 cellar: :any, arm64_sequoia:     "a355f24f277b1595c6758c9c1708f3a33dd6093b840720f6be93dfa0d818926d"
