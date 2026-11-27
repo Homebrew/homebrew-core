@@ -12,6 +12,7 @@ class Mtr < Formula
   head "https://github.com/traviscross/mtr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3c968900f79dbe1c1c050733b2bd1b6b7f116e5b61853a8673496dae5809e2eb"
     sha256 cellar: :any,                 arm64_golden_gate: "8f6d1c2ac3974634e8fa09317227d9bc5c1c784512a6b62b5a0c871805f314ce"
     sha256 cellar: :any,                 arm64_tahoe:       "e895fc7ed39c99111d74a2ca15aeaee2ff99c4106af7517f60a6accc71560eec"
     sha256 cellar: :any,                 arm64_sequoia:     "a7bacefb19840814841941c74a3ac93d8e0e5355b09c471e3b76dec702315fc3"
