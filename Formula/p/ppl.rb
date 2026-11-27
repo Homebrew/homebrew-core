@@ -12,6 +12,7 @@ class Ppl < Formula
   end
 
   bottle do
+    manifest_sha256 "c5c7b522f973cb9fb59e2e8919f90d9efcfda37ae036ad5830edc35867ff66f9"
     sha256 arm64_golden_gate: "8385c94ff15fa97e389c30747ba15c641a2b57e0bbb6a32349be676b5511f4b9"
     sha256 arm64_tahoe:       "aea93f11cba2f9c6d6d64225405165be26d8ae84d9f668cdfd5f479a5a53e169"
     sha256 arm64_sequoia:     "527d1a14323856ce82d73c94a18da7b53363c5f9064de4f70dda5a5aa1c84ee6"
