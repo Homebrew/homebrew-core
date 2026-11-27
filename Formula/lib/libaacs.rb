@@ -12,6 +12,7 @@ class Libaacs < Formula
   end
 
   bottle do
+    manifest_sha256 "9498510e30a1e584c9a13461a7d558b529e7a2ba3cdd982f36caff28194aa01f"
     sha256 cellar: :any, arm64_golden_gate: "9662cc8bc2a846adbf1dec26c6ecc9fda36bf5f8f754d1b92ccd70d039f296d8"
     sha256 cellar: :any, arm64_tahoe:       "4d68d6d24fee155bd5cb010f236ec65a4818a910c9a62e1b6bf7aa9e236e4a24"
     sha256 cellar: :any, arm64_sequoia:     "5591ff031ec170ebeee212922db732702642e04d62438c33f290f09031462bc7"
