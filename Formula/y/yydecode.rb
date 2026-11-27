@@ -7,6 +7,7 @@ class Yydecode < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "498e12e6203229a706a1846ae6a62dfca6b373282397613027d8e2bbbe25f22f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a48bc2206d2f40d33ffaed2c54b155acce1f49471b2e27dafc1f96e92fab69b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "054034a4990c7dab07cc32767d6d851fef67b58993c276573c8d510fd59698fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b24e0faa262eecd027d92d536e2975069785ddbb69be173b74091903c6066af2"
