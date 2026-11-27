@@ -7,6 +7,7 @@ class Lexbor < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "249c315353ca4a9008552065b6d726bc16e748ca9e7f5b86e271bf741ee24ee4"
     sha256 cellar: :any, arm64_golden_gate: "d24c9c977e25a93f2232da550e0e0e8a93e15b69bf35480717fc9b3087929b4b"
     sha256 cellar: :any, arm64_tahoe:       "55e32257e768086f15c2db71ec04445b3aee437f7e7a9ebdfad2ffbe27626a2d"
     sha256 cellar: :any, arm64_sequoia:     "307f9f8603edce1cddf07aa1c7021a1332e5fd3cdf26b8ef4611b49c798088f3"
