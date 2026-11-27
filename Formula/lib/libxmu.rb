@@ -7,6 +7,7 @@ class Libxmu < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5ca039970a32f1097ddb9cebbbead739298da31f68bae0b992308ebdea0f31fb"
     sha256 cellar: :any,                 arm64_golden_gate: "72ce3d1a61c583b0a160c67a85624fa343d2bfd7100fd3ad7070563a6e5c9c48"
     sha256 cellar: :any,                 arm64_tahoe:       "f3119cf62a6b19cb301339f6611ad94df20c57f1d1f7cf508284f38baf9688bc"
     sha256 cellar: :any,                 arm64_sequoia:     "bf7fa457cb2dc12f1ecf9adfb0e96187fc41f1d9654750c89c121e840df67d02"
