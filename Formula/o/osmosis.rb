@@ -12,6 +12,7 @@ class Osmosis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a8815c7570df6257c0e42a9beb3a2bc82912fb178c37526e27cd991b91b0aa0f"
     sha256 cellar: :any_skip_relocation, all: "bbf0840fce8067bb973ff59a7e9d9774178ae11b9af976aa0842e80b90264b00"
   end
 
