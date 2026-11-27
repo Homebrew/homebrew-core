@@ -7,6 +7,7 @@ class Hello < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c847599789efade500c448e8b302fc9a3f985e1e4370e91b339b839b2205d984"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4dd2596c2e897c81eae2dbf5030da37b43e797d217f0f0892d39343d0b8c2ca7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae6237e3001bd354783f469d754cee875ee9828910461b85a5803f5990213dde"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78566829e680af4ececbe5b3aa596c06f9bd0c7b83172a50c4347510a0d8cf0a"
