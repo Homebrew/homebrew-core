@@ -7,6 +7,7 @@ class Pgsync < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "167f2b6b1543c24cb63e0ed4b0eb5c9c3910ae9e7ebb737601c55a1a616d4bae"
     sha256 cellar: :any,                 arm64_golden_gate: "2d38d1feccf21c210433244a2c13680879c0b2e42f4981ab734a71cde6689aea"
     sha256 cellar: :any,                 arm64_tahoe:       "fe769a833d393d4a1a2d14e5ec710ce30ba26100f26c7de7afe3070772f92406"
     sha256 cellar: :any,                 arm64_sequoia:     "5799a23728b227d10d0b8502f3e16d911d77da00466cc5e70acfc53b51822cd8"
