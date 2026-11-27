@@ -7,6 +7,7 @@ class Ipapatch < Formula
   head "https://github.com/asdfzxcvbn/ipapatch.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f855d1dbd6710b32e3f677701f0ba30b8a1b7e1f013e3f11445f48e672fe3677"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52ff416221f2511474a501ea1a70024c2353259884a0208b457cce3b006c07c8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71020649c2c6e2d9cd414e7ce47dfda3705c391475fd8f754e5ae368f397a2dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "71020649c2c6e2d9cd414e7ce47dfda3705c391475fd8f754e5ae368f397a2dd"
