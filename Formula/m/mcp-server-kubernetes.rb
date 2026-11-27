@@ -6,6 +6,7 @@ class McpServerKubernetes < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6665860d8d65529c0a393a28c1cb69afae218fae1d4012d6556ef0b41ffa5031"
     sha256 cellar: :any, arm64_golden_gate: "70b58d606616c637b4402cdb017a48a136514ea03907373706fc9d004f1763fa"
     sha256 cellar: :any, arm64_tahoe:       "70b58d606616c637b4402cdb017a48a136514ea03907373706fc9d004f1763fa"
     sha256 cellar: :any, arm64_sequoia:     "70b58d606616c637b4402cdb017a48a136514ea03907373706fc9d004f1763fa"
