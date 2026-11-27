@@ -6,6 +6,7 @@ class MermaidCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "743dee63037ab08506f6af4226b9cacf45e87d1493a344fa85c6a4ebfe5b5c8a"
     sha256 cellar: :any,                 arm64_golden_gate: "a5b6816648c0c22bfb1f81cca48b6a32aaf736cd9c5744c3d58009f79d381ac5"
     sha256 cellar: :any,                 arm64_tahoe:       "a5b6816648c0c22bfb1f81cca48b6a32aaf736cd9c5744c3d58009f79d381ac5"
     sha256 cellar: :any,                 arm64_sequoia:     "a5b6816648c0c22bfb1f81cca48b6a32aaf736cd9c5744c3d58009f79d381ac5"
