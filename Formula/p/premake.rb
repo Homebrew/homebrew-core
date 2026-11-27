@@ -8,6 +8,7 @@ class Premake < Formula
   head "https://github.com/premake/premake-core.git", branch: "master"
 
   bottle do
+    manifest_sha256 "85d769d381ce06b5d825c350f311bfdca7c48a8bbaf3a97abada19d0e06adc7a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb3a10cd4d06c6a765e9420c9e96093328401a9e3396d443942931b55f78ce5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab86f4550238dccd1dc4bf648add5bb9e8115f326306bf30058e015f165c409d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72788f973fac2ecec163b6489253ff21c990d4aa710f1cd272c6a94f6b968af2"
