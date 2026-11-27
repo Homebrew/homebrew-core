@@ -7,6 +7,7 @@ class Echtvar < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "ac059cdfb76793ea3b7c29ae047fd51fe87b0bcb0418d94f3c16bc6726f37241"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54fc2342877ecfd3d574aaa7b0cff67d24ded69196d3a1c848b6469e41e5c326"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3fe2aea1deeab2ceaa2fbcc917d73b5d655244193a96ccc4d1461ae884eb7c93"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "498c3506736f3e62511db5b0bb5cc3c9122de0b93cb4327741bab82e2695e57a"
