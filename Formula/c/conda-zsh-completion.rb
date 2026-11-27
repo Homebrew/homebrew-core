@@ -7,6 +7,7 @@ class CondaZshCompletion < Formula
   head "https://github.com/conda-incubator/conda-zsh-completion.git", branch: "main"
 
   bottle do
+    manifest_sha256 "633a018258a835ab8220d4ac4b6d1dd447fec4a82a20710f22052b4525b1539a"
     sha256 cellar: :any_skip_relocation, all: "e960cb656df12a852dc6861e660084b853f1eeb3ab3acd8569d78ccb23f699d4"
   end
 
