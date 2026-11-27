@@ -15,6 +15,7 @@ class Livekit < Formula
   end
 
   bottle do
+    manifest_sha256 "1766e951a9a97440e8cd18faeb5ea54e4672a67aefbe6f51b513ff0e9c1c6fbd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "daf3423e06b1ce7881dd4a9d476d4bfea72855bd235e2c8f8acb3160d10a4478"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba586eebd42a04aa93caf13f2ec639226e7b7b80687ebe1a581d48a43714c339"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1268330c7264fcc1626f673f5abb8cb1a1691344ac171f1941014c45fe4da214"
