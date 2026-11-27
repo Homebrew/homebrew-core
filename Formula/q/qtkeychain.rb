@@ -6,6 +6,7 @@ class Qtkeychain < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "acee3937c05c06e07b83f656f8f74e26cc81a7dedbc1b17fa4cd32ff4a952d40"
     sha256 cellar: :any, arm64_golden_gate: "2a48353eef242e0905926c1932b30129528e1337e4e9230b06af17e843fbaeca"
     sha256 cellar: :any, arm64_tahoe:       "3809c5025f66848434dc45ae64b869403c03d8305ced079299d71bf3afce78b6"
     sha256 cellar: :any, arm64_sequoia:     "25ecdc4937b3b4231b7bfc3815ac22153ec8a3550e06413bcb2a5261ca179a40"
