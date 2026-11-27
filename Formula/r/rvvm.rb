@@ -11,6 +11,7 @@ class Rvvm < Formula
   end
 
   bottle do
+    manifest_sha256 "8ab1caad84a4ea847b98f557558578d30983029fd7e71234ca98587924b4d495"
     sha256 cellar: :any,                 arm64_golden_gate: "7f3b333fac193f3dbf0ad5c4ea52c2362d0a35384cdecab34f476e4632fd922b"
     sha256 cellar: :any,                 arm64_tahoe:       "c2d1713f3ce9b6982d67db642cac2283c31edc0c0fbbb751a3827ba623678595"
     sha256 cellar: :any,                 arm64_sequoia:     "665ef767abe8d4a20498730877e1668e824d4aa6cdf3a10c498a89ee255a32c2"
