@@ -7,6 +7,7 @@ class HdrhistogramC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c9debfa2cb318d3b88b4c954a13d80d8c4ee3a6c6ae437042fe732673f3c53fd"
     sha256 cellar: :any, arm64_golden_gate: "1aadec5ca79aaa35ac1a23a67d68b5890d2c94da125ee9ad3b7d6412770296c1"
     sha256 cellar: :any, arm64_tahoe:       "4fabc58a96b5d3444a23dfdb3963aa6d8b30ce7939ee445b01891822e9236726"
     sha256 cellar: :any, arm64_sequoia:     "9ac2a2b0243ba0f796abfb23928e0362fbaa1b447354bb24b63fb96c901d0ed2"
