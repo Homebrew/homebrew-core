@@ -20,6 +20,7 @@ class Libaio < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7bc79571500f5233bd67a51172e6da28b0ad46dc86897507978be806820c156c"
     sha256 cellar: :any, arm64_linux:  "71422db16966460328f8c89a349abcaecc642dc4c2b8643e04cc9a48a50de956"
     sha256 cellar: :any, x86_64_linux: "4f4c61ab5f3face78661d57d5e988d47a37a4e7e1d7830889f0f50b511030651"
   end
