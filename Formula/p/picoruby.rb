@@ -8,6 +8,7 @@ class Picoruby < Formula
   head "https://github.com/picoruby/picoruby.git", branch: "master"
 
   bottle do
+    manifest_sha256 "144a5a4682887735afb2401734d57cc6753a6a13128241e127c326bb2f55ec00"
     sha256 cellar: :any, arm64_golden_gate: "d9e6b1683906d6780b22fc60329b3a7506134624d9a3006a507b51d4cc1f7baa"
     sha256 cellar: :any, arm64_tahoe:       "6927124044346dd746515773ff8487cff8b8c4752b9ebaebd713163f74867377"
     sha256 cellar: :any, arm64_sequoia:     "7192567af2a309905edbeac4324758a235a91f212880aa164540e79187c020fe"
