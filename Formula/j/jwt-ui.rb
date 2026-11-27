@@ -7,6 +7,7 @@ class JwtUi < Formula
   head "https://github.com/jwt-rs/jwt-ui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1561a6aa93426058444a0b5c1859dfb580d3b33214a0cab69fa81e622ae98305"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6336d1ce2499186a5dcfbe5dfb1fc273c1e617d6232ab0cf48fc5716e41cb3e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f118b3747b87b291d58ff6f174f0843defe9c1d955942b980a0a8c07e4836684"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f8984bbb5f831ec64957ea03e78cc0537e301bac7a0672cc013cc52ace5874d"
