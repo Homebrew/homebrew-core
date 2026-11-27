@@ -8,6 +8,7 @@ class Libgit2Glib < Formula
   head "https://gitlab.gnome.org/GNOME/libgit2-glib.git", branch: "master"
 
   bottle do
+    manifest_sha256 "21b4a5d25e1f9d548cfa110a5bbe6a0ee611c0a3af284c36ffb379b8a0bb634a"
     sha256 cellar: :any, arm64_golden_gate: "677685a70eb885f5584d4f98310ab0d651b554022f697882785c848ba74d81dc"
     sha256 cellar: :any, arm64_tahoe:       "003f423a05d4a12f3e922b31e4e0f782751fdc35415ca42224cf6b339bdd28cb"
     sha256 cellar: :any, arm64_sequoia:     "627c83def62678ab65731f86805ddc7bc12150d9d9ef53d8e15e6f5d49d237ed"
