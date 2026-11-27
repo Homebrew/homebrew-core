@@ -7,6 +7,7 @@ class Stolon < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "d9a443f8a64e949ce760ff7abd49e3393b6d9f81100a141c8b0c51bfb4e4c234"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f02798a99e3a6a5f1a3adf7fa448aea43c237802a231f68d58e93cb691d17cca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b989bb383b1ce5523628d9b310afe7a911ab92f8e9797aaa8ea655ec576ebd05"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a9cff2775f8b7655d68bd8899ae8090a23c1d38add3f842fd850ea5fdd3b258"
