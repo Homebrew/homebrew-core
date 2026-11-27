@@ -7,6 +7,7 @@ class Nom < Formula
   head "https://github.com/guyfedwards/nom.git", branch: "master"
 
   bottle do
+    manifest_sha256 "50751a9bc715edcbf4384afa85cd05f524d528eb681b53741f01fa13d49bcdd7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bee538a6d8d0f36180893980ae460d5829664a0437900d5465d1f3a8ba53e983"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1acb66ae33da31a7ed9a4e296c1d7c55729bb67d1185f7f9244909f8832e094c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c4560287dd42ddd00081aac369b57d309db5928e2d47806022539d87114f53ca"
