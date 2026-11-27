@@ -6,6 +6,7 @@ class Lzfse < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "0230d7fdf94e0de8b640d9ab4006eaff515ab4316af699b043a248e5e2ffa351"
     sha256 cellar: :any,                 arm64_golden_gate: "2736eaac465479c0e8f6466adae713d925fddff389bf30b37f40373d4fa83c1b"
     sha256 cellar: :any,                 arm64_tahoe:       "712821a6da6f0a4e597c597b3df2c804135d1f870ad4ffc9eb4e9b039aeac71c"
     sha256 cellar: :any,                 arm64_sequoia:     "4ece33c62d9b2e19ea17089e85b380c3e124413d45fab40e307231c6defec609"
