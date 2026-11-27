@@ -9,6 +9,7 @@ class Flake8 < Formula
   head "https://github.com/PyCQA/flake8.git", branch: "main"
 
   bottle do
+    manifest_sha256 "56e50716813812ae7226518bb92efdd001d084b4da82591eb87a1be84b9e325f"
     sha256 cellar: :any_skip_relocation, all: "4dbbca2d65bf66be8ef49406ef3bea25a63b3330013f9444bafd9c41639d872c"
   end
 
