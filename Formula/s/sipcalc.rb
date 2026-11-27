@@ -11,6 +11,7 @@ class Sipcalc < Formula
   end
 
   bottle do
+    manifest_sha256 "548e2b0da8f2a3e1060eddd5cc4ac49f6c7e437176675a0c4a605a376de4e6de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "838ef73e9d28d0a6aaf0adb8548f73d769136940c507f326c4302ddcd27b3ef6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f70922f3ffc35376cbd0deeaf75ed218c3d8b5aebe055c106924be78479dc39"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aff7a2b4ee9e42cb1137a8293b57d1e5bb8892dad88c72895fcc173c81083920"
