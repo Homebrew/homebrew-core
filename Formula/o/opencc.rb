@@ -8,6 +8,7 @@ class Opencc < Formula
   head "https://github.com/BYVoid/OpenCC.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0452d7162d721924d52251f6251fec94dc5b73a16f0bf5e90f8ba031ebd0ec10"
     sha256 arm64_golden_gate: "0c0e78e9622155afc8fbc3cd91ba40e4c6d1292f4923775f8e5e361c041f1a85"
     sha256 arm64_tahoe:       "bbfaf3efb79e2c3f5c28164da7fac4392e37f92d2bd6c29f90b2f56e524f4e46"
     sha256 arm64_sequoia:     "2c624b20369b7b59f090e9843f63885f83dbcbaacca1a1ad14b83dcc5913eb2e"
