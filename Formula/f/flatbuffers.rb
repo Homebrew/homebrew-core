@@ -14,6 +14,7 @@ class Flatbuffers < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f76a42618293ad002295b388fcd694f719aed8df725c91c15129ee6b9c9a5a7a"
     sha256 cellar: :any,                 arm64_golden_gate: "3d07d982a2c04fb55403e3a42d88d78549539b322fd7562bb9be699357f89cb5"
     sha256 cellar: :any,                 arm64_tahoe:       "328b035addba1451d382b7df88101a006f38f4f148e41b3cf37927139e4b7926"
     sha256 cellar: :any,                 arm64_sequoia:     "7ff96ca0377f7007e2b7476ccf5d128f8ca1e4f1ae48799c54c4e3169f47da65"
