@@ -12,6 +12,7 @@ class RailsCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "f0d8dd0fa9f1c4efc51642a7fb1ca9d081ba944715536c510d5977b08b343d2f"
     sha256 cellar: :any_skip_relocation, all: "c8a61b7b584a29b0be33464a28714a01f798a7fcaceaf1c96f1b447363bc51f3"
   end
 
