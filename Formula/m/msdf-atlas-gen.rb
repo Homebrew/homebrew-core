@@ -6,6 +6,7 @@ class MsdfAtlasGen < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "11e96d00d3e41c003e716152eab76f4aaed787069b6b4c9487dc9c582a243dff"
     sha256 cellar: :any, arm64_golden_gate: "d1f84bc5e2d5551433b39c2e4ee165d77c8fdc989e62f428ee99eae1b743e581"
     sha256 cellar: :any, arm64_tahoe:       "bc864ee7ffd2ae89c88dd047c727e44fa6b108cb170e4b6d1d81940f1b1b593d"
     sha256 cellar: :any, arm64_sequoia:     "dc4c4069761d4f47b105f0ce5cc0305a09b0a98fa12e42860a584842f58e68d3"
