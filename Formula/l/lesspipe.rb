@@ -11,6 +11,7 @@ class Lesspipe < Formula
   ]
 
   bottle do
+    manifest_sha256 "acb2614c77d25b57095c0d1336160d2c34cef450da8c928670706a31024d5cfb"
     sha256 cellar: :any_skip_relocation, all: "3f7a41d7b2e81d5c61ce8d32985035a498ec1cfdf104e5c93163c7c52f367645"
   end
 
