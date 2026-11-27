@@ -7,6 +7,7 @@ class GumboParser < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "50366f101e0b19d640f12213423605ab7aabbed53ee3df0646bea57fe0f35c87"
     sha256 cellar: :any, arm64_golden_gate: "4b8258521e8264f4c1ce161bf8010e8a3bea82a45cb5964979de8f59b5407aad"
     sha256 cellar: :any, arm64_tahoe:       "f249b09f0538e5150e94cf91bb606a1593c12ebf8939b9b49bd1d8716b342667"
     sha256 cellar: :any, arm64_sequoia:     "f25fd6ba73915738e518a72469eb9cc6b2a7ad96dea0c63e9e0fcf891ac6369c"
