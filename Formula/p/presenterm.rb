@@ -7,6 +7,7 @@ class Presenterm < Formula
   head "https://github.com/mfontanini/presenterm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9e2cb54a575d3eb0ee8a4f883f6e0c2bd22985641cc0c29b30f38e30ab3a1622"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61ed8515e28383f346d52c6152eb6becced10a2876da1c958c3c6b33ce8b337a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a559dffc87a6e1f99dcda563c601b46fdc92eb9bb5e7eafbb1fce4bb4eae5525"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f0335b6ec968ae1e91d88803adea6b0618f4ff3668040514caddf6e0afc4599"
