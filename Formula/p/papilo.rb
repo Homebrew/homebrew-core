@@ -8,6 +8,7 @@ class Papilo < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "910248b715be7ed759ea08dbaa52efc8564d50255400a9bf76f4667fe8ca7651"
     sha256 cellar: :any, arm64_golden_gate: "a3e22125aa7ff189326a169b6ac70a82130b4b8aa3de46383e26d0227edcaa36"
     sha256 cellar: :any, arm64_tahoe:       "2798c40754021e04cb150aca412baec0ec1f0624e6e8cf5974bbc032b085a74e"
     sha256 cellar: :any, arm64_sequoia:     "eacc1cf1dcf01558291455e6c546015d3253db1d90adfe466e3347e4fa495039"
