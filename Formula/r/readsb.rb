@@ -6,6 +6,7 @@ class Readsb < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "00f131c91367f99604216dd1261380c59ebe19af254446a993d3478425a37e60"
     sha256 cellar: :any, arm64_golden_gate: "c045c0367c939518e4ac1d10064998083f4407b607699fdb94b23f5e08a40849"
     sha256 cellar: :any, arm64_tahoe:       "acfffbaa992e961f050b0163e1d6210628488a0a7eae6ce884af1bcb6acd302a"
     sha256 cellar: :any, arm64_sequoia:     "57583bf0c0c97362b4c071a67797a1c80be9b46f3cecd253072b9841e403ba61"
