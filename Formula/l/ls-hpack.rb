@@ -6,6 +6,7 @@ class LsHpack < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "24e221fff850f80c9c14eaf702c7b729d4e94f35dd0fe40f882339899d8ca047"
     sha256 cellar: :any,                 arm64_golden_gate: "64837ad3bd3c7480dc21f3cf34e7a6d6ee28c1c9519795fa2c6bf7f1baaa2298"
     sha256 cellar: :any,                 arm64_tahoe:       "1e9c54570dbe137cbebfb5d7fb4ac142305e907baac4b3143601bf9377963589"
     sha256 cellar: :any,                 arm64_sequoia:     "2210697f2a76087a665c87ce4c7d1f61a0cabc7c6629a3a533dfbe2a5437241f"
