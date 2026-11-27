@@ -13,6 +13,7 @@ class NodeBuild < Formula
   end
 
   bottle do
+    manifest_sha256 "625f5f7594e0b179e02d2fa43ec2df1efb18f70172ddfcdd9bc1d58b165dfd09"
     sha256 cellar: :any_skip_relocation, all: "6e13b4381ed2cff96c6eeed25e0f237d5588480677a036635593ed5829d2021f"
   end
 
