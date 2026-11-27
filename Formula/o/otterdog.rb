@@ -9,6 +9,7 @@ class Otterdog < Formula
   head "https://github.com/eclipse-csi/otterdog.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4ca9520bbff724641ebef3c4a912675a9dd0af12d6cd823455f6ecfe88c617ad"
     sha256 cellar: :any, arm64_golden_gate: "06cdf808293503ec58af17518b9f6e65da22076ee4fc82165421245556a7ed87"
     sha256 cellar: :any, arm64_tahoe:       "66e816eee0f2aea86fe387acba991887f776be134ccf3ce2bc003da73da4a8f2"
     sha256 cellar: :any, arm64_sequoia:     "b53f42c6c915254a20f57943fe9a07f2f58d8c35d22c4a2fc03a00fde3bf881c"
