@@ -17,6 +17,7 @@ class Pythia < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "fe805eeec0b2d44ac3fbea7515775303b666b89cc54cd63a59768d350a6de5ea"
     sha256 arm64_golden_gate: "e4445e451928da92135dbbb8800d527a58bd53bc3be424c765112022a9bf0423"
     sha256 arm64_tahoe:       "e5160ba954d21bc69f470619a00ec7c0a77ad6126f97a2af5d0bc428939d1d74"
     sha256 arm64_sequoia:     "85871e9517a839d3a516fdb7377766f6ea7e04c8dfe63c15bb3a900526c2ffa7"
