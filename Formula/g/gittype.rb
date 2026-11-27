@@ -7,6 +7,7 @@ class Gittype < Formula
   head "https://github.com/unhappychoice/gittype.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cfc6c26d27cb8b9d756bc70180d5a218cb5b08a5f626a87a47545d4774c42905"
     sha256 cellar: :any, arm64_golden_gate: "89922368ce1ef83ed2ab4d2dfe7b3d2618cca7b5dda8ab77e9776d9eb57535fa"
     sha256 cellar: :any, arm64_tahoe:       "b9a103273fe5663b62199f59d4a4c41329956a19e92361d9e84c6a4ea8506963"
     sha256 cellar: :any, arm64_sequoia:     "9ed4f94ecd9b5ef3a847d757bdd70f4e2933aa6e9675fc2bb58dddb39132bae0"
