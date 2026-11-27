@@ -7,6 +7,7 @@ class Fastga < Formula
   head "https://github.com/thegenemyers/FASTGA.git", branch: "main"
 
   bottle do
+    manifest_sha256 "583352781741528e3ace61382ae68dbe0aa5788b8026232e24fde38306a9dc24"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe0dd5f97616a29ccccc6c74afec005e4d0554a556eebcc5ff72853af86bef1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da40274ea88ca3f0b1c07ff960b414be3b9c6a9fb4298711ebf165737f8245b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b11e1ae3c102ac630c65a2ba2bc7e1bf67cbdc977008c169a1fd1d897bdd18bf"
