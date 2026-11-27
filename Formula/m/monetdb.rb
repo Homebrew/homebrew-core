@@ -14,6 +14,7 @@ class Monetdb < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "47fb19811fb884fd99e6bea3e7a49a179c91e765be92f32a03c68b61c81176e3"
     sha256 arm64_golden_gate: "a38076d26c183ace8585540a0a48f70ebe3e15d00f82c8faaf9bed863ab62d00"
     sha256 arm64_tahoe:       "44850ce0266da93c34d4a2a6538ec064d11bd0a75a53cf6fe2036ad068cc6ef4"
     sha256 arm64_sequoia:     "f69d78a3b0e54962c7097587701e6673f57666350e6df11d77d049cf166b425e"
