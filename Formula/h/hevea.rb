@@ -15,6 +15,7 @@ class Hevea < Formula
   end
 
   bottle do
+    manifest_sha256 "ad9796f83657ea4919015092a06d9b3c1ad8867c23674cfef01595a322f5d2d8"
     sha256 arm64_golden_gate: "3c9dbe02ad1ed166eeac51653d8b20f1950e301f2fbb802d31bd84c8f0c2c32c"
     sha256 arm64_tahoe:       "7adec0a68d97c8aa59a28322012169104df01b8e690673cb929a05fb773623e0"
     sha256 arm64_sequoia:     "d76ea47bca0a2df7900e6ae6e6cec15f8c3faecf1debcb33b2849fccd12510a9"
