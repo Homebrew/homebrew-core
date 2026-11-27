@@ -10,6 +10,7 @@ class Qmmp < Formula
   end
 
   bottle do
+    manifest_sha256 "838c6b32d6b23e974dc0688cc6ea2782c894b0ad54787ffcd40e3e346a22ad76"
     sha256 cellar: :any, arm64_golden_gate: "15490ff8e399f16a3f3ad7947405d7ebda80390499ca033d046168136ab0c4b8"
     sha256 cellar: :any, arm64_tahoe:       "5718bac95f840e5995bc6160476d1d32be56f1fdd10dc1d078450b30c0890836"
     sha256 cellar: :any, arm64_sequoia:     "6af1a831444b75b57dec7ec7c0e6f93a0143e63ef6b614f88e56dbd6affd81ae"
