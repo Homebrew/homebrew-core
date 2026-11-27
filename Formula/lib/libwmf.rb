@@ -10,6 +10,7 @@ class Libwmf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "734a3b560629fd3f261bc3dbd1cc77b989a34183d599e2e9070f7a8021ba52ce"
     sha256 arm64_golden_gate: "006ac0141ddd8c8a424eef3c52ed99229d959db73bde36f0272946025cf8fe72"
     sha256 arm64_tahoe:       "e54795c9422298bc45a171945a33d8a026645c88163df26c4a830f4b7bd94166"
     sha256 arm64_sequoia:     "a5da283fa2b15f912c3a1eb51e0b754da5e29ad5da55742e63f821978b145fe8"
