@@ -32,11 +32,19 @@ class DocbookXsl < Formula
   resource "ns" do
     url "https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F1.79.2/docbook-xsl-1.79.2.tar.bz2"
     sha256 "316524ea444e53208a2fb90eeb676af755da96e1417835ba5f5eb719c81fa371"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   resource "doc" do
     url "https://github.com/docbook/xslt10-stylesheets/releases/download/release%2F1.79.2/docbook-xsl-doc-1.79.2.tar.bz2"
     sha256 "9bc38a3015717279a3a0620efb2d4bcace430077241ae2b0da609ba67d8340bc"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   # see https://www.linuxfromscratch.org/blfs/view/9.1/pst/docbook-xsl.html for this patch
