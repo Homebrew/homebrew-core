@@ -8,6 +8,7 @@ class SolrAT811 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "497100d6524b4bb2166769283b4b1be2dcd0e858d1bcbb31b21d2450bf3936da"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ae60b64f557fc5afdc67cfc57cb5763e3d0411e609ae7b245d2eaaec1c72310"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ce03d79a34e4a9ff3503505b1181905a4fe2296f09413b1fd785adb4f8241bc"
