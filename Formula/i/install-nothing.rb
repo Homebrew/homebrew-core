@@ -7,6 +7,7 @@ class InstallNothing < Formula
   head "https://github.com/buyukakyuz/install-nothing.git", branch: "main"
 
   bottle do
+    manifest_sha256 "af52278f0382c75d567e2ecd9862fb062d4dcb6319b6e0dbd0f65f8ef994a6bd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1fdc85b271f5e8ab91721e5c9ed7f92d1408e1dd8dbf014f9e12420365e0f8f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "87f77b50975349223e18f63a0d1de03cbaef86db5711dbef0d1c166708ae9226"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4d032123d0201bb3e68ff634399e98770bef3ae3625fe28d5a2a7bdee13d221e"
