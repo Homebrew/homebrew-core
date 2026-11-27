@@ -8,6 +8,7 @@ class OpenclHeaders < Formula
   head "https://github.com/KhronosGroup/OpenCL-Headers.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55b7aa68977439c698bf85476ac25a84e45ec604880f96fd61f40e161f5f24d6"
     sha256 cellar: :any_skip_relocation, all: "7f60154c2841c780503e7bef0d6ecc1c64a2fd5d54512a088b8a981eaa235c9d"
   end
 
