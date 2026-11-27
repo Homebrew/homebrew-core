@@ -9,6 +9,7 @@ class Pixiewps < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0c51b2073c9277fd92aa4213c8277415ab1180b1e690829a0ceec650455475df"
     sha256 cellar: :any, arm64_golden_gate: "6c8934528d0b0209a5b87a20aecdaa878e84c7334cf708741a6a428022a404e2"
     sha256 cellar: :any, arm64_tahoe:       "c627bbe17e0e1c9bb1adf3b08d0d60515c16498c3cec960e3b6a3779f8adff58"
     sha256 cellar: :any, arm64_sequoia:     "088c2611b7bbd032ba14130863220fc271a5c7af9e665488b02d40d18e21a2e2"
