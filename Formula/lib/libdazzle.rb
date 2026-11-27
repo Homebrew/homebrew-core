@@ -8,6 +8,7 @@ class Libdazzle < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "66f6353899faa48d1abec16e9ca7d492d1d8d42ad52196dd630ad1a09c59f4fe"
     sha256 arm64_golden_gate: "23616cada169bbba03410edd41e67fb3bb7c86108b01c783d21bfe48e338dee3"
     sha256 arm64_tahoe:       "c85ea978999366c90f0a82d06f658d48a09ed3e021cd7edaedc8d18140145b77"
     sha256 arm64_sequoia:     "87f5700425b73e8a64c2b6af4f2f1ee74028b1921d147ba239a298c10ea12b05"
