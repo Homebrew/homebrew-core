@@ -12,6 +12,7 @@ class Log4cpp < Formula
   end
 
   bottle do
+    manifest_sha256 "2ee8824e28c1d39faf25131ecc03d6310e8420b42875489c2182539c5474b4a8"
     sha256 cellar: :any,                 arm64_golden_gate: "ce8f5198e9d9172b9e6bafffd1f39852138028ac2b1a55f10bf2717ac093684e"
     sha256 cellar: :any,                 arm64_tahoe:       "962a73cba13a5c907b21822beffe517e8441fd98e3c6fe7ac8bdc1ba9faf4d1d"
     sha256 cellar: :any,                 arm64_sequoia:     "343d766065eb68e22076aa39441d6b3c95291e55431b29ca247cc7f08d2e28ac"
