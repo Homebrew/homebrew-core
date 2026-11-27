@@ -10,6 +10,7 @@ class Gitingest < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d6b6baeb99dd7f7951e8a16c980e22f6c0a15920dfc0df87fd12e461fd9a4ebd"
     sha256 cellar: :any, arm64_golden_gate: "e42812f54fe3a3ebd6645054110519c57e9f9b10f620e74392a9dd4ebbad6a57"
     sha256 cellar: :any, arm64_tahoe:       "994d1e1fa5c0ad8fe0b52aab3c17e3d82acb70c8ca9ac82ae965f6896b54e7e5"
     sha256 cellar: :any, arm64_sequoia:     "aeb43be6de61e8f4edc3d184d8b1bf98ac3029dca8c7112f68ed499e7dabd2a9"
