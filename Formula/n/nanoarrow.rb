@@ -8,6 +8,7 @@ class Nanoarrow < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1704a65a22e25ad154ad045511adf760b060a1a56a0290aadaaedc9618e49a7f"
     sha256 cellar: :any, arm64_golden_gate: "a9cf515ce719208286d7711e11310d2e17e494b53e903637e32d213c9ff59d4d"
     sha256 cellar: :any, arm64_tahoe:       "05e38f5f26b17f039c6b44dbda1f9808ed840b2e79e8f4eae668ad4c57852bf2"
     sha256 cellar: :any, arm64_sequoia:     "2dbc5294a93664ec30176212ce50918e856ffb76e4ba8de888ad21eec297ff08"
