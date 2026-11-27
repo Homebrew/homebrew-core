@@ -11,6 +11,7 @@ class Liblockfile < Formula
   end
 
   bottle do
+    manifest_sha256 "b084678056275335a6c12ea0812de94f877c949fbfeba0885dc523ee62bfd5a8"
     sha256                               arm64_golden_gate: "f3e221e1b049d472ce4c51bd38a9b6c78f92d9a6cf0ef9e4679655891c2a7292"
     sha256                               arm64_tahoe:       "c382cf8fcf1c7952704c86d38b8fe15ee916870f977df1a92200a8fdaeb77648"
     sha256                               arm64_sequoia:     "22df0fabe8a8f4a92ab8f9d8f7c3add9dc1ca2f6233f0336d6059064dd8cc539"
