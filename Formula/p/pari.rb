@@ -12,6 +12,7 @@ class Pari < Formula
   end
 
   bottle do
+    manifest_sha256 "81dc3d816711a57654118a8beaaafb0c65ffb11ef47f66a40e5f5fdd3939cab2"
     sha256 arm64_golden_gate: "a03865fe7af505f8c0160920f78f19aea5fde67dc582e748f3649668014b02c7"
     sha256 arm64_tahoe:       "623ae5e33125fae3d5ee61504964333961bbf00add579dec9cff08d9a009750b"
     sha256 arm64_sequoia:     "d9d1cd586b3499a1bc8750745487e90f3bbe1a4ce98d1fca0dc156e2c891c438"
