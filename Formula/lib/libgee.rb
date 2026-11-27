@@ -7,6 +7,7 @@ class Libgee < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a4713db73ce01561d3ec4252cb210ea9ffdfac95e68844301f846f79d7f658a4"
     sha256 cellar: :any,                 arm64_golden_gate: "a5d0e782048d40ba4c79fad2007ee816605edc9af3a1f2299ef5c76dd408997e"
     sha256 cellar: :any,                 arm64_tahoe:       "f2b5d2af9aaf72eca39ea04074d26eae49e96fcf2d43e38f659cfd5115443a55"
     sha256 cellar: :any,                 arm64_sequoia:     "f6f8a615e12ebbf0e2d1ef652b9d6118ce7090cf975e76c9199b80f2d54a0ee2"
