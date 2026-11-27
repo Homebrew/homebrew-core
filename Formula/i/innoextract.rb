@@ -33,6 +33,7 @@ class Innoextract < Formula
   end
 
   bottle do
+    manifest_sha256 "ff3df8b2c684453a15768e9e8510fd812401ba049f8e0786c84d3bb436f300d5"
     sha256 cellar: :any, arm64_golden_gate: "2a8470d8bb4c38116dc9c774bb810c641153fe432becc3f938815f93802bc9cf"
     sha256 cellar: :any, arm64_tahoe:       "1da3c10fc5c1a8f061e9416279c26ce59d0bd8f5d46a1ca7081a0d958e69f6b4"
     sha256 cellar: :any, arm64_sequoia:     "5365fa60d73761684e6dfec465542cd2f36563e3753bf99bda2c209fd46c3f25"
