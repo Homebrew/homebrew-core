@@ -6,6 +6,7 @@ class Mako < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9d4f8fcefc0feba820036917054b7e74e9ff735fae9ad46cac7bde9337ad49a4"
     sha256 cellar: :any,                 arm64_golden_gate: "f6fd5aa0b6b3b47c94f59fca0a7915c799eddaf9ae358f1ed3244a3452b6ce16"
     sha256 cellar: :any,                 arm64_tahoe:       "63d5c1b3555f8c3b4ca57b1582f0ae84a201ef17082fde72075118f319afa7a2"
     sha256 cellar: :any,                 arm64_sequoia:     "2bc72acf40db0cb4c619d718afbead3f46ee5f13d6cac6913436597a51955392"
