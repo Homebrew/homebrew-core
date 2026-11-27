@@ -13,6 +13,7 @@ class Exiftran < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "579aef973760a859292adafbdd9c8076a0e2b6999545546580d5af34ebecb4aa"
     sha256 cellar: :any,                 arm64_golden_gate: "a4af88c9d389cfa3d04fc1becafe6dfc190f34b070d61517aee66d9be63e1588"
     sha256 cellar: :any,                 arm64_tahoe:       "47382320dca8114cb256770c2bca548abc28281ed6b90b309d62e6cfcd7cf2f5"
     sha256 cellar: :any,                 arm64_sequoia:     "66bbdb1194918c7a35edce9ec143a5ff05cc719e129e6e613cd5e600da2fbced"
