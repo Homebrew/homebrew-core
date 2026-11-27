@@ -12,6 +12,7 @@ class Libva < Formula
   end
 
   bottle do
+    manifest_sha256 "a0873ee7b1d3fe1b71bf3273c5a4e0209bd7c52c47d15fd95cb27783afd7a08e"
     sha256 cellar: :any, arm64_linux:  "bc69c23e17cd2f068efdc36c190455c64069e0f7545607bda0a7eb1e2c25ae69"
     sha256 cellar: :any, x86_64_linux: "2092e481da1a3e32d3bde715914bf2e1049b2698351e9bd45d50c98db3ee07e4"
   end
