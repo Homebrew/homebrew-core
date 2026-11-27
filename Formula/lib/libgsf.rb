@@ -1,17 +1,18 @@
 class Libgsf < Formula
   desc "I/O abstraction library for dealing with structured file formats"
   homepage "https://gitlab.gnome.org/GNOME/libgsf"
-  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.60.tar.xz"
-  sha256 "83e12c36a099a8a7019bf425e2c24af66eeb2ef5874251e694431a07d9805dae"
+  url "https://download.gnome.org/sources/libgsf/1.14/libgsf-1.14.61.tar.xz"
+  sha256 "59698b8fdf3db2dae03bb492826168dd9073ff762ccc11e980306aabe97087aa"
   license "LGPL-2.1-only"
   compatibility_version 1
 
   bottle do
-    sha256 arm64_golden_gate: "9436bac8cb0841a8e346ae6bab292acf14cc0e133b424a6e7f0169c800c207cd"
-    sha256 arm64_tahoe:       "4144eab57f7da47f0c5a9d1d455d27e11159e58b677f893ca0b623e1f7bd72ce"
-    sha256 arm64_sequoia:     "6e152a26ea8bc565998431ce25754b70674b8583506ed3d8d2eee936cb28a43c"
-    sha256 arm64_linux:       "3b8b3dd591f3978224e5f66dda92757d8827f907bbdedbda20eae8ec957089ed"
-    sha256 x86_64_linux:      "b56a8d49f812ae6968b28627e2ef6d80384778a473ab28c7ddf77f88cb96b5ae"
+    manifest_sha256 "e68c576f2e1e19f2ccbf5bfab920c8b21de40b7d9cf5ddc9fdd78125e62e7939"
+    sha256 arm64_golden_gate: "bd7a9f597df56731ef5cf30da0056daf00bf28db02147bdf0edf7be435c586b4"
+    sha256 arm64_tahoe:       "b51950a7ba586233cb5d8a39648db343adf549bcea8e4e14fc55407ea63391c8"
+    sha256 arm64_sequoia:     "c5f8fafc3c614c14054d1efe32a590f7ab071ae1994a4bd5803603268fbdd842"
+    sha256 arm64_linux:       "d7f42a64ee35729499053dd88aee6ab425d7934c9a64414934fdae10d794e71f"
+    sha256 x86_64_linux:      "993d46554f6c3d2536ff12815e1ab4ac5db3343ed31f6aa034a95ea4bef49d5a"
   end
 
   head do
