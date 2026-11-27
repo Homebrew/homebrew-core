@@ -12,6 +12,7 @@ class Onednn < Formula
   end
 
   bottle do
+    manifest_sha256 "7fbce01cb7174cfefdba7957ccfad504ec1979d4b381cb14a7330bed4315500e"
     sha256 cellar: :any, arm64_golden_gate: "6f62cd1d15b04302e5bbb64354767b35260ad3312f1db47ee26fc999154a465d"
     sha256 cellar: :any, arm64_tahoe:       "7a01f0f127e6c7fa1984d8a4638a087fc24ec7d9d8aa1a867404d5e472ce416e"
     sha256 cellar: :any, arm64_sequoia:     "a060e6a5e61114830fed6d8a8e66e63e9d9ed4792ddecb4366b26d1fe926233f"
