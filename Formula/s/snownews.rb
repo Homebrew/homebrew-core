@@ -7,6 +7,7 @@ class Snownews < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "755ebe7a28399d4b00f6a0ae160279c063c7846a33bbd5a01cf9846ca9b31e73"
     sha256 arm64_golden_gate: "df23d946e3615c38f9dd0611e57c51c6eb7ba61f98ae7c3fc5ec206af4e69aca"
     sha256 arm64_tahoe:       "fd4780e0e097fb0fe14e4b4b23b253e2ec233df3cde2e05d64cb43266977ea1e"
     sha256 arm64_sequoia:     "ebdf9f09a9eedbc6318d7f5e150af3495d70c33956d561175780b682939e0b3d"
