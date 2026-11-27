@@ -8,6 +8,7 @@ class HelmLs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2f7f50d4a2966cb4a9cef6a5b09b163584b65ae9a7faf24b6425c8013b11f8a8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b9f4636d5127c8fd227ab3ed7e448b3cf50e1a0688470b8681f2505eb34c8bcf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20bdf67a7e0236a71291e8859150a4881cb20f47f18291053c069a75c3f7cf2b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "33272118580434420cd9afeb6d1b3b9c2a99197f11cf1ebdb5a6cf3b5108c924"
