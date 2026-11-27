@@ -12,6 +12,7 @@ class ProtocGenGrpcWeb < Formula
   end
 
   bottle do
+    manifest_sha256 "f780e93ba7df8258759e3f6981b4c68dbd1b00116cf0628204eadb61f0c3ea70"
     sha256 cellar: :any, arm64_golden_gate: "7b480d8c9ac120c8d3ab6dcf16f710e81fa4b115315d4f62a23bc83a450d7134"
     sha256 cellar: :any, arm64_tahoe:       "c5a5f47de93304b3ff6bc9e2984050d9b77b8dd3b57a95e37829d5ea1f755087"
     sha256 cellar: :any, arm64_sequoia:     "7634c36aeb6a590b8a15bbd7d470db5536371f2b08e3822588ea17d228ca080a"
