@@ -6,6 +6,7 @@ class NoMoreSecrets < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "7eae1ba1b82d47d672cf8b461ca3db3b116c7974ed3fdd3a0146131d579f5566"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f873a6efe05b10572850fc0881f64a274ceb6b80a179590a64f98847d8afb55e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78c23f5552c5d2437a61d3fbb592912b97668316aea647d3191542b37e93178d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49db28f730a1161803aea7fc495500e939e07c5b424491c8e55263a3d099a505"
