@@ -6,6 +6,7 @@ class KafkactlAzurePlugin < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "c6ccc1244db0b0db61a07141f8c6a40992aaf26e5e965e2909814879e893748b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "723c3a57af48fdc4e347f4c2e91760a18b5231d832947fee1e60c298b687b484"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c2a3747deb8597b6b3937c23ac69eb7231c0b37b446a269281cd3069111ff0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a3e592a07ba5b304675f393e1cf4301c3665565790e19d0541825b5058e2471"
