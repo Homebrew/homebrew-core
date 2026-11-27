@@ -7,6 +7,7 @@ class PostgresLanguageServer < Formula
   head "https://github.com/supabase-community/postgres-language-server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "11880543c7e8dbb12686bb299e78990f05e91f416ff6826a09b42b36cddb724d"
     sha256 cellar: :any, arm64_golden_gate: "148e9bcf6dea74b59138c694409424846a8f6e7edbc19a6b376e72492b520b9c"
     sha256 cellar: :any, arm64_tahoe:       "3817d7842961d5442d57dc11f2a38831b9b1403bc79222652af11f0ea1e73b8d"
     sha256 cellar: :any, arm64_sequoia:     "03de79694525f082a47b9c52dc33ef5e3b1a7841634aa2e5f89bbb4b7c7feaa5"
