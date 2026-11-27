@@ -7,6 +7,7 @@ class NatsStreamingServer < Formula
   head "https://github.com/nats-io/nats-streaming-server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a34132dd1e3f1349132b42eca56e700b877687fa73e97745231783be28a45f77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df1a14bc5a7ee089a64c8547bf1c22ef9760afe990461922f957ff7116166bb8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "920621249fde8b8bd8a8e5119dafc8b0b7c5f705c8d64c6c1ecbafea3cf1b793"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a7642a9e36f5b99989264273fae72a760bf12a8c97e1dd8d76d9a4fa76de246"
