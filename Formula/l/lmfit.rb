@@ -7,6 +7,7 @@ class Lmfit < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c8edf0449bf2627e09729e0b56d71979d6c76457a6dbaf05dcdb088b78d03a9e"
     sha256 cellar: :any, arm64_golden_gate: "5fddb0bcd6abb2a223e53da9d98d398786f323a268b2b644dccead0eb8cf4cd3"
     sha256 cellar: :any, arm64_tahoe:       "839792cbf8dd7a8627bdc500caf8ae6c279dce94937ca0a29bc64eac84b04a61"
     sha256 cellar: :any, arm64_sequoia:     "62cb813717de3f62c9e223d3d5e1ed666ffd9978858bd8975f29bf8f9b8d16f6"
