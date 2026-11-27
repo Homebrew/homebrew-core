@@ -11,6 +11,7 @@ class Kstart < Formula
   end
 
   bottle do
+    manifest_sha256 "abc10b975de48642fde066f867619d8c5a4754ad6d9e4ce8d9b34c58ee7d5b70"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4543172083e3d14216e45f4cf48d4c272d5ee074de5a09ce25fb978d9db304a4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "041e2a23f9396a6d7497e6931652dd9d2991aac192f93dda036ff923269fcadd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e4406b6bbb8c07dce6d556cafddb099811130501c3c377dd057f4c997ba2033c"
