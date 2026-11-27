@@ -7,6 +7,7 @@ class Goffice < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "168fc2bb16faffc2c672d65fc56d7e6757bff46a42cb651a83925c9592c2ba67"
     sha256 arm64_golden_gate: "2e4c85c395fc38bc6b0f159b4a0a3660957aa9112148b8f9e59d2a85c8f33531"
     sha256 arm64_tahoe:       "ef735f1e58f015529fa308870f9c882a2b0bfdcbfa83867672a7407ee414a4c4"
     sha256 arm64_sequoia:     "d107599cfa733f29c98e60daac6e810223a5e38174f95517da6e6caadab476b3"
