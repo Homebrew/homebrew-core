@@ -7,6 +7,7 @@ class LightcraftCli < Formula
   head "https://github.com/storytold/lightcraft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "05d13ee9693286d2edfad279a763fbfa4fe759e3b2fdcf47d84a4cfe9e21ca8d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cc6a5e84df5cf896e8855fcfb5e96e3cad6f52e9bf36530ffdd8e5879c55911"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "065d11b964d7f5ac1ba2bdbe7884834c955f75f31ec9106fbdc4721639e5fbd7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a1e186810c2023fc46cb5587f97fd138fb92b7fffde7616c7e1889d7c871f7f"
