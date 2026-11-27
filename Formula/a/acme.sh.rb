@@ -6,6 +6,7 @@ class AcmeSh < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "5ead76427152edbcf837cc7e76f3eb2818a15732b413fe5670e74a808a569b83"
     sha256 cellar: :any_skip_relocation, all: "aead95c71dfadd1a354733878304968a5d58709027dba9c8147a76e8537ae3ff"
   end
 
