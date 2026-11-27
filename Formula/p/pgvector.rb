@@ -7,6 +7,7 @@ class Pgvector < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "c8cc0ba1f1b85d973603ffdd200db29dd15ebfee4d1f4f9e16b7ad357587f62f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5731617b09cbaa103c5d929fbf4d30b2270ef0d5fe6c4c09327bbae6b94b8075"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8de9c8aa037c813d939dfe761e1ab28e7d6b20b98a71eb951c6306031e110cff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d5f16ed6c60c703280a2760e2c5862a34f469b758c8941bd4c4f4f1dcb3ad3e4"
