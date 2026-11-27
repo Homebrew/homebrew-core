@@ -7,6 +7,7 @@ class Spago < Formula
   head "https://github.com/purescript/spago.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e1b160cf9a39e3424b46b7efa3617c882c585f82530111b406c8532759dd063e"
     sha256 cellar: :any_skip_relocation, all: "d61a801277873d41b6b3c797903feea5f86bcb0d8f97f38864343fe46dba84c1"
   end
 
