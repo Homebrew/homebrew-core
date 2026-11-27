@@ -12,6 +12,7 @@ class Ipv6toolkit < Formula
   end
 
   bottle do
+    manifest_sha256 "aed67afb2ac78c8b9867ea963a2a39fe18f5bfde964d97e5a5008387df2c4693"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5186a8124c8bf50460545eaeb5529304b8cee5690bc63dcce956256f354b578c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "523ecc5b67dede61b817503e7a3be3522e02c7d1faaedbe36d860ff921cc53e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "454fa7a191d9a6fb060d38ffa9a3f35b00e48289762446e277092db3d7a20c6f"
