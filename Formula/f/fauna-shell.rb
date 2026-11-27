@@ -6,6 +6,7 @@ class FaunaShell < Formula
   license "MPL-2.0"
 
   bottle do
+    manifest_sha256 "91daa6b86f7b409e19d62aa07f15c2f3a3590f5e3c1abf45409c3ffac05462d3"
     sha256                               arm64_tahoe:   "7cbe4b189cebb2bb9600e19880221987abdae68071e39baee6dd9b7a5c8d1000"
     sha256                               arm64_sequoia: "3a775fa6fad091d1c382d58c49d484e416261ce2073c36ed6271364a34fc4821"
     sha256                               arm64_sonoma:  "9002e01f762eb91b75a41e88d537b00610cbfa942f2fa84c2bc157882cefa551"
