@@ -11,6 +11,7 @@ class Midicsv < Formula
   end
 
   bottle do
+    manifest_sha256 "6571b4d8f6cd31a5f3217ff4d44bd5f617bc1e36960eab41d99357978ee7f0fa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7b5d2966ce265f14edb872315659f722ea49b4f2e3b7918650f8d2bdd00b1c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8d6c6d8de364a07a54ad4edb30cbd5393cb887e3f4e2a9ea0c072f70646148ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9f2a974d6a9eb331de0e371bcf96589dd6fdfec7a2f862ec5f0a591d3721825"
