@@ -7,6 +7,7 @@ class Kondo < Formula
   head "https://github.com/tbillington/kondo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bd4f661c9f234b37999e59ec4fa20ee0fe018a30493a023e56e5999efa9da4a2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ff94199870035aa14df4ede2f7700d76047fd8ec01119f6dd4aa41bed3f7b12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "527d27a29a5f7b9bb39be35e8054c34c0c4f617a1502feea1afa4943cd815bd2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69cb21681a558ebb79ae06bddba9548d0104060a7425711f6eda260170f0c412"
