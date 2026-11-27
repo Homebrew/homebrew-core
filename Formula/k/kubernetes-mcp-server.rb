@@ -7,6 +7,7 @@ class KubernetesMcpServer < Formula
   head "https://github.com/containers/kubernetes-mcp-server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9848aaa35f78065e7e0e0a1699e0f2eaf4afe7cf01c02a31fd516e1a3508cc00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d40896df3cffd77fdb6c0c602cea0a9bceddc2241f9240bc55af264a3635d183"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "294b4ff265cf912ec6619d267ddbe0f7a0b8a1a7b0d5aa2203d3967967ad5546"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90ff48eaa5ddc77cff5134f87ff93918b834ab7492ad1444c2f1d10ba096cb5d"
