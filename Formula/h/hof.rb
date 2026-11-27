@@ -15,6 +15,7 @@ class Hof < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f26dcd6444ef2a14384d403f2ac61934f27d9fee4dadc4cb6dad1cc1f4eb2967"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4c4781c81be2b19a7b8d4e88b69bec47dc03db7b76bedb3b76c8cdc721ea9f6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9646fbe9aedd3339cc3502d4dd1217c6bd8f2a207e17f2d4aee664b7e60ae281"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9646fbe9aedd3339cc3502d4dd1217c6bd8f2a207e17f2d4aee664b7e60ae281"
