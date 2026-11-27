@@ -8,6 +8,7 @@ class Gastown < Formula
   head "https://github.com/gastownhall/gastown.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d25695be2ff74800b22c40c4b689d50803a8112c352c378a8fccb3fe058fecee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16569af307eb9f748826dc349752cbdf1af973d165cdbc3bea6a9f3c97229f07"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16569af307eb9f748826dc349752cbdf1af973d165cdbc3bea6a9f3c97229f07"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16569af307eb9f748826dc349752cbdf1af973d165cdbc3bea6a9f3c97229f07"
