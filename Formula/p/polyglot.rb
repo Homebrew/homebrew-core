@@ -7,6 +7,7 @@ class Polyglot < Formula
   head "https://hgm.nubati.net/git/polyglot.git", branch: "learn"
 
   bottle do
+    manifest_sha256 "731529e8416e1581575e9fb72ac4acd29a0c032ccf06b1c9eaaca4cc487386ed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d592b3f6e7d014742cae767a1fdac94e82279c1e0480437a6d76550a109eb5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6bf5814277c6a0cc6281f0d3e6911d909ef872edc68db77c9a382d17162020af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c17a367c2d5da43b534695330ea6467fb27dcd887afeb6dc582601c4a6a5fdc"
