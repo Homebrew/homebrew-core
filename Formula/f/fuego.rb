@@ -18,6 +18,7 @@ class Fuego < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "775fdd79dffa5fdf43f59cd5ae33c8ff903bbcf676312149d538f418f7d28863"
     sha256               arm64_golden_gate: "0ac57f9efc9df803f73083d7b7c10e0fb5ede9d03973a3e53c454fa65bfd5bf0"
     sha256               arm64_tahoe:       "2ad5e0e31c90e52b2c6c08c966dbed5639af0ed0c6563ca490ed09838e0a1674"
     sha256               arm64_sequoia:     "82c01a4fe369b17681584dd93708c58831f496a366d8624ae68ecb1de14116d3"
