@@ -7,6 +7,7 @@ class Mdcat < Formula
   head "https://github.com/BIRSAx2/mdcat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3373326ac4e0b4324b332631e31cf299076663f92dfb00688acd3a518c77cce4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a112cb9f542e29de3ce045e497d2ccc1c0d4957bd343c3a9957e6c4329ebc5cd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da43a5b497c09a646637f13f93a39066d605a8c2649cdcf49b8969d761f5fdba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b2cdc9e3f468dc71b8d827c240baad85a84582c5215a966407002b1da272e36"
