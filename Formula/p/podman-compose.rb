@@ -9,6 +9,7 @@ class PodmanCompose < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1984b2f137069d802b7fee670355ace582fb29287636c31e99a54b4f2e4cbefa"
     sha256 cellar: :any, arm64_golden_gate: "c7050064a5a62abd626e29ddc2fe819ec3898bea98d8013fc0fe229098fc18cd"
     sha256 cellar: :any, arm64_tahoe:       "7bc87cd8a3b94b493ec7e2d7695e69c120dc97ed5666cc46543e0ae8a466b0d0"
     sha256 cellar: :any, arm64_sequoia:     "33cd6144da68f8a941af2735eb2da5107a43b89dda22a925a084e689e2ae9ae3"
