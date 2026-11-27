@@ -7,6 +7,7 @@ class Aiken < Formula
   head "https://github.com/aiken-lang/aiken.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fd4ad741b57d3c2e00339bed75b2402d90bfccf24a2172f0fe45481b44bcc4d9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "88e769286eeb71f3346f50144b443bcc776e594e3dd52ebd0f0f08186f3f3a7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cbc54fab505addc057725bd0d8a9c22a70a1abd3b8a8ab1d90d13c4fc3369ca4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "923e0452295efde67f4e9da44f915dee9c276a7d2735427f76cbd4642b8196ea"
