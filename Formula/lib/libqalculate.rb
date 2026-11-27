@@ -13,6 +13,7 @@ class Libqalculate < Formula
   end
 
   bottle do
+    manifest_sha256 "9872b4b95fed1efaefaf9d163d2c2e56f08d0c2c3d4a6d4c3e3064d145affd3a"
     sha256               arm64_golden_gate: "6af799ff6771bf5602443dff16199c0b77e2be24613d4ebc5558194448a4301d"
     sha256               arm64_tahoe:       "0f88adedbf0753257f8c37f46d3095f213b0d3f6e458ce530723cf92fae7e539"
     sha256               arm64_sequoia:     "800fcc87061bb7b89ff9fdf90539623c9118a48486f5b2024a2c76527002293d"
