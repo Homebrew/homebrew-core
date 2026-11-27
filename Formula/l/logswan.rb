@@ -1,8 +1,8 @@
 class Logswan < Formula
   desc "Fast Web log analyzer using probabilistic data structures"
   homepage "https://www.logswan.org"
-  url "https://github.com/fcambus/logswan/archive/refs/tags/2.1.17.tar.gz"
-  sha256 "47e2c80024a1abf4b3423446e65a520a5002e565a5488c14dcba87a80c820a2a"
+  url "https://github.com/fcambus/logswan/archive/refs/tags/2.1.18.tar.gz"
+  sha256 "f57fb25901412d33d1386012f95f70087c81bfc4a0aa7733723799de7d60dee8"
   license "BSD-2-Clause"
 
   bottle do
