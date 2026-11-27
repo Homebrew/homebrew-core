@@ -22,6 +22,7 @@ class Splint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6057669b76d19942c5703b284193f2603283795b9f400d08e31ba3e9c784bb46"
     sha256                               arm64_golden_gate: "e5b6b7f3b93c3246f9d585f84231051c75d37026e6b5d0a80ab42e1b4f744301"
     sha256                               arm64_tahoe:       "3d26b806b15af6dde29829bdca6d9c0cc44ac7ef96d5522dee1cbd3f24a9924e"
     sha256                               arm64_sequoia:     "71b5c97c68f8d10d646955b1111d8556dc2f0ab90136dafd78f5beb673533fb3"
