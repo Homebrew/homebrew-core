@@ -7,6 +7,7 @@ class GnuTime < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "01c696e829607aa748adcc67f389729c8b693976d49682f26a0ef870847baac8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f12663b39979e056309c003a60ddeaf11ee206263bb63edf668e5a7c3a2754d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ae9f7fbf6e56886f0c126322f5a4ad47eb61d14b02d2b37fa51491ccd8cc7ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6d643fbbc1f1362553e5b23bf1faab2b9469a95194bd56eb3cec2e8c43cdab7"
