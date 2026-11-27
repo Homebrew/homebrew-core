@@ -8,6 +8,7 @@ class Ots < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "330c78eb87e8fee6944c1032e43a253d819c941bb697aeae36920c029d88f329"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7436aa762ecf3d1acc2a658bfe59f7bfb95d17cb752ed25787c4376d79f7def2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ffeff2117ae48bf24cec567453628d77214369023b9d937d34d3255246d48d9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ffeff2117ae48bf24cec567453628d77214369023b9d937d34d3255246d48d9a"
