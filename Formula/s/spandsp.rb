@@ -7,6 +7,7 @@ class Spandsp < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "f9a2590c21164bf1ef00611fc84f6a734507f4df7c13b5ddc29934d17aa4f9a8"
     sha256 cellar: :any,                 arm64_golden_gate: "00247851a608530ff025033866d97a472547249c5ff59e6e29993cde7a8c9d87"
     sha256 cellar: :any,                 arm64_tahoe:       "7eb7c7c0692b996402f9debbb20b3d87f5a0e9c17c2c3c73c5ce0589175c104a"
     sha256 cellar: :any,                 arm64_sequoia:     "fb9acce46b687e18c6e016cf9db9be77645778722eccc71589bc06b7fa7c6344"
