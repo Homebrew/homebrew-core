@@ -7,12 +7,12 @@ class Zuban < Formula
   head "https://github.com/zubanls/zuban.git", branch: "master"
 
   bottle do
-    manifest_sha256 "6d1767c9c5b4ee1b3eed569967fbd49a3fd5624ea8c871a7bf60a58be8b26ab8"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0432afe8748b41dc42c111601f1b607fe108969099ee86d3638dfe2d052321e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bceea8b5542ac376580104a669c50c23c1c4be86525eceaecec7c53418c5ef2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80717248002ff8465b18f6b3f6e6181b938ffac5c5e6406c56bfedb3762dbb7e"
-    sha256 cellar: :any,                 arm64_linux:       "e4035341466a4996352b96525a10b43b5367e78a1a8b853456b3119c4d0481c6"
-    sha256 cellar: :any,                 x86_64_linux:      "c4e6c9f89138e853f84c260ce442359098a41b58dfd1154b53942860c2fe2df4"
+    manifest_sha256 "26f6cfb7b50204348de1e1041d54e1178a36e6b2a2d23c17131c55e85aa26c92"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbfe8a6aba41dc2b2e392b53afbad1f3940b372fa6bd434943119631cd9f81ef"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "01573d28dca3ee5cc0995176252f8a2fe3e4c1a9a81a66a9026d395863fed73f"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "862285f14cd98040fa1966ae1d350ba3907a0f36491da9e034b092b629388f2f"
+    sha256 cellar: :any,                 arm64_linux:       "1e80648e469d25d1d09cb461fd71a1cdb225fe7058c771b7ca4d9117b9777ef7"
+    sha256 cellar: :any,                 x86_64_linux:      "822c0696e2eabe9228382f4024bb17b4c64982c663974e7540a350a50fc94385"
   end
 
   depends_on "rust" => :build
