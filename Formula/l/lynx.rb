@@ -12,6 +12,7 @@ class Lynx < Formula
   end
 
   bottle do
+    manifest_sha256 "682cb12aff9f33c0a298439a74c05d6437a7e9bdb724224b69c84bbd9ddbab8b"
     sha256 arm64_golden_gate: "10417a4401ec63f0b0946a29496ccabb69481002be906754f6537ea4213226d1"
     sha256 arm64_tahoe:       "7402f2557043f9bcf6c927c53c83a2b656d3080d8a90127b7eb033a1941325c0"
     sha256 arm64_sequoia:     "6455e96b5abc00fd0baac1dc6363261600b1265b0755411d5cdfb2cc5462c5e8"
