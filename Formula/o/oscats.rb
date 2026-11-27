@@ -7,6 +7,7 @@ class Oscats < Formula
   revision 7
 
   bottle do
+    manifest_sha256 "56dc2dd23dd2af49eba4c7320497547f108860ec43b4e827e62993830b7678d8"
     sha256 cellar: :any,                 arm64_golden_gate: "8b50666dc11884f7353179262ea5de181930aae0f066e4ea22fde6a5ca4effe8"
     sha256 cellar: :any,                 arm64_tahoe:       "35dc1e697fe94c6ceab3be777ef3aa53ec83df8451739125105a4fa5e24e5fd7"
     sha256 cellar: :any,                 arm64_sequoia:     "14bdf254ea5eb224c087cc3bdc7ba53b46d52b77e2c440f738871e747ad7e33a"
