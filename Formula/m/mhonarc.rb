@@ -8,6 +8,7 @@ class Mhonarc < Formula
   head "https://github.com/sympa-community/mhonarc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fe9084cd8cac998aa124a06cc3381b87ad28b601b5945960096f22711795b9ef"
     sha256 cellar: :any_skip_relocation, all: "b2c159025091e4f1295a217f11f50ec17c9de97c008803cb7de410c963c08db6"
   end
 
