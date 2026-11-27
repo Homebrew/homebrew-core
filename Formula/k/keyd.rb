@@ -7,6 +7,7 @@ class Keyd < Formula
   head "https://github.com/rvaiya/keyd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f10930b587e0fdce1d26b11d6c9c2f55b9aefec3be4c8264b7259b9c87c44f91"
     sha256 arm64_linux:  "ec0b6c7eb5cc05f443806d1b83ed19057c7625be96c64bab28b7df7e771c6d65"
     sha256 x86_64_linux: "b064222519572ae5ac23b65a5d5fc17d3347b9d20e9c2385a8ad218608378592"
   end
