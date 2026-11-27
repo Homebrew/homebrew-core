@@ -3,8 +3,8 @@ class Bittensor < Formula
 
   desc "SDK and command-line tool for the Bittensor network"
   homepage "https://subtensor.vercel.app/"
-  url "https://files.pythonhosted.org/packages/8a/49/933cb84be62267eba6d0b9e9837c5bb18c90144f603b0a883f1cafd13a01/bittensor-11.3.6.tar.gz"
-  sha256 "e551887a84d03bb97658c5f427d1838d1cc45ba2a48cb8b3629536746fbf9d69"
+  url "https://files.pythonhosted.org/packages/4c/c5/528b81f3a99ec987d511461fbff04e641141d8249fe3b931a3808b663530/bittensor-11.3.7.tar.gz"
+  sha256 "63d66aa82e5e34884b0b3328b86a83c17af96d1c3637480ce99927da1e9d3bd4"
   license "Apache-2.0"
 
   bottle do
@@ -37,8 +37,8 @@ class Bittensor < Formula
   end
 
   resource "bittensor-core" do
-    url "https://files.pythonhosted.org/packages/bf/cf/9a9c441f4c2f37593721b38e7d491e79c02332e94a4a6f6d238c73c14286/bittensor_core-0.1.13.tar.gz"
-    sha256 "bed13296ce15e6c68b29a766cc92c754e9b5bd099f207d7b211c8a9b73b7199a"
+    url "https://files.pythonhosted.org/packages/f0/d1/436a6f0356abd6194aab2d417702689d1fd0002e4aa7311e23e503a4f1c4/bittensor_core-0.1.14.tar.gz"
+    sha256 "a7b85e2ffc2818bd624c7c3938ea61de2d844bfd9be2f08c983b5499ce895c07"
   end
 
   resource "ckzg" do
@@ -127,8 +127,8 @@ class Bittensor < Formula
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/e7/32/7c768de6489417ef32a49480af8a2dfba3adc5b1784d6e7142f32972018a/regex-2026.11.24.tar.gz"
-    sha256 "07f222de81cdcfd39eef8671e92d14f50f61f1666f756659b0e649cf700b1b10"
+    url "https://files.pythonhosted.org/packages/fa/b8/61d96601b737305a04161da340499cbb3299029d4ea0f9c717bc35977c2b/regex-2026.11.25.tar.gz"
+    sha256 "d3ea8d9698f13f3fd08c65f9bed0bb07bcfff80b61dfa14d86b8cc398f886588"
   end
 
   resource "rich" do
@@ -152,8 +152,8 @@ class Bittensor < Formula
   end
 
   resource "typer" do
-    url "https://files.pythonhosted.org/packages/bf/21/37383ece7d0a4995fb8ea97729207c4292b3ff94085002f37b2387063cfb/typer-0.29.2.tar.gz"
-    sha256 "b1998dc5f2c3dedafa1517a9521fa944cc4dc1fadcea085d81a3b10ebcaeb075"
+    url "https://files.pythonhosted.org/packages/f4/8f/4583099c74623e04610d9df01ff58a9217935e88fdbd4b14167ebe99c134/typer-0.29.3.tar.gz"
+    sha256 "8189a53bb9684dc551e0b61e71904b323214884f2eb14bfe71aa859ae980d10a"
   end
 
   resource "websockets" do
