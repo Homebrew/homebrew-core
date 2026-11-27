@@ -9,6 +9,7 @@ class Notifiers < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6846505b8d3db8b11a0c7a8457193293fa894fe3a76ef5aa16bdab2b0f9aa9b5"
     sha256 cellar: :any_skip_relocation, all: "e8ebdcde6d7bdda31d53b5b09a22328912e23e3b2b988298fb05d876bb7c1c12"
   end
 
