@@ -6,6 +6,7 @@ class Hellwal < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "cbe37f83e4d655ebf7efe2442e0b17d42f55796710d71a69d55a3e4b182ffb6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "73c42183853342a619ad62d146619ca992325adbc96a7959f10d3025b70b93bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb34f50c33798fb23e15b178bcff244744199e147b4aadfe8cfb9394d845f3d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b728f3d510f7919680a2ac779e4b148e2fb5b7eea2199202829d0e4894ef985"
