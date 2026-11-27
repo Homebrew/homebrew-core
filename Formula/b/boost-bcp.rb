@@ -11,6 +11,7 @@ class BoostBcp < Formula
   end
 
   bottle do
+    manifest_sha256 "7add8ce22cc76379e0c971609af653b03c92ca1ff6d2858441d9fd4e548a1e62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17d9719f4a156b875cd2e484cfb1fd37a2bf4c419e92e6380ad3d3f008cd96e2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7ea6b398808c21bfb0c98f87e25e6ee64a3820e947322727112696c272e86538"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4956a7bc6ec623d3cd103f32aa4e4eb0833948af9c0c2aced13cd5a10ad4e1c5"
