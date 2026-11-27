@@ -6,6 +6,7 @@ class Semtag < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "3d514ee9de7b9214e67c393d2e1ee99f3327cbc7df8a0cbc82c9ec5a956dd965"
     sha256 cellar: :any_skip_relocation, all: "604f7f8fae481b73da08c4c4465852d2b955954df5401961bd4a2c16ad7918af"
   end
 
