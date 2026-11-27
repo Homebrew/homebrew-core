@@ -13,6 +13,7 @@ class Glslang < Formula
   end
 
   bottle do
+    manifest_sha256 "d85f3e52ea7796197bae53dbd00858112c6b2a5697b5f7a002965c2a344d5811"
     sha256 cellar: :any, arm64_golden_gate: "dade50f46a565446c6117d85146e9009dea0189816e40538b547b0b6eb9ba983"
     sha256 cellar: :any, arm64_tahoe:       "8e5095c5d55b0500675deefbf8589c6e56cc777ba6f66f63e24a2c09b42710ea"
     sha256 cellar: :any, arm64_sequoia:     "e01d94f1d826e20d371db8a57de601128ebc273b6998eb87c038a3569153c78e"
