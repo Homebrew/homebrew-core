@@ -6,6 +6,7 @@ class Gimme < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "108c186910ea4f6c65757a9a4f7488022273dd58917df9dd241275a847de3fb9"
     sha256 cellar: :any_skip_relocation, all: "a8ec70ee55a17b2a5ba037a519eab2618dc5ccd3c6198d28f2ec64065639896c"
   end
 
