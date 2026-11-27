@@ -13,6 +13,7 @@ class Nut < Formula
   end
 
   bottle do
+    manifest_sha256 "f04a94000ca2ba1c2082919188dab4794f1bf9dd79f1773ae32c8abf27e7efcf"
     sha256 arm64_golden_gate: "076a5c7afd045db536a83937ffbf2b92018a2e9d0f85f3d15dd0c2cb07339721"
     sha256 arm64_tahoe:       "6c21a836f940cae0738da89dfc631d6a78fe785788e1d694af658c97260053a3"
     sha256 arm64_sequoia:     "1f59e67ae5955118fe767371f8b4cfbe168e0fd56149f24c6d69f75832615f6a"
