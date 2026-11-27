@@ -12,6 +12,7 @@ class Fswatch < Formula
   end
 
   bottle do
+    manifest_sha256 "3021a85ebc8d2aa1261e8aa5076cc47fc7b3fd2ee8086c852f0d8bda8be1e842"
     sha256 cellar: :any, arm64_golden_gate: "9166214dd0a83baa6809f1bdc47d05b2c3f01b8fe37c7b5b46dfa5a40ceb82d3"
     sha256 cellar: :any, arm64_tahoe:       "2a9949350ec1c5af3e58265890fbae04a6040c2efc41bce741a30879a88780e9"
     sha256 cellar: :any, arm64_sequoia:     "a8f67a63445642832e4b7b109ff95b35ca7b615d3f421e8adb8638431ba05d63"
