@@ -7,6 +7,7 @@ class Fennel < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "3b2bc9cd05d736ca71dc9f546a5eed4d9144c198be253f3c1949dc20699c37c2"
     sha256 cellar: :any_skip_relocation, all: "e1101f993a8ab14fc3f1d8dd0a7c9ed61369de54960825471829cb02f92c688b"
   end
 
