@@ -7,6 +7,7 @@ class Ittapi < Formula
   head "https://github.com/intel/ittapi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "02519a8e7240a02f59af5bdbe54730e87c8a3e98d0d4e76aa658529d93c1abaa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e228bd1ab4294e46024d37c3e92f72380fb3064eecde4e594d31c6b53e005f9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2883d94a5feb406111ea3a69a67ec46165ce2ca3665ce1f1a0dd271af284c522"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfcbbb0fdcd5528a0baced38a097f8100bc37c18a2f91c348d510de8b32336b1"
