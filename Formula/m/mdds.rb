@@ -7,6 +7,7 @@ class Mdds < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bfaa01906698a733544079d90160b5c6ae7f5ebe5be27dda1d64a07a837663aa"
     sha256 cellar: :any_skip_relocation, all: "de3fad33a9f2070d70b2dc0b8c3120241bfa9bd51746aa029452a0e5c99c73e8"
   end
 
