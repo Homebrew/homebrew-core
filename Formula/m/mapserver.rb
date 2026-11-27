@@ -12,6 +12,7 @@ class Mapserver < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fa5dee6437812a0d041273237e53e4de6c4edacbf9d600be0cb0764151aa9977"
     sha256 cellar: :any, arm64_golden_gate: "e9a959c5c3a3f37231d3e50b7af727ff8798f8cdc83993083bf25bb8cf6a9c5e"
     sha256 cellar: :any, arm64_tahoe:       "6815caf44be786a387bdb9864b6a6cbaaaf706f781dca741eca2066684fb4034"
     sha256 cellar: :any, arm64_sequoia:     "7bb5abe3e6116cfa29011c6d80a9560a7e7da27008df7e0c523b887688ff6ddd"
