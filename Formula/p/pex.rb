@@ -8,6 +8,7 @@ class Pex < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bca8d157bd9e63befe681aa8ce7aa855c5aeda03142b341e6bfadcf1e7f9d15e"
     sha256 cellar: :any_skip_relocation, all: "81df4ae64bf5d25705cdb0fbaf1c09ab32bc0aecb2280fea08568ecfb10ac301"
   end
 
