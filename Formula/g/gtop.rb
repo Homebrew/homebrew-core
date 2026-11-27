@@ -7,6 +7,7 @@ class Gtop < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6ac772f2e7358ef44790966698e921bde272f08a2e76859c9107e8b35a03eb21"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8aa7dc8dbc1e3bd1f876752405f2ae915f139c2aa84e580f90d028c40aba8f8d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aeecdb4bbb42c07c1a990d31f2cc69bc6dd861897ce5e6f29cc69b6c4a5ea3ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19886395a17a873daab79bd8e8970e7a9606d4389586123e68d875c2fd192c0f"
