@@ -11,6 +11,7 @@ class Sftpgo < Formula
   end
 
   bottle do
+    manifest_sha256 "379d786d651be1bd1d0910ea5141fc9a923d4a207a60fa5f252b42056cadc35c"
     sha256 arm64_golden_gate: "a3a00bf433093cb5faa7057aafba86a792c6537b30657acdae05a2e5fbaf79f6"
     sha256 arm64_tahoe:       "aab385c3774b92982d03b410320214dad0a8a1702b985bdb0aad9c611b083352"
     sha256 arm64_sequoia:     "37dfa01a4bc2c0a398fb1dabd860169b270a606e811789efc9c14a33d9a7e6c1"
