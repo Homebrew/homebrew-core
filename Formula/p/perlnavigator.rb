@@ -6,6 +6,7 @@ class Perlnavigator < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "025a3c77f48ca49d878134937484ff8f11c245dd1d07d36100ab9b586be1d34b"
     sha256 cellar: :any_skip_relocation, all: "e34b1d6b98969c6760f25f6978609183c2bba021c46e44fee2c70b003df94f7b"
   end
 
