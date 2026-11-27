@@ -7,6 +7,7 @@ class Libiodbc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "9c89da34a3087ca3dc2afd3b695606ed308de6717c7eb453a123457874b94267"
     sha256 cellar: :any,                 arm64_golden_gate: "22806091cd48ae928f7285e5087f0a4e98ec47105ea0ab43abb11d457c9b8666"
     sha256 cellar: :any,                 arm64_tahoe:       "ab0c5ad41cb17f93a5d9b29ad4d64f6e1be2fb6f1c76bcd7db04b8ded60549e4"
     sha256 cellar: :any,                 arm64_sequoia:     "1a93beeb32954c2c1ce2bb4939c32f1940ec9491ba342ca594fc472bd01852b5"
