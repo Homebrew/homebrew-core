@@ -14,6 +14,7 @@ class Shadowenv < Formula
   end
 
   bottle do
+    manifest_sha256 "da8be90449a9e8272b21077f710e80af8400b8682a5eac799fd0b3480b31a41c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5c80c57acb4d28166bc036c8329f3d312871e54995ceb6d1e8b7afdbe30d66e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f71d7e9cd0dc75069a4ddbf5da18c9ff40ec0a6cd6aee9689961b69bd8abdadd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af825b16bfd0f74c3657963dd9bb8ccef7102e9a33ba5a18a96a2e79b53383b3"
