@@ -12,6 +12,7 @@ class Lrzsz < Formula
   end
 
   bottle do
+    manifest_sha256 "354c656339ed38f93010ee33baeb5f412a3780060808f163d0d1e337f51c5f32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "204bbbdada772172509824967c5690b1f0b84f6a799da6334d1af7c554653acb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd00be92ae2f7349032af8fb8016b6c219d3a0e77197a4e5a7b4f9b8772ca021"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ceb366f9174c838545587c7f289e5de7f658620a5e418e15afaaaec29f329c9"
