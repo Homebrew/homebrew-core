@@ -7,6 +7,7 @@ class Mmdbinspect < Formula
   head "https://github.com/maxmind/mmdbinspect.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c13303ae7057d95c3921f1daf13e306037dd18c91da3a572ce99863623025550"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d10d700b7e8501142e38dc674a89285f05a7a7af069af12bf0845a27ddaedbdd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d10d700b7e8501142e38dc674a89285f05a7a7af069af12bf0845a27ddaedbdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d10d700b7e8501142e38dc674a89285f05a7a7af069af12bf0845a27ddaedbdd"
