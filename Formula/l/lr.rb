@@ -7,6 +7,7 @@ class Lr < Formula
   head "https://github.com/leahneukirchen/lr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8dc92eac765cf62288ba4214ca3349843c1295998fce3372844dfbcd9ee6a883"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0183eafdaa17229ff5ddae6056a7e843b131602a5fd0c7e8ba21315f7ecba214"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "167285f3fa15655f9e876fc9490f55c9a8020eaba6ac352d0a6a321813a7fddf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d2d40700048ac424d539d5e47de43a1d3104051960b31c5ea8432fca67c7f2ff"
