@@ -7,6 +7,7 @@ class Libosmium < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b90f9e77eff20850d8d558a9e1d3c8265dd4c173ba0e7f6d3e87d4ea5c4deea8"
     sha256 cellar: :any_skip_relocation, all: "fd58fa48dfc0c19e696e717b13215cc2bf965667f018b708e6f2264f1fc4f1c0"
   end
 
