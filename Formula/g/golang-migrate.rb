@@ -15,6 +15,7 @@ class GolangMigrate < Formula
   end
 
   bottle do
+    manifest_sha256 "df86272c0fefd791e0877d11587015912b9738e1c098508cbddaf8c9518e3887"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bfe86f1a15bd6797cef12d9bffe2c1f5ce6ce46b8f7643847d49fb2617c4ab6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f1d4da9645c8b04557ef1f5443b07aeb5fc945c953408a7ea991a0109e346dfc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f95f3754a2615ab06e5140b67320277bb6d3dcae3592da4f8082c6e1ef08d0d0"
