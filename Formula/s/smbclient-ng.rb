@@ -10,6 +10,7 @@ class SmbclientNg < Formula
   head "https://github.com/p0dalirius/smbclient-ng.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d64e70bc8e03fd57699557af66e81fa23dfe1afa6dfb6fff39ae3835885c4eb4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ff358a6faa8ae8265bbdd169a8b762c9e33442fe6f9938e9ab10a4b5c39f982"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20cd8699d33e9618b9bdf08145fbfb0bb49d8cb2e9ee0fe21ae427d68266a2b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10b1c2c6f6f5bb4ed25f57d27f75529ec0118dc90436079d8b75eb4eb56a8a97"
