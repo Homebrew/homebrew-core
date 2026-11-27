@@ -9,6 +9,7 @@ class Fwupd < Formula
   head "https://github.com/fwupd/fwupd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "57c222b4cfb868f2397d73cf49c5198328704bcd358a0813e79507d3019d8b6e"
     sha256 arm64_golden_gate: "e4fd71b1c53999fdeb720ecc39a6c6d06da841691e41f09e06b9e8a6616c77bc"
     sha256 arm64_tahoe:       "470ab3b92d3c0c6c6b8ff277b46822bcae2c84ce714a6c4176c253d2dd43656f"
     sha256 arm64_sequoia:     "8a99217b06ab51d145bcb532bfeb3374b67d2f519600d87f9f461991f569db2d"
