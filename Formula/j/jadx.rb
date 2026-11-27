@@ -8,6 +8,7 @@ class Jadx < Formula
   head "https://github.com/skylot/jadx.git", branch: "master"
 
   bottle do
+    manifest_sha256 "699fe76edd4e7c4030543ff8f0e142544a3277a44a665a21c0ca72ae006eca98"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3eaadb1ed17c35dd08c3c454cc2a79bd849cf7b44166c68da926ea893e28e543"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3eaadb1ed17c35dd08c3c454cc2a79bd849cf7b44166c68da926ea893e28e543"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3eaadb1ed17c35dd08c3c454cc2a79bd849cf7b44166c68da926ea893e28e543"
