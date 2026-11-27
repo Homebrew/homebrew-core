@@ -1,4 +1,4 @@
-module.exports = async ({github, context, core}, formulae_detect, dependent_testing) => {
+module.exports = async ({github, context, core}, testing_formulae, dependent_testing) => {
     const deps_suffix = dependent_testing ? '-deps' : ''
 
     const { data: { labels: labels } } = await github.rest.pulls.get({
@@ -41,7 +41,7 @@ module.exports = async ({github, context, core}, formulae_detect, dependent_test
     if (label_names.includes('CI-skip-dependents')) {
       console.log('CI-skip-dependents label found. Skipping brew test-bot --only-formulae-dependents.')
       core.setOutput('test-dependents', false)
-    } else if (!formulae_detect.testing_formulae) {
+    } else if (!testing_formulae) {
       console.log('No testing formulae found. Skipping brew test-bot --only-formulae-dependents.')
       core.setOutput('test-dependents', false)
     } else {

@@ -65,15 +65,15 @@ jobs:
           HOMEBREW_SORBET_RECURSIVE: 1
           STABLE: ${{ case(matrix.stable, '1', '') }}
 
-  formulae_detect:
+  packages_detect:
     if: github.repository_owner == 'Homebrew' && github.event_name != 'push'
     runs-on: ubuntu-latest
     container:
       image: ghcr.io/homebrew/brew:main
     outputs:
-      testing_formulae: ${{ steps.formulae-detect.outputs.testing_formulae }}
-      added_formulae: ${{ steps.formulae-detect.outputs.added_formulae }}
-      deleted_formulae: ${{ steps.formulae-detect.outputs.deleted_formulae }}
+      testing_formulae: ${{ steps.packages-detect.outputs.testing_formulae }}
+      added_formulae: ${{ steps.packages-detect.outputs.added_formulae }}
+      deleted_formulae: ${{ steps.packages-detect.outputs.deleted_formulae }}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -82,8 +82,8 @@ jobs:
           core: true
           cask: false
 
-      - run: brew test-bot --only-formulae-detect
-        id: formulae-detect
+      - run: brew test-bot --only-packages-detect
+        id: packages-detect
 
       - name: Fetch detected formulae bottles
         if: >
@@ -91,17 +91,17 @@ jobs:
           (contains(github.event.pull_request.labels.*.name, 'CI-published-bottle-commits') &&
            github.base_ref != 'main')
         env:
-          TESTING_FORMULAE: ${{ steps.formulae-detect.outputs.formulae_to_fetch }}
+          TESTING_FORMULAE: ${{ steps.packages-detect.outputs.formulae_to_fetch }}
         run: brew test-bot --only-bottles-fetch --testing-formulae="$TESTING_FORMULAE"
 
   report_analytics:
     runs-on: ubuntu-slim
-    needs: formulae_detect
+    needs: packages_detect
     if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
     steps:
       - name: Publish Analytics to Summary
         env:
-          TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
+          TESTING_FORMULAE: ${{needs.packages_detect.outputs.testing_formulae}}
         run: |
           if [[ -z "$TESTING_FORMULAE" ]]
           then
@@ -135,7 +135,7 @@ jobs:
       pull-requests: read
     if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
     runs-on: ubuntu-slim
-    needs: formulae_detect
+    needs: packages_detect
     outputs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       linux-self-hosted: ${{ steps.check-labels.outputs.linux-self-hosted }}
@@ -153,9 +153,7 @@ jobs:
         id: check-labels
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
-          ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}
-          DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
+          TESTING_FORMULAE: ${{needs.packages_detect.outputs.testing_formulae}}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           retries: 3
@@ -163,20 +161,14 @@ jobs:
             const path = require('path')
             const script = require(path.resolve(`${process.env.SCRIPTS_PATH}/check-labels.js`))
 
-            const formulae_detect = {
-              testing_formulae: `${process.env.TESTING_FORMULAE}`,
-              added_formulae: `${process.env.ADDED_FORMULAE}`,
-              deleted_formulae: `${process.env.DELETED_FORMULAE}`
-            }
-
             try {
-              await script({github, context, core}, formulae_detect, false)
+              await script({github, context, core}, process.env.TESTING_FORMULAE, false)
             } catch (error) {
               console.error(error);
             }
 
   setup_runners:
-    needs: [formulae_detect, setup_tests]
+    needs: [packages_detect, setup_tests]
     if: >
       github.event_name == 'pull_request' &&
       !fromJson(needs.setup_tests.outputs.syntax-only)
@@ -189,8 +181,8 @@ jobs:
     env:
       HOMEBREW_LINUX_SELF_HOSTED: ${{needs.setup_tests.outputs.linux-self-hosted}}
       HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_tests.outputs.long-timeout}}
-      TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
-      DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
+      TESTING_FORMULAE: ${{needs.packages_detect.outputs.testing_formulae}}
+      DELETED_FORMULAE: ${{needs.packages_detect.outputs.deleted_formulae}}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -204,7 +196,7 @@ jobs:
         run: brew determine-test-runners "$TESTING_FORMULAE" "$DELETED_FORMULAE"
 
   tests:
-    needs: [tap_syntax, formulae_detect, setup_tests, setup_runners]
+    needs: [tap_syntax, packages_detect, setup_tests, setup_runners]
     if: >
       github.event_name == 'pull_request' &&
       !fromJson(needs.setup_tests.outputs.syntax-only) &&
@@ -251,8 +243,8 @@ jobs:
         env:
           TEST_BOT_FORMULAE_ARGS: ${{ needs.setup_tests.outputs.test-bot-formulae-args }}
           TESTING_FORMULAE: ${{ matrix.testing_formulae }}
-          ADDED_FORMULAE: ${{ needs.formulae_detect.outputs.added_formulae }}
-          DELETED_FORMULAE: ${{ needs.formulae_detect.outputs.deleted_formulae }}
+          ADDED_FORMULAE: ${{ needs.packages_detect.outputs.added_formulae }}
+          DELETED_FORMULAE: ${{ needs.packages_detect.outputs.deleted_formulae }}
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Post-build steps
@@ -269,7 +261,7 @@ jobs:
       pull-requests: read
     if: github.repository_owner == 'Homebrew' && github.event_name == 'pull_request'
     runs-on: ubuntu-slim
-    needs: [setup_tests, formulae_detect]
+    needs: [setup_tests, packages_detect]
     outputs:
       syntax-only: ${{ steps.check-labels.outputs.syntax-only }}
       linux-self-hosted: ${{ steps.check-labels.outputs.linux-self-hosted }}
@@ -288,9 +280,7 @@ jobs:
         id: check-labels
         uses: actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3 # v9.0.0
         env:
-          TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
-          ADDED_FORMULAE: ${{needs.formulae_detect.outputs.added_formulae}}
-          DELETED_FORMULAE: ${{needs.formulae_detect.outputs.deleted_formulae}}
+          TESTING_FORMULAE: ${{needs.packages_detect.outputs.testing_formulae}}
         with:
           github-token: ${{ secrets.GITHUB_TOKEN }}
           retries: 3
@@ -298,20 +288,14 @@ jobs:
             const path = require('path')
             const script = require(path.resolve(`${process.env.SCRIPTS_PATH}/check-labels.js`))
 
-            const formulae_detect = {
-              testing_formulae: `${process.env.TESTING_FORMULAE}`,
-              added_formulae: `${process.env.ADDED_FORMULAE}`,
-              deleted_formulae: `${process.env.DELETED_FORMULAE}`
-            }
-
             try {
-              await script({github, context, core}, formulae_detect, true)
+              await script({github, context, core}, process.env.TESTING_FORMULAE, true)
             } catch (error) {
               console.error(error);
             }
 
   setup_dep_runners:
-    needs: [formulae_detect, setup_dep_tests]
+    needs: [packages_detect, setup_dep_tests]
     if: >
       github.event_name == 'pull_request' &&
       !fromJson(needs.setup_dep_tests.outputs.syntax-only) &&
@@ -326,7 +310,7 @@ jobs:
       HOMEBREW_LINUX_SELF_HOSTED: ${{needs.setup_dep_tests.outputs.linux-self-hosted}}
       HOMEBREW_MACOS_LONG_TIMEOUT: ${{needs.setup_dep_tests.outputs.long-timeout}}
       DEPENDENT_SHARDS: ${{needs.setup_dep_tests.outputs.dependent-shards}}
-      TESTING_FORMULAE: ${{needs.formulae_detect.outputs.testing_formulae}}
+      TESTING_FORMULAE: ${{needs.packages_detect.outputs.testing_formulae}}
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -343,7 +327,7 @@ jobs:
 
   test_deps:
     needs:
-      [tap_syntax, formulae_detect, setup_dep_tests, setup_dep_runners, tests]
+      [tap_syntax, packages_detect, setup_dep_tests, setup_dep_runners, tests]
     if: >
       (success() ||
       (failure() &&
@@ -392,7 +376,7 @@ jobs:
         env:
           FORMULAE_DEPENDENTS_SHARD: ${{ matrix.formulae_dependents_shard || '' }}
           TEST_BOT_DEPENDENTS_ARGS: ${{ needs.setup_dep_tests.outputs.test-bot-dependents-args }}
-          TESTED_FORMULAE: ${{ needs.formulae_detect.outputs.testing_formulae }}
+          TESTED_FORMULAE: ${{ needs.packages_detect.outputs.testing_formulae }}
         working-directory: ${{ env.BOTTLES_DIR }}
 
       - name: Steps summary and cleanup
