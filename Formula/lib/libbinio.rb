@@ -7,6 +7,7 @@ class Libbinio < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "780adf0bf22112340c204a351cc0b5b4101149e299dcb3d22aa612c38e662886"
     sha256 cellar: :any,                 arm64_golden_gate: "2e445b4d3b9c1fe6acfe80b397e36df216d544d80a00246884f0655c87f27152"
     sha256 cellar: :any,                 arm64_tahoe:       "cf564d5b74db4094f9eb7cc697d1562e37fb5ee0ed26209f4ad0d257d19e8ec7"
     sha256 cellar: :any,                 arm64_sequoia:     "b907d94fd656bef05130d427f7327462a255838a0c36fbfa5dd3402053415a91"
