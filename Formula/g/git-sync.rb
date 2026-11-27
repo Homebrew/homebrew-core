@@ -7,11 +7,12 @@ class GitSync < Formula
   head "https://github.com/kubernetes/git-sync.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e0a1317eb9127f6a60b678ad9723261ba3f18c792eab45c267a824c7575d7cf"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e0a1317eb9127f6a60b678ad9723261ba3f18c792eab45c267a824c7575d7cf"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e0a1317eb9127f6a60b678ad9723261ba3f18c792eab45c267a824c7575d7cf"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "af1656f1d074d57ebd2ce5a0be9cd779035359283601b0e87ceaa3752a656327"
-    sha256 cellar: :any,                 x86_64_linux:      "4ea9224f87f5aabcebc4c8d62adb4044212df12acea85583f1df3a6697e32170"
+    manifest_sha256 "f5df8692f25b3d527475ca486f42eb711b15cc222def1350b04457db9c4a55ea"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11e22b50f2334955905359b4d13865fb9e2eaafbddb98d60f91dd4bce64ab4dc"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "11e22b50f2334955905359b4d13865fb9e2eaafbddb98d60f91dd4bce64ab4dc"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11e22b50f2334955905359b4d13865fb9e2eaafbddb98d60f91dd4bce64ab4dc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "05cbc76471d632474d01af17923819c7e964f00fc4cc0c7be402bbd065817345"
+    sha256 cellar: :any,                 x86_64_linux:      "160bdb3e1855e097ff3208c3ed9797c2d6b63314b19314f1548f731ea61d5842"
   end
 
   depends_on "go" => :build
