@@ -7,6 +7,7 @@ class Gitsign < Formula
   head "https://github.com/sigstore/gitsign.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9fed2a3eacf5012bf6f38fe0cc51ba1a1aab7f018d7a70998af1894832123fcd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "541ab7e2bc2745da306de99d48600f74c4142f2d31b7f02f6644c57e2de2fc3d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb3f400070762e48004d00857b5a50e78441d2b5de49e8542f0208ae5db6de78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8db1fec475b6d26250ed5d3bf0181090e4c7adbcd71a262caa6d077de4122b68"
