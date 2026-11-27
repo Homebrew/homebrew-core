@@ -8,6 +8,7 @@ class Lychee < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "21d6fdd2cd345be658db0caee3b535b361c4fbdcd75267aa7a8674611904501c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1557a4b78c08a9c1873cfafc89e8eb93bd65717adb15461cf87b068b7357420"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8128df40ab0e154013827ac8b157d319f4dbe848a6413888f69ca08306e8e753"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "22d012cc8ad34dd603d9a65b2e4b06820bcd241368ab1c58f3e7d1523221a22f"
