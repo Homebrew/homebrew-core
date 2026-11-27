@@ -6,6 +6,7 @@ class Gitslave < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    manifest_sha256 "a00d3bf14aa55a92cd6725c7f18c59799fbd718ea341e4909566b7ad1769e1dc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bca2f2c90fb34554e42396f263f3bc64bd612027a16205767d236b9abb536c9e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "99050ee225d4cff6c68927afffda8d113f9d2cedb1d809ae06d4d22a5adbda6b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85f25f52b43ce52b80c082c154dba23fda5ab3c98e58fdd40699158fa971f3f3"
