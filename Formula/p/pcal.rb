@@ -6,6 +6,7 @@ class Pcal < Formula
   license :cannot_represent
 
   bottle do
+    manifest_sha256 "2be71a5225b4adfc4b7491db6cca3f5937189c9c7eac0cc5665bbb25606a75f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29ab0f8d85f6565fc864f36bc5c65455c17f611536a2995421312b73db5d5792"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f1e0e7b42a908bec8dcf41782a3e4b9397955a95a9c0781ef8e21fbf2ef8a327"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e9cb1a02b94bf537f5f1aab6ee035a1ade559ce499f53afabff16e0795b21868"
