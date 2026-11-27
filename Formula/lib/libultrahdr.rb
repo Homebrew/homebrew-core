@@ -7,6 +7,7 @@ class Libultrahdr < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "e26eef49f5b1705e43a2d27d0b4e782aa7c490ca0e61a950662a35d05d2f1dc7"
     sha256 cellar: :any, arm64_golden_gate: "d83a1acf70b63977b374048083b53a71f32009e4ee50bec025f4a3cac70ac22c"
     sha256 cellar: :any, arm64_tahoe:       "ccb549500bbd4364a05dbc633373a868a1a65ace52bc68eaae1904bfb535e4b9"
     sha256 cellar: :any, arm64_sequoia:     "9e886c093543e23553793ec438724a4dfb9907defe282b439fefab0a30d6b083"
