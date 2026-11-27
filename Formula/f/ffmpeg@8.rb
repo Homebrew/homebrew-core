@@ -15,6 +15,7 @@ class FfmpegAT8 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3fb80cad8e60682b03a97357ac5b204762b9e61b08c26a52225e24004929394c"
     sha256 arm64_golden_gate: "0115511f55079c8c925623c5b0b8932f149812e719cd881fc38ed39ae4ec7582"
     sha256 arm64_tahoe:       "1b72e42cf496800d851455be25a4d53a501053f4eb130671724a2a333f1c4176"
     sha256 arm64_sequoia:     "571de74a9d5d4f2f3d794ce992a3eb1bd6a53c4f9c66f6f7f95348a25df341ea"
