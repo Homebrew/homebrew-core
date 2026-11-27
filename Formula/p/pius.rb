@@ -11,6 +11,7 @@ class Pius < Formula
 
   bottle do
     rebuild 8
+    manifest_sha256 "3005cd32a63b8ca999a29b36d3178f48c446249c7988d8d0f92d9293036dc8a0"
     sha256 cellar: :any_skip_relocation, all: "8695e3d08b1e0447bbaa630cb4fc4ebe6fab8d142812fbb1743c7a464ec8275b"
   end
 
