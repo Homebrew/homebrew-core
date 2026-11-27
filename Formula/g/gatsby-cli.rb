@@ -6,6 +6,7 @@ class GatsbyCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1c5313b201bc684f76db72b4ec2d0f7be6c5eaf28c8c102e4a74dbc76e349049"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "438421d6fb454040155f54ee16939badaa219285354ad4d5f6a4536cbc4b2c20"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ec0da04fcc872c2f86669578e894eecaaa36f6d06dbf842fdae0459ac09ef77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ec0da04fcc872c2f86669578e894eecaaa36f6d06dbf842fdae0459ac09ef77"
