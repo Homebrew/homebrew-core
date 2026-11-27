@@ -8,6 +8,7 @@ class Johnnydep < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "302ff4370cf7699056a47bc10328905162d2a521bf327eef5a87bbd3e862af0c"
     sha256 cellar: :any, arm64_golden_gate: "2c8a1091865dd6b79619217e92167bb1271d7f9938b2f2024d9aaf2ee10e16a3"
     sha256 cellar: :any, arm64_tahoe:       "d608203065d00e243b3ff8633b5118ff273d16c49d14192f1bd11b47d45b5d72"
     sha256 cellar: :any, arm64_sequoia:     "1afa1bece100d726a52a4cfe8168404167167d788c920f924a83578fbcae041a"
