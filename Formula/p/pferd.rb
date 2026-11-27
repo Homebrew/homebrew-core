@@ -9,6 +9,7 @@ class Pferd < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "cf729cbf289520f3b714fc7d35cc369b78ba871b464d948721d4b205459dce70"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c6cb35165a3d64bd3c46329a1e383e243dea7cff94096d9a8de5323e709a440"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2ee0f9ef60e084040b939fcd60d9a988fd9d88084c036251103a27ac102c6bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c37cb8fd5ebaaab3124bea3df76c5845c09a4a5708613d570427b824a8101ce7"
