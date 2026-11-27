@@ -7,6 +7,7 @@ class Pear < Formula
   head "https://github.com/holepunchto/pear.git", branch: "main"
 
   bottle do
+    manifest_sha256 "74885c1f1f013bafa26f8df8fa73698e3a9080558c59f2c3180d70bd0bce6161"
     sha256 cellar: :any, arm64_golden_gate: "cf965cb9591c01bef39d9b3f0f1f9fecc0720b748e655bbdf6fdbff74d6711e4"
     sha256 cellar: :any, arm64_tahoe:       "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
     sha256 cellar: :any, arm64_sequoia:     "af1a420052c729dd439faff0d1a2c460b17df13cbb023e2f454fa1eb5ef8ddcb"
