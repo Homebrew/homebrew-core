@@ -7,6 +7,7 @@ class Eg < Formula
   head "https://github.com/davep/eg.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b70e88f648c2f6cff1f6205e49ddc61909b0200a2a47a982606c05fb9f29ba4b"
     sha256                               arm64_golden_gate: "c3e665776e8b34160465a367316a2cf3d7daf1c7d2d79003878a7b4685750804"
     sha256                               arm64_tahoe:       "8edac665cd76232a32ac5bb583b8002fa084c089a399a3d0c34e6843176fa47b"
     sha256                               arm64_sequoia:     "88dbfa7cf9217122bc925c3681ee19cefcdb758063696fa00577967301b34fbb"
