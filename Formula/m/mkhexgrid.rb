@@ -11,6 +11,7 @@ class Mkhexgrid < Formula
   end
 
   bottle do
+    manifest_sha256 "48560f95126a1e75f723bbdf4bd117806acce7b96d307b21fbb3a220385693c2"
     sha256 cellar: :any,                 arm64_golden_gate: "d5fb9d327cdbf2b2eac686af2daebecd7682b8344939b91c953cd253b7d09b92"
     sha256 cellar: :any,                 arm64_tahoe:       "7e545dda93b7418fc133c0c9f5d28a9a72fa1f390601b23cd1d69cb2d67dcee2"
     sha256 cellar: :any,                 arm64_sequoia:     "66907e9872e7fa397d62e89974e7ad0abfb9a2dc527f25d32606e0d6a73e93f5"
