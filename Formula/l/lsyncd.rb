@@ -8,6 +8,7 @@ class Lsyncd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cd5e284710ea281d7f82df9989d4f7d77e129bf76b8927b14de4357e034dbb2e"
     sha256 cellar: :any,                 arm64_golden_gate: "3c554abaebc3d6dcc0ab06a2189d8d4a893e48012b5e2236769e8c10864bf49b"
     sha256 cellar: :any,                 arm64_tahoe:       "18d2ce09504c0dd1d8ab201be9ef3196f4906a2926223d2b51efd3d666448fd3"
     sha256 cellar: :any,                 arm64_sequoia:     "eaffafdb4386a2998a8c76be07c21fa2a8ab16ed67a775ccd5f7098d6b9e7daa"
