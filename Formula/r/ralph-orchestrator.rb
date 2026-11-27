@@ -7,6 +7,7 @@ class RalphOrchestrator < Formula
   head "https://github.com/mikeyobrien/ralph-orchestrator.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2ef48f9faf63fe788f068ee0fd0bc04a58ac6f62341f3498496bd59f01196d5c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e013558228c364931972e6ddebef6f65c0427081082ec7dde95dd17f3124e0e3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e05566f71807db7c66eb6e252651383699183e806af7af703b5a1729bef5e258"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd88cf67388c4cbf00ba1d9d6ec08c1b680b843a502155bcc3de123aa7f8dfc3"
