@@ -11,6 +11,7 @@ class GhcAT94 < Formula
   ]
 
   bottle do
+    manifest_sha256 "a9f6199ff6d344b94ac3fab7f50827b63e44253abc421be97978273d2875d80d"
     sha256 cellar: :any,                 arm64_sonoma:   "6c1b596c79d78c3f0129159c35e06734ca148ec11d0b4f91c901ed3c7e38479b"
     sha256 cellar: :any,                 arm64_ventura:  "3c048f7463acff61430ec00d162622e888cece890ee0f6a68f60c5b5104e951b"
     sha256 cellar: :any,                 arm64_monterey: "199e84b11533244f17215e22728dd17d4a3dac003d2e25e994d45247e4ab2802"
