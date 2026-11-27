@@ -7,6 +7,7 @@ class GitAbsorb < Formula
   head "https://github.com/tummychow/git-absorb.git", branch: "master"
 
   bottle do
+    manifest_sha256 "80c59fa38cb3c34171292bda08cf74096ff6fedc8bf000d0d5a9a5ec29a6236f"
     sha256 cellar: :any,                 arm64_golden_gate: "404eecd2935fce59be5589600c3deaa0438591aa3dedea249798bdc8ffa575c5"
     sha256 cellar: :any,                 arm64_tahoe:       "15d25d50f77a146d40e0d2d71fa977f77687bb290e1e42f680edee5c332683b9"
     sha256 cellar: :any,                 arm64_sequoia:     "3705ab0482910af6744073aa1eafd7aa0010c02d77249b2419ef356538653dcb"
