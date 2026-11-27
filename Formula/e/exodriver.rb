@@ -7,6 +7,7 @@ class Exodriver < Formula
   head "https://github.com/labjack/exodriver.git", branch: "master"
 
   bottle do
+    manifest_sha256 "080f3ce1223755d0e2cb0a84895f47da6662078aa923cb05c2816090f2ed87f3"
     sha256 cellar: :any,                 arm64_golden_gate: "1f305e3026b3e9bcd5f0207d30db8f7d495a98d47d92e0149a6f21d9d57f0c6e"
     sha256 cellar: :any,                 arm64_tahoe:       "f23e8cc706eadf6f9d2c92ba45bda0a06c3606a0c613342d6159a9b9a3cd26ca"
     sha256 cellar: :any,                 arm64_sequoia:     "be1e521d58daacc6bcb480985b374bc9e17075ed0a843fca9145f0d9c5f56aa0"
