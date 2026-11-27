@@ -11,6 +11,7 @@ class Ecasound < Formula
   end
 
   bottle do
+    manifest_sha256 "fc7d0668c6576493920b9aedc5605ff2c594a75b65b197100b930516cf52c0ba"
     sha256 arm64_golden_gate: "ed83e67104632eb93f0ee1d7e29d940d0833ca37d9d0c0eea1714467b0ed7622"
     sha256 arm64_tahoe:       "12e39a10c26842235843e303cf99bb10db7666a1fcd812d88b418ed2eae540c0"
     sha256 arm64_sequoia:     "44c42355a7959b320035dc42229da1ea6996934e220820a8e51c8c9b45e882ed"
