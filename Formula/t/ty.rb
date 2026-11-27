@@ -1,18 +1,18 @@
 class Ty < Formula
   desc "Extremely fast Python type checker, written in Rust"
   homepage "https://docs.astral.sh/ty/"
-  url "https://files.pythonhosted.org/packages/07/df/d914a453dfe6c92c6ce4fb3c5507f0ba71aabea1d437708e109642f8c75a/ty-0.0.110.tar.gz"
-  sha256 "0339d980a2ac78f356737260817ed9d11304a7a091fef57e9bcece1f00779742"
+  url "https://files.pythonhosted.org/packages/78/d9/243dc6db0c9eb188067c5cbcc5fb4bb3b3c4e8b83fb40ee387d946b10420/ty-0.0.111.tar.gz"
+  sha256 "9bab00d6c9129d28e28d81fbdf8e70b8a3522c41dc8f0ca8307eb802479a2c37"
   license "MIT"
   head "https://github.com/astral-sh/ty.git", branch: "main"
 
   bottle do
-    manifest_sha256 "aa621811d6fc46b5737dca2151acdf4d1d729fea38e761a09b8a37df6061bd8d"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14fc221b1cfb1098c0e9fb182f3e48be7466fcf716d17846fc92fb7fa694b4f7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "74a43e922494ae5d670deb1830a84d1f674730897a4ba39d501292d383099db4"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c92cf577a50638750903c36fca6e6b984ea872dbcee94b8ad4ec047f23e405f8"
-    sha256 cellar: :any,                 arm64_linux:       "ff172602cba72835df28734b0e8008a5ebc41a477e9c87d8de71a868021b430d"
-    sha256 cellar: :any,                 x86_64_linux:      "c6678ffeeceda443aa95a730a5436f65e7897451d09f238b51a82770631a69ce"
+    manifest_sha256 "71079bf81016f760d587242f919e550fa386d28c522d780479a7bb7decb843af"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3dfcba1ec692679dfa92960e0354dceb0bb21a96ff38065827f657dfe8d698a"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0456b54bb9379e15dce10a6c70f18000b3860d62005ac3eab27b6aa798f50551"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8037d2520fe7592f7b133270e4e5010b941d99a24a4681a5efa3e79a3d318a0b"
+    sha256 cellar: :any,                 arm64_linux:       "027bdb820498e40ef889c77bc9ab38b7c882cf19e8b00f35c77714a08b14139e"
+    sha256 cellar: :any,                 x86_64_linux:      "ec85ccd6a30a229ddaa76051944326a9d3bf8b0ef9f926a3deed46e3e6a74567"
   end
 
   depends_on "rust" => :build
