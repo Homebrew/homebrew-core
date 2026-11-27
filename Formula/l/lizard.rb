@@ -12,6 +12,7 @@ class Lizard < Formula
   end
 
   bottle do
+    manifest_sha256 "c4da664e3328f729d05929a1445490bbf2e11d5ee3515b2368047ba0b325ba80"
     sha256 cellar: :any,                 arm64_golden_gate: "d839d07b96985a9e23f60ab997e95e33adc53ef4368d7fcc7d76bc10edbb6ac6"
     sha256 cellar: :any,                 arm64_tahoe:       "027cd559caf4e36ee689c1430cbd1d6719ef7859daf9f3b62fcbabeb52bf65c9"
     sha256 cellar: :any,                 arm64_sequoia:     "a9de7741a01031727be56d4e8114c07ca8b108607393e7fc81de10a3ef38ac2c"
