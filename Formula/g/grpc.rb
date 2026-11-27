@@ -20,6 +20,7 @@ class Grpc < Formula
   end
 
   bottle do
+    manifest_sha256 "2acd3bd3381f4a4f3f678dc048dd069f96cfba797ed6cc4476cacfbc9df7cb68"
     sha256 cellar: :any, arm64_golden_gate: "df44b0f15bb309b2ad9c5424ca013dd3727ae267a0582e41ef179ec5d620abf6"
     sha256 cellar: :any, arm64_tahoe:       "6141ba420d79dd712f47d36ffaf7956bd393a0e5a7a4c580e9b32ecc44976d96"
     sha256 cellar: :any, arm64_sequoia:     "7b68aca788a3b86e12304a7ed453f9393fc7e90807a113ab2347dbe0d136528b"
