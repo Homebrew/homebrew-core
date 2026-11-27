@@ -7,6 +7,7 @@ class Monolith < Formula
   head "https://github.com/Y2Z/monolith.git", branch: "master"
 
   bottle do
+    manifest_sha256 "96dac4181a6f6638ec66e7ee0f2d9b7c442ac2d28e12c38ddcd365fd5cd6026b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25053bd4529fa990b48e8a23d716d9cfffc9ac8c77c38e7b57351120c4c0b062"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19dbdbfd463caa6f94ee602a083712b6718ede072ac7d369235cd0f674ecab89"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2d2df83fb0c13a9654419360f123494f30d348a206c9e9c01acf5196b7d30c6"
