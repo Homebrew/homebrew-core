@@ -8,6 +8,7 @@ class Rhai < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7185db84e817a68bf6e642649d8e844dd601de0ab9de94971ae3b97d73101f7e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b1abe4b3a611f6bd5dc408739b0e71d13263f3f7b1327e4e8a4f54b7da59c8a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "337684035438f1c490b7ac949ba0644676dad3da2bf91873087bce302beea1cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72f34da687a7bb61775dc4376e89e6e1813e9218688d9b942d06a758314e6788"
