@@ -12,6 +12,7 @@ class Mmctl < Formula
   end
 
   bottle do
+    manifest_sha256 "5f29d9e2d41bae33bc912039eebea8a830d0e9ded850bffb76cbb717a7e11342"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f6d64cf351018f08fe24e22b691ae46960018f041b86fe213a3ebc0813ce6df"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f6d64cf351018f08fe24e22b691ae46960018f041b86fe213a3ebc0813ce6df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f6d64cf351018f08fe24e22b691ae46960018f041b86fe213a3ebc0813ce6df"
