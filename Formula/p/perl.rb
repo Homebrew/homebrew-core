@@ -15,6 +15,7 @@ class Perl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2c36b2b1e48fcd099a7d306759c59e2ad7dfd67400cd4196060df5ebc2e07570"
     sha256 arm64_golden_gate: "112e18c3c12684a683ed68a2899f5891ca292c629dacd5aac44d4741120b477d"
     sha256 arm64_tahoe:       "3933a5884ef2db18d9fc0681c5aa977877249f088781fc55a69f075bb9bf8715"
     sha256 arm64_sequoia:     "1d63c5b5b743b9d30ea425ecd9d6bf6adabcff7848c33136f404cf602ccc7662"
