@@ -7,6 +7,7 @@ class Jbig2dec < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ff2b917e95723a96911ee1121b614cb018f824d69d33bffe550b457e2291dfb6"
     sha256 cellar: :any,                 arm64_golden_gate: "c833ef5d4492b250084ff421c81952e965b82a0bdfcef86de4a0cdc66dd9ad0a"
     sha256 cellar: :any,                 arm64_tahoe:       "08de3bbe75ccd99324756e5687677f3855f31ec9057f16ce068de9301072dfd0"
     sha256 cellar: :any,                 arm64_sequoia:     "f581562914f78e334b62715f38a94884e133a0f5fd9f865bd51a6404250a650b"
