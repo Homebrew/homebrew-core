@@ -9,6 +9,7 @@ class Libgda < Formula
   revision 5
 
   bottle do
+    manifest_sha256 "bc3b56b27687695196bc1d7a870a63a0679957bd3c589f5390d918e705dcf805"
     sha256 arm64_golden_gate: "74688b662aef4c430029029c72c2425225d821e70eafc04f6f521c19591dae15"
     sha256 arm64_tahoe:       "3b88a622a31068287a6ffb6cbc65f564087bf4075f9b7d12e1558a271dfa4098"
     sha256 arm64_sequoia:     "8f4076b1d7e3f9d4638d740248e2b2e2533e078c559701115c5a75fcea611a91"
