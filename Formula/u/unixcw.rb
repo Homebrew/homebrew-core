@@ -6,6 +6,7 @@ class Unixcw < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "6ec387991641d5ebcb424db8c31fb4d4a84ae09c4a73b36c2d10a5114f6091dc"
     sha256 arm64_golden_gate: "d7a1cb5967986fb0e6320f923ed328050abf0285ef71378cd8dbbc10abae3e6f"
     sha256 arm64_tahoe:       "079ba0cf3e728c0993e9ee256e112015ec6402d2017321d583c62a2b3db0a360"
     sha256 arm64_sequoia:     "d6cde37df3ce08b46974eb3bdb53408e83e38f4a8659841f4390ae9523dfe205"
