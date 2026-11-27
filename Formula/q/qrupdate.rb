@@ -7,6 +7,7 @@ class Qrupdate < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e1fd7c6c5f73cb7ee8f173ab16dbbc0c59b0af9d53e389eab6a291860564885d"
     sha256 cellar: :any, arm64_golden_gate: "20ae004b21fd7bdc2107a200d7f95330606f31d2fdd872dff653ffd28542850d"
     sha256 cellar: :any, arm64_tahoe:       "5494926f72245393fc03f80befab79cd4d7bd9c7b6c00eb54706c211c33c73b4"
     sha256 cellar: :any, arm64_sequoia:     "b61f3a3eea17f904797887cadb122bb00914ea64f6fac1657da312012c4d510d"
