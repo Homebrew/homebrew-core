@@ -7,6 +7,7 @@ class SpicetifyCli < Formula
   head "https://github.com/spicetify/cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ec2bc8f03a29790792ee5b7b887a3803d081e05db92a81fcc1b3ceee57645fd0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15bd0484c3df698312d90bba9185060f9a745cc2ce996a58033e5d36f09864bb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15bd0484c3df698312d90bba9185060f9a745cc2ce996a58033e5d36f09864bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15bd0484c3df698312d90bba9185060f9a745cc2ce996a58033e5d36f09864bb"
