@@ -11,6 +11,7 @@ class Monit < Formula
   end
 
   bottle do
+    manifest_sha256 "28ea581aaabe4e9b6a8018ac1bdbc8f14c860425581c053865084351c26e534d"
     sha256 cellar: :any, arm64_golden_gate: "b231ed64c1d5daa9be71f7c29684dd2e93722fe2dfdbe203a4cba76296b64b34"
     sha256 cellar: :any, arm64_tahoe:       "94a5a3097c18bda882bfe30ff4e1e9f385d137d38668084a881fbd62c9135194"
     sha256 cellar: :any, arm64_sequoia:     "fbeb133a4ad05f74feed815d1f6d4de6cdc31ee595baebf5de5b411245d42690"
