@@ -12,6 +12,7 @@ class SpiceProtocol < Formula
   end
 
   bottle do
+    manifest_sha256 "e843f4239a113186c649a136c076401583c836f27807f242fd2b9231ab4726d3"
     sha256 cellar: :any_skip_relocation, all: "b2fc7486dfc635ac1e89eb2f38d7eebeddf5f51d3fcd5e8f52c35c6ecd70ebea"
   end
 
