@@ -11,6 +11,7 @@ class Gpredict < Formula
   end
 
   bottle do
+    manifest_sha256 "d70b91453251c8ed87f9023a1080b26c2c79e1be840a420c75264dc64e3124cc"
     sha256 arm64_golden_gate: "853ff92e19db578d2daab8f38e1b836ef37b62db6d5ccc98085a25225cc17a8b"
     sha256 arm64_tahoe:       "ca08f60f1d77d7d11636c8a866792e03d6035bbc94eaf4b0bc686fef0e8bd443"
     sha256 arm64_sequoia:     "36d1de6214f153295991fe9be7e4fa8cc61fb433d01c9f305932f53719b6f97d"
