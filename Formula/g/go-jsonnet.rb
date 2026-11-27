@@ -12,6 +12,7 @@ class GoJsonnet < Formula
   end
 
   bottle do
+    manifest_sha256 "15c4fcd25a3b9522fc927903548608455e433923c2b0682529075259e3f5dc63"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec1e44f6f1040faae87b70a28e06a1deaad22cdb32d25561c55dec3cf1956fba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "85de63336520c4bff8ac427d7669521c77497a3e67e82a49b41c82de33feb6bd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85de63336520c4bff8ac427d7669521c77497a3e67e82a49b41c82de33feb6bd"
