@@ -8,6 +8,7 @@ class Gqlplus < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "933e1ce4163d0fd5ec152596d3ebee9b860298d53f5569e5b8f8b52f21c8946b"
     sha256 cellar: :any,                 arm64_golden_gate: "8abfd7cdac76368250c9ecf649d038029aee3fdf305bf62faf62edd08a605e32"
     sha256 cellar: :any,                 arm64_tahoe:       "9397a0096269caa5527b82304329ef4504f54978ed22d11dc37195f257fba161"
     sha256 cellar: :any,                 arm64_sequoia:     "5719e733e973195be06cd616f58b137b773c9758400a1bc1a8ca97fd45461c78"
