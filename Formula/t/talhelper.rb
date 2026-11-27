@@ -7,6 +7,7 @@ class Talhelper < Formula
   head "https://github.com/budimanjojo/talhelper.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4d3458d97fd9f7ffb45b32b03448efba4fe1a5264de416564c885b0c263c4087"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e848575ce94261ab0e1943a3d8ccca5f871d91426397c968a530a3e8177cfacd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5cd573e2db0bd3d504b3e0d256662231b1ace5807ed21ea1597996b8faefbf23"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5cd573e2db0bd3d504b3e0d256662231b1ace5807ed21ea1597996b8faefbf23"
