@@ -12,6 +12,7 @@ class Kepubify < Formula
   end
 
   bottle do
+    manifest_sha256 "0c85d2275035f15735b1b61836652b1d277b110af82ce899687a0618de3a78f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a520c236a3f9d8dfb8055f500a2826e417072010547a74b5ed81367841d08d9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a520c236a3f9d8dfb8055f500a2826e417072010547a74b5ed81367841d08d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a520c236a3f9d8dfb8055f500a2826e417072010547a74b5ed81367841d08d9"
