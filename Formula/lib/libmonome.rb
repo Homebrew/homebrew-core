@@ -8,6 +8,7 @@ class Libmonome < Formula
   head "https://github.com/monome/libmonome.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c4aad061b8bafe711b675a53e8b90f39ea52eda1ce8d7379fde86cf55567a659"
     sha256 cellar: :any, arm64_golden_gate: "16f656808b0ee4c3bce0b379cdbeb0f81142b51c2239f0a0841e1203d7704232"
     sha256 cellar: :any, arm64_tahoe:       "0547048b33e2552f2fdf6e05d789027322bd2762b0479b12268b236fcffd79bd"
     sha256 cellar: :any, arm64_sequoia:     "4ee60aad29f6c05369e4d71413616349d3da7935dc98880a1da1b46027c42d31"
