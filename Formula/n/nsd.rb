@@ -18,6 +18,7 @@ class Nsd < Formula
   end
 
   bottle do
+    manifest_sha256 "8879b76b35cbb5430a7b7e1f782e0b2e73499628c73ae19ee56cc52d5d2c566e"
     sha256 arm64_golden_gate: "4d410b14a62b1c2fc6bc25b56a504452f180dd654152dd6f6eb3ff7af94cef4c"
     sha256 arm64_tahoe:       "0a91c7eeea8f295cd683930b8c600bb14645396d4e4ec77c97cfcc8f299a002b"
     sha256 arm64_sequoia:     "984a5841febe3c6a7fb4484865a99e83cdfeb2abd5c2f7b6eb79d5f8d192e574"
