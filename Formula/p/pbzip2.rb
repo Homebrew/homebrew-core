@@ -6,6 +6,7 @@ class Pbzip2 < Formula
   license "bzip2-1.0.6"
 
   bottle do
+    manifest_sha256 "55a447ed6775dab4d9e009a15b9a0f28d4e33c8a7dce8fb4b138d8132accc619"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e95ccfb4787192a6197ac57fe71e7cb19fd82c93f2a4daf0b583b9bb7d49ce6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "484b76c243682d69066e15002d253fdc6179837c811a98855c53def0e830a761"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09d47c48c9c64a8c026c28f30e3e0074f1f0a195d5886d37e1a15f6925ab91bc"
