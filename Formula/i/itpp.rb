@@ -13,6 +13,7 @@ class Itpp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "351de33c31b247f4323937f937b6bd8745c2be66f918880f43d0c7e9b3a0fee9"
     sha256 cellar: :any, arm64_golden_gate: "8c2ae9262836d4f5553998487dbbe29d17c8b0acfd4483336d027f5d9a0af6b5"
     sha256 cellar: :any, arm64_tahoe:       "060e7669b609986f0434b24e911a35fe23e6faecacee5e0de9bf56a53f742a6d"
     sha256 cellar: :any, arm64_sequoia:     "c899fd1589b28b54bb25bf0897374dcb094a36c966cf0c716e3326c3a7c13492"
