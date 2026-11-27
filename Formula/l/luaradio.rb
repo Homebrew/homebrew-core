@@ -7,6 +7,7 @@ class Luaradio < Formula
   head "https://github.com/vsergeev/luaradio.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cc228327a17eaa858aae21ed80ccb66f6724efa37e00de57caaa729b3adc224e"
     sha256 cellar: :any,                 arm64_golden_gate: "21f99bd603f1c04841380a2726f1e5683505c7709d0a9a2377603db550863538"
     sha256 cellar: :any,                 arm64_tahoe:       "c4b12fa78bf46741625b1644686a6bb342f0cb2024d7c0f440ccfedbedf01d36"
     sha256 cellar: :any,                 arm64_sequoia:     "c0760817c9d2a148d351f6a4c054ec481610487fe82571551622e5bcc6a65b68"
