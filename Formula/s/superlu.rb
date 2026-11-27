@@ -7,6 +7,7 @@ class Superlu < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "93e199cac7518116c60902a2e69db8fb2461c8742d115ece6f6acdd06e8708f3"
     sha256 cellar: :any,                 arm64_golden_gate: "d83cb7e68557ce6098bd72680fe68ef633ed59f28e4cc37350336340ab8125bc"
     sha256 cellar: :any,                 arm64_tahoe:       "effe04f1a11b47d86cbe720ee1bcfae0e73b8b8967a84e02b0faa6628d8b1ea0"
     sha256 cellar: :any,                 arm64_sequoia:     "2e52b920e55c0afc6d931e38c65178f5d09404b657b6d83740e14cc846c4540a"
