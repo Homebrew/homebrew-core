@@ -7,6 +7,7 @@ class Goocanvas < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "eb1bb105bb7c3165d93a213bdf5011f64f0d02c07d1ed0a4da049375ecacac9f"
     sha256                               arm64_golden_gate: "97f7f61750722ed2be7b8d113ed2f201dc163702b12247b91261005422c8d3c6"
     sha256                               arm64_tahoe:       "fb3b0618b234fb12e646ae2494b14e83ca2d5ee50c4d7891d4a2914b7a88763f"
     sha256                               arm64_sequoia:     "8bd21a150d98f2abed5d68ac690487f1d2311e509bc54087d8b577a294bd6711"
