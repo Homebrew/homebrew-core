@@ -14,6 +14,7 @@ class Idutils < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d2bb4c7e3b64cb93d1cdea1bf2c3534555188245f6364a7571987467b335f9ca"
     sha256 arm64_golden_gate: "a617538e3559c043cfb79d914f501e19eaf8bda2bd39fb5fef2300dab84d052d"
     sha256 arm64_tahoe:       "e60e746f4261098cdd11898d89c236538d8232579351a5ebad27194c7f3f3784"
     sha256 arm64_sequoia:     "63d48bcd08d23874fff1f37a66c022c47c10c085549405f4fa8cdb4ba8d34b28"
