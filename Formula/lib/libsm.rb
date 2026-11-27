@@ -7,6 +7,7 @@ class Libsm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8fa3f09b7ce6b0516e38c65132be52def5e453941b5c7fabc169fbefdc904ac4"
     sha256 cellar: :any,                 arm64_golden_gate: "b2b2ef2d356dc5d6d3d7d1eee8027028f9da75c3be4e6fa3202120d2088a60c3"
     sha256 cellar: :any,                 arm64_tahoe:       "9ddab9c6da4ddc8c83f79079c63d16f220701ad058c8c8a07b077ceaed3eb7d3"
     sha256 cellar: :any,                 arm64_sequoia:     "fcfe468b583f69a170f81760d0b4f3c87c60fcfaa4e3b572cda227ccee5dc255"
