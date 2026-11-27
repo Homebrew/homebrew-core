@@ -11,6 +11,7 @@ class S3cmd < Formula
   head "https://github.com/s3tools/s3cmd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3f8293806d033048a8dc6766e0ea01a1540c15bdf99d55cefe38fac02ca5724d"
     sha256 cellar: :any_skip_relocation, all: "1631a1bb7891333d5ecce1b16c49e861aea505efcbb21d660408819593565ae8"
   end
 
