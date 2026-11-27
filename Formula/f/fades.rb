@@ -10,6 +10,7 @@ class Fades < Formula
   head "https://github.com/PyAr/fades.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e0846894f3713086d7da741c33a9f1721eff5df3245071c81f098cfd1b9f9749"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0a1d259e0f9e789706a9da7efd2f16d56d66d615d88b3230ea182bbfb3cb73c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0a1d259e0f9e789706a9da7efd2f16d56d66d615d88b3230ea182bbfb3cb73c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0a1d259e0f9e789706a9da7efd2f16d56d66d615d88b3230ea182bbfb3cb73c"
