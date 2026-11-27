@@ -8,6 +8,7 @@ class Zix < Formula
   head "https://gitlab.com/drobilla/zix.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5e6d535007a5e8d3bffc9322c578e75a809a0aed4e47215e0cebaae9e5da44cc"
     sha256 cellar: :any, arm64_golden_gate: "29d7a70f7c92bf0ceedaf13ae7404b90cfd322452c45a37a0bdb95d6beec1b38"
     sha256 cellar: :any, arm64_tahoe:       "9b81090cc858205cb0e9df02cd9104e91ec96f5ffb5c22240e8850f7bda4b223"
     sha256 cellar: :any, arm64_sequoia:     "73ab925a8aa5e59105e03ceeff0b010eba86db3605f9fd9d8939afb755fa7561"
