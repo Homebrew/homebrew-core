@@ -7,6 +7,7 @@ class FuegoFirestore < Formula
   head "https://github.com/sgarciac/fuego.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "aa29fabccf44cb177c33c2ebbe312303c09cc179ee37885ef101a38c39e7b3df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1445b36258a6e4c5e168f7a15a442f9d2391a26cea4a9a8e1cc7d77983df9c0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "01bd1cfcb8749d1596df0fcda5c62981949621bb7f73c53fd9bda68b680972ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f86b1ba65cdafa226e82a3fc623eccbab6147244389fb05be05bb5c732439f27"
