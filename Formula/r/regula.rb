@@ -9,6 +9,7 @@ class Regula < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6a81b99e71de21d391ba78d33162a04b967c48d1871f8ea9a3061a976633e20a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "0495a23cf7487740bfb918ced57eedfaaf47768bb8499e369434a060b612d4a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "0495a23cf7487740bfb918ced57eedfaaf47768bb8499e369434a060b612d4a2"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "0495a23cf7487740bfb918ced57eedfaaf47768bb8499e369434a060b612d4a2"
