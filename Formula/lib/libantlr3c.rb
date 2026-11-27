@@ -11,6 +11,7 @@ class Libantlr3c < Formula
   end
 
   bottle do
+    manifest_sha256 "bb96b3a035f585e9bd696f6ed7172f76d9544ec406a11983f0b521c105639a24"
     sha256 cellar: :any,                 arm64_golden_gate: "7d219e91eee2b3747340ca80984dc16aaaa7beaa26230754b97aa0c3a764d772"
     sha256 cellar: :any,                 arm64_tahoe:       "c221434cbb3dd54168524ef68ab781c223a5d4c70f33b5602feba6c3ee31af69"
     sha256 cellar: :any,                 arm64_sequoia:     "0b28c958040567aca016c773fe2d184aaf8bfe2a849a20265cae9e8980685ae9"
