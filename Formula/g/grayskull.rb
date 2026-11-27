@@ -10,6 +10,7 @@ class Grayskull < Formula
   head "https://github.com/conda/grayskull.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fa815ded8f886d537c2e9ee02c65d80801c5f9c50202df3fd8b8ea0827f271d0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b731a373e00bdd15be21453ab7c3e65631a6b728eb9da9b25646add3e0a5fc1f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2d4b2f989c7cfab8b0762fe65c7efa73398586ff78308b23a474c5dfe8ff10f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a461ebbe0b8713395b5bce52c615acf91cb077fb4a78c935749191e399d18d14"
