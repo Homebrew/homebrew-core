@@ -7,6 +7,7 @@ class Openlibm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c38091e2c33dbe85e22f86df23d3254620f04b5651a802c8fa03dade5c876c0b"
     sha256 cellar: :any, arm64_golden_gate: "00ac0e24b2cebd94903caf33e0726cd32134bddd943b3412403f3b8e287bc91a"
     sha256 cellar: :any, arm64_tahoe:       "609b5d04e458eefa10f8db06a8b93c4abe876ee8165b0ed3bc4e4917be80ee9a"
     sha256 cellar: :any, arm64_sequoia:     "0af5df82bd1ba0f2aff8ab11de68706bc4c64a921625a1c5203361b332845293"
