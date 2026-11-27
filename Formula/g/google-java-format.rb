@@ -8,6 +8,7 @@ class GoogleJavaFormat < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "3b72a4167e1089f8258642e5f1344f970aa655c662d78dcc8d9296429ae60ec0"
     sha256 cellar: :any_skip_relocation, all: "193bfa102eb99487237be90da7b66df0d2fd1e676fae2188db624a69c8763642"
   end
 
