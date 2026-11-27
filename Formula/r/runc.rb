@@ -1,8 +1,8 @@
 class Runc < Formula
   desc "CLI tool for spawning and running containers according to the OCI specification"
   homepage "https://github.com/opencontainers/runc"
-  url "https://github.com/opencontainers/runc/releases/download/v1.5.3/runc-1.5.3.tar.xz"
-  sha256 "b46692550bfd6a6d69e15068d153446dfd401810809eecb767481fba90561b59"
+  url "https://github.com/opencontainers/runc/releases/download/v1.6.0/runc-1.6.0.tar.xz"
+  sha256 "c83a737790643178e9c758df18fa5f92aa5678b210bbc148f3ebd32fbacf8e48"
   license "Apache-2.0"
   compatibility_version 1
   head "https://github.com/opencontainers/runc.git", branch: "main"
