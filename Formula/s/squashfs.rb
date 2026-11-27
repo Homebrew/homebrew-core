@@ -14,6 +14,7 @@ class Squashfs < Formula
   end
 
   bottle do
+    manifest_sha256 "ce6ead1decea6b7e4ef50d0997ec099c93223cb5646abab5ec3f9b44a6313361"
     sha256 cellar: :any,                 arm64_golden_gate: "3f4e02c404ea30a85146fbbbd378c6188a8a66ae9a24938a8ab143373f1b460b"
     sha256 cellar: :any,                 arm64_tahoe:       "4457ab0b11eff5278270c2bcf8de450879d4e8d9d3b6b3c2aac3d3aef822e5db"
     sha256 cellar: :any,                 arm64_sequoia:     "279c65c00b406c9bff6a6db0ea2d2912502cabae119acb12f1ca1d0702645e28"
