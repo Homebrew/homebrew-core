@@ -6,6 +6,7 @@ class WxCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "7c6ff76ebb0ee81714f386795962f7cb8a9f9dab40602e7aa9e118b528a6f999"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "1b817528ff5a05e6973dc952859b07d501766e9918cc42d2966d12dfcd0e4049"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "aa6081b612cd39b29a29990b0fe5cdd7c21ba681000f16301a78cd2ed981eda8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "29b50cedb0e7d19ed0e55bd208705f5577abff98931d02aa1feb4c47327ad9b3"
