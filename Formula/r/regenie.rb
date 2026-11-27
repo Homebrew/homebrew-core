@@ -13,6 +13,7 @@ class Regenie < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "61f551a9c08b2d24177872c3fe7760346c044a09057799f6f6378345002a3843"
     sha256 cellar: :any, arm64_golden_gate: "13876d8c5fcb0eb688ff8a6f49d15f876c5e8555654bbc5530ceae757d654f65"
     sha256 cellar: :any, arm64_tahoe:       "fd63d66177575c7fdb73945ec9ef1a5682a0351a46e70a04338f2e3e55d8b1a4"
     sha256 cellar: :any, arm64_sequoia:     "c56d6f0f780ebae11db4b612a539d76f7de035c8035f1954dbad67222e9eba20"
