@@ -13,6 +13,7 @@ class ProtobufAT29 < Formula
   end
 
   bottle do
+    manifest_sha256 "09d8d46629bdc1d2f6763be04d1d0416dc570f6210ff4a5f1758d413dded5bad"
     sha256 cellar: :any, arm64_golden_gate: "29b1617866c1832a3c819d8654d3ed88177bd2c48f6478a1ccae7d2ca59cfdf4"
     sha256               arm64_tahoe:       "c2effd4944e3617f67cdc91b4ffcd48a9250e362beff8ff3785d35aafe361869"
     sha256               arm64_sequoia:     "00412e2075877e31bfb4da918420dd219981762845ae486df8fa85dc7c406732"
