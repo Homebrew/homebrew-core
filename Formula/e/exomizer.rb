@@ -15,6 +15,7 @@ class Exomizer < Formula
   end
 
   bottle do
+    manifest_sha256 "c9e7abd7b2e8516090aa125c24faa28a5b16cd7dfa66276271ce7dcacc442fe6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37c775965fb7b284794dbb1b8bc7d33294a12064e3898d7937f0644a0d3d0155"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56448e95a835779566679e80a082ca12284cf6412a299194e363f7f06bb0440d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "93a5cf305a6a643351a6335ce2555628f9448b9010009475e77ffa6d8a54b441"
