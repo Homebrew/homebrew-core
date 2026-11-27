@@ -7,6 +7,7 @@ class Mantra < Formula
   head "https://github.com/brosck/mantra.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e15619569c6545554febfabee0c6851a27a29abc978aad65abb8e052a566bf2a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de3ecd38ca268ca45f436f982924520e249406b4703558a0f2127714d99aff0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "999c55a42a047937fb47e7f438f93041c3fcff6295ca273ef1fb812626fba325"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b327b97eb7cd1bed9e3cbbb8523501568762c1ab23b3b6f96a1004574d250ea"
