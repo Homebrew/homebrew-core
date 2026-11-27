@@ -7,6 +7,7 @@ class Foreman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f42b8c53445fb309c47a6f8550ac0c02af799a8a8093731b0333884d71041a3b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "560acebcdd9c15d565ccf811ee405dfef192c79d1db373a037bddc9dce011eca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c78c793e9a91e349838d6e2d36be7f599d8a0778b5c4ce8d4d3d6fb88c6c485f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c78c793e9a91e349838d6e2d36be7f599d8a0778b5c4ce8d4d3d6fb88c6c485f"
