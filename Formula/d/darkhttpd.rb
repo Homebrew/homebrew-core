@@ -6,6 +6,7 @@ class Darkhttpd < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "53d9cd55290773501bc60f885ced9ad44b6fb7d60448d8b65b47b2313eed4f1e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "981afc28654dfeccfec1f5961eab0688ff2bca94093f96c2808229206a8a1125"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d789a550bcdedb7039ec2eb15b5c6a57f93d8848fc471ab97caa8ce324fa04e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c69e08e8c2ebf5a9a688b1b8ef04023479a883c4cb59fb37f4d079e552bfcb3"
