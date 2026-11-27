@@ -7,6 +7,7 @@ class Lazydocker < Formula
   head "https://github.com/jesseduffield/lazydocker.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d09e861e2e4a716063237e472652a64ac187321091d6f4d6fb579ebdd8a10670"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb289ee4605aea3bf17f2c9f68a02c64af222f8cbbed5bbc2941a7abda6940a5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8522a4229dea2b63f88c29a5772f5ba7321bd8637c6dee299e266a14c29cffe5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8522a4229dea2b63f88c29a5772f5ba7321bd8637c6dee299e266a14c29cffe5"
