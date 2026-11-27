@@ -28,6 +28,10 @@ class Gnirehtet < Formula
   resource "java_bundle" do
     url "https://github.com/Genymobile/gnirehtet/releases/download/v2.5.1/gnirehtet-java-v2.5.1.zip"
     sha256 "816748078fa6a304600a294a13338a06ac778bcc0e57b62d88328c7968ad2d3a"
+
+    livecheck do
+      formula :parent
+    end
   end
 
   allow_network_access! :test
