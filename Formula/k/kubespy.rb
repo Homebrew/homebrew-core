@@ -8,6 +8,7 @@ class Kubespy < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "35b7b685ee81596f816fac64d9e0ba275258bc4c7ab367747e2aca409b9a867b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e743db35dc24240e09e80dbe1c18dbaccc152115b230d286bd08ae9d59e3b62"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "029feef7bf428cc4b613f95bdbd189e7277d400cb6f54165933dddbcb04be245"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c37522a8957c50550223fb4b2328c1898e03ac58b396b4a29935bfa0ba117ad0"
