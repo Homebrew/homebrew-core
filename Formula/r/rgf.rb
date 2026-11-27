@@ -11,6 +11,7 @@ class Rgf < Formula
   end
 
   bottle do
+    manifest_sha256 "9399ee2baf8c71f41693b0c4c640ba6e867a45adc31849b46c9f486605ff77c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c825574625171502b2d340ee6c9d5af5df6330e4572ef33037e5b073f142707c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3cd71826a688d71fb47d733cc05bd43da4f3febe58031901476a7053a5e9e2fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b562241e4a197e502fe1483c9a613bb9c32c272a94583a6f8ef26a1844ed644e"
