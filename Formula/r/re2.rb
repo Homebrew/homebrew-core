@@ -15,6 +15,7 @@ class Re2 < Formula
   end
 
   bottle do
+    manifest_sha256 "0ef0a5ce339fa2d7551536a63f306be7dff9e08663d9fec024907b2e065f9cfa"
     sha256 cellar: :any, arm64_golden_gate: "deb357f242caf2a821dee825489e526f842ee483c133521d2288fa5182d41647"
     sha256 cellar: :any, arm64_tahoe:       "6e96aaf1115b4b532ec7f59ee986372c2d0ab7b0eb27ff41d5216e1a4f3957ef"
     sha256 cellar: :any, arm64_sequoia:     "41a23f8a657a72326621e241bab27e53bc1105c34dbe1528beae97a5b2fd3b51"
