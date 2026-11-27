@@ -6,6 +6,7 @@ class Hilite < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "9d7b4ee4c2d2b66153d98c16c7580fe31cb866c49c7ea9aa13d1ada9eb0361f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f66ee4fe3ae30c5c95657ec5601616e8cc2c1bddd2893b997ada3124ebe8353e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d0e8bd163b7a96b2ef1a79a9d69861cd045c6ffa351dbbda07bf25ba31899d68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3535152f7fa6b54957f00de4158dd790073c81737140ae90c16cbda8d37ba51"
