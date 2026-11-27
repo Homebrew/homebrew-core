@@ -12,6 +12,7 @@ class Icoutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a5a093f60f2935b8915e56e752d6fd8375890719d947d86afa9ed28ab7481703"
     sha256 cellar: :any, arm64_golden_gate: "93cf10e38bd52d721bea5b6b13f1281e1b6a1cd481bd2132dac68faded9de977"
     sha256 cellar: :any, arm64_tahoe:       "5f28e12b6168d398c1b6a45fdd31fbe562734bf4e0bb9b92473326fe3652db3c"
     sha256 cellar: :any, arm64_sequoia:     "1f134eb8d5bfda13e1afd2742d87488abb2bd651f0ec059b6bbea76add8a647f"
