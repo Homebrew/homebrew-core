@@ -7,6 +7,7 @@ class Pipet < Formula
   head "https://github.com/bjesus/pipet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a0e7e8fbf60fe3564152650ee5117915120a67e0ff178a88e62d4c7c2ba243d9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61257062de150838fae21ce584ad776f9b6040e8147f3c86ff35763cd5cc4f2d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63abd2f8e1acdd4351fa4e9f87a98b41574785f4a841347110b6ab01b3037eb0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "560a89ed526f7be6a13af3eaaa88fa4bbd108a488a251d1f562a4ef7af9a5e38"
