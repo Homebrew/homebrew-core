@@ -7,6 +7,7 @@ class Stern < Formula
   head "https://github.com/stern/stern.git", branch: "master"
 
   bottle do
+    manifest_sha256 "25c0423b21a4ff752c6618febc030c990d0e868cc7b1e6e1494ecc2311bde310"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fe74cbba15cc2c937963f741bb5a1d128d5a7575e4481d0ef9df0a88aa5eba4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d06b2477251a8f9d547f36205b615585c1eefa08a9a373800c3ad7ec325b0dae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36829a090fbd50a32d63a47e73a438358c3040d8ed050c25352cc78cff7bf90f"
