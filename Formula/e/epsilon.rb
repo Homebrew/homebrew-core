@@ -15,6 +15,7 @@ class Epsilon < Formula
   end
 
   bottle do
+    manifest_sha256 "688c55b83baa2da3c3c5c0d251c5f48b48b298e85f775e9c897cc16af78eb0dd"
     sha256 cellar: :any,                 arm64_golden_gate: "4236d6711ac1550aa6b1d1872695bbfa13d9551bad050f0d11e74657bd84a442"
     sha256 cellar: :any,                 arm64_tahoe:       "0620e9ab8265a63a2c80dd4dfe7cb5b0f548f12fa5c597b679dd4cfdd079e4f1"
     sha256 cellar: :any,                 arm64_sequoia:     "00006841c371ebcd51bc9f3105d16bc690fa54fa0a37ee9b0acfd33cfcee9b1e"
