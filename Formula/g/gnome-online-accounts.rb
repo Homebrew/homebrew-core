@@ -8,6 +8,7 @@ class GnomeOnlineAccounts < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d7f4b84ac89ba0c174c15cf43cba948c830b581cfaf180a094f6d2775e69fbbe"
     sha256 arm64_golden_gate: "85333c894a54fd1ba5d003abf61b5436ff9ec52d6239b5ca14a7ceeafb347fcf"
     sha256 arm64_tahoe:       "04cf13423a86157fcdea4e74c97705f0450c53afc44794a71d5833760db100af"
     sha256 arm64_sequoia:     "569c6f34e4ea94f239a0658f77ab1d10a77d02fc70bc2ad61de233cf48f49778"
