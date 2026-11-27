@@ -28,6 +28,8 @@ class Tal < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "568fa7d6db8a642d71501bd804351e281c512fa82f3c2757bc870e7e8d871ecd"
   end
 
+  deny_network_access!
+
   def install
     system "make", "tal"
     bin.install "tal"
