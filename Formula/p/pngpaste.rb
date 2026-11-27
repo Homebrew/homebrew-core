@@ -6,6 +6,7 @@ class Pngpaste < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "ce9026c3354f9dedc2af8b71700895a4d582b8cfd96698ba0af6ce1dd19e73a2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "843133cb549a8a8c7ea1d33807985d3d6940f531fcff12161e7fecaf9a941371"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54f10ac12b67938941a167fd959d4bda563c37a23b4cf1407513e855f75fba78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c50c153907877dd733f9e98807bf00246a12cb2f8add332a9e3842fe6057cf9e"
