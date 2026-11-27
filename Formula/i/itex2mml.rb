@@ -17,6 +17,7 @@ class Itex2mml < Formula
   end
 
   bottle do
+    manifest_sha256 "a0d6be5c78edc653ebe7e8aec71f8565a6ef1055b61bb85b411752052b9b291d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21f3c7cf6cd33b65ef7c6f40b5d75686f0b89fab1696e126cac71ebb3aaeafda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9927eb95f7d9d7dddfc7c684ca069bfa8b612c519461ef5233aa54098b9ea8d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7218674b662a6415899e7eb4dc00ac2634c60837b7a4b9fa7a4019cf668d8890"
