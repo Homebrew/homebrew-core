@@ -7,6 +7,7 @@ class Axel < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "45dc0c36fccd174c07364236166593bf121213748e0af98665869db5e9c2614f"
     sha256 cellar: :any, arm64_golden_gate: "a619e49c1bd49cbe599adecc5fad05208c41befee47f819ed9e7803c63181d58"
     sha256 cellar: :any, arm64_tahoe:       "f2e4f284dc20b918521e8493a25f90dc1ec4f70e1475e548a1b04ccfa967a130"
     sha256 cellar: :any, arm64_sequoia:     "95c51635ca58e485bd24471f4586bb1588a83abeefd50061bfb24494086696d7"
