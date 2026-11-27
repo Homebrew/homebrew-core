@@ -14,6 +14,7 @@ class Ice < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e1514c238e7cc04e6f12417a0b3eb18424fea5e971e2e4eef2c92c3fe6859ea5"
     sha256 cellar: :any, arm64_golden_gate: "8e073f0de8b5851202081052d662844ac4fff71b610af8a666241bab1d7e6d22"
     sha256 cellar: :any, arm64_tahoe:       "e59ea26dbcd53be26c2cc49f5025c66e9ce43da5ee49306a2dd1c721ab87a64f"
     sha256 cellar: :any, arm64_sequoia:     "5d405e0f2fac608487efea6d942b94c509fd89797c5cb115a5dc8eb2a0c82eed"
