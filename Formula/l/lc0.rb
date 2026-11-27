@@ -8,6 +8,7 @@ class Lc0 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b9594b31d585d83946c9fb2ac9e07319b030f0c16ea7d7afff2be3a0c94267fa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75551935a94b7a1148803a65e879cd7df224f26742aea24e9a8644b29452010e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a1d1d13de8396fbf2c8b91fedb5e6e880f43c8b7a4a195351f78904da1dd6f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f8f7930982cfc4dd3b8f4e90166787a7b12be3bec318ef5527757de2d572bcf9"
