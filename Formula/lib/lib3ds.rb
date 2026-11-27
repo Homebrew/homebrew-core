@@ -7,6 +7,7 @@ class Lib3ds < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7d62fa657f236023cdc3e0671bf76308f9f31e4ff30b1bda9949de029db4afaa"
     sha256 cellar: :any,                 arm64_golden_gate: "e57de56989d47dc887cb13c0e62ba41bf8437324889773e3535a3c9a6ebb8444"
     sha256 cellar: :any,                 arm64_tahoe:       "05c4539d63ece4173e11e64c12337fb23165bac92574603467512f73c770fb2b"
     sha256 cellar: :any,                 arm64_sequoia:     "7cac898d78de339d70d5aba02ebdfc2703b341f251206f8cb1ebb6c35eac984d"
