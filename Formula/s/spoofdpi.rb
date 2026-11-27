@@ -15,6 +15,7 @@ class Spoofdpi < Formula
   end
 
   bottle do
+    manifest_sha256 "6a70725e93725b7a45931ea35ba9f2150ba6f9de4caa30acd816de0d749e80c8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b22fc3d0c66d93779528248551e9ad20039440f213f427d39c142322be80b16a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "12a16c25a4a107e85ffe4f8da8d1992d0b4f48943782ac47a64a20bb259248b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "219566ce9b0ae316ff0f88f81484fef7ec624241138d463708fe27323c3040ac"
