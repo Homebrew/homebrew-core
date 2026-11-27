@@ -7,6 +7,7 @@ class Hcl2json < Formula
   head "https://github.com/tmccombs/hcl2json.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b5c72cb8c8d3939e85931d911adb3100cada152db9614587962626c6ccbfdc74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f6f00cc95396c842b2c4bf38da485852494b37cd2d7046840d93bdb57abb979"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4286ac318a8016bd22785c860b1540c4022ebe1a14f61ea381ddef82035abb4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c4286ac318a8016bd22785c860b1540c4022ebe1a14f61ea381ddef82035abb4"
