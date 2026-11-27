@@ -8,6 +8,7 @@ class Texttest < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "0c4dd28cea0d8d9be912f6bfd9b7e965acdc5e8e2da9bb0c9a42a23e7d520ad9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fa1007d83c48d8627d455e6299fe1da658e14dc1bec1111cb468f513be65815b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16694653bea05b57e9be062591117d97f9e968bb867a19e91b17a8d1d534a4c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76e652c0964ec5c757e15f5499b5df2f7dfea3344be4ddb6fffbcc402b5d06fb"
