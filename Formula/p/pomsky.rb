@@ -7,6 +7,7 @@ class Pomsky < Formula
   head "https://github.com/pomsky-lang/pomsky.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b705ecf37c8b169469889da7917affa06ccaa05d00e5302073f156d44feb60e5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "270040bb5fc7d4f3dc57056859cbae0563eee75ae22092525a005a56f6e641d9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71e19e3cca23e38bcdb532dde14d23f0312b76d3c19b46cddd1d2e20bb9f8605"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2d70c94772a5598e3144532228ecb3b36cb81c94a8b71c62d053635a82f23b0"
