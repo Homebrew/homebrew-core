@@ -12,6 +12,7 @@ class Flix < Formula
   end
 
   bottle do
+    manifest_sha256 "3e84682cf1acea76959afc8f28bc8d84d7ab20a942e06b050f7b6f44f96581db"
     sha256 cellar: :any_skip_relocation, all: "b534a13557372bee17af0e3d22ef52635be7b87e57991d64085881fd21202563"
   end
 
