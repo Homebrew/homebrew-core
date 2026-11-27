@@ -10,6 +10,7 @@ class Geoip2fast < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "ba2784d95bdecb76812aa3af6721154d52cb3c59a9922ff11697c43ec9539174"
     sha256 cellar: :any_skip_relocation, all: "60ac230c517d6f581b57173fcc625b8935f19937730d01e3a59ff70f4c549d6d"
   end
 
