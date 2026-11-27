@@ -6,6 +6,7 @@ class Libghthash < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "0dd3fa0198ab692d13de102ad2f583065c21404c522713061d8a7d1bd02440c2"
     sha256 cellar: :any,                 arm64_golden_gate: "d13ebbe94c6f83f20d5e54b1e82b16811fcf08f49ec7e948e25f2d1f6847a3a4"
     sha256 cellar: :any,                 arm64_tahoe:       "d7096c6bf880a73709d0af12108c6692688023139171cbe08cf931c9a8a51748"
     sha256 cellar: :any,                 arm64_sequoia:     "83b25e095be2d03fda04742c1c917ff6d5603d4c5ec2e6070f0e555f03e7b701"
