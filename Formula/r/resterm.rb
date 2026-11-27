@@ -7,6 +7,7 @@ class Resterm < Formula
   head "https://github.com/unkn0wn-root/resterm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ec4ae20887bb665a7099a8961fb172ad1ce48b00f2fdf4c0d864162ee3f8d0a8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39a0b3f59727c96e2c98ba1fe91903bbe57838732db95674ca23c25e638105ee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "39a0b3f59727c96e2c98ba1fe91903bbe57838732db95674ca23c25e638105ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39a0b3f59727c96e2c98ba1fe91903bbe57838732db95674ca23c25e638105ee"
