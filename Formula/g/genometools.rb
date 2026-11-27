@@ -9,6 +9,7 @@ class Genometools < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "39193bb9e5114f4fefc679d10c21cea6e6065c69e775722de69748e903cce60a"
     sha256 cellar: :any, arm64_golden_gate: "49a0d0c8d0718c9183129c5875cdcdba4eb9d4966570bd76af5c23f76a15e0b7"
     sha256 cellar: :any, arm64_tahoe:       "05632d53beda8b77c23b66e677fd9eda9895e8f953f12757db1985d1a575feab"
     sha256 cellar: :any, arm64_sequoia:     "1bef1866c00bf15d61215426a0bdfe8de571c3a628979c3481dc637e0d4ea84c"
