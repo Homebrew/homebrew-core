@@ -13,6 +13,7 @@ class Duplicity < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
+    manifest_sha256 "3b79a41f0733b89ffac6882597768d4897ab43cc94e6e24b95bd5a001fabce30"
     sha256 cellar: :any, arm64_golden_gate: "111e393d7e9edc015d0d4e7d5ccdffe638cb15e7c944ffa9e8543870feaa5285"
     sha256 cellar: :any, arm64_tahoe:       "cd3fb97eb06cc15ae6ad317af496c30f9f2d5a4769370db1d9824b43c2cacf7f"
     sha256 cellar: :any, arm64_sequoia:     "168f7355a67dd49710f1a207e4d03f2fad8bccda18c7205c0fd52a4886cb43da"
