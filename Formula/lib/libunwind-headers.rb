@@ -7,6 +7,7 @@ class LibunwindHeaders < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9062264e93bd6ec1bcf74975324957de2db1aa2727b5339b8c1bc5551d48f802"
     sha256 cellar: :any_skip_relocation, all: "c577eb37a7a223cb6ace388cf86d3b3c436e41ca7d058d949458f0b204046a58"
   end
 
