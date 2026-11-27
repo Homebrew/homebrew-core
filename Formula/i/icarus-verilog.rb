@@ -17,6 +17,7 @@ class IcarusVerilog < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cee5ca3af7c30cf36e730f9cb74853017f21a69459dd5249d7df8dfead656ba6"
     sha256 arm64_golden_gate: "de6f721fcebd0ab67e29fc79de453070923656103260720973c96151de5f2d54"
     sha256 arm64_tahoe:       "0c26b4d54f2a1264a7b9105345192f303ffaa79e7e164cf705baa3c2df275871"
     sha256 arm64_sequoia:     "97e471a63c9695bdca2c6eee0926806c0fd145badb541b705f38431793de8b68"
