@@ -8,6 +8,7 @@ class Rsync < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f89081d77b7751eb101e5c30fbd4b63e832ab4bec4c93544a6a97dc735b3b0b7"
     sha256 cellar: :any, arm64_golden_gate: "1c0313039284937a72b2e44e40286a6feaa5bf8716e72a10715977113d3195b3"
     sha256 cellar: :any, arm64_tahoe:       "f8626ce976d60f1e87cf3399d25344859a98a0bacdf28b9fd3db2ac64a0f9f9e"
     sha256 cellar: :any, arm64_sequoia:     "3f7f5f7187f553064968ca84e685d18c78b4e9234f081ecf4a21ae799adc62b3"
