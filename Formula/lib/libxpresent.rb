@@ -7,6 +7,7 @@ class Libxpresent < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "74374116f56be48b18cb9011867b773645588e83158679c453e2320dc725553c"
     sha256 cellar: :any,                 arm64_golden_gate: "17764bb9c2cb7dbe35882dedb12236cb18d9412a059eec1a60a4aa5abbfb0499"
     sha256 cellar: :any,                 arm64_tahoe:       "e80e27e85c020a9a1391bb318b8a3e4b03fcce7be8dd604a2eb85c6ee1e56d01"
     sha256 cellar: :any,                 arm64_sequoia:     "44593e71ec9078d0ac8b918fec8991bd2415c7daebb067e7e4b6e881e0f8fd7a"
