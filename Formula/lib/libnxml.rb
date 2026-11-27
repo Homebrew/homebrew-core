@@ -8,6 +8,7 @@ class Libnxml < Formula
   head "https://github.com/bakulf/libnxml.git", branch: "main"
 
   bottle do
+    manifest_sha256 "eb6fed5feb5d832eb86d762a68acdd472ff80a12bb53a1cf4b92adcdd4f3ef35"
     sha256 cellar: :any, arm64_golden_gate: "d63a311d1bf0bf235b8daa053c37e01a85bb3470e74529cf1d82255b64fde8f2"
     sha256 cellar: :any, arm64_tahoe:       "73226db738bdc3ed56aa6881d2d26d7abff7f6149b14412cb02da556af835d56"
     sha256 cellar: :any, arm64_sequoia:     "2e09599d025ca50a967eeb385e630589c6755633e49a1456a6c2e73360bf4e67"
