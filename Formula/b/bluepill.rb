@@ -16,6 +16,7 @@ class Bluepill < Formula
   end
 
   bottle do
+    manifest_sha256 "ef78e6f772a8a4846c7751f9b6150dc71dff0fc1aa689bd0623f2760f487818d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e88f54d8ee8bfebbafafdef87a4313e7e1e892ec607355151806f0c38d883330"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69a5e53d56d1093929bd7f7cdf80718d832834e6c0b1790202508f3b935ee6a4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "40123f2981d2e731f0a15473049696f035e8e25f0b27752603550c16e904fd05"
