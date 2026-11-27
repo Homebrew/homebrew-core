@@ -7,6 +7,7 @@ class Pixtuoid < Formula
   head "https://github.com/IvanWng97/pixtuoid.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a9bb7186ce45ae57d3c22938244d29271552d958537bfbdedd188a25aaa361fa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78a5b627934836eced24c5ef93313bbb2e1740f4b84fb8cff18fb7e87faf2b08"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "84713a894c0a5479b576a095171c6cf2b57531723ceb24ef3b2e504df5b47b5f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5dedcdb33bb7c14212c0232b1a5d9ce8298c3f0b2767f78f498d721a27bf9fa4"
