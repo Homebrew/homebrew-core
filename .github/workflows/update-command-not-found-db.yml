@@ -27,6 +27,7 @@ concurrency:
 
 env:
   PR: ${{ inputs.pull_request }}
+  EXECUTABLES_PACKAGE: ghcr.io/homebrew/core/command-not-found/executables:latest
   HOMEBREW_DEVELOPER: 1
   HOMEBREW_NO_AUTO_UPDATE: 1
   HOMEBREW_NO_INSTALL_FROM_API: 1
@@ -66,14 +67,11 @@ jobs:
           run-id: ${{ inputs.run_id }}
           github-token: ${{ github.token }}
 
-      - name: Verify write access to the executables package
+      - name: Log in to GitHub Packages
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
-        run: |
-          oras login ghcr.io --username "$GITHUB_ACTOR" --password-stdin <<< "$GH_TOKEN"
-          head -c 32 /dev/urandom > "$RUNNER_TEMP/executables-write-probe"
-          oras blob push ghcr.io/homebrew/command-not-found/executables "$RUNNER_TEMP/executables-write-probe"
+        run: oras login ghcr.io --username "$GITHUB_ACTOR" --password-stdin <<< "$GH_TOKEN"
 
       - name: Pull executables.txt from GitHub Packages
         run: oras pull ghcr.io/homebrew/command-not-found/executables:latest
@@ -107,3 +105,14 @@ jobs:
           rm -f executables.txt
           oras pull ghcr.io/homebrew/command-not-found/executables:latest
           shasum --algorithm=256 --check executables.txt.sha256
+
+      - name: Publish and verify the homebrew-core index
+        run: |
+          oras push --artifact-type application/vnd.homebrew.command-not-found.executables \
+            --annotation "org.opencontainers.image.source=$GITHUB_SERVER_URL/$GITHUB_REPOSITORY" \
+            "$EXECUTABLES_PACKAGE" executables.txt:text/plain
+
+          echo '{"auths":{}}' > "$RUNNER_TEMP/anonymous-registry.json"
+          oras pull --registry-config "$RUNNER_TEMP/anonymous-registry.json" \
+            --output "$RUNNER_TEMP/core-executables" "$EXECUTABLES_PACKAGE"
+          cmp executables.txt "$RUNNER_TEMP/core-executables/executables.txt"
