@@ -7,6 +7,7 @@ class Gammu < Formula
   head "https://github.com/gammu/gammu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0984580ad9c1ae16946143fb1b3b002eaf792e08226d6e01c36b1db8ec3da3fb"
     sha256 arm64_golden_gate: "394a8dad1c655a3a025560db9693561889bcfff9537997fe43a3e30040eb4d7a"
     sha256 arm64_tahoe:       "490f0fe54de8609559b84810b73bf98144043d0091836c341581539b9ffd6292"
     sha256 arm64_sequoia:     "fca07192c895b768276f6bb63ee6abd0906225fa9e49398423effce6f851c6c5"
