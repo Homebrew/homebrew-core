@@ -11,6 +11,7 @@ class Bozohttpd < Formula
   end
 
   bottle do
+    manifest_sha256 "90c9165c9cd9d5271971c5e9589e6cf1778946300c404488853ee8da402ef964"
     sha256 cellar: :any,                 arm64_golden_gate: "6eff04e9122d9dd2fe08d154a255f5ea1f5c7ac2f05804fcdd14368a23eb5086"
     sha256 cellar: :any,                 arm64_tahoe:       "a4226ca0417b3a42426e8b9c66e35c27e5b33cde093b72b6367bd4e9af8bf3f5"
     sha256 cellar: :any,                 arm64_sequoia:     "a8bbb72a39b43114431d8fe63bb84828f3c07d1f3874642bde1d7e60ae84777d"
