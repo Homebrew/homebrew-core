@@ -16,6 +16,7 @@ class Icu4cAT78 < Formula
   end
 
   bottle do
+    manifest_sha256 "2541b6f2089d98e01aba611b8d01c0471a32835744701cd41fd8b73ac00d5592"
     sha256 cellar: :any, arm64_golden_gate: "aa02ab2fceec7d651d424608d74bf58d7a2561c715ca1ac302342abc103c82f3"
     sha256 cellar: :any, arm64_tahoe:       "91443211e1f1681ac6a0b6490a542e849176172a63f875704f51c03aa6dcaeb5"
     sha256 cellar: :any, arm64_sequoia:     "734f061857f642065372351d05fb8f1c8c2b9dc379aa8844fcdb702c0682ef81"
