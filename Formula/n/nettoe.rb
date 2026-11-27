@@ -6,6 +6,7 @@ class Nettoe < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "15d2e2634517de54b307e843b6e9c29fdc0231920c3af9820a6dd2ba43b2f327"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1165e412630f16ca97d814e5997787b16593ea538c8dcfb76427ecac27cf0d5c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6d3b32a4b364e84aab80cfa135679ec141419e601724888c54a31310cd85d1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ffd852b505b8793e11f4c16e537613fa07573361b0d6762145ba59727756298"
