@@ -7,6 +7,7 @@ class Havener < Formula
   head "https://github.com/homeport/havener.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2a5dcec1bc9096d892a68f64f0ece4d5c61ddd1a7cc1ead6c9343e725b849639"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e6bdee81b8cc435ae81f0a2df324fabb84aa72b46d7bd775ee4f35a62778176"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4397c0d71d256f7b8421d9594c5ee43c4f13b36b55bd54321537a24377b92545"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ce7e308cf1a51537d8a5a2d48ec5a024d6e7d340ca2f304e279512ba7e49bcd"
