@@ -12,12 +12,12 @@ class Ngircd < Formula
   end
 
   bottle do
-    rebuild 1
-    sha256 arm64_golden_gate: "2dad8f0e52214c496bbce97abd6cd1b7b64232b35089ff3278dd1b575ce4e732"
-    sha256 arm64_tahoe:       "87bc6a006ee2a63d03860f388378b53405cd2bddcfaa702e960f7d7af502eb1e"
-    sha256 arm64_sequoia:     "e8f213f92636952b0a7616a3022c32ec026af92c16c210b85b4131f5b722e158"
-    sha256 arm64_linux:       "e5b1f3ac2780bfd8c7a553cd92c79c5abe730e01577a50c97fdc3c3230d143cc"
-    sha256 x86_64_linux:      "d33cbb6f13b29f35c32fc26b9dafbfa9cc35b45d9c1f18c59e6f2f3c606a1365"
+    manifest_sha256 "4739a8bd910240246425127de82889e973bac9cc1bad8dfbf565990aaf8b87b4"
+    sha256 arm64_golden_gate: "56f14ab9a074587f4d39529d62c31d0b2fbd2b256b2e4bda751def6cc9c8c087"
+    sha256 arm64_tahoe:       "2df323d33b0203f8453a37401526db1e5e8dc3c17a6cc7bef50e3e5bf9535d3c"
+    sha256 arm64_sequoia:     "4c8b43195e0a89611d251fe1c2dd0ab2f1df8059e4ba0a09f71a85101d8ceb4c"
+    sha256 arm64_linux:       "65339d1c54a01fa8d145c04fb9a326d6809e1f7a8911fbf0ce0caeabc521b638"
+    sha256 x86_64_linux:      "682b5e11e7a4a93f0878394ac9eb79494a18a42cb1975329931541f8de155513"
   end
 
   depends_on "libident"
