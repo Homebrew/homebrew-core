@@ -12,6 +12,7 @@ class EcflowUi < Formula
   end
 
   bottle do
+    manifest_sha256 "8b7c81fb6a119ca3ddc314595257c55e4aebb8e59e55cdc75145ed609672fe8e"
     sha256 arm64_golden_gate: "963dba366a8bb903df5a956443e60f0e01d4aab897d82b4cd1bea6009cda6e0e"
     sha256 arm64_tahoe:       "95ed760643ca10144f66856d3dc065ae988a07fc9d51b3e5cd5ceca42c0afbf3"
     sha256 arm64_sequoia:     "3250cb2dc77bb852dcb5e4f1fbcabaab15aea11265210b0f5c9d0300d24153c4"
