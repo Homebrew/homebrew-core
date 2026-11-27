@@ -13,6 +13,7 @@ class Feedgnuplot < Formula
   end
 
   bottle do
+    manifest_sha256 "266b452122a6cd2657dac38d47331d2285840fcf34773dd75568e12f6f17e70a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8fe4f92d2aa2aad48a8e2cddca49259430001ae75c3c2b5e4bbec14bf3d5b294"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4aa93cbbde9e9eb7cf1e7055b9f05c5505651d7d12144562edd7df09f659494d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4aa93cbbde9e9eb7cf1e7055b9f05c5505651d7d12144562edd7df09f659494d"
