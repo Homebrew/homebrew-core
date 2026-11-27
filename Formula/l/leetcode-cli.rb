@@ -8,6 +8,7 @@ class LeetcodeCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "aee7ce8eab5b1302b66868ecf5e8cc5460c572f3634caebb1b26cc49463d0f3b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "999f2ba2df65348c2cdd045a12a13c2269884a0bcd8be92d7e911aefcb102714"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3181907993e5b87ccaa625d9432561dc02c844ba1df3eec71a8ee1ead47b0cb7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f2c4b7e80ba8bc455fc2fc4355081cfe5d8f8576e76d383d3c92d24708e3a44"
