@@ -8,6 +8,7 @@ class Rmate < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "28ce2dbf2f33a04185ca39e2245681aa986beb104f3ff854e512c54f5394261c"
     sha256 cellar: :any_skip_relocation, all: "fb6dd771050399730a0a7592fe0a135705a294b10fd02263bd6cfcbc284cee2a"
   end
 
