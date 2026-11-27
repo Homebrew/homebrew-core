@@ -12,12 +12,12 @@ class Immudb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78fddfecd5e4e31a882cf0fdbb110f0ccc812c85cb969a8f3ad558e4f19b75af"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05a0677a94130862db77cba29cc366dbf6839802de57314a8b27d15a6daa1a84"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17fdfefe8d6ef09fb53acfbbadce791fd0ab40d585c8ab90542d7ee0cbd3f757"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ea001725decd6a3e5a9c8634db35ae3bb2b7b6bc0e724b91c6eabef1f0472c98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4e18996fc161ad906666306907c227009fb7420d190b1a02bbc92c4d34836b2d"
-    sha256 cellar: :any,                 x86_64_linux:      "79e2201dd7f57e476e7a3fd69104a795d6cd285d8c8b96c416badaac6d2cd697"
+    manifest_sha256 "c101b0dabd63dce94b2c0b01abeb97bebbb316d4b9499a1125759e94020c8f6b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eeaec8edfdd9db3febe7b830201eee1155faa5db6c6ce9967aea644422966ebf"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d8840cd97fa44c50e6c7fbf4ddb0ffc0ea749168bd6839eb9c1eea1bb75fae9"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "de011e6e75a0c34a72039ec222b651e3508512926859b89114de3736f855c38c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "f95a30f08f2a44214097f25d6398fe99f733eb82f64fd1a2a3f4b91dbde6a8f8"
+    sha256 cellar: :any,                 x86_64_linux:      "b06c107b964b20d042a5deef729cf4852533d29439e2541900da41f4aeaa5afa"
   end
 
   depends_on "go" => :build
