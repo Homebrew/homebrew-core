@@ -11,6 +11,7 @@ class LibheifPlugins < Formula
   end
 
   bottle do
+    manifest_sha256 "612c581843642f99f07eafa9bc61ae50d54a63c3bf6ab579d613632418ae3029"
     sha256 cellar: :any, arm64_golden_gate: "d4dc196e0b515c875bda6a658eb440870490bfcc33c3f5e94c8ba16ff4715d7f"
     sha256 cellar: :any, arm64_tahoe:       "bdc5a65726583d24adcc7d7922d5d4ef2c5d2e5bdee1a6389c8f74ac5fc9ac16"
     sha256 cellar: :any, arm64_sequoia:     "bc39a9a63aeaad2434c493cb991e84377e16aba02f3d2fb266070a630cfd6d6e"
