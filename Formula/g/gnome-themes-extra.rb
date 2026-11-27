@@ -7,6 +7,7 @@ class GnomeThemesExtra < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "90225629d09401e8336e88f38d012a0397833123126cd7a221b71571c0871a12"
     sha256 cellar: :any,                 arm64_tahoe:    "9e5e267fbc5af1034574b620c50a0cd8cfff1bf91058f572aa4a557dbd1004df"
     sha256 cellar: :any,                 arm64_sequoia:  "24df82bb97a97e948c509c9271d68ca1d2111646883c81c927531887a4e0d313"
     sha256 cellar: :any,                 arm64_sonoma:   "bc49731aec4652327aac34ead43265575048800ac75e769fb8effc8e975f6bad"
