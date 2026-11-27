@@ -18,6 +18,7 @@ class GhcAT910 < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "9a60548315aea387135b9a486719b4017d0ea3057af4e2412636f2d820a754b0"
     sha256 cellar: :any, arm64_golden_gate: "0b09d754f86551d012b098faa24bb62cc10dfc38803dd4cba45cf40c97e57106"
     sha256 cellar: :any, arm64_tahoe:       "f9f79ec44ee0a4187321782b5c96ee9301b91b86858b671d65dd2808bf6acffd"
     sha256 cellar: :any, arm64_sequoia:     "cbcfaea28ed8efe45ad4c097588bad4205ab6988666e8b7e062e5c36b93a090f"
