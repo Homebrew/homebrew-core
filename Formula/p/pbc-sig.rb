@@ -12,6 +12,7 @@ class PbcSig < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d2e80235521b20ed4607559309bbae45cc57934f808fe1b5dff97017af39146e"
     sha256 cellar: :any,                 arm64_golden_gate: "4a314d2cfe3d43009ced70d80cf54ec19dd4bd9cac1058b747680055bf47710f"
     sha256 cellar: :any,                 arm64_tahoe:       "8440397e7b7310071d6ea7b5d9696d3f714e6b5cc0a49e87b9f2d8eb76d3959e"
     sha256 cellar: :any,                 arm64_sequoia:     "9af9663103707abefc59beba05f6b9e61d969944c35fb504245e9642c5d46d26"
