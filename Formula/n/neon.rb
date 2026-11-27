@@ -14,6 +14,7 @@ class Neon < Formula
   end
 
   bottle do
+    manifest_sha256 "a5ea1a77e9f0195ad43cbe2672c6c72fb16a26af86f837cccf1bc4855ad5f2e3"
     sha256 cellar: :any, arm64_golden_gate: "873bb4028810772ed1b8210fd6aadec048f467cfe9bb8d8f105942cd344eccd9"
     sha256 cellar: :any, arm64_tahoe:       "7183fc8bc520c33bc6035e9db16944041d3404bdde0c4502e7dc24c792c15647"
     sha256 cellar: :any, arm64_sequoia:     "e8b86db494627b56ab14aedd7352968826dacfbdce7aa3245e7e04b9277e07ac"
