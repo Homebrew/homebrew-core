@@ -6,6 +6,7 @@ class Recur < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d75eb45a10d478b3eb8977c91599553cd83b7e0e400433cce16bcc4f9df9dcb3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d7639a6d92b9ea12b4a50bdc63ac6b26eb3116f41e1a2d52c36c69c0ce2bdc6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4c24b8b4545201201bd84bb0e471463a64e897491dcbe3880cde57c24efa958"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e4c24b8b4545201201bd84bb0e471463a64e897491dcbe3880cde57c24efa958"
