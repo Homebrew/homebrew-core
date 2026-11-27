@@ -12,6 +12,7 @@ class Hz < Formula
   end
 
   bottle do
+    manifest_sha256 "1be322cd15f815a352de329b39a376253d9bdeb2ef1f06523a9b0c66b4c90cb4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69c4f17bd9afe8ad207221f96a5188911ad1b243ee6b7a8823a02ad260d239df"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69c4f17bd9afe8ad207221f96a5188911ad1b243ee6b7a8823a02ad260d239df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69c4f17bd9afe8ad207221f96a5188911ad1b243ee6b7a8823a02ad260d239df"
