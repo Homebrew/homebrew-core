@@ -7,6 +7,7 @@ class Fnox < Formula
   head "https://github.com/jdx/fnox.git", branch: "main"
 
   bottle do
+    manifest_sha256 "247af4cf37c67a95e3c76ced072d005a9a7489af30d9fefe2fc505daaec585f9"
     sha256 cellar: :any, arm64_golden_gate: "36ea322d97789f1a1b776d6cf564359ef0c993be9076202788379973115e4bd1"
     sha256 cellar: :any, arm64_tahoe:       "0690152634092b2e93d2d20afe699537807f5b466b20b1b9a338d56571c3a164"
     sha256 cellar: :any, arm64_sequoia:     "edf075c6db7f803ff4255196bf96e08115523dc2d8d1087f55daeaba799d3bd4"
