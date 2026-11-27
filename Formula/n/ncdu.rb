@@ -12,6 +12,7 @@ class Ncdu < Formula
   end
 
   bottle do
+    manifest_sha256 "ca98657cea9f013f0c772bec6f8952f0e4ee3f887586b8817bc49c4a9a1a0509"
     sha256 cellar: :any,                 arm64_golden_gate: "138b29744585e45a993e785bda2c8ec6133044227821878a1dd0d6fbc17321cb"
     sha256 cellar: :any,                 arm64_tahoe:       "9a08dd709b18d87d90b016b8685d56f2de8d537e437ab44cf4ed92203df7a245"
     sha256 cellar: :any,                 arm64_sequoia:     "d56b0ffa80c15fa5758a8b7b59525687a1a04ce043d540936b6db917c7c14c30"
