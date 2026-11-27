@@ -16,6 +16,7 @@ class Libsecret < Formula
   end
 
   bottle do
+    manifest_sha256 "dfdf85d8199fe0ceeb27809e0709fc35d780ec3bc6d2bc018cc9e21908b06645"
     sha256 cellar: :any, arm64_golden_gate: "41f3810a797fd4fcf98d87551060a39367d9c3c74eb0496ca5bd01161bf4fe44"
     sha256 cellar: :any, arm64_tahoe:       "96a2a8ba0615e96d9edf6f1bc076aa351e24d68c44cc3473ef72851902203489"
     sha256 cellar: :any, arm64_sequoia:     "14b138d76afd6d6974fdd8346c0fa466b84d57a95171f44e0a6b9899cfd64718"
