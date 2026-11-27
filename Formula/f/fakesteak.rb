@@ -6,6 +6,7 @@ class Fakesteak < Formula
   license "CC0-1.0"
 
   bottle do
+    manifest_sha256 "d153eb5af7ef502f36a19b40ca000e41c5a57b8d142ff31d653fedaf2618297c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eb1ac5ceec24172c7058a524aedd19201701dd1c12672ae8bc5a1c1133124a9a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db338e1df1d6d6a935d23eaf2504754d52ae853e34dcd6a67e946fba16ab440c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "509606cd242afeeabce6a61fb81907e05fa8b0104522e2278fa63d221f42621a"
