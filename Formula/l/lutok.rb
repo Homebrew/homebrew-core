@@ -1,10 +1,10 @@
 class Lutok < Formula
   desc "Lightweight C++ API for Lua"
   homepage "https://github.com/freebsd/lutok"
-  url "https://github.com/freebsd/lutok/releases/download/lutok-0.6.3/lutok-0.6.3.tar.gz"
-  sha256 "5f33fdf8be36c2d95b866947ff49aa4a90ffd6f10a6172d9ed9243f6a6b42f18"
+  url "https://github.com/freebsd/lutok/releases/download/lutok-0.7.0/lutok-0.7.0.tar.gz"
+  sha256 "a4cd62a30490ead9ac7502bb49bde2ed7b7dcbe7f7d2ec76a4f5f0be4133939f"
   license "BSD-3-Clause"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/freebsd/lutok.git", branch: "master"
 
   livecheck do
@@ -13,12 +13,12 @@ class Lutok < Formula
   end
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "af1205184b8736260d544a0dda5103b6cf7a01b98c2ee06ad227b6e7cd8bb249"
-    sha256 cellar: :any, arm64_tahoe:       "06a6f522db223ff41e67fb28cea46f0e24d8f09a457b5d8caa69944e08ecb0a8"
-    sha256 cellar: :any, arm64_sequoia:     "477f60409c479d51f20b6467b202b97919db6e55809957f06ec541b7af7ac541"
-    sha256 cellar: :any, arm64_sonoma:      "12d966b62f0fafcce6a8fe964a756e10db17b607ca556890f9f982d6daff2eb5"
-    sha256 cellar: :any, arm64_linux:       "cdc4e113066fac43195aee24f430ecac72ca79074f14c6bc2c60def0b8b9188e"
-    sha256 cellar: :any, x86_64_linux:      "cc327216db439ec4987c36ddd4a72a6353d65e64ff89400fb86328a0bdbde126"
+    manifest_sha256 "38471e985fda4e169d3342470c939cd8a010f99aae791abcf79f0a0718b939b8"
+    sha256 cellar: :any, arm64_golden_gate: "5f4e15c33b6ecad87007c0f4b5bd66866d4a99ad2f0c2c18aa62a20cfa98a1f9"
+    sha256 cellar: :any, arm64_tahoe:       "bcf39cd2c05e74018f490c6a2546ac9c509532dc616e79651eff39bf113a458d"
+    sha256 cellar: :any, arm64_sequoia:     "75eb9ca416a0f00dac63766a3f0962afe375b505b449bbade2914a6a79a15f7c"
+    sha256 cellar: :any, arm64_linux:       "ce8e7c3c328eb02859e0aead0a619519573f8d0907d8337d5a406ff3b0dc7810"
+    sha256 cellar: :any, x86_64_linux:      "80264c88437d168095dd6cac18e281a263dcc45c0d66b96dc04257578fea0030"
   end
 
   depends_on "autoconf" => :build
