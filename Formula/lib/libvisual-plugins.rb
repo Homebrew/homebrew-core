@@ -7,6 +7,7 @@ class LibvisualPlugins < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e2d82081f71e63805f9d418cfa89fb73b96f4bd4bd75421e2e9c11bd6bd66bd7"
     sha256 arm64_golden_gate: "f7b760e8dda2d8e5a4c60d65828cf1a7b4c2699957022eed2e295ac1f49e03ac"
     sha256 arm64_tahoe:       "cee3c8717fa02d4ae61e93f3c5c18a3715b82ff6b66536b0433177f7c85b3b90"
     sha256 arm64_sequoia:     "23cb3d6dfaf0b7a7fa70f093e800bde199612aed1a5a36a8be3b1a3fc15c5b17"
