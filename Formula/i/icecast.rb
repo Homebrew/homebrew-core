@@ -17,6 +17,7 @@ class Icecast < Formula
   end
 
   bottle do
+    manifest_sha256 "c8cf674594e7f4779eb05de6ff59152364d0d9119d9ad22ce91cc2309c1b0fcd"
     sha256 cellar: :any, arm64_golden_gate: "fefe32bfb60ffe18efbe3035c0a2c67d673370b56fdb9a96018aba384175c91c"
     sha256 cellar: :any, arm64_tahoe:       "b0781f681f51a39f7c40a7331259047ac989b5ddb5f72c02b7b84ebc516c3a4b"
     sha256 cellar: :any, arm64_sequoia:     "32f81c5b48760d1dafaeb5d2731aceef27c6653926b21a090edf6af80912b635"
