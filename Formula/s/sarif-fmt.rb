@@ -12,6 +12,7 @@ class SarifFmt < Formula
   end
 
   bottle do
+    manifest_sha256 "11f3e49f1df784892f87eb6b4d0477a91ae02b3824ac1d04f6ecf93e39cb074e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f5c649823aa2ea26971aa92ad98ddec1fb15e5de464b6ed85ee115bc55461e66"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "082dcb6c6de6d371b362f9e59bdcc672f211be143b81bb5a59e4bae020eba4cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edc1f6bff6d9bf0921ce1480207c7a5a66cf35fd694565338d463a33c9e138f3"
