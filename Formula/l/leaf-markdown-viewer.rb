@@ -7,6 +7,7 @@ class LeafMarkdownViewer < Formula
   head "https://github.com/RivoLink/leaf.git", branch: "main"
 
   bottle do
+    manifest_sha256 "293bb67a6c22267d367f3d68868e9a48d6df7e1bc14aaeb75d49185f7feb57be"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ee8b2d452d675982672d359fdc610e14cd6468afceb0fa4292e88a645e13c4b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13a958f07cc5e6de1ffecabcc4079d9fb5f9babc7c3454a0dec901eda856c8b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3ee6e92ef49f2e3936c5a0c13f0fca1187a13cb441f2268c8fb026e0e264a59"
