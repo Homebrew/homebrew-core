@@ -1,8 +1,8 @@
 class SupabaseMcpServer < Formula
   desc "MCP Server for Supabase"
   homepage "https://supabase.com/docs/guides/getting-started/mcp"
-  url "https://registry.npmjs.org/@supabase/mcp-server-supabase/-/mcp-server-supabase-0.19.0.tgz"
-  sha256 "9eae249cd877c1f426c0dff75ec34866ac2ae33b1a816a48314fe91be4f37b94"
+  url "https://registry.npmjs.org/@supabase/mcp-server-supabase/-/mcp-server-supabase-0.20.0.tgz"
+  sha256 "e407ea2afcbac2ed11cd71231214d18edda075623bac8a0092cb60d225bd4678"
   license "MIT"
 
   bottle do
