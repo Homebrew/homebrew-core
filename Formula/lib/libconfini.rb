@@ -6,6 +6,7 @@ class Libconfini < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "18854b790d2c183a3b59f3478dafd488c1f5dc3667bf40aeeed7a7ea97bc758d"
     sha256 cellar: :any,                 arm64_golden_gate: "a155ef9a345071e60cbee2a8093864a038d3d85747b7fa314fad47766bb5c428"
     sha256 cellar: :any,                 arm64_tahoe:       "eb8f8042903c062720e17741771d92b7c53aafba9642780f0ccda86f6abf2c80"
     sha256 cellar: :any,                 arm64_sequoia:     "fbb299d21214fdc73d660ee6cc61ea6a6aff2d85558db6095558be0202c30440"
