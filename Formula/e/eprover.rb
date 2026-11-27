@@ -1,8 +1,8 @@
 class Eprover < Formula
   desc "Theorem prover for full first-order logic with equality"
   homepage "https://eprover.org/"
-  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_3.2/E.tgz"
-  sha256 "074c8e5fc3062476341ce790fd15ad8004d322d6b6627844bd2768a8830bd4ae"
+  url "https://wwwlehre.dhbw-stuttgart.de/~sschulz/WORK/E_DOWNLOAD/V_3.5/E.tgz"
+  sha256 "918f8c5e91d2b63ee59e4617ad20ca7d052805661335ee271e874ddaf9357ae6"
   license any_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   livecheck do
@@ -11,15 +11,12 @@ class Eprover < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b86f9eab83c6ceff9a61a55a71f2ec28c399eb05fa1553b2a3db53516f5e4d43"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c01a004aee61d877eecbb457c34217d181e560455e5c70faaaaaecb3d753d59c"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "223a449ee66977e8d1dcbb7754ae3abdb46f22fc543ce0649051b720c23a2586"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "f690b2f275b3a37b8ab622efae78bfa9170f40cbcf46cb3750efe63d6a471838"
-    sha256 cellar: :any_skip_relocation, arm64_ventura:     "6fe61cbeabd5935b6f020064ab65bd93b36cf4c69069ec207fdfd29db08026cb"
-    sha256 cellar: :any_skip_relocation, sonoma:            "4211bca5c7075d8a387d3a3f112270bde241a9f7e9621cdf631224d67b21a55f"
-    sha256 cellar: :any_skip_relocation, ventura:           "0bbb0c7af2039115ab05e98ee1b355fe4f33610d1940ad560b824cbcacabf9e5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "d8787c5f0cb13c1ca7093aab86bcb2e80e03b321faeacddd0ed325c2f1ab7a55"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "9938d476044c8d9a8733cd3e0417f42aecdb488ce719f3c2eabf32d151dbd6ba"
+    manifest_sha256 "e0b932fa38aff1912a67cc0a15dd81aac9ac4077d40516f8d58aacb8ef898765"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1cf25b9c8d0e38548b2c4f92c19e6e182bdb2e4b5d6fb04f22c6528735f91188"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f409e72fbac896fc8f64f36dc3e6729f168d99487eff1b93223d80ae06b9824"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "639699bfcdbb32d5de388af9a4f348b593a42bd1770c7a85e21db00c842374a4"
+    sha256 cellar: :any,                 arm64_linux:       "07210148a0004a0f947834aaf15de8059f5dbca740c40f0be73d530a9be5fa5b"
+    sha256 cellar: :any,                 x86_64_linux:      "58cbfc399eac9dc1e55930e73a4357a7a9174277f04b42700caf5e8bceb5ffdd"
   end
 
   deny_network_access!
