@@ -7,6 +7,7 @@ class Nmstatectl < Formula
   head "https://github.com/nmstate/nmstate.git", branch: "base"
 
   bottle do
+    manifest_sha256 "dea11c31bdac58fd3f7cb770ae30ba14cafbdfde7211fa6ec1ab4fa08b8adbe1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "610ae0ef5624766a8bff603e5961105413472fe983a6a5c407650f5b73dcddb5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e65a8b1ebb23c2c12b4704fd6269c28a66f484c4694676d43f3f877388a6ce6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7425522460fe852ac3896f662ed353cfffb7f2c094252ecf93c762ac767a2760"
