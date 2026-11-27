@@ -6,6 +6,7 @@ class Sexpect < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "25592dea5cb86e3f0e00de800dee3f882067e7536d3001cbef9cabb658eb1c9b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5545ec694fe01c5ed816e23e344551de5f873d8475e52f92d4a43b4695401468"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69d2d2d4905013f26bc6e74a74963c07dffb0f816e508b70a4f147158980645a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3fd7a08ec1d5133e29c9a6743c9a7164b877a1b92e3f3e4c0a67f07ac7225a12"
