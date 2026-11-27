@@ -17,6 +17,7 @@ class Showkey < Formula
   end
 
   bottle do
+    manifest_sha256 "8fe5f3e158ffbb865e0bd4019ed24ad401800a3d455b6022704affc24b0f1bbb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ac383e67560f13a9f3da8222bf83f3454921a454834b30bd9514776d931bc88"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4db0ec95cc9b593dd603119093cc1cfb0d05fec67165b381bc936269aa11519"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b7eb7df2a48d0b831c30a17e94c1c2cbd2559649b697ca1e8214e1c5cca463e"
