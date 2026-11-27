@@ -3,17 +3,18 @@ class Nuitka < Formula
 
   desc "Python compiler written in Python"
   homepage "https://nuitka.net"
-  url "https://files.pythonhosted.org/packages/5f/ec/a9a448d2c429865483fdecf3e4d60e4dcdb8738085337cbd2482ec6468ef/nuitka-4.3.5.tar.gz"
-  sha256 "ca1dabc274b95efa7a46597f464ec27484b30f32cb89872d14d66541284d4f01"
+  url "https://files.pythonhosted.org/packages/50/82/deda400c3a6316a16d6e16f83534ee237cc31d11bdc3c4b96893f3f6209d/nuitka-4.4.tar.gz"
+  sha256 "e38d9d1efbf50fb50166384ef8378370fd67e3b755a6fea2c82e0a06b9cd0d6b"
   license "AGPL-3.0-only"
   head "https://github.com/Nuitka/Nuitka.git", branch: "develop"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0188a52f9933cc7d31aa3cd93951340e58db38d97b710d4ec4aaf2b2f1b4ac70"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1198a1d4fcf5bfc1542e9c4af7f3e3562ec46ac05d44fccfd9d0032f3e2f4c44"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae252cd556be84cec2b78a3f2d6200bee6a725f0899ae9f41a3fcc21bfb8c340"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "54686dbab16609ab61b21478c82ce1d611040093e0bfcacc07554fa22488eb7a"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7b9c286eddd181faae28d5a3520ffcffff30a19071ac84f8737e173106a53b62"
+    manifest_sha256 "1c47ddb2f4562959c132d56a040e799f8403de0ac217b2fe46c272482e10be46"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2cfb6e2c837b4a28bfb42ad9470bc4941fdcb9aa0169317f0582096920a8630"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ff97f695d7fb07a46af2bb56cf9bdec485f3270e9ad5843c06ff4238bd1cc96"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2ae7d9bea8e5abcd38deaf4570a830520105790c5dc9406f10a46ab0936b95a"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "48f2bbb584b24a458a94e994a22e55ac4ce0ade0aadbbb09405c381f880d3b50"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "68a9049078028f92bae92096b8c58a36dbaed279687c466d14be682bc727cf69"
   end
 
   depends_on "ccache"
