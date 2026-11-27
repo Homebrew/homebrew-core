@@ -11,6 +11,7 @@ class Hyperestraier < Formula
   end
 
   bottle do
+    manifest_sha256 "aa72692c1e4d24720e960e9fdc4d099734bda31b5ea02fb2e2527c383390dd01"
     sha256 cellar: :any,                 arm64_golden_gate: "655a9e5fcf6431871fe11485c5a6467cd9ec384d27c1b0b74fdbafd2eef88672"
     sha256 cellar: :any,                 arm64_tahoe:       "fddfdaa28011b5308a0195b816212d061a3b707dce5275ff26bb47ab09e22841"
     sha256 cellar: :any,                 arm64_sequoia:     "18f652254c3b115ffe6fad67be39dee791ef6b8f456122618762417eef74f4cb"
