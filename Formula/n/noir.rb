@@ -9,6 +9,7 @@ class Noir < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "c2211e645f88a8b7dbcb8356222ed4d080a55061ddfbd1b1576b149519a89e35"
     sha256 cellar: :any, arm64_golden_gate: "157d2ae43c05442a23ef70517e3c0ea9af76793c8bbde62d7007dce4705c9d57"
     sha256 cellar: :any, arm64_tahoe:       "fed8a2f9a97392ec4010284078c665a58b02fd007ba79ac06d269978a10dc14c"
     sha256 cellar: :any, arm64_sequoia:     "44f296f43d069b157410b90cb11597b5fbfc673d599632d5deaf866094f9feff"
