@@ -15,6 +15,7 @@ class NelmAT1 < Formula
   end
 
   bottle do
+    manifest_sha256 "1383146a07dda238bf6003a4a319761db10baae5773299cbed56904a1bca20d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f837d613dde0b98db3285689b320c5cb9e42599a71ec484e92516623dc48d793"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53f8edd30d1303df52d762976e90009e90a132e5a58a315092a1710e8e8a20b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5cadd15d9c85516144e699e7f523deef166fea0a7ddbb14a509f5de3455a6da4"
