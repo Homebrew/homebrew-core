@@ -11,6 +11,7 @@ class ClangUml < Formula
   end
 
   bottle do
+    manifest_sha256 "a67d6515c0bdf071f02ee9c59e16b7b2c707c311498c4497290de1221648cfd3"
     sha256 cellar: :any, arm64_golden_gate: "f5cc2099f1a23b73bf3523722a6193ad3149673f537881469431e88c3ac53cf1"
     sha256 cellar: :any, arm64_tahoe:       "b0973e4c60640441b2437dbf1300330c2edbd15dacd28d91f36fe2002de78dba"
     sha256 cellar: :any, arm64_sequoia:     "b0e81d9d8c5bb4b5132d5a2b7a0c2989ab584a7454dc1a740025a51a64ec22b2"
