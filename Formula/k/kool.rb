@@ -7,6 +7,7 @@ class Kool < Formula
   head "https://github.com/kool-dev/kool.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fe8763d7a197e3446307603a40fde267e9f8792c22ff3395d5b10e631df98d6b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d62e1a9905ea31f7d225809f47ec27d8c467a725324c21215b1bf2ff9252475"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d62e1a9905ea31f7d225809f47ec27d8c467a725324c21215b1bf2ff9252475"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d62e1a9905ea31f7d225809f47ec27d8c467a725324c21215b1bf2ff9252475"
