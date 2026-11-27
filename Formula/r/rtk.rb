@@ -8,6 +8,7 @@ class Rtk < Formula
   head "https://github.com/rtk-ai/rtk.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "ac918edd0f69fd597c9b85ba3d3e9648bd70c29546b67702bdc8566b928d9012"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8e2913824b76cf9136fe0a13218ae0cade1d3eea72ef379aa870a5270f37659"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "89021f16223ffb64f07a994e3430300202df8182de9e154f9365ab3772ed3b8b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c1d275bc857e1cecbcca6dc7be09f10430a860841990c069508d15d441fc165"
