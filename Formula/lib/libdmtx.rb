@@ -7,6 +7,7 @@ class Libdmtx < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b763188f9f285db3b63569e1d6a628595ecfeef501bbf56843bf08a9eaf04800"
     sha256 cellar: :any,                 arm64_golden_gate: "29fa6d46fc8976253466ece40d455d0229bbe42866a16e50d242f7f77dab856f"
     sha256 cellar: :any,                 arm64_tahoe:       "0d00ba79d2fd03fa854321252a34f897d33324c970bef878a9f86386a7c9700a"
     sha256 cellar: :any,                 arm64_sequoia:     "df99e1993d7ed98ff3d11e02eea48940d0eaf29c81f74c45a381832c7e714de0"
