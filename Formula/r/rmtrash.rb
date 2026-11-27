@@ -7,6 +7,7 @@ class Rmtrash < Formula
   head "https://github.com/TBXark/rmtrash.git", branch: "master"
 
   bottle do
+    manifest_sha256 "db26eb59c9ce275738f47f3bb8b9055927956b9821cb7a92725240605ef7b131"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe5cb4b875478f0309d990decd8bab029c47b25b39180f825d41f864048408f0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "981d9f56266fa946aa13d353f85b897961e11e60438000d7cb7d20186eb210ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b29262f0a97d2e0e0066fd86d80587ca2306b3f66c63947f9dd608c8d5f79ca3"
