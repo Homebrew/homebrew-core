@@ -16,6 +16,7 @@ class Libewf < Formula
   end
 
   bottle do
+    manifest_sha256 "156be034cc67a7c6f498ae001813b29dd37bd9d053aca3412647876a804cf8b3"
     sha256 cellar: :any, arm64_golden_gate: "2d62fc084f4de25b3fe1a8384bcc0fcc4b6e086e65e2e60db752894442ae8847"
     sha256 cellar: :any, arm64_tahoe:       "f6077d81c5adc0bf4c458538df465ba3a5ea24ae1738ff050e17ec9156cb6af6"
     sha256 cellar: :any, arm64_sequoia:     "7aad689fe7db2f0b8c0aa27e8a27462ed202e2460a1b3d3576ba41033474041a"
