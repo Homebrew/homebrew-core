@@ -12,6 +12,7 @@ class LttngUst < Formula
   end
 
   bottle do
+    manifest_sha256 "c0eacac6684b319160067e1a1ab2bb5e8a6c6c8ce7095f2147eb3f191900fe26"
     sha256 cellar: :any, arm64_linux:  "b9783f4c14aaf23eb6f138baadf288eefdb2887e08d52a301a45a2d915dfb927"
     sha256 cellar: :any, x86_64_linux: "3708d35a7f05a9b4071f7155bd2fa77ff0914987e2a7be9a8a4b1ddd5362c749"
   end
