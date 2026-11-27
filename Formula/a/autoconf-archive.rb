@@ -8,6 +8,7 @@ class AutoconfArchive < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0f90a2c1c44f87247f3c163a08fd56175e719c288c2af99eab90ac2fa61247f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6624b5bf9ac866d076970f7c651e696e8b10759261f8d8517d00ac6cdcbc16c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6624b5bf9ac866d076970f7c651e696e8b10759261f8d8517d00ac6cdcbc16c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6624b5bf9ac866d076970f7c651e696e8b10759261f8d8517d00ac6cdcbc16c"
