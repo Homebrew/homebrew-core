@@ -9,6 +9,7 @@ class MistralVibe < Formula
   head "https://github.com/mistralai/mistral-vibe.git", branch: "main"
 
   bottle do
+    manifest_sha256 "13d5fb8e587a3a71db73f683716330faebbc646fb9ffe13f23a8324115dea039"
     sha256 cellar: :any, arm64_golden_gate: "03333309646f5a530c365b68040ba594cf4e3afa4d019a663665a15224d41e44"
     sha256 cellar: :any, arm64_tahoe:       "1d5fa58c8f9751b899e2df94e45f81624f9b07fa118040f27a1091452965d2ca"
     sha256 cellar: :any, arm64_sequoia:     "cda2f71c0627270ab180d47293be1a37734a9910df641c6c66d20007bc936432"
