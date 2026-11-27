@@ -7,6 +7,7 @@ class Syswatch < Formula
   head "https://github.com/matthart1983/syswatch.git", branch: "main"
 
   bottle do
+    manifest_sha256 "146e79d69e8841be869bbf68052ab1cda8d5b8fe3eadfeda41d265c9057b6e4f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db019de70464fb8269a825c681762180b7a1eebaa7d0d9c6ec955e53423241b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3ed48b9df8e6893c22f52418d978744ac269fca7a396fd7ed895be50bc9c752"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "beb22ff345fa2f068c28b781c284f4cdf60e5c56c3f3118f864ada20fd786e7a"
