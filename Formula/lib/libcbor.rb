@@ -7,6 +7,7 @@ class Libcbor < Formula
   compatibility_version 3
 
   bottle do
+    manifest_sha256 "3439a5648e71219b2fc3d2ffb42660d1972325f5f20138c7a5327e7e11d27d67"
     sha256 cellar: :any, arm64_golden_gate: "3f8eec24c56884c2cf6b5ca3749cef68d71e94277a97be05b24fd942b3d63fe3"
     sha256 cellar: :any, arm64_tahoe:       "4a39325b18be5ce01f57a27618141a70b2887cd9cd0e824e857ca0439aa95f91"
     sha256 cellar: :any, arm64_sequoia:     "2f4c156c3a23ef829ce56b6a696bd0fec01fb081f56a461ec22170ec5b17fe7e"
