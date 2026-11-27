@@ -13,6 +13,7 @@ class Libosinfo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "04915dd0d97f394fc579a5315ca24fe7d76d97ba50f56dfbc98b58306be976f6"
     sha256 arm64_golden_gate: "c43baf7c2da53bfa891aba28c3babbec49993be804a91d88d291f6507253789d"
     sha256 arm64_tahoe:       "4112a597915e4822ba7f67beae18af91725b4ccce1771917ec0c9076201396c2"
     sha256 arm64_sequoia:     "fe7b7b7c87405e3719fbde6309318ca2ab771116debb3ec7c2ad15b1d8463ab8"
