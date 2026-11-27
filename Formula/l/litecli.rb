@@ -10,6 +10,7 @@ class Litecli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ab97bd7acfe173a9a5dd7ca66db44662b6f6f2664d164c97079dd2035fe44e03"
     sha256 cellar: :any, arm64_golden_gate: "4dacff3b229de9b5d8406699488acd1b9a6a162f0e0ebe89235d6ba5448653ae"
     sha256 cellar: :any, arm64_tahoe:       "9138a0f607efe957d171b7df883ff49e3ae8e9dd80332c2993a03b43c7140beb"
     sha256 cellar: :any, arm64_sequoia:     "8b0e2e860c1d570571b6a82b22b34eea3a63330ecb179bf6cb90b8f6e135f226"
