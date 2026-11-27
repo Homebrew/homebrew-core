@@ -1,12 +1,13 @@
 class Openfasttrace < Formula
   desc "Requirement tracing suite"
   homepage "https://github.com/itsallcode/openfasttrace"
-  url "https://github.com/itsallcode/openfasttrace/releases/download/4.11.0/openfasttrace-4.11.0.jar"
-  sha256 "f094cd314f0fc4236f513f66fb39260a16f72e2320beb6b4fdeb7940b9b8cf87"
+  url "https://github.com/itsallcode/openfasttrace/releases/download/4.12.0/openfasttrace-4.12.0.jar"
+  sha256 "7b26b6698f571f1952b543c6268765c503263f8978915848f654bc2b9dee68c9"
   license "GPL-3.0-only"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4ac3e3e4b3f754b2ca13027ff6c1601a37e1859d6d307e506a197ca5365cfa52"
+    manifest_sha256 "79ebc13a8f27dcb296fcb7ea648b0c3068136e5b597220d6161a178733c8cbd8"
+    sha256 cellar: :any_skip_relocation, all: "25e0423d85f4897de73c20345a047e7323453faaf31827edb1b7ab6beb54ff0a"
   end
 
   depends_on "openjdk"
