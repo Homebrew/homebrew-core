@@ -6,6 +6,7 @@ class Gffread < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "546d49d04730286c3fb72d9209631384570d3cee80fd185f3b9ce213ddc0aafc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53e80b38bb19a7a2a5baa441e23c5a5a1a007e810159e8274fdc6561334bb23a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc146d732fa9d7ff8575941815ef0d06f3a57330da3a7ec9f18daa3c92f56e5f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa002f0123c04ce5f9e4b24589d6487bad99a2381b739f01edee872c4e58a2cc"
