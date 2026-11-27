@@ -12,6 +12,7 @@ class Normalize < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "93a54ac1dec8c64b2ea64dff0894da6e37dae68634d69cef0fe303f0e6e53a58"
     sha256 cellar: :any, arm64_golden_gate: "88f17f9d389a5f00ee68eff5510c19ec300ee9a49fa3998d234227b4d93a50cc"
     sha256 cellar: :any, arm64_tahoe:       "f0163055e113a859911c0c03c9fda88323d0895ba8b37c6347456dd174f5ce7b"
     sha256 cellar: :any, arm64_sequoia:     "53b16243f5e01a1b903a687774320986f9a27f92efd6af821aef4e3d7f354467"
