@@ -11,6 +11,7 @@ class Mrtg < Formula
   end
 
   bottle do
+    manifest_sha256 "950a635619698d185229b73aa0eef863499790bfb02a7c0320b8c4d08a962dcd"
     sha256 cellar: :any,                 arm64_golden_gate: "fe9e8a4af423a76c0f047a583926afce95d6c05abcb84e62c10b371b0dd5b32a"
     sha256 cellar: :any,                 arm64_tahoe:       "16df1972b9200a5138dbedde9f1dcf140b35c32adc3116c72b51d95f4f8e02d5"
     sha256 cellar: :any,                 arm64_sequoia:     "6f57406896304b19653d1d9ad0f1d803709fe72cde0b1cc7acb141a126617dbd"
