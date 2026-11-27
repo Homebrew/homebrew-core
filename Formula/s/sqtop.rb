@@ -6,6 +6,7 @@ class Sqtop < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "4a0508f441fa6a63a6cf19dd996ca974340fb87aa171d438d61684ea6e4dac2a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe3c0928c5bd2333f2360c55b71d4d788984899966fafdaa6e7d900892408872"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8850e7822e47d6a8371e31210542a776644252960fe3cfdbc3a348563d047d4d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86fa975d403a9957261b33b293324908d327eff19831b705463866a7a4ccad2a"
