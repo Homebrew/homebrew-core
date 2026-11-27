@@ -18,6 +18,7 @@ class Robodoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f22bf7838b9bcb9ecc4630df0a2d52ec3b3d3f4405151e9ce490b3cc45a1113f"
     sha256 arm64_golden_gate: "8ccd20db92bae4cbac0463c823a86ecf9fbf81e31e2a9380e630b9a316a33e31"
     sha256 arm64_tahoe:       "66e865a5ed9bcff4857a56a4e3377c3f7d08150ebd477d3ea585c2607f3f159d"
     sha256 arm64_sequoia:     "20487c94420045784329d4f876f1292f4ddf54e015153bda4999ef5365b0e770"
