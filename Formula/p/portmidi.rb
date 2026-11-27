@@ -8,6 +8,7 @@ class Portmidi < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e70a586a19414bad6b49fb5d4f2e79652650aaa7545605eed4d9e82b90b278aa"
     sha256 cellar: :any,                 arm64_golden_gate: "5ae7928664e7328a97da4b999e9170448bb4972ca81e1331449d65fb74d2c826"
     sha256 cellar: :any,                 arm64_tahoe:       "02be979b495e1a9e201b22e8e136c97a5c81930e169c1aa38b83b46dd82f73e2"
     sha256 cellar: :any,                 arm64_sequoia:     "68919e82b5dbbaf1150ab3f9c4b3d2a58a68836229ff1ae12a77319d020394fb"
