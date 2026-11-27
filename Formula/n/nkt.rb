@@ -7,6 +7,7 @@ class Nkt < Formula
   head "https://git.sr.ht/~fjebaker/nkt", branch: "main"
 
   bottle do
+    manifest_sha256 "b5b11e795b3c8e9f4b65a413ee136b78bd1563f1595046b4129ff2e947a5d439"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01575bb03b3bab97fa3b022bd108766facde5d200fa8c557a19b02c6d33f9fd4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5d86080df616f5dcad2cc5ce9599ecbc5fdbfb80a8db24a3de0bdf050ef35c8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a630b18e8691b0dd606ddca5b04429006ec27b116f18c3a809f9cce2d74aee56"
