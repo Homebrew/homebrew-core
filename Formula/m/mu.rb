@@ -18,6 +18,7 @@ class Mu < Formula
   end
 
   bottle do
+    manifest_sha256 "3145538aaeceed7ac6044c7966db8bf3b1b51ccacc46cbb81f15a8dbad86c000"
     sha256 arm64_golden_gate: "81457d8a83e505445fe5f6d253f376e31c70620027b3289331a9b88e4e12b7e8"
     sha256 arm64_tahoe:       "e01e887be6b15aacb1c693902926645e672a890d7876ed1236d1c8c76084e5d2"
     sha256 arm64_sequoia:     "8e2496099cf4e129b35e529e82fb8fd1100aa0d9cd3779b2fc53cd1ed99425d5"
