@@ -7,6 +7,7 @@ class Souffle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d6a574b38d5174cdf512a3c4a1bd556beff1e180301cd7ac21c6552ea92b63f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec13234dafe4585d95b3f4fab7b1af209342581d19a7d94fe32b26566f924a1f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f47ca5761cd191ab3adfc4c9fbe1d9377faeed4b0a650ccdbc1143f18c31b10"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb1d96230756607da2975eb34cc009b26c60d83db1bb208c08dca77aa91c3202"
