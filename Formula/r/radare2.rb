@@ -12,6 +12,7 @@ class Radare2 < Formula
   end
 
   bottle do
+    manifest_sha256 "4af07cfc1e559ffec42fd18bd9afe669d24f2cca97698e9e2534bfcd9f0bcce1"
     sha256 arm64_golden_gate: "0bed9020b7c86c96978a80d221fdec515465fc40cc18c57355b795c788a56c94"
     sha256 arm64_tahoe:       "71ea634a42bc91f525bf64100e7e6a7289c469e9ce00a65bcafcb7a4aeef20cf"
     sha256 arm64_sequoia:     "99e156b9163a7617f6573ac804cbecee9066db97a99c0d38f166ff1c610f16d4"
