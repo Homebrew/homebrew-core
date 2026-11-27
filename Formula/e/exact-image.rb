@@ -13,6 +13,7 @@ class ExactImage < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5c615f1bb569a2233402e144d0f5bb4a1ed1ff86a6b63ee1776915cd8addb4d1"
     sha256 cellar: :any,                 arm64_golden_gate: "41585bfde5c0dd261e5335131a494767f1be5369b3b67e7b3b2035eeb38a113c"
     sha256 cellar: :any,                 arm64_tahoe:       "3408ea3e3e84443be2c9f8c30c93f1968a623030872acda7cc6b8a3523e4b99b"
     sha256 cellar: :any,                 arm64_sequoia:     "1088bf426db191ce01896d0f6bee7d239125996016df7886c596b6c10c91bf93"
