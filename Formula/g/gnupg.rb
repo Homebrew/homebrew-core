@@ -19,6 +19,7 @@ class Gnupg < Formula
   end
 
   bottle do
+    manifest_sha256 "bb0f05bd6bec3db12d7d806ad2c3eef3a735c6a80caa1ef07775226e94ae665f"
     sha256 arm64_golden_gate: "1cbc3ab22b562d1bef04ca0d00b0917195870a80b6a7de1051d07c1b44ac75c0"
     sha256 arm64_tahoe:       "16b53990074dfe23dbe2342a548e8b72a91a5697c522d1eef3410fe8be5c1e0a"
     sha256 arm64_sequoia:     "91163072d2759706aa41c014bc865019900eaa815ab5bd017263ab059694addf"
