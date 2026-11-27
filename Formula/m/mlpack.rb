@@ -12,6 +12,7 @@ class Mlpack < Formula
   end
 
   bottle do
+    manifest_sha256 "08d5cd49610faf58332fefd02e96beb4a43a7662961dfef4006eda84c80e3c07"
     sha256 cellar: :any, arm64_golden_gate: "6c3692744f5ede2870da3e3ee424d3e7f892c924bfeddf516072067e60d85d73"
     sha256 cellar: :any, arm64_tahoe:       "2e6b526883e1455de59704ca34e42e2775df5f78bd4d2e04497eb0b5cc9f420f"
     sha256 cellar: :any, arm64_sequoia:     "75c24e1ad876fe3a34c4c07a86cec2988c7d3d40e41b81c57f883f345cca2840"
