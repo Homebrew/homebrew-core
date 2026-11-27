@@ -21,6 +21,7 @@ class Fstrm < Formula
   end
 
   bottle do
+    manifest_sha256 "30512bd873a985d8880cb78a76c5e49f74a2c5f2c6ce3158515fcdf0003a577d"
     sha256 cellar: :any,                 arm64_golden_gate: "ec644c36850d8d3e1e0d6dc668744333fec8972d8adef2fbbf95972da1b901f7"
     sha256 cellar: :any,                 arm64_tahoe:       "7b3467f8c2db26584cb092d8d9c4fe769f459d6a015c7f935d335a885c996697"
     sha256 cellar: :any,                 arm64_sequoia:     "d33b95ae03b379e72f20439898cb8c87f896d2994783778803c7701d92a57998"
