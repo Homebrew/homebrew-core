@@ -14,6 +14,7 @@ class Libart < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "629ede09f5fdb2398b5b713a46cc9bac2c1e46ac746202044e65ee7977cebb1a"
     sha256 cellar: :any, arm64_golden_gate: "be799736f6211c996469b082d4c80e54069a7dee71712d3c55cb9902f7d38a0b"
     sha256 cellar: :any, arm64_tahoe:       "53304bb1b776948ef6b9bd1a57a6f18be0b60fefee04e6fc107ece7e31939f3f"
     sha256 cellar: :any, arm64_sequoia:     "de3242b54a2271d41f9a2ad9a54ad56211a71d20a98efdceaebf8202e39cd304"
