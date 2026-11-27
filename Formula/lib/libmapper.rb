@@ -6,6 +6,7 @@ class Libmapper < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "f9beb0f7c77b0ad5b5b3038699cd7a3fa85bdb8f2dd7269130c2192107bcfddf"
     sha256 cellar: :any, arm64_golden_gate: "7272ecf4a40f633af6ad32f05eb83ff05eca7af0c94e86fc1bb54e3920902364"
     sha256 cellar: :any, arm64_tahoe:       "27ddf9e8e34d4d07bec8d295d5f7247ad5cf00f343a4de46be3cedaf07aeb52c"
     sha256 cellar: :any, arm64_sequoia:     "c1861237377da869de11470ec21c7f26cabdbeed401a0c1ccbecaa36827931c9"
