@@ -7,6 +7,7 @@ class LastpassCli < Formula
   head "https://github.com/lastpass/lastpass-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0356895e20f970a091e2200244e4dada6398b1b7494a2ebbdee35d576f0c39eb"
     sha256 cellar: :any, arm64_golden_gate: "89bcb64eac7d65b08a6930f0b9102430e2a7547deb608c04ac0f4bcbab3dac59"
     sha256 cellar: :any, arm64_tahoe:       "ddf402721a0dcae43b46d5a94a0722b6f673556a9031b5bc00e5a0ca95e39413"
     sha256 cellar: :any, arm64_sequoia:     "c0d0e46bd160a919974f2f67af9560457f16ec55c4d079cca9dbd439236b78cc"
