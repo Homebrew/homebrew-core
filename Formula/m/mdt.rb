@@ -7,6 +7,7 @@ class Mdt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d2d276d6aef2b494f491041fba56cabb65737d0214ef8273e7a6a1a342359ddb"
     sha256 cellar: :any_skip_relocation, all: "8d78fb5808e2fcae85e5e07e39c1c3b9aabe54d2acf8888d98330f7b45eec989"
   end
 
