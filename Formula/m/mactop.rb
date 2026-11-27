@@ -7,6 +7,7 @@ class Mactop < Formula
   head "https://github.com/metaspartan/mactop.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5bdab58f70fb2b60bb26eab3d9ab179f4ffbe462fadc01195ecc959dca0e428e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7fee08638a11e9845ed401c8b4052fb008c4d6411b919dc40e9c392dc44508a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "022a630c6fc8b62bc628f3175a441880cf294947dcbf7627bdb7102b7448731f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54e8c7ffde9b4211a22dc356607f298f6894a3627a67327f4482ed0a15b19a3e"
