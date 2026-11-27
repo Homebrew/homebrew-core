@@ -8,6 +8,7 @@ class Mgis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "14ed06b49595982ec433e5a87cc6feed05627e8d7a51e27871bfb05082ac28fc"
     sha256 cellar: :any, arm64_golden_gate: "93d3ad11a8a7be016d96188709fb77aae71e09945fddae2cd922115340c32b2f"
     sha256 cellar: :any, arm64_tahoe:       "65d74f15dc392729d425774c8af8a30aaa280cc8ec6551eef21420f8c5cf95a1"
     sha256 cellar: :any, arm64_sequoia:     "0e87d8c6178fa5ee20cdf9da93d7fccea5fb2fe808dd9bae82ba2a40a30c21cd"
