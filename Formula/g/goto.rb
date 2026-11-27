@@ -7,6 +7,7 @@ class Goto < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "13ac4f1eba987863bbb3ad204c1eae69926b7c14dd2747d70b7f9452a0e33da5"
     sha256 cellar: :any_skip_relocation, all: "43777539bca93f8ed079e3c3701cc37128ac7ba6b98006b91c39a0aa2e6b09bc"
   end
 
