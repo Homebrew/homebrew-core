@@ -7,6 +7,7 @@ class Kuto < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "19399eb7e55fac666a5ca1ddad696b43c1bbc04aed751a0eb2271f7cc130aa4d"
     sha256 cellar: :any_skip_relocation, all: "d0b642c13ec7b23fd229ef06d6ab335cb2cb3eaea4785644006ab84572b0d8bf"
   end
 
