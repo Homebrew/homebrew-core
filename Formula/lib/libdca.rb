@@ -11,6 +11,7 @@ class Libdca < Formula
   end
 
   bottle do
+    manifest_sha256 "b21f4fabfc0a01910aaaec1713824f70f8fa5cfa66bbe73ed8883abac0fe6ad9"
     sha256 cellar: :any,                 arm64_golden_gate: "49eeac1096b4a6a7ef8c806b3bd0b7452c8e76bf2b447c202fbb5648b46aac90"
     sha256 cellar: :any,                 arm64_tahoe:       "d61a15b00846c5be3aac61ac0f853f1f86a3e8dff28aaf3df07f546cc8ca1c4b"
     sha256 cellar: :any,                 arm64_sequoia:     "0737b7bd914efce32ae323ecbb5fca30b14b39ef31d704a482883598303518b5"
