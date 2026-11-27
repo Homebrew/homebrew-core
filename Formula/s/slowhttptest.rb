@@ -7,6 +7,7 @@ class Slowhttptest < Formula
   head "https://github.com/shekyan/slowhttptest.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3ff199468b7b67ab3d3a244a73887ab443c4a9f60de02dc0c802fda2bdc93529"
     sha256 cellar: :any, arm64_golden_gate: "a1badc963312bc7914fba98612947774cbdcaa3e74690d7c9c2db5c56cc09176"
     sha256 cellar: :any, arm64_tahoe:       "1c19b284bf057656fd5c6c6743493b1d06571ca5badcfb83229ca57de7d12324"
     sha256 cellar: :any, arm64_sequoia:     "1ab4364c0107dcc24d4dcbd0198b1c6da3a4e8acdadae31b829cf0660d1733d7"
