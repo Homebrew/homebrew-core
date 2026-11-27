@@ -7,6 +7,7 @@ class Pacapt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3892b0288bc2d48d77b47bdb7f8dc7fc480273f25e72d3f951a761c1522a3f29"
     sha256 cellar: :any_skip_relocation, all: "6691ef309d2ebf4b001358e04a24bf93569f5dfc42c31811cadffd6c3e605444"
   end
 
