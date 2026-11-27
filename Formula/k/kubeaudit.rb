@@ -8,6 +8,7 @@ class Kubeaudit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3845d4ab90466b3dd627f7e5aa7d94dd9e335bcc2808b0cf345ecefdcac2aa45"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed7e03a89484195517aa271235e43c8c9a9a3a3f85bb8ab5984c5c51a08dc9b1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ed7e03a89484195517aa271235e43c8c9a9a3a3f85bb8ab5984c5c51a08dc9b1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "ed7e03a89484195517aa271235e43c8c9a9a3a3f85bb8ab5984c5c51a08dc9b1"
