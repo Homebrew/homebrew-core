@@ -16,6 +16,7 @@ class MinimalRacket < Formula
   end
 
   bottle do
+    manifest_sha256 "af85fd4440d368dacb864ac14560d5b5fc492a1b435ead8a7001b8bd40064dac"
     sha256 arm64_golden_gate: "b2348768dd8bf3c68b2d0809d00ba96c282db1bffd28e9f48ded2229cd17ce3d"
     sha256 arm64_tahoe:       "3479008f05780ee8b5512897c73df988f1744dc88ca782fe94c23fa1346b0e33"
     sha256 arm64_sequoia:     "ac8f242e9b8601b3c4b2a89314f2bb24c7d73b8d58071ab739c6e7f97d2548bc"
