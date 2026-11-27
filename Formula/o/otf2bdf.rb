@@ -12,6 +12,7 @@ class Otf2bdf < Formula
   end
 
   bottle do
+    manifest_sha256 "2edeb8af81eebe7cc931a9939a8f63a17e80d45daeca3163b33acbfd91fc5425"
     sha256 cellar: :any,                 arm64_golden_gate: "6ae4e298fd34bbcf4b61e3b7ff1c6eb87032e45c81448b369989f375cd1b8d41"
     sha256 cellar: :any,                 arm64_tahoe:       "5a8a13d81081f27e6115aa7096839a6db582bc96ac1aacfea9fb19607214d629"
     sha256 cellar: :any,                 arm64_sequoia:     "51d176016f0bb1ef87c844b246d9f733e594314fb7fbc19f7a2a4bbae330cf6a"
