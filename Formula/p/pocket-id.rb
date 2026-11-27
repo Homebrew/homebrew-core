@@ -7,6 +7,7 @@ class PocketId < Formula
   head "https://github.com/pocket-id/pocket-id.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9b9e6976b01dc723db70c5dc9fca8977750314c81a45f5515d957d9fa4e9f849"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5db29c8746544f321bdc6585df7990d3b60e0849081520e8bc2e28b4c1a7e46d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "583c06c29a31e14b392d23ac187981714d70f65871d3769de8b23ce502125f65"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eafec707e4c3c59dca51c914bebd1689dd39491a003b6ea7b77862f09e7c5253"
