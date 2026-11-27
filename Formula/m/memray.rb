@@ -9,6 +9,7 @@ class Memray < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8d5423750e2805c7d93858a63ccc10872159452b2b7a5f9e4b1808c7ff3dc427"
     sha256 cellar: :any, arm64_golden_gate: "9d5ad6d244d087d7be54b5a3d3e7c9a34727eced75c38338f85e239d35ceabca"
     sha256 cellar: :any, arm64_tahoe:       "d62562682513908aa5340b837faf7de2bb57cc7640d30002bdba91a949c98f02"
     sha256 cellar: :any, arm64_sequoia:     "b5b6e0fe8991439b8d7cf74ff1232e402622566f11645b44af5a0db72245ae1a"
