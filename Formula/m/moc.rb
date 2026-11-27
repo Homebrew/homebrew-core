@@ -38,6 +38,7 @@ class Moc < Formula
   end
 
   bottle do
+    manifest_sha256 "000c4c1057424cf62d29c91ca802e3c46c2183f551fcad526ac36f626c360c97"
     sha256 arm64_golden_gate: "6f1bf217e7e316c2d5f70fe684066aa0c488e870129245387b209d5dbaae2780"
     sha256 arm64_tahoe:       "bac52905e18eff309f2c6ba4077a3008f1ca2f449055406f511767d881b3545a"
     sha256 arm64_sequoia:     "0c9fa6831440aa41b25064c9f2d93e9827f0d4f1ea0f2e1184def14041366d1b"
