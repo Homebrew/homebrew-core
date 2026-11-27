@@ -7,6 +7,7 @@ class Navidrome < Formula
   head "https://github.com/navidrome/navidrome.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8bf1f76bc8893328bd7b18d73f9aeaac1d22fcfc6fb381ba7312adecf50916e1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9d62ee244f4df3a9b0cd71d76b6c58add98c95128cccbaf7a0896057209c041"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b165e1886d4ccbb903f7e0f6dd6fd8df900d0bac885631a51a5f362c7782b58"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70a4927cca0d766152bc82042acaefc5a291579e26328ba7e74fbfb80becd1fe"
