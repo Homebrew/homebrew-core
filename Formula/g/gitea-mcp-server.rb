@@ -7,6 +7,7 @@ class GiteaMcpServer < Formula
   head "https://gitea.com/gitea/gitea-mcp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4a568849ceade863df9130dd0539ebe7881d9567af0cc42a5e8151de420cf088"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a48c51c993e8588effcf9eb7f3bf32633173c6a7d53026751fa1aa9f8d201e9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a48c51c993e8588effcf9eb7f3bf32633173c6a7d53026751fa1aa9f8d201e9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a48c51c993e8588effcf9eb7f3bf32633173c6a7d53026751fa1aa9f8d201e9"
