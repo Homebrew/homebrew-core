@@ -8,6 +8,7 @@ class Groff < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f53a60948b51e757d658ea3e5d790f219184ff76f7941833213debdbdebf212b"
     sha256 arm64_golden_gate: "ea2d8950c93c1e203086905878ff6f277e8faaf4fa45e4da82e98d7b8d16d492"
     sha256 arm64_tahoe:       "68e14746516c3e7381cf92b3b3402421c407ae552cfacfa97953921343c5d91d"
     sha256 arm64_sequoia:     "831040cedb3140fd0293677be39198e162211db7bc40aeae5c8b9844b9f756d0"
