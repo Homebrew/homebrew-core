@@ -8,6 +8,7 @@ class Hqx < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "61cbf88106475bd1c8759c07e73f99c280d7b52dcc2164afaca1da1b2859be99"
     sha256 cellar: :any,                 arm64_golden_gate: "a2e740376ea5a1a1d5e6b2696fe9fc0f706ae03d14b7d9c7386424e6e11e6ae6"
     sha256 cellar: :any,                 arm64_tahoe:       "5ba31ed02cebc80553587975d7e1ea4085b44268a69b51d354049e245ab9b541"
     sha256 cellar: :any,                 arm64_sequoia:     "26d37d607203ed3b98a2d4c95179d450618364a40b47f1b786d62490d4089f6a"
