@@ -17,6 +17,7 @@ class GtkDoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "67dadf96710bd66c4ba2f73be14360da112c6c20b87befc31d398fecd94459fb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13ff63b764076b1127f04a2695abb91780a770207368865682289962569db2fc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a9b23408f1392435c126035a9e42f6232325b45e074be2e25cd43ef90ae9f7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cab42481acb3dabc5eeed76a1e7e83414e076e166c55b977942525db3906cdea"
