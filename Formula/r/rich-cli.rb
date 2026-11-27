@@ -10,6 +10,7 @@ class RichCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9aa33479d7fc3260a621ffbb6a7d2acc5d6feed5e4eafc2a068c61021fcd5a0c"
     sha256 cellar: :any_skip_relocation, all: "3a369b9982741fb5cc3479091004ec62767e434a9ade7b118cf58c10fc2b18ca"
   end
 
