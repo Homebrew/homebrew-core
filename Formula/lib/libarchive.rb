@@ -13,6 +13,7 @@ class Libarchive < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3cc3a1c1c58a07fc90b9db205b1f22726951976767198065e52c5ad97c3083bd"
     sha256 cellar: :any, arm64_golden_gate: "80ad35d8783fa7650af7f21d58473d6a9eaa1b9939de5d2da2c916b9e9d92f30"
     sha256 cellar: :any, arm64_tahoe:       "ae94cc6cd4ecd7bed1cc80889b704806eba9d43c6e9afefc7f5ce7191f64ee92"
     sha256 cellar: :any, arm64_sequoia:     "93fd0ff4cb92c465817383520120baae8d404fb1c97e7bd1c48ed2d23687ab4e"
