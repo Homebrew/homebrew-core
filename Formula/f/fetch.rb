@@ -7,6 +7,7 @@ class Fetch < Formula
   head "https://github.com/gruntwork-io/fetch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "610a9dad09948d69da0218283238d3e498885f7a9fb73f37158302bdc3c19ee9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e37b4a1556f7e21331afe8de0320659a42d8a06fa7cdae07b0a135d43034e85d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e37b4a1556f7e21331afe8de0320659a42d8a06fa7cdae07b0a135d43034e85d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e37b4a1556f7e21331afe8de0320659a42d8a06fa7cdae07b0a135d43034e85d"
