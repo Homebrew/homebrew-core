@@ -12,6 +12,7 @@ class Imageworsener < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "63ba89494d04eba9e5ff66abbfd41d2348e1e8d403fa62908f7d169a56fe71e2"
     sha256 cellar: :any,                 arm64_golden_gate: "dda7a0476e4344ec68ad0c238472eeaed772b03ed38ea12484e76d16b0ee2eb5"
     sha256 cellar: :any,                 arm64_tahoe:       "2ea02018611e3a89bd678dc6e1daa778ed958dc03d69bdc4a447cd6c43502ff7"
     sha256 cellar: :any,                 arm64_sequoia:     "0631ddddd165edc2731f57d2b3cf01513c202b4fb68a8b8d9eece1c24ce9c487"
