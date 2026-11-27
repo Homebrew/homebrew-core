@@ -7,6 +7,7 @@ class Fricas < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "3d451f22341bcdc1f302f0c18848d6702cdba5135fa57a572356d241b48b7955"
     sha256 cellar: :any, arm64_golden_gate: "19e8489980440724251e2239cc19851f6704ba045da5d1314ffd8205443458e0"
     sha256 cellar: :any, arm64_tahoe:       "84fc55f7ed80bc4d3f329518891a3cd7e11a275f02377e1743f10a22672889d1"
     sha256 cellar: :any, arm64_sequoia:     "9d00fe01185d295f387e5ef8b6f59253b684957ecd4cb496f2cadfc1537a5460"
