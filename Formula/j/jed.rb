@@ -13,6 +13,7 @@ class Jed < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1d59c0789f3739d0287a56f9a3cfff4a3e5a68e43711fc176008f840571d2eb0"
     sha256 arm64_golden_gate: "c2934b5d0db28ecc02e669f626324ade10aa90331f555540cf3d9e2921b2fdc9"
     sha256 arm64_tahoe:       "6551a5b3bdfe80b3b1446fbf84950d6c14a9b08c511c08af2424b4722821cf78"
     sha256 arm64_sequoia:     "fb9ec5628c166beb0d57337b4c0fb126d53b57b2dd310f81dd8fb5e78d231c93"
