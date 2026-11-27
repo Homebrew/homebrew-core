@@ -12,6 +12,7 @@ class Ov < Formula
   end
 
   bottle do
+    manifest_sha256 "d5e8c3a7e6cfc54353592cb804c6e6cee9ed54a17037f66aa0eb909eb17f3467"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0948571ca33114301de28bd0603d09a35544b594b97cb497366a642fb9af209"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3be862544a9f634bdd3e90abd3772887ed1a7bdd96c7043e1058cb56822c1491"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e851911df688f51760308e6c4e97b9696d1c5b8549c807f4fceba3df92188b38"
