@@ -11,6 +11,7 @@ class Dump1090Fa < Formula
   end
 
   bottle do
+    manifest_sha256 "9bc8f7ba56fbd228ea0c84c408a64dfae44df6ccd01092d05b1830256242e51a"
     sha256 cellar: :any, arm64_golden_gate: "cd83e16ac3ec96a9ad640e72266a7939960082c68f460d7b47383c16149419b0"
     sha256 cellar: :any, arm64_tahoe:       "573beeff957511395d526e3723a40b1e234c89ab146e19e6382905f56f7fa4ba"
     sha256 cellar: :any, arm64_sequoia:     "d526e8f838272ec56798dd124ce3f0227f97eae5de2ef00f3cb9a8eede93e457"
