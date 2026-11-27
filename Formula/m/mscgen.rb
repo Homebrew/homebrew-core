@@ -12,6 +12,7 @@ class Mscgen < Formula
   end
 
   bottle do
+    manifest_sha256 "4001542080fb42522ced6a25f3bde45ae5502ffc81ab68f6321900cffbe4c722"
     sha256 cellar: :any,                 arm64_golden_gate: "78b8573a9f3bc390b7111c352ce3daa6ae99946f50c6d58f9f515ee4a5ddf654"
     sha256 cellar: :any,                 arm64_tahoe:       "d9abf0e71de052136e3396ebb6bdfed805d918edb13f252eb052ab35e1704b89"
     sha256 cellar: :any,                 arm64_sequoia:     "ba7b5077209a47d9ab11f8d19d7d47ee0162f1fa30c20fd1e464c699e64eb9bd"
