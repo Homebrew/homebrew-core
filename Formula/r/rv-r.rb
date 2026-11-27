@@ -6,6 +6,7 @@ class RvR < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "eeda386b8639eb10c89eed8fbe5628d5b91bc286fb09168cc6fa3eb362ebb99c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad5a1eb4c4a31072d52edcbca0c22133a2146c5f95e69a9ac94987963dcaaf0a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8d52ce9d6e6418205f2daa774751a6348cf77c3e811f08c6238ad0e9b9cd5778"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46bbf206cfe1227dcd75ff5596eea0eff0a66b5133cf0cdb42a995d1f01d240e"
