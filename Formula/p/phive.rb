@@ -6,6 +6,7 @@ class Phive < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "9f8427c5f6ce84472e80614dde8d318c6b8c82ab7ef89b56ec090603a99015e5"
     sha256 cellar: :any_skip_relocation, all: "67aba197622d728b6cd0ebd19c76de0ac6806aeacc29d46a95d41f00dd63a6f3"
   end
 
