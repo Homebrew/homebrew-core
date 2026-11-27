@@ -8,6 +8,7 @@ class Libheinz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "356d5b21371642361301bb17c68d4f3fe182798ea1f540fc0f53009e5873404d"
     sha256 cellar: :any_skip_relocation, all: "92053ba8b668210ee819953fd0e47dd4d41ab8b8315920f9b9d4939bca8cbd01"
   end
 
