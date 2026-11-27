@@ -6,6 +6,7 @@ class NowplayingCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "9f38221f0c29644c8e059a35e4d6487d8c2b7e1e744773ad5f59ee2f0838de61"
     sha256 cellar: :any, arm64_golden_gate: "1e5cc8e3840e09a7e558aa65acd3b39cbae7662824d7140cf22acb3966b24bc2"
     sha256 cellar: :any, arm64_tahoe:       "600fb00263c9e681254f24f85b53ce6115685b277dad95388eaedcd72d23e015"
     sha256 cellar: :any, arm64_sequoia:     "79caf948bf5f319c89aa58297b6e9af714e08ec7abf621c262cf141f287eb518"
