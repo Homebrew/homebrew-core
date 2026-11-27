@@ -6,6 +6,7 @@ class SpdxSbomGenerator < Formula
   license any_of: ["Apache-2.0", "CC-BY-4.0"]
 
   bottle do
+    manifest_sha256 "8bb28c5776fbce3288925460010417824754a2554a5885d1a605b174c648af37"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3d5f579302dcda06b94f698a0cab5ecf485d399b4e9da91a33433a992c2684c0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "ca95017f73479fc8907cb24a392bab8d15c69789c565d0f2129502e00d520742"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "489910223a1ba3e54e06461065428738c88018a25f2d82f7fe4e87bb8e8eb552"
