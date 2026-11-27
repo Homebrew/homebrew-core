@@ -12,6 +12,7 @@ class Far2lTty < Formula
   end
 
   bottle do
+    manifest_sha256 "06849cad893af81da5b74b32d718b998e77133b808506fff200d7ed687847655"
     sha256 cellar: :any, arm64_golden_gate: "cfdc3bd2b41791a333a069508ce22391647439190fe728d360f8545b2798e4c3"
     sha256 cellar: :any, arm64_tahoe:       "010a4560c73c26662eb6c518a46117d04849a640bd9a8fc8439cfa7b1b75458f"
     sha256 cellar: :any, arm64_sequoia:     "72762b902c45a7544580275e38ae9335b56583066d877e827f0309ffce5589e0"
