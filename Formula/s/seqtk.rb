@@ -7,6 +7,7 @@ class Seqtk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4b27d507defe2bdad1c20f9457bf5adc3d1d3b0ba828a99d8108015e5364c2f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba55aa1a47bb61728e394b37b12792283b7bea1a5b3a9552fc92358b2e756f04"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c3982f3b57602403755867dd064d61c6f02f091100b46eb415b1899ad133a95"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2eca65fdd2de251a51446543a85d9525a2b37e5d97a4971403526c7559fef3c9"
