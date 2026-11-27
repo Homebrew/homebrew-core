@@ -7,6 +7,7 @@ class Ratty < Formula
   head "https://github.com/orhun/ratty.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fb92eaa1e558c9a6503f651a381dac3e6ca54878c2daad0d92718315093a95e8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a471ae15cef2c50cb3495fa9419046846f0f849c318907eb1ad488ecb71efc1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f4003bd686864dc30c3f83baf1357998ba86ffd4fc9d93570353e02c70e39b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5dd6707591317814c459ec59e22c1afc1f9a1321cea6e383e8ef497f65d5a13"
