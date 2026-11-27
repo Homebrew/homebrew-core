@@ -8,6 +8,7 @@ class Pc6001vx < Formula
   head "https://github.com/eighttails/PC6001VX.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4e10bba728ae2092bd74ae6ed063342c3c3839fcbfcd724bc93bca2335da184f"
     sha256 cellar: :any, arm64_golden_gate: "4eb97be7123af4388e7be76738fcd391c75f9934986b64bc0bb57f8b4bbf3564"
     sha256 cellar: :any, arm64_tahoe:       "f58926515a888997481b36bae4a43ba78d3ba9ead362a8eb45310994b5ac2978"
     sha256 cellar: :any, arm64_sequoia:     "35f1ce08ba615c14e59996e6a3c5a4d2cf752bb056e5f57825476c4b01dd6d08"
