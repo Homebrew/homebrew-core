@@ -6,6 +6,7 @@ class Squashfuse < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "1eab907da0cc72a58800cb97d5776fc8b06d2f25476c06ef21857939238ff612"
     sha256 cellar: :any, arm64_linux:  "48e1563ce44a6bee3d99184c9a47af2da16707b66e48804563d558c183a69a66"
     sha256 cellar: :any, x86_64_linux: "3bdce0f0ca9b1bf3e5a9537528da7bfa3134b03c45e9e7b301d2e161d651e5a4"
   end
