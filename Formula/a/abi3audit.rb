@@ -10,6 +10,7 @@ class Abi3audit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1a606210d508fea4b1d86c369ffa9290b87649a752a64b79fa9f1230d474bd8f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7696e30c03be5fb8ce445ab25e823fe6e2bec1692d7addebab505b89060bfe69"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7696e30c03be5fb8ce445ab25e823fe6e2bec1692d7addebab505b89060bfe69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7696e30c03be5fb8ce445ab25e823fe6e2bec1692d7addebab505b89060bfe69"
