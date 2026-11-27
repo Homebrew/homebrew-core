@@ -7,6 +7,7 @@ class RushParallel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0b1d5cf9726a621233ccecd5453b502a223bea679f30fde415aa30e2b0895576"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ef36a242003edda3c94f614eb5a099d9b0ee4f1f3d89f419256c1c6ca7d8db8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "179ebdefcf1e5ad4cd8ef8eee61bd13aa889adc9e72d124b1807e01f78f5e6ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb5756c2392cea2b8dcbda597c8d6e397138b71d653888b81d382e5483e99bcf"
