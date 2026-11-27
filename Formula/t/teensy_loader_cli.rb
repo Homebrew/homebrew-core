@@ -25,6 +25,8 @@ class TeensyLoaderCli < Formula
     depends_on "libusb-compat"
   end
 
+  deny_network_access!
+
   def install
     if OS.mac?
       ENV["OS"] = "MACOSX"
