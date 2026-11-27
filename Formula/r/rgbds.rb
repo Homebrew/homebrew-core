@@ -12,6 +12,7 @@ class Rgbds < Formula
   end
 
   bottle do
+    manifest_sha256 "9d3a7f6202b1e1fe4d3f947a9e40122d1fc31d8e36b3e2831490f4081d6d9f7e"
     sha256 cellar: :any, arm64_golden_gate: "a16a3ea9decfdc52a4ca1d90dfb14b311ca61170c3c7af40f9d6d7581b804d70"
     sha256 cellar: :any, arm64_tahoe:       "8f0dcf9b69f106ad28c2b0b6e8fb047754923d23e54adf5a183dcd9ff739a674"
     sha256 cellar: :any, arm64_sequoia:     "61c018e5c904c7541904849bd315eb9c69a7efbcb1a9bdaeee868858a4a6e258"
