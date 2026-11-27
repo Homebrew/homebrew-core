@@ -12,6 +12,7 @@ class I2util < Formula
   end
 
   bottle do
+    manifest_sha256 "df187dd88f4c6b388aa45f63a313ba81137559f5883cf5458a1c04925e06b1ca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55e6498addc059188a5110d83e0300b4402c547b4e520252e58a99e5275b27f7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c96db26d6b8b745ce518cdcf0fc8cce58cf28e7c24f297f23109f3a456a5d3f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd21bc4ade8f7f27ff994db78401d0446eb0f0a8ae004c32d0356b2a9a521571"
