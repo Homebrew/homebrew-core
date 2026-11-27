@@ -7,6 +7,7 @@ class Opencrabs < Formula
   head "https://github.com/opencrabs/opencrabs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7afb857a4444ee603a846ceef88529cc3a21703115cadd57745ae479961fdc51"
     sha256 cellar: :any, arm64_golden_gate: "8a5ca9280634938c64bbec4cb442ea9c3795bf7b2ec08b26803d071054a4c43f"
     sha256 cellar: :any, arm64_tahoe:       "e3c587d5030585a6ef4e16f0ca045b2e836ff6fbe4457b0ffa8f5bd1bdb74eb2"
     sha256 cellar: :any, arm64_sequoia:     "b0875312ba62a2f7a64c0e2581c560228fd8972f63a06a056a1337a17dd6b851"
