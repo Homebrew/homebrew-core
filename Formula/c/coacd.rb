@@ -21,6 +21,14 @@ class Coacd < Formula
   resource "cdt" do
     url "https://github.com/artem-ogre/CDT.git",
         revision: "ec03b309fd18102ab1da069f2edf3b37be5d1fb3"
+    version "ec03b309fd18102ab1da069f2edf3b37be5d1fb3"
+
+    livecheck do
+      url "https://api.github.com/repos/SarahWeiii/CoACD/contents/3rd/cdt?ref=#{LATEST_VERSION}"
+      strategy :json do |json|
+        json["sha"]
+      end
+    end
   end
 
   deny_network_access!
