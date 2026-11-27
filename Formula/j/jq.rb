@@ -13,6 +13,7 @@ class Jq < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "33cc37e1e60ddf2cc524849b4808f61402768d64fb51f40c849d8af8990b2893"
     sha256 cellar: :any, arm64_golden_gate: "d048dd4c28d867e939065a3bc8209f37e2a5be3e2c18d18c8c7da8f4d1629a4a"
     sha256 cellar: :any, arm64_tahoe:       "ca67c64d0aaf1e5472790ec2cc081ff7972316f27095d8a8aab81b3321247036"
     sha256 cellar: :any, arm64_sequoia:     "ef70e236f58a8a781436ee400f9bdf847ad7d12e75115871fb6a94b9214a1a41"
