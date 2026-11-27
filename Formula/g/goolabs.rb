@@ -10,6 +10,7 @@ class Goolabs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0d86d7a2b53c2e5fca0ac4ab00e75927382d1438491410fb66afa877f8290cc1"
     sha256 cellar: :any_skip_relocation, all: "fd74658a6c22537254dcd0c82986bf9d949dae79d6591f7d2e80d23fc0dc265f"
   end
 
