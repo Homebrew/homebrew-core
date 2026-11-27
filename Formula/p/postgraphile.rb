@@ -6,6 +6,7 @@ class Postgraphile < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "985f1ebc3a9650f2aefaed515ce1c7ba1b1aee445ec29a460081947e54891daf"
     sha256 cellar: :any_skip_relocation, all: "48679831f7c718e8ee98c68a562ec8451e95776806eb94eb6edfc8c4b6a6617d"
   end
 
