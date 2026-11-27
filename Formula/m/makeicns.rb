@@ -10,6 +10,7 @@ class Makeicns < Formula
   end
 
   bottle do
+    manifest_sha256 "cbc185b67ad51cde464c5531c3d6f42ed47ff9b0e6bdd0a96b9627b591849d4f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d4ca911915d827246cff071c1667bca9046cc7dfe2ba86318a058d05b78084f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb8af37eb2ea58296938dd61754d07854878be1869c52490796617cc6fb4e43c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "89f7fec6280f4ff185da4d6bf07ba3f30f977bf40b5316c559a8af7a83f2a08c"
