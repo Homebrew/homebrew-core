@@ -7,6 +7,7 @@ class Qdl < Formula
   head "https://github.com/linux-msm/qdl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "24e1e40b2f72a6d07d636f942b43872b13ba7207af7e195769acc513c09303fa"
     sha256 cellar: :any, arm64_golden_gate: "6d1dc22f9d560a07aac95a4af1a150443f843ee8f56a49838ac443c497d78680"
     sha256 cellar: :any, arm64_tahoe:       "b8a10f455272fbe894d6470fbcb4be854ee2a0992f3bd1a373894418fa83e282"
     sha256 cellar: :any, arm64_sequoia:     "74ca0a6c32cf8e6ba64af83e969537fc821a2ca896b4d891cbef411647902ccc"
