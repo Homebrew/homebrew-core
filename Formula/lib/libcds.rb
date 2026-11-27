@@ -7,6 +7,7 @@ class Libcds < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "853041b1137683978920235aac6aa8e59e26aaf13db4263b0d86d308e60eafbd"
     sha256 cellar: :any,                 arm64_golden_gate: "510270392efd877d0752cab869bb2df29a6322cf9104e173f16c1d8e0b59c5ec"
     sha256 cellar: :any,                 arm64_tahoe:       "35d45642d081770329b82ecd4fd379a6e7a9b4aa3bf0edf7a1fb81d9ce3a755b"
     sha256 cellar: :any,                 arm64_sequoia:     "03307db4af7a248e4eed5333726ee17188845f0a28403a8a716816155835d411"
