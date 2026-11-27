@@ -8,6 +8,7 @@ class Nettle < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "5afd358c57630451dca5d99ef78d2cf8d93acf50a423012406b5de83e277dc7e"
     sha256 cellar: :any,                 arm64_golden_gate: "42ff85a054b4a265542175dd31f4a515e0a3e7d8113cfddacc5472555a036bc8"
     sha256 cellar: :any,                 arm64_tahoe:       "ba11eb261bc502c28c9cd695f8354306d0a31cb1e55c3d3f1568e051293a0f10"
     sha256 cellar: :any,                 arm64_sequoia:     "01050aa13ce3825fc1b81f1a3c5994a165301b9d5223a9fb9015d122bde5ca3e"
