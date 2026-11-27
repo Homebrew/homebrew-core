@@ -12,6 +12,7 @@ class LandoCli < Formula
   end
 
   bottle do
+    manifest_sha256 "9300475c46225a2662f7cb5f87509f2dd7ce5445f61faba8ada7243bbb7893b8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ef94e0a91d24dec7cd9ec3238ffbfc004dbdc7eb1c98c8221f1151003e53370"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48514fa0c92ef770de24b85dc19dd2364f1a54fa8a3f4ae4675998ecc1ec934a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "48514fa0c92ef770de24b85dc19dd2364f1a54fa8a3f4ae4675998ecc1ec934a"
