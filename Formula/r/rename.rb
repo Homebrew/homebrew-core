@@ -8,6 +8,7 @@ class Rename < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "5d1b8bd6b0a6950447d0c07c410e0b76c6e1ee8f43682d3afcf6f6040bb05de3"
     sha256 cellar: :any_skip_relocation, all: "ef28d01adefde7f83ad97aeb21b4af98f66b5594ac7d69bb76f01b3f2ac80145"
   end
 
