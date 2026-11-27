@@ -16,6 +16,7 @@ class Slashem < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "b7465b2ad8d6086f18ec19bf4d5159238370d0ca63c6928c32c644912a29c6aa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbccc768f001e3e7b0f31869d513a77af1f9ba62dbf98d12d17b0bda8e15dbc5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f262c46f0f04c67c9996b01e8d89ea837d34c1086279ad1d480b63a11f74dd8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3489647fb5f38f4016ef73e262df24407525bb01f076463c21f5b8340e47c27"
