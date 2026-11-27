@@ -11,6 +11,7 @@ class Qprint < Formula
   end
 
   bottle do
+    manifest_sha256 "d7c22b9b290e0aabd9c2a398f294dff626f06ebfa32c9ea935fd33ecbfc5e8f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c64afaff1e45d42882183767f9d95fb55f12fd52f1a5edc577a8d2d30786ec37"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a29390a05c5e5744170726101f054366cf8c2cf8d8112b861574a4f9327d9ae1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ac2245e4a3f2c14009c6e9c3418374623e94b32f7f265ffe6cd30f0693299a5"
