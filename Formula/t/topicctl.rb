@@ -7,6 +7,7 @@ class Topicctl < Formula
   head "https://github.com/segmentio/topicctl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0bbeccd0ad419f7621f455b2851a49d56d615a724c21c59fda482166958830ec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b38e3fad75bfd63d8bbbe876e4ffcb28aee17de682e7c815a066a36c98e954f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0f833e3ff25e07ca3d19276f3ab81af1510ea96b000f3245904a7ba8eb48471"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0f833e3ff25e07ca3d19276f3ab81af1510ea96b000f3245904a7ba8eb48471"
