@@ -11,6 +11,7 @@ class Pocketbase < Formula
   end
 
   bottle do
+    manifest_sha256 "b8c0a21becbc53186a3be31aa82a2d2d0ac6de3606f0549efb885e9f6ed792f3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31b049434bcf9242622132ee7a7c8fba7e323fd209ce1da49db2cec5f2915fcf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31b049434bcf9242622132ee7a7c8fba7e323fd209ce1da49db2cec5f2915fcf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31b049434bcf9242622132ee7a7c8fba7e323fd209ce1da49db2cec5f2915fcf"
