@@ -7,6 +7,7 @@ class Nesc < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "e21959ba5f556e431915abf5740ce5cc88cc55116819df4edf12eb8eef1e212c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34b0edffefcd7c11899e5be0af9252f03c2de49779df3d39f2e074e69cdb4709"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ef4438f308a2fd9e143b70da8b9b53a0ca033c4d5a57182af79a2ad81e4fee3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec7337c2f3b0ce8274e7ccc367aa35ba8930972f946e3e6d30fbd2dcfb728a09"
