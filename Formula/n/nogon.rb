@@ -7,6 +7,7 @@ class Nogon < Formula
   head "https://github.com/asciimoo/nogon.git", branch: "master"
 
   bottle do
+    manifest_sha256 "be7db654cdac2625432f1bbd4cd3c9fbcb624ea5e8f3d04ac63848fe9e42287d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d411f56c2de4af05e385f52dfc90fa9a37fc070e9b6ee567b04536c4b8007b1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d8f2ceb64a548d6c950105cf46ebf1c314d7e657804e815568d4b01c510a857"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b670b30cba3b8500bfa14a7282414d42d7a58b06fcfd565641b33f184654375"
