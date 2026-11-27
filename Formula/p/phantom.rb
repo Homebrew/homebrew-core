@@ -6,6 +6,7 @@ class Phantom < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9c6ed5f8bf2d88ac5cb0fadeef43c01752db62727e18f4abc4636540b711a556"
     sha256 cellar: :any_skip_relocation, all: "cf8d529129e36e8896b4afbe89a1ee0e93370caf673c8e3ee53800509e2ffa59"
   end
 
