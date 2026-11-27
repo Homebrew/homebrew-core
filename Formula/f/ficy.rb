@@ -13,6 +13,7 @@ class Ficy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "01f2cd421c2d3f67836c6c87402bdcbf818e8612559e289bdb47d5b6ae6eb755"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f693d58a7faa01f0bfe65e5bd5c05054e846d7cc636b089c9d182f0142f3760"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a229e2cdd5d347698dba54b95b66a0a17db438be849e798ba7b2c82ca4db924d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a74c5666c5779883383e3e98926f165056a5c2b1c4489c344390c8cea1700354"
