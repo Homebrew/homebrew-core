@@ -14,6 +14,7 @@ class Nexttrace < Formula
   end
 
   bottle do
+    manifest_sha256 "15e8c6c7d5d97ba92e1091d3d9d375523b5ff9af9739e5a6ab87efe9e80ef09d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e5d9d9138c543e1484cf5ec1e2b13b37d4666d1a2c74e9d6779cce7deb01690"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82d2508ef7ec931422b18ee6ae63b12517e6b9c2ae002c5166a158cd55b77165"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23b4f5c87c366f9447955b902afb9d3654f971c2da5c6836a3ea12d551a48a0c"
