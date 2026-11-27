@@ -7,6 +7,7 @@ class Jinx < Formula
   head "https://github.com/JamesBoer/Jinx.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ee6b6e2756f43c6b2e67b45b1700f2b7eda5a2909757072753955a7ca0fac449"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14ebe836dc851294d647b53a4d6204fbb898ae42d3238f5936895476f32b5dd5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5fc5434d37d64392eb574ee23426475ea0df694f3bfea7d6285d542a0d14bb18"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ed166bb0ff6914dfc6931071644bf791685ac3f0d1bf2596d6ee141de9780b9"
