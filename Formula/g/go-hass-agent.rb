@@ -6,6 +6,7 @@ class GoHassAgent < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7c51944a0f52be45f6aa205995c42264d557b0b0923f7823c87e647d0b2dc0f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf0298d5c0a7d2d13cf799b80db3141146bab25aef5e303b131df91041ace23c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c45fd2e28fe3a53fc9d5e84769ca40a8dab16cd3797661ace913b8425ba6300"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2f4e108904abff277ab95fec8d6a01f5e4fcedf49cca5547bee005f9592730b"
