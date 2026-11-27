@@ -7,6 +7,7 @@ class MlxC < Formula
   compatibility_version 3
 
   bottle do
+    manifest_sha256 "f65fb4974e0f83c1512a2c2bc7ff329db5dd4ed3f41d6f23f9c0e59628f3c82a"
     sha256 cellar: :any, arm64_golden_gate: "e7c706961036e792d9a693388cbc8bdad39c8a19c776b061b4c65ac2a88442d4"
     sha256 cellar: :any, arm64_tahoe:       "c81ab3e3177acc5cbdcc27e2c7651afeaeec28509231f44bfedb985420868606"
     sha256 cellar: :any, arm64_sequoia:     "ffcb6877cde6ed171eed91b79cda3ec855849c3ce434602b811c419fca6715d4"
