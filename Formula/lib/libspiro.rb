@@ -8,6 +8,7 @@ class Libspiro < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d8d3c57f68e81f03dc6538cbb0fcb39428f5f29a9ccb2fff1047e4290dfdc4a2"
     sha256 cellar: :any,                 arm64_golden_gate: "51c38e1ea152e9d6578f6f1d3293bb65f51c6501ff4698cf23c78b08e0f840eb"
     sha256 cellar: :any,                 arm64_tahoe:       "108c9578c13a97e6b0b0eed7c7a4ec74d43d5128300f7c68c6688e223ccd0bf7"
     sha256 cellar: :any,                 arm64_sequoia:     "ca6d88ca75e54af10d0342111a00a6bb3d2f6b5b80504a97d354c6b93ac114b9"
