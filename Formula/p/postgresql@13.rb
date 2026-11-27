@@ -7,6 +7,7 @@ class PostgresqlAT13 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8150d6f2244500b8cc4e42b4a05d38a41f4c300578144338ffa4d99f7f9f753e"
     sha256 arm64_tahoe:   "321993150b30d800bcf757467deb84273d2551865198840c1c4ac28b00703c47"
     sha256 arm64_sequoia: "9577b99ccaa6c84e58bed45d4c3ce5a44cd85b4f3bf95ed4bc1c68e3c78202ee"
     sha256 arm64_sonoma:  "00b9b7e746b34e2a61db46387b2640281fae67066308c636729ae18cb3df91c5"
