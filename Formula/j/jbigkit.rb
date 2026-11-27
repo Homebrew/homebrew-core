@@ -13,6 +13,7 @@ class Jbigkit < Formula
   end
 
   bottle do
+    manifest_sha256 "a6ca563dd81e9c90d9c4e196fce9b4ee48800f6c6fc8d263ed1986988c4993cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38c8780667bfd91321c0523ced2515894d43907374103940ca60465d67d80748"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7607ddffbce1b972049f6825e34a887fcc01ac08ac075cbc22b5851a9650902c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9be34cc09553cb7ad2103b18140bfcc82c6a9143ecc3ad6c8141f0fdc6789d1f"
