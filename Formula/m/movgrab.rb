@@ -8,6 +8,7 @@ class Movgrab < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "50be77c8257632414277b9afd8c811f3efe389186cbefa0f0915b21ef66976b2"
     sha256 cellar: :any,                 arm64_golden_gate: "560772dd353ed4886d7b4254045f03fd22fc30fb3c62e9d4de747ead5a9fd2a0"
     sha256 cellar: :any,                 arm64_tahoe:       "906cf4a9106e0dbdc98f73e43412b095779cb620a8ea9b4a770b3d6c0fe71cc3"
     sha256 cellar: :any,                 arm64_sequoia:     "7759f5a72c8d8402841e25d3a35ef5f985ce7f41911767582179935d0bf40b0b"
