@@ -11,6 +11,7 @@ class QuiltInstaller < Formula
   end
 
   bottle do
+    manifest_sha256 "51bb41ef751a844405479d14bebb806e0665f21c323911a0d6ac8b3c8ac7d476"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3cc681665b9bbed4a1bcf55df4c2187a8527434acd6e74b4a354268d1d0a429a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edbaaae42ff29fe6640cdf3952215015b4eb909a9789e3f8917b3ca92c4953c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edbaaae42ff29fe6640cdf3952215015b4eb909a9789e3f8917b3ca92c4953c7"
