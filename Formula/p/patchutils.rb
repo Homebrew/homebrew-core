@@ -6,6 +6,7 @@ class Patchutils < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    manifest_sha256 "0987815a386bfcaf0aa6a78b89cb6d0f4d63bc1cebe1588ab17e70131250f5db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3bf9d35d52e60c97fb5721938890f1c2290748501b6bdffc9c610da5291baba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f73c0a54e3ea11391794dac98bbe16d0d0a476205940e2b7545065c7efe2f2c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9447a395cc82a522c7d7235db4a3bebb1643ce14630f4365754cfa8c9ddbc7fb"
