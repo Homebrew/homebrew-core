@@ -17,6 +17,7 @@ class Octave < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7859c4c19055327251d53ef262b50c2ac88d47fc0fc5afef9b9fcd6c5b80a6b9"
     sha256 arm64_golden_gate: "b4f50de10c1539deed7f97649dae152cd23536648796abd2cf936cfbf9dbb2c2"
     sha256 arm64_tahoe:       "dd3e934bb9760b775520968d4427efd88af85f1e30ac179b9ee274e69a8b6d65"
     sha256 arm64_sequoia:     "9b3c413e48d96a1ab083b21aaa46a445ce66f383a317a403c5e6c96123b2a36c"
