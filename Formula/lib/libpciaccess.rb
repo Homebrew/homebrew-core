@@ -7,6 +7,7 @@ class Libpciaccess < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "99b6175773f7aee18eea4531a76cce56e6224fe4f0653a72cb10a8ef36e810d4"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "1700b1d65d3a49ac94b93387a02771c27f6b799fdf1dced68a9440bb7731d995"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0cce5ea337da65fd2e78188adbfaf895ed72fbef1efe0e3a62680777980ef592"
   end
