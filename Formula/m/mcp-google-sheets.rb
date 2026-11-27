@@ -9,6 +9,7 @@ class McpGoogleSheets < Formula
   revision 8
 
   bottle do
+    manifest_sha256 "77c5c31f43c8f9691262dc905ec30d49599311835ae8426e96e57fe8eac8cb13"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4dc9aa0631071c51c375babafe06808bfd20714c2b787e99cbe8c9958b34e94"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7114d8945cd05897b4d26c4aaef7a0dcb8d1f74a320fda4432f1592d95fdbe9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1e3f0319589e0ca1aab78e49b3c440b8010af94c4d4823ebe8d5195dcfae366"
