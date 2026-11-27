@@ -15,6 +15,7 @@ class Kubergrunt < Formula
   end
 
   bottle do
+    manifest_sha256 "63cf0a80fdc1f2e39007648662f9676f48b8af8783c6db11949c010dcd2da449"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a13c8fcad11d51a882e4f087a168e5064d3d8b938608df1aa620be374c9ff67b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a13c8fcad11d51a882e4f087a168e5064d3d8b938608df1aa620be374c9ff67b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a13c8fcad11d51a882e4f087a168e5064d3d8b938608df1aa620be374c9ff67b"
