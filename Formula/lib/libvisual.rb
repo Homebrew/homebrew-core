@@ -7,6 +7,7 @@ class Libvisual < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "9086958fba21a74e55754f937897a76371f8128d9ee0f52c0b4b5cfc7b1a4de2"
     sha256 cellar: :any, arm64_golden_gate: "26858babd5168242ae65b81a2770125a0378b6d15db0790503b0ccc382eede92"
     sha256 cellar: :any, arm64_tahoe:       "0c7cc4aed9aca8fac6ca7f969966365592eaacbb29db5340f08dce1c0a9fa65a"
     sha256 cellar: :any, arm64_sequoia:     "a3cf1f8ac6ed58fce5959717d16802adeb1920abfe6c421145de66eff2e9a51a"
