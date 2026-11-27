@@ -6,6 +6,7 @@ class PythonTkAT310 < Formula
   license "Python-2.0"
 
   bottle do
+    manifest_sha256 "36c98601a6c1ce2c783db70ee6844e6de26805906e37f4b4ffb5d0c6f1fff7bb"
     sha256 cellar: :any, arm64_golden_gate: "601d74823b6a4f89de6e47a05163444b612d491ebe40504386cad247ab60ddac"
     sha256 cellar: :any, arm64_tahoe:       "3c47717207f20bde1abf286ad572feeebc0c845a5e45e597c246c1acd4060939"
     sha256 cellar: :any, arm64_sequoia:     "124743bbd73ff795ed4be5bbd0f189ae832df49d3a51fca4185c03b0ad4eb163"
