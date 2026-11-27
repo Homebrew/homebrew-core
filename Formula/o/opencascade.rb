@@ -21,6 +21,7 @@ class Opencascade < Formula
   end
 
   bottle do
+    manifest_sha256 "1a476091e090be25fe3a1a4ca82acbc167f9618db40e0600659cc52419cb5957"
     sha256 cellar: :any, arm64_golden_gate: "f3e8a4afb66a07801bd3977a165e9b897d4c49d3b65e41b556167ad1ff0b7cae"
     sha256 cellar: :any, arm64_tahoe:       "cbbb914aee6197f6ce60cf75b26e8b558be68699265c79cfe7e51e9713a10ea8"
     sha256 cellar: :any, arm64_sequoia:     "b62765e91c1b704cbee71297fc1901beb9db38d6a08d720735b490c10684b957"
