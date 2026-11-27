@@ -9,6 +9,7 @@ class Passt < Formula
   head "git://passt.top/passt", branch: "master"
 
   bottle do
+    manifest_sha256 "db163a50518412ea28e13b2f4ecb82f67e103e20ac9cfa8f45ca3a4b87eb99de"
     sha256 cellar: :any, arm64_linux:  "0f3261eaa8f35cdab1ca85fc862180986bd1fe7d01fbc25f663ab8cdd3cc1eba"
     sha256 cellar: :any, x86_64_linux: "4c6a494b4e77366255d5475e10f9aec6fd9d021e2e1fbf24656750ca211fada4"
   end
