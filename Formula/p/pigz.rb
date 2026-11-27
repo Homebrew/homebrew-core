@@ -14,6 +14,7 @@ class Pigz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "53c87ad8cda135a20a51f64f3763b2226299faccfb1f9911a04f0f306e27b7bf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6562c7560c12bb1f7d75f6440f60d4822a2916fb7f6fd4b1ac34277646de1d4d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "042145d01637ec82b2da2e4c2ef05ff1391b39c5aaafdebbe46d43f2b595404a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3dfeb313ced9d0f068c33679c38a50db0a2a26a9177ffd0d6845d1320cea3879"
