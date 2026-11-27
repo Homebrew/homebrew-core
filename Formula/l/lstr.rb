@@ -7,6 +7,7 @@ class Lstr < Formula
   head "https://github.com/bgreenwell/lstr.git", branch: "devel"
 
   bottle do
+    manifest_sha256 "f433b48f21c773c715f7c8e069986298b9f5c598fc9d940679e22ad1e6b4c862"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "401d4a76e1601f42118b14239c416dcf12b57469b8b6ecf2e4520ea27e838caf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "698ac770271e3e4f724f0f5ce2fbb7491509ae753ba4614b639ff596aaaca002"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "668d9d79e6473212253f028f33594136d578da416e9e3c62fc6d831a34013209"
