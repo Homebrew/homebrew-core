@@ -1,10 +1,10 @@
 class Lutok < Formula
   desc "Lightweight C++ API for Lua"
   homepage "https://github.com/freebsd/lutok"
-  url "https://github.com/freebsd/lutok/releases/download/lutok-0.6.3/lutok-0.6.3.tar.gz"
-  sha256 "5f33fdf8be36c2d95b866947ff49aa4a90ffd6f10a6172d9ed9243f6a6b42f18"
+  url "https://github.com/freebsd/lutok/releases/download/lutok-0.7.0/lutok-0.7.0.tar.gz"
+  sha256 "a4cd62a30490ead9ac7502bb49bde2ed7b7dcbe7f7d2ec76a4f5f0be4133939f"
   license "BSD-3-Clause"
-  compatibility_version 1
+  compatibility_version 2
   head "https://github.com/freebsd/lutok.git", branch: "master"
 
   livecheck do
