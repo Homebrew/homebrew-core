@@ -6,6 +6,7 @@ class Eventpp < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "983b3cbb71f544844c137a9e46cdd4089dbb49304427edefa89ccdd02f8e834b"
     sha256 cellar: :any_skip_relocation, all: "8c9e674ef83f8d4768c4bfd91497f725487973384179be6bd8986ab37c55d7b2"
   end
 
