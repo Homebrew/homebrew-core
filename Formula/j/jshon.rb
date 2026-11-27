@@ -7,6 +7,7 @@ class Jshon < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4d60ab69d4813adde3f9a7da76505cfa92aad74d7fa1bbd7bbc2f672b77124e7"
     sha256 cellar: :any,                 arm64_golden_gate: "583d931d91b366236ac63646d77df45dd093678c023937f7257761d7a417c7c0"
     sha256 cellar: :any,                 arm64_tahoe:       "ba745cfbfa0a47f539e46b599633805b202ca8766b1cce5831b49d6bf99ca7bf"
     sha256 cellar: :any,                 arm64_sequoia:     "c71de9488ca461a0438c85645c42ba5e5c8b81c9272c2639c258a5e6b80d5432"
