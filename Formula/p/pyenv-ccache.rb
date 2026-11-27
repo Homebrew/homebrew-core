@@ -8,6 +8,7 @@ class PyenvCcache < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "28f01bba31de032525302ebba984b88fa360ac0cac02c325de9502f4379e71d5"
     sha256 cellar: :any_skip_relocation, all: "9e3904fdb63362c45c9e2ccd1421a83a444125518b176c5b86c8a547eebd2b56"
   end
 
