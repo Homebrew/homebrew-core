@@ -8,6 +8,7 @@ class Juju < Formula
   head "https://github.com/juju/juju.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bde7889bb9c18973b8375f9df372f0a8cdd3db1447bc3774e26633653b658bc0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ae6f03d11bff0adea61a37a092f405c3dfa48af05216efd418881edf2931b53"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5d766c7697c7cd664652eaad08730746700d7cecac030e791c896a58c5105a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "84b23fb82243756e3da22620f05267f756dc7265382116f6bd18af4370fe2c36"
