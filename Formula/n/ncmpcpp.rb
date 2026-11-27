@@ -9,6 +9,7 @@ class Ncmpcpp < Formula
   head "https://github.com/ncmpcpp/ncmpcpp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e72baa834d4756ec47b78d30ee0b4bcf6a78099b3e355357a6f6602154b3c0ec"
     sha256 cellar: :any, arm64_golden_gate: "75eec2ab98bd4833d1f6214d12a03f24cfa1fd57da1d3d1b455bddd3d718ef03"
     sha256 cellar: :any, arm64_tahoe:       "87c0fe37740293ca7628552c644e43abe0bf7ef5caa1ea812f9b70b67fcd2558"
     sha256 cellar: :any, arm64_sequoia:     "2d2fcafad24da0ef0a1f1f52bb8003465030d5d75a99aa8a747fea859a995917"
