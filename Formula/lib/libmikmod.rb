@@ -12,6 +12,7 @@ class Libmikmod < Formula
   end
 
   bottle do
+    manifest_sha256 "e5f4833636d2ff2968de689c8c34005d3f270fe28582afcfb14c3e06a92e83ce"
     sha256 cellar: :any, arm64_golden_gate: "7381c5f385a259badb7c64f91e8f0980f74b5d1bd659e2a7c3b071e79b0b2690"
     sha256 cellar: :any, arm64_tahoe:       "6ea51e8c9075edbd6c69609a1cbbff78dc255ebf65563eef342bb39ce1508b85"
     sha256 cellar: :any, arm64_sequoia:     "01e0d8558366a914db9912127103d31c30df44667eab6bbaedf98939014e8eec"
