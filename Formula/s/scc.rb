@@ -12,6 +12,7 @@ class Scc < Formula
   end
 
   bottle do
+    manifest_sha256 "0636340c827ec63d8243ea5b84a3460978374f879f1e3c7f4035ed2901f57366"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "74e37c3265026b9cbe198cc876d592b94a59636ad22ebcc5a83935cbf6826d3c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "74e37c3265026b9cbe198cc876d592b94a59636ad22ebcc5a83935cbf6826d3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74e37c3265026b9cbe198cc876d592b94a59636ad22ebcc5a83935cbf6826d3c"
