@@ -7,6 +7,7 @@ class Mmark < Formula
   head "https://github.com/mmarkdown/mmark.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3757d2bc24866e666135dc60923302e12969055829280e408604bad8fb3e8eba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e17d2cd7671c1fc3b10b80fd76223bc0eb7a468bf2d31e5b902b3fbfb7ecece0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5c128c58341499027ae9a6c557bc1deced75dc22784e3e66beb7721c9fc4b620"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c128c58341499027ae9a6c557bc1deced75dc22784e3e66beb7721c9fc4b620"
