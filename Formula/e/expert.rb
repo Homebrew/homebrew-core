@@ -7,6 +7,7 @@ class Expert < Formula
   head "https://github.com/expert-lsp/expert.git", branch: "main"
 
   bottle do
+    manifest_sha256 "358acd3b18cbd1c9668f1548c33079102b2386e4a236391aade9b5596fab9df3"
     sha256 cellar: :any, arm64_golden_gate: "a8881200f5a142666208f19717b34abc453a2899a2ad6a7cd1a6d2146aa0ffaf"
     sha256 cellar: :any, arm64_tahoe:       "af7c94726da87af7cc60d9d0fb78602440883c35794d52d901a74b7eb11b7f83"
     sha256 cellar: :any, arm64_sequoia:     "37f115471c27c9e96aaae54f111d73ed38be77f93ef459857cf28b38f5002252"
