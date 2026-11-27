@@ -13,6 +13,7 @@ class Lowdown < Formula
   end
 
   bottle do
+    manifest_sha256 "6d0be9a0b9153de528b04ed8350bd4e704ca493f824ef3fee93168f17ca8d5a1"
     sha256 cellar: :any, arm64_golden_gate: "38a9c03bfb5c39b6d63be0274944d3b5e160a6be420940b3824f5aeea47be83d"
     sha256 cellar: :any, arm64_tahoe:       "1db06afacaaec6d74c6eab22e02640d6baf377ce2174aa58cd24dbe2610b0c73"
     sha256 cellar: :any, arm64_sequoia:     "5e8ba6edc11595adff2d93a89c7faeee42403b24a6d8659d5d3a29eba9e70260"
