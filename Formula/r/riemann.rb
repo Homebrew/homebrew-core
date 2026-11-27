@@ -6,6 +6,7 @@ class Riemann < Formula
   license "EPL-1.0"
 
   bottle do
+    manifest_sha256 "c9a02082675981cbca49af411d66f6667fa29fd89f1aaf9c01a59de1e9320966"
     sha256 cellar: :any_skip_relocation, all: "23e04604313424736f08c1643acb79a66e80665193f341f18e3b4221037b1c7e"
   end
 
