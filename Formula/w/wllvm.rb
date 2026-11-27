@@ -11,6 +11,7 @@ class Wllvm < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "1f5759f5696aafa4162c6210b448f9ee3bbfc0950b15887a4fc50c62b2fa9c81"
     sha256 cellar: :any_skip_relocation, all: "e0626150b6fa122d1618d8685fb547a6fc094d6a2bb65295cf0244f4b8e761ce"
   end
 
