@@ -7,6 +7,7 @@ class Slicot < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3e6d0e4465ecd0aca8bde098b0c63bd46920e258819ae813945d2645262bed62"
     sha256 cellar: :any,                 arm64_golden_gate: "e6e06c50fc324a02a56d4c11cfc9cb8afc57ae00e418eff59971776f53e9c3e8"
     sha256 cellar: :any,                 arm64_tahoe:       "fe100cde167f2c093216156513328bb28f2a4c7ea5258c266cfc10d467bf59a2"
     sha256 cellar: :any,                 arm64_sequoia:     "f6871a8005e9bf5d72a32d14443624a914027946644bcd945f3e0cc4f3f573a9"
