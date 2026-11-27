@@ -7,11 +7,12 @@ class SequoiaSq < Formula
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "a4710983c76c8d4a0519eb624d6bd321b2722cd99b3f110d53e26796da298692"
-    sha256 cellar: :any, arm64_tahoe:       "90e7aee923e6f01aa080ff2b6a8c95e1b3ecc0dd1388b1c10ca331fd7f925e65"
-    sha256 cellar: :any, arm64_sequoia:     "80efb29df8371f2978686015abae0b1b3d9297efeedfd95734a644be7092e4a5"
-    sha256 cellar: :any, arm64_linux:       "04e2af43cb4fadad76b84ec496a5f0cabe50857e41cd403ee5c8a9674d988e7e"
-    sha256 cellar: :any, x86_64_linux:      "9765fd7d79e29ae17d947fcbd149ddea80d6630b6d4551fdb7617dba214ad383"
+    manifest_sha256 "fc0bf8eb68f9615c521ce7871d9f0e5c27bc352e8ed6d4184d13cc4f270c8407"
+    sha256 cellar: :any, arm64_golden_gate: "677a97d0480c29692bde9b13e3d29163340367e6e12eecad0627070f4f806bc4"
+    sha256 cellar: :any, arm64_tahoe:       "909e63eb01c02904e843d8e576848f37db6776787dbdce202d89ebb6a3930856"
+    sha256 cellar: :any, arm64_sequoia:     "76f0c91b25416971d230fbc1801e25804b0c58f6662e9b2a1d9d5751ec3ee16e"
+    sha256 cellar: :any, arm64_linux:       "266949aeec97d223a7fea756266a8335cd471cbb73f9ad5ab286e0046a272945"
+    sha256 cellar: :any, x86_64_linux:      "23e1de71887707e6289636c2c30df819c444b613acf8f1c4ad4c3fdfb6ea0943"
   end
 
   depends_on "capnp" => :build
