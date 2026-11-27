@@ -7,6 +7,7 @@ class Kaf < Formula
   head "https://github.com/birdayz/kaf.git", branch: "master"
 
   bottle do
+    manifest_sha256 "686b6bba6ac9ddf56849c32539eab48101aa61740b4d5ab3de4c3c47a6d6c5a0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e053748ede25fbc0c71e942842f7e78829a6d0fc18113e96c1c756960e1fb9e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca55afe9d549bc18b12c10c6df7789996d411ce1ca0a5ed34ce7df422dc0d3f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ca55afe9d549bc18b12c10c6df7789996d411ce1ca0a5ed34ce7df422dc0d3f8"
