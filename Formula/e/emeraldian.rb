@@ -7,6 +7,7 @@ class Emeraldian < Formula
   head "https://github.com/iamrohithrnair/emeraldian.git", branch: "main"
 
   bottle do
+    manifest_sha256 "46b845d40012e234ec15d7cf51a865dcb1c5d7a2db0fde6e579777a4b388cc26"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "727d9d8f2f285287e446d948f71632301926ae35637d38e6e26e217b1b315d08"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f07da147ea199df1e3cd9c2f5d4e1899e539f79d5c9c8f36c4401163c2ccc867"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2f955c0884ce450f6ee1d9731474d1f8312742e9402a69a31896534a7a88d57a"
