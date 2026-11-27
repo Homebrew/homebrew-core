@@ -7,6 +7,7 @@ class Pinfo < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "3d8a19373005584c918d6cd72957d12256caf2fa96231393cd17058d58e2c773"
     sha256 arm64_golden_gate: "dbfa9eeed7628df0774974d70d8fb1db274c690d3a4c8a3b774be291d780a977"
     sha256 arm64_tahoe:       "667ab0c89a77262f57669ed57148c06df889bdc835231752a1dd4fd279142263"
     sha256 arm64_sequoia:     "156abee096126843dea45d4b863b41cfaf28f9acd4fd8932b1388b981b299e5f"
