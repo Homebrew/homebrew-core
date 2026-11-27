@@ -10,6 +10,7 @@ class Honcho < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "33c4c1777e68074e214e55f52b359cbd34b99b12b114bf788095c6b40422385c"
     sha256 cellar: :any_skip_relocation, all: "8cbb268c275938b7349a819a9f4cae8af6ccad7d85aa124cf5729deef27a007e"
   end
 
