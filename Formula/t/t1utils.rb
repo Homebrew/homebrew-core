@@ -7,6 +7,7 @@ class T1utils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "103c81a6e2b160682cd8bfac00ad960fb41fc7155b911b82bb09a127c5a78d3e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d8473655e54104845fdaca22602a1a90476fa8a2fa8d01d19d66e133bdf82033"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ed3f6fa16af01bfaa19c580a6983eb4ad9a4010461102a94417dccb6943ed8f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd84184aade118b7cbf5d85bf3f4265405a7120e4551f6fff8461fef9048abb7"
