@@ -1,17 +1,18 @@
 class Sbomqs < Formula
   desc "SBOM quality scorer and compliance checker"
   homepage "https://github.com/interlynk-io/sbomqs"
-  url "https://github.com/interlynk-io/sbomqs/archive/refs/tags/v2.1.3.tar.gz"
-  sha256 "2e4f33a976594216b766be48b64c3af8484c7c9588cee9baf364fbcd2470eccb"
+  url "https://github.com/interlynk-io/sbomqs/archive/refs/tags/v2.1.4.tar.gz"
+  sha256 "4b85366003975fab2efb3955ad9a6a8a13c22b3b64e839b2b59943a72c00b92c"
   license "Apache-2.0"
   head "https://github.com/interlynk-io/sbomqs.git", branch: "main"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ca1488845f7c4fe1d56f969fe3ffbabc29c92c9734c9075fca385011d3a6573"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ca1488845f7c4fe1d56f969fe3ffbabc29c92c9734c9075fca385011d3a6573"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ca1488845f7c4fe1d56f969fe3ffbabc29c92c9734c9075fca385011d3a6573"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "b92a9f132f8b85c8a55698847f85ec4fcc5f289f848e5d4bd6c77722210ac454"
-    sha256 cellar: :any,                 x86_64_linux:      "253eb5cc404db3f320cbd725473351163ecf930e890f4ff57936065ac247f423"
+    manifest_sha256 "aed5fde754724bc9e1edd81ca91b3d0097b320e5622ffafffdd5a29bd7983727"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23dc8f6c33d978000ee420df68aaaf1ba934d8f2225c9aaf931ad4387dbb33a1"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23dc8f6c33d978000ee420df68aaaf1ba934d8f2225c9aaf931ad4387dbb33a1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23dc8f6c33d978000ee420df68aaaf1ba934d8f2225c9aaf931ad4387dbb33a1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "7cce783e1b51710d94987843ec6f3451ebd4e01e7d5c2d48221622ee3013bd29"
+    sha256 cellar: :any,                 x86_64_linux:      "54e35f928856fefb6da3425b5ac1c25be5043801df7076967c4f858442a3cd58"
   end
 
   depends_on "go" => :build
