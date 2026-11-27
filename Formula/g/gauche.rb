@@ -16,6 +16,7 @@ class Gauche < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b2939f434cc30f968a34b27bcdc3e6be884c9933642697c4723a74cb14803059"
     sha256 arm64_golden_gate: "5ac65c09de81921bf574bcd3be56168c8ad5654b57f931ad979a353b7626392d"
     sha256 arm64_tahoe:       "4dcc399b09f0db638cb74c51b46a1d289f7d9eb7602e1632f409af0d780d6b70"
     sha256 arm64_sequoia:     "4b312853feb31d6e0c53f679e95365ed3990ae356e956d37c4b2f2ee89ea6ac6"
