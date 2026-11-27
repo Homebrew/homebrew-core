@@ -7,6 +7,7 @@ class Libkate < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "50d4d23c1d204779a8cac8f65318064760411f6c641ddb614fc6189ad72eef88"
     sha256 cellar: :any,                 arm64_golden_gate: "c85e9ff276447142d5706857bd3b239831baff9c6bd6e5a24ece74f297b9c568"
     sha256 cellar: :any,                 arm64_tahoe:       "a920e83dd38ef5cd401c635c08f65dfe0cd6c4b5b79e5edfb4761a76ca729028"
     sha256 cellar: :any,                 arm64_sequoia:     "1cc9e076187d3fe58ab436f4729c43fc596c181cf9e5a12125836b676373f0cc"
