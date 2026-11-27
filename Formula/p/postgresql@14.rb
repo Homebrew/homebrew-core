@@ -6,6 +6,7 @@ class PostgresqlAT14 < Formula
   license "PostgreSQL"
 
   bottle do
+    manifest_sha256 "c8caa9ae17c560c0310f1f70234e9f2da120903597c8030fc3d74302218fbd7f"
     sha256 arm64_golden_gate: "cf94f2f017c73452d344292999128c43999d2f5bb2fd0fe6d08a9730fa7ddf4d"
     sha256 arm64_tahoe:       "f7f90fe2dbed89be87146f68256044ac35e2baffc10eed12322d5e6f971d537a"
     sha256 arm64_sequoia:     "712ac08614d28e980d7869afc39475958c9f434143212520b77594b8c51aff7b"
