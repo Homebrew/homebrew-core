@@ -16,6 +16,7 @@ class HapiFhirCli < Formula
   end
 
   bottle do
+    manifest_sha256 "a1f180ba43c117293886a3f892a1b1dc32535cf11d12ebc3068b553d6a2f4238"
     sha256 cellar: :any_skip_relocation, all: "570ffc228ec819478e7ce8b1ebbd05367bd768db05c9990cf6ff68f9fde478b1"
   end
 
