@@ -12,6 +12,7 @@ class Spiped < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "015f8ca2297a43018f760bfd6d34b45442e8c7c68faf4140cc8ef91ba6bee89a"
     sha256 cellar: :any,                 arm64_golden_gate: "9c106d78036fc96098816057f3b518cd58ae0a3cbf41568ea08795b3a92150fe"
     sha256 cellar: :any,                 arm64_tahoe:       "e5b2448dfa79e10636ee1eaae63d27f776bb23a1accd2e8aa14e0b9bc948123b"
     sha256 cellar: :any,                 arm64_sequoia:     "15d4704b11467e652ab11b95799eee5ecc3a02cb3bc7d9d22b4201af4581b7db"
