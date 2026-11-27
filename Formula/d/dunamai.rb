@@ -8,6 +8,7 @@ class Dunamai < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0b78866b1808e75af05ddd72e341c933d83304214312fc0aa2f7a53da1275f50"
     sha256 cellar: :any_skip_relocation, all: "cfb80651c7320859114df3746d7dcea5118b1393580fdbe08aaf1a79ad2c2e2f"
   end
 
