@@ -8,6 +8,7 @@ class LibgeditAmtk < Formula
   head "https://gitlab.gnome.org/World/gedit/libgedit-amtk.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a6f578491a27d71d1ccfe515f6b7ff6b783b0f2fa2b8b99d0359e4915ad0186e"
     sha256               arm64_golden_gate: "a4edf7a352f21a83c16f35101256fe211d54cd6e8dd37e61a5adb2cc555b1180"
     sha256               arm64_tahoe:       "bf6e1c6179c0190380459078383dd608aafc6eee94823780932788b37e2ad950"
     sha256               arm64_sequoia:     "ec6710d7195e655119de78a483ebc360081cae31cd20d5bea265690abe2b147d"
