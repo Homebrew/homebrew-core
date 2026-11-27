@@ -7,6 +7,7 @@ class Nixpacks < Formula
   head "https://github.com/railwayapp/nixpacks.git", branch: "main"
 
   bottle do
+    manifest_sha256 "adc12180e4001dd09810640b78389100eed48e3db14f5866faa2f0240a2994a4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f06bb86914185a68fd6333a9f85029c2404ef6ce5f0de68126ad1b1c90cc684f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54ac1ff6d83c0d456e3f7b977af8d1ede2dee7a3509e807765826d978a7987df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86ed38db72b925e71d8997cab2eba20f53bc98bc7d0d0d63ef754e86df73b72f"
