@@ -16,6 +16,7 @@ class Qtlanguageserver < Formula
   end
 
   bottle do
+    manifest_sha256 "431c4bf06547a20e9327ebb0ac1dfaab9fce648746b9eb634c7749e78b7d6be1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc7b4b78756cd958f876fe68b7b64ebb8ad7027b3fe7f8643c6493928ea3d177"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6afc4fe59493d7b6e9b76d41cd25f2b953340d53bcc45b95f9ba19435bcdfe73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2276931f0537d7b7f92f926586d631f6ed0b3a5d1c9a4a1c8045d685457ab7be"
