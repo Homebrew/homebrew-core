@@ -12,6 +12,7 @@ class KubectlAi < Formula
   end
 
   bottle do
+    manifest_sha256 "557895fd1a5a196608d8799e8712c9ca68741aef12cb8d9e29d8ca676d8efbe9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "840f8f95c9792d928b27e7b6c506ca2e741e0984efef645aeac3ef99c01f54e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "991b5937191e5f5993794193b6683b2ae65b9a87d7b1e5b95b550b42da45f05e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "991b5937191e5f5993794193b6683b2ae65b9a87d7b1e5b95b550b42da45f05e"
