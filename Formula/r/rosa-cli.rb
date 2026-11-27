@@ -12,6 +12,7 @@ class RosaCli < Formula
   end
 
   bottle do
+    manifest_sha256 "b2cea76058f4affb6b97ca70d9133b1442977187639811fefb6e71b736a1495b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5bfa4151a55da72f2f843ef4b6a2e7f1972b619592be100808107ca25b20284b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "33fad8f8c07748642f470ee26870d220b38558910d69050ee15e44bad56f3e5f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dec97a454ffe9c94d6701c8bb1b7e253a04e152504a9a68b12fded71c5c2ad4e"
