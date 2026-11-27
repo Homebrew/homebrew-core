@@ -20,6 +20,7 @@ class Jxrlib < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "38feae2809dc297c78528a62fb965d3f6ae5e5a9f6e8cbdd5347b792fad0112f"
     sha256 cellar: :any,                 arm64_golden_gate: "3a554545de1df9470b93fc967a4dd5d6594b8572b757e1d3426d13250a8cc665"
     sha256 cellar: :any,                 arm64_tahoe:       "c4b636123bafc19b44451cfc90eecbf7ab7488527508c40a102594517d60c889"
     sha256 cellar: :any,                 arm64_sequoia:     "e7aae93b96e812a888ab0a4da737a40fef17bb389a7e3bcc5106ff81c33a7841"
