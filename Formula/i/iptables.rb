@@ -12,6 +12,7 @@ class Iptables < Formula
   end
 
   bottle do
+    manifest_sha256 "ddc6966e568f67852468bd9185b2132be5195ccb06e73f0fe8d25581cb36bef6"
     sha256 arm64_linux:  "ce914706722150dc35332ad3f21c0017b45303cf1c970fb8355061a7c740efd6"
     sha256 x86_64_linux: "c7f4fb3ad89b0de76e81bf7a80ef81c07065d3824457caf7a150490d7f9bbcb9"
   end
