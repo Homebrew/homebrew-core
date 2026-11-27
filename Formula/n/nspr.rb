@@ -12,6 +12,7 @@ class Nspr < Formula
   end
 
   bottle do
+    manifest_sha256 "ec88784a779d79a74d0bd409aa47d071738c61871a4a60d905b4501e4eae2c36"
     sha256 cellar: :any, arm64_golden_gate: "25b9cc4221fb34c3af7c5c60e4dd3c647dc01699dc88dc65eaf552b7ed7fac4c"
     sha256 cellar: :any, arm64_tahoe:       "3a878872def2d80cbb89df3950554a493f31fe9e93fc2fd8e1c066cf663e2fae"
     sha256 cellar: :any, arm64_sequoia:     "2623e1272ea3b2ecf96f1cf678fedde3c5d91cb46a7a51c544dea3c7db581a57"
