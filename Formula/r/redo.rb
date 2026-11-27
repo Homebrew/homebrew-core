@@ -9,6 +9,7 @@ class Redo < Formula
   revision 5
 
   bottle do
+    manifest_sha256 "e6c649b459a3e815f368d3e8993bf43122e8aa0e9167af728e58c17cc7409f81"
     sha256 cellar: :any_skip_relocation, all: "c1d61e76c4502ca86ac1cdb6a166f06096d05453750ca5787622b4cc14d6e08f"
   end
 
