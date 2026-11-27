@@ -13,6 +13,7 @@ class Netfetch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f1d11df2ae829695884473603ea559c64c0a7abed44a57a75f992fe6a706f8e4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70f08e433ec29135b2069985628236679a151ecc7ae73d908d4fcac7f3d2a274"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52f348ae302224f4718f13a478c19f69d9ed76f4bafeeaaf1eb5225f120874c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52f348ae302224f4718f13a478c19f69d9ed76f4bafeeaaf1eb5225f120874c9"
