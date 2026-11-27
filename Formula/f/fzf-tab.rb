@@ -6,6 +6,7 @@ class FzfTab < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9231851ff2119273b70ef96637a8b2ced7607ad41636124d27013d4a44fe0d9c"
     sha256 cellar: :any_skip_relocation, all: "070b819cece9212109f22a5f0c8dc93aedf3e2e5d58378a8d4f945a81a0f99b0"
   end
 
