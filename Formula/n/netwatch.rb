@@ -6,6 +6,7 @@ class Netwatch < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fff4cbc486aa15cf09a2957315189e0ea078238c14767de7a900c69e5034e283"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eb3e78940775866cafd5f132e62e0a03019f8ab0a5cdcbc4858dadf00f1da723"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "512ce7dc34bac395a54d7ae379ba9488841f5e779eff04eae51e5e56eb1b6b40"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "873f4dd489de28cd71229bf47164758160a5f7b917873b7f1e4650f2a4c2e61c"
