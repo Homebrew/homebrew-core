@@ -7,6 +7,7 @@ class Librime < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "dec30b99b6e868f2f9d541c573a34f091b9dc0ff49c7827b20a104656a663c42"
     sha256 cellar: :any, arm64_golden_gate: "3a5408ce969148117486efe82d7487cbf83c1f6fe6b75f5a447d990f4094441f"
     sha256 cellar: :any, arm64_tahoe:       "d4324c941332adfbddafc4e74f9f7646a56e2af93b1cda3092166de2cd334ad4"
     sha256 cellar: :any, arm64_sequoia:     "0552191feac3d9b981bd9b46fda577d2ce67bcf13a11113127a287a55b29c34f"
