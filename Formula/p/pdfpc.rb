@@ -7,6 +7,7 @@ class Pdfpc < Formula
   head "https://github.com/pdfpc/pdfpc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ccf526b75c93b92325e78d3131d58abc43f475e406be4df9c39e5c21296d063e"
     sha256 arm64_golden_gate: "86aebc11e37516867657a43365a376034d92ce7fe2c5605d3e8cd89a079d84a2"
     sha256 arm64_tahoe:       "b76907d094e032d1c6d6f67be0b1774b0ceaaad44ec21102fcb82084ae8c94c2"
     sha256 arm64_sequoia:     "76900b6a726ed5f8c747a89957da0b81dd8b18c8b5bda6765f7b1ac4de0c26de"
