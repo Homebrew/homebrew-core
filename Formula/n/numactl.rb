@@ -7,6 +7,7 @@ class Numactl < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "db49184a80e050e4820f7fec5fb59b5171bfb44f4e22e0970f3971f70639aed8"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "cbabb9e7d3bccc03ad04aa04e52a009f37fc8d2f725d37fa369f9149de61fefa"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "43bce9542369d74930001dfdc0e77f532ec0dd93f41f1ade35f0205c800270cc"
   end
