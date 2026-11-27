@@ -19,6 +19,7 @@ class FabricInstaller < Formula
   end
 
   bottle do
+    manifest_sha256 "7a8f88e5e5c82f373aec6690fd90604fea8513a4e5ce5ddbe0a27b123da50f3d"
     sha256 cellar: :any_skip_relocation, all: "f39d9f4cb764e71d737597f83db459697a047a2453fb4206a7d88e48520f1ae4"
   end
 
