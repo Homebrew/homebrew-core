@@ -6,6 +6,7 @@ class DyldHeaders < Formula
   license "APSL-2.0"
 
   bottle do
+    manifest_sha256 "0f5003485b7f83a50e4748b5d096eb5ad5da2ad492ad2ae9e8d5a976c3e18bca"
     sha256 cellar: :any_skip_relocation, all: "89c13839ace58295a6094d1813c757e1521712be77c60c86cbda9ed2e8f3e180"
   end
 
