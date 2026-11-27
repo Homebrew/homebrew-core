@@ -11,6 +11,7 @@ class Cxxtest < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "00079ad78316d0a7a75d1fb886ebd36b53a0a922c9e658f029dcec79c4d0461f"
     sha256 cellar: :any_skip_relocation, all: "71f0403e65f3e5a01559dc1a8154e77ac6e63c48ad999a96d5babb5a3913b8cc"
   end
 
