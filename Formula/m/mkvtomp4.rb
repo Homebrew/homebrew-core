@@ -11,6 +11,7 @@ class Mkvtomp4 < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "521aaeed4166a25fb1a2797e51020aa6856f1b63a64a17e5ab20749fc118c984"
     sha256 cellar: :any_skip_relocation, all: "8ae15173f78696b1cfa868d2f548773f626de60ccb8696b42e92b19af477c19f"
   end
 
