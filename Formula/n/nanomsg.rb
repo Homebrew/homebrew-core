@@ -13,6 +13,7 @@ class Nanomsg < Formula
   end
 
   bottle do
+    manifest_sha256 "a824bf0c9361f8280151dc7681f45b9bbb5654f2963a1ae8816c0530191ab3b7"
     sha256 cellar: :any, arm64_golden_gate: "118a329cf8fa7ba1413d3b4e56da306b43403110eb0a1ab0ce5234272b69756a"
     sha256 cellar: :any, arm64_tahoe:       "28d2002dd4f7bab3b2046c2f01c9005329de6a175f2d78aaad73aa777b78e9dc"
     sha256 cellar: :any, arm64_sequoia:     "4b1f8eb7f0c574600f37d1e9b712bb68e00922a9d957e726cae2369e0bb65289"
