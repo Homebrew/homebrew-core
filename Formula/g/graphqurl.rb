@@ -7,6 +7,7 @@ class Graphqurl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "120be089032ac458151dc92ea91956ffa20ab8568fb807a818680c810dad7ae7"
     sha256 cellar: :any_skip_relocation, all: "5c7b7760dba8c9c4652d41475697c10e83ea2e22b382e2091c54a9129dff898b"
   end
 
