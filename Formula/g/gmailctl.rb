@@ -7,6 +7,7 @@ class Gmailctl < Formula
   head "https://github.com/mbrt/gmailctl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "35effd69ab8bedec380e58031343d1150de1b793841609e1c2270f65185d42f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a5e37e6b02533386d57c745c9332b4cdd37a2e3b9da3958fde6079ac50f6be1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a5e37e6b02533386d57c745c9332b4cdd37a2e3b9da3958fde6079ac50f6be1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a5e37e6b02533386d57c745c9332b4cdd37a2e3b9da3958fde6079ac50f6be1"
