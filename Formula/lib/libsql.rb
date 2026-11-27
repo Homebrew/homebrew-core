@@ -17,6 +17,7 @@ class Libsql < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9d9315210545be5fad3ae45f45904c35e44344ce87fa4f4260b4205324e156fa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d3b467d2eb3b985dd6d9501dc2a2583abe4982525db95c60b389918f3e7d590"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "852ee773247ada611ab2328ee7da4489f5b27541f4c563424bc1272bde1ac3dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00ff2b2417e93cf90e6b37f266797b38817bb6f5a118e3143c2ae6544aad0ec1"
