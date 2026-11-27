@@ -14,6 +14,7 @@ class Ipbt < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "c66648dab630edd184b34e62a0dbcbcc6418507c8f70e69548fee71071597da9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "067c162547340c7d622f7220fa1926fc007aada142a8ae7d5a5d43771288149b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21d5de28b578d9bf806a56bd01182467bd2978fd69e47b51f10735f28c2b89ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b7af1d0d8c081628109d55aa72560b68154b4d10f23dee791f152a237fdc565"
