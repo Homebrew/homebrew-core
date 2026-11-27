@@ -24,6 +24,7 @@ class Mesa < Formula
   head "https://gitlab.freedesktop.org/mesa/mesa.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0f8a04ce6a5d890b7918321e207dbd6ca01bf6e7cbf04fac3906f59d9f603ceb"
     sha256 arm64_golden_gate: "e37498b104ea54afb617f3baec61929b5910217e0643d1f72b797c373674a706"
     sha256 arm64_tahoe:       "0836082f26d113e170341f63b30d6f170a7d54890501878cc8dff40acdce7be9"
     sha256 arm64_sequoia:     "af1edbd7b93728dffe8c4962f26411d6a61f92a55fbdf22e08ffc071758446bc"
