@@ -7,6 +7,7 @@ class Nuls < Formula
   head "https://github.com/cesarferreira/nuls.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b0377b9d216b925281758218e16f6082f3e0ea84d40f87198e2549f927e03e4b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4bd792d509c110ea7d903f1fab126647f1d8fc3303686eea18ae2b7a0066d8c4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f7853c7edb37e8f6b2ab6be53cfbbec8792b5409a5bf53410c9c433e44c3b5d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a546a2f26209f0c99229704546a213beb1a75fa4153511a5e4c483663182594c"
