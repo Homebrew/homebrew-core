@@ -11,6 +11,7 @@ class Pdfalyzer < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "5c19e585185c382e134817e512de3a8938b2d559f1a5f55deddaae735a74e033"
     sha256 cellar: :any, arm64_golden_gate: "79718d8e764001c00f91d2f196fc288b9346c125c52e559258345de413c10ae9"
     sha256 cellar: :any, arm64_tahoe:       "686eb6fc2113a400a608bcf00d280e99b96a2211ead4ece7b185168a20f15917"
     sha256 cellar: :any, arm64_sequoia:     "0bb5b9132d348824abe0d2b38880698d5e7df4ff733fb99e8dc16a0367ae4ca4"
