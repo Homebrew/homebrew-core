@@ -18,6 +18,7 @@ class Eiffelstudio < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "88f35334bfb5975970378afd115055d9cc0deb9898df499017877d4147d58a3a"
     sha256 cellar: :any,                 arm64_golden_gate: "c464b7595246b0829be362f6bb74b1e8e061584877b834bd58db3da6d124dccf"
     sha256 cellar: :any,                 arm64_tahoe:       "f14da97c4684f2384c2d68dab556ea970b6191e8995634a31707e5a14bfb85a1"
     sha256 cellar: :any,                 arm64_sequoia:     "4030c9fa5e0a839aae6c9f9f8b04af32d7f45c2203453ee51b23388444a74d67"
