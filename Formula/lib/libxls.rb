@@ -7,6 +7,7 @@ class Libxls < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5ef4f79c0dadba75b1da2a9957deaa20b2edfc9ea64c4b2a5e49e8a2bf06fe80"
     sha256 cellar: :any, arm64_golden_gate: "8106160b907bc71a2d8361d482dffc72ff2d24e71ce3a914fb987cf6c5a00520"
     sha256 cellar: :any, arm64_tahoe:       "e2ec987b75932f475d9256392b5e38ecde92bbea2bf01697db2e34d08a8b27fc"
     sha256 cellar: :any, arm64_sequoia:     "ad42d9a4494d04a1e24edacc3944873062f12261169351844dd904570e61ee0c"
