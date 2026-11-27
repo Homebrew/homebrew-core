@@ -11,6 +11,7 @@ class DvrScan < Formula
   no_autobump! because: "macOS resources cannot be updated on linux CI"
 
   bottle do
+    manifest_sha256 "da6c5341f50ab79d2f30cfc3a045089e984cdc2b1dcec4f3d12e0b8f68e1f2cd"
     sha256 cellar: :any, arm64_golden_gate: "d6ee83a2a8a1d8a37688a1d8d793cefbe0d45e2ece7746c70a2e5b7698b4f896"
     sha256 cellar: :any, arm64_tahoe:       "54e3caa9c1c48e2470ae76829f8201ef75d88ea3f9f5608117c16fa178029fac"
     sha256 cellar: :any, arm64_sequoia:     "2f93ab1e508fb51ce760cae089650cc38abdf28f228302f0993ddf5dbf8a3db5"
