@@ -7,6 +7,7 @@ class JwtHack < Formula
   head "https://github.com/hahwul/jwt-hack.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1dd3ac539adbd5b0890d2fe4e59741d44a092b2ceb430fd4b04f07a5a5cfeb95"
     sha256 cellar: :any, arm64_golden_gate: "88c5bccdc1287ff0d3210ad9dfab10c5fe7d0dad15929ed8ccb3d5a3594e98fa"
     sha256 cellar: :any, arm64_tahoe:       "ca0973e4a1c3bd80d36756df201204607dcd7506d2a4199f53dd566967cfd24d"
     sha256 cellar: :any, arm64_sequoia:     "94f3ed531198797ae18f317ac34fd24731c0442f47acbc542594e35e67fcf26f"
