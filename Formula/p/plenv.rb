@@ -8,6 +8,7 @@ class Plenv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e81e4aefe0fc43b09660341c7fe902f17b6f08f2f2e3f62c8746d0654a70537f"
     sha256 cellar: :any_skip_relocation, all: "5a0466e4db621c88c365d43a2833a11f9fb5c8284c906b34e2d8d71365370d31"
   end
 
