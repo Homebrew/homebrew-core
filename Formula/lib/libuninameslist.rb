@@ -13,6 +13,7 @@ class Libuninameslist < Formula
   end
 
   bottle do
+    manifest_sha256 "c8b44ccf4c7d5883a0d651844f0fe54d0e848a087b68bbd466d546789eb4f3dc"
     sha256 cellar: :any, arm64_golden_gate: "be30cf7255db988eb9d9de6f5cc6bea2f05b8cbd7e7d2a0212c3011da6c34da9"
     sha256 cellar: :any, arm64_tahoe:       "6ed38b913c30d8c8c10ddad1cb1cb40fb6148fb58a9f80b81df348166fc9beaf"
     sha256 cellar: :any, arm64_sequoia:     "0d934878052ae876f93d80748f0fdad7c0680227da6b0d85e697923cf98b6fcb"
