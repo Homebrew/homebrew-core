@@ -17,6 +17,7 @@ class Libmp3splt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "53cf3d9ed283b8c3c06231a10e9638f97a8bd9abe72ecec5101100fee9467469"
     sha256 arm64_golden_gate: "f16ca0e44c2a75492c44f0bbe6b9e46df955f5baf544eea83a42d44ea2fdbde1"
     sha256 arm64_tahoe:       "71e27509f2f5051c193c6dde207ea520cbd24d1f3d7a90664cd67befce73adb1"
     sha256 arm64_sequoia:     "093990114c593106e24cfd2e289dab0972431ad116963e132ced44a8e89b7bd2"
