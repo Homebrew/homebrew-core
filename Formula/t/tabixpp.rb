@@ -29,6 +29,8 @@ class Tabixpp < Formula
     resolves "https://github.com/vcflib/tabixpp/pull/26"
   end
 
+  deny_network_access!
+
   def install
     htslib_include = formula_opt_include("htslib")
     args = %W[
