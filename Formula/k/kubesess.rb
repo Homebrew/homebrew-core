@@ -7,6 +7,7 @@ class Kubesess < Formula
   head "https://github.com/Ramilito/kubesess.git", branch: "main"
 
   bottle do
+    manifest_sha256 "db19902046b4a0331827ead72c1b57d8e50914e2a79c3baa5ef363567fc2002a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f192c1e68faa5bfc2f5499514cea14fa206dd22c2b178d9a213c66704eba8ee0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "229eb30598b36318c4010ea3cc4457abf78cdc6ac4f7c32fc4438e0b959141b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7f4954b43873ae467b0e67f6cb4f144224522a0f862488e020cfb0fb3421176"
