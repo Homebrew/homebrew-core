@@ -6,6 +6,7 @@ class Libcmph < Formula
   license any_of: ["LGPL-2.1-only", "MPL-1.1"]
 
   bottle do
+    manifest_sha256 "45fdedc4012cc63aad7f82828deab1585fa00c1d56a4bfca2b8dea5e8039dbae"
     sha256 cellar: :any,                 arm64_golden_gate: "4407a634a2db815e7d8849abfd0d286a7e2697f70dcb5f731a30e8dbb99fa8af"
     sha256 cellar: :any,                 arm64_tahoe:       "795cbd543a01cc09b16b32cd349b2c41ecf49511ec8dd413c9c992e044a7d1a0"
     sha256 cellar: :any,                 arm64_sequoia:     "43f6a25f51d2e29fc992882901b8fae82353d80efe71305bc6acf5bd852ff6c7"
