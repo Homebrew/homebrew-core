@@ -13,6 +13,7 @@ class Redland < Formula
   end
 
   bottle do
+    manifest_sha256 "abc45a665bc079f2ce4d83f5d9e9a6021d5bb058d41e08448870fa06d687ebeb"
     sha256 arm64_golden_gate: "6195b70513db20582af81a3cb9d01010384c3812cb3ce7ff03a23aaf2b1cf422"
     sha256 arm64_tahoe:       "7c7aab000c18d388d284b94060060bdc54990d6aaa29475f702b8c85d9031ecb"
     sha256 arm64_sequoia:     "16526f739bc4c35eb3524005689e270dd9ce0828e0934d9d57f9693338b7fcda"
