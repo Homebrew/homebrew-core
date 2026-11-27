@@ -1,8 +1,8 @@
 class CratesTui < Formula
   desc "TUI for exploring crates.io using Ratatui"
   homepage "https://github.com/ratatui/crates-tui"
-  url "https://github.com/ratatui/crates-tui/archive/refs/tags/v0.1.25.tar.gz"
-  sha256 "b02e2fa3b7225b5638f9ab8716c3cf21dfb32d96aee140ead2f451005abd58c2"
+  url "https://github.com/ratatui/crates-tui/archive/refs/tags/v0.1.26.tar.gz"
+  sha256 "ea2a844f1e9a2ece95c3a09ad165c18529847b48141cf1a52a18eb9191ea8f45"
   license "MIT"
   head "https://github.com/ratatui/crates-tui.git", branch: "main"
 
@@ -25,15 +25,6 @@ class CratesTui < Formula
   allow_network_access! :test
 
   def fetch
-    # Update to openssl 0.10.78 and openssl-sys 0.9.114 for minimum needed to use OpenSSL 4.
-    # Using `cargo update` rather than patch to work with stable and head.
-    if build.stable?
-      openssl_sys_version = File.read("Cargo.lock")[/name = "openssl-sys"\nversion = "(\d+(?:\.\d+)+)/i, 1]
-      odie "Remove `cargo update` workaround!" if Version.new("0.9.114") <= openssl_sys_version
-    end
-    system "cargo", "update", "openssl-sys", "--precise", "0.9.114"
-    system "cargo", "update", "openssl", "--precise", "0.10.78"
-
     system "cargo", "fetch", *std_cargo_fetch_args
   end
 
