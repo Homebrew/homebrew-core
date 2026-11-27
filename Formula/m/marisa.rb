@@ -7,6 +7,7 @@ class Marisa < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "91b193dc9b1def5a29b52f418fb1ac68616b92fb9ba15691a92fdc551a63e917"
     sha256 cellar: :any,                 arm64_golden_gate: "b1a3168b27684bba38eb3358f44ddbb634fa5896cc4ba650a4fc6b58b93fbe5c"
     sha256 cellar: :any,                 arm64_tahoe:       "f6975b75a559edc43c0638facb994e1cf76648e1fee7eefd5d28137a04790fbb"
     sha256 cellar: :any,                 arm64_sequoia:     "6c21f4fbe4ade8b27886f8b0ecad9abbdcf366609768725dccdc4abe0cd61cec"
