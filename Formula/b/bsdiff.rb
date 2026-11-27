@@ -13,6 +13,7 @@ class Bsdiff < Formula
   end
 
   bottle do
+    manifest_sha256 "a0ed791de626c9cc60339a1865edf9fb00f04fc9b68d0fbd0960475ffd1fa8ef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b468cd18edad94a6c845c366f0f62ca3a7602509e1e989db2dd45bb1afb777a7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1b39ac523c9bb26c5b194c20451b28be15bf1a8a5b59bab50a517f7619c472d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5aa138e7ada53aa574d2bf31f2cfa65cd53692001a1d7e5ad6240fc72975d6b3"
