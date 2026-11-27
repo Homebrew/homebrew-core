@@ -7,6 +7,7 @@ class GoTask < Formula
   head "https://github.com/go-task/task.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9dcaa571b6ee5c70acac67b38803c07e7e4c559dfe22dfde9d83abdaf3ea676e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1bd590c63c6dfa71ecbed3e2ea2b56ce10585caafe5e64c701b47bd545af8425"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1bd590c63c6dfa71ecbed3e2ea2b56ce10585caafe5e64c701b47bd545af8425"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1bd590c63c6dfa71ecbed3e2ea2b56ce10585caafe5e64c701b47bd545af8425"
