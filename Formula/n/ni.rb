@@ -6,6 +6,7 @@ class Ni < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f90acd30c5cbed4e184728a163eed3154b261a029a2a282ad80ecde804847928"
     sha256 cellar: :any_skip_relocation, all: "1995b47b6d5180a6870fa3bcf69dcb109780e50c9d7797f47b6d1404aa62d507"
   end
 
