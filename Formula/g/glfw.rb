@@ -8,6 +8,7 @@ class Glfw < Formula
   head "https://github.com/glfw/glfw.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6ba927838155308995b0c708c252d686f61db25d47cdf579424bc9bdf2a9c86b"
     sha256 cellar: :any, arm64_golden_gate: "a7422b8082e3ffb17561ae60869a0798f23a9bc3ac63853220190152e71f1545"
     sha256 cellar: :any, arm64_tahoe:       "bf700c2e1cb05182b6b401ddd589546a93668bd901d2edfd6e8248dbae62444d"
     sha256 cellar: :any, arm64_sequoia:     "2d107dd9ea7fdd5c9bf4735a52f0946a2e6cdfaf0bcd848bf1472381eb67345d"
