@@ -6,6 +6,7 @@ class OrgFormation < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "e31bcd0d046cdc60e523251b89f83dbd39d7d157af02b187ceec592d02a10467"
     sha256 cellar: :any_skip_relocation, all: "4bbbc66ae295c0a0c257629f70558e877aaa352bac92685061ce94b193f170b9"
   end
 
