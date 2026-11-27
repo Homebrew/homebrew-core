@@ -15,6 +15,7 @@ class Ouch < Formula
   end
 
   bottle do
+    manifest_sha256 "0b2c09a57cccd9379d83d05d4046fbd0b718225a7421e30e15d695270b86a748"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a70f65653c18fa8468a5031b4e33d07da96db972b95fc7f811a7654dfb1ad8ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d348d3a35b9387a354d32ef0055cf9f0486472827d77249a78f326c3811c083e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98d77ead4acd9daa3e8f68470d6d31d92926e0847396de926e0b7d61a98800ee"
