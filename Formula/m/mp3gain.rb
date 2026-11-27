@@ -7,6 +7,7 @@ class Mp3gain < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "e4eadb75fd6bcf3f73cc42735cf6b35a8f50c045535d9eeb853345fc63f98018"
     sha256 cellar: :any,                 arm64_golden_gate: "41b9f29c83c7c61201085cd72f1217d622f511386cee967a73dfb0f190fb4061"
     sha256 cellar: :any,                 arm64_tahoe:       "29068cf92340a0434d5cb8bb98479ab79de6831d80f21916dbfc806ffabd71e2"
     sha256 cellar: :any,                 arm64_sequoia:     "2a9cae1ecdebe6daa0509f9841ecddb0c6a820919224caa5a1fcc2c62ec0d258"
