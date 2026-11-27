@@ -8,6 +8,7 @@ class Pylint < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "87205312962dd3b231ee27ad69beee4c1c3aa6df93d7ed7b2b56b85972d55629"
     sha256 cellar: :any_skip_relocation, all: "d5a9e5535f98f2135ecdfd347a4fca59ba7768cab7fe293223706a938782664e"
   end
 
