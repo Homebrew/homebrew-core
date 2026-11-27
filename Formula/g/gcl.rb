@@ -11,6 +11,7 @@ class Gcl < Formula
   ]
 
   bottle do
+    manifest_sha256 "82f66981155bd9c82f8138abf6c73ea679c563989b221b535368f4126a0dbd7c"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "dfa35d12b4ccf9fb802cbfef7fdc2e8300734a3d6eb375520db4070ef8b5428d"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "28c991bd2a4fcde47e5ed5199c69d521406cfe75a1e84b9b9ac282b6c3bbe384"
   end
