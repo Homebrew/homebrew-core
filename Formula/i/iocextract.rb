@@ -11,6 +11,7 @@ class Iocextract < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "02485bf04c9dffb2029aa4ebbfd3593b213b9953e6f4b67d91563b44baa8ed9f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba93c5e78224ca5f9e6472612021f92d2af57ee7097b72765c4612ea206720e6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8b6a9ceaf09e841c04cb8b0de318d26e68bdca525a8ce9f83068312df1aa9f4a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ce99a3b26c4afcfd619af4923548f4268c88d5551445be16c1964cbba618559"
