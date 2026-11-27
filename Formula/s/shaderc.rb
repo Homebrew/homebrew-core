@@ -46,6 +46,7 @@ class Shaderc < Formula
   end
 
   bottle do
+    manifest_sha256 "70f25ad542a9a565604058dddd303df70a0d6f46a60f1bbfa12e894866aa33bd"
     sha256 cellar: :any, arm64_golden_gate: "463549d39c59ba245f05379667d89e83f223f1b035226926534fc28ede01455e"
     sha256 cellar: :any, arm64_tahoe:       "12ba0c59a98fb8f671f9473573002b2a812f26d2e60ea4f577f0c8c750c9838a"
     sha256 cellar: :any, arm64_sequoia:     "1313ffbae9ac1559f7160cc89657ecd5fc324895ff46e15a4bd198ec3bbebec0"
