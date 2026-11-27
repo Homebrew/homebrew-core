@@ -6,6 +6,7 @@ class Freesasa < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fe23a39ae8dd3408dee2c41367de7851e6504a326adaf112de84ad5a14db4553"
     sha256 cellar: :any, arm64_golden_gate: "3ace0796c7285dbc23e161e13e5dbc95e2bb0ad141bd7941d4bb341a8d0755f7"
     sha256 cellar: :any, arm64_tahoe:       "a1625588f5e46a454620a3fa86c26afd07a1426a7b633fd3228ecb00cf201fb0"
     sha256 cellar: :any, arm64_sequoia:     "a12b834e8c80fafa40c8c8c59ef750250a237ceb24614cb18055277021806ac3"
