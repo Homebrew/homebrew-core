@@ -7,6 +7,7 @@ class PhpCsFixer < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "3ed03585487f064a34bdd0e3e1e7e4bd85125499a63e7565ea2f4a072f7bedd7"
     sha256 cellar: :any_skip_relocation, all: "71de1d5f4c37a7ccc048d754cd376d5d1b81cd4b4b1d4cf9de4d2feee45c39ae"
   end
 
