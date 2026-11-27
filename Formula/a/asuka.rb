@@ -12,6 +12,7 @@ class Asuka < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d5ff6ed0dd2b0728f43dd7076c723aca2a7498e1d74608a21cc64cbce4c76a7f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aec6df40ed09e3ffa39407f67e6b5ff4370dfeb8e3a16cca8a0504e097d631ea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32ee0da95789720132c1d861f2d3123ad212788d9146555e435a96527bf7bd3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe4fca3a8b96744b6b0304c3cf5cdbaf22a0ed7ec822d6e783b670a4c1869ac5"
