@@ -8,6 +8,7 @@ class Cxgo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9bd56fc6c200934f935e03a6ea1b849afaf2916d7bd37ea197c5087f69830982"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efb117e8431187f93193ce22852ea47f5c17d3320a486d7fe15584b16ceb1155"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab751b7d073f7c78c4ecb82c6edadc57476cdec1ea3c521b53cc232d66ad72da"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab751b7d073f7c78c4ecb82c6edadc57476cdec1ea3c521b53cc232d66ad72da"
