@@ -8,6 +8,7 @@ class Osmcoastline < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7f0afc736fbbeab4b1696cdc7cc4ca199e2621d78accf863ddc635d4cac0021e"
     sha256 cellar: :any, arm64_golden_gate: "4cd52230b1216d6acef0934bca869eb23747a44209cc2da04191c97356bf5ba6"
     sha256 cellar: :any, arm64_tahoe:       "43029b1819d7e6a373bd2280387982a6c02c9421cc5104042477687f535249ca"
     sha256 cellar: :any, arm64_sequoia:     "01a61cb2c86972c45dde929b7cb24412a6964ec4ee1cfe8c775d7879e5e369ef"
