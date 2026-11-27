@@ -13,6 +13,7 @@ class AlsaLib < Formula
   end
 
   bottle do
+    manifest_sha256 "4d53aac839aa756476054a23e7be5146a031e2c5b0befee8da58c3bb86e764aa"
     sha256 arm64_linux:  "b1ae855e221183539e46de1223bd314cada603de3e8d4b34737774cbe272d0d1"
     sha256 x86_64_linux: "2585ca003b5d398419bffad120e55d7b0429c0986e70bf03e7435329136013ac"
   end
