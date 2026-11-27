@@ -12,6 +12,7 @@ class Ncftp < Formula
   end
 
   bottle do
+    manifest_sha256 "4867aedea13dd862ede2a0864e9f73336c81ed44a2d35bad74b5d04342ea0c18"
     sha256 arm64_golden_gate: "c3d02f505f23a84fc230a69b3c679c7db180a6b2a62df4d5f1e4e5eb8a61a5ea"
     sha256 arm64_tahoe:       "d034873e2efd9f27eaf30e71a66222e1c36de002f2e2097916558bb0ddc7409c"
     sha256 arm64_sequoia:     "7be8e9dfbc09cdbfef04c5568b799d84a9155032e365bfc00e6b92ca9ad05c9d"
