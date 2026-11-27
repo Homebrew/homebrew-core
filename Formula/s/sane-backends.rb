@@ -15,6 +15,7 @@ class SaneBackends < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "9e09bd5e31b36527ff2a76b31f90c05fb0cf7fb9e900124188f8735f00e4dbfe"
     sha256 arm64_golden_gate: "ca916fd045f81378c5b28ebed3f58f812f214da95d90e4ad45f6fbae68e67d1f"
     sha256 arm64_tahoe:       "27298da0362d4c23dfeea65ba2e3a3d0b4852299cb80d94d806309776abb7adc"
     sha256 arm64_sequoia:     "3fe51ef811ef943b28aa0a7d02e2b1c4eea7b4697a955ef0f82c2e83645f146d"
