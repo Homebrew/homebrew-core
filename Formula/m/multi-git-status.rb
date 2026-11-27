@@ -6,6 +6,7 @@ class MultiGitStatus < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8e85cfa3c7045a4c8e427633c70937c3143e5e9fcc4566d761fcb06de91df728"
     sha256 cellar: :any_skip_relocation, all: "011ea78413856d20a26c71c4cdcc1b7909ce6ab7075544c716359079eb4f3b06"
   end
 
