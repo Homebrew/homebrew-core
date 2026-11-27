@@ -12,6 +12,7 @@ class Hck < Formula
   end
 
   bottle do
+    manifest_sha256 "e1e52b6f831b249546a974fab4e235ee15f14316eb5abbaf66b6c50830f796ea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7919349bdc3b2c59bfd2886456463f9edb87e63e06539ea8581f2eaa467481d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a299fca862a0c6622dcae57a753cb411b0d6a39d8b0769a52ad513d631bf0ae4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b3f4dca28753b43601bceed0990a538e717206e5193f7387443b5771da00521"
