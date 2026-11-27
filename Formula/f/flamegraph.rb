@@ -9,6 +9,7 @@ class Flamegraph < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "10d6125983f07a37fa7cba55ead3e2591aec9f9f5e65415eb0f6aef7c0837f13"
     sha256 cellar: :any_skip_relocation, all: "97511f43f573d3f64674b4ca16d9e9f2175366d769741f8c49407c8aefdaa4ec"
   end
 
