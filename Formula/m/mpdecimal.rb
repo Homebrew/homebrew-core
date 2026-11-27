@@ -13,6 +13,7 @@ class Mpdecimal < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2787c23a840f497a49adbbbe7b8f28fe5e71427d60fea9667acb2196e09de4d5"
     sha256 cellar: :any, arm64_golden_gate: "e60d12927c7dc7681c91784f2b2cbf9f779bc0a70599d552403403f89ea4e570"
     sha256 cellar: :any, arm64_tahoe:       "9fa6ced040c13747f9b010f406453c14041659dfb496a791b949c163b8a413f5"
     sha256 cellar: :any, arm64_sequoia:     "9e2dc44e47e91465c3cefa8969baa6af53a1ec339eda8443b18a30786147203e"
