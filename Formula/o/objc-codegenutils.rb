@@ -7,6 +7,7 @@ class ObjcCodegenutils < Formula
   head "https://github.com/puls/objc-codegenutils.git", branch: "master"
 
   bottle do
+    manifest_sha256 "350286fce4bafd91f3255cf5bdc90ee51a5f314138f70f17594593de30b0a33e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff54f932e14c6a7fa59eca472543b098c93cda5b34f3393514d77577bbe3c3c0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae4db60ac9757d78ddb5870ca7b39d1de92d4ebda85497ee129e84c26e3f23ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "689a1e289323d187c0e1c89d5fb9c7c1292eb304ae9cbf265303ce701e14407a"
