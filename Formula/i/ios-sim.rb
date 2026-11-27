@@ -8,6 +8,7 @@ class IosSim < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b6069e63b944b1434649fc4dab0eccba4d85e6e6d6b0d98e9ac118d5b0020813"
     sha256 cellar: :any_skip_relocation, all: "7659fa28568951c5036b1d0b02becfb30d4d2f8242545367930e964ab16f49d9"
   end
 
