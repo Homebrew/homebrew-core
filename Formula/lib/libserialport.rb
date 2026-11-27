@@ -12,6 +12,7 @@ class Libserialport < Formula
   end
 
   bottle do
+    manifest_sha256 "6de1e7291ca6ca7528d8f8ce745dea4a64b9329fc91b536933e22bf0bbf8f4a8"
     sha256 cellar: :any,                 arm64_golden_gate: "03050779564cd446a4d7e2d4a567aa52425b578487c24498ff6efcd9880dff3d"
     sha256 cellar: :any,                 arm64_tahoe:       "08338366e3223f18ebf2906736598b88648d08835ec45f05fe8f6815b65b7385"
     sha256 cellar: :any,                 arm64_sequoia:     "7b4c2b23d05044cd78465a863caab22fd8a1ea1d5938cb4227df56084e69f91a"
