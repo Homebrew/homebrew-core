@@ -13,6 +13,7 @@ class GitSubrepo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2a6377a6e1d69b3365d82e076a89c4af4b216c6c7cd1d017dd8a6e27fde8d0a4"
     sha256 cellar: :any_skip_relocation, all: "2b36a28dabe54ae8570223cf276739f8692c3ca72b28e96fcd2f74a819a46736"
   end
 
