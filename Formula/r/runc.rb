@@ -13,6 +13,7 @@ class Runc < Formula
   end
 
   bottle do
+    manifest_sha256 "bdf3facd01828399756acbf4ed9fd630d902eb71ac1fa066e285e9eff19ada19"
     sha256 cellar: :any, arm64_linux:  "f933125c1be5c0e7058b726df8db544e58e67227e498541eea7d849040b45f95"
     sha256 cellar: :any, x86_64_linux: "04306f7ca38d1293da8219449ecd0532957204d342b2cb678a57bf96a7b22e11"
   end
