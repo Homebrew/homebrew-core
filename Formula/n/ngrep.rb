@@ -6,6 +6,7 @@ class Ngrep < Formula
   license "ngrep"
 
   bottle do
+    manifest_sha256 "c9b0fce2067c61a850e282c1f63d6b82c514405fe2580175991f29116d8d63e2"
     sha256 cellar: :any,                 arm64_golden_gate: "c7b3eeb936f14501b24797964052eb28bf68b539e0ad666c0dc3521da0430cda"
     sha256 cellar: :any,                 arm64_tahoe:       "1487edf4329ee5db9a24d68a11f644e1e813d30ca8605ac62d0a057a019e21f4"
     sha256 cellar: :any,                 arm64_sequoia:     "c7d7984b630b7d3195393fa8a167ae17cab51ecc52b09ef3e9eb48c2374f35ff"
