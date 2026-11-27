@@ -11,6 +11,7 @@ class QtUnixodbc < Formula
   end
 
   bottle do
+    manifest_sha256 "b4d7f2ed425a34b85554b9c8927767891e81f74a2b6780ab94dee4766e1144f4"
     sha256 cellar: :any, arm64_golden_gate: "9a4dafaa1a99b7cdab85992cdb28ad990edb6b9f38384c5fa33943e9b97125a0"
     sha256 cellar: :any, arm64_tahoe:       "da148a0d14d3192be15f7868e9f13facfceeee660a5cf2b3461a3be22f28fecf"
     sha256 cellar: :any, arm64_sequoia:     "170957570bc0d49e29b8ed3ad95df90c4f360aeba3a0c98923c07e5989da918d"
