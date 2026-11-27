@@ -13,6 +13,7 @@ class Memcached < Formula
   end
 
   bottle do
+    manifest_sha256 "e5b5a77362a4392ba90a041435f5211300ebb9ea83ca7ce8d968bbddbfb4509a"
     sha256 cellar: :any, arm64_golden_gate: "adcec2656cc32726c9e67fb454b1d9beb7b1309ec5e2a9fe7dc95dc357e64047"
     sha256 cellar: :any, arm64_tahoe:       "ed2644aa3dcaf9d01babe0119a2c36e61a7d31f6102ac0a76730a2d5b1720dd1"
     sha256 cellar: :any, arm64_sequoia:     "3a2adb1dcb72fe37ea2088612107cbdc25e4c7c41e032c2ba6bfae891bcd21b2"
