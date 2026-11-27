@@ -6,6 +6,7 @@ class Ntfs2btrfs < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "310501b2ff796be105d53fc5129fc3b3e809d5269b5e9d5c5cb07266c09987d9"
     sha256 cellar: :any, arm64_linux:  "c139abbe7d8f44eb06653558601dca6a230baf8cd8c96a17035c13f4642db4b7"
     sha256 cellar: :any, x86_64_linux: "8605d243309e7ec4ce118bfa19a1af25ec552eb73509a975a711cb6f074ee0bd"
   end
