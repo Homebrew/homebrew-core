@@ -60,7 +60,13 @@ class OsrmBackend < Formula
 
   resource "gauche" do
     url "https://github.com/Project-OSRM/gauche-rs/archive/b1c3af3029975ddbe573bad874c4520db77321d0.tar.gz"
+    version "b1c3af3029975ddbe573bad874c4520db77321d0"
     sha256 "8b0e810d1b54285bb78a81050e0954ff70f4d6f8a67f84f4c9771c713f80ac08"
+
+    livecheck do
+      url "https://raw.githubusercontent.com/Project-OSRM/osrm-backend/v#{LATEST_VERSION}/vcpkg-overlay-ports/gauche/portfile.cmake"
+      regex(/^\s*REF\s+(\h{40})$/i)
+    end
   end
 
   def install
