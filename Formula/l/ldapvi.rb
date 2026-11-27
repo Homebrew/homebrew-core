@@ -14,6 +14,7 @@ class Ldapvi < Formula
   end
 
   bottle do
+    manifest_sha256 "d5522debb26b061a7ff0e5316c4cca3c117a2b0ceb78775c646480d5125da34e"
     sha256 cellar: :any, arm64_golden_gate: "c6b799d347aecd76ac20a01a8213e62085f9e9e58455f95a9ae86188340ea36d"
     sha256 cellar: :any, arm64_tahoe:       "7513b0860ba84275ccdf408af93c082de9e9823e64a8ce7f71bca1b440c55826"
     sha256 cellar: :any, arm64_sequoia:     "3f23ec23b01b2fc109822508fe456353d933a26258b5365b0f75f8ccda6db240"
