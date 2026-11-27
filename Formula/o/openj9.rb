@@ -18,6 +18,7 @@ class Openj9 < Formula
   end
 
   bottle do
+    manifest_sha256 "f282cde8709b06e0ac124d3f09d2946244717f75e79096f03470896979798929"
     sha256 cellar: :any, arm64_golden_gate: "de1763fc45a8ed3451c7fc6b83554316f5cee341735d3bf7c783fcd833c4a911"
     sha256 cellar: :any, arm64_tahoe:       "45c3040dc6aeb63bbf2bf5065c7f225cfd2386b8bca4f1979b878ba4f09247a7"
     sha256 cellar: :any, arm64_sequoia:     "fbf000f0b5b4644de780e7714813a559ca6fb26bf4758f29f459f03150ecb0d4"
