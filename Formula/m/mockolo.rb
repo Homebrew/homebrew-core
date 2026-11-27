@@ -6,6 +6,7 @@ class Mockolo < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "c9a47fd1deb6b81e9cafb1af0c836d97e0e3e5bbf2ef18e383d4f0f8524328c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c2a52cf72ef0ad4e787b564358e27f925fb2db6201b2facf765766176a32c54"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d8670e2a919766ae8a3c047aacda18bbb77bbf6b9609073cbbc9c659372ab7b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c9b24b30ebfd69eab92c1b7250c4e31c16730e615c1529448119a0ec8751781"
