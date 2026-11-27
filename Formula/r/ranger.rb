@@ -10,6 +10,7 @@ class Ranger < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "1f857a15962015412965698790800a5f78812d824b454411a7768b92e8f94454"
     sha256 cellar: :any_skip_relocation, all: "292af243094e88a780b3a509fa9d774b7613ba60e7c77d5b1041ed1cadd64cf8"
   end
 
