@@ -6,6 +6,7 @@ class Slirp4netns < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "eb4ad8bf37e7aeb3373093e1836ca18d603fd1502a56bdf18a375b746ff0072a"
     sha256 cellar: :any, arm64_linux:  "e8376b575e1c24235e61e51a32e8152482c3f23ca1baf799bfe52746a92a8112"
     sha256 cellar: :any, x86_64_linux: "81189c095d21a8c56a669aae19748e8ad63b8ab1db973905e5a435d119f6aca7"
   end
