@@ -9,6 +9,7 @@ class RbenvVars < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "050159c8fe8518a266d5bd5966d74412a6ac9500666b52232342fccd5380b822"
     sha256 cellar: :any_skip_relocation, all: "571e19044f1c058d68271c7a8296cccee968ba6e1e0bca75fe8b5167f5888b96"
   end
 
