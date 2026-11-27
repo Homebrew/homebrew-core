@@ -12,6 +12,7 @@ class Etl < Formula
   end
 
   bottle do
+    manifest_sha256 "94310bf83c3f8be983ace9be69c56502d2963d6dbbe845333de212de45d618fb"
     sha256 cellar: :any_skip_relocation, all: "0a4090f4ab50fbb307622bff66ee04cc9150a73eb1213b4130d923153a755f66"
   end
 
