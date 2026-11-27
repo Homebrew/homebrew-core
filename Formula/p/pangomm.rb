@@ -7,6 +7,7 @@ class Pangomm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1e66df6d89b2866fc2d1b5491d62044b0f0a461367e2fab26c3bf1db0f20be05"
     sha256 cellar: :any, arm64_golden_gate: "4ed7a8fd20c2c4b23080fc8881e107499f3a51e3347c854a77ef3051a090e6e7"
     sha256 cellar: :any, arm64_tahoe:       "af63e35822fdec3f914dba2af313c621d34b0c2d123714c2a5408aed2caa571e"
     sha256 cellar: :any, arm64_sequoia:     "1ee24cf248414829a0bd416ca6774bd230f92c214470a36f061eb2bd707a06cf"
