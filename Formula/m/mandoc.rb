@@ -16,6 +16,7 @@ class Mandoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "289b5e57def30d7684949ab6a8ea1d4809854e619ac969123ac4f855d9e7edd0"
     sha256                               arm64_golden_gate: "d88c02e1b52a9f98180b1bf6e4e0124d487e8693f34cb83547984baba2e41fd4"
     sha256                               arm64_tahoe:       "025ae8796e204d45e8fee68828ec019cbab0e8e91f34b2fd08b3a6520622f840"
     sha256                               arm64_sequoia:     "70ad41c8cf8cff6992d5b628bd25d3a20f5b4308d1cac0e5a5dc32c73e4a51ce"
