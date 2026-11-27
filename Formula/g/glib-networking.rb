@@ -15,6 +15,7 @@ class GlibNetworking < Formula
   end
 
   bottle do
+    manifest_sha256 "00d90e40a6aaef68c835085834fbb73b6d0fe793f98737acc7ad08cede8cb2c2"
     sha256               arm64_golden_gate: "d29d9f4eb558298dc6eff44d95783df7729eca49a11ffc79d3e86c8da175d291"
     sha256               arm64_tahoe:       "91c6c43978f91a348e3e622d117b1f02b46b0ce3ade7d414160819b7d48e67c3"
     sha256               arm64_sequoia:     "81429551d7888762f6e7fc1d776dd9bbd1b494ca3bea6eae94ff675e06645642"
