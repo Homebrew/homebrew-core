@@ -7,6 +7,7 @@ class Podlet < Formula
   head "https://github.com/containers/podlet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9d64f75f87dd4a65a38f48aa271c533e8b632d4b3aceddce75f8a6d203f6277c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a3d9659b3b4d804345b02e174f25b7ed8b00517096fd4bd2ec82c9565bcf63a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3ab068fe8e02eb0da24e71e05b6ffc37830348c759c160cd2f4d079baa0e38a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72dd5ea24937f10ef025c3e98773cdec5ae7e1a1e81db986362e33c5231c98f8"
