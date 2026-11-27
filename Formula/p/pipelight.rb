@@ -8,6 +8,7 @@ class Pipelight < Formula
   head "https://github.com/crocuda/pipelight.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5db7b37ddff3a4484ee638fd9ce6190bbcc008d4c9936d016d9ad63f4b0e37f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "281699e218841c969e4d6461ff9ebf34700bc0ca5ed99926d99709a270082888"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9decdd34701f05d8da607c6246a21f895971966a1794c6ee1bb96497d8d5e1cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96adf14db27651fe99ec9078aa498d9ab44bbee167181e28ef3f2e618936983f"
