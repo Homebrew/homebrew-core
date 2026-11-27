@@ -25,6 +25,7 @@ class Bsc < Formula
   end
 
   bottle do
+    manifest_sha256 "bbb53419230d1cf71ed647e099f4f8548db7e930157cdbe443a0052f9646835d"
     sha256 cellar: :any, arm64_golden_gate: "323b3ea0ac72592a6c37f079d8ea0435c7c01a3077df20b2e92c41ef3e424205"
     sha256 cellar: :any, arm64_tahoe:       "b049841441cbce5e98752172f20f402eab30a1f5eba5f0f0492d8c7e13499492"
     sha256 cellar: :any, arm64_sequoia:     "7a1f6e535570500088d040698d2ed54ee6e37bf8cb56734a6d791cd07cef6c9b"
