@@ -1,8 +1,8 @@
 class Tmuxai < Formula
   desc "AI-powered, non-intrusive terminal assistant"
   homepage "https://tmuxai.dev/"
-  url "https://github.com/alvinunreal/tmuxai/archive/refs/tags/v2.5.0.tar.gz"
-  sha256 "99dfaaaa0d475873fd9004355e48354c7d8c6e1c009d767e2eb4300d9cfdbe4f"
+  url "https://github.com/alvinunreal/tmuxai/archive/refs/tags/v2.6.0.tar.gz"
+  sha256 "324dfd4e55fcddb50d38fab3237d69bc618527c6f67e05426adc3ac3eaeedc45"
   license "Apache-2.0"
 
   bottle do
