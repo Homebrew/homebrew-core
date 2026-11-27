@@ -8,6 +8,7 @@ class Sqlparse < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "9ab3510f4779572e3fe9484de098b96916e036f9306d882dc609950766d3b1d4"
     sha256 cellar: :any_skip_relocation, all: "a0ca9aba847343d657811307258132d0f67f3979aa1e5400941ef675da297e69"
   end
 
