@@ -8,6 +8,7 @@ class DockerSquash < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ec0b534d0b18a14d18749ff390d681049f4fcf34292a587d2539784787acd204"
     sha256 cellar: :any_skip_relocation, all: "1b43f5d5a4af98262b217c49fad55d560d2ec97da126753e7cfd6e847b292a41"
   end
 
