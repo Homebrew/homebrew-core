@@ -7,6 +7,7 @@ class GoRice < Formula
   head "https://github.com/GeertJohan/go.rice.git", branch: "master"
 
   bottle do
+    manifest_sha256 "343368babb59cb575932c56ebb564871e07495842f09c3ae80b30e3756ccdc0f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95c95d0eb03ae093138898a007233cfba51b79722e47b77990d473d28bfea9a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d678a810a2ad8a38e94feac1e95217927c75433f74bd58460146080c6fe9fca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d46108d4a8f53e1f8e3d4837ca941af6f3c866b247ff7c58d3bf8b65d34c43fd"
