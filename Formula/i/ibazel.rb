@@ -7,6 +7,7 @@ class Ibazel < Formula
   head "https://github.com/bazelbuild/bazel-watcher.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d1b5ac203c40141c96cc5bc5428a1d9ab4c0a30100179956f9004f0eced7dd2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "49859c0ecab8a3556699e61a1859032e34a9f63910d5f29a8d8faf608a151b6f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4075760d89bb69bcddba942a2e386efdc2c8109d0e3ea81197e3c50b44436d49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6f0eedc9b9e7c686be17d89a760e3c4aa5cbef0630383984f8f6ae61fc9b71a"
