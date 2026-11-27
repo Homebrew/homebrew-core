@@ -9,6 +9,7 @@ class M4 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1cefcb897b62a20fb5398e5298d71dbb9c4a4e5eda38bfab8a29ddfd13ae2909"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14d29a577e4af26fd2fb2f70f127d0b9b641fdafd556fdbf98e945e1d4fd2657"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "81e05b29593d5a7a5dc4fe5f245fc62623a84b82c67183bf26385cb86939c6d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80f871ba39104ef553d5a15e2c70639c69dd4fb76568842f5dc1ef451918c6a8"
