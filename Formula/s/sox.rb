@@ -9,6 +9,7 @@ class Sox < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "4ceffbfa4b071293d6208eb6e1919def6349e4e5e0b5b83a3bf6700b86481bff"
     sha256 cellar: :any, arm64_golden_gate: "c2956a28433c90329ae94d2b2484273e252b14ed3fa4cba0e2b2742da3332cbf"
     sha256 cellar: :any, arm64_tahoe:       "5e75dafeb3b3ee98d3fec57ddc6c7910b5c2af77de692062c90dd9e37282e592"
     sha256 cellar: :any, arm64_sequoia:     "e7628b40fc8bef9273a2f7632cfc27ec34c8a6da03f3b59696992216d8f8e0aa"
