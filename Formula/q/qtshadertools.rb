@@ -21,6 +21,7 @@ class Qtshadertools < Formula
   end
 
   bottle do
+    manifest_sha256 "3669f850cec6b5036b3caf1ef3c92e7ac61715b9e78cabef4493ac412d4755a2"
     sha256 cellar: :any, arm64_golden_gate: "ce0f6de39dc8979ba041360ab5fcbd5aa585f573e60dbb775d4ba8ef600cb50f"
     sha256 cellar: :any, arm64_tahoe:       "ce8f56aa405011bebcaa4dcccefc310cb4b241396dcc2af4db3cefdd071ab44e"
     sha256 cellar: :any, arm64_sequoia:     "5666a2efc40797b9e07f47175c8552025b68a581ac15427f7b432c23fdbd6248"
