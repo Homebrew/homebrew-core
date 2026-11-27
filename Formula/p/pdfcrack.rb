@@ -6,6 +6,7 @@ class Pdfcrack < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "197def374e003aea127b9df75ad09abab9d49a7bae0a6468946005c6b4729942"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0a104f25a261d35a4fce449d700633cbf971fa0ee04225f3edf4cd92c06bebf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69a134ef06d1ed838be0243f923f5cd403b32a4ca83adc619bda46f6d58ef91b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52236fa60b8d96b8dc015eff612a68f9d5932150fe37b924e1d56174149929a0"
