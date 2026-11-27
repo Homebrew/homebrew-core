@@ -6,6 +6,7 @@ class Pipemeter < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "58955b98bdc3b4d9abbf79ef002986e43cddda32938a404414029951b0c611d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf5751c9094f654e5ee8624496a5c38502ab0946ae871a7ad3bc80d18f39e28b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f87dfabadf8edc8e63b7032810808c7b126c8ade8712687113170ae531796760"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0653426bc1f7a2f36bc886279953ec40660d867797f4623162cc749c2f48ba0e"
