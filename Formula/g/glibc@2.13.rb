@@ -73,6 +73,7 @@ class GlibcAT213 < Formula
   end
 
   bottle do
+    manifest_sha256 "8c6e73ca856125b9993dd24b03a4bbcee09a390ab21d4a4720a3743555ad5bbe"
     sha256 x86_64_linux: "fcfd8511ae57b126f377789db1294e74bd48c2be941badd8e33a378dbdef9e16"
   end
 
