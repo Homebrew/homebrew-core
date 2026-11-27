@@ -7,6 +7,7 @@ class Ggh < Formula
   head "https://github.com/byawitz/ggh.git", branch: "master"
 
   bottle do
+    manifest_sha256 "72adbfe00756949fc4b7709884b8f2eab3d4a7cfd37c93c3d1d6208d04b7221d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ecf8dc58d99405bf3b8fe85b26bc1620f0ec0452501549e9e825eea0483a738"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f19e7aab53fda165524a48499bc2426204ecbca9012a1f860c5ca6f624f29338"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f19e7aab53fda165524a48499bc2426204ecbca9012a1f860c5ca6f624f29338"
