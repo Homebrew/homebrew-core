@@ -11,6 +11,7 @@ class Libnsbmp < Formula
   end
 
   bottle do
+    manifest_sha256 "42057c3138a55f99296107f47f87be6caa1bc4d15c2c7f867f2e5f317d0b84f6"
     sha256 cellar: :any,                 arm64_golden_gate: "5c1acf49056d3140615efcf8e167b20243400137b606d883d283afbde152abfc"
     sha256 cellar: :any,                 arm64_tahoe:       "d75c82e5602bfb3c49ca8de06f9bb16002f10f1eb09b6c025d3a4e160f4b8aef"
     sha256 cellar: :any,                 arm64_sequoia:     "334b42b3b30917e7cb0850b079cced2c020a9ffe8389d1a703ffcd2896f64a22"
