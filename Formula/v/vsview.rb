@@ -11,6 +11,7 @@ class Vsview < Formula
   ]
 
   bottle do
+    manifest_sha256 "41c64b2cd26aa8eaa26dc298f4ee6bb484d31715a705486fc8f68348f4238dcf"
     sha256 cellar: :any, arm64_golden_gate: "627e72e050e381e004b5ae3f5020d7a6f02a4d3dd296217b6ee70aad53bef1e6"
     sha256 cellar: :any, arm64_tahoe:       "68bc29c8a466c767247ef7cf4cbda286ab81537708222988b8dcf8d80047c928"
     sha256 cellar: :any, arm64_sequoia:     "c23d18c70235344ad15012318d6e2c83a0dbf4786c3c1308dc743025aff7e37d"
