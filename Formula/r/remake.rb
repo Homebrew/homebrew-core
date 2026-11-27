@@ -21,6 +21,7 @@ class Remake < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dc91637a4021a6893fbc12df225be66e79d9d6162bb734eddf2e4fff595fbb3c"
     sha256 arm64_golden_gate: "f3f1f720765e50b6d64ad5a9ccacd563008f31270baef3332739b576a097a04a"
     sha256 arm64_tahoe:       "f3e10b032f0c417f08105fa2c15a5717151f8da9f094e5244cee0572b38d7d37"
     sha256 arm64_sequoia:     "e653146f267c162714ce0110f5cc892c9a2cbf2e0555922a31f26e65139385ab"
