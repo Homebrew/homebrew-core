@@ -7,6 +7,7 @@ class OsxCpuTemp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6bfe65e8862f82cea481b104d5b76d52ee9b7d4a175b8ef906f0b0a65bda1743"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b74f3aeb9e26e5f33bb904e2a098fdc616d97e3ff484be7fd316d48314e220a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c7b0f3f1f33e64d4cacb4b5b8d5a7454fc23338f15caa577658ef1e0b7f3026d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e1484688d7c45ad319e94d86b098150df1a028fb85b93591664a8f5c839a1383"
