@@ -14,6 +14,7 @@ class Ninja < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da9a5d79fd296f97d1232dff6a3c6a146744046f213dee938d5942f154605142"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efc5badad160831eb4bbdfd252a9cc9184e0fa901968b72e6e4f93f67a4c2057"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7bb261a70d9337d765956329580e10f16a0d1ea4eef5a106db39c9e1f8917f00"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c07378c1ccb6cfde4bc2e12877c9f365b31c62ddc4ec631421cb80e3a7e1f11"
