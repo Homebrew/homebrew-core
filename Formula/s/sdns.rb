@@ -7,6 +7,7 @@ class Sdns < Formula
   head "https://github.com/semihalev/sdns.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4c73358714381f7afb94a1e95a0fad8d058f22e1ad36c455971998f3360bd29f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7738036d0e31b30ae9957bfdbef64eebf1b1c3ff1c1d86946976a7c0d4e737b4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3401e556e8a796cf9f63e3f164b5b0311a7f0f97f39af856e4a72e3965ff257a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5dbd0604a691265ea9d0026e28fb5ec06ae2aa4cfc15f69810368d84f1125521"
