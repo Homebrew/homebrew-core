@@ -22,6 +22,7 @@ class Harbour < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7ccd77d2bfb840e17b35a475af5871c5e104c5cfe9df4b5592f83dd152df0c73"
     sha256 cellar: :any,                 arm64_golden_gate: "98d9c25c1b0f27205fc2493de59cb485c993a4f978b718c1580d83e5e5e734fa"
     sha256 cellar: :any,                 arm64_tahoe:       "06c136368fdf19cd9b6a627930406bd96d06c82a60beef63d4f702000eda8e6c"
     sha256 cellar: :any,                 arm64_sequoia:     "161bee9030b1f4d9170c831ba10fb682f89d54be2d206f895d78b73ec08aa7b9"
