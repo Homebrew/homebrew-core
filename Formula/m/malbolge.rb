@@ -12,6 +12,7 @@ class Malbolge < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ea110389f2ae2aeb0d0567a8ab160d4b52e6faf15b7bc8e20c382be0a6cfa076"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9200d693051f33a58ff8e68f12928364d6653f3454308cac97d449cf98bcdfd7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ed3ec05cff2e43fe1fc3b7f5f4f89a7fa3237500deb29d9b9d430483a6872f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd5f8220806eaf3c9b7095ccf6d1471026e86e6970ba04384e55d999ec986597"
