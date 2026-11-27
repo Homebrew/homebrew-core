@@ -8,6 +8,7 @@ class Clipper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da6bc68f3c67edf8d4a2c9df83f5ad532bf30520dc966e79515478593efa2967"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61e16e321819e0d719a1be84ee35e4c6d0684e8d6963f12b056e385889a73a4c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a774abbbe9a959f39a478a85b38f06ee5991ffd4eeb2d6314d242da59ed5402"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9a774abbbe9a959f39a478a85b38f06ee5991ffd4eeb2d6314d242da59ed5402"
