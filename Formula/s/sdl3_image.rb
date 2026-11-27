@@ -14,6 +14,7 @@ class Sdl3Image < Formula
   end
 
   bottle do
+    manifest_sha256 "fda7dea032c289fe1597738173f7866832860659f8d3adca85a5b6f7efacb186"
     sha256 cellar: :any, arm64_golden_gate: "bc50ca43127f408fff615450c972b9a19ebed30be203fb9ee410a7da58652766"
     sha256 cellar: :any, arm64_tahoe:       "26a4609bc61be9036967190527065779bf7de375d58f8db6f8da22b7d8b052ef"
     sha256 cellar: :any, arm64_sequoia:     "2024ba1cdc678d2d3e3356ffaa22eecafd06c295f867043450a1b8534d510d2d"
