@@ -7,6 +7,7 @@ class Pict < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "903ba2022f21b73224d4b325f3a90694548bc3430afe7d803d4496679f5188b9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4be64e6dd5fb775cc3396d97bc1ee2270cfc767541e277c84e2af8ebb707fafc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1943785b6611e724bda4f429efa2ccaaef18a26850370d6712b933968478c4c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa8ac4e122053ec2c71f8c2855cb4274835f9571152427650684364bc2f84855"
