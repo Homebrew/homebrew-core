@@ -9,6 +9,7 @@ class Ent < Formula
   license :public_domain
 
   bottle do
+    manifest_sha256 "d5620afd881490a38b37b7369cc7f3f96cff022b53b535a942728678828a731b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63ef74cded083b91c78338cb01a6ef932f2a555085ea65ad134ce2599918d231"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff6411a4c5575cb11e6a3e1177df3a8e09ea6f361f5ae870ba21745aa33f1a9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b575b8008e74224742c5e78c22a496ee80c8a7efa3c62ba1856472f786d86d73"
