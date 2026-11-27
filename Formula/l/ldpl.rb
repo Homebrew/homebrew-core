@@ -11,6 +11,7 @@ class Ldpl < Formula
   end
 
   bottle do
+    manifest_sha256 "93056437919b7835ef88cabd4bb64c47c1fafc3a2a45469916964f525c33ad77"
     sha256 arm64_golden_gate: "8b1e98d6b646698cbf8b5f93d9514e3663976124b68ad7c31b5d08cd48a535ef"
     sha256 arm64_tahoe:       "0b4e78d126c188ebd64b75565d021fb50e83c1254ba7964961b6d2d8ebea60d3"
     sha256 arm64_sequoia:     "592ca4a7cdb51c66d42595b54a9c25c319505d9d381718dbe80fd1c046c65f9d"
