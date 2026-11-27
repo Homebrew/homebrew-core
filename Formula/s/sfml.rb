@@ -16,6 +16,7 @@ class Sfml < Formula
   end
 
   bottle do
+    manifest_sha256 "fe9c5a206afbe8613ee470796bac70fb56065329b88a303a8f88f0fca6db7c2e"
     sha256 cellar: :any,                 arm64_golden_gate: "a29fa70cbea3e830adf7714d511580ce2f733f2e70fe352cdd566ff32bd83787"
     sha256 cellar: :any,                 arm64_tahoe:       "f90a54b2514303d50f3e7ce23554246b9a4bd6765db89158da55eef3b780ce98"
     sha256 cellar: :any,                 arm64_sequoia:     "ca368852e45e73f7740343b736e20ddae613f326cbc24bc3779421c3c093c026"
