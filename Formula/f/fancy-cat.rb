@@ -7,6 +7,7 @@ class FancyCat < Formula
   revision 7
 
   bottle do
+    manifest_sha256 "ac8409b625bfcb7bc3592d9354c7eed0c16ba1da04fe5757eb379d43f77702f0"
     sha256 cellar: :any, arm64_golden_gate: "2e471b389c63a27a140c6a67b890d0900d3bc616254ac35f4fd7e0f8e8660061"
     sha256 cellar: :any, arm64_tahoe:       "a4fe6f58c2b8faf8b246d3112f147dcf77713c729dc0c9b448e3508f8c7185cd"
     sha256 cellar: :any, arm64_sequoia:     "d229b5f23ba927d7ff5e7b72f7188259bcd03faa407519e942287c68de394550"
