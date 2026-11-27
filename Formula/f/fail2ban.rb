@@ -13,6 +13,7 @@ class Fail2ban < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cbb418076b722ce5225f1fa2bce434fffddcafcc0bcf9afb8d6780f05a2d425b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c341041f3941e1b5d1e9ab68f5b18e4707f88e91e9e8da2e404075dbb3b5f2c6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c341041f3941e1b5d1e9ab68f5b18e4707f88e91e9e8da2e404075dbb3b5f2c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c341041f3941e1b5d1e9ab68f5b18e4707f88e91e9e8da2e404075dbb3b5f2c6"
