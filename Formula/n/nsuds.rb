@@ -11,6 +11,7 @@ class Nsuds < Formula
   end
 
   bottle do
+    manifest_sha256 "43c700ee914d5d1607c9b9c467e1c8fba1d411edc4881db09117dd2697a39f6f"
     sha256 arm64_golden_gate: "ccf028b31ada24dd377c831965fb40df89852fb4d9b0794668a111a14f9de805"
     sha256 arm64_tahoe:       "6a85cd2409e3f89ef8578b377b849b1c04ebe32fded4bee64e5ce1961ad1440c"
     sha256 arm64_sequoia:     "bd292cf994f5641b70cfd91b592bc8e82b9a9895d1c95c718ff0530a9b98668d"
