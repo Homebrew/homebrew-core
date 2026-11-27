@@ -8,6 +8,7 @@ class LibgrapeLite < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "268c8101cced06c93a88f8bbbf10e4568f68587c1bb053d42a1a63ee06f3f27c"
     sha256 cellar: :any,                 arm64_golden_gate: "13b8b639b989ae3806b550d9646ead847a7b0ba79fcd07fe45f991d473f13b38"
     sha256 cellar: :any,                 arm64_tahoe:       "627453323fe0db452b85a864ca0173ee52fe9dbd8a5a34741c02afd885caf611"
     sha256 cellar: :any,                 arm64_sequoia:     "917d4cb3fd061144c28cd909922f6da05fdde433eba392b1686f4eb31b4d9b06"
