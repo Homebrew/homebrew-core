@@ -13,6 +13,7 @@ class RocqMicromegaPlugin < Formula
   end
 
   bottle do
+    manifest_sha256 "6df85ce06da09accd583a962f16806b0e6334a88d4d5e6961fb6cbdcbc4ce5c9"
     sha256 cellar: :any, arm64_golden_gate: "1a0ddc19777d388dcc8f70ee6f66fa8785dddd175735d8db5fc56a4d01321529"
     sha256 cellar: :any, arm64_tahoe:       "5c3f24ac5f16887901f6fdaaff4659cf04e489581ce978b30e6f9099e3c08e92"
     sha256 cellar: :any, arm64_sequoia:     "a2e8b442c1165a0d5a8ae2e260e739f7e6c981735f1a335f2de0e033e64600de"
