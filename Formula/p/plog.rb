@@ -6,6 +6,7 @@ class Plog < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "616d6b5f12e6922d1d3ef8ea4d9406e194323088ff19706887c18612974d5940"
     sha256 cellar: :any_skip_relocation, all: "1128d5665015871186eb36b6ad55699345e184c854f510884bce557207d532fc"
   end
 
