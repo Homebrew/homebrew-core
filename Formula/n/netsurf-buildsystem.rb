@@ -14,6 +14,7 @@ class NetsurfBuildsystem < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7f83aa8551b0c65a3eb2cd7e33dc28091a6e4d113402dc08ce7708b2bb7948df"
     sha256 cellar: :any_skip_relocation, all: "7698443194711b12a21395fe67c378a2d9cb323ace8f590cfeb79ff730c2ed98"
   end
 
