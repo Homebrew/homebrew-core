@@ -7,6 +7,7 @@ class Gof5 < Formula
   head "https://github.com/kayrus/gof5.git", branch: "master"
 
   bottle do
+    manifest_sha256 "512e826a42b3fb324e93c1b842690e34d939af9e6086cbb85640fdbda8c3755f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e78f46f9b3e5a327c6487dcfb244b5fd7c0d7d34de260acd51bfe5d9d5b840de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ee93bcf3d09a81771d580217796c75dbf33e234f202c5a010eb61522cabef99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ee93bcf3d09a81771d580217796c75dbf33e234f202c5a010eb61522cabef99"
