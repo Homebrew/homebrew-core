@@ -9,6 +9,7 @@ class Lasi < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "49f7c110576735961a36e2d1c08fec32f2993b04e5850de249cfe746eee96428"
     sha256 cellar: :any,                 arm64_golden_gate: "fc017c8cbd8ba79f9e720c8cab4bbcc81f18df1e30d1068f31264aa9e5195896"
     sha256 cellar: :any,                 arm64_tahoe:       "b912d8b980908ab389f63632dd5f37dd43689714732f64eb5d581c40bb7d2b59"
     sha256 cellar: :any,                 arm64_sequoia:     "cacfb48c1b73960804bf1471d86942b79e306cbf737242f31456fd41588798c0"
