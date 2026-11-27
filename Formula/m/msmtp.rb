@@ -11,6 +11,7 @@ class Msmtp < Formula
   end
 
   bottle do
+    manifest_sha256 "b530527b479915bc321eece17ea6752e93b09010c8bc52b9749ccdcfc9df9e46"
     sha256 cellar: :any, arm64_golden_gate: "f5286dfeb6c300dfacd942da5f3a96fc5ec6f4f217d2de0abeb1fca5c6cc73cc"
     sha256 cellar: :any, arm64_tahoe:       "141d0097dc90c0f2e921a4e771311f70a6e84af1055ab31358184e423c9513d1"
     sha256 cellar: :any, arm64_sequoia:     "4a3b96bb12048cc93be05b45cde23dd1eb6bd1803cd4b0444968e0b981da57ed"
