@@ -8,6 +8,7 @@ class Pistache < Formula
   head "https://github.com/pistacheio/pistache.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a67ae5fdb5611ce067241cd1d53e47e2b0cbdde18d1bd02b07fda4e535fa2f2c"
     sha256 cellar: :any, arm64_golden_gate: "3a3ffbda9d8c8f020d5ac68db2b96ba5c92b54ba204bdeb80de1e422411e13e3"
     sha256 cellar: :any, arm64_tahoe:       "c1103fdae23fbdec4315038894f16140fd3981f1146e79493a03cec5184d7a12"
     sha256 cellar: :any, arm64_sequoia:     "e12dcd6e67631e181c831ec40e1bffc68ce35e37983158ac84c3a3ff9b5e721c"
