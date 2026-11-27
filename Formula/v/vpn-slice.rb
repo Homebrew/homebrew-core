@@ -21,6 +21,7 @@ class VpnSlice < Formula
   end
 
   bottle do
+    manifest_sha256 "f2fd5ca6b444c2f9b18f2a3a79690ffde2888da909ac698552a763e8234a8f93"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4940f0aa2942c4528d2412daf1044b4efdc62bfe238bf0433a43eb1325d26081"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14ab313adbf2086856f2012c43e4d2d2ec24e76b2bd0f851fb85579f1aa5a9d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54e93c64876a671be0d2be9325b660ecc65c7a75433cd065ac32147784f2e95e"
