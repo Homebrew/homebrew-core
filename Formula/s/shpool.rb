@@ -7,6 +7,7 @@ class Shpool < Formula
   head "https://github.com/shell-pool/shpool.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b0d37bf90c8235b353de96de2a9c23a22395f28ba8ef242810c9860c0a7bf399"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "72ec397c6d873c0251feee74c9a79711b03133f855782159f2e53399c449280b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba86152b660fb83d52f2ec08b5bec088d0deccd6c9e6b6b313617d04590dfda6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "de7f2dd3a8903729d2f6de370e0ee49b587f20656c873cc929247e1c5893af94"
