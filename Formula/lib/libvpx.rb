@@ -9,6 +9,7 @@ class Libvpx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a43c5508a4d49ff62ee37012f81dacbe9c7a7e85e9c4e8c5f8f780cf8cc6fde8"
     sha256 cellar: :any, arm64_golden_gate: "f9a11c2c10694acd896b66b09697b159cb82f5552837603cbb90366049562572"
     sha256 cellar: :any, arm64_tahoe:       "f98fa074f8eef7b2de3346fb83d4da15e7e6284fd13bf65210d855043f78f8c1"
     sha256 cellar: :any, arm64_sequoia:     "dd7924c0a05fa5f840f17ab9f5fac72d8672d75b2a7d44dbbf811274f70d17d6"
