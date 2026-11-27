@@ -12,6 +12,7 @@ class Sbcl < Formula
   end
 
   bottle do
+    manifest_sha256 "9a6838371ca2f7c84e56de08b49cd440dd9e5370e06436fff199f94940f15cb4"
     sha256 cellar: :any, arm64_golden_gate: "51472a993f01f7657ea20d0b73c86f333a544e77a7d905855f50035a3a27fcf3"
     sha256 cellar: :any, arm64_tahoe:       "76b49e3ec6f6513ac15e4f94686d00bfa3e79d17ee437e8bdd0682071083a974"
     sha256 cellar: :any, arm64_sequoia:     "ba4949e62ab71def6ef27f843cddcb376172a1bf012f646d3ab3e50f8deec57a"
