@@ -7,6 +7,7 @@ class Igraph < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "773a66f75cd8ba3a1080d6bb63860e3038c7822298d4d7613f8b1185e2395c6b"
     sha256 cellar: :any, arm64_golden_gate: "67bc9770a055f5c6b91b164a0649505d081fc278b697854bfd80976eb0cbc55c"
     sha256 cellar: :any, arm64_tahoe:       "d6a735b6308ff9431cf84f33b3cbe912c364a36346886a8b6b52deecdccde40c"
     sha256 cellar: :any, arm64_sequoia:     "5584369d3be6d0d15600268c0bdcf4faac06b156692347c0b103e97949c606b7"
