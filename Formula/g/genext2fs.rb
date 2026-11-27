@@ -6,6 +6,7 @@ class Genext2fs < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "b667b07ae6adb3b58ccb6cd8e11865eb5c7d00e275b443ed075cdcc0297697b3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ffa223b355e771a691489e6e4c29bf0aa14ed7525152a184393705956af3710"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19ec4b0b8fb9b9e6b9830566e37b7b0435227cef2ec768cf53548e0a354f0150"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "736e56e7b2f07cc5e22cf4c176c07881b49d6d60e0bc69bdca7e0c46d98dbe3f"
