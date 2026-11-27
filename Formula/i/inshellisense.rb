@@ -6,6 +6,7 @@ class Inshellisense < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3d1022387e126fb5cfbf0465409070836b0b36a7ac4941c91f129d6c401ad8c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d271335967351d5ced28094811a7934304a825f920ef911c21bd92a22ab7ade"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d271335967351d5ced28094811a7934304a825f920ef911c21bd92a22ab7ade"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d271335967351d5ced28094811a7934304a825f920ef911c21bd92a22ab7ade"
