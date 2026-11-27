@@ -8,6 +8,7 @@ class Libgtop < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1a0a1f785625e1480ce968bc38b5b653361670f5cb8677d7d818dde4bdd3bbb6"
     sha256 arm64_golden_gate: "6c4d137975d874601fdb35aaeb0b121411897c881a2322f6341a343f7f365331"
     sha256 arm64_tahoe:       "382e8b7e104d1ce90d94d855cf90d2fc04526ed66699aff6225088850d8ca8a5"
     sha256 arm64_sequoia:     "558ead5d7327e92a4997128e3c0f48679ed64aedc06868e508b54ad054e4aeea"
