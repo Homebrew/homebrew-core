@@ -9,6 +9,7 @@ class Lolcode < Formula
   head "https://github.com/justinmeza/lci.git", branch: "future"
 
   bottle do
+    manifest_sha256 "8e8568f181849964e1ad8a94c12913bac37827b9827eebe7238fc2a3bb87668a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d08c5b3e89380eb75f36fc1228f9aab046d57d6eaf9fcc50aeded04ed1f750c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a103e4121ee76d588ecb6a4a7c157c316e6f2068a91d2a43a7ef44fe56c90e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e012c9667cdf06c3dcec8959484ef8360dae7eff0a990956afc3e1355ba40154"
