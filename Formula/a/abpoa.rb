@@ -12,6 +12,7 @@ class Abpoa < Formula
   end
 
   bottle do
+    manifest_sha256 "83a26492196d8b7ff1415664ccf5f7bdbce2c959607b30ee763f2e7c1c367972"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7754fce45bd7a37b567741016605492e9b3e94db53955011a308cbab011bc22c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd232c10a127d10f27d2f7e427bc35bfd8c2fdad4e5f817848538f7e4d8c1207"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "acd3292b288e7154e4db5a9c8fb02011f0b946b60424277a806f5ee2de66e8d6"
