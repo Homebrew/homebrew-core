@@ -56,7 +56,7 @@ class Emscripten < Formula
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
-      regex(/["']binaryen_revision["']:\s*["']([0-9a-f]+)["']/i)
+      regex(/["']binaryen_revision["']:\s*["'](\h+)["']/i)
       strategy :json do |json, regex|
         # TODO: Find a way to replace `json.dig("aliases", "latest")` with substituted LATEST_VERSION
         release_hash = json.dig("releases", json.dig("aliases", "latest"))
@@ -82,7 +82,7 @@ class Emscripten < Formula
 
     livecheck do
       url "https://raw.githubusercontent.com/emscripten-core/emsdk/refs/tags/#{LATEST_VERSION}/emscripten-releases-tags.json"
-      regex(/["']llvm_project_revision["']:\s*["']([0-9a-f]+)["']/i)
+      regex(/["']llvm_project_revision["']:\s*["'](\h+)["']/i)
       strategy :json do |json, regex|
         # TODO: Find a way to replace `json.dig("aliases", "latest")` with substituted LATEST_VERSION
         release_hash = json.dig("releases", json.dig("aliases", "latest"))
