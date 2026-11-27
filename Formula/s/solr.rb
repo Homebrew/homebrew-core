@@ -7,6 +7,7 @@ class Solr < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "21ac76347be9d162545adfdf0b60cea25bb99d9a2db8fb52785180cf2c720566"
     sha256 cellar: :any_skip_relocation, all: "0c18cb7b04322b6468d1859e53c1ab38a0fb7bf8a8799b6cd5714aa36335e978"
   end
 
