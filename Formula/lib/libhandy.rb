@@ -7,6 +7,7 @@ class Libhandy < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "08f7cd15fcc78935c76fc2574e84d18f5abf49e6728e73503a17f2a6cd4b5d04"
     sha256 arm64_golden_gate: "57ca9a992b7ce4f99ec32ab09056b703eda98fd9bfad4090953dbfe075b292f6"
     sha256 arm64_tahoe:       "620cf34883ae285873425a4f3ffa156b78e8b696872bd20b425008488ad0d232"
     sha256 arm64_sequoia:     "df4227eb5f6062d4b9d6c36d374defe991229ee0ed9dc8e8902c97a1be026151"
