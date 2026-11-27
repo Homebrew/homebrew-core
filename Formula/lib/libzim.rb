@@ -8,6 +8,7 @@ class Libzim < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c721f53789cc71812f1a7c5a0f3d84125edf8d13530e615f9600a19533985685"
     sha256 cellar: :any, arm64_golden_gate: "0db912894c4387fe3b132a639247bb16e1f3ee86b13e5374d4189bde99eb2b46"
     sha256 cellar: :any, arm64_tahoe:       "2985000cf5aededc859768d588463139f7a38149984c0d7059114dbb3975f1a1"
     sha256 cellar: :any, arm64_sequoia:     "eba12048cdf92f2f6582b2f541b45911bd36e68498e56809f8f2719b6daad3b7"
