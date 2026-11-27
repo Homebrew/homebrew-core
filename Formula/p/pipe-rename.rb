@@ -7,6 +7,7 @@ class PipeRename < Formula
   head "https://github.com/marcusbuffett/pipe-rename.git", branch: "master"
 
   bottle do
+    manifest_sha256 "46638561e4adde988680c6b2dd5aaad71193216542cb4e4774ff1a3c9eeb1c27"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f10a46a9fd2c41b82bf5b04fae7b18a7db26056c90e74b818e255084ec7a09a1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8886d9edd07b147fbf3ce064fc16e76dbf8e6743adcf51e430a96840a4ad8d37"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d21af83ebdd3f7b5469630cf427f33bdab6dc981663a81eb16a0a326e8df434"
