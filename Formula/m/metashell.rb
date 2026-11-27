@@ -7,6 +7,7 @@ class Metashell < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "387ad8a47a252a7145b1c112a5bc24668386433329ff9ac64ba3917f047cf8bc"
     sha256 cellar: :any,                 arm64_golden_gate: "8c2d672708c600156853ea92cc4edd890c87b1322c7e4fdd0e49b31648f8246c"
     sha256 cellar: :any,                 arm64_tahoe:       "31ffe3eacbb6ebd7186612d278f5df4fac34eb2d5efe844e7413ada10a59ce3c"
     sha256 cellar: :any,                 arm64_sequoia:     "aec2935132e0d2d67702b10cab3b2e362c3dcd8ad82a27296d71999d1c1e5e24"
