@@ -12,6 +12,7 @@ class Entt < Formula
   end
 
   bottle do
+    manifest_sha256 "eef6f187a93dea1c257496612ae0644fd3e7e94f02340a2afee4b273624d4c24"
     sha256 cellar: :any_skip_relocation, all: "e01e8be59d9793cdd9fea68edc82707291606027ee9602ac78f8f957228c9c1d"
   end
 
