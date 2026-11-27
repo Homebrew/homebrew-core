@@ -7,6 +7,7 @@ class Redu < Formula
   head "https://github.com/drdo/redu.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f3a3849d11e07e1908c6fadd7f724ca24bf488c8ece68384a1b731aa85baad9d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dbd847b6a545d1f3fc22902736c5faeba1e4d4860952404322ae658eae169e51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ff3aac2d53f1d7d0ba43bd743ec74904483ff2823891b496ac95f3a9c835bef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d99540a84c307f690dcf75e61932da4d82bcae6972074a6c11201e91d67fe0cb"
