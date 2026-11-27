@@ -13,6 +13,7 @@ class Aubio < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "c094a243857daaa7b1a9f5e9ff0923b06f23af29968ccf3cbc3c039c56007da0"
     sha256 arm64_golden_gate: "93791777c67b8fa6cde559f3b799d9bb320b52f97a89b03a8c413aa9f708e05f"
     sha256 arm64_tahoe:       "a867233c8e0aba10ccf0ec1458c8068d69a5b9c0af0a207f088f75f01553182c"
     sha256 arm64_sequoia:     "b9bbe3be57a540aed82157cb8332378f589ee49ff8fee62d224c52e0668ff971"
