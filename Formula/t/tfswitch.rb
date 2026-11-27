@@ -12,6 +12,7 @@ class Tfswitch < Formula
   end
 
   bottle do
+    manifest_sha256 "af1f360aa2b75ae006b6253472c12462a9346a5ea7eb41d5f5ca1fb938cc49c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06217960f63d5f3288ddad26fa7953f942ee693c3d8889a2547e1f8e67a7d30f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06217960f63d5f3288ddad26fa7953f942ee693c3d8889a2547e1f8e67a7d30f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "06217960f63d5f3288ddad26fa7953f942ee693c3d8889a2547e1f8e67a7d30f"
