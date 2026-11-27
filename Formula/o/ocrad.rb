@@ -7,6 +7,7 @@ class Ocrad < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "2ff7512a6759f1ef6f925e4726a96bff0d658ed572bdf5d21a7943cfd9ea38e2"
     sha256 cellar: :any,                 arm64_golden_gate: "a3433838704eb4842f39136ae2f01a9922019e47b134dab55a1f7027e6e91e6a"
     sha256 cellar: :any,                 arm64_tahoe:       "116d23e8c9dd05261d3591a6c71bc68f21eaf4f31ecb196ab1663a922a382e4a"
     sha256 cellar: :any,                 arm64_sequoia:     "e64667cc0efcf07cbbdb3459f9cbb88be11b2718b75417226e910e2cfb71a5a4"
