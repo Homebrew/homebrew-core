@@ -12,6 +12,7 @@ class NodeExporter < Formula
   end
 
   bottle do
+    manifest_sha256 "64d33f182871b694a39598fbada6a464f9ef962c232bd5310c468d52feadf01c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "702964d827c7ca970e073f3e0681c3e1b902f785067e3df0bdc826d7485c6a26"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13b1fdde02ad167e31075517222295e2848dff26061d2041f27abab36e6fa5c2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edeaa3b350ca40d43b40aede00fca2b4e64b4e2f9b9564470f2b95b49b3ff7f9"
