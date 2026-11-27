@@ -14,6 +14,7 @@ class Duti < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e29e02232922f1e97e120bc40e8a755820dbbae395bb564aa32fe40fda7a1bdd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec36d236b3813232c68510ff15419929092238e2e76adaa8f132962e382140a1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0682c28b17ef7f44de34a1fd7a6d3eba5b40b8428f78c18462619386bd564cb2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "618006e5a13a64c6efbf793329f2b5a2778533103cc00d754deeea03c99cffe8"
