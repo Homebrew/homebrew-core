@@ -7,6 +7,7 @@ class OclIcd < Formula
   head "https://github.com/OCL-dev/ocl-icd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4e59b9642c20df53eadb574ce45bdc88780c4df5505cb220a72f420f4ed29249"
     sha256 cellar: :any, arm64_golden_gate: "c01dafbec261ebde8b68cfb3a2156e0124975e572449a31c1d76cab1b96c67f4"
     sha256 cellar: :any, arm64_tahoe:       "a7516791a7b101b8b28008e91152a41d4bccef8e432ec57f5176d058ce316425"
     sha256 cellar: :any, arm64_sequoia:     "850088b50e703f2ac49f1aba5174e9b2d02120407c3091c5bd0098e172cfdc50"
