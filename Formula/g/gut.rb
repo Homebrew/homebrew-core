@@ -7,6 +7,7 @@ class Gut < Formula
   head "https://github.com/julien040/gut.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f3120a14475eb669bf90d885515da5829b43192f819e8770e9f0277ed8714865"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51f68105f91ddde483a4e1620f40ea2db57a90fce2ece15d36410e5274bd12b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b52619b2c245e7a2984a8063f0172d9f9941c368489e4db8d20a09f2f192cfc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b49f2b3e6ee4a6f64b4b1d3405840bac9ecbaf3b01fd5c058b993f8ab76370cf"
