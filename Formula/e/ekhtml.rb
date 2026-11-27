@@ -6,6 +6,7 @@ class Ekhtml < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "bcf02f97d49f3503aeee4938626d840b11fc9956f08fa43e3c978192f5ebdef5"
     sha256 cellar: :any,                 arm64_golden_gate: "36f71c7f656c1dbb794085dbc47273f37ffab11ccf9a7c33568a114b9521c8e0"
     sha256 cellar: :any,                 arm64_tahoe:       "ab64bc1bb7447d50ce5f12aa6bb5f97c807c23f4895558c8c13cd8ff6b1de14e"
     sha256 cellar: :any,                 arm64_sequoia:     "89250f587a05bcbbe4c03909b5fc47a6b3717b59370eb15bc06bdd4fc7ceddda"
