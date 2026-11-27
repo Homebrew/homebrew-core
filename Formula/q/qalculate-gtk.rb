@@ -6,6 +6,7 @@ class QalculateGtk < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "20841892f19bddaac793bb7c89a8d65fa2f07698b5415b6ba7bdd0953bb75de5"
     sha256 arm64_golden_gate: "594b279dce56c32b5c26aa0aabdc55a284becffc7b13039ef6f9c7cbff1a765c"
     sha256 arm64_tahoe:       "b9d272c40cde50b5bf17ccbea3ade31871b65d9747a688e3a4e120447a50d24f"
     sha256 arm64_sequoia:     "8c9d7f256ca51b722fefb05eb5b4fddc981fe10598d41cb35d824471f6c5bc64"
