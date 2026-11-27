@@ -9,6 +9,7 @@ class PythonTabulate < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e3185c1fa36e6e1733efae35fc57f9b456a90f54734cbbf5666321bb9cd78917"
     sha256 cellar: :any_skip_relocation, all: "8d74b4679d191aae770cf9409e4d9523a445c8045ee685230d5cfeea71314130"
   end
 
