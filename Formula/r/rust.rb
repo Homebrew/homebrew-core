@@ -84,6 +84,7 @@ class Rust < Formula
   end
 
   bottle do
+    manifest_sha256 "3f4eb684e9ef5da517d2c6082202da23277bb85e98d06588174f2637092170ce"
     sha256 cellar: :any, arm64_golden_gate: "e525b3182b179bfb2792bbbd6644766598f3b185c8ab7058e12557e855243629"
     sha256 cellar: :any, arm64_tahoe:       "60fbbefcaf2809073d8f24eebdb5e2d48b76bcc74aec22ccb6b648a3211b5ce4"
     sha256 cellar: :any, arm64_sequoia:     "a65ac97028ed89aa3dcfbe1a955558a3132831db28334687c487fc566080adb1"
