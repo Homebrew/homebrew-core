@@ -7,6 +7,7 @@ class Mp3splt < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "ad05e40c5204ca1ee2fc259ad3596fbc82ad9b425f1db2dfd55d3fc0c4221ac6"
     sha256 arm64_golden_gate: "fd4eb1cdeaeea3ed8485eaf64c40c67869234fff29571062fccb9dc0fe60f247"
     sha256 arm64_tahoe:       "867a665c9465e82d864910185387d4df79bced27f9121ccff36bd2f32524820e"
     sha256 arm64_sequoia:     "2d21b2a3b74e156a07882dfc20c2707bf836f011b914c88f6245a06230eacfdf"
