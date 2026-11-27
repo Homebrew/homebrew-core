@@ -7,6 +7,7 @@ class Enca < Formula
   head "https://github.com/Project-OSS-Revival/enca.git", branch: "master"
 
   bottle do
+    manifest_sha256 "400a9b1c70d35005fea311b6e165f8309b095584a591496cdf6c4e49be3e8c47"
     sha256 arm64_golden_gate: "ed6ff4f7b7049d5fc10220307217b8d77de446403833badfd3565873c50b30be"
     sha256 arm64_tahoe:       "186d5551a3f3b293b464cb9d8b2f00f9a8d23d8c7488593cfb301133fe7c47d2"
     sha256 arm64_sequoia:     "b6d87405f58557daf9bb694f39de18da6cfb4364980cea4bc6514dfeb83a948e"
