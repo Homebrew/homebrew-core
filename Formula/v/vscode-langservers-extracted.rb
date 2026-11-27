@@ -7,6 +7,7 @@ class VscodeLangserversExtracted < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "cfd26528c4ffb79b113f10707d127c4c18191d052d7eda3c52d9cfcd61df42b7"
     sha256 cellar: :any_skip_relocation, all: "1d95f2ff8fdf6fd36f817214ae5435cd51d0d6490a3e01e25780f8728d4c9999"
   end
 
