@@ -15,6 +15,7 @@ class FuseOverlayfs < Formula
   end
 
   bottle do
+    manifest_sha256 "71635c9c1daa661caa2fbc445879b2a44db2067ae12d48f8ad1db4c4cb674a2b"
     sha256 cellar: :any, arm64_linux:  "07e98bb9c3567a01f235c2795f26ecd26527e74d7c028799d7f959d64b7fca7d"
     sha256 cellar: :any, x86_64_linux: "9716362ba6cf8a65ae245092aff2934a8690bf9841f1ba297046a3a53a9811d1"
   end
