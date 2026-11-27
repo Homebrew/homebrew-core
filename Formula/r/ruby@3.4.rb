@@ -12,6 +12,7 @@ class RubyAT34 < Formula
   end
 
   bottle do
+    manifest_sha256 "2be4f33a445a20bfb1b38225630503ab950077cab9775e83edb12a8cfe491d04"
     sha256 arm64_golden_gate: "9dde7c232336b11b6958d10ed98e6488e969be718ce49135770fb3116166c9a7"
     sha256 arm64_tahoe:       "f04341646b014b6ec65633b754eadd415a436c860ffe7fe69fac9723db03ec05"
     sha256 arm64_sequoia:     "6147cec61a99720b93147f4b4efa522ee72ac59ad832271da50e4a92c0652dcb"
