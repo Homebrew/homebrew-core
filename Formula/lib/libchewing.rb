@@ -7,6 +7,7 @@ class Libchewing < Formula
   head "https://codeberg.org/chewing/libchewing.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2ef2aca0f4f3507c9a2e8bf9061571fdea57d98344312452b596ce3c744a03de"
     sha256 cellar: :any, arm64_golden_gate: "d40f3a8796693535bdc3c78bd9087487d98876bf0ee1dd6f39fff90f274b9777"
     sha256 cellar: :any, arm64_tahoe:       "523a12b90702988206afde2b19eed70b23e704c21d090139167e0d0949d3273a"
     sha256 cellar: :any, arm64_sequoia:     "14007c3e17daecc4a41911311d6b74ca1502e11230187c2cedaae37845f2c07c"
