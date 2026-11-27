@@ -7,6 +7,7 @@ class XmlCoreutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "300661634f69e7d914b0661027fe46d4d7bf8959202901e0f1988c66a48cd7cd"
     sha256 cellar: :any,                 arm64_golden_gate: "2f9887f8f2524e1e094bdd3b586f2ca83fc6a7755817d680d25323c0eab7bd32"
     sha256 cellar: :any,                 arm64_tahoe:       "22c2ae517628eda8490bcd905104f86b4007e93617ba053f985fcfe54af1aebc"
     sha256 cellar: :any,                 arm64_sequoia:     "f0416be37c963bcfec7ccdab87e91272d03f68a314ceda3b287f154397e9481c"
