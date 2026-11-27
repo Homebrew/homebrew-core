@@ -13,6 +13,7 @@ class Libotr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5689a270cd8e7c0bfb07d85bd6623ebc63f81a91bbf024311188eb4e5108c958"
     sha256 cellar: :any,                 arm64_golden_gate: "27801a0b73f56390c8a6ba985bf8c082ae4bd3d0c815eee0a1025341b53a4898"
     sha256 cellar: :any,                 arm64_tahoe:       "3b60c300a23960e3d70ba6fb0df3326ab6dd1236aecff5417bc55984b9510942"
     sha256 cellar: :any,                 arm64_sequoia:     "5e6fdf2cd7cc293066a7875b10c684b7058b553ad85ff949e18045d0aca47b6d"
