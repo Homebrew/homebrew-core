@@ -7,6 +7,7 @@ class Sh4d0wup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "04b3e532c98fbfd712502488a6958aee2f01114edda89bd48bb00edf3b789685"
     sha256 cellar: :any, arm64_golden_gate: "9335eed1619e8bbd08e27e73b5e147a83760090470daa834fca0a6d226537e35"
     sha256 cellar: :any, arm64_tahoe:       "a6279e7eeb190a0a04ab8a9f90a101f84438c54e6c6cd61ed39d40edb6caf236"
     sha256 cellar: :any, arm64_sequoia:     "314a2bc7d776e0cf034a665cec3f9036b2a3fd24812c9e96f2444a2fdd1deede"
