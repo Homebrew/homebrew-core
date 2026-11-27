@@ -6,6 +6,7 @@ class Mkclean < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "85dae043d7de51a29bf93edb848d2dde253fcd721008779ed515d9e76aaf9687"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "943b8db860080591e681101ee43ddf35b261007dc42b3a2c88f7c43ea1723332"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bdff12bc960c01d63267c10c8b50d82711924792a21d0e92db9a96a951801c21"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4d263e75e4ccfdc7eeb90529899374a43f38bafda669dd33c906e533f1e7738"
