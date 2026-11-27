@@ -18,6 +18,7 @@ class Intercal < Formula
   end
 
   bottle do
+    manifest_sha256 "39d24e69ba1372d1fa93a95845ee57b7c3f7a7b39df1b2f0c07d8d5d8d771e38"
     sha256 sonoma:       "89bd47009d0b3badca873c9a90da5c598e37c3b8d321a5b193e7c7a2fb471bad"
     sha256 arm64_linux:  "0ba5bbd64a3a282d3f4e6d399d2db42e064a5377305db6ceaf3e0f32bf6b9185"
     sha256 x86_64_linux: "19b7f6bc3117e3fcd0bf5f3e707d2e96307cb2adc07179a19a4ce301d5edae8c"
