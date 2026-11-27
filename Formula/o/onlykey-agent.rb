@@ -8,12 +8,12 @@ class OnlykeyAgent < Formula
   license "LGPL-3.0-only"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "2a9b412c82991189d8742a087402875f82f5b09a0a335bf16354bb80eb9c0297"
-    sha256 cellar: :any, arm64_tahoe:       "154f8b88277db38a37b4d9ec583530b1ef8551da5eae0aa9f2d810b59bf13885"
-    sha256 cellar: :any, arm64_sequoia:     "8923f5121660467a62590d11ea2256725b93c5887581452291dcc81a898fad62"
-    sha256 cellar: :any, arm64_linux:       "f86315e455e32af5ab88f8e1d04d5ea6b227234bfb593ef4fe9723a67bdb4256"
-    sha256 cellar: :any, x86_64_linux:      "a3287c1fc02cccf3b72ef648767ad9c1fcaf5da3b44562049ca991baeff02eb2"
+    manifest_sha256 "62d699241bb7bb6383e47431ec98cbc26e309f390248281bb174180e4e7fcdd3"
+    sha256 cellar: :any, arm64_golden_gate: "b1f24c8931ad9e436cd66f8c33be2587f6ac7f8e94eed56bd27b80ca374e1e59"
+    sha256 cellar: :any, arm64_tahoe:       "7155b850b04e4f382b0e04bb79d5108dfbef7a7cf39390f611b8fbf8e3031481"
+    sha256 cellar: :any, arm64_sequoia:     "94a20501310e0f650df896c035c2a59d53e826687f3acdb07f605edf9c6a42d0"
+    sha256 cellar: :any, arm64_linux:       "3e51cda20ecc5efd9abaac2c758a0088af2b5c0a24a5ce5fc6b09d0d268a46d7"
+    sha256 cellar: :any, x86_64_linux:      "dc31e145eb2f0d9eb70d8e46aa5bedae802c95a2d0269629e3453337729ce5f5"
   end
 
   depends_on "pkgconf" => :build
