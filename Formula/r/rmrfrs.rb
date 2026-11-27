@@ -7,6 +7,7 @@ class Rmrfrs < Formula
   head "https://github.com/trinhminhtriet/rmrfrs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "072cbad704b51a7e03e1589bf81d1448247b9621edf3ff598350986f33542224"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "af3720dbef342d257551adf00ace88063a385191d48a92e2e6f06e879f734883"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "767161879f6a4b4c0aa585e7fad656b07c9cea7e4c8136463fa80e6ecdc604d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "30e7469e0a2a38c0fbfce1fee1ff46b684eb549e4507d728f90236fc53d4afdf"
