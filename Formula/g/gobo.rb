@@ -6,6 +6,7 @@ class Gobo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "186faf103ca352e9e1f244c7c85d3ade2ad975047845f8813ab53b71154104c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfd15d25872d1d5aed7cabbd54ff0e78a9eb95bf47d2a971e04d54201899c630"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b606d0f39abbd2b5e79a8690e826d8b65405389b2b0043febf183cd43eb04b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2b58ef14ae859a1c6e2765dd3e12ce516805f12a0feb3b14b78c989bd842b9f"
