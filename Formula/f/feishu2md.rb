@@ -15,6 +15,7 @@ class Feishu2md < Formula
   end
 
   bottle do
+    manifest_sha256 "ac3c1bb514f3b2dcb4ddefc2929a3c678d807bee80b60499be638f4e77bbd8fb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0628c00c6853f15420ea18354678db6139637586ace3119d2c3a7591bf109589"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8a048647d96c65e3452e1a264864e97e3da5ce5349065d54ad04e9ec3e7d38b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4c812d090212b6e7eabb66e2d279ce5efc65c8da48b08f8c7681d5a4c4f8f99"
