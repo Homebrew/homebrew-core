@@ -11,6 +11,7 @@ class MidnightCommander < Formula
   end
 
   bottle do
+    manifest_sha256 "6e17ab88404bc40ad7ac525e565fc204c85b737ddad281fd688018e61b43c1db"
     sha256 arm64_golden_gate: "9d1bfc0af2212503262e81ab02250d8458c104dcec8ca4c174effbb59031da6e"
     sha256 arm64_tahoe:       "a19238337f7eef1da99d690ae9f440956117ec6daa1235e7e08a05f0e9827451"
     sha256 arm64_sequoia:     "c6914462166922365c2a56c49d4fc8bb3eb051d3022e67072e7fac0832e8121d"
