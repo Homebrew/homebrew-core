@@ -6,6 +6,7 @@ class Vineflower < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "3a299e5a93fe3bdc53fe67578e5b8c9cf38cbab244928d1603db027efa90ae1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b0eeb3d84379ec2d7131322827d68a46bd279ca2707975b5f5425590bbe497b1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "91e7c7ca9e70c60bb7b16aab8fe65a2af39059f5dc2dd1d37a0e4fa0e1cc20da"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2994bdcc86051fe14ca1cbbfa81a7af61ee3d80b44d24d58a78cd9f6b26dc24c"
