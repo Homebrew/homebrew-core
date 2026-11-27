@@ -7,6 +7,7 @@ class Sping < Formula
   head "https://github.com/LambdaBytes/sping.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d1da17fe63e5388c99081e4a8c1efda72df370789b3ab3a0493ad9434012b0f1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "668696d209b033797a618726829eefe83e5f68a7f1294bed71376f895bdd863a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f090e9863eb20f6bb80a44b5081761fefbb9a4bd082a0d3396c6df39eaca7335"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17ea27ea61586226517c6b361936f5f665a677ecaac7e611779969a7e354df7b"
