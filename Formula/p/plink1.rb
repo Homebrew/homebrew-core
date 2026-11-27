@@ -12,6 +12,7 @@ class Plink1 < Formula
   end
 
   bottle do
+    manifest_sha256 "686b3c6d3e1f6c380474730e8b0aa637c20258a7c55207c1c17699fecd7b9a48"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "011c20a42ba25975af270bf7c29d6df52e74370dabc4bf3627819d0a3cffeafb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94a51199d23efa0ab5cd0e839f54c68df95a2aabb0153bedabe627bd9f9a2965"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c02013e508033a06cb15e6065c8a357653f74b3a25fc791c6a56850780a065a5"
