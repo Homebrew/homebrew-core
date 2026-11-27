@@ -17,6 +17,7 @@ class Gwyddion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "254757b46e6c4fced2ee0094990700b81cd49d8e14e79e6ca60a908f37e39976"
     sha256 arm64_golden_gate: "0e98c179fbc6b04f19fda239c020380d532d13a3c75afb18efacc38cdc581372"
     sha256 arm64_tahoe:       "4eb0ec4c6d67cc4fb1ccf43a7d59e94b411cfccb485521a30b2209e8b0d38eee"
     sha256 arm64_sequoia:     "20b1a41d80218345defef9ab299277dccdf2e49f127d710d9919ef795ff9eff2"
