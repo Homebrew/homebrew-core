@@ -16,6 +16,7 @@ class Iftop < Formula
   end
 
   bottle do
+    manifest_sha256 "7262696f531129b9eb61d6e448312140291a6942d9eb3bbb1964a9df38683b2f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c57e25d8df36ed655946775a449cad6d93ac2013a9532658514aaa197d526f2d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67c10b03293053b57eb788b632e71ecb2f4bb4eb56d5a2766b1838a654866413"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a3d6d2dbbb5f10a3cc0043846d9742314b1795d77f08dae5a2ce8abfe9696f3"
