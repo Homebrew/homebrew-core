@@ -17,6 +17,7 @@ class Qthttpserver < Formula
   end
 
   bottle do
+    manifest_sha256 "8309ee9cdeb24211b4b644a731430a0fc2d0194a97a299e2d790fa7020db1b73"
     sha256 cellar: :any, arm64_golden_gate: "ec36f218e451c5039fc0ba44e6c591ec164df8fa97e2fa72a76e556c626b36a0"
     sha256 cellar: :any, arm64_tahoe:       "4072c5e676409d2d5400e069ffe419849923660c9381018983ec3debc89cf191"
     sha256 cellar: :any, arm64_sequoia:     "02a3db78f1db552b517538dd439efe30a60c8e85c77a1189288337ea136968bc"
