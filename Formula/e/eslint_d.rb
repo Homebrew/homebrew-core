@@ -6,6 +6,7 @@ class EslintD < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "73c4aa28b0a09f554ca3f1e0b7b209159adee97652e42ad6adea607ce8132489"
     sha256 cellar: :any_skip_relocation, all: "881d6c16fd1e0bc01fe289957491ca752331a20f795ae09b9508a5fca8f4eec8"
   end
 
