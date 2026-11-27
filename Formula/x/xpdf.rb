@@ -11,6 +11,7 @@ class Xpdf < Formula
   end
 
   bottle do
+    manifest_sha256 "a6aa1b463970859aad743da4feed7a6c70adb485c1903eb1bab97ad4f47ed148"
     sha256 cellar: :any,                 arm64_golden_gate: "52e143d1727b0f776bb4d77af9c1759488f12ac7b8c613d7a7701aa8ba539f7d"
     sha256 cellar: :any,                 arm64_tahoe:       "4dd0eb582bdc7b4379aa8e77644af37c4e8e096a8696d4a0fbdc23ccc4cba193"
     sha256 cellar: :any,                 arm64_sequoia:     "60cc7f994a18afe6a5ae628ab060f6c6c5413d83f01df8b06c1a25bc63c91cb0"
