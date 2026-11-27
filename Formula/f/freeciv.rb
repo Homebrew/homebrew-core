@@ -27,6 +27,7 @@ class Freeciv < Formula
   end
 
   bottle do
+    manifest_sha256 "ccc6cc004a3c2a639b8fdface179968626655d146b59cee391c6478242859d0e"
     sha256 arm64_golden_gate: "23add6a497ac8e9f22db314e622eead2899cf7c0aa8545103b9328bf498a94a5"
     sha256 arm64_tahoe:       "3bf3f47bd721c6016056385f42eb081e7e25c3d48a23a2fd1aed7cf6f8f03f64"
     sha256 arm64_sequoia:     "f28fe448562920102cdd043c55ae6584e383c2dcd94304c4cbca1f8850f95bd2"
