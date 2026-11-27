@@ -13,6 +13,7 @@ class Sentencepiece < Formula
   end
 
   bottle do
+    manifest_sha256 "d188c10dd9b569abc531723d5a655b266e41dd1b4f06df2c40dc1e4b22a44d8e"
     sha256               arm64_golden_gate: "15412518300368d569ceedd7328f5727cb65b7f4f48e7431688c5ec0fc47c61e"
     sha256               arm64_tahoe:       "0d98818150326a68c6475201eadc63aa964c565a4f88370e44660e3fc7d059fc"
     sha256               arm64_sequoia:     "7005bda46c44443d47b1c05d25e7f4f37e069acc86f38d53081a0f6dd2a4024e"
