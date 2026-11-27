@@ -7,6 +7,7 @@ class Libscrypt < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ee279e8f346b97291fd142976f41a95a964731f9355906b453e99b213faf478d"
     sha256 cellar: :any,                 arm64_golden_gate: "a31f17cb8bad2f6bee0574cce3ad1a7a6525708b26115872c214dff98b3c2225"
     sha256 cellar: :any,                 arm64_tahoe:       "1282d862a6fe6bda7018c46eb83f037202246c3f8ba35fcddae779effc79b266"
     sha256 cellar: :any,                 arm64_sequoia:     "7a251107f146f88d993fa4fe542c8fbd92d9123904359f91ac5f44aedbb90344"
