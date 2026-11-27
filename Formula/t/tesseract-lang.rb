@@ -18,6 +18,8 @@ class TesseractLang < Formula
     sha256 "7b9bd14aba7d5e30df686fbb6f71782a97f48f81b32dc201a1b75afe6de747d6"
   end
 
+  deny_network_access!
+
   def install
     rm "eng.traineddata"
     rm "osd.traineddata"
