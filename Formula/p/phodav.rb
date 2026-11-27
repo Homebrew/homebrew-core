@@ -8,6 +8,7 @@ class Phodav < Formula
   head "https://gitlab.gnome.org/GNOME/phodav.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2d54faa0ef568bce4b7c8188e6fb6acd7b51c8f022eb482bfd970cdad46d7814"
     sha256               arm64_golden_gate: "7642ef26f83be662c5e1cca389e7c9308118387b205b9a33833c28aa021c4ae5"
     sha256               arm64_tahoe:       "e51a4b28d1e6f6692ce908c9ae87972c72169cdc566cbf08f447795d68c1480a"
     sha256               arm64_sequoia:     "6f2de9474c1f0e6630e5432d8295e7ff3c39bc1d22ea997e0f28343367d017ce"
