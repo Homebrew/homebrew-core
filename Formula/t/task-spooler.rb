@@ -23,6 +23,8 @@ class TaskSpooler < Formula
 
   conflicts_with "moreutils", because: "both install a `ts` executable"
 
+  deny_network_access!
+
   def install
     system "make", "install", "PREFIX=#{prefix}"
   end
