@@ -9,6 +9,7 @@ class Libcerf < Formula
   head "https://jugit.fz-juelich.de/mlz/lib/cerf.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f778a49111ffe7ce21cfa094708fabc5dca64b945ed3660ef0746b09a1789ed0"
     sha256 cellar: :any, arm64_golden_gate: "955821a4bdb1937c1703fb07c743dd052b37b6274b8b71c89932f9cef4a8a540"
     sha256 cellar: :any, arm64_tahoe:       "1d21b22ae2bdca5e41f98321291b3dec3f679ca50bfdd8342ae6c1a47fc16c5d"
     sha256 cellar: :any, arm64_sequoia:     "c6520942d4bf1e8d8128aeb5a198684c9bd4cee1870142dd3a921fe3c7ea0c18"
