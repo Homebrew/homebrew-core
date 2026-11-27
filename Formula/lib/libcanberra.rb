@@ -21,6 +21,7 @@ class Libcanberra < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2e2a7b727b0b280770036489ec22704c8ebe9b04bccdf9d82948587cbc6b952d"
     sha256 cellar: :any,                 arm64_golden_gate: "bc51567bc3dbdafd137e8fa5d3abe0dd239de7091f28c90e09a6a638f75daabc"
     sha256 cellar: :any,                 arm64_tahoe:       "ec6a63b0eb4cea2f117b082fadb5acc4792206193e3a64f8a02dcfdd6abda217"
     sha256 cellar: :any,                 arm64_sequoia:     "710648952f9dde5a4292a1d0911d3da6d471684f86eb2c0192b9a6110ae28acd"
