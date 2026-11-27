@@ -7,6 +7,7 @@ class Mkp224o < Formula
   head "https://github.com/cathugger/mkp224o.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9a460c753d7b1c117f7ea02ee230565c3e1dec5dc342ca5af14de6878e84117a"
     sha256 cellar: :any,                 arm64_golden_gate: "146785db945c14ee784ddb33317077615e4ce7b73defd80a66a201a0aa614e65"
     sha256 cellar: :any,                 arm64_tahoe:       "4963af60f493125859687fd0ccdba625997d92d403d90849813a909bd3143a62"
     sha256 cellar: :any,                 arm64_sequoia:     "49b44c366d873465aa731abd4896cbd43d0b4697084cbc2c1b00e69a92ce1d79"
