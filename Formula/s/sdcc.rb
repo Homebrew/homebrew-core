@@ -20,6 +20,7 @@ class Sdcc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "45d3f0bdd5ea1760e56b97eb6748f2e1d26a4bf335e9f251b61be9c412def3b5"
     sha256 arm64_golden_gate: "37dfb62fc92f063a5ef482b2872c2943a02db6b8101207ef27a5368cdce24c07"
     sha256 arm64_tahoe:       "0e768549a12987be316142abbf9e2a9d7a3d9cfd29896152f0a5e20f602eda2c"
     sha256 arm64_sequoia:     "5f0e5cc88c1481d32c3c6b034143bff0011c78b9dd8e3ccd196e2f8a76e8cac6"
