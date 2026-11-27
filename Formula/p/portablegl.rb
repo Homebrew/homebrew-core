@@ -8,6 +8,7 @@ class Portablegl < Formula
   head "https://github.com/rswinkle/PortableGL.git", branch: "master"
 
   bottle do
+    manifest_sha256 "42398596e5c8e7c24d5e83e8e0be44cccbdeb6d5e5abddd240f967b84b7c6d1b"
     sha256 cellar: :any_skip_relocation, all: "93cc376fab3fc5dbc505e3bce5dea8056a50e37880282a63433498410cac015a"
   end
 
