@@ -12,6 +12,7 @@ class Hmmer < Formula
   end
 
   bottle do
+    manifest_sha256 "530f845713c095c18de31fce6a2a0d7746034cbfd88951c2f53d902d029ec2c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5b9afaaec2979e5070663e7b60318e695b4d5219e4fee5813ddfada029b1087"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f42eea650a3ca55ba74920ce46d7e9cc019f203881097a0ee7978516c867f44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3342dd2de2909df5053dea525398b3e3902b07a1d58dab35a940bb7bf77b877b"
