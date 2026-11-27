@@ -7,6 +7,7 @@ class Kirimase < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3a187bb41219ff2414e201a493307ce1cc02fa9ce3a56bb96e8eb514a2555d6a"
     sha256 cellar: :any_skip_relocation, all: "576a94fbed2383917bc82e212abf02911902a14668878dbfb747743dda5aeaf6"
   end
 
