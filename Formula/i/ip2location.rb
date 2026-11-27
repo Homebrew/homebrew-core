@@ -7,6 +7,7 @@ class Ip2location < Formula
   head "https://github.com/ip2location/IP2Location-C-Library.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1e2a9154edb9b63c52e4531895ac23777e1f5fc84e4d869b79c1b2763586eb7c"
     sha256 cellar: :any, arm64_golden_gate: "51f9db00beda092a6eaeaff29b9d4b44ccefe1cd59c7848045d7ece79bb913c1"
     sha256 cellar: :any, arm64_tahoe:       "645d9e5100cc2503df2d30a60497a9ef9e9678ead559a8db93241d908ec903ab"
     sha256 cellar: :any, arm64_sequoia:     "081f753903b049dd40c63d0696d9e76e05b9f507d53d1e8deb0a29b17813b7bb"
