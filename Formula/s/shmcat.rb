@@ -11,6 +11,7 @@ class Shmcat < Formula
   end
 
   bottle do
+    manifest_sha256 "0816548f3f640ee53f756584c868e3afe71ad00372fe8fd30eda84bcdd6cde98"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfa1b08f0de40b06d2b09aed764b3851abec26268b93aa4103933c4b2f54d39a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24cab1a879fd6393b619d8ce55dc53d44a0c6904407e3b4ab019a35c5a9e71ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b757e03b867f96daec5e0ea37feea323c860f72d0f42a08e3c791acfa48eb84d"
