@@ -7,6 +7,7 @@ class Gotpm < Formula
   head "https://github.com/google/go-tpm-tools.git", branch: "main"
 
   bottle do
+    manifest_sha256 "623c87f55a36070bbb9db2ff814c004e7ba7caca8763047b1e2eb8e4c5af5954"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "357375ab8d272e58da6c398879d088f292859d1b640937c29710b601e0f84320"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "357375ab8d272e58da6c398879d088f292859d1b640937c29710b601e0f84320"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "357375ab8d272e58da6c398879d088f292859d1b640937c29710b601e0f84320"
