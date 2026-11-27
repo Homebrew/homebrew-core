@@ -13,6 +13,7 @@ class Ucl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "965628390a3068f4d8e59fd0f27acc3699502c05e16e0a8ea78f65b17ffb118b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24e08a5c1da727e1e7d0777e87010c6b00c51f9d437c85fffe33667ef1768c51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be21a9408fd10aabdb648f2c5075a234cd1308fd2628f6fb205751883835532f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2bf62c73925dcc1099836d528dd46f4f6f3fdae979f58584a930dbe92e89055"
