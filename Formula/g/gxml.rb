@@ -7,6 +7,7 @@ class Gxml < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "1b771fc4089138ed279a2e1d1e7458a272139835c495f9531088583f00d3ca4e"
     sha256 arm64_golden_gate: "791623e8ba28447a1c22d7c1d2afad720c000b74fe5d80d45dc419e64c64e082"
     sha256 arm64_tahoe:       "a3da5e42590fe64560597a9dd87d4ef7b99a7fab333a8ce2b1b307709892eab6"
     sha256 arm64_sequoia:     "371bfb0dcf652b8f7fa6f79783ca427c1228fba85314a430397080ba47aebe2a"
