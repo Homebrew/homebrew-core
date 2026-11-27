@@ -7,6 +7,7 @@ class MacRobber < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1a0eb703f5ed7888af0517273583700c7c1b195408488764818842609ff0251b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94a1d9c4a38418ea7b3faa63700f5e27ed8ae8daf213ebeba74ea1bb6438d711"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "554220e0bdcd9ca88279f3dc6070bf07158ba85468f52bbea7ac0f385075203a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39769b8a01d0d7b97d7b3ca95c5f17f79bba4fb431fc3dcc2a3c0f616c2c369f"
