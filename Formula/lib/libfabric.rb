@@ -13,6 +13,7 @@ class Libfabric < Formula
   end
 
   bottle do
+    manifest_sha256 "13f03fd8fc6ceb8e23575a7bb6ce857e8ac4c5bb12e70ae645ec52cf631bdb2a"
     sha256 cellar: :any, arm64_golden_gate: "00e9ef43819e45fc51eb7aa874c34a4f19b9e2a258c3d8efb5321e6e18c90ec5"
     sha256 cellar: :any, arm64_tahoe:       "0726305d521d5c6a0eb585bdba78e7812178725f71ebfd8400780f4f08127d98"
     sha256 cellar: :any, arm64_sequoia:     "911320e794efd1ba2bc0fef756838f32fe1311bdc36e783699966aad93fd52c5"
