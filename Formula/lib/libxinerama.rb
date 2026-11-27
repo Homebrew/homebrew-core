@@ -7,6 +7,7 @@ class Libxinerama < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2b697268d333cf552f3527b529352952cda8622e4cc5c966ed7bc755e02e2a5a"
     sha256 cellar: :any,                 arm64_golden_gate: "2b5f471080e2fc9f49ef8eaa24ebdfb0f2836e89e01a7124462ddbb062b7f378"
     sha256 cellar: :any,                 arm64_tahoe:       "1661f76115723be21049a852556fe270ce1f53693beab0931ffa88b40b757129"
     sha256 cellar: :any,                 arm64_sequoia:     "4a9b6fb1bb70ae6b4005e94c9d5737077e98f9ac2e5fbfe011371a6e5187006d"
