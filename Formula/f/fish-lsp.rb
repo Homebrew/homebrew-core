@@ -6,6 +6,7 @@ class FishLsp < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2458fdc7910a3618543b3aaa958c8e108a107e47568fc1e0be6e9e803c299dc1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "614c08f5b75b2123c83e3d98bc134f89d328a1755e94cb4a7f8464dd2221f192"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15a3dc930fb05216ba3a018a0e1d23b99f479583c91bffa4edc5bb8ab50af501"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1fef8d6e569de2184a5a779d0ec699b11950186757e8569eaf007e6592f44468"
