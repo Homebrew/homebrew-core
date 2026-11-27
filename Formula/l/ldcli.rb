@@ -7,6 +7,7 @@ class Ldcli < Formula
   head "https://github.com/launchdarkly/ldcli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "56febde67fe9b15795f92fee16f951f0e9d6808fde2890323ca8ed881d776029"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0013fb183656c7240e560cd14bbcebacf2319e8904b678c21f8c659c01103c52"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5d4c3f785c670b68276ddc6ff46f64e65bc4e04afeac0c2eb83d36a51c6b78f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ae2aa72aec5b87a5efdbacfd60d79d343242009212dbac3250994b5c5453715"
