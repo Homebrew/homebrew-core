@@ -14,6 +14,7 @@ class Prometheus < Formula
   end
 
   bottle do
+    manifest_sha256 "4a3517859b9907fae3c18289ff56c109dd9fd884897069e2a0754d4f226ecab6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21ba49c99322b21cf42b2065399bdf43d7851d2aba560e63e026e1704ca1fe2d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac06dfd6ba4deca71d87819af5c5282c44b638fd5e672cfff61951de4b8ece58"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f27a89184b355cac27e5737f1697bee4a773f62dfcc74fe9f76fda1091cad9f"
