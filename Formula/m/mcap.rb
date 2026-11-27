@@ -12,6 +12,7 @@ class Mcap < Formula
   end
 
   bottle do
+    manifest_sha256 "61be863c47454c3d2dc94a0ca131ec9cb5b0b4208d7a5d211d2f6f5369130ae8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f01a518987c86391e3f41a76e1ad4154c8f03523c4c67ebf35645fb38e841284"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f739ebb4d57ed60dd2af88b2343abeda2586bbd71c1a0bae4932b884abba5d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9019117708d0a89d19d0aa697c5b5fc525c25f02f3ab943f1ff0b4a7f114592b"
