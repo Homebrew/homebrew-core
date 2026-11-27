@@ -9,6 +9,7 @@ class Glom < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fd0bd0d3c64040c7eaf1ca18052ef964a061572f8c3136ccb2bd81bc2e5511cb"
     sha256 cellar: :any_skip_relocation, all: "0026e60750543e9be893fc998b66cb70a1f4db947e3d2244d2abe17ecd139507"
   end
 
