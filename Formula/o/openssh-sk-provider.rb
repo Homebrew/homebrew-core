@@ -12,6 +12,7 @@ class OpensshSkProvider < Formula
   end
 
   bottle do
+    manifest_sha256 "a2f14f425921976dcb77d05468b6f96bc638690318b0e70a30b4d44ae8289c55"
     sha256 cellar: :any, arm64_golden_gate: "f5f0656e1d28632f13bfb50f301fb50f9c136ad67b87f6019e52a3dcc38a6f7a"
     sha256 cellar: :any, arm64_tahoe:       "f1538f9358742839330d30ef24ea2b09c68f845d9af9beab2f10ffdf12adbd1a"
     sha256 cellar: :any, arm64_sequoia:     "fed576807104e97d1510209c4f8f824bd637c2bbdf2874d1a2569d67f1e75ddd"
