@@ -7,6 +7,7 @@ class CppLazy < Formula
   head "https://github.com/Kaaserne/cpp-lazy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b02bbd6661593a6a0e35dab1e86ce886a51bed1c810dab7633061e7045ef656b"
     sha256 cellar: :any_skip_relocation, all: "a6189f64f50809a62082509f85a970ade5984a5b7c4ef229aece0cf8e3f9b23b"
   end
 
