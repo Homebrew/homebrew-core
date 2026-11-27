@@ -12,6 +12,7 @@ class Libcext < Formula
   end
 
   bottle do
+    manifest_sha256 "a34cece35698ee2359844345aeaafa943100e13579e4a653f806ac826b13b5f6"
     sha256 cellar: :any, arm64_golden_gate: "6a8de16a8b5111c6fe89e1db11610ae5e64eb324a32dc9304eab7dd0181c9083"
     sha256 cellar: :any, arm64_tahoe:       "29e252f3c56b2d68da1aa5da66f4551bebd87e53d6db8449fc25059c022dddf7"
     sha256 cellar: :any, arm64_sequoia:     "f18f3718af6c5b721c033f913bb2c5692ce09c92e33479c728a59f825c902dec"
