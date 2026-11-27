@@ -10,6 +10,7 @@ class SlepcComplex < Formula
   end
 
   bottle do
+    manifest_sha256 "f9f2ca2dc1a7fb5ed4871bcf41ae650b9da7a412b9f42f615379088fa770d0ef"
     sha256 arm64_golden_gate: "7f840add5705bbdebf81c3ded67bbd8901607b3d4386631dd4066896c9bf0c2d"
     sha256 arm64_tahoe:       "802be17cac3210eb7236743362a81aa7282c5f83ddd383956f9cb3cc92aaad2b"
     sha256 arm64_sequoia:     "2c96a29adcb3994ce95c403460a58ff20f14eb2884d16ee130239f925af26472"
