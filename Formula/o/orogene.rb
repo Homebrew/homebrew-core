@@ -7,6 +7,7 @@ class Orogene < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9d78d6e998bbc15bc0ad524377b132e351c61a1f5b3acec5490f0bd1924b58dc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "d1b71b12add1cf3f8217e5d857e056c54a004638ad178be9f71ed0e7d55a0e7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "68164cd2ef24f2cc58c5562c7c81cb72bc9139ef96975f459f1bd6ce05c3e73a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "f7a9c9b9ca6a84e14304d3d5e1f5fcb8d44d7546c0fe635c14e3bbd468175421"
