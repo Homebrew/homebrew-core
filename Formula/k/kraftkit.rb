@@ -12,6 +12,7 @@ class Kraftkit < Formula
   end
 
   bottle do
+    manifest_sha256 "fcfff40258dc2021e6a854523c75c6ce41c72d28bf204f35a6bfb010a80d7f9c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec1933301c640ae5dd838d241073f112248579f1dda402cf5dff9ee82dc0f10f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d0b9ce31aa08cba5553da4ed4f9791a2bf3eb4c9462d9ae6f1803856b848170f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a32631fe978c42ccba8406ec320af0058e2afacd2c3a1a261e85ff6d66884fc3"
