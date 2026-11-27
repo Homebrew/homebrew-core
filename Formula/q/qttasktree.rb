@@ -17,6 +17,7 @@ class Qttasktree < Formula
   end
 
   bottle do
+    manifest_sha256 "db09ff18e6d9e4ac5fc6558987bac4cb5a699d409501fa21fee4d72a4ef7ae98"
     sha256 cellar: :any, arm64_golden_gate: "472e73f7476bd4e4abc01f8c7d24adc70cb8f6cbe29ea371c358f5e07e3fa96d"
     sha256 cellar: :any, arm64_tahoe:       "a765704da0fe5c72bd44662059e58e0888117c3e18d468ccc292a53eaa3963ad"
     sha256 cellar: :any, arm64_sequoia:     "d73d736d7e09c41f05d2b3f7a45a7bb05c53407a99f455123c4178a95ae843a0"
