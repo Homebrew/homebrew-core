@@ -19,7 +19,7 @@ class MoltenVk < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Cross_repo_revision"
-        regex(/^([0-9a-f]+)$/i)
+        regex(/^(\h+)$/i)
       end
     end
 
@@ -31,7 +31,7 @@ class MoltenVk < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Headers_repo_revision"
-        regex(/^([0-9a-f]+)$/i)
+        regex(/^(\h+)$/i)
       end
     end
 
@@ -43,7 +43,7 @@ class MoltenVk < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/SPIRV-Tools_repo_revision"
-        regex(/^([0-9a-f]+)$/i)
+        regex(/^(\h+)$/i)
       end
     end
 
@@ -55,7 +55,7 @@ class MoltenVk < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/Vulkan-Headers_repo_revision"
-        regex(/^([0-9a-f]+)$/i)
+        regex(/^(\h+)$/i)
       end
     end
 
@@ -67,7 +67,7 @@ class MoltenVk < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/Vulkan-Tools_repo_revision"
-        regex(/^([0-9a-f]+)$/i)
+        regex(/^(\h+)$/i)
       end
     end
 
@@ -79,7 +79,7 @@ class MoltenVk < Formula
 
       livecheck do
         url "https://raw.githubusercontent.com/KhronosGroup/MoltenVK/refs/tags/v#{LATEST_VERSION}/ExternalRevisions/cereal_repo_revision"
-        regex(/^([0-9a-f]+)$/i)
+        regex(/^(\h+)$/i)
       end
     end
   end
