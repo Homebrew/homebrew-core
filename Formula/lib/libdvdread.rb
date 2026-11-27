@@ -13,6 +13,7 @@ class Libdvdread < Formula
   end
 
   bottle do
+    manifest_sha256 "67bdb09e2ca2b3f7318beaf281b051867c5cb642a76f2424b17a4defa082325b"
     sha256 cellar: :any, arm64_golden_gate: "a4c462873ed36db00713e3f27ce2c4c573adc049be2b54983897a2c71dbcd388"
     sha256 cellar: :any, arm64_tahoe:       "307eb729e84b937f6c3a690f2c94c42d6c18f5cf87ae525a57289f34f40086eb"
     sha256 cellar: :any, arm64_sequoia:     "791120e7de056e453ec17e3ddfeb574f9601d9a65cfce3b7d16a6450173956f1"
