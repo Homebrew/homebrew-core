@@ -8,6 +8,7 @@ class SimpleTiles < Formula
   head "https://github.com/propublica/simple-tiles.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ff814fbb2115de6f0941e236b72afef67594768f20c8eaa97fb4282319a53e54"
     sha256 cellar: :any,                 arm64_golden_gate: "67590eaf823116de987ad8832522a7bcb1bec26418363a9fed65b3cb3e64edce"
     sha256 cellar: :any,                 arm64_tahoe:       "edf9216d53cb586423cea902e868c01eed41bfc9af3950ca633d96b39bb080a1"
     sha256 cellar: :any,                 arm64_sequoia:     "9e7509c6008ad30c1ada39a3f2cae499811cb550812d139fce8e05113c694234"
