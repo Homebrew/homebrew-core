@@ -15,6 +15,7 @@ class Hubble < Formula
   end
 
   bottle do
+    manifest_sha256 "ac35a2fcf6f877a3fa58da20cdb86c202f922aa1cfdf7fc561f23e18bc336453"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8752f6a3da7d8d83d1a36a0adc0f3aabf9896934b7e84d07e3ea5ff5a6e336a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "327e65c1b8f2ec76c566211eaaf84d9ea716ae4a8679e8a4583b1b10f2424854"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f24cdeb8c3230ebddfeddff65061d880f2757a117894ab2e383da7ef748c69f0"
