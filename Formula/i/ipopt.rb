@@ -8,6 +8,7 @@ class Ipopt < Formula
   head "https://github.com/coin-or/Ipopt.git", branch: "stable/3.14"
 
   bottle do
+    manifest_sha256 "7aa8afef35000507118cc432605cc447ac585dd3d3c19a0879e635ce613733c2"
     sha256 cellar: :any, arm64_golden_gate: "6d411466685323eaf4fdfbefd4da8dbb35c7a20c844b8221ce62466debe96362"
     sha256 cellar: :any, arm64_tahoe:       "e4b7041cb746ff1320d6106736541a4e2de198683cbfd425430ed720e6c1f1b8"
     sha256 cellar: :any, arm64_sequoia:     "8920dc5c3ce9bb6a7394111af6a136c3a9569f39c073c5825d6e3aeac33c2448"
