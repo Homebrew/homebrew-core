@@ -12,6 +12,7 @@ class Oras < Formula
   end
 
   bottle do
+    manifest_sha256 "b29795f6b234333050299f30a17260da438c6f9c79af04e5d44ff131dc918b52"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04cd59a8abb78106696c3a44023f0f5cfb8b6ac627ef44217614932de7c66633"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04cd59a8abb78106696c3a44023f0f5cfb8b6ac627ef44217614932de7c66633"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "04cd59a8abb78106696c3a44023f0f5cfb8b6ac627ef44217614932de7c66633"
