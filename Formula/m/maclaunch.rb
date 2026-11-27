@@ -7,6 +7,7 @@ class Maclaunch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d9a02a3da6c739ad18ad362ae60ee6fa491883e2dbc8c010a1bf56abec1e9bd4"
     sha256 cellar: :any_skip_relocation, all: "e2e8116deaaa5e73abcb0d97dedb8d6b708b0b7cfdab81edc35c885db833522b"
   end
   depends_on :macos
