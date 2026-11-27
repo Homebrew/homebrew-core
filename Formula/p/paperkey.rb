@@ -11,6 +11,7 @@ class Paperkey < Formula
   end
 
   bottle do
+    manifest_sha256 "ee40e8f0a1bb67fef05b3725e4e603a0e67a0f7b76c8c8d45d574ae0dd4e6d38"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "67a9956f72912675f39e6d1ac22f73412c04a8a28896089ce146f065ef8899b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc50488f52f09cbf1b0fabc8ddefa543104654dff3a462d9d0dfdca67e89ffcf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5f29efd5bd3c2ce18f744e141fbb9e3013a0474a3d391efcd1ccfdf31bc9c73"
