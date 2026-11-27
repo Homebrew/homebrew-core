@@ -10,6 +10,7 @@ class Nyx < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "0529df7cf724b13a793f86d0105916196fa3024270b447919904d65ffa8ce1f3"
     sha256 cellar: :any_skip_relocation, all: "dbc68f0e69b205068afc61fe51ce45b732a28c08862de8d62e9f0ce55e5ceb2d"
   end
 
