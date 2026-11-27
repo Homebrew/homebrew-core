@@ -6,6 +6,7 @@ class Icemon < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "1609a2b258e16bff5b07d4ca9616ac8d29029f2193f9a69b3ae55ff5c1e05a0a"
     sha256 cellar: :any, arm64_golden_gate: "96c68b693473b01d64230a712503ab167fe548177c4922acd411ba9ae1727e9f"
     sha256 cellar: :any, arm64_tahoe:       "dbc83718e9cf1dcd6031020258c3b7cecb6a38ff927f7109d0a4a8d7ecb12f63"
     sha256 cellar: :any, arm64_sequoia:     "13f706714d74294a8daabbde4f80b7ab9330b8bda59df22eaf46b457d305f47c"
