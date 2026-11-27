@@ -12,6 +12,7 @@ class Libdap < Formula
   end
 
   bottle do
+    manifest_sha256 "5e2d305e0c9e5acedf439f209c836a6827836d73846d47f41d27d8e9708e7940"
     sha256 arm64_golden_gate: "12d754a6f6cc52950c75b75985c865e6734a2e672d43b6464d4dcce281afa6b1"
     sha256 arm64_tahoe:       "d959fe3f680cc759bc8e6b5fc9ce3df87a0ba407fd8c121c7c0007b18a7391ed"
     sha256 arm64_sequoia:     "d4b73f03f75990e67798f996eed66c02b42066d37c43c6970ed1345838ea6e3c"
