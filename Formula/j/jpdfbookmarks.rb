@@ -7,6 +7,7 @@ class Jpdfbookmarks < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b324368aabc5bff710b0ff84b4ddc233484cef4fe49a570e7a9931c4771b928a"
     sha256 cellar: :any_skip_relocation, all: "bbac7244d29ddb86bb5342e4752fa87479247a239a57663c5a701d2687aafc46"
   end
 
