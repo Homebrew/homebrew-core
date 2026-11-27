@@ -14,6 +14,7 @@ class Qcachegrind < Formula
   end
 
   bottle do
+    manifest_sha256 "9890967a4e6c055cb988a3a441f80faf46f05912437d458438a89f176b33d692"
     sha256 cellar: :any, arm64_golden_gate: "32f7bcc3aff9fef716cfbd2c3f542f8d083146c2fd57bb464368d3a70e4969f0"
     sha256 cellar: :any, arm64_tahoe:       "32f7bcc3aff9fef716cfbd2c3f542f8d083146c2fd57bb464368d3a70e4969f0"
     sha256 cellar: :any, arm64_sequoia:     "dd2ed2415a76835a715ca4d7fa4f38644d436237408f56f090993497240554f7"
