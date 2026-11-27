@@ -6,6 +6,7 @@ class Sleek < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7a94e74535f4fb2ff5210a33183fc40ab3bb96d5e3c4452eaa7977b7e461a0c8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a357593813e2075dc3961fe4aabb31f2594797cf8db906efa1f4d4983ec8636c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92c4d088b2e718baf4797d96f1c47730de545422b7549728198bf7a18eb04ce9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7da065a9d2a8bc8f87ea6d2eb19cee0c60a358349761d9ea559ffb4c566f984"
