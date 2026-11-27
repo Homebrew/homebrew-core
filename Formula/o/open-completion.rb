@@ -8,6 +8,7 @@ class OpenCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7d2e18b1f345551f32aaa68fd33b9737534a9c249e8ce594a72013a6dde9df4b"
     sha256 cellar: :any_skip_relocation, all: "446d03e5ddceca4179f58fb2378d39f0cc1559f2b876ad53291c59ae1f43d548"
   end
 
