@@ -7,6 +7,7 @@ class JsonrpcGlib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8351c1b5816d9915c7836ed8d2686dadc6f345b513a77c4fb4ba2d469cf13673"
     sha256 cellar: :any, arm64_golden_gate: "0756e5864f4a752ba8da639780e1525539393f42721760cb4b014bc398fd2c30"
     sha256 cellar: :any, arm64_tahoe:       "4cf100ab4d9f7d4bae7d7c1d2d0b3aba3e3cc6eb5dfa424e3556fe59ecf59a76"
     sha256 cellar: :any, arm64_sequoia:     "7f8a6357e46f77559da420058dbe1b16c64713984cfe20e382958d6f4adadba6"
