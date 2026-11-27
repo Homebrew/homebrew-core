@@ -7,6 +7,7 @@ class Pan < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8fa9e714b3071b520a53bca1c389ef4e411b903ca04809e7f025af4acf02511a"
     sha256 arm64_golden_gate: "343b6abd3514df293778d2407184794395aca66509499996b66bb2806dd2a520"
     sha256 arm64_tahoe:       "fc39105d5b48f22b138d5e626c42098275959204729ef193ef91ae6837d504d7"
     sha256 arm64_sequoia:     "2e171ead5e91ddde91ec9adfbc04f0a87587e23b98ad31bac4499669f941b823"
