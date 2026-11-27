@@ -6,6 +6,7 @@ class Pcalc < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "9c74e682bf60a5cb91c9aee989d1a2404230262b160ab5e47d554b39fe7fd226"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e4237d4fb002b1efa0adf6fa4cbdcd7be849ec4d8c0bf74acc6f0536459d2c1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ab7fd9f1bd17b8ae50aaf5c5e419e1ba13214e5362f09b235b834555001ab6e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2b4d667859884ae73bdc1d92bcb74b9cd916f249e72b7ff11c55850caa0f83d"
