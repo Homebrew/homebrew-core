@@ -7,6 +7,7 @@ class GitFlowNext < Formula
   head "https://github.com/gittower/git-flow-next.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2460aecf255ddafbd31eb0545595f20838440b6877eae80aeef5d21e2d0501d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "57fecbdf2e6e180659899da60ed55c4a44e79e6ccab58baae0c9364d95dc62e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57fecbdf2e6e180659899da60ed55c4a44e79e6ccab58baae0c9364d95dc62e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57fecbdf2e6e180659899da60ed55c4a44e79e6ccab58baae0c9364d95dc62e8"
