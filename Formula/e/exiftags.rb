@@ -11,6 +11,7 @@ class Exiftags < Formula
   end
 
   bottle do
+    manifest_sha256 "dee31d0d1225507f236c8437a2f66714b634b83b30fb03634c5bbf1820d07799"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5fd396b31dad923db868fb826de302a17597c97f5f4b2c78dbf43508b9e5491"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4c31682830f7f18a47fcaa2c2c61d28e1e36cca0ab480d41ffffde7731f7b06"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43f7d6a7bd08e653cfde12d0f3cdcdb371b27bb4912a8f2bcda42120da960cb7"
