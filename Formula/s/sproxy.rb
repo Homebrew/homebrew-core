@@ -13,6 +13,7 @@ class Sproxy < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0c57680ad634714f790b09b8eda30e56f9708a4d089a55dc98fca3f39434dc62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6365f20dbe6308f241160aad69f8684c9ba74da050fc6b4816a21638a5e48c75"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6365f20dbe6308f241160aad69f8684c9ba74da050fc6b4816a21638a5e48c75"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6365f20dbe6308f241160aad69f8684c9ba74da050fc6b4816a21638a5e48c75"
