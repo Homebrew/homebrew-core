@@ -6,6 +6,7 @@ class Direnv < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5eab4e58d87969cdd6221d154c26bb68844e4b6731b24bfc17cfc12444c87213"
     sha256 arm64_golden_gate: "c460fc9862ca2614bb9c9ea520dc7b132289e073b0569c15d327e424ec8906b6"
     sha256 arm64_tahoe:       "b92163a782c058393fd678a546c6cabf11788cc5a4da73ecc078db1b37e770d1"
     sha256 arm64_sequoia:     "6f0003e43f84ae7474e40bb56eba5e1f54bcf10694f71dd01ee2b3d4af92c496"
