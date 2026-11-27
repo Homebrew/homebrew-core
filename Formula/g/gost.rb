@@ -12,6 +12,7 @@ class Gost < Formula
   end
 
   bottle do
+    manifest_sha256 "8b939c0788100841bd13b562b80faa698e6034025e2af09337d005bd8c16f027"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb13bfc76e0932f92b344d81f0fd9f18fb6a82be3b379ec0e0d25010e7af6c6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a3c880db2b207ada8a3a51e779a8a0e6e65c9d8d84da87882cf1fd131e40446"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8cfbc2edcf33ba62ec935dbca0d208a7b45c8f3032f59c2f2308ca9d7e584b6f"
