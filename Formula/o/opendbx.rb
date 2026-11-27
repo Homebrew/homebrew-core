@@ -15,6 +15,7 @@ class Opendbx < Formula
   end
 
   bottle do
+    manifest_sha256 "7c84ca740c5d8f0040fa4741343e5eb7676f450ff5c2c968d589e8d01d0e685e"
     sha256 arm64_golden_gate: "a72455cbb1dbef444b8b4c8b0722f5b98de44742e37adde416fafd2a8bab2583"
     sha256 arm64_tahoe:       "8cc990504a450685d677e758cf6741b058dd5b82e1ddf2f10c1e70bac003d58a"
     sha256 arm64_sequoia:     "b355d6e9d840dd066aa4e71bbc2b4ebcca2f13741b07153fcc91a159b0d1665c"
