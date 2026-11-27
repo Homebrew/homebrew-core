@@ -14,6 +14,7 @@ class Rpiboot < Formula
   end
 
   bottle do
+    manifest_sha256 "a05702fd1a0cd63a7af39aa722ddcce995838f579f2d7e8847f35b297552d252"
     sha256 arm64_golden_gate: "eb13356c2c0b6ffc0c598b4c5c56330925ce88f3389aaffef2994de01e7e1864"
     sha256 arm64_tahoe:       "8e4cbde8e831ae6cd56841b54bddb883b62b5395e2c81b11c7da3a4be72324a0"
     sha256 arm64_sequoia:     "2cbdc1bcdb5fb137a8ad04b0df3a1212136e764ebcd15191e4f9006033d8803c"
