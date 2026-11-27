@@ -8,6 +8,7 @@ class RobotFrameworkRobocop < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "a1d2c6fb63d466cd27a21e0cdbf6f9cbc5a9060fa7b1eaef0324d78d01f943c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c75148dc292ec3671839067ffd45e36fc11a7f908cfb68f615e8c758968a124"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2261eb349c92028d59b69cd23ec99d8cf961c34ac1599a67d2941dcd7eb91a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c411ec9e64adc65feba5cadc379664d175dd964900b82bbc11eee0426938db1c"
