@@ -7,6 +7,7 @@ class Libspng < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "54932eeeed811dc1d09efe729bc7513f3011930083444a6cdd544852e7c01d98"
     sha256 cellar: :any, arm64_golden_gate: "2bc694add745642f5b9a9365b3a4cdee1fcf9735efb2b2dd38240081226e8c04"
     sha256 cellar: :any, arm64_tahoe:       "b7021367db7d381734cae9e0f63d0306a59ebb9cf2483550882e1c944ffd28ba"
     sha256 cellar: :any, arm64_sequoia:     "30ec0f19c1307c939d1be6320da640bce932768da9cc01adb079de69c2e64871"
