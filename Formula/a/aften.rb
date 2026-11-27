@@ -15,6 +15,7 @@ class Aften < Formula
   end
 
   bottle do
+    manifest_sha256 "bd09cb84ed502bd99a7c4acc34142812fd6360bcf4c7b8f5dee14edd31d3b641"
     sha256 cellar: :any,                 arm64_golden_gate: "235c60d3c82fd2a9cfbdae6c267fca9096350b0ab016abb9d69872490035243f"
     sha256 cellar: :any,                 arm64_tahoe:       "98174738f94e5b13f3814dca23e803878017f9d719e0eb7d5f3ebb82e7819db7"
     sha256 cellar: :any,                 arm64_sequoia:     "c158dd1b9124db377e0119b6d4dc34ce9ecb14e458379ab023165ce6b83715fb"
