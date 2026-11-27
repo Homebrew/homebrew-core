@@ -14,6 +14,7 @@ class Fwknop < Formula
   end
 
   bottle do
+    manifest_sha256 "b12293214143786c7fe37f43bb5ae29b9e17a4d5ae61627fdb048c7e74ec29f6"
     sha256 arm64_golden_gate: "0765cf34da75b128a671f2596f750276a7b5b0d19659234f7618891ca4632609"
     sha256 arm64_tahoe:       "7963f9f9f757720644a3df1cfaeb3307b43dfc3148ece268a48fca4ca47bf83b"
     sha256 arm64_sequoia:     "227c8c6bcd86942a72b26ab69e096cefd01941331e82ef5bf8c3942070081edf"
