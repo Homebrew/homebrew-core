@@ -7,6 +7,7 @@ class Liqoctl < Formula
   head "https://github.com/liqotech/liqo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b8a6341704791914601c5c261d3be1ff9fc09ed71f9c47490995d273edbd3b11"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e5dc75872199a14a9eaed959561e9f7636c3d6e8eecc3d1485045bd273a1955b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5dc75872199a14a9eaed959561e9f7636c3d6e8eecc3d1485045bd273a1955b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5dc75872199a14a9eaed959561e9f7636c3d6e8eecc3d1485045bd273a1955b"
