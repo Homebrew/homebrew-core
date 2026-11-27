@@ -7,6 +7,7 @@ class Pkgx < Formula
   head "https://github.com/pkgxdev/pkgx.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e14001beee3d610d662872ea45cc7c94a6b647f37c49d4cb19a4a33ee9bdff44"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d7548ac6909cef11bff52d255fd1b55074244a410ce021f9dc32c1dd15c31de4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "30620d0360cce336169ad1a4e7aa63225d5801af5431580601a987d062bbe2c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00dc6ba2028fb87a8b9abf86f7cebfcd83f1b01b4d583dc2220877934ad4a74a"
