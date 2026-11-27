@@ -7,6 +7,7 @@ class Judy < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "030e02ffd2519e62000d918db6ce07f98dc7dcf98dbf89f0e897fead21d8301d"
     sha256 cellar: :any,                 arm64_golden_gate: "cdcd13d451718e640e0d02d81bb217f817f7245ba4851cd5645c8309e54c384f"
     sha256 cellar: :any,                 arm64_tahoe:       "55191515c4d8f62b225ce9fdf49be0742d708fc8615382c77e19b1a21dee6878"
     sha256 cellar: :any,                 arm64_sequoia:     "9c845c66e4c08af1feb840119e2013109cbfba280a96022e15aa1fe703fa8c61"
