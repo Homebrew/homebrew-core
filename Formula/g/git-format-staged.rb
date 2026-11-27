@@ -9,6 +9,7 @@ class GitFormatStaged < Formula
   head "https://github.com/hallettj/git-format-staged.git", branch: "main"
 
   bottle do
+    manifest_sha256 "66e1764842bcf0553418cacad1a756f46283c6a57537b3da7ca0881d863cced7"
     sha256 cellar: :any_skip_relocation, all: "666a072db7821d60c7bbfa4455dcc15adf3726757e6a6f20c974ace2c99fd5d9"
   end
 
