@@ -11,6 +11,7 @@ class Pocsuite3 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "079a7fda9550246173d7d05174c2cb2cbd6ac68a5b5455fccda7948bab6204f1"
     sha256 cellar: :any, arm64_golden_gate: "1460393fe56bff3cd8f3cfcdce321b3bd692ef23e2d29a24739214407f9fec88"
     sha256 cellar: :any, arm64_tahoe:       "5a38f8e0130504c7fa6a4242c7b66203ba394ec94d18a723e2f45c59d70699ca"
     sha256 cellar: :any, arm64_sequoia:     "97485976039934c97e5ca80db2d43b7944c226b0e9b4d38219c3530f55317a6e"
