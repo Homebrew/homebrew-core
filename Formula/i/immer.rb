@@ -12,6 +12,7 @@ class Immer < Formula
   end
 
   bottle do
+    manifest_sha256 "e41a46afc53bef3a8b5b16d25749e7599533376bafb84666b79ba8100739d7b1"
     sha256 cellar: :any_skip_relocation, all: "9e8fb22791b14e5ff097df3c481289d5e87c31f5eb97f54c7e84fac00d93fbf1"
   end
 
