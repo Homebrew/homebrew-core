@@ -7,6 +7,7 @@ class Kqwait < Formula
   head "https://github.com/sschober/kqwait.git", branch: "master"
 
   bottle do
+    manifest_sha256 "29fe289fa094b49011865f6fdf0b1e29708de3fe4bb7fbaacc955a063bc8fe28"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6eda2e22555a172c63740ed7e0d78e3f4939850d2339f3b2238d6cfe3922521d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a8037aef7b7c8539a012c549077b2653aeebeb3b6fa7860263bfe677625b5380"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69088af879a12bce91e41c0f70c063c27778c4668db657edd7b99062e14f9c34"
