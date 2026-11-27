@@ -7,6 +7,7 @@ class Sqlfmt < Formula
   head "https://github.com/madelynnblue/sqlfmt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "09416f9b508b74282eb4086aacdc124eb167c2b4e0f05c879ed90ba84e9a08c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3079ffa2abf85b8271301f4323f4b0ecf3e4104d383558f0a6c435e8eb2184e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c84039488c47b3d05d7453f65bbf8eded5b1229d9b06c398741dd99e1ee2b303"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a38467e3035c2cd803a7d6eeb898500e8be48918cc2689202ca0affeed82ea53"
