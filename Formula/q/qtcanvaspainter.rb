@@ -19,6 +19,7 @@ class Qtcanvaspainter < Formula
   end
 
   bottle do
+    manifest_sha256 "4347d9b20fc26c424fea0dc2a8b3d442c9f421022b55c6ccdd05acead5af8779"
     sha256 cellar: :any, arm64_golden_gate: "6b137b07df5e98359bd3620fbc6517648199c8e7f240a785371014eccb93cc1c"
     sha256 cellar: :any, arm64_tahoe:       "6907281a4aa62b2396e9626de0957f675108920d9f2a0fbf1a5947d67f5101c7"
     sha256 cellar: :any, arm64_sequoia:     "28dc91ed03c7eb3e413b2768857a5bee1544a4641639d31aa725e951bd9b39f4"
