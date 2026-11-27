@@ -13,6 +13,7 @@ class Since < Formula
   end
 
   bottle do
+    manifest_sha256 "865044809d86ff99a76ecd759b284c01e9166e26f0b687c20c565015f0979577"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "466b9173aa904cb8272c5cad107c971d58f0171659f1fa6fe755279652d4336b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b463dd2eefbe33098ec0a7d4b1f98e186559a7d14d54e3ac5922873f871f6364"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07893929437e39dacfc617af4ec38af1153bbd8a3655992293b1ac8c415ac240"
