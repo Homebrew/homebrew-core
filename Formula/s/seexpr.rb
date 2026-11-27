@@ -12,6 +12,7 @@ class Seexpr < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "97a6b23ede2495c4b6a12db648fc120135e79b2c9af690e47fe8ad78c8d5ee60"
     sha256 cellar: :any,                 arm64_golden_gate: "7166c674e7a92785780fe531474dc11d83b9686e4739afab93a9a4f0208ec0c1"
     sha256 cellar: :any,                 arm64_tahoe:       "d4fedca978d91b1a42b576ef1f225c684897945f78293fadee966d41f2217bdf"
     sha256 cellar: :any,                 arm64_sequoia:     "3614da63f916d5bcf3ebfbb5e707891cce153aff309b701a08d689e8c973b50e"
