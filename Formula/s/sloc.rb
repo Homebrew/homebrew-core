@@ -7,6 +7,7 @@ class Sloc < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "226b8ffbc22a50a0af5e78d3dcc2fe7086d431e2f945966b19cbd242e5ec0d8c"
     sha256 cellar: :any_skip_relocation, all: "24e858bb8b1a883aa3bff9443299ab2be4b978dbede386c35047ede3958584c5"
   end
 
