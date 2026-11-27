@@ -8,6 +8,7 @@ class Inetutils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "614d124b300d22e5e9797ec97d526d9624718001dfc26d30cb591510401c78db"
     sha256 arm64_golden_gate: "cd0918bf99f605250199ab717d2a7e0e168ad5b962a846b8db37702477baa767"
     sha256 arm64_tahoe:       "0a66dfe25ede29e4c90e7cf13c6a6944ca36a13307c07473a56a9f7244668766"
     sha256 arm64_sequoia:     "c1d48a14177702ea7463d3b952bd270665dcfe5e55d8106f02ade499676f6fcc"
