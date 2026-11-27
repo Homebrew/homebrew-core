@@ -15,6 +15,7 @@ class GtkVnc < Formula
   end
 
   bottle do
+    manifest_sha256 "7beda1259d336e5e4325a1e67246625c4ad36e723373a716aec0fe40b6809201"
     sha256 arm64_golden_gate: "086558051d9d13d59b802355b500173e1590d88bb3c463509b724c3444f09526"
     sha256 arm64_tahoe:       "64d7a9f0644b29467c6e9fb3e51f9c5e92b4a7cf2f37f54ba7d67d48d42ea2f2"
     sha256 arm64_sequoia:     "9b8cd5c44a6f0b1a0ae27922d8c93e365c61a9dedf42070d2d03eca897beccad"
