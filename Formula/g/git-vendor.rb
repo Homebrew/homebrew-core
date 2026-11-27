@@ -8,6 +8,7 @@ class GitVendor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9d4f89e262128b61c5098df7370029ddd159a811fd9dd684627cc5ffb67065fe"
     sha256 cellar: :any_skip_relocation, all: "787b5a6895706acdec2ad5cc6dade2cef8dbdfcd0d0352b6fbc45a6a40489f0e"
   end
 
