@@ -9,6 +9,7 @@ class RstLint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ebaa3a8399106b043acb6b47c4c59da45e2b31e16a563dd640a5fb022758d0cd"
     sha256 cellar: :any_skip_relocation, all: "5bfe4a9c45ae4a7a3ffad5221d179e5ef2054a9ff4ffd1579c7cafe4eca60264"
   end
 
