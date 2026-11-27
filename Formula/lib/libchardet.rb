@@ -6,6 +6,7 @@ class Libchardet < Formula
   license any_of: ["MPL-1.1", "LGPL-2.1-only"]
 
   bottle do
+    manifest_sha256 "855bd7b9b103c22dd7d349c65b79058d4e5d2ab2d65f321b6847cb60d5cd1cf0"
     sha256 cellar: :any,                 arm64_golden_gate: "b458cfc4000f6b9ef82e1f09946ecb47b5561f6fd2bc7067fdf0cf808661729b"
     sha256 cellar: :any,                 arm64_tahoe:       "2050047b6703bdfa916ea84bb6378070d73e3220ec321eaed2213e80c1c3c0ef"
     sha256 cellar: :any,                 arm64_sequoia:     "d27a3d9bcbe687d5fc342594f7827a11bdee56e0cc2df1fdfb9f9002d703b35a"
