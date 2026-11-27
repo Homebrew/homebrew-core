@@ -7,6 +7,7 @@ class Libltc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "9026e2ae500480e230719322d4aed2466f94556ee7e451d319367df058c0c16c"
     sha256 cellar: :any,                 arm64_golden_gate: "2539fcf26e5c508b1232a1eb70cb084d51516c199fd5d1f43fa6bdf1b6184619"
     sha256 cellar: :any,                 arm64_tahoe:       "96c5103e95fb66b47f93433bf6f7e3a85cf6de5e8540348172062cf1b68920f7"
     sha256 cellar: :any,                 arm64_sequoia:     "db162961bf9b4cb7fab2db612ffff0b70ab59470d382712417f1868d63500524"
