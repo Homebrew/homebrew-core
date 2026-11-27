@@ -6,6 +6,7 @@ class Lwtools < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "2f9ee290b6254eeeccd72c3de3f459926d86fbe4c76f11b42ba96f97e00b7ac5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "77612ade9fcd6272b8f4f5f27c9ed4ab80616130067e51f9b823d42c8219dc3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "ffe93d375d527663e0ecf2e291752893016d59dcb1809fc44038370233ce08af"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "7cc667f7f9f67f5eb787badbe49bbfaf7928ee788ce9d02c73860a63e05a88cd"
