@@ -9,6 +9,7 @@ class Tubeup < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "a994875c955c7eec82dcbcb00bcadfa7a6416fb68f3d3b4745c0479eec82da0d"
     sha256 cellar: :any, arm64_golden_gate: "7dfd819f4da560d642739a5765cce82afd5c637ebe4c9e07ab7a7789426ca84d"
     sha256 cellar: :any, arm64_tahoe:       "f9f9e19e2e703eb739a554fb8eee01829c23fdfb20f7accc5dca875700350e26"
     sha256 cellar: :any, arm64_sequoia:     "f6e7352e045199021a42e204d101c551477831db84d783f3bd13a19ddfe9cbaf"
