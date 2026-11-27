@@ -14,6 +14,7 @@ class Exif < Formula
   end
 
   bottle do
+    manifest_sha256 "cdbc7654401425952fa9a7825206c49689c49a403743462dc7aa883e645c91ac"
     sha256 cellar: :any,                 arm64_golden_gate: "291edd15a8f066dadace3bcec03fefb2cb820c286de83bfd3d41d788c18ff169"
     sha256 cellar: :any,                 arm64_tahoe:       "bfb1b7b9782dd4c888442a3dc2d6872894e1acfde781fc8b819e631fd1f4ed23"
     sha256 cellar: :any,                 arm64_sequoia:     "f6cbeebd5b8041e6b8ce190a02911e9c53a0079648a35bcd7c279372cbef4afa"
