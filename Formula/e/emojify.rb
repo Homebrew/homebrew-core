@@ -8,6 +8,7 @@ class Emojify < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8c3b3fde7da050faf7746755a90384301b6607fdff7801496732bff84715504e"
     sha256 cellar: :any_skip_relocation, all: "753bd40adda1ec6d8ee6f762d3cc4abc79d64150b19ae8e56024d97dfcb9b062"
   end
 
