@@ -7,6 +7,7 @@ class Libcotp < Formula
   head "https://github.com/paolostivanin/libcotp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d88c181629b153b898103323d2b13aa72eb9ba1a9ffd1f552e5675528d40e662"
     sha256 cellar: :any, arm64_golden_gate: "53cdd0596ed12de1be43ac322a8feba4c887b3f1761a3b15e7923ffd843c4537"
     sha256 cellar: :any, arm64_tahoe:       "da97fd9a50b2fcb476b324dcf09fe93b6ba982aa86bd50267bb0e7d8ebd6604f"
     sha256 cellar: :any, arm64_sequoia:     "50ef43dc367e65cf330ce335ee66ce02f77d49ca703b73b61c4eafb9bd2f6f5f"
