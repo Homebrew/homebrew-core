@@ -7,6 +7,7 @@ class PodcastDl < Formula
   head "https://github.com/lightpohl/podcast-dl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b413327fdcab9e53843d695b4fa505373dc14a7550931a1e7649530280555e8e"
     sha256 cellar: :any_skip_relocation, all: "1d9cfb60005efdf409fba9ed91d173a29abeaf89108e13b98e197480c8bb1691"
   end
 
