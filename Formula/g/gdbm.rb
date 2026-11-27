@@ -9,6 +9,7 @@ class Gdbm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1ac3f21669ca82ae36babdb6e7c45a164a367be6a8ebe8856df6c93bbc331f25"
     sha256 cellar: :any, arm64_golden_gate: "0a39292b1970f17d9a69b33bf55bc72d0179ff19dffbeb7a20f4d445ec998b12"
     sha256 cellar: :any, arm64_tahoe:       "665930fdbccbaf710705195a7ee89f3b3e04122e11d585f6a50cac2ff2595296"
     sha256 cellar: :any, arm64_sequoia:     "1843430b18014e91e8ad64b5ff33bef23e44350d75c6cdfa2d640f32511cc5a4"
