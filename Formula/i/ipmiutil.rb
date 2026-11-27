@@ -6,6 +6,7 @@ class Ipmiutil < Formula
   license all_of: ["BSD-2-Clause", "BSD-3-Clause", "GPL-2.0-or-later"]
 
   bottle do
+    manifest_sha256 "91095ee2376189dda6f6b6344d23572452efc77be5b5d4086455aa4b800f6531"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fda0c56a5e063da36dc5dac65d5177ea71b96a95291983dba841945420d19a4f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5d4ccf2640a189664e4f20c510ed907fa2e48790cb9ab46cddb39e5b7d30ae0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4abd8e74b57ceaa509a3bcf60e6c47036ba82a84d2ac27e4195f3e319356a6c9"
