@@ -18,6 +18,7 @@ class Qtserialbus < Formula
   end
 
   bottle do
+    manifest_sha256 "0b03c0dee886684e3870840d965ee4f6f0257c31001c9cf146a7104f13f73268"
     sha256 cellar: :any, arm64_golden_gate: "a161b39fe46416abb48c66601ab66b9a93172edf4ac430edd95eaa891a33f5e4"
     sha256 cellar: :any, arm64_tahoe:       "8dc903baa16bd557615bb375d0686477e856a16aede6b641d4a9dfe1e3d72159"
     sha256 cellar: :any, arm64_sequoia:     "d3f01cf7fbe46daa51bed40905ef0267b91a2ef703411f122db3049c21f5649c"
