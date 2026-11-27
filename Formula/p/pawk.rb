@@ -8,6 +8,7 @@ class Pawk < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3a57806cb2667d9203e14de555cbed15f49a4f19d057b087398e2212812542cc"
     sha256 cellar: :any_skip_relocation, all: "ac3b1c476a0e40e5eed34672c9d426989456b17907cfeee03c6e6ed88d0d01b9"
   end
 
