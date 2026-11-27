@@ -6,6 +6,7 @@ class Xwininfo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "77d15fc5cdf99e8aa580981917ffdc3813bf8c40227bfbe4035001318ed13679"
     sha256 cellar: :any, arm64_golden_gate: "6eae697d3e65ab13f8f61e7de903f12ba2a9595b8f4016bb181935772d701fb6"
     sha256 cellar: :any, arm64_tahoe:       "30ecba9a7aab38f96ee651c7dce3a36ce5c1c5ef95230f2605033011681b6df8"
     sha256 cellar: :any, arm64_sequoia:     "f7c9008f5ecd9f185b8cdab3e16632d6fee865eb5cbe75349e2dc5678182bc87"
