@@ -16,6 +16,7 @@ class Popt < Formula
   end
 
   bottle do
+    manifest_sha256 "c626ff975834cfcbd2159bb3db869e8f94d72516b73d8a056bbf582b5c6bfd06"
     sha256 cellar: :any,                 arm64_golden_gate: "109692d0ad0bd278e5416c45f25d3ccd8b0e831f71e11f08a3b6dacf8f03c35e"
     sha256 cellar: :any,                 arm64_tahoe:       "365d143d0d38003c60c1d6fb6d399ab4361690a64467d46a8f27c2f50d2dcfb6"
     sha256 cellar: :any,                 arm64_sequoia:     "4ff5f0c8c34f510a7336b16f42a6e058d028ff2025e9b01093b294be84d90bb2"
