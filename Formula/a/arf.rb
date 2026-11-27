@@ -6,6 +6,7 @@ class Arf < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b6ad8bde5ab491b7e02989dad585055f953be2e153f4cd20d534aae9753733de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9de751c55c3add8afd79db48625f135490e8c92611668418938268be3bd3ae31"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "deb51f21664b8f3941dc845b6928d8ae2e814ac863dea6e98a1592d1196564b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5649ecffcce1e70d4c0c4f59e39b1272d7132914df7f1fc777c4e386b5853732"
