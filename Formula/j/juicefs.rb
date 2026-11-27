@@ -12,6 +12,7 @@ class Juicefs < Formula
   end
 
   bottle do
+    manifest_sha256 "25c43b8dafd1e13e54db6e11f30ea10b45e12e1d0fd245d90ec15516aeb0103a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fda4fb4547389e820a68d21770722446d7192a4df499adfba4d6e9381c446c73"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "75930146352b0adf4b15733d71b3495810e2eb35dafc938d749d6e767165d94c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af0a80a731e611a2add9532899662c6e99f04463ba9080b4871d24a6dd2a8c0f"
