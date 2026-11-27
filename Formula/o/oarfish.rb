@@ -7,6 +7,7 @@ class Oarfish < Formula
   head "https://github.com/COMBINE-lab/oarfish.git", branch: "main"
 
   bottle do
+    manifest_sha256 "59ace7fcbbfbe1218e9a85a86c7155bd40120fc8c1656ca1734d9af9b8816b2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b33adb595d5d6d4f4d8c0c383946ef4a1fca7f63865c254949b1d41a1066d39c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "543199a1bdb47683f17b928b46c826a0fa570ecd762168a5b31b74a2ab47c8b1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2de7f9d2a4980e58dbc978278bae2e8c922010ce6540c5675eeb740d44a375e"
