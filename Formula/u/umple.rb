@@ -14,6 +14,7 @@ class Umple < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "2860345f3bedf5f78d78a6cb25cfb1f1ad2051e6bf19ba124608dfb96c1c9c30"
     sha256 cellar: :any_skip_relocation, all: "2125eee7a8f7d8a4c805d1acf2a2f0049c701c6af73b1a23f9bb7eba7278ef07"
   end
 
