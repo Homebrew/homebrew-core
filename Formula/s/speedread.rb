@@ -20,6 +20,7 @@ class Speedread < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e8520f153833c9af839fac2843afb7571a5c339da601aa916fef0436c8818876"
     sha256 cellar: :any_skip_relocation, all: "84a404d8c1cbdb6d69501b347a9e50f87a34cce2136ebb12f97d4ab9b117443a"
   end
 
