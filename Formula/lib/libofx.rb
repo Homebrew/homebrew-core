@@ -7,6 +7,7 @@ class Libofx < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5b997be0ef073fac550593a3b04c315a7c99fe79e34afda3d34d9368ff9d270b"
     sha256 arm64_golden_gate: "d66854870d4afc41009bb2f483c8350e2a64c7b750bf9a6b4517b48821404680"
     sha256 arm64_tahoe:       "67845c43017a64530b8c0340bcb29c70dff8121b8af9ec532c3e51b9a651754a"
     sha256 arm64_sequoia:     "e4b8c683f7d31032a59fc92af99e162ed7b91d250b05ddb8f22f2a92d44ae571"
