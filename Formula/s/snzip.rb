@@ -6,6 +6,7 @@ class Snzip < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "f8792a8df2ce43460ce4c473d97a3cb94a190e4c42da3227e82893732414eb5b"
     sha256 cellar: :any,                 arm64_golden_gate: "6086be9db6fbc53bb72a69926dc79a6057f3c08c4a96e0cef627f31ec5637837"
     sha256 cellar: :any,                 arm64_tahoe:       "20fc236af1233f21612b61f558645aee313eecd552817ac67866852ce8cf7a87"
     sha256 cellar: :any,                 arm64_sequoia:     "2a7ea25f4be20815a6390501b5988ed110cde832197ec37c45287ea4420b43cf"
