@@ -11,13 +11,12 @@ class Mpdscribble < Formula
   end
 
   bottle do
-    sha256 arm64_golden_gate: "caa6f204b0575768cc0764789b86d2d47317922df25d2779e1f7f5188393347a"
-    sha256 arm64_tahoe:       "458200a4d9cb5fa04ccf1f71264f72a8d96e47523201122d0be17a40b84ee5a1"
-    sha256 arm64_sequoia:     "9f5bbd434c0f8488dc1fff4aa04588ddf3686f34c7bbc38f9d41d5f7b89b3e29"
-    sha256 arm64_sonoma:      "93332f33cb14b702f79f0c985f54e3dfa534d2a2f81945c72a6dde7803ecdc69"
-    sha256 sonoma:            "8786cd0bc10ce5e7d9c05b6849b40715451c31ccc16214b00fe24f0f661fc6f1"
-    sha256 arm64_linux:       "33135ad49568ed0711b8d91bc445ec0bc42f8c46cd374ff45d24de499246aa36"
-    sha256 x86_64_linux:      "7296f3bf9fcc91040802140c6a2c4d5e9f2631e3ad26d346ddb5f3ecc5904011"
+    manifest_sha256 "1fb4e82b6ab89f487029e3a7021231082a8060a4cdb1bdabe7a4e76645a3a614"
+    sha256               arm64_golden_gate: "88b7c10829cca702da48be5d53b7c4b1de3d7a7accd2c8a86079f3f31897463a"
+    sha256               arm64_tahoe:       "f5d513fbced330897a6071269a3274af9e0ac4f1489e1a48094ab7c68441f5e2"
+    sha256               arm64_sequoia:     "f77fe7d7a5a0b821956e2f530a99c27678a7cee78e76a0985f59615ae27837bd"
+    sha256               arm64_linux:       "a27c1a0b49120533ebfcf94c883358a29eede54e26be672c27ac94036fd02b73"
+    sha256 cellar: :any, x86_64_linux:      "2181bb82876c760e79c0e1299c9917d2f6e44f06e9ddb4940d83f46e75f85c1e"
   end
 
   depends_on "meson" => :build
