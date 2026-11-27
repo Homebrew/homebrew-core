@@ -7,6 +7,7 @@ class FuncE < Formula
   head "https://github.com/tetratelabs/func-e.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d3a9298337163330fbf61d5e5671be5708735294919ec2b5664d7991fb84de26"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55a7aa1b3d169222ff9b9824630cdb6e1b871076f9011b09299fd3d5e081447c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e1922acc4a11707ba15c59d23f70c60ebdce816d7cfb22cc37f3e13b57c39836"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0887b976f48018004c035c1a9b620c488698e1316f90ef6b2ef3a78001b999b"
