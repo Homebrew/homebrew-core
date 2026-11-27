@@ -12,6 +12,7 @@ class Spack < Formula
   end
 
   bottle do
+    manifest_sha256 "9add32e6f181a0ab8871ce06f70d75f4807507598a5d9c487b32ead30644ad30"
     sha256 cellar: :any_skip_relocation, all: "c0e8b50cec114b263a4b2afecdfd0157cb667fd78388fcec44eed4a5deeafc98"
   end
 
