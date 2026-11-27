@@ -6,6 +6,7 @@ class Dtsroll < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a3bdb550c72f23ce1cb4af2a49ae420daf2ba7b7c1f03835dc4a0d33af3b06df"
     sha256 cellar: :any,                 arm64_golden_gate: "464b4633524cdf3132cfc2e4e0f951dddce68663788c556e168ca88324136901"
     sha256 cellar: :any,                 arm64_tahoe:       "407c0964d7920ee3ec5665f6779adb62aab0c6fcdadcba423772f28ca194d1cf"
     sha256 cellar: :any,                 arm64_sequoia:     "3d6c5a70f527bc6104be2d36e26d4fa5c8113979ebe32530fb7abe2dc42e5865"
