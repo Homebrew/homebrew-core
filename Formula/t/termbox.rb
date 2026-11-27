@@ -23,6 +23,8 @@ class Termbox < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "96b1a190d17aaf736b5a592ef9a594458d58871360af83cfea7823881d4a1a1d"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "prefix=#{prefix}"
   end
