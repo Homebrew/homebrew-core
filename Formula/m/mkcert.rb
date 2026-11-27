@@ -7,6 +7,7 @@ class Mkcert < Formula
   head "https://github.com/FiloSottile/mkcert.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bb888d39918ef0be44f8833162e3aafb184b92a81e6dc96f82eec92bc92ce80c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99a8c0d126d24dd2e164c4a2498ccf9321b00783e85582702a27f35049f009a6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9863f54426db9df99173be319b283ec3a08d5dbd320987259676d2ddbb05b9f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f8988b4b5f85474931db021d3b5968576f2be4b151c00d943441196f4186324f"
