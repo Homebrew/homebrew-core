@@ -6,6 +6,7 @@ class Ncc < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3230cca8b3d893036dd26d3af233111f0471b0b12049604e3c50f34169b984e6"
     sha256 cellar: :any_skip_relocation, all: "c3a5e1e497e8dfbff6fc57270f30baf0ad1e55bb8ec193441dd0a986c18c4409"
   end
 
