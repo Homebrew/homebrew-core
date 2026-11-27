@@ -12,6 +12,7 @@ class Rdfind < Formula
   end
 
   bottle do
+    manifest_sha256 "94b290015a1d9cf93020cf64dfbd3a604291a8875da3bcd6f087e260ce395e90"
     sha256 cellar: :any,                 arm64_golden_gate: "4b2d20500e68d9a525c1499bf0a21026fb1b55a5f5b43acc1641f8a893186dcc"
     sha256 cellar: :any,                 arm64_tahoe:       "63db8993c5a89ab61c517545b2eb85d4a5a6334c8b735c7c60c37ac043ba8b71"
     sha256 cellar: :any,                 arm64_sequoia:     "80b66c742f116218d2044f1375328cfd758580e3ccca3d158b72d3832ed8b106"
