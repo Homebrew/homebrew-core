@@ -12,6 +12,7 @@ class Rasqal < Formula
   end
 
   bottle do
+    manifest_sha256 "b627609435521820b9279deeabeda4d005a69eb4b15e50b61d66b7d81872a9dd"
     sha256 cellar: :any,                 arm64_golden_gate: "a66e3a83d140343a2d4b7607350ce3d01d46198b89a995d0029c6a91ad2491e9"
     sha256 cellar: :any,                 arm64_tahoe:       "2ab423879b5e055a6e0895821440d428dd3d9c03becafe542a15b76072593e88"
     sha256 cellar: :any,                 arm64_sequoia:     "de698e3a83cb5fb348934c69dc81af3013e0cb60a4a8a94a53963554eaf8b2b7"
