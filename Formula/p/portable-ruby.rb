@@ -14,6 +14,7 @@ class PortableRuby < PortableFormula
   end
 
   bottle do
+    manifest_sha256 "13e36a064d263e9e51c175055d939e39478c124fd80fa4fc97776423d0564b65"
     sha256 cellar: :any_skip_relocation, arm64_big_sur: "832729e175b3c0864c8417ebc2bdcf1509e3856a08bd866c8bb0de806da6964e"
     sha256 cellar: :any_skip_relocation, big_sur:       "c4f59d993944de5b080720477b9608eab8cf0ecace745d2058de5c1924c3037e"
     sha256 cellar: :any_skip_relocation, arm64_linux:   "629b9568a047bffa15ae7ea15544cdbcd2ac63ea136af71777de39fc68dd5598"
