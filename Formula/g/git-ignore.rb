@@ -7,6 +7,7 @@ class GitIgnore < Formula
   head "https://github.com/sondr3/git-ignore.git", branch: "main"
 
   bottle do
+    manifest_sha256 "05b6bfac29a1c864613c868727a278c2441c90a3e549e49428bc3ea3c06b11ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1bd260e604d8f4494d03cc0ca14753cd708168e7c599824bad99583b4418ce83"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "daab0c3b00b1314130ec974b9e4ff30622dcbbe324d07b45f05045bd87020061"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad525846ff5cfe8b0f8b0d62740c48b7e028f18e0724f423122ace0b7f5a7c96"
