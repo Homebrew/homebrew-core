@@ -12,6 +12,7 @@ class Links < Formula
   end
 
   bottle do
+    manifest_sha256 "7a14bfcfcdd1f87d69749ca14408f948f250f15f2745d790180c26b2b1c5ee6f"
     sha256 cellar: :any,                 arm64_golden_gate: "3ba481ba00e8721237ad3cb6a27c9c16c0b63900721c8057c96ddf7be400ff8d"
     sha256 cellar: :any,                 arm64_tahoe:       "033baf6900816d9cfa21fd82ee9607a7b8863cc58586febdded445fa5144d776"
     sha256 cellar: :any,                 arm64_sequoia:     "56ea94e2f392a60f0c376e82b95dde9c38db9180460607687a9c95350d2e94b2"
