@@ -11,6 +11,7 @@ class Nextflow < Formula
   end
 
   bottle do
+    manifest_sha256 "f8c2f0af2eddc4cc25fcd807e60d02e0cb9ad684df8e7a9572a5059ded182356"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9fd0b4c1dfc939d18d2fc84bd1796e44bf4998d4c6a56bfea62a8710889899fb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ce9e9f45ae5b495e18f1bab0f9e4aa565031f74bec313fe50636eb854fbe698"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b15871f801e0a7c3a39825e8840aa3337e3c4ad20f3a770baef02073b3225f9"
