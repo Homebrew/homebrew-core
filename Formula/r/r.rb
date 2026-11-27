@@ -12,6 +12,7 @@ class R < Formula
   end
 
   bottle do
+    manifest_sha256 "5769e6b450a14489839361be8816298ab97aebc79188e056c167dbb3670f174e"
     sha256 arm64_golden_gate: "cf990e2739ad2d52c02563a3016b70423489733c35eddd6432c333393c947b2e"
     sha256 arm64_tahoe:       "cf6f4ae138301d670a64a1d73e663cb6efeab416c2590878d0c74f7a4be0368b"
     sha256 arm64_sequoia:     "693465d972470df591d0badb722aa2d647519dc38000973a1bec8ce20cfa3ab9"
