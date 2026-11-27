@@ -9,6 +9,7 @@ class Hy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c0e5bcb9bf202d6ae5e37ed805d19f19d9d4f885720ee7ebbdf247e3be6f6c3d"
     sha256 cellar: :any_skip_relocation, all: "5b2111f1ad8dfb75644be9048280da1fe5f26b4b0ca8855754d31503bdb0da91"
   end
 
