@@ -13,6 +13,7 @@ class Png2ico < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "546eeb53b1c63585a67b98dd1270fe23616252b13a0db5efcde6d6d67b023b82"
     sha256 cellar: :any,                 arm64_golden_gate: "8985719285376e8adccca4c07390d93060dd2616f90778f6bca9f23ff34aff90"
     sha256 cellar: :any,                 arm64_tahoe:       "1230f7e82d9a9af6e1a67d105b01ef64d00e3bb6ed2e34f9710ca32e8b4d39c3"
     sha256 cellar: :any,                 arm64_sequoia:     "a6af9f89d575ccf1b4bb27b2b24eac106315c65775ca654859931a8b90cf09de"
