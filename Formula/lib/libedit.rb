@@ -13,6 +13,7 @@ class Libedit < Formula
   end
 
   bottle do
+    manifest_sha256 "f122c322a0248ce1c82086c89b5006924a49ba0907a56cf7d0e52311b5405b0f"
     sha256 cellar: :any,                 arm64_golden_gate: "9f9d69c900ef6b7fa405918c4e60751352e905a5817aa5a04145f64790130ff0"
     sha256 cellar: :any,                 arm64_tahoe:       "5c492117cec71184a93a09376a1aee72909f40c335a81646c0f74f38803544e1"
     sha256 cellar: :any,                 arm64_sequoia:     "af552c0f546111e4333311902b33af82568abc75de0b3c93ee40e6af184c23b8"
