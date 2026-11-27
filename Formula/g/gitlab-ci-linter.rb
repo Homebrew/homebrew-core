@@ -7,6 +7,7 @@ class GitlabCiLinter < Formula
   head "https://gitlab.com/orobardet/gitlab-ci-linter.git", branch: "master"
 
   bottle do
+    manifest_sha256 "346c05a2d90ab06c7271033e5867cbfed45d3a618738d35696150c3b27b074a9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a5729014274b9b31be2c882de09dc09d96585eb77fe315ad103ab9b72c627737"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc37c298c817d2e5f157425e6a0085371d236752da86c8445bc0f95496564683"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc37c298c817d2e5f157425e6a0085371d236752da86c8445bc0f95496564683"
