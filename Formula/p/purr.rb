@@ -8,6 +8,7 @@ class Purr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "57e66331e119c5ad068fb6821cb923fcbb29fd40378dbf115dbdbfd2fa8fecd6"
     sha256 cellar: :any_skip_relocation, all: "8b49680bea9c23c42497fb937f830479971b2c5aa6a7d1fb4ba14b7a83da6baf"
   end
 
