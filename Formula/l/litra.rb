@@ -7,6 +7,7 @@ class Litra < Formula
   head "https://github.com/timrogers/litra-rs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f0c3ea0c67b4706b1573b55f24085e636ff0246b0526ae83f2d9f561cfc42ae0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5997a80a1ea17d892e1109cdd850010bcacc95ced5a2840446c581d4fea4e56d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36fb6a68b593db3540bb1f56f0a93e78f352037c74087c895866a5b3b19c1a54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "47760a0c05a934fec198bea24f521151e291bd37d1e7fcc32cffefc6aa0fe10c"
