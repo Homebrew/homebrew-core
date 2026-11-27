@@ -12,6 +12,7 @@ class Fairymax < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "10d5b624d9fd7837cd297d968b29e16c9755576632dbba2d6020312f63c5bc1c"
     sha256 arm64_golden_gate: "00931a50fc21ed7c03fad36ea84cd43d2584e6458296a0dd01206d8440595d5e"
     sha256 arm64_tahoe:       "a10fe6a9cb618abed1eaf1b36c89a0bf95e97d8a6542a7ebfa2be8e4d8bedf50"
     sha256 arm64_sequoia:     "ff66c8d9a55cb7c3567972c8c615ef9a91475322d3ede04f3c0babfcd247910e"
