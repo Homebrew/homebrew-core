@@ -6,6 +6,7 @@ class Obscura < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "2209dbf36bf316e54601b19206414a9bba9a25b4c376955926f3d5fb1cd243a7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5c771f1b1948880a980e81f1d4955ce17a9b95236218b35dac7b7ee37f87f160"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a51cd30fe233ad50c22aa13f39b769b3bf95cc21ee86d7123c4c51c5f407bb47"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c9fb4abf96d6d89d3e11c8d4114d9c2671bc9296c55c6c56f2fd0b9b474ad2e6"
