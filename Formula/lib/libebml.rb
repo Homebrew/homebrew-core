@@ -13,6 +13,7 @@ class Libebml < Formula
   end
 
   bottle do
+    manifest_sha256 "656fff2c1e895158b7da732544089363bedf72c5e9f56bf182081a33bcdc03ec"
     sha256 cellar: :any, arm64_golden_gate: "86fc2ced791c1ebf35b5c51c62a81f54adab25762d909114ee43ef9501685475"
     sha256 cellar: :any, arm64_tahoe:       "7d5c5e9913544130b8d5b7eeb1ed4027a62520c07bb1546e43d16707a7386a2d"
     sha256 cellar: :any, arm64_sequoia:     "5b60dc631dd96becbdd1ef9aa17711697feb3cc57c478b8a1248600a2c7fddf3"
