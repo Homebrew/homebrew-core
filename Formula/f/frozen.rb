@@ -8,6 +8,7 @@ class Frozen < Formula
   head "https://github.com/serge-sans-paille/frozen.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cc461505bbd888fb5c91ebc1d816388ba3a1d88cb793c0037bd93668217a2087"
     sha256 cellar: :any_skip_relocation, all: "43eb6ff03102e4345ff6c03cb2169f7152209e377b015120d77493f211a94022"
   end
 
