@@ -10,6 +10,7 @@ class Pygments < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "98c034b48ad2fee2e9f735c34cd2a2a35b8f6d3d381f44c1d668128c63ddcf8d"
     sha256 cellar: :any_skip_relocation, all: "e4580f74601ac607744e6a6a57705175f3baf4eeed61e69d623085091ff2f269"
   end
 
