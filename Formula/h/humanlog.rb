@@ -7,6 +7,7 @@ class Humanlog < Formula
   head "https://github.com/humanlogio/humanlog.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0b74a31f15bc68ea553dbefeec3b4254e2abc32e97a2d48ba728a88673d1f304"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d48bc416a00ced52582c51a66f454e89d4ed4a57d0b66c0c7773ff3bea6624a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e202bd633ce912f0e918947e902bef0993a7fdbbe6dc53da6643c9029a2558cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f9a2fb9f23340ff662d481941a9956ee19a09621eba93da80858dc0bc84bd1f"
