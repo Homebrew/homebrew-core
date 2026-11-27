@@ -6,6 +6,7 @@ class Mp4v2 < Formula
   license "MPL-1.1"
 
   bottle do
+    manifest_sha256 "c4f50653c8912a9922b5ec00580a11ab32106116fd9f779723e4ef8359f925f8"
     sha256 cellar: :any,                 arm64_golden_gate: "00556564ebb3bfa711fdf79dad0beafd6892cb86c006b8b52a72baf3dcd3ccaf"
     sha256 cellar: :any,                 arm64_tahoe:       "bf656d8a485b0663a730368ad755d921f3456ceeca347501c8cbcc401c63bbc6"
     sha256 cellar: :any,                 arm64_sequoia:     "1a2c9a7beb75abcc15327b7b7437a831ae61855cc781e1200d11a4c1cf34a299"
