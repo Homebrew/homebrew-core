@@ -16,6 +16,7 @@ class Proftpd < Formula
   end
 
   bottle do
+    manifest_sha256 "8d222747216108b7becfb5618eb990877e17140b3f4d30b30b61a9f0a8aacf3e"
     sha256 arm64_golden_gate: "be10483ba2fc648e7fcaafe44414a528f3a47c2b648547ce6d98a9d9c13f9771"
     sha256 arm64_tahoe:       "dc6889e7008f711f39bbae5819f7ac3c0c88b45c74f08a1ab24fcd9d9018d16c"
     sha256 arm64_sequoia:     "b3f81dade99e5a2e746c780935313b3e50e79df029958b69bb7ebd06331666cd"
