@@ -11,6 +11,7 @@ class Hatari < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2cb0641ecedda7a6dc224ee54fb8e12dcee56d79654af960dbfc91e5c5bacdf7"
     sha256 cellar: :any, arm64_golden_gate: "8b15bbe1d2952a755d91c6041b914bdcd81dc884084b867890adbc8091101c48"
     sha256 cellar: :any, arm64_tahoe:       "fa9f0afbe42a4c1f9f2cdf6f75cca0aa9b574780ed5e2f3ef4a6ae4c646d9a33"
     sha256 cellar: :any, arm64_sequoia:     "d2ae1893a8569d6f16a465eb1e9d5785c39f9192a83abcd0d367e5bc13dcd726"
