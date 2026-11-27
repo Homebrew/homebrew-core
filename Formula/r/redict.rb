@@ -8,6 +8,7 @@ class Redict < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d4b24c45d9a30e64f342b9a6af5b5ba775484b0ecca23000a39e291ab287c09d"
     sha256 cellar: :any, arm64_golden_gate: "7d3a3055c6b81114b73681304ea4967de5ce15eee1b35715daeb03e8b242b894"
     sha256 cellar: :any, arm64_tahoe:       "65391c26762bfb75511135a365b49c9213b5161e86aa8458e57de115e2fad077"
     sha256 cellar: :any, arm64_sequoia:     "e4e4c16c3f1c7b01213b47b6d0affbf52b45a7f0145311879bc756a3b4e2c8fe"
