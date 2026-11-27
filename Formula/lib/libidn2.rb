@@ -20,6 +20,7 @@ class Libidn2 < Formula
   end
 
   bottle do
+    manifest_sha256 "7b781555f5d6bbae3c151f8d564ea352b163764f19c5f29cffc74c114171048b"
     sha256 arm64_golden_gate: "bacc89595e4e8d2a4e14eb71730ae96a1ca68830068a741c59fc363a355ef1bc"
     sha256 arm64_tahoe:       "f8f1b459f15a4ac11d2dce786a9140509782227b7d499cbdf3a1279dd325d90b"
     sha256 arm64_sequoia:     "1eb02bfa40ec00b7ea64d8608fcf2115069d99de5a35eb3e2b3ac444a695ea46"
