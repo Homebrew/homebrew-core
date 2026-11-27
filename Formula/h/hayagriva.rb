@@ -7,6 +7,7 @@ class Hayagriva < Formula
   head "https://github.com/typst/hayagriva.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f699c39bccd0bf44beccd9516356dcfda98b0b8f7c549dabf601ac028f90dbd9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47de11a83ab23d1619e04525f33fe70252cdcc54265a1eede2a55f6a54f77e45"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe73f0cb1bcd86df981f4dc34eac4952a334b141e53479bda7dbc4e79340b10f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6ce4a16d244963e5daebef03c58ba5af2c8581d63acedebf3ca60bcea3120cd"
