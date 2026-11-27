@@ -12,6 +12,7 @@ class Nload < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "83c9bd62df151daef6d816ee4811807f130446e8b9fa4421900a94179107d20c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ec6f47d79eb8caf67dc1b43d6d4a314e610ccef05f435bd96424c76d682d36a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "990a89bc4a31bb98e18e9db1d84839d01db9d6cd9de1e4b951ca8b20886c7a98"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a45171a86a39f2386824b9b9acafcdb1d054b43839513022859eac52693de221"
