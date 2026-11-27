@@ -11,6 +11,7 @@ class Lbdb < Formula
   end
 
   bottle do
+    manifest_sha256 "287ba729c6260cd060944f0abdeee610e0e809d5e483a108c2b1601a7af618ec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f9625eb5fe3a9caa6f9363031413c14fbb2eedb9678466b69f44b4266988be4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2120f8513be26847edc720538c984096ce0db0e578e72861da8bfe24e901193"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5fdebcd4e348d44fa5db0210b5cfeb7f8ccd991f20366f8cd6159ec3379889a1"
