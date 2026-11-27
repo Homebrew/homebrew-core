@@ -14,6 +14,7 @@ class Pdal < Formula
   end
 
   bottle do
+    manifest_sha256 "d587d146367e547b5678f5e12db76ec5bf63449625e749b438d929eced8544cf"
     sha256 cellar: :any, arm64_golden_gate: "783c15e6bf7e49253815da2726c19767f34f3653d84890039b9172a33bee8df5"
     sha256 cellar: :any, arm64_tahoe:       "e6777fb7addc89a6e76d9d7f007dd45fce8deab9d71aa9574dbfadca6ca3a8bf"
     sha256 cellar: :any, arm64_sequoia:     "cad0162986621ede8b77c6bf8428e2ec61f93f742631a750f41482df12b1bfa8"
