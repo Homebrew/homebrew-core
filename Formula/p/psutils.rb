@@ -10,6 +10,7 @@ class Psutils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "99819c595f398ac7807813173f6c7cffd3492d232936684913fc9fe2b7292321"
     sha256 cellar: :any_skip_relocation, all: "4495a52c945c5889bf08b4dffa9e143daf03745f42121b567670fea2e71afd30"
   end
 
