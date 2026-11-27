@@ -15,6 +15,7 @@ class Libxslt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "551c609ac24e06a6d80646a8caef9549ce1a642627c1812307f8a97336ff5a0c"
     sha256 cellar: :any,                 arm64_golden_gate: "3896c46d51ac6d3b8ee52ff27edf5516360d0b1bc88fdafed26c82e768479199"
     sha256 cellar: :any,                 arm64_tahoe:       "5247978b2374fcb0d2a4f9b0ce74c08fde85305c2d2816b458e8a64fc7013c7d"
     sha256 cellar: :any,                 arm64_sequoia:     "f1ba7468eded4f5db764b1a35802820af8be74455130443dce0748370b9d4e54"
