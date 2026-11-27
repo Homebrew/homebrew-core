@@ -7,6 +7,7 @@ class Libnids < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "f185d32d5ed749ccc368ad44d42b78e9232ab2c592e44e964fb5904db0dac100"
     sha256 cellar: :any,                 arm64_golden_gate: "856712689bb468366854206b97bfe0ea03c90b83852156f52e053c0a0041b06f"
     sha256 cellar: :any,                 arm64_tahoe:       "8bf836ad1e90f2beb88013eb3ee3f3b04b20886ad3d83f55f289db886d723c8a"
     sha256 cellar: :any,                 arm64_sequoia:     "d746ed3de1862ca17be880cebad94a8a66579dedf5c33ddf40890b740917e1a1"
