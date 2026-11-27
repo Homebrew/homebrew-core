@@ -13,6 +13,7 @@ class Solarus < Formula
   end
 
   bottle do
+    manifest_sha256 "aeb169d06d8d9e7683c6f81bc90438462d9fa63ad20333a21289d7657b872809"
     sha256               arm64_golden_gate: "e12c6b7fee97bb3cf9d461cff5b8640d4ff2f5fca027730b01a78f1dbae232cc"
     sha256               arm64_tahoe:       "1e8bd6f576c087d18c85dcd04a55423fa95d3dfa846b6d9311331b05f09d2983"
     sha256               arm64_sequoia:     "599a192269446b6ce0e392b90ff05017d8fb0a403e0fc9ce0f09075e29d25007"
