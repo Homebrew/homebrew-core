@@ -10,6 +10,7 @@ class PolicySentry < Formula
   head "https://github.com/salesforce/policy_sentry.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a2b5a80bdf331090341dff432d94b4eaba696a860e0981dd365408c84211d0f7"
     sha256 cellar: :any, arm64_golden_gate: "ec9622705ffe049cb5984a08159dff8892cf7f687688136fe9cf7804f8475db8"
     sha256 cellar: :any, arm64_tahoe:       "af093177bada99d7976830b46ecea40370c868521356f85e480e263c79a4dd40"
     sha256 cellar: :any, arm64_sequoia:     "3deeedd6a0dfa73df19566e50ba63d82ca7aa5bfbe62f47a14807a5dec81690f"
