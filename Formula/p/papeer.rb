@@ -6,6 +6,7 @@ class Papeer < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "f40353c0646c7cc08bd6ec2abd2ff41e3b429702cfa0f4c8683e50bfdcc70e05"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a512bf95dd2f47af7e7dac912e036c0ce6965f4cc7c636ecd97db515290c690"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "368b648e41961c76013cdd6d37d7ef1828fdc883255db228ed45ae11a93f5dff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "368b648e41961c76013cdd6d37d7ef1828fdc883255db228ed45ae11a93f5dff"
