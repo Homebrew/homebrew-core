@@ -7,6 +7,7 @@ class Jid < Formula
   head "https://github.com/simeji/jid.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dda9f2a935908d50bcadea0e227b82491e0e82ed7ef66792d88044256e89ea91"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d093e9cb15dc18b7851d073e9dd691423ea2d32a176cfb710ff8c702abd28812"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1dd50a3f952b19e719570406b5e3409192fdf86865cade2402fad1771cd27861"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1dd50a3f952b19e719570406b5e3409192fdf86865cade2402fad1771cd27861"
