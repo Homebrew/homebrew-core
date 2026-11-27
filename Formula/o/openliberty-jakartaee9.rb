@@ -12,6 +12,7 @@ class OpenlibertyJakartaee9 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "00b18d92fc2fde0b22618f31c93db28963d96a3d7f3847232e1ee4b490e79a2b"
     sha256 cellar: :any_skip_relocation, all: "69434015835d5c9c2ca412ea3c6fbc6c96cc09f85a933581fe162b8d1f12a327"
   end
 
