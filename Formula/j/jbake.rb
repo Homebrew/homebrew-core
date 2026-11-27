@@ -6,6 +6,7 @@ class Jbake < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2444b0fbbb2cef9f42cf0c2e618b15d3bbe36d979341eaec9d07865f93e100ec"
     sha256 cellar: :any_skip_relocation, all: "ef25972c89cab47c6cd977ca550134d0ad630af0eac2a479295d6a07b72c3fca"
   end
 
