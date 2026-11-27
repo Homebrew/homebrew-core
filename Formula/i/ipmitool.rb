@@ -14,6 +14,7 @@ class Ipmitool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c9d248295b365790c71f61c7b6d5b1afafc5bcc20a526d8c375c362ad29e4ac4"
     sha256 arm64_golden_gate: "b7cb2691bf1d9efd8e53c2e5ec84a162f5c775cb8e4f27600d93b49f7cecdcf4"
     sha256 arm64_tahoe:       "fac2be6b6864c8ba04561644fa6c71fadd657c26725aab90ab009afcaf6ae437"
     sha256 arm64_sequoia:     "ace2463c31aa8323d12f23808698220aaf1a119fb599bc7996d757f3670bea5e"
