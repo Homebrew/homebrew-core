@@ -22,6 +22,7 @@ class PariSeadata < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "aca2b726961dd8d66800b24a986c83b5e3dca92851d6b4ad5c4b763c24a39df7"
     sha256 cellar: :any_skip_relocation, all: "3990030642949d8e67c3aebe1f86584df2fa7406cfe455f4b21ecdf5d5801b6a"
   end
 
