@@ -1,18 +1,17 @@
 class Logswan < Formula
   desc "Fast Web log analyzer using probabilistic data structures"
   homepage "https://www.logswan.org"
-  url "https://github.com/fcambus/logswan/archive/refs/tags/2.1.17.tar.gz"
-  sha256 "47e2c80024a1abf4b3423446e65a520a5002e565a5488c14dcba87a80c820a2a"
+  url "https://github.com/fcambus/logswan/archive/refs/tags/2.1.18.tar.gz"
+  sha256 "f57fb25901412d33d1386012f95f70087c81bfc4a0aa7733723799de7d60dee8"
   license "BSD-2-Clause"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "e0f54d3c572ea60027c61fb98fa6f45b3e426fe77a85bfd2ccce680d071d5a02"
-    sha256 cellar: :any, arm64_tahoe:       "1235f842ff107dceeedcc34c5a3a7a207cb2e93aaae10673fffa6c42d6e94498"
-    sha256 cellar: :any, arm64_sequoia:     "60d33c244dcc8d051b0f56e2c7f0d7e8bd66f1a9a3197f1238127f3cc6d9a55d"
-    sha256 cellar: :any, arm64_sonoma:      "9b1de7af7e98a4690a6ec8c20573181efe406caa7eb161a8e7372b8a3f3c0c2a"
-    sha256 cellar: :any, sonoma:            "8c7f3ae7ed81fbe880c808deb28dee1a00e5958b865628a4928b13950dc91603"
-    sha256 cellar: :any, arm64_linux:       "8d364756a6fe2544181e176be46c9d5e93c2367c31c0be6ef650034dfa6efe01"
-    sha256 cellar: :any, x86_64_linux:      "db5cce8356236a6975da14b1111fcab2f1d2a993428be33fbcf681f0b7d25f98"
+    manifest_sha256 "72599c1dc5eed2ede981cfa59383c6c5ec2188a05bede9161d318efcf889fdd9"
+    sha256 cellar: :any, arm64_golden_gate: "2884466f15b57a27cc3c5dc98c5c2bc77317ebbe9b58a58a69cf2ac1bbe034f3"
+    sha256 cellar: :any, arm64_tahoe:       "cfb00ad36ff3e22ebebc4e45631fd3836621714b05961a5690ecc65bcadd74f5"
+    sha256 cellar: :any, arm64_sequoia:     "99d050e73653a1aa10d89841ca55cb46ffb38aa04b3ba989044cf01bf7f18f49"
+    sha256 cellar: :any, arm64_linux:       "09f0744f4cf2af0f22a441f41c827dade20717f60ee8f0b068fcb15c19c89112"
+    sha256 cellar: :any, x86_64_linux:      "f8101513ba48cd6d12720a2d478b2f04e87d88820d7de1874cfd364d2addb266"
   end
 
   depends_on "cmake" => :build
