@@ -12,6 +12,7 @@ class OpenjdkAT21 < Formula
   end
 
   bottle do
+    manifest_sha256 "91f838343ebfef40c668c14a50a47ba444d9f6db8e83ddb51632bcbc12536a55"
     sha256 cellar: :any, arm64_golden_gate: "e99f7ebcffe4b1721ba47d95df9aff52b588f51cb4ab8ba688f2e825dc7b351c"
     sha256 cellar: :any, arm64_tahoe:       "0da4f564a88d12d1d2f13c407ce48ae9c56c91e7bb32a390c57af3fbf2c69710"
     sha256 cellar: :any, arm64_sequoia:     "3855c44d6294db3c08fe2479b486c46f4e75ff3e800be156862205415db6e826"
