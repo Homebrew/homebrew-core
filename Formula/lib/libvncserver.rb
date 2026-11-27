@@ -14,6 +14,7 @@ class Libvncserver < Formula
   end
 
   bottle do
+    manifest_sha256 "e833aa3a2d695f361af135828ee9d70cfafa8d7417e41225d160fb6c4507cf99"
     sha256 cellar: :any,                 arm64_golden_gate: "915e8f1cd3abfab73e396d7d08425b2e93dfcd75bc4e4b5c2c204777678ffe71"
     sha256 cellar: :any,                 arm64_tahoe:       "865a4376a6361437e19230eb55c8baaa89c837e693e7a352d080a91050c7c2ee"
     sha256 cellar: :any,                 arm64_sequoia:     "09c5d54a804cd66267e2f453978281e19edbcacd434b6507bef2d928da69a79d"
