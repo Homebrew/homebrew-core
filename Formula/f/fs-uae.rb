@@ -17,6 +17,7 @@ class FsUae < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a6f1ba6f05a92ae9bc43099778f179ca9a9f0264ab9fb6658d6ca6dfb5bb1a9d"
     sha256 cellar: :any, arm64_golden_gate: "b13fde90d2e558f6ed7cecd11b24e68c671e8d5cc75e236ed6cb5109eefd3f67"
     sha256 cellar: :any, arm64_tahoe:       "ee522d2e31575f20c60bda81e467c8d600633adcca5fc5031d4f5cefe77ef062"
     sha256 cellar: :any, arm64_sequoia:     "e186258960cb997078bf0cf93d91ed86a8ae7e6c03b25de135ee39ab56ef6292"
