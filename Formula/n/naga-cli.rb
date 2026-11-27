@@ -7,6 +7,7 @@ class NagaCli < Formula
   head "https://github.com/gfx-rs/wgpu.git", branch: "trunk"
 
   bottle do
+    manifest_sha256 "529bd33070924ca87e334e06aaec8fcab1fcccc9721f3372311182fe6e7af052"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61a51981367ac9e931239f66cb5421b57e25806704666d95213e8b6ac8b39d83"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18205ddf1be0fd9c7bad1c3c34d7207ea6a89b47d67bbdbfc528424d5048354e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef305a85f7f190f0f4efffb01db7bf6cd5e38971feddd0d4ad05583e34288371"
