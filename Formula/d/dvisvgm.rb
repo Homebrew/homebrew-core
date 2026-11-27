@@ -7,6 +7,7 @@ class Dvisvgm < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "63d6b0c834e5865412a6148e9e3d4fdde4763181ce5f121b0762c9f6491b459a"
     sha256 cellar: :any, arm64_golden_gate: "ef655c8dc053c689b399df4a8da5d55d4e19968019a2d70f877384189ffc50cf"
     sha256 cellar: :any, arm64_tahoe:       "3d504c75913809888cf7a8a147d4702ce78f4c358a7345a122124cddb3d2feb3"
     sha256 cellar: :any, arm64_sequoia:     "09d6ca853a0686c642b72786193f020364f9f5084f729eaac086e406506e6a1e"
