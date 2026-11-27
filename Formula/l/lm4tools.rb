@@ -6,6 +6,7 @@ class Lm4tools < Formula
   license all_of: ["GPL-2.0-or-later", "BSD-3-Clause"]
 
   bottle do
+    manifest_sha256 "1836e97ba37446ee2af16637b31265ecfce972d56c1ffe92263ba6827e42697f"
     sha256 cellar: :any,                 arm64_golden_gate: "306770a4e140eb8e9c294ebc18bc8d5512630191039a8ff0d69e166d540ddcd3"
     sha256 cellar: :any,                 arm64_tahoe:       "eec32b7ca9a5f8f13607ac456703f4baaadcc32be01bc410c65c5a6295a5bc0d"
     sha256 cellar: :any,                 arm64_sequoia:     "4a41adde94def1ccf78e3ef033a1e121ab98ec9960db57ba2244a5ba0136d7df"
