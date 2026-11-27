@@ -11,6 +11,7 @@ class Fifechan < Formula
   end
 
   bottle do
+    manifest_sha256 "cf58b26a8ac6f1a354ccac49509b9078f8186465e90f60e4e4a615002d85fd7d"
     sha256 cellar: :any,                 arm64_golden_gate: "23616abe77815f0f02cf42f5a06353f47618925e22e13cd25afa1f72f271718f"
     sha256 cellar: :any,                 arm64_tahoe:       "d2fe502b6de6f822f394a4287b0579c50c4bccc81d8b0d44753e111dea35d3ac"
     sha256 cellar: :any,                 arm64_sequoia:     "3c4ca83c13a2952eca7fa7aa5d18df1b572413fa7ab1972cf95f2aebb9a99c6d"
