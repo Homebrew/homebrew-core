@@ -6,6 +6,7 @@ class LiefPatchelf < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "2599bbfc148bd727b5ea4f1f1236884f29caf06f51857e04a4415a722ca8efa7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "71fb15284aa39c0e57a189cb9faa7d5a6d178e16501510092fd9efbff1624e37"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c446577429a5b41c4a2fb30b020f9eabb7848d7fea57ea892bf28222d382a19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f11bf7800076f20d0bb8dffa03bb32d6180110e78fed4c8ae774f29bc5969798"
