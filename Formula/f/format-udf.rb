@@ -7,6 +7,7 @@ class FormatUdf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4a027b21b808b66af2c10316962f050ce0f1a575b41e2b52dd847b170ca527d7"
     sha256 cellar: :any_skip_relocation, all: "ba8a2952eb6a60e6660c71d6054d6a0adc3d450d5532ef270f2849a0fd13849d"
   end
 
