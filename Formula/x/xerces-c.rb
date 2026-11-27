@@ -8,6 +8,7 @@ class XercesC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e66ebcb86746dab496a0738919c5eb273ac57df5adb71eb6c4d21926a975c011"
     sha256 cellar: :any,                 arm64_golden_gate: "2a9e84deebedcf42d325c4aa2fa825bba064fcf31c73836bfc122e8b63bf5d1f"
     sha256 cellar: :any,                 arm64_tahoe:       "7ab8833ee127bece071bc754e4865e181a1d77cba6351b71f6bd9a87f3765434"
     sha256 cellar: :any,                 arm64_sequoia:     "8b648a8f8375fa85bf3bbdcbe82ac8b9f362fbc53303e9832f24f8afbe683eec"
