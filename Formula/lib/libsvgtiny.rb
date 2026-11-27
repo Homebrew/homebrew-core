@@ -11,6 +11,7 @@ class Libsvgtiny < Formula
   end
 
   bottle do
+    manifest_sha256 "c41c954e09770e68f23230cd2e450b66793acdc92ad22ba5b5b2d0e2b3934007"
     sha256 cellar: :any,                 arm64_golden_gate: "b87db8ef9356d0ee0f1aad2cebf6bbd8c7f956739a76573d62f45ae4a8135174"
     sha256 cellar: :any,                 arm64_tahoe:       "4961c5fbcd42eb1477536c3d18bbbbbe4aeb11e342a181b4838f850ec43fa809"
     sha256 cellar: :any,                 arm64_sequoia:     "dfa1577c7203b4006481244f5029a3f91acfc6f6ad5f117f9ce909caf15c46f3"
