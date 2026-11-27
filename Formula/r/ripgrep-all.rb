@@ -7,6 +7,7 @@ class RipgrepAll < Formula
   head "https://github.com/phiresky/ripgrep-all.git", branch: "master"
 
   bottle do
+    manifest_sha256 "37c3001cf2f4eb1734d96a84c8abf7e120d946d845658d6ad72b67c14f9e06b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "89b51c758e879e234f428504e90124a7ad748d11cd024ba004cf9ce85dc24515"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a9273f9063c28cf81ea8cc7c5149e587a68ee73ebe6a11ca8d5899ad97b05a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "098963fe5e660560264fa2bdf55a4e0689ecd0ef15f24a0a7819946e5f150619"
