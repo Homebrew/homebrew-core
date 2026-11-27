@@ -12,6 +12,7 @@ class Netdata < Formula
   end
 
   bottle do
+    manifest_sha256 "8ae82e7d7a49352080ca443f3a4cf12b280742f8072d4cf3cc8f9c7bbf90fc82"
     sha256 arm64_golden_gate: "70482ff12f3fdc265d02179a29ac8cd3ffb38acb2ab1201d75e4039f35d55bc2"
     sha256 arm64_tahoe:       "c6d0a89a0ad250ce86a8b9c2899ac4614cde060ec478538a4260fe794b543b2e"
     sha256 arm64_sequoia:     "9d45fb9c9358ce9687b4421d5e43543e91d4b56ab9a53258172b8d5d2a343814"
