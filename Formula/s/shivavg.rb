@@ -6,6 +6,7 @@ class Shivavg < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "678b370a66c5be05648b529c8720edfa73d7f5191b0732238de2c65e2922e048"
     sha256 cellar: :any,                 arm64_golden_gate: "0a460053704534fec2f8b2bc7fb8fadf2015c29a3520626d5a41e2a644ae48df"
     sha256 cellar: :any,                 arm64_tahoe:       "0aaf1bb18c79c32a37185bca6b61d84f088d434be24e051128d48f6c8d4e779f"
     sha256 cellar: :any,                 arm64_sequoia:     "65aec8af6d55bd324b1590d4e29d30cc3a3da50c4492bb6f5dd0c8906bb0fd58"
