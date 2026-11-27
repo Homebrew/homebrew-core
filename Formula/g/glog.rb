@@ -8,6 +8,7 @@ class Glog < Formula
   head "https://github.com/google/glog.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b6c443d64abeb618322e1b541c0fe9d8ba80ec08d5526c342724e7b370e7eda1"
     sha256 cellar: :any,                 arm64_golden_gate: "45d6d6cda18bee5e57b24abb2594976b96f2849823d40db3dc137ab7895b1ab0"
     sha256 cellar: :any,                 arm64_tahoe:       "15bf109a841f9381cd9086d7aecefc7d782670c90a5142bbf9f281604deff968"
     sha256 cellar: :any,                 arm64_sequoia:     "c42e96a87cd7e7342ac3bf3e9c219945f116ae344b0602e9ae3274d566aa08b2"
