@@ -8,6 +8,7 @@ class Librtlsdr < Formula
   head "https://git.osmocom.org/rtl-sdr", using: :git, branch: "master"
 
   bottle do
+    manifest_sha256 "aaae3a5d84bce12432b09b10f7760f8310857a9729be900a9322a3746a3da214"
     sha256 cellar: :any, arm64_golden_gate: "0dd3fac8feaefccf2158b5eaf0e1c64b0d872cb70fe230976dfc3e3e455c631b"
     sha256 cellar: :any, arm64_tahoe:       "f1ef52cd62e7fa1315e492f22da0874d3e2f9c274e70bfcdc01aa3eaa76cbf3f"
     sha256 cellar: :any, arm64_sequoia:     "0a215936e5eba74c3ef18f90d6c476d5cc2805c6f712c8860589884fd1c00acb"
