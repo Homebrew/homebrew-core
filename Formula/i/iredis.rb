@@ -11,6 +11,7 @@ class Iredis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d14edea3fc557a40fc7cb4c05a3d70f31be296343b9bdef4ef9261178add8af0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c4366197db847ee9a7fbdafb2698b1b8fdf7fa7efd4c0516e366c6c56064ac2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd03bc863fc3b7931e1ad5618687058c9011f082f4f9226f2b2412953b1f3530"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a66351c27f3f6880dbd3406aac7379da9fcd62da7d56071fc62358f53add3b2"
