@@ -7,6 +7,7 @@ class PostgresqlHll < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "efd76a4f947978430fa4914c4fd453d736e4c88f59e4de458fa41893fb7a7c8d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e20080fbf12a371589beb62e1d87817cadef6f304f93ce35837d39c2c2584fa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e15536b951cd3ecbf312d059f2df90671e64bd71c5df93421b02e8433f637c6d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c821165fe5515c612f1d3aae9588897f95d2cdecb5ee1bfe71b88cb5fb857cc9"
