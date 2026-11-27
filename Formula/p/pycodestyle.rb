@@ -10,6 +10,7 @@ class Pycodestyle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3a020f6f80e836a658fa457d8abeaacc6d73864b42d4f9b3ed56ab78e9f4e160"
     sha256 cellar: :any_skip_relocation, all: "23bba1a658123f9af07884ad7525f0226fc61b13e2941ce4434bc291321f56c3"
   end
 
