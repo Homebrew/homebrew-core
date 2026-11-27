@@ -8,6 +8,7 @@ class Ripsecrets < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ca1c54dc06a92f1eb90526f91df68419198a7f9b8e6b68b4dc5a205780c4c8f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b981eeca803e7136fba0f9fc38cc1b1af270b8b12c7f55e1dc18eeeb41eef0b5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "600344086e56b08665e72f32a3ce9ca0977840fa50270630c2cf349a9b8ae8f7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf5f3f88764cbae3d95c36c959c18cc070e4a557ad93ef5dcd97da9f751d5bfa"
