@@ -11,6 +11,7 @@ class SolcSelect < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2d1c2d8b8cd957c12c77bb2826aec12ee983fa90694a5f652ad88cc04fc4ad3f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7cef9539199d0f0a25bf399c4ea51812b26cb52147d3e7acb0a3cedbd5b2d07"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab3a9c4f9f6f28ac2475bcbe064118220b57b459a3920b5a4521e365a9ea2252"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "961762be7ccd77e13ae0f980bf74d8321ae4f8b9f2b6adae63d8cab032536c8b"
