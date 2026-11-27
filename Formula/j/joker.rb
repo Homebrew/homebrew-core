@@ -7,6 +7,7 @@ class Joker < Formula
   head "https://github.com/candid82/joker.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5dc3a285152cbbc70415c862216ca05b0bfc19455598c1cef5e7091bf4124206"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "286fd2efdc3256fadd7bec120e4e262445ac819ac6b08c9a12377e3306d055e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c99d37ce578ea253b9443d0688bed37f88d5155ce45570f1f91721f91ae4912"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2c99d37ce578ea253b9443d0688bed37f88d5155ce45570f1f91721f91ae4912"
