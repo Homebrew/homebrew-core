@@ -17,7 +17,7 @@ class Govulncheck < Formula
     sha256 cellar: :any,                 x86_64_linux:      "121cbf02bd90bff945cba870e19fe489638d4f8fd0fa364395d4999ac2349dfb"
   end
 
-  depends_on "go" => [:build, :test]
+  depends_on "go@1.27" => [:build, :test]
 
   # `test do` block queries the Go vulnerability database
   allow_network_access! :test
