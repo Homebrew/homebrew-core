@@ -6,6 +6,7 @@ class Imapfilter < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "be3548544ab10aff9f00fc2c9dc40232a71f491010b630b90106c43d5ecbd34f"
     sha256 arm64_golden_gate: "c60a44fe2bb9323021d989362838b9531bad99bc0f2e6ba27ba8b2742c2c49dd"
     sha256 arm64_tahoe:       "aabab7b3556edd28da6c2ef4b41adc3af610f4ec3bbb1b8d831911808b95706c"
     sha256 arm64_sequoia:     "8b662deb79c5012abdce4d40cb1f9d060b877677b577663d45c1fbc44a6f2ade"
