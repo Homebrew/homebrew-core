@@ -8,6 +8,7 @@ class Libmypaint < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "97c8c1a3ff7fdaa7b6b867444294d4ca73c5df7ed4388441ebee00d939b19214"
     sha256 cellar: :any,                 arm64_golden_gate: "0b2b141085b4c1afe3861742449b13cc86f85a7daae91babf6e844e071413266"
     sha256 cellar: :any,                 arm64_tahoe:       "11d123c05be7148acf8a9e8e99b84c4734252dd3085a03e4d9ed39616d5ece02"
     sha256 cellar: :any,                 arm64_sequoia:     "ada0de7fc29d5634da50e9a9dd05858fdb5fc839f6cfefb8dda3977ab7e9dd8c"
