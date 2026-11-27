@@ -8,6 +8,7 @@ class Smake < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e71b9008754375815a7a932d06260507255f4a33414c85a4c4edda34a4b6b8b8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3d2f717f3927b12aab6df371312c660a7928fbceb7399c32127ea3c17e5902b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b1fd1145026aeb8d563ea322f730f97c564f695e00c0f73f19f4a9e6f7df54c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b3634cb46c5afe31281f19421148a63f3dca44547d7ebea7033355d1676d43a"
