@@ -13,6 +13,7 @@ class Nkf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "55fa0fc6123f711934ffd5fad8a62b43d47518eacfc5ed3c6180bf6eaa3df6b1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8223c26400c9368f28beacb0b92494a40021fdf5f24018091af51a5ebfab0055"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "157d2e7be20ab0ff292a84336421a6c0afdb541abcc04d7b05fe4aff25d3bbe1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f233b8fbb5fe59f101fff8e47bf2e4c4dfcd6baa59011fa831f0f34871dcb998"
