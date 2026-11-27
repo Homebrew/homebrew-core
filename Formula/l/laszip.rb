@@ -7,6 +7,7 @@ class Laszip < Formula
   head "https://github.com/LASzip/LASzip.git", branch: "master"
 
   bottle do
+    manifest_sha256 "430ee3b7b8aec1d61bcbf0820f6fc6a5db59dea6930ce13f055b99031f898d1b"
     sha256 cellar: :any,                 arm64_golden_gate: "97652d75c89d3790c3a893e6c0866c82bfe4d86d85379ab6a3481621b53427c5"
     sha256 cellar: :any,                 arm64_tahoe:       "004ad026fd5502a6cc495b0dc8e82e288e4aaa90c02476f960a2154a9b492c99"
     sha256 cellar: :any,                 arm64_sequoia:     "92eb7a021b71cb63ed0d1516b4d5c5a04d4ae7e817a053ff8f6a71c4cd19ab58"
