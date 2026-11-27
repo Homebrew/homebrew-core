@@ -7,6 +7,7 @@ class Leaps < Formula
   head "https://github.com/jeffail/leaps.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c6708b923e8b1311aba540b763595d4bdf504a3ac90f620f398136e33fd9d518"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "484e99b1438c93d35477d8daa95d11bcac1b1b9ee191992f45418b3c32cf85d3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "103b30a47094dfd56795de6c70cf5baa989711429147f6db55328529aa2e8823"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43d3cbf4a3539d7309b2d12ddab84541f1360921b6d67d7b727096998329d952"
