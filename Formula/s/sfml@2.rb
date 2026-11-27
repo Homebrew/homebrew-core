@@ -7,6 +7,7 @@ class SfmlAT2 < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "488e60f7df37a74b92a8dff5c3b8fcd819221bc132247b862991a3a1efa9bca5"
     sha256 cellar: :any, arm64_golden_gate: "56dc46402b2a136a2f61f7c417996add5805f05294914a38cc36ccf9685e7a2d"
     sha256 cellar: :any, arm64_tahoe:       "ce4ae98701f057009e94b093b2b5cf4c3958397d59daf0624a8b1b29fedb20bd"
     sha256 cellar: :any, arm64_sequoia:     "9c63b784731a08cc47a12980b7f4214e3f60f0ff4d979e04e6941b97cfe70e5d"
