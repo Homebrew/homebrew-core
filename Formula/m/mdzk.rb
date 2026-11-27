@@ -13,6 +13,7 @@ class Mdzk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f09db46edd5e6f326b9021dc0c9b1a5dfbd91b3cb78ec07b4d994dd15a09a413"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db71b95bd0341d71f249fa89dd5a3b8bc668eaf09a92eb323eced5d246ff299c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2924144bf68886f563698209699573519a5ede4d78f3c02cef63639883ff53c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5333fe224b57ed96d1e4696037b014ae42dab995f3a07d76394969a6e7b8946"
