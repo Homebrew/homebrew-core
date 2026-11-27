@@ -9,6 +9,7 @@ class X265 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a5315e4525a8775901f508b9b2f2148c842f9f2d222a3f97541ec449cd352c72"
     sha256 cellar: :any, arm64_golden_gate: "df60f322e2ea139e4f3075fcf93e09d02249f183084d1ffa2d8f0cc9427de882"
     sha256 cellar: :any, arm64_tahoe:       "46dd2b3656ec8e99438a789b627e41a25e3a24407dc76a3a6b88cf159b447858"
     sha256 cellar: :any, arm64_sequoia:     "18e89a5822e2f4f91f919c5bf2fbac31433a561c48174fc15e13b4911a1232ac"
