@@ -53,6 +53,7 @@ class Pidgin < Formula
   end
 
   bottle do
+    manifest_sha256 "e5437e715544534b6835821b29fd99000695fe67279ba16410e081d11721e972"
     sha256 arm64_golden_gate: "8d95b17a318a3e1e21f5dd301a9bf4acf8f08f7cb4546f0a2e6ee1fd6a31caac"
     sha256 arm64_tahoe:       "07fabdb8ecdca7fc63c9ed7118991e5ebbc54b23ebc3bc76a6ded44e5252948c"
     sha256 arm64_sequoia:     "f71d36dc27fc785264411d14d3228872361adf6df96630519e0a5d4b2d53d8d5"
