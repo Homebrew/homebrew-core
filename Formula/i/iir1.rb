@@ -7,6 +7,7 @@ class Iir1 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d82a5c9111b94bb384ff5e821084f153abb3be5cd530bf2910f0f2e37e26b906"
     sha256 cellar: :any, arm64_golden_gate: "fb1447fc77cd41cd22080c4b3cbaea302319df9cd2ca86b84fdae381a6cb8a8b"
     sha256 cellar: :any, arm64_tahoe:       "2dd89ed006de829e65d26195f19f1d9a2e7a68bcd052789c963f0d9f92d52946"
     sha256 cellar: :any, arm64_sequoia:     "c7364004c8cfb3e774dd350005cad09020123b4e31710eb1c0b2a1fa7f6690e5"
