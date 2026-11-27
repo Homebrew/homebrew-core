@@ -14,6 +14,7 @@ class GitCal < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2141a5a23303a71a5ff1e37f55f1b7f547fb0f1e609e44324a3326542a8739eb"
     sha256 cellar: :any_skip_relocation, all: "b2ae266c7357f258b1daf368b5f744e3ad785f368eb1231d8db232be05e59389"
   end
 
