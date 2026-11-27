@@ -12,6 +12,7 @@ class Qjackctl < Formula
   end
 
   bottle do
+    manifest_sha256 "4c94bb84b80e2e132736c21841bad0b4157d93b6f42a2e3fb811181f5ab5d940"
     sha256 arm64_golden_gate: "f8b8827feff46d15e18599360b70220f2b1b9780bcf729cb571f97b80f9398df"
     sha256 arm64_tahoe:       "0bc5962d3381116c34ed5fb4f146cdd8519b356e40fa926428e789381097dd4c"
     sha256 arm64_sequoia:     "c6e987bffe341fefb324da4d6fda2654fdc695d623f99be0009ca2349e7296b5"
