@@ -7,6 +7,7 @@ class GitHound < Formula
   head "https://github.com/ezekg/git-hound.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3cc20b7cedb1be3ed4909b9a64551d1aa8408df24d6b12fa62d2518db6099715"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "520162fb66edff86bd38147241b28bcf5a66aa8f3ae9efb4e207e001127684f4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15f176bb2320758e6a88797ee77011a189b7814857a0ed920dd4b32a3335012d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "373e91c48dda4ac71e85490387430dbfdb73d27d72a0964a33933e8e6d5f1753"
