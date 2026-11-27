@@ -13,6 +13,7 @@ class Flint < Formula
   end
 
   bottle do
+    manifest_sha256 "57cca6bf21616bd3030699720b463e37fec7de58b6d9cb07e903dddee9a71d7f"
     sha256 cellar: :any, arm64_golden_gate: "c1e64e40044d32f7e4491d03d4cd0b1a6afceb438522978e317ddb25f0ea9ef6"
     sha256 cellar: :any, arm64_tahoe:       "e040bcec24eecf023f8a852fdc2794de46e0587c6e0e01313b8141225a653b4c"
     sha256 cellar: :any, arm64_sequoia:     "b57f4c7c5416116829ea76751d48d95abb921310c5530c1ba61cfb435b8c4aac"
