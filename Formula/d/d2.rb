@@ -1,8 +1,8 @@
 class D2 < Formula
   desc "Modern diagram scripting language that turns text to diagrams"
   homepage "https://d2lang.com/"
-  url "https://github.com/d2lang/d2/archive/refs/tags/v0.9.0.tar.gz"
-  sha256 "1256ad3907bceb4fcee7ed40d17c5726f8b602eea900e94500ba3352e96febbc"
+  url "https://github.com/d2lang/d2/archive/refs/tags/v0.10.0.tar.gz"
+  sha256 "a1978c3cc6c334ef09756f2d5eceb931402cf0a2a7335eaa96386e8d6c4695b7"
   license "MPL-2.0"
   head "https://github.com/d2lang/d2.git", branch: "master"
 
