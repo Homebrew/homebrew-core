@@ -10,6 +10,7 @@ class Principalmapper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d9584b4cf452bb14d50963026f856b84ba8e900be9c1fcc24795ffd20aeee69b"
     sha256 cellar: :any_skip_relocation, all: "d2abf6a5a3ed01372167bbe782f6f5ebbcabb9b28ad4cecf139587469a51cc3d"
   end
 
