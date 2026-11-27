@@ -11,6 +11,7 @@ class SigrokCli < Formula
   end
 
   bottle do
+    manifest_sha256 "d89b00afd96dac37604bef9d92c70e2da7d45c32ad71524d5e19af3461d1bca2"
     sha256 cellar: :any,                 arm64_golden_gate: "f5209e025d44cc9d1ab660232a8c0de1478d716b1c3363bd46159187d72a183b"
     sha256 cellar: :any,                 arm64_tahoe:       "702bb4ee199576914bbcb83e20cfe4e4e960877ec8a9e1bc112910abc180efbb"
     sha256 cellar: :any,                 arm64_sequoia:     "fd787456a3085648cbf83f56294acc9c37579a5dba2338d8d56c74710c03ee90"
