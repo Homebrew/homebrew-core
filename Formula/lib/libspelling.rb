@@ -7,6 +7,7 @@ class Libspelling < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1db8e91f3571afda596f90c4eadf7cf2d98e845fc7898f9e3f9ecb40d3dafe0a"
     sha256               arm64_golden_gate: "7ee514eeebb10157850cd04be5156b6fc51e29cef0a883f5e7589337b9e00efa"
     sha256               arm64_tahoe:       "834242b29b778542bf45c68fc0e9e52f5083d39d116e0a69a3c12a507b5a9896"
     sha256               arm64_sequoia:     "602be0b10d2e3fc888db00eb7d315df05585399ed9671b0812500c4f7d2341da"
