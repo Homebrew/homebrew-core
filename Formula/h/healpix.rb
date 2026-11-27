@@ -11,6 +11,7 @@ class Healpix < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "a00a318afa07017fd9a01e7bba729fca7425952a235c8e1f8cea73f3a454a54f"
     sha256 cellar: :any,                 arm64_golden_gate: "233886d55fa346f726d4996592c5071a2266d912c2a71b6c0027279af6a6e78a"
     sha256 cellar: :any,                 arm64_tahoe:       "2cd47768112373cf69d551358a450576de47148b04927854453825f6f4d7ea34"
     sha256 cellar: :any,                 arm64_sequoia:     "0497504cbe071a0de19f56a2c2091c28d796141f7aecb37e8ab3473cf7d6c401"
