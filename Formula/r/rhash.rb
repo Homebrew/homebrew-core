@@ -8,6 +8,7 @@ class Rhash < Formula
   head "https://github.com/rhash/RHash.git", branch: "master"
 
   bottle do
+    manifest_sha256 "af9e37a6c0896999329ca9be1c330d6b53bc3dcf4d5709bda33ec70478734102"
     sha256 arm64_golden_gate: "fa6b71c1fa102d51cfb31371cdc558edc45d76f30aed3396c11e1db88ddabb5f"
     sha256 arm64_tahoe:       "8381d2e7c93d8e50d3c1f6e70af34ee844a3bd07c6cf7a5882ed07cf073f5600"
     sha256 arm64_sequoia:     "7cfeaa013d6bc5fc89cad3d34349ebfbc38f65da844f6eda92e55f91d42144ec"
