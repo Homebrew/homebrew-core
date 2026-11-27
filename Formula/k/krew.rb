@@ -8,6 +8,7 @@ class Krew < Formula
   head "https://github.com/kubernetes-sigs/krew.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3863c695e4f54476eda2b98e6c16b273a8f13800f6149a1fe3c823821da35dfd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21d366ee7a0f7937e86884b17d28a8faeb5ae7b7caed633f52a179c37f48df0d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab8a466d076e3a2702ed3eea99459a61e8498f0aa3aaea34c3386081d9476b2a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab8a466d076e3a2702ed3eea99459a61e8498f0aa3aaea34c3386081d9476b2a"
