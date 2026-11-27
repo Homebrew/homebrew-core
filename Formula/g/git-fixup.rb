@@ -7,6 +7,7 @@ class GitFixup < Formula
   head "https://github.com/keis/git-fixup.git", branch: "master"
 
   bottle do
+    manifest_sha256 "641b682e507e8399726162682050a6511d1efce827bda6902942486f77694962"
     sha256 cellar: :any_skip_relocation, all: "d9e677b598f75ff4cd9fb7c34b1787dc2e798061f32ce8dc6c3e953e6313aec9"
   end
 
