@@ -8,6 +8,7 @@ class Libmobi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a562906bdbc6299f1ddeba527df4bbe3f6cd0fd7e1558ca00c80240f60e6cec3"
     sha256 cellar: :any,                 arm64_golden_gate: "c8f93dd1ece8194edafcd819a8ebe3ed05b501832fd40dff33dfd8842d09cb81"
     sha256 cellar: :any,                 arm64_tahoe:       "2c692dcb58d257bfaeb352c4bf6240d7479ca2fe5ebc2064b2ca1b4d2466e592"
     sha256 cellar: :any,                 arm64_sequoia:     "0d79535ee222bee7cf090b9f36217fa2b88d92ac96c72665e6f2012e562c4c59"
