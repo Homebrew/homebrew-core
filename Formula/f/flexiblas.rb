@@ -1,14 +1,24 @@
 class Flexiblas < Formula
   desc "BLAS and LAPACK wrapper library with runtime exchangable backends"
   homepage "https://www.mpi-magdeburg.mpg.de/projects/flexiblas"
-  url "https://csc.mpi-magdeburg.mpg.de/mpcsc/software/flexiblas/flexiblas-3.5.0.tar.xz"
-  sha256 "504c0eeac09dca98e4bc930757f44bc409cb770f8fa7578ddb18c0d6accba072"
   license all_of: [
     "LGPL-3.0-or-later",
     "LGPL-2.1-or-later", # libcscutils/
     "BSD-3-Clause-Open-MPI", # contributed/
   ]
-  head "https://gitlab.mpi-magdeburg.mpg.de/software/flexiblas-release.git", branch: "master"
+  head "https://github.com/mpimd-csc/flexiblas.git", branch: "master"
+
+  stable do
+    url "https://csc.mpi-magdeburg.mpg.de/mpcsc/software/flexiblas/flexiblas-3.5.0.tar.xz"
+    sha256 "504c0eeac09dca98e4bc930757f44bc409cb770f8fa7578ddb18c0d6accba072"
+
+    # Backport to remove -flat_namespace
+    patch do
+      url "https://github.com/mpimd-csc/flexiblas/commit/d01ab9e55f8737ddf1b599f79645e2dacdfaec4c.patch?full_index=1"
+      sha256 "6d72ada1c1b2960d0667c0a80c771f49386840c23e132e62e7bffdab6a8b7273"
+      type :backport
+    end
+  end
 
   livecheck do
     url :homepage
@@ -49,15 +59,6 @@ class Flexiblas < Formula
   def install
     # CMake FortranCInterface_VERIFY fails with LTO on Linux due to different GCC and GFortran versions
     ENV.append "FFLAGS", "-fno-lto" if OS.linux?
-
-    # Remove -flat_namespace usage
-    flat_namespace_files = %w[
-      src/fallback_blas/CMakeLists.txt
-      src/fallback_lapack/CMakeLists.txt
-      src/hooks/dummy/CMakeLists.txt
-      src/hooks/profile/CMakeLists.txt
-    ]
-    inreplace flat_namespace_files, " -flat_namespace\"", '"'
 
     library_rpath = rpath(source: lib/"flexiblas")
     args = %W[
