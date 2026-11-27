@@ -7,6 +7,7 @@ class Leetgo < Formula
   head "https://github.com/j178/leetgo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "70d1e76228ad035e7b55d5b9a6922162926b0ae718dbbc2599e0910d50e834ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ccd2f3d722fae5a3724b2b21dde7ca0763b080fb9f6832ade261e7f98e2f8340"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d6791f18f2bc8fa5eb8c7602b0e365fd61e33c33e87e123558b203fd41745a7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cd3f961c6f8aa4c9aaa6a586f08635930a94052d9ca8b9d0247eef8bbcf1ce5"
