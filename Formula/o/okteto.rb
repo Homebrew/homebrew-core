@@ -7,6 +7,7 @@ class Okteto < Formula
   head "https://github.com/okteto/okteto.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4a204220ed9a30d59ea52789d585421ddedb0639f0814ba9abe6cc2956f27696"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a7d4b48eec538c4bec5308119c1fc80fceca4d41c6ca292ab0b087ca57c1242"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "28e8d80ffba0ab0fa998012f93aedfc8306c132c6920b0a136beb5692bc70fd5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6cc6eee2647bdb1b885eaf73c920226e1bccd5d471b181b6fbdd6bc0d919886"
