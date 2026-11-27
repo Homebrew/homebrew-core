@@ -8,6 +8,7 @@ class MariadbAT105 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7f3aecf4b072bc4333a6d406f70cb0023aff824004125606621ecd05bbb3ce24"
     sha256 arm64_tahoe:   "fe4dac40b0ef256e6b3d3b48e58b0c36d2ff75811d225fe8673918ee04c67f08"
     sha256 arm64_sequoia: "e28cf1d51ca7872ec49817ad4967b1ef24805a6bb2035d02c7ab305be49ef337"
     sha256 arm64_sonoma:  "79903cc215b1fb2c68623442d9ae69b5c9364cb6a1f1625d9c2fef4a9f43165e"
