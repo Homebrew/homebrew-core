@@ -8,6 +8,7 @@ class Massren < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0edaafddc625c9d0aad66c8b5b0ce28413c16b6f242e52d639cb55b5f09ac703"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fa9916fea141b5de21272f4a6e2d316b38ad279607a7da0124f1c3a58508d7ac"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cad349b22e28ef325892878894de36ea76f1c1235f0936ef7e3425c6dcf2933f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b0b1c22e38a150df0076e405e76712522e6b73db270226c910afb585fc4bed2"
