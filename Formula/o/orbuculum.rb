@@ -12,6 +12,7 @@ class Orbuculum < Formula
   end
 
   bottle do
+    manifest_sha256 "d74033e40493440e8a3b246be68a9ea373b16f2401b98f27d8f33dfa51a6fe5f"
     sha256 cellar: :any, arm64_golden_gate: "8f86ce79a851a4039baaef071d866d420e186562e51cb376ddac9d5ab107c509"
     sha256 cellar: :any, arm64_tahoe:       "3b232ad18dc8d43548fc1bfa68e3efef76ee05c5a17d9a4d3ec178139ce65dac"
     sha256 cellar: :any, arm64_sequoia:     "637ba000bafcaf9a19397b9039d64ec637079054b768f9494e54b27e36de95cc"
