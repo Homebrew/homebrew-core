@@ -12,6 +12,7 @@ class Gtkmm3 < Formula
   end
 
   bottle do
+    manifest_sha256 "f2acb2a0e65d43a68de731fdd448643fddc224d1d4ee2bb1971863ef10135419"
     sha256 cellar: :any, arm64_golden_gate: "c2fff195e1cd23f335b1f56a6904440295bf1ece82cb47799fe04632687849d1"
     sha256 cellar: :any, arm64_tahoe:       "905cac7c972a40176e82731e271635fd1faafcc4680de4564c8d73b07815fdf1"
     sha256 cellar: :any, arm64_sequoia:     "45654ffc54119805e7bc6e70daa7c3738ddf662851b175efd55d7c135da5c149"
