@@ -7,6 +7,7 @@ class Ladder < Formula
   head "https://github.com/everywall/ladder.git", branch: "main"
 
   bottle do
+    manifest_sha256 "356bb6474f86c5d3395f3ff6b1bd2084baaf00710be4f3074e7e991eb2b1bb21"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bc1057d657dd07471eab965f3d6beb952fd2dedaad89e8f12ff9391221aee5a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b302abc9ec720bedd6b845063ffcb0224e960db49fb75662ec5bacaf072f54cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b302abc9ec720bedd6b845063ffcb0224e960db49fb75662ec5bacaf072f54cd"
