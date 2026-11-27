@@ -10,6 +10,7 @@ class CfnFlip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c15488a592a5c18449d1a511308336cf889b53cb739cbc2264423fe4f9279422"
     sha256 cellar: :any, arm64_golden_gate: "285b23f6575697d3337439c12f1374971ed984a6db8d5ac82db5e3d47472b3d0"
     sha256 cellar: :any, arm64_tahoe:       "9d6f560031fc7d9591e99237b9e1748e02838f2c445cfe883e9445f2f097accf"
     sha256 cellar: :any, arm64_sequoia:     "4230ca900cc6879b12da87ee796fa23d5805fb1eee5b67749e7391cde74d7209"
