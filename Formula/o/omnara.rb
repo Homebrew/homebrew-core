@@ -11,6 +11,7 @@ class Omnara < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "30c356868a2b4a9c7f7faa990813d1be0390a3fe22bc76d30d9d45b329081cdd"
     sha256 cellar: :any,                 arm64_tahoe:   "66c178aebb9467cbb059d6de2a65b0ab247619342b3488d382b5ad669fd5d013"
     sha256 cellar: :any,                 arm64_sequoia: "fd7f8ace7a470b3d6f7c2ebd1188030fe6136c80146b40afeed5762b76ee481b"
     sha256 cellar: :any,                 arm64_sonoma:  "91b496e396474ef5e2e7ddd8d4318b535453934406141067dfbb5a647e57278a"
