@@ -18,6 +18,7 @@ class Forego < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "edb001ce28a5a289f26c432400b8690798d9bbb8e98f637cfd583bca2b48ee60"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "402570cef00cd3271dfccc209469a58aca67f67714e69ce5828385146ac61425"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0c76f88ef642e7133f7ac7db298cdda3ae5fd17a5c6c49bf5481d8dab5ebedb1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c76f88ef642e7133f7ac7db298cdda3ae5fd17a5c6c49bf5481d8dab5ebedb1"
