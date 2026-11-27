@@ -7,6 +7,7 @@ class Jd < Formula
   head "https://github.com/josephburnett/jd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4b6dc1bd1e1c1732439df9bb5abffa5d7fd00beba6942a690ce9c74e1b6132e7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f9d8cbb699392e5108724b542663ecaaf540b8ebf43e7aa3c5916061c99153e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc0402bdb1aeb99940b6d32eae2eaf516722725b69a002f39122c248c01b037b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc0402bdb1aeb99940b6d32eae2eaf516722725b69a002f39122c248c01b037b"
