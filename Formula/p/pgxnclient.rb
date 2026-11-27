@@ -11,6 +11,7 @@ class Pgxnclient < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "ca97e0f4a5963cd5f6016b4fd891b8842e5e920dd27d6c41c1efd1d482d0ffe4"
     sha256 cellar: :any_skip_relocation, all: "30d1a0377c785741d3f3508ee6ad3d7dd81ce6b63b578ab7684d2627c15ec5e4"
   end
 
