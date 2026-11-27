@@ -6,6 +6,7 @@ class Networkit < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "dac9936667f11d422b1b372a979d6ed584b2941f36e2132b953568814c889fe4"
     sha256 cellar: :any, arm64_golden_gate: "c9985e3080312d841e42b6b7a74d72e49bd339b770941dde3aa8bb17d47ced89"
     sha256 cellar: :any, arm64_tahoe:       "aaff02040deb0eb23b43404e86e3034b8c34008737742ade042180253353e4cf"
     sha256 cellar: :any, arm64_sequoia:     "b971d6acbc5939fadb29fa7fe4971176262616ed316f0694a4bc9e011bb4be8c"
