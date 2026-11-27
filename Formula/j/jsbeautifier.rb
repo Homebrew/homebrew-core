@@ -9,6 +9,7 @@ class Jsbeautifier < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "78c6a1ec8f52d3f8957bfcd6eab192eefefc10cb92bbaac0d8fc69698d04a1a0"
     sha256 cellar: :any_skip_relocation, all: "cfb7f587cfe2ee456f8f27a32d269fdc17fdaf6d889cc563a66a14a75ffd7b57"
   end
 
