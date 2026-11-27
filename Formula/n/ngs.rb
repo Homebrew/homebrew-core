@@ -7,6 +7,7 @@ class Ngs < Formula
   head "https://github.com/ngs-lang/ngs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "566a592526d1cee1659bb04e972d98feb9c0575bc29993e79f81956a917d81d3"
     sha256 arm64_golden_gate: "6741374e02aebbd399994d0739ba25e41979177a42fa4e1df96aa712f395175a"
     sha256 arm64_tahoe:       "feba0ec17eac5b598935a376ed97b160837728ea1dce7368ab984e48134ac80b"
     sha256 arm64_sequoia:     "e7f8a694f90c7451ed9abda3ca69e35d1dbab001ede6afcc97b37f8042524c69"
