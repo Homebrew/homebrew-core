@@ -8,6 +8,7 @@ class Mfcuk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "714e15b025141e5569e0076fb431031856259abdb61755edc12361bf764d7696"
     sha256 cellar: :any,                 arm64_golden_gate: "e5ad9cf718ffa5c990cfd8a58530e7cfd24ed08be47e6185d68839d065480a2e"
     sha256 cellar: :any,                 arm64_tahoe:       "be0033adbb689b747a0674ed97a84822a1ca5c146d41572e32e684c541f3ea35"
     sha256 cellar: :any,                 arm64_sequoia:     "22ae94383bb98fc83419782d77d1d60532a48edcba1ab27a2ae70f62e48d3d82"
