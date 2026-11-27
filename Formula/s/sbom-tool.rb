@@ -11,6 +11,7 @@ class SbomTool < Formula
   head "https://github.com/microsoft/sbom-tool.git", branch: "main"
 
   bottle do
+    manifest_sha256 "74cb83028d7fc018016266e61818e3eeba4d0446150c044de0dda09cc7af0a61"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55e1afc312180a210fcd9e11fd2290a324aa664bbfef49a47a51af2e18fcca27"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "089eb84af886373eca4c8e5b765772cf851bce5fbc75d0df01dfe62397a6ab14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1dae838b49c03e7dadc2ee1ee0249646ee7e3dd97a259eb0efa31f1b57f6c62e"
