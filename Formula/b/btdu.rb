@@ -6,6 +6,7 @@ class Btdu < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "2c5cd5f6616d68d920b65f9843268bd9651a62dbf66a744aa6c980217da8b433"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "e4b116ccc458c661d1a3f72dce44a0f007e1dc7f56a7740e21cb807527e4be80"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "088f46650737b8ca0234cafe7c081b5b3499d92d9984da08d32226d34309d2bd"
   end
