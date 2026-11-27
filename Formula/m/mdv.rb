@@ -10,6 +10,7 @@ class Mdv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2838416d4007812cfadf55560756b673f0cc367db0d30d0b7be181fbf9cb19cd"
     sha256 cellar: :any, arm64_golden_gate: "091705d25749fcb42f4b9b8a8a1fc9d594a3fa19789e4ffdb63449787306a8d4"
     sha256 cellar: :any, arm64_tahoe:       "fc2931ddac09fd9141814affe336efa306abd1571e7a8835ba0efbf3f31c226c"
     sha256 cellar: :any, arm64_sequoia:     "be288bc4aff8d4e4b443be085a1bbb8b4306323f40a1693ee85488f0512df8cb"
