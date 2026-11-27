@@ -7,6 +7,7 @@ class LimaAdditionalGuestagents < Formula
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
+    manifest_sha256 "efa26583361517c36ab69a764503f4d76532a9d5a9d8b06d0520d565936677ab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "739da614e3b96094c4486ac80efbc619d52fdbe5431dcd7a3a2196758135252b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4b1a8695c00fe2ffacde4c12d6848be4b38fa26abfefcff099ccddcfdd3b055"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd468eeb259b6a7d72e787144e41afed23a99114f4347bd4902f77230a76bdf5"
