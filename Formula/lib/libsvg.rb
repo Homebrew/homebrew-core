@@ -13,6 +13,7 @@ class Libsvg < Formula
   end
 
   bottle do
+    manifest_sha256 "bfe140cb373f686551e7d5ccc5be0e50fec17f07a00ca41ee99424150cc37033"
     sha256 cellar: :any,                 arm64_golden_gate: "2dbdad7f5f5b46124ef7dfd4d85c889371139de9b22e9a927d4038b07e631cb5"
     sha256 cellar: :any,                 arm64_tahoe:       "091152c66a1d15b4dd1fb58d23f484a24bc7e4e6f3f5d93d864400e30b2a14ad"
     sha256 cellar: :any,                 arm64_sequoia:     "749dd33b051aa0a0f32dab2201dc1f34b47ca79bd40ba3c729c5a31f8ac97c59"
