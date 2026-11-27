@@ -6,6 +6,7 @@ class Miniaudio < Formula
   license any_of: [:public_domain, "MIT-0"]
 
   bottle do
+    manifest_sha256 "9835497d510f9f5ada7efd264fd789136bc93078750fd18b18ce67cd27778cc1"
     sha256 cellar: :any, arm64_golden_gate: "35da367e53c5b09407e19cfa2c328cd043fdaf167926c6fbe3281c198d3c68c9"
     sha256 cellar: :any, arm64_tahoe:       "69502d44ca9d5ef01d1e00ae6912cd9eb99278c27ec0927a53d123abef985aa1"
     sha256 cellar: :any, arm64_sequoia:     "e498ec72443c3ceec337043699d48f4add0114803fef7ed1c79be7edd608c233"
