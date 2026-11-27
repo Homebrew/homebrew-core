@@ -6,6 +6,7 @@ class Quicktype < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "3846e0ef267ccfb4105b621715519922e9816444548c7f53c19aefa1267a08fc"
     sha256 cellar: :any_skip_relocation, all: "eed280e7365d282b5441b951336fe330eccc59d91f377df5bb394e64b08bdadb"
   end
 
