@@ -11,6 +11,7 @@ class SignalCli < Formula
   end
 
   bottle do
+    manifest_sha256 "519d772e64777e94f77ac44a91e0a01ea143bc2d916a14a1f5d8abf19dc6c17d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bc858db7ee24f40a60faeec98d542e3adcc60636871f039e096e161f95652ed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc54ed93185a8bc9ea1ab50bcd8f0b9ea40143a2b883ac6175f004636c05db3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "257715ef129215a1a974644d5920144ea471265f339fca1c6d3d9a8d9a33cab1"
