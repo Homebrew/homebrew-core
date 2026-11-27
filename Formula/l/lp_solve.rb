@@ -6,6 +6,7 @@ class LpSolve < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "f654e1ea4d75470252bd4a815b6e494fd29e2e19c1e73675e4329f601af53829"
     sha256 cellar: :any,                 arm64_golden_gate: "e5889935dc42771b84f8f5d4597e974b45155de2721f203844de733a1b43c2e4"
     sha256 cellar: :any,                 arm64_tahoe:       "9b381a714eaa25ce7d9a31b7150e6198580f8dec50e2959447303ba44513f86d"
     sha256 cellar: :any,                 arm64_sequoia:     "c691e3169ffcf1b21b222b4b753515d0b9f6db5b52fee6be1e33c9f503cc8a7e"
