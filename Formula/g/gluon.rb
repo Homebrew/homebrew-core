@@ -14,6 +14,7 @@ class Gluon < Formula
   end
 
   bottle do
+    manifest_sha256 "16c0588714af96eea5ebd2e974c3c2d2aae56b5478cd5fa5893d8a5304738b8b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fccbe7baec07a7d0c6c7f32dd7a36a84807faca754ade4b173f02f26582e0eb6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c563fe86a2e6e0c17ecaed68d7546e3091e2bc2ef8494d6a2843f2c7e11f17d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7c46393e1d923c733591940a961b6a50fd91b7f39b4c451a89f71ad2ad87288"
