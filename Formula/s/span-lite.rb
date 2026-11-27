@@ -8,6 +8,7 @@ class SpanLite < Formula
   head "https://github.com/nonstd-lite/span-lite.git", branch: "master"
 
   bottle do
+    manifest_sha256 "da81b1a12b35e29295ab7850c9d8eed795f1fb35dc322fcc41725553875a5629"
     sha256 cellar: :any_skip_relocation, all: "389279742b198d8b61719e3ade77c246d03e44e0b7635a77b5fc6f569162199f"
   end
 
