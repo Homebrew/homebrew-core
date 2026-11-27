@@ -7,6 +7,7 @@ class HopenpgpTools < Formula
   head "https://salsa.debian.org/clint/hOpenPGP.git", branch: "main"
 
   bottle do
+    manifest_sha256 "76455e3887857da2926fb4417cbdbea5eae6dd0aa39618e1a6d6dabd55144ff2"
     sha256 cellar: :any, arm64_golden_gate: "921dc079ea9d2dcaa59206ee23cf5b92c4a67f79969bc7fd3a6496fc8455add5"
     sha256 cellar: :any, arm64_tahoe:       "038a576f2e7617d51045ce23c86b85f35b58fc4d7b30c9897189da64c1754708"
     sha256 cellar: :any, arm64_sequoia:     "367e6563871f6e77c1fa6ca1f844f4dd8c0b7024da3e3fbebda1197d2be91c89"
