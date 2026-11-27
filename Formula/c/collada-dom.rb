@@ -8,6 +8,7 @@ class ColladaDom < Formula
   head "https://github.com/rdiankov/collada-dom.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8e4a43da244ef9437ab8bc0b7a49fe6bbf3ac4455d3bafab95c8dc7e4caf83d4"
     sha256 cellar: :any, arm64_golden_gate: "fe1cf891934cdbe55b0cdc0cb91c3db2cdbcbe5c845045324efd960ea7306848"
     sha256 cellar: :any, arm64_tahoe:       "4b56321a5c325382cbf770e59dd9fd2df00cd00820e64ae6ad990a88c26032eb"
     sha256 cellar: :any, arm64_sequoia:     "4dbea299cf21aee0664c40c530f2cd06d0d431c77ee88259a2b98a9331e92092"
