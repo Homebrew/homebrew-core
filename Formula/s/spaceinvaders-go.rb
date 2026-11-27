@@ -6,6 +6,7 @@ class SpaceinvadersGo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8576ef0ea654a62b6488820db291e21e8fdf8d439d48be747f1a257aef81e8b4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "782ef5716ead6693cf9de0aad4bec61ddecd20c1f2f459b1afecd7fd3cbdb823"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b15177ecf88a2b31fa74e3abd9a792f2762cc58b50d201f2f6423d3c53a45dc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3be01a0f665ce0362b3fa26c19548b9952b107d427f4c381e809ccc4a0760cba"
