@@ -8,6 +8,7 @@ class Gtmess < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9d5c2d76928ad17c444cd107fb1c56d62da965076c01a21e1dbb97d2152e8dd8"
     sha256               arm64_golden_gate: "c6d0bdc523f6f346283161551179074e1e9189eb636ee76e5f9ed0806ef1e35e"
     sha256               arm64_tahoe:       "f1c4a256b74ceb1dc3de6e6bacf62639872a48d5ece557945193398b443ace33"
     sha256               arm64_sequoia:     "d64191c76570b2cf0b0b9326717c850334d917e7f4fae3523353cd96996d3956"
