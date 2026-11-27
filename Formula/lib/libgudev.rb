@@ -6,6 +6,7 @@ class Libgudev < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "a049b5539ddb27e59221111a0848d9ad0dd35f3e2be629204266333f9ef5acec"
     sha256 arm64_linux:  "87a74706d570f25e40cec26c3ab07258b0b7e1b99950927d14083310f6998869"
     sha256 x86_64_linux: "c1e3053f6df286a07df2a34c82054fabb56af45680102943a5e459d12cc94cad"
   end
