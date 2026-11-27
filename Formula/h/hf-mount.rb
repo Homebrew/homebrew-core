@@ -7,6 +7,7 @@ class HfMount < Formula
   head "https://github.com/huggingface/hf-mount.git", branch: "main"
 
   bottle do
+    manifest_sha256 "895f231e40e1b2ee78d98048d312d4cabe0b2a2f9fe9c7cb9c7edb2d13c8b6cf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f25110ab40048650b5caacce3510f058ee548f06fe69a2c789e47f26234aaff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23cd4425b3d73bf2232e8c7c3ba9917a37f073afb65c31e174767b525c29b9e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5f18b311fe70404debe84963ce0066435a2d37e149b94f0f6ff64c42673937a"
