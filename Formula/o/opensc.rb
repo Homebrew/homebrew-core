@@ -23,6 +23,7 @@ class Opensc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b665e4708d1ed3409720c7d6ba31e24ab3705744e7001f4da478ca33357c40bd"
     sha256 arm64_golden_gate: "e461bcb7d55a07718b3c30b27d5dffd6ad9854fe8934145f046bd8d12b22f55e"
     sha256 arm64_tahoe:       "89c9f2fb19add21311025692b85e8e5e9b8b47a715f41046745f146f16b8de51"
     sha256 arm64_sequoia:     "7cfe160130e306d3e502ee373b41d6d4f8550030ff1ae24a4ba3da611c09eb2a"
