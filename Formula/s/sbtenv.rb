@@ -8,6 +8,7 @@ class Sbtenv < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d056b52e99d4171f83daadbcb9073680bc38ce1ec7ec1db0735484068e1d931c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f24bbe3aaee6ff02dcf79886d011dac6e3bf7ddd82623ad4217bc10d74cb6984"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16ab8bbf880ca983c16aa42dbf63b695ba03e874542ce9aa38dee1adad68a80c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7dad9deea7c992f38474ddc585024e80e95fcc8a0b9a81e35672a2f584a11bc"
