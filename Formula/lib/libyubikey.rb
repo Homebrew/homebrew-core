@@ -12,6 +12,7 @@ class Libyubikey < Formula
   end
 
   bottle do
+    manifest_sha256 "893de5f4eda67f61e0d750451754078685a42714d6ce038856bbcda8d2e7b377"
     sha256 cellar: :any,                 arm64_golden_gate: "635d967391d0ee77f837123a92ffa734c1498741dc9a9a8d908e412d70d09317"
     sha256 cellar: :any,                 arm64_tahoe:       "6f293dfc1a720368bb989bdb389bb507d785ac6cbab9d33753f56084255296f3"
     sha256 cellar: :any,                 arm64_sequoia:     "1402744ea6becf5fc6caf82c61b90530180bc7b7c025952ab5f47db813d9dd81"
