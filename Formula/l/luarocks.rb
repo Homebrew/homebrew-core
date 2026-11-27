@@ -14,6 +14,7 @@ class Luarocks < Formula
   end
 
   bottle do
+    manifest_sha256 "7966bec09da6319e32d577d4e5f5e958813661d18abe23a7f79e090afe658043"
     sha256 cellar: :any_skip_relocation, all: "abbbde9415cb2d4597c28d88f0f1f3a391be714f6f8e546ba5f01259c11ae040"
   end
 
