@@ -6,6 +6,7 @@ class Facad < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2c6d16495d9241c2d3e40dddc5d4c9ce9b6e6ce6341d9eae85269187b7e9b7c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "807e3435b7da3dab59f2db3266810282e5750525d034b5ff65f3316e69ff6d57"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2d62171e0a66f415fbdace7168e5f04f1e262074b3c5b340ea145e139d321df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fbb2b9b54e71b909a15edde995f0d338be9066e7e5f13692a9d020ca9aff694e"
