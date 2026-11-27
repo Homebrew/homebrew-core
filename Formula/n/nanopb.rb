@@ -16,6 +16,7 @@ class Nanopb < Formula
   end
 
   bottle do
+    manifest_sha256 "5baadf3ff871e3d1bf6fa6d31066f2181e4365dfac19d9199575d4f469fc37d5"
     sha256 cellar: :any, arm64_golden_gate: "a69403355f3e481abc46c743b42de8629ecb2e76b505888219014413a9b5c14e"
     sha256 cellar: :any, arm64_tahoe:       "d1361fdc4268124a730fffe8917a6df92c569b9f03a0a54db6b10f91a926abfb"
     sha256 cellar: :any, arm64_sequoia:     "f2bac7c12022a82ffa21a401064e10c052df7218f0d50ea0d0baabda6ba5eb0e"
