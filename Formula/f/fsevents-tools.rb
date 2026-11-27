@@ -11,6 +11,7 @@ class FseventsTools < Formula
   end
 
   bottle do
+    manifest_sha256 "69cc53af24aa1334763a11fa4de10fed7dd7bfc14b2ae0d9f7a0725a6edcbaea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8b51392990113404ab838fa70d3c61286cdfe38504c5190c3b68aa9e2f4710b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9c957de83e07813d6363e58bf6d8e1c9ade1592ce6a965817d57a0b824fd165"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69d137adc9cbcce94aa7160b76705454f3f04fc0598f2146264887fc0a278c2e"
