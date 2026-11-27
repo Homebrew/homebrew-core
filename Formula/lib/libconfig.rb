@@ -8,6 +8,7 @@ class Libconfig < Formula
   head "https://github.com/hyperrealm/libconfig.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f57f1c7fa23bc145ae35f466d773f21694bc53066765985deb59fd90affa8fbb"
     sha256 cellar: :any, arm64_golden_gate: "3cecf81e99f63923dc8f475656aef0922387d8e0d465e7d79d07cfbeb520bba9"
     sha256 cellar: :any, arm64_tahoe:       "e328b92ea0251f0c31d2215ff60126398f6f5329fafef8a3d2b08d7e6c4fceff"
     sha256 cellar: :any, arm64_sequoia:     "89954857881c002763056e8d2c461bcc489f9528ee963bd04f9c5e08f7c00fb3"
