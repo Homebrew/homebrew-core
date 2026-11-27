@@ -11,7 +11,8 @@ class Pmd < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "4e7f0c24233a362819abbde38b467c883d19bc80778d90bb1c3842b121b0af50"
+    manifest_sha256 "65f27c4ab97124db7499d6eb223b983bee01ca0d927480605d804f5ae46a0e2a"
+    sha256 cellar: :any_skip_relocation, all: "95a5356eebfc2310c202e7adcc1a199b011809e47fad5c855b68a754b76f78dc"
   end
 
   depends_on "openjdk"
