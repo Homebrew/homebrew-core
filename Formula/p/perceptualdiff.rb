@@ -6,6 +6,7 @@ class Perceptualdiff < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "8c2fac58f009afe7974ccaa32059e3ae0b86560f64a9463d8a458a392f898ae7"
     sha256 cellar: :any,                 arm64_golden_gate: "abc19555f802f6fc55253512b286be2b1fe1d3e520e467cce92c0cdd59d61b8e"
     sha256 cellar: :any,                 arm64_tahoe:       "03e7c420c4d2142cbec50a5ff677801f9a2ffef94cfdcb96715cfd88eca62667"
     sha256 cellar: :any,                 arm64_sequoia:     "69f5e86989148e15fdca126111c1070bb23777eabadd346f8e735b6cedc86f5a"
