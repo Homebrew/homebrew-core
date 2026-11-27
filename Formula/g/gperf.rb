@@ -8,6 +8,7 @@ class Gperf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a3ad2dfa4b121cf7697f884510e908ee8257a09aedcbcaab2387b9a78940325c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8483bac6a9bb1befe43194380b571064a0471329a41ca4fc92dd0a3f325da369"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8431153ec71d07fd4f1ca9609c1c11e9f6cc487000cb2f5e4cbec971c0814536"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b88bc4005a80b6115e8d15bca5f74af0e7e7eab6355ca0499fe41194c68053e"
