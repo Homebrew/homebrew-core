@@ -11,6 +11,7 @@ class DvdVr < Formula
   end
 
   bottle do
+    manifest_sha256 "dd3016cc638d8552810b4747de5762afd12e113c4c915a2f91cc3b3d51259f9d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "61cb88d905a258268103373e2ba2270eda1e3cec086f4ed00e3a6d677a119a50"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c866d88cd9c2d24675c6adb25ea1b78fc4139e15d46ce14e652e1302c99137f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ec179b825a5afc971de1205ec65943227d9c09257a16558a068bc47c024887d"
