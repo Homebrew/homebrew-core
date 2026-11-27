@@ -7,6 +7,7 @@ class GiteaImporter < Formula
   head "https://gitea.com/gitea/importer.git", branch: "main"
 
   bottle do
+    manifest_sha256 "63a12cc2381e9827a40070bcfc2b3db8444cef722ac746cfc55001876ef07a35"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90402b0804baa7c5362233f0b71faedc778dc9aa4200246bf34b686a885b6cd6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90402b0804baa7c5362233f0b71faedc778dc9aa4200246bf34b686a885b6cd6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90402b0804baa7c5362233f0b71faedc778dc9aa4200246bf34b686a885b6cd6"
