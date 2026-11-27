@@ -7,6 +7,7 @@ class Rainbarf < Formula
   head "https://github.com/creaktive/rainbarf.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d5bee0eadb420a62fcc61393b532a41ed6cd730a6b8f937e6bd88935980284a0"
     sha256 cellar: :any_skip_relocation, all: "c31d17c562e591fd2a913a626d6a93b85674b8ca8b259495530d221eb37bac3d"
   end
 
