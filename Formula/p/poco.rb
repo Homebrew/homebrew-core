@@ -14,6 +14,7 @@ class Poco < Formula
   end
 
   bottle do
+    manifest_sha256 "7afcb44e65fd47fa822182df00e3a34c387e1df72efd93027f1c29719e60da7e"
     sha256 cellar: :any, arm64_golden_gate: "4dcfd8016a852af701b225ec12fe5f09058a35a42894c632f1706629eeb7e98a"
     sha256 cellar: :any, arm64_tahoe:       "44108fc84fd41996338bb43baa0e9a43cc7b6ec37d17fbffcd74bffd45889019"
     sha256 cellar: :any, arm64_sequoia:     "f2291b64afb1a2552622b7ce340588b71e9d90994c38a8e091f78f0dc0848e91"
