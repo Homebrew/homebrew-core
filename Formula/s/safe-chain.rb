@@ -1,12 +1,13 @@
 class SafeChain < Formula
   desc "Malware protection for npm, yarn, pnpm, pip, uv and other package managers"
   homepage "https://github.com/AikidoSec/safe-chain"
-  url "https://registry.npmjs.org/@aikidosec/safe-chain/-/safe-chain-1.5.29.tgz"
-  sha256 "e2cbe14706eeec5bb99e8b2f28e00e12c4d665935122e127811bf444b432cdc7"
+  url "https://registry.npmjs.org/@aikidosec/safe-chain/-/safe-chain-1.5.30.tgz"
+  sha256 "ddfbf12a4e23a698dafb907c9753e763c2a250fd1600401632c8e172a2395948"
   license "AGPL-3.0-or-later"
 
   bottle do
-    sha256 cellar: :any_skip_relocation, all: "6f7d34dee1f197e95ff57e45d79b1e05bee1bd79a1e1fdfd653aeeb7747e1ac7"
+    manifest_sha256 "7e832771d6293d9cb273cae0cba5e2d802219ccaf536c7cc5eec98e7b8d8fb07"
+    sha256 cellar: :any_skip_relocation, all: "bfcc2e9417095578c388f32c72e305c698446890a77d4a04ac2ea36f21ccec28"
   end
 
   depends_on "node"
