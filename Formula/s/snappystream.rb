@@ -8,6 +8,7 @@ class Snappystream < Formula
   head "https://github.com/hoxnox/snappystream.git", branch: "master"
 
   bottle do
+    manifest_sha256 "075497ae34f0ffdd91e6b89e90e119c42a7e51d81ae9cf5f7774f9716c99eb86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "029c76e5f614fd3609b731aeca92393380506d2850d747092324a77a7c6b138c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b9bfaec4d6e7207937aa78282ec7fd13860da55f88a518ad7c0804a4b6004fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8bfb07955fdb8b0896bbb1084651c320a78d2e5e4ae5d26242b86469ae8d39aa"
