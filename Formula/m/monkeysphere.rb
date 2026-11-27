@@ -13,6 +13,7 @@ class Monkeysphere < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bd0d9bdebe627d6615a0bf45a9f052f3805dd660aaba83ca2fab924b7991d188"
     sha256 cellar: :any, arm64_golden_gate: "65bb0bb595490c01778c36ff4705be95e6c967c0f6a533a7583fa6d2a293a27b"
     sha256 cellar: :any, arm64_tahoe:       "074d6d5b27ab99e06b6451294aa7faaceb2472ebd2ecfe004a871489c7121b83"
     sha256 cellar: :any, arm64_sequoia:     "600bb8e7616af38f8f49c2e6283d447ccba6294ca7bd128e07d624c723d89881"
