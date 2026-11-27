@@ -7,6 +7,7 @@ class Ssh3 < Formula
   head "https://github.com/francoismichel/ssh3.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5480036ec154c5da30509d157cff6d57a44c5450f6f410a3cc3a12169cb11828"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "493f0f8760649704c0bb31f9dfdcaed7bba0e162bbd966cb5a00669c2ba1ea89"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f4c9c05fd2c4cbaa2a0d9bfafbc7e0a8b7b2bd4e40cca873bf8d6154d1502520"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f4b007d021b93cfb0c17d853b9ad0f8e8d9112402a7acbbb466f90517e20a12"
