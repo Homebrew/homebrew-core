@@ -7,6 +7,7 @@ class Kubelogin < Formula
   head "https://github.com/int128/kubelogin.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bfa9bd7139f60b00dc34ed8c01eee191f4de48f9c08743c862f8a262245b4e4c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94a45b967a6e111e8ee741a456262fab855e2520b25c2b6dce7fcdb7edff48f1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94a45b967a6e111e8ee741a456262fab855e2520b25c2b6dce7fcdb7edff48f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94a45b967a6e111e8ee741a456262fab855e2520b25c2b6dce7fcdb7edff48f1"
