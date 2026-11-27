@@ -12,6 +12,7 @@ class Jaguar < Formula
   end
 
   bottle do
+    manifest_sha256 "12e2a1efaa3fd0caace6355064a3a3f0d418b61e393b76af921b2eaa5a34baea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6af74950badc64f04f8b664f2e08279b2df6890048688595ec0a1dd6b6697237"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6af74950badc64f04f8b664f2e08279b2df6890048688595ec0a1dd6b6697237"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6af74950badc64f04f8b664f2e08279b2df6890048688595ec0a1dd6b6697237"
