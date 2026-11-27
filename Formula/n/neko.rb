@@ -12,6 +12,7 @@ class Neko < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "29a06bf4cd6c2c21e47ec5873a0c37a851b3993d46d1900944dce0b7dde786a6"
     sha256 arm64_golden_gate: "bfc452eb272d576cb151055a58576a08434247f540b9faa7e244c937a5bab182"
     sha256 arm64_tahoe:       "89c971ad4c60726ebc84ce4a6b5ebb675cd65a5dc400d4cc152cba7b40e52f07"
     sha256 arm64_sequoia:     "45b778978d5a73833248131a9a9bb7019347237547e679aa529622b50054843d"
