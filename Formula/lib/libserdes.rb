@@ -9,6 +9,7 @@ class Libserdes < Formula
   head "https://github.com/confluentinc/libserdes.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6262a683c9f9e9bb3f2780ad3a841ab5dcd0330e4e5cf98e23ff56d3e41fb7dd"
     sha256 cellar: :any, arm64_golden_gate: "18a15f5ff3791b88906ac2ae2380f82f5573aeaf0d135e7f6588eb2fc86b2d17"
     sha256 cellar: :any, arm64_tahoe:       "c6197a8f2a0f351a8b82dc23d0426354c0831b6650b37e73b3134e0f38ede0d4"
     sha256 cellar: :any, arm64_sequoia:     "053e068b00caf712ba121a87ad118ef868fcdde126b9bb5594fe51c05a0f3e22"
