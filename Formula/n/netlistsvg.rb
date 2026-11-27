@@ -7,6 +7,7 @@ class Netlistsvg < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "17c33fffa40b709ad128b24dac95f4bd795d49206958bb41d048995d23370750"
     sha256 cellar: :any_skip_relocation, all: "13485ed6f7d18a5733d709b8806159803cbfcfa7bf1afaa6b0e3acd9a12fc200"
   end
 
