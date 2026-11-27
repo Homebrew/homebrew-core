@@ -12,6 +12,7 @@ class Pay < Formula
   end
 
   bottle do
+    manifest_sha256 "7314f51c84dbd0d4247f0dc2a90234a26879b4fd5598954c1c52028eddee44b3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27cd48ffbf394edeac0ba104ce51b88b289abcdae1f277dd4a2a1dd72f14b647"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46a81cfcb524956fa6e29a3916de97f0c38bceefabd0f73a0b9cc6bab7a5f7c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16a7012f872d061960e9e5e98b7539e71cee083d173d1cd200c00f386ac55879"
