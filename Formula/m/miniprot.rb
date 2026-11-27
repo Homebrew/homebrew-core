@@ -7,6 +7,7 @@ class Miniprot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a793378530b4b3af5ca724017326e76d26456c4380b8a0364f27335a6599285f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d8998b2ad6f5b616b78a90e134f43979db994d717469f73a489a4b063d0b615"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2df4ada405138f554ac6e7bf27bad4b7eaf1c5a7d4fbc9a54d6eb1434778fb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddaab716a69014a0aefec396d7fd02f2d21e8b44bdb43c9dbac8cb570e4fea6f"
