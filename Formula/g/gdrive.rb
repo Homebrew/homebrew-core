@@ -8,6 +8,7 @@ class Gdrive < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1c3ff8e946edf67dbf1b9448d1e59479ce41105c7be392bde7ee1b91037f48c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "115f9f6764da2872988d08655e8e31930414994ce71e2a039b5b90b50360730c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8532793c6c061b16d47eba60f8def373002a6717c2499d49faa35f7ecb1beec5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "597b1a565f70001989177d007d646750cc7602948deddc79c84d84a5ad4e43d4"
