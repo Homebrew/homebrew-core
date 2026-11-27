@@ -8,6 +8,7 @@ class GitTrim < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ee09fb994a91af8d13990f7198714716d27915316160c77952a16489b1eb1da0"
     sha256 cellar: :any, arm64_golden_gate: "0f5332c306c9bead3b11d34b08e8448dd9aee5e3a7ec6549d73eb3aec396629a"
     sha256 cellar: :any, arm64_tahoe:       "45cf7521b7eac2ca8ae1f0569b8e9beb798a6c2592ee9ee80e6cfc4c2545092b"
     sha256 cellar: :any, arm64_sequoia:     "041850c879da3ba3dfad351b43a1c278bc0fa49b7973e40666a352a580bc0809"
