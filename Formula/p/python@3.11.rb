@@ -12,6 +12,7 @@ class PythonAT311 < Formula
   end
 
   bottle do
+    manifest_sha256 "f61415c849befc375e3f76ae4354dae4a248b0c9ecbbf7b069c2103c20ea81e2"
     sha256 arm64_golden_gate: "82ddcbdd13d6e6aa1e959050aae5284c9286ceddc6ac56f02bf7b3dab23ee346"
     sha256 arm64_tahoe:       "3e9416f393391bb5f7e00c84d284e01ec508de9416c9c6cc7af57f7996e045b8"
     sha256 arm64_sequoia:     "c77feba77847b3293d30e63fefdecf06d261321745f37499aa534e36aedaf792"
