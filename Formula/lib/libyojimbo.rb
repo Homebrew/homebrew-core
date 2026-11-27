@@ -6,6 +6,7 @@ class Libyojimbo < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "455bd35618c7a6d292911228967f3d45345066afeb168697f9606d0eaf1dde0e"
     sha256 cellar: :any, arm64_golden_gate: "db17a5c9b6d753eb28220e94687783f5ab42ed01abf556a546bf4b9b362b5cc7"
     sha256 cellar: :any, arm64_tahoe:       "e13c38a4023bb0fdb5d1fd48adc43a0622ffb546000ba404f6dc2692e9e97043"
     sha256 cellar: :any, arm64_sequoia:     "e4c60715cb83f4a2f675e860031521f5ff8a6847f530ce9668505e43ba881e66"
