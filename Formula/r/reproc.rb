@@ -8,6 +8,7 @@ class Reproc < Formula
   head "https://github.com/DaanDeMeyer/reproc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6a6bd42b38795894380ce244bdf85c3d7081b02acddc47583acc193cbb5fcf81"
     sha256 cellar: :any, arm64_golden_gate: "e9b8ee38d5e6e0273c2dad738f19588da3e5c6f9de5993e0d44452caa417d8bb"
     sha256 cellar: :any, arm64_tahoe:       "27f18791b89468ce7d3758a08063347709566ad357f3401a0261de11227a54e7"
     sha256 cellar: :any, arm64_sequoia:     "054a5692de1f7f7e626e0eb099f04e746de117f26660b52891097c9a1e7fb768"
