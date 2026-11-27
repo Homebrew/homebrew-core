@@ -7,6 +7,7 @@ class Lazyrsync < Formula
   head "https://github.com/westpoint-io/lazyrsync.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a07be321cc2d9b68200c4544adbcb14f983bfac42797185be55f935b331a93a8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1289bb0c1c943be2d68a3ddd8e4e3750cd4c30b4030d07421418d9a4f62cb294"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0737a2af17f71489ec35ece6ce7e0bee6d22be9ed3c6249c9fae16845ff47ebe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f602436b219253bd93db59a106d22463055e013ece0c6f22c44cbf5ba222802"
