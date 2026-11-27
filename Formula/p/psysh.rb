@@ -6,6 +6,7 @@ class Psysh < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "08d9f5a02b9c0b2e167705a354cda4ac1d576b0307842841a8721e790cddb003"
     sha256 cellar: :any_skip_relocation, all: "39489733b8bdccbd19677f003e46c578457ab3700c10aa5af259c0ffa531c765"
   end
 
