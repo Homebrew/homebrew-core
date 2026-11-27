@@ -12,6 +12,7 @@ class M68kElfBinutils < Formula
   end
 
   bottle do
+    manifest_sha256 "a0a82aa178658abc526902f6a993b812013b31be4c4407830c451490593dbbcd"
     sha256 arm64_golden_gate: "1cf7b60d9ecbf88b106ba8b937c231d612e70ccb7d262428efdae641bda0af96"
     sha256 arm64_tahoe:       "b6e009de7d9ac6019bded258de92fbf01c5315deb84296320b076c29d9643c57"
     sha256 arm64_sequoia:     "c781c9dfaf1ed9e03bd196a5e31fa428212a06672ccf3804c52bc6b0c992c957"
