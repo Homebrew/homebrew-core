@@ -12,6 +12,7 @@ class Geeqie < Formula
   end
 
   bottle do
+    manifest_sha256 "39a12efa448a0daf2b61351443a030e59370c8ff42fa81b400a74bd6ceaa1558"
     sha256 cellar: :any, arm64_golden_gate: "238590476bfe0a6baa3a1a0b22f6811ce9c811112e535edfb910bfe79130cc3e"
     sha256 cellar: :any, arm64_tahoe:       "17d82b27303c633784b7b48941db0271d200e8fbfc602b3f77a8a5ad05f5d071"
     sha256 cellar: :any, arm64_sequoia:     "943783dff7759d5850da33085535d8e31dca4c742f146eac28c52d67b85cab86"
