@@ -7,6 +7,7 @@ class Liblo < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "9ebefa13269b824b51efeae84cc4d2f3d471bdd53900a687124c8997215ee71a"
     sha256 cellar: :any, arm64_golden_gate: "f558415024a6b8041888f603191ebc6daca66b44385063256b71b12cd9b51bd1"
     sha256 cellar: :any, arm64_tahoe:       "3e5c9bbe029eb036a57ceb3ac9d21c86207b7664d8090fac3f965a4e727f2c40"
     sha256 cellar: :any, arm64_sequoia:     "0ecd70af8934a06beeefe747b9e3ef582c94ea9614755e50ae3e56b6378ef0b7"
