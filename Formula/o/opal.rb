@@ -9,6 +9,7 @@ class Opal < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6d4da36e51be3f66867d4215baf0261fac9d46b092f3ebe0880575c5f485340b"
     sha256 cellar: :any, arm64_golden_gate: "ac84229ba7fab6a0571c4ac9ebffad7c16002eda42b60f41328df311752c4179"
     sha256 cellar: :any, arm64_tahoe:       "40b8c2cfd5220e86a52258ba5bead37074662a0858fe98befcf418493216a525"
     sha256 cellar: :any, arm64_sequoia:     "6d4ad65707a9a88d762b97d2cdf1da579993e75eb9cfd6e45776ff47042ad695"
