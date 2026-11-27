@@ -7,6 +7,7 @@ class P7zip < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5e02bea43b4ccf74af8bc8c86fe85f3122d8d1e630aab7849488a9e25345cf82"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25b2de8512623e6ce40f0168b3eeead0ff8aabfb42d4fcc87809991acc4a8df5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2490c82b53fc8b7c05e11e5f365f525dea28ce760b58d71eee5e5f263e3bdbbd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "369d3a03a92f93bac16dd14b0a0bdfdd89ca55acbd503a5df2e6bb5db090570a"
