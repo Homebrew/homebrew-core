@@ -6,6 +6,7 @@ class Hss < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "dd4e6e0c3fec031f45efd993cd73d168a46897f33af4489a2ce2f66b7bee6056"
     sha256 cellar: :any,                 arm64_golden_gate: "50a0adf88e429a7726db4ad06fb82d19c304fa8af4af4e344cc147ad08d5510c"
     sha256 cellar: :any,                 arm64_tahoe:       "2bb2eb21cf15af087ab7ed8e764cc90fbdd452f1ea0e81c71d79a20cf099cc83"
     sha256 cellar: :any,                 arm64_sequoia:     "ab1d14ee93ade63ab4f7ee790cfc4ef658871bc7be566039b0f99bda7830fb06"
