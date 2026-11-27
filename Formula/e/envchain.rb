@@ -7,6 +7,7 @@ class Envchain < Formula
   head "https://github.com/sorah/envchain.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8c068717a9a78727a894019ae5a1f91d130197e7e75e7e42b74e689fae3f6783"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f61571f06752f37c14e2bd34dda8ad124d6a1af1506d388e5a1c00950468114"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c6122f97e7ba7946f270192b4a995011ebc61f8f03948ccd06ed7e0e7df95c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "89bc49ffc1341fb5f06e5510be523ddb5d3a7270ad02a53382505f2cb817675b"
