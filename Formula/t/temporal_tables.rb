@@ -26,9 +26,9 @@ class TemporalTables < Formula
   depends_on "postgresql@17" => [:build, :test] # TODO: v19 - https://github.com/arkhipov/temporal_tables/issues/81
   depends_on "postgresql@18" => [:build, :test]
 
-  def postgresqls
-    deps(/\Apostgresql@/).map(&:to_formula).sort_by(&:version)
-  end
+  allow_network_access! :test
+
+  def postgresqls = deps("postgresql")
 
   def install
     odie "Too many postgresql dependencies!" if postgresqls.count > 2
