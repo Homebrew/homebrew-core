@@ -13,6 +13,7 @@ class Freediameter < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "4b870f9f1bcc952d7403218d65f4460cd7aa0233095abd8b694fa2ec7c3dbc8c"
     sha256 cellar: :any,                 arm64_golden_gate: "67f0afbb0cefa9071fe531b044191c7244ff3a92d667419845dc5e886c62f887"
     sha256                               arm64_tahoe:       "6101f02874dba7633196889ea14e9d5d397d8ec51d1c47f603d15413cb2ef6eb"
     sha256                               arm64_sequoia:     "dd54ac49636ecf8491ed2219ea3e8bc10fc1f0b29ac5f7125e5dfea54e2ac020"
