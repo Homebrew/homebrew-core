@@ -20,6 +20,7 @@ class Gyb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "eff3f4040fdcb8ec4d48fb76ba01685b4a9ab9d9830a6df740f23ba943cdfd6b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4e711d50350b9c96c23618cbed520d84b4ac789739a61da98cf8d2d8015677b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c632f45a0e07f4124765b6401a6405f5c9154d9e8472ea0def244f42bf80e97"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82323a0defbcc6eb96769588f4bf351d88baf2c16c230dfec66b31c14f2348f9"
