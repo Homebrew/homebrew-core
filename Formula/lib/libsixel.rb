@@ -15,6 +15,7 @@ class Libsixel < Formula
   end
 
   bottle do
+    manifest_sha256 "ab3fb049921c9101fef6921e9c2c8d6de9cf710a3a468801f31c2bdc2247fe0c"
     sha256 cellar: :any, arm64_golden_gate: "a13ec836f0674a40c0e37806a6c6b5aec13528e42aed840c548a814bc00dbeec"
     sha256 cellar: :any, arm64_tahoe:       "48d25cd9b90ad067a4a8dbc77811e21827c40185b86e6f978c631878e4e9c168"
     sha256 cellar: :any, arm64_sequoia:     "7916ae0f4e67563b37584a7936d42fda2ce852a9c3e85ca979682ea5c525ffbf"
