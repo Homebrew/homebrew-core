@@ -14,6 +14,7 @@ class Epic5 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "488bb2e9b7fa76ed802cb1b7c2f41901d01ba915bf0307811983bfdfb33ad264"
     sha256 arm64_golden_gate: "b412bc952a0c67c7751b329ea7d40fc768e3289605a8ac537e65ca55adc7f9a8"
     sha256 arm64_tahoe:       "329dc5c35a410f8d424cf3467191892796138f37fc5325c1e9ca78feda89ac4e"
     sha256 arm64_sequoia:     "0837901c79d2a676d7f226850b1239f6681e0970609ef699b3c97911c325e691"
