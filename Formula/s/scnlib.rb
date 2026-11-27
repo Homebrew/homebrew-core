@@ -8,6 +8,7 @@ class Scnlib < Formula
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1445d6abf1d4ac34b74edf54d114552c0edc1046b18cc79c1117f49267550096"
     sha256 cellar: :any, arm64_golden_gate: "e420c162d2c19c3e41d300ab0204af2c1d442290703b3e02e15f4f28b62ed343"
     sha256 cellar: :any, arm64_tahoe:       "3e180e76dc48748f90b00b0105e87716992ca66c2ad920d0ab009a1691bedf2f"
     sha256 cellar: :any, arm64_sequoia:     "1b438140c8a4e9d36ef5c2352e3d12074c142a8e3482e903494cea8a8cf2ccbe"
