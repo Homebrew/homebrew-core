@@ -8,6 +8,7 @@ class H2o < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "705292de46100519711de9925e26ae2e9f7dfbd2fffa59b015ced0c6738d453e"
     sha256 arm64_golden_gate: "711a0ca2299d2427ddeabe53869bb24e286df00b4607dea44ac26d33f1b175f9"
     sha256 arm64_tahoe:       "7052d31aee99253193fa7e7bdbdff7c1c1d838783c5f3bf01eb60303cadfcccb"
     sha256 arm64_sequoia:     "7a1fc642567278a8aa2a7d35860b34a5243b5632be0b710601222a70404525bd"
