@@ -12,6 +12,7 @@ class Dug < Formula
   end
 
   bottle do
+    manifest_sha256 "ecc20d2005b5d9cd416e52d7f850b44367668b000b2e4e107ca89bbe3d64c7ea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "196ecc1a710beb5353c86d725cdfa6b85e7d5e77944c2471f1eb5c968739f053"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "962ec5aaf7431c9b43562dd54615b68ba1afb569856ca78142200c43eb310870"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f0a47a7a0e8b2de0cf945c3e762dca3d1bf45cbfb300ca02277ace6eb2afe8c"
