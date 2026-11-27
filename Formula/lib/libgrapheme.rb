@@ -12,6 +12,7 @@ class Libgrapheme < Formula
   end
 
   bottle do
+    manifest_sha256 "bb46f1979a2718ae46aee561e093a74d1e3fd5d585eee314657f69b289dfc9cc"
     sha256 cellar: :any,                 arm64_golden_gate: "ce640a4d6e7388a35d9654b13391c45d09db83e773e8e29ce184587ee57fc6ea"
     sha256 cellar: :any,                 arm64_tahoe:       "df5f451622029ee5e1e85d53e9c754527925124250633e0b9df7c13beaae176f"
     sha256 cellar: :any,                 arm64_sequoia:     "fc30d10212e3e2753b9df11ae83516604b0927387a03045434ce4799b32aba1b"
