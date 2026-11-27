@@ -12,6 +12,7 @@ class Nasm < Formula
   end
 
   bottle do
+    manifest_sha256 "093481d291a1b922d8eba750b5032ad1cb549a0472a643a015dbc3f5853bfa8c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50c13244228751bf5311401d36f7c24fa1c04a534f1dce0c0da15795f7d50e3a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23bc78cddac86f63a7b19cb0766614a868e0d356dc2091d0f789027c4809a75a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be638eb35844e4292072b1fe70de30211aa9f189b81eb2801a78be0b253f3fc9"
