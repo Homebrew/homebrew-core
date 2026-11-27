@@ -12,6 +12,7 @@ class Libclc < Formula
   end
 
   bottle do
+    manifest_sha256 "78272a27582eb1ae08a7bb2e340b21f88ad50fc7ddaaf232432da79155bcc3b1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fdd1eb3ce7ac4e1e0daedf02af712619dd412042d470bc214c30776cbc8b2ef"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2fdd1eb3ce7ac4e1e0daedf02af712619dd412042d470bc214c30776cbc8b2ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8894656816297192e4ea6ff29f02f1ec166a05c08bf23e82ecb8f2efcffd6f5e"
