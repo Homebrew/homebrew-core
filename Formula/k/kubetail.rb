@@ -12,6 +12,7 @@ class Kubetail < Formula
   end
 
   bottle do
+    manifest_sha256 "c6f57b1fe6ecb75c2f04dc04a203fd8de39cd6bd50f54ace03d5e86f3aa98d11"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25187ff81db2da1d545feab444664489d3e98072b32bf191c439a8be9f42f3ef"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c93fd5df629623d06d5e3e44e96255c3ca71fa273eaa0aefe36f9ccdf4ff29ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68ae75dd11eb7ee2a05e78ba058194c1988968f6d72a3749220812db5b38a186"
