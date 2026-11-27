@@ -7,6 +7,7 @@ class GoArchLint < Formula
   head "https://github.com/fe3dback/go-arch-lint.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e31cf881770e25d628e6f807c6cf3d0d8c2658be936b316dfa967d4527d98552"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "990e950c242a0d7de8bdfa034252c7e8dddd4d3c35e9f61a23d032f216bc5f6a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "990e950c242a0d7de8bdfa034252c7e8dddd4d3c35e9f61a23d032f216bc5f6a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "990e950c242a0d7de8bdfa034252c7e8dddd4d3c35e9f61a23d032f216bc5f6a"
