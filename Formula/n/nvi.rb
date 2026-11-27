@@ -12,6 +12,7 @@ class Nvi < Formula
   end
 
   bottle do
+    manifest_sha256 "2511982feffa9980649bfab8227c262aecfa41f3927a60e150dfbe51013a6c5c"
     sha256 cellar: :any,                 arm64_golden_gate: "5f9095369484dad935232d0240a9696584d11391506ee700554376bc8830313a"
     sha256 cellar: :any,                 arm64_tahoe:       "aa9ca9f2bf556b19378cc59734101a3fd3ae96a4221589f4c39f0a2690c25e3e"
     sha256 cellar: :any,                 arm64_sequoia:     "4dadb4e9103dae1a849b5bd29bb0a4fb66a66ae99302541fca056fe4cd305770"
