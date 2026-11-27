@@ -16,6 +16,8 @@ class Tgenv < Formula
   conflicts_with "tenv", because: "tgenv symlinks terragrunt binaries"
   conflicts_with "terragrunt", because: "tgenv symlinks terragrunt binaries"
 
+  allow_network_access! :test
+
   def install
     prefix.install %w[bin libexec]
   end
