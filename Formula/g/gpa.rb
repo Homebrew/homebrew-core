@@ -12,6 +12,7 @@ class Gpa < Formula
   end
 
   bottle do
+    manifest_sha256 "36d787b50b2ac704ac1af5974ef809823b41628b770864d0d2441bfc82df532e"
     sha256 arm64_golden_gate: "9dd912eabff5559b7b24debe4133e8f62d65ecea4b47bb7153af91368f1b357a"
     sha256 arm64_tahoe:       "3a82b91a089610dccf3f303827932bc3392cd4024d0ff62efec8392f5930aeab"
     sha256 arm64_sequoia:     "2a4266a3cbad43f2f54cadb15eb3ddb790b2d2db2780604df6b42b94bf9b1afa"
