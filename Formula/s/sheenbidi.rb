@@ -6,6 +6,7 @@ class Sheenbidi < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "6acdb7ebde35b6107445756037db1ca37d78419cb653eda04cc2a659e5a13ca3"
     sha256 cellar: :any,                 arm64_golden_gate: "83a5a4b61604f65acc9e3bfccce11bbd8a10329b087afb790b067c9d09d355f2"
     sha256 cellar: :any,                 arm64_tahoe:       "14e0ca7bf19feb6565c75c0e6889b9ab52dc7c55ee9d5b428ad67558e3d1ce2b"
     sha256 cellar: :any,                 arm64_sequoia:     "8739bf9ac68dcd4ee535d1ec547c6c6e84f896c15b53da2ddf58ab97d283631a"
