@@ -13,6 +13,7 @@ class Dmenu < Formula
   end
 
   bottle do
+    manifest_sha256 "5c34f07c44fb2484f9c9798dcb6d2d4b82651ec0331c0efca2743a1a629bf779"
     sha256 cellar: :any,                 arm64_golden_gate: "f026c4be3a4bf93242208078e9f8d3b5185c23d8bd9e2c4f66850c5dc02e91b6"
     sha256 cellar: :any,                 arm64_tahoe:       "48572596abd24b3c86d85ca49f4ea5eccb8b531e2589df523adc5dee2f2b011d"
     sha256 cellar: :any,                 arm64_sequoia:     "0c348d9eed878159d80ecef04a223a46f9746d97718454df5dc4244e6c735b4a"
