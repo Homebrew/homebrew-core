@@ -17,6 +17,7 @@ class Nwchem < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bffa50f58b369ecc0116ef009ea88e1a264d59eb5190d342e8d10c6af05a0c08"
     sha256               arm64_golden_gate: "ce8d58d355bac801d51f476424c5964ac05c2a13ffa52a10341e47494ae5cbc4"
     sha256               arm64_tahoe:       "4f0a72a0caa660856a63e20299e4000a3e53e471a0c69e5f602f0aa6a6c1745a"
     sha256               arm64_sequoia:     "591154d0b15beb8ec7b3a34e99fd9347fc6ec36acb3fb9e99c5a64f5babe72a9"
