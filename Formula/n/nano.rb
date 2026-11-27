@@ -11,6 +11,7 @@ class Nano < Formula
   end
 
   bottle do
+    manifest_sha256 "ef807fbaba24421e0ce2348a48f31853e1c297aac7d7407e2f334df58cd843b9"
     sha256 arm64_golden_gate: "2791d87741b8f65529a08b22be01a73bbaf5a744521fa62699794c16601bd2e9"
     sha256 arm64_tahoe:       "9e71ede2a9944e90b78a5e41bba39c935a24db7011b98746bc09f0a44a374b6a"
     sha256 arm64_sequoia:     "a423e897b473dd3df29022aebf322940aa2c491bb7d8d2b132f7623ab8b105c4"
