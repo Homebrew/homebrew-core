@@ -7,6 +7,7 @@ class Goimapnotify < Formula
   head "https://gitlab.com/shackra/goimapnotify.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7ffc833914296cea2f0a4c5374c30027a50867044a488c3fa5f937d73482bd29"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a41d5ff5bfe6145f6d21c3b69a84726c473314b0182a2c24984ebc12fa4fdc54"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a41d5ff5bfe6145f6d21c3b69a84726c473314b0182a2c24984ebc12fa4fdc54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a41d5ff5bfe6145f6d21c3b69a84726c473314b0182a2c24984ebc12fa4fdc54"
