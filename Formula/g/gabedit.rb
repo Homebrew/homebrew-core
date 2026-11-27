@@ -15,6 +15,7 @@ class Gabedit < Formula
   end
 
   bottle do
+    manifest_sha256 "2ffa7989ca74cc51f23769a57f8fb447d118796bb893fee2f133bbf7c6cfe0c9"
     sha256 cellar: :any,                 arm64_golden_gate: "7abe0267e3d3271a3dd82cf740b8af94588c36a84b57af7b4c5e71101bfbb39d"
     sha256 cellar: :any,                 arm64_tahoe:       "d50f949dc32c409c6bc33b00840ceb7f85a31490b62155d6ea2a1788395e77bc"
     sha256 cellar: :any,                 arm64_sequoia:     "4218b43130e1be48172b6935ac53abd245973a5a30f46d700b3bb848fed1791a"
