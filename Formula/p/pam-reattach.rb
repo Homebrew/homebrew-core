@@ -7,6 +7,7 @@ class PamReattach < Formula
   head "https://github.com/fabianishere/pam_reattach.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ccc9076ab261c9af6b9701e49a4294f267acbd823566c6307430fef69e5b3dcb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b81787a08710cde52e10289e193d62bce5ab31e65c1e856c61a26623d814079"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab1297caf49a797f8d06361fcb5d690b83b2b92444fe44a5be7d2cdef1ddc123"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "762bb984039bcf0a785bce5fadb36341c579dcf9f3bbca652a839fba7988978d"
