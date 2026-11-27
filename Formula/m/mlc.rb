@@ -7,6 +7,7 @@ class Mlc < Formula
   head "https://github.com/becheran/mlc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e3438e97f30f240a1d4216422c255f4c97597b1b38696a82bcb890e826fe0ddd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad24725817d686ebec7b4b2d4779d0f19869c1f8285720512888baaccdf5929e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "80a82ddd10ba7faf10e672e2e7f512c38e966758f00f3ca0a1aa1c7ea9c93da3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02b8c027057921525641d5d18ef318eea53678f138f20c7780db8413aeb86572"
