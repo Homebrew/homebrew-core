@@ -13,6 +13,7 @@ class Kakoune < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "92e3c8dae5baac6d6acd38376823717777af46256668062b798ac010c9defa12"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d78143a94a544946a133c111ed69b5bc592b51b3a3799b7994c658ade4127935"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "af949c2fa7e4f6f6e0b31f51f70b4e72594e251f16dc4613e92242a0f93bd6da"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0395267de4d2c982d25951d65219ba1327df38c19bcbd9c9575b71d84550ba8"
