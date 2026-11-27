@@ -6,6 +6,7 @@ class Nsync < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "538f17b26bc1b6c5366e22ffdfe54f78e9a7407f2a2c923ba1fb7e33f1361764"
     sha256 cellar: :any,                 arm64_golden_gate: "01bbe58ea205cdfccb576bf2f1bd2e6bb1d2ece60061dd8b2fd6ea34a7c39935"
     sha256 cellar: :any,                 arm64_tahoe:       "34b5f37ee36a14b1e76e5052c2f593544e39d45acd8d7d7e0d90600226072802"
     sha256 cellar: :any,                 arm64_sequoia:     "33fec4c6c42fbb8b09c8d3d0243f3730add7887e902d5bdb1608ed733843a75e"
