@@ -9,6 +9,7 @@ class Vunnel < Formula
   head "https://github.com/anchore/vunnel.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1c8d856a26424ed205e201cc3ae8cfd5829dae6be90583cb943abb6df96e627c"
     sha256 cellar: :any, arm64_golden_gate: "303d8b12e688b76ac30d1baaccb2caa5eeab9ba51d745d9a0df722b195d923e2"
     sha256 cellar: :any, arm64_tahoe:       "68b700f6bbfd1dfe81c81668c9b5f45e504f2ecb7daeef8720dc11ad51a2d4e8"
     sha256 cellar: :any, arm64_sequoia:     "a2e0e2aafc2221fc26bdcf078663aee20465a7befba45f9746bfff9e14ac5b10"
