@@ -7,6 +7,7 @@ class Libvidstab < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cb599ba46826c42fa89252d25a035acbe57145ffb815da3a119ba6153d868a9b"
     sha256 cellar: :any, arm64_golden_gate: "a4b99b5baace2001cb296d0d88ccdf5722285f1a94e20ef406b89e729df3a009"
     sha256 cellar: :any, arm64_tahoe:       "e6808d2f543809c806b81c690719b23c14c177cbb0cb1f42c27d559b4cb1b172"
     sha256 cellar: :any, arm64_sequoia:     "1499410c829a5312dd38682273c2778295491d91432d4b7eb6cb6e52250c35f4"
