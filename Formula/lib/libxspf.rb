@@ -6,6 +6,7 @@ class Libxspf < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "2657aa37138db4d8f370ecb77caa4ab9169c021df2a27b1d05b51b8f6359d7cd"
     sha256 cellar: :any,                 arm64_golden_gate: "ee76be5876b868345b951d90f8a0583ca0d469be29c34193aa8a5eeb7438b6d9"
     sha256 cellar: :any,                 arm64_tahoe:       "211b569e374951a2f546836312639bf1aa937ecbf4426147663d57e4fded5f2b"
     sha256 cellar: :any,                 arm64_sequoia:     "f89d8d32a4bfb4ceb5254b1bd40d8bbb6ad1363143c1897a4ad945664b39b70d"
