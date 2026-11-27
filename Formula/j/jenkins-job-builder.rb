@@ -10,6 +10,7 @@ class JenkinsJobBuilder < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b118da423d58c4a8356f592f3fdbc93d49ac773f31648b82ff1380dd1ec70780"
     sha256 cellar: :any, arm64_golden_gate: "e60a6850e0b1e690498ed333fd5912ef464d97f0b0e8729d9b67ee7dccea74bf"
     sha256 cellar: :any, arm64_tahoe:       "5252ba6e9cfdeaef90e93bb0353e73ed942db04e3fc43b78443dae2d6944af94"
     sha256 cellar: :any, arm64_sequoia:     "c52170a844f943798a345c47be9b2d87f0d1d737043286bb2b689194748bde2c"
