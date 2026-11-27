@@ -6,6 +6,7 @@ class Spin < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "ec7c36d615716bc568aad4db173c2cdfbd1bcb90f90515f7b0d2d94aed65e5f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24f65833f9f2c5db29e3714fd10a067e0bb584d16c355ea0b2eb9da438499735"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64d6db348e89f72bd9104ea58648f9de630ebbe1f97dbbba7bde5f72d127639b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8eae14c8c6dce13b7a40a21f94b481c5f0a589aacc993e21433ed498c6e44165"
