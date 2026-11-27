@@ -6,6 +6,7 @@ class Snooze < Formula
   license :public_domain
 
   bottle do
+    manifest_sha256 "e86593e45742b3f017ba470bb5729e436908341ca620817a058e4b27e62e1f67"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "498c3bdf1b7837b4d92cb917570ebc91c94bc852a0eb70b21ef3118e137c773e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9cc6fe5e9304a054fb6cc06959c1e47141beadcd6d96de1c4be184d58d8e1006"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e18fcc8bc2fe5e5044ae0b487d0777e511a45c9d99e3db62a944e37f6d1d500"
