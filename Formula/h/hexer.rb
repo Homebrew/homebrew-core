@@ -11,6 +11,7 @@ class Hexer < Formula
   end
 
   bottle do
+    manifest_sha256 "d9f0c35fb51987894c50e42f634561400edd140e63719fee85a357fc1474f39b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9a1674199e4520e87b9f97cda962e1cd7f33cf1a913f5c1b457aeb9ad9e67c20"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eef99329e5443ebc3f24cfdcd2c8c725ab015a620af9f1a4530f72afa3029e77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "47f91b873bcf76427fcdd9af9eec5508807e028b0cca27334600132f00e6d994"
