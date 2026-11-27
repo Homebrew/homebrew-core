@@ -7,6 +7,7 @@ class Inadyn < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7fedecf817178e8b9405190ae1fb709829d60ac953fb125fe3713230d4bda16c"
     sha256               arm64_golden_gate: "10ea4282e661e70d7f384eedfe03e3d3fcd4c06b159ced85817a13c7884b03a8"
     sha256               arm64_tahoe:       "c040b6d60834b73295049a0124ebf15ce755a386899c84c21cfc57aa54bff950"
     sha256               arm64_sequoia:     "bc4129b27abce3362303430d69264aef4466b39b5e63529a535e6a2eccd3c09a"
