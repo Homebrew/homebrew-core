@@ -9,6 +9,7 @@ class KeepkeyAgent < Formula
   revision 12
 
   bottle do
+    manifest_sha256 "c0e24a7a7bd748234237d1be6e8bfed1e1b5e51ab78a2db9f80501049a9c23bf"
     sha256 cellar: :any,                 arm64_tahoe:   "fdd59c754ad9e0063c122f6e6ea4e8dad84c3e4362c3c5f9507e00f29f64fd84"
     sha256 cellar: :any,                 arm64_sequoia: "5ab68acc0a8e5bc800b7a5244562c63b4eaa3358981061910206d5a09a31268d"
     sha256 cellar: :any,                 arm64_sonoma:  "004d1fa2188d2a662375452fb8ddf499deb8bc3d0c66c7cf3a5fe24f973055c0"
