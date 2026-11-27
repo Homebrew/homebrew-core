@@ -7,6 +7,7 @@ class Senpai < Formula
   head "https://git.sr.ht/~delthas/senpai", branch: "master"
 
   bottle do
+    manifest_sha256 "99015c792c505c37bc908a7e64d25658d5e518d7ffa60ff9569436e6933e16fa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a8f9851f87c29cd6ce64c0907f98df075e51ed3b75a554e484bdc97c354142a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5724cc8895caf1ae2551df3008691d90aebe3b2ea8101008116a0e93dd314d91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6dd4c3925c12a40411fec2abf6eb9f7287fc8fdf941d2bb20bce3153b5926220"
