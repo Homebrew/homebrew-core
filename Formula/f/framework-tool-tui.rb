@@ -7,6 +7,7 @@ class FrameworkToolTui < Formula
   head "https://github.com/grouzen/framework-tool-tui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "29820422116a30ddeac192b9d081a3354dca71516496689892bb9d40a5fcffcd"
     sha256 cellar: :any, x86_64_linux: "30246b68b4fc8d00bbdff5341b94d8c0ba0f0c679f326cc32e636c3a1567f063"
   end
 
