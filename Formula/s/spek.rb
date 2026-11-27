@@ -7,6 +7,7 @@ class Spek < Formula
   revision 9
 
   bottle do
+    manifest_sha256 "120d481976382d35b873ea4685fb98c0f7e723bfbf0efe386de31ccf12e1ef6f"
     sha256 cellar: :any, arm64_golden_gate: "3f0e7cded5b4704e46bce1108c65461c76e97766824a46dfc7beb70330eed901"
     sha256 cellar: :any, arm64_tahoe:       "e3ae8fbdcf8f3717b1af580d81fe0c36ddb6580fccdeed44bf4eabd3eee2ac2a"
     sha256 cellar: :any, arm64_sequoia:     "012a25c9e3020c610fb9dcc7484ea5abb3cb98dc8d7b9b11b44bbb42ff20b508"
