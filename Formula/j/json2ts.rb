@@ -6,6 +6,7 @@ class Json2ts < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "cfce44522b04074975b0d83c76452276ec5087cad7084e2f53dd6d9162a7818e"
     sha256 cellar: :any_skip_relocation, all: "9c3d9f365b392bf039933f8e9f80b1fdae584db47e2ae6e5c17604ed25353cdc"
   end
 
