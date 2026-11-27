@@ -7,6 +7,7 @@ class Rsyncy < Formula
   head "https://github.com/laktak/rsyncy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5ffb49b706193b76e4e63418851a0f3aab4b8160bbfee0524203b956f32c2447"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52227e065ba345b433f620321cf08eac712fe87e219f31efc8f43b7d87fb2d9b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5d8b127e5b3edd289cb7946ae036f00bd7b4d55c01288ce62bb5e3d2ed0bd810"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5d8b127e5b3edd289cb7946ae036f00bd7b4d55c01288ce62bb5e3d2ed0bd810"
