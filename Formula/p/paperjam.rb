@@ -11,6 +11,7 @@ class Paperjam < Formula
   end
 
   bottle do
+    manifest_sha256 "6d3db21f90caf9b0709d441b9b865bf62a387247f1ac5a677be26f5b442352b5"
     sha256 cellar: :any,                 arm64_golden_gate: "b81c8e9f09269773ca7fb85eec1ba6e69387c4975a350ab51d4f161a1e299276"
     sha256 cellar: :any,                 arm64_tahoe:       "09f4e84aa79cc854def0e6175e28b4309108b31a1ba33e98546ae43f347d9412"
     sha256 cellar: :any,                 arm64_sequoia:     "a7c254e007515ca0b2ba42063d766f12d5bc8521ce50b2019f71f7bf76920944"
