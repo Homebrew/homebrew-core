@@ -11,6 +11,7 @@ class GitSvn < Formula
   end
 
   bottle do
+    manifest_sha256 "57ee550706997e20b528dbcfeefe18f318e961200d4922ae56358c3eafe75a69"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37d38d1e01735601b6e5e0b2598ce64c54fed4193959e4c621ff9ed9213c3bc2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37d38d1e01735601b6e5e0b2598ce64c54fed4193959e4c621ff9ed9213c3bc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37d38d1e01735601b6e5e0b2598ce64c54fed4193959e4c621ff9ed9213c3bc2"
