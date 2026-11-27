@@ -11,6 +11,7 @@ class Nng < Formula
   end
 
   bottle do
+    manifest_sha256 "aabd473d0d58a648071692227b60155a005f9826e37bd1521401fcab215a31ce"
     sha256 cellar: :any, arm64_golden_gate: "ec1bef381a4d61836c1e3fa2d401d366ebe7adeecd7ae4c7a5bbe73a5943a972"
     sha256 cellar: :any, arm64_tahoe:       "bd6a1d41d16373cd33011f3e08f8d665670b9bead1edd2aa3045ae345950fab4"
     sha256 cellar: :any, arm64_sequoia:     "848aff0b27a0e33493e3df97158366dddb89d0387f783e90a9b1a66aba19c6ce"
