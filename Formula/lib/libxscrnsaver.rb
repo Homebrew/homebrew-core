@@ -7,6 +7,7 @@ class Libxscrnsaver < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4fb7a636d3abeab75dc5ae89981d9e226498728816197a95461d2f3dd1796778"
     sha256 cellar: :any,                 arm64_golden_gate: "f95fd53831c3fca39f3a8290b9fd46c4e2f166fd537b306b8201749c57f0290d"
     sha256 cellar: :any,                 arm64_tahoe:       "6097790285805d792860cbcf0bb663c76b58d51a57d505346b179e52e2f7ce7c"
     sha256 cellar: :any,                 arm64_sequoia:     "464b8c95cf2d758476e47dc6f774c6504b84b0265cd458d8fd33619f1386721c"
