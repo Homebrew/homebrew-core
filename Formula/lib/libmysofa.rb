@@ -7,6 +7,7 @@ class Libmysofa < Formula
   head "https://github.com/hoene/libmysofa.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1679a4f90ae1e184f5803614ed855661a2f6e0a1af2916e39352a87381b2ae3d"
     sha256 arm64_golden_gate: "ad9251af48791d4cf8e1de51fb593ec2815ecbf511389efe3a4ce13329817eaf"
     sha256 arm64_tahoe:       "156aa6e7929414beec0649e6884e86d8d736ded3ed3b354e1ec49955a2a5e715"
     sha256 arm64_sequoia:     "0dee5e7c17334fb428c02360a2a79c04ef8d1ae69309bda97db4349a1c7729ff"
