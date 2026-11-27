@@ -8,6 +8,7 @@ class Nlopt < Formula
   head "https://github.com/stevengj/nlopt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3cc1ee32c7480d054fe47acf82d0c99b774bd970713b54fb9b5264db6fb235b3"
     sha256 cellar: :any, arm64_golden_gate: "1cb50a2751d8ec763f499a2e842dbb3dd9466d2476df4bee347c5a0b2563412d"
     sha256 cellar: :any, arm64_tahoe:       "40617e9ce8f9f757ec76fcd4db8d2340bd82cf1778d05eadfec77a350b7d010a"
     sha256 cellar: :any, arm64_sequoia:     "e7fb15da5e5f7c6c775912dd6d1f61717eb32b0f6e82a3a7767e5916e21bec96"
