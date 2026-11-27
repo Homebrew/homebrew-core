@@ -8,6 +8,7 @@ class Md4c < Formula
   head "https://github.com/mity/md4c.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5fed7724549f0b9234d8012bf7ec9b344e316f15b0d339dcfa0cf7ca068816ec"
     sha256 cellar: :any, arm64_golden_gate: "39d01500e866f6e934898a804827632f1ad6ed19a3cb077ce1ebfbbd3c277779"
     sha256 cellar: :any, arm64_tahoe:       "e332bdecfcbea2fdf20eb00fd1fcc973970aad2765c2a239b4e1a85617df9291"
     sha256 cellar: :any, arm64_sequoia:     "480a50456cf91e1ed3d04f1ef33e617f0febbc472f26880ae1bc6c903c3f535d"
