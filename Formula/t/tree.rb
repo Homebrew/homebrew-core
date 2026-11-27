@@ -7,6 +7,7 @@ class Tree < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cee62fd18164d7c6120f8fdebfa8c6dced5c9c248343baab1d0baf5010264251"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4315cb4d8e57c6128bd214e206bce3cdebe241ef6eeacae49514d5180664752"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1967d2ed08717f963addb249ea6b8ca11c26ecb59efba34f2860853a06bedc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef367d0a5e74970e2f5042479fe4000a8b324ac075520c66f8457f1cb06ca668"
