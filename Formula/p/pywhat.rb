@@ -11,6 +11,7 @@ class Pywhat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d28b8dda10ca5ea81b6e891a7a20451917e9ca14b598038eb4b323a91d5d7e86"
     sha256 cellar: :any_skip_relocation, all: "d914826d81e8d76b49582e4519ac3b3f0ec195e01e5540c971a35da35d9cb3ff"
   end
 
