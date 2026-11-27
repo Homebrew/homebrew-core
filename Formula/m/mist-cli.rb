@@ -7,6 +7,7 @@ class MistCli < Formula
   head "https://github.com/ninxsoft/mist-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6fe6b274bae2d18259a23bc2aae828ff8e5c2d7b1d76f91c1e3263cf776f1d71"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a1358e92a53576aecc7ebd2e290f2e8650298b894bbf0f14a4270590861996b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70dcd85adb91b5d8dbf27bd478165394d1011257931c87a40fb338034cf8752d"
     sha256 cellar: :any,                 arm64_sequoia:     "be066e457d7d97b51e8c9d3371655df27f04517eb7cb941f41029e68a270f2de"
