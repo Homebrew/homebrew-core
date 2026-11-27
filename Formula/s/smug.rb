@@ -6,6 +6,7 @@ class Smug < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0943ea370481db53d82212e69d2a0c97650d31f241083cbfae7a094ce2c124c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "28eb73930eb39cb973ba4d48f274142038da4c82e9b2016a0a53a5b4c188ef11"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f3108a8d3d4075c91b1e289ac91842eb371e06aca98866d7a40c7a9dfddf3f68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f3108a8d3d4075c91b1e289ac91842eb371e06aca98866d7a40c7a9dfddf3f68"
