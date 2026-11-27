@@ -9,6 +9,7 @@ class Regipy < Formula
   head "https://github.com/mkorman90/regipy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cdb948bedea4434b013a68a8b8d8235fa860ed7d2723589641210f7c942d90ca"
     sha256 cellar: :any_skip_relocation, all: "57738fe53628ee77b5565594c9df115561c6f23818ca5e0f1782183d529fc423"
   end
 
