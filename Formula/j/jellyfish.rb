@@ -6,6 +6,7 @@ class Jellyfish < Formula
   license any_of: ["BSD-3-Clause", "GPL-3.0-or-later"]
 
   bottle do
+    manifest_sha256 "a6d9bcb948645ac0333658772def3f506166326f243a95da09d44b9898aec59c"
     sha256 cellar: :any,                 arm64_golden_gate: "0fce3a4c4c253ece16a245dfee113c8798ae82d300371a6146c0d99bf18629f1"
     sha256 cellar: :any,                 arm64_tahoe:       "7fcaa4101e6f6b41b3223d25c59adb132e856ea2f3068fa18acfcf1ea837092e"
     sha256 cellar: :any,                 arm64_sequoia:     "5e944e1abeae0a321ff68872f400954fb3ba458043a0a2234e993168ecca40c7"
