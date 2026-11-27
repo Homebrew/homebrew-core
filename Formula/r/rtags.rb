@@ -17,6 +17,7 @@ class Rtags < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b00d63c58220da574202fb4136479440529ada372c3a784cb65681fd33d5f547"
     sha256 cellar: :any, arm64_golden_gate: "5ead3132649c1fbcbb5df3a728669d099a3f791f80f3e2c4f561a1cc7c61f414"
     sha256 cellar: :any, arm64_tahoe:       "79281b4fef009adcb15d0589bda97063eec383f920aaa801ba16cfccd9faa307"
     sha256 cellar: :any, arm64_sequoia:     "cc6effbfe02d7ff1092dc60dcb9083c684729f0f26059e68ae5dfaa0eb7a86b7"
