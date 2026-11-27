@@ -6,6 +6,7 @@ class Macchina < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b20f13f6a8b8ff90e8fda628f3f7d248b102fb5e80461ac958f85a07fa6b69c5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff3941fdd430a83f748b69659e36d4064624b88a08841a2d0ff3cde58383fa10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7b34599b2e3d2973b88aeb0f9a84f168419455377c74dd295e0101ddcea9934"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ced4610d20e2d1279ae391a02ef966e22984dc0bf615b6341b9672a45d2d0f0"
