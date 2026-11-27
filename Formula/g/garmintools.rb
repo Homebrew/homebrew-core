@@ -6,6 +6,7 @@ class Garmintools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "c809835250947f9ca5ba99e8e2610ebbabfc20d8e91cba912178975289751081"
     sha256 cellar: :any,                 arm64_golden_gate: "1bb56636bc4dd8d8242fd246c6f068d9eb39b56e1f56290002d3532d3f6344fe"
     sha256 cellar: :any,                 arm64_tahoe:       "47a336083bb5161af82770d5c472d2ce4f358914bce8e2263458e5a757d45433"
     sha256 cellar: :any,                 arm64_sequoia:     "20a6201dcffaf971164afa65223ba7eb6ef53dca3c1a092e303dda0654f109d8"
