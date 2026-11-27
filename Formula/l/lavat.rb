@@ -7,6 +7,7 @@ class Lavat < Formula
   head "https://github.com/AngelJumbo/lavat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3de4922ee09c1f3aa4b438628bec4f85dbfd09f2effb5269134b2aef97d1252f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "041063444e277e8d4c11fb51e3e9f9b1aa47fea6e9378a826bc2f4a58defc0d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f31fad68503809cf54692f4d288ce719cf7ed40072dbf82c4890122ad1b87674"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6755e230f40d6f712d4a1a73304058c8002e776b39a67c87042a3578d604d1d"
