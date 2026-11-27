@@ -13,6 +13,7 @@ class Libks < Formula
   head "https://github.com/signalwire/libks.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f9969f6cd38b747c2a90596cd15795069393b85fe120e8c32b20141b613784c5"
     sha256 cellar: :any, arm64_golden_gate: "e6ec7fe5f3b2dadc28ce2a8a50046bc44b9b374dc2761e9381a85aaec2d17a19"
     sha256 cellar: :any, arm64_tahoe:       "d1c025f775f354fec28248f5914c60314aff5386fb5d17b0be33e76f6778f42a"
     sha256 cellar: :any, arm64_sequoia:     "ef945160828fb68f5f5f8ac60a7980d04ef94df56293d99521e8af01ff78b781"
