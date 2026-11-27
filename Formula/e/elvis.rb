@@ -12,6 +12,7 @@ class Elvis < Formula
   end
 
   bottle do
+    manifest_sha256 "983d8df4f55c6296883994f6a3f4128c1465621fa049ec5282ea1c6211cacc32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3873ba93be197fff38c4bbe6b2b19d3415e2f461981d80799594465b18e960ba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7944f413096aaee873497e06a63b29efcc90d2a6a58d6a4e38cb26cb48bfa52f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "983206b5588ed463a0d0fcc6b30a65697fb61639ce1d920cf0a8cdaa0eee1a3b"
