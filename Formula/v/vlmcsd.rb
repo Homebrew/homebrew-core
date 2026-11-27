@@ -9,6 +9,7 @@ class Vlmcsd < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3a75858b571e641c48c45b631db5890e9fa252b2c36de3bd3e5460b302e055df"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "47d7c9405f1932a71b0554b886d164d79639cf0a1d130a7fb94ea99b0d3a8403"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "42bed0ef59c540a54cc77bf71002b8229414ed077be0bceecd568fe37b33a4be"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "0ea7a29e62f3886e4c495c373cf3976109b0e08010d1c28ace15f9bfc426238f"
