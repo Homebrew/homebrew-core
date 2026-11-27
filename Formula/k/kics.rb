@@ -12,6 +12,7 @@ class Kics < Formula
   end
 
   bottle do
+    manifest_sha256 "906299ff9607440db4ff166d06e309a71144bc31634a7d85fcc6b3ea49a09a85"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "72ac0272cb75f9d41efebf788e4669e9eefa96dbd558115ccbf0e88aba47d63c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e297e7433bfc7884d47d2bb846cdfc2b9f5c5d819b72f44a20d7890dc4984bd3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5eb9df859657c878011e0a27239dd704878a5fe9902275c092c86c39001043d"
