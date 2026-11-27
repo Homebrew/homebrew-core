@@ -8,6 +8,7 @@ class SqlLanguageServer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a1c115db5e3aa2ef00d092cf50c9f5870c98c4fe801366d9e79dd9fda3e7eded"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90f006d732780a385cdebbdf4c195f5e66a35f43c976552a95ee8a5f155ccbbf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90f006d732780a385cdebbdf4c195f5e66a35f43c976552a95ee8a5f155ccbbf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90f006d732780a385cdebbdf4c195f5e66a35f43c976552a95ee8a5f155ccbbf"
