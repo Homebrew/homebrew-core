@@ -7,6 +7,7 @@ class Nerdlog < Formula
   head "https://github.com/dimonomid/nerdlog.git", branch: "master"
 
   bottle do
+    manifest_sha256 "073e9b88df83c65e5c5c8c6ab7443f759150837b815097569c8ee966f53658dc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e46592ebf350e71c095d6729b9b4555111b2a0de3f28ad759b827f2a032bf42"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d393e16cd4cb1866f10f8c7fc1e27570ceb2bd2943f865ce028156ce6fce382a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f396956887e95e33092cc96cf05ed34abd296cf99247cd3d1560fbfce2f16306"
