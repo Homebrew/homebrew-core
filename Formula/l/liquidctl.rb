@@ -10,6 +10,7 @@ class Liquidctl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d2fe1367d01eea393d2e4f50c0069f83b9d5c7fb8a8c550b2e9ad6634aa866fd"
     sha256 cellar: :any, arm64_golden_gate: "7886085d15016961c2a157ed503a6818cfdff205c39d472df15506d625d8393b"
     sha256 cellar: :any, arm64_tahoe:       "5067c0a254a0c32fcca6eb8cdbc84b2eacb56d8e1ed16df61e781358bc70e46a"
     sha256 cellar: :any, arm64_sequoia:     "1cde528af75a5f2bd0395638d2e089eb55843b92d9f2ce4fde74885d92f76388"
