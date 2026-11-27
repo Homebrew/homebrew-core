@@ -11,6 +11,7 @@ class EmsFlasher < Formula
   end
 
   bottle do
+    manifest_sha256 "b0a21d688d701b53bf0341fa1871c3611029aa24a2435a33e0cdb2559e0e5ea6"
     sha256 cellar: :any,                 arm64_golden_gate: "276eaf2872014490feb3b95b4d43ec41d45760f9c4dba704b1af2a149a832437"
     sha256 cellar: :any,                 arm64_tahoe:       "a7f24072022ccf384517e60b21fe3d5c4f32290601710f0149362eb6bf9b9723"
     sha256 cellar: :any,                 arm64_sequoia:     "3234b5a7a065c25076109874fb9f7f4c4a43b87f758320145eed22b186be84d3"
