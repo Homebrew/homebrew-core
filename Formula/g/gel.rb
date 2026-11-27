@@ -9,6 +9,7 @@ class Gel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7e995dc2d0ee223f32114d2e2aba3922532627f2b291f4660f4395d873c5a216"
     sha256 cellar: :any_skip_relocation, all: "898572d813d48ead8bc112c19eab9964c5ba560062fe57e40f138840a35ee5da"
   end
 
