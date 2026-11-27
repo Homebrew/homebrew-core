@@ -8,6 +8,7 @@ class HasteClient < Formula
   head "https://github.com/toptal/haste-client.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a08f1beabbe0a6eac5f833ef23cf816647a568a528d835863fce4d55afbfeb07"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "896ee31e42cbb6469b782f0501ff16cad0e536d9e50fcc4f603c15af19c9397a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "e6968438749dec734a5a5ab8c4dac48fd5eee5b2c8adfe6ec8908d17c72788c1"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e6968438749dec734a5a5ab8c4dac48fd5eee5b2c8adfe6ec8908d17c72788c1"
