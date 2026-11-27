@@ -3,18 +3,14 @@ class Watson < Formula
 
   desc "Command-line tool to track (your) time"
   homepage "https://jmaupetit.github.io/Watson/"
-  url "https://files.pythonhosted.org/packages/c3/fa/0c0a8de3e625fbbeb95cf5623b4664b41a1ae2ddbd3cf56482ad8f7a796e/td_watson-3.0.1.tar.gz"
-  sha256 "bfe3f9f70e62f05b9bafd4e313656b208495992c03b8f890795ef74df5b161c4"
+  url "https://files.pythonhosted.org/packages/3c/9d/ee000759bbae76813c15b794b7b07db61cc86a062e1b5777201b2fb64d17/td_watson-3.0.2.tar.gz"
+  sha256 "7c9bb12ce21fc4a13c4fcdb7c00f118033d5371dc0d0cdfee4001f09adc47fe2"
   license "MIT"
   head "https://github.com/jmaupetit/Watson.git", branch: "main"
 
   bottle do
-    manifest_sha256 "2f8c907fb2af8c41eee3df3ee199db5485447aaac3a3e507449a03a25ebd36d5"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "e942d8a70cf0eef64901a6e8913b3ced16d01815d52a5d3309229158a40e8691"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f4d267b5327be49d5ba0812d92f97a7f99aa61e609ed8a193405c53b8493e7c5"
+    manifest_sha256 "85e3471db9939e8e8a5b5616d62f780242ebf187d36ac19ff4fbd969d2f0fa6d"
+    sha256 cellar: :any_skip_relocation, all: "0d9a648ae24599207f1c59c7320572714e793a49ea2d33c4b912d6886afa5671"
   end
 
   depends_on "certifi" => :no_linkage
