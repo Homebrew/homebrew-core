@@ -10,6 +10,7 @@ class Netaddr < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "28079d1a3169f91691f15817304a65190ab0bd01cfb963b9746f04ccd9f32cbe"
     sha256 cellar: :any_skip_relocation, all: "acba9aa564cf46a13bd5fa82a51e00991ac1891a986a52ab4ee3d48a53cd910f"
   end
 
