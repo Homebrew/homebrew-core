@@ -7,6 +7,7 @@ class Dnswire < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d617b7d8534135dcbe554c78bc9fd1cc5fe3d0e286b216eb9ec1817a191d441a"
     sha256 cellar: :any, arm64_golden_gate: "af08e098cecfb092e02ee3691645f92ec7722c36d212cce26247694e26b2a118"
     sha256 cellar: :any, arm64_tahoe:       "df58fe562d38ba6f322fc544785067297c906e36d16e1fd4f6c88247ed2325e2"
     sha256 cellar: :any, arm64_sequoia:     "88561139efd02ecb260684607567214d0520c0149addfd311f3a14038981ca74"
