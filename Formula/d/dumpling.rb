@@ -12,12 +12,12 @@ class Dumpling < Formula
   end
 
   bottle do
-    manifest_sha256 "1193f8142f92c9b5f1956e2a6abd69810466634fe7b0a8e70adf28eaecc6b66f"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebf6285a1a38d4af0037dddcf13c44a4c5fee01464b8663c27efe51602a3134e"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "390832eeece24927efc144623dc33c082ba7d4407c716bf12b8aff25e9a036da"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9c1384d10b0dfd1399d662c04869793e3b5167c733a71766436cd2008ee8794e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "2cdf06b6c5ff0dabe9796f312524bb9be9b10ec54deed4043905500f23324b19"
-    sha256 cellar: :any,                 x86_64_linux:      "c58722915f6147e4ec190dcc1bfb23aa6a45e6ba9e7aaabb2d453ca18923eb7e"
+    manifest_sha256 "a916ec6a71d9bceb00f0270b13598546aa623e4e265722a2468cc68e674395e0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1192341f57991527038da41e002231f4456d45760b0a7ceaa8242927f50928e4"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8db08bf7f77ccb766d9134d3ce786f7e7422f39f4fb5edbb49f0eaa8fe5e3dfd"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98737a757099191ac00396ee70db9e9aa73e41f2ae050d4951f8b6ace8b7f105"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "681a1df6935868ceb89a60bc0317295e5202d3a481fc5bb60a8ceb1ba348651d"
+    sha256 cellar: :any,                 x86_64_linux:      "2972b38e0d11139eeef1fb71bf38cde26e24ba2b90bfa9e748f528485d9aaaa3"
   end
 
   # TODO: unpin go@1.26 when dumpling supports go 1.27
