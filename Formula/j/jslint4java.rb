@@ -7,6 +7,7 @@ class Jslint4java < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d29030f97bc17efb1b8266cbed8863ff6891e9577ae84a3e0927c67d436eabc6"
     sha256 cellar: :any_skip_relocation, all: "96eda9ffe32e9dae5f01ef6dbad6c26ae7deeff1ad79163c18c0331819d44e46"
   end
 
