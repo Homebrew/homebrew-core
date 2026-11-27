@@ -15,6 +15,7 @@ class RuffLsp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bfc7b02987470ebe49c77500d01e38b6a6893e2faeb78c647757aebe598a7196"
     sha256 cellar: :any_skip_relocation, all: "c88a2f5b966aadd8114418e1e38eac7504373c4d7bddc3ecfd37944fa7976e85"
   end
 
