@@ -7,6 +7,7 @@ class Gdl < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "c4d0601cc4c6c6c8738fcb709e46bac2386dbc1f511902b0413697e64ef23318"
     sha256                               arm64_tahoe:   "d3c6f207816d35acd3038740b15ec3147330ebe7d50090878d003def62673900"
     sha256                               arm64_sequoia: "926e80bc2182e0bdb36a4ca054d212955ad221c792cf7b17a15f75315a802046"
     sha256                               arm64_sonoma:  "cfe7f704c7686a258efdad7a4b4406f47dc6e807f55b658fb16dd84ee227c920"
