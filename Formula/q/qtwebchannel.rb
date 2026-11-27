@@ -17,6 +17,7 @@ class Qtwebchannel < Formula
   end
 
   bottle do
+    manifest_sha256 "e0715fd5790e40ce1e70b5ca941021f6af6a7002984ef6f48d8eb5d8bf657ffe"
     sha256 cellar: :any, arm64_golden_gate: "e7af1c2aaf09f7fc1b52e55b444a5aed7b8b4b1fd79e50c4c97e57a5d7fef7f0"
     sha256 cellar: :any, arm64_tahoe:       "f75b51565c3eac0e9e0df5bc2a2d1102e81f621a3515390cef1ebf9523eccdac"
     sha256 cellar: :any, arm64_sequoia:     "233df8c01d68225e0c2c7944a0a2440b9de83c85f7cb784a9d99b0c3ba75bb76"
