@@ -21,6 +21,7 @@ class Gcr < Formula
   end
 
   bottle do
+    manifest_sha256 "9b364e199cdd7160ce002144e61c490f9c9fb9ff3cad472148d2938ae6876556"
     sha256 arm64_golden_gate: "affdc242b6126b78c1b93d6107a4c2db71cc56c752ebf1fec8e9ab1a15d92aca"
     sha256 arm64_tahoe:       "711044b2de080a0874953f5b56d4cdac52023f5950dc6a517b79a524bb57876a"
     sha256 arm64_sequoia:     "8534179cbe65fb82115c099bc9ecd9a28ca4b476c17e0bb8cf94fc2d2bd84542"
