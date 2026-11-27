@@ -7,6 +7,7 @@ class Nrm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f510fe624fdada17636e79cdc7471ddb314fbda005a7dfb6efc83c91c7b012a4"
     sha256 cellar: :any_skip_relocation, all: "fe1e778553efe4a3562c5a800617a7c112c075961c42f1d7b0cd84f7884c5aa7"
   end
 
