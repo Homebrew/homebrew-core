@@ -6,6 +6,7 @@ class Lzsa < Formula
   license all_of: ["Zlib", "CC0-1.0"]
 
   bottle do
+    manifest_sha256 "1b09609b8e29e4c351a08d313cf67bf11f8d0ddd9e506c03872e81b5af865859"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cd92a2a2d9bc3902db245afe27f16349435858a9713f773c7c9db9c77f38a6cb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c4f00c8b228bba2a577616661e13d5d710dea4afd8f5149fe9382b8040b09c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7eaaf3697f803f186818868d7559275d20ea9ec91226108fe89ef69473956bc"
