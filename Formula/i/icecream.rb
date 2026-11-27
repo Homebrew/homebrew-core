@@ -7,6 +7,7 @@ class Icecream < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "df33c3dde343cc1c0067bcbf5e4fb8eb58bcc4825b622bea60f051240f63a8ab"
     sha256 arm64_golden_gate: "2f765b64494fb9733f369d30a457deb0c55017ccad9d50de16e5ee15a9c88d3a"
     sha256 arm64_tahoe:       "13a9005297bac5939d73c7cb06837620691588609ff902db613ed9bbb12cd139"
     sha256 arm64_sequoia:     "3e72ef8ca299726695641f68412f9071e3840671808710ae1d4fc09b120d73e8"
