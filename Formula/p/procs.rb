@@ -6,6 +6,7 @@ class Procs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9122cf7abfa2cd062c7566e9258772f2d12cf11c2f6dd6f0009cbba20484279b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94005b27e8ae00fac9a54cc43b62b4a715642ccb3ce5076f85ebe3c0a67a6873"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23592dd3bdaa57279f198e356c8f02c8457ba81342413337aab402c48c1374e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46cfcda6903e01432bbe6d15ad82f315564f786c1831653d66705a0d122ad1fd"
