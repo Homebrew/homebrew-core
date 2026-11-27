@@ -6,6 +6,7 @@ class Iat < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "f618b1fd3f28e662515ffcee588e1591238ddf18a64027ff5af17539c9d1c17f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80313c0c2d18f61fd738c6521113c51636ac617a17f73b4d71d3197bb0df722b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b7a2e6c46ce91c6a4eed38ff68cf506e7d37520266d57c222edb4ec5947b233"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6bc109730274136edd66490ce1029a7e48d083a418924684adbd72154a1ea84"
