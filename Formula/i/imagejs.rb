@@ -13,6 +13,7 @@ class Imagejs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3a0ec745cb851860a120da78e9c1ee724f253fd007245a41bfb0f0190b9a5306"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48d146da47f0695f19c373900dc63ce5e37e3eb66a2065c834774f339e0b7425"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8300352570ea600d8dc4c6d8de40b4aa30a182db569bd3a2bb213b3d4ae92193"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e63b962d504ec008aa03bbbc391604e5ade5d25d0316d1b040cc053a56b2821f"
