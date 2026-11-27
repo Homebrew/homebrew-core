@@ -10,6 +10,7 @@ class Khal < Formula
   head "https://github.com/pimutils/khal.git", branch: "master"
 
   bottle do
+    manifest_sha256 "af38379ca76fa5177e4eb892b5483f395439a305af0fa1eee9717572a2ff59e7"
     sha256 cellar: :any_skip_relocation, all: "d665aa09a138a7c41253d9a419e0a443cc87b78a2932c4da8c9e6117fa6c474c"
   end
 
