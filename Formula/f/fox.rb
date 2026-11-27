@@ -17,6 +17,7 @@ class Fox < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e7094bb029312e318fc4fede2e071b83c0892c3f8931d2f969f5324924221fd9"
     sha256 cellar: :any,                 arm64_golden_gate: "fa36048d6f26bb0e3e1578336a0c0bc5e426e14a480180b7309278c52928e793"
     sha256 cellar: :any,                 arm64_tahoe:       "91240fb02b90a3c3efdaa73e6deca2662ec50404014dd405762adcaf17db7ec9"
     sha256 cellar: :any,                 arm64_sequoia:     "36e79082d471128dac96dc31fcff7fff98a4b8a0656872cd130c0fb24e8b2597"
