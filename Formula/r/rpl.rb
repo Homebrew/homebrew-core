@@ -6,6 +6,7 @@ class Rpl < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "838be531c47338c3b5c315b33945aa604774358ce91fe06bc3409ec08662bcdb"
     sha256 cellar: :any, arm64_golden_gate: "698786e815561b07c7cb3f2af12b7fd255fdc78f4ed7860b7e52b8b8e8d02b44"
     sha256 cellar: :any, arm64_tahoe:       "78f96d5d14af1194b4bfdc24d06d03698a8c94952d0c5bd2900d3522fc9d80a2"
     sha256 cellar: :any, arm64_sequoia:     "6ac0ebd923df28be08cbd2278b91979f8118c01ab8b0d34446cdd8cdab6092b6"
