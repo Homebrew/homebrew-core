@@ -7,6 +7,7 @@ class Minder < Formula
   head "https://github.com/mindersec/minder.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c2fd79817ab0b3e3f42d228a7cab02bfb6ecee71e0e97fd2707736ef6be24958"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "466b676ccb76f453e918338d36e88cc09d9240e7754f9b9f3cd72bc914e7f509"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "466b676ccb76f453e918338d36e88cc09d9240e7754f9b9f3cd72bc914e7f509"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "466b676ccb76f453e918338d36e88cc09d9240e7754f9b9f3cd72bc914e7f509"
