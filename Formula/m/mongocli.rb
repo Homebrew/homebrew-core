@@ -12,6 +12,7 @@ class Mongocli < Formula
   end
 
   bottle do
+    manifest_sha256 "d13e996773ef43afbd23f3e3ff4ed04543c62bcea5e654c1f6603d63218e2e81"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f76297d43b338a2d0b0c9059bc8a53fd288ca0eeb774b773ccdc986ad079e47"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c47ae288da55c74d4a312a98641748265c8fb41e40492195df82e8bf8063d21b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70647bc0d560d4eebb02b354e91041e9c4042188cc43d587a2f447934fed31ee"
