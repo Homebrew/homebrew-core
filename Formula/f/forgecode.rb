@@ -7,6 +7,7 @@ class Forgecode < Formula
   head "https://github.com/tailcallhq/forgecode.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cf7677f501588ddc6d5ce536403907b2b838d76816f34533e079d84822530aed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a0fd4a540cf9b89f0ae43a574f157d795b13828684f81e8342fd6cd92b18cae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb472083d0d6e97b036eec38b7b716a68d36234fc8d5eb39fc8572e639758478"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d774c5768c47a43c9aad19798bcf259ac7d55df06b902a9a359da599e94cedb8"
