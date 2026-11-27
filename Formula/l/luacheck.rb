@@ -20,6 +20,7 @@ class Luacheck < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "00a96a1c4bc9c1e5e98d93ae7684c595d23d525e69d514f7abcfaa0393b5c771"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0c5410e4267e366bbe80e8c4c283b87e9b60943ef8b5df50afa459da4e30120f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47abd7b613466d911acb17b8e58f503620b85ede27555aa5dd7961e98d7d3bdf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1307faab569321d52282f0d80841f030c52f097545489d3e538229a5cc605883"
