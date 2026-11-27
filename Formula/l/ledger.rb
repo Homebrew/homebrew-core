@@ -14,6 +14,7 @@ class Ledger < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c330a210dacff1c4dbce1729f0414e04370241f836c0e5d3bd38330a63aedd9e"
     sha256 cellar: :any, arm64_golden_gate: "f0adc9be4b8bc90b8527fba0106347f5e81ef37ffadbf81f6746cc4d6205c055"
     sha256 cellar: :any, arm64_tahoe:       "cf894e129f3f47955025c8ecf25eec2c77b295ba90dfa4c0ce9ac7a7040c93c3"
     sha256 cellar: :any, arm64_sequoia:     "9437a3112a16f1b19696a7107aba68511b1b415d27f82e65bec7b15f62e56e31"
