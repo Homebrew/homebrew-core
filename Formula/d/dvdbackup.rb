@@ -7,6 +7,7 @@ class Dvdbackup < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "30b1c5531970dd98cac7cf345729c9f9c14abdc256c061aca268ebad261b9261"
     sha256 cellar: :any, arm64_golden_gate: "666ea0389b1b80fea263a88bc4490d001314392642e7eab799c9ebb87a4a7014"
     sha256 cellar: :any, arm64_tahoe:       "208d77cbe6a64a85548098e3fddf37053ad567406e1745b238fa40ca3a33915f"
     sha256 cellar: :any, arm64_sequoia:     "5689e478b50f13da8f0b4c4176281df944c3c8a095344e7f3fd6b2073cb7f937"
