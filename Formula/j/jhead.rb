@@ -6,6 +6,7 @@ class Jhead < Formula
   license :public_domain
 
   bottle do
+    manifest_sha256 "5bd50b5cbeb36b004a584d0b8a13d0e123fe8978b17b11aba7960c2184ae848e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3fb4c986d650a41f207d1f9eea992573a805bfc68f0762e1c170e9fe7cf3ea6c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6695433af5f3468402173a67b2de5d735712c095f4bdbe8701e6b2354b43c38f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "891f4ab79df46ae9c29264f4cedff94944b4864c60db72d0e22ee015a381f3dc"
