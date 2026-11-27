@@ -10,6 +10,7 @@ class Jrtplib < Formula
   end
 
   bottle do
+    manifest_sha256 "ac8fdd7c39ffb79c5ff9c0dec5f02aa1222f71faf470ff6e225a53349d2d86ed"
     sha256 cellar: :any,                 arm64_golden_gate: "b3c0bee495203c5e444e57ab05365587371d1102fdf2e58357c4cec0ab39c690"
     sha256 cellar: :any,                 arm64_tahoe:       "bcb22fe985a65c6e46980fa6837c761e266a0202076688362d846dcc48ff4a55"
     sha256 cellar: :any,                 arm64_sequoia:     "ef88fc08dc41b679c8ccdcaebabab8303f7eb30ccc8cddb2776e4952f335d2f0"
