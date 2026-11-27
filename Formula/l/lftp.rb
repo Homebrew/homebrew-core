@@ -7,6 +7,7 @@ class Lftp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b574903ecdebaeed87737c3d7fc1d52733f0b0cab0b12c33baed7cba4b2d62aa"
     sha256 arm64_golden_gate: "f953d155eba4323d2b51143403e282f99a09441c83bf6d65e829fddbf7105793"
     sha256 arm64_tahoe:       "b0e8fcf3cda8e78a46c407fd402e46eff31059387471799b747523ebcbdd5ecf"
     sha256 arm64_sequoia:     "ccbcd928c1f4ce526e2452d6c347d63a24b45015018756e1de5d4559fdf7a66c"
