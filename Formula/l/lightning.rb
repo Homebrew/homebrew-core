@@ -8,6 +8,7 @@ class Lightning < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "8ae22295c96ee5c5a4d9180771383aa7e433d4813c301843e3d30da450cb5d13"
     sha256 cellar: :any,                 arm64_golden_gate: "ec20822e2aef81b0d3e45aa57869f335888f031b5e9a590b9430230a5a4f040f"
     sha256 cellar: :any,                 arm64_tahoe:       "e7c4c0c882b4401d5ec4866e90d7f67b719af0b8bfcf62a527e4441b7c18399d"
     sha256 cellar: :any,                 arm64_sequoia:     "d1d35078fe7268b6f043717f1e8e855ac36bc227f78bae0ee3db7dac45cfbfb0"
