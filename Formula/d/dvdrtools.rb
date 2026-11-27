@@ -6,6 +6,7 @@ class Dvdrtools < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "a36c75c3fb06667563ff48808b22896f666a3d007c124d902ac4b8922c7383e3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "902fab6857fe0f073478017883e77b67c094e8fc5cb79f32ad963d3c1f15ac5e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9ce7dd044c0b813f15a0a53332e50bd2f4b85fca18f7bb9951796f061abdb24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57b79ee1791a3cbd816e11cbb178cf961f4fc0b5b71324233ea6c68a6c420db1"
