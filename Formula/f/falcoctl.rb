@@ -7,6 +7,7 @@ class Falcoctl < Formula
   head "https://github.com/falcosecurity/falcoctl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ed45cf10081ffea760d05680b7a0956209238718c3b64c7d12283f5c35794890"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0744e56b024fb92e89925d4e10031dbbcd299cc28c253a6d67ca564daf76af69"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ffe85cfee40b9950209a31eea3b744d535553f51207df03186299816921aa21e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7387c8f93b980b48fc7b49792c0a8be9948ac963bc5069f314bd09ea26accb40"
