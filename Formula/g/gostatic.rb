@@ -7,6 +7,7 @@ class Gostatic < Formula
   head "https://github.com/piranha/gostatic.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fe8f20e2ebfe531f88f5de3f57bcab4f6a27e913e026cbbbe97903451fadf9c4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf5f00ccd1774bb14f1252d2563996bd9f4571e9348c9604c9d6c525b5809ce5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f90c04fe4dae3f6edce58241bb7346f784e96f70cfb136a586bfb901e644bfe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8c409dcbf4273866a153de5ca7f84d985eab10b4259c718ef4856206a6a49e50"
