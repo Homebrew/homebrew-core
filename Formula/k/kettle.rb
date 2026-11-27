@@ -7,6 +7,7 @@ class Kettle < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7e2670a7ccdd77fd58c8b65928930941f938cfb25c726ddbf50d41b481b65891"
     sha256 cellar: :any_skip_relocation, all: "2e06b9a8ce68da482615fb8566137223350e711a6d7a48e8e19f27bb3307b0f7"
   end
 
