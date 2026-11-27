@@ -13,6 +13,7 @@ class Ratfor < Formula
   end
 
   bottle do
+    manifest_sha256 "1d24153751718802f70ff84bb9e7864d72b3b1126beee3e179184bf169faf7a9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8746d3d6284a77521972fc122600b407724c4cf4f6c33eee9944b17a2109860e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "033c1daa599d6e77dd8072fd53541f5772114d152a028599bd64cc8212217bf7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aed7f3e144962eab6d49fdae060b421362c76899d45716d8e6099488e853f6ac"
