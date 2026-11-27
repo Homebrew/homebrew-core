@@ -12,6 +12,7 @@ class LibpokerEval < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e4c5cdc9ac96a57cbebe81ebd4275f86ed2cf9897926a592d8a6cc98efe25ee4"
     sha256 cellar: :any,                 arm64_golden_gate: "e2068588801ba7ea5fa72a43e3352b2afac9a30dc68d5a7613f553c4ad6f19ae"
     sha256 cellar: :any,                 arm64_tahoe:       "6f5762c63d4446544cc57abeea2c605b43442f035a34401d50c4d437257f6ad3"
     sha256 cellar: :any,                 arm64_sequoia:     "becb0628bede0bab265c5fdd06c91ae705b1d53be58db78fc2edfdd4b79f1776"
