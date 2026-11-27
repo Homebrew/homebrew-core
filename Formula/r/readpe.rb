@@ -8,6 +8,7 @@ class Readpe < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d241a436692e30fd27826bb69e000f4292ba02ce6b495ae92e83794d7f7a5008"
     sha256 arm64_golden_gate: "2610b60bbe22c0d3e84d9f089d0bb1d3d943c8022705b46565a246e1d60c271f"
     sha256 arm64_tahoe:       "5611f03dabb2f615b6b399a85d937b1772eca7f1ddaeb86f6c9883ad2d1dea03"
     sha256 arm64_sequoia:     "4de2c90e7d61718d3fe23d6214e7746f2aae25d656e2a7fded40dbb7ca1c8aaa"
