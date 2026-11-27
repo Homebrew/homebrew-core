@@ -7,6 +7,7 @@ class Libklvanc < Formula
   head "https://github.com/stoth68000/libklvanc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "864b666e7034aff7a5224c074b0acdd7f034b6556e37c7b26f8f9b5b0a8111c7"
     sha256 cellar: :any, arm64_golden_gate: "2cc30e79117f1f1c8f8ef35a9f2cb265a1b9db783b8bd51f013f4b97620775da"
     sha256 cellar: :any, arm64_tahoe:       "3cee6392d6e38a0d0235669ff6f4ebd668931dc2b8180f3ef47e01faee183969"
     sha256 cellar: :any, arm64_sequoia:     "aa6f71bdb7e4204904e28a87c398b9fedae4f9beea9f507ad7539d61c15e06af"
