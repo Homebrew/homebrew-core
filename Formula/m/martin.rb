@@ -15,6 +15,7 @@ class Martin < Formula
   end
 
   bottle do
+    manifest_sha256 "39c8290472ca6826104009ba955ade6cc079b161858003a21b40aa0a82e23ad6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1799b5a32a4bc064cf36ad982d1804d02cc17db89773a07b706aee6b458c5283"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ce143aad121e6e79eb7906512da140b2f530951895b3a0fe54b489a3158483e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d24d27284df5223493c6e7c51b99a96ccb5c1617034abc0657f8c3df97a1dff2"
