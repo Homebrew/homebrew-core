@@ -7,6 +7,7 @@ class Gama < Formula
   head "https://github.com/termkit/gama.git", branch: "main"
 
   bottle do
+    manifest_sha256 "88ee43031c769fd39d9591f8e4a206fa3cecbb9f649bc3f55f2e12c45dd6511e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bd89506e3e640cbb3f42bbd003f1e767cc19e9e419e26620141e77cdd562eaf4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "733b2137013ca3a99db81a60d928e604309223613e98bdccd86e6c9368a7724f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9078cd53e0763f843729a0ffda3321354a6b664ffb2bed87e372e700cd9faef1"
