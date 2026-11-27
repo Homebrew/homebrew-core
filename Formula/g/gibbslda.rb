@@ -6,6 +6,7 @@ class Gibbslda < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "945b497d8a0612b085144ddc87497d0317e20e4aaabfa589398a8936c35e66b1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed2f8477c9f6796d673d3e292db9cf93f9ca7f45cd3753670212e1122c05db52"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16474e9a022ecbe4d80701a9d8c87952298af65fa230430a84be3e3dd6a1cc60"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b1a77a02b5d60541a94bc2ed69fb92cfc65c18094ec8973fdcec6eef42e7a7d3"
