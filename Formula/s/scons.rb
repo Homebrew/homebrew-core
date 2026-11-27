@@ -10,6 +10,7 @@ class Scons < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d15bc43335f1544889113f02173581031aefcb850c2e93f97d5236d2c1a04322"
     sha256 cellar: :any_skip_relocation, all: "9002a5fbf5eac0ced22cebe209678f1ba8ac8a9b108ae8464f827a9c322e2ca2"
   end
 
