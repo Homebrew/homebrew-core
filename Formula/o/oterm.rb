@@ -9,6 +9,7 @@ class Oterm < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "c4be65439deea78cc8a96a8492387d062c691e66649686126617594ae1742e72"
     sha256 cellar: :any, arm64_golden_gate: "14fb41114d2a8b244c52918281a49330a5fd561b643f64da131dd8067b02fe98"
     sha256 cellar: :any, arm64_tahoe:       "b66fc78cf47b77ddef9f54bdfc32d99215ba2b3fba177841873edced2a6a6317"
     sha256 cellar: :any, arm64_sequoia:     "2a1ae3d8b8460ca7a08df3fb5aa8b570ce5eb7fdea5e4d7266829cfa6fdd6c52"
