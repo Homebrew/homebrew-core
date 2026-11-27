@@ -8,6 +8,7 @@ class Gifify < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7c4604fd7330350257700a48caa9730cfe5d42e56dcdb306abcfbb3c8fa5d8c7"
     sha256 cellar: :any_skip_relocation, all: "112f3fcebc9d5ec54142bcb1c376f314a82a69212c9a58fc7a20e9c64526abcb"
   end
 
