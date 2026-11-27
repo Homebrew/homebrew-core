@@ -9,6 +9,7 @@ class PipTools < Formula
   head "https://github.com/jazzband/pip-tools.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6cdca5c143cba6ff6824c8747f01358671f2b2573e6c643fcd4047f5edc255d1"
     sha256 cellar: :any_skip_relocation, all: "e5827608ae087995f58db17c84083711ec45d03ca6820508db2cea43d25f91b7"
   end
 
