@@ -6,6 +6,7 @@ class MercuryCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "eae4a53ca57c3155fbd2166271ab26019db16707e0ca490269f381ee4bb97acd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5056fcdfc80844c52bfe8f6283d97a40603fe859abc163c2206d9e382dba36ea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5056fcdfc80844c52bfe8f6283d97a40603fe859abc163c2206d9e382dba36ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5056fcdfc80844c52bfe8f6283d97a40603fe859abc163c2206d9e382dba36ea"
