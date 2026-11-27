@@ -12,6 +12,7 @@ class Envoy < Formula
   end
 
   bottle do
+    manifest_sha256 "a6909049c7aa4246230c9fef7a12ecedc4b8e5c18d5154af86907d315b67df7c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "33d87c6eba3678acc6a1613b269ec26392f7cd29f8c4d3b7a4874585d590dcb9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "01ca9c90e60f371aa11b4ce1c401e341f736513a0327d8614cb23a3bbe7964da"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "922d1f2d480f77a69d82560c30fb29bb4a665b9470751d66a0a4bf48b6bfcd69"
