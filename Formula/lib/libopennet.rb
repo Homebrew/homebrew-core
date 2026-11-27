@@ -11,6 +11,7 @@ class Libopennet < Formula
   end
 
   bottle do
+    manifest_sha256 "ea1d830843326db4858f5c0e7da46d9fbceca82d4c71c3baaec4c2561baf15c2"
     sha256 cellar: :any,                 arm64_golden_gate: "dd04bcaeed0d311f084aa6899c9575b0f06d43aef9aa4575049ba73d81b6eae6"
     sha256 cellar: :any,                 arm64_tahoe:       "543c5813be3a290d4f05c97abf94665d07cbc7cee5eb84c5c3c5b1689be5884d"
     sha256 cellar: :any,                 arm64_sequoia:     "e5e9c1ebe5ba34938705b7b0b1f70569348096a58d96b2a7327526f5d3aeb5f7"
