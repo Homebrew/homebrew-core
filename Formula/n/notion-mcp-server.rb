@@ -6,6 +6,7 @@ class NotionMcpServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4d71a85f483ecdd411839bd66f2ca792e23d86d95b516520c3f490dd0c76ea80"
     sha256 cellar: :any_skip_relocation, all: "81a969709b5f17620c2c3a4da57880baa8ce68cbc45ca2042343e36addcf30ac"
   end
 
