@@ -8,6 +8,7 @@ class Pdfsandwich < Formula
   head "https://svn.code.sf.net/p/pdfsandwich/code/trunk/src"
 
   bottle do
+    manifest_sha256 "91f9eb1d9bdc5c1e30f2127c473cb0f4da9f2e34bbb258daa49ed36dc474418e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27fa9523b463bb59a8a0800453617ef4bb8b08f0c1b158537c1bfa6d8983ed18"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16c76bd4f3d4fd4a22a1b23737aedd8d017cc0a51cc5aea380e6879b958184ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f02d04e6517c0a842df56f9e7e381a2c3520f20669507f9fe52412c462baa6d"
