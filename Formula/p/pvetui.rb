@@ -7,6 +7,7 @@ class Pvetui < Formula
   head "https://github.com/devnullvoid/pvetui.git", branch: "master"
 
   bottle do
+    manifest_sha256 "459a75d5ed04c3a7f039f1380103e79074b588a3c19f012471f57dc5730ee47a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "edbe5f7a77e16aa0b1e949f12619ecd2a5747e5bba5b2909641357cf55ed62fe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edbe5f7a77e16aa0b1e949f12619ecd2a5747e5bba5b2909641357cf55ed62fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edbe5f7a77e16aa0b1e949f12619ecd2a5747e5bba5b2909641357cf55ed62fe"
