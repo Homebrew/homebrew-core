@@ -13,6 +13,7 @@ class Metis < Formula
   end
 
   bottle do
+    manifest_sha256 "3dcfbbdc9b9761acec52295e191cc86ccba2d7c19046b80737367ac5fc003e4d"
     sha256 cellar: :any,                 arm64_golden_gate: "ec08324c8e8c70f1c002ddd379f7c8b9e8076c999a8abe5e41d869add5554187"
     sha256 cellar: :any,                 arm64_tahoe:       "dbb37a32bc124a76fd9496b0e95f49b1bb48b1dfe72dc398991569156193d07e"
     sha256 cellar: :any,                 arm64_sequoia:     "60ef633238eb902353465719c36fb64c5a325f823a203c1079c3e0358f72fd79"
