@@ -8,6 +8,7 @@ class Ifopt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6b357aafa22fb25c377435a70a427c2c015e159e7bb8bd8bcec77eef374ee289"
     sha256 cellar: :any, arm64_golden_gate: "d1c4327865bfad7e97da5fb1e19d05719ae0f468d0a931c747c70621af9d4e34"
     sha256 cellar: :any, arm64_tahoe:       "26fd541ebedd2695690d60bb297ab1c042ce0e1063c877fd046b09d0ee3d97ff"
     sha256 cellar: :any, arm64_sequoia:     "00681c3ecbdff9f3374a16527fb0d8f21138eb565f6985495ae57c0aaa6e8685"
