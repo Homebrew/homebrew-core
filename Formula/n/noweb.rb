@@ -14,6 +14,7 @@ class Noweb < Formula
   end
 
   bottle do
+    manifest_sha256 "9fd3ccaf5c4489aad2c940322b181971636008735504159cb89fe0ca091e2fe1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21e9a7abc1655dc3002a5978868f6a6a44ca72ec3871edab0463e2c1cf818ef9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b0ebc62d33b6e1452815e9257c313a3b886caa203124fdbc785001aa8f5e0d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f18c4be4fa20125e8adc57369970446c02ceed59304f52ef1e595967db4842dc"
