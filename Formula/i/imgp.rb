@@ -9,6 +9,7 @@ class Imgp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f7ceb66efe710eac86dab8eb98a1eaffe6a7016d3c250abb11cee2b73590eeeb"
     sha256 cellar: :any_skip_relocation, all: "0cd08bc8a29bfaa490333b1ecd1053c0232d71548430c84ca931005e8583948b"
   end
 
