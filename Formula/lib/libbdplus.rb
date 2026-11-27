@@ -12,6 +12,7 @@ class Libbdplus < Formula
   end
 
   bottle do
+    manifest_sha256 "e1ee4846492aa573fa0b7ca52f1e24ea162dbc5f54fa219ba291cd449cc5deda"
     sha256 cellar: :any,                 arm64_golden_gate: "cb3747288e13781a0852c1f131fb80f942c4b63de0c637f51315b3006947510d"
     sha256 cellar: :any,                 arm64_tahoe:       "7b8a3164167b5bc2e357f954ae319df5c9d6d7f0fb7b63f4ef71b65cbec9e3a4"
     sha256 cellar: :any,                 arm64_sequoia:     "9cc87d2f97a8450b3757c16b409e1c13a562e2d0e52492ab9d9cb032c908d600"
