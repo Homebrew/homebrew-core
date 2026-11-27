@@ -7,6 +7,7 @@ class Koji < Formula
   head "https://github.com/cococonscious/koji.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cb443911840bbf6733efe786bfa0a57b39fe0ad5350fee7bec60ed1601b5bded"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29b9729b185f291b416a838c88a5eabe222683ea75353d44e2867e9b46b134b6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4cc761a36b277b402f160acd6769d7d87e78a073d1238f70604d31480461e688"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e1ab07ddde1a07445a7de66e374a75c6f10dcf3e02c1d32d606f10832b8c244"
