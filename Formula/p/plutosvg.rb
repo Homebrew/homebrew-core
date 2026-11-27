@@ -6,6 +6,7 @@ class Plutosvg < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "aeab0364bc96d0dca45ea2378abb9a982c4dc80456e3d6ebe7ab7cc4c8b73215"
     sha256 cellar: :any,                 arm64_golden_gate: "2d3d1d9c199a39885711108e69b61dbfcba72236e1f1641a8bfbef7f04452a81"
     sha256 cellar: :any,                 arm64_tahoe:       "216817912278a835f499cc0406e8713426cf48ab2eb616368cab461b14d88380"
     sha256 cellar: :any,                 arm64_sequoia:     "90bb8231955799e976b11762b91b01f4290f2337c2dabd4f5df5b20ded635c97"
