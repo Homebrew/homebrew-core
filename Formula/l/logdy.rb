@@ -8,6 +8,7 @@ class Logdy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7584bce81728a22e6e7c66aa6485582131d8bc2457cb98e9cb8ccb1d7fe348d0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e4f869490990fd75c26e45127b4271a6727427d95485067f666b7e1ce619417f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53f402762567926f939ba76f3f885f54828264dc2c160c6d5bcf46f8afe49227"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53f402762567926f939ba76f3f885f54828264dc2c160c6d5bcf46f8afe49227"
