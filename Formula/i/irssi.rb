@@ -13,6 +13,7 @@ class Irssi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a39674d08e59376cefa3d849352bba41c98ae75fcfc2e7b7b76221ba98dfd478"
     sha256 arm64_golden_gate: "8abd032e0f87f1a0a6ada2bc59ff4c5ecf8741e30ec5e60810f4f05f3659abf0"
     sha256 arm64_tahoe:       "63a9bacb5877588da97645351c1b2db8709421a909787e11da2663b34331f5c3"
     sha256 arm64_sequoia:     "dd157a807bfb407c75deac84ecccb71acb21afe9d82b458d5d5749d76df25ca4"
