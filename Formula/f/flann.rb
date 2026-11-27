@@ -8,6 +8,7 @@ class Flann < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0003541e966c92dc3d9e1660a4d808b3af2a28b0ca9aa73a04b715c379aca854"
     sha256 cellar: :any,                 arm64_golden_gate: "4a48ee2c81154f48ed6fb4df6ab1520f2e952697c586aefa50a906aea8e1442d"
     sha256 cellar: :any,                 arm64_tahoe:       "6635599071926575a5e3eef3bd48521d93b5fb74da6e21fbf60d99c4b6823ff1"
     sha256 cellar: :any,                 arm64_sequoia:     "ae73ea70a53e2f253d8c189d830b5607a6ec395cda17e418fcc5cca06d2ee4e4"
