@@ -7,6 +7,7 @@ class Headson < Formula
   head "https://github.com/kantord/headson.git", branch: "main"
 
   bottle do
+    manifest_sha256 "df8925ea2bb22d1944186745dd8561b7d26b1c636568c21bec68bf4ba4600540"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d6673bf3785a4613fb7e10e9d78f403bfb5adbc7143c9837814cfcb08f8f1e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26b23140a92e1f355202c6155a0119cc27bc317e543d8fe836e8bb8104b99cc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52015f18417486bb5471f01dedeea443a4bd96f5c4a5d813b9b36fc53e02db28"
