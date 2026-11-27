@@ -8,6 +8,7 @@ class Rizin < Formula
   head "https://github.com/rizinorg/rizin.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "7f096ede9df111fd315687db87d4410c278a2a501c40720dda5cfaedb56e58ba"
     sha256 arm64_golden_gate: "0ac456ddf4091f012260a63fc9b14a408fc06bc9ea6b3833bd42f96b8ec7a395"
     sha256 arm64_tahoe:       "ce7a6a0d2970e512721ed5a8f5f541e62a6ee3dec0072b55e4300e5646c19fc0"
     sha256 arm64_sequoia:     "79a65682c26d17f9c9e347ec3ca681728d9467242e2127269e566e7e9303b2b6"
