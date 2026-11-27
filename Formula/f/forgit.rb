@@ -11,6 +11,7 @@ class Forgit < Formula
   end
 
   bottle do
+    manifest_sha256 "2591ab8f9f814b41944f173d93b2aadce2c1a82c098c830c8665ceb187a40498"
     sha256 cellar: :any_skip_relocation, all: "63eac29d0f9b839e9cf9e6b003f026439e655f7b7fbd8400c88e70d7e81b528c"
   end
 
