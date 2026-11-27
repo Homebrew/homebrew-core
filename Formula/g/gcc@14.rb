@@ -13,6 +13,7 @@ class GccAT14 < Formula
   end
 
   bottle do
+    manifest_sha256 "3c187b911e58fdf3f93e643f5fb44d175b65bea8c30f31bd0534a2014c5a51fd"
     sha256               arm64_golden_gate: "53e836ced7237644dd06534b96544654d59aa38801905da2dfedd881807a37dd"
     sha256               arm64_tahoe:       "32dbe52ac8b804ab1a908c22c0c53afa3f5fbbb8144afe5c9738690bf7434e40"
     sha256               arm64_sequoia:     "e526f5bad9ecb0b7189b7694cc4c5bf27ea194d7a6c87ce5afb7f9fd56e48ece"
