@@ -7,6 +7,7 @@ class Flock < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "26bfb0ee56e570d4473e0f004144623845df99ede044ec86cce36c27a7121b4e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac915000ff9253106b373c1188f6c26e51e554b0eb65937f443902aef76b517c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aa8dc5d082d7ad26bdd99dbb7b33a4d2a23c4c92a97baed4739c25119e30bafe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b3e9f9fbebb4256a845dd8db15993c3cd7c17cabac188c0695780c5b2b8a06d8"
