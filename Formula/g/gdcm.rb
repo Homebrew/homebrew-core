@@ -14,6 +14,7 @@ class Gdcm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "88f9037ef0e75fdd8980ddc1ed97ecf492b61b9f440f14c8b88da0339b755e37"
     sha256 arm64_golden_gate: "99b7e963bb2c5d1130f510467cab8b281ee944dd499c25046fe11accb9aafce5"
     sha256 arm64_tahoe:       "4f418fe7041cd0575970c66fb70504b1244a1ef0c66ee27a84cfe670b789fcbe"
     sha256 arm64_sequoia:     "69de185dd736947607d0862a9c0ce03a17d72b28a888e18ea3ab7f5ef8db129f"
