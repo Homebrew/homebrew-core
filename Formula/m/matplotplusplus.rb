@@ -7,6 +7,7 @@ class Matplotplusplus < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b82a89a6f4f21c7f1e22eabe6111a8add5946a4d30a9dccab51a1942ec6b4211"
     sha256 cellar: :any,                 arm64_golden_gate: "012cb300c56c28610b787224b53685e7a4cc50f861e37c45fc42f6691b58b720"
     sha256 cellar: :any,                 arm64_tahoe:       "12afe3a93bd74cc8c1039cfe96eec69e9ad490de007b89dd2dee691848fc4a94"
     sha256 cellar: :any,                 arm64_sequoia:     "b5c2fff54b01a15975ab60daf1b38908c0bd5772be34b07417e4e3e55c8d500e"
