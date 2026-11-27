@@ -8,6 +8,7 @@ class Pcb < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "848c3250b2bdc59c54891c11ea3c56a1476709af749f344d2e046c0701166b46"
     sha256 arm64_tahoe:    "d47e9044a1a9580a71e41ffd91541653a9b8d8c721441f0d2d63406a16ca5706"
     sha256 arm64_sequoia:  "2a52b59cc8b8207bd28cde88cc56ad797d2aa021d1cb145bffa93368a7371014"
     sha256 arm64_sonoma:   "191403f5cf3241f6322f861bf87c986a5e9e584b718694a09e8d78ffe88090de"
