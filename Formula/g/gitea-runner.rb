@@ -6,6 +6,7 @@ class GiteaRunner < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6e2e5703895ae6a4df1b22389c185ecb11401de087a81d87f521aa460cf0c275"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7126e6a3115950fffa0fe3ffd42341bdfe76d7ae406921f41d802e754bdffbaa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cca7419907a2bad78f2b8dd919985ba6b5939ea146a6500a5d4e2f16a1bfca84"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cafb085b902cb5e8df387a67e838b1c4e3f50ef89035084da91c7691042a67ed"
