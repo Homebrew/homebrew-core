@@ -11,6 +11,7 @@ class Rsyslog < Formula
   end
 
   bottle do
+    manifest_sha256 "7bf1f45b2d978cb436cfb4609d503f2365003ee560d3ec18e641c1c06e827dde"
     sha256 arm64_golden_gate: "496779e87ffea15fbd810053d73f70b1c78511c8187d623ddc391d73f563bcda"
     sha256 arm64_tahoe:       "66451958b574eccaadd2265bab8c961f8134448ecbd39ef303a5f5b27e25c1c2"
     sha256 arm64_sequoia:     "fb2e72d665c373f10e12dafb739e1a0b34c5ee678fe116a0a5510d0be8c0f00b"
