@@ -12,6 +12,7 @@ class Gmsh < Formula
   end
 
   bottle do
+    manifest_sha256 "57a728041460d3fc159dc96db82c6c698da0a426c74f1a84dab81b160bb63c5d"
     sha256 cellar: :any,                 arm64_golden_gate: "0b4c771d3e8f2f54744d52f2d391fc1b45730b3617c5882aea9a694a6baca135"
     sha256 cellar: :any,                 arm64_tahoe:       "021355a55df545d20640f58c27322ed74a61ba5965b38a86c3f9bfc1f64fa6b9"
     sha256 cellar: :any,                 arm64_sequoia:     "ebddad85ddc6d3c372c6fdff29232c511d5445630501a5402a2bc1649562b945"
