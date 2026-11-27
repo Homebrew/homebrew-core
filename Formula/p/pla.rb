@@ -6,6 +6,7 @@ class Pla < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "ed30fc139e6d36ac127c23891ae9a82f6b895caa2288a24f90d88e890d2e4acc"
     sha256 cellar: :any,                 arm64_golden_gate: "b094e215f50b3220703ac3cf086d6166f2fdeff6dd9b798709634958078583f9"
     sha256 cellar: :any,                 arm64_tahoe:       "daa4f5dec64b4beba34a971523cc108879bc605eb20d0f69cbb9bbcea837b424"
     sha256 cellar: :any,                 arm64_sequoia:     "bb80455464cd182092c87cc0c242eda1050fdb3579ac6204338934741c5af632"
