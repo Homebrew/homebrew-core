@@ -6,6 +6,7 @@ class Gotun < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "71873faa2b63ed928046f4fb5a1c4da9c1a4bc741e5516a055a4b86b3532204e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50d22d368dba5524349ef9f4d22da195532e07f335f4baab3f3fb06fb34bd59a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "994495478631ea4b296d2797d3ced7bc84d2f25294250fe9ce9ef45912f0c70c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "994495478631ea4b296d2797d3ced7bc84d2f25294250fe9ce9ef45912f0c70c"
