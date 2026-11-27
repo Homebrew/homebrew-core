@@ -6,6 +6,7 @@ class Dtach < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "2751f873db1fde3cda6f3de5757ea2df1fa28552de575e7eff18ad3bc59c15b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e954cf75eff8aeea22733a8975e1061f5a6dafb01d02cada330a2b2564efeeb3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3296ea100c480737f279e984c3e0cf25d0d5844aac527c09cf9cc1ff3bb4ada"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "df21c7a193afc665bc0d8e35b51990fa1c86a7d586acefc9248641e2fc93ac07"
