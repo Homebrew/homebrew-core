@@ -9,6 +9,7 @@ class Xxh < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "4c671c8319e385e009a4f3fb054077c67fc76f96a64af307458a5504d218bebc"
     sha256 cellar: :any, arm64_golden_gate: "43ffd6bfd6d48c4045309e9f2cf1913dff652797c5ff96aa08cd2b7896dab794"
     sha256 cellar: :any, arm64_tahoe:       "c1a547e72717040e794c210a7d4e26220062dc39f9a27a3b84f78ef4f16745cf"
     sha256 cellar: :any, arm64_sequoia:     "6d70f92dd850b2d888181945c58f678d171a386a4286d98e3773dcf7609de39c"
