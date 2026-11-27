@@ -15,6 +15,7 @@ class Duck < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "07567d9483ed19359af6f289dd86832ca23b69dce79be8b103c1e98895c8bf81"
     sha256 cellar: :any, arm64_golden_gate: "d1b4fa4464ab9db587b0b9b6da38012af08d61963fe21d4143a9b137f82bb987"
     sha256 cellar: :any, arm64_tahoe:       "b7febceeea6a50e7976c10fed24eb8f8231ec871b0a0306e20f377ae09e1659a"
     sha256 cellar: :any, arm64_sequoia:     "c4598837c09438d328ca8a3cb4a79db36e3d2ac29bcae607b0145e39fe4132a1"
