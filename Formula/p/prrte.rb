@@ -25,6 +25,7 @@ class Prrte < Formula
   end
 
   bottle do
+    manifest_sha256 "99f0125b5696369a35b73627e5b3f1a90a4fb84f77b1205bbae096a1218bf17c"
     sha256 arm64_golden_gate: "8a8f0801d6483f7a2885e2a4a8db0ba9b4e095038a8dfcd757b6004f8d9416d1"
     sha256 arm64_tahoe:       "e113e688a868463e07a94372a25df0b23193286c74ed58349896b45e4dd4b0c1"
     sha256 arm64_sequoia:     "83ad171eccc7a0fac0b76ce4d3b19da1126a43358fdbf9c46a5bfbd4c29d7f18"
