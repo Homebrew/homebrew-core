@@ -7,6 +7,7 @@ class HackBrowserData < Formula
   head "https://github.com/moonD4rk/HackBrowserData.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d5e6787a6f2ddec3ffbc0ff65a687e9b692097aa6a03a5f1a445c883ab4dd0a2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "229776c7a4fad9712f7a1210e82caa1f98fed9ca4b8c20e1ea0d25bbbde9e253"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "229776c7a4fad9712f7a1210e82caa1f98fed9ca4b8c20e1ea0d25bbbde9e253"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "229776c7a4fad9712f7a1210e82caa1f98fed9ca4b8c20e1ea0d25bbbde9e253"
