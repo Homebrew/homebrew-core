@@ -17,6 +17,7 @@ class Qtlocation < Formula
   end
 
   bottle do
+    manifest_sha256 "8a4980b1e6709addd33a00db2566a3cab4d2b95c06bd0f2eca552a4ff7c99b10"
     sha256 cellar: :any, arm64_golden_gate: "1bce6b6cf3c4ee0b2ae44e9f53c8d3f0f9534ab1a7a2cd358b125c75bd576a71"
     sha256 cellar: :any, arm64_tahoe:       "72811f07a0189d3cd97a35d2bfe7986259d532af6e3fb7ab30fd2764c82d925c"
     sha256 cellar: :any, arm64_sequoia:     "4ea807c0e8193276e8be59b1a44ec74dc9da9d0566b14d7a01b378dc729e71e5"
