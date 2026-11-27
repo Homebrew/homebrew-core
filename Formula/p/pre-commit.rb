@@ -11,6 +11,7 @@ class PreCommit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a8e4eee67b6082ee2a567953d5647b4699f798770bec424c4ae55ff63384122c"
     sha256 cellar: :any, arm64_golden_gate: "30b05af7806195b8a424d967d934488078812b5c2f0d1edb2d4f79d02ef4fcc2"
     sha256 cellar: :any, arm64_tahoe:       "e3b0a2e53a13db0e2936387330b0520946d4d7e496033eaf419cdd5a3c503691"
     sha256 cellar: :any, arm64_sequoia:     "48a3d76cad39723858f06144bed43ae0eb2399d253665906b6b8f74d284997bf"
