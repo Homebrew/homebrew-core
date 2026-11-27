@@ -18,6 +18,7 @@ class Cahute < Formula
   end
 
   bottle do
+    manifest_sha256 "e2f39454133cb654614ede24a0f040a11105d7e78244b470faee5d2a2fe063e8"
     sha256 cellar: :any,                 arm64_golden_gate: "85bf7f1dcb1219b486d0f66b17b5d31e2aebcba1b4d02bc7ddfcf6487ad4e743"
     sha256 cellar: :any,                 arm64_tahoe:       "cb42203525d8516537043a35201cf297d36c0ad965da1ea890b13f75c25bb2b3"
     sha256 cellar: :any,                 arm64_sequoia:     "a9f182ecca26940644fc57a55482d3cea23db23a9b7bc04d631d79ceaa4009c8"
