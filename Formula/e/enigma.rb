@@ -13,6 +13,7 @@ class Enigma < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e69d09c8e8e1484fde80afb203e36a613596d27fd88b547bc94c8f372b7cd38"
     sha256 arm64_golden_gate: "8ea187968e76b484237bb8e9295ddedc66eb6a640cbe0858bc7d397d0deb630e"
     sha256 arm64_tahoe:       "10b0cd3364cfc8994f9a702a205e87968c36000fd23bf18c10bf0c8974e905dd"
     sha256 arm64_sequoia:     "fc97d79fdc16bd8a249d43dca89623fe82aaa04b37deea691bc9b64d6ecffe71"
