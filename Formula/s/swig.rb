@@ -12,6 +12,7 @@ class Swig < Formula
   end
 
   bottle do
+    manifest_sha256 "63f17213232a14ce4003afc9b33430467fcc64cf793b80848d0069ac3878aec2"
     sha256 arm64_golden_gate: "eb8e83568acb93e4ac956a0e25f58a9ed4427fade74f7ffa9a663ec90e81c71a"
     sha256 arm64_tahoe:       "da75d54cd9ad9ae5c7bfc712734f8a971f61735f030584f34e929462223208c3"
     sha256 arm64_sequoia:     "81ecbdfb1e57316004365b47a1c3f3cea100c3ef5f7a9ff0c218b8da73821461"
