@@ -12,6 +12,7 @@ class Lasso < Formula
   end
 
   bottle do
+    manifest_sha256 "ed7b8e4c415de5ed469106a0b5ce89d891b56b27ac4a08ede7176688f316fc9e"
     sha256 cellar: :any, arm64_golden_gate: "2460b841e99e74b56f148d5498462c6dd292e62f2ec7a936a757a26a3bb9ddad"
     sha256 cellar: :any, arm64_tahoe:       "5c90bdcc116af154ca039840c09f8526036a0ef73ab9991aeeaae2eb2a45b4c6"
     sha256 cellar: :any, arm64_sequoia:     "ef3d34a0280d0175e3cc51611f57927352daa82cac7351b8ff5cece114c2f1d3"
