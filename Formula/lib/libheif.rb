@@ -7,6 +7,7 @@ class Libheif < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e072ee76eef73a35b5e2b5f2849e147dc701a27e030ea747d012c43765b34983"
     sha256 cellar: :any, arm64_golden_gate: "d5af967d356fde118a4aa06c24c7a2b2a94f66212ef19751d749b3f1a7d01ac6"
     sha256 cellar: :any, arm64_tahoe:       "fbd2a57774b892db8fbfc27a480e2df3d0873dfb89060eab07430185971f9fcd"
     sha256 cellar: :any, arm64_sequoia:     "e9b55aa4e52656b23436826996bfaa1f42f9d27f6126b6694ab216f2b0aac656"
