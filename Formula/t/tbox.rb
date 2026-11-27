@@ -24,6 +24,8 @@ class Tbox < Formula
 
   depends_on "xmake" => :build
 
+  deny_network_access!
+
   def install
     system "xmake", "config", "--charset=y", "--demo=n", "--small=y", "--xml=y",
            "--cflags=-Wno-error=misleading-indentation"
