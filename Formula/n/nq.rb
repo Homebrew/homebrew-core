@@ -7,6 +7,7 @@ class Nq < Formula
   head "https://github.com/leahneukirchen/nq.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0589e9ff315532f74520909491291c01b3b0b2adb1e2b64a4a793c9b31134511"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4064e13319d0e21dec5b0048493299fba589d98b71654dc3307f66826ec78e10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c175806ee39e0ed6fd4efe5a59ae650c99226d48e099762c81ef36f61f369af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0d6031b33354064a349d6788cf3eb9ae0be6850f77db092b70a9b42a522ca15"
