@@ -1,8 +1,8 @@
 class SequoiaSq < Formula
   desc "Sequoia-PGP command-line tool"
   homepage "https://sequoia-pgp.org"
-  url "https://static.crates.io/crates/sequoia-sq/sequoia-sq-1.5.0.crate"
-  sha256 "43f230abc78a8daec8a06cfc8c1191045b7b210fee5bee50dc3f75bd9f22950e"
+  url "https://static.crates.io/crates/sequoia-sq/sequoia-sq-1.5.1.crate"
+  sha256 "4595a9049928871805149af80f27311fa7c735e3dfe53c91f738e04cddf195f1"
   license "LGPL-2.0-or-later"
   head "https://gitlab.com/sequoia-pgp/sequoia-sq.git", branch: "main"
 
