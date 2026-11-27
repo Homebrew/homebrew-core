@@ -7,6 +7,7 @@ class Bltool < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "853e9563ec25d7b592c497c5f4367e3dac02ae8c08aeb5c02c53e95744d3a094"
     sha256 cellar: :any_skip_relocation, all: "38e264bd60bf4b148e995892e1b4e9d24d5285123affa688ee364a1bcb16a6b2"
   end
 
