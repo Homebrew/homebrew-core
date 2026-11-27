@@ -20,6 +20,7 @@ class Simutrans < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "398bf51c26d2f2d1594b3d1a90173ab07884d2e97aecf82ae4a0833052939119"
     sha256 cellar: :any, arm64_golden_gate: "01d701f58d3ec3c72a6773c4276f5ec27dbf82f8b2260e3d478b75ae3ff9bee7"
     sha256 cellar: :any, arm64_tahoe:       "561675654ffbc32e23a3077d1db7fc01a93bd4b7a83beb3638e16917a67fa414"
     sha256 cellar: :any, arm64_sequoia:     "1bfca9fd70b6e7eb7b6d45b0dae06102938feefa62a19d6303b27b94ab1d1454"
