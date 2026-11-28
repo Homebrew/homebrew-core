@@ -32,11 +32,11 @@ class Gaze < Formula
   end
 
   test do
-    pid = spawn bin/"gaze", "-c", "cp test.txt out.txt", "test.txt"
-    sleep 5
-    File.write("test.txt", "hello, world!")
-    sleep 2
-    Process.kill("TERM", pid)
+    with_test_process(bin/"gaze", "-c", "cp test.txt out.txt", "test.txt") do
+      sleep 5
+      File.write("test.txt", "hello, world!")
+      sleep 2
+    end
     assert_match("hello, world!", File.read("out.txt"))
   end
 end
