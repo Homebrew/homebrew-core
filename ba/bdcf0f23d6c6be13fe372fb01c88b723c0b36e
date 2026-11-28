@@ -1,0 +1,14 @@
+Formula/d/designcraft-cli.rb
+  h_9df9c32c3f321d 4-5,9-13
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "babdcf0f23d6c6be13fe372fb01c88b723c0b36e",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
