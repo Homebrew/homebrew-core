@@ -51,6 +51,8 @@ class Ucg < Formula
     disable! date: "2026-09-25", because: :unsupported
   end
 
+  deny_network_access!
+
   def install
     system "autoreconf", "--force", "--install", "--verbose" if build.head?
     system "./configure", "--disable-silent-rules", *std_configure_args

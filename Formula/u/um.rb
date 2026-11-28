@@ -24,6 +24,8 @@ class Um < Formula
     sha256 "5862410a2c1692fde2fcc86d78d2265777c22bd101f11c76442f1698ab242cd8"
   end
 
+  deny_network_access!
+
   def install
     ENV["GEM_HOME"] = libexec
 

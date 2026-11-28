@@ -24,6 +24,8 @@ class Uftrace < Formula
   depends_on "python@3.15"
   depends_on "xz"
 
+  deny_network_access!
+
   def install
     pyver = Language::Python.major_minor_version python3
     # Help pkg-config find python as we only provide `python3-embed` for aliased python formula

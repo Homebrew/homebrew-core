@@ -13,10 +13,14 @@ class Unoserver < Formula
     sha256 cellar: :any_skip_relocation, all: "6ad558a70421755b9353b4f05772c95a72737598b07f5956a9f07feeeeadd4ea"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15"
 
+  deny_network_access!
+
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install_and_link(buildpath, build_isolation: false)
   end
 
   test do

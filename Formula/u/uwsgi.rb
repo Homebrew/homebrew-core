@@ -34,6 +34,8 @@ class Uwsgi < Formula
     depends_on "linux-pam"
   end
 
+  allow_network_access! :test
+
   def install
     openssl = Formula["openssl@4"]
     ENV.prepend "CFLAGS", "-I#{openssl.opt_include}"
