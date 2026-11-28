@@ -1,8 +1,8 @@
 class Bcpp < Formula
   desc "C(++) beautifier"
   homepage "https://invisible-island.net/bcpp/"
-  url "https://invisible-mirror.net/archives/bcpp/bcpp-20250914.tgz"
-  sha256 "8d2a0f6255243c7f422cbc8d9d65bb381cc6559879df967ba2838ac7d267be3f"
+  url "https://invisible-island.net/archives/bcpp/bcpp-20261127.tgz"
+  sha256 "a56d35dd952b6d1408836cd93aae908b59a66d7f382abdcab2b06c009d331982"
   license "MIT"
 
   livecheck do
@@ -11,14 +11,12 @@ class Bcpp < Formula
   end
 
   bottle do
-    manifest_sha256 "86c296761e26bc663db48ab2b3bd4fbbbd5eed90455401af052e2a0e57e4200a"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8bcb19b336102529f7be1460053969aa217a8d1e876fac055c9a64bf0e6b139"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa74cdc2fb3f1809b90239f1e60363605cb9d5fc76bded0ea406d6e6920e1bdb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "25716040eca8bdd532b128d8f285d5eaea77d8522a893ede0a59c69515a95b66"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "e169551e3a3120dc6966df837814802d00a8a6d1c799b40226ff72c2bfd79b46"
-    sha256 cellar: :any_skip_relocation, sonoma:            "d6d74b99d7963c3f7403a8bd3991cbcccebf0fa2da16672ad912ef6857055a3c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "5a1a406681f95c80d946ca3155ea3cea7397a119634746b2d873b7520aa1ba4b"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "7b501371fb124bd5814589d0e6f3dd850221ccb40e0e4b4d3fc41b72fcec32c6"
+    manifest_sha256 "99eaee69f711fc5c85e4a92ccbae92415d1cc46409259bacbb3013024d35fc5b"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ff75f3120d4b93d670d389fdbb7448464a17a90f6bc4f3f63955034044cf034f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f70aa5beec975879de43088f6c936d55e25517e5a5de6160d7d94cfa2289617"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a0dbed16ea5f6b78ed7590c07faf84e7a7f21d657bb512184a9c14c9ea8c899"
+    sha256 cellar: :any,                 arm64_linux:       "d753dadfc0142f29ef23d83e6ab61046e8811b3e1080ad73718f44100315fd06"
+    sha256 cellar: :any,                 x86_64_linux:      "8cd39b941b294f9654b4c52807ba941e177f70538420ac3ae0c6790ec99735d0"
   end
 
   deny_network_access!
