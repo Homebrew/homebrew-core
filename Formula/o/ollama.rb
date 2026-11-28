@@ -5,6 +5,7 @@ class Ollama < Formula
       tag:      "v0.40.19",
       revision: "8ae8acb81afba9c3c67adf08190964eb7d1207ef"
   license "MIT"
+  revision 1
   compatibility_version 1
   head "https://github.com/ollama/ollama.git", branch: "main"
 
@@ -31,7 +32,9 @@ class Ollama < Formula
 
   on_macos do
     on_arm do
+      depends_on "dlpack" => :build
       depends_on "mlx-c" => :no_linkage
+      depends_on "xgrammar" => :build
 
       # Build with the mlx-c 0.8.0 bindings for tagged MLX 0.32.4. Upstream targets a later MLX commit:
       # https://github.com/ollama/ollama/commit/66ab8482e08035a3238dff04a5739c4371c61bfe
@@ -68,70 +71,66 @@ class Ollama < Formula
     sha256 "270cba1bd5109f42d03350f60406024560464db173c0e387d91f0426d3bd256d"
   end
 
+  # Tiny randomized MLX model for the structured-output test
+  resource "homebrew-test-mlx-config", :test do
+    url "https://huggingface.co/stas/tiny-random-llama-2/resolve/3579d71fd57e04f5a364d824d3a2ec3e913dbb67/config.json"
+    sha256 "9197475bfcc987a4f9361dbc22b33397b101372c137c228b6a6fd7e4adf21622"
+  end
+  resource "homebrew-test-mlx-weights", :test do
+    url "https://huggingface.co/stas/tiny-random-llama-2/resolve/3579d71fd57e04f5a364d824d3a2ec3e913dbb67/model.safetensors"
+    sha256 "852db1b39acb2336abc997440c6f6d6e4ab640f91e5e2aa9e2488d5794159d30"
+  end
+  resource "homebrew-test-mlx-tokenizer", :test do
+    url "https://huggingface.co/stas/tiny-random-llama-2/resolve/3579d71fd57e04f5a364d824d3a2ec3e913dbb67/tokenizer.json"
+    sha256 "0afe36ee1358ce1fa277f4eac935250bb90253ed5c27867eb6ff376ded7d1980"
+  end
+
   # downloads go modules in install and runs a server in test
   deny_network_access! :postinstall
 
   def install
-    # Build llama-server
     llama_source_dir = buildpath/"llama.cpp"
     llama_source_dir.install resource("llama.cpp")
 
-    preset = if OS.mac? && Hardware::CPU.arm?
-      "darwin"
-    else
-      "cpu"
-    end
-
-    args = %W[
-      --preset #{preset}
-      -DFETCHCONTENT_SOURCE_DIR_LLAMA_CPP=#{llama_source_dir}
-      -DCMAKE_BUILD_WITH_INSTALL_RPATH=ON
-      -DCMAKE_INSTALL_RPATH=#{loader_path}
-    ]
-
-    system "cmake", "-S", "llama/server", "-B", "llama-server", *args, *std_cmake_args(install_prefix: libexec)
-    system "cmake", "--build", "llama-server"
-    system "cmake", "--install", "llama-server", "--component", "llama-server"
-
-    # Remove ui app directory
     rm_r("app")
-
     ENV["CGO_ENABLED"] = "1"
-
-    # Silence tens of thousands of SDK warnings
     ENV["SDKROOT"] = MacOS.sdk_path if OS.mac?
 
-    ldflags = %W[
-      -X github.com/ollama/ollama/version.Version=#{version}
-      -X github.com/ollama/ollama/server.mode=release
+    args = %W[
+      -DFETCHCONTENT_SOURCE_DIR_LLAMA_CPP=#{llama_source_dir}
+      -DOLLAMA_PAYLOAD_INSTALL_PREFIX=#{libexec}
+      -DOLLAMA_GO_OUTPUT=#{libexec}/ollama
+      -DOLLAMA_VERSION=#{version}
     ]
 
-    mlx_args = []
-
-    # Flags for MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
       mlx_rpath = rpath(target: formula_opt_lib("mlx-c"))
-      ldflags << "-extldflags '-Wl,-rpath,#{mlx_rpath}'"
-      mlx_args << "-tags=mlx"
+      args << "-DOLLAMA_GO_EXTRA_LDFLAGS=-extldflags '-Wl,-rpath,#{mlx_rpath}'"
 
       # Generate wrappers from our mlx-c; the vendored headers are newer and declare symbols it lacks
       mlx_headers = buildpath/"mlx/include/mlx"
       rm_r(mlx_headers/"c")
       mlx_headers.install_symlink formula_opt_include("mlx-c")/"mlx/c"
-      system "go", "generate", *mlx_args, "./mlx"
+      system "go", "generate", "-tags=mlx", "./mlx"
+
+      # `mlx` bottles on macOS 26+ carry the NAX (Metal 4) kernels, and the
+      # runner skips `mlx_metal_v4` directories on older systems.
+      metal_dir = if MacOS.version >= :tahoe
+        "mlx_metal_v4"
+      else
+        "mlx_metal_v3"
+      end
+      args += %W[
+        -DOLLAMA_BINARY_MLX_C_LIBRARY=#{formula_opt_lib("mlx-c")}/libmlxc.dylib
+        -DOLLAMA_BINARY_XGRAMMAR_LIBRARY=#{formula_opt_lib("xgrammar")}/libxgrammar.a
+        -DOLLAMA_BINARY_MLX_RUNNER_DIR=#{metal_dir}
+        -DXGRAMMAR_VERSION=v#{Formula["xgrammar"].version}
+      ]
     end
 
-    # Build into libexec so the mlx runner's required `<exe_dir>/lib/ollama/`
-    # sibling can be populated without tripping the non-executables-in-bin audit.
-    system "go", "build", *mlx_args, *std_go_args(ldflags:, output: libexec/"ollama")
+    system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args(install_prefix: libexec)
+    system "cmake", "--build", "build", "--target", "ollama-local"
     bin.install_symlink libexec/"ollama"
-
-    # The mlx runner dlopens MLX libraries from `<exe_dir>/lib/ollama/mlx_*/`.
-    # Using `opt` keeps the link stable across mlx-c version bumps.
-    if OS.mac? && Hardware::CPU.arm?
-      (libexec/"lib/ollama/mlx_metal_v3").mkpath
-      ln_sf formula_opt_lib("mlx-c")/"libmlxc.dylib", libexec/"lib/ollama/mlx_metal_v3/libmlxc.dylib"
-    end
   end
 
   service do
@@ -155,6 +154,8 @@ class Ollama < Formula
   end
 
   test do
+    ENV["OLLAMA_MODELS"] = testpath/"models"
+
     # Avoid compiling Metal shaders during backend discovery and the server test.
     ENV["GGML_METAL_DEVICES"] = "0" if OS.mac?
 
@@ -172,11 +173,28 @@ class Ollama < Formula
 
     # Test MLX (Apple silicon only)
     if OS.mac? && Hardware::CPU.arm?
-      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1")
+      output = shell_output("DYLD_PRINT_LIBRARIES=1 #{bin}/ollama --help 2>&1").scrub
       assert_match "libmlxc.dylib", output
       assert_match "libmlx.dylib", output
-    end
 
+      # Structured output on the MLX engine; random weights only produce valid JSON when constrained
+      %w[config weights tokenizer].each do |name|
+        (testpath/"tiny").install resource("homebrew-test-mlx-#{name}")
+      end
+      (testpath/"Modelfile").write "FROM #{testpath}/tiny"
+
+      pid = spawn bin/"ollama", "serve"
+      begin
+        sleep 3
+        system bin/"ollama", "create", "tiny", "-f", testpath/"Modelfile"
+        request = { model: "tiny", prompt: "hi", stream: false, format: { enum: ["ok"] } }
+        response = shell_output("curl -s localhost:#{port}/api/generate -d '#{request.to_json}'")
+        assert_equal '"ok"', JSON.parse(response)["response"]
+      ensure
+        Process.kill "TERM", pid
+        Process.wait pid
+      end
+    end
     testpath.install resource("homebrew-test-model")
 
     require "pty"
