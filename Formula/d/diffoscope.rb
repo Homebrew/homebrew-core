@@ -3,8 +3,8 @@ class Diffoscope < Formula
 
   desc "In-depth comparison of files, archives, and directories"
   homepage "https://diffoscope.org"
-  url "https://files.pythonhosted.org/packages/6a/6a/2d5bc334263a6a0a82814b28332a119d02f934ab6de50f66ce89b8fb5aca/diffoscope-339.tar.gz"
-  sha256 "fb033492c16017963bfa04290c3ffd8e3b7884e1226dfaa6da2b1a07368d8e82"
+  url "https://files.pythonhosted.org/packages/e7/fc/aa322d4b3d872333ddd313e2efdfb98777843f9b842a3192c1acf217f9af/diffoscope-340.tar.gz"
+  sha256 "970a7858f78a45b1333091984bb2c5a59ef6f661be9cf06c5bea758a69696bcc"
   license "GPL-3.0-or-later"
 
   bottle do
@@ -23,8 +23,8 @@ class Diffoscope < Formula
   pypi_packages package_name: "diffoscope[cmdline]"
 
   resource "argcomplete" do
-    url "https://files.pythonhosted.org/packages/87/6f/5a73f04007ca950701765949209f068da628bd11f9c2da287278ce91e0ee/argcomplete-3.7.2.tar.gz"
-    sha256 "aad8b69a0b9969edb62db0d1752354c0d50717b10e0cbb00e2a958381b9fc6b9"
+    url "https://files.pythonhosted.org/packages/19/0d/ca63f1b8b706c70590d0a4acc9c3c94ea8ed4dd9c83b4f7af195868abe76/argcomplete-3.8.0.tar.gz"
+    sha256 "0114d634013e11ac92cc329b3a7d886c3506e98ddc7bb23c99b1782aacc8b8bd"
   end
 
   resource "libarchive-c" do
