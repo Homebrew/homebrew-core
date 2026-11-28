@@ -7,6 +7,7 @@ class GoAT124 < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "4a465a4281f18bb3879ac6821241e4275b0fc87586e5257f29e9e0e484c1fa7a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32518426b9f029a3743de2e508c801de271c186ed4831b5fd3c5e6230388d1ed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5e92d0e6854fce804752c6f1d45620e77467bea4b3c0d608637e518fdf73476"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5e92d0e6854fce804752c6f1d45620e77467bea4b3c0d608637e518fdf73476"

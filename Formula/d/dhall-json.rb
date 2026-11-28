@@ -8,6 +8,7 @@ class DhallJson < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "616b3965818f885d02f961fc9ce12d252017cc9030376ec62d339459ea4225f4"
     sha256 cellar: :any, arm64_golden_gate: "a50758621409961774d1869d3cb2f49337f519c0675195141b1a5e5f8298e9fb"
     sha256 cellar: :any, arm64_tahoe:       "797620da8d3432df1523f9c08f2fddb86f9131789e9f9b136647773797ac0061"
     sha256 cellar: :any, arm64_sequoia:     "b6a6d0a71613903f299ab837b1a9f832f0feeac31c022730153efcab91c9fbff"

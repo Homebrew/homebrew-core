@@ -7,6 +7,7 @@ class Bed < Formula
   head "https://github.com/itchyny/bed.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a18400f22051c0b4e9912cd3b55ff66c37862c2a0ea441fe5510e21c963a4ac7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bfb34b60ab80a48e3300c99ab2ea194764333621361faab095e118b1c6878ea2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bfb34b60ab80a48e3300c99ab2ea194764333621361faab095e118b1c6878ea2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bfb34b60ab80a48e3300c99ab2ea194764333621361faab095e118b1c6878ea2"

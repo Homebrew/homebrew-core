@@ -10,6 +10,7 @@ class Plotutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2dd0f7bc6fd9d5daf8692b7a7c94bd6b8c68a3e02c703411c73ab462c5d3a076"
     sha256 cellar: :any,                 arm64_golden_gate: "26fd2513189bf785fe2d2dbcdc6ab194106a0d6bbdde43e7b77453f67cb9daa0"
     sha256 cellar: :any,                 arm64_tahoe:       "d0c2f1bd4307fc85da7079c7e215075d8440c8bb92c44e47d7b449d76afb6055"
     sha256 cellar: :any,                 arm64_sequoia:     "75033cc12b08f20dedc35745e9e85bedd357e49bdeb1f85c18aa3e6c094f7c4a"

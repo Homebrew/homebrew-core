@@ -7,6 +7,7 @@ class Pitchfork < Formula
   head "https://github.com/jdx/pitchfork.git", branch: "main"
 
   bottle do
+    manifest_sha256 "73dce361f0048f1255d52b7dfa35aaa3f40d15790c7f32b697289941cf1cb88d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddc8dd6618c83e8f961525d666f5ebc9762caac73f1f4d8d94d0d5698aa7a656"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5be923d1d3f34f9d0118216879317e24887959138400dd5dec267f92f8bcec4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "878dc832ed77a6a931ec00e648a12e2918e8ff4d92f80b461fc898c1f6eeff53"

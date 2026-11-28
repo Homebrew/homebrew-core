@@ -22,6 +22,7 @@ class Go < Formula
   end
 
   bottle do
+    manifest_sha256 "9aad8e88f65e8252d539e488e3e3fe63eb01cd9956c4ceb1c1b82c41fbb9d927"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6cbe7f3b629237e298acfe86250a88da6221f869cfdc775273ab623fe93e9a91"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6cbe7f3b629237e298acfe86250a88da6221f869cfdc775273ab623fe93e9a91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6cbe7f3b629237e298acfe86250a88da6221f869cfdc775273ab623fe93e9a91"

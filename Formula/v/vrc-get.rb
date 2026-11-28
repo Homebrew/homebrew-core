@@ -12,6 +12,7 @@ class VrcGet < Formula
   end
 
   bottle do
+    manifest_sha256 "7f09c6a26ae0da9d53f097a52f39f60539bee589c1ef2b37e00b5d8e8118884c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9999f458a499216cb7a488b04293fc7e815dfe94e6149e3e34854ecf283c3135"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abdbc9207bae326637da383349459c44028a8ea2376190050d497c92f0ae8a68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d885146c462784b52195129c420f55b0e53e6400388257b9b2de4350729a5a5"

@@ -7,6 +7,7 @@ class Asnmap < Formula
   head "https://github.com/projectdiscovery/asnmap.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d5733daa30164739e3716d3e286015e97c3c2b74c4e3cf9f2352ec909cdbfa0b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6b2bd38faa8f0da00cbb343edcbda98e4c7f884eeb776dedf337418ea18a840"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e53399ddacff111529151d6cb08937ae8c45fada3bcd69fadd6b9cdacf71d3c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c38f58ab963ca734c3148079225a6bfa73ca6adc721cf1ba8c2cc528623a16c"

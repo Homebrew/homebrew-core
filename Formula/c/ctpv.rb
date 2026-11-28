@@ -7,6 +7,7 @@ class Ctpv < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "80c89aa09e14b23304005ea8fc95366ee815ecc7a47bc4000890b3e65f9df492"
     sha256 cellar: :any,                 arm64_golden_gate: "734cc8b4ad5bc616b30f2535fb20078cf8208f631754016d42c4e6b6ae742712"
     sha256 cellar: :any,                 arm64_tahoe:       "4255d6a7a1a4b093609a9b614adaaacf563011c758916c1c3aa804defbe89e93"
     sha256 cellar: :any,                 arm64_sequoia:     "7dd57d5d3080b7ed19c8cd9b27bd26673ad2ce6df9ae1543a449f62820284cdc"

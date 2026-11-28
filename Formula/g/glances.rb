@@ -10,6 +10,7 @@ class Glances < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "113ce7a6b8614637144e0073dd90761e6ffcc08bf3ff6a3c79d6c30781f9a883"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2312c1f92c696b1e524bb9eeb5b6d2ec9da0197bc50259f984295a1164f1575e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3443d93627048e35f0b0e721ea86941b14bb30999b2b6d778a7e5a646a23620"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05d9d949326ed39e52a500f01a2e6a444e6d936e019f9d079285ab8b82d53cab"

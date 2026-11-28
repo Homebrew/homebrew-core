@@ -12,6 +12,7 @@ class Lisette < Formula
   end
 
   bottle do
+    manifest_sha256 "1a722482fb44cde5478bf21e081afd3f0f6242b9d128b74db1e324de1e2a8093"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d69a449e1dae49ce8a4cef64debd0ed8ccab9db77ccb6dcd08c7d2e69f819af"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61453a0ea15805fb6bd7c7587b469db8008d1fb57c52413943277067af28d4f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce2934b9810bf086903efcdea44a8d7252af646e7491d9a9cc1aaea8d5fbbcb3"

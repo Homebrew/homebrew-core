@@ -8,6 +8,7 @@ class Frotz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "528e29259c747988839dd831d62edcb264bb802207f85e9062f3b3dc9a50c688"
     sha256               arm64_golden_gate: "2a0d53bfb0390609651f8e621df171de2c560852fd999f1a099e726321c0b9c7"
     sha256               arm64_tahoe:       "13e6781a5e0e185bb4bb73634f55d01ae38a55127b20f0f6eb0e88ff13bef27a"
     sha256               arm64_sequoia:     "c6318bbdd29d11d3e152f706fb323f0d21a1e2c4c5e34e018b9471a69fcbdc84"

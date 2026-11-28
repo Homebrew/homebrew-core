@@ -7,6 +7,7 @@ class S5cmd < Formula
   head "https://github.com/peak/s5cmd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b90afb157568a7a4e1d9754fcc1e0dc8e9152e8fb3d68578ad664c95e16ec9a7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "219d10489dc222f4c60fd345689f49df3da07144c77d684751eaff9fe90a7d84"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61627603298bb1a3eb5eaea5f87ccadd359fcce806e7d117e793dde778a2b70e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "916e4d04783629cfd49481c1f6aa50ea3cde6f77a3083ff0f297e55c73e5bb79"

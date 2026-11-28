@@ -7,6 +7,7 @@ class ClangFormatAT11 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4351f701a8dc91ed0877b0292803d938c549e4e9516c8a1a55eaceba26f3ef08"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dfa7a7c3766ec1814a16f9f4a6ecc4fb134f4e1c525689f78d84d1af4572586b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1923e76a7a7db381a5aeec33e8b36b58dbc1894ed430bb0c0d2030b23351466"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80badd34294c905914f5525552db99369edbeb249d6ef7ca418d9df12988acf1"

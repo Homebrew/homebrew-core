@@ -8,6 +8,7 @@ class Jmeter < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2d8fe434f5485210ed68da8aff096acd588b823347393e58fbbea50db4b6b04c"
     sha256 cellar: :any_skip_relocation, all: "13c89a34f46a525ba7131741a8c7c8f0ea789ed231762b20ac6e5dc5f0757b04"
   end
 

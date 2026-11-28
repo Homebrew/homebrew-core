@@ -10,6 +10,7 @@ class Pytr < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3ee5e8d9018795dc52fa9aec3d0e3cfab4078598403927a903faa9cbcfcb5a87"
     sha256 cellar: :any, arm64_golden_gate: "b8eb009b3585f7933ab5e9b5b9710dd0822f9f94546a99375625959ffb74d0a4"
     sha256 cellar: :any, arm64_tahoe:       "299ff6898875a190d22154d25881a3570a8bf9e9c7e4936d9c7f78695e9189e0"
     sha256 cellar: :any, arm64_sequoia:     "1c39f7e3e83f081a18590b7a5b127e66f8c45555ffe508d77df54b67915e7e96"

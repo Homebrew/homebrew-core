@@ -15,6 +15,7 @@ class Openh264 < Formula
   end
 
   bottle do
+    manifest_sha256 "fb82c514cea297f82f1cb26164caa058cf81411c3df1f65c611cabab183465c0"
     sha256 cellar: :any, arm64_golden_gate: "95c21ec2da9a56cbfaef773dcc57d3a3a7bd352398797b0614f7d2f539913f6e"
     sha256 cellar: :any, arm64_tahoe:       "beb1f422f033063113f72bd58ce3a02d5bb18d9a771b817c22cd571f48ead5e2"
     sha256 cellar: :any, arm64_sequoia:     "0b632e539507e013588158f6166725a7ca3e513d4d53014df812108095c4d49a"

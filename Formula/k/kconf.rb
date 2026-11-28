@@ -8,6 +8,7 @@ class Kconf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "104d1e219beadd82ac1d37afb154892bbd3858d8968dc658bbc96e1d6c233252"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93d1b487bd0f430b79fa757e9bd2ac2e67e820dd47cde8b4ef18ded41c87a426"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "716e365025812d14fe17774fc209d18cc8f37aeae47916525f4a1547797e12a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "716e365025812d14fe17774fc209d18cc8f37aeae47916525f4a1547797e12a0"

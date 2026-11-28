@@ -7,6 +7,7 @@ class Edgevpn < Formula
   head "https://github.com/mudler/edgevpn.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a870a664063b87c36fcf98f707291b6bdc34b2c3f22a9e6e3a83dcb3ccb58dfe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41a0c7ae7965f3304991d5352e63aa7c0dd5b665c2e2cb50eab4e4b1c9db7123"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41a0c7ae7965f3304991d5352e63aa7c0dd5b665c2e2cb50eab4e4b1c9db7123"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41a0c7ae7965f3304991d5352e63aa7c0dd5b665c2e2cb50eab4e4b1c9db7123"

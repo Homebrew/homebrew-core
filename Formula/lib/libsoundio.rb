@@ -6,6 +6,7 @@ class Libsoundio < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f19133562c09b91096553573c1c900a1839ad28910357b7857568b73c832b7a5"
     sha256 cellar: :any,                 arm64_golden_gate: "2427a15b92de97f5043d26a9dfaebc6fa04053be41446fe833d0cf81dba4a013"
     sha256 cellar: :any,                 arm64_tahoe:       "7fa51b262723750c0393660e45d6fa7e3c049f903e17d75f5814cfb5a8bbf5ef"
     sha256 cellar: :any,                 arm64_sequoia:     "120bc6b9f88b42a4bd852c1ebe9d236d94d40edae13e06cec4906905347580ee"

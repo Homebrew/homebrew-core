@@ -8,6 +8,7 @@ class Libfido2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f976501d26cfc868d8c92fcd4098a347708464aead2b3aab7742382d75e189bb"
     sha256 cellar: :any, arm64_golden_gate: "6407a5715cc67b0c0acf715ba34c8c15001e6f2b49959477ccf4dc08d4c27020"
     sha256 cellar: :any, arm64_tahoe:       "9612687aaa341d338f0f71a18a45e5399ecb2a5cd04664ee0f9e04dcc9460aab"
     sha256 cellar: :any, arm64_sequoia:     "cd56a071ed3cca968ac12a94cd8f9e9b73ded9a53f68a9439c1173e8c3fd6212"

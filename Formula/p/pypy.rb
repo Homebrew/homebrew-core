@@ -12,6 +12,7 @@ class Pypy < Formula
   end
 
   bottle do
+    manifest_sha256 "ab5c341f66fda2337a61b2c7a3003f35539ef995de2e250f6ac1a5675226dff7"
     sha256 cellar: :any, arm64_golden_gate: "196eb7f1a3e130475dae88642b1c84b51a7cd6955b1797a8e1e66ca3c5f7c78b"
     sha256 cellar: :any, arm64_tahoe:       "56a32512e3776d848580010a25d7372d56db5f42285b17d923fc474bf648ee5f"
     sha256 cellar: :any, arm64_sequoia:     "a4349b59f50bddebcca60f96bed3524b53451b281aefe41816bd1313001fc9c9"

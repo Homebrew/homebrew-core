@@ -8,6 +8,7 @@ class Shfmt < Formula
   head "https://github.com/mvdan/sh.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2a8342b3395cc682c8efa8cb7b6bdfddd63d0ec6a2e6c72def958d0f69863952"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0fc52046a6269af6f1e1a110a491b43ac3d8098e6cdf5bf920984df729d33b1f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0fc52046a6269af6f1e1a110a491b43ac3d8098e6cdf5bf920984df729d33b1f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fc52046a6269af6f1e1a110a491b43ac3d8098e6cdf5bf920984df729d33b1f"

@@ -6,6 +6,7 @@ class Wakeonlan < Formula
   license "Artistic-1.0-Perl"
 
   bottle do
+    manifest_sha256 "19ab190fc2f1b083217f8794a9fe38b684b5ca46610ad56653300542c0689463"
     sha256 cellar: :any_skip_relocation, all: "a8b61b7acecad943d4a65502db27f0761c10b974930234b7750e36f868ecacf4"
   end
 

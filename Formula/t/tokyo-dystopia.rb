@@ -11,6 +11,7 @@ class TokyoDystopia < Formula
   end
 
   bottle do
+    manifest_sha256 "16a0a215bba2730b970aa63155305be19631e339f5b7e3c3c6beb2561405eefd"
     sha256 cellar: :any,                 arm64_golden_gate: "4ac5f3b8997b0f2e22f23bca2e7d7dfe249e96742f2605ae23172c97a3adbe96"
     sha256 cellar: :any,                 arm64_tahoe:       "a2f63111d93534d9aee115227c1f069d622d08d0df19e9d9664f653c28b60dc4"
     sha256 cellar: :any,                 arm64_sequoia:     "da35291f169e133bb8dcc321c5114ea62714f6e0eadab7a69cef121e0c76813f"

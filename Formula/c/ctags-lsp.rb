@@ -6,6 +6,7 @@ class CtagsLsp < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6aad00c005d95006b30a5a92498f274fbc3502f32e4f023d87e13e244fe8cbeb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30edcfabe99d1be4e95ab82b591d524cfedb8b90a22770c0d7ec7dc38b47eef7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07dec02591ecfd0dfa85f61ae84c1b5a70093b985f5f4660b55fce9e1e1b3d0d"

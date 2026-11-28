@@ -7,6 +7,7 @@ class Mdserve < Formula
   head "https://github.com/jfernandez/mdserve.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2339fb2bf8825b699a1d0795af07da06493ea022757a719f88330cb9c41cd5cc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f11a42d7d72fc4b853ef44c38bddf7771d34847c442ac43c26c9b8a072f28bbd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14ef5c7e6cd6c0fb3f941824f84ac34c3c8124d5f5bf9c78e89b16f96d4ca324"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "231269e5e95a19282c8372311bf248469f265f8bbccb4a55ea79ee5a5f4890f1"

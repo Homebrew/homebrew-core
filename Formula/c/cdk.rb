@@ -11,6 +11,7 @@ class Cdk < Formula
   end
 
   bottle do
+    manifest_sha256 "654c9e23bab88c7e0323a2cd4974b5a087d062f86abe650304a9c4f62570601b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b9ccce0117746c402c3341efd4440b43ced46e01a3c15b1cefaf7d90f0d4743"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1385097ea494ad07851d2830e58c15c855f9094dcbc157b9fa2e9eb2ca271158"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10688c9b60cd822682777a74a62e3c93b6a143e8fbe1bf82217d343b7c2c586d"

@@ -7,6 +7,7 @@ class Tfcmt < Formula
   head "https://github.com/suzuki-shunsuke/tfcmt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cfbda4899f6e87735f4eac9caae34e6fa1c847e768a10e5492beb03d3173df11"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01e869393dd0b59506f244d40a56c9ad12da955f48939d0cc8f45b3e8307eb8a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "01e869393dd0b59506f244d40a56c9ad12da955f48939d0cc8f45b3e8307eb8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "01e869393dd0b59506f244d40a56c9ad12da955f48939d0cc8f45b3e8307eb8a"

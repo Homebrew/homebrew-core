@@ -12,6 +12,7 @@ class Ntbtls < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ea5f4b05dcef6f58aa65658a66f34913801bf05983dbf990a7b881ffa5c0d8e"
     sha256 cellar: :any,                 arm64_golden_gate: "89cd95ae3de21ef5d177de876ec11738043bea6ab97a6e512b91660ec72d610f"
     sha256 cellar: :any,                 arm64_tahoe:       "242c4613a71bbc1bae7b6ce91cd219bb73f24bb7ca50a01515854870a793b159"
     sha256 cellar: :any,                 arm64_sequoia:     "5d96fef86e0e6421ac37c69453a98248c96635b2b6d8fe5b67faac129a8da5c8"

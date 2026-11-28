@@ -7,6 +7,7 @@ class Termusic < Formula
   head "https://github.com/tramhao/termusic.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3e003b786115f1a3e9e93e424920d3394a8ad9fa5c1b7c716f69ee0937bdfc21"
     sha256 cellar: :any,                 arm64_golden_gate: "3a1b580808feae16a14cc783063b91bb67b92a56304f6432577c36dc63bf4e58"
     sha256 cellar: :any,                 arm64_tahoe:       "849a8e2baf136452070b25f3f41f9b1e5ca2a13d42e52c2cc4f3d4343caa236d"
     sha256 cellar: :any,                 arm64_sequoia:     "a4a71b8e4eb7daaf98313a4b773c124334c2d08662cf6ff7a9ab6576a7965482"

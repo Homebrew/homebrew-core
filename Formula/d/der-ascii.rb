@@ -7,6 +7,7 @@ class DerAscii < Formula
   head "https://github.com/google/der-ascii.git", branch: "main"
 
   bottle do
+    manifest_sha256 "89ceb2528b6f4ab684265b2e09a4b84a121693af420e2e5c346605485a3f263e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b5077ffc5cce456b2e7d4e26d3e72e593e3daec46478cb93f91cc0870061fec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b5077ffc5cce456b2e7d4e26d3e72e593e3daec46478cb93f91cc0870061fec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b5077ffc5cce456b2e7d4e26d3e72e593e3daec46478cb93f91cc0870061fec"

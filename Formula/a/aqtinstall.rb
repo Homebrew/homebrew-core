@@ -10,6 +10,7 @@ class Aqtinstall < Formula
   head "https://github.com/miurahr/aqtinstall.git", branch: "master"
 
   bottle do
+    manifest_sha256 "894f2539a5cb6405207725ebab7eeac4da8529b68d5134d7714fb86b2dc26c60"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e80f215edd2cb27ba076a73d083c89b1f697a07356420940c86319dc7c0f167"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8918e19c16866b7c6888d82f43d5d9b6832143a521d0c9f4d9ea1b81cd4ab37"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a5ea813be1b89db60b8a755acdc3e24274e2699b94638f36772b29e358ed729"

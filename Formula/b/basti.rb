@@ -6,6 +6,7 @@ class Basti < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ecad4e2c444a173ec06f478ba77037e362b04bf5c2d45ce30ee91146305c7b11"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59fc015b7eddf0fbbee6f2958303dc5783db3b5a08e34bda33f561e3300eb4c8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59fc015b7eddf0fbbee6f2958303dc5783db3b5a08e34bda33f561e3300eb4c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "59fc015b7eddf0fbbee6f2958303dc5783db3b5a08e34bda33f561e3300eb4c8"

@@ -8,6 +8,7 @@ class Libdbusmenu < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ed51890f0bcd54742e048de47fb603a0b1b8972aa6226d1bf39fe8e4c07d69f"
     sha256                               arm64_golden_gate: "d0e7faa50fb303a005e124234df19586faba60cea85ffe6c1219126acdac6ef6"
     sha256                               arm64_tahoe:       "39c6193c2a776a1184274c4132d659b3922929f355416846cc1e09f858fb763e"
     sha256                               arm64_sequoia:     "35dd5ba680220be9552195596fc39fc285cb4badc56ecc86174bdc959a5d3a34"

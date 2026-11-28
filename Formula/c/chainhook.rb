@@ -12,6 +12,7 @@ class Chainhook < Formula
   end
 
   bottle do
+    manifest_sha256 "c9f70aa9de2592f6684afffbc3072b541c6b86583bedd56dba3a948d2f5cbd43"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "246ed442bd8b8e562221d3ac11ea97b07bbae4fcb0df9d79e99150457e618f2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4e136b469e884c9fabfd7d76b71d162f5fd42859f549a77353bcbdd62155b38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82ff4a5ec7b4aa312786066af2837d17fc1b0ed2d330f48edb953507f533eb28"

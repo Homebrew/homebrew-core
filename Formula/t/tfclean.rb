@@ -7,6 +7,7 @@ class Tfclean < Formula
   head "https://github.com/takaishi/tfclean.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f158c5860f30b5d6609754522cf0cf078726f0501e06538fd786256a95369185"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "76413e3c7efc4343047e4658c88bd45fe48b7b4b78e0628c9397244fe9e7f053"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "76413e3c7efc4343047e4658c88bd45fe48b7b4b78e0628c9397244fe9e7f053"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76413e3c7efc4343047e4658c88bd45fe48b7b4b78e0628c9397244fe9e7f053"

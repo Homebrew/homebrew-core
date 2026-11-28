@@ -10,6 +10,7 @@ class ApacheGeode < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "9d9e725ace3cef0d7e4c1fdfcfa617f52decef3b7dc19a5a3fa45d9e42cc054a"
     sha256 cellar: :any_skip_relocation, all: "94faa093cb161701dc0f8f4d8f22f5a7fcbd351e8109c9d82a1ac9040744aa69"
   end
 

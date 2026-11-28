@@ -13,6 +13,7 @@ class Sylpheed < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0c5fe0c42af82df87b9be16384a64262ae9a16d57e2cc5ed72d688417dde02d7"
     sha256 arm64_golden_gate: "b5fd93618ea6f60cfa7bba85d5fc32f71504b749e5cd8092913ceb4979c8b178"
     sha256 arm64_tahoe:       "9d162c69a7cab7f0671739a3a53cb0eff7017e9b59a5f651df03b692de28b0c6"
     sha256 arm64_sequoia:     "c788d42fa072abc19392c0d1aa76d9553fba825653c0143443b85a2a56192b87"

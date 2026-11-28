@@ -12,6 +12,7 @@ class Tclap < Formula
   end
 
   bottle do
+    manifest_sha256 "515d7320ef3fc7ddcfa873b67b4d1c8340c835190efbe3deeafa8fabea9d8b1a"
     sha256 cellar: :any_skip_relocation, all: "8e5c1727caf71a057232bc1248acbedae6eac6b1fe752da419d533fafcf26d76"
   end
 

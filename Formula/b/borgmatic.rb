@@ -9,6 +9,7 @@ class Borgmatic < Formula
   head "https://projects.torsion.org/borgmatic-collective/borgmatic.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8b76d4fd8e8548377bb12a8675d8f841a46f98d543774a89561cc2962244113b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4570aaeb28a864c2735b371841f3771a5903a39422739dca39952b6bb57dba5a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e3afadaa9b150686bbc7e8a782a4dc8a4bdcea708a16c466106081866b18efd7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29fca534f765567c710a998e6704577167ee2a3db4beca7b1cd9088c4892eae1"

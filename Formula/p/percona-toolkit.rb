@@ -18,6 +18,7 @@ class PerconaToolkit < Formula
   end
 
   bottle do
+    manifest_sha256 "e3392fab51fdc4873be7dbbebcd71e7c97e91b0e6ae2fd66caf88ea9026d0c1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e94948afecd0aa02aae51c7af748c03f0f4177e45a3883b6570fdd903ba6c93"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b658d499a410dab71ae145033feecddfc60008e7da8d41b009641e7829fa523"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63dd4ce19ea4d1ac034aa8c977941923ed324a8b806dd0862dd7c3a435615a5a"

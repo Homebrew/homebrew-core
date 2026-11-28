@@ -7,6 +7,7 @@ class AwsConsole < Formula
   head "https://github.com/aws-cloudformation/rain.git", branch: "main"
 
   bottle do
+    manifest_sha256 "de164d0adf694c2f36b7dd639a058b9d3280199c0b52811129c3863a2eacf757"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3437c5a6b2336d47ac4ffd754eed55389a3935374cae9e68393d2b1f2d4c5375"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "872fec19319083eb2b6286dc049dd352b6df61369cd073ed56a059e90eccd6f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "872fec19319083eb2b6286dc049dd352b6df61369cd073ed56a059e90eccd6f5"

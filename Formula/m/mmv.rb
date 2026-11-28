@@ -6,6 +6,7 @@ class Mmv < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "a5ec41cd0d3e226c4871c38a9a936a8939804459df2ec901674f02b8e10d4597"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1b397e4d3fa42cfb7bfd48254a8e16ea1043848df5bf973ce3b23878ce7f61f3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9393ab6a8fa37ce23cc3ad7b991a01d6d3a81bb84a3cf5f4ae6e8aee4d4ee67"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b250b77db698b27f905bb70f9a51d543eebcb46473ef3e45cf1633ac5a1e218"

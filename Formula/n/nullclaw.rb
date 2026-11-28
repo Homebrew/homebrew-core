@@ -7,6 +7,7 @@ class Nullclaw < Formula
   head "https://github.com/nullclaw/nullclaw.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e8ed59f40240859a3a50f35542b8187fbf89bdcdd406c6fe683c437196b70367"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d794509890b17584e688fada38fceecfcfdc2843718482c72f7b3d5fd22ed7ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c6c5cd7aabcc533829b9ee017442e6c55388abc5d189753cb2a94437ac5ccc8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd03f135ff9b32805d4332cff7b2d8a9c5688a46bec7cc2c07c10dcc2a1e84b7"

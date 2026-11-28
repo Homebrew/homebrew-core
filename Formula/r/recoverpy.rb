@@ -11,6 +11,7 @@ class Recoverpy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cbb419b0cbfbaaeb0ba48c76aa9c0c3378f3acbd94fcb6ee5eef7d9f388fcbf8"
     sha256 cellar: :any_skip_relocation, all: "e62a1f3d777266392635e2ee6fcd5392da05ee8f1ff5384e2b2dff79536521b9"
   end
 

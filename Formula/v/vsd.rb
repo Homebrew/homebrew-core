@@ -13,6 +13,7 @@ class Vsd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5163bd2b1d1a8c6c375139a1094314bfee35d985c960c892300f09bb73b5fdc0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82282a8a17513fd8dd7de2cca44ef495c051d5ad10ca06974175b49fadf7977c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71fc506abfabffb5b25a1441bccec05b942cd736ff268e79dc68bbcd2d0a4717"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc6bde619cb080f8df0a85eaf7c1be6c7b8bbc44a5d5c318dfc1f7e30c6f7959"

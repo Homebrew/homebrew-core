@@ -12,6 +12,7 @@ class Pazpar2 < Formula
   end
 
   bottle do
+    manifest_sha256 "532736e329bd3f38b0f67164b1e3821109cc866f37b20c54ef4e40be850d4d86"
     sha256 cellar: :any, arm64_golden_gate: "02e692e93c7935ef8f470bf2d59aff3d18539a1853c001ba2910152a8bd490dc"
     sha256 cellar: :any, arm64_tahoe:       "c80a77317285e1e6a8137c764b37e8d6021a7a7cec5ccde762c0ecd4bfd88a92"
     sha256 cellar: :any, arm64_sequoia:     "0a65a902f7174f8d2a350808d37a7abddded46dbd7336b132a6e6fcfc80f0051"

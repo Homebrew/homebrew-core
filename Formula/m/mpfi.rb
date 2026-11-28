@@ -8,6 +8,7 @@ class Mpfi < Formula
   head "https://gitlab.inria.fr/mpfi/mpfi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "700d6fd2e114a02ecaf5bf3baaafc8a3ea6747b2030a132a8af2888464025076"
     sha256 cellar: :any, arm64_golden_gate: "ded356712f2a860073ac623621ffe8f5715272bbfcb8ad0967377556ba41ebe0"
     sha256 cellar: :any, arm64_tahoe:       "77ff8894c355116e031ae3edc9c78fb9eb963bfd499d37ffbb6265fc1816ce3d"
     sha256 cellar: :any, arm64_sequoia:     "db8707dd0d05575e06945620923ffa0115055bcb1b016922cf0d755eed43580f"

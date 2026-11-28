@@ -13,6 +13,7 @@ class Clojurescript < Formula
   end
 
   bottle do
+    manifest_sha256 "a3ead02e86515f6a7135c9f5fe9c8ff1280c1b872de7ff60135622292e98c1bf"
     sha256 cellar: :any_skip_relocation, all: "df0df68b4ae1cd3cf1bc44201af2b2290e9e82def0afa28da47d37104e359011"
   end
 

@@ -14,6 +14,7 @@ class Cspice < Formula
   end
 
   bottle do
+    manifest_sha256 "1e41947c2182d9654b23111a5b9ccec8ee4ced9095244844d881ab5f1ef9cbe5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "489f07375fedc8368e86d5edb179141fc1cadc2d93678dd64673d7c0be36d3a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "040bfcb0ac95b84d33600b31a20d6bb50a81f606a713077d86bc4fe47f115108"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c978ab6a4a6d85e200924e49a41e2da477561637bbd46f49d150614777d8d1ec"

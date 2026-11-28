@@ -13,6 +13,7 @@ class Mediaconch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "943cadc599efee23612bf3183ee60f18a7b3a12132336298771f2bc13be936bf"
     sha256 cellar: :any,                 arm64_golden_gate: "9c7b6dd2612ea6e07ff83fc183121b16a5940d54942ce40d6eedd35b0f786a24"
     sha256 cellar: :any,                 arm64_tahoe:       "8364c862db65aa723612eea3215ea4399c074701e4321b4f1a6a705b8cf6c925"
     sha256 cellar: :any,                 arm64_sequoia:     "ed8e4aadeb2a94ca31f5fa04ac4409db8a3cc9f1365b4e89d0dba789e6fbff15"

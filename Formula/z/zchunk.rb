@@ -7,6 +7,7 @@ class Zchunk < Formula
   head "https://github.com/zchunk/zchunk.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0b4d412d0b72a3555253c4ba7d0fd874b18d64baf189333deea0013fe4c477ab"
     sha256 cellar: :any, arm64_golden_gate: "aa6c207ed017c10456cf2f9508c53c0ecd0b9ab6c97a40614e0491f9a757c2da"
     sha256 cellar: :any, arm64_tahoe:       "b030a00b404781aaa84a6ac6b7e6feb3509320ef32888f765f778afb194449de"
     sha256 cellar: :any, arm64_sequoia:     "e20c02455b87833c1487901e044f91b11ccfc7bfe98d92a7f9d9c9a4be8d7401"

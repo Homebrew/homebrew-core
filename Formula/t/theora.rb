@@ -13,6 +13,7 @@ class Theora < Formula
   end
 
   bottle do
+    manifest_sha256 "14cdfbdda02ce84448f2af8481ceb0752cbe9cf1c8f4b141076c942d7964d498"
     sha256 cellar: :any,                 arm64_golden_gate: "aa7701ba3508393f1ce238b538114f705906e7f8a3c78ce570fc0cff322cb617"
     sha256 cellar: :any,                 arm64_tahoe:       "b611f6607b0d916bd49ec4b88113cd230d7c0199865b287e75b1ae769bae64b0"
     sha256 cellar: :any,                 arm64_sequoia:     "0474983a6d3f2982c2b34586f12c58d5363ed4e67e6642686d295a4c62533d6e"

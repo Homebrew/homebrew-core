@@ -7,6 +7,7 @@ class Cymbal < Formula
   head "https://github.com/1broseidon/cymbal.git", branch: "main"
 
   bottle do
+    manifest_sha256 "05320c9c26f694c93f55410c73382ca12bf6d26903193029c6a101905a673d0a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60dd6966a1894b870ed87b7528f8bb58d658938d2cf0d776367f5a15444c0824"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "343a96007dc13b3a0f1ab89c6efb98a78afba1c86b0e75cd80614946f2b14db2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88767ce3f15ccde56b350cc8c4f949e92bcf9769ec2eaca7c9207e4d7fdf7eb9"

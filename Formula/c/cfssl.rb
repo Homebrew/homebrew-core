@@ -7,6 +7,7 @@ class Cfssl < Formula
   head "https://github.com/cloudflare/cfssl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ad934ece1a504656437616bdabc1e62e8b53767d435b0563eb917d8da4efad25"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3228f04fca4e28af5c6cae91a6956a1e80dd8986633e33c972960221b1bdca38"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "454146d8ccd8ad3538912fad3bd46ce904928661ce48af223bf32ef8379ea66a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f92102ef032549d333ea5937028f8a4014d1717a75511a1eb4459c92a9557caa"

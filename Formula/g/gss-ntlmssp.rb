@@ -8,6 +8,7 @@ class GssNtlmssp < Formula
   head "https://github.com/gssapi/gss-ntlmssp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "21b83d28c3e19401fe08ca88a4fa3609a7b8ecb8b866b750185d98c9fdcf9d77"
     sha256 cellar: :any, arm64_linux:  "452cf617ebb8d1d30afb7544ed432feda059349ebd2334ed3741313e0e6610a6"
     sha256 cellar: :any, x86_64_linux: "010b908c8cc53f2d309ab73ca84b3422272b93efe4923cf446a24eaf01adb9b0"
   end

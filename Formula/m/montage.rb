@@ -15,6 +15,7 @@ class Montage < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fc58fea52019e696d1183d9dc0898d4f9b3d098bd062d6792ad74b49673c35f9"
     sha256 cellar: :any,                 arm64_golden_gate: "0547639fdb147eca32b706557dfbb72dbefe5c76fb39f9eea2630fec2452fd20"
     sha256 cellar: :any,                 arm64_tahoe:       "58eb821dc6f0b9c1a85b8e5664f11465d87e00d719943644bdf303d25c7de909"
     sha256 cellar: :any,                 arm64_sequoia:     "b1d5f7c20f35e617f62197124a7c5c7e43bd4fc6272cf642346f6311d1da41b3"

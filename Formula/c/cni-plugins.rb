@@ -7,6 +7,7 @@ class CniPlugins < Formula
   head "https://github.com/containernetworking/plugins.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3653052d1796fa412df559977edf1325f8552f768dabe0d3efde1e495647abb3"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "9384e41b4f5d791dff9407dc851a97fc79a10229e6692c4a4abedb714bb4f35f"
     sha256 cellar: :any,                 x86_64_linux: "26bce17624be1acbaa85052ed436a36e1d0069b04a92ef9ae1d858799d96eea6"
   end

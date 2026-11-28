@@ -8,6 +8,7 @@ class WasmPack < Formula
   head "https://github.com/wasm-bindgen/wasm-pack.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3a2c69f3180faa404cd03b1e8fa81d6fb5453a979f55dcd36b652cbf2c7b14af"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0afec3efc61040915e16f669ea2d0ae9780eb503212dea1a4800a9ebe50ec65"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5065e2dd622f289ac44e52174dd11cece94eb7e57f1f6ce627c94a7402575e78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03fc65f8f5ef0270850133d3ca545a49e211b9e30fcc9419eb134ac85a3bac52"

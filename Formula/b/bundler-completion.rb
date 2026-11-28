@@ -12,6 +12,7 @@ class BundlerCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "cad67764fcd78a440216f1908369aca752775cebb07958ee713dbba9cb05d7a6"
     sha256 cellar: :any_skip_relocation, all: "eba47de2a5fee4ae57cc2e1eec146d6b8602819de68ab8865a092cfbfe8aa2e8"
   end
 

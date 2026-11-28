@@ -12,6 +12,7 @@ class Fping < Formula
   end
 
   bottle do
+    manifest_sha256 "b675fac91aed9651c58532bd19d72041895fba37b98896ae898eb479cdbcf387"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6601f6f1140f6c5db76fd37d5e02368e9786f2239f70f417875a01533fbef694"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8e132e94c41b8dcf3149faf3356beece440bc4f5b804e723e9f7ee9cb14817d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cbe25f1d45b4b018ed308fd986f26211a00cf32c205ebc5c46ebcafdc546e352"

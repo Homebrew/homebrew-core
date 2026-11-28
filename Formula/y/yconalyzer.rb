@@ -7,6 +7,7 @@ class Yconalyzer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3dbd2bda28175ebaad2a445722af886284c1f5dbe739e50c0daa0a25a6d759c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a36d4332b2ddf674d0b0f093a2d0a60a3a3c4f3046e876dae06a19741d58a9d4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8e293d34a2bfead5ac9adc620c89fa89f551e4ece73f6a1df952b7f6ab960b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f09a5c77a631fe4cf72c038f9196324faa22a94e9bf1513a864f65a6ef6eea54"

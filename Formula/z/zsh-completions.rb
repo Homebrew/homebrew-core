@@ -17,6 +17,7 @@ class ZshCompletions < Formula
   head "https://github.com/zsh-users/zsh-completions.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a9990909aae7479910a95953e075c94ac1b2aa14a1775cb19ca7c42a0a68d866"
     sha256 cellar: :any_skip_relocation, all: "b049deb74035408154c97b57d9834510d55503c64b172b8a89937b7e6118cca5"
   end
 

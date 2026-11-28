@@ -8,6 +8,7 @@ class SoundTouch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8ea851011ea6f053eb255e00b50f1b51436754d75375bed1b0418bc49856a8d6"
     sha256 cellar: :any, arm64_golden_gate: "07f99714296fe4c202508e21571b1a3bfbf91b0d9c191a94a600783df0ca3f56"
     sha256 cellar: :any, arm64_tahoe:       "c7951228bbd5d138811489e81d1e2f40de1332a2ba27787d4a3e1346f0023393"
     sha256 cellar: :any, arm64_sequoia:     "d20df6d0628adb9974e1182d76c386a0434705d3707251c1f53341c3d3dea294"

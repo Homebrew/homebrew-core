@@ -8,6 +8,7 @@ class Libcoap < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ef43f99458fa8bb615ab7124ee2b997d8ca3409543b62f15af2b50fb95f7447d"
     sha256 cellar: :any, arm64_golden_gate: "148d4541164a5107839ff43cd9f237d4fd7027452312e5be39f75d83ff72b8e5"
     sha256 cellar: :any, arm64_tahoe:       "217cd4af1702fdf3e004afc72bd303800c82420002a9c257e32e5a43af33cc0b"
     sha256 cellar: :any, arm64_sequoia:     "0faff1587a9d48cf0d6864c859acd24f7bd2b070957ed5122c7fd248a5adedba"

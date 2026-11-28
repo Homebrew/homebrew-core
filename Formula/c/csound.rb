@@ -16,6 +16,7 @@ class Csound < Formula
   end
 
   bottle do
+    manifest_sha256 "7c4d84a70099712f1b76fab37f848485c67ef8a24004ca37494fbb4f3c1250bd"
     sha256 arm64_golden_gate: "7709c6410f805f7f2e5d6beb8d1cb375faefd1e73c083d5fb791dcc8e683d155"
     sha256 arm64_tahoe:       "85145fdf22bcc9615baceea4717b8ed96fc01d38d8c84778d7e2dbb72189d3fa"
     sha256 arm64_sequoia:     "7868cf70cee80c7209c9bc5e76b3801c978e78b147b96c72fa9cac914fe35c57"

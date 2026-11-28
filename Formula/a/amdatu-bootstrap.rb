@@ -10,6 +10,7 @@ class AmdatuBootstrap < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1417bb59c3cd6eb747e116e1df03ad235fdb8e21de3371d6de5fb2e365a7e9d3"
     sha256 cellar: :any_skip_relocation, all: "0094a50b87c8bf6f25f9fc0e68bcb95a2c46923a240eb83210748a280ee8cd27"
   end
 

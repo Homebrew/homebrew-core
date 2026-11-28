@@ -12,6 +12,7 @@ class Vtzero < Formula
   end
 
   bottle do
+    manifest_sha256 "dc5f8b90a24e461f39af54c5c94a466553b48afb10a9ecb1b28130d256456dce"
     sha256 cellar: :any_skip_relocation, all: "7edfaf64ec1282ee246f33e362201810ea0c633a609569f021f80c5b4e207601"
   end
 

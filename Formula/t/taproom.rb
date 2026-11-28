@@ -7,6 +7,7 @@ class Taproom < Formula
   head "https://github.com/hzqtc/taproom.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6f3a0cf00c159363f7c7b13218d7cba8d628bf6177f677908d8e989abe7adb64"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cdb71401f5c1857839f535edc0f816e3116f59b0e6aeae4fcabfdb41ccd3ce22"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdb71401f5c1857839f535edc0f816e3116f59b0e6aeae4fcabfdb41ccd3ce22"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdb71401f5c1857839f535edc0f816e3116f59b0e6aeae4fcabfdb41ccd3ce22"

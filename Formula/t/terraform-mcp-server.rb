@@ -7,6 +7,7 @@ class TerraformMcpServer < Formula
   head "https://github.com/hashicorp/terraform-mcp-server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a40b3a373f180976bfba85fabe35f1c7453cefa114f44fa21cad3b78b37a5856"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43bde70b5a0176e3c97cde0710b392b82cebc7f34028d7e957865e090bd569a1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43bde70b5a0176e3c97cde0710b392b82cebc7f34028d7e957865e090bd569a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43bde70b5a0176e3c97cde0710b392b82cebc7f34028d7e957865e090bd569a1"

@@ -7,6 +7,7 @@ class Asciinema < Formula
   head "https://github.com/asciinema/asciinema.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "b8be8196e104ea6aa9f2297504dbc2bfc2df04e28ef0561db53f26f65285d194"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8cf5d8edbdc6c201be82029c5b16678993c7392caedf466378926ee869c8fc78"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0b8a518a74f9d270c61c7e892c5e837d1ce997bdf67b7f60c0b6d9572e4c009"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50c12d3a07d15ef99b30627d32d4b57dc1aca7bd566a58647abe7ef43b0afba7"

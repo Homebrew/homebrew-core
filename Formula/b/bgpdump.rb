@@ -12,6 +12,7 @@ class Bgpdump < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "eadc7c12652ee75ef46969acc36f50be42168e92efacc3da87b925451e4d29cc"
     sha256 cellar: :any,                 arm64_golden_gate: "b7d318ce1db36c22033233bd481605a0978289239e1b47cdf4656488a94bb20d"
     sha256 cellar: :any,                 arm64_tahoe:       "b7466c828dd9c4dc63b62c670ad9bf9270ae4b7b4a512ad7ea6d4f3852100879"
     sha256 cellar: :any,                 arm64_sequoia:     "d19e671a817e8cca5f105ff661bd83aac226068487e581761b712f7b02b966d2"

@@ -6,6 +6,7 @@ class Symlinks < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b9563ba3389b7c52727a76a4b539d3ad2df4b84b1bc70ec7a6fe20c9db68b5d9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8cfa10bf7cd75614157f172e33feaa81c607a290b48fe2de754308ea57429f2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8dc7f7f7a34aca2effa06e21560ea6828e1cb4cfba15d877010545735a9ce9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4f0d8f94815e056e274db19ee924739711eb18bc11909a6ea5faecf74826fd7"

@@ -13,6 +13,7 @@ class ZanataClient < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7b4473cad402c2ab9bed573b9fd332500ef88659a82914e3784c2e94076a5795"
     sha256 cellar: :any_skip_relocation, all: "4e9a444168ef8759f044a71501e69d0d5f5d8e22dd29038bc8f784751341aa8d"
   end
 

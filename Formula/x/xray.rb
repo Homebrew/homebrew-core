@@ -12,6 +12,7 @@ class Xray < Formula
   end
 
   bottle do
+    manifest_sha256 "dd7495f07c3e4bf2a349115f2763f7ba206148e9ec722829cfb5bfa63fb34662"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a8c10206281cc0843d67f694c3c1ca381ed160444c1a422a031235e93ada0d6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a8c10206281cc0843d67f694c3c1ca381ed160444c1a422a031235e93ada0d6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a8c10206281cc0843d67f694c3c1ca381ed160444c1a422a031235e93ada0d6"

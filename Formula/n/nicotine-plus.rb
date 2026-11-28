@@ -12,6 +12,7 @@ class NicotinePlus < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e2a4be66442c1aa8dedcc608a53518847715f679d803ec85f874328918797895"
     sha256 cellar: :any_skip_relocation, all: "b556710f2b89dfeb031073e4b7851d79f20de73b70adf4c0e8e19b11b2dfa1e6"
   end
 

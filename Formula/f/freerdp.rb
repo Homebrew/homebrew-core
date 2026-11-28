@@ -8,6 +8,7 @@ class Freerdp < Formula
   head "https://github.com/FreeRDP/FreeRDP.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b2cfef81646c62c44e00b35511bc7e1ad279808668079665da00981c42f9de4e"
     sha256 arm64_golden_gate: "aedf9e8f5b450c144cf659f54a782b22fb18b3dbeada1254613dbf9abc6b818e"
     sha256 arm64_tahoe:       "e9e59d84a4dd8cbf5f158928f30dce96d3d1a00ebff89addf848430826420280"
     sha256 arm64_sequoia:     "e666a11d59c589ad6c1af400dabd04235944285de83b3794446ede2536293b05"

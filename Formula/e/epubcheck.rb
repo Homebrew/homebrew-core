@@ -6,6 +6,7 @@ class Epubcheck < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "e696d7c5912fc73144b17d05ace99d9fd4ccacda89c1d9b6d4ff72c2585f3338"
     sha256 cellar: :any_skip_relocation, all: "6740a640702575af8d520803def971d8edc138d9d20d804d7479ec8bd5e420a9"
   end
 

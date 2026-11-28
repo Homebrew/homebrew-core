@@ -12,6 +12,7 @@ class Cracklib < Formula
   end
 
   bottle do
+    manifest_sha256 "9eebe12d1285afadfd3adaf086cccacd005329546aa23239deb51a81535a1763"
     sha256 arm64_golden_gate: "338032be69343873244d35917f59d3b473e3e69250067f5443b399e3bbf267c0"
     sha256 arm64_tahoe:       "2acc254c0266961551117cd05fb21668aa629ef2598e55b8968f4f452e811f58"
     sha256 arm64_sequoia:     "975f55605589226ccb62a8d6d4b204f54d0ca186314a6c125365c778c72be9da"

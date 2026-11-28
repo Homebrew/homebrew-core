@@ -8,6 +8,7 @@ class Aurora < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "038cef4cd083dfe1b7ebd716d54afa3e9b27ac2cfef0fe3bbccdc95401bf5e25"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dace6f97d04f953a0348c0e40222773db5d9086f9034271b5652f3ec6b89b11e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d851326e81898d1d2e48168b6bfdfaa7a9073361543e2fca53be0d0bb28a27ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4cb522a01c06cf788476d58b83b367c4c753f7fc6ced76b18881586eefd8c188"

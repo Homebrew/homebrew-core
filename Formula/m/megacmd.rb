@@ -8,6 +8,7 @@ class Megacmd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0cb0270205cb1b3e3e4ec0848beb7a44b14a512f13b6a3017534a95b0bfabc90"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1ddb0197b8265ca1aeabda5a8dbb62b88ad123a9d3d1fe68862860ff276b31a7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a2e36bb3c2d380512873dbca8ecac3e42bea9d1007addbce0ca66c3d8114772"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1657b07c1cc68d549882d9d1527671cbf156d3e7f09c42ed3924c20b1c81398e"

@@ -11,6 +11,7 @@ class BulkExtractor < Formula
   end
 
   bottle do
+    manifest_sha256 "d0e16b1d527ce26f23bc620a003f468b295ce062488585b221eaf2ac8abd74a8"
     sha256 cellar: :any, arm64_golden_gate: "b00244e0721c42019de5f538f62216319831f2b36270c5d001d50e016e5b27fa"
     sha256 cellar: :any, arm64_tahoe:       "b24559ddfbf33739ec78e8a3bf7186b3b79c5fff6005410518df98a013e3f1e2"
     sha256 cellar: :any, arm64_sequoia:     "ce0e850624d6db32edc9f7fffdf6ff713fdb7e86cc5489e5166540fdb6566bcb"

@@ -7,6 +7,7 @@ class ReactNativeCli < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "7b3331bcac21ec61cd176dc0fb27bda3ef1f8fbed9fb726fb35d55ae733bdfc3"
     sha256 cellar: :any_skip_relocation, all: "405acef03b37460580b26bc0184b0891653cb58f130b25bcf1f454c0968a8e70"
   end
 

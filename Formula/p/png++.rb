@@ -12,6 +12,7 @@ class Pngxx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "41752f1f86809b70e9ba2fe00c007a0f766b21a15073ab9b2ef274a2e262ae07"
     sha256 cellar: :any_skip_relocation, all: "691981245534fb80ef1d86b9d7c2fff6f57ece7b50d7def13d5930be8dbf00f7"
   end
 

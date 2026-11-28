@@ -6,6 +6,7 @@ class Mongoose < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "312a3bedd563300093d77cafab17f919d6e9c43af005d899dc5d4334551e9e76"
     sha256 cellar: :any, arm64_golden_gate: "7554043843eb9a94924ff1d88874b31b5935ab8e0c5f9a383f2b077c286d1888"
     sha256 cellar: :any, arm64_tahoe:       "29dd52409ce1581a5b9d27b5b69d466704e304f0343e2af67fb2b51903e3a079"
     sha256 cellar: :any, arm64_sequoia:     "c3c051f280bf68d0e34c0a10ca15e807c17a98f4b4680ae0cbb816f0902175ce"

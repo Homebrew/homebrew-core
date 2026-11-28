@@ -6,6 +6,7 @@ class ReadwiseCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5111eda462d1b0574800f8f6e1400536480254ea6d281cd90825aa6be41164d3"
     sha256 cellar: :any_skip_relocation, all: "c840f24ca38b85e5c16633bd1b0f473726ef5c806a2eea1f76ba0bd34a609f49"
   end
 

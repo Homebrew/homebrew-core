@@ -7,6 +7,7 @@ class Nanorc < Formula
   head "https://github.com/scopatz/nanorc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b32a57a20f1a9c5455443e7368643a4ad2412b85681917734a0456bbe4e32334"
     sha256 cellar: :any_skip_relocation, all: "bf71c9da19d2ac1b05163bd9f92ea86adc475ca15d3e95101c91d788ff781625"
   end
 

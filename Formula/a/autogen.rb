@@ -14,6 +14,7 @@ class Autogen < Formula
   end
 
   bottle do
+    manifest_sha256 "07a657b971c7ff9759f224b36dcb9fc6f0bb19f34cc62d382044e0551f7272f6"
     sha256 arm64_golden_gate: "0cefdb80090b60dd4280623c745b4ee34c8ac525a999e3bd15c069701b9b9277"
     sha256 arm64_tahoe:       "11f0bdd04ae3db9ab2d6f2e12d2554db59111391ded8f941cd2bf08f79475f8a"
     sha256 arm64_sequoia:     "4d986c1d9d478a402348836169d0a35f56a6fc9f7ad7f5d14acfd1bcd101b9c9"

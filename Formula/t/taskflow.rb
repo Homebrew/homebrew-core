@@ -7,6 +7,7 @@ class Taskflow < Formula
   head "https://github.com/taskflow/taskflow.git", branch: "master"
 
   bottle do
+    manifest_sha256 "936cc8fa311f2e6f38bd991431cd225ee56c057baae14888d23062bdfa6e7add"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aaa6d3297b94d4cb5ab5b8de908a7559dd9965153d5671e763672f6769aca051"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3631e5f8b148b811fb31cbc1c17a514b430757d6002b88d8ac94b7feb3834353"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3631e5f8b148b811fb31cbc1c17a514b430757d6002b88d8ac94b7feb3834353"

@@ -7,6 +7,7 @@ class Mdbtools < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "4f8ca897fec6149c88e20fda934855e33e746065ab58b3ebdb69a5ae983592bf"
     sha256 cellar: :any,                 arm64_golden_gate: "c766a908845f225a5c2cd25d85f3f6ac5f0fa6a071f2cec08687b70d19343ab2"
     sha256 cellar: :any,                 arm64_tahoe:       "80daadbae2b628dbc1e33e475a690da0c637cee4c0619e8f6fb462ec08833820"
     sha256 cellar: :any,                 arm64_sequoia:     "5f908724216744cf5088aa9ca1418608ca0837be3b34c50d279d1465c7f030b9"

@@ -24,6 +24,7 @@ class ServiceWeaver < Formula
   end
 
   bottle do
+    manifest_sha256 "c929381b2e302ea2bdc36afbb2bd482c00f5543f7d79879015c37b82c9c28041"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "cc49ca39bcb55555be333c8ab54c3649cb989e82d04e3d743b1fcc690f26c867"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "76c861065b7ebf0afb19189eda629198c7f2626911edc540aae08660f06a1345"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e4bf175089ed43e869e3553de0ae5a3b498e9cc796745ce14fa9e2b919273413"

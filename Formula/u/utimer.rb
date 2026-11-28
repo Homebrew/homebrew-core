@@ -11,6 +11,7 @@ class Utimer < Formula
   end
 
   bottle do
+    manifest_sha256 "fc4457aeaa5078231eb6888ffe1a83d57e69288d6c40a0b461f328f73c395829"
     sha256 cellar: :any,                 arm64_golden_gate: "a2a68ca41e5f9dca77f057b66945e8e59e360d2fe289b6618b41dd90b9585863"
     sha256 cellar: :any,                 arm64_tahoe:       "e23eb9898bf6490db8dab00ca39f6c2b2e90fd358c3049e1f36a0c637ca06b6c"
     sha256 cellar: :any,                 arm64_sequoia:     "b81fca5d55f6c336477ac27ce66e9fb030be982864b54be675ee624b73444f7b"

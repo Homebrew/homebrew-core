@@ -7,6 +7,7 @@ class WormScraper < Formula
   head "https://github.com/domenic/worm-scraper.git", branch: "main"
 
   bottle do
+    manifest_sha256 "653e97be2a760aa18a359ec0e68da00feef8d909bc28095cb066c61858521df1"
     sha256 cellar: :any, arm64_golden_gate: "06e8fce767b38854e0bd24c19dff68b665fff1998e6b52bc436194fc3e413b7d"
     sha256 cellar: :any, arm64_tahoe:       "78160f3a123f883d8c93deadc9ac45f1b7d7bec753ad0d900b0fae773912aca8"
     sha256 cellar: :any, arm64_sequoia:     "78160f3a123f883d8c93deadc9ac45f1b7d7bec753ad0d900b0fae773912aca8"

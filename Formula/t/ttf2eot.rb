@@ -6,6 +6,7 @@ class Ttf2eot < Formula
   license any_of: ["LGPL-2.0-or-later", "BSD-2-Clause"]
 
   bottle do
+    manifest_sha256 "8ccf9968fa41fe27c7088b0fe147231086e66ed8509ace5a7e1b421cb37230c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e14f7e48b1b4884b772ff184535d27db737eef1d2daf6461a0732d3c80435f36"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d16324780cc0664cc3e5372cc1c6959062258a6480c23e4ca1791c0e0013f864"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4063624dce85f67ce9f8d03c746e79350fd5ec24b3439cdef46e71bf1f07418"

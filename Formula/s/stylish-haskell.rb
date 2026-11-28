@@ -8,6 +8,7 @@ class StylishHaskell < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "6374210ef45e70e186e23a95ecea30a7f814c53e53ca7c187b6dca6f286111a1"
     sha256 cellar: :any, arm64_golden_gate: "d3b368a3dd5aa530f5331ddb7123200018ef151033ea8a24388f8727c31ebdde"
     sha256 cellar: :any, arm64_tahoe:       "a4f78bcd8ce59aec4e06a0cfc88954a75684ebb8305ac5e0c58e45e79a21c66c"
     sha256 cellar: :any, arm64_sequoia:     "b1e5697193a7f1cf3b72032cd8979406c074fba9f016eeeb189bc64b1ff807f7"

@@ -6,6 +6,7 @@ class DockerComposeLangserver < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "970faf824b5fe24fff920bcb9c4a702141073a29d182b907b93a608681369e55"
     sha256 cellar: :any_skip_relocation, all: "b4c5171992ad52f04d7080ebf37119c3dcb6ec7d6c82e0d26cb7babf50ec8e52"
   end
 

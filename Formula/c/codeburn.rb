@@ -6,6 +6,7 @@ class Codeburn < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6f9f216500dc752dddc8106cd7ab8a4a659b531473c4619c8747487ed0a59fa2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c03b3291bc40ce1d7bf2c9961243ef1ea46149f64df25e3a3f3feb19698a9f4d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c03b3291bc40ce1d7bf2c9961243ef1ea46149f64df25e3a3f3feb19698a9f4d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c03b3291bc40ce1d7bf2c9961243ef1ea46149f64df25e3a3f3feb19698a9f4d"

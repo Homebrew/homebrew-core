@@ -7,6 +7,7 @@ class Tgpt < Formula
   head "https://github.com/aandrew-me/tgpt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9e3618d05d2e43414b29cc6c38f28ab1615874c2b95283d83610c6700a890c84"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a367231f8fa89977cfd19cab193d2fca284aa116262cc88570e60108dcf4b5d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee2dea159ec543f126f51ef4260c80415d30a9d6a71355df64baa3dd6b4e3d72"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b54e0032eb2f5eee8732be62ba7ea4d73329cd4023321a24a3893999bd357707"

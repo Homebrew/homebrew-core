@@ -12,6 +12,7 @@ class Apkeep < Formula
   end
 
   bottle do
+    manifest_sha256 "2d07395b07d259eed90ec1e240764f516bfb14c828c92b7d0e1842c77b4751e0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "301d1aebc359ffb42f003690fe42eb7e93406c8a0d922df177bee496da40d4ef"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4567991fb169f4cb484aa8fa1dcea36532113517c272ad325c8692b4a2c348f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f0c9690ab19d1e2704227fcb502fad07d04bfde5ae3e8a79022418320882286"

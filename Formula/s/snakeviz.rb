@@ -9,6 +9,7 @@ class Snakeviz < Formula
   revision 8
 
   bottle do
+    manifest_sha256 "d83b21df79bfa5290f35a46464e877200624f2905476908fe3b905b07d66dd79"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc2ba725cce1aa3b3cda0615c358300f1883f2909884afeb59c433e176b2d1af"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "66a1f65d1e8986240638e587bba4c04a9baf896c9b980e926acb2646062a3df1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e810bc1c4857ce699045640cf75d1d56bc8a5ae51d1d58429a32c138e0e2b523"

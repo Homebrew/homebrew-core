@@ -8,6 +8,7 @@ class Blitz < Formula
   head "https://github.com/blitzpp/blitz.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d74837800fa9ec63c79c29d35cd94ae0afaf597b7a63a7206044a51ea07a42f6"
     sha256 cellar: :any,                 arm64_golden_gate: "aeab7cca88695ac1181f4d62c8e2d19cd859eac60b90e235c32e2aa60d670d79"
     sha256 cellar: :any,                 arm64_tahoe:       "0980f40ce384ebf7abbb720f1761764fbfd3118085b50ecefe1fcdc740418f88"
     sha256 cellar: :any,                 arm64_sequoia:     "f5c76acfde9f6b4ff49baaaddad03106654788518afcebd6e15b1511c965fe92"

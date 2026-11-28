@@ -6,6 +6,7 @@ class NpmCheckUpdates < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "ca949b7d497715ad4fd391dd32d823ac9cd402ae3d66806e25318c8e623dc0b0"
     sha256 cellar: :any_skip_relocation, all: "3adbd70d141159d4250b3df6948f95e4b07bee8ad8ae5db7c82cdb364f497ae6"
   end
 

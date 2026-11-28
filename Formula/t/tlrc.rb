@@ -7,6 +7,7 @@ class Tlrc < Formula
   head "https://github.com/tldr-pages/tlrc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3b936ae66a41cb5f9b39a4efa5cba39806354b271a007455c6e80dd9fe913e45"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c05c7bdeac7a8cf7f80d09f5af0d7315dba798a6813581c9010ccddeb3195de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "817821d692c22c56152930f68b0d1d21074b2ef5a483a61f9b1c9ea1f82a504a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "326c5b867a5ddb95542c027128558aa17859ade4c3eb45e91a23397fc6148e51"

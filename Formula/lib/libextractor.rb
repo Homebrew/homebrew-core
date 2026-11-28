@@ -8,6 +8,7 @@ class Libextractor < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "202ecf3d964e7b3e7b706e7f1003988107a7275fae0853fac97695d706b577b9"
     sha256 arm64_golden_gate: "6b4f3dfd054c316e7f54a1b6d5bee13d96063fc57b795fbc0c6727299e96e60b"
     sha256 arm64_tahoe:       "3117b6f4404da2f184146ca6472b46635983430bd5a37079f806d14c9ef9cad9"
     sha256 arm64_sequoia:     "6824f4de236a442a273e1363dc40bb8a95a2e50d0d7bcb6e729ed89e3d829758"

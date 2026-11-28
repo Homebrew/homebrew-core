@@ -8,6 +8,7 @@ class TomlBombadil < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "cf5fd1aa4d33eeee76bd052038f57fdcb8523d9e1dfb4d1f471278884d66bf1b"
     sha256 cellar: :any, arm64_golden_gate: "bf34e466f3b5087d06b02a43b7cf13584c1ea2376e1ecf8dae4ef57b7c987e62"
     sha256 cellar: :any, arm64_tahoe:       "03489419a8f4267bafc143414f5653c534f59d197379f817cf836120782b665f"
     sha256 cellar: :any, arm64_sequoia:     "fde0bbe597b847280f1c825edda6c47aa889ce7fd83a093cb2a6793693f7079a"

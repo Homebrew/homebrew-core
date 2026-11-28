@@ -12,6 +12,7 @@ class Clzip < Formula
   end
 
   bottle do
+    manifest_sha256 "b0f9dc15b8a33c5e1b83491754f3afefb0f6babff5baf3899a6cf52781bd694b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9eb4eb1fe267553d2afacf5b75ed204cf751ec2f129d3f4650a7254527cd3026"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ee9c3f89bcd79ff5f4c8b6618d5b33183e049d42c294b39c9f8f49e27642f0b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42c127aabcf849b0535467eb2a49acb2c53a3140c82c36aba605a8d80666e44a"

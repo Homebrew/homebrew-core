@@ -12,6 +12,7 @@ class UutilsCoreutils < Formula
   end
 
   bottle do
+    manifest_sha256 "0b868e54fe7c5fd993051c5bdf7d8ec695548a10cb5a8b160fd1f67c1b84bc40"
     sha256 cellar: :any, arm64_golden_gate: "ec0229f0f6159952314f8e4d8953a2148acecb191f6abc2783f4cd2e5ae48e8a"
     sha256 cellar: :any, arm64_tahoe:       "cbbf2c8955c24b37893913b8a037ac070d07d179d0cfbc0fbe2353cd84b5ad61"
     sha256 cellar: :any, arm64_sequoia:     "6adccbb210018edafa8f98327941d187efbc6de164184bbe78976f96f7462f04"

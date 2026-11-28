@@ -21,6 +21,7 @@ class Qtwayland < Formula
   end
 
   bottle do
+    manifest_sha256 "26a8d7545b1741187d6268718cfe251b2cf32f8f9b7c9f934752da62cd774f1c"
     sha256 cellar: :any, arm64_linux:  "5a1c628473ca1b660a8f843218fe86df83b6468a414878a68b57c753ae42145d"
     sha256 cellar: :any, x86_64_linux: "42084fbeddf3b9d2c79462ac427b890498a7288db42819f305c28be862fac43a"
   end

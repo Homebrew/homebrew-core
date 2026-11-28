@@ -14,6 +14,7 @@ class Opensubdiv < Formula
   end
 
   bottle do
+    manifest_sha256 "bfc42ee0c537821dad6320463ac73f159a9349e1a3fcc7806e83995a627986ca"
     sha256 cellar: :any, arm64_golden_gate: "fd9df1b0dd9efd930ff813cb27a9f4ed307226e564f406982c23a60e4465aca9"
     sha256 cellar: :any, arm64_tahoe:       "17528f2329b0ffd0a2f4291835056536f9357b752e278a44c0930e2eb69f1497"
     sha256 cellar: :any, arm64_sequoia:     "6a86d1ae248449cd02249da79c79903b955ef759846ef706265a3e1bbbc9e41f"

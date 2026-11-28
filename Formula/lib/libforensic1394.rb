@@ -12,6 +12,7 @@ class Libforensic1394 < Formula
   end
 
   bottle do
+    manifest_sha256 "1703e41c29000800a473e918b3ae19a7d3bbb210313821685fc6b7a22879e78c"
     sha256 cellar: :any,                 arm64_golden_gate: "4062a75a7e3c79c5b971028a7861b7bafe9ea93dff13295f6cf4ea537f6d096c"
     sha256 cellar: :any,                 arm64_tahoe:       "b4a478a738e2f3bb22a8316561b54914bcf0e2e4f00d7b90005d27f0564413ec"
     sha256 cellar: :any,                 arm64_sequoia:     "a3ae5e839007a8f6cfa3ca2e176285a889085333678c2b5edc095d22326e8aa6"

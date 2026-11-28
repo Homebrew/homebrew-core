@@ -12,6 +12,7 @@ class Libptytty < Formula
   end
 
   bottle do
+    manifest_sha256 "6962326ab26c3548252c33ccbb96e356dc5424fd6bba2a50603d39ff0ac2eed8"
     sha256 cellar: :any,                 arm64_golden_gate: "80904b3e02d1b0a62d8706ed3195f497b84b75341ca96618f2619ad5096fc598"
     sha256 cellar: :any,                 arm64_tahoe:       "5a8043eb470230c18db586ab547552e89aa343c13f3d101df7a8ddfb8ef2cd2f"
     sha256 cellar: :any,                 arm64_sequoia:     "e04e49991b1e9e2df45463c865a99ba056d15bb854b30342955741b4be83bfae"

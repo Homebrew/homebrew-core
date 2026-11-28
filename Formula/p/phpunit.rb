@@ -12,6 +12,7 @@ class Phpunit < Formula
   end
 
   bottle do
+    manifest_sha256 "5760686c365ce0dc8ebee3f19d28ba955aa646026c376606afb485a49f023935"
     sha256 cellar: :any_skip_relocation, all: "98f33914ea731a222a032bb9d23773ac657fb967cfb33459b15a5cbfad537a86"
   end
 

@@ -7,6 +7,7 @@ class Glci < Formula
   head "https://gitlab.com/gitlab-org/ci-cd/runner-tools/glci.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c8fdeb9d6808c7a5f9b08324d8f70ac64c86d16812481b937b0dc9cf6749099f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e8824267bff105657afbac27476dc28be5bd718263a5a79f14002402967a0b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0e8824267bff105657afbac27476dc28be5bd718263a5a79f14002402967a0b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0e8824267bff105657afbac27476dc28be5bd718263a5a79f14002402967a0b2"

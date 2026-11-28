@@ -7,6 +7,7 @@ class TomeePlus < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "5943dd76bb03fe197882e3acdb2462909aa0554fe474a52f26e7a1f8ff9839c7"
     sha256 cellar: :any_skip_relocation, all: "895e5683342ab5a110bfa94b210ac663ba94ee05108e2e9b7381384b4f671bb1"
   end
 

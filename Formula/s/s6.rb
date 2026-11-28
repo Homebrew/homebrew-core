@@ -8,6 +8,7 @@ class S6 < Formula
   head "git://git.skarnet.org/s6.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a7912da824c0ed92db80d9ebdedcbc70459e6558413d7ac008f0c07266170779"
     sha256 arm64_golden_gate: "13bc68dfa69cb632018545548b37673c0bc62b2d752e7f5be34e8d19e941a40e"
     sha256 arm64_tahoe:       "d1055a78aee3f206636908c44fa1efdcbcb4b78395e497bd79f670ed51f60cd2"
     sha256 arm64_sequoia:     "7fd232a6caacca72eb022646b320008142b9ad6288ee8066f8e81be14daca55d"

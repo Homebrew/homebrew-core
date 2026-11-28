@@ -7,6 +7,7 @@ class Quran < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "dd3512e136d60506cd3e7f25e7d14f8c451d7e3e803d519ceb2fae51bb2c838b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39dfd1e81341524de097e444f8e802ddceb7cb7003aaef467fd7e63c2f336b6b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b24abef229a42a67114aa6c1153955c0a494ad3348c320dc58358ca63082f103"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "20b7b1031a5da9f17bd4916cc3d4eeb78242fbdd08e71485febe5861afd9ba78"

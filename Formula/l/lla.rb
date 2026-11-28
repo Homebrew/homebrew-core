@@ -6,6 +6,7 @@ class Lla < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "35311523788458323240a03c47d209338cf0954415b215c5e774221856641178"
     sha256 cellar: :any, arm64_golden_gate: "69c5385ffa755e553e721669f709dff5b896a3506ea2516c1661ddd8783ee0b3"
     sha256 cellar: :any, arm64_tahoe:       "3c2d360707a02f8dae46830a55e640798c0d3fa03df50e6300cb2a47a394ab23"
     sha256 cellar: :any, arm64_sequoia:     "1c7b12332f8b801d062fafe4b37340a72fdb2dd67040a08bd243f918d894e0af"

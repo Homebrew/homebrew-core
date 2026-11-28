@@ -8,6 +8,7 @@ class LibspellingAT02 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4f6df91205c6bb75e6436ced7f6818fdf2eeae689e1de48c990af59e0080f581"
     sha256 cellar: :any, arm64_tahoe:   "4aa8612cf0ccef0652272022d796b87a0fd9bd52a32829a258f7b84566cd57df"
     sha256 cellar: :any, arm64_sequoia: "c2ee5198fcc027b5301c70b7aaee4f80f8ce6382e95e926fb525a67116532530"
     sha256 cellar: :any, arm64_sonoma:  "580a1509f154fb6986d09e643178e6fd8f92d29097371255d77efef147a2ae93"

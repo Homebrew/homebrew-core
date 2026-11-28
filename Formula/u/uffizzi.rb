@@ -6,6 +6,7 @@ class Uffizzi < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "96aeb973d591edfa552b1cc9fc3f2a647d651b6b7a0f29a3cf5f8280600e4a16"
     sha256 cellar: :any,                 arm64_tahoe:   "8360ffc4b2af6e03c6ae6167c9b9aacfcf53fe48372421e73053da6324b909bf"
     sha256 cellar: :any,                 arm64_sequoia: "48623cb8888180c827dacca11e41f476d88ac681de19db5e5343db6b059e4e17"
     sha256 cellar: :any,                 arm64_sonoma:  "f05055a86f37b464e742f14d1e1c2f195cc29e369581eaa3ae1317c78f7b5d78"

@@ -10,6 +10,7 @@ class StrandsAgentsSops < Formula
   head "https://github.com/strands-agents/agent-sop.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2a9c78c9e6927433ea8d93b44c0853e0d87f60c5fca9fd105b85c4af778992b3"
     sha256 cellar: :any_skip_relocation, all: "0b8434e600febb9752fc5b0ddcbc9427cea5eca26ca1a45006c74b73751ffa5e"
   end
 

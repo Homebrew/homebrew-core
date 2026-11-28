@@ -10,6 +10,7 @@ class Tcpstat < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "fa9db30467b75af95b3e72890baacf6ef87fe30d7fbd803285579714b926ce07"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d87b3a8ea7ca383b50fb12181f1b0755a8ff200bb6c79d01e010fbb4b0318b06"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "819e87c8105c753f181730fced67949dbc440e4a6e790c089f030134e6903ec3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e7c67338b0d6c0f83589d31ce70046af5888a6bb752e5f2d69361d81b57ef99"

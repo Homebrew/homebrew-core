@@ -12,6 +12,7 @@ class Soar < Formula
   end
 
   bottle do
+    manifest_sha256 "52db12777c88d0d595f2a76a3cbbe8f8ca7be9472ce114862927ebd46d7f24b8"
     sha256 cellar: :any, arm64_linux:  "64b3c32b9b247e519fee4f82ebb2efa2cd19aec3df357387fa3dfaa35f21fe12"
     sha256 cellar: :any, x86_64_linux: "a8fedf33318b607041338f0494f3bc678d7a1d79d8d90cc10a2c10c8a989e682"
   end

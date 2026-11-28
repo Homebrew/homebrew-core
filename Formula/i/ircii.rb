@@ -19,6 +19,7 @@ class Ircii < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1bc448cc8ee5e2a6b6a31e1173ad4736aea2c96e543dfd8c6dbce0b3cc72eb45"
     sha256 arm64_golden_gate: "13ebbf524835d17fc45426d8c938c6b53ddb2ee80da87a693962183190ed9204"
     sha256 arm64_tahoe:       "8a11c2fa353238c8bc04bb2272e3c3379f7a375b506c3a1a6d25debf57a0e684"
     sha256 arm64_sequoia:     "2f4008ee66119222dc6146102e7fda300ca30a2c1e241f9b4297def808e9fd06"

@@ -8,6 +8,7 @@ class Bedtools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "21fcce89a1a43def2c80a48270c2083e3570b0c58bdd81d62908f64aa646e60d"
     sha256 cellar: :any,                 arm64_golden_gate: "f60f0c89f63ce5c53ba047f82ced1912963cc877a4d3b005475f89c9c63f6545"
     sha256 cellar: :any,                 arm64_tahoe:       "1e609e7589f355b608db522a0ea0f645093f68d2b103919fe0a45dc155b305a5"
     sha256 cellar: :any,                 arm64_sequoia:     "f46a8643bf1b9c29b01d1fd3a7e842adbb707bb167fe939cf35f9516edda9844"

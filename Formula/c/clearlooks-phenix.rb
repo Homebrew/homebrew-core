@@ -8,6 +8,7 @@ class ClearlooksPhenix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "536db555fa9594db90ee664004162cc2357ba3782e2bb5f26cc012d06f5ce881"
     sha256 cellar: :any_skip_relocation, all: "8020fbb50e62286fb222ef6f5003c16db25df20a8571226597c4c0dded41ef1f"
   end
 

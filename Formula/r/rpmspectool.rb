@@ -10,6 +10,7 @@ class Rpmspectool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "25d917eb110ec855c826ab2397cc1ee63142abeb86c02a33e4a92447a3e3b173"
     sha256 cellar: :any, arm64_linux:  "fe5716e5efa6649b4b398c946e14270eec51cd6569c498eb5eae6fe89133d2b5"
     sha256 cellar: :any, x86_64_linux: "e2c290fef89cab141dcfdf5a6f4aa7174e28c13fed6c4242d0088f09b6150a4e"
   end

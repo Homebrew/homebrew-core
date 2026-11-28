@@ -7,6 +7,7 @@ class Autocode < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "47832fe4c418e40ad5e7db7cdf8c5b5643c967601e7658f7cfacf36e40223a52"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "529c588f4f86ebc9d19869f965fa26ad65699a1af1271ec11d30b07367a3c67d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abf59dcf5fe4c66882ff2e33b395fd733f43b831e983592b530160dd3bb94c1e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b77a0c5a2addfbdb49c0c77c50d5ef04b56462c3882588527dba9bbb81feefd8"

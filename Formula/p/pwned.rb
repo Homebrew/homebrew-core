@@ -6,6 +6,7 @@ class Pwned < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "61caae8df6896d366ebde1c88512d79060248f381d56a652189cd96100362b29"
     sha256 cellar: :any_skip_relocation, all: "9875f2c42b9825b0d0b31b792a2b3effd4de1e5e4c0d9ac7551a60482112073a"
   end
 

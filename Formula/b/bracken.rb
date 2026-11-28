@@ -9,6 +9,7 @@ class Bracken < Formula
   head "https://github.com/jenniferlu717/Bracken.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2addaaec80324855463d060f931c6e387f19c890a32d44c047b0bf99557e0885"
     sha256 cellar: :any, arm64_golden_gate: "ed42a18d1def480dd0a16d005f3b38540de7b0c5b093b58901f88bccd20205dd"
     sha256 cellar: :any, arm64_tahoe:       "5ae5954dd0e858cefc0f1820c818b9b800a143de367b02826e9fce331b27d770"
     sha256 cellar: :any, arm64_sequoia:     "e03480ebf6f9900631b05da3586cb6b477c78a6fae77895200212fa986b970ab"

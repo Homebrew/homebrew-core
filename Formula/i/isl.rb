@@ -18,6 +18,7 @@ class Isl < Formula
   end
 
   bottle do
+    manifest_sha256 "4f7e94835a9b6e42d30384117d7ef5e8a226f5b484dac4846e69f2c4e37967af"
     sha256 cellar: :any, arm64_golden_gate: "35c8c6f314483e70651cd9d5192defb067a95a334659e357cfdf02d3d2077d58"
     sha256 cellar: :any, arm64_tahoe:       "9adc3d36bfaa7652e75d63fa7a61942ef9a9d1c5e857e8e38a578a78636bf4c2"
     sha256 cellar: :any, arm64_sequoia:     "a0b9da629db115bc15e5762887c455fdb13ac0a8028f20ee2639eae1f578c762"

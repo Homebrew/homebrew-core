@@ -16,6 +16,7 @@ class Apib < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b434421feb10e6ec69d637d7eb2ac9f13232f761cfd3be8291ddf70b17f09828"
     sha256 cellar: :any, arm64_golden_gate: "95aac176ed13f2938a95a4b35b7de921d2b330d829f844d9e8d602a6d5d04dc0"
     sha256 cellar: :any, arm64_tahoe:       "0c555bcff37de6ecbb0013234d602121bc25b7681fa94cea758ac235dcb554bd"
     sha256 cellar: :any, arm64_sequoia:     "f30454422dad2befe6a123cb1ff6848b7d791f07525160d3fd0adfc37bf7a916"

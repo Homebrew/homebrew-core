@@ -14,6 +14,7 @@ class Kyverno < Formula
   end
 
   bottle do
+    manifest_sha256 "d74cf806ac12e42b41e49f48ca8271270f1fc136d2c075d6fe5073ca2f83d8f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c50af350beda536ee8cce8e75709c1307f87da8dd664d3a94d397611f4597d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5420fc6363ee3cd17f5901fcdc97907f8488d0afa81225f7a77bf6f399f3ad38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1383b5d97f3231db49e9dfcac38c5c105c228e7f96253d84e575fde8ec618cd4"

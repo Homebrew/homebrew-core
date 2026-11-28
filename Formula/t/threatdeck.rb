@@ -7,6 +7,7 @@ class Threatdeck < Formula
   head "https://github.com/gripebomb/ThreatDeck.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2297b78675ccb15ff7da7e1202c72f37662dff48c92d2acfe0d69ce37b1cf733"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5371c2265523a3c40732398fadcf349b0ee3376d682988c2230cef71b61c67a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1aa44bd0bbb9f8c9bb3d700560c14e146d4c049de878aeb8199c9fa6bf41ebab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "338a548ca952c2bca1a14b535ecd0277479f7e8dc7ec50ffee93f8f5af8f7d5c"

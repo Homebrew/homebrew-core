@@ -12,6 +12,7 @@ class Cvsutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cc2832fc336d73ec1efbe50b1ac651d8572d13baf527dddba34d70066b430467"
     sha256 cellar: :any_skip_relocation, all: "9efd138b85d862065f5a5d36e02a4ec04c40b6f669bfe7feb09a08f233991d50"
   end
 

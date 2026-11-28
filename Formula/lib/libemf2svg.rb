@@ -6,6 +6,7 @@ class Libemf2svg < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "3dad26a144bccb7a90aedcb39ca097db826c478d122664a9721f3fff430ffbf4"
     sha256 cellar: :any,                 arm64_golden_gate: "0808cee809bc7f49632a2baa8f1cbcf5c008cbe44be1460c7e997987ed11d6a3"
     sha256 cellar: :any,                 arm64_tahoe:       "b097e6912f5088e54da1fd430b2dc6c990267cf5adeaef50027b6731d8850849"
     sha256 cellar: :any,                 arm64_sequoia:     "0e6713d4805a1b5de0ddbfc4bf67168cf81d8ed6ab93292e74f33cb39eeec34f"

@@ -14,6 +14,7 @@ class PnpmAT10 < Formula
   end
 
   bottle do
+    manifest_sha256 "626e0d8771790293e76257eaa653d4f418c39ac359e7a1aee513f17e6a091dea"
     sha256 cellar: :any,                 arm64_golden_gate: "7b8c2bae8923f5beda8d282c18730e2e7f000c87c65e14794c734a834cc048e0"
     sha256 cellar: :any,                 arm64_tahoe:       "7b8c2bae8923f5beda8d282c18730e2e7f000c87c65e14794c734a834cc048e0"
     sha256 cellar: :any,                 arm64_sequoia:     "7b8c2bae8923f5beda8d282c18730e2e7f000c87c65e14794c734a834cc048e0"

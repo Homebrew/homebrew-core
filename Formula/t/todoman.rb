@@ -11,6 +11,7 @@ class Todoman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dfdf92c5d12349b4492fb09255d1469622ec255c460663a085b7924f49da9458"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f981bba775cc347551fa91f085015bd294ffa6576d8b50352dbdeb0319ef6b07"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0f9bdb456ac3070c753827ddaf665814afd598f9f1b93b6373563b384b8fd1e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1445c500af1aeab4ef8f2a0a3b13ea3282c8b3c8c0bb54896f91aa909e832255"

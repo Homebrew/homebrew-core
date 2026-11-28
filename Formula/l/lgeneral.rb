@@ -7,6 +7,7 @@ class Lgeneral < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "4dba25ff07037b39ec4fc1a4838995380128c56c73edadb14e636bc77c30af9c"
     sha256 arm64_golden_gate: "8f1489c823a9fdf60b95dfc04ece8d7489c14b4ecb9abdcd661df0c23cfaeb61"
     sha256 arm64_tahoe:       "cb647aa60174371e139c2b586625b198de640d9f29d26435b09ddfb73db04db9"
     sha256 arm64_sequoia:     "07051ec2b86ffce75ae82c818b71752b2b868c7b4a076eb11b143f63afa67536"

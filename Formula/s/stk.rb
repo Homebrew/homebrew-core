@@ -13,6 +13,7 @@ class Stk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9faa1130e6f799bd26b9003328c106cc7ad7b919bcd8e3d42421426e1c8fc64c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "824f5a67e81886214168ec94e8d38f93bb169013e182aff5d1c3aa1b832f63a7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14b11f68c2557197e095d18b4ef4165afee87aec1d094e11665ee4f3ba457fab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8050290142b2bd021e4ab23875affcc51996f459f8dbad28b6428df44383afdb"

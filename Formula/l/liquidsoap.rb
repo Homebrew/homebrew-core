@@ -23,6 +23,7 @@ class Liquidsoap < Formula
   end
 
   bottle do
+    manifest_sha256 "eaabbf3e82df098d7be460069db9bf780cd7f67cd9db3a7936042eb9853a7dc3"
     sha256 arm64_golden_gate: "8da59f128f2acbd15f8ef3fc35bb428d9b7f768872076b8be9e628c4e8f3d77c"
     sha256 arm64_tahoe:       "c70998fb9ff3c2b969f60965d041dfd6fd89501b7be979ad4df5940756409323"
     sha256 arm64_sequoia:     "117f18b6eade5c588742d639188758c6863bd4cf8f5b8def453c71c0af48474a"

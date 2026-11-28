@@ -24,6 +24,7 @@ class Lensfun < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "efd60f4f6b3352297c2b2399f10559570d2f95a43838d4987359c73c61310198"
     sha256 arm64_golden_gate: "0eaadc8c9a75308798d97b360663065c3b3d639a69f814459f6b95794d56a77e"
     sha256 arm64_tahoe:       "e973bb3a6d390dd73ad7b80aab57c8addb8dac68adfcefe4a37f91879ad8f56c"
     sha256 arm64_sequoia:     "994558434781a12b6bcb8a0c93aa4e92401ac2e189b00485b753f9c924acd463"

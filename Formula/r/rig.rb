@@ -7,6 +7,7 @@ class Rig < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "34f87bb6c53a118ee58e3a692bcf731b36ccd209b512797fa6e084fc750f3562"
     sha256 arm64_golden_gate: "b53fd09c9e16b24a8487b3c707290a80a5137e403b25731ce3ba5a3d71d6baa8"
     sha256 arm64_tahoe:       "dad2501e03504d0b5bbb423d2c9ef324aadf56f790f696c0a46ae04c6dab206f"
     sha256 arm64_sequoia:     "2a9e7e9827a5a060ef485b046834ce2c9c8d592079c84c2385e5a68a533b367f"

@@ -8,6 +8,7 @@ class Cffi < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0e1a438099d7686d2f490407f5d95faa4669b9c13608084410897a15e1f56b9d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d7c98c069644a0a61555205409542723624b98fd473b0fdae3df49d9e7b78812"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2ccf2a7ad2dbb4ec3aa9339f53e8463991ce0aea93aec9cebb8ad9c9489a7d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76737cff191bced920ad297428f4658c13a0217f8791d552fce896f6e6ed300f"

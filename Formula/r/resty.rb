@@ -11,6 +11,7 @@ class Resty < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1781164d20a52de8937dbbf34dd7aa0eda9b3384bf27b3c30d87b6c0e6843a64"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a1a566e1c44e57cb2f2f33364b67dcf824667038ee9420d6de7359d053ae02c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "142618e3523dfa8518328f4ba6d4bb685acfd7be85116996b7cb7ba4aa8f96a9"

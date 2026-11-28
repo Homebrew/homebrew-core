@@ -11,6 +11,7 @@ class Sqlcmd < Formula
   end
 
   bottle do
+    manifest_sha256 "a1b7ec39b73d7acb65aa569b745514927329896275a9a73c5be790595a6c5f0e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e434bb4a9ab0786b0f2de35c5051914d214d4a527e2a91e681496c19fb4fd445"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b63c28e4f0d74cac5410af86396759964b210720d087dad2eab1bf17cb5011d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52360221838209c2c2ca00996447f45e6c00a6d775926ddd6d13286054902af6"

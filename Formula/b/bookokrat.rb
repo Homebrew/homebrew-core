@@ -7,6 +7,7 @@ class Bookokrat < Formula
   head "https://github.com/bugzmanov/bookokrat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2d4ad89f15a0203901c74a4fe9e369e172a2a1ce20b9b7a11574abbca24d5452"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4b05cc529db11ce7273c6e414db52fbf99bfbeaf29425dce826bd2de3474373"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9bb541c783912364b51cd8cc757846e876345444eee8a25d56d6919648582874"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "347a7ff88656b215c3133f6a5b4687cd024011b8db340f26eae4f65e2757f50b"

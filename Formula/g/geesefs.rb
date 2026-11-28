@@ -7,6 +7,7 @@ class Geesefs < Formula
   head "https://github.com/yandex-cloud/geesefs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "71631a73924b0a0a279518622386e5e2ad7ebd903b3a0b2691d6e223f905a530"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "557843be6881259582973b37d0438a7fe3ab69fb05b41eca47d957999ce81251"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09f67dd31ffa1ea952cd08bafd3bd0c7986d207b32308b4accf8d2910c3bcc23"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "445329938ca4cb40e01cf61cc8ba9f0f1d3d6e15a548575d6e8edb358b8f0554"

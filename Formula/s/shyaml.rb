@@ -11,6 +11,7 @@ class Shyaml < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "e718e356490a586026ba454cea24e9b214a76b4789042aac9a93147c745dabb5"
     sha256 cellar: :any, arm64_golden_gate: "9ae8c668000d8e7533dd4d9b9e48fd5b92024f25749f680c45811e4818935715"
     sha256 cellar: :any, arm64_tahoe:       "113b6daed19d8f34cbeb793f290066781d77945a3810ae0549e47d9c0d1b7ded"
     sha256 cellar: :any, arm64_sequoia:     "2e54da490b82bc88dbb9ff3f2f9cf4f57ade4390b7e31d44d560193db98a2afe"

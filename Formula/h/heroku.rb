@@ -6,6 +6,7 @@ class Heroku < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "ff0bce3da6f5bdf5b87e1b1aee9cdf121d537fad227229bccbfd9ae8c21555b4"
     sha256 cellar: :any, arm64_golden_gate: "6956cafe8628c9267139215927b8a63a1beb83f3f616535b80b27a1d9ad44d84"
     sha256 cellar: :any, arm64_tahoe:       "6956cafe8628c9267139215927b8a63a1beb83f3f616535b80b27a1d9ad44d84"
     sha256 cellar: :any, arm64_sequoia:     "6956cafe8628c9267139215927b8a63a1beb83f3f616535b80b27a1d9ad44d84"

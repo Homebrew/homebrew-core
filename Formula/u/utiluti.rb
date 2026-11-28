@@ -7,6 +7,7 @@ class Utiluti < Formula
   head "https://github.com/scriptingosx/utiluti.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ee51b61550b87780de95c3a25e6d45d6f8c40c5fcf6f09f522eaedc4a7c00be1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17a3129eb00f51efbe706a3be3115c1ac278785ad6e250f47f8edc5e6e43ba12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "442eeea49c01e4615962ef30340a5bcc949906223c39e157b21b5160d5573c82"
     sha256 cellar: :any,                 arm64_sequoia:     "2b4bbc74f26387db21f628d23ebb880a0b5a794b18a15b886a63d8c5aff502f3"

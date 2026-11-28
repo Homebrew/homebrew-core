@@ -12,6 +12,7 @@ class Yek < Formula
   end
 
   bottle do
+    manifest_sha256 "ea797923705e2f69832ccefc5a5f9d38483be29d5252262a079c2d03533d5160"
     sha256 cellar: :any, arm64_golden_gate: "6d25e43b54e733dfacd3fe1ec12cd82aa4a6a607de1ec58be23aa8c9e2adcbf7"
     sha256 cellar: :any, arm64_tahoe:       "9e22a2a0ff0e0fefd30d4c3f7e3c1c2776b763c11e8ed4c992beba350eb01eb5"
     sha256 cellar: :any, arm64_sequoia:     "9e168e801f4a5c2ed746f965ec1f08145c286c2563e4d0bd8a6ceef65c2c2ab7"

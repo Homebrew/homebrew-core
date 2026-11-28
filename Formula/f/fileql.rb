@@ -7,6 +7,7 @@ class Fileql < Formula
   head "https://github.com/AmrDeveloper/FileQL.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0787d8ceb6953234c51b5ad479c3d9b8bcc16c1603bbcfbc4ae8fca8b694c528"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75ee5e459070a326dbba9b4153306e201efbadc40cb18ef145be906d15bb5c74"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a39972a32477bcc13c803f2d6dfe5e3c82f9f2cff43e0c82395d5cf38464400"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "396ae437cffbace021b760b42ed66c39e78a15edcc82be54a444517922cb7dfb"

@@ -12,6 +12,7 @@ class Cheapglk < Formula
   end
 
   bottle do
+    manifest_sha256 "b5343e341caa5ce07e5c5107a0cae54d9bf7cf2da1cbb494543f84782c7df966"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1532fb419f505614c57f0d0b467724f51cec36b235bb50e55c66bcdcc4bc2242"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22ed56d38b62431e69151ad10604e0e8831a5f4b88d2f0d7105bb71d00708cf3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5600c759374d421d057d4901d84f12c4a0526ef88c23d6d838b699eb409a6c9"

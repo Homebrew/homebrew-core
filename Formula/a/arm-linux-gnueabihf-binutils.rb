@@ -11,6 +11,7 @@ class ArmLinuxGnueabihfBinutils < Formula
   end
 
   bottle do
+    manifest_sha256 "1fe6b1c6d500bc5646f5fbb1384bc9cd56eeec19bd3fb2232495f0ecbd48f148"
     sha256 arm64_golden_gate: "59c53820f1b11299f177c3ce831bc0e37c47c019f2ff645863e7a3e55e01be48"
     sha256 arm64_tahoe:       "114e1c97a10416e088ecfaf59a7e6095208dca721aebdda8848177a1eabe9b74"
     sha256 arm64_sequoia:     "d34613b52d6b8bc65f76c09be800faebf796a6556ee1e246760b05fcc6873e16"

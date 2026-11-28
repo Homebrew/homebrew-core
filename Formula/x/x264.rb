@@ -42,6 +42,7 @@ class X264 < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "b553f57d5d37316824e1e1543ae3666ea0d2de2b4918e75ce90e03dccf09086f"
     sha256 cellar: :any,                 arm64_golden_gate: "e5a7b434d9bd236891bdf8ec5621ec092d358922f9b4a3417059b201fdfd870d"
     sha256 cellar: :any,                 arm64_tahoe:       "b631667b5ad55c6c3ae383484f658c5b4ba14da8a2fbb1d537975695852529ca"
     sha256 cellar: :any,                 arm64_sequoia:     "a613d44ead5d3999270970f41283eadfad8001061faf063945def6b8fb5145f4"

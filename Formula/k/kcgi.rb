@@ -8,6 +8,7 @@ class Kcgi < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b97aac0249529d485367e18f038d7227e4b6719400cfc39fc459ca3dbc8e04ca"
     sha256 cellar: :any, arm64_golden_gate: "8145cd72feba0c5be9d464bbcba1403d4e0a4ed61bcd5540c7fa10610a75c214"
     sha256 cellar: :any, arm64_tahoe:       "0e11a41b99c2b97fc7ecb1c311c85346cc73d0345b56b8bfcbe7f1002cfa2936"
     sha256 cellar: :any, arm64_sequoia:     "fd5d7cb5c53271bd8a0fc6e6fe2bbcc9b9f86cbb1375e75533f9ad7a904627e8"

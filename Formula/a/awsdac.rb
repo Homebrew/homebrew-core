@@ -7,6 +7,7 @@ class Awsdac < Formula
   head "https://github.com/awslabs/diagram-as-code.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a5d4f2ad0ae3a0af2ce42d9e8c418e1bc5ed5692da589ac2a5c99348a1997700"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30675781e10c8206b49ded4cfb4f4c0141587fe19d6db302ef5c759996a0bd52"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a632946d3a35ff29795bd7b34292b537a69793ca013d8dab6d5e9e3d50669854"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a632946d3a35ff29795bd7b34292b537a69793ca013d8dab6d5e9e3d50669854"

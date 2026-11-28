@@ -6,6 +6,7 @@ class Wslay < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3c288664354dee2d3cd0c6c663cd895eedd7226589f364435036029468948487"
     sha256 cellar: :any,                 arm64_golden_gate: "b1f52eb2ffab5a6b8e635a8a290ec79eaafd4b995e2821e77743916bc43aa39d"
     sha256 cellar: :any,                 arm64_tahoe:       "25dba65b78dad270fd7ac6f2b7324354a528bc5d3d7c68cbcc296b9740905c10"
     sha256 cellar: :any,                 arm64_sequoia:     "695e27c926b9cba4a774c0bead3c924fe34f11e9d151e203ee82f83c3be1ae20"

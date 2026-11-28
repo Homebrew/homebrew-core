@@ -12,6 +12,7 @@ class Bonniexx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cbf01af568e9515300367168beef08448245e7f2b3871fab4c7fdeda03216796"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84fd1e486465aeb00c1a1f8c3820b336cfafef7867d4bccbdcc873d9ae596ec2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08e292d8b9ed4e96aa54ebc50f0fa67e43b2fc99ce817b8ba515861dbe7f8668"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ceed0542a0147c3b8a902aedd2c8bf87377a88f50ea65ba5da4c9e8faf85ee4"

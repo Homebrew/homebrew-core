@@ -12,6 +12,7 @@ class EditorconfigChecker < Formula
   end
 
   bottle do
+    manifest_sha256 "483a02fa5a8310a680547c24e1854445aaca592e0aa51a01c61625b4bb1f6b4f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "096881de3cd292015d02a4d671ec045e51ac1c2247c71e7c4ef758e9cfbe4d73"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "096881de3cd292015d02a4d671ec045e51ac1c2247c71e7c4ef758e9cfbe4d73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "096881de3cd292015d02a4d671ec045e51ac1c2247c71e7c4ef758e9cfbe4d73"

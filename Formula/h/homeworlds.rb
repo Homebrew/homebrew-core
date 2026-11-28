@@ -8,6 +8,7 @@ class Homeworlds < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "e4c4b7fb1dcf9208e1da4839323a8c5deee76af6d695f4711f88e5583455ec54"
     sha256 cellar: :any, arm64_golden_gate: "8fbdd9b444486de209290281698aaeec9bf3e5220a9db5dd3d37e674b4dd5813"
     sha256 cellar: :any, arm64_tahoe:       "8b43666c54c4fc0223b792a696da1a78c4d8c84d61599f4142adb4e5b77fc8ad"
     sha256 cellar: :any, arm64_sequoia:     "6b2094ee410a53953e6d12cce501ee7adca86cb7e3cde2fb06aaff038f7707ea"

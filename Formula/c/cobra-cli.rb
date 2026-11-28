@@ -8,6 +8,7 @@ class CobraCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ebe1af1bfd44542603e561a87619ac728390c170eb0a5997a2368e3040f802cd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f5d63e54c5f6b46feab791e1fca6e27809438222bb2e96c62e33d1393891d096"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "390cda2b8ba89e754ff53a554bd607688676c1f5e8e0c62af31921186e389a77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "390cda2b8ba89e754ff53a554bd607688676c1f5e8e0c62af31921186e389a77"

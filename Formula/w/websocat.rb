@@ -11,6 +11,7 @@ class Websocat < Formula
   end
 
   bottle do
+    manifest_sha256 "38d1bb497572465d16e533b3cc1ce64c64fd12b256097d0a4525557b96b55b79"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2b31104c3edbbb58342905c27e0146433af3db4b65040e128248126f6989757"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bd74ae2eba6236f2eaa6e04c0550ef19b0a431a1db434ac4e1497dfdc1df5b18"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3c942390b0f1a464cf83ba31e44a8720a5396b36876b6ef43b9412606795ad30"

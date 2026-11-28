@@ -6,6 +6,7 @@ class Fnt < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "398279ff9607e402e9e1a5ddd1b02b48f2ad7407b936cb3a12b7c6e1ee3a59df"
     sha256 cellar: :any_skip_relocation, all: "3ed3b35accff93ac93a66169e9a2501a71d81428dfb85d6e6a97c6e3420c462a"
   end
 

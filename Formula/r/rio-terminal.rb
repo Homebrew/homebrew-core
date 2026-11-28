@@ -13,6 +13,7 @@ class RioTerminal < Formula
   end
 
   bottle do
+    manifest_sha256 "85070d348917a1c6be57058b4c89a871629d9704740140fa63b342bbb1169ba7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "15cff4507860d814efecec6854eaf0fa2004dd6acdf2fccbced78bb03a5c1c92"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e22fe8233e82605825e0dbcc984298751ebbff0e42a4e768332ce7b3afaa877a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9c05e38564232404632074b07a2bd719e5e1169753cc5cf4927930911cc90ef5"

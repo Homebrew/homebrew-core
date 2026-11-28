@@ -13,6 +13,7 @@ class Irrtoolset < Formula
   end
 
   bottle do
+    manifest_sha256 "bc787b99ce9fccae88aaa1e7f713454cf856aa9d9b363bb788132ce4f4000684"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2a3016dca46266d393c405e6d9d5892bfe26b2fc225f298720abaf030303c42"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb7536136362e5471a79b098bbe9004b69696ec161b68e89f4e5fae18a1ad2ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8f841c2b1f1181dfd110bb27a4d374ff43d204bda34a871aa260bd8c67c7e43"

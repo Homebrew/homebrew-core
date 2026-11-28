@@ -14,6 +14,7 @@ class CfrDecompiler < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "61cff7bfe5e9c33ac95ddee8e3579fd769bb6374fbafee27ef4cf3f72c4f7834"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b283f3c6446a897cb229ac5e5ec5d2887c188c7e19f24059d0372c0764a0dcc1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab8834addd1841f1c2956e76a9ad07ba5de8baca81dcb20834ab0509c3c06c13"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "40e70dbc8a02f9af88b53433bb613530987d9cb816ac2225f2d723c40aa28571"

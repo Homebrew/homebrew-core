@@ -7,6 +7,7 @@ class LuaAT54 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "038fbcee976172082d62930a3cf09ea7887a8d47f29aaf9563c10325ff203c9c"
     sha256 cellar: :any, arm64_golden_gate: "65bf6b0278442ac7eb7d0bad9f8ba4fdc34ac76a11f4eb8531790ad800c4a5e5"
     sha256 cellar: :any, arm64_tahoe:       "209dbe6bdb75d426d1e92a1c7eb1c8d05c1b75a98bcc54d21a7fe9db2493ad91"
     sha256 cellar: :any, arm64_sequoia:     "14e2fe91a31d0bda4d02ec4839e56bc287f722e7e93c89f6fd8aefb5d86dd2c0"

@@ -8,6 +8,7 @@ class Beads < Formula
   head "https://github.com/gastownhall/beads.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c0a23850ae951b61a7ea0915a76fb3132df71f116e6f54b6547aaafda4cd1345"
     sha256 cellar: :any, arm64_golden_gate: "ba2129f19503bf7b63922f0d5c5b9034baeaf1cc486186396f4222f2e9213138"
     sha256 cellar: :any, arm64_tahoe:       "2ed14f6ff6943f94f316430e2a961ce8563d91ee73ad8e57065896e615409e4a"
     sha256 cellar: :any, arm64_sequoia:     "2d17797d55bdedf30ba83cb116971c157794731c342aab9cd9492f1e8c84c397"

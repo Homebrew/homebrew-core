@@ -7,6 +7,7 @@ class Bsdmake < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2414a5989bca3bb809607f5d152e01bd052ef48106abf595018b5cb2cf59e761"
     sha256 arm64_golden_gate: "a5b36f5a43ded4fc42e42d9dbd14aaa90dbec0e5b0be53801b2e84fa4b550a5b"
     sha256 arm64_tahoe:       "5318ec01ebc418bab6c1977ee2023e10901a0c9527cce2e277a9a66d86379399"
     sha256 arm64_sequoia:     "0d312bb7d3aec58aff67174bccc96691d353f97aedf71244e3efd32e7c8179e5"

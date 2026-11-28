@@ -12,6 +12,7 @@ class Libsigcxx < Formula
   end
 
   bottle do
+    manifest_sha256 "5c10eab85d7d58f94505faf377da08f6e290be5546945aea5fdd02d426e6e3f7"
     sha256 cellar: :any,                 arm64_golden_gate: "70589043b1ea67eddbab78fc071c6a052cfe72b79e9150deb6930e03878f4227"
     sha256 cellar: :any,                 arm64_tahoe:       "3540ac35660c59de1ea778b022c71db48bd21fe533d3707fb45a947d24852b1b"
     sha256 cellar: :any,                 arm64_sequoia:     "0cc8533f02b5d8fafb85f22079c71cbdcb768bb92c5d8a0f12e03b01096ca36d"

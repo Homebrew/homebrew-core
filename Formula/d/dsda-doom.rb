@@ -12,6 +12,7 @@ class DsdaDoom < Formula
   end
 
   bottle do
+    manifest_sha256 "e9868fa03c317fc7edc142921db4ff66747a472291b0ffd505a46c7a9290402d"
     sha256 arm64_golden_gate: "f11498404f6c09aee804976c0f4c0efe8db6a798a427844b5ab00a6f3e3bf28f"
     sha256 arm64_tahoe:       "f69ffe34c83585fb282111da97cf20a30f06466235a613a10079819e17ec0f3d"
     sha256 arm64_sequoia:     "9512ee640ecb4545671beea06cda5b84bc564d7a8fcd67577356b23075ab86e9"

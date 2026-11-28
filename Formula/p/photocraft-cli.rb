@@ -7,6 +7,7 @@ class PhotocraftCli < Formula
   head "https://github.com/storytold/photocraft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c50ccc4b4ada1c32d00a0e39d216a9661447ec168d977a3034d7e1b9a4c304cf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "336ce07304dbd2d0aaa476f4874b546e210b3ac8390035544c403f0c30400f5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "baa0925451b02065313f5b74adc4bf9bf1cf09837062dff070df5fc37589e69d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63772af98b484543c7272d2f7713b4cb9556e1dc76b775dde2df19445746e11d"

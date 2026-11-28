@@ -7,6 +7,7 @@ class TfSummarize < Formula
   head "https://github.com/dineshba/tf-summarize.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8d7c7afc6dd1d537efeb6c8f1f8d0dc6f714256f8999d9d412ca0253572dd1c4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a52a7aff34d2d091576e7bfc6db5b28b06ffc7302436d8cc3127341d510877b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2334652999366aa46838b87e1f3f5f2a07130a26268707f29898fe216e4bbef6"

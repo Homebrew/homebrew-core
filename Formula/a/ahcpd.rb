@@ -13,6 +13,7 @@ class Ahcpd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a83baece0314fc9d7f88ebbcd11b7e10fc0a80a362c3b638b1b70ea495487142"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fd56f5b085304820d0469f1557b8277fb212d93f64394d4187c6b409cdf7551"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7eb4adae6d9931eb81c4241ddb5475152e5908ba3fa4f1e3903aeb2f36f050ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4963298b5a52bcbef584be986fe4a4223a30aefffd2ab6f8372c63c6f8edf075"

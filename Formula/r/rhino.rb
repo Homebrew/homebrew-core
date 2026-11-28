@@ -11,6 +11,7 @@ class Rhino < Formula
   end
 
   bottle do
+    manifest_sha256 "a3e9ce4535faa251056cd2e39e5e5c24ef0f5025950ad7dcd6b5aeb8e807466e"
     sha256 cellar: :any_skip_relocation, all: "71eea8e5a7f7a45cd2e7a16feef2fc368b1b3105d7970068ce3172d4a1d89058"
   end
 

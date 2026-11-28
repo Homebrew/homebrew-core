@@ -13,6 +13,7 @@ class SoxNg < Formula
   end
 
   bottle do
+    manifest_sha256 "db8f74a3c8f5606e39567a5d03c695576cd8566f1dbd3cf83e993526fd83b79e"
     sha256 cellar: :any, arm64_golden_gate: "5e1af1240f3684cb15f4b6cc622fda12f7e7321bf575892d58ef1515f7664b9d"
     sha256 cellar: :any, arm64_tahoe:       "d05f9a2ae7d519f4f2907a6f608bf58207861940f96a5650b2a71398d1dc1300"
     sha256 cellar: :any, arm64_sequoia:     "5b328355af410375db1902a87aea45cab8432bc93b35d3fa77491c43e717f1aa"

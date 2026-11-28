@@ -7,6 +7,7 @@ class Summarize < Formula
   head "https://github.com/steipete/summarize.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f3250d560217bdd9a486e1c456a05780ea86584e770e70bbf2d3cd523e1ff1d6"
     sha256 cellar: :any_skip_relocation, all: "cfc810e27cc16150dc30f45f2c720fe6726f5db41908c820779eddf171b8d752"
   end
 

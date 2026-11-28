@@ -9,6 +9,7 @@ class Xml2rfc < Formula
   head "https://github.com/ietf-tools/xml2rfc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1ac7fc3213569f0dffed2c1c678b1f4d6528ab6055dbae7795794a104fb8cf77"
     sha256 cellar: :any, arm64_golden_gate: "1cc144fff864154e890da3a35a23a8cb24151a1c9dd321357cc968a07af3e0e2"
     sha256 cellar: :any, arm64_tahoe:       "037b4e1ab12dd736ea4db98375e213ddfb9e080e2a23009e9fbb65529255715b"
     sha256 cellar: :any, arm64_sequoia:     "9f4a6c92a28ae38038a63de588e898cb3bb3c5383a839e419e2da2c18b570118"

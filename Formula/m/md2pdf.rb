@@ -7,6 +7,7 @@ class Md2pdf < Formula
   head "https://github.com/solworktech/md2pdf.git", branch: "master"
 
   bottle do
+    manifest_sha256 "90232a329cd787b36f797e7c4155be5dad9977cb2c3bd9e638bab80c206f8d94"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4dd7e9bb5330f38c08accb0af6d1afd11ab753d0e8a0cae06f8605a7d538d3b7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4dd7e9bb5330f38c08accb0af6d1afd11ab753d0e8a0cae06f8605a7d538d3b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4dd7e9bb5330f38c08accb0af6d1afd11ab753d0e8a0cae06f8605a7d538d3b7"

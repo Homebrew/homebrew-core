@@ -8,6 +8,7 @@ class Gitnr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7a771022904a53a0174a8dbb93c29a07a5f3279b2e76c928d85af4255e6f40d8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "326d7419ca6bffe0281328e1c93e2dd9e58f47d0d7501753b99a8a28665e526e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3f86c1f4fa78c355f202dfcede68af988484d94d7a280d3f5fd1976ce550823"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ca5e8ffed227fc1863f706765da660acf4ab94317c88c923105243c6f9d4cd4"

@@ -7,6 +7,7 @@ class Killport < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c9da41a869a9f06bedfa944813faee3fe3d9bf0e08435bb96bfc1e748f90cea3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "142091cbd4e78d882a92e60b344ed972f076b3611ff467d6446ca437f44554d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "30dbe52794f770ef89a8f8433defca5f5e84129e204586472f391aa810df1d28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "435effe94181bc0bd64f1e05ca9183746f8d43db84582c16d64f7e02469fbcdd"

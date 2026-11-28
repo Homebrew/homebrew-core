@@ -10,6 +10,7 @@ class Openjazz < Formula
   end
 
   bottle do
+    manifest_sha256 "d87464f126cd00c4a5b33645a29b233398456c87e2938178aadf605113c0fc58"
     sha256 arm64_golden_gate: "b9aaba757f9a2b7b4f30f42f616e6fbb6afdb41fa9f04fecdd399729cfc0b02c"
     sha256 arm64_tahoe:       "6bfc89162e63bb17558bc08624c060105ff815e076fbb396d145b5e635ca2ea6"
     sha256 arm64_sequoia:     "74de474ee4ceb88b075a6c6a512e3248a25c74f6009002f89dd0b156812be670"

@@ -12,6 +12,7 @@ class Butane < Formula
   end
 
   bottle do
+    manifest_sha256 "5c07c57cfcf4183dac208c33ec8f1f0560f2cafef16f0588437bbf83ee924a70"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fa01310a34c27563015629b237b79be4ae16150149779d2605bd09346f03950"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fa01310a34c27563015629b237b79be4ae16150149779d2605bd09346f03950"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6fa01310a34c27563015629b237b79be4ae16150149779d2605bd09346f03950"

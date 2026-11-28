@@ -6,6 +6,7 @@ class Sonic < Formula
   license "MPL-2.0"
 
   bottle do
+    manifest_sha256 "1a2d5e1a6de2501177b7a95f3232e1972cefd9b77d414d016ae016e089353756"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f92ea8b95c12bf04ca279fe0a04974a1cab1aebef7b634748c14fc195460018b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0946ed1d302793526b980f2eb17abf0c08ade6424c4b16ac52567d0544d6bea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "387e0c28f7ed9849955a9134db57858106fedb2f7c470dbb276be24a2f20ced1"

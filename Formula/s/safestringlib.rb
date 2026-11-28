@@ -6,6 +6,7 @@ class Safestringlib < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5bea69b647feee20917bb848951b04862aec0e20453dca015a28d86fbdf3d28e"
     sha256 cellar: :any, arm64_golden_gate: "9b74acdc9ee5c7e5dff365a4bc9d422f0406dfbac112ca513ddbb135505ada01"
     sha256 cellar: :any, arm64_tahoe:       "cd1d353906b2f20fc6d9dfd6caedfdd1a04c8e993dbe563957bd9ca9877d0749"
     sha256 cellar: :any, arm64_sequoia:     "e51be3a24f959119e11ae27daa5ae3f5903320fffa2141150bbfdeeabf5ebff5"

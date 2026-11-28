@@ -7,6 +7,7 @@ class Libre < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1090bc73976657f545db05a0109c2a11c8c79c198ed591585398d76a5b9fa3cc"
     sha256 cellar: :any, arm64_golden_gate: "25ef99ebac73b8b0dc703f1773e665976900a35a1340934412a4bc2be4a5f8cd"
     sha256 cellar: :any, arm64_tahoe:       "58d671897ab0d8ab8cd184d64f5104bf8404a6b6a18c1070712d90f0dccd3a83"
     sha256 cellar: :any, arm64_sequoia:     "85854f69526a301c3cab12c0d3f02d3c6322507268f95f4a121d3c49cb102806"

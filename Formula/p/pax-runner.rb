@@ -13,6 +13,7 @@ class PaxRunner < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6f76ea47c2ce606917ff940d4862f472e7fc4f1e0c8dc8b6d3754b3eb8e041b2"
     sha256 cellar: :any_skip_relocation, all: "f7195e6a142137e103125c0176376e562a2e0ba115d5e61ed15b0c2a00e92cf5"
   end
 

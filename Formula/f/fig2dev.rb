@@ -13,6 +13,7 @@ class Fig2dev < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c0d4d44e8686f7a2dd21e11f992dc4d734342508de027f9450b49c236647733e"
     sha256 arm64_golden_gate: "b3fcb7b562e1b2977c6b2d98b576f6392ca547e41c618a54ae3d39432e5c740e"
     sha256 arm64_tahoe:       "24dd6f6aa035586bd4c43d727b1329b822da452a0f64005a9defa12f2fa0faed"
     sha256 arm64_sequoia:     "3d512815be04dc846c43c7545cc14789388a7840c79e8ad32a577c8c684d4e8e"

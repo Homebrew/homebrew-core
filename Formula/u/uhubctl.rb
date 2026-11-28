@@ -7,6 +7,7 @@ class Uhubctl < Formula
   head "https://github.com/mvp/uhubctl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "02df6bc46e5e7ac4e1488b538940ece2b0fe45d0043a793dca55dbcbda6d7044"
     sha256 cellar: :any,                 arm64_golden_gate: "4394978141d27f66184714bfe3125c88976359f4e8ad1eb321ca1dd3ddc09cb9"
     sha256 cellar: :any,                 arm64_tahoe:       "3d264b405111b616523248b1de4a0998b9c73f0c670a00e20358dcaeeed033cc"
     sha256 cellar: :any,                 arm64_sequoia:     "45506e121cd1c2bdf1077b0086f6dae8adcf1b24c48c32882d2c06eee848b87a"

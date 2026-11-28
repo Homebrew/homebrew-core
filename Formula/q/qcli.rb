@@ -9,6 +9,7 @@ class Qcli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "833af317d6d729c518e6912b39f183188e3ebb2a76018c210e95eaea9753b87d"
     sha256 cellar: :any,                 arm64_golden_gate: "2a4811a42bd4ec42ab6a0f21ba863646c326bb5e3d7ae9260f4c7141827ce73f"
     sha256 cellar: :any,                 arm64_tahoe:       "e05bc0c79aae6f0fe1a9d888e36e9d046550df0885eb4f16a0f3e9d39b6db1fc"
     sha256 cellar: :any,                 arm64_sequoia:     "589146936f71fffb6c0ef28b9f7a5e49041f2b6aa66a31029974ebf601876a2d"

@@ -7,6 +7,7 @@ class Gops < Formula
   head "https://github.com/google/gops.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dfb38dd8a874cc43d40f5f6fc3b4bb5ef05ad44712e4d2f54d6ca76a4494e8a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93a01a837b593a6cc87ced0f13ceded9e6236927a18444326092d1bf12451a1c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0e45f2bd77fd4ab3a9c61d15957d454e78cc264800278668f527c9cd7599c98"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "58e8cde39bfc9198c6869823789fead52875cfd04ee543a0423f5134adb18a65"

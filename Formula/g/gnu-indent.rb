@@ -8,6 +8,7 @@ class GnuIndent < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6c5fecbdfc2da86c6f7cc57715be4768225610857b5fbf902942ae195cd6f347"
     sha256 arm64_golden_gate: "cd415b0014b5c8eef48e72d1c233c826b58ea16dbcf5ae537f1478f14ce53cf0"
     sha256 arm64_tahoe:       "9734507ce86daffede4a8529ea0da48daa0993cd639900769d131d677f4d5c64"
     sha256 arm64_sequoia:     "bd0bd4400bed0df025ba9e73add09aaa2c2e4ac341dfcc59d69f1cd4c6394f6a"

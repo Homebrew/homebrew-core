@@ -16,6 +16,7 @@ class Lcs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "309c3582b41555c7bfa547b072ed1db6bc7f2d2a89c91c9e0a3d5c65831eadfd"
     sha256 arm64_golden_gate: "e1337574ab0f0a762f957bc96874e00e871086f3d9cfac3b195bf0c5c198b619"
     sha256 arm64_tahoe:       "14f9dc85cb94b9c21c15d3fa7c5f93bb917ef4f51b86e5fcd9a93a04ba099ccb"
     sha256 arm64_sequoia:     "5371664ecbf4b18cf50245e6aac09ebd817ec4fb64d9803e17af20550fa298a6"

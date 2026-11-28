@@ -11,6 +11,7 @@ class Freeimage < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "8ab8a6492d14d082b5d5f07492cd720c5301eb838bd59e8fd510ca97e5c73158"
     sha256 cellar: :any,                 arm64_golden_gate: "d09f372ae82efd80b339b06035d3c791c4f16fc00bc7d418f1c665f7ea17d3e5"
     sha256 cellar: :any,                 arm64_tahoe:       "fa674c2ad7837eb68ddb56844a0da4ad71955c148a12311c0456463ca8e1b225"
     sha256 cellar: :any,                 arm64_sequoia:     "0c56e5950270ba19800a0b51d0fb516689c82921c2651c30c9fc17934bfb2fdc"

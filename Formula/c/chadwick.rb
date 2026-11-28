@@ -11,6 +11,7 @@ class Chadwick < Formula
   end
 
   bottle do
+    manifest_sha256 "2d2d9e80d06010930324c4b8757c6e795caefebca0fdb3fc2b85c3eda4f26d09"
     sha256 cellar: :any, arm64_golden_gate: "ce822e855a64af561898b6cf0e0e1f2808423f6aa2152cda73234c7b2f867cc5"
     sha256 cellar: :any, arm64_tahoe:       "f8bd05653549c37aff0d59d0d90e427d9c4a7dfeee7eee3c3a66025ab28b5f02"
     sha256 cellar: :any, arm64_sequoia:     "867e32fe0431a8f586de718749d7200bcea71ed7b5d8864feb07cc4967bc6ca5"

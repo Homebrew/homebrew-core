@@ -8,6 +8,7 @@ class Precice < Formula
   head "https://github.com/precice/precice.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "4684790caba34d572bf4bbe5a05d87f542e1dc0785a26a02dfcdaebd614043ea"
     sha256 cellar: :any, arm64_golden_gate: "73e96fe42575da52b7253d3821d5d243b0db01ae8bf5ffaaac455cca3419d2c3"
     sha256 cellar: :any, arm64_tahoe:       "106d1ff72b107c9b724d97e77426471f29e5deda55ae5d613302953191d29769"
     sha256 cellar: :any, arm64_sequoia:     "f0e4712c87ea7b64ac223e8ae12d120d5165c38bb0ca2749174e347b831f03cb"

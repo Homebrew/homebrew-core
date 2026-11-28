@@ -9,6 +9,7 @@ class Dtrx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "02c7f921faf55804fa1cc6fca95cf5f780ebd6f07a4a83be28039e4a874aed09"
     sha256 cellar: :any_skip_relocation, all: "ed75df18cd94ca8d2b06a67232d6408f94d774304a2a8ec6ed110ad677c9afc3"
   end
 

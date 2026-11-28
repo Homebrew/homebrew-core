@@ -6,6 +6,7 @@ class Btparse < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "4ad05a65ece633ded88033e5b8243ae55116d389a6df4a66b1c820a5ab53e4d7"
     sha256 cellar: :any,                 arm64_golden_gate: "9d281a266bd62034ccf2f4d890cb9be10a378c5a1652a2c896ea6f900c38257d"
     sha256 cellar: :any,                 arm64_tahoe:       "6bcfac3d46e83b1217a57419de338fbea65b77c71d9a4f6de49665990e93b746"
     sha256 cellar: :any,                 arm64_sequoia:     "7da3060367c602412a91935267f6f8eef48d2c15fc0e5fcfd7a8bc42423ba281"

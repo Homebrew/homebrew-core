@@ -12,6 +12,7 @@ class Phoon < Formula
   end
 
   bottle do
+    manifest_sha256 "a789a98f68295204f4a9d7894736bae213b9ed4d91010f66475639652b7fb1ac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee4648d556fe20edf3abed66c0c92c4adbb7a173baa83ede501cbb0cef2e6113"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "636b515de152863a3694ddd5cab6745302e40fc8d649cd14bcf2b1debc5c2ba6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eea7e8ab443ec3e74f55f9b0572fc1fdb041d4a484f05c523820d3c9c510d646"

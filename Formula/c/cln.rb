@@ -13,6 +13,7 @@ class Cln < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "db908e3f4f9b17d21569c31efe00c84d926164a604cc8d588973c01aea994c58"
     sha256 cellar: :any, arm64_golden_gate: "eecbd9b437a3d34fd0a2b247fd7a3370109b5a764f9bf3fdaa99ad40b1fbcc7f"
     sha256 cellar: :any, arm64_tahoe:       "82df63ebc446543a6c05219ad65d2de6e9e7d90a9717022d13b9e6858b9acf29"
     sha256 cellar: :any, arm64_sequoia:     "3bb3c98eb2263f2eb1ad30f5dc8059b4b668951f6412dd2c3d4ae66ad4c2fb62"

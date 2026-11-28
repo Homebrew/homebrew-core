@@ -14,6 +14,7 @@ class GnupgAT14 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f0cf3cbce7414b8e07c9ccb5d29702c40c92be98cd65ca09dfbb0ed33b4703c2"
     sha256 arm64_golden_gate: "8145761e15098691b4b7cbf5493be21a4d6f7b850095f2880fefcd57d7720bc4"
     sha256 arm64_tahoe:       "4ca96fcb6e85fd587e3716a10c8aadc3117fd1055e368627efb8eb8ecbbd486f"
     sha256 arm64_sequoia:     "d7ac6385a597f2793c1da1f6a037d44009827fe6f8e92780121ba6a7d66c422a"

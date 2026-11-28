@@ -7,6 +7,7 @@ class Nyan < Formula
   head "https://github.com/toshimaru/nyan.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e518128654436accb0ff932f0f6688b16ded9a0085f576c256d551a263d1f9cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1794aa2b78c33c043dd8f01c3809937d4afe87260e879fb43c74b44fe5de1937"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb1a9c0d3401c9b38910512337e2da0d0e900bd84cdf7abefed7886ffae35aa6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb1a9c0d3401c9b38910512337e2da0d0e900bd84cdf7abefed7886ffae35aa6"

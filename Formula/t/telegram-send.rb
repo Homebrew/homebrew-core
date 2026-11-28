@@ -11,6 +11,7 @@ class TelegramSend < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "81e21b16f3833915157d43b6ef2bfc5c343e44c2efc7afb20c48359c75cdb348"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6fda32be93932ecbf57e174f4305be683fc32973aa37cfc14b11bc020175ca51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fda32be93932ecbf57e174f4305be683fc32973aa37cfc14b11bc020175ca51"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6fda32be93932ecbf57e174f4305be683fc32973aa37cfc14b11bc020175ca51"

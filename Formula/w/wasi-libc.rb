@@ -29,6 +29,7 @@ class WasiLibc < Formula
   end
 
   bottle do
+    manifest_sha256 "cc1ddf9f4c50241568eb8b94ff61b97e730ac2c0190a9a26a113728eda630aef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1b7d1b3f8492a5982a0d26655ba75afbed1b823abad3adc794f2873537b0911f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5e53927e23f5981de6b3efafffc42dc6656f8b19f2c53013474a0a97edb6528"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5e53927e23f5981de6b3efafffc42dc6656f8b19f2c53013474a0a97edb6528"

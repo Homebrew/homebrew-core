@@ -6,6 +6,7 @@ class Libcpuid < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "64a12c889ca2dff0230d76bade2f93a62a01cec39d243ba281256a81c7626886"
     sha256 cellar: :any, arm64_linux:  "af61a19db58ffe3df890fc79f40d8ce6b24261ce3a5bad74bf33b8b2d1425708"
     sha256 cellar: :any, x86_64_linux: "4475f8da6b5e52c68d2e07b62eb526d491caa8c6a23f2c96d510124acd795b82"
   end

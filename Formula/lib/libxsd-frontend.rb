@@ -27,6 +27,7 @@ class LibxsdFrontend < Formula
   end
 
   bottle do
+    manifest_sha256 "5818d835a1b4cb14401dfb2da62766e40401ad8c60cfc9d62110dc9bff5a4b5d"
     sha256 cellar: :any,                 arm64_golden_gate: "56e259d5124958c76692a82855624472b2a71f4f0b49136442d7c3c111222b93"
     sha256 cellar: :any,                 arm64_tahoe:       "d0932306261002d469d9a0a9a5071134841b5820b9e2880883e3f9c06f5b4e82"
     sha256 cellar: :any,                 arm64_sequoia:     "3631cb5e92f7b2d727f1fe7039482a1a5cd1d81e317674fa418795e4691d60fe"

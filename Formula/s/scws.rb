@@ -6,6 +6,7 @@ class Scws < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "fa2ce1dfbb946b6915c4876bd76942360c06eb0a671c745205d5c5b03b905bd1"
     sha256 cellar: :any,                 arm64_golden_gate: "337ea0c2dbf6dea1e2a51ce11432fabb6f471427c53adb04ce0e9353bc573335"
     sha256 cellar: :any,                 arm64_tahoe:       "bb7b68fb9fcbf51ad8170b10e1e25c4674c99bc1e99870446659c5dcc2f0b5ba"
     sha256 cellar: :any,                 arm64_sequoia:     "294a02ffae27e71589019a49e8031b89e2af74a54603e3caa1a60ffd5fa91e17"

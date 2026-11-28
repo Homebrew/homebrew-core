@@ -9,6 +9,7 @@ class Zopfli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3f19444cb6d0bb6e8f1095b217e9b30757235d6d8e7ede4d8bdf346c5a8c2bb0"
     sha256 cellar: :any, arm64_golden_gate: "02117d2bae99aaab9586b5a3aa395993d6f0c65a31b4e289d240d32e2aeaba7e"
     sha256 cellar: :any, arm64_tahoe:       "3cf189287454c0abe8c1da5747609ebe859ba188a3b9763cb44dbb5f759d32ae"
     sha256 cellar: :any, arm64_sequoia:     "4fe7df0649344fda621be648ce9c9d93b9d82e3e590fb292c7b7db3c54c70585"

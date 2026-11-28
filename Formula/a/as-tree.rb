@@ -7,6 +7,7 @@ class AsTree < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7372e63fb4990457d93ee0be713339a963e3a82dea8625ed9567159e65e9ed08"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8563658ddfac98fa9b2cfa8174c6ac573b024fdefa33b705a356efd5c432eecb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21036f05ea5294ef3b8f2fb17517631a76c8d2c2ed521311322a55ba2320a28e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5059a4f64cd775588b4f57a258964415373c09346d65f121f9e61464bbc6789a"

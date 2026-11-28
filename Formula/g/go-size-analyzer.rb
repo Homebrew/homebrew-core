@@ -13,6 +13,7 @@ class GoSizeAnalyzer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "44e66d8023a2be1c42ce238b6f5593ba3644ea7ecaeadf018b7de6e76fa8abf9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f28e1c237d7c97ca26ba22d5b45f630315409c6c6d02de8e3d2c7d57196b2f92"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ac03dff6f4e89ca85c90950aac44c447ce3268b2fa2a388fa616b0694db25e9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d00339dfcd33e7511acab23cf2012518641c1d2641a78a414c8f51fb5b4aed7d"

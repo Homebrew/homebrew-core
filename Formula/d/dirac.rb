@@ -8,6 +8,7 @@ class Dirac < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9c4c36e73186ae14a7cbdb4f62497f646aa128965292f071d43da42ae32d7aaf"
     sha256 cellar: :any,                 arm64_golden_gate: "3ec72cf7b31b40756d225cef86654e59d892939fc02c931478e7c125e1186c7d"
     sha256 cellar: :any,                 arm64_tahoe:       "67319e9ad9710a1d9bb80f78716b453430f164ed95a0b45ad62bad1bccbd879b"
     sha256 cellar: :any,                 arm64_sequoia:     "53157665a3a8ba4676115ebedef7b7428ea51424674d1af294383cc94c9572ff"

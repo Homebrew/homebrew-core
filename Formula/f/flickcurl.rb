@@ -12,6 +12,7 @@ class Flickcurl < Formula
   end
 
   bottle do
+    manifest_sha256 "6516b97d3d62d6c79de95f0427a1b8315b52b0a38313d4c5f8de14b3b3a729de"
     sha256 cellar: :any,                 arm64_golden_gate: "93354a9049861bd148042c159174738c3e9260cf844c4a1091970d1d40ab5fdb"
     sha256 cellar: :any,                 arm64_tahoe:       "5ad4303f2feb50ec3bcac620cb35ec60de39f7c2f40f5d20587daa161064ce2e"
     sha256 cellar: :any,                 arm64_sequoia:     "f7d7fcaa4becaba9efd332bc528a22cc9a844caac877510efa8aea89906a98bb"

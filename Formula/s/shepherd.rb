@@ -7,6 +7,7 @@ class Shepherd < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "176400bd4342e8fb6aecbb3d834fb550f4440dba204b6a406a20b886408c860a"
     sha256 arm64_golden_gate: "9b97208a6e182b20d4aad4d053a4f456a76460497dc199435fb8dd06cab5268c"
     sha256 arm64_tahoe:       "4d39dcb2ed1d07ec50f5f3dfd56a3d21b07e87893798c9ea6b0f023ba897fae0"
     sha256 arm64_sequoia:     "4d39dcb2ed1d07ec50f5f3dfd56a3d21b07e87893798c9ea6b0f023ba897fae0"

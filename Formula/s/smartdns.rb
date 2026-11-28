@@ -7,6 +7,7 @@ class Smartdns < Formula
   head "https://github.com/mokeyish/smartdns-rs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2ba557ec35535185bbdd85511e976eb2355f51091f53126d3669cd8ab59f9ef8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8afbdcd26135380e82834b78bebd5718b77dc141edb5f2ef1b08ccdaa3be0356"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42234518894d332d2b6fc507d559d76245387dd11d06fb73bafda30409688872"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ed79bcd9e295ea141006c22359a2b85e45f6b15567c349acbd5cee3ff2b4031"

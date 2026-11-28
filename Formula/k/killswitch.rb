@@ -9,6 +9,7 @@ class Killswitch < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "d5a9fbaf959f77c359cf44420f5e38bf1b27a9225a1fe2653a74aebbdcb597e2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0d55e7e3fd81c567f0d81baa71dbb59025cbce80389153e011795b71dbcb5e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cbefb9623a427619ae2f2e9ee419fc4d683f1ccd58ed7b9f40eff4b7f445be1b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5500a22bdfa72f6c3b4165638504feb3357918a829ff9bce8c7c22c025725d83"

@@ -8,6 +8,7 @@ class VtableDumper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "937cd417ab1fe4a6ada3530d1440fc695531fe80013ad76449397ad61c55bb13"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "e6eb8224c4c4acb7c276d913a9e83c650c8c12e574e164846430253b4e53a17f"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "3b5ec9a7807288402bd3bcffb73137bdbd02c303f2d9aa085d4c93e0f7b45727"
   end

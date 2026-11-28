@@ -8,6 +8,7 @@ class Burst < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "77afc4f42f7ec5c1887c0565ba7524d3da0b6af9f973e7af6faad7e3a890d02a"
     sha256 cellar: :any_skip_relocation, all: "f9f985b7be3eee4cd5a80bb0a32064f454e66345085f46b302f3312f767260a1"
   end
 

@@ -7,6 +7,7 @@ class Xorgrgb < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e90f1f7a2751702eacf7c41f0849131ad96d0de28b4075c2e4153c537e280a39"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f79a129e52bcf4efe0095fa424fee29b8d4a287d71795a8f8f52fd33ebdc037"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "159d5fec59b9e636d32f19ea34afbede62f66570ccdf032640bcec65bab8dd8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "35bf31cee3ecc5346e8e702941b781afeb6ac9e3e41723094a47ab4863429fbb"

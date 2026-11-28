@@ -13,6 +13,7 @@ class Libowfat < Formula
   end
 
   bottle do
+    manifest_sha256 "4fba6c6990a1eb817cdf3982b210e574ceb15a171e6ccdf5aeeadc8d8bbc6302"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7adf30d6fb1dc1a586f8b504251c094e7240637c7e44bb29b101367d727d025"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc30d254df3bcd360e4f3171d2afc99997cadfec8fd46a90f2c56991677ee87b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3846b7776a5350100cf8a734e0a45fcbe822f53128ab88bce24cfb259b3d27c"

@@ -8,6 +8,7 @@ class Croaring < Formula
   head "https://github.com/RoaringBitmap/CRoaring.git", branch: "master"
 
   bottle do
+    manifest_sha256 "81712b4282218e364959c7ea4952c6e0f1e9da71fee829abef1013aaa05903d8"
     sha256 cellar: :any, arm64_golden_gate: "aa25fc1178d54edcd5d0cc846882f8ec8dc6df3f2ce263aaecc53858b33feffc"
     sha256 cellar: :any, arm64_tahoe:       "45f0571e632ee31cd543a7a1e6266aae3ba28b588abb4a60c44cd9173743897a"
     sha256 cellar: :any, arm64_sequoia:     "1569c2cec24e858e51dac303adf97e04ef18c641a221ff09afdb1a264e916fc6"

@@ -17,6 +17,7 @@ class BbftpClient < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0f04b13f353f45c581a4c02d2f002fecfb493118de5f6da4b6fc94ddad8e0fbd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1af7986ff7c622d850f0fcf8c38cefbd5770896c5988b12e2944c30223dabdb9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18d463140dea6d3abd1361442b054a2cd01020e40c55ca2e6046c5760944d689"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "58ae6876eec6565daf49ef57c1cc4663b2302ffb65d0acab11d8963ccbc0a42e"

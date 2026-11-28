@@ -8,6 +8,7 @@ class XcbUtilCursor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3b07ad5020b84588d973b752c7b80a3f119b30228a7d806444fd3abb3dbd4cb8"
     sha256 arm64_golden_gate: "a9b1f0ab481342a42b5e5504923cc07f9d0cd555bf5946b4ab3fc92c7002ae1b"
     sha256 arm64_tahoe:       "6fe89f93adb0c513b21b555ab47cebb0e9c5b1708cb8001cb81b4a359906ed17"
     sha256 arm64_sequoia:     "da110205b1873747fa016952f8a44c605c3d1d06ab1ba2adacdc40f092f2e5cf"

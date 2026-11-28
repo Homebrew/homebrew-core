@@ -14,6 +14,7 @@ class Mecab < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "5c65f6783d907ac12b5baee1b40f20987fb900b39312f6f037ca42cdad535fdb"
     sha256 arm64_golden_gate: "1a48f7234b72fef8f0849355590ef959b387f44b2e0117272d4a32d1d42bf198"
     sha256 arm64_tahoe:       "72298458bdf93c9012a74c60fb039ad00d77ad89839274c9857743bee97e22f0"
     sha256 arm64_sequoia:     "bf11401bae781f9ff7eb147a4c1c6b563bf2f34a8322e0ed5ed4ab5b96de7056"

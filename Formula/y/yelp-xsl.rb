@@ -8,6 +8,7 @@ class YelpXsl < Formula
   head "https://gitlab.gnome.org/GNOME/yelp-xsl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "39830eb510a0aece8fa24528ebbd82b7cc9c52274804e267446d9e31a3449305"
     sha256 cellar: :any_skip_relocation, all: "e62b397f4153ee39a9ca982273b5d5e83e78d9271445be9883cdc69d1c8a29de"
   end
 

@@ -13,6 +13,7 @@ class Dbhash < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "9e115f00b848d369fd4b30f9f3784d618955b0554869abf5340972145467d74b"
     sha256 cellar: :any, arm64_golden_gate: "c990a1919fd832cc83cf43a8a7556d0b90e095fa8e3f1ecf0a84c0182cdcd9da"
     sha256 cellar: :any, arm64_tahoe:       "41476d5c27ab7ef028dca51329eae35457d2142e53b3b0f75ec95e4976afc848"
     sha256 cellar: :any, arm64_sequoia:     "55b4cc15061fc531b0adafdd2966e6180b7dc6ecf4a79481d89480f311aed930"

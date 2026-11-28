@@ -6,6 +6,7 @@ class Saml2aws < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "54ec7b0b4c7383af43e0f5720f38b35d0079393cd3b7e7162f2d1635ede640bd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "015c7a2faca44dfd1d0bda8eee2f5a5fc1ef791e44570ae7a4524227d2f9ed47"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69e6077ecc29098c8898cb893541b71f13623162e33c8d2f2c8fdcba2b5d67f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a654e7f6931b60cb7a97c06b259a18b85d726500c2628cd032224084f6e4f085"

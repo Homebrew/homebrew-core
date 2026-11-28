@@ -7,6 +7,7 @@ class Nerdfix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e1af17791e21e6ca7a1a19366a9b2c16705d4dd7b3b4604559dfe516646213c4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "357c198752386510eb132801e3602b5aafa5dd3e7521144c6cda7f496dbc5646"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8154d59076667de95521fe0ed9ba39441627730a591c718aa0be6ed4a3d70627"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5acc95bc0c1314b40e2fb0555b97724538609e457d5574e1a5dcf61ac97942de"

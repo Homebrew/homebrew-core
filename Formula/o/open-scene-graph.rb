@@ -20,6 +20,7 @@ class OpenSceneGraph < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "bc726ed1aaaa01250530aea69765149fbb29add424385932f026a4fa8597369c"
     sha256               arm64_golden_gate: "7ea6ae99fba93e91fdb9dfdef5aba7f15c291ef994493c0d7d1a62bd3d996e9f"
     sha256               arm64_tahoe:       "98b12a674ce6d9934b3242ee26c7f19019e7b6d3f853270aac328069e5154dfd"
     sha256               arm64_sequoia:     "581fe650587d4f4754ca98ef918c4d0ea5ade5511be34c59fbc4f0ac78f2d6d2"

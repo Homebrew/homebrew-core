@@ -10,6 +10,7 @@ class Vapoursynth < Formula
   head "https://github.com/vapoursynth/vapoursynth.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7ec3257b62b832aa531450490fa17c98b2ae0636af616140a880c83b29e5036d"
     sha256               arm64_golden_gate: "fee835809ce89b8ff1cf486615d206ec93b0b2b91504517573d2618e4cdeb9d4"
     sha256               arm64_tahoe:       "6952c3a03ef5548f12e72588add3bf3818ba0d87c0ebf55c0223a88ef67c6139"
     sha256               arm64_sequoia:     "498f5462de067440786390f281c8be2470adc1957cf89ae25cd6692ec5201a3a"

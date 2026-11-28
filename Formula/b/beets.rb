@@ -10,6 +10,7 @@ class Beets < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "37ab50dd89d8a209ab824a383f74b32f56e446f4cda07e0198abb28d7cff2a38"
     sha256 cellar: :any, arm64_golden_gate: "a4cc5e3c46f4e3543baa14023dadee80beb67d1e097a81de17f7c5f5921a158a"
     sha256 cellar: :any, arm64_tahoe:       "3c1713c9bf78c79d738adad1d4518e38783775143022d9b2cd86c7fcb20e11d2"
     sha256 cellar: :any, arm64_sequoia:     "1d9ebce6310a960ca48ac9543a3b1d219d70c2fb91b6747523cc04a566499bed"

@@ -8,6 +8,7 @@ class Rcs < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b291a56d283b8abbd2080e9006711352cca23aaff26bb2274cd4e1889b5898b0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "703eb5428f2258ae984a4d107f163dcaf5863ff3772f131d85a48f00a2b731a6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "300e27fe13d2279ed6fa2fd5d06fdf4369311b86818229df6285086e8a46cb52"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec09df25d02575ef0506a90cc81def4001a17eb02fce6adf9933b6e359541282"

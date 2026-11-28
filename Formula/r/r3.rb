@@ -23,6 +23,7 @@ class R3 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a6d9896f47e198d5431c8358f3959eb21934bd314618f54854c9e32ff5d933c2"
     sha256 cellar: :any,                 arm64_golden_gate: "137fdab23691d2902ac3005cef083df32246ca477bbe182f59a7b2d6f4e24a8f"
     sha256 cellar: :any,                 arm64_tahoe:       "ee6d57c13ed2ec24283ad9837f731a7964943070535d903206e8b7481a73dfad"
     sha256 cellar: :any,                 arm64_sequoia:     "a6aaba3f459b35b6ef04844f558fc82886c589159e406ad206a0a62e6b15cc1d"

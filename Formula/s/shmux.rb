@@ -6,6 +6,7 @@ class Shmux < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "63bed8d9042376c90b9a17356c9d86908833a67e62c2b29cf40e96cb8cc897c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f12a9cacf42dc45e639dcd2a7b958036b325a6d3af79097db7ef960ecc764b94"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41cc598c5c1b6b397128af5342ad323ee355c48d782af7f574d0f9f73a5caf14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c6c5f0ff3534ed4ad1c56180b80e0c1963b25c803789492c130ab0620eccb64"

@@ -12,6 +12,7 @@ class DirectxHeaders < Formula
   end
 
   bottle do
+    manifest_sha256 "7f687b8d9b61cb083b8bf60a5317917586b22483d02adf7a56006ce2b1166274"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec41f95deb8169fcef40a02676bec9e6ab59a7a30d073c4299b9e5b456789fae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e00b2f5dd2346d2d84483aff9a58b8926d04b0bdaa44ec693d04bb6e182453e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2df2ad2dd4af8212d6c4adc5de2434adccd4333c8da4dfbca8fc30058b96343b"

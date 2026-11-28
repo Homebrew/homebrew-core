@@ -6,6 +6,7 @@ class UnorderedDense < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ec7cb89846a9258c71ae4459c4adfce17e3cfde423d044db1fb91e07f7093770"
     sha256 cellar: :any_skip_relocation, all: "dc3e044cf12b9a637985bd78f16bc2684e029b35a45447e01dcad1a3103cda5a"
   end
 

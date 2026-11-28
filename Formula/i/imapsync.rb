@@ -15,6 +15,7 @@ class Imapsync < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "ebb8d6cbf15038faf2ba3a2e6e3ecfd8ccc8235b7b55de40a3a7fa717bba48b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d7904f9995562b3e56cd8b1c3d9a5586733e3aa94c44784aeb5280f54e82c8e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cbb9402caf8fb24a642200a66b067dfffdb9b18209aad065b194b4f73c9f3f07"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4cdf34a0097eea1cd4a269abed053d4bd4aacff886554ad1fb46dab2a03ae809"

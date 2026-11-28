@@ -8,6 +8,7 @@ class Tailor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "26be4606cb60a1f2e7ef2e710125f85da2e294ce331fff39af954adc2f9e346c"
     sha256 cellar: :any_skip_relocation, all: "ff96b6b585afcd69215b88d8a797bfc4115c987b6dbd58c1e844c8d7ff268fec"
   end
 

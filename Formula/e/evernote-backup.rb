@@ -8,6 +8,7 @@ class EvernoteBackup < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "430b315dad5ca3871e5e7a5b9ae651eb492d4bfd40df42ec4a597375aeea6491"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5fc8aceed9c04af713fccadc1f858587afa7aa0c7d3cce7c639f7b7c9e2a1ba4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2cf6aa9e4d5aa3ed38e2c311bc2c40af7d156014451b0b2e7b611cc98df5d4d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5102b058f3a5fb3092038e8b98007efc6d52d6f21b2fa0150d8a4319680884e5"

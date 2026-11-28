@@ -11,6 +11,7 @@ class Mhash < Formula
   end
 
   bottle do
+    manifest_sha256 "0fc3d4265e6448f59921d3e45653f3d88864d7b1601dee3ca0412a1fc48ac867"
     sha256 cellar: :any,                 arm64_golden_gate: "3ad0a68e18b7d01b0d9c11b5619355bab1ed24925d1a7872985a1a15e727ae80"
     sha256 cellar: :any,                 arm64_tahoe:       "4c77322acecec89a57350e794b5712a3f2cf530d0550000918584f8071a9c563"
     sha256 cellar: :any,                 arm64_sequoia:     "f9b2ec3b67100dfe39ef4bb32671b26b5dbff6044b02ddae177b9bb1429ae036"

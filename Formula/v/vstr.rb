@@ -7,6 +7,7 @@ class Vstr < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "d9cc07c8544b12112476c6184f452b99c3ef26b6a84642454c45d7e14c6485c3"
     sha256 cellar: :any,                 arm64_golden_gate: "6540fc6c41df5f788a39b70fe86ea2d2bbd1ca5092cb3ace53af0973c3d021e6"
     sha256 cellar: :any,                 arm64_tahoe:       "2725b8c09c36af9b495587022630130f5561972343fa3d91bba4de2773f7c76e"
     sha256 cellar: :any,                 arm64_sequoia:     "578ee5248bf780a885cfc3dc8a806949ded7af743c3be7e7c839fe4d190a43cd"

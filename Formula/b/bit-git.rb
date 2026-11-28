@@ -7,6 +7,7 @@ class BitGit < Formula
   head "https://github.com/chriswalz/bit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "956ba044b4b6f686788da6165393c4d11c8bddff4a7684284131079879b0dba0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "daf9f154f043694cf00851dbe8d7b8dba5a26c5fafac1aabb1389655cf68aabf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e2c5d5baedcd742c9f2808e15e1310c4762fe49bde321b2786bbdf5e5746319"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "512fae594f8692aea23014f35c5ef02d23c49c2ce28b2f772cffaeadc55b2c9d"

@@ -6,6 +6,7 @@ class BbCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c8e2ae42c9aa9ad4b535c84c6320c7f3d0ce7ba9d810971829a9b812fbb1c443"
     sha256 cellar: :any_skip_relocation, all: "9103b2f8975990a2d66486c6e1e0b7432393dfdee1477393f5b8e8d2f28471c8"
   end
 

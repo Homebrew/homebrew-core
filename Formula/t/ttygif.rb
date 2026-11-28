@@ -7,6 +7,7 @@ class Ttygif < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b2c2103a050c94418bdf0dfff952371e5454c56cc11d7b1da25a27550fea475f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a8b9fb5cc4180ac49f062f053ddad85e2ca05142833d841dcac72ab2569e236"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c2801e9fd3037e19b2505cf7d066fc65d08970895db9df569bdaadfe72b6dea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e1677ae4c695a79d31461441374113ef860629ba4670f35232aefe2fd22ac932"

@@ -12,6 +12,7 @@ class Rustledger < Formula
   end
 
   bottle do
+    manifest_sha256 "489cae9ddf85733aa973f38961a4678e1042afe6c877555b32f0a609faf6afda"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "287059acd34fa77c273cee93ee75feba15971b8fd5f4ec7bdb6558d983f3403f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fbf41449d4c19c284b9ed9563b8ff15d354c845687d9014212ac55c9051805c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e6fe3f56942efce0cbdab8eed26cc1aacffc1adabb3226bc6a9ed8115bdc0b8f"

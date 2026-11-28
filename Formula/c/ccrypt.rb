@@ -6,6 +6,7 @@ class Ccrypt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "28e3ac6a418074f7781c955045d48bdbff5ff05b0da03a22e07b3954e6bdfb99"
     sha256 arm64_golden_gate: "b6f29fdbbd809453cc32f7806549671252d64a76cd8c646db74fb4f3ad00b2cb"
     sha256 arm64_tahoe:       "cebf96f7115ebb2be8b7f058e24de430aa06506c3dcfa5aaf9c0ff67d1bd780b"
     sha256 arm64_sequoia:     "030055fedb7e4f4136631b6cb57863d19dfbc34c422410ef246422471f6ee0b9"

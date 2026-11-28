@@ -18,6 +18,7 @@ class Qtscxml < Formula
   end
 
   bottle do
+    manifest_sha256 "78319e4df1383df314184a779808ef60617103c48ef8bb8bb1bbad6900a49afc"
     sha256 cellar: :any, arm64_golden_gate: "ab4689bca4c161984c13e17a81937b8f78f044cfd5d796ec249f2fe124323e95"
     sha256 cellar: :any, arm64_tahoe:       "453d82cd3840a7666a88c045d49e80e119082e7d948e706ad79b392b0dd778e7"
     sha256 cellar: :any, arm64_sequoia:     "923b34bffb3272ff906b8141ba06dbb2344c17902db5b009a901eb38423b84a4"

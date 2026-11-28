@@ -7,6 +7,7 @@ class SvtVp9 < Formula
   head "https://github.com/OpenVisualCloud/SVT-VP9.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ba1b39d64bd0f2374e00a2f6001c3fc72a325b708174c04ccc764dde5c1303b2"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "f651f843f3c74d02f346f08b5b5cb2c5fac49a13d63d24a6209b8ad6801a6625"
   end
 

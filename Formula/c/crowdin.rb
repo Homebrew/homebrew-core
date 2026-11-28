@@ -11,6 +11,7 @@ class Crowdin < Formula
   end
 
   bottle do
+    manifest_sha256 "555194e41dd9eab1c1b2433b2ebb0f54f934d17b60e20c08f42f54351d0036ab"
     sha256 arm64_golden_gate: "7af07c7d740f895275772ac69ad2cef8509893571a38e745da02e1841ba79f29"
     sha256 arm64_tahoe:       "f1d6b9e215c1161a912a3cd6584eb580a48d1ac6a1ecc6de5ea136d7bfa2e0ed"
     sha256 arm64_sequoia:     "bfca94d32f4146c1e48f7357e9e7dbd822fefabeffa129ead05ccbb725594c64"

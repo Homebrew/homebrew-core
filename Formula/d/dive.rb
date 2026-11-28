@@ -8,6 +8,7 @@ class Dive < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "83a22bc84b5b7243d0633a352f6600f3c53ffcbc80d2a93e156ba93cdc9552a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77442b3969fdbb1b19f15d7531786622405f84be3dd8e2dcbc1b66493498c456"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a2a98b730f1f2fdd600b00603db02e66f43334a703e3e42f7ea019e333d9c426"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2a98b730f1f2fdd600b00603db02e66f43334a703e3e42f7ea019e333d9c426"

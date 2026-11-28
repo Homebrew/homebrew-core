@@ -13,6 +13,7 @@ class Potrace < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b223fc01e8e15701ac222f751739274cd1a91de2bb3f3cfaec0296f1449d7ebe"
     sha256 cellar: :any,                 arm64_golden_gate: "b9ab2c351695b7b352803fa732ca1cd8ff4b71ca76b2df6ce3ec44f1be4f3db9"
     sha256 cellar: :any,                 arm64_tahoe:       "f60557ba39e1e0bb436b79900bec393061141e8e73aa8b20cec3f3b95db69166"
     sha256 cellar: :any,                 arm64_sequoia:     "c2ff921aca3ef95cfe62c72c080e78e5cf3628c13797391472aae7dd51e0d445"

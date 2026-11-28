@@ -7,6 +7,7 @@ class Dyff < Formula
   head "https://github.com/homeport/dyff.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e354635085740d52748f84f9c3b54eaaff794db3931042ab837589c7e5bcd5c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53f1e8ef3e16aeb9085fe40facebcac2513fbd4f1b19690dce34a854ee0e9d01"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1da8f72c9d8bde308ad42399677949015c4e98b3aa5bff777ec120c1dd902974"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1da8f72c9d8bde308ad42399677949015c4e98b3aa5bff777ec120c1dd902974"

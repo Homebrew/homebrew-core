@@ -9,6 +9,7 @@ class Pushpin < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9dc55df31bae25961e8a11cb7b4faa893a2e21faff3dd237c1ad37a1e1c7ae62"
     sha256               arm64_golden_gate: "a3df287fa60377e4057da57eabb313314643fb3e7f57720a89123df886510d6f"
     sha256               arm64_tahoe:       "bbf8dcdc12085469a55c589524de6b5c8091e91362b4caf6bfeb2cb4dad77cc1"
     sha256               arm64_sequoia:     "cb40a0b394c8e5d680f6c252b8f1ba83daa09011efa969f0331b0623552a4845"

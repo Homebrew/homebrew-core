@@ -7,6 +7,7 @@ class Dockerize < Formula
   head "https://github.com/jwilder/dockerize.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bc26186ba30d9e973a34ccd1f3c6e96637805278263bfa079572c867d7ace6ac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd430f1fc5bf30a3727ec695ad8ab543d876cfc8094fa94eda927c17895c439e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd430f1fc5bf30a3727ec695ad8ab543d876cfc8094fa94eda927c17895c439e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd430f1fc5bf30a3727ec695ad8ab543d876cfc8094fa94eda927c17895c439e"

@@ -6,6 +6,7 @@ class Triangle < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "dc920031c5483a20ec17197adc1d735c79c0a6e40c2a8b03de251dc4617ac359"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e2aff9a235ef01489e16ef16da1403dd2051276ed1cb2b2008fbddb9ef150ce"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc82e8afee9b3ce6d620eeb7beb96c1789560d5228a7511f738c68341e4b4214"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d0f61e1189f94030e6d58917a972b58ed3097fddabc1d7b81d2c6261af44e7f"

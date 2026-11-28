@@ -14,6 +14,7 @@ class Doxygen < Formula
   end
 
   bottle do
+    manifest_sha256 "3ee60feec8a35e01818b5f90e9df629743a8aa9115f147281f25884f2fc5d7f9"
     sha256 cellar: :any, arm64_golden_gate: "19950fef34a05eb80dfa420f6b5deb2442a15136d39aa8cf1e13f0ac00dcaa32"
     sha256 cellar: :any, arm64_tahoe:       "554075817e7d357ddb233496a332a6d8d7c9414e7fe21e514c40507fe7428a93"
     sha256 cellar: :any, arm64_sequoia:     "2334f389368fdc1055a87d69bd3c25b7eb8be4936d30bff13fded74c6262f5ce"

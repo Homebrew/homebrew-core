@@ -10,6 +10,7 @@ class Shodan < Formula
   head "https://github.com/achillean/shodan-python.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1b52002d919d606fc6b42a1185b69f13d054ad85aeeb6d1172f97f602acd37ec"
     sha256 cellar: :any_skip_relocation, all: "356b8c9d818059bc14cb57266a82f815ce5a9e705c2d160ee020d6626b74fc19"
   end
 

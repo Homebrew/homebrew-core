@@ -7,6 +7,7 @@ class Edbrowse < Formula
   head "https://github.com/edbrowse/edbrowse.git", branch: "master"
 
   bottle do
+    manifest_sha256 "de380819b6013bd322036b0986acf369922a4322bbb4a8e1e7b3b11e95106e95"
     sha256 cellar: :any, arm64_golden_gate: "eabfa6d7248309229f53a8a741ecfe6e0f17c4e4b0f2755452e611cbb1e1c834"
     sha256 cellar: :any, arm64_tahoe:       "b7c09aa2a5a9b9571b538c521dbc14fbaaca6345918a91ce028eeb0aef96a32b"
     sha256 cellar: :any, arm64_sequoia:     "3f944dba1a34bed36269aaeebfdb8c8c4121ebae945bb44d6cd9189efadebb16"

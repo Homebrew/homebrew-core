@@ -8,6 +8,7 @@ class Jobber < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7ddc1cb984104bf46a662f194d4afcd7ff0c26ba6f5f2eee4a9e6673ae98f2d6"
     sha256 arm64_golden_gate: "eead5da2127d5ce36a5282615727c949c76e045b0f77efeeabd29a3e2a97286d"
     sha256 arm64_tahoe:       "66a3ab3ca421877c8d2e587ede10bd67c4bfc8ac66df67822b68fd4ea2a67d05"
     sha256 arm64_sequoia:     "fc6d39f5ff894aca7a8c037fcb599a2aaa4c5293614e56d6c4aaa6edca572be2"

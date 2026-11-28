@@ -12,6 +12,7 @@ class Typeshare < Formula
   end
 
   bottle do
+    manifest_sha256 "b710fa09717337d1d6f071776ee55165c58eba5f9d19dcbd1e4fe396c639ab94"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29f48a14e2b728bcbd10f04bdf7ed45c9a5467275276f14a172cbd81f06e6e61"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d8a99434dafc99d2d1bf95260f67e6f081794cf4617108ce5548909ab93879d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "617e96248ce3c4093b2b1822f52ef349253c967737d40e6338f914c7f12b30b4"

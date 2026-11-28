@@ -29,6 +29,7 @@ class Pymol < Formula
   end
 
   bottle do
+    manifest_sha256 "ac00dbd47dac5f6d61d88ba644baa3a4af8a13efbc3702024c727fc00cc1444b"
     sha256 cellar: :any, arm64_golden_gate: "1f0b702c9a12588bfd196a002a63608e2eda0067288777b47c3c87d3d2ea244a"
     sha256 cellar: :any, arm64_tahoe:       "a953b68a2aa0853934d60ddf01f9b75767249eeb61bd86af61d7ee3464a42aa5"
     sha256 cellar: :any, arm64_sequoia:     "93af8d6fb3d4935c5705cf63477016fd55c2203b793d0053abacb9dc856ae912"

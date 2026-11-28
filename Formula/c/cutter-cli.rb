@@ -7,6 +7,7 @@ class CutterCli < Formula
   head "https://github.com/clear-code/cutter.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55fab70b49b5a3995516a8edeb4fcb843ace5b1d1e199674d88c2830a56815dc"
     sha256 arm64_golden_gate: "49567c856d7192cd354bce46293d1717455fb1e5bd8a4dff84c68c20fbec6699"
     sha256 arm64_tahoe:       "2fdeb139a7a097e21c0b3af2d95875b73e8377865422a960b87dc4a632a09122"
     sha256 arm64_sequoia:     "4269bdfaa7adb093818d5bf76cb5ae1a87759872845b0d8b95e6dcee2c779c8f"

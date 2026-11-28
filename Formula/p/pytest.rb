@@ -8,6 +8,7 @@ class Pytest < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "60c536eb8d0106ec7c53a7009d0a49729c10e8c1ee0ddf8ef288cadc78103eb9"
     sha256 cellar: :any_skip_relocation, all: "5653d2243b8266c4381255f8a5d1cacf96e4d241c5f8a48045b8a833c572bd69"
   end
 

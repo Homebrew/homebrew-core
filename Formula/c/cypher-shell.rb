@@ -13,6 +13,7 @@ class CypherShell < Formula
   end
 
   bottle do
+    manifest_sha256 "f07c1b9fd6b0b6b92c00f5ebf5f1462722028587299a1e0a93b1836cb9ee3bb7"
     sha256 cellar: :any_skip_relocation, all: "b8863db9706145700ae2abc26ac6e62120cc3e672a038fa1b0a656435a0dd1d4"
   end
 

@@ -12,6 +12,7 @@ class Tcpsplit < Formula
   end
 
   bottle do
+    manifest_sha256 "05463fb10c84efd4149c9d92bf6d503687c1019545b2d45e53b9e76520ada708"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c47fdc12297dbfdf8dc0c36dd09ae11738dadb1793e1bab61a40cf3c689c5174"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0b02564f0e125bdab2ac132ffdf03a9c621fc26a1ec3182a27e4deca418f29b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1b13d6af21036479f6a802039f11fc02a16a1d1cbda789af99ecba3100d88130"

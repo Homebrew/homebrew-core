@@ -11,6 +11,7 @@ class TyposCli < Formula
   end
 
   bottle do
+    manifest_sha256 "12f6ac255f68d9b6fd0580bbac0da1df2c79ee3f8f6b1431f0cde23f4bbf42db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c422cb13a1c26e9165c8384c05753ae13d750a2548e5df1412ca3acd0f373a1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee7f5d3f42def66886298d5e4f4a75c042a13500053d7b48d22aba38fe7b4f3a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb9c3481b64390f0ef3c90271d1f24a4785cf036956b73c7727a172a4e2ce316"

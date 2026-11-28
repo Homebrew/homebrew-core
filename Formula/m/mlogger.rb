@@ -6,6 +6,7 @@ class Mlogger < Formula
   license "BSD-4-Clause-UC"
 
   bottle do
+    manifest_sha256 "1caf55ce43c97663b4500f5db85f5ef22d445c9db39c1ab45e7c5ba8fc360f01"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b0d5ed844a60be64257a622d13f21ed40344c531d86870e90dece862d1cf4a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc6b446dfb01998bc78128701dfbe10445b0b9433c0f089ada2a04061567e45e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3b373a36ead8caee769bdfd4632f783e948aa3f93605899ba5b08812250f9c69"

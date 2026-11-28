@@ -8,6 +8,7 @@ class DejaGnu < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "de1de09b0483d808452794a666ce5cab70c161e016bb0b2fba3c1ac4db8e3408"
     sha256 cellar: :any_skip_relocation, all: "8b7481a7c316dd293ddffc9a58fcfbd5289be84f4c2d39d6f4e69da6dd36bd80"
   end
 

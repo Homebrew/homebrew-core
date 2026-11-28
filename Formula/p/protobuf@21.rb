@@ -7,6 +7,7 @@ class ProtobufAT21 < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "a8898fa03c8302ffb4c671a663f41b91bb80a80d640b53a1e0873faaec8e9aea"
     sha256 cellar: :any,                 arm64_tahoe:   "65023d2a73ac89c385ff14782c38c1f629828d753d880f8e910a7ee19fc35e47"
     sha256 cellar: :any,                 arm64_sequoia: "9a941768e6f914b2c5a412728f3794a49a53b894b3cbe637809df93bc9b521e3"
     sha256 cellar: :any,                 arm64_sonoma:  "a906fb18cfff9e07a71c34d01c74676ea28290fa6c4cfa26f68e48449abf242a"

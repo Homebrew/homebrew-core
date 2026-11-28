@@ -7,6 +7,7 @@ class Htmltest < Formula
   head "https://github.com/wjdp/htmltest.git", branch: "master"
 
   bottle do
+    manifest_sha256 "32fb7f8db5461fd7797019de4d74f79a84811bba07c2367aab6b64631ae71624"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c5128f019a2a371517a22856afb17316fea3376a6bfaa0c3f547b3a88c4e8419"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5a2f3d0b7eb552f7dcc01be22aef4f16c8ee03c4acebdb07cfc2ce90edfae88"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ada8e26674de531245f8110ab62f73f5f89600f133b22765077d14a0ff06f3e7"

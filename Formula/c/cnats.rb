@@ -6,6 +6,7 @@ class Cnats < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "b4f65382f4c6c17314458fc569932bfa57478535acdc56bc9e84a583924b95f8"
     sha256 cellar: :any, arm64_golden_gate: "03553a33c9c4f71973c0ef22828a52d5f16fc12d076381d86e0e52a260b8a857"
     sha256 cellar: :any, arm64_tahoe:       "0a97b25b97e436acfcf9a4871065fafc45cbc9e5c0a5248a5be387d59855886a"
     sha256 cellar: :any, arm64_sequoia:     "c1f700de6a926235f9597a78a7a6bd9eb97acb48a02a2e716577dec1fcc7cb2f"

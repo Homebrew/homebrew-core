@@ -15,6 +15,7 @@ class Aptos < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "349832f2b9e4f81ab57603bb32909d8f8d368fb4de28eb31f16b5812554a2e32"
     sha256 cellar: :any, arm64_golden_gate: "349d3a216821ff2894d803ccacf5e62ebe485caa22c4c463734c583ec5061404"
     sha256 cellar: :any, arm64_tahoe:       "b78885ba252eb11cb6b63f2e1aee6182f210dfb2e081cfa2df47b1fc9d18ec27"
     sha256 cellar: :any, arm64_sequoia:     "700c2a780c5e9b3639bc8885682655e903023efbecca4e087b0b576d95c20e48"

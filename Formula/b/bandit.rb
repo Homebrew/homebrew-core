@@ -11,6 +11,7 @@ class Bandit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0a7ac4eea0a4a2b475874022244bb3d13dd7445ecbc56dd33798c41303e1e4fe"
     sha256 cellar: :any, arm64_golden_gate: "84dadd0f1b4908e7d570e0e9c85cccdcf6eba696b171e2e7111fa9a1e503dfce"
     sha256 cellar: :any, arm64_tahoe:       "7b220b15e11f7bf7409104f55e23587b98ccfbbd79fdd7192a7884a484bf703c"
     sha256 cellar: :any, arm64_sequoia:     "f6b617a2bbb58d5a64776529a66ac2e667d9c55853d7dcfca0816129d4268b0b"

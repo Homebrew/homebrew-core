@@ -12,6 +12,7 @@ class Oclgrind < Formula
   end
 
   bottle do
+    manifest_sha256 "b75e5341263c3953d94d195fc7df7bd99b347528e43f228d3ec8dfaa2acbf7a0"
     sha256 cellar: :any, arm64_golden_gate: "2b88fdbc678a7d3ded1ed9481497e6daea55335eda4bede62e2e99c4bcff5e9d"
     sha256 cellar: :any, arm64_tahoe:       "5ca45349ce2fa614c8337c1480c442a3e358181578b343a993afa9a1805ecb4f"
     sha256 cellar: :any, arm64_sequoia:     "c092799a3eb5d3bde8cd2bf6d87f944dcf2750ee8027763f96e5e465fc772bfb"

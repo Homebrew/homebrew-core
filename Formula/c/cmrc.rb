@@ -20,6 +20,7 @@ class Cmrc < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e324f69cb62286b442d70a7f6cfbf1217cf2157604108992f0a4c9a7c141106a"
     sha256 cellar: :any_skip_relocation, all: "bccb869a3fb9486fbd2594d68a8be7fb57819f27764bbf9b3888cdc54d746ce7"
   end
 

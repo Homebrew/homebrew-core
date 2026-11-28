@@ -8,6 +8,7 @@ class LaunchSocketServer < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7af8b73cc354b95f86e8ef820ac0730e581f4ce165b712b94ea7259da1d9514f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba9853c835fbee57b623c79a5d0aed8c97b2fc4dd94080d86889a2842d2a5e38"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd7f62d360a2d0e3ccbc0d127e6c93cf7b04341547a0cc47712e9cc30bfada44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f9379e42b9f24b9f1d7c8e4f899901ad90999fe69c526c081c883e813cd36ea"

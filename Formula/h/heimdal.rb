@@ -18,6 +18,7 @@ class Heimdal < Formula
   end
 
   bottle do
+    manifest_sha256 "cc7adc11b9e1b5b1593b4d0b9a834774288bd81af3bf2b969018453a57aea908"
     sha256 arm64_golden_gate: "eb16f1795d41dd0f207143ffaa38675283e1728c0aa26a61269c98673a099f45"
     sha256 arm64_tahoe:       "d78e8a837942b63912eb6f104f013acc0167ca78476639da885c242616c8e05f"
     sha256 arm64_sequoia:     "d2213331dbce12ec4d3ee75016e6e04a7fecbc20800ba7244e5ab5a64044f4ee"

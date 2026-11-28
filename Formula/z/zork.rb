@@ -7,6 +7,7 @@ class Zork < Formula
   head "https://github.com/devshane/zork.git", branch: "master"
 
   bottle do
+    manifest_sha256 "25839e9e4f46844a43475dee7ca1cc75ed63a50c9fe2392953ad41e07a78c2c4"
     sha256 arm64_golden_gate: "8f13dc5f2b1d26c0b87b0920b582b34d28a947fde6987f7d7865361e3aafde1a"
     sha256 arm64_tahoe:       "d7e9c0e08036a217ac15242a22fb0f823abf4ca8274966912ded4a3e9ed570c0"
     sha256 arm64_sequoia:     "2b6f0b461fa78bf942403470af76b0ab1e52a4d1e63416d606451bd3c3fc78cc"

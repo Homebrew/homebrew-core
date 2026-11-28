@@ -7,6 +7,7 @@ class Sqlbench < Formula
   head "https://github.com/felixge/sqlbench.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d94cdcc0c1bf6b44616d9c906831ac62b66d99d3e41afbc37d73cb8823fe9fc5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "208c2b8941758e93ec94e9742b567188104b538b515008756706f1a86ff52599"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c496486c81f8ef1e302ef65bdb290f2d6374e1b1840a7e970991a2ea76bd219"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb5fc33b6e66c2132a7369001b56bced611e9f7b7f7d2488cf11c57f7f7c77ab"

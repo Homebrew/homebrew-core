@@ -7,6 +7,7 @@ class GdkPixbuf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cd1f2fc2ab06336d12a4944953df9adf0ef82b7b1eba80db72329f2d57f8505b"
     sha256               arm64_golden_gate: "63f967fabe4c5f6af2ce033e907938c7942b726c2cfbf4101c6d6650935ca0b3"
     sha256               arm64_tahoe:       "f0ac042950d94a60fac215407e17eb883fbc9881c2943d972b947512d7b981aa"
     sha256               arm64_sequoia:     "78528797c7e12036f457417018122651f151ad84e40e5a94dab06ab4c928ab90"

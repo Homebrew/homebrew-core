@@ -17,6 +17,7 @@ class Sysprof < Formula
   head "https://gitlab.gnome.org/GNOME/sysprof.git", branch: "master"
 
   bottle do
+    manifest_sha256 "983709c194f114935ff95ddffba1d40e042e275f33872fa396ebebcf74bb03a7"
     sha256 arm64_linux:  "9c472a201104527f209526fd92285d3fe5b25951fc8ecd3e19a3d6fbd6b403a6"
     sha256 x86_64_linux: "53fd3f707c7a8beac16d11716b98691da2afb304376d81e5cbb057e6400fdfec"
   end

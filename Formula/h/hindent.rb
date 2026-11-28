@@ -19,6 +19,7 @@ class Hindent < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3c304534261fc6907d38f7c6f2ff94a51e16ed7208b79c16c96afb8cbb2aaafd"
     sha256 cellar: :any, arm64_golden_gate: "515d9616cce5dc7e95dd0e147f6f47bc7ce73c432ccc9692a3dc0e67e5e8e1d9"
     sha256 cellar: :any, arm64_tahoe:       "e8ab81d0caf17d6c2834d90e76481868c73f0d8a1cd636ed02c33e2362d7b669"
     sha256 cellar: :any, arm64_sequoia:     "db776bdb9ae061d14d2863d2dc1baac79033855793f36f7ca7eeb0576624f26c"

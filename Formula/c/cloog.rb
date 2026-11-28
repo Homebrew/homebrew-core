@@ -6,6 +6,7 @@ class Cloog < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "4f4710de0a2285c48ad4a08fa432907fff79b00d6836bd29e920ad629207d294"
     sha256 cellar: :any,                 arm64_golden_gate: "d2cbb0454bc218cbccdb7d9cfb90fbd623c7ddab6b79845643fba9277df2f529"
     sha256 cellar: :any,                 arm64_tahoe:       "398e809f0432ab4350d43531f5918d4d2610c63a69e3ff3d7843275c8eb332bd"
     sha256 cellar: :any,                 arm64_sequoia:     "a094bf71fc868a36e66ae12b4a3de5ad0c887f9f92278a473722273bad35fd64"

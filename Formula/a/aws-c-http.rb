@@ -7,6 +7,7 @@ class AwsCHttp < Formula
   compatibility_version 5
 
   bottle do
+    manifest_sha256 "1392ad9e95870186ffa82c5ec9377f69e79df3b399cfe9d4eafbf4c981edad4d"
     sha256 cellar: :any, arm64_golden_gate: "eb9bf26818e53aadd2fbbc9ab12e40ea0ee3d5dde58cdea82d927cdfada94097"
     sha256 cellar: :any, arm64_tahoe:       "38929afbdefdde576d935d096bc80385de8eb088dbfdef391d0fe4900e84a9d4"
     sha256 cellar: :any, arm64_sequoia:     "cb8069bdb05f77c54e45392dca3a0fec94fed5389c124e5cf3cceee616c8d15f"

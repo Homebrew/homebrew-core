@@ -12,6 +12,7 @@ class Osi < Formula
   end
 
   bottle do
+    manifest_sha256 "92dfeead1b73a1bfca20b818285caf60c6f88501ee267c368743167057e734b4"
     sha256 cellar: :any,                 arm64_golden_gate: "d846cd377bd18110bb68127914b6bd13346ca5a15463cd04b07f1903eff38972"
     sha256 cellar: :any,                 arm64_tahoe:       "0d215e7ad0f3a078c75cce63ecb8251cf894f48277c6f13c0ccc743f4ade0916"
     sha256 cellar: :any,                 arm64_sequoia:     "f5abb88e0d063c5cfe7eef120ff21afc5e12716a52298fd6f66df79328bdb27d"

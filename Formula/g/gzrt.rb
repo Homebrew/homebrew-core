@@ -12,6 +12,7 @@ class Gzrt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b5586bcd6b0a430427e14d1d76edea3c50257996305360688b1bfd0d57016a7e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81a1edbe9d94c610cc841e5d8174c21119d707ad91a000a6c499591a94b6b4b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "670cc86444773ca0a6a1b37c47b02eedb11a330d9ee4a002be567f4721dce63b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e434b1fa6c32c30f1df2ca06548ac3ba24a4af85653c469694b063e11051d9a2"

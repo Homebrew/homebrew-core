@@ -12,6 +12,7 @@ class WgslAnalyzer < Formula
   end
 
   bottle do
+    manifest_sha256 "d96c6d25b6f055a26edadb1ef6057551165f3596cfd33e78442a38fd349616f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "65eacdcf243b6b59c9fd268022a08399f437d88a5eafbbc50eb27ad768a790f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8319716bdbb1731b13a2fb0e5899643b7a69d1905acd9c5d6002baac57d0fc0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "694720f7476e036c6865ef72cdca653f1a0acc2eea92b88a401bd25bb2397345"

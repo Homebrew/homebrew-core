@@ -7,6 +7,7 @@ class Fence < Formula
   head "https://github.com/fencesandbox/fence.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6f156e1765a23da8fd90d1b6936a2c7d0f2d1dd4f06b401dd2bb9afbef6286c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "21f1ad01228288ab353a3707e420f4b88957dc0152afa824b374594df2feed12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fcc5f914430baffa9c9bef9b586a833ef0792c985835bc69f0bf52614b633db9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fcc5f914430baffa9c9bef9b586a833ef0792c985835bc69f0bf52614b633db9"

@@ -8,6 +8,7 @@ class Stanc3 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "71dd3345d21a4409972afcc5208876515c399bf40f468e38d49fa48d19c9defb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8362ae6dd79629b93881fdbc40a4703ca5cad38465677f52fb55f7107faf8f6d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "688c52bc95aa7193e6e7bf88735e2744f3d5e19a457b5a4f28f467f34e14c030"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f9a0e754136b9f6377f4b8e9f4c328cfff3e6b20c39b8bf4b5a05df5b59b50d5"

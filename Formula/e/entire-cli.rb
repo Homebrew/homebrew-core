@@ -11,6 +11,7 @@ class EntireCli < Formula
   end
 
   bottle do
+    manifest_sha256 "f6fa01b36844a111ff307ea987b4ecd0b379733a17b5c0b2fe248e842f226e86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2a623d387c61a9b2e88bd547e38ab64382c40e6bc9465c51db7bf2ba255656b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a623d387c61a9b2e88bd547e38ab64382c40e6bc9465c51db7bf2ba255656b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a623d387c61a9b2e88bd547e38ab64382c40e6bc9465c51db7bf2ba255656b8"

@@ -6,6 +6,7 @@ class Droast < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fa33e4c27b2ea62543ec196ea65bad20ad2fae55baa79f7453a2832c6bc3147c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84341dda71e70d036aa6aa7b8823b49640a6256fcf478bf26eeaaf2df69bc81a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4e90e79021e4f044708898eb631dec18cbe88a95748fe5e9691c066811d0f59"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8170757f11569fec0c06f124701deff67810d4fe2b98ed1f917e53e2b5c92dd"

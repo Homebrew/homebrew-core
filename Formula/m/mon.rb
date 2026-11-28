@@ -7,6 +7,7 @@ class Mon < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d20438b54f572e01f985e3e08a418ca401bef146f013a22e1090141e27bf1767"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23961954a1b01ac5d3095bfd67f652e327580847515ba3eaa2b9ceda817c94bc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1113e36de927c4dfbb16bcb801d77fd6a1508104c9de9a5f885c768514fb1d3e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8be88943149d839ef8ffc37b1b81150f8c0325fc40a1878bd864df744fa96d67"

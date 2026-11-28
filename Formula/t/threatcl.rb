@@ -7,6 +7,7 @@ class Threatcl < Formula
   head "https://github.com/threatcl/threatcl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8b704a84fd267aeb23c7622cc9242ea52994b9339e2010b5cf1231ef76d218be"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "72337ab6c63942c8740a92f1ce52e2b60ac5cafb2ebb161d7ae9c8613d23ff0b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "72337ab6c63942c8740a92f1ce52e2b60ac5cafb2ebb161d7ae9c8613d23ff0b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72337ab6c63942c8740a92f1ce52e2b60ac5cafb2ebb161d7ae9c8613d23ff0b"

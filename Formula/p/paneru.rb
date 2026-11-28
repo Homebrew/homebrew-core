@@ -7,6 +7,7 @@ class Paneru < Formula
   head "https://github.com/karinushka/paneru.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b7bcd268c1006d938c3f2b532352a2bc7d86dac8391e87c478ce137285b4bffd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54ffbd77293f75f08b2cc76533def8516cc86e75587ae27ae8b4dd2af28e6c74"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e171d0581bacd72af2a9e78d99912236063ce2ba19348223771799024eef3b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c56213d0c7ef5559b23d6f6d947b30ef67aa44b98d79c4bdd384cb519ffc848b"

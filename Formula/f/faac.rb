@@ -8,6 +8,7 @@ class Faac < Formula
   head "https://github.com/FreewareAdvancedAudio/faac.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0f3b07315a3662f85077bea5a55f282b4354ac987a5d56c5db3c53cf184707cb"
     sha256 cellar: :any, arm64_golden_gate: "73cdcc4e8d2070975401d05242081e54c6b1f08e30e07c1a994177367af07342"
     sha256 cellar: :any, arm64_tahoe:       "2e8407cca363bf76535a0cc71a2a705655eb6b8ebf5855a9e791b039b94eb0a8"
     sha256 cellar: :any, arm64_sequoia:     "4cc581a53c9602b258a29b07723b453e884d85e0b82dc7f756563317f54d6305"

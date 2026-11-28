@@ -8,6 +8,7 @@ class Gengetopt < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8ed1ff37d28036a1493764a08f753189744dd61736a431b9df4928288ea5c8e4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9587eb09436394fc491df82712e888c498bc1b7edeeb4c4706089fb9f2394263"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d068762823bfed802d5712f0823b81c301ca75b754e3277686af530d02fe56b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10fa72931c244ef845288d2ecd5281ed895bfb0548c645caee6580ffcccccc1d"

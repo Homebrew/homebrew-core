@@ -7,6 +7,7 @@ class Depsguard < Formula
   head "https://github.com/arnica/depsguard.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0410071cba96a02ca3d99336f4ea3191da5e169347a26b54b0c0ce7ef6f66510"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82cfb9d77f567f0dee1ebf58999d502c7349e5774865fb73fc34738b0cab3073"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2023a696971b4e33163ccbca50feff2db9d235fc1d7effacc4efc09491e79c0b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d084cd22f7a0609625f9a065c33c995178535368db8b9da54ec6531125fe5ceb"

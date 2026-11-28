@@ -8,6 +8,7 @@ class Authz0 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d3fada2d4a343aa2994021bad952d8ea5cd0f068c8a5307b4cff287d5137b696"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47037b9bf8ed5f732a205950fcd9a985f71dea9463e7bb05d7fa689c3d4ed80a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0fe2da611b2c22d82a4279dc10401a4046c94da994c296f87e4cb30c6f1556d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fe2da611b2c22d82a4279dc10401a4046c94da994c296f87e4cb30c6f1556d5"
