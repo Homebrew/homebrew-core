@@ -27,13 +27,24 @@ class Uvw < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "pkgconf" => :test
   depends_on "libuv"
 
+  # Unofficial patch to fix shared library build. Corresponding upstream PR
+  # https://github.com/skypjack/uvw/pull/333 is for main branch / 3.5.0
+  patch :DATA
+
+  deny_network_access!
+
   def install
+    odie "Update CMake options which have been renamed!" if version > "3.4.0"
+
+    # Disable UVW_USE_LIBCPP to rely on default rather than forcing libc++
     args = %w[
-      -DBUILD_UVW_LIBS=ON
       -DBUILD_DOCS=OFF
+      -DBUILD_UVW_SHARED_LIB=ON
+      -DFETCH_LIBUV=OFF
+      -DFIND_LIBUV=ON
+      -DUSE_LIBCPP=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
@@ -47,13 +58,12 @@ class Uvw < Formula
 
       set(CMAKE_CXX_STANDARD 17)
 
+      find_package(libuv REQUIRED)
       find_package(uvw REQUIRED)
-      find_package(PkgConfig REQUIRED)
-      pkg_check_modules(LIBUV REQUIRED libuv)
 
       add_executable(test main.cpp)
       target_include_directories(test PRIVATE ${uvw_INCLUDE_DIRS})
-      target_link_libraries(test PRIVATE uvw::uvw uv)
+      target_link_libraries(test PRIVATE uvw::uvw)
     CMAKE
 
     (testpath/"main.cpp").write <<~CPP
@@ -80,3 +90,31 @@ class Uvw < Formula
     system "./build/test"
   end
 end
+
+__END__
+diff --git a/CMakeLists.txt b/CMakeLists.txt
+index 2be8ae8..7a1f6c5 100644
+--- a/CMakeLists.txt
++++ b/CMakeLists.txt
+@@ -103,7 +103,7 @@ function(use_libuv)
+     if (FIND_LIBUV)
+         find_package(libuv ${LIBUV_VERSION} QUIET)
+         if (libuv_FOUND)
+-            add_library(uv::uv-shared ALIAS uv)
++            add_library(uv::uv-shared ALIAS libuv::uv)
+             set(FETCH_LIBUV_DEFAULT OFF)
+             message(STATUS "libuv ${libuv_VERSION} found via cmake")
+         else(libuv_FOUND)
+diff --git a/src/CMakeLists.txt b/src/CMakeLists.txt
+index 584abfc..016c5f6 100644
+--- a/src/CMakeLists.txt
++++ b/src/CMakeLists.txt
+@@ -65,7 +65,7 @@ if (BUILD_UVW_SHARED_LIB)
+     add_library(uvw SHARED)
+     add_library(uvw::uvw-shared ALIAS uvw)
+     # If libuv is not fetched by ourselves, it's the caller's responsibility to make sure of the linkage.
+-    if(FETCH_LIBUV OR libuv_FOUND)
++    if(TARGET uv::uv-shared)
+         target_link_libraries(uvw PUBLIC uv::uv-shared)
+     endif()
+ else()
