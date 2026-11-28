@@ -6,12 +6,12 @@ class Fselect < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
-    manifest_sha256 "b9123722399d35cecca9bcd96e43bb87b0868dd9cb0d09ff5e2b574f6c12a2d9"
-    sha256 cellar: :any, arm64_golden_gate: "75792175051c6e10e6d5afcd0313e0c8ee1d0227dd2996849e0d712c0c57dfc1"
-    sha256 cellar: :any, arm64_tahoe:       "f835b4014e16ff231fa17f605ce24c1f2391eccb2dd7cea2b332d6a4d7d3ff4f"
-    sha256 cellar: :any, arm64_sequoia:     "104da26de13a733c271f58c830ee332ca8b74a49d4d04c498d16f584387ffc98"
-    sha256 cellar: :any, arm64_linux:       "fe69e10977a217793d7d9b3b4aed9cfb5ff91f48fa6fa0c85a89aa2d88aa5ff4"
-    sha256 cellar: :any, x86_64_linux:      "ccdf7dbb04d1151b8f58e2655de8fc4def99770216871d30c1bc879d076cb47e"
+    manifest_sha256 "d29acb40142da23078ab0d56c423cd58002d04bd8a52ac2e7188bd060f5c02a9"
+    sha256 cellar: :any, arm64_golden_gate: "1bfad5d0640c8760c4e27d26cb5ae66adb409c247bf6c1c6a2368dda4296d54d"
+    sha256 cellar: :any, arm64_tahoe:       "beddeaac5bc349000df136589a7686cb5b5a5bf887f6ae7dd5f6d597161407a9"
+    sha256 cellar: :any, arm64_sequoia:     "17435c290a8102af499173983babf15aa9450058077fecf62ec82fdf2a720424"
+    sha256 cellar: :any, arm64_linux:       "08eca9e8a00474985fb1b22cdc47065f6f35d0d4419207eaa423ccff5f2eface"
+    sha256 cellar: :any, x86_64_linux:      "87b8b9ebc6b981757090a259a101dd7e090a0d57c03cf588594ef1f85352a0ff"
   end
 
   depends_on "cmake" => :build # for libz-ng-sys
