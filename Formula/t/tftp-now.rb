@@ -33,16 +33,14 @@ class TftpNow < Formula
     assert_match version.to_s, shell_output("#{bin}/tftp-now help", 1)
 
     port = free_port
-    pid = fork { exec bin/"tftp-now", "serve", "-port", port.to_s, "-root", testpath }
-    sleep 1
-    (testpath/"testfile").write "Hello, world!"
+    with_test_process(bin/"tftp-now", "serve", "-port", port.to_s, "-root", testpath) do
+      sleep 1
+      (testpath/"testfile").write "Hello, world!"
 
-    output = pipe_output("#{bin}/tftp-now read -host 127.0.0.1 " \
-                         "-port #{port} -local - -remote testfile", (testpath/"testfile").read)
-    output = output.gsub(/\e\[\d+(;\d+)?m/, "")
-    assert_match "start reading blocksize=512 host=127.0.0.1:#{port} local=- remote=testfile", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
+      output = pipe_output("#{bin}/tftp-now read -host 127.0.0.1 " \
+                           "-port #{port} -local - -remote testfile", (testpath/"testfile").read)
+      output = output.gsub(/\e\[\d+(;\d+)?m/, "")
+      assert_match "start reading blocksize=512 host=127.0.0.1:#{port} local=- remote=testfile", output
+    end
   end
 end
