@@ -29,20 +29,12 @@ class Eatmemory < Formula
     assert_match(/^Eating .+ in chunks of .+\.\.\.$/, out)
     assert_match(/^Done, sleeping for 0 seconds before exiting\.\.\.$/, out)
 
-    pid = spawn bin/"eatmemory", "-t", "60", "10M", [:out, :err] => File::NULL
-    sleep 5
+    with_test_process(bin/"eatmemory", "-t", "60", "10M", [:out, :err] => File::NULL) do |pid|
+      sleep 5
 
-    rss_kb = shell_output("ps -o rss= -p #{pid}").to_i
-    assert_operator rss_kb, :>=, 10 * 1024
-    assert_operator rss_kb, :<, 20 * 1024
-  ensure
-    if pid
-      begin
-        Process.kill("TERM", pid)
-        Process.wait(pid)
-      rescue Errno::ESRCH, Errno::ECHILD
-        nil
-      end
+      rss_kb = shell_output("ps -o rss= -p #{pid}").to_i
+      assert_operator rss_kb, :>=, 10 * 1024
+      assert_operator rss_kb, :<, 20 * 1024
     end
   end
 end
