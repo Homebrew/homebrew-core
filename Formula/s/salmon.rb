@@ -4,6 +4,7 @@ class Salmon < Formula
   url "https://github.com/COMBINE-lab/salmon/archive/refs/tags/v2.12.0.tar.gz"
   sha256 "af408eaeeb08274e65ada719c5e5a9ad79b15c5a51c7590f81ef2a66b2d3571c"
   license "BSD-3-Clause"
+  compatibility_version 1
   head "https://github.com/COMBINE-lab/salmon.git", branch: "master"
 
   bottle do
