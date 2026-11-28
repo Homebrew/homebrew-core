@@ -423,18 +423,3 @@ class Maigret < Formula
     assert Utils.binary_linked_to_library?(curl_cffi, curl_impersonate), "Missing linkage to curl-impersonate!"
   end
 end
-
-__END__
-diff --git a/pyproject.toml b/pyproject.toml
-index a6a3296cc8a963a92d1f92312698e761c75ca582..0c80849770c574423662e19d83c3e3e8a975dd8f 100644
---- a/pyproject.toml
-+++ b/pyproject.toml
-@@ -4,7 +4,7 @@ requires = [
-   # NOTE: provisioning of the in-tree build backend located under
-   # NOTE: `packaging/pep517_backend/`.
-   "expandvars",
--  "setuptools >= 82.0.1",  # Minimum required for `version = attr:`
-+  "setuptools >= 47",  # Minimum required for `version = attr:`
-   "tomli; python_version < '3.11'",
- ]
- backend-path = ["packaging"]  # requires `pip >= 20` or `pep517 >= 0.6.0`
