@@ -126,20 +126,19 @@ class InfluxdbAT2 < Formula
     influx_host = "http://localhost:#{influxd_port}"
     ENV["INFLUX_HOST"] = influx_host
 
-    influxd = fork do
-      exec "#{bin}/influxd", "--bolt-path=#{testpath}/influxd.bolt",
-                             "--engine-path=#{testpath}/engine",
-                             "--http-bind-address=:#{influxd_port}",
-                             "--log-level=error"
-    end
-    sleep 30
+    args = %W[
+      --bolt-path=#{testpath}/influxd.bolt
+      --engine-path=#{testpath}/engine
+      --http-bind-address=:#{influxd_port}
+      --log-level=error
+    ]
+    with_test_process(bin/"influxd", *args) do
+      sleep 30
 
-    # Check that the server has properly bundled UI assets and serves them as HTML.
-    curl_output = shell_output("curl --silent --head #{influx_host}")
-    assert_match "200 OK", curl_output
-    assert_match "text/html", curl_output
-  ensure
-    Process.kill("TERM", influxd)
-    Process.wait influxd
+      # Check that the server has properly bundled UI assets and serves them as HTML.
+      curl_output = shell_output("curl --silent --head #{influx_host}")
+      assert_match "200 OK", curl_output
+      assert_match "text/html", curl_output
+    end
   end
 end
