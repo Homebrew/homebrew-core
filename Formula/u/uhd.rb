@@ -56,6 +56,8 @@ class Uhd < Formula
     resolves "https://github.com/EttusResearch/uhd/pull/947"
   end
 
+  allow_network_access! :build
+
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
     venv.pip_install resources
