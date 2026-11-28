@@ -1,15 +1,14 @@
 class Qtdatavis3d < Formula
   desc "Provides functionality for 3D visualization"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtdatavis3d-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtdatavis3d-everywhere-src-6.12.0.tar.xz"
-  sha256 "5f79b948eb1e81ff7f69e335b075c1b48953d88f5d97970b537e348dbbaa98dc"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtdatavis3d-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtdatavis3d-everywhere-src-6.12.1.tar.xz"
+  sha256 "dddb1c9a752c18ef4d23937076c0322e89bfedd8a9b6c90081c0b9fb5d58fba9"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtdatavis3d.git", branch: "dev"
 
   livecheck do

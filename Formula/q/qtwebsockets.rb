@@ -1,15 +1,14 @@
 class Qtwebsockets < Formula
   desc "Provides WebSocket communication compliant with RFC 6455"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtwebsockets-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtwebsockets-everywhere-src-6.12.0.tar.xz"
-  sha256 "21690a365cd5fbfa8dea051473e98968df9f4eca0121fed7481d1215b7455a31"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtwebsockets-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtwebsockets-everywhere-src-6.12.1.tar.xz"
+  sha256 "a8d91e4649b22e9f606eb1f363a10f77ac82d1c22945d5ff3c88a8f7410a0d8e"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtwebsockets.git", branch: "dev"
 
   livecheck do

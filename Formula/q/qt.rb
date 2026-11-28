@@ -1,10 +1,10 @@
 class Qt < Formula
   desc "Cross-platform application and UI framework"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/md5sums.txt"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/md5sums.txt"
-  version "6.12.0"
-  sha256 "f82126a39b6e93da4f986f846addfe21082fd4a314bbcec69d5cf64b86cb348e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/md5sums.txt"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/md5sums.txt"
+  version "6.12.1"
+  sha256 "acd04e6bead72fa10916680775d2a25eb5f0f005af10d1128971b547368928ed"
   license all_of: [
     "BSD-3-Clause",
     "GFDL-1.3-no-invariants-only",

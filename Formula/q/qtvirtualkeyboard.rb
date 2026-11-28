@@ -1,15 +1,14 @@
 class Qtvirtualkeyboard < Formula
   desc "Provides an input framework and reference keyboard frontend"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtvirtualkeyboard-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtvirtualkeyboard-everywhere-src-6.12.0.tar.xz"
-  sha256 "2aae3628f4648f86959d7853e7e1f50ee96a7f1bb5497afb62b7deff6c350170"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtvirtualkeyboard-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtvirtualkeyboard-everywhere-src-6.12.1.tar.xz"
+  sha256 "cafb30cf36bc67c486911da05f04ddc8f2e2965540999078aeff7ed809d1803c"
   license all_of: [
     "GPL-3.0-only",
     "Apache-2.0",   # bundled openwnn, pinyin and tcime
     "BSD-3-Clause", # bundled tcime; *.cmake
   ]
-  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtvirtualkeyboard.git", branch: "dev"
 

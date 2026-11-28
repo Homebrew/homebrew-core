@@ -1,17 +1,16 @@
 class Qtpositioning < Formula
   desc "Provides access to position, satellite info and area monitoring classes"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtpositioning-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtpositioning-everywhere-src-6.12.0.tar.xz"
-  sha256 "b060d410fac7413b05a0e7938bbf3325f7ad08d7df14af3956270f0696e76763"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtpositioning-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtpositioning-everywhere-src-6.12.1.tar.xz"
+  sha256 "8d8a27660c52c45ad71ab552968c1b073912cd09a4eb864ef67b7d6133e74fef"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # bundled poly2tri; *.cmake
     "BSL-1.0",      # bundled clipper
     "MIT",          # bundled clip2tri
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtpositioning.git", branch: "dev"
 
   livecheck do

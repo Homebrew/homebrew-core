@@ -1,14 +1,13 @@
 class Qtlottie < Formula
   desc "Display graphics and animations exported by the Bodymovin plugin"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtlottie-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtlottie-everywhere-src-6.12.0.tar.xz"
-  sha256 "6b8f04c917f2666f8cca4e7804bcabb6edffe151406b89fb28de3bba5a5d997e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtlottie-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtlottie-everywhere-src-6.12.1.tar.xz"
+  sha256 "90e63b85d853be7a46c05cd46bef6ed21e452aa0de77f509fe372cb165a16d34"
   license all_of: [
     "GPL-3.0-only",
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qtlottie.git", branch: "dev"
 

@@ -1,9 +1,9 @@
 class Qtquick3d < Formula
   desc "Provides a high-level API for creating 3D content or UIs based on Qt Quick"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtquick3d-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtquick3d-everywhere-src-6.12.0.tar.xz"
-  sha256 "6ced6edbd25fb5a632fe770ae820b376bf50233e8d62002c79a69a505a2e429e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtquick3d-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtquick3d-everywhere-src-6.12.1.tar.xz"
+  sha256 "32ba7a637f05ae2e198b215a814a3945b6b9ddd3b5fafff2406436994ccc0843"
   license all_of: [
     "GPL-3.0-only",
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } },
@@ -11,8 +11,7 @@ class Qtquick3d < Formula
     "BSD-3-Clause", # bundled tinyexr; *.cmake
     "MIT",          # bundled jsoncpp
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtquick3d.git", branch: "dev"
 
   livecheck do

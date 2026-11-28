@@ -1,16 +1,15 @@
 class Qtserialbus < Formula
   desc "Provides access to serial industrial bus interfaces"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtserialbus-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtserialbus-everywhere-src-6.12.0.tar.xz"
-  sha256 "1099cc24aff9d20c5ba7897c0b617c318098f009edf92f4e6ca97c815f5bdf38"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtserialbus-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtserialbus-everywhere-src-6.12.1.tar.xz"
+  sha256 "a8932fe92971e6db8d4694067b485d59f507554f56468d4e000ba285b4b0d010"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     { "GPL-3.0-only" => { with: "Qt-GPL-exception-1.0" } }, # canbusutil
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
-  compatibility_version 1
+  compatibility_version 2
   head "https://code.qt.io/qt/qtserialbus.git", branch: "dev"
 
   livecheck do

@@ -1,9 +1,9 @@
 class Qtimageformats < Formula
   desc "Plugins for additional image formats: TIFF, MNG, TGA, WBMP"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qtimageformats-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qtimageformats-everywhere-src-6.12.0.tar.xz"
-  sha256 "0943132b5db8de6b6a7f1d162682173e8763c7ed94e80fd39113292845f67762"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qtimageformats-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qtimageformats-everywhere-src-6.12.1.tar.xz"
+  sha256 "20a40732228cf0734c5b2335d4a816c1cab97dcdcc6d13073c0b1065e1c6c608"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake

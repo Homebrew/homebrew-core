@@ -1,14 +1,13 @@
 class Qttasktree < Formula
   desc "General purpose library for asynchronous task execution"
   homepage "https://www.qt.io/"
-  url "https://download.qt.io/official_releases/qt/6.12/6.12.0/submodules/qttasktree-everywhere-src-6.12.0.tar.xz"
-  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.0/submodules/qttasktree-everywhere-src-6.12.0.tar.xz"
-  sha256 "d28cac0d1fc2d87fbc8fd70d4f956a79b2d37a039df2766e9ff0f69635596b5e"
+  url "https://download.qt.io/official_releases/qt/6.12/6.12.1/submodules/qttasktree-everywhere-src-6.12.1.tar.xz"
+  mirror "https://qt.mirror.constant.com/archive/qt/6.12/6.12.1/submodules/qttasktree-everywhere-src-6.12.1.tar.xz"
+  sha256 "444dd860f83da3fadc69fd7d552307ee86f906ada46838c5b7538069784e7eef"
   license all_of: [
     { any_of: ["LGPL-3.0-only", "GPL-2.0-only", "GPL-3.0-only"] },
     "BSD-3-Clause", # *.cmake
   ]
-  revision 1
   compatibility_version 1
   head "https://code.qt.io/qt/qttasktree.git", branch: "dev"
 
