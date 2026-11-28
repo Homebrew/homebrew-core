@@ -58,12 +58,13 @@ class Doltgres < Formula
         write_timeout_millis: 28800000
     YAML
 
-    spawn bin/"doltgres", "--config", testpath/"config.yaml"
-    sleep 5
+    with_test_process(bin/"doltgres", "--config", testpath/"config.yaml") do
+      sleep 5
 
-    psql = formula_opt_bin("libpq")/"psql"
-    connection_string = "postgresql://postgres:password@localhost:#{port}"
-    output = shell_output("#{psql} #{connection_string} -c 'SELECT DATABASE()' 2>&1")
-    assert_match "database \n----------\n postgres\n(1 row)", output
+      psql = formula_opt_bin("libpq")/"psql"
+      connection_string = "postgresql://postgres:password@localhost:#{port}"
+      output = shell_output("#{psql} #{connection_string} -c 'SELECT DATABASE()' 2>&1")
+      assert_match "database \n----------\n postgres\n(1 row)", output
+    end
   end
 end

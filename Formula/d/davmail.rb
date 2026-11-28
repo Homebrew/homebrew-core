@@ -58,13 +58,14 @@ class Davmail < Formula
       davmail.smtpPort=#{smtp_port}
     EOS
 
-    spawn bin/"davmail", testpath/"davmail.properties"
-    sleep 10
+    with_test_process(bin/"davmail", testpath/"davmail.properties") do
+      sleep 10
 
-    system "nc", "-z", "localhost", caldav_port
-    system "nc", "-z", "localhost", imap_port
-    system "nc", "-z", "localhost", ldap_port
-    system "nc", "-z", "localhost", pop_port
-    system "nc", "-z", "localhost", smtp_port
+      system "nc", "-z", "localhost", caldav_port
+      system "nc", "-z", "localhost", imap_port
+      system "nc", "-z", "localhost", ldap_port
+      system "nc", "-z", "localhost", pop_port
+      system "nc", "-z", "localhost", smtp_port
+    end
   end
 end
