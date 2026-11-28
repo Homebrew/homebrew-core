@@ -1,13 +1,13 @@
 class Babel < Formula
   desc "Compiler for writing next generation JavaScript"
   homepage "https://babeljs.io/"
-  url "https://registry.npmjs.org/@babel/cli/-/cli-8.1.0.tgz"
-  sha256 "b7a1c775b4427d5023009da693c3176650dc42b52e6c6d9207befbe489845c6a"
+  url "https://registry.npmjs.org/@babel/cli/-/cli-8.1.4.tgz"
+  sha256 "1b406916ace5bbb57faa13fd0a6adc467bf09e1e138c656562bd6b822acc5ef4"
   license "MIT"
 
   bottle do
-    manifest_sha256 "a4cc09abee5af0c72665378a6f94bff2dd29d41e32d42ef77b7214550bdbbec4"
-    sha256 cellar: :any_skip_relocation, all: "090a1a84098e6b1eb7072bdfbf73b7a8529f11fcf24c1a5779a37fcc17827a31"
+    manifest_sha256 "00ca3ce25ee3f6979df993de93c131449c1294b20c822ee5ec76cdfb665db7c4"
+    sha256 cellar: :any_skip_relocation, all: "b9da15d4adcbe53fc0484d4750edfb2667697c9c91b3153bb15eed377f5fc733"
   end
 
   depends_on "node"
