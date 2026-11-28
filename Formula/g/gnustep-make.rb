@@ -1,8 +1,8 @@
 class GnustepMake < Formula
   desc "Basic GNUstep Makefiles"
   homepage "https://www.gnustep.org/"
-  url "https://github.com/gnustep/tools-make/releases/download/make-2_9_3/gnustep-make-2.9.3.tar.gz"
-  sha256 "93ca320b706279ebca53760da89d4c3f2bbc547f4723967140a34346d9f04c24"
+  url "https://github.com/gnustep/tools-make/releases/download/make-2_9_4/gnustep-make-2.9.4.tar.gz"
+  sha256 "b956b89d1c1f7aac57da8a20058058b112ed8cf929807ea9f71a47163010e5dd"
   license "GPL-3.0-or-later"
   compatibility_version 1
 
@@ -37,6 +37,9 @@ class GnustepMake < Formula
   end
 
   test do
-    assert_match shell_output("#{libexec}/gnustep-config --variable=CC").chomp, ENV.cc
+    require "shellwords"
+
+    cc = File.basename(Shellwords.split(shell_output("#{libexec}/gnustep-config --variable=CC")).first)
+    assert_match(/\A#{Regexp.escape(cc)}(?:-\d+(?:\.\d+)*)?\z/, File.basename(ENV.cc))
   end
 end
