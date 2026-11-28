@@ -6,6 +6,7 @@ class Autocannon < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "68bef9b0a471d3d4d3c4f265a8b304d4fdf6a61135b1239a17b7298e3bb56206"
     sha256 cellar: :any_skip_relocation, all: "db2e264f527ac626c4c91837476a8e2a49ae5f8659bf5de9398e7d2b009a208e"
   end
 

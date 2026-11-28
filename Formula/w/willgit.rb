@@ -8,6 +8,7 @@ class Willgit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dc225108fae612b1240ddcf5096d790c9c14edbf969f56c1d0a83ad701df46c4"
     sha256 cellar: :any_skip_relocation, all: "50393beba0d169140488b806a2b4635dbd02a81f93bddb654e367f040b57f570"
   end
 

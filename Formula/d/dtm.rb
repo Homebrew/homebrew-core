@@ -7,6 +7,7 @@ class Dtm < Formula
   head "https://github.com/dtm-labs/dtm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fe46b062c938d746aa16578845f2c5713353cab5efb0a7f5b24c3816be51a176"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95ff1f301fe1b93a698227d6c37b9cb3bb906a8a3e973d025071d50e65f29924"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9156f67d4bcb54b15e9ee5b1046c4fd71fed0f1e2770c326f158a519384b7bf7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "818718052e97df9ffcfed8c29a8f7bbce0e5302c6639c208c3c080d188ce75c6"

@@ -6,6 +6,7 @@ class Sshfs < Formula
   license any_of: ["LGPL-2.1-only", "GPL-2.0-only"]
 
   bottle do
+    manifest_sha256 "06a5fbcfa50af8434e5b77b9d29207f4a0da21d7c0c6a5d8616142066b1ea9de"
     sha256 cellar: :any, arm64_linux:  "66f3b0019089bb79136502cc506345337218e47c3ccc9c172a3629bf02c20fcb"
     sha256 cellar: :any, x86_64_linux: "98dc4a697717c8ff30e89775dd14345531123372d1fcfb6925f3fa01274fd9e7"
   end

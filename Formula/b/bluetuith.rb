@@ -6,6 +6,7 @@ class Bluetuith < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "416ebfeddf5cd7f6f3f3230779ed9203f2308188a56dcdc94622e8238668af7c"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "15579f6700793d2fc4c27a173cd839c994790a7a6e592f6a7ea9ed1fa9c03f93"
     sha256 cellar: :any,                 x86_64_linux: "53b21734919392d56bea9aa92cb1f546148e17176949445c56431564d49fc093"
   end

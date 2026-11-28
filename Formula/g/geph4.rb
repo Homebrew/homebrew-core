@@ -13,6 +13,7 @@ class Geph4 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "76a2fdf6224ea6f532cf154dae31a77a47391c14722ce4b852a2d7a480a57e86"
     sha256 cellar: :any, arm64_golden_gate: "be419029c1e23e7ad5b8934223e5be7f4f899982491c28bdf79f750dd07e86c7"
     sha256 cellar: :any, arm64_tahoe:       "18b253c0b3461a2523923cb782e4f2f78ae235de45173ba730254f44874f2dc6"
     sha256 cellar: :any, arm64_sequoia:     "f1a43dd16bd2d9bd898c2cd05a21261fcece71eaafa781b5358d615ecd4a1e5d"

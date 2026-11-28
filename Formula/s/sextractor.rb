@@ -6,6 +6,7 @@ class Sextractor < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "df7bb6acf77a38112abad4b162a2e7e591f166f99e860bb207b569d16fe8bd86"
     sha256 arm64_golden_gate: "adc8b556f0810147755dd603f1ba7cf8b408f47341e040085f380e5414adb516"
     sha256 arm64_tahoe:       "a4115da37455083592b0e177730dc18a318f01414048f4236a41f700357fccc8"
     sha256 arm64_sequoia:     "0569170fda55206ac2196500f6935a6a5a5104f7c36d5214699af3e7da278bb4"

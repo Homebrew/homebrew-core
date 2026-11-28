@@ -7,6 +7,7 @@ class Karmadactl < Formula
   head "https://github.com/karmada-io/karmada.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3d6401d07ca82c67195cde20cf2be4c4025822555e5f55d6ad4f0cdd8941fd8a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "417393a1e6c17eb767c8b5a5536a08d5fb0f0c5ee4afd5d4aef8e3a031203e2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3494722aaf61d517e8c948b0e6dcddd6f3c88fbfe213c9a9fcf39d0591a1a761"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbe7e599756cce5402dbecba247ed33dcdd70b58047eb41464a5ae9e8b4489c6"

@@ -7,6 +7,7 @@ class Strace < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "21d38b4c28a78b6d4b00dfbe07a25d409bb1296f86f908702cf84d906a97f5ef"
     sha256 cellar: :any, arm64_linux:  "8cad55fb8ea563d24c4a52bbdb4433c651197af9d1d1b4b2cf3179961c06165c"
     sha256 cellar: :any, x86_64_linux: "fe3622f74dcfcc8ee78a3a7efd0b6f0e00540c1e2fe29928e8a1a88be57fef5d"
   end

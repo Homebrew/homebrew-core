@@ -6,6 +6,7 @@ class TerraformDocs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4c8bd07443abd89ae61713ce7678a1da67d126bd429a6bfbd912a2bc3ec60ab5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f22ebc0bd29b30330fbe74d5f0cbbe617d8b3726e501a5e69e9cb0866a8ba05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f18874bb6ad48953697c9dd2349b7b8a5524661f89be8f06cc831b864167b36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2e5e4b323ef69183982d9f2630e9e2aa45d180f7eca8a41d97b36246a23b314"

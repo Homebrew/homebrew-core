@@ -7,6 +7,7 @@ class Btllib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "716d505f7fa904f09a971d2c41077929ae592d6eca545e1a0783642d1c4f452a"
     sha256 cellar: :any, arm64_golden_gate: "c0362c25bef5d56648e63f8bf50456eeb46e3420a8edd4507e0e14f909f39ea0"
     sha256 cellar: :any, arm64_tahoe:       "15384b54b309de50ffdc7ff08201cc226a4be0ac53b3da42d2af487339ed8add"
     sha256 cellar: :any, arm64_sequoia:     "e91b803f0a1aaa9620df553db4aadf18603a015eb0620152ecd2c182bcf07c77"

@@ -8,6 +8,7 @@ class Saldl < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f2c925b587f4c5e30fc6fb552059a2dfae57c774ad65e677949c9573448c111c"
     sha256 cellar: :any,                 arm64_golden_gate: "e96829169ef3f16e9d5d422ca8f7a7dcc4337fbb8e410f0d79dc6289c9daf2b0"
     sha256 cellar: :any,                 arm64_tahoe:       "a941046f8ba35fc1e8eeb99f31488c55dfd0774d9d9b08143069995c3650ccbc"
     sha256 cellar: :any,                 arm64_sequoia:     "b3957d4e8208f02cbbc5b63d24773bf412a1c6eaa25d40972670cf97fa7e996d"

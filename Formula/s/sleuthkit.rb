@@ -12,6 +12,7 @@ class Sleuthkit < Formula
   end
 
   bottle do
+    manifest_sha256 "b1697cd1dcfc5c84ebf86df6a08abe3cb72cc037b8010ba9ac19b75c0fb6a1bc"
     sha256 cellar: :any,                 arm64_golden_gate: "e97fbbbe1fe8f2dd152ed3376b053f471a6ba00867f6a996110ac5da1852c297"
     sha256 cellar: :any,                 arm64_tahoe:       "8233c5659ba82a3205be66daffa367de9c19e3bd571fa7832f2834212410e6f8"
     sha256 cellar: :any,                 arm64_sequoia:     "f9e7ee4dd3deaf1501c319c1fe5ecf51c00304452f04869ed326ed7f80c23093"

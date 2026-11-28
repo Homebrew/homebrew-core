@@ -12,6 +12,7 @@ class Beast < Formula
   end
 
   bottle do
+    manifest_sha256 "2fd037d1ee11e74aba75829577aab10536a023e1c7638baab19124881461945d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b01984684bec8c75f9f340b3316742ce2749c1134c5bfd44e32fae12888d1b48"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "852287f0b7c92e35e11319fab8d0d52d298bb27fcb4a6c562e5b6c85611a014b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63cfce71d6837a9a31d27471b8b8c9be64be2aebd355f9ebefebe989aa41d445"

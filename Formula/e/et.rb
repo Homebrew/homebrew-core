@@ -6,6 +6,7 @@ class Et < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "56c979b7a0d16a59373d5e89e021d184e48cbd4a01b2f6983f73e93012ca174a"
     sha256 cellar: :any, arm64_golden_gate: "dc91389f42b64e0b88a0eb3c8dcd2d5c0c376d69e8d2cbcb964fda7263813ec4"
     sha256 cellar: :any, arm64_tahoe:       "381012be6ccc37c626b73cbfb06463e0f64ba99092627163c9afa64751fc2a93"
     sha256 cellar: :any, arm64_sequoia:     "428d43af63d8a75a9bf0726f70de8394c4261c868b41e89c2ddd3ec26e9f21d5"

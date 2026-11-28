@@ -6,6 +6,7 @@ class Rsc2fa < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "9b96fa8bb525667686d5ce235aaa233dde9d66d88df8f6e1c7e8d3644938c45a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6d68fa04414d5bb21e1f60bb78f8577b43086f9c34b85d4db32068a28632c4c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c32203c0d299aacfd3587e37f7bced92c8e19361b6f8665ccc47518f49949ecd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "075220c900e04b25fb10ce49bfe0b762de933b9b235084c7bf1457460f9f0a10"

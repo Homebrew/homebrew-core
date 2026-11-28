@@ -7,6 +7,7 @@ class Mad < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7f8be72d2fad9082bb2c4b0068c4626f698ee57f3991aadccd9c006bf249203d"
     sha256 cellar: :any, arm64_golden_gate: "b27f2d1b0265c6efa3d5af77f303aef8b47753bc69ac9d4060b19ad9126b0102"
     sha256 cellar: :any, arm64_tahoe:       "0fcfb44bdf6c65c9d3578114baaaae4f3a2a7cad32d5985974d4bf5cb499d2d0"
     sha256 cellar: :any, arm64_sequoia:     "d897ca79730bce903a767a9cd310dfa9a18d0df0bb8b483541197264c6cbff3a"

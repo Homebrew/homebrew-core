@@ -40,6 +40,7 @@ class Nethack < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "bd19e87ddb83cdb054f963a9014acb3403d7ce4fb7fedc7176d662f4ac64cd29"
     sha256 arm64_golden_gate: "2c19a559ceca567eb20c4fe976e37f70d97f54cc02ec1ec3418c22543cf9c932"
     sha256 arm64_tahoe:       "4ed420ea146cea8d1db4e8db8b21471a5058ece3e714696f754765365264f115"
     sha256 arm64_sequoia:     "6c778031601539eaa003d5350ef383311832157e313c75b2f95ce2e726e924cf"

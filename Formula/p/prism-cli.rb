@@ -6,6 +6,7 @@ class PrismCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "3f122390a7fd58dea9c5f5e7502c212d2281c4eb1f5b8d989ba84aa6427e0ae0"
     sha256 cellar: :any_skip_relocation, all: "babed443a850d3e503927c4a436c1532e9ba5cfbd18bde500bb1f233ae8f1883"
   end
 

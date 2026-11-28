@@ -11,6 +11,7 @@ class Osslsigncode < Formula
   end
 
   bottle do
+    manifest_sha256 "2449eee4ec6ba767c91df00d4eacdcf407c6f6e41901b11a557448bf8ca45ad1"
     sha256 cellar: :any, arm64_golden_gate: "2d9d1bcd279a494195c38dce1c3c2585cb8239f5da38a49cb2aa2fc35569e788"
     sha256 cellar: :any, arm64_tahoe:       "91c6620c876665a0b56a703181e8abf1bd71dc882eae6a03bb893162b34b78df"
     sha256 cellar: :any, arm64_sequoia:     "4f2440ddd206b5965ac9966a005049ea7fc26b720b8db344bd2a22fd892d77f8"

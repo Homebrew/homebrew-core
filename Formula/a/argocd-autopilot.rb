@@ -9,6 +9,7 @@ class ArgocdAutopilot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ab4e9a82fe498828cd0aa561b62043df3a4e83e4be1a724903369c9066b0ff9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f1c519571751a60bcd2a218f333021abbde7703df7701f70e3f57aecf2a914e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a14fad86f97d6d1434c5ed7e74b2ed3488354f777782ff105dc80765c409f45c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be3de2de809b1525f5812b4e0088cf4fb69febfe8d8f9f16ec12cab9523154e8"

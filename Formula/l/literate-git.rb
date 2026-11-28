@@ -8,6 +8,7 @@ class LiterateGit < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "40fba5aa6389c9e9e606ceaf3564b0786f079d21e69090851dbc3d374b7b0c93"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "070c1d7d4e588a76e1a610e99b03b3dcc712be3fa7e573f772957f32351d937e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a961d660e284c741c141917219102be4aca044f901ccbb8df498bd2a171b5fd2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb972e9c77eecbaaa25dfc7658cb9d18f7c72c2ab98066768f644e9ab52c6a11"

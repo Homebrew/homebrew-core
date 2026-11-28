@@ -6,6 +6,7 @@ class ErlangLs < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8702c5c21fef2a918727fb56a309e246d8c11cc3761e6300d355f3c3ccb0188c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddf42ebf7b3cd3ec5e5e3680cad2657cd5e3497c0e258b1be204130bbcfeb5cc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9514306a369f354ad922a5b9406b67a141a8da78c1eb8c39419b2ff60a4bc2a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc89472e09f589b8a7f2fce292740b647bbd99f2dab7270cda175c942d74abcb"

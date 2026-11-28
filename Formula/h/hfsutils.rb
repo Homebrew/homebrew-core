@@ -13,6 +13,7 @@ class Hfsutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "663c8a35309f6d9ed8ce22669eab6dd033db23cf991b0b17e870703a55a3ba18"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2681e87165c7f4f79e0463b8242378d9b65fcca86efb824cd21cf6c8401ad0ca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d8d4be93e186cb4e5f1aee2e128bbe94f68341e463b3fa86ea5cf15c30d0603"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a486e1123355f24eb17dd33821edbfa4c9f7f505ffa9009f8380a0000b4f45f"

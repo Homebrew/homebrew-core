@@ -9,6 +9,7 @@ class Beautysh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "62cf06b3dd5677b73e51aa318498e43b2df429bd5874d07d46a926985480c6a8"
     sha256 cellar: :any_skip_relocation, all: "bd087a1c69b02c1665640295280af9881b6b0fddbf8fe27408846552c1702988"
   end
 

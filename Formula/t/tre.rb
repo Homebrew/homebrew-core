@@ -7,6 +7,7 @@ class Tre < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "979af99df066ec5726c2bdd5c28761a4f387a67d35db39a592c9b5613d10a72e"
     sha256 cellar: :any, arm64_golden_gate: "3a577590e52938e492bf621c1d5c9e31bf406ed168bd009b322a3952df7aed49"
     sha256 cellar: :any, arm64_tahoe:       "0046ebce7ba173f666176e93abbb6d2079677d02e584f097d97f923d0c0ff0a3"
     sha256 cellar: :any, arm64_sequoia:     "85fd4370b99c94723511074c06989cb4f9d4dadaac1678caac21d6796f931ee7"

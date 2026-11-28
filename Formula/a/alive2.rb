@@ -28,6 +28,7 @@ class Alive2 < Formula
   end
 
   bottle do
+    manifest_sha256 "a699ef0dadb107adbe1244c25b53c823f437fa4f822ed8b3eda650d7dad2714e"
     sha256 cellar: :any, arm64_golden_gate: "1ff6da5ad21b86037084db096094c9bba7976ba156f7798dbde41f0c7c362f0b"
     sha256 cellar: :any, arm64_tahoe:       "750e40a60024d8491991703f308caa55b63cb62f47526040fcdaef22d33bd094"
     sha256 cellar: :any, arm64_sequoia:     "b7a11e7e4d9a91f3b8cadb300aa5be3546b689d36c71bf32b95a392738786bd2"

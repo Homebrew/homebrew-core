@@ -6,6 +6,7 @@ class Q < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "a75df2977e059bffa88803e2bb5697de675bfe80a23919759af45ab5218a1017"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08113c71ec98652b97479ffdfdfcc36fd3a8be24d684cd649a95d378f06079a3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee4dc8a277a2ba2978c43366c9ed1cd0410ca58b89f3950dc8f09cf6d09a85ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ee4dc8a277a2ba2978c43366c9ed1cd0410ca58b89f3950dc8f09cf6d09a85ee"

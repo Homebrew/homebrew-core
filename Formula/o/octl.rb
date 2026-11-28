@@ -7,6 +7,7 @@ class Octl < Formula
   head "https://github.com/outscale/octl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "37c901b6c65ab30603e042e4453af4a8c24d341158eecb0c6a18216344206e3e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb9a31deee34b765e919ed262f53d50271c19b5212e5add1a3ddb087b9723079"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "49a4a2547c941c6b5a8308134aa3703845698ad72bc9e16f2c4712d8ad328522"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b7612ed30905492a2622f4c0de8eccd0806ad2cd65c2009a695031e231d546f"

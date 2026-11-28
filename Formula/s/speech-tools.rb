@@ -31,6 +31,7 @@ class SpeechTools < Formula
   end
 
   bottle do
+    manifest_sha256 "0df092a49478fac45078349dc1f562136f5598461f24965ea0d03b76bc82a1ea"
     sha256 cellar: :any,                 arm64_golden_gate: "7c663cf66633ffc4beb8a7c9101941c2981040bd12b80422cc81ac5de49b0cb1"
     sha256 cellar: :any,                 arm64_tahoe:       "676603f0e048211c64eef17bb9b6992b7fec2825469d4dae53a0a265e5b84dc4"
     sha256 cellar: :any,                 arm64_sequoia:     "711ab1173ba030660d1d8ee4e33da992aedcea17abf46073d9cc61600393cf7a"

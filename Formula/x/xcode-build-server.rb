@@ -11,6 +11,7 @@ class XcodeBuildServer < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "5924b30de77d541ec95a95471476a042463d6bda2d4d94ace9ef529e9e3f2bc1"
     sha256 cellar: :any_skip_relocation, all: "61793d886e98bf6a18b02c32944dfd9f98b0186040f3abc5816802840a8dfe91"
   end
 

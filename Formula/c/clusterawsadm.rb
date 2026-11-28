@@ -13,6 +13,7 @@ class Clusterawsadm < Formula
   end
 
   bottle do
+    manifest_sha256 "e78ab6848ee503b19c4ceb994859a432724ce1b0b36b1f18520b2daaae4f1edd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12bb246ee0d1290bb2d60d929bd191121bc592d569c6205a2796503e6a34cc7f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d99be941e33c25667d2dd5dfa6325fe6cac950179246c0aa0662689e48779e9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4826f2cd057fded5fd59e4e5e0fc8d47dc380bdd6095342a5a03cb421ee26210"

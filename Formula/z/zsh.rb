@@ -30,6 +30,7 @@ class Zsh < Formula
   end
 
   bottle do
+    manifest_sha256 "96a6d40eebf37bb344516781a4ba5ee30984ede2ec566c20ae17da2a2c986670"
     sha256 arm64_golden_gate: "81bc9913604d0b354ea0a36053e8b619808a0d9c08a6472a1ef15f8ad9cd24da"
     sha256 arm64_tahoe:       "7618b2874959eecd76463c8d78747074e94121074b7df1a663b8c01e0155c280"
     sha256 arm64_sequoia:     "2755dbf52a9eb647285732df520d3fd202b6f7d815c761386e6dd57b0bedf9bf"

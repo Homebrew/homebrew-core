@@ -16,6 +16,7 @@ class Buf < Formula
   end
 
   bottle do
+    manifest_sha256 "8c42b81a4015b4c5138ab9e1f4fde807355cb68e97a15e8d09ae8b54158da9f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26ef8718b2394cab46f67eb88be5f0ee7084e1af79a0f9d2fc6ea2c9193a0d99"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26ef8718b2394cab46f67eb88be5f0ee7084e1af79a0f9d2fc6ea2c9193a0d99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26ef8718b2394cab46f67eb88be5f0ee7084e1af79a0f9d2fc6ea2c9193a0d99"

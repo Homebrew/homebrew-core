@@ -8,6 +8,7 @@ class DockerLs < Formula
   head "https://github.com/mayflower/docker-ls.git", branch: "master"
 
   bottle do
+    manifest_sha256 "45df527dc9343e3585c5090fed73abe6714efbf06ba531e74692d40e779bf1d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "708ae1e078a5f7ce5f256d49d99fef423d6abd4236adc59632ca03a3b9bc356a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a9b2cf84ec38d48c0c0137b1a0f61231d5d91a2cddf0b355680ca6d186857333"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5a6ebec1d000be676a4cd9e57ee15c4fb7e42a70aa7e03e32d83cfea4afdf4f"

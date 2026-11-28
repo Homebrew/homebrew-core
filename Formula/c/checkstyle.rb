@@ -11,6 +11,7 @@ class Checkstyle < Formula
   end
 
   bottle do
+    manifest_sha256 "124aaf307b20eccdc048176bafa0d3cea3a61305d0f7b5657d4b6d9e4418fc44"
     sha256 cellar: :any_skip_relocation, all: "23ea3679c05a774e053c2e7a293dea0f579f774c5314570ec67547ad9ca86486"
   end
 

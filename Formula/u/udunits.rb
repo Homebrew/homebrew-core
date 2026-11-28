@@ -14,6 +14,7 @@ class Udunits < Formula
   end
 
   bottle do
+    manifest_sha256 "71eae701e46777897fbbb04c990f477b0f289cc985921fc2fbaa7eb01420024f"
     sha256 arm64_golden_gate: "7aeff26816e0fa3ca084e7985d44383f4d01eff6df7046ed2dd02bde155eb53d"
     sha256 arm64_tahoe:       "9be11e8aa15c3a8eaf65ca066808eacbfda46e627f6ab4bd42bc6778b52c3984"
     sha256 arm64_sequoia:     "8ba9d3ce2f87072bd50d40063a6db63a456ec9a934d381002d1c31587c0e10b1"

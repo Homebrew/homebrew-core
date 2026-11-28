@@ -6,6 +6,7 @@ class GitMediate < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "e79814d4b0873eed25dcda3d1f04f0c52d77433a0252713c5a529af1f10298dc"
     sha256 cellar: :any, arm64_golden_gate: "3aadd0d66ee789eebf8ffc6eb1eaac42823f6541f481a1f2ae935aba955af650"
     sha256 cellar: :any, arm64_tahoe:       "8c13903130eae451fc26489fe0d5649eea73d90e20a179ebf981e8045d78e782"
     sha256 cellar: :any, arm64_sequoia:     "b2ac564be2115a343eead38b9f39b50ccb1327cbbade8bb6f27858cae5969883"

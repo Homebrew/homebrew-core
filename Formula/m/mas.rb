@@ -26,6 +26,7 @@ class Mas < Formula
   end
 
   bottle do
+    manifest_sha256 "76f3b1cdaaf532782759c7027ecd00f66f4dc1425caeccd318a1959b28c40421"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "641455eac9e2dfeaa0cff4238d4d644f6c2b91d25492e95c1ebc4461967eab97"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "294b2bb9fa19e6b395129d792fc5880b326906268d4ad023259e9aa9dee85a93"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8e1586d7240b2e3bfada5528fc18da035adbafdda2a55d4b69a00a272eedf88c"

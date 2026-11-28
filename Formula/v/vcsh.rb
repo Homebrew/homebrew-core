@@ -7,6 +7,7 @@ class Vcsh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a1d1e3193e2b0609d46d36651c42255a71b6335097696d0f7da1425d7c4738d5"
     sha256 cellar: :any_skip_relocation, all: "3184a9cba5e9b79532e01e2fa7b24478918585c55bed898b0eaed6886390d456"
   end
 

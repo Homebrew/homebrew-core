@@ -7,6 +7,7 @@ class Sqlboiler < Formula
   head "https://github.com/aarondl/sqlboiler.git", branch: "master"
 
   bottle do
+    manifest_sha256 "036a63abda6a18ea1deec4f6441d3af56710fe8458c1fb427c413f9462b1b5f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a378b5054a4eb0751736d81406c2c2767207981bb072efc89a6c8761e0d1c5ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9da5bc117d6334b1e04bd17a1a5fcee72fb506aa0d7fd821b2ba79a3b579f9bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9da5bc117d6334b1e04bd17a1a5fcee72fb506aa0d7fd821b2ba79a3b579f9bc"

@@ -11,6 +11,7 @@ class ArpScan < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "49c7bf84a766029c9ab30234dd047ba35fc70dc858db593677386ba1b3a47767"
     sha256 arm64_golden_gate: "fcdaa545f581138b9d3d3512bccee665c740d9e1e49737ed9144ec467411db1b"
     sha256 arm64_tahoe:       "a4212527be3b73cd4a5481e13014f6612f027139d5c0851ff3afca4f1828b137"
     sha256 arm64_sequoia:     "14249f8af1f8fa4a87cec61eeed1b7d2e15bdbdf917736eeb0a0fb5ec2be5b81"

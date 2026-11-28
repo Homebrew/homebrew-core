@@ -7,6 +7,7 @@ class AwsChecksums < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "be5ac9b3b87884673c15c7300e9d78eb75c50ab573611155e06561803a3058e8"
     sha256 cellar: :any, arm64_golden_gate: "9ce0e60dd5df71ef7cba4bdb9cd4bdecfa08a47557ff2c8fc7d262665de57942"
     sha256 cellar: :any, arm64_tahoe:       "9fce0dae86f6403d7ed0b01c302b143031c87dc66350240a8fdc3dae6cdc6761"
     sha256 cellar: :any, arm64_sequoia:     "f27ff2f02ea64ec556fe055173010e0d482e6306bf106d593c9e4a0255254a8a"

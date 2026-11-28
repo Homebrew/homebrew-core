@@ -13,6 +13,7 @@ class Baysor < Formula
   end
 
   bottle do
+    manifest_sha256 "68a79268333e842e90216c1717b06994a71b5d1d7e7397c78f5a9135a2b24491"
     sha256 cellar: :any, arm64_golden_gate: "8f006d8aa75998b1ba52dfea091863677777ad7186f5bac7fd7e5a9a0910eb6e"
     sha256 cellar: :any, arm64_tahoe:       "b7ddf651a44519c6eb0987c9df48852a529bc72b3f551dede8d724531fb66234"
     sha256 cellar: :any, arm64_sequoia:     "09df3493765d46b1f73f84e02fafaedb0e65fdfbdfa2c98208caf91135e37040"

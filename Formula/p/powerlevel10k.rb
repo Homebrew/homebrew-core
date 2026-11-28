@@ -7,6 +7,7 @@ class Powerlevel10k < Formula
   head "https://github.com/romkatv/powerlevel10k.git", branch: "master"
 
   bottle do
+    manifest_sha256 "09abee18a7039e05ca88f82ebc265075075cf93ad218dc2a8c19405930a87663"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cdfa907888474e9ecdeb2ac2d07ff0f5f078da4e2eedc9740578f67bb96b27e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cdfa907888474e9ecdeb2ac2d07ff0f5f078da4e2eedc9740578f67bb96b27e7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdfa907888474e9ecdeb2ac2d07ff0f5f078da4e2eedc9740578f67bb96b27e7"

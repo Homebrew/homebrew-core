@@ -6,6 +6,7 @@ class Haiti < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a540fc5c5b4ef2f691f5d223e6c3b0e3aa973f2c1e64ba0dc7470d8a87d6a482"
     sha256 cellar: :any,                 arm64_golden_gate: "9068f1f94723a6bb1ff4e9731db0554a6c219329948b0167ac136303418afec5"
     sha256 cellar: :any,                 arm64_tahoe:       "ef09a5e3923e7e0ba00693183a5668851a36f8e47e768f13a5180132800568c9"
     sha256 cellar: :any,                 arm64_sequoia:     "c09ce65d5cd612629fe4ff0b7649fc42a72c0ac3d3b1e4a2941581a068d04551"

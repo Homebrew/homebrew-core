@@ -7,6 +7,7 @@ class Nagios < Formula
   head "https://github.com/NagiosEnterprises/nagioscore.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1ce0884e56f7968f003dbd69de75341eec0c907b3f9897cf5c98954b9ebbcb7a"
     sha256 arm64_golden_gate: "99dc9a2ffde766966494520e6a10ceb4e3a7860d78997de82ede4982666c2b84"
     sha256 arm64_tahoe:       "ba4c8b095224835ee6c835b58b2f609110e7a5df460d42ebcb686141d5063f47"
     sha256 arm64_sequoia:     "50a64fd089e465294abcf6f70516d7fde65aa6260ea32f25eb387bc6c85bf75a"

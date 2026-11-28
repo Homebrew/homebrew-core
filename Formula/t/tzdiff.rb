@@ -6,6 +6,7 @@ class Tzdiff < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "208303df9b4d03fadffd46ee0a2e92e21a7217218a66c676f1a775020c696a90"
     sha256 cellar: :any_skip_relocation, all: "c64a8ff4953f517e2a83959e64b6bf0fb8eb4f8d78118561686ef8940e73c798"
   end
 

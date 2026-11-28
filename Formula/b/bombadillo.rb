@@ -9,6 +9,7 @@ class Bombadillo < Formula
   head "https://tildegit.org/sloum/bombadillo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cff5a4849f4a6d6b3620e1e50e7a34a8197d935f25dba83b6bbd0f41bc61acc2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "25d81107bb925217646f97e2151e3fe2abfa597541a847c5eeeaef4dab55f022"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31498bb84196e03bdbb936dc1528b02b3355832cc0a8ebd01dbdf176376caabc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "704af144b953977108282ec76083d51d8d359b2f08402aa71da7822a79491591"

@@ -7,6 +7,7 @@ class Benchi < Formula
   head "https://github.com/ConduitIO/benchi.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b575d0bb392a0e3f11e6364b5b061e655bfcb693f541b911ebd35485266f85c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2464c4799128ea5511723aa3ebb615d3bc1795c160c7b42e3841609b5cc4adf0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "345f2cb5010d9484cb706db47b011fcf1803f7362edbfa566fa91c3b6dc4a661"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef982909669f57484c15967889e31d9dcbeaabbfa7c06e4679b3cb3cf80813d2"

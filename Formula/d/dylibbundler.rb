@@ -7,6 +7,7 @@ class Dylibbundler < Formula
   head "https://github.com/auriamg/macdylibbundler.git", branch: "master"
 
   bottle do
+    manifest_sha256 "684459e6eb45fabd77babc706419d2cf27c5bfdb3ebe651b35b45485075cd4db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "79a7a3a2e152823a7ebc80d8244f3af19889ceeb8a8c6263d864534dece28951"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00c51e669f0098b7a2a6271542b9b6be6909cb3634e2b458dfbc708357d6f9c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26795436a10e6ed4ff9114682bf35cde4ce4dc3c69f93d8b6d41b34010f60d2a"

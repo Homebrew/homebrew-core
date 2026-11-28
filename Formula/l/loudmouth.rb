@@ -20,6 +20,7 @@ class Loudmouth < Formula
   end
 
   bottle do
+    manifest_sha256 "a5220d39884dc12b99139bb1f8eeeca158c7b131642381f83b2f0bf21fdbba75"
     sha256 cellar: :any,                 arm64_golden_gate: "6cd7221dbfb5295c28277630e37f77c199e4ca3200e5a45f60b4e630b4b0d13e"
     sha256 cellar: :any,                 arm64_tahoe:       "6b102ebfa05ec64bba31c02b27a116e39020b136df40c25ddb1509d5fed1bef6"
     sha256 cellar: :any,                 arm64_sequoia:     "43729c1c6d565d8c39c43603f74ed9d9cec9c0245449e2b8e19f9b991fc44ea1"

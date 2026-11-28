@@ -9,6 +9,7 @@ class Clitest < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "16b645639544e5b61418c4ed044c77dbd2d8889c951d688decfaa331d2860f1d"
     sha256 cellar: :any_skip_relocation, all: "f1cbfc94748a8712ab8a8845fd800d0009519c4d5ffbbcf03efce267406b91e5"
   end
 

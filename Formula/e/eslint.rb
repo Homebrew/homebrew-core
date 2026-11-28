@@ -7,6 +7,7 @@ class Eslint < Formula
   head "https://github.com/eslint/eslint.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5c058bda6ab26aaa896c41db54b5238a360cad13b9714012acce52001be40f56"
     sha256 cellar: :any_skip_relocation, all: "95ea6fd7aa7ba79feb6ab6f5b2c7c04bbed013239a858fd7a64a7e25d77dd698"
   end
 

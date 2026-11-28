@@ -7,6 +7,7 @@ class Desk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "32cb9669e930615bf9569b215c3019cd9fa37770d83944422213e03222eed98c"
     sha256 cellar: :any_skip_relocation, all: "95e0acae98be5f6f5d3105ff2c6236d3e9648b8bbc1ab350e7735ed3935db8fe"
   end
 

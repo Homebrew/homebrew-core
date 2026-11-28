@@ -7,6 +7,7 @@ class Makefile2graph < Formula
   head "https://github.com/lindenb/makefile2graph.git", branch: "master"
 
   bottle do
+    manifest_sha256 "465eeb1e135e1f92c50eda9d41a15576ad45b49c71c78e5c0c41c063ab66b73f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37739026b6f12b1d61fb33a854ada9659a99f7145730a03dbb2dc3f13de0113c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "237d7eac6030f575df723974c27672758a5c6613222b58eca8f607894cda5426"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f81db552d0aeb5eeed846fe79b930bf69aae6b2b9552bec55ab68db856162a10"

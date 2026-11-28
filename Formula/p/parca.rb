@@ -7,6 +7,7 @@ class Parca < Formula
   head "https://github.com/parca-dev/parca.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cb3a4be65474f60681cd849edbd4d9ebd7a219695d611f81330a111c4d8ab867"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "45144223430f1492038f5beefa82d4a91ec689dbc27184560a00b0fe1f0ac857"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "75ccceb6c07caf0bfbea5b3c61044e4701e7c26506cf37a077ea10629eef8e28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23d66e63f439665d1c5c64092dc763a9b64732b16b047b53deb3c038ae0dc481"

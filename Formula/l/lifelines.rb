@@ -6,6 +6,7 @@ class Lifelines < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "349c5faf4f775c181df73bfcada8434666f5d8fd2e0004106a8afdaa7f8a711f"
     sha256 arm64_golden_gate: "f206b0f62793c9a0a71cd4bcedc3c8eb93d510f08ac0dcfc181bea9053ec528e"
     sha256 arm64_tahoe:       "afad3199c003a1f962febd31844f28809700841a38123cef7fb84c64e49ecdcb"
     sha256 arm64_sequoia:     "4c61322a31b4c17ae231d831f152f62861a9bf39e407b5b7921f1e98b65c0e86"

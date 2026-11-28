@@ -17,6 +17,7 @@ class Sysdig < Formula
   end
 
   bottle do
+    manifest_sha256 "b48ec30f66f1b5a638153caa501776d5d4e10240a5f9c89105ffe0a3ab11aad9"
     sha256                               arm64_golden_gate: "ddbfe97c5c68df66663541fac03c0b62519951b1643cfb366c5c34de189df0bb"
     sha256                               arm64_tahoe:       "c1eafef500b305c7d4a754f6edf6894336ec38ba168fb4a2d1feded291bb1e4d"
     sha256                               arm64_sequoia:     "44b1343fca5533f7cb2b3e790c7d5f19482d10639e5bad9d939620722a85a437"

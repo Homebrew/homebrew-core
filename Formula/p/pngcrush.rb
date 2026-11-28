@@ -14,6 +14,7 @@ class Pngcrush < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "63a208acb7accde17bc8304ea0ed997c49b877a0ed32f6b17ecba1cae8d096f9"
     sha256 cellar: :any,                 arm64_golden_gate: "97f2a1a5fe296694a65abbc4f75259a3d813d2a3967e7ccf1da8c51157229050"
     sha256 cellar: :any,                 arm64_tahoe:       "d480e8fcafb2cce34d273a2142d1db3513fb094e2e1c6b638b67d2114b75a91f"
     sha256 cellar: :any,                 arm64_sequoia:     "86ee7fe3bb318dd870dfa82ed5e765ef2852723c2dc0a2406cbaf131779bc0fe"

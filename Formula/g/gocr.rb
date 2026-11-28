@@ -8,6 +8,7 @@ class Gocr < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "55529e139d05d0751c13c6a6d44ce52095fddb5651c0f934c12a0ff19c9371b9"
     sha256 cellar: :any, arm64_golden_gate: "a46d3d1c4af1c44bfe397a9a03e6e8cc2de136e6fe19a277260d901a13c52b61"
     sha256 cellar: :any, arm64_tahoe:       "cbd973c1b8777dc10907bf3ef89def34faa6ddf4c7e6f618cf05a2d271fba3dc"
     sha256 cellar: :any, arm64_sequoia:     "5a3ae91a8c0eb89b304af4c532774057498b8fe0955ea1631c824329e9a48b67"

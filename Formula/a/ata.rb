@@ -6,6 +6,7 @@ class Ata < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3a1ee40f1d82ff5756689e1b5c4267766736bca998465733affe854daa565e97"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30a5a2325dac516b3b50e41e8f4adafa33423c41390e59701260ecc9e1b16753"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61e1c7235e1db8bd6b2dca88f24e1dce32658c60817c274a8a3a74f8e93865f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e4e98e4c055e41cc706441024e03f621e29598cf9889dd8735542dea055a34e1"

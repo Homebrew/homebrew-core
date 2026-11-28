@@ -7,6 +7,7 @@ class Tsui < Formula
   head "https://github.com/neuralink/tsui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a6758bf098bd5d2b30415c95b60f5fdedf0dd94ff9e64afbc3d95fe4a14b613a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b13cd5fc54608adfe0e8cdf8771a0e0721fddfeaa6a74879d8419df07af71b6e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c5aa985bc23f46808385ac73b79f5ebd81cb5e7281799bb8197e1c3bccd4f2d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3ca9c93120f6fb18fa2450a484d7ec1010c07b278303764c6e190465d56b0ea"

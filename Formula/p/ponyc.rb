@@ -8,6 +8,7 @@ class Ponyc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cfc3e97bffea37a103aca5f00559299bc9d2692159058a7469d66af0790325ab"
     sha256               arm64_golden_gate: "f8ed420f3a3688e23723b50da9ed26176566866a39e7abc6a333db661e7b85f8"
     sha256               arm64_tahoe:       "3464e1e4f077cbef757fac8b76b317c6f41bce4b606b1fd2b428cc454a63fdd6"
     sha256               arm64_sequoia:     "c3a65ae727d36a26f96e15b47536c17a19a5c78c816b11ae10b1c3e185bf6828"

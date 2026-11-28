@@ -9,6 +9,7 @@ class Libmng < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "271b5fc135996ba103024a30431325ca855bcc26efc0d9a055b2adc49c967fc7"
     sha256 cellar: :any,                 arm64_golden_gate: "f5bce7ecdf78958ef3f5cf86de30dde42e002623016536e5289bef8d7f14e11f"
     sha256 cellar: :any,                 arm64_tahoe:       "c1e187e0cbf4b730d8116e16edab09cc0b774101d4af55605239de0afe858d8f"
     sha256 cellar: :any,                 arm64_sequoia:     "1292213d5064a51e8fac3d0f10401859bee1537daf1b922a2814ea97e24b8067"

@@ -11,6 +11,7 @@ class Abnfgen < Formula
   end
 
   bottle do
+    manifest_sha256 "f15cf373c45d2aed0556790a46eaa89c89db0294b3ce066d00973e44a2964497"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "519d1af4f18aa2c13917893ce8907a0d2288d976852ba6536f3d679052d87d1f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eab87d7376a80c7f80ea531c0d416ffd17c8382339891c38158763e67cab67e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2396295b6a6b0952355321d37830f2a2f42b2b2deda9a7ec9162d7f224f0c98"

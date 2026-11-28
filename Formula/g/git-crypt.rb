@@ -12,6 +12,7 @@ class GitCrypt < Formula
   end
 
   bottle do
+    manifest_sha256 "091b2fcba7634acfec6be2e69ef4ec87a19823d8f5b41e8d758237ea572997ed"
     sha256 cellar: :any,                 arm64_golden_gate: "b38d6e3425728382917f98de832f03beed696353726d1fb3dd5a7e17929a5336"
     sha256 cellar: :any,                 arm64_tahoe:       "7600d5908af7e3dcc489f1e973327cd8ac41b3d259d1490b7203b37aa0aff9a0"
     sha256 cellar: :any,                 arm64_sequoia:     "7b918e96fa98416e4f4bd3eadc188667c39668e59629011740d675802d6f1cb8"

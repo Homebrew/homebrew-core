@@ -11,6 +11,7 @@ class SarifTools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2359eefb98f3415cbdadd0218e44e6963b465f2686645ad5bef98c17d7397225"
     sha256 cellar: :any, arm64_golden_gate: "d5023a20fb647a2c3a8ab18f7575c60572a24b5ad185f66595ff2cffff7b418a"
     sha256 cellar: :any, arm64_tahoe:       "1ad03e57e4717efb7be3961d5b0500a038ed8c998a95fb08b89aa7ac30af21c1"
     sha256 cellar: :any, arm64_sequoia:     "39099fb51177287aa2df47977b684d41de8cbb62d3b3fe231813c73812029abf"

@@ -12,6 +12,7 @@ class CloudNuke < Formula
   end
 
   bottle do
+    manifest_sha256 "71b0a305d12b8d643cd7e137af986de74ec6ceca2bfcf4fe7db87d3d4086ee0b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27a229d18d20696a30a1d1fb1534a884c52a4be611103c483d7c9942acbc3a8e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27a229d18d20696a30a1d1fb1534a884c52a4be611103c483d7c9942acbc3a8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "27a229d18d20696a30a1d1fb1534a884c52a4be611103c483d7c9942acbc3a8e"

@@ -12,6 +12,7 @@ class CdogsSdl < Formula
   end
 
   bottle do
+    manifest_sha256 "dab8cbac205db3eb6deca2fce203c1ff6d4d0e51d10a035ad21d124a4dc01888"
     sha256 arm64_golden_gate: "29ac580f02f3d0e16d6dcf9d6c2ef37b46355fa3ccfa893e19deef6bc3b7e56f"
     sha256 arm64_tahoe:       "d1fc8dd530aba51aa4e0742a693d2db6f23316bbf20b0b4a24f52610c33fe7a5"
     sha256 arm64_sequoia:     "81a7827460102dafa2184473f7ffbeb1354792d2e8dd52d5d577864c7f2ca065"

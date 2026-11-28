@@ -13,6 +13,7 @@ class Exiv2 < Formula
   end
 
   bottle do
+    manifest_sha256 "d2c9132f1f33ee8fb826abb93790bca80cdc0d0f2485fa6ae4f274d90a6043a9"
     sha256 cellar: :any, arm64_golden_gate: "c3297dda61a63550426afc5948420942e05888db68edb149fb37b76f32dc0648"
     sha256 cellar: :any, arm64_tahoe:       "1bf5ecd63412646a9969cb43b8422d0e5fb2f20518f4486b7f2e96d771ef084d"
     sha256 cellar: :any, arm64_sequoia:     "7c4b3ae3eff4a717473f7d465dacea8bfce5c6c4a947da4c1755c7ccaa633515"

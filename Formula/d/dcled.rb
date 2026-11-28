@@ -11,6 +11,7 @@ class Dcled < Formula
   end
 
   bottle do
+    manifest_sha256 "fe04680bc33753df7e08644d4a4661eefad5b71ff92bb01ed591acb378ae26e3"
     sha256 cellar: :any,                 arm64_golden_gate: "fe7447f65ad20dfac54a0586442e480ed2f3f9f1e3150bd596c79028c01b15b0"
     sha256 cellar: :any,                 arm64_tahoe:       "5369329587a6c3ec28976ebbd89fc4f8361b2472e38ee6518ebdf95dc04cddd1"
     sha256 cellar: :any,                 arm64_sequoia:     "1e3b757bcbd17baa0865903e7639f2bdeede51da0e38b5859047810ec34ae39b"

@@ -9,6 +9,7 @@ class Fusesoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "64e4f5267251a5c54a6349a39f973247179bf0f199e99781f7fbab098aeab3d4"
     sha256 cellar: :any, arm64_golden_gate: "21e1974d9c485bba09fd438522d1d8694c746d3a43ac8a3c5ddf60772c5ea0ca"
     sha256 cellar: :any, arm64_tahoe:       "702b90d2325ecf4039100792e6fc0e1a0084a7a6bf0ac180360c4b6c951d126e"
     sha256 cellar: :any, arm64_sequoia:     "ac4347a287d12695ab54e71ae535d4c2ad78fc9a8dc888e9be9e40abf6954819"

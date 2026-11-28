@@ -14,6 +14,7 @@ class Atari800 < Formula
   end
 
   bottle do
+    manifest_sha256 "5353ed8ee7d4f211609c8ee4b149c1469f2a3f2cc99d60d5150885fc110bfbff"
     sha256 cellar: :any, arm64_golden_gate: "e54b7c107c468e2faaa0c81276963e11a73a0331d8c67e1111903a2abe168d19"
     sha256 cellar: :any, arm64_tahoe:       "1a78f160dba996f258401f98d546aa6a83e00db080b263399b908ea91be2ad9c"
     sha256 cellar: :any, arm64_sequoia:     "fbd24a748d2f1e8af3765c2dc2da68cf1e2fba087d64ee76de2a31117f760dff"

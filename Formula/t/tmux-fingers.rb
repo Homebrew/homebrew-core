@@ -6,6 +6,7 @@ class TmuxFingers < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6e771275e7c9baf1ed537311f85d21a6e8ed40da7569d874b7731ca408f7e413"
     sha256 cellar: :any, arm64_golden_gate: "4ae883ed5510691ce1c8ca67393cb7e49e55d0df188bc6be4d03b94c69f647f8"
     sha256 cellar: :any, arm64_tahoe:       "2d2e30632b6a39accee83f12addaae4c40970084b5cd3155a3789152762e4a0f"
     sha256 cellar: :any, arm64_sequoia:     "bd8a0bb8472953e836581a9199d52cb37df881997d2499f0ca4873f8481e3342"

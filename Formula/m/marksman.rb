@@ -8,6 +8,7 @@ class Marksman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "814c04c3ce7fe2035c8162f530b16e80daf350c9580d1c39d571ea80dc9a4d60"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a9163fc0dfefc7ed1286f638a9f3d779ccea5ddd0ea243ce19af7556021d749"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da4817971f267aaa10093ffe12e568b6e1ba29021c794d66086d9a6956d958c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "438ee8a52c1fc8556cfe210d9c63366306d9fa5bd517fe22f2926d63c3241fd2"

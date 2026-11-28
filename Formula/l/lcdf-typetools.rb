@@ -13,6 +13,7 @@ class LcdfTypetools < Formula
   end
 
   bottle do
+    manifest_sha256 "5bae07760cd977ca86c2bce5f6bba39b72e1912b0bbf0c6afa841b2bc9ab767b"
     sha256 arm64_golden_gate: "3b4c2918d2b1bc2dd5077206f11ee2b291bbff83f586939140a5cbd88a081570"
     sha256 arm64_tahoe:       "014a5797b27475c13f3b8511f5e5c76db375fdd5b1a7aabbca35a2d020918aec"
     sha256 arm64_sequoia:     "5e354428d6719b3944d45a3836a61964221ae31b65a35cdc04d92a89c72bcd10"

@@ -6,6 +6,7 @@ class CargoRunBin < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "bbbd78db8aedaebf2c8a247a9f06a156c6341701dce457ca66aa4220bd55be51"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cadd68946820502d065224e4b9feab8057faa9b64cf5e7ae31d7ff8a69dbf347"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "612fe1b5e4612cc02cd894935bc2972b97bca307eeea86dfe2338f5fe18002de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ac42ea13ede216ae5569e303e3928602072bed15dbd27a9b9a3df7a075d3c8c"

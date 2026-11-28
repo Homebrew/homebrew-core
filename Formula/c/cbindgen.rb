@@ -15,6 +15,7 @@ class Cbindgen < Formula
   end
 
   bottle do
+    manifest_sha256 "7f88e10634c4e5a3db5bdcdfd496114c7056b66bc04a7db4710bcdef8511bd83"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86ab1eeaceaa3fbaaa90111bcbe549981ae58703364d22805596dc1e78ba8fd3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4f59ce0836d22eb62d3b7719cfbac095adbce295446a882edf8f59ebeacf193"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5048be0ae465821094e3eb1d8e56761e7b590e8f329ecbdafb9f2e1cbe8d1325"

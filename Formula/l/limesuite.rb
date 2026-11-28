@@ -7,6 +7,7 @@ class Limesuite < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "aa2a27891231941aa224d00ecdcd41b32c12af7ad5fb6ca97e46841523b0c686"
     sha256               arm64_golden_gate: "3d2aaa62850e225ca4276e6e8b8409c12f3a18d840351921f8c935ea55be3fa9"
     sha256               arm64_tahoe:       "1f55b0467487856cc6f361175475b77ecd76d43635c1253d41fb80492da5d9ca"
     sha256               arm64_sequoia:     "3bc0c8e31ee9a982b32d9174b418fd8ee70bd7ea33d70db385295a6a5fcf2bfc"

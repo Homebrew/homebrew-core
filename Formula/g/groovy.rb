@@ -11,6 +11,7 @@ class Groovy < Formula
   end
 
   bottle do
+    manifest_sha256 "24cc5ef3c620fd3d5f9ab23d603c38ece9e5593a63fe0c60484e84c1326dacce"
     sha256 cellar: :any_skip_relocation, all: "49ec0a3b2fcc9ec60c9dbcc3e001410cda0348bd9546a43f58a0911e1c595524"
   end
 

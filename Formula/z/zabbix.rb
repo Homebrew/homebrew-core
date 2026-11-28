@@ -12,6 +12,7 @@ class Zabbix < Formula
   end
 
   bottle do
+    manifest_sha256 "b4c12b7a56015da915f31230e65ba20dccee0cf3af9746cb74ac7a438685f885"
     sha256 arm64_golden_gate: "092107b6433b7d8884edd6fea7bc616a8addb78cbe5619be0eff029d026541c2"
     sha256 arm64_tahoe:       "a80413d48e2f16cd024dc46478db39bbdd4f7806a10c81bf9b04c0d280a4c3c0"
     sha256 arm64_sequoia:     "3f5729633a6f591dbb5fa6a77950ca309e257cbea871e8c7dc691a2fa608e7d6"

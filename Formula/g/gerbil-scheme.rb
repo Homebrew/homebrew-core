@@ -12,6 +12,7 @@ class GerbilScheme < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "798cf169e70d59cf12404a5afdbe406e36c006b6fc57cf580e3d9148baf890b5"
     sha256 arm64_golden_gate: "645a7be1ea6315305ced4c9ace7649cf4434769aabfb48c8829db6a7848ea67f"
     sha256 arm64_tahoe:       "9f0e9f0c40582159ad09a24edb9c6f7c77356081a14b6faad6471fdaff4f23c2"
     sha256 arm64_sequoia:     "42b0fcf59dd86f661c824bab9fdc4cc0a6219c605f3dd5a96f6ba0d34147969b"

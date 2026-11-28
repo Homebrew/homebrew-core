@@ -8,6 +8,7 @@ class DockerDebug < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0c9e24fc97b3c04974ee4f6d05ea4369c9d46e45cfd9a8120d4ed5c56d91c0ee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "075d304ec4c7b4ef9cca8b325c53b2303590c41b7abfd20808b1e3de92d0b0b7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0faba1df5f1cadcedabd4487f30a0db88072ee50cd92d095f7366b410fb6c42"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0faba1df5f1cadcedabd4487f30a0db88072ee50cd92d095f7366b410fb6c42"

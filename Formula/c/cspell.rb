@@ -6,6 +6,7 @@ class Cspell < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1c6ed0acb0534986d1e11845ff1fe35c79d51d5620925b200e1bda179a9448ab"
     sha256 cellar: :any_skip_relocation, all: "83b0edd30d40e9489418fb4f7d55d2b5b2d99ce8ac8682dbd6bf3a2114be6039"
   end
 

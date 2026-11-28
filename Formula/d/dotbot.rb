@@ -9,6 +9,7 @@ class Dotbot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b9770b8bbc366b21793a9637c1629878bb5e42810fac8a1af416f6831df52d07"
     sha256 cellar: :any, arm64_golden_gate: "747b71ad01cbcc93da523220e9eec7032f2951d2290d8ebcb1c38a9bc51e8bc3"
     sha256 cellar: :any, arm64_tahoe:       "60dad598a032220dedcd96532ac8b38f5aa7f9150ac1cfad03ac1688696d2d6a"
     sha256 cellar: :any, arm64_sequoia:     "cb264c02e2061ecf7b6b8b6ee5bd3925af7381cf13b357edea1aa37d95dd9aba"

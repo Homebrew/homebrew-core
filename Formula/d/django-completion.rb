@@ -12,6 +12,7 @@ class DjangoCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "22ee7b6e483d9fe883faa74414dddeeb7976502716a6fa4dbdaab842fb5fc12c"
     sha256 cellar: :any_skip_relocation, all: "950ae5ef80f0a4143d8926cd9b6b8a911d33d0ae4fbea4715953f7c5deaeb2ea"
   end
 

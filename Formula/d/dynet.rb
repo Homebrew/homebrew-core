@@ -7,6 +7,7 @@ class Dynet < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "17e51461e9562896c49c1a2c2ed940349cd70099e433d01690197223e53df955"
     sha256 cellar: :any,                 arm64_golden_gate: "8bbc07e10f1292e937431cf384bed478b0b2e7792fdd057f8f1da5fec0b22505"
     sha256 cellar: :any,                 arm64_tahoe:       "c9b3ca5eca8723487de3b6a864ade40fd1f9fb041a4c8cd45bd39356da50c576"
     sha256 cellar: :any,                 arm64_sequoia:     "5ee2e5895fb8f27869a3f6449e4ab88b63f4b8c9b716e4e4cf5aa3fec9a6e5c1"

@@ -11,6 +11,7 @@ class PythonMatplotlib < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1f5fd6c7bc7357a21d236979c820373278d71691152b347916cc0365f724c874"
     sha256 cellar: :any, arm64_golden_gate: "cf7c50426b19581dd31233b58c3234566da59d3c419fd37568d2f5ad4d04e4c3"
     sha256 cellar: :any, arm64_tahoe:       "7fd471f2dccebc96a0f3baa35075c7865fe140a32649313bb7a57b29ab08e6a0"
     sha256 cellar: :any, arm64_sequoia:     "63172942e9ef3b5afd6ba916a611a90a4de2fdb53dd4e68dbcc8e526dfdaf6e7"

@@ -8,6 +8,7 @@ class Ssdeep < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a82bbd08ec59b6d4d6819f40d59f770f67e8c8e62c5e4ee87e62d436cb0179cb"
     sha256 cellar: :any,                 arm64_golden_gate: "5e1ff5f0addbcdb38ce38157f47a5b7e93a61e71b282a8cc4c46fb6e46f5642d"
     sha256 cellar: :any,                 arm64_tahoe:       "e9bde3f8a96c900db97df6ad5bbfdc7c3b846229b78882cb6413fd58f0dc00e9"
     sha256 cellar: :any,                 arm64_sequoia:     "e15c23668877e2528d0ef6a446904c5c9802095b19bcbaf037ce382376c50fb2"

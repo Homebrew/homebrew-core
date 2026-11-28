@@ -7,6 +7,7 @@ class Alp < Formula
   head "https://github.com/tkuchiki/alp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "32afb49cec46f70ad4902bf8d94710f31434ce5380d762120a6a941cbf12203c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5dd2399b07dc202117fbe7e93a5a6ca80a8527c6d3b75807539e67c6cd225e7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5dd2399b07dc202117fbe7e93a5a6ca80a8527c6d3b75807539e67c6cd225e7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5dd2399b07dc202117fbe7e93a5a6ca80a8527c6d3b75807539e67c6cd225e7d"

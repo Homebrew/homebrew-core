@@ -7,6 +7,7 @@ class CoreosCt < Formula
   head "https://github.com/flatcar/container-linux-config-transpiler.git", branch: "flatcar-master"
 
   bottle do
+    manifest_sha256 "cf6980ebe33c91cf15b4aa6224653019dcc4f35f556e6b5662e74a4693ddcd7f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c64ab73cca535ba47f266cc801acd3972d6eedeb4c8de8c1990f68d20414b369"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bbe2be9e5b17ddf5d2be97069bc9552adbe793b6739c6b6dfd07028af3aa1cc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7d99702fcc4911d60fec259d493be5b357097f417690bf799329dc35ac5415c"

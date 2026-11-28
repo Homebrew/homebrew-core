@@ -6,6 +6,7 @@ class Eatmemory < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0281e134b811e4167fc51f399fdbba7cc90e98eec7c632ced834d044a3150233"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a97b859f91623f16fcae0870d82a59896776b1af26e72effd823d51d33877d6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e32821696c3aeb3cb91bdfb6a7d6ce946b837707dd4133afa4e3b5b87bf6d25e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2f38c05758f9191f81ab04d306987795e6914885ceb9a117d9df8d8aff339978"

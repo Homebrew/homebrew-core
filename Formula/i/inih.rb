@@ -7,6 +7,7 @@ class Inih < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d5fd35b4e029edf21cbef377850b1c6b3a2379c6b908b4ab3152f0f3d9791441"
     sha256 cellar: :any, arm64_golden_gate: "a1393317f2266668755f0083810c0031dbd3ad3f0a1024047182b6a6549ad0b1"
     sha256 cellar: :any, arm64_tahoe:       "c42c2039c1b759785f9144d4e886360c1123beb1292d77994dc241e928819d8c"
     sha256 cellar: :any, arm64_sequoia:     "b05b2e6544c764c64a0c0963c66f05cbd9ee1fd481942a3af0cbc130a37f45fe"

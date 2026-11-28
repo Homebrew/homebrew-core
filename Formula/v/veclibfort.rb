@@ -7,6 +7,7 @@ class Veclibfort < Formula
   head "https://github.com/mcg1969/vecLibFort.git", branch: "master"
 
   bottle do
+    manifest_sha256 "067419d4802ac04d20f1609bb7822818a6b12db997d2a5763680aebb3085f06d"
     sha256 cellar: :any, arm64_golden_gate: "9a81afbe9a4f729bb51f79001591136d075075290ac3b0a919dedc7e65e75628"
     sha256 cellar: :any, arm64_tahoe:       "c5ec288bacedca24cc5b6914bb4f84fb9397b8351f66b7e565a4b1aed7db9a56"
     sha256 cellar: :any, arm64_sequoia:     "cc47b3e63565b20e65f2467443285f248674eb0d1bc1728d4af7f76ff9fbe92a"

@@ -7,6 +7,7 @@ class Kubecm < Formula
   head "https://github.com/sunny0826/kubecm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4643f135945ae074bb8d75fc538c457cc1330f59078c324fb8f2ff0e88349896"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "29c168a553c3504bb4389284cb38536b772eb80ad969d2f584eaf8b821686466"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29c168a553c3504bb4389284cb38536b772eb80ad969d2f584eaf8b821686466"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29c168a553c3504bb4389284cb38536b772eb80ad969d2f584eaf8b821686466"

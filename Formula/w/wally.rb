@@ -15,6 +15,7 @@ class Wally < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c11bef77f1a679b9b25958cec2112d60e8bc63c692d47f723e80885355468970"
     sha256 cellar: :any, arm64_golden_gate: "d921c076c783ba1a1e2171b2975818319c7baa2429c7856c95e733f6245afdf7"
     sha256 cellar: :any, arm64_tahoe:       "8e5719321062e000855e60c1fd54595083551a459139c7a9ac857c4ba7b43a78"
     sha256 cellar: :any, arm64_sequoia:     "81ba14ad8e5f126bb65d5e16b81368bf2b9b316dff3b4a44294eda88c19fff6a"

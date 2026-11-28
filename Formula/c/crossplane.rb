@@ -12,6 +12,7 @@ class Crossplane < Formula
   end
 
   bottle do
+    manifest_sha256 "dc7aa9e08e575133f459ea3296045f0f843f0835c043f34cf0a801e374a3c52b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "881f75039f8fea7d9b317faccc9201cdd0eddca3729cff8ac68e74bde533de5c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "713c34cbd9a3951d907b8bae70b3e605996bf7375926ad05686a00ccb38784d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a462f8b1785494d2fd3a184934a56ca44fbded226ed233afe2d9e1b58ca2c32"

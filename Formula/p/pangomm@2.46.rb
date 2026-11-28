@@ -12,6 +12,7 @@ class PangommAT246 < Formula
   end
 
   bottle do
+    manifest_sha256 "2cb38129b7287553e039d2c21e90e3501af199f9858e89a67bfd342219527a63"
     sha256 cellar: :any, arm64_golden_gate: "07f6411555af7ff7703dda9dd62f5e76e997f263771fb8f4feb0c7b4ccb2d9b5"
     sha256 cellar: :any, arm64_tahoe:       "b65a2cf3ead9ed8c5aeb1d91ac43fb1ee204d554d9d35aa0295d4a5bad17cc27"
     sha256 cellar: :any, arm64_sequoia:     "7237ca0532ff36e67b2bd882cc4dcb5dd5b3daa86fd33764295b557c40ee1828"

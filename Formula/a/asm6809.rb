@@ -11,6 +11,7 @@ class Asm6809 < Formula
   end
 
   bottle do
+    manifest_sha256 "d76cc6578708dfec049bb26db79842a35d872038f5a0f679a36c2ac1a6b67a41"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a8cc3b9923f69caa338f906c2ce7a599716e2335f85c20cecc9471584a6a371"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc791edd9764748c796e4f6a90e3705326600445cdf4a2eeb3fc6fd61552b920"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7de504e84b26b8234defb68bf94da035a54d7c4ac541aaf4b467089c27bd8b85"

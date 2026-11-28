@@ -13,6 +13,7 @@ class Streamripper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f19c8c13da3fcdbe52623c396217666afaad9164da5bc0ee70e08ccec6a071ce"
     sha256 cellar: :any,                 arm64_golden_gate: "17bfd81013bb8b7e7c502f89583f4993b6df1bb8635b1d32edf987f3a179e911"
     sha256 cellar: :any,                 arm64_tahoe:       "f0f900d7d9b50f242d815eb6826684b2e6d2c76f7a3bc58f08ce6f06cd1302aa"
     sha256 cellar: :any,                 arm64_sequoia:     "6ec682174a122bdb8b6fdae00b16f25ac6a0325c9c6d0dcb930b03679986f34e"

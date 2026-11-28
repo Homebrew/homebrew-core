@@ -7,6 +7,7 @@ class PythonSetuptools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1838556a89ced619d8bdcc42251baee5f149619a65484de49030a575709d485a"
     sha256 cellar: :any_skip_relocation, all: "03d8def7b70dd1cdb65ed9d87562e83c7e43044c299d3e3d9c0b99462f10017b"
   end
 

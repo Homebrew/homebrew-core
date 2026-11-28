@@ -13,6 +13,7 @@ class ForgejoRunner < Formula
   end
 
   bottle do
+    manifest_sha256 "3490412cb2e2fb0d194292d95f3b007ce57654bf374b7cbdf11684f457e81bcb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1860fe99270ae4e65eb11b24ca4c92f4796080a007feb396b6dd9f502249fc64"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1860fe99270ae4e65eb11b24ca4c92f4796080a007feb396b6dd9f502249fc64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1860fe99270ae4e65eb11b24ca4c92f4796080a007feb396b6dd9f502249fc64"

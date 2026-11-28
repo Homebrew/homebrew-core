@@ -12,6 +12,7 @@ class GrafanaAlloy < Formula
   end
 
   bottle do
+    manifest_sha256 "8f01b4b25e85193a5a822eac549fc56a2a0a95c5c0ce8712a87e046190172c2a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe2101b5a738bb9ae5dbc800a03c54870505ae4ce821bc051a20f11c2966e358"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "17604d424e5ae143f5fd65bb30405b11ac2b5923e6f1e3866994496d1c7540d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c100b8395f53bb6e5bd7ecdcaff7edb61dd13d0a89bdbbbbd0046229bf4d863"

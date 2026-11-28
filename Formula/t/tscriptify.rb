@@ -7,6 +7,7 @@ class Tscriptify < Formula
   head "https://github.com/tkrajina/typescriptify-golang-structs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "724f3238bda9d1e08cd3095845ee8addfd0118c361cd4ca8898252780b0db79f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9829e4f8b1f5130967a584194b6feda8f5b71c0879d08549d26662851ccda13d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c7b915dd7c57bc5de916250093b2b5220065189ee0584c13e4e5bae75b88bdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c7b915dd7c57bc5de916250093b2b5220065189ee0584c13e4e5bae75b88bdd"

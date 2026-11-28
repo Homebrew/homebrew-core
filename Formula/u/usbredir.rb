@@ -12,6 +12,7 @@ class Usbredir < Formula
   end
 
   bottle do
+    manifest_sha256 "abf04ae6a5c06ce61446d474751151716b7d16481ea8d5cb21d38677cab1c7a7"
     sha256 cellar: :any, arm64_golden_gate: "05c0e129edbe6356c5ed542f647639dc7950a96c9dff9564ba36f329aecac97c"
     sha256 cellar: :any, arm64_tahoe:       "abc432af08f1f179d62c85fc6f683e597fab22d36e41d3f63e30013391892157"
     sha256 cellar: :any, arm64_sequoia:     "9e802affea255b4b4510b5985491f20a25d4e890d45894a32f566ff709b63414"

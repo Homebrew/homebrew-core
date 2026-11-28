@@ -7,6 +7,7 @@ class TronbytServer < Formula
   head "https://github.com/tronbyt/server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2cfa1be1504cd017a6f92577566e9c93060acb32f29106fc6af6aa04c4711fa3"
     sha256 cellar: :any, arm64_golden_gate: "bf70e14a597b9df17d2e243531050b69d6abcfe1232c0cb0095027ce935fbc6c"
     sha256 cellar: :any, arm64_tahoe:       "196713ad47a7cda9de3b70025e782eac6ba76bd3a093f3eb9e02f9be27fa8b5f"
     sha256 cellar: :any, arm64_sequoia:     "7fb95d2b260dcb4b2efe802dfb751dc7c852016a31963be178cbc35214cf3974"

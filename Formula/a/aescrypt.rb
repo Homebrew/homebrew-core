@@ -11,6 +11,7 @@ class Aescrypt < Formula
   end
 
   bottle do
+    manifest_sha256 "53c3706f3c45708ba4cab82c09a8487f859fdd43e31289b0309808ae39df59ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f6f5148072ecf7afa7ebaa061ac1e7d02f886d31e78dec17c5ca521ca748ff6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b39aab473142edc7f8e5eaea2122edcd3bebcea70810914d8d9735a4d82fd0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4ec90c9ff44239c6cf43b35377e7ff709983c1b76577ea84cd8dbc638d763ee"

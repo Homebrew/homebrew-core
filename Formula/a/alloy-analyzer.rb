@@ -11,6 +11,7 @@ class AlloyAnalyzer < Formula
   end
 
   bottle do
+    manifest_sha256 "916141fb88fc52ba159a3a57dff748bcc6c29cb2f508ef816384551223919779"
     sha256 cellar: :any_skip_relocation, all: "e6b7ea99c4d94c851e458306d370fcdd49b32426042bc21618972e37f3c5a907"
   end
 

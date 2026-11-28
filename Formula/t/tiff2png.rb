@@ -8,6 +8,7 @@ class Tiff2png < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "06bd655cce46abb7fdfb36e1c0e2ef836169eea5ff2cbf532becefcb35de53ef"
     sha256 cellar: :any,                 arm64_golden_gate: "59e8db0b3e24afc24284052dc31d5e703e4086536088bd86ed533536912dd17e"
     sha256 cellar: :any,                 arm64_tahoe:       "cc94154a902618ac2619cec04577a4dc5532ed13adff9506fffd4180521d5b78"
     sha256 cellar: :any,                 arm64_sequoia:     "52071a61b3b8a6a78b8d48025aabc0ad60cf8c4945ab879bb44e884b36fc56db"

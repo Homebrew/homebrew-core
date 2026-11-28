@@ -6,6 +6,7 @@ class Pgbackrest < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6a4861e5110300229bad08bef94d60da6fb216f2679d1742e01b891c95eb8aed"
     sha256 cellar: :any, arm64_golden_gate: "8b92f397cd7790c6cb8b2668b016520b3173bda4e948e9e613e781ee6eba9997"
     sha256 cellar: :any, arm64_tahoe:       "53ae6cf09ce9ae96eff19ee71d13e5eea4eab5f8ad2dc6548d52ff0f60b16686"
     sha256 cellar: :any, arm64_sequoia:     "db4ee8f0c0e8fa2dd55da99f5a1a27bbd44d0e98584a4fd24b775a603b0d1ed8"

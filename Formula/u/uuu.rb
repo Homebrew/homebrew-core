@@ -14,6 +14,7 @@ class Uuu < Formula
   end
 
   bottle do
+    manifest_sha256 "a278736c42ec386f63b0c6adc94112266958b8a2c6c0101e9fd82f6bb2c35518"
     sha256 arm64_golden_gate: "cfba502f9184d051f13623d2c88669ece9028fcd852bb68c81d5fccc4b0dd838"
     sha256 arm64_tahoe:       "383cb763767f508e112b6bd619e81a4b6779b1b1068e4321a10388f924f5f1bf"
     sha256 arm64_sequoia:     "2e85d56d8536dc2b0e21e19aca7c04a3897b68bc09cf0af84358a4acea1a28ed"

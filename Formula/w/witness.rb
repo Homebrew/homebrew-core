@@ -12,6 +12,7 @@ class Witness < Formula
   end
 
   bottle do
+    manifest_sha256 "3dd9f598594615ac9a35c156493b3f5dd1bb7d6b753437f58e49ecfad5945135"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d4fdac778ca9b307c7b7c9d402a05df2e9c3ba051687eb0eccbc5694af6e810"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "420e632e0e47a87ab9fa2112b52d81eb1002736f83f4c463a2b45c518c50b72c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "420e632e0e47a87ab9fa2112b52d81eb1002736f83f4c463a2b45c518c50b72c"

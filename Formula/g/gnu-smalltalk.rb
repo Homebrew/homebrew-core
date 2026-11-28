@@ -19,6 +19,7 @@ class GnuSmalltalk < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "a11b3979a0bb1064f64979aa1f1263cdb252a374518e722592db1edbcbb14299"
     sha256 arm64_golden_gate: "946911395ee208cc47695bd6451fe03afcd4619657b15ee3154f4c72fe55fc35"
     sha256 arm64_tahoe:       "1935af530752ba55c1e8bf8f78fb342ef198ef1b5341c1513b7455965a471f1b"
     sha256 arm64_sequoia:     "06e05353ca26a07e110fcebac0fb9276ce3ba2a5db94460e427b4faa4bbdff24"

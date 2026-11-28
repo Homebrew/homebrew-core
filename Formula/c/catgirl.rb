@@ -11,6 +11,7 @@ class Catgirl < Formula
   end
 
   bottle do
+    manifest_sha256 "9379922d4c03dfdcdae98b0f30b2bcf735199ce181e00ac69ad1b4182549c858"
     sha256 arm64_golden_gate: "8ab5925f22fbe70b5cb1c317e1a79c265ec32f05b8cf6d1ed37647ca9c1fcd21"
     sha256 arm64_tahoe:       "351867ae899c5212701dff3cbc5aaf3e64ae7f250343de7d10b411365e1ab87e"
     sha256 arm64_sequoia:     "10113098841cbf331b3b7ecd70b8fcadc65ee0d863f9fd46671d28325e9e1066"

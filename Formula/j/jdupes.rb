@@ -11,6 +11,7 @@ class Jdupes < Formula
   end
 
   bottle do
+    manifest_sha256 "6233022fb035d716a3528168a2699bf47eb28350475eee8055cf893e16b55d03"
     sha256 cellar: :any, arm64_golden_gate: "3048cdc63f13dafc51f407cdc8eafedd2d7a70eb6591cc765298d1f0f379075d"
     sha256 cellar: :any, arm64_tahoe:       "224f99a6efe8e3db3fc7fedbaa6646c30ccc24240d054297b82888ec410dd726"
     sha256 cellar: :any, arm64_sequoia:     "0427f4884054560d0958f9ea4abd22dade5d9b1fe7601ae16788f4858af2edc3"

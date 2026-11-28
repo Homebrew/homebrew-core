@@ -6,6 +6,7 @@ class Pmdmini < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "0aed2453fb271e79d782393cfce584a33c554042ce3927ab9717e843eeb273ba"
     sha256 cellar: :any,                 arm64_golden_gate: "8bf29dd17854515f548608654c20c54a1a34c2b855aedcc1665ffbb9ee6be282"
     sha256 cellar: :any,                 arm64_tahoe:       "f8e542c127cf51bbdc497e778ab932849fdc4d88e49ee9d7b0e127eaf5d74242"
     sha256 cellar: :any,                 arm64_sequoia:     "d3d140be8d8be65eaa695bb6e2b83964e989e141cfdd7ab8d2c9e05d81b55f54"

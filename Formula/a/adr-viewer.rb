@@ -9,6 +9,7 @@ class AdrViewer < Formula
   revision 8
 
   bottle do
+    manifest_sha256 "702aab8eddec79736a417682846670c528e451ec4a754860a5ae1939fd3aad64"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c7dd7b39d030d47e8b60cf129b36eda9222db3571fd29ce5d99c5cf9966bc04"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0723fdc0c58e5f0332c5f88b5e9a6b8a747b444e85b54a3b5fe73b3db4b14ce7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83b9194259570a51ac4e2c5137753932aecc30d89d28885d7ff3659b995338c5"

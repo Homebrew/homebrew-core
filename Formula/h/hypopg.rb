@@ -12,6 +12,7 @@ class Hypopg < Formula
   end
 
   bottle do
+    manifest_sha256 "6d61b609b9786dcf9d858475b662a618743c303143486617925fdf208e57ea01"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7addde8847558483ca1e4726f435214ca1216b42145a9a18b4560b404e3ac001"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51d5f98bd5a5b2aaa944a7921bb3207fae0762bc0f6e1fd0c6003e6e4be59143"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ead524bcaa28c67523f4eb8c3d3e4d37bd4a1e262d5bf447dbb56b366e5879f4"

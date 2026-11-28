@@ -7,6 +7,7 @@ class ApmBashCompletion < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ceb2cc7a6c024e7b0b28fa1ef02b5699fe8243d98e62209f5ff7ecfd1f0c3a19"
     sha256 cellar: :any_skip_relocation, all: "b4060df6591f97ca99b076b034721b3f0a9636127d6dfd3dc234fcdca68c06c9"
   end
 

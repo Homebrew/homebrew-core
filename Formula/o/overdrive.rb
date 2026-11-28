@@ -8,6 +8,7 @@ class Overdrive < Formula
   head "https://github.com/chbrown/overdrive.git", branch: "master"
 
   bottle do
+    manifest_sha256 "71811d46cd81046f80f3676c28359bdf59eab268226a27ccfea0205982e616cb"
     sha256 cellar: :any_skip_relocation, all: "ab5d25c52a5f1232a16850e14242e3eb762fc026ac72fa4e4687e63ad954e138"
   end
 

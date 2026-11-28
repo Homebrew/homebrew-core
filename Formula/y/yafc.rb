@@ -7,6 +7,7 @@ class Yafc < Formula
   revision 6
 
   bottle do
+    manifest_sha256 "8ee09d74b19d6651145b71a296f82a2fcfdb68552ebdd8b4c7df1a46cddc40bb"
     sha256 cellar: :any, arm64_golden_gate: "33c77d2ce1a28f818e57461d73377c65cfea89bd623ec18f4ef6e493e672a6f6"
     sha256 cellar: :any, arm64_tahoe:       "cb69480f1d270ee31f96e872c9a8d3dc1f3baab91b6af468a722c4aec71b0656"
     sha256 cellar: :any, arm64_sequoia:     "aaf40390ab22856e57a9963a40257a5a09d467ca5a81bb1d9e63bfb5280211b6"

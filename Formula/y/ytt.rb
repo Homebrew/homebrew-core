@@ -7,6 +7,7 @@ class Ytt < Formula
   head "https://github.com/carvel-dev/ytt.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "f0bb1d9a7116cc443443630b51102480fc75d819adb1b81d846a7f2d28d1f550"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed3eac89c8f22af057743593217a71e41048da6aac63b097518d3950f7611f1f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed3eac89c8f22af057743593217a71e41048da6aac63b097518d3950f7611f1f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed3eac89c8f22af057743593217a71e41048da6aac63b097518d3950f7611f1f"

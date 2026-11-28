@@ -10,6 +10,7 @@ class Amfora < Formula
   head "https://github.com/makew0rld/amfora.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5f050785909e7397099b6586b01c808072c2d6b7f88fde7d2dc02c1dfe0d2038"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1487c6bfd62a7069f171bd4d8aa8a0aebee05255abee5dbb6bb2f7e7d37762f1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00e4da529415b5a5b02c68c987828c996e1b044e8de4bdd3bd91aff35d472396"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aea294662496a802b0b372ac96c71b78a6df62ff654855c243677b5d7d4e4803"

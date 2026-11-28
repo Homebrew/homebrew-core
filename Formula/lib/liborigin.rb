@@ -11,6 +11,7 @@ class Liborigin < Formula
   end
 
   bottle do
+    manifest_sha256 "796cb7e9e8a7325e162f33dace770df09eac60cf8d30bbbcd614a51064460026"
     sha256 cellar: :any, arm64_golden_gate: "d280e6ecc9160d3d9be9a8dec0dc316e68d88fdec00b40fad31af70a5b2dc356"
     sha256 cellar: :any, arm64_tahoe:       "afdc03e25afa56a45df6eb69c71f6d31cb9358de123501b7dc250759378840ac"
     sha256 cellar: :any, arm64_sequoia:     "9e07e1fbfd9450d591fdc91a3b4e3fb3a45f5748815565fb88ebae57385c2d79"

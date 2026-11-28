@@ -16,6 +16,7 @@ class Openvino < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3c499a5ce367febbadedc3c9104efa9254cc6863814fa0f975c2e8b9379a1cea"
     sha256 cellar: :any, arm64_golden_gate: "bba2087a097ef23ec6a58e170801237b66f812b41f5488ab77351400e6d63bcf"
     sha256 cellar: :any, arm64_tahoe:       "782dac2200a720cbec5d8c4574a28a1adf56997de8bb9db43b3f678d45f6e5d6"
     sha256 cellar: :any, arm64_sequoia:     "b8d16f1e2d74a103bc21c41127bc841919f13b6b50e476950a74127e5685192b"

@@ -11,6 +11,7 @@ class Yamale < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1ee4c46dbc8be24e0ff1f99f2c8340651884a155018982d01bbed502c5169ee9"
     sha256 cellar: :any, arm64_golden_gate: "623f6f77e7574a43e43ab2517b1df3de366de687e0ad15fb0d6bf3c6c177a978"
     sha256 cellar: :any, arm64_tahoe:       "0cbc5945ca2f3a5e7640f225a7cc68ad26df0ec12497b5ffecd33956fc2b40fc"
     sha256 cellar: :any, arm64_sequoia:     "226b343afae317a7f6667b9216131499457d2bf817ba151715386b58aa56c993"

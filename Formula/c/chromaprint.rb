@@ -7,6 +7,7 @@ class Chromaprint < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e3c535219fe21add00e12793e49f3b9fd298a87e6856b5392d21e1d330b1e615"
     sha256 cellar: :any, arm64_golden_gate: "9446f7a7a9204f250cc483249e06483b947b28997146f44ed41d8ee801fd0d04"
     sha256 cellar: :any, arm64_tahoe:       "0008cd637f81515fd52cb97a589d1c13cbaeea5314561098b6735c176eec47a1"
     sha256 cellar: :any, arm64_sequoia:     "181a34d298b3a98ceb26b6bf93b3089eaafd38544f4038a63767bd8d1b707cbc"

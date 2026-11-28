@@ -11,6 +11,7 @@ class Ccfits < Formula
   end
 
   bottle do
+    manifest_sha256 "540687b62e1cdf5fd063e11e8f3c11ef7203be00ce16258044a9d4296398b695"
     sha256 cellar: :any,                 arm64_golden_gate: "56427951cf7b485e970495cc46f860a8bc9613beda9bf0fa1755ca3545a9ef94"
     sha256 cellar: :any,                 arm64_tahoe:       "e095d123708d4f5c4c57b26c82155a75405f6e19f29c955ac7b52f4121d2df1d"
     sha256 cellar: :any,                 arm64_sequoia:     "da6f787ac55d5f93ad25617af795ac878443371ca2bab55bf9fd64736d592cfd"

@@ -7,6 +7,7 @@ class Cmusfm < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "7ebd79b7c999d029cf9cec74a159a231ec4074c4d91e857cf4215be356b10090"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c468424e8ac997b4023e2c7e4ec625080c97f2c9ddeadfc70736537abfeb0d9b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2ef65ce1fc192ca63fb9cf3e93bfe02e506d64e5ae3c0055bc78577a4426c621"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9fbdb03148c3656857bbdfc833bd0514abaa472b75ffe143a0e042481758d17"

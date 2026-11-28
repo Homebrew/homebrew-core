@@ -12,6 +12,7 @@ class Jsonschema2pojo < Formula
   end
 
   bottle do
+    manifest_sha256 "fc1013d788721f6ba199e794e8da6efb334b4278d427f3fcc4acf559244b29d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12392435f04fd940185820bd607d67a446785e5bc56a45a6fbe64390fcc68c52"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7e54288130be9a5f59b961f8627cdecaf731da193d85ffe45425cb032fd5772f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e54288130be9a5f59b961f8627cdecaf731da193d85ffe45425cb032fd5772f"

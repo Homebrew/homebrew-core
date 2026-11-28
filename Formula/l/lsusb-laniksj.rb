@@ -6,6 +6,7 @@ class LsusbLaniksj < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "263f8119c61e8b029474c1008dd85ee098a1b0da714dbdf61efe7afd4fa30a4c"
     sha256 cellar: :any_skip_relocation, all: "d2bdd1072024a5aa443ecbbf1f614c3ec7175483226c06accb5f007739773992"
   end
 

@@ -17,6 +17,7 @@ class SquirrelLang < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "2de86a8f4f862582f6c34b2483e7f2e81fc26458d4436df55e001ad0185c6724"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "921cfc2924eebe136d4f775b68d28edfdf67f99a4214125e0b36dae930bf95f2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6f3d550f92933219ee049367a983388c573214b498782f3b53b78b1d0b4aaa4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c69026132fadde7bb41e0e27e9b59a697bf8cd34890b2533decb9a5bf577f08c"

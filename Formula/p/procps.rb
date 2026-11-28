@@ -8,6 +8,7 @@ class Procps < Formula
   head "https://gitlab.com/procps-ng/procps.git", branch: "master"
 
   bottle do
+    manifest_sha256 "92a6eb050e893dc9456e74aa33264ce51a93e3adb3f6b5bf5c79603c8f41679f"
     sha256 arm64_linux:  "a168acd0224c76cdc89022836f48194e007d6ffa6b5e883858c716518a4b45db"
     sha256 x86_64_linux: "e4422bdda0cf4e375f9c7d1a5c02b127ea54542554c63a463595a3113f42e278"
   end

@@ -28,6 +28,7 @@ class Stockfish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "acf77f01044ab4163cbd6db7ab843e2d7e3c6c3cf7ef3773b9a22a7a51b4e3ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d8feeb40839678eacfd6a8afbc6d1b077ae4f690c0266f772ad48660a4ea85f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed9abf25a13559c8c171dd4956998da30e46be61c5eb1642f91686af8b7cf60e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17f082147af64d5b5f53cec7f368b39e2716cfe38556f890146510e2557e44ac"

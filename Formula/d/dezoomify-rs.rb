@@ -16,6 +16,7 @@ class DezoomifyRs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "552e12135ccb8ef2ebb6fdaecfa91886d8ce56d49eaaed0fa1a77888f9a454f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "179f2ed66371b6ff9cb9ce85d486da8fea363df71a27d579d423f2bec5923667"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "12d4c54639a279ddecce1ee261cf5332a6ab5502c05732d18e8de29d28ca7be6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5440984a1efd75c6d8055918470d46ebc4974c6263ca661fd1ccf7fab66662d"

@@ -6,6 +6,7 @@ class Dc3dd < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "418d9411f1da024ba81a0f25d83360dcd95f7a1cc6df9fdb0fdbcb726e2b7080"
     sha256 arm64_golden_gate: "1eb7d3bb6ae27ce011432edd46a3f69a0facd4d93e0b87208bb5acfca5c7c173"
     sha256 arm64_tahoe:       "1319a1907495f80e22c8e4047ff2a3764821774313b674853ac89f0f95159c1d"
     sha256 arm64_sequoia:     "1cdfecc59688663ad056a3dc3db19a87d5e7c6356f9f88c33695126b0270639c"

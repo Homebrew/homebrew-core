@@ -8,6 +8,7 @@ class AwsRotateKey < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "043273ed4912dc23d2d8154024ec0a52c262fb86b3152ad3bd88c981efdcd567"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "68060f728de6bb303b85ddad660dafb99b5f3b6123af24539042fff914b844df"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8e59f500cb777981b12d0c2c2cabf293036235bd8c962888c83c3886f2b08850"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "51c9c9e83de0683c2a79db2c926ed216dd5801602bd2a7796386a64f0964d258"

@@ -7,6 +7,7 @@ class Webhook < Formula
   head "https://github.com/adnanh/webhook.git", branch: "master"
 
   bottle do
+    manifest_sha256 "28b33db2d932de8212ba497c4d518287f3a4e7fd5ad96e7ecb0b84ff0cccd6d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "abba165339e322777dc7da6da57b81573380b3b8bad8e4e9f7a7994fead654e3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e981d57e5b548be17004dc598f7bfe689c723c0b4ce3558c97e47790ca4e2c49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e981d57e5b548be17004dc598f7bfe689c723c0b4ce3558c97e47790ca4e2c49"

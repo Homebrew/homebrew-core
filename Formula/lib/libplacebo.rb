@@ -10,6 +10,7 @@ class Libplacebo < Formula
   head "https://code.videolan.org/videolan/libplacebo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "25cc34e2f65cca5b53b251c24a9b2d2cdb5a0d7311ac9870b82dbd689c79a473"
     sha256 cellar: :any, arm64_golden_gate: "0e9ea5b942841c88eb8941ea2a38a5cafddd7a1210a482adf18196db40bd99f3"
     sha256 cellar: :any, arm64_tahoe:       "ef19764cff218aade9c8cfadb88c9899efaac51c701b756cadb83d79164a8ce9"
     sha256 cellar: :any, arm64_sequoia:     "a96048b194f3423ef6fc5c888fa349ea70979fb3135719b8c5290889ff6e44cd"

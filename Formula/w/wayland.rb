@@ -14,6 +14,7 @@ class Wayland < Formula
   end
 
   bottle do
+    manifest_sha256 "5bf43f87508d782ca9723de83b347374ac72150574ad7ed573b8bb2af194c57b"
     sha256 arm64_linux:  "b0fefaf3934b7b39c0857047076b5f6c6f902ce6ebe0fd6d4460535c2892c48b"
     sha256 x86_64_linux: "a84060c02485728f504702c0273a8bc5845f7a33ecee34d869842de2c696c064"
   end

@@ -9,6 +9,7 @@ class Libmemcached < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c7e9b12c662790f41d06e6ad9beb85ce3c0febc81e632bb46f3e96826c1925b1"
     sha256 cellar: :any,                 arm64_golden_gate: "ed66293b6d3420e358d793b96f3a0e5ef13ceda6fd465d37ff19448a8d058f41"
     sha256 cellar: :any,                 arm64_tahoe:       "60a5db19afb5f8ea31dd1917cdf6e962cd54efe7fd012ab0e0c6c44497a6e2ad"
     sha256 cellar: :any,                 arm64_sequoia:     "2f6eb0738eb824d203e31cd7243942c7d14d07599ece42c8ddd895077a6bdde1"

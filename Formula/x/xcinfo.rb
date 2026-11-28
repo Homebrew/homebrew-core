@@ -7,6 +7,7 @@ class Xcinfo < Formula
   head "https://github.com/XcodeReleasesOrg/xcinfo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "51c5c21d9f878b8ee4b1e2c831aece1adee969202c8ea129776273428f211f59"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d5829ab2c8dd3a832f2f082194d89d643b3f61fb4d6c49745d2f5c2bb41361d4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7fbbf4d45bbcdcf2f563e7cd1b36db960b94cfd9127dc28eded8487cb35b7451"
   end

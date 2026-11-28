@@ -7,6 +7,7 @@ class TerraformCleaner < Formula
   head "https://github.com/sylwit/terraform-cleaner.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca1d466d51c6f7da0a3afa971e97027af60d92b67fe9c58c3974a2103b81cd5b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1cf4e9d53692c33572ddc31dd9e68062223d31aa1eaeb79dd21f4743f8532709"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0df9454cbf8c02fd4ac90be3d5b5b6df738794407bf3f5e865ea9e408051a377"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "67a332100916e31bdbef196c2f08954acccdfaf069c23c84d62bcb51d8452066"

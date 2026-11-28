@@ -10,6 +10,7 @@ class Bbot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "21ba1b4df01b94e8ed524972f987d4dc38ed0c5e7b3186a45ab1879e6aad30b0"
     sha256 arm64_golden_gate: "1e93c53f92111d8b9844f2b874404e1081eebde52131c127c378a4b416986ae2"
     sha256 arm64_tahoe:       "20b68257841b50c34c595001ba9b90833698ebc23c66309dc1eab4de768fc81f"
     sha256 arm64_sequoia:     "d6ace740bd38cceae235ce3506b9ac89f2b71ed331b2254f1e004f03c897c185"

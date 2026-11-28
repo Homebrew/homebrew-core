@@ -7,6 +7,7 @@ class Nanoq < Formula
   head "https://github.com/esteinig/nanoq.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b4620c83420f71d1420d4cd204502cb2585511ae9a745080c4ea009f90f3a95a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24e2a805842459a87294e748967b302feb959fd733d424178026c601050bf2bc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f97e13a405da805711730cc25d984c95cf40736b4af80b5797545738eb9e602"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f6dbcbc1413f42a698bbe0c7d4c2580f2a69f86e57afc33ab621e7a86b7cbd9f"

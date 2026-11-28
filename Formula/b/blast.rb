@@ -13,6 +13,7 @@ class Blast < Formula
   end
 
   bottle do
+    manifest_sha256 "a0e31dd28de4d29b6774e1431c37431077f5742d7ef4d42d365298836e23042a"
     sha256 arm64_golden_gate: "5db429964b697b4d39c1323366522f675b780c8577087042edb62a4091aad0b3"
     sha256 arm64_tahoe:       "c4b40232e3ae04bad85618d2a855b75e58059878e7c0ded5a327f7ab3e070af7"
     sha256 arm64_sequoia:     "c653cb7d6f812f794a5496c9c7c4e1fdfa2fe600263294cfbf38dc6a4a6b5ade"

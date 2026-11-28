@@ -7,6 +7,7 @@ class Cdargs < Formula
   head "https://github.com/cbxbiker61/cdargs.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d3e22df9326d93be7f916fd18f986a1ca5302bac9adc115478adbf297656a6a3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d813b11d0e73606a7c955278e357f04d7cfa0f2605c277c3ec6a4331743db07f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7276e0e92053255d34a6ab190a36dbbc58154253ba76d69f61f224d435c2675a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5be93566bc13d241d79bfa4c097b9a460750d889864bab0ee4276bd021a10f90"

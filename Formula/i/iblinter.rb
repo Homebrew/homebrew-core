@@ -8,6 +8,7 @@ class Iblinter < Formula
   head "https://github.com/IBDecodable/IBLinter.git", branch: "master"
 
   bottle do
+    manifest_sha256 "10eecd50232112e5068f9d849862810c56b309bf691775d546e84ed4ea276bcc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e66ec7fdee3ae5b454e67336ba833cfcafe29417fc976c6a7a09fe4874a6893"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edfa9a0703e03c81df343d462d2c33c87742c1d38047a7bbe26366a78d21c394"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b88dff6dcb1898da9fc0f4270d88a60cbc1fcb6e639ceb8d94c7bfb9e228008f"

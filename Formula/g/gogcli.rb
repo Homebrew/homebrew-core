@@ -7,6 +7,7 @@ class Gogcli < Formula
   head "https://github.com/openclaw/gogcli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "aa569416f40efaf7e87d1ba0c04338bbe1de6f7f8b0d7bdb0be81e995daf7de2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "71e1a6faf0ac03952c37bcb9b60552b3ba27cd92f50a4c3d752bdf21c558210f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90b9a46ac5b312bfdf0dae266b5576b3aee21df411795a155cea6f146dcf62d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9bccdf53b0469047ff55ec5626e81906196abc0322d8c43fb06415444fd3f916"

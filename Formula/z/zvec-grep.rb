@@ -6,6 +6,7 @@ class ZvecGrep < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "317f11a517574926b209ee4787af6aec95046a69b429ff72a85960cc63230805"
     sha256 cellar: :any, arm64_golden_gate: "fdf5450fd7e02f90312c70f6740e23c81cc04a1647391c9b137f7bb99300c80f"
     sha256 cellar: :any, arm64_tahoe:       "5bd5d4d2eb01c37f6fe3a44ed2e0526d98da280e746f29cd4f7000edd9bf93b4"
     sha256 cellar: :any, arm64_sequoia:     "4a6f39a575e979f40b9735e0fcceaef3fc0fe9cfa454db38895e4620616558d4"

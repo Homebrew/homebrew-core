@@ -13,6 +13,7 @@ class LibnetfilterQueue < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6c38517107b9f7a99951b7b4f52d97e2a98d27d6b19b676970e8be15211d930b"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "0d88b35944420ead47b296ddc1e8a374591138b640c4aeede86e02b0104de7c4"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "92a395a74268dd17a019cf43ca0a5bbe38ad52e045697e403657abc3250e3f6e"
   end

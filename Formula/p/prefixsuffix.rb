@@ -8,6 +8,7 @@ class Prefixsuffix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dec2b058d3a9b7b24622550af78f7239bf2eefc503dad95cde48c5185f1101d3"
     sha256               arm64_golden_gate: "bfc154c3427275e34e16883200fcb65bda97c295b14efbed4aafc10b006e4f60"
     sha256               arm64_tahoe:       "67f1d60548d347f793c3416522ea4f6b5ea884f58cdfe6d7ef4f468345818fb3"
     sha256               arm64_sequoia:     "ea1addddc2ca75fe7a5af2115e1aac889b31427ec090b2bcfda18424762a0db2"

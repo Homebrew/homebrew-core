@@ -9,6 +9,7 @@ class Minisat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9e5ba5bc9c0ceef9d93d9525505a2abba9cb7f25f7abaa057236e64ae69f53a3"
     sha256 cellar: :any,                 arm64_golden_gate: "51d6da8d2981eb278732b5a8659d525d2f3442c77698f68596bdfbbd35dfa026"
     sha256 cellar: :any,                 arm64_tahoe:       "cf6593a34e4fccf6f0e21cd5a5ff25f1228a88bfa865a2a11d87e0a106186a7c"
     sha256 cellar: :any,                 arm64_sequoia:     "c99b867058712c4d612c88a4994b087b44d6cea68e01ce30b7af6153609a27e9"

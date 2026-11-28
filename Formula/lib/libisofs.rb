@@ -20,6 +20,7 @@ class Libisofs < Formula
   end
 
   bottle do
+    manifest_sha256 "9310dbe5c1a632b9c6935cfa9570659358efa5d926a5a2717cf7c870b862f3ed"
     sha256 cellar: :any,                 arm64_golden_gate: "bf46780c17dcbdea3a3bc2971920726c9a97fdac5851a01a1435fe0c0b834e4f"
     sha256 cellar: :any,                 arm64_tahoe:       "4caf29734bf7eb3a310526591fac0928f2acf0dfc5ebbbefa52538e86eb4cb47"
     sha256 cellar: :any,                 arm64_sequoia:     "23a869971b25f3aa47b71e513a8dcd254c9454d18854e00c253eae764c7173af"

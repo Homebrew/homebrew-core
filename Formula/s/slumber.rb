@@ -7,6 +7,7 @@ class Slumber < Formula
   head "https://github.com/LucasPickering/slumber.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dac80b8e788da771ba57e561d6a4d476bf7c78fd5eba30b6a586a7f5f1aced34"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b36f2aea3feb3c68efc28822100d09c829b513d1e05d99462b78874d96223965"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54da5a2aa7753d3df6eddb04bb8aff181fb6d26637afa797fe965ef9eb0953af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7b2995c220a77bc97532c8742719001b0483f739c0842f26ae548f5b0021acf"

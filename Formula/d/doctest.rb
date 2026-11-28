@@ -7,6 +7,7 @@ class Doctest < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "eb2391bd14dd55d808a590d315480eb6fb1ee9c3daea08a8f544f376fa6d547b"
     sha256 cellar: :any_skip_relocation, all: "30a480dee0a16e08b071549d936a0bb62b6e370dcd26c831d1a91071778afd0d"
   end
 

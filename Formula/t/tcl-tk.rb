@@ -13,6 +13,7 @@ class TclTk < Formula
   end
 
   bottle do
+    manifest_sha256 "b62354563fd407fe037d8cb1d03e1f1d784aa860ebcb89124e12ab898a65c90f"
     sha256 arm64_golden_gate: "e9dcfc12059b2fee336ef75e8b0c1d206d7a11f28e7548a16380e6f0f6651021"
     sha256 arm64_tahoe:       "f6e3459c6d92274911c795f794e5cbae42be7f8d0a69a3b399eced8482ab6fb3"
     sha256 arm64_sequoia:     "efe600abce3a5ea633349a78b04930a026f64ea2093943e1c45d47c0204b2232"

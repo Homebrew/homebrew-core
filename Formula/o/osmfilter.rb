@@ -9,6 +9,7 @@ class Osmfilter < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "363d6d2edd799c26260a4e645eba154eb61e46fb10b9e510924cf590ef4c8215"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85b1ad3419fd69b0f1cb60a47ff04b8635f71bf2fdb955f4e64eecdca83246fe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64388c3368efe673234fd5d7990c0f791df04fb1622c27f347332e56d3fc44ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e09d876529de57fa2b1a1ad7409e5247e800d47bc0d78b1e4b8ed8ee9191c8be"

@@ -7,6 +7,7 @@ class Truffle < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "5cc1b80be765276f957b1a78b3a5981e0503a8caafa2e40fdb794c29d2f372c6"
     sha256                               arm64_tahoe:    "8f995c388105f622043e56ba9ab48c436004b9aea99a3580b67a70ee504cb84a"
     sha256                               arm64_sequoia:  "faf61c11f0243979a4bed2ebccbfc71cd540b1d72faded9b7bbfc871bbd8ae74"
     sha256                               arm64_sonoma:   "92ad4c83b95c30319d61cfe06957a32f10b288c01cbcc8fec77dd1377d2f53ad"

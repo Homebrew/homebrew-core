@@ -13,6 +13,7 @@ class Unac < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fcb9b790ec401222ab4297d6b82d20800870023a3250860a87468eac0aff7030"
     sha256 cellar: :any, arm64_golden_gate: "3d813ab578128d39b99540ccc152aa832af4db05a2c3dddf7c6a99c0f4dd64f4"
     sha256 cellar: :any, arm64_tahoe:       "119c6d2e4b2ef998eaeb2968afe277c1ad01249667338109e2052712170a559f"
     sha256 cellar: :any, arm64_sequoia:     "4690b5b24adbf855a28c21ce20dbf4fcb9b5aef86eee030c997f8c4e0dd29202"

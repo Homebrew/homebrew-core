@@ -11,6 +11,7 @@ class Bpytop < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "230b819783d8d31b79a5d60f1e90df73de23d442f3f901266683a698e52ed461"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "00cb4c1b77641395ada449f1954fd7fef0fafec953f57718c4a4de581ce5a9d5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed3b3902a8c0082d56296be270fb11c764018d810f1cc930e29366697e02f3ce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc5641928ce45eb2198dac79fc9c8a559e6041c4f43401b3d6127ba98a2737f0"

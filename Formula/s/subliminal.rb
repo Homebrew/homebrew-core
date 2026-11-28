@@ -10,6 +10,7 @@ class Subliminal < Formula
   head "https://github.com/Diaoul/subliminal.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5dedec0c0e09498025dfe0116ac65c349d50cefed493355b9ad6408a4a3727f6"
     sha256 cellar: :any, arm64_golden_gate: "2af3c6b51f82c7883a7c218508df84588985bbca5102448649611eafcd69552e"
     sha256 cellar: :any, arm64_tahoe:       "8bf8d142673c56e127634bca677de74a19025971059b942308ee49a386d96e13"
     sha256 cellar: :any, arm64_sequoia:     "0adba070bd5a8fb13e76a3fd1ce4c3077f2c1a2386ce9bc24a07c0413e5ba340"

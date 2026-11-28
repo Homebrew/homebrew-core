@@ -12,6 +12,7 @@ class Unyaffs < Formula
   end
 
   bottle do
+    manifest_sha256 "d5044227f3b38f660f445c97be7a65bb0d78ea36cefa690320365854ab042e48"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "67b618d1b712d33dd3d187572a07ead016a51be119b7d463bb99faebb7d445ee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5068e81bc76a677c3b186e77b91df1b38d9fd0c2936762231c1c54ccceca194a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec8fe9164edaf17dc336a0dc203f5955d17692fa22f508cfe04f4cd87921a85c"

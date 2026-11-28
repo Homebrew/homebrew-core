@@ -12,6 +12,7 @@ class Zebra < Formula
   end
 
   bottle do
+    manifest_sha256 "d5d587f0f6e3c5bf5f8825cc1e2c88297c80c43c816591ba2e5804d84dae7fd1"
     sha256 arm64_golden_gate: "e75de204bccfd984aa544ac7be99337ee2e0c4f97bcb8794e15d0a22cdfb30e8"
     sha256 arm64_tahoe:       "6f2d39bb8881559788a41d4aa0983818a8a46ae07b30b05df33a67f8dc2533c8"
     sha256 arm64_sequoia:     "45666b5a6246de532ffa5387733b1bf735d3826ce512f178d054ee3617114db6"

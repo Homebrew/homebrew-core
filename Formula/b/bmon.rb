@@ -7,6 +7,7 @@ class Bmon < Formula
   head "https://github.com/tgraf/bmon.git", branch: "master"
 
   bottle do
+    manifest_sha256 "eee3661ccdf8f09249e288bcc0d4613823d65bac6b9118fea2540478533aa602"
     sha256 cellar: :any, arm64_golden_gate: "a684507da86e052a46b11a4c7815415f754608abb5395cc467f31c8bca2bd24d"
     sha256 cellar: :any, arm64_tahoe:       "1cf3adad3a4bdbc8b071e51ef8efd5dde4a6ef48058bc3025ad601839f4977bc"
     sha256 cellar: :any, arm64_sequoia:     "c5859ba57d8671ed23d9e371a0de6c33898b8c4c617f54825700cae8042c7da5"

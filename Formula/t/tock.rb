@@ -7,6 +7,7 @@ class Tock < Formula
   head "https://github.com/kriuchkov/tock.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f0a9d555245cc29a4f61d81ef899080d0a99b133007810d2ce65be2b4077ef06"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7cb2cc25849526cc2e52ab7b3e8e43200b49bd0b8c15db74f4e20f8309a877b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "825c693755b2355c35672e5bb29b9dfef61d81ce93b9beb81d2269b989cc2865"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa1cd22053716483f9ce6f206ba03156b98077cd3208046573500b610164e707"

@@ -7,6 +7,7 @@ class Parqeye < Formula
   head "https://github.com/kaushiksrini/parqeye.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e1cf69f40202aad787437fb54cbe3d75ff395bc8f64e8bab9d7d58ea587b558a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16c83459fd4b340717e1bb37fd61a112932dee6fa12036446e4f11a0bafa6bae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c039bbf9f1e135278183c63a5e6e986af2ac374e422da55db395018803cfecd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2050ec690944a6603f878d44f4204d8e07c1f5c2308fdf2d58b4a5383982f509"

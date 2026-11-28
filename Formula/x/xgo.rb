@@ -12,6 +12,7 @@ class Xgo < Formula
   end
 
   bottle do
+    manifest_sha256 "d0372b98b2ef09bf6174a38d656f09cb4fa62d74a6c2712d3a58d5e49c2295b7"
     sha256 arm64_golden_gate: "d543f9354bef593b320c521b027c74798747eac5bae9359b39ef34a29b47b21c"
     sha256 arm64_tahoe:       "d543f9354bef593b320c521b027c74798747eac5bae9359b39ef34a29b47b21c"
     sha256 arm64_sequoia:     "d543f9354bef593b320c521b027c74798747eac5bae9359b39ef34a29b47b21c"

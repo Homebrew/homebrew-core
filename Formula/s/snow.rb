@@ -13,6 +13,7 @@ class Snow < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c6fbc89a8d59b302f8e0f5e9a4afe4275efb67cb71c9e46aa67d07638805826d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "779b536dd1183041d932a88e056af92b538cb00b9e511c8373432e6b1f0776d4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53d8451eea7082ead9453a403e836a5287637df3195e25391373df828dda5673"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a2fc6f30db002d270ad215e53e38a9178038ea9b05a19121dbc4ddd8975282f"

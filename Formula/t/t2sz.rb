@@ -6,6 +6,7 @@ class T2sz < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "314859594962ef95bb71116f6fe172ef9f03537321d2ba89eb2a9a6399a4ba05"
     sha256 cellar: :any, arm64_golden_gate: "cbda59b07b8a22b87d700be96de0c4a4ade591c808645432758a033be175694a"
     sha256 cellar: :any, arm64_tahoe:       "09ad7d5a2423360705f4d3b53991debd8b097ca206cc10b05fea1706b4902934"
     sha256 cellar: :any, arm64_sequoia:     "cbca3f8e2099017e0be6ad89bc991ca0396b7fdeca472f7012a50d7ed339d4a9"

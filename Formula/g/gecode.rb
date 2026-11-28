@@ -7,6 +7,7 @@ class Gecode < Formula
   compatibility_version 3
 
   bottle do
+    manifest_sha256 "a7b3d9629fa431f92993f02f8e1b7395f7f618f52e6abca21bf9e938b354fc69"
     sha256 cellar: :any, arm64_golden_gate: "1c4795b63e941c436ca04e3090712ab4eaaefa212040aeba8db69bfaf45122b4"
     sha256 cellar: :any, arm64_tahoe:       "bde444a2c5b50ec670ac2e81746fd12bdd072d1e6c715ad1f3274d01d6520272"
     sha256 cellar: :any, arm64_sequoia:     "724e2dac5168efb3fb9a6f52a9bbd70fc33426d17f97a1eaee2f02969b741eb4"

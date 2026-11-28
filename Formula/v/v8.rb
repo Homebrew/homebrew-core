@@ -24,6 +24,7 @@ class V8 < Formula
   end
 
   bottle do
+    manifest_sha256 "ede870770c3bcbe006c60aa706da7eb20a8ec7d39c1686bbe9e2163eb43de11d"
     sha256 cellar: :any, arm64_golden_gate: "ded29c3fdf48d005563bc9d2cc643196c8f233d8bad83719a22635eaca6678ad"
     sha256 cellar: :any, arm64_tahoe:       "3bfb929bb656a747a7d3471a9fdf49367f215610e3819d289d09d1bf2e247cf9"
     sha256 cellar: :any, arm64_sequoia:     "b12f56e52ba59b36bfb718c1c281806336f7fb4ab0d6790bc61d97ece9d1a253"

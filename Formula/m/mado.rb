@@ -7,6 +7,7 @@ class Mado < Formula
   head "https://github.com/akiomik/mado.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c9d15acb8346c07de2cd84d5e9d2d693980dee64a84d1db026c4470a82cd97cd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43d3e42cc1f5c331a18ef310c62ff243d2cea6c93e4bdedd52d8731bcb6ff9e2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4ab0157e03de32712356af74ed9e451c36f9621c60ee6f070ff1e31221c5fe0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3183576fde63bb42114e780b77cf4ae8fd1e7b509ca02e1c1cc3ac10cf8d0e2"

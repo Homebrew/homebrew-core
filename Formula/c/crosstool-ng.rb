@@ -13,6 +13,7 @@ class CrosstoolNg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7dd7f84041418722184dc921df55956e7c115a0ccc2ee1ea6e94a85f90e0cd5f"
     sha256 cellar: :any, arm64_golden_gate: "68c7ffab95388303d7d4c4fb22e434929987d171cc74abe3e65b4cfb61de5514"
     sha256 cellar: :any, arm64_tahoe:       "23e2acff54566c0a6f06bcec2aad942904aec1120b7dd8dc33dce8905ed996a9"
     sha256 cellar: :any, arm64_sequoia:     "6c86a6ff8e127ee0bed435f09abbfd11b06139055215cec83b0fd0ac9361b9d5"

@@ -12,6 +12,7 @@ class Dhcpdump < Formula
   end
 
   bottle do
+    manifest_sha256 "c5c1c609b07d4728ea1bb6d33ee2f73370cb344189876a6fbbc4fb2189c9ba2f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a6cf4df59a7a16f4f2379af5b72151b9d8f2f314ce2ee2570714295c81ffe0d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7d8e967b3562351014a01c6158a8e84fa2aaa66eba6cda344148b7c1040e14f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78a5cf4fa7e3f43c35a0fc0f9bfcef0b6564cc22fa29705f6fd7c71968096195"

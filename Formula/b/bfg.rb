@@ -11,6 +11,7 @@ class Bfg < Formula
   end
 
   bottle do
+    manifest_sha256 "d869ebc16a4c01916037ad891f1cfb39137d35516ee049b15380730d0a78d874"
     sha256 cellar: :any_skip_relocation, all: "e6ab06431b47f90f783c186032521800d0fffb1f9fffb842c0de85e624d54d2d"
   end
 

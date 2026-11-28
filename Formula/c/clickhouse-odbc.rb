@@ -32,6 +32,7 @@ class ClickhouseOdbc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1bc63f4493f3aa9361da1f6110691c55cdef1d8b11ea45a03953b748e1c5a98a"
     sha256 cellar: :any, arm64_golden_gate: "ee1d2d878c93126733f2f9425a66e17277b4bd31efcd97c36b8bece2c83d7609"
     sha256 cellar: :any, arm64_tahoe:       "da15332d079fba7b0f876608029a9b4cf9f966cb185b4e98e2bd1c3fd818c5e3"
     sha256 cellar: :any, arm64_sequoia:     "1a1fa9c852905cd6589305006ada854d4c19703baa83be6623c7fd55f84b829c"

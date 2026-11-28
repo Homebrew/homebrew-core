@@ -14,6 +14,7 @@ class G2o < Formula
   end
 
   bottle do
+    manifest_sha256 "cc01aa5911375b7eb59ff8eef6d476910ab31712da3b49d936357f74efce0511"
     sha256 cellar: :any,                 arm64_golden_gate: "9f720e5be85ef1da88181da8db60f0aeb0e1691f6b6cca1a44d0ae0c0a1c165d"
     sha256 cellar: :any,                 arm64_tahoe:       "5ad0c65eda4765cf3816241e2d0604e2c2853783f6d9e8349843a97524f5fb43"
     sha256 cellar: :any,                 arm64_sequoia:     "e153559ae44f9a8f966ce19056422e03d812cca7c17e3787a9998ef2b03d12c5"

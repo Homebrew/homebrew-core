@@ -11,6 +11,7 @@ class ColorCode < Formula
   end
 
   bottle do
+    manifest_sha256 "e427183a7190ac416c6f4026b52bef66d2708f6f7ba1bd6c763e57a198f679cf"
     sha256 cellar: :any,                 arm64_golden_gate: "98e7be2df43864212d83d9d3cdd05520189997ae2d2e0bc19ae57daa5c7c2df3"
     sha256 cellar: :any,                 arm64_tahoe:       "ad3f82efc9695c34bf0108765bd03a823567321fb844bbd2dfed5ed7b679ba4d"
     sha256 cellar: :any,                 arm64_sequoia:     "eca15102195ecbf35b9b5db261ad63a1e7849f68048a9872757c99a300af2198"

@@ -7,6 +7,7 @@ class AttemptCli < Formula
   head "https://github.com/MaxBondABE/attempt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fbf023d863830a5d0a225a2b94c071721c590d08568815f9ec449164a78ba8ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da3b05c890afdc9d5858378b442f7b003fd9fc00d76a2b1db71532ddc6bc2c3b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a8881fa613c85f2f0c9a65950de36c1b684aafda39b6b3858f78c60d18a3e48"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07e2e1e6833b054ef29933a6ed02b0f59a79ca42d76f4e8cf7bbbc7b070f1c45"

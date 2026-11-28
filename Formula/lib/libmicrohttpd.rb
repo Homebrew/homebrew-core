@@ -8,6 +8,7 @@ class Libmicrohttpd < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3eb6e8436782dd124281bf4be98970a2b1da955f90211d266c861c354f71f46a"
     sha256 cellar: :any, arm64_golden_gate: "65b015c09a0821e595426b073b5d76a8dab536cdb754fc156b035af661dbd2bf"
     sha256 cellar: :any, arm64_tahoe:       "f89b293d974f566933429bc9a7199a82c82208042d490142e94bb64a0b3e704a"
     sha256 cellar: :any, arm64_sequoia:     "e0da7cfb9ae55936c7573c4b0a8d6d5910363e447822d6ec257e3849dcaf99cb"

@@ -12,6 +12,7 @@ class Qbe < Formula
   end
 
   bottle do
+    manifest_sha256 "add5277c3165166a1c7fec4014d9ff84dc484f286c9af1f91f26495ce8377e5a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f585bd40918ced048d2078422fc01056f29a069a7ba32e43f951f05cb2fbdc5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8868313b295b2c971c8bff621de5aadf80564ce87d071ce10e7b5cf6a3ad8b0e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6145d25ff89c0d21b2d1f5bf4dae9ad7e88718f72b911a37ea2cbde23580e262"

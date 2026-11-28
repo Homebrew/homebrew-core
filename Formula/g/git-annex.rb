@@ -14,6 +14,7 @@ class GitAnnex < Formula
   end
 
   bottle do
+    manifest_sha256 "8c4e03118c1ad4028898df1c9afdc5d61b27f5c6a7419180de7de7047af62953"
     sha256 cellar: :any, arm64_golden_gate: "5870628a5177615b720b4e1b1102b934ac140aec215716528a8d608652938097"
     sha256 cellar: :any, arm64_tahoe:       "1ee06c09237ee1978fa8fd531bd12037b166f263a9a5530965732b404eea5756"
     sha256 cellar: :any, arm64_sequoia:     "67e2b9fb3dfe3bf0a682a94d4438480024bb4aed0ce173e0af8abb261387b548"

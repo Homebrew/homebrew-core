@@ -6,6 +6,7 @@ class Gucharmap < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "0e0531a082f060cec67f6e352a83da46c9e8d47a635e17bbf38f5a3682dd8000"
     sha256 arm64_golden_gate: "59469221d9d575259b06736923fc90275ab1df0d0ebc8b5a7d087e5d9109da90"
     sha256 arm64_tahoe:       "768f8db2281a78643978397ac90f65cba1f869e4d13a9f709726c62f53e1efcf"
     sha256 arm64_sequoia:     "39a493527ba3b0d6ce466726c6444da0dd9e95a82cfc6f710f04200c41d7b236"

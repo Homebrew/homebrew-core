@@ -7,6 +7,7 @@ class Diffnav < Formula
   head "https://github.com/dlvhdr/diffnav.git", branch: "main"
 
   bottle do
+    manifest_sha256 "75eae2e299fbc1937ea23ede21f95d9a84e8758d920f20aba695ad3cc8f1dec1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9740daad89efefff55e3ef19b0275d88500dda80e54af6f5cb674adf5196918b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9740daad89efefff55e3ef19b0275d88500dda80e54af6f5cb674adf5196918b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9740daad89efefff55e3ef19b0275d88500dda80e54af6f5cb674adf5196918b"

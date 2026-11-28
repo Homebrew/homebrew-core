@@ -7,6 +7,7 @@ class ForgejoCli < Formula
   head "https://codeberg.org/forgejo-contrib/forgejo-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1c16112ff13c361d070a88a908a85f1988fef2bc7b26c39331bf4556268113f2"
     sha256 cellar: :any, arm64_golden_gate: "3020dc89ba5936253fd1f99e907cce48ee6162afb7642ff40534dc3fc96525c2"
     sha256 cellar: :any, arm64_tahoe:       "9b2f0e4fc3154f3ab676a6c2c1aa77a76a0adbf382f97eaebd8f0d6719f80bf0"
     sha256 cellar: :any, arm64_sequoia:     "9b58e439afaf3d683beb4b4c8555d4f6abc96bd200aadd03ad3adc0b2788dda8"

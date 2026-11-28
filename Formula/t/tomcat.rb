@@ -8,6 +8,7 @@ class Tomcat < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "88f2d512bd79a8c83499fc453944ec0448d8c723c351475c3b5585d022db93f4"
     sha256 cellar: :any_skip_relocation, all: "60775f0d58330776a7219603cdc8527b5892a2651d87ef763feecf0e99f1f132"
   end
 

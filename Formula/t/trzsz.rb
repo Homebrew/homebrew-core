@@ -9,6 +9,7 @@ class Trzsz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a2588d1ada8310b9e9aa57615f53254ff232f2586ba70b56053ec8d87fb161ca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b849158b67971110b9d8f407b583ca872faf3c8fe34c4c5dfbdcc1ee79d0d628"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d07fc8f0ea203b4b3256ddb4f86c21319130317d1486058862e75b6cc5780ee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43bbe239f66e93a82c1726608575ddda47d0975130f6033ad0587c0f5d3fc8ad"

@@ -14,6 +14,7 @@ class Wavpack < Formula
   end
 
   bottle do
+    manifest_sha256 "b708586ad18d4ea4d4172e1a96462cee7383c142d796c0f0951e8eece5c87175"
     sha256 cellar: :any,                 arm64_golden_gate: "3970b03d6626e9c293bc5f4a864733ca9be13d09d51dd44caee126caf0d0e39c"
     sha256 cellar: :any,                 arm64_tahoe:       "5371e8c937d28291ca590221a137a8f1f049538a6352f89373831c2ad1f06485"
     sha256 cellar: :any,                 arm64_sequoia:     "32423cac61dcc601979167b1be681f1713540ec321e3d215c70809af8a602075"

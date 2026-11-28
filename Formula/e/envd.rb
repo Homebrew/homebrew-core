@@ -7,6 +7,7 @@ class Envd < Formula
   head "https://github.com/tensorchord/envd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c5bac5827ad8f2684a8b924eec6938b9beca2ea4bc144a3541f483580bbeea6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "475246091bd23ee4fefdb4623e2924d432cc105cae293694261b127c68a028ad"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9207f00ac858dc1b32189a9431d92b9332e6519b947b28e4e156cea3ecb96784"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f252d5241288c65059ba83f144f11ed3c0bdb1b1a5e7c67d87d9336246330f98"

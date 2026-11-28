@@ -7,6 +7,7 @@ class Tuc < Formula
   head "https://github.com/riquito/tuc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c75417e882f89eaf0e8dd6347a9f733806eb758f8b78042846a9d9d6a33887d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "860ffc70e9c1f36b9e06eba0afed4c0010157cbb7dbab42536c85977cf37ebb2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8368bcbeb63d6af7ba8c279723ccbbdf3779ade8f14a1dc7cac1db98b61d1bd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6423b86779b7adb9dbd51a0614bba4367c827aa90802ba4b6f9b64422b10110b"

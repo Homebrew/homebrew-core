@@ -10,6 +10,7 @@ class AdvaiCli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2f396d271e13312c79eeb297c0a473bf885de82e7256e6b4f1158dae8fcdf20c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e4efb729d6b5c2519a8e49035667441de1bf930434dbee74ce91cdd0bcc62149"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d90172b8e1f71627df0adf990bc7f5aa8ef220e18b6178a7c2fed2a2a71f73ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cdf652f2fc3b772b9161abcc46c1c18e9419b59776ecafe1b01189b51ad677de"

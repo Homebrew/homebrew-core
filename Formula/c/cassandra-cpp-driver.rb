@@ -24,6 +24,7 @@ class CassandraCppDriver < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2b9ffc7929750452d2e765a77381a575eeef65e4aed12020caa830b7ba8800c7"
     sha256 cellar: :any, arm64_golden_gate: "ee344876ddd0520a78ef1ed0a19df5985dc55f05e241d0c46ad5a11f023c558b"
     sha256 cellar: :any, arm64_tahoe:       "aed7c57c257aefb388dec385c067714c9a7a25ba6b3a447ba302bf9897e8e88d"
     sha256 cellar: :any, arm64_sequoia:     "71cca948b550d6adf308cc90e7e47b0c204d5d3b1b582a030f367a10bf249835"

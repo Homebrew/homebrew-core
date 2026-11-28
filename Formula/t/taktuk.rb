@@ -12,6 +12,7 @@ class Taktuk < Formula
   end
 
   bottle do
+    manifest_sha256 "90401446ba5b4fc14b59bf1d0b5e74b9d6234c842aca533eed50e9ffc9e6705b"
     sha256 cellar: :any,                 arm64_golden_gate: "747c42dfda3ea36e995ea8653f18e8a4adae3d6a82b57743dc6d6d5ec18b5e5c"
     sha256 cellar: :any,                 arm64_tahoe:       "9b7af9bb1751fc08c3a0c738daa15c25213bd52e741330334386bb13f407c7a8"
     sha256 cellar: :any,                 arm64_sequoia:     "01c8d15035ec43b420659f736333289b8c1562d8ac5f9d92e2cc4f4fde62859f"

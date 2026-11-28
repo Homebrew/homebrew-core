@@ -11,6 +11,7 @@ class Vttest < Formula
   end
 
   bottle do
+    manifest_sha256 "6a82b433b94d39b1ddc332da5164da974d173c281466a09c00df6748add5144d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0844cfe13975feb8ce2db6165740d03ab531a79109a58004ce7e3c9988e6b1d5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2205eb531e5a84cafac03fddba51d325d33e289e12a93443dfd2325049946e76"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab95bdec102ef89bafa116cfa8277f6b3272af4118f95600cc4485c76e4243ad"

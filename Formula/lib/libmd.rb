@@ -13,6 +13,7 @@ class Libmd < Formula
   end
 
   bottle do
+    manifest_sha256 "4452237ee2384a09b7ecb90072e13f360847125f89b57592184c1238db27a9bf"
     sha256 cellar: :any, arm64_golden_gate: "366d28c7ac75b795b94100726d9a38e66c97b669f5609ace8c251f842b69efe7"
     sha256 cellar: :any, arm64_tahoe:       "444402c6c05d552f31d5cd6acd6ea5654daa79b7d40d32d13aceeeb27e104713"
     sha256 cellar: :any, arm64_sequoia:     "2e70abfbbe3959958db7befb2c8b218781214290717ec10d97dea6c3e82021cb"

@@ -7,6 +7,7 @@ class ConsoleBridge < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "eadeec1d6d1955651dffa6657ddc33efde085be6999c1d3170ac3fde1214055d"
     sha256 cellar: :any,                 arm64_golden_gate: "fe126b741ad808bea2a61049a9390e6979a9cac5abc8a0ccfc120a47b9d1f321"
     sha256 cellar: :any,                 arm64_tahoe:       "3a7225a144262d03cbc7d58b1eb2494c190060d9c1b4d3dbc36507c3911dbc37"
     sha256 cellar: :any,                 arm64_sequoia:     "4e7abd68f93d725996578fc7af640e0403cb35142fabc9654177802ea92f7903"

@@ -12,6 +12,7 @@ class Herdr < Formula
   end
 
   bottle do
+    manifest_sha256 "8efdb1872d5f7836bbe9bdb2da369dece515e1bfb9fda6f8d65cc2bf45cd6a2b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8388671d573476682d75b7517fbef151d75bc92e4a5859100dd7975c165bd1c5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "098f518ee5ce5438495eff09ddf67d7372a5ca60dfe995e6e4bfe5dd10391798"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1a0773148e4ad392a75123f6ac6f23031d8957c658bb5525528aab12015bee5"

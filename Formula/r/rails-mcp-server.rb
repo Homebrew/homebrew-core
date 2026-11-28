@@ -7,6 +7,7 @@ class RailsMcpServer < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "fb68ca3b9e342a1b3c7ba247216ec9bf4973a3a83229cf0d0836fb4e6b5e5f84"
     sha256 cellar: :any, arm64_golden_gate: "4cd79c3bee20da370e79823cb5ded548322dda9db44d5ae570a86db9144e3a97"
     sha256 cellar: :any, arm64_tahoe:       "5d14ff4f38793ff2ecc27bc16437c406375c9425db70d512748f9a3d03d80618"
     sha256 cellar: :any, arm64_sequoia:     "76a0b369f647e9f3d83924dc2a5b5a459c8cf4ac509eec1e69f7b82ec91259b4"

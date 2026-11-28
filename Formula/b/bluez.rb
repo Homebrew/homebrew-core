@@ -12,6 +12,7 @@ class Bluez < Formula
   end
 
   bottle do
+    manifest_sha256 "dd570af0750a148cf3a3314bf51b4e74f739c006a0691a4701e76ecc0e35385e"
     sha256 arm64_linux:  "54fdbacf7930a20975c41ce119a969071801d5f33202d04ade461e708c319242"
     sha256 x86_64_linux: "22858468eb405d2383160ffa7ac54fe02cb92542ebd6ac1ba532235e2436e709"
   end

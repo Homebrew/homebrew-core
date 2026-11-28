@@ -7,6 +7,7 @@ class Threemux < Formula
   head "https://github.com/aaronjanse/3mux.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8e587f4b51cad0d2ce4595e79a133cc1454dcb0ba8f55ce1057c1e6ca99caa7d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e86ef10cf89329f73a64cb0705c2644491fdbbd755f8fc09aad4f3065713709c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21124333bddcbd848413f1f91b1277a848777555165c7f649518236370c237de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d8d3f42362a72fe5ef6390d24223c572b596d234c590d7dcd51129678f6aae5"

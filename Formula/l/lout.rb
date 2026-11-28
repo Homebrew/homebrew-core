@@ -6,6 +6,7 @@ class Lout < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "8010b78d6594d28cecd294d3787df8505e4b22380849f346e57d9db8ebd0073d"
     sha256 arm64_golden_gate: "a90921901e3a5630133c727943b19f8143a6752aff153c630dfbd1de14169d2e"
     sha256 arm64_tahoe:       "b7af67416857be3856f6cd8257ceb82d5668f54c2489f06674d160282ffbaee1"
     sha256 arm64_sequoia:     "665f45abfea4ae42da28e05992734db9151094b20a834a1a908d6ff192886fbc"

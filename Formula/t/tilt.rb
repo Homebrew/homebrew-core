@@ -10,6 +10,7 @@ class Tilt < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "8ec8a8119511a438491f7d2465bc2c5463fa09251d05d9d4b07e4bef9b7ba069"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8338b34e637cf7fc31cd77fdbd137355858bb4cab6609321ef7b2401e79c0cd5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0579763d3c7469bbb83988c5960e3f7264c677fabd4091b793696f4dbeee3c1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "685a528600fe6dea18566d4eb21035f052dbb8d528517f38230d7bbbc66288cd"

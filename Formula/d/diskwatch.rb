@@ -6,6 +6,7 @@ class Diskwatch < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d43e6c565ba2ba4c3fbd7922940602872c5992d4a2ffe808282d198c0d4fe9c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05b1de8b9552f8c9ffe9803286d34d4d6bb4b17fe79f07f4bb8201b9cf942f65"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "854e36d1f51043e94ad29117525b1e3564e85922a51ce94392f40c5d15e22713"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a8c4a65becea4e09eebe72719137d1930cf49fbb20572b5331d8cd915d0da57"

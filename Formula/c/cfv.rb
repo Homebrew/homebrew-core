@@ -9,6 +9,7 @@ class Cfv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b1fc384fea4556f46ad152928c7a0ac02b676795997cde5f7c8dbf88e0320072"
     sha256 cellar: :any_skip_relocation, all: "c01efc6fe29098ab67692bd739036cb8b02f948fe72a37503dd989dd10c2c8ae"
   end
 

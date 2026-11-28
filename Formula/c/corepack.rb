@@ -7,6 +7,7 @@ class Corepack < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6269ffae3b0bf63ea3b66474e615fa8f74fe87b6abfde8332eac7eaf8245d6ef"
     sha256 cellar: :any_skip_relocation, all: "713a97356e9f4b8da721b2323a65f62221da917a7c79322119d7532b47c63544"
   end
 

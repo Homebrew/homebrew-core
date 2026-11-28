@@ -8,6 +8,7 @@ class Rttr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d0dc047f77a08abf8b4e30c4037ae6e0768e8453fbc6456dbc67f2816f95b425"
     sha256 cellar: :any, arm64_golden_gate: "b808c2fca7ba7145d47af3196407471607d087ca8bdbfb8db82b4d0413951c5c"
     sha256 cellar: :any, arm64_tahoe:       "7fea9cfe909f2c178adda52aa0ad4d6bcabd86fc59143a6bf529f3012dce1661"
     sha256 cellar: :any, arm64_sequoia:     "e0ccf9ad193022b31554136cd5b6000bea3de91a2773bd252921a6b9d1c829c0"

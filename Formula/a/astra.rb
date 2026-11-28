@@ -6,6 +6,7 @@ class Astra < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "05b1703827c008b82baf11adb2caaa460c961e8dc348e05275d48a451f0c30b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a3517e11fa8422c54eaa03f6a500f4bffff02b7973f15052699a78ad63385b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "549b8ebf33b3fa3cc353f80e7b7714c7f9880ab07e83db305ae9e4c19728e185"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5731e1cf9b66d10c0e812b4b573538d88b8b006697b310e0844a19bc703cfc0"

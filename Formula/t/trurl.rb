@@ -7,6 +7,7 @@ class Trurl < Formula
   head "https://github.com/curl/trurl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "76cef591327a3fd939e188686af54b39d545b49b38db724c931c45488a0ec683"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e8e64a0e4e5a7ca320870c722deb1d86726d2e1f22c29b1ff54a629019adc73"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b85273354bcc4088546ae4bef82d933579d8c81fd9f77c0403e2a4402c63a476"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e77852df0afaaf260ec8a9bba1c4b0536866a72c0d6d4070fea5f344aa81070"

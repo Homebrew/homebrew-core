@@ -18,6 +18,7 @@ class Siril < Formula
   end
 
   bottle do
+    manifest_sha256 "187aa00c74751c447eaf1b227c70b488fbb6a972e7e22d1ae5bce48328fcc094"
     sha256 arm64_golden_gate: "8587ebb5b886d51cab9b142512ca5d2abdd2e130025331ba98d9245dbcf69b76"
     sha256 arm64_tahoe:       "60743f6e38bfe6c96d4356bc2577af1fa698d43b43fee669797a81bfa316096d"
     sha256 arm64_sequoia:     "9339d7e28a329aa22d59d8a3f371654397519d7721b4ac5af82bfd9e95396cab"

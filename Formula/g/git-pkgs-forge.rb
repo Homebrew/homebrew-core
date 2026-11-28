@@ -7,6 +7,7 @@ class GitPkgsForge < Formula
   head "https://github.com/git-pkgs/forge.git", branch: "main"
 
   bottle do
+    manifest_sha256 "abc702376dabb1f5782b57d51af39b306de9d208ba07a7750881c14a3e029081"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2f6f4b9d5cd4247528891bbcfd364f71fb6bcaa394ffe0a27d7c9cd52fd2837"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2f6f4b9d5cd4247528891bbcfd364f71fb6bcaa394ffe0a27d7c9cd52fd2837"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2f6f4b9d5cd4247528891bbcfd364f71fb6bcaa394ffe0a27d7c9cd52fd2837"

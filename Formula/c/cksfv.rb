@@ -11,6 +11,7 @@ class Cksfv < Formula
   end
 
   bottle do
+    manifest_sha256 "12aaa525ba6109ff9b38469827f7f007d5c36e73c80f31a71710ddab2f5005f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "198a2f6ee9e4bfe99919f6b1f95c486b3df45a6c0c5b1504e4c35bcef61f85e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98f4a00c83288bac3479fcd9e301409f3445d816bad334c6bd7632f302f8b638"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96608dc540a21f5e14b2a1731b0d6350c00063db4528a1bcb56186188a157c00"

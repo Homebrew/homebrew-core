@@ -12,6 +12,7 @@ class Cpi < Formula
   end
 
   bottle do
+    manifest_sha256 "21fb5d02ee2ee22d7c864dbe674de94e80b04118700b6630b965133df184bc18"
     sha256 cellar: :any, arm64_golden_gate: "1aea68609c2e95ff8e9edf41c641b99912608544e38c9e96d8381980e2dd147b"
     sha256 cellar: :any, arm64_tahoe:       "f771dd06a98c519e0a9576f6a679d0ab15e899014ac9e6bb5811110d527f6ead"
     sha256 cellar: :any, arm64_sequoia:     "752ffd2ad9bbd2c801da3497fe20cfb2c30ea8d810935b1c595157109a82bc9e"

@@ -12,6 +12,7 @@ class Tbox < Formula
   end
 
   bottle do
+    manifest_sha256 "9e173a4332595c8c5d13e078ae67f303525b0e7cef7353ca266e0503ac6a6ad3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "193a3f964f29fae574b1ea3e9f34f00ace2e3dd7ee1130a11e31522e75dee320"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b6c95551a1db5b83f9d6536cee1c12f530f32779c905a5685fd0d17d797c46a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64851334ab38636d05e48384bcf87a8dc0dae0b9314dbab02ef7dced5978d4ee"

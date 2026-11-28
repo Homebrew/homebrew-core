@@ -7,6 +7,7 @@ class Cqlkit < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "40356b68f99f0fb2e388fbf356ba8d9ee24bd6dfd8d3abf663c692b0ac72739c"
     sha256 cellar: :any_skip_relocation, all: "d046672e2ea78accbef7eb841a473b6074a2b42f683d6c9b4e07979f63c60c29"
   end
 

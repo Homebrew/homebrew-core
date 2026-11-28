@@ -7,6 +7,7 @@ class Resticprofile < Formula
   head "https://github.com/creativeprojects/resticprofile.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6efb2bcc1f05271399cb7d069cd53b3305252efdf164eaad98de72d27b2a10c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a9a5c3a633b82cb4fac64a5a429d1502931d591c4c918b7ff6cc4415c9e1c83"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "401c1f515dbe0678bafdc1bd94011178fd52f77906678e999f5067da2874eeb4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5d137cd5bc88fff7a8b418d7c30261275c0ee3d54f47b49f5f9cc04f3900103"

@@ -12,6 +12,7 @@ class Libsndfile < Formula
   end
 
   bottle do
+    manifest_sha256 "63fb79146c69aae1b06ccb66addc43989e27a9f33fff857a43960bf5ab134c2e"
     sha256 cellar: :any,                 arm64_golden_gate: "aaaf26fac338c877a1c0bb30062d320e307f858f399abea332af93fe0aae4421"
     sha256 cellar: :any,                 arm64_tahoe:       "7788d515f9bc665779112b28a86810a2ac4bc5fb94a763df5d1188e461efce98"
     sha256 cellar: :any,                 arm64_sequoia:     "2d6a8173ef41359c3da4c78a5d5eb402846e480c509b868f671b80a17726f9c4"

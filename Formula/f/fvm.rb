@@ -7,6 +7,7 @@ class Fvm < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "50d3149d9d751f2644e5bc0168d629cc8ccd6d54ecc41aafa6dd2d17947812a8"
     sha256 cellar: :any,                 arm64_golden_gate: "acc1cb12c8f68bcb0d1f2caad504ad2832c54ed4b5c8e6fbb535368338ba79f8"
     sha256 cellar: :any,                 arm64_tahoe:       "f0e1ea0d35ba13b3c6141f230517b834940b3258d98b35705d75828e8e0a47a5"
     sha256 cellar: :any,                 arm64_sequoia:     "e8ec99fab9b673f3e905cd9db4f86611bdd7ec8be0c3592e88ddb81734c7db70"

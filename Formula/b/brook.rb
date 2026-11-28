@@ -7,6 +7,7 @@ class Brook < Formula
   head "https://github.com/txthinking/brook.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c4e6f1dc2281f3f4309c05bd5b2be34c7dcd56b18f2b4906142046f5dcaf188b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6c88e6f0715a4ce9eaa99e903a4798af55677be3e20b98817661ef7691d6c1d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6c88e6f0715a4ce9eaa99e903a4798af55677be3e20b98817661ef7691d6c1d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6c88e6f0715a4ce9eaa99e903a4798af55677be3e20b98817661ef7691d6c1d"

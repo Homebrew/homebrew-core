@@ -8,6 +8,7 @@ class Xq < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8d68281707651de8abbedac348a7afe3a11451c579ed1eadfabbd9d4033ac736"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddab1a3e2afd9fd8b9ea33bd1244b04f4892f3ffd4223cf98942ca6ee941e1a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ddab1a3e2afd9fd8b9ea33bd1244b04f4892f3ffd4223cf98942ca6ee941e1a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddab1a3e2afd9fd8b9ea33bd1244b04f4892f3ffd4223cf98942ca6ee941e1a9"

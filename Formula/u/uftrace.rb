@@ -8,6 +8,7 @@ class Uftrace < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "45256257c2fc0efe7c9405a04c2a4010a91cfa78d0c46ce599126aceeaf0a324"
     sha256 arm64_linux:  "e04804d875425f3f453095e2c140a25aebeaafcff91bdfd231324ab60789aaa0"
     sha256 x86_64_linux: "78c8aed953ac99083dc492732ec1ef46aa98fff8dfadb1eea858fe69e1f380f8"
   end

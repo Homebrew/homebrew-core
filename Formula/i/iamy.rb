@@ -7,6 +7,7 @@ class Iamy < Formula
   head "https://github.com/99designs/iamy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "746ab24c88b1080fcb6fbff820e4af31b649d2f2a3101889de61aff76ab66a1f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f571ce1b24680798c005af47c52cb3a3d8f8caf7c61b201d26a2b44ab25828d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe6c68658f3713fa2b96c7d35c08e68b4bd245ac4854cd16174a576984a62cf9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be58860790e074a6d7d6c53dead8c0b2868b7bba94c5cb1c6f7e1eff9c881bc5"

@@ -6,6 +6,7 @@ class Synchrony < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "f4fcda2bb1d6485dfea5f82d99bfbf4ea7d632d4b27cf373743e4dd43d279669"
     sha256 cellar: :any_skip_relocation, all: "4e6ede52ee4b2c8e264de762f4eba484befa3a1204a4001f4e0f9e59959db6a5"
   end
 

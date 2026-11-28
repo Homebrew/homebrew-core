@@ -16,6 +16,7 @@ class Binkd < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "31fe5a366bb37fad8dcafefa05f3bb589791fa4efdb907fe667e46839aa5da78"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "376f11cc4dd37b2841fde25a2c3cf6af3db6fc2ad48626e0a9950210a0562245"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98ede139dd485567a090cc5cc53906f6307761c12fa3a045f1e0849e8ad99ca1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cebbe4af0138e31dc3dbcd9f345f58deecc65a35d5093f6ba3ac148bd3a938a"

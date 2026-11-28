@@ -12,6 +12,7 @@ class Dex2jar < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "89e65e5e18df8a146896c262326570e510ae21b6d86d44b797dcffc767e4e71d"
     sha256 cellar: :any_skip_relocation, all: "ded18e9ed01974a255fca1641dfa790cf06c09ad819578f9e351d06f71a5ad83"
   end
 

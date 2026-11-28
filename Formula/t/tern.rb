@@ -12,6 +12,7 @@ class Tern < Formula
 
   bottle do
     rebuild 9
+    manifest_sha256 "17437876007f9f4fc0a266dfdc49cd750828891aebdb322a6b33789eb75791b5"
     sha256 cellar: :any, arm64_golden_gate: "2f8792cc5564670b095695582ce7a5702484ad164d3e3283a6725cc00bc94294"
     sha256 cellar: :any, arm64_tahoe:       "b2a51e8185c05364051f5ffdf3e8f25e8e63bbc287a1e17815d3929869870e6b"
     sha256 cellar: :any, arm64_sequoia:     "972ece72a1d99c200037818cf0679bd045e328638eafc445c950bbe0b0bfeb83"

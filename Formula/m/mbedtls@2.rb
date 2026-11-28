@@ -6,6 +6,7 @@ class MbedtlsAT2 < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "e7e6cd4c9ca49f948afdf6ff6a7759e9c4684765ef65069e295b0bf3d18a8f7a"
     sha256 cellar: :any,                 arm64_tahoe:   "5464397f0b136439069dd2c763b20192d423cd5c1c2f0771b031656a660e75a8"
     sha256 cellar: :any,                 arm64_sequoia: "1ac6bd9c970e98200758af383b9e8295387bd7b4c247dcdcb16cb05521b39607"
     sha256 cellar: :any,                 arm64_sonoma:  "194e03a15d26c9c866962875b2d1e5ccedab9e10f7ad9d60e01a155c88fdc2b6"

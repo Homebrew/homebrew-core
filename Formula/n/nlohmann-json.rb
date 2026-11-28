@@ -9,6 +9,7 @@ class NlohmannJson < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "15c77a521815365ed3d1f04de6ac70d1943b10381e4d28e8d73921b5919da744"
     sha256 cellar: :any_skip_relocation, all: "df65065eb8504f15f8802b7c681df015a592a68336db7fe290eeeda59fa1e440"
   end
 

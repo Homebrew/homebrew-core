@@ -21,6 +21,7 @@ class Libusrsctp < Formula
   end
 
   bottle do
+    manifest_sha256 "0efcc04a287caa0e98899147c270ac45b44100e661a4abc059d88d2d19606482"
     sha256 cellar: :any,                 arm64_golden_gate: "4d24c297861cb2e1226c9ca06bf1b01b2d649a1319a1e97e2422ea4ba0ea0e45"
     sha256 cellar: :any,                 arm64_tahoe:       "6103700921dd7e4269e9cd22540acc5d28e30e3ca10a3aa57aa75bf5f05c9378"
     sha256 cellar: :any,                 arm64_sequoia:     "26779b22a8b35e70131a4fb010839955453e8d703f682d77b411c5900d2543ab"

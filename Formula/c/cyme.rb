@@ -7,6 +7,7 @@ class Cyme < Formula
   head "https://github.com/tuna-f1sh/cyme.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7580855263fd07d724c18ae832f0149b2e8fad45a8bf3a1bbf0f5bbed78e43bf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53f3c16e9b77990d7c17fb9f8191c54975348396cd0640be6d5272dadea3764b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c061f12466bdf6cb438e909c590dc131390f134be7d5cc74b6eaaebcdd58cd1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "378e108762ab42d3030f112051bbabf05522a975e283d53293e801fd8ada6246"

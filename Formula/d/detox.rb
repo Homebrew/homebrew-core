@@ -7,6 +7,7 @@ class Detox < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4d381ba119e32833e7f5816063c483d66fd58b5fa2084a19943bc8ee265f32b1"
     sha256 arm64_golden_gate: "afa35b30e789512160e8265896ab095eb9aa39f9979d369aef91ba6c8ab8a802"
     sha256 arm64_tahoe:       "5b6cc3ec164a49aed7f74a057dcdfc0624039b5e45ee862b14b0a3572924108a"
     sha256 arm64_sequoia:     "6bcebbdd9744891565b47598137c74cb2fa3575fed2e7986ecfa4c84d28d6d33"

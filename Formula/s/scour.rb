@@ -12,6 +12,7 @@ class Scour < Formula
 
   bottle do
     rebuild 8
+    manifest_sha256 "18ae2bd496003c4e6bfa1738972d8aa95005df1f0e88faf565e6233a97a1ecfb"
     sha256 cellar: :any_skip_relocation, all: "ed9276f7f3832a16f8c8a2a6a7ec83ea5819a5489f7eb4fdceed349bb3e7ca8e"
   end
 

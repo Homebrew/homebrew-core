@@ -6,6 +6,7 @@ class Xdpyinfo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "71afa76e7ca82d9f88608fd4a926c79e4179a25e995aacbbd41db55614d37b70"
     sha256 cellar: :any,                 arm64_golden_gate: "99ffab69cb0062c245be101bfeba53b071dc309e76c6c753203b04f079676db1"
     sha256 cellar: :any,                 arm64_tahoe:       "7fcb8183733daa8e2ef8e35810c377ff385422aca8b10d37d0c85adcf99c2f2f"
     sha256 cellar: :any,                 arm64_sequoia:     "79e093122b8553c8317273bdf277575d67e0293d9c483d3f87fca8b0abe53974"

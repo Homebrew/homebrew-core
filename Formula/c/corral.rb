@@ -15,6 +15,7 @@ class Corral < Formula
   end
 
   bottle do
+    manifest_sha256 "de0b5fac8e3ddff14c715a2ed04e0ebf1313e57ac3bfc67749071ba492f718fb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "874284f3436e96093485b55a5b93542690a4bbe95e84bb39b62d1b11705b03c6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f3de1320410cb39bc11d33df5cad6e582d890625cd335e86cb7989d0a386f68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a562e1fe2715cef547ce09cf263d19b07b8bb20264a90b1a49782eed5e8ff4c"

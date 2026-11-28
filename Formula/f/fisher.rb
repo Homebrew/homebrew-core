@@ -6,6 +6,7 @@ class Fisher < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "df7d73359f01df770fd6f4fdf4722742e0853739763edb721ea92bbca35e8d34"
     sha256 cellar: :any_skip_relocation, all: "87b3e119018e5b07504fd5c9a2dcae8cc52f9c6c7856e2dd00fcce95f877f559"
   end
 

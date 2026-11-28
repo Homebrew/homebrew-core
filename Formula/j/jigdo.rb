@@ -13,6 +13,7 @@ class Jigdo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a81a2357d6159362c5f75efe41d1588f60553af22cdd70e5de36b5d903497182"
     sha256 arm64_golden_gate: "d49a8198fc6fc038742275c65a2aa29b8bc619149f3859f46e3182deb976e4c8"
     sha256 arm64_tahoe:       "e8dc3605b3abe08d1608a08a2c30309226c58b6497848e43ba3332ecc2d463f7"
     sha256 arm64_sequoia:     "14b9065aa6b5f05bcf7328f85b854a9113ed0ddc3ebb7a704c349d846901cc6a"

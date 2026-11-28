@@ -6,6 +6,7 @@ class Imgdiet < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9bff14e8495c1aaf67483ed75f5f66029ea8e5120bb5437d5867fd39477f2576"
     sha256 cellar: :any,                 arm64_golden_gate: "3dc316c21dfe0a2f21114d57d4bee359835cddbd25a6b3e52b8f2f56d4b3fb8e"
     sha256 cellar: :any,                 arm64_tahoe:       "0e3c098f6f4fb839c6e45c17c3b2c28e1d263ce52a6a5bff3139c27522c171f9"
     sha256 cellar: :any,                 arm64_sequoia:     "3f2124dea87682bc905fb403d3cfb36b16193959e56e267de9c31c73c8a5c708"

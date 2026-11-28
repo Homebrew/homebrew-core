@@ -7,6 +7,7 @@ class Blahtexml < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "0c064cc3f276917b7b0044d35c8cfe3198ea2ff192d35c01d924917c01eee769"
     sha256 cellar: :any,                 arm64_golden_gate: "effdae8900c0b2490e3fc78daa7d970d5f15247c22fdec47da6f164d5ca1bee7"
     sha256 cellar: :any,                 arm64_tahoe:       "ff3728fa3b6cd2729e13bf73a0f4bf9bd7be61b9296f3ec524a9898a4722a256"
     sha256 cellar: :any,                 arm64_sequoia:     "60f47cf24ae5bd4f52cf4aa2030b663593416a2af1a4cb8777eb62c9c372b6f6"

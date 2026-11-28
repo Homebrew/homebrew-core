@@ -27,6 +27,7 @@ class Czmq < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8a7dfe1b5f3137c89a26e7b275657da0c905a37b38a1738eb05c838bba34db91"
     sha256 cellar: :any,                 arm64_golden_gate: "f41978edf6576dadefc425a13c85c9206c1808cb965375c128e43fb2a7b95d08"
     sha256 cellar: :any,                 arm64_tahoe:       "256774bf2e64754f05e01944246e707c92472656a9d9b7680962a0ecf6372ddf"
     sha256 cellar: :any,                 arm64_sequoia:     "563fccc28279b87f02a5545f8e041090ead4e42f04f5df7e50b421abbb88f1eb"

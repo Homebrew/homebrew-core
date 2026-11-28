@@ -25,6 +25,7 @@ class Wordplay < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "38110162ea71edac14589d781a964fac9541dec392f95592d8b4a8585e18bc1e"
     sha256                               arm64_golden_gate: "923b7266df4e347886f15124f5579596308cd16574a7263ec5c7995caae9773d"
     sha256                               arm64_tahoe:       "52b1abdbfd94ea465505779f4c4b74e5cedc8729f60e2ba8ed5d598082d907d2"
     sha256                               arm64_sequoia:     "7117e25ad1d78a133f0ad6f3e68c7f203cf83387903e27d6346852b97b3c409a"

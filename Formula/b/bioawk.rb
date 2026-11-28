@@ -7,6 +7,7 @@ class Bioawk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b299e4de64add1fcbc00947e66b725558a887c0e306ac7439ec8aad85a2c4daa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6321a5ab5e149c0d79a9ea0210ab117799e1a22b98375f4f64c18c024c8bba4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc8c77af3f46588cab03f40541d48dfa09fe06115be3be5c42495213ad7fa003"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4f29845cf2a16730b9ade42596e972a8ac74b0eee296bed5bede33a08903ae0"

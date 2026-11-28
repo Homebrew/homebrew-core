@@ -12,6 +12,7 @@ class Sdl2Net < Formula
   end
 
   bottle do
+    manifest_sha256 "832e699304621e33c2c0fc1c28b5ee02bef2d19484e2ff5658e3f01eb1d1c12b"
     sha256 cellar: :any,                 arm64_golden_gate: "d03d574711cb19ed1bc1fb1295b6b4cb738e0b8b3c024ce8aac8e2a093483026"
     sha256 cellar: :any,                 arm64_tahoe:       "842b8be579abc9a3de68666c5654c86781e8a2dbf7ed4ea7eb116e9019249113"
     sha256 cellar: :any,                 arm64_sequoia:     "b6d21421e3538a00c2dee025bba678231f03c99e68a354ba3ed44ffadc691aac"

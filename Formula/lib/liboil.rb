@@ -9,6 +9,7 @@ class Liboil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "956d9c1d2134a556ba6e2c9eb10a52488099304e1259ca5224a07726fbed9682"
     sha256 cellar: :any,                 arm64_golden_gate: "728b49a9556a7fc235e1c2fc692f97142e3b6fde76258974ff4f85a13f7b5ea2"
     sha256 cellar: :any,                 arm64_tahoe:       "2952ae2a44d572b8bda832e965e061747b5ed1213ccd0bf0d7a41675f7498156"
     sha256 cellar: :any,                 arm64_sequoia:     "884af7577129d0a2cf1418f838a9d8057e4f158911797fc6e7ba4e2217ce0182"

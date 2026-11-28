@@ -8,6 +8,7 @@ class Thrulay < Formula
   license :cannot_represent
 
   bottle do
+    manifest_sha256 "682c07d4b4e35735360a2ad568125c0d4fd60d5b8a9f37398cfbe43fba753876"
     sha256 cellar: :any,                 arm64_golden_gate: "5109207d46da6089bb4fbff59bab0f31f77457147b46ae1f8c087c36bafffe92"
     sha256 cellar: :any,                 arm64_tahoe:       "eb92cf4715801f5889b767248ee53ccc473da2803c836e00651846de45dd2c38"
     sha256 cellar: :any,                 arm64_sequoia:     "8980e64ea2ecc17ba2e111d4798a39c7789fc1b0009c2f0ae5664b0fcff8603f"

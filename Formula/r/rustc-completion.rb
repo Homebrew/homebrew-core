@@ -19,6 +19,7 @@ class RustcCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c887c513fdb1656d23598b1d2aca0dd156ab72c5f33c539060008d1e1ccb3ee2"
     sha256 cellar: :any_skip_relocation, all: "25c56cce81d2dbed3850ae8bcfc984a605ce5e734bacb82aefece825e896b9db"
   end
 

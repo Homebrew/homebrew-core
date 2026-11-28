@@ -6,6 +6,7 @@ class ViSql < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "c82c70d10956af24600d64e28a9bb65f6ec7796c7d0ff3932691912b1c435714"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e19456d678a3c2e82ccd2298bda8bb6241638b8aac4e1d411dea8539369821b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e19456d678a3c2e82ccd2298bda8bb6241638b8aac4e1d411dea8539369821b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e19456d678a3c2e82ccd2298bda8bb6241638b8aac4e1d411dea8539369821b2"

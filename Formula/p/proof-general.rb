@@ -8,6 +8,7 @@ class ProofGeneral < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c82e6b22891ed3f11e3f29f24284eae7610c9f31181ae751a230f23b16b2af02"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "442cead6b758711dd6705fa876978529d381b5d779078775af60536ae72cfc01"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4efbf2e4aacd72d00f58a2f6a0f0748790e44a22af1bf97543c29ce077c133de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0afc78703aed0f2cdd4ec47dc841b5bf2ecc69b52d7f4a1b3ef7c2189a127b4"

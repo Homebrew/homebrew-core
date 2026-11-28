@@ -6,6 +6,7 @@ class Docmd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4de3467903bf429e8e59484daa8afd5415b9bbd05a5d21a3adf96b5a60e19bf4"
     sha256 cellar: :any_skip_relocation, all: "e7b39e411ec618a65aef6216637a0e14a876bae2f6aa456b89a4c55842d71d2a"
   end
 

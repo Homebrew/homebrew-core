@@ -12,6 +12,7 @@ class Libpst < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "941444c0270ac2a27f4fb0cc658f9905e3f14b7e212e658a5356e31ff93ff260"
     sha256 cellar: :any,                 arm64_golden_gate: "c4dd79145195e80ed669cedf612b97b834132991c2d0d0179833ebea66b1f39f"
     sha256 cellar: :any,                 arm64_tahoe:       "fd7349c417348d0e83213928612500c662ae584e15e66310898c9f49118d6a40"
     sha256 cellar: :any,                 arm64_sequoia:     "63fc62578e7c74252237139627caedb3bd86c4b7f6ae9d9573a01acb9361f6bd"

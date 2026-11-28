@@ -13,6 +13,7 @@ class SLang < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2d13e20949d66a25be68eb216dd92abf8726d3f416ded52a04f8a777a19e253f"
     sha256 arm64_golden_gate: "3b20e8daad6f9657e0e04aa1cc43adbfb2699b026bdc915144e73abfd8b87ebf"
     sha256 arm64_tahoe:       "4501b4277af6a136a6ac81ee096feacf8e8a9d32324482f9b9cdb60ec9b513e2"
     sha256 arm64_sequoia:     "3d8e852f17793468f76777ca0fafbc7cb43bc45ba3abc5e2a31e177918be143f"

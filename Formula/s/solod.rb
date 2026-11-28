@@ -8,6 +8,7 @@ class Solod < Formula
   head "https://github.com/solod-dev/solod.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2ba28608bc8ccaa1e23042683cbbab94fe0058e0974b00afcda10647de3a428e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52e0ce878d48b04c96385c2fc407ddd90589861dddb427b742e2096fef94bd62"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52e0ce878d48b04c96385c2fc407ddd90589861dddb427b742e2096fef94bd62"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52e0ce878d48b04c96385c2fc407ddd90589861dddb427b742e2096fef94bd62"

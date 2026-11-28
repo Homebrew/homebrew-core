@@ -7,6 +7,7 @@ class Jp < Formula
   head "https://github.com/sgreben/jp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "51f5b720b85003f232adad15bd9a7ef23e2d1b865d17301bbc0aade570fcfd08"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb390e0004417b22a2bb69989e5393b3212325545ae9b8950001b6575f2d057a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d7cea97678a221ad8241eb0c56c01fcb9b21d79e7da603735a09f60bf3bd9789"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "01da1efbfd32691e7a34fa8e13108bfd327d52cc9b76a349a900df7f3a6411c6"

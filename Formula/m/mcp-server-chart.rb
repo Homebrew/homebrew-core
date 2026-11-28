@@ -6,6 +6,7 @@ class McpServerChart < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ee96b5c0909f8d0fb0b0380d532f3668880e7a5ddd47dbf110e18fcc1cb5f728"
     sha256 cellar: :any_skip_relocation, all: "5a2f1a13b6abf5aa47e5bdf92242c7d669d628494dc020a459cf95ee92d88002"
   end
 

@@ -7,6 +7,7 @@ class SpytrapAdb < Formula
   head "https://github.com/spytrap-org/spytrap-adb.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f1e658510947fdf67dcad48a2e949ae052f90c13a879742701864e564b07f640"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9970883677097abb76a26ca42b3e06f71a686239a42a983cb876ca9137f21a3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5bb3d333766ead455c117b439428997e1d8eed5dc9e2ccc7081ae2cb5c1c2524"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "475f9bf6c484f44912e55aa27fbf4539601ed52f5550661974848171612c5dbb"

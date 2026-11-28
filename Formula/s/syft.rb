@@ -7,6 +7,7 @@ class Syft < Formula
   head "https://github.com/anchore/syft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "51d30793dc80b4bccf31e954916844ff1a3548d41b7700a61c95c30e2917b72f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70721ae6c9bf3322376a3f4e9fe65909c62660add6881a9fcd8de32806674cae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c9ec6042ce272929d37a0e905e130e86ec8635192498bfb09aa0f87708598e58"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "adb8f493455d9625cb32718a82a84f3271961099a3ee8f458ec37f9823aeed4f"

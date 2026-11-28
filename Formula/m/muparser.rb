@@ -10,6 +10,7 @@ class Muparser < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "35f03b2c2cf189ad787c4767d181371fb7c5a6d5d088be888d4eab0585b13dc3"
     sha256 cellar: :any,                 arm64_golden_gate: "6ef453c9b12f5372297db78675a7abf71f7a3ff9486e647b054904948673c962"
     sha256 cellar: :any,                 arm64_tahoe:       "23a51e97ef3d4ff02c8d8d6fb5dd53b142e89899927a9204eb4dd0018d21afe5"
     sha256 cellar: :any,                 arm64_sequoia:     "533245424ca9045f9e246b1c2092466b11b26fb13545b19d82469c8fd36eb2c6"

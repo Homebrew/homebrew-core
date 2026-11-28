@@ -7,6 +7,7 @@ class Viddy < Formula
   head "https://github.com/sachaos/viddy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5459b6ab4df5c5d790164b6eb09b7f40400da7e1acb6c4748ebc77d81450798f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad60d759133e01abcbc6ee316814598fca35cdf745e6b4326057092983da5b5b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1beb0eaca9c6e843f291dd98b759f5d37f51b1f966bdf44f1eaa6b0de5a6cf38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "44bb25f77068c5d9f414704f4855608a92d43924682a4f82d4448dd29155d2a6"

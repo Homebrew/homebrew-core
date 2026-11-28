@@ -7,6 +7,7 @@ class Kubecfg < Formula
   head "https://github.com/kubecfg/kubecfg.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ade69de070f1dfbcba7b2e24e60434e49e35541bee256a79ba55a1e1c534d460"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "617145ca626af6bfbea695192dba5d84b39cd57de8899af119a5a2ee523209dd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77c8441a2601f511a927c3af21e36bea92ae40ada39af42dc8a4e1f521ec1100"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82206c027cb9fd10662443b66bb241da43dec501384d07f2a690e4bd06c202a4"

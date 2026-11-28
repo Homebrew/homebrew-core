@@ -7,6 +7,7 @@ class Cpuid < Formula
   head "https://github.com/klauspost/cpuid.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a936d27f65cb5c0a4a2277a88486b1590aa8bce86f54fad5200eb8e0de1e747b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6ef8dd3158e7b63058d7be95c03e81f1dcc62cd768aefc5da7eb6a9ff9e02156"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ef8dd3158e7b63058d7be95c03e81f1dcc62cd768aefc5da7eb6a9ff9e02156"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ef8dd3158e7b63058d7be95c03e81f1dcc62cd768aefc5da7eb6a9ff9e02156"

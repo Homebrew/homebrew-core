@@ -7,6 +7,7 @@ class ClockRs < Formula
   head "https://github.com/Oughie/clock-rs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "249f8176d9a71f0f8ede5312c165f99b764ff149bbb324f9f469148a423601b9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a407cfa6399274fd36260ead72113bcf431edddb840fbda251b287205adf49c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ab9169308b9683f0c426f2b909c6f2d7893df39f9c1cb6b6e3a53d9c1cd6791"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80a2f8797600837578f1eb85e630f3637c6b93107c7a3686b55d1616cfa393e9"

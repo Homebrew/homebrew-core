@@ -9,6 +9,7 @@ class Fontforge < Formula
   head "https://github.com/fontforge/fontforge.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d58f7e3d3f1ee272e884e394a585655223198aba36dbb7ee0c67fc89ecd91745"
     sha256 arm64_golden_gate: "a8ff8c423ea70084dc6a4aa283a02218a886c178651d279d6145561ce02b890e"
     sha256 arm64_tahoe:       "948b9316231286de096b7eb1280d76f4acd95dc7b16022778779f033fa7f9e68"
     sha256 arm64_sequoia:     "0aa8a1eefb610f88d69df38272c31586fc08cec9a417218cfc1bf062cb6fe569"

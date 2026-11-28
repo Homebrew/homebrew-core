@@ -8,6 +8,7 @@ class Rustypaste < Formula
   head "https://github.com/orhun/rustypaste.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fb04ed571f4379807e85b2b039491e050df005eba1b9d7617bbf116bcacc750a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07a58da0969fc70bf6740d01e0ac99cdb3a2edc28b5d3f4a6fa0e17e5537f380"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "894b9f70062db6f951237f209dfcb0cdbf0fb3302e02d1553707cc18d51816b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c31ce043892b721d24102da4973f3785873c478c2f21b4ca9f5b98b23627ac54"

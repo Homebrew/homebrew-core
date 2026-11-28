@@ -13,6 +13,7 @@ class HierarchyBuilder < Formula
   end
 
   bottle do
+    manifest_sha256 "a4d16ebfd4c67f11ae4fcdb4266e6608a366ba90fb5a4d47dd1e3d2053c62489"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e7dec7c7fe8aee017610f3d7b0f1b0450b57b8fa1324212f7d88d4f8cb58fe6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa07ca332fff4891992c040a962dc1c7b04718fe50bca0b041800b9a2b6bd589"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7b36f01e936928add68b8c217ca2680883827fd6f8b275aec6990730aae04fd"

@@ -12,6 +12,7 @@ class Cabextract < Formula
   end
 
   bottle do
+    manifest_sha256 "883c716a37e95bd933523d75a7a039e1d0607c4d6ed9d0ef8b4214c2d0b12d05"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a72af65513457bedcdadf111fcb022502ffee4cac6eb0f674a7cf449016f81f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9bf0dafabe848673f7b1501467f1fd99ae9cc11427c1056621e375031ae5dc5c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4d45444d69bd2332701100c27601e5a009a2f8ccea0b30b159ac4c3c9696f64b"

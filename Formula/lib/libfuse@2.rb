@@ -11,6 +11,7 @@ class LibfuseAT2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da5b3b1fba39f7a01bb843e8ca21183fc13198ee4d45934a60221326c7fc5a75"
     sha256 arm64_linux:  "df8b668765d688eb5a516eaa67a73d1750b5ce6bab91b1924def3b7fd0d85aac"
     sha256 x86_64_linux: "2f5566126dd96e6a9c0329b6321db145d1815690cf5d4cf51d62b762493ca19b"
   end

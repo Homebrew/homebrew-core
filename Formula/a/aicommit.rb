@@ -7,6 +7,7 @@ class Aicommit < Formula
   head "https://github.com/coder/aicommit.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b67e94c36a43d18c52e004b6d86b6943171f73aaba96ab46380f9752b5896acd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6c5e1c9c7b4a2642a813cfc76504eb3f84121d6c67c0f96e0531d2022671615c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "076bbcf508c5867b4b0b525a0075200c671c2a5f909799ab4292bab2a4e93a30"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a7c316f47dae0539e95407a1d404c7ccbb37f771f6a9049e3abc6dc6421484c"

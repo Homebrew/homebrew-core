@@ -17,6 +17,7 @@ class Boost < Formula
   end
 
   bottle do
+    manifest_sha256 "084fc486a934a19fcb87969b728b2395a00c34ff66c5d2e12ce886d5405757e4"
     sha256               arm64_golden_gate: "007333f4d5d919653b401a0aed4da917ca9004da4b01f7ae5c1d9bfaaffb902f"
     sha256               arm64_tahoe:       "4f6a8e1e42e5d7f53b0c1458e571d0368ad79fd88eba171b9944541a64156734"
     sha256               arm64_sequoia:     "bc88ce997d845e2aac0a1cebc6c89447ae4c31489064f000744fa5c3683c48a6"
