@@ -42,15 +42,10 @@ class Glider < Formula
 
   test do
     proxy_port = free_port
-    glider = spawn bin/"glider", "-listen", "socks5://:#{proxy_port}"
-
-    begin
+    with_test_process(bin/"glider", "-listen", "socks5://:#{proxy_port}", signal: "KILL") do
       sleep 3
       output = shell_output("curl --socks5 127.0.0.1:#{proxy_port} -L https://brew.sh")
       assert_match "The Package Manager for Everywhere", output
-    ensure
-      Process.kill 9, glider
-      Process.wait glider
     end
   end
 end
