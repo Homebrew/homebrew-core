@@ -6,6 +6,11 @@ class FilmcraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/filmcraft.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     manifest_sha256 "00bfbcca9a85cb9236218c8e71109a2ac3ec5a43a921ec6ffbd5d8783e29ca2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e2e7c3745ac0cffa86fac520fcbc6b6a752f1928620d353f382dfa4b5cfc47a"
