@@ -12,6 +12,7 @@ class OpenkimModels < Formula
   end
 
   bottle do
+    manifest_sha256 "105f316053130a71dcb27ee7b4a2d325678237ea49811875b929b91b45607f97"
     sha256 cellar: :any,                 arm64_golden_gate: "fdfced7ed5192ed767fe8828ada458c95aed119d2ae8cc386ea38a4e545a047c"
     sha256 cellar: :any,                 arm64_tahoe:       "f0835dfa801e64cfd8157312b79d8f4c7e1de78625e6d9f8fab9fa6aa3d6d9e4"
     sha256 cellar: :any,                 arm64_sequoia:     "4b54c417f0e9a9012499d60c41935324c7de81a54bccf1710f68528201eccb9a"

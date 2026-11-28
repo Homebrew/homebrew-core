@@ -13,6 +13,7 @@ class Gopls < Formula
   end
 
   bottle do
+    manifest_sha256 "395203c51aa026ed8ab6e3861d3ba0a5006585db0259dc22ebeb8d7af42f2cff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ed5cfdb5abc77788ba91e6018d9e301e3327100cc6d305c2f60106596082956"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7ed5cfdb5abc77788ba91e6018d9e301e3327100cc6d305c2f60106596082956"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ed5cfdb5abc77788ba91e6018d9e301e3327100cc6d305c2f60106596082956"

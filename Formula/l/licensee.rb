@@ -9,6 +9,7 @@ class Licensee < Formula
   head "https://github.com/licensee/licensee.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e86ddc863c52e9d9ac35572dace03805a5c6e69cb14e6ef9aaeb1ea8a17a87df"
     sha256 cellar: :any, arm64_golden_gate: "795ab47b71b96b3e0a29d9775aee1ddb786bc468dab747c0cffe91e1f6006e69"
     sha256 cellar: :any, arm64_tahoe:       "bacf988b99ae3158b2ece6936b6f51a64098b08201dd117d860683b0e532e0d6"
     sha256 cellar: :any, arm64_sequoia:     "a21a560dbbb44a499515ba8d9855e76b02b7f564d4bd578e64b965316c284822"

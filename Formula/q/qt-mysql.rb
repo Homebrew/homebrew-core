@@ -11,6 +11,7 @@ class QtMysql < Formula
   end
 
   bottle do
+    manifest_sha256 "03e7e0f2110775f70734604b27a3068d431f96d07470e9407a819706ed885137"
     sha256 cellar: :any, arm64_golden_gate: "503c55ed0a9665ddd3024dbe98fb9da9bbf91fc0ed5bd884be1e56cbc8f3b30a"
     sha256 cellar: :any, arm64_tahoe:       "51327a7b9ba5cff2838129b1bbebb4066dd39e9e9e77d5816a1277113b87a94b"
     sha256 cellar: :any, arm64_sequoia:     "ebc373ee76af6d947002c1a4e82384ffff395a80fefa623ae11fbd06c15e135c"

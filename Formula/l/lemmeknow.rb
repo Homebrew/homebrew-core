@@ -8,6 +8,7 @@ class Lemmeknow < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1242b3d06ec7f0b4f6091303bedaff3a9d2ad5c7ff41e6b3c667f5bff2d638a5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bbd5caa47337d9d89b1a32257355c58d26259d109f0ac62ac485b60b7b3928e2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd7e90d4fbfdd91179118b0ac0f295c678ede8f73e98b3e447921a1b21909e29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ee4a88135c29b58734a0bbf5c5a6ab42225fc93392a570a1ee1e05390a8374d8"

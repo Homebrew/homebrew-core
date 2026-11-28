@@ -6,6 +6,7 @@ class Wy60 < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "9d87510aec90b66414fb953ad3711f1732f2e31d90d3b78d54f6621ced6f6b23"
     sha256 arm64_golden_gate: "b092ee49c7470853cbf58b8616f43dc77ac3e06628ed8af5674b07295d18ecea"
     sha256 arm64_tahoe:       "27074202271ebad114a776e830498514e56da281471bdd05eed3d4eb00dbee09"
     sha256 arm64_sequoia:     "6e8b275623922f42137e8d90712e41890ac44f9218dc7ff8d8476068d7497f01"

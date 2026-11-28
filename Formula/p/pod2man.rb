@@ -12,6 +12,7 @@ class Pod2man < Formula
   end
 
   bottle do
+    manifest_sha256 "5becbec7b7fcd99e3802786cfdc59448ba6a4c83e5d98fff7d37b247de801ac5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3d208af3aedeb2139a4f1580f4115266e27849058c5aff53be2af97a98a8863c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d208af3aedeb2139a4f1580f4115266e27849058c5aff53be2af97a98a8863c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d208af3aedeb2139a4f1580f4115266e27849058c5aff53be2af97a98a8863c"

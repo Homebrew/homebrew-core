@@ -7,6 +7,7 @@ class Scdoc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3260adfd0aa8737f6561c9d3e23b5ffc4a6f53bcacfe4a866b777243ea7e7c48"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f24cde7b98a4e6eb3ab2d7812c7ca63c25be3a79e14af0b612f762c85474ecce"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "802dc7fb1272bca537c94246e9cb406b33ab390e7d204e91e6b0dc6658fd83f7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8e173d57296622ceb431df136c5501120ab1242864cf83be9f002be73286bf7"

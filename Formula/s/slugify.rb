@@ -8,6 +8,7 @@ class Slugify < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7f85ea9efff0d710891cc9bdfcae344128f9d08d6ef04b1f289679ca382b03fd"
     sha256 cellar: :any_skip_relocation, all: "3b484ae7b5d87f4f148f8c9395960213ed62b4cd1b82567c7bcceede23259942"
   end
 

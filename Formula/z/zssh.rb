@@ -12,6 +12,7 @@ class Zssh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ef00791d3b951ca0344acbb84bbee10e75e7281cea8ee1e0e008c2e5bc4d4d19"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "87d6a673ed9a88ee64e84d450685ea197e4894f0a820d773e322b22dfc38225a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf52245597c50c4d6d826e9be5a239ba19ac959c304ef69d75f9240092453128"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f263234cd88fe188d247aaaf24e7d64e8cf990bbf671c0e98b96801710a3c2c"

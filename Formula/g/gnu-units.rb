@@ -7,6 +7,7 @@ class GnuUnits < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "976aedab2e4f01e1f5f70b3c1a57aa495e6593588ad8772ffa733c3538d2b1ad"
     sha256 arm64_golden_gate: "c2192870ea1201c2726e46484ed2232eefe31e42ca7466d0e31ac248ad5b9103"
     sha256 arm64_tahoe:       "1bfa5b9ccb5932b8517abef2af4e421ad782237868cadf9046ec3368f3a8d61d"
     sha256 arm64_sequoia:     "0f83de7bbcba4d246ff388c2d6ced55bb0a1d129b62e9b550c30c8e92ae10888"

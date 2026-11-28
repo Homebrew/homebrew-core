@@ -28,6 +28,7 @@ class Openjpeg < Formula
   end
 
   bottle do
+    manifest_sha256 "6ce879058b2826518629d7384e77ce74141d32f960e2214aa223687fade95327"
     sha256 cellar: :any, arm64_golden_gate: "031d1267409505d3e26249e279633b21a55799c99ad7ce6cb0a8ede0fd8779fb"
     sha256 cellar: :any, arm64_tahoe:       "175f4e65750a8bc968e01b36259e7adb979dc32dbc22c0f4c980bb56e7b494b8"
     sha256 cellar: :any, arm64_sequoia:     "5f2c17c1be495ddc03d00c721b7144f63e9f5098cbee3147cb67610f3875a516"

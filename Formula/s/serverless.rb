@@ -7,6 +7,7 @@ class Serverless < Formula
   head "https://github.com/serverless/serverless.git", branch: "v3"
 
   bottle do
+    manifest_sha256 "955aba7eca18a01a6dd79cd7bbc57cfdff706b66c31b7861f526ec9d56ac6d60"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "3ecd4d78b6e7743528665c880f1c56d27fe259c4d543bd263e00c38cd785eacf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "06a1d77422f266cc1d32de082fd88653ff2acba640e4369391749f8308232abf"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "4e5580e7acdb2b5a7c4c941d321aac21ccc370b40b8432ff0372b83a33227ef1"

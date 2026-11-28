@@ -7,6 +7,7 @@ class Cpm < Formula
   head "https://github.com/skaji/cpm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3e3cacb37510f7719ad3c80d659b288c75b8e6ad428bca8b656967c47b25d6c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8d1b2d795a1871cb40d4fa7c6b07134c4b637296d91b2cdf9649327dab116d2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8d1b2d795a1871cb40d4fa7c6b07134c4b637296d91b2cdf9649327dab116d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8d1b2d795a1871cb40d4fa7c6b07134c4b637296d91b2cdf9649327dab116d2"

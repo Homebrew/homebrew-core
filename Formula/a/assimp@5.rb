@@ -15,6 +15,7 @@ class AssimpAT5 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "39484c5bc9bc046193f7466e153d5b2db10b4f0bc97e9b4f29a3187a20fdd83e"
     sha256 cellar: :any,                 arm64_golden_gate: "78c9695457e0e3fd2fdeaea8c03c7e29501afeafe042f99272bbec39a9d9dc70"
     sha256 cellar: :any,                 arm64_tahoe:       "e3b5aa965098a82cc09f46f5bd129b9028a104298fb546485489554376bc6a2e"
     sha256 cellar: :any,                 arm64_sequoia:     "be0c878a7f9ffd255736ce7234aa372530b87fdf607cc82e7a2ff9a8e6abf812"

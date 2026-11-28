@@ -7,6 +7,7 @@ class Carton < Formula
   head "https://github.com/perl-carton/carton.git", branch: "master"
 
   bottle do
+    manifest_sha256 "db6f4b9bc88791e18317e5428a53f53a4ac4fce056aea038f1cc7d94c9a94b3f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fdf45d3192afc19d0d34401b4055afd0594df1a80d5a92a4755bcd104a620618"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7cf6c91209b768cb3e963c1eb14131efe738a851748d61d9adf402c274beeabf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "228551b5317d850f5ba6cc3dcf31eced4f9df54d28a804ce0dbf24652ca30e75"

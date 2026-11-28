@@ -6,6 +6,7 @@ class Rogcat < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "87b8f9627ff31249476c2cab50c1755ec1a2ce11a9f55aaa4072e67f67585c7c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0837da9609b49d1f7933f7150b4151f44edd2441e43df51d7c0ed999b3915e3f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1dd3b52bb78be0697f011c4b822049cbb3458c442bfaede275a8f2bf601edf35"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03ed4acdf899875651f2b7a66e3ed51b0864cea322411ceb19288dec67b2226d"

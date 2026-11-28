@@ -13,6 +13,7 @@ class Spades < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "31632b41e7c687f96c9bcba2d14807a3d0337406f56aeec2fadad130ebd99dfe"
     sha256 cellar: :any, arm64_golden_gate: "bc023cc6a6e515dd2e5b5335c6c13279895b52008a1ae5d58682eb4ed6599be4"
     sha256 cellar: :any, arm64_tahoe:       "23f74bb027e00eb1c5bf5bb12a71f9ea4228257f0d980e7f462d16db686b4324"
     sha256 cellar: :any, arm64_sequoia:     "64032958f2f0b98b745dbee488462fcfdca052272174d35928e5a16810b3c531"

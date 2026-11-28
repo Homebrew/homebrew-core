@@ -13,6 +13,7 @@ class Apt < Formula
   end
 
   bottle do
+    manifest_sha256 "1175277f626d826824563e30beefb59811a0bc680f529c100a2511585ef6d98f"
     sha256 arm64_linux:  "a38552f18278f1dc10f6e1e16f3b9377898bdbd8f88798849eae5452e6f72cdb"
     sha256 x86_64_linux: "f4c938beacdbf3f2e082c903f29552a86ac4b3346bb17a514e7d34be8c67f8d5"
   end

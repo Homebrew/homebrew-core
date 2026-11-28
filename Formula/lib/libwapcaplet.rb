@@ -13,6 +13,7 @@ class Libwapcaplet < Formula
   end
 
   bottle do
+    manifest_sha256 "d0b013f5a55406e5836c880473052e88f143ebf535a435d12c12435fc7358072"
     sha256 cellar: :any,                 arm64_golden_gate: "ae6ae1df0e410845284ae762510be85a285cdec7f457423d78c7a4c1f2e5a494"
     sha256 cellar: :any,                 arm64_tahoe:       "0fe941d8b4a3a5f43b00e57bb2d338c53fff1fa2df2070e28cc5bc3bdb4cee97"
     sha256 cellar: :any,                 arm64_sequoia:     "c751d28cd839b73ae650342148ec11c12f0c74a02c74228e5a455012a9753dec"

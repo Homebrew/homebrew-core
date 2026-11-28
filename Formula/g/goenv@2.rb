@@ -11,6 +11,7 @@ class GoenvAT2 < Formula
   end
 
   bottle do
+    manifest_sha256 "5aab42abb2c90bb7cb7ac08d64d446f23ceec70d66997d133305b20cc385f373"
     sha256 cellar: :any_skip_relocation, all: "bf68f9afc10eae62576fa07957fbb28cbd2f2e1162056e8a29191e6ddee4c1a5"
   end
 

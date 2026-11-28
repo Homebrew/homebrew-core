@@ -11,6 +11,7 @@ class Dafny < Formula
   end
 
   bottle do
+    manifest_sha256 "6664647ff0e08bc2a59d05087e28617f52ccf4bb4329f67d95c4fdfa6ba23499"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "888a55cc59aad5be9c86602559b1a062b19fe6fa6f0b2c78325f05f47369162f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8e05c17dd373fc4990bfdbb912d8fa47eb1981a5fd34ec150283f53eddaa0c9e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "296346300fcb84014e88bcd5e6a43a3f59c1f5b90f6c4f9c9ff5e6664459f104"

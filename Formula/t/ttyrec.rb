@@ -9,6 +9,7 @@ class Ttyrec < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "891ddd929178186fe9de13270f18442db775a7cd8c590ac7ec2990c9e6ddd16b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bccb91351464d139b2079395a92dde828f15532b761a9a801ae21cd684ba1e6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b44b170e50cd4a45a34866f55c074aa7178b26a733350d471dff58709831cf0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1bc483dbae460cdc63985077a07ab767d1f3b3b2d614ef276a038a07bbaa479c"

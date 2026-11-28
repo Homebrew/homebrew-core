@@ -7,6 +7,7 @@ class Typstyle < Formula
   head "https://github.com/typstyle-rs/typstyle.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ce0a8bd123a49ce696e111c1f2b9a26e1530555686b5eebb0238b0a4aeb66c83"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "865721414514758c317ce83bc37b43cf7e1f923ee360eef041446ad1f9011545"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c73064d3834e807399066ed78af61cde7f63b40409eda9a12bc84d6dbc3f83d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db31bd3653813f1e4b85a202c4f5eefcd42c23467dface0c6f83c75368158e48"

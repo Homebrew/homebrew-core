@@ -7,6 +7,7 @@ class Catimg < Formula
   head "https://github.com/posva/catimg.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fef4f1b5dfef87c6f1e745efc8a304077733b2c9968829deafeecb556d378bfb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82b6a5b5dfea815439a9f320db0490100137f081faa79513dc955045accad418"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2fefe411a3971353cb66a6bf61839e828df05bb729660c8c8b7ed5e53fe29416"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82957113d0c6d70108ccec7490751f4221c73ad482275c7b9a98b1e82a05aeb4"

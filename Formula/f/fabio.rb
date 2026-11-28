@@ -7,6 +7,7 @@ class Fabio < Formula
   head "https://github.com/fabiolb/fabio.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b89c2a26114f98d3619a95e6c977c6f483d4b734b94e63de4cd6b71f0b37506a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75a5f708981a966b190d40f1ab801ec9323d23b3a768396294644d2b04636036"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "305f60df381058cb7b8290a6568a5f626e6c6859a183c0246c1f2b69c8a6ac11"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c7c202047c451df468c9fae9232447d54e15ed786cd5ab286b4456b4952b712"

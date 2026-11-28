@@ -8,6 +8,7 @@ class Mfterm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "83ef988fffbcc1eed9b5621a3c46642b7c48251e92600079782cdebb210ecf85"
     sha256 cellar: :any, arm64_golden_gate: "e0f593b5e2b34ba00dd11867d7492b51988e9831a58232bf62dec2bbef789a13"
     sha256 cellar: :any, arm64_tahoe:       "60aeea82c7d8adad403b01a6ac6360429e5761b88d6d8f5c8f613c7da808d656"
     sha256 cellar: :any, arm64_sequoia:     "518dfba132ced0ec7b8f2fed7c11b9bbaec98fa31bac1a95814d369ab4344655"

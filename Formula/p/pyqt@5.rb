@@ -8,6 +8,7 @@ class PyqtAT5 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8fa9f49535efe5d889d8df3f04734e404c843ce3e5feb576bd49022ec479b9a7"
     sha256 cellar: :any, arm64_golden_gate: "0a5280ffc9e5ac25ad6088871564501c824f7d4bb62f36f55dbb43c8b972aa6c"
     sha256 cellar: :any, arm64_tahoe:       "1b044957bf70664e41eb77bf4486bfd416a53c5fff348964e60df09f51f76b54"
     sha256 cellar: :any, arm64_sequoia:     "3ef599ff47afa4f11570c7b6dc5b043e78d91c0ac9c419d8605f1c40b2a6a672"

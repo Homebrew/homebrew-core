@@ -14,6 +14,7 @@ class Vsce < Formula
   end
 
   bottle do
+    manifest_sha256 "6f2f08abc342a17fd7060cde63cd826276c357db16ca8c00b39d9ef98e8d25e1"
     sha256 cellar: :any, arm64_golden_gate: "b151a1588ed3cf28a301bfe2b8454ddf149a3b91c3663f261ac51f2849f6dcd7"
     sha256 cellar: :any, arm64_tahoe:       "b151a1588ed3cf28a301bfe2b8454ddf149a3b91c3663f261ac51f2849f6dcd7"
     sha256 cellar: :any, arm64_sequoia:     "b151a1588ed3cf28a301bfe2b8454ddf149a3b91c3663f261ac51f2849f6dcd7"

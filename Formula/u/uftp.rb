@@ -11,6 +11,7 @@ class Uftp < Formula
   end
 
   bottle do
+    manifest_sha256 "63a98c22e7f31e411fe698d356c6f8fa6f01c09eeee1b0340402e28a6bb60e83"
     sha256 cellar: :any, arm64_golden_gate: "535007a39bbebae49254a421b6c89dc99526e7d347c4aafdc3744af257223046"
     sha256 cellar: :any, arm64_tahoe:       "bfb1c112ec39c391a4a4b81464105f853bedc1cdf848e79e33fedd018cddc738"
     sha256 cellar: :any, arm64_sequoia:     "997d48fe3ab6d8ba615b10a158713fe12b95ab246ae0cda58c9ea27dca60c4f4"

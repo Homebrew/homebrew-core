@@ -12,6 +12,7 @@ class Threadweaver < Formula
   end
 
   bottle do
+    manifest_sha256 "855d1a58c4bfe0ff4e0f28415ee97e72133f72506837f7592e2ad8359a78a80a"
     sha256 cellar: :any, arm64_golden_gate: "1b2a737109308dd9a68d33675eab25addd5cada00aa53d4eb6dc360343b35db4"
     sha256 cellar: :any, arm64_tahoe:       "76dce7506e6d698e4229cdca6ced2686ceecf47ed3f8798caa57c61a5a218152"
     sha256 cellar: :any, arm64_sequoia:     "4c4c4109b5944b1656ab46fb122068df9e2e7bb59d98b6a5cccff5cb9972c98b"

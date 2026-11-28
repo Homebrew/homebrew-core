@@ -8,6 +8,7 @@ class Cryptol < Formula
   head "https://github.com/GaloisInc/cryptol.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5c46c5c5ef0bb4a474deb016ecc48bbfdcfb873f0e8bd3f8bdcda23a47673253"
     sha256 cellar: :any, arm64_golden_gate: "e0954bc152744c95e1a4fcc9906413003dd04f0656c214dbd0a8a2f42e13fab0"
     sha256 cellar: :any, arm64_tahoe:       "f3d0a0295ad14f3049a3c90d1b9c18d946c3a28efd25ab41820d1037f9c31077"
     sha256 cellar: :any, arm64_sequoia:     "27d07d49485c5507677ece6f0e73f2c2237b521eb758698c3d500949515db27a"

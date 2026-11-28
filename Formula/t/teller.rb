@@ -8,6 +8,7 @@ class Teller < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "768b0eca5946fc5283be8b226bf6d9600d0e584215f48e8d8356ca3f0f4eaee2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "498a4c2d3407a60a1ca31581c9d694217d989a7d8af58f50249661ac3cbf6704"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a9ae23fea270e5a54848ad267bbbc6333f8ae4fb7d343a6ae9d1ac693350e45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87cf330481da777449b02b7ec37182b9c51544d0bf99eb93baeecde764647d6e"

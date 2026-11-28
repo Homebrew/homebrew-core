@@ -8,6 +8,7 @@ class Wfa2Lib < Formula
   head "https://github.com/smarco/WFA2-lib.git", branch: "main"
 
   bottle do
+    manifest_sha256 "556b7e6e28aa5462893fb7c31baa495cc37b2754b9d4a9c8c72f49f9b6968cce"
     sha256 cellar: :any,                 arm64_golden_gate: "1b45e2f120548569231c010388baedbf60686f39391e2bdc9e91e2b5485b4971"
     sha256 cellar: :any,                 arm64_tahoe:       "d34f0af8f0ea0c1aaebbf9d2323016c94ade299e5c0cfc2751944c4daafa2034"
     sha256 cellar: :any,                 arm64_sequoia:     "3efa6e5cc18a0586e08c8a841501d638d13ef5a6ea11cb97eb441307f391855a"

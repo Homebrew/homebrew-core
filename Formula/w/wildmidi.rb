@@ -7,6 +7,7 @@ class Wildmidi < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "50744d31a29f5725dbf0f21bcdbd411966cc32a0ac333932cc40dd0d1ff78c73"
     sha256 cellar: :any, arm64_golden_gate: "7671bf44b94c047c2ce235863223baed3ae2bf9c16560be52c187d2e84c2f1a9"
     sha256 cellar: :any, arm64_tahoe:       "b9e88989d6462d9f862c9c06fe6f12966de089008278ccf243c08add9f1c6520"
     sha256 cellar: :any, arm64_sequoia:     "4959f76d804e6969d248f7456c4817b7825ba9effb1cde9fae7e2fbaa791d4ff"

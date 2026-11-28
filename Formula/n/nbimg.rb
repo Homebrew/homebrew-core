@@ -6,6 +6,7 @@ class Nbimg < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "fc7fcc4b5d0d09f1c565bb3481fe4cbd13fc72947086515d7c9174c0b13aa054"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7e429140bcb464ba455d6025da7b188d3d6aef8062dbd20b5ce7993c665eaaa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd7fbd304d9f838074d2fac94129b5fb2e88622619c76011e57f12c50c560923"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dcfafb2e1abf197f98f3452c53375aa0f72b9ebef04cb0b7f37d131181551330"

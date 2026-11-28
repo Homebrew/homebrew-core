@@ -9,6 +9,7 @@ class Guile < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6a7d0264221af63c65416f438d96a7e4a1d8e8526cf67ec0361349eedac999a4"
     sha256 arm64_golden_gate: "65194d66a5045c3660de298e56d7077a34e8c7bf47962e25c7fece923846d2ec"
     sha256 arm64_tahoe:       "c5217a09fe9edb92bd01541c97db23e71a413fb872f438031ba530d408ea8706"
     sha256 arm64_sequoia:     "e9412ea2b150589e74d235f8167026f4985181bd24094ee1e32430f575e47ced"

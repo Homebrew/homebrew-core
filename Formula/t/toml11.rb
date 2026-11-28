@@ -11,6 +11,7 @@ class Toml11 < Formula
   end
 
   bottle do
+    manifest_sha256 "ef0075940b0d4f1d1d01b06e5a43816a6a2ff69f22059401c74ea2bec6b2325a"
     sha256 cellar: :any_skip_relocation, all: "4b7ee42a48906e90cc3f54ef70b943bdc34edec94917f745f2e2dee74d75802e"
   end
 

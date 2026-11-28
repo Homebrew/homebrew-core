@@ -13,6 +13,7 @@ class Xmlto < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9f58514e1a5efb4065d5203398faf2b6b2f6d99474050500e4dc22f820fe58c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "949ec7164297f748831a7ab87250d846fb30a105ad8baddce568b6b3ac7bff7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "093adabbf11aa710fcb01f202d87e16145258e602206c64b5aa2ab1f63f2014f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2411a7fc2154cbd347d2aaa8ab9e176d66fee18b727568baa3b8eeb65f71fd5c"

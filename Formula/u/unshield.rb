@@ -8,6 +8,7 @@ class Unshield < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2d1b4232ccacb12b612cdbc9c7689e37b02b66d08d7b397123b2f00f3263bd3e"
     sha256 cellar: :any,                 arm64_golden_gate: "9ef07e6994a41893d935b2397f138d8de450c622b1194ec87f2856fb41547a47"
     sha256 cellar: :any,                 arm64_tahoe:       "514e1303fb016b6d992a623aba29ae24ee49afcb23a1ce920b3019be881cc257"
     sha256 cellar: :any,                 arm64_sequoia:     "a73e18ad8dc26a08d17407ff380f8ea0916bc82defb10642e2d0c5d762ee2d38"

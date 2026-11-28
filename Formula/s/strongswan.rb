@@ -12,6 +12,7 @@ class Strongswan < Formula
   end
 
   bottle do
+    manifest_sha256 "ba3f27222483c3fa68a423aed7a022cb5f056aa4ca80a54c7f38f3b1e06c9093"
     sha256 arm64_golden_gate: "dbdcfd4cb3e7fab289441cd6bff5ed60d862f20c461cfddbde303f7fa95a59d6"
     sha256 arm64_tahoe:       "17f42ae0f527c300c202edd8493c1a0712ebb06bf60dd681adbbfc6a106900e1"
     sha256 arm64_sequoia:     "bccde74b4e79fe277f74013efd6c83ae3970dd02843b46edc0611c11ffd3cfda"

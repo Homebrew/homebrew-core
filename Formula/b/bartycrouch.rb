@@ -8,6 +8,7 @@ class Bartycrouch < Formula
   head "https://github.com/FlineDev/BartyCrouch.git", branch: "main"
 
   bottle do
+    manifest_sha256 "17a0144ccd38cbfa775be5e430962b7d425e6f98b5e6dd1eff04447f3627664c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6aeac1101f3d72e6f57304f6506efb9f0b48c6dec7b695b176c24a26c5a786f2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46fbbd53f6f604e0b12914220924a0dffbc030707b8079b488716e9cc3d97fe4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e1c38b26cfa121cc550ed3a82c6ec5838855f86afa694b31ae6ad33463857880"

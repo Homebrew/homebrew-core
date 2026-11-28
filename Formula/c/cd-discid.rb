@@ -18,6 +18,7 @@ class CdDiscid < Formula
   end
 
   bottle do
+    manifest_sha256 "90bfa1013e8ec11643fb2844717449545ee3d4d61556054361eadfeb97b0b9b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0f22d60ee78554ae560d985e7d48e195361d2285fbff4bd7e22a4e43c373cd59"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6296e37d4a08d066d58baffa8ea53abf75c592f126ffcee9418ef293a9528a8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9956c0cddca69b3a816e8bc553c0455adac71f67ee30041a9065ac7c4384c219"

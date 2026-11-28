@@ -12,6 +12,7 @@ class StanfordParser < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c312ac6b28e72c7afca759ea3c9c86e32c4b0f8e95070eab145b3c03fb66a312"
     sha256 cellar: :any_skip_relocation, all: "699a16febb7fd2e483deaa44dee2fafbbe29d00343efe37d31d01d3b0fa14fe1"
   end
 

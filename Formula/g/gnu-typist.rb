@@ -8,6 +8,7 @@ class GnuTypist < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cc76223a14ea0a18750c05d0139d4530b964f23c9b2b8b971f1fe704270dc0ef"
     sha256 arm64_golden_gate: "75b31b05e985e30741568900b994d8cf0277dce309ec0c63a672fc29d8a2c213"
     sha256 arm64_tahoe:       "f47594d59df3c42dcaeee9f73264471981464416b412786124b0c4a7b3a70df1"
     sha256 arm64_sequoia:     "15ba375ec67355fe2043282cd1de4a229fd8d29b4857f73e22b05c8d702fe9e2"

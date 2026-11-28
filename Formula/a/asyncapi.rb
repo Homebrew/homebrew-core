@@ -7,6 +7,7 @@ class Asyncapi < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "f5548b350db152a17cde05fc4ca94a3eef4de48e2d545b797c25c217c266912e"
     sha256 cellar: :any, arm64_golden_gate: "20bb2e0778b5bee833f382208c1d605587f9ad5033f731c15759c14cb89a8ebc"
     sha256 cellar: :any, arm64_tahoe:       "20bb2e0778b5bee833f382208c1d605587f9ad5033f731c15759c14cb89a8ebc"
     sha256 cellar: :any, arm64_sequoia:     "20bb2e0778b5bee833f382208c1d605587f9ad5033f731c15759c14cb89a8ebc"

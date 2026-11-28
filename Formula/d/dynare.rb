@@ -12,6 +12,7 @@ class Dynare < Formula
   end
 
   bottle do
+    manifest_sha256 "54293a858e9fff9653a3137d0f195318bfc4231f6fa2c22d8baf0d4321c2c28c"
     sha256 cellar: :any, arm64_golden_gate: "d9d60b4eb9f0eaf743eb983afd8b40f67f28ac75a341629915185cc31a6cc952"
     sha256 cellar: :any, arm64_tahoe:       "a7d679ac8ae6db252d57b08a64ab27c6f17c58b0dad96da0ddbde33ac1ea4e8f"
     sha256 cellar: :any, arm64_sequoia:     "32945dee7315fb4ee957da7f6141d9fa11b9493de6902046d3e3cd72c42b57a0"

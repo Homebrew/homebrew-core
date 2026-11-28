@@ -8,6 +8,7 @@ class GitSvnAbandon < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ae607f04d0e2f2bb8359840fc6908be186dc8e5c510b170813da057c5bce4fc6"
     sha256 cellar: :any_skip_relocation, all: "020e0d7161a9de4a0b7aedb1d73305db3f7914ff645b46ea8b0dbd7c7d7ba94e"
   end
 

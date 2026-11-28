@@ -9,6 +9,7 @@ class ConanAT1 < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "049a6478127122c892b4dab64f83d3532dc4cc44ccd6ae363a8ae5ffd6a6a292"
     sha256 cellar: :any,                 arm64_golden_gate: "cb4dedcbadef88b89c6b797078ed14b08bb733063e15ef1cb9bb560950ec041c"
     sha256 cellar: :any,                 arm64_tahoe:       "347415104db865374e09109080fa117d919130b502de713bc9062501e4ff8564"
     sha256 cellar: :any,                 arm64_sequoia:     "7dcfb73f071f82c9a5a5a2c081b54030c8c7aa87f11293897d499400972a9b78"

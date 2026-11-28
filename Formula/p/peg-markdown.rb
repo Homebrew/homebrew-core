@@ -8,6 +8,7 @@ class PegMarkdown < Formula
   head "https://github.com/jgm/peg-markdown.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9522c96a4aff26b883b2b1af9d9908dba9743b4bb7bc640faff3caae5af26ff8"
     sha256 cellar: :any,                 arm64_golden_gate: "5b4015e4454be2898dce9211b65fcfc553b8253a3f1b20a02d7641bd1e879e0d"
     sha256 cellar: :any,                 arm64_tahoe:       "ec72ce7ad492b44c05950b2ac9421ed3e410f1eec51e2c64b6215edced456df7"
     sha256 cellar: :any,                 arm64_sequoia:     "bd7f5543b909228fcad9af4e3173b8ca657d92ca17233c99c8415716c7a575a5"

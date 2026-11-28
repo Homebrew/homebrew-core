@@ -12,6 +12,7 @@ class Feh < Formula
   end
 
   bottle do
+    manifest_sha256 "1c94f01c760aa316296db3ebf0d6339f3345c5417a2a31492dee2bc5ebd590cc"
     sha256 arm64_golden_gate: "360d1466646f27866e144c886dca69a4a568d1b75e1cbf05c672329ae91e1c91"
     sha256 arm64_tahoe:       "46ef1f9f762e8bd2ba0077408ba00e5e952eaebb72167940e830501931e3a66d"
     sha256 arm64_sequoia:     "913591bd7662f4d6097be1fb66255af9f912bd79a0c9e5fa1cb4be2a9494f3b3"

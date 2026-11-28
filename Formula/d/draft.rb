@@ -7,6 +7,7 @@ class Draft < Formula
   head "https://github.com/Azure/draft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d7bfc3b0516a5d4d33caf796799402d7edabd34de64f958e49030fb0d1584973"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d60359ddbfdcea26ed7155b8020f38b36eb6c38ea2848c7012d5ff9443c05e82"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a313266620d1e7e5875a75b6e7669e6c196285e2d78837fa9206def51fd5919"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "30af94f1028e37eedb917169c5cf1ffb889aba77da37a120da1b662640abdd5b"

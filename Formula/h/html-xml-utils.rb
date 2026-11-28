@@ -11,6 +11,7 @@ class HtmlXmlUtils < Formula
   end
 
   bottle do
+    manifest_sha256 "fa49529c191b7f29cc87ca5a3c90fbbcf7738aba77961869a1df80a5d1399ec8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0cfa5e9a059ef527f3222c43e0fef2552e9b12914df36fd7540b64967bf80eed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a2fed19e1ff9ada579f2508827a46a023c98b7d979adbacd06b8401f2e3384af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aad9e8474371b839efc6dd11f415f05e5c9c17ebe8b9a141b840808f3981d80f"

@@ -11,6 +11,7 @@ class Xsd < Formula
   end
 
   bottle do
+    manifest_sha256 "2fe058d6f3be7aa17b00ebbfe655ee6ce4280a8907ee6d7c5edad1bc34065bf6"
     sha256 cellar: :any,                 arm64_golden_gate: "1591b5d8a7e695986d7a6a5a086968b5bd7ec59a0b3e4ef78c9c31e5cb5d4499"
     sha256 cellar: :any,                 arm64_tahoe:       "9beb0bcaa0a49b5de1613b0ce1424a3f1ba33d0697860103c4a93ec4b7f4e748"
     sha256 cellar: :any,                 arm64_sequoia:     "9bab1b8a054ae9b32e68d6c0ab9ee59435715bcedbdc1206de8b54a5c8210ce5"

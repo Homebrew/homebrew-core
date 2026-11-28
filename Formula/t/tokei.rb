@@ -12,6 +12,7 @@ class Tokei < Formula
   end
 
   bottle do
+    manifest_sha256 "14954f4795b41115c6bcc0630c8d750d814a29b03be277f48635d7af64f78dbb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b352c426ae6eaedfbdcaec2f05fa8e57c4f6048b51e8ff0cfdef93659982e84"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b4a317ab7dc0bae1aece7cc63d2da2d9ec07630d70480d96c99cb6e2c04a7d95"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fddabd437deb06c12eb75a6abc4937cef966dbba84c7cdb18feca6ba3aa138e1"

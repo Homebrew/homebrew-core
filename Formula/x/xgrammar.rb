@@ -7,6 +7,7 @@ class Xgrammar < Formula
   head "https://github.com/mlc-ai/xgrammar.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9a76b4482908f497a8e272f51c29d13c2e9c509b1d874ef2488c6659ae6d1337"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d2d352576787d5c1dc36c494b1baaf535d6d701ce45d95d1d88caf217423192"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2bd6170875e29dabf1e5eabf7cf78c70ba306c796f240b3d78ae5753e896f82"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bc8f3ebdd7018180eb7ae0c75834b91215353e2c451ce155d96d7a8c1272a21"

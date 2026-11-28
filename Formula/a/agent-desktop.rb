@@ -6,6 +6,7 @@ class AgentDesktop < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "ebcd1e0376ff2e7b8ec0f9ac05d829e3f5c722e4c4c25605a4f8ec2bb9591a4b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9dc1cf64a9eac593da931ce813b7668bbfd8793fc0e048cee3f2e72ce80ba540"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3312ebd3ff27c5428207e886c4bb6c09307e23639658cba2880bde7bcb52caee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e3a43949e76cd4bfb74e4f285663d23c11f06a89d3e7f7b7764d8d4207fcc729"

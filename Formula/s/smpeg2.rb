@@ -18,6 +18,7 @@ class Smpeg2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c925525bc0295fa8f016106f568739e5fdb0559c66a91cfffef5192efd0ec154"
     sha256 cellar: :any,                 arm64_golden_gate: "313a5741045565ce8d3ae64d43c59482840063249acd0c981730a7e7e00e9697"
     sha256 cellar: :any,                 arm64_tahoe:       "f577393854025f6e32304032a00a3f29a27af3e71a52502025315f86b44ae9fb"
     sha256 cellar: :any,                 arm64_sequoia:     "dbbac559473f137fb4f16051e47fdab335581c72076ddab6535a9fba87c21749"

@@ -12,6 +12,7 @@ class OpenlibertyWebprofile9 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1c316677e186467a78064c3c3c16add06bdd37fa3219de815bf8ede8d71c3284"
     sha256 cellar: :any_skip_relocation, all: "02fa7826a84a6cd57bb5ca216b62c4e4e707ffaa545a7c877942d0a681f33e30"
   end
 

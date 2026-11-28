@@ -9,6 +9,7 @@ class Storm < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "bd19780933d4d2b9bc024ed6976d6ab857477c18fc7a7e6a54180853197d2259"
     sha256 cellar: :any_skip_relocation, all: "ee1d4dea8c9f12543dc22ea6ea1ade41ad652b861c5876b853177eb7f9f91443"
   end
 

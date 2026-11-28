@@ -8,6 +8,7 @@ class Cai < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ca06599df82dd12d88e0262d6b388c268e8dbe2c9d6907b782e54fad1b73e097"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93b21fa8a93bdeceaeee5602aff6ec20a37531838301c7e206b654c783c9f2eb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "890bb719c57400c15194a29ae58030ff0336388867160fef52c274a66b2afd48"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6d80bb57c4680926f8c7bc6496374a0f5ba61901a5f9e651387700f7321b332"

@@ -8,6 +8,7 @@ class Dscanner < Formula
   head "https://github.com/dlang-community/D-Scanner.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5c9199080f32f9ff580371242026847793caa4dcf87d43e3583aaf603948d0f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8d7cad8bb56d8503b59e46b6abbf7d18e44e56bc4b1a1c1b0d19709ea492f43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6d40386c0ff0fe33e4a8d3a5c5a1c19ee21718dd17327adc815d4d60b3e087b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0f16a79d7fad72e96d08d3a0aaec16318064de06f115a875fe786f93c2ba872f"

@@ -7,6 +7,7 @@ class MemcacheTop < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c89521833b8d146466a60bc3f9dd15f2068c2afcf8d9cd7c2e3663d837ccb97b"
     sha256 cellar: :any_skip_relocation, all: "2ea3d9e19842c495db8dfe35711495867fbd1f3745558f4d6e93c1dbde3d35a9"
   end
 

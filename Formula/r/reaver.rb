@@ -6,6 +6,7 @@ class Reaver < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "682e1d858673a7e039ccd494a3d6a50b51371f0833be4aa3b75f490288a85384"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "600514cac6f645778b533f7d5a31f2b05b5e0e62a252c0013ca47cba0b9cedfa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a2342c639b7515a7f1870db8baf31ac8d6aec8d7dbf28006b4a98263fdfc142"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "67906250f6cd74d13aa313315e80b46b0998e898a1c0589dcb67a3652b02081f"

@@ -6,6 +6,7 @@ class CargoInsta < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8208690e00049326e84fce6ecccdc561c6e1bd7ea934e86cb1f947e1ff32eb1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66d453af9becd015f430d9a2a4e7b0834a51d05d56cce59bdc6028c092f7860d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bff749424745429b805d49f9ecee77368813f2927d86e4360590bba3dc79569a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8064ed44a425ca2fa958e2c06c303ca9237419329447a66220e1fefc8c21009f"

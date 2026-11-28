@@ -6,6 +6,7 @@ class Libkeyfinder < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "b0c34c79f60022a30fb5bcfd8f2fefedfca0f214d647b19e68f1e716c29c3863"
     sha256 cellar: :any,                 arm64_golden_gate: "331b0065c2d200f7fc2a4a288793c752eab835b3356bf11ba20ae74adb430018"
     sha256 cellar: :any,                 arm64_tahoe:       "6aea01723afe6eb5a66b410f68f0b6e1e36edf0acc87e5d178faa2ee1e7f1526"
     sha256 cellar: :any,                 arm64_sequoia:     "2dd1ceb165b79e82738bf1fa3fa7e21a71f6ed471fd3c0214a96dda2f82f967d"

@@ -10,6 +10,7 @@ class Distribution < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "da2087adde96c36f40255b3cde7ddcb781efaccc7700a08d751a1b8f2a5fb312"
     sha256 cellar: :any_skip_relocation, all: "51f9e979ccce6ace7efb959a4e7bee9b9db4b6faa7eea4049ff06b98358a02fc"
   end
 

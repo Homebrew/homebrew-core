@@ -9,6 +9,7 @@ class Apkid < Formula
   head "https://github.com/rednaga/APKiD.git", branch: "master"
 
   bottle do
+    manifest_sha256 "69419c175883c30bb19716f11b06d8cdfebc820e52310cae62b079bfffc99c18"
     sha256 arm64_golden_gate: "3195941c4d6ecf513f63a725621221513c4e2a60f9f2883d4f14807c56c8e523"
     sha256 arm64_tahoe:       "39975317af3bb7e15840124c81e8466ae8d5e587ac4f2e4f9ec96993264623f3"
     sha256 arm64_sequoia:     "7ba7adc981bdc5af666100300b80a5f83dfaedcc6ee1c7fe526310e7b9f582cf"

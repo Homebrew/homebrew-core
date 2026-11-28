@@ -10,6 +10,7 @@ class CmakeLanguageServer < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1e4bd5877c4e782bd9e1bd6483d8f113bddfee6834c4405bf13a24398d20ffc5"
     sha256 cellar: :any_skip_relocation, all: "5bb30e7b6859ca0c6eb920ec341dfd102c4785e44ac1dab81bb3e3186df7ce36"
   end
 

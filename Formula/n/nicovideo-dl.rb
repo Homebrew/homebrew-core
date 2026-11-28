@@ -11,6 +11,7 @@ class NicovideoDl < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "f433902adeba9081b2c8cca4621c029587ac5a13615ed27a478346596534bd16"
     sha256 cellar: :any_skip_relocation, all: "3ed938a610ab72d8bd9d90764672eb2ed5d9930e0803929c05b3e34d4c1a815d"
   end
 

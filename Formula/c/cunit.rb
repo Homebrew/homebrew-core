@@ -7,6 +7,7 @@ class Cunit < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b6814030a5a45a3938f45a0baa15ad4b1db9f0103cf156ae7cb4fc9bf2c071d7"
     sha256 cellar: :any,                 arm64_golden_gate: "fc8213c40350e795f3e5268cc0c8c7cfee4ae7d229188356c9be0c5fb4ec44f8"
     sha256 cellar: :any,                 arm64_tahoe:       "79ec3ecdcc6e1f8b253b5093c45c25a272005796cebb0ca2c7cfb6f8d21d0d90"
     sha256 cellar: :any,                 arm64_sequoia:     "ed2227559e5ab1d8239ee28d11b8728832ac2301041631b31702a12be8f0d3fe"

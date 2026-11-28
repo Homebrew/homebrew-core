@@ -11,6 +11,7 @@ class Mpage < Formula
   end
 
   bottle do
+    manifest_sha256 "9c3b3edc73d77d8c01ab803242762f4eda2101583ee8b39580993898f26e6183"
     sha256 arm64_golden_gate: "27b84bf68003314ef94d6b7d4782965c975f69b0fb75c31617920ce53b97c536"
     sha256 arm64_tahoe:       "860aacd1390ce895e9dd5099c4811c708d2b3990e0fe41928cf56d5ac7af89c8"
     sha256 arm64_sequoia:     "a596325fba30e7574a19d7fcf3b338f02fa91e9074a13609c7d356b9bba67b29"

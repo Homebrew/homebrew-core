@@ -7,6 +7,7 @@ class Cmdshelf < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "44cc9063f8d470df364a072feb607f63da728f19332bffb8edc71220276eb1f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "856a08eaa69a327a24dfe33c8c4c5beee0f02d4317c04bba5f625baf580ee71b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1861366a11845c9df0ea980488fa0717b74897c9a4e15db3fe69b1b6060c5022"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9774fb5ac602f84fb7b56c0409d688e0d70d810a36336a4ecdfb3a61cf5e40c"

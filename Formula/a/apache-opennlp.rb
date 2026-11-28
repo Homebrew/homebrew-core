@@ -7,6 +7,7 @@ class ApacheOpennlp < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "9460aa53a78f659191a8c66c3665083667ed523aeed8eb9e0a2a95b0a45b42e3"
     sha256 cellar: :any_skip_relocation, all: "3ba7f5d2480a4243cbb6b6ef8264409190692249aa0837739bf799143af2b352"
   end
 

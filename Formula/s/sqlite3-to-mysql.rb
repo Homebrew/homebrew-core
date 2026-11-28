@@ -10,6 +10,7 @@ class Sqlite3ToMysql < Formula
   head "https://github.com/techouse/sqlite3-to-mysql.git", branch: "master"
 
   bottle do
+    manifest_sha256 "87a6f18ad7eb6591d150731ced540323fa69f1b757eb6eb36611882a3d9c1c10"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c6e3d9dd0a5b5d29186a3d7a6ef0b63fa0617fccc5400d4f5834323f200b383"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab9ddc4b241fdcf85cb8ecab90b5763b8e50c3bd9a5452070ef1f7375937f7af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bfb76d90a33d94b314f2145f6900248db3881969ed36d60be66cc5d4d7d3e145"

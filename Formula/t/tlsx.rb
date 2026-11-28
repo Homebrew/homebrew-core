@@ -12,6 +12,7 @@ class Tlsx < Formula
   end
 
   bottle do
+    manifest_sha256 "e67dc6b5a5cbe3819268904daafc379368216f267a07a0c37622cb621f82f730"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8078aded2246d2052853710297fd599595f0685c19d96b31a5e2ab4ac680d96"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9a1205e20b4d070752ba14cc6f1fa1a557b545de61eb7ab94c7477a4913709f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd20c6d8ea43c53363e1e8a8463c9962d9cf3fca3399f68964fae7e154b54b68"

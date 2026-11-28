@@ -21,6 +21,7 @@ class Rocq < Formula
   end
 
   bottle do
+    manifest_sha256 "609a996300e599cf19ca6cc3fcbcbb991c1b30caa6760ef184925855c6ff7f67"
     sha256 arm64_golden_gate: "ae25713bc09eebdab50517e429304ea475d3eaceca140ba07d514b6e65257efd"
     sha256 arm64_tahoe:       "17b53c4360d77d0e016b56445c456e6764bc5864777dd5d9226d7294568f67f8"
     sha256 arm64_sequoia:     "3a4fb957c7017f447a3a82d8e4f28c82ee84458252d07e1284c8428917f42c83"

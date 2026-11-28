@@ -7,6 +7,7 @@ class Archiver < Formula
   head "https://github.com/mholt/archiver.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5d1546846301f91955e99d45e08adf9e0e210a4fd68c7da2d22cee18f701d2c3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "7da16b2c8807513b73777c4e799fa9f3a6fef4a0a00e5a5287977882bc4a1c68"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "5b6c238c7e684837a57ff1038a05b92a89b1db0311443ff3f66da556eeeb873a"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "247cc8a86532c7e40d47ee84872895a7790a87c0c732cb1d4dfd19a25e8b724f"

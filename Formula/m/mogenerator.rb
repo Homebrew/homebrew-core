@@ -8,6 +8,7 @@ class Mogenerator < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "adb743bb6b9f60d03afaaab60bbea21683476403b81c8b09f7ae9b7f2b764322"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3381479418ee26cb8cf8fd325b1b5bd7e6aabd9d33b3b0dcabaf22c8086d25ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8efb94ec378cb588e5abe0cb6a1e586a9120fac207896a8b34e64c69992bc24e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3da7eab4006572e1dedbb58e22b0301a2ddfb272b42c1f2322f326680e577e9"

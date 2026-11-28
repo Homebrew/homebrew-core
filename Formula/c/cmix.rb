@@ -33,6 +33,7 @@ class Cmix < Formula
   end
 
   bottle do
+    manifest_sha256 "a02b058be431a72bafadbc0cd6e0df7f2f5adaf0624558369cdd2c35f8f909a4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee59958b82daf7623229e0e92b75d9001be5b02e9da9cfbd3a5633c4f295d4e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "379aab1a270951b5ba407f3e8bcc4f63acb751dca478600943ba06137f87d510"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "24a3714aab5a450ebea1c2ffcbc6162259fd28a48c996116d1476d254c6266c7"

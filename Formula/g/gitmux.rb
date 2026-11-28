@@ -6,6 +6,7 @@ class Gitmux < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "cff0afc8ef484f98b261acd32c4b3c2e704fd897786f7976387145ec4049b672"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5d525da2772a73cc6aecc60a00fd2037196414e9138d11f60a613fb13bb2369e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d74731881efc66465dac299a3bcb6824a90a5fcd4a7e0ab08997944e6e30d5c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0b068346b79e8a633b8825364da40f50ad71442da70bfc16f19a3e64c3bb632"

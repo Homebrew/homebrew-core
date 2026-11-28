@@ -7,6 +7,7 @@ class Tuckr < Formula
   head "https://github.com/RaphGL/Tuckr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8e105f96f6386d0a2952c5dd1a94a3d0dd75d73b36deb02bf13d2887c6769584"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "28a45d06cbfa2226ece30c7155f5f429a53ce6b052a5501c01a59235a5a39a17"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "53bb3a9c01895a2030156e5914c2be6385b42f3f4b735ebe527c7becae05f926"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39e80458c6a75f14f12ebb0401ab9a4b294ff6ef38cf576769b54980aae358d1"

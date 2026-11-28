@@ -7,6 +7,7 @@ class Libscfg < Formula
   head "https://codeberg.org/emersion/libscfg.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1f74a90d2641c3eac431c287a3e8a10ed5b841397f1ef90257b2b1d46f3e42d5"
     sha256 cellar: :any,                 arm64_golden_gate: "ad03c8de10ebea57054ff95a797d46390bd2686cefce581931bf5d78a8226f01"
     sha256 cellar: :any,                 arm64_tahoe:       "e2fe577dbd81fcd64b6ac33853c187e28069ff167363f8be5d6ac3507b3cb1f6"
     sha256 cellar: :any,                 arm64_sequoia:     "44fcdc6be6a0003395e4ddacf2c33f312e918c5ede3b88455de3b1bcea6a6a73"

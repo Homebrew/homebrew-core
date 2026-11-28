@@ -7,6 +7,7 @@ class HubTool < Formula
   head "https://github.com/docker/hub-tool.git", branch: "main"
 
   bottle do
+    manifest_sha256 "32756e49d093712dcd258b4454e3f9f4507cec84c6f271d94587af08c8442907"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bbb8da40424ebc4638e6f0490c2ce3ea5e37cbce99787f4105f3d24e084ff29"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "720b52ab08c879511e26cd49a0427fa32f6a227165a15c2cf06364f046a4ab53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a77e71f702e249983b474cfc5a48f8a74a4bb412bff7160f04a77b811fc6c05"

@@ -8,6 +8,7 @@ class Rfcstrip < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "52f38181dd74f543a6d965a81008734ecc5b421ff69176b60f1c82726e2f963b"
     sha256 cellar: :any_skip_relocation, all: "19d81dc32428b71ea0c78047c6036eba4381ab7e6305051f3790d2dfc34ce2be"
   end
 

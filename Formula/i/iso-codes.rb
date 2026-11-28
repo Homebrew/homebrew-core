@@ -13,6 +13,7 @@ class IsoCodes < Formula
   end
 
   bottle do
+    manifest_sha256 "b7e4f8758ba8d94dff44192f735d597b96b85340c70c0bd184393dfc09712c23"
     sha256 cellar: :any_skip_relocation, all: "759f0f3e98ac876c7b1a1a60a604fc391ba091275ebae662d76e2f255c5c7ba9"
   end
 

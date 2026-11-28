@@ -11,6 +11,7 @@ class WpCli < Formula
   end
 
   bottle do
+    manifest_sha256 "cdfd37d5f5cbc30dd5bf38a1990fc5b3aa3cc778be31e3f7b82c36c55e76c4c6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b934329bbdd89b69cceec59255b9cffcd9dd2d3a75b810ed9dc547fe47e9078"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "55c3a86b500e2a5c96b7ab4a7c67c6099c379a4b3e8c8ac4ca908cb33a65cf45"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "087f15d5afa17ba4483aec086b2945d0dcd477a55987775862fcabe5902ce8ab"

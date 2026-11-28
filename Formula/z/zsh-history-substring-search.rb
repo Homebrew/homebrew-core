@@ -7,6 +7,7 @@ class ZshHistorySubstringSearch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ae3ed9413d3f1a13bb74849f96a8e044e29232a64f36fa38398f27c3c86455f7"
     sha256 cellar: :any_skip_relocation, all: "012cdbf6d326089dee2b8fc6bd194439f4d0df13ca3f01f7a3be0eade9b27030"
   end
 

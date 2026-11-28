@@ -7,6 +7,7 @@ class Bbrew < Formula
   head "https://github.com/Valkyrie00/bold-brew.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3a11042fa8b77fd8746ba22a77e28000f2edda314c419fc8f4fa1e49a3ca43ce"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1b2ebddf7ada30cca7d7a45bcbb1f7b7897e6268185fdfa8d77fb73d49ff975d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aa4c3f513dc30dd1375dd3c65f6489143ced0a16a524fdd4eeaa976bcf3dce50"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa4c3f513dc30dd1375dd3c65f6489143ced0a16a524fdd4eeaa976bcf3dce50"

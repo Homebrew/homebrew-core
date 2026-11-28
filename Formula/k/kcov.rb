@@ -25,6 +25,7 @@ class Kcov < Formula
   end
 
   bottle do
+    manifest_sha256 "5ebeffef4fc8c8b649c2ca9d3fc920da1bb97b4689a457714f4187f32c34fb39"
     sha256 arm64_golden_gate: "dc4911b119a8ef544c99f9f8fb7328540d4628813eff29982a4512f034ded671"
     sha256 arm64_tahoe:       "5e54bdf13adaab924aa1b999dbfbd057f002b874ddc8bc07a9420948d827b62d"
     sha256 arm64_sequoia:     "c141d20ae6e2e32741d2f8de9a9557bd95f64fab020c6115380af6b6e3804acd"

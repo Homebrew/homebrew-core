@@ -6,6 +6,7 @@ class TfstateLookup < Formula
   license "MPL-2.0"
 
   bottle do
+    manifest_sha256 "7181c1d30f5cc4d8f207992c0ec6b1aded2dcdf16dcd33b4f846b26583036679"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3222b9083ac37f69b7509027a288fb670ce30dd3e7eb6f532e1205e23256d49c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3222b9083ac37f69b7509027a288fb670ce30dd3e7eb6f532e1205e23256d49c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3222b9083ac37f69b7509027a288fb670ce30dd3e7eb6f532e1205e23256d49c"

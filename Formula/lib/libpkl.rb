@@ -6,6 +6,7 @@ class Libpkl < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "ce5650ce540826279267d9b4b853cb7fea3d331810b01e4caea00ef7a31a44d1"
     sha256 cellar: :any, arm64_golden_gate: "0fe1b982b9476c980a9ff6fcceb3e24e95a39248243aee363e50842652e090e9"
     sha256 cellar: :any, arm64_tahoe:       "ba0219910d57f56a3170cdf0e1e01ce9f1262e6f3f891d48a5835a105d7ecef1"
     sha256 cellar: :any, arm64_sequoia:     "3daaa3113dd6226cdf3135126aedba79152d396f5c8c64b3903b832651d77256"

@@ -10,6 +10,7 @@ class Pyupgrade < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0ed452c0a3f976b30b263d77102c954edc63df78cb7711831576fe8798979d27"
     sha256 cellar: :any_skip_relocation, all: "a366d5259683277433d658a4e5198dcd5b5c277ef7c0a58879913287a4b68da4"
   end
 

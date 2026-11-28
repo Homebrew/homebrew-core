@@ -13,6 +13,7 @@ class Widelands < Formula
   end
 
   bottle do
+    manifest_sha256 "3d363ff47b89bb632722c2294e885bcbaf644b28791ef48a90bd65ad291dae33"
     sha256 arm64_golden_gate: "63bb9b78af798e5415ed7679770a2c95c83eaa4218da323c12a8fc3c393b94ec"
     sha256 arm64_tahoe:       "fea3246a6ba975edd1ec470f45d44e468088404448672b8128bb3c63dcffee7a"
     sha256 arm64_sequoia:     "3ddc7c9038201cc9be0502efedce21028c32929ca18bf865f8a7e425f69df4df"

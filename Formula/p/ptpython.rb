@@ -11,6 +11,7 @@ class Ptpython < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dcfdffacdf5c795208cbdce5cadb7671709d7a14f7d8e220b70e63ed17479cab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "87e04d534b33b4c7ff95ead0a062d651ed0e0d31278bc9b21c04ba3d0452b660"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "35b0f4d37c8fe8f11ec6197f21898ef6cc650b92fb8952be95249effefed6299"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc207441f3f0e23e22ae149b0773e047ec83b746fc86e83616326abc430b20e1"

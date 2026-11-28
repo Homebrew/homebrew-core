@@ -8,6 +8,7 @@ class Pinot < Formula
   head "https://github.com/apache/pinot.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f312d34805db4466c24b50f125c9c7f430f44bfa704a68fb892924ad4f094074"
     sha256 cellar: :any_skip_relocation, all: "6357ed9ee896909e0618d8a04032a0f84a163b180bf4d77e606376072ca1ca2c"
   end
 

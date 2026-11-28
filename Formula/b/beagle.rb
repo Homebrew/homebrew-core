@@ -12,6 +12,7 @@ class Beagle < Formula
   end
 
   bottle do
+    manifest_sha256 "f877f4dd05650c0d6d36b9e64260a3df3d070f7e22b75e4b7946051c80455b63"
     sha256 cellar: :any, arm64_golden_gate: "35e618b7a630394fa473f08075790985ad00f14dd059af9df2aac93417871248"
     sha256 cellar: :any, arm64_tahoe:       "81548097ee34e140208c725c10b40a03a1990054f5cfd14c58b275c8e7cc296e"
     sha256 cellar: :any, arm64_sequoia:     "f828804240965d31b766693a5a424a614f53b6455b1e4ab4d418f50251fe00f8"

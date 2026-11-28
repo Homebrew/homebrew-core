@@ -15,6 +15,7 @@ class Dpkg < Formula
   end
 
   bottle do
+    manifest_sha256 "bfcd95613e70ec9de8c08d063386d615dcf6d5e62977cbf52f835e1ce17e443c"
     sha256 arm64_golden_gate: "006104df9008756d2ef443fa5e61932716995233e6a1d04d26afaafe9c48638d"
     sha256 arm64_tahoe:       "a499509fd23f412c6fb65a00f44296207d98a1d435133a98c4878b484be9ccc3"
     sha256 arm64_sequoia:     "08c34d640bb28d6aea83438a13ca50e31d03e62bfc567edfb77218a9ec6c6d93"

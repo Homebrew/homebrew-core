@@ -6,6 +6,7 @@ class Urx < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c1419eaccd9afcdd4ffe87f4a2a979e92098f336591fe18962be558a1a140d3a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7926fa5f1e35a4ce2cebc4f524094c0330fb219cc34603988bad470d1d9fe41"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f82e46383b5606735a9967c4cff334a1a1c39322c4720ac05d41cae483c7d0b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fdf94721cf7a4b18c9df53faf8ccc96e6dfa0e046289b06555280cb761176173"

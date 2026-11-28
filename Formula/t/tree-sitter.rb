@@ -13,6 +13,7 @@ class TreeSitter < Formula
   end
 
   bottle do
+    manifest_sha256 "4318d967e30d562f54c7884a7bc9671e59e29e62b6bfedc31ad913b3d7cebc15"
     sha256 cellar: :any, arm64_golden_gate: "a56600a706f2c5cbd1cc811029afb05d976af675f91a454b2835f8b2841753d4"
     sha256 cellar: :any, arm64_tahoe:       "3a04a0fb2dec9b4634f4ac6f09d5000474e11b50ee5cf6636d4dc8e1f401591a"
     sha256 cellar: :any, arm64_sequoia:     "8b0045cadd30ba785fcdad8c1f564ce31c9444541ff30e89d19291d4e90b65f5"

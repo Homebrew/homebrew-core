@@ -6,6 +6,7 @@ class Chunkah < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "833d4cd72b6b851f808c2600f1c7fbd786f2d3d78ae680931c0fb5dae0d1fb60"
     sha256 cellar: :any, arm64_linux:  "bb2e690abe032ce9f4304f09b1987f2d1d58599fed0989393be7e878b6e69cf3"
     sha256 cellar: :any, x86_64_linux: "d41200d95a1884d4dc2a73db3bdaa4fd336fe48f63b76fab8301d5ad24445652"
   end

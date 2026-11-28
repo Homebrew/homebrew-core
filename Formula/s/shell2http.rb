@@ -7,6 +7,7 @@ class Shell2http < Formula
   head "https://github.com/msoap/shell2http.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9e6af92869f005d8e09432c57daf9bb505b08430443a2181e8f89182311ddbd1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7893bccd6eb781ae8bfc8cfa4b91b3783293dc42d21f8f2d144c810ef1e2d10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c7893bccd6eb781ae8bfc8cfa4b91b3783293dc42d21f8f2d144c810ef1e2d10"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7893bccd6eb781ae8bfc8cfa4b91b3783293dc42d21f8f2d144c810ef1e2d10"

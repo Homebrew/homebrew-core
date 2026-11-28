@@ -12,6 +12,7 @@ class Djvulibre < Formula
   end
 
   bottle do
+    manifest_sha256 "95751e4af55369073d0f366054a42c56a0a66bfe41fa852c9aafd04735059a4e"
     sha256 arm64_golden_gate: "865af34de7e83baecf892f7d7944f1b41a02e52dcf07b7658c0307109ef38e6a"
     sha256 arm64_tahoe:       "5039f6f0f6a4487565d093e250ea699acb30308f85c828e098b53a454021d446"
     sha256 arm64_sequoia:     "d828e09fa7ba7c8b4e1c5df16ccd47129ab8b60e1e63953db28026cb73632c6c"

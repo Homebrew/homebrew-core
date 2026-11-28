@@ -12,6 +12,7 @@ class Libdrm < Formula
   end
 
   bottle do
+    manifest_sha256 "d9340f1632fbc3ec04e82b670656df724d85f4c1cf133db987f068ac8a227c8f"
     sha256 arm64_linux:  "fba5a1874a97e7adb5d40ed5ef06c78bbd51a98af552969236185d10b94f51a9"
     sha256 x86_64_linux: "15bdbc03878918cd5e42e73d3c9f27872981de5ba955372dac71344e0ceeb7e5"
   end

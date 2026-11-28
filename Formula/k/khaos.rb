@@ -7,6 +7,7 @@ class Khaos < Formula
   head "https://github.com/aleksandarskrbic/khaos.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2526657409bc87e13601c08afdaf051fdfea2022d7ca39c392eb8efa75c5194e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07f11323be4b199f7ab4a1319208f0ab8fef48e90d46b9c654108782ffb99693"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f94523ade8c0afe24d1dfc52eccf61a8bc88712af8e7e7f9a058fb2ed658b00f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5284f8e70c84cabc67b553c108c08d0c114e238229bd86a9f876ec76a299241c"

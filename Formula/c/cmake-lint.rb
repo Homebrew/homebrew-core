@@ -9,6 +9,7 @@ class CmakeLint < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "806a7691f2a6cd035f3ca2069c27b5d19ca7ac107d3fc056c58a0941c0c6ba81"
     sha256 cellar: :any_skip_relocation, all: "ed77dd4088e262aed589c7e9cf52306935289dfe836d9d1e6f434ab3cdacb3e5"
   end
 

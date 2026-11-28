@@ -13,6 +13,7 @@ class Libretls < Formula
   end
 
   bottle do
+    manifest_sha256 "dec1e95b8c416f89c91986394ed81216e508b1f6c4d270af30346a4a2230dcff"
     sha256 cellar: :any, arm64_golden_gate: "185d10f52d0136d15f78cf10c7b3fcfd97b6d8b3824a84618ae511457a0aaf65"
     sha256 cellar: :any, arm64_tahoe:       "30eac04fd6815d88f826560f77a70c8ba5a79fc2717e36de76ffc8b1bc099645"
     sha256 cellar: :any, arm64_sequoia:     "72007080763359f16c0fcdf103b7e920141ad5bcf7ac528029563ebda2f2f8f9"

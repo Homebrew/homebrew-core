@@ -11,6 +11,7 @@ class Prog8 < Formula
   end
 
   bottle do
+    manifest_sha256 "b04cac6b90d4421ecd34873f550d332927158ad986e9599874575a43914bc488"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d03d41f353bac8a9e512f015a93ff8f493fb90f16382678b524b9ec13275856"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44b7706fdf1c8d126ab55d9b20bac38029dc4836b21a54006515f5892c5e3ef1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "679a03c0982563c55905f33a4faa094d0973b937c96566eff9dbb7062d2fdc2d"

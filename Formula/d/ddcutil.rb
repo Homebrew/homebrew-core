@@ -12,6 +12,7 @@ class Ddcutil < Formula
   end
 
   bottle do
+    manifest_sha256 "852317a878c5c8e1ed7c280d073e98268eb08c9ac99a7846e87ca3bab4283cf4"
     sha256 cellar: :any, arm64_linux:  "87f4e8d5dc4efe35081c072a037668c2d9f20f03c32876835ced7a5484b861a2"
     sha256 cellar: :any, x86_64_linux: "9465c739b8d14068938ced8f1aca7b5769318d50f5a33506a7e5bbc2b83477da"
   end

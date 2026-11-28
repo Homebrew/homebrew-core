@@ -10,6 +10,7 @@ class Dynaconf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8a0e5bcbe34049e6c48947f87c154df9a37314b653fef5d2262bb63185875220"
     sha256 cellar: :any_skip_relocation, all: "7e6d4a4db8ee43d3dcc2676c417e28c4471360331117af6ba8f60e158848d3c0"
   end
 

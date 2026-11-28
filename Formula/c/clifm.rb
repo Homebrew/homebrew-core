@@ -14,6 +14,7 @@ class Clifm < Formula
   end
 
   bottle do
+    manifest_sha256 "429b3dce87fe0044bec8d25369f9067016624a386696adab8ace82ac207fa6e0"
     sha256 arm64_golden_gate: "e1cbc3fe6bbeb42e4be4bed591ea19947e17180fd1b9339b54b22d5fca2f6243"
     sha256 arm64_tahoe:       "f0ad9c9ebb953ad5cf1e1cc4bbd2541dc40f190cc26307d27ad210a049eb8f22"
     sha256 arm64_sequoia:     "a1102226d22fd8768f6e5fdffb32b83c249d45cd6bbb7356f7c5235e57bf3193"

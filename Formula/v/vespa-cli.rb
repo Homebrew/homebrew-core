@@ -12,6 +12,7 @@ class VespaCli < Formula
   end
 
   bottle do
+    manifest_sha256 "e0ea2e220d120999b442d7fd2a211ebe041dd7d112cc08f8a6e4e1c8a58ac915"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a104580751c118d6b663ef92cec12c2c2c4a546f40f9e550d41b4a67add15e2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a0923c7dcd5600ef606581eb10f300c50b31090179dd5287c3c208a933b6a9b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32dbf671ad697ca85faba6ec1823dba413c3c90b043c38d6f254332b4fa62742"

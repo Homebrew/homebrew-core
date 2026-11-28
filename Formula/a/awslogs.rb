@@ -11,6 +11,7 @@ class Awslogs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0575e3b1b2a559916ec5a82829d4988d2732fca617d0e2929ebfef68e6a5cabd"
     sha256 cellar: :any_skip_relocation, all: "064bbb7838e1633df33e6d327512693547ffe457469ca6f22297a00b1351fd91"
   end
 

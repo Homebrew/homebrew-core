@@ -12,6 +12,7 @@ class StripNondeterminism < Formula
   end
 
   bottle do
+    manifest_sha256 "e1b4986c00113e79d4168f0038fead603462a097d59a1a322412234c4ecdf198"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0aa3cc58db708b147873f552feadb2ec9b8eeaf4db55ddeac8e9f6eb8282ec2d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5617490e121fbfcfe36da186cf360283e68c32a79f84f2b968b8201665bd0c1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5617490e121fbfcfe36da186cf360283e68c32a79f84f2b968b8201665bd0c1"

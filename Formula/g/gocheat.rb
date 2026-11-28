@@ -7,6 +7,7 @@ class Gocheat < Formula
   head "https://github.com/Achno/gocheat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d527ef96e4188f015058a364c77f4aaa738ead6d30363679074ec722c184b5af"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "320845812c07036793b2337773e30cea988fffbf23dd64e005e657b21e6374c1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae08f0650712309af012501f33769c1687deaaaaec02f3a0bedb58a0136a460e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae08f0650712309af012501f33769c1687deaaaaec02f3a0bedb58a0136a460e"

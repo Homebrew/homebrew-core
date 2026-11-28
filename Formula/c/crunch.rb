@@ -7,6 +7,7 @@ class Crunch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f3b13077e275c0e58c2e256288ef7216d5ba142ae1eb6928d09c6ca8fea4db6b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef10f3f2de3d635637cc6f436b500850d608f2ef4d3e14403b654c60bae1821a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d449463edb9406d92410104b8302202c4aebd190cc181d8fea3e4fea2e8ef0c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "902a5ca993d69c4678b0243e7ba59b08c85c85091fdecea036ec25d863da4388"

@@ -6,6 +6,7 @@ class Dateutils < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "cd2ac4db1138eaa7445f35fb4e144b4289d287290b4d8d9dcf4091c06f1f4db7"
     sha256 arm64_golden_gate: "86ba6fdf734dc5c4bffcd2c9abd30ce42119423316e913d53673c0f2af269bff"
     sha256 arm64_tahoe:       "5611c984dbc411ba0c4fc552851d3477c04840025efd12d0a2b7b1b6606fe874"
     sha256 arm64_sequoia:     "4bcbff992bf54d1acffbc1b53f297eb969095f3e6ef8862a24b0a8521745b969"

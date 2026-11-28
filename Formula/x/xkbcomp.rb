@@ -7,6 +7,7 @@ class Xkbcomp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bbbe74a125842eb9c86ab8ae9c7f457470cae8c480e010e1db021cbf4425ce69"
     sha256 cellar: :any,                 arm64_golden_gate: "277acaf03dcf8c82d8a2ffe3f0bff893c18d5c0e35ec4bfc99ff27c82596e740"
     sha256 cellar: :any,                 arm64_tahoe:       "94c2d20aea0e61fc141e27bbe54fbf3ccf925c96fd9feea8f7bd6635a320cee3"
     sha256 cellar: :any,                 arm64_sequoia:     "26572a4aac52f2bfa4042a9d1437b43e458a1e6cef25c7a324bed606d814057e"

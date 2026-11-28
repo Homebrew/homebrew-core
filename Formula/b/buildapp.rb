@@ -8,6 +8,7 @@ class Buildapp < Formula
   head "https://github.com/xach/buildapp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6a676924ffcf99304b446b82abee2cb2856730a0e4ca8081a8d711b6f91002f0"
     sha256               arm64_golden_gate: "d0e1979e97575ec9a8424f7fc470b16751957accb1d6e5975e7ede5b4c98de00"
     sha256               arm64_tahoe:       "0d9c0ca6de78c19abe72228d5e2d6d99ce3f254e10d1bc98d119159e5cafbea1"
     sha256               arm64_sequoia:     "eac8a81872f14a5d798d9026ae9dfa55afbca961e577b5de151e5570de8e86f8"

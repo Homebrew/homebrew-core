@@ -6,6 +6,7 @@ class LaunchctlCompletion < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "63e281453435777b3651adcb103d35351a9d8f99423742a44296c07242b1e6a7"
     sha256 cellar: :any_skip_relocation, all: "bb5ad864a24035baedca788946f7d39c9d7da36e5a14ab43abf26544ef753e0d"
   end
 

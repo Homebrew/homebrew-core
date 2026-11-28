@@ -14,6 +14,7 @@ class Uniutils < Formula
   end
 
   bottle do
+    manifest_sha256 "125b961db6c0fc76e5651c584f6be0ea85b7df5c97a56d2a4c94f7400d0d8832"
     sha256 cellar: :any,                 arm64_golden_gate: "c76e5c96dc6013e88d9817f0cc154a5d78153695b741ba29cf1d0b91c18fe2b1"
     sha256 cellar: :any,                 arm64_tahoe:       "c8c2a6ab2e7fd876281c9b107d275f17ab9620a3241a664cdd11af7f02d08fc2"
     sha256 cellar: :any,                 arm64_sequoia:     "b1e77b1c7bb772f82fa4f847d6d08f8b7b4da149516636d45ec0aaa662937490"

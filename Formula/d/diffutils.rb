@@ -8,6 +8,7 @@ class Diffutils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "976bf1b9d6aea2b8f591f43ae5df3a2c7f83aa7d11fafaa7729c0a1d55e8a35a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d34d6601b6512e764e312c04121ece5c56e8791861d21aa5dc218800ab0fd0f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "380bbf30a86eed3cc85348f32fc17062840a11a7b2e5568c3efeac866c191640"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1439a94ab4fc8928a92a20d939e88ae0a77fb350a9d93e4d1101570a9590b4b"

@@ -12,6 +12,7 @@ class TmuxinatorCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "1aba2ae2e274fdd21f23cbdffed9217eaec1874601fa45f80e8649db7b9202a5"
     sha256 cellar: :any_skip_relocation, all: "0851ba1265444a260a9a0122be1d8a6bda30ae1e9034bd8ff87c48cf6b9e6020"
   end
 

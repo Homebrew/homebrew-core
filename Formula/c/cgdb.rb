@@ -11,6 +11,7 @@ class Cgdb < Formula
   end
 
   bottle do
+    manifest_sha256 "8d374340f95948b8da51a6463888aafdf4fd5c66ddc155a32e21cf4e2afb44ae"
     sha256 arm64_golden_gate: "e1aafbc3eee2be84788a785812c825edf6cd6429cbb32004c5313274a985921d"
     sha256 arm64_tahoe:       "960dae291afe8d9e0ce627ee8c4d0fd2a521fdc7f0b731f4c7c5d7830a60ae2f"
     sha256 arm64_sequoia:     "dac79a6089d98cfbe4c2b9083d34c0558227e6888546e76c0d425550cb808f30"

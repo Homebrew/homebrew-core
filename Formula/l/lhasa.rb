@@ -6,6 +6,7 @@ class Lhasa < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "e7ba70b019d0c69185cc9958531d64c12e233934d971d8239b98e543ce9628e1"
     sha256 cellar: :any, arm64_golden_gate: "ecff9f243ff801f54e2036a6ae6c1bc9f943be2369b4ecab9c9f49e71a224879"
     sha256 cellar: :any, arm64_tahoe:       "fd1ffebee313b2d3aa6c6290799c925366393b65d8f45964c2a96b8617d135b0"
     sha256 cellar: :any, arm64_sequoia:     "354461e9807d52d9fc075852b346a442b3d51083e4c6f07a9b21e5116aae696b"

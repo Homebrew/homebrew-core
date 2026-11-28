@@ -7,6 +7,7 @@ class Mplayershell < Formula
   head "https://github.com/lisamelton/MPlayerShell.git", branch: "master"
 
   bottle do
+    manifest_sha256 "48435bef53dac4bdcb5025b8ce515d872e9e0c5a124183d6315fc967b5a50c94"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01d97c1f74f80e0216089cd429b80ebfe9e4a3fe365a880f162d7b8ca5398af7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60d548374e75eccb8dfb8ebb31df066dbb482f8bbd0ec5bf273c62392d323de6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b95550c4987ef7c396da3dccfdd64e309be1d1945fec7f520215c674615174c8"

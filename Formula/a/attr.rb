@@ -13,6 +13,7 @@ class Attr < Formula
   end
 
   bottle do
+    manifest_sha256 "f832e3b8f67046e00eca21ebcaf4b5307875d54d6afa570e5e3040cfc51173a2"
     sha256 arm64_linux:  "6cf6153b6390b7efb17d220b68e7ca26afab6778d4db7c7fc1da71029198df5c"
     sha256 x86_64_linux: "fbb8da02d151687a0ff9c27add3f0600dad7717b44e03160800afbcf0ea9f291"
   end

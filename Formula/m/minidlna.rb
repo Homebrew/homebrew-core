@@ -7,6 +7,7 @@ class Minidlna < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "8e1b14c8b612be33ea615b105d733b5a3e5f7bcbc1797ddc902c475dfe484e2c"
     sha256 cellar: :any, arm64_golden_gate: "217dc4ec7fdccb9cd0a6eae0817f2709afa5d034e093afda9cbd2ea77be128c9"
     sha256 cellar: :any, arm64_tahoe:       "0653da91cd10baff42e22dc28994fe4886ed4bce3c4e4f9dbe726c5ff2487522"
     sha256 cellar: :any, arm64_sequoia:     "b57474142d19a4bbb15397eb9e46c5e453c89612e3214f4d497e69070b1e423d"

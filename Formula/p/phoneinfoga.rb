@@ -8,6 +8,7 @@ class Phoneinfoga < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "be1323d73b6aeddda6a3667537a6c2c400697b6affdbb339d0c2f7da3cf4e033"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "772f0ac670e0e9cec362cf5c3c06cd3f6dabfdc32e6b4ac3c90fc27aa80fc19c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7e2e971ea2d91fd0d388784c7435045a2d80ab6d5d91edf3fb79cfa9b65dd22"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c667724c0478647ef04487e67759737ea73957e56f04d58b8aa9eec133532bd3"

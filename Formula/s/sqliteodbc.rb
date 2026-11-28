@@ -12,6 +12,7 @@ class Sqliteodbc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "79eb390578080a47207f719d1e84ea2cc6d29a00055c62e360024f5b299db5ec"
     sha256 cellar: :any,                 arm64_golden_gate: "88e24105292c6c32dc2350cb34eacacdde9bc8bc3230f33723417e4eff2f2d64"
     sha256 cellar: :any,                 arm64_tahoe:       "ef7576d687d514cf3e6691537bee8e66eaca106ef598ad5cf07c4e20d520aecb"
     sha256 cellar: :any,                 arm64_sequoia:     "9bc67271da98897902daddd9417ae566a904f20d4b418472b482588a9fb77e17"

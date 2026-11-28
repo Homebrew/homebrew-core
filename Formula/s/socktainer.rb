@@ -7,6 +7,7 @@ class Socktainer < Formula
   head "https://github.com/socktainer/socktainer.git", branch: "main"
 
   bottle do
+    manifest_sha256 "16dc88ae08e2fe3b8576fa3d9222c6f2d9ac345d344cfa7f26732c2f3bf8d104"
     sha256 arm64_golden_gate: "47618ef2dde1e57376c3a2ab6fef17cdfbf238b8ebe51616dd22e61160684171"
     sha256 arm64_tahoe:       "7e0ea9616079789a3684bb4d959c9e1a8ed03d51dde4cf076040d7caef2f3b1f"
   end

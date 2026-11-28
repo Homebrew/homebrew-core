@@ -7,6 +7,7 @@ class Atuin < Formula
   head "https://github.com/atuinsh/atuin.git", branch: "main"
 
   bottle do
+    manifest_sha256 "28caff7ba8bd75cd48475dc5d811ac3acfbc1e2fe86fbfb746938cfc7b6956df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9aca8634df20ac4c71be79eb584b407b71aadb1f5727713a01b05f2ce0211bf8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6638103998791995d4ade6d12e9af2de113d487590df67de0a88e6ae18ecd363"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5bbb80517936fde6a4608fb8ff7629e63bc21644ccab5b1ac013fcb41c269f2d"

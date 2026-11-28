@@ -17,6 +17,7 @@ class CKermit < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "8cb9d672d210e1aae757f9b89747a1c5109b66a51a0352cbf4a184d37810bcd9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d5ddfe65ed89dc16fbbe15877b058f0734876a0491ab7eece5ce17461230ac9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c0e72e5bb4d72caed49b3f6d972c288574cf259071e49b9f2d7cecb996dbce8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc6dba17341e3f98196d564a5fffc6302338e58371b4eca3ebeedb82e274606e"

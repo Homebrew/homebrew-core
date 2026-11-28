@@ -11,6 +11,7 @@ class Peru < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "45b725b046d4df6a57e2f4badc96058c4c88e36bd001ef374a994578064c4f05"
     sha256 cellar: :any, arm64_golden_gate: "b58c5fd45085887e66448ce84898bfd92416acf768c6e450095ab3d4fd9611ab"
     sha256 cellar: :any, arm64_tahoe:       "1225528b3151402c59e607982d0686643d77ae510b05ede6a829776cb05ab638"
     sha256 cellar: :any, arm64_sequoia:     "3024f57fa07ba7b6251605bc99af6af490dd9463ba135e76b3b4a17993e2bd3a"

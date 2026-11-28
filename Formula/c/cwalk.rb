@@ -6,6 +6,7 @@ class Cwalk < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3914e607cd959c5c0ab1737ed053e1dea3476f15253faaef3265702bea8541c7"
     sha256 cellar: :any,                 arm64_golden_gate: "c92b12dfcbd11594863916124ecd335bc7d6e391e5bcdf7374635c480ef5e0a0"
     sha256 cellar: :any,                 arm64_tahoe:       "c6a86a42f343e1569e219befcd09e4e44eba308b2bb6afda312e0f0a14268492"
     sha256 cellar: :any,                 arm64_sequoia:     "29c42c807b28bdddedc2e516d849158e1c8ead44add19f2ce91f45b9fc10e9af"

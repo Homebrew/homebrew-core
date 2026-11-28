@@ -14,6 +14,7 @@ class DamaskGrid < Formula
   end
 
   bottle do
+    manifest_sha256 "281e8af2b5301aebd9f5f0b510468b29290923227aea9ac7d029c734fe5d6289"
     sha256 cellar: :any, arm64_golden_gate: "2bebd819d0e4ed7378188eb1bea38ed6cdf96a590327337c8dd9ab4b539691dd"
     sha256 cellar: :any, arm64_tahoe:       "211b023d8f4f2ebf88af33d59166658ba83caa3e6808cfaf0fefd8e213406e2e"
     sha256 cellar: :any, arm64_sequoia:     "76ce727955d3aa8b3bdac63c831b7a0a44b4d12ad32d7c47110feaddfb7f9952"

@@ -7,6 +7,7 @@ class Crun < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5704ce607336f4d3f148a459f1f07a0f8c330239ab888607497e8c51bd4e611b"
     sha256 cellar: :any, arm64_linux:  "f8a9d708662d31dfb3e0ff95110cd47cb19dbb31972e4d00dcf6d99b496ad5bf"
     sha256 cellar: :any, x86_64_linux: "757087841988beb70fe3be6f5a6315e45be8c66fc8cb488f5677b2acb7632f76"
   end

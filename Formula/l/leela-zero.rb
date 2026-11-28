@@ -9,6 +9,7 @@ class LeelaZero < Formula
   revision 13
 
   bottle do
+    manifest_sha256 "0b8abb8ca8cd800abd0b872886098eb0c8be5092748e0352b24f018faa28b20d"
     sha256 cellar: :any, arm64_golden_gate: "882441564f2223a249724c627e5de3baa8c49fb949e056e83fe5c64925899575"
     sha256 cellar: :any, arm64_tahoe:       "ebcec12f4bf9ac5f08ca649e1f5c747ac6ed9fd566191a6f923a2a508008eab7"
     sha256 cellar: :any, arm64_sequoia:     "85999bd9485c5c3618a012f08e3158a9d47b26d51feeb771bfb97f101c250d9f"

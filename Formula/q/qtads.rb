@@ -12,6 +12,7 @@ class Qtads < Formula
   end
 
   bottle do
+    manifest_sha256 "3e035ba907943a038b8f929a0bc57e05043ecb0e5d8e8238694a610a82721276"
     sha256 cellar: :any,                 arm64_golden_gate: "1331062d473454e6ce19432e9b399788dc0ded374677a55b2a16ff2307740b96"
     sha256 cellar: :any,                 arm64_tahoe:       "d6549a2b3f706a45c5e6e73bfc1ead1f3cd80eed681a3c713731cf6b9681ea88"
     sha256 cellar: :any,                 arm64_sequoia:     "6e3606d6b81aace60e22a195af69bdc1a487903f6199f66f625b5cd80063b468"

@@ -7,6 +7,7 @@ class Harsh < Formula
   head "https://github.com/wakatara/harsh.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b3f628f85688ae12482314f656e1accebb007f869ced910a98dce499be5c2934"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04b518be9a55bf1ceb6279a6408c33b19948726b2b5fdd9989243e07499949b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "719d5448ca9017772ec460c7f625bea82fd5a907375bd58ad2a07b3b7396e18a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "719d5448ca9017772ec460c7f625bea82fd5a907375bd58ad2a07b3b7396e18a"

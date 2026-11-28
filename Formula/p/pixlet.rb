@@ -7,6 +7,7 @@ class Pixlet < Formula
   head "https://github.com/tronbyt/pixlet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e10d5c9c86d96e4c58adb3b8bfd8946e97d9995ae2413742578df614287bc1f3"
     sha256 cellar: :any, arm64_golden_gate: "5413857b8732cae316b89181f22b75df5341e2ce40df184e234d5cbfd3de1b9e"
     sha256 cellar: :any, arm64_tahoe:       "afc1aa3d22fff1a1e1ad638acc08a57a2c18da33949e6173e98d264003c3ceb1"
     sha256 cellar: :any, arm64_sequoia:     "c68d3e1844dd6f5fe8e693dcdce302e0019fc365e7a34b030f62d31fddfdb6eb"

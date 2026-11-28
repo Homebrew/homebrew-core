@@ -12,6 +12,7 @@ class Flank < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "33635f72d96d1f48d33995fa27063e6272d464ebc57b64c23aeaa1320ddd6194"
     sha256 cellar: :any_skip_relocation, all: "f6c1c7a433156099db3565266cc19220b34233bd230df04b5845c952c8462100"
   end
 

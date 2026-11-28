@@ -7,6 +7,7 @@ class Containerd < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f8e25a6d7e1e9e09df53242c75ff9108126845d2d0a9eb77fa840105586594a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc4aab39c42519f1bef0559850f778e44387a6ecaeb6bff13cf33005b6caaeda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f073e764d73493825dcce277ceda20325960d37334a7fdc64adb0d8edad1acc1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "507dd8b44f657a3ccaf2f8029e50fc9e5429462be4d7dd4e848af80c8ab91e16"

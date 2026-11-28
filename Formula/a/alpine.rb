@@ -33,6 +33,7 @@ class Alpine < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b0031c4a85e9540d80e6be22ce8e41a38a354729116770ad1f735b29cf312a6d"
     sha256 arm64_golden_gate: "549a45d8ece706ea30013e7f8f345422c9867af0e4410c1af1f5718df08df2a3"
     sha256 arm64_tahoe:       "62301d0e5eb9290a24fb3ab3d9117f9dccc45160fbdee0ee7a176e9d02a21f2e"
     sha256 arm64_sequoia:     "0299b3f80c9193359059909396ebf74078a263d0e0987e086741398bac68d566"

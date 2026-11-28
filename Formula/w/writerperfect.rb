@@ -12,6 +12,7 @@ class Writerperfect < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "46339371b87cf871abd007ec319bcf4f8f4078b97b44969fa4f57b65f0b2bde6"
     sha256 cellar: :any,                 arm64_golden_gate: "b112b83cddfa767b37b877b91cb901093d52c9fb4acebad72372fb0d29a5f464"
     sha256 cellar: :any,                 arm64_tahoe:       "019f7df6196f57ac72fef8f42879191724bbd71243f5d55df485b5aa7b583eec"
     sha256 cellar: :any,                 arm64_sequoia:     "1bcef69c7269aac0ca31db30c82ca222f1ae0a9a9d4e19cb55d3bd7f28974327"

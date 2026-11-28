@@ -15,6 +15,7 @@ class Wrk < Formula
   head "https://github.com/wg/wrk.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3feb5dae3d5b58856235a15c55e0238866c2baaab4e94a98ca808c64dd087a77"
     sha256 cellar: :any,                 arm64_golden_gate: "dd6b5c01dc85786b193e5c135c74aa1fd0c1f6eb43645e152cce4a69fe778e96"
     sha256 cellar: :any,                 arm64_tahoe:       "06fe612a3956378aa2a053a68e4193eacd2a9b4920629dce86c3c2d93f21ca63"
     sha256 cellar: :any,                 arm64_sequoia:     "169ac7e696799e9560768a27efbebd3353da1fc29be58a1b706291a3123f2600"

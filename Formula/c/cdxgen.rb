@@ -6,6 +6,7 @@ class Cdxgen < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "b93b9d443b0f0841b219808e11f6ab3332e009b912c4d63eff9f5339d352766d"
     sha256               arm64_golden_gate: "e9444ae6319836c56c6dba6007dd7b31db8331acb27328f8b3f73b2a683b96ae"
     sha256               arm64_tahoe:       "b47705f154c7ed813cb246350db71934e4eed82e1e9e94eb9bdbc8546871896f"
     sha256               arm64_sequoia:     "07568f162e43b75395d7bd69e7753090383a55b9ad9e754069c61ec8dc80bc6d"

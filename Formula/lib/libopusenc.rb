@@ -13,6 +13,7 @@ class Libopusenc < Formula
   end
 
   bottle do
+    manifest_sha256 "56847827cac0ae83ac9f835c0471e559808eb37c42daf2287404b3502f5b7c23"
     sha256 cellar: :any,                 arm64_golden_gate: "ef1203ef1e98296f1d009721e34915438f97d53252689935794a372029a6612f"
     sha256 cellar: :any,                 arm64_tahoe:       "92b42832d01a85d2be1e22d430d80fe57e02987ebf6b4e77f425891f4c1ae3e0"
     sha256 cellar: :any,                 arm64_sequoia:     "cf8745f39fc22033d57343bc4d985d7797f6733d882c4a7fc1f47d76b306180d"

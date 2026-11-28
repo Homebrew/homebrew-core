@@ -12,6 +12,7 @@ class SlitherAnalyzer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f3185e24f0aa681c5ef8e0f0abf12f04e782f820126584b47be8afbe39d504e4"
     sha256 cellar: :any, arm64_golden_gate: "cd7221f5ae181faf4538c2ae4c832627d53bba264e623cae5d154f185e61ed03"
     sha256 cellar: :any, arm64_tahoe:       "5e9730a8a6313035e7a9ddf6d33caeedc0b984c286fce86f97e7c0b7acbbc4b7"
     sha256 cellar: :any, arm64_sequoia:     "2aae8d9c7ca1d6d5e322d29a76443f328801b6509330ccfe282e8be2001e9d21"

@@ -7,6 +7,7 @@ class Fourstore < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "eacf622f9bd006d63007e25b08fa88148dc52af5aa9f32cedd063bd44eb392d5"
     sha256 arm64_golden_gate: "d996ce164477edbadcb7c106ded0ad77bd030ee31ffbf4d89c7d67e1a7b02ced"
     sha256 arm64_tahoe:       "b5bfc32e285c9053a23c919b79ac99292f2a32f398b0df4f5170958980c51c74"
     sha256 arm64_sequoia:     "c92babcce0a867b6e4f2de75872cde122080806cb9c3e25617bbdf1e315949db"

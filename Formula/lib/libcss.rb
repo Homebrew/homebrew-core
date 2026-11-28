@@ -13,6 +13,7 @@ class Libcss < Formula
   end
 
   bottle do
+    manifest_sha256 "80a6b993b66b82e1a92c9376313cb54f0e7b2cd31e378340d32384d2bd406e66"
     sha256 cellar: :any,                 arm64_golden_gate: "de285ef57b8ff20979d18e71af48cc22136ed03d931e61175df4a502710889e7"
     sha256 cellar: :any,                 arm64_tahoe:       "e9814ca0ac5b4222f4465ab3fd614f08d73fe9572e2c551cf456c636f71278b9"
     sha256 cellar: :any,                 arm64_sequoia:     "f065539111cfaeb57ffaa1f1918d0a5eb40a27193a0de07a976d8822941bb5a0"

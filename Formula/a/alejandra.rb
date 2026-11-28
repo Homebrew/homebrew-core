@@ -7,6 +7,7 @@ class Alejandra < Formula
   head "https://github.com/kamadorueda/alejandra.git", branch: "main"
 
   bottle do
+    manifest_sha256 "387960c12291c7f4f79381c5109626413ca6f560901a406b0d1c65dddaaaf9a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f1336b2e798effd955c56b803afdb22fccbd436c462fc9869142cc600965600"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "723d97ac661b25897b67c83ed4200f29ecea06e07aeb14fcf0464aefe95cc9f1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a285b8b37eef4f19d409f042bb21c8e3ba33ab086d3310c5fbb6660d8ae0b65"

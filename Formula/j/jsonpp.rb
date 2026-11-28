@@ -8,6 +8,7 @@ class Jsonpp < Formula
   head "https://github.com/jmhodges/jsonpp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ba3e27ec25be8c57f3bdf0d7d0b9601226e9bc40ea506ed9b5d313e38a505f48"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c8e2a5865c28a206c1dd81e1c68a20f5c927ecba4be2899d29b137e603bee6a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42ceb483930d899b0d24a6c8a39fb5ff94e211796cc68ecc9de948612fae8361"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fee3f13de44648f26cf9c2928e2c0908117749ebed6265109b099c1259d7af2c"

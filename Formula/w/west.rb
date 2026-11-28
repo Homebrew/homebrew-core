@@ -10,6 +10,7 @@ class West < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "dd6aeb49804b01ad0fec52ee74c7212bf537c3560a0ffe3f6e949c4990685997"
     sha256 cellar: :any, arm64_golden_gate: "062d58235bdb4f9c74349ea8ddd2efe13000443412e64be19d583ac71a51e538"
     sha256 cellar: :any, arm64_tahoe:       "3563e97b83a0f5eb7d4069b8bc42807ab29965ca797fb86bc72f807a2f20b6a1"
     sha256 cellar: :any, arm64_sequoia:     "1c38fc5007257acfaefd09f06a9b419d67696da0708ea685e00f17d74b9eeb3f"

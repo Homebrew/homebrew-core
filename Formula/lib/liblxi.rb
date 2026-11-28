@@ -9,6 +9,7 @@ class Liblxi < Formula
   head "https://github.com/lxi-tools/liblxi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c32dca6ead7674bea9ea2bebd77f103baea2f44a465069618fd224eb80ce932d"
     sha256 cellar: :any, arm64_golden_gate: "85ef17437145721014e937fcb6fcaa6c3024faf69bf31c7936504ebd4e7c7e08"
     sha256 cellar: :any, arm64_tahoe:       "90b99e8ef648703285fa24caf9d05f63402da9cc0d9c64860ca2559ed3c0fa7b"
     sha256 cellar: :any, arm64_sequoia:     "18d6b33c092ccdac797c676b1805f09da03bf985530f691016fa1928adb3ca66"

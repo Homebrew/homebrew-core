@@ -7,6 +7,7 @@ class Xurls < Formula
   head "https://github.com/mvdan/xurls.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5a00248e62b7fdf4baf55d9df6eb0713cfc5b0410f9fc8bc702109df08246314"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4d58d4fb0fdd5a4da665159da30ca43b11d6326f351c75fe90c05c4a89a92176"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22c2b64793e739cc7e0f4c74200696d92dbb5844beb0cdcbab647c770991ee02"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5b5a4fca9fccb9162ae07c8d883401d049a1823faf90766628480cebba4aa1e"

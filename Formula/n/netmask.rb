@@ -7,6 +7,7 @@ class Netmask < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ceab7fc15454a22b3aba6789bb046ec6172cf002bea8cb2eccf4b7ed314006a"
     sha256 cellar: :any,                 arm64_golden_gate: "5fafdc35e8f9c69f5822ea7a20a2213e4092adb2bb87e4534e22d247faaf708d"
     sha256 cellar: :any,                 arm64_tahoe:       "cb0530aeaef1e274a3e3457b498d583424b9558fbb4647b20ff0d5020a46cb55"
     sha256 cellar: :any,                 arm64_sequoia:     "378d351713f5eea2019eaea0b601dc206a9dd6a0a3235dd77d450e908876f2b7"

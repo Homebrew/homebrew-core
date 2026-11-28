@@ -6,6 +6,7 @@ class Bee < Formula
   license "MPL-1.1"
 
   bottle do
+    manifest_sha256 "2e7348d284591d771077fbff08a193146eeaac7ff412bc485ecb240af3a6980f"
     sha256 cellar: :any_skip_relocation, all: "ef273d23705a3a466ddbac54d0b8c4178efa6dec12f64fac7f192b7f67ac36fa"
   end
 

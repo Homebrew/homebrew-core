@@ -7,6 +7,7 @@ class Cpdf < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "37a3c723863ce42d83acf7f70657c145b69ae3d2abc8fec27cd56f1fc12a42a0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8059499ca3542482e155c6ea99547f4c3c88bfe8b9f91f2c15761869add29670"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "103a0357ee1e1fa53298a81682317154757074fb9d0b965bab01a170d257487c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5beeaab1939e7b3765860942066bca2ac524c23a5b2eb2ed22ad7f2ce02d4f04"

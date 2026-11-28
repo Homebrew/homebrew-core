@@ -15,6 +15,7 @@ class Libmpeg2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ef861e0758d4a93ff378605d0c69931623e49cdcb754b1018feda21cd2a69eaf"
     sha256 cellar: :any, arm64_golden_gate: "2b24713ef6f9cb9dc903a2a5cf2cc1a6f148a91e253e71d9dabe17ef2b67e7e8"
     sha256 cellar: :any, arm64_tahoe:       "d62eb9cd43b94dcf7a1d4541a2be2e97648406beb993217d36ce32e4c7982e39"
     sha256 cellar: :any, arm64_sequoia:     "c97f23520800dc78b5e7cce85248756223f4710db7668405562b6ef0b4a38cbf"

@@ -7,6 +7,7 @@ class AgePluginYubikey < Formula
   head "https://github.com/str4d/age-plugin-yubikey.git", branch: "main"
 
   bottle do
+    manifest_sha256 "680082f759d84857046ba745cdbbec8d9b7aa365b85d5697f4d58094eeae179f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2e33f268af1142ca45e17c3174b72f005798deee49ee7591e86e90c98975755"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e47f7f3db0a86732348289dba0a3f3f9c2b3a4dbb5a5ab12914fc9f929875656"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc3e8b17018c33023f8f0e55eee0564e1352910131b51210f1e3f8c9ef2ea9e2"

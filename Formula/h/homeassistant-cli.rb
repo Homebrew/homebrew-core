@@ -11,6 +11,7 @@ class HomeassistantCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c158505da0c85c74bdac626e075314d36bcc4f38998b04b20ee9be67df1e6f15"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c156e097c9db7364aedc25e38ce2d23d9b49f74c2f57a2eed6c11c6d8e98966"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f9c88b710fa9970121b270fb4a1c063fd667fbf795ce77b5dbcd558be109f69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "faeca16c327b84420b463186e2b03ab76512dfd15ab2846c5fcb1720d23b92ee"

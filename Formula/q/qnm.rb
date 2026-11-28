@@ -7,6 +7,7 @@ class Qnm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1e2911306cec639b284132870939762ff165ef1f09d2f4c6325c7a21cfc0050e"
     sha256 cellar: :any_skip_relocation, all: "5cc808b7443c54ea3ef60687da80c4f7845ac3bae1f7fa3aabb211eff6b5ee9e"
   end
 

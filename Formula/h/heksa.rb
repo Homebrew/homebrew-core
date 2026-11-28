@@ -8,6 +8,7 @@ class Heksa < Formula
   head "https://github.com/raspi/heksa.git", branch: "master"
 
   bottle do
+    manifest_sha256 "380834649aa711452d34ec5c53f92abd8c476ea47f627896a1bc7d4f4bb67d7a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "02e70c7baa49fdc776b0a0c503ee53c9409bfb6f331491513f983e506b9c3c0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1268c82b2fd88b4dd497010c2d7b897ea66d2a66d68e74987f64a3f5e2d21ddb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba04dda9e2366f4af82dc315932e46e298779ffd0a4a1e5bbf37f531b2c9b102"

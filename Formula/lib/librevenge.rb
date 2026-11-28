@@ -12,6 +12,7 @@ class Librevenge < Formula
   end
 
   bottle do
+    manifest_sha256 "044eea780c9dab9385f736c3a472d5810e576049e40e75e7d1958d7ddf86d834"
     sha256 cellar: :any, arm64_golden_gate: "844a6ed1d1df325c30c80f82104e3de956649b481f9a06676a388dc6ebf189b8"
     sha256 cellar: :any, arm64_tahoe:       "3dbdc968c050662db2bb67f93c3f2f473d69679090c1b25f703284efd2c21987"
     sha256 cellar: :any, arm64_sequoia:     "0eabe12945f58c1a8673416a79409b17b410b27e67636b99005209cb6fd6b35a"

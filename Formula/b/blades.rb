@@ -7,6 +7,7 @@ class Blades < Formula
   head "https://github.com/grego/blades.git", branch: "master"
 
   bottle do
+    manifest_sha256 "80c3754a10c47e37d440fa569933288c216f3f95f8d1857f30dd29b98820a6ab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc42f5e9a8943b76f7776df32ff8d89bced43c732ec53c1572fab316125616b6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "30c379b57bb8030e4a7502c73c8a7046e9809738f3027e761af11b23dda24536"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8cbe0edc427152920ea102e09fcf88f0807f787c019202090c22d32c5a827af"

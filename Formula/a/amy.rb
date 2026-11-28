@@ -6,6 +6,7 @@ class Amy < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c4668dcd4e1c4df69f09b0ba291b0a889d275cb5430ee8f8f692a2e82877607f"
     sha256 cellar: :any_skip_relocation, all: "310b45fad4f48b4237531069572b4802c26d03bde643eb9aef17218bf5c8e6cb"
   end
 

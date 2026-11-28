@@ -25,6 +25,7 @@ class Dovecot < Formula
   end
 
   bottle do
+    manifest_sha256 "91a0574eba63a8af2eaa356d65f49d148c084e9da74d16ff5a62c806d4683d8c"
     sha256 arm64_golden_gate: "89a75374ef14cde4deefe941de542d357a0bcb6636d37904b0b305d0c863d2cd"
     sha256 arm64_tahoe:       "08f27f366e57bde9ca31919a00c50e7d36b763400c0d331e6b6e837359e61225"
     sha256 arm64_sequoia:     "f7dc6857fe2cab49800f04cb4a1dd7437d140eb73fd72fd05c98c1830d6b9233"

@@ -7,6 +7,7 @@ class Sourcedocs < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f9c6238e074b6ceea1718bfee41baf1cf3a7a74be1de5ce6b1fa034a93a8b5bd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac549f7f815d8bb4050078cf69316c7c9a53d672edf13bfd2291242e0bd45710"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f04c4c5a56ddc3c0278cc681ae25fd79394ca2c7a24707aa0b7fd347d1bfd8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9ee4c05d8785176a69b0eae29935840fe1b185c34195fbf46ec4b45131d61a0"

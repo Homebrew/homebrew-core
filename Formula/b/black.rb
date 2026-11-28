@@ -9,6 +9,7 @@ class Black < Formula
   head "https://github.com/psf/black.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1264d599520d32b655dab026dd706d11f23741292318a4c4d36d7a84b332417c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b389df385ac8a95cf64da540360440cbb0fe7c5343bfaf8a866dcaf1f4d125ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95cf0e42ea32e15238d7de7ab14774da6db374984f7f1f806628ce32035d23cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "049cac47655fbde1c946e9f1ef097b5aead749e0354b67f35b3f4e8d8e37df77"

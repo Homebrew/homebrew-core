@@ -8,6 +8,7 @@ class Geometry < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "97025df014cd2103b16a3e34a5c0003bf929cb389d3d3f65866cba3066755f63"
     sha256 cellar: :any_skip_relocation, all: "fa0842885c350c64f807ccda07244f74d44825b7bcb12077f9fb803a3b1dddff"
   end
 

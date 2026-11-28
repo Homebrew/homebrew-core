@@ -7,6 +7,7 @@ class Nebula < Formula
   head "https://github.com/slackhq/nebula.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d9b679e552cbbc85f24e1ecbcb26b639579d0277170cb9891094c07f7dbdfaa9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f989686e52055247f22c5900fd8dfd10bcb62efc26b86736f4d7bd3c3f9a3819"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f989686e52055247f22c5900fd8dfd10bcb62efc26b86736f4d7bd3c3f9a3819"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f989686e52055247f22c5900fd8dfd10bcb62efc26b86736f4d7bd3c3f9a3819"

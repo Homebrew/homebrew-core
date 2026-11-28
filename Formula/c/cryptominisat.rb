@@ -14,6 +14,7 @@ class Cryptominisat < Formula
   end
 
   bottle do
+    manifest_sha256 "d21126ee625be8a23a801447cea45de04b56cd11f9fc2be9b82a8a3beacddd1f"
     sha256 cellar: :any, arm64_golden_gate: "0254439ef6fca7d293141eb0649f4e8eadfa3f1d5040d37e2bffed911c1a1767"
     sha256 cellar: :any, arm64_tahoe:       "5f4b2fb751dbeb4d71bedcba41c795306af4e75a7c75f71d271ca0b6a49ba8e6"
     sha256 cellar: :any, arm64_sequoia:     "a4c1ec409bdeba093c2f089c102accdd84c9723b2c0056fce7bd0b5b82c01fc4"

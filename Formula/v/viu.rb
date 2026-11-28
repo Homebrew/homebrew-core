@@ -7,6 +7,7 @@ class Viu < Formula
   head "https://github.com/atanunq/viu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3a741aa8262420509578dd8660febdb68843af76557e62c4ce38ae68c3ea864a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "00266705e03c333eacd05238bb7817eac66d34f77c624773914226c5496e77dc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2694fb155f4988be81bd67c050d325e5dd9f62e5bac209cf5d19eabfaa7fad79"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "48035c9823fcc6893b4fa87efe62cffc560067953ec9d682a479f17020cf209a"

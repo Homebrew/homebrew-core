@@ -8,6 +8,7 @@ class Libtasn1 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "81603515961be58db79a735e7f354ceb6247c26670c48aa9486826594725374b"
     sha256 cellar: :any,                 arm64_golden_gate: "68d1748171848565af7a083ca92b834ab1fe4ac7832140b1cd22fd1fcb072fd7"
     sha256 cellar: :any,                 arm64_tahoe:       "ae01713eec0bd922b903ed2bf514dc085ec3108636c4ead84614b23a2c33f267"
     sha256 cellar: :any,                 arm64_sequoia:     "973e0fd7d529808f53fa9ae281020bcbcc750a1dff60e5e5bc37c0da274cca5e"

@@ -6,6 +6,7 @@ class NodeSass < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4eb8384b532525dc8274133094b22e2085333d8fcf8c44ebdc537dc2c3c3ca7c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1b408f58a58a335533eb34281096b00fc312c9f6eff3adda61697aeee5ebb05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1b408f58a58a335533eb34281096b00fc312c9f6eff3adda61697aeee5ebb05"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1b408f58a58a335533eb34281096b00fc312c9f6eff3adda61697aeee5ebb05"

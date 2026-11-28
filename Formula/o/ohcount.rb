@@ -8,6 +8,7 @@ class Ohcount < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9222218b6af81c0b9a72cedced5f3158134e11406d05e8447bb37fabb4835305"
     sha256 cellar: :any, arm64_golden_gate: "e90b503d2a061957234b4882187a89ba648ec69cf67da51bec881eff2860a6e6"
     sha256 cellar: :any, arm64_tahoe:       "9615278e57b6c482ce61401b0fedef9bdb322b7a7adb23f86c3322d1bfd18123"
     sha256 cellar: :any, arm64_sequoia:     "665dfce8bf062ae58c855c9c310d4f981b85a25c44c185b524c1ecfc2783673b"

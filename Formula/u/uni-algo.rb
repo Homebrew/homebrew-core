@@ -7,6 +7,7 @@ class UniAlgo < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6a984432bb769da014f2c5d0b741861516ac70f6e9024165c873e8cf8a1be230"
     sha256 cellar: :any,                 arm64_golden_gate: "11546d83f87fdfb6c271aa325c1dc0ac1380330ebb0a99edbf2a08dfef0b2834"
     sha256 cellar: :any,                 arm64_tahoe:       "34be3ad63252d36a5233e5ec30f0c13037217de44cff3eb333cfea6fed96e9e2"
     sha256 cellar: :any,                 arm64_sequoia:     "09f9020f24fd9b76bb3639c21fb5b588f3fa92c934a8f372c83ecea0a0bbc2bd"

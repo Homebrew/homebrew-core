@@ -7,6 +7,7 @@ class StellarXdr < Formula
   head "https://github.com/stellar/rs-stellar-xdr.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c94b7053abca55a4b54c03db194cc531b13f96884b6fac632df21b1a82ffa6d7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7df455c39a5d19caf64816b449f75b564b1b4130f8372e9a651a77498e852c27"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "877812c50fa1ed44e6ba69f281360fa7dcd488d7a7e61b471f6e9860134fe9f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1b01be62559eb0a062e882495b690df522a25e25cb840616e33d7ac53e571ff"

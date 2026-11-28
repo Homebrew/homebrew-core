@@ -12,6 +12,7 @@ class CheckPostgres < Formula
   end
 
   bottle do
+    manifest_sha256 "3bcf891d2c97d722b9c5935bacf4867c9bf6f21cbd56242c6cbad73d7888bf92"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "241011e869155e319248253d2f90ec4cc4ea411cdbc5eb884c5ba529b980c883"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20317c9b4534bb9bb63f3318637c8d3b65162a78c7201f9f24d3e5f62efe178e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "357245d50daeb670b0e7acdf6ba808e045a3246a6a1666cded448100b78ffda5"

@@ -6,6 +6,7 @@ class LibxmpLite < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "bf0521eb389cfa64fb6ed9663800f274f1f55e450b19f68eb6a0aff760e06cd3"
     sha256 cellar: :any, arm64_golden_gate: "5d04a6e0fd381f5fcfc00ba9a948ee7daeb66330081eb3078945a92c749d4054"
     sha256 cellar: :any, arm64_tahoe:       "15856a8ed1651eb79386889ca0320d7f191a7a5bfff5864fa66f79674a53d3d6"
     sha256 cellar: :any, arm64_sequoia:     "11b31446f7870e3d525f13308d30ee468d92fe451f3d6e6be468e8d8ae8cf0ea"

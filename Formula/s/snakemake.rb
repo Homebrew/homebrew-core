@@ -9,6 +9,7 @@ class Snakemake < Formula
   head "https://github.com/snakemake/snakemake.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1e0fda5b4ea9dd585a503bc24fb2ecc72ffa5e330bf19a3ceb0327daece777f4"
     sha256 cellar: :any, arm64_golden_gate: "2ace76fc85854a7fd3b6574dae03d52c8b1a7d876fbcb11f75d3b190e7d52d45"
     sha256 cellar: :any, arm64_tahoe:       "1951d79b4b16ade56ea9915ef6d0c57becae6dab61d0795f6b3d289fd5fa9d5e"
     sha256 cellar: :any, arm64_sequoia:     "3dc26d21843a29b36991a89c8d5046056123add48237afd69959c54197f40bbd"

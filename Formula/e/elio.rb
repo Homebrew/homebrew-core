@@ -6,6 +6,7 @@ class Elio < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "16ba41cc35f3202f6dfd20ef9b264a0577b876dc5c0e6abbec5a581ab2942aff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b9b7c56f97955b163e55095b867c81f8f81462dca759049051bf2c63d4bee494"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a2ad00e8917da2c279692adee97a01c382b1b74ae2164f3d119a01a611a6ee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cda9a80fff85ee1a0fad36b3f5f8fcfa04b90f9cf633dce6b146532d297ddbbe"

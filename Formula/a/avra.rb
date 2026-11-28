@@ -6,6 +6,7 @@ class Avra < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "05f8023ab906cc0d6147e3026395e51797edf8b96e3545cea2b5289141dfa7f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9d256ee57ffff14b04f748895849b99fcbddc3c1d87d5a11e934139fc08db65"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00e1f1cfce097d5ffae9d1c99fec5a225eddc92bf806227ee55aa50c585d442f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "761db2506786dee44f9e36284b588b38692bdef86870ebacf6d90472585627cd"

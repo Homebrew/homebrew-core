@@ -13,6 +13,7 @@ class Vsftpd < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e8f0f6ec5c3629546654638dd250d92a54f4239245cb6ca47995011407bcfbb2"
     sha256 arm64_golden_gate: "77fae53ef293a981797e8fbd17506c886a1397659a3976598143b089fc3663c9"
     sha256 arm64_tahoe:       "01dbfae43456eddf9dda1082d584faffbc1375610626a5b2c6229ae3fdbd13f2"
     sha256 arm64_sequoia:     "d878a9c0483cf81228a5301cf5768e613271d731fbf2affa778a475bcea57a09"

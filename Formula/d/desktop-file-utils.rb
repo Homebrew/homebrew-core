@@ -7,6 +7,7 @@ class DesktopFileUtils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d60125880f5d5964a2b6c841c753e709dbf0e3d596a1e8979d863781db9e75db"
     sha256 arm64_golden_gate: "13a8ed5b67571a08e0cc77c6c403eb94bb364cde3e1ecb47d250e9f04939422c"
     sha256 arm64_tahoe:       "672164493b9d75d0165c82965299a0a14fd13a5d37c7a9dbf9ec790aae184938"
     sha256 arm64_sequoia:     "affde13278895c14a46fc275448917d94f07acdcfadf7882808c5f238e98846e"

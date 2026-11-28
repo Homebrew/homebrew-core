@@ -11,6 +11,7 @@ class Grails < Formula
   end
 
   bottle do
+    manifest_sha256 "5ba1d270c7249edec17d8a21384f0405097b7fe5e1d108c67d110fadc6a70e4f"
     sha256 cellar: :any_skip_relocation, all: "1a8d6d39b7687850f7e3f28b0b8805627249a4d2126cf2b46e10aa454459c651"
   end
 

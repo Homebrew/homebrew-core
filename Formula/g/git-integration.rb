@@ -8,6 +8,7 @@ class GitIntegration < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "09539a01c3df3c1b1f02c9c223d2d42cd61d8afd77e40c5a9fe18c94ab55972a"
     sha256 cellar: :any_skip_relocation, all: "33e61576b92c02c7c8fc37b244cddecd0b1c065ba954e85d5ab860f318636df5"
   end
 

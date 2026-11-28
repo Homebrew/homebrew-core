@@ -12,6 +12,7 @@ class Cppunit < Formula
   end
 
   bottle do
+    manifest_sha256 "a01db04199c8a713f3d948a565c6e83e787d051ad7ce88b494a510882b2c29cc"
     sha256 cellar: :any,                 arm64_golden_gate: "be8abf6caaec04861837bf1a09156163e1abc99460cb75a3a7d6174671b626e3"
     sha256 cellar: :any,                 arm64_tahoe:       "106d4a437b3dae596bfb93cc8e04de0e28d97d3446a5ad900f926168c8773f45"
     sha256 cellar: :any,                 arm64_sequoia:     "081175312ba1bb288369cb84ff8a8e3bf11cf9c451b80dac6cedc211590d020a"

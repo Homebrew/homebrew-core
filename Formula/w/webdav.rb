@@ -7,6 +7,7 @@ class Webdav < Formula
   head "https://github.com/hacdias/webdav.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5444fff4805070623af49979a041b197c334451e4fbbeee331d6bd4620467916"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43a469e15ae16f663ebb209d150cf31cc3c3cdfa640d9c03637a40fa566d9425"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43a469e15ae16f663ebb209d150cf31cc3c3cdfa640d9c03637a40fa566d9425"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43a469e15ae16f663ebb209d150cf31cc3c3cdfa640d9c03637a40fa566d9425"

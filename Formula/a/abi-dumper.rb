@@ -8,6 +8,7 @@ class AbiDumper < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3664510af09a83092967beab62dba39b1d83edcf44f391a97f0754dafd9a640d"
     sha256 cellar: :any_skip_relocation, all: "6683098a4edbe870557bb889c3ca199ea503f8aeafd53134707ce74ad4fbe1b8"
   end
 

@@ -21,6 +21,7 @@ class Macpine < Formula
   end
 
   bottle do
+    manifest_sha256 "1ee925ecb3283c4d5d3b1bc28b0a43920631e995db53144f28caa7e829e645c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5723aec635018a78557ce1b3377e72c5f71ec1b3573b04c8062d90f91378808b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5723aec635018a78557ce1b3377e72c5f71ec1b3573b04c8062d90f91378808b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5723aec635018a78557ce1b3377e72c5f71ec1b3573b04c8062d90f91378808b"

@@ -7,6 +7,7 @@ class Cheat < Formula
   head "https://github.com/cheat/cheat.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2f50e04c6b15f628d2557a2b64bdcd8a666c41ab5af6851365c6af8073451f20"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "76f53931c6664d8a18da534f0795b6561adf8704addba64ba0dab9c2fbbaf189"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77143bff0b89d1b3cb6c881294a35500e9a6dc9dd735d7f38ad15542f91a49a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77143bff0b89d1b3cb6c881294a35500e9a6dc9dd735d7f38ad15542f91a49a9"

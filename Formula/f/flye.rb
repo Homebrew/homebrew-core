@@ -15,6 +15,7 @@ class Flye < Formula
   head "https://github.com/mikolmogorov/Flye.git", branch: "flye"
 
   bottle do
+    manifest_sha256 "92816e4b6b873706c138e3060b2628cd976feb6b4a1253367bf338cf0b811315"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eeba63bee15ff606b5b3bc0bed01bc5014ad88f736d00bb9916879104f088bf4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c7bbc96f7d7bca0faa9664d04484a334a18482e285d9751a6ecdacd4bba2c44"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e3a99a0f664ffdc99a802b3c1d60b17776cec72f22d54672044a143ed372bb7f"

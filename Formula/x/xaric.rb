@@ -11,6 +11,7 @@ class Xaric < Formula
   end
 
   bottle do
+    manifest_sha256 "4a15335ddb5fc9585d43f74406bc0d56d6328bd740ddd9b1fb70c3886911f6e9"
     sha256 arm64_golden_gate: "564cf4cde94b7e34c6d8a966efdcd34df89b9bd0687a64a88b63459f0744c183"
     sha256 arm64_tahoe:       "e581c7b2ec029eda76b688009874961b5b81e854355f8fb30c4617dc1e1160c4"
     sha256 arm64_sequoia:     "65349a2ed4d52d08f3aca03ac6c5b186c3bc86a78b79f894202a986b7ee1c7ae"

@@ -21,6 +21,7 @@ class Pmix < Formula
   end
 
   bottle do
+    manifest_sha256 "bdbad1fdbbe8387c50767b0d728e4a145cfa15bc7c3205fdad269077265311df"
     sha256 arm64_golden_gate: "27dcebbd50c5c9a4a5eff00803cb51adf0bffbd87ce5577f3ad35de46c917c1e"
     sha256 arm64_tahoe:       "e92ef10e3a830c714f77e437c8c0bc95a74e4e271c11a227bec04751f9e39e1e"
     sha256 arm64_sequoia:     "84f5dc1c87771751b12ffc20d210ecdb0ffce10417adb4698046233d895a5cb9"

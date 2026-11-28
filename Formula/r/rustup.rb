@@ -14,6 +14,7 @@ class Rustup < Formula
   end
 
   bottle do
+    manifest_sha256 "e6db9a6de3d102998a4f50f96f2f28a37bd51fef833a5e55c661aecf4e4d66d3"
     sha256 cellar: :any, arm64_golden_gate: "9174c3ed278db65f93f9e48cfc1c0799302bf41eb082b0ad863581aa2941c332"
     sha256 cellar: :any, arm64_tahoe:       "e54ec7231a85215d201a032cf04f2c407e5da2f653e471ce40b7a72b125923cd"
     sha256 cellar: :any, arm64_sequoia:     "4ba0416f164113eca218e3db5352087548a03957dcb53f52c7f9904dddf6119a"

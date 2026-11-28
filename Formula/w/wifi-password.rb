@@ -7,6 +7,7 @@ class WifiPassword < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d3c5a6eb52f8cb5cd368e6409aaa45c5207dc3fbb90cc1473120077b46986018"
     sha256 cellar: :any_skip_relocation, all: "a253b554c4b811b489e3a487f6472ab8c5b4f8df34d203ed5deab3776cd4ec1f"
   end
 

@@ -12,6 +12,7 @@ class Zboy < Formula
   end
 
   bottle do
+    manifest_sha256 "8e6fd86f836a9b95470b92ed9a4bc0a45304dcb2bfa8fcf3ffac6bc06a6d512f"
     sha256 cellar: :any,                 arm64_golden_gate: "b2c526b9ee04b3059e3ec8a5cbb287ca00391319502e456b99e992bbb2a4b665"
     sha256 cellar: :any,                 arm64_tahoe:       "6a88b48f0f07f47bea0da0a31aee45ba535c2f9afc3a612a859c68b322db3e0d"
     sha256 cellar: :any,                 arm64_sequoia:     "cb8335a141f8e9a964288509aa204bee9b9a1672286ce0c97e236af7c8afc6a6"

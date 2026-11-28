@@ -12,6 +12,7 @@ class Pulp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a974bf1b91fb6f1d7329e1e472531d19b47540e354ef51ed0b5d6ecd25516d30"
     sha256 cellar: :any_skip_relocation, all: "0de9300b253bf5fa068c578ff479fc02a5371a7367bfaf9b3563122b8163ae4a"
   end
 

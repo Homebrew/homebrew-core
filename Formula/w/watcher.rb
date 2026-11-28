@@ -7,6 +7,7 @@ class Watcher < Formula
   head "https://github.com/e-dant/watcher.git", branch: "release"
 
   bottle do
+    manifest_sha256 "f91986a1277a6f62b9be192affa0e3f4e79eb4a39db5e3584a47ab58fc96a4b6"
     sha256 cellar: :any,                 arm64_golden_gate: "972243c963a7a58af98c4498bd79ab7c292442374a02e62cfac4c6cfde560e9b"
     sha256 cellar: :any,                 arm64_tahoe:       "739685078edc48db766556d91a9fcd4f17da74c1c67da8228db762c64e8366c1"
     sha256 cellar: :any,                 arm64_sequoia:     "04676a32fcee2729a167300abf014303af7a943b9f34bdb9e16a0bf4a0c0ca9e"

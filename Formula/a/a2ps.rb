@@ -7,6 +7,7 @@ class A2ps < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "1bb11f040f8264b5afdf119d73ad26287137cdf18422d1de93210987737d39b6"
     sha256 arm64_golden_gate: "ad0ce1e3f10af16357703052ba4816f7893802a66ff07bd17107322ef8210d55"
     sha256 arm64_tahoe:       "f6895a00c5e039d81af9950d1e22c6012e50d6b8c19b5ad576953d06194ffc41"
     sha256 arm64_sequoia:     "2a959e7d521d6fd47fb598017109de310a72d25939dad660f24083b033155b13"

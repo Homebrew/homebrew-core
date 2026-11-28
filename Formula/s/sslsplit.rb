@@ -19,6 +19,7 @@ class Sslsplit < Formula
   end
 
   bottle do
+    manifest_sha256 "89d468bde8ec21d59f9cd0cb412d23383ecd4ef289a86b5adc163e28b5e9d76d"
     sha256 cellar: :any, arm64_golden_gate: "d95bba38fc686c73ba840e5fffe5912506b81cc08bbb4d67142d99923633d75b"
     sha256 cellar: :any, arm64_tahoe:       "962ad767f8f7c593042fa37ee03c133b762b950c3f1722330e68e954d3d3bf4f"
     sha256 cellar: :any, arm64_sequoia:     "fd9e48a9bfb16bd92be96d38f04300d41a6d7e20190becdc3a80b53771f62aea"

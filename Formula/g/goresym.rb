@@ -7,6 +7,7 @@ class Goresym < Formula
   head "https://github.com/mandiant/GoReSym.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5e3e2e5267ee284f5966cc12716a8f5cd45b54b3f6f7e1d3737acc1529e69591"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82d113e4c6cc88af46c2922fa18667fe6e5c2c0472b9e237afb32a92be48dc67"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82d113e4c6cc88af46c2922fa18667fe6e5c2c0472b9e237afb32a92be48dc67"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82d113e4c6cc88af46c2922fa18667fe6e5c2c0472b9e237afb32a92be48dc67"

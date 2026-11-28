@@ -7,6 +7,7 @@ class Zvbi < Formula
   head "https://github.com/zapping-vbi/zvbi.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ff885abb8c85e67f43ab5b6d0d90e17c7867e5559b368090fbb964a1bb4b4b19"
     sha256 arm64_golden_gate: "155d876fb904681a9a95ab7072c341ae82a0425320078664fe6e95726b21799f"
     sha256 arm64_tahoe:       "d2bec4ffa3e7835411ec1661dd92ddedacb5b49b2b4aa3537657ff00507d90fb"
     sha256 arm64_sequoia:     "dd3f630afe948a740915195ef9836aee07893cf1a4e21a8f34939eb372b65697"

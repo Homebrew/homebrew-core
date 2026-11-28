@@ -12,6 +12,7 @@ class Xbyak < Formula
   end
 
   bottle do
+    manifest_sha256 "49430358fbd5eea5d5d2ad890f6022b36df99455bf65f84841cf857b874e9048"
     sha256 cellar: :any_skip_relocation, all: "db0219559411a3e2102b46631eecedd8190e53b974098e07790bb5a56f390c4d"
   end
 

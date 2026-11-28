@@ -6,6 +6,7 @@ class MailtrapLocal < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3c1cef7defaea4e58fb915d18b2421eae2301b352389be7884bf99b62ec105ef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9ae0b039b8950dbf5d61e44f79bf1bfd78aa22c1864e41862bef246b6cb6630"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9ae0b039b8950dbf5d61e44f79bf1bfd78aa22c1864e41862bef246b6cb6630"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d9ae0b039b8950dbf5d61e44f79bf1bfd78aa22c1864e41862bef246b6cb6630"

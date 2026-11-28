@@ -12,6 +12,7 @@ class Visp < Formula
   end
 
   bottle do
+    manifest_sha256 "25e1c9eb5c2504a0f56dc43b0fb25f302da43186631a7a6e9af999635105ec1b"
     sha256 cellar: :any, arm64_golden_gate: "c74f019c376df94c4ddf5f8d78c678fbfc8534283a3b81c4e0359396e7ea9eca"
     sha256 cellar: :any, arm64_tahoe:       "689c8caaa07945e2c155cba794915143941d65a1c2d2327af69c8264ae7ff602"
     sha256 cellar: :any, arm64_sequoia:     "c1759f5cf0e780adb55ccef2dc4c8d7a6d34270824d99e8b367ac45e714baf05"

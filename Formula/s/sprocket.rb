@@ -12,6 +12,7 @@ class Sprocket < Formula
   end
 
   bottle do
+    manifest_sha256 "1024b8f334799ced8da615818765174e0ce667d8a7892f1c51ce24df0ea40d41"
     sha256 cellar: :any, arm64_golden_gate: "d181109ef4a9d65692031c2ad1a030687d9701dbdfded91d995a7bd37fa68640"
     sha256 cellar: :any, arm64_tahoe:       "f3c655ca00767ed7425996a1b911a4afd980b320bd13bf3c58259c3dbc7153fd"
     sha256 cellar: :any, arm64_sequoia:     "2be6c670b9101c89b95abd5d3a8f7dffd1b5a65f1c08de2054aa69bb44d7446d"

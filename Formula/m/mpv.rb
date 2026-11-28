@@ -9,6 +9,7 @@ class Mpv < Formula
   head "https://github.com/mpv-player/mpv.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6cc78a1ba72ff4eb5263f44063d9c8cac04e45260da73d91922cbfda4efcbe48"
     sha256 arm64_golden_gate: "20f3540339b3d73a174c3661d9388e2c7bc9f972acbfc3b6e771f7042b47745d"
     sha256 arm64_tahoe:       "6a1b54f165edafb7b4a7b3d09b5e88097d6fcfb1dd91f94a1bea9dc1803f2d2d"
     sha256 arm64_sequoia:     "05850494459b51fee48c8b5c394257b616318cf226d58a108a2eb0232b233601"

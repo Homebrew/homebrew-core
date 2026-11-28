@@ -12,6 +12,7 @@ class Z80dasm < Formula
   end
 
   bottle do
+    manifest_sha256 "4eda502e8f9a432eaec62a86a50fd4a4f20ca0f258f156644fa6288e1deffd08"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a4c739adaa0705d39aa0f1f9e2012a13425e5146b13c3457602c1ca1702101a6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04a71156a5cbb4a8ea20743f25864bb447004f6aabfda1ef23cafede9a5d36ae"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49cc209ae7b34afcfe58fd310bdcb228f6d35cadeee692049a61202bed11176f"

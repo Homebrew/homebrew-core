@@ -7,6 +7,7 @@ class Gitbatch < Formula
   head "https://github.com/isacikgoz/gitbatch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f72965207162cc5d8eb433d0d060797518449c9f68f61e05cf77434dee857354"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52a3b6e994ab75b7befcbabf0fb10f7dc70cb56c7d4347c6593f4e601482a300"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f0dfe4d2f87530d4b6efa9896233606294804a6ec6ae6acd783e7a0fb81bc0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a46587ffb66c2c071a4052ee70f81ddd41b93151e09b19404f789b5fe9f1b1e"

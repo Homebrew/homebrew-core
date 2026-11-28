@@ -7,6 +7,7 @@ class Verovio < Formula
   head "https://github.com/rism-digital/verovio.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "14fb5849ac8167e72d7106c483e2993d059fec428cb47c7f0bfa5918ded5787c"
     sha256 arm64_golden_gate: "323365af4889c6e257ea3f4b5a7951846ed685d3735812e0f982cabe91b27681"
     sha256 arm64_tahoe:       "201279ca4283c16204aecff72683909a698107782315bbe5f4272b7bd13d9ae5"
     sha256 arm64_sequoia:     "29a5647a73693ffe96c8c937f63b01e4947f7856c8c0f16804e2c31e2c9aa596"

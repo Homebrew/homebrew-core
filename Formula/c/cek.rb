@@ -8,6 +8,7 @@ class Cek < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8be7e3168058184f2a54ce9689e9d2bb3e6a884ee0d872c3a712e303cc3a2656"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b10010fdce4faa68f989566361610541d90f81c5719029820344dc43d619280"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b10010fdce4faa68f989566361610541d90f81c5719029820344dc43d619280"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b10010fdce4faa68f989566361610541d90f81c5719029820344dc43d619280"

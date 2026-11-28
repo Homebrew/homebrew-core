@@ -8,6 +8,7 @@ class Nodebrew < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d3cf9b474ae40499368dc2fa6d383d7c5f80aa9be54e6fd33f365d0a4dc66c4b"
     sha256 cellar: :any_skip_relocation, all: "bd835b02ed3b28570708b7c98d0ea7a761c53f561544496d07728c9adf3502e2"
   end
 

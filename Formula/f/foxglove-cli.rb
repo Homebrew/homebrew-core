@@ -7,6 +7,7 @@ class FoxgloveCli < Formula
   head "https://github.com/foxglove/foxglove-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fdb07f3751096c55ca60ac22e92dbff8a9dad79626fd5d1684fe051fb72ec1b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "daa9744a7b505ae4a0fe303b72a7aea9e36b578e2bb0b77a7ce64dcd96c63226"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b13379f71ac6329c84401208061143dcf2531ea1e67786760e02ae30ea137f2c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd6897436fd20037dface40fd0a3e160ff3247d1f6e1dd162130c073447e871e"

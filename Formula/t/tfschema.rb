@@ -7,6 +7,7 @@ class Tfschema < Formula
   head "https://github.com/minamijoyo/tfschema.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5bfccc0bd5aa299e163361a46d8424d0a4cd967dba6e0364d92ef4bf87d94fca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ffc7f4353bfed7eaf043e1ae75ce2a45332e4839a3c7f8c7157569fc317eb23"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3b174c50761ec68cf29cd2d1f617d7b08d038c94ab2fdf44d2ffeac851290788"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3b174c50761ec68cf29cd2d1f617d7b08d038c94ab2fdf44d2ffeac851290788"

@@ -16,6 +16,7 @@ class ChainBench < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a4521ad79ddece0f4d58cf8c69b1c141b03bd5ac2385fa1714f34a5df4329ced"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26449bd577d54f0e0d706d56e44df87048e8d269e4742e8a844140df0bf3dab5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd785591312edf03b12e224b5459291c5b5e1bcdaf42cf0851f3b15eaa970fb1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd785591312edf03b12e224b5459291c5b5e1bcdaf42cf0851f3b15eaa970fb1"

@@ -7,6 +7,7 @@ class Dagu < Formula
   head "https://github.com/dagucloud/dagu.git", branch: "main"
 
   bottle do
+    manifest_sha256 "99d4eb7cc653ca67d33654801ac9027d8264d2f4a9e392afaa88eb5677163ca8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e5154436729b000fbc66e7d456150de1fcffb62a7f0c0b93b788b0bb52d3518"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "511167cf2692c6f2019e64ba810c6d88326cefda05654543f68436a51eafd7a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "12b847c86e523056f7bdbeafc998d5d645dddbfa810b675f638ad6873ede9582"

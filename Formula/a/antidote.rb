@@ -6,6 +6,7 @@ class Antidote < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7a429d104170b1469e3d1374cb4c38dd2d5c530584512972632933d80487a718"
     sha256 cellar: :any_skip_relocation, all: "6b13194def1ceea882359e1d9783839a23bbae4f024f8f776d8b972c6ff6ec96"
   end
 

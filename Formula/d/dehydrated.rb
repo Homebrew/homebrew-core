@@ -7,6 +7,7 @@ class Dehydrated < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "573be70c68dad5fb488800395c02840e3aeb500e2d67abc3e752fce6b831b54a"
     sha256 cellar: :any_skip_relocation, all: "069a4a6c4658ce2051150ae2ee9245b5d40ceb175912ab8428ecd7e1a7519bcd"
   end
 

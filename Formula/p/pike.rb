@@ -13,6 +13,7 @@ class Pike < Formula
   end
 
   bottle do
+    manifest_sha256 "14d5ac4b9b7d97b4c30957788fc63dd5aec3ec2b4d9547ec93ed1817d328a6b6"
     sha256 arm64_golden_gate: "fb1b6089bd79c2ea9c0822fd970d7d0754da209a0891112ee4f32bd3b305652f"
     sha256 arm64_tahoe:       "ce99d1862387995d645b98b72e8704350c594f195ba0bae38e1b5f05aadd0fb0"
     sha256 arm64_sequoia:     "268dff89f0555fb7cdbcaa8e0fc48ff02325d0b174ac540859b540c7a802eb94"

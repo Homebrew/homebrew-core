@@ -11,6 +11,7 @@ class ApacheArrowAdbcGlib < Formula
   end
 
   bottle do
+    manifest_sha256 "9b44482d8e413f1abdb97a195e5f241d67f7615fea9c016c8499defc47264ce0"
     sha256 cellar: :any, arm64_golden_gate: "fdc7e4a6a2e4e5c3187670fb2ae110163149cf8efbcf791bd5f3fd20d7c3ecf7"
     sha256 cellar: :any, arm64_tahoe:       "3f6a7b829577c7f5a814971190bad4dbf806c4bb38ac9f007ae3134f06de0fe0"
     sha256 cellar: :any, arm64_sequoia:     "35f137b7227b159b726828a56f517fd722a23075dd2404086677b7f1e3d58b59"

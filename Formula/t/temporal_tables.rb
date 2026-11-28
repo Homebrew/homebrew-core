@@ -13,6 +13,7 @@ class TemporalTables < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "74b72cad33518255a89ccf073fd7807de7a65b10f4e54e6863abe8e8dc5cbb1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4438829b45b83eff018291fb2bd91f919b8ecda5260b84547ed774b1e6428fa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "961c3574dee3785c6a4a2d5dfee3fc55c758b09b06df2dc106a6f20caf555c18"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2be633c14e63c4523d088fd0caadba5c804d7b2d9683f6a78e56f3e5111596d1"

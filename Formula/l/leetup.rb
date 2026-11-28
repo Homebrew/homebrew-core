@@ -17,6 +17,7 @@ class Leetup < Formula
   end
 
   bottle do
+    manifest_sha256 "57e93a8bc5328632022f13d8e957391a9bd22203655160b18670c40b73d6cbc0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22059f81a610ed1cdd46afc875f5f7b5cb4fc4b64127364599072595e76fe714"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f4a1549bef7b099fa1ee617bdeab8adcd92704e0f57a192b4e7453d6d3314ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "513dd96c791df2d3c9f728729b9003fc28c0f68d41e4d88a2f61a9ca56d61760"

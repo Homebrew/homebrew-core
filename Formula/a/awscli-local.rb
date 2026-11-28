@@ -8,6 +8,7 @@ class AwscliLocal < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "7321c3a15e96d05f24e0e31626dd8e32825f3b93aaff2a9bef4ffdecd4ec36e5"
     sha256 cellar: :any_skip_relocation, all: "f557d0e00332505ee16042189fdeeec8dfea4ba3a4eb1c5a9b03d6793072d609"
   end
 

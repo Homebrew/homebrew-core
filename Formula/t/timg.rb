@@ -8,6 +8,7 @@ class Timg < Formula
   head "https://github.com/hzeller/timg.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1e098b4b23d6476b326d22243f2f627f66b0c7fe5d96235430e2cf8bd0faf968"
     sha256 cellar: :any, arm64_golden_gate: "2e64cbdcbf552924075a7455945d5f5043f156fdc62add6e9673582109d4925f"
     sha256 cellar: :any, arm64_tahoe:       "78332097424ff280db9f9c94370942017c542f0cd30fe090cf7e4459cbc2fb60"
     sha256 cellar: :any, arm64_sequoia:     "f59fdca979f3257b299eb7310b5c4379ec1a3c37a22c8ae684f7ce07dae4a896"

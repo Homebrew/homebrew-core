@@ -7,6 +7,7 @@ class Filebrowser < Formula
   head "https://github.com/filebrowser/filebrowser.git", branch: "master"
 
   bottle do
+    manifest_sha256 "08116372e9299f5e40a2874f5c10c7b2f226b2337a73e8cde8cc616217edbeb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fad797c2f580c6ec91b61d5f5c224648c7902c3b7262b96a014f6ae6661f6040"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8789bd5961b8beb37f046a7adb9b17bd273d54f2207ad059cf30f660fc273028"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c055be1423a5a17e9877f6cb7d43f0a83adce33761f6e57b319c64020e04fba5"

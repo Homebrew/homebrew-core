@@ -12,6 +12,7 @@ class Nqp < Formula
   end
 
   bottle do
+    manifest_sha256 "980bb57e079a58a1398948d35228426bc807cc1d80d2d0a1d36bf50723dcf558"
     sha256 arm64_golden_gate: "f45754adaa4d1a2e2a5692daab29a8a1c3dbe94c57428d21265b790ad462cf61"
     sha256 arm64_tahoe:       "e88e49cce4da7327d2067501fe2e5e1baa8fea4de36aa9a5d7e9d21421dfa153"
     sha256 arm64_sequoia:     "d72e3debf93630b768a810b370469fc4bfe17fdcb4c0bf271fc7baee561b77a4"

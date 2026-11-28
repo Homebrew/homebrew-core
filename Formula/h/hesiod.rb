@@ -8,6 +8,7 @@ class Hesiod < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7531f005757a848a060b0499d669a1b913fbda2fa24c29d96e80df718030d919"
     sha256 cellar: :any,                 arm64_golden_gate: "d57d2aca8aaecd84b3e27a76eb65736c01c0c56186ea9d19af45fde93740ff3a"
     sha256 cellar: :any,                 arm64_tahoe:       "735e3fed1785ef6b190ece9c2d9e4da37dab5d07e246302d786fad85c6bee0c7"
     sha256 cellar: :any,                 arm64_sequoia:     "b35e4acc79d9b6003e2358d0c508b8c0e8abd37b5668136f5b52ebdbec389bbc"

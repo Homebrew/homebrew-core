@@ -6,6 +6,7 @@ class Wild < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "4fa23fe808879d4be216ac487aeb987e06e972f625ab24d868a1e38b9fda4c4e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b682eb348fd7f24874e98c9937708bca43f9be40f75819f5f1a3d5fd3c23f584"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d5e1cbcd3c265b8b8bf27fd462a6b02b277992bbdf724f31333f7c8cccca673d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72eb6b6236db908ff3996af57f3ed0b84b66dae822d6f9a7791e6c06b06400df"

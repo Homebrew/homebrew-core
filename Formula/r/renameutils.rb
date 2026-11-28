@@ -12,6 +12,7 @@ class Renameutils < Formula
   end
 
   bottle do
+    manifest_sha256 "40996aa6126247227d48ab6c34e64a0ad1be39edc6e0ebcd59dc3b1a9cff8e66"
     sha256 cellar: :any, arm64_golden_gate: "90552510d43c1fe8644510114099b65d68141fa4e87e1fa427ce868faf3084fc"
     sha256 cellar: :any, arm64_tahoe:       "0fdd550dfb8a3ec4c7b30c22a6be8bf88104207328b51b7a3806b9f254e4eb85"
     sha256 cellar: :any, arm64_sequoia:     "93b6c0287a2a5222cc55484b0baa724174ac826afffc016f75165fdc0d37e6ea"

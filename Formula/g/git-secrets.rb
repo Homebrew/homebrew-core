@@ -19,6 +19,7 @@ class GitSecrets < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c93763524d4fdf9d05bd071f96752830572b9ce7a1d069d5d37066e0a326590d"
     sha256 cellar: :any_skip_relocation, all: "826637bd7920ad23df848a7ffbfadb79a7d7c918b330d80bc7fea4dfb9fed1d5"
   end
 

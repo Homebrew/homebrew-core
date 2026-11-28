@@ -11,6 +11,7 @@ class Wazero < Formula
   end
 
   bottle do
+    manifest_sha256 "cabc5df253778add97f2dc469ccce1b880c461864d118187e50567a9d2ecf1c3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1de75b1f0502b133cb1c35197e1d7b68aed802fed59b226327418a576e9593a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b48c99c3b9ee63f59d9ed32d7f5ae4c40551248686bd4cd2434044d16c59b03"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b48c99c3b9ee63f59d9ed32d7f5ae4c40551248686bd4cd2434044d16c59b03"

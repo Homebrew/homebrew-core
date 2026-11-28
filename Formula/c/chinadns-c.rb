@@ -6,6 +6,7 @@ class ChinadnsC < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "abb7782243791380fbb7f23fcb4bfb997842a15dadca04c833475f83606240f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac55ec4b781ec79e816e8d2b8998d19d536fb5c8fb0257a891ed3d01cea6cbb8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ad68ee0eade8b16d3698f5f38f91dedb795c40f6776be6458feb36576fc3e48"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7f5135d04a85b3d2eb3db7d807d091f45b6c7047613d73538fe8e3fd92d2fcd"

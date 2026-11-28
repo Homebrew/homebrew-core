@@ -11,6 +11,7 @@ class Dar < Formula
   end
 
   bottle do
+    manifest_sha256 "c4aed7ef0935c7dd471aeaf529e0e5ca4113a419ad8bbf0da79f43cfd66a7a0d"
     sha256 arm64_golden_gate: "97ee70f02b438b66c7e7eaba54063d449f1c325cb09f9452187b5f6a499ca0e9"
     sha256 arm64_tahoe:       "dbda0b52b4e634a5c7ab4c7d03c816d19d89b46b994089a498c6342e2d326ef2"
     sha256 arm64_sequoia:     "dee1f6da3622811ddbeaf46fcd0e327b3f58676579549c85145ab65d91222bd1"

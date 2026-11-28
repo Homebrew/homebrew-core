@@ -12,6 +12,7 @@ class CargoAudit < Formula
   end
 
   bottle do
+    manifest_sha256 "1efa98a09e2696c2b069bb7488e6c2db8cfd73ec97c9530baad52e0719f5fb6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26c2e643ca2abb08b56753b1a28cec486037824e7748b24d9e272047ad24d5c5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c08a2fae8ff011004dd9ea11e52477b73b4e018311df0d71d8f4cec98ee5d12"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a342d6b5697760b0bceecdda756fdb471863bf4a5696c353e7307a91de185ea9"

@@ -39,6 +39,7 @@ class Devil < Formula
   end
 
   bottle do
+    manifest_sha256 "8c8e50620f67eb5e99e9a5a48ced09da603f1b144ab4feba80bbee84e0b59027"
     sha256 cellar: :any,                 arm64_golden_gate: "857198733f91d996a227c7732e7fa868a58d3971ecd3bb5e918266322a1f4f64"
     sha256 cellar: :any,                 arm64_tahoe:       "b38672c3417c92fde8b5cca2a59f14c31201f9a5f043a1bb5d7d04c4983d5398"
     sha256 cellar: :any,                 arm64_sequoia:     "06f0d3689766e92e01e492d9abbceeac345df99fa96a018cf74963ff4b6c9cca"

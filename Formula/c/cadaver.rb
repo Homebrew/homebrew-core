@@ -12,6 +12,7 @@ class Cadaver < Formula
   end
 
   bottle do
+    manifest_sha256 "49e114165c8d484168bc1d3637bcd2c8e5198be6c1bf2cb390c91cf22d093ba0"
     sha256 arm64_golden_gate: "1fb4b0d7f42c9f14ef541bcde82fba19244327b655ebef8e712dee2502be65a0"
     sha256 arm64_tahoe:       "a96c8dcab0526683df4873360e4dd490a8d2ddc88151b3d04587a19ecaa327f2"
     sha256 arm64_sequoia:     "577e6ca9b77deaebe81ad1b413810fae2075084bffd44024c3de58d363e69a98"

@@ -7,6 +7,7 @@ class Desed < Formula
   head "https://github.com/SoptikHa2/desed.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ee61d022d0165ba4633f2233606f2b49f09a4fdf83384068ba081da086ae1d3d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14452eeba16e2de5323d479c2845fb18691847306a8576d1cfdcaf8258456796"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7527e806a595841c4837ab662fc324ac33916307cf13bda079f24977af180141"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2979368a475b5c25858f1756a9e897133d6c082c349f187f633f99d3cf7844ab"

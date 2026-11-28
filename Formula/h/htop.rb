@@ -11,6 +11,7 @@ class Htop < Formula
   end
 
   bottle do
+    manifest_sha256 "de36c3a171850078d87306ef831376b2ce74ad649b98a0d1c0513412e89bfcfe"
     sha256 cellar: :any, arm64_golden_gate: "0c2e921c00ed87b549a3155b6e1270b91c99b22dcb8dc0f09bee91a1d9239228"
     sha256 cellar: :any, arm64_tahoe:       "d57bf20d0cbade0647877bbc74d736e743e050d2c0296b0591c78aa2c70ca516"
     sha256 cellar: :any, arm64_sequoia:     "c9f94a86905f32eb73ae3cbfbeef9bb269cdd723f0843a1146b8fb103973421d"

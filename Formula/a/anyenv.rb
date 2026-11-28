@@ -7,6 +7,7 @@ class Anyenv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5ae82ce75cbdf495045c558990fe96fca211424b995514c4a211bf0cedc98750"
     sha256 cellar: :any_skip_relocation, all: "be1c3998ca482ca2cf3377f5db6690f1c74877e5cdfc4266d62c5cc1627caacd"
   end
 

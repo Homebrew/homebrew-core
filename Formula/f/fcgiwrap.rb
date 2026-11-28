@@ -6,6 +6,7 @@ class Fcgiwrap < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f89bae5b46ad8a6d33ae7e9a33e7240ad4e93a4cf6162bf37c60bb66906e5131"
     sha256 cellar: :any,                 arm64_golden_gate: "9ad880365a53217e9039d5e26962ba7b78bd7495f7fb1e7cb43ec173afd8b559"
     sha256 cellar: :any,                 arm64_tahoe:       "6732ddaccbb813164f5b5a0f8b09901f15681e82de377939f5a173b046902bc7"
     sha256 cellar: :any,                 arm64_sequoia:     "c5bbbd4868035ccb9d9f03b894456f3d2e61a167a55f3d934f8c093d26a27e84"

@@ -6,6 +6,7 @@ class Spglib < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "a4d353480a6fdf4260435a14d2964a8447498ddeedfa8cba202f9bc2ae3c0aa4"
     sha256 cellar: :any, arm64_golden_gate: "e8b975280903c1fb6a3a3ea890e2a91de371c5d968fa23a147bb6c0a62e5c4c0"
     sha256 cellar: :any, arm64_tahoe:       "144813b55bece8d913a785a08bb26e0b5823ce674017170d16092a4f7be3c23c"
     sha256 cellar: :any, arm64_sequoia:     "6842ee0219b21eb5c83230230246db97c5702af7d6b60b495efdf4996fb7cfb6"

@@ -7,6 +7,7 @@ class Sparkey < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "703d3e12b35835e214975bbbddc329e45850c6f672e7b5b8f2b538051d1b4462"
     sha256 cellar: :any,                 arm64_golden_gate: "b6b1fb7825a565cfd7fb27fe4b4b6f0da5e41ae2da6f9de579cbc1d2081ef192"
     sha256 cellar: :any,                 arm64_tahoe:       "ff757da573f4fb8d73347565dec379edfd8b4310f03a563c98996b262c6a1226"
     sha256 cellar: :any,                 arm64_sequoia:     "452230974e3670cd4241c74f20a71fdeee5ce9f89ab939a5356745e5207bb43e"

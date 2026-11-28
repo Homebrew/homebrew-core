@@ -6,6 +6,7 @@ class Mjml < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b78e434da997afa490b56b8472b7f2cdc6086ccde588ddd234dd2dd775f723e7"
     sha256 cellar: :any_skip_relocation, all: "fecdb24cb153c3c7a0ec841190002add6ed9bfec0af564302dc392716b058101"
   end
 

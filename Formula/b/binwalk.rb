@@ -24,6 +24,7 @@ class Binwalk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "578d997e29b24954863d96abffd6e5eb9173668854205366cc42f8dc29a5c223"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2eb21b73376a12ee7750e0acec8ca38162f9cbea8292718474b53a4bf1e1d26a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "80c4dfbfe2c50dcd3f11b76d393828aca82f80c95276d614c52678c444b74457"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e02cd149f0d1ebfb784f2643048c13ca755370ee86d0b872dcfd8acce80f3b5"

@@ -15,6 +15,7 @@ class Cdrtools < Formula
   end
 
   bottle do
+    manifest_sha256 "19183922dd2a99753c561f09263f132ec96ab676d087578ff1d217b57f3e29e7"
     sha256 arm64_golden_gate: "7fa554c985a79872dee496a026f65208fa8642ff730dabd43bb209b961d30dcd"
     sha256 arm64_tahoe:       "f288c36da4a1fb214eea796214193de02c0193d7e1237829114fe5b978e5e0f4"
     sha256 arm64_sequoia:     "12e1334974f92d034d839c30e8d1c4ff5d8a5e7341ae9d2f4013cc6bd1b73859"

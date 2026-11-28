@@ -6,6 +6,7 @@ class Flash < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8b0bfb351b3b2d27e6f53786f23458c42ab2b6c9e0608654c05fdb62731b7a09"
     sha256 cellar: :any_skip_relocation, all: "7ba28ca5b0372393c667b70b7841d4b9b6f587e9ce0c0c1a6bf9bb67dddec577"
   end
 

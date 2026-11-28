@@ -8,6 +8,7 @@ class Xsv < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "01df44e8282ed2986fb85ffc264b4efd0e52a37a0d7d8ff80ee10e43b6fa8923"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "a372cb2219b14b253d163e31b9a173a11242c11af0168e696a69ae78c5cdfd19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "f8ba12f789a98e3a3e81ef93360446b18b6b228bfce275b622cf8568a7e8cf63"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "e1851aa7da108f20034e0507616b2f2259d0211c522f0d0446b596181d10dae9"

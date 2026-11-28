@@ -12,6 +12,7 @@ class ChibiScheme < Formula
   end
 
   bottle do
+    manifest_sha256 "f2fe3ee3fed3a08f54b0275dcbbbde94621abdd5c81266d97562f980c8534ae2"
     sha256 arm64_golden_gate: "1fdb758c72a0ed6dc9b45ae64aff781c60b01089ef73d7ac0464ec0e912a031b"
     sha256 arm64_tahoe:       "be30e47d3ca1602e832427792d73ca8b9d7253ee2e0d26ad08bdbf36747decfa"
     sha256 arm64_sequoia:     "43d38de30e0c948fc0e3f8fed01cdc4cd0f310e324b8ca74a9c4fffe12235674"

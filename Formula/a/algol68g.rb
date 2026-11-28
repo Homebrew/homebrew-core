@@ -11,6 +11,7 @@ class Algol68g < Formula
   end
 
   bottle do
+    manifest_sha256 "1074d4831acc514764728ce48029383155cbc8cef85e8fd55842d1ff0854f547"
     sha256 cellar: :any, arm64_golden_gate: "e8c4f631637031c10947d6e9ad2f4f78415a7ec3f0c83b7e2667c6e8483cc3a7"
     sha256 cellar: :any, arm64_tahoe:       "c41cb3b3181b7786567c03df7c762a28534a52e2faefbabce440975131d69b36"
     sha256 cellar: :any, arm64_sequoia:     "e876c9e38fb99023508d17c022518ea52e8201fdd0542207905f9ecce1b6bc80"

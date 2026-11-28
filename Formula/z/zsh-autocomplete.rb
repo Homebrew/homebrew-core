@@ -7,6 +7,7 @@ class ZshAutocomplete < Formula
   head "https://github.com/marlonrichert/zsh-autocomplete.git", branch: "main"
 
   bottle do
+    manifest_sha256 "90a00c59f65cef956be42c75f0b01bdbc57b1ebecb483bd83519b414403f7447"
     sha256 cellar: :any_skip_relocation, all: "366ffd368038c06ca0d227d83a53db82d0629948a7133dd531f837538f4afc6d"
   end
 

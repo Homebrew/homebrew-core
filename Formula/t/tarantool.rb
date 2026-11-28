@@ -15,6 +15,7 @@ class Tarantool < Formula
   end
 
   bottle do
+    manifest_sha256 "18ea643ab9a216af36a7a799d08f6e4dd9ba405d1fd2cf4b6b10aa9691b251a5"
     sha256 cellar: :any, arm64_golden_gate: "f618eddaf4623349b7862c51b33f90596a36adc7d70125ab9c5809c6d3e33e2a"
     sha256 cellar: :any, arm64_tahoe:       "69e51ceadecce0a6c62f2164701f5f3855269dfa967e884203a4779e6cfaf767"
     sha256 cellar: :any, arm64_sequoia:     "bf46e1dadea709cf177cad6885bad6633d0142561f4e2d00e7b4483e1c10454c"

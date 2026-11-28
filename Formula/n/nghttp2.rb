@@ -6,6 +6,7 @@ class Nghttp2 < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "45395f4aa668124015925a8dcb1ce8a6770312c4d10576e05e30e50e6d876fc1"
     sha256 cellar: :any, arm64_golden_gate: "9eca791b58c36581a2e9d6960a51792a3ba055ac8b900ba2940fd6559e63384b"
     sha256 cellar: :any, arm64_tahoe:       "b701875e69912dd316679f30b3fd1ddb62f5761b530ed6f124f9d1cf2b569804"
     sha256 cellar: :any, arm64_sequoia:     "01614a6e82d92974b1a33d389fc68d4a35d4cdf89c47f67c9b29a0ac4c0ea2b7"

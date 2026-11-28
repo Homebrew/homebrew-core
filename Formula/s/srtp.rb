@@ -14,6 +14,7 @@ class Srtp < Formula
   end
 
   bottle do
+    manifest_sha256 "08c3bbd5196631e24ebcde2f26a39e4e2bce3bcbad84210e9bf78663796e5f9c"
     sha256 cellar: :any, arm64_golden_gate: "d5a490871797cd5365e57a7f4717a5045d4131566746acb89b70475494c961e0"
     sha256 cellar: :any, arm64_tahoe:       "6fee7517c6f9311d72dc993c4f95994680159abdf469c4efaa8584bce449e951"
     sha256 cellar: :any, arm64_sequoia:     "544b884e67367bbe4e81cbf182995f08522a4c4971f6071ce9c696d018abd5e5"

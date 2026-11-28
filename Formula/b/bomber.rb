@@ -8,6 +8,7 @@ class Bomber < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "84d4d3f6bedc79f4e81406b143e9a69e32cab9a3c5a28e743e07f0ff766380d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "710337df167941faeb93d8ee4836efa77c6c2bbed44e94e2ad5cc0c6ceedaa9f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16b7bea8527dff512ea3d05b41ef3a63b9cc0ab3e36d6a700d8f49f427dd7f3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16b7bea8527dff512ea3d05b41ef3a63b9cc0ab3e36d6a700d8f49f427dd7f3b"

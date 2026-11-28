@@ -11,6 +11,7 @@ class ZitaConvolver < Formula
   end
 
   bottle do
+    manifest_sha256 "fb7d7c0d43cd5e6a16d287eb6918923dd9f0490cf97f8cd6a4342a9bb35e0eaa"
     sha256 cellar: :any,                 arm64_golden_gate: "8ab33feb88080c6c3d233f51fc82814adeddf810a28785d10b6399ff636fab1b"
     sha256 cellar: :any,                 arm64_tahoe:       "27ab1f512bc3b1f0eec036f702eb55b9f0d14d720229f2eae6b029c827185624"
     sha256 cellar: :any,                 arm64_sequoia:     "4426fc8a54e7e24fa6227c1b38a0f0a8ad3d0957244ea5e29e1092b28f7cade5"

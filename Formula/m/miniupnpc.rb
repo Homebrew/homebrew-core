@@ -16,6 +16,7 @@ class Miniupnpc < Formula
   end
 
   bottle do
+    manifest_sha256 "50e704db0d0da393ede94e28f4c74a036d77ad8fde1ffc3d058176ec226981e8"
     sha256 cellar: :any, arm64_golden_gate: "0d7e9b9f0e5f0a30040ab7181f97e04644db48b378c717c88cee30e7ce1872bd"
     sha256 cellar: :any, arm64_tahoe:       "159eb8471db7c3375b6670364111bcc21ad10f92d53b57eac77b0bb29ed6099f"
     sha256 cellar: :any, arm64_sequoia:     "0d558e5433fcfdd53179c65082a62ba42abaa55b6589f76bb553e3927e6fba42"

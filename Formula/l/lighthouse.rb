@@ -11,6 +11,7 @@ class Lighthouse < Formula
   end
 
   bottle do
+    manifest_sha256 "bbe6190ac0ba3e83713661cc47db33f7c9fe85dd1b79d3940894038eff8b80e0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6616a49c8c67487a8897a8de4004a3e81ee36ff01c18486d4b22bc2d723a7c64"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d17e60557e24a793fb98b82073ee59382227dc1b6f9253235504be20c9ddd30"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "482d0d0f52be6ea27302eb5a57665dd206c477aab4a1bc3e4b01175a69964a2e"

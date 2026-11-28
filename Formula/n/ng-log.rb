@@ -12,6 +12,7 @@ class NgLog < Formula
   end
 
   bottle do
+    manifest_sha256 "baf606574eba440ad1eac1dfd1556e0565c04db59f6b693c1194b67ecb77a052"
     sha256 cellar: :any, arm64_golden_gate: "e0eeba20eab668631b51933cbc5f2e546fc5b9f241fadb048f217fd9360b8e02"
     sha256 cellar: :any, arm64_tahoe:       "48b17089d29acefbd4dc2cdecccef9c40b88e600b310ae9a161ef07e5e6cdc74"
     sha256 cellar: :any, arm64_sequoia:     "62712c2766a71cdaa0fa8d7b5c61d681b4986ad203ae17522dff3b87ad8256c2"

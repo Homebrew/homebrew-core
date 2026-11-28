@@ -6,6 +6,7 @@ class Cidrmerge < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "260de14a0909acb24a2d3296f7d44e8cea93258e225ff1e31a2e4f36a3c8ca77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "79916dfa7ccbab462409fe6bb21eff69642aa3f1fdb9425d6ff3757aed84ef20"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a1557d597adadd169e8de642a61a2adcc610583022f4fbfc391a80c6bc7fe46e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37c60d84cb5235c7e6f49d9be574b422aad1c9bcd2767a1ac54f037d068a1635"

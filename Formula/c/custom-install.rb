@@ -9,6 +9,7 @@ class CustomInstall < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a66ff325d61cc70fc10c8e9dbacc236ae3cacbb7ad9b178cb7b1c0221255ba04"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8338987a49846f2e8ff2ad2fcc9bf05b974d70390c0087dfe020546f90dcd095"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1751ec07d4fa27a5901732441e40dce9eefa3f7713d49af856d4298fce30de26"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5819da05de97b54df7001bf27d413193d08c39e1d5543f6766651aa15c6b0e71"

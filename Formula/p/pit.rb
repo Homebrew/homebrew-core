@@ -35,6 +35,7 @@ class Pit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b3ccf339b83b34e05c95ba7c36be702ec0c06dd7618d2cd94b96ee5e0b9d6e00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2af5d71f3ee32a8d9089d41fd1ca72d1763da26b28a873b1b23142d44e9e5bea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f777c3a9a9df0126578d3bfcac99340c9de06de98f9a81af90a5e0f1c11a2dfc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c47710f90f70ca700d78780d7a9ecca7edb1c00d131c5b35eca39d22ca50b20"

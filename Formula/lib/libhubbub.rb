@@ -13,6 +13,7 @@ class Libhubbub < Formula
   end
 
   bottle do
+    manifest_sha256 "5b1178cbade21d5036b5cb0e7b96f7c744018f089c4e041c73cca4b9079f3615"
     sha256 cellar: :any,                 arm64_golden_gate: "8d67783182fd6b6da4f06e89b037ed92737a3ef0de816f41b34838fcb3f7afa5"
     sha256 cellar: :any,                 arm64_tahoe:       "ab526b580a4df9a91bf5c6fb81f8c6af820367dbb28347b47de2fc743d46fe45"
     sha256 cellar: :any,                 arm64_sequoia:     "508f0ebd9f00da4d05a4d477c55c9cae35ecd8b2b80ae83871623ae11c67ef9b"

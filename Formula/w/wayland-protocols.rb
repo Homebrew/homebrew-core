@@ -12,6 +12,7 @@ class WaylandProtocols < Formula
   end
 
   bottle do
+    manifest_sha256 "bdbee362ef81a4b8af364b635fcbc586b881479a4a1dbae90f923713aaafc260"
     sha256 cellar: :any_skip_relocation, all: "c612c303e8ea0af9507289862e749240f43fff49e89ed00bfb2c6a5f666aa5d5"
   end
 

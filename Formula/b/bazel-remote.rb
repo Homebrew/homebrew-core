@@ -7,6 +7,7 @@ class BazelRemote < Formula
   head "https://github.com/buchgr/bazel-remote.git", branch: "master"
 
   bottle do
+    manifest_sha256 "54fb2e471f7467157e5ddfd130543f225d3b7654a2e5e1fc46f0a4327b38c5d1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf3efbae3bf7f9892e0562be8305ba6f9c60c30ecda3a26e6c01e1641a0bac2a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71c7ee727cd4039693b067a9b05e79b721c8016c0278b5c1c154f93641a15239"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99964b04e4b93d0d888bb30bfc7cb15ec8743bf92b52b8952dd6005c1c33dd48"

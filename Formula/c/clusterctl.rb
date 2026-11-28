@@ -17,6 +17,7 @@ class Clusterctl < Formula
   end
 
   bottle do
+    manifest_sha256 "b027641db4c4ede6daa6e90015c677c106e7efb8b7309a35f46657e4796b6431"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b8cd0f584485a43479b374bdde20a0b9c6adade5b5f32c5b77e2bab18c58caa5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "623e4ed97822c0fa89a3122c19e7a995497eab53bc3598ce0484a61a2b74d6b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "382cad8939aa3acc8d93f21bb8163f53c15ef5a8f8a970d1b9228c8cfd7f6b4f"

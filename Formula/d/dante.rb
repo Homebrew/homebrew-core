@@ -11,6 +11,7 @@ class Dante < Formula
   end
 
   bottle do
+    manifest_sha256 "b6d66d18a0cc3ef7fd98571b69a191680c11663a8af161f2bb779def5c1aefc9"
     sha256 cellar: :any,                 arm64_golden_gate: "2383c1edc08bfb173d75fd73924d83f8cf537c35b51fe0306757d02062c03b87"
     sha256 cellar: :any,                 arm64_tahoe:       "0e07933bcf9bcb90be5f3f0ff41bf6784fe6e3ad0c9f9eac9453513766c163ec"
     sha256 cellar: :any,                 arm64_sequoia:     "641448e8ab837bdf0b8a87a78e06af469dad0f91f571af7a60a011613493a8df"

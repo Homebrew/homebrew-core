@@ -7,6 +7,7 @@ class Wordle < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "da8f80941e3eae7590f362acb27ce971b57b272775b0cff4d27355a4e62780e9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9a21a6eed6c40b751bcc7e178546a2ce1e6c1c0c082924e6cdab5c0160272cdc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6332474a053c58c236812202429c2b5685e581276b067efbccc785278ab5fdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8186eac18fc030dd6a97de477d2fe257a9824dd542b917a57398bb5ef0fd7acd"

@@ -14,6 +14,7 @@ class F3d < Formula
   end
 
   bottle do
+    manifest_sha256 "248ce3fa3ea91ae748256a4ddcafb8716c51638e6540b8a33ba310aa2d102c2d"
     sha256 cellar: :any, arm64_golden_gate: "51f6fc52c5ab7739ecf9bcbfc7f7bf70465e5ec063972e3a1bfad5352f649247"
     sha256 cellar: :any, arm64_tahoe:       "c09341f605298fc9d37c5a8e4e9150ddd5aae71d7e6913bb315e67acabf374d7"
     sha256 cellar: :any, arm64_sequoia:     "a637e5e2eb8a54a3500851d51cea00ff4599b890b8740c2b37b19c91f48cc396"

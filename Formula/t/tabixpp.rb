@@ -8,6 +8,7 @@ class Tabixpp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "dd93d4652f8cd785de36f3294bc6591f793fc70ae8b2a3845a117021dcff4c97"
     sha256 cellar: :any,                 arm64_golden_gate: "a175582af57dbc5b5fe66aa6646aa6a16b3d2c33ec4b02056056393c96cdbddb"
     sha256 cellar: :any,                 arm64_tahoe:       "c2c481a5e9c22baa108639438a9a73d383498d0740bc6737da4bbcb2c5baa50a"
     sha256 cellar: :any,                 arm64_sequoia:     "66dcd09bdde2e8848334ac572ef1cf5e893350a4476de5a7437aabd8d6795be3"

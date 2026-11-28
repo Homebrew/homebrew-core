@@ -14,6 +14,7 @@ class Mono < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "32e4122b0a64c996b2576f93a3e30d906b50b0cdabfea529eaff0097d6dfc85d"
     sha256 arm64_golden_gate: "710ad3032ee9493e961458001dfb503eb161bb274514b0712d57c241e9a5e528"
     sha256 arm64_tahoe:       "f5ea5ba70d06035e98457f490a33ac2e5e287c7fee8e788df009e6698702ed97"
     sha256 arm64_sequoia:     "8a45ead0f2fb2e11f539178f69c96f2a6957c06823125d400bdd7faa04dfc27f"

@@ -6,6 +6,7 @@ class Cliphist < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "359843e17dcdb773154ad04177d5dfff66507fc8062d3d54f1d6da587e157005"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "0d341b62780cd1e692c0de243c81c94c99e42efbc86a6c1708f93d86b33e57a7"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "b8468051b27d2b1b30ffa0f20208d14c70b21aa708709c6e6ea50385320e386e"
   end

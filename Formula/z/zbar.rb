@@ -13,6 +13,7 @@ class Zbar < Formula
   end
 
   bottle do
+    manifest_sha256 "8f119d247c16514156789858d194441161e116fb1da2d08435965fce6c689052"
     sha256 arm64_golden_gate: "132f6bdf33f253a14d4d49e44105a53169559aaebdc10025c158eefcb78f713a"
     sha256 arm64_tahoe:       "9e4d77a11224eb74d0f3d8cbce1d4ecebe060530a8d93f42b4e33675d18a12c1"
     sha256 arm64_sequoia:     "a98b49716c7fa998cf58003f1cd31fd7d1a8345cf8bf8f9958fdce10e56cfcbe"

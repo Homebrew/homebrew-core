@@ -7,6 +7,7 @@ class Tgenv < Formula
   head "https://github.com/tgenv/tgenv.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0cfb59b2b492fdb35d955b90ccf4cae253c4b59dcf0ab1ae32ef7fa05b2dfb50"
     sha256 cellar: :any_skip_relocation, all: "41d63971b87c2f8003c821f8cfc00eaf264acef2560a75c7e0dc631da4a726a6"
   end
 

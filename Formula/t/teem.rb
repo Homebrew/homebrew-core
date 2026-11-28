@@ -9,6 +9,7 @@ class Teem < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9d68ed7cfbf2bd8c6678595b501a641a8c1d56f7144bb812cfa3b8435ef9c9cc"
     sha256 cellar: :any,                 arm64_golden_gate: "5dea61f9ca6f8d6b3040a89922de9d77f7a2f6908aa284f9a9f250225d4fde0a"
     sha256 cellar: :any,                 arm64_tahoe:       "ef2e584274fd5642063c5d7bf9d7703f53dddff875dda63bec93dd02494adbae"
     sha256 cellar: :any,                 arm64_sequoia:     "13027b516f281a9ef843fdceae4605cf760d4b5d1cf214a5c876c44faaacb289"

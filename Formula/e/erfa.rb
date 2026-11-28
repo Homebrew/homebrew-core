@@ -7,6 +7,7 @@ class Erfa < Formula
   head "https://github.com/liberfa/erfa.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e953dbd5eaa0743723cd183d90e84f4a9e6d6decdd544308ba0647e113c3e947"
     sha256 cellar: :any,                 arm64_golden_gate: "ddbe22cbdc12071d03d321354c630fe726c12bcb022d101fb41f6c7b62378eb4"
     sha256 cellar: :any,                 arm64_tahoe:       "1ddfe8f2240132e262a4bf6c0ce8aaced1eff640123b43c27355093910bf0482"
     sha256 cellar: :any,                 arm64_sequoia:     "ae0cd3901d1bbb3fb7b002b6e141ac41044566dfb35270e82726ce6aad7a6832"

@@ -8,6 +8,7 @@ class Lsix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d110a65a6333bf04cd53fa66c0c57df88160ee72abaec7f1af38f7ed5dd8e578"
     sha256 cellar: :any_skip_relocation, all: "1236a71809bd24fd1cedb055f51286a8af6ce959d54c6669b8849eee706b050e"
   end
 

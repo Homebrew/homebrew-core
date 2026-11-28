@@ -10,6 +10,7 @@ class GitRevise < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5ca6452501efc6b26de211fac03575db686d6d3d345dd357c67deb6790c2eabe"
     sha256 cellar: :any_skip_relocation, all: "dc10cbf6cb8d8d8367f0fc3d213d455352044ab5cf5a9c3bb7dbfac988618ca5"
   end
 

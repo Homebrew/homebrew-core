@@ -7,6 +7,7 @@ class Mihomo < Formula
   head "https://github.com/MetaCubeX/mihomo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6488ce9cc4d0b9302e34a830f074a7cda5754d6fc7ed143d57f8f93e2f51203f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b148573cc9f80e720a4867b7a7ad739ba1eeb3ee8da6254a1ef80ecac30b37e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "221f46fee023b5681b4f0cc50a4c96926b6e32cf84756397f2ba5666f6d03bee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfcb3c6799a9e36b26c4c7068e31d817c460ad80252de89f86ec91e4f7d7b33b"

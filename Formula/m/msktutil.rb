@@ -6,6 +6,7 @@ class Msktutil < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "a9614a646684e521bdc75b818568ece4ab26cdc0c26e1d739e508800ca5b6a9c"
     sha256 cellar: :any,                 arm64_golden_gate: "84824647b4cd1ce9321bcf14fb2607cd50debc4493c8f6b8cfad5a26c5a35173"
     sha256 cellar: :any,                 arm64_tahoe:       "637b97314f04b43d95e6fea26acf3f8f531270aa5d1ce61e6b1622d9f54e6b22"
     sha256 cellar: :any,                 arm64_sequoia:     "1d4a594ffcf5627ca1fb5781078661711c3a1c63b5b8542a140c0a0f44bbc4e3"

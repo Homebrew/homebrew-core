@@ -7,6 +7,7 @@ class SonarScanner < Formula
   head "https://github.com/SonarSource/sonar-scanner-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8404688b242c19d5832de13cb8448df060eeac649925221387d938b783e878fc"
     sha256 cellar: :any_skip_relocation, all: "053a70d166d52e452f56f6f10dcaa333aacdae0b74ea284d31731519be8758ce"
   end
 

@@ -10,6 +10,7 @@ class ElmFormat < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "80438ac9ef804e3136a3429b21eb297eb04ab3ea939d547e1e3f96a11f0275ca"
     sha256 cellar: :any, arm64_golden_gate: "3d32b23ba1e6659cda53b32ac58825d688517e756075ea7464576896426e97e2"
     sha256 cellar: :any, arm64_tahoe:       "0db604c0ea1d3054599a10069285102c10c6ba52a24b677be8324818cd6caad4"
     sha256 cellar: :any, arm64_sequoia:     "e53fca4d0305acccb8a16a07043dddd5a43a2651da19ec917ef18f8b6395aee1"

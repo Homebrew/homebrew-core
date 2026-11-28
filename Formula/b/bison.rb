@@ -11,6 +11,7 @@ class Bison < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2b7783a3e78ac1d63ec9914f5216373ccd58a17df1a82b770438b00125a9a082"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d440fd1def53a20d74d10e806083b88a632abad5465e17383206a2da9f6daaf5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d47d87f1bead6f00956ea21f147d46ded1c5c2ac0c53193a1ed7b46105492228"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d45a8c193646a25d281a6d3fd62d6f756d4e392cc2948e605a62f3d88ccbf188"

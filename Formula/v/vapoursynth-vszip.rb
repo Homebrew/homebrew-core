@@ -7,6 +7,7 @@ class VapoursynthVszip < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "68704fad9f7b1d792b7eb969d6199201d77272bf4d5261b6a4980292f5e8f20a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42f59724273382f896d7155dce6a3dd689902a117bbf48e7b827e85814fe2fd8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e86fd962fa6e3e96da96cf9705b545f22305a97615f226d3681dd0cf540c33a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ea57078ea20485dfa311d932aefc0a876152548cd37eb442dde40d02699030d"

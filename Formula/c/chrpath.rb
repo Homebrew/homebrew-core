@@ -10,6 +10,7 @@ class Chrpath < Formula
   end
 
   bottle do
+    manifest_sha256 "f4444572c652cb0b45de05de6102b1c6fbf598c97b4b89b52737c4cf778fe563"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "1bef0961b466971c9b4d4fc0ae4ddd059c17f465c8cac8c87e3ea03f3d04d357"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "a820a2841f592b3045eb6e0dc4bdbb6a86789402dea2d97367ec0a58f7d3706f"
   end

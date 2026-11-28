@@ -7,6 +7,7 @@ class Golines < Formula
   head "https://github.com/golangci/golines.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e8a30a6ea5ee6543f199a00cb511a1b593831819ddf4dc74ad8f982100c180b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "928817ce71f8528144706d58cfd8955c5707c700e5a2c507077c1dffaf3f04e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "928817ce71f8528144706d58cfd8955c5707c700e5a2c507077c1dffaf3f04e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "928817ce71f8528144706d58cfd8955c5707c700e5a2c507077c1dffaf3f04e0"
