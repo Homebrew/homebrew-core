@@ -12,12 +12,12 @@ class Solana < Formula
   end
 
   bottle do
-    manifest_sha256 "0992bfa69e1e9735d01cd990bd72f6203c1a2c80bbfed83d85aedcc161fefc2b"
-    sha256 cellar: :any, arm64_golden_gate: "49bd419751170b68f6ba09b473611d513b0a4a4d56fa6fc35e401feeb789927a"
-    sha256 cellar: :any, arm64_tahoe:       "4fc8ee2a6830d59cec1afb678a40787b2bab12a86b4319f03dc57bfcc064eaa0"
-    sha256 cellar: :any, arm64_sequoia:     "437b5d61f18fc074b13bfb99fa9b01fb7bac023c9abe957cc0770f70098c7b03"
-    sha256 cellar: :any, arm64_linux:       "3bde7859a33f1867d0ad3c6c2501eca027ffbd6f0e331fbd31b0c3554adf4662"
-    sha256 cellar: :any, x86_64_linux:      "1941fd5fc82e403e36bf502050c9fcb5a65362e6ee36429c64bc9b9216275099"
+    manifest_sha256 "34d7b849160fbb003f05d707218db78f423edfbf05e65506d911dcb4c3c80d93"
+    sha256 cellar: :any, arm64_golden_gate: "9469e38716bd4752721489a220e5019100e3a1d6e72052d7908c38ed74acb038"
+    sha256 cellar: :any, arm64_tahoe:       "854016e52a90d4025c84290417acdf327fcec928515ad0ed27a4325236297f57"
+    sha256 cellar: :any, arm64_sequoia:     "c34c41320aa0b75ea446c77fba250d570b01f5f93480f7c82dfb45cced858f02"
+    sha256 cellar: :any, arm64_linux:       "0f954b18734c78905dbb0927ddda03bcbb5bdb89cac37dc564eaf611d341875d"
+    sha256 cellar: :any, x86_64_linux:      "369bbc65e9755d82d4bf1964435d015a64fc55a2a01152339e30838d94f559e2"
   end
 
   depends_on "llvm" => :build # for libclang
