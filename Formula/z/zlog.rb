@@ -21,10 +21,8 @@ class Zlog < Formula
   deny_network_access!
 
   def install
-    make = OS.mac? ? "gmake" : "make"
-
-    system make, "PREFIX=#{prefix}"
-    system make, "PREFIX=#{prefix}", "install"
+    system "gmake", "PREFIX=#{prefix}"
+    system "gmake", "PREFIX=#{prefix}", "install"
   end
 
   test do
