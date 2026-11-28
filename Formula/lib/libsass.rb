@@ -14,6 +14,7 @@ class Libsass < Formula
   end
 
   bottle do
+    manifest_sha256 "8971b1524ef244e528202565e5a928dd31badc68afbed9ae1a91fcc97536b9be"
     sha256 cellar: :any,                 arm64_golden_gate: "b4f6ca6280b05990c8bf4e66cbbd2fe67de45dae9f0e6268ae4efd37c3e9cb03"
     sha256 cellar: :any,                 arm64_tahoe:       "ed01028a87ef04e5dd829f40013f3db3cff5317e1cb0ee3f7ac9de135281cb61"
     sha256 cellar: :any,                 arm64_sequoia:     "d5f0835bddfab893cf537c1cb10f42a6abbaa04100954223de905a7f3879a581"

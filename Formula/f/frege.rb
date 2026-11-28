@@ -24,6 +24,7 @@ class Frege < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "390d30f0f23e6b295fa42834dffa77bee7ff2d6de5354b085d29bda2b951ccac"
     sha256 cellar: :any_skip_relocation, all: "644724d94a5b46f40c49bd15c1e979a4cbb06c73d018891245c4ae69c46bbd23"
   end
 

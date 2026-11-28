@@ -12,6 +12,7 @@ class CmuPocketsphinx < Formula
   end
 
   bottle do
+    manifest_sha256 "c909e04062c973c8aa80afa8e0e903b484dfdb495fb8ddc1f89ae0ccc95af687"
     sha256 arm64_golden_gate: "e5280ca30c28cc7bcf39d152f702f1f9524a31a458c1c06fa1df759a09778787"
     sha256 arm64_tahoe:       "792f0965643344363ee3ab76f068c8633cae73cd28d0080ab00012d9c1dbae6b"
     sha256 arm64_sequoia:     "c275bee65e898f179fd26ecd182d104fe95f6d0652248a2f705d0746c79fa213"

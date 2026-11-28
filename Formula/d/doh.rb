@@ -7,6 +7,7 @@ class Doh < Formula
   head "https://github.com/curl/doh.git", branch: "master"
 
   bottle do
+    manifest_sha256 "27c30d86eb4723bd9fb63a9f521009f1c949069de188acaceb6e1c128ade9d75"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f839bd4823f0ad5c79a52e4da5ea04dfb11c18d6bb85b7d81df25775b44e0fa9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9c8bb12c19ed1f9ee5a81150ab5238dc1521692b97ee7e2ac9f7b332c98de28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c39c61062f58d2554ce37add6e00e95dc8628fcd7a597699afb3f53d095e279"

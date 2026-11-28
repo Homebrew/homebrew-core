@@ -7,6 +7,7 @@ class Archivemount < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "09fcb503efea4ed2a43196348e90dad5b7d8932aa7e66a0d75553b51f856075d"
     sha256 cellar: :any, arm64_linux:  "1d624447a2e932adfb13c34cc558a7a71912a849aad2c2acb050e8957ad13f60"
     sha256 cellar: :any, x86_64_linux: "b86976cfadc9d17ba468dd34bdd482adb1104f201b4a279d9bdb651108e368ed"
   end

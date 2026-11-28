@@ -8,6 +8,7 @@ class Xleak < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1309353ab20195a3b9e45405693ab95de8a0d8f59d00ea86fecdbe60e4edc446"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3313fe3d979f9af345f7d7b7cb29aaaf032da7cc2704edb4038c9cb6c015f009"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14ade8276fec7fa62c7da39e7807e536862bb932fcb24de73242d34b56e88c1a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b4ed79469e9eedc6aeac6a814098ff6bd105cc6ffa8d07b4c743653b068b8c8"

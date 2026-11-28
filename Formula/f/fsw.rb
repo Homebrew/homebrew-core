@@ -7,6 +7,7 @@ class Fsw < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "398fc77c031a60673c7f6703ae6b333d045a6c2eeb40fed7cab3c729c79134ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "92f1911be6fcf3e53899517bcc2fe63aa6f39627bacb942f0736af4918628224"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00cd7d239ddaea10afcdb88fa8c03bd40dae89077f35ac47b0ba19289d1477ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4199afe2dc6978df9a3f0eb12a92921269a9e7ea62f7b2e7d12faa762e75556"

@@ -12,6 +12,7 @@ class Prover9 < Formula
   end
 
   bottle do
+    manifest_sha256 "8ee241ccd2a33508932914689c46f99a67a3fbc9449c9d4488cfe221a62cba14"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "760cc237b9a258a797e082e241630f4a4548b78caa109edcaefc25d1946d032f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f50efa708e0a002db67d676da0207bed5d12c71b5ca5c3da1db857e21864c294"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc3e744b9971aabf272db720d2fb90a8b99dca8cb8799ef9d9d89beb306eb291"

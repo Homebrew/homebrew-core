@@ -7,6 +7,7 @@ class Jimtcl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b6bf847876bb7239c1536803f919621a2025f8639b70704c38b18f0ee455ba22"
     sha256 arm64_golden_gate: "7c2cd2211b5be4e1ffd311699cdf205f156395a77a9471ce21e8c708b4594c44"
     sha256 arm64_tahoe:       "6b3b9d1158ff0ac9bcbaa038cfbcb524105e9bd54167bba6bfc61cc9f45fc38d"
     sha256 arm64_sequoia:     "710f84b7e976b2b6651ba7e02ca96121580bdc42335bbeea985388f66432743a"

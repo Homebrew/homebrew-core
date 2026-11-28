@@ -14,6 +14,7 @@ class Redpen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b193a00edb5f6bbffd334bb62ba38f01c701a05643a385dbd4e049869efa824b"
     sha256 cellar: :any_skip_relocation, all: "06d9d1562bd8c00de7be8ad87e1bb69494deb932496dcd2d2b9dc2aebb87ddd1"
   end
 

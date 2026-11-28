@@ -12,6 +12,7 @@ class PvMigrate < Formula
   end
 
   bottle do
+    manifest_sha256 "5ffd4ab3afe33a2c1eecedd9b3a54e4d4e37f14317f7d5bfa7ae44e789e7b0e7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c1905a809addd3bfa106b3d41f34d227e058156aa9327ef7fb3862d867ef701"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19e42b48e40bd800b3ff5d579ab7fa217c96da32996b05367f869e498906c5c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c049cc8bf9b76819c3e5f2f13a6ff6ecbfda6241ed0ebd8da117b6598906eeb2"

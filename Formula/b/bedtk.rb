@@ -7,6 +7,7 @@ class Bedtk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8acc54386b4c03e1e6746575fb02fbc3cb0b883ef26e0961f4a5d8b48fe1968f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "060c0992f3f27b68639c249180cdf539fd47ea861c1939045131e55b8f073050"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd6687dd9bad59b278142fd479824d407c6a905c24626b97f1539ad7eeb5caa9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74a65feea27bbbde2c15445ad3f9c3c2b2a519b3128e789356daf7ed0700ebeb"

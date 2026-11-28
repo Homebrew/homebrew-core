@@ -14,6 +14,7 @@ class Tasksh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "922f146dde63871ed30cca1f6d48766087b53ddec1f41c5f55f280be47259698"
     sha256 cellar: :any,                 arm64_golden_gate: "343aecb5c2293dccb1af298dfb66a91c63a39596e3ba41cf92a6776edc0f97ea"
     sha256 cellar: :any,                 arm64_tahoe:       "0b87af510cb7ba2daf5c1bc8b21d17c30a9ba43512dcc180beed93d9a8cda5bd"
     sha256 cellar: :any,                 arm64_sequoia:     "71cf7963bf3f6eab310007ab05aafb9be4e4c766f6446f79671073cc7100a83f"

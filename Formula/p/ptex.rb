@@ -11,6 +11,7 @@ class Ptex < Formula
   end
 
   bottle do
+    manifest_sha256 "fcf0d4c36d3f3a803ff9c95673876efe7a0fd103b1179b5085986c26a0145d1c"
     sha256 cellar: :any, arm64_golden_gate: "c40363d9554fe7af96c15ec6341ec8093b63913370b45caab8b69c19c629f142"
     sha256 cellar: :any, arm64_tahoe:       "7f6b18525e8aa4d1ab9e6298af2f8936b1e5218d52042767cbe6020d128e7a8f"
     sha256 cellar: :any, arm64_sequoia:     "5e969c5567da054b3733a34e49c319350b444dd39c2d4e4b6ad32509b3be6e77"

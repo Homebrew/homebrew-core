@@ -7,6 +7,7 @@ class Erpc < Formula
   head "https://github.com/erpc/erpc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cc7efa33e1092927b928d1c6482b51015468749f6e135ae501588bc0b0c77a62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52ccb24f609f9b60eff127042d78536861effaae4181fe546046d7423f73ab55"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd3336e55bd122271381fd4b9a43e241aecb582a69c3d18e592be7a1f05f7726"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e595520a17bc8ee26a9309459a3e5d2fc453505bbf328644917fbac9a283328"

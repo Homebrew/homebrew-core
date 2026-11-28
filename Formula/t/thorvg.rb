@@ -12,6 +12,7 @@ class Thorvg < Formula
   end
 
   bottle do
+    manifest_sha256 "91b1f09e25b299b8df58c93f6e1474d28b9f29e4b221897eddcc74de5f21db8a"
     sha256 cellar: :any, arm64_golden_gate: "0d8799fed957880c650e10837b47afc2687974f9c90d7a45aa1ef81210cbd36b"
     sha256 cellar: :any, arm64_tahoe:       "78f29ade5ee049a38ca9a6e5a2c425734075c183abeb2368d953297f5d2227a5"
     sha256 cellar: :any, arm64_sequoia:     "fafd4c44bdbddbc15725290560bc609927dbaa5b6a74fee20b271b2af7d9865e"

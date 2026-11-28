@@ -3,17 +3,18 @@ class Pymupdf < Formula
 
   desc "Python bindings for the PDF toolkit and renderer MuPDF"
   homepage "https://pymupdf.readthedocs.io/en/latest/"
-  url "https://files.pythonhosted.org/packages/13/d9/5ae3cce31a4a62de4f6979331b4d8d5b86a8f2520f06754cf5e69065c887/pymupdf-2.1.tar.gz"
-  sha256 "9ac95f98016e83eafb8f1d786396f9c60e400d559590596e5b2df9eb6384948b"
+  url "https://files.pythonhosted.org/packages/a9/c5/25a5e7d63224bece0196207ab3e8f300abcd079051a79447be370d387e02/pymupdf-2.2.tar.gz"
+  sha256 "593ad37f814496e359dea5c4d7532856842988bf35320cb3e25d03e9438ae236"
   license "AGPL-3.0-only"
   compatibility_version 1
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "f3fc4c8a36f3ed75b4140380fe405afc5f18feb7f92dfd209ddf02cd20aae64e"
-    sha256 cellar: :any, arm64_tahoe:       "687d78d6b27e830e70f0d42fc08f4fa0e5b3087ce92d2fbbc6ee5f3434320437"
-    sha256 cellar: :any, arm64_sequoia:     "1ee65591867b17c785fa0e5c81d84e7839f41a31879fc064a0e7ceef310addd8"
-    sha256 cellar: :any, arm64_linux:       "b6d31defb3b7d42a5513fa6fa943bf05fde3d1f9870c56d42d879d20010c69c3"
-    sha256 cellar: :any, x86_64_linux:      "21a264b1d2afb5d7473e46a711ac2e4ee7c1f8f85d55eef4609ea5d9eaed0b80"
+    manifest_sha256 "caea6ef64f4eea37f797549c7eaccee530b239ea8b5589f8a56ce64ca0103a50"
+    sha256 cellar: :any, arm64_golden_gate: "d43a41c84d5115f3e42e82e2c5cf5688337c6b568f1d8a271c49f5d426891fa4"
+    sha256 cellar: :any, arm64_tahoe:       "f18175b29025abce11adbde80eb131f1c498e2a48ac65819e71ea703905bbbc9"
+    sha256 cellar: :any, arm64_sequoia:     "68ada75d1cc94952c215ca0d1d428b195bbf77fc9660eb93aeb77d0c18297a5d"
+    sha256 cellar: :any, arm64_linux:       "0022983543676cfa353edb02753435721d94ec22c7212889feac19732beb6cbe"
+    sha256 cellar: :any, x86_64_linux:      "f97f5325efa942e48b2ab255e71d222f0b6f4ccc3e305fb6c706fe635b5cfc8b"
   end
 
   depends_on "freetype" => :build
@@ -27,16 +28,8 @@ class Pymupdf < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
-  end
-
-  # Fix system MuPDF library paths, upstream PR ref, https://github.com/pymupdf/PyMuPDF/pull/5197
-  patch do
-    url "https://github.com/pymupdf/PyMuPDF/commit/4b4139e40fa68cd69e20e23c0f6360f818594f83.patch?full_index=1"
-    sha256 "5eb995985cdf7a0ca7b09d4652d8b284d4988d2cdc4014ed8dd904fa593f6482"
-    type :unofficial
-    resolves "https://github.com/pymupdf/PyMuPDF/pull/5197"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   def install
@@ -63,13 +56,13 @@ class Pymupdf < Formula
       import sys
       from pathlib import Path
 
-      import fitz
+      import pymupdf
 
       in_pdf = sys.argv[1]
       out_png = sys.argv[2]
 
       # Convert first page to PNG
-      pdf_doc = fitz.open(in_pdf)
+      pdf_doc = pymupdf.open(in_pdf)
       pdf_page = pdf_doc.load_page(0)
       png_bytes = pdf_page.get_pixmap().tobytes()
 

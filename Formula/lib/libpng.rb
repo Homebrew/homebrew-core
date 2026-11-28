@@ -12,6 +12,7 @@ class Libpng < Formula
   end
 
   bottle do
+    manifest_sha256 "d248d05da36fbf606e14bf28f1f632d19309bbbfc90aac79b8351ad1bf2bf069"
     sha256 cellar: :any, arm64_golden_gate: "7e04225ac0bc048d2b12c603f678e5fa36459909812f2f1306dbd97af337cdec"
     sha256 cellar: :any, arm64_tahoe:       "de1c24778cb63a442682c1e6a391560662046a68c2f0c207ecb4abbc81e98cff"
     sha256 cellar: :any, arm64_sequoia:     "6461c4dde6a693b559c531357b32126bd649ab67f53db5a5b70c25a5c12de4f1"

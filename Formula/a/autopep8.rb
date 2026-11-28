@@ -9,6 +9,7 @@ class Autopep8 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d1ed6ec91fdb10f1b52bf4bb5d87837040c3f30feac22babedc6ef5b2cc32a3f"
     sha256 cellar: :any_skip_relocation, all: "6e70822190aa64df84e0f9da826f5953719d5aba27a906a6d8b07461fa179fd8"
   end
 

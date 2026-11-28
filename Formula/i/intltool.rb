@@ -9,6 +9,7 @@ class Intltool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d11c8e890c122c2459b78ae8924a8d8308b6295e1968d198ff9a76b0eaf1558e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0494f6a49a1d9737f97b69a26116368527c0a4419fd2e612790a4768b1bf09de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3b02903a82a77d89d14776957ba50c442e5bdf8948079c65ed927d80765f04a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ebd88e28e9fdc4af031759fae5cfc6b4f93489e2aff78924d0a0b41ab4d9ea2"

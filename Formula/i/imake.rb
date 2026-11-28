@@ -11,6 +11,7 @@ class Imake < Formula
   end
 
   bottle do
+    manifest_sha256 "955d71126350ae34b272e71198272cf0bd8ed935daea6d611e06578ea0f1f342"
     sha256 arm64_golden_gate: "8cf425edde4c242cfe143949134a5a503d062e09b39a8c3b6eafcf6fb3a98008"
     sha256 arm64_tahoe:       "e00d84afa586ef13b9a3839fb78191004c4bb76953057ccda30f602cc274565d"
     sha256 arm64_sequoia:     "16145a844d8aaf431a839bc9d6c8ecc3ce22738e61536a1edfca0888ac8b9c20"

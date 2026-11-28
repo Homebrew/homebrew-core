@@ -10,6 +10,7 @@ class TrashCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cc4ce80209e4e2c92cf5e1405eee19b77758fac2a10ab5d9a564b0675f9a9ddd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04268e97c1da1b84dfe9f6206a45a94921253c0e3fab08e97b5961ad6d0afd0c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a6144dacb34d2ac1bfc3f5180aac37d575f8eb7f75200730e8970fdb00c08d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0032cc531121a61087393bd3d65fe48e501dd39fc1b2be7497a8387cbfd28d7e"

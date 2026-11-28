@@ -8,6 +8,7 @@ class Ipcalc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f684f9de6eb96b29f11288819d7fad775fe141f81119deaa84f24edbbb1a620d"
     sha256 cellar: :any_skip_relocation, all: "34f1ac1f3130d85231cf0af66acd5d46b21bbdaa9a32153ae71c7d9977c36c57"
   end
 

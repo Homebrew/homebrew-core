@@ -8,6 +8,7 @@ class Publish < Formula
   head "https://github.com/JohnSundell/Publish.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c961a08268c47b4a7b281a8c8526b1fe1554a15ed08234acb7f5f799bb8415de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e2dbf3d8b63a642603f64a8d8c311d1f76b57738aaa04b29da05fb0cd506542"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d712d342ef986f6c33dee070c00858ca051c1341b510a1ed9bfffd323c38d72"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "12bb9d41814cacbe362e02d37825f9eabb5c2c228d2502441389a31deff9cd06"

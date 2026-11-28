@@ -13,6 +13,7 @@ class Capstone < Formula
   end
 
   bottle do
+    manifest_sha256 "eeb6aed191bfc1645e5957e6dc1224644d83b817604c34aceb644ffc5091a7e2"
     sha256 cellar: :any,                 arm64_golden_gate: "6b31fe379681e2c0778e30b3516cdfc2cfdff6424f666463643f1507039daf0b"
     sha256 cellar: :any,                 arm64_tahoe:       "136ef83fb2c78de33a0500d8e9d3628eb1db37d4ef00496e8027e00a5918eb33"
     sha256 cellar: :any,                 arm64_sequoia:     "a6fbf1343829afa5521e8fdba9f0d05246cad3c8caf4833af6d826baaf0db795"

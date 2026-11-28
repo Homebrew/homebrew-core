@@ -10,6 +10,7 @@ class Octodns < Formula
   head "https://github.com/octodns/octodns.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fab81a7080dfa53f76bef0e74aa2ca7a2f32865937a528d0a40cfb0da66b62c8"
     sha256 cellar: :any, arm64_golden_gate: "a607178fb1a7aaced381219620ad9071fa884bf8f6a902e49051a1ef0a9bd835"
     sha256 cellar: :any, arm64_tahoe:       "e11effc2a17845539fabc8276b03b4b5f03e21ed2867dfb68370e596396fd08e"
     sha256 cellar: :any, arm64_sequoia:     "70f594d225c9b4026ee02cf6c39c7aff64893847368931a78e210403396c7796"

@@ -7,6 +7,7 @@ class LibayatanaAppindicator < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4e4f33ce7aaf2f2933eb2de8e214d03368b87a42c356b2486db00215c5722e43"
     sha256 cellar: :any, arm64_golden_gate: "e3eac516a9e3878cd19e20e46911dde52d7d15f6db4fa061a1171cb1cd6e110b"
     sha256 cellar: :any, arm64_tahoe:       "605044d0ec62a727d5796ffe08433eb5a341211c59fb57695c11d66276217d50"
     sha256 cellar: :any, arm64_sequoia:     "4dfd293942350c5d24b0cd64747b74de9395b1b1f0df87f793f9dfb167e6e6ca"

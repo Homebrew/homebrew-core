@@ -12,6 +12,7 @@ class Libmodplug < Formula
   end
 
   bottle do
+    manifest_sha256 "344c11461314cd885581ac029de607e82214fa9b0626ae564996ebb9427c8ea9"
     sha256 cellar: :any, arm64_golden_gate: "9014a2a4c7cfb30c08910e745fb0ae00d7ce7d1d157c2315a07e26649e4c919d"
     sha256 cellar: :any, arm64_tahoe:       "6efb09badf5149ba9de2a95478a7368d0b5a0cb15cfab76ce8b8411c582892a2"
     sha256 cellar: :any, arm64_sequoia:     "3ad7489e3a52048affa2e92b215ea7ac643647aa4503966d73b288f109165100"

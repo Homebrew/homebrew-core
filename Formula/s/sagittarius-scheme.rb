@@ -12,6 +12,7 @@ class SagittariusScheme < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "54633ddd1bb76a566c642543ddd4a5b240d9f5277cc57944895279d0e63b9bef"
     sha256 cellar: :any, arm64_golden_gate: "7baeaf662a002b37223853b74db5e93d1f94b8e7ceffdc00008e796d7f198ee4"
     sha256 cellar: :any, arm64_tahoe:       "272d5089d181b13dbf4aeffe4ad3560ecf96cc7184df76c451109d5f393d8676"
     sha256 cellar: :any, arm64_sequoia:     "412ebad082c2d968dade069d7a40f8048ca397d04373a9a24b3e20b237a1439b"

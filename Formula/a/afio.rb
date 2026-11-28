@@ -9,6 +9,7 @@ class Afio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "525ef32ce0cc84698134ffd85a4f67709104ec7a6cf3394dcc9c417be220b8d2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "68d35795dc8274afdba6c80145c71da38edbb92deec65de03186061cc7271a6c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5c6e7fd1928e44f9b105d46afbe6615590f0021e16ca4332c71122e913f06dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d2aff60d7ee0309043a8a16fcc08fa31e97f926e891e0cba31fe0f68968f2ae5"

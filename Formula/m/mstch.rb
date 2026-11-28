@@ -7,6 +7,7 @@ class Mstch < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "49b34d6b87d3db83a7bbe3214150402a827d99c7dcfddfac56765c029d13af4f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d88166fa4046f9791515aa5a7c998f6beff2093c165ce38407064633ca6a1055"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "de05bbbd99f8eb688ae2cd08287796eddbd6774bed8f27945cc818e8a1aee27a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "437c22d289926bc83d04a407aacb2673331d7bb27165a6c17af2994febc67c02"

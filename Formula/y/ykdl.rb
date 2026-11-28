@@ -9,6 +9,7 @@ class Ykdl < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "265e418b9e01bae71a61f0f600869c67d0893630e98ab43de293afd87959ebf9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9df4ce0de3b8c01800230e54f4dee9068dc06189c95cea6f985810e97bcda7e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1295742edc685d573c2868fe922204650fbe46fb2526001f2c42f4d5229a4ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1295742edc685d573c2868fe922204650fbe46fb2526001f2c42f4d5229a4ba"

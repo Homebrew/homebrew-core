@@ -12,6 +12,7 @@ class Mupen64plus < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "06bea928ee91c88af0a9fd9df9211a2cadd9f50adfead697fc1e7c035b69205e"
     sha256 arm64_golden_gate: "7ab80490bca7a98d91b1b08b440048b2f5dbc63fc3b3efab84d943245354a498"
     sha256 arm64_tahoe:       "73a594a4179e8c405898e24d23a3de66e3476734fe4d6271229a65ad9d94d143"
     sha256 arm64_sequoia:     "2ac11668fdeba8ca47b221e7e35fa0a7c1388644144673ea2981dd282214bdd6"

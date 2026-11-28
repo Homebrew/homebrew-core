@@ -7,6 +7,7 @@ class Cocot < Formula
   head "https://github.com/vmi/cocot.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e201b181efd9f07a10225b94be20844b0dbcc973c3ccb76cc88b006ef8b0232c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0eb1603822e59fcf6b3e75b2f54bcb6542bc1026d366db7ce6066e4245e2841d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6a142983575a21225d725208388e9952675f5b32b1e8b99b5cf26c32ab137a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e50202bee861bf0692cb72d1228e2ad10fa93cc047d61480b3e0c558c81746f1"

@@ -11,6 +11,7 @@ class Libzdb < Formula
   end
 
   bottle do
+    manifest_sha256 "6dde433fca04f30c740ad07c3dedd954562ede1651e6fa534986e4a3a69147e3"
     sha256 cellar: :any, arm64_golden_gate: "c2412f8e311a5baca1260a066680ed1124a46858974e5dfdeaa76f8906d05406"
     sha256 cellar: :any, arm64_tahoe:       "36f4d61a052239e79be5c8cd4fe47260f53ed4af341005a688bfccdc410d2bab"
     sha256 cellar: :any, arm64_sequoia:     "ea1724d1e20b27aed580f4c7fd0c915163c304784eab095757d42216f3445ca4"

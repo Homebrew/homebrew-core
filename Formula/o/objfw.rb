@@ -13,6 +13,7 @@ class Objfw < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a7a5a07d59fa2a46c6e1a355c2bd9052c180c3c1903e02aaf8134373ba191f80"
     sha256 arm64_golden_gate: "582e436d5ca560d556602a93cdf250a14aeff4b367c2619c4dee381ee2d6bbbb"
     sha256 arm64_tahoe:       "10b176023682f5111607d0e3c9f7bb0fbf6d7b662835ba0747abd53e4c1afda0"
     sha256 arm64_sequoia:     "06bed702a19c019baead09d2b29b9a7049d00cb6907239c3f2ba3d158b1d63b2"

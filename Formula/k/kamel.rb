@@ -8,6 +8,7 @@ class Kamel < Formula
   head "https://github.com/apache/camel-k.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2190e6f24c0fa5a4e8c5f305d62dfc8d419c7aadc70c4a8bb5c8033c444778d8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a3fb22f87fb964777f33c80cc3fa6ecc9f626584ff4e629e0f001032f2a149f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e239f71b40b41eed60a67c203de0a7ed67aeed95a4c5011ef5a056c0b71ca8c9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2a2eeddcb2a72f46723e0e1d1e21acb07b78c2bc3ee07ee6405394ba470346d"

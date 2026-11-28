@@ -10,6 +10,7 @@ class GimmeAwsCreds < Formula
   head "https://github.com/Nike-Inc/gimme-aws-creds.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5ae24efa9d0da6ec062c0358992c1ee599d73d1ba99d93476a7db2a2df68c470"
     sha256 cellar: :any, arm64_golden_gate: "4e72fcdf78e49788524eb1a6ab00304842932af9e4d6b0c432eaed1d6920dc22"
     sha256 cellar: :any, arm64_tahoe:       "f9adc0d565e2ff767b9a827f8c280fa712374f02c9b5d4ab79c826e5257189e8"
     sha256 cellar: :any, arm64_sequoia:     "97e84c031aaaddc6930495e4fa9e65094e5b4421d9bf1e89cf1442fff68f0305"

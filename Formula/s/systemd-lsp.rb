@@ -6,6 +6,7 @@ class SystemdLsp < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0d0191b913493bf3414459e68cb4e316ecae2ed37c16fc8f2637848088e57518"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad9ad0163a5e3e96a7b9d376da549d76f99da6e3c6e9449d823169c2e353067a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51661f31271d52fa7de3bc6f55e81487475a9fd56b900210de455bcd0ea8898f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b51557f8828b4ca34329ffa481d6eabaca23565d9a0b80323ee002541fa59cd1"

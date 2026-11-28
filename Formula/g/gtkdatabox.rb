@@ -8,6 +8,7 @@ class Gtkdatabox < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "951358c277f5ce8876fa38679e363221868cae34fa421aef2e3642c2e20cee09"
     sha256 cellar: :any,                 arm64_golden_gate: "828710ff79dc0895cedf8269d30388a3054e781cc6de6e44a6a41a675a6dab5f"
     sha256 cellar: :any,                 arm64_tahoe:       "8f8e5772768a8b7e7530d36c8fb991ff76c361cdab7729e508a8e7e8c12dceec"
     sha256 cellar: :any,                 arm64_sequoia:     "5754a6b703bfc85c30adfe1f78b4f5e3416a4d9f04d9531d1c43fb584e136307"

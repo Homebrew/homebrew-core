@@ -9,6 +9,7 @@ class H2 < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "cc184e53f31f48cef50efc2bc2fe9589638d353f823e0d53dec3f4057fe6268d"
     sha256 cellar: :any_skip_relocation, all: "c311538a50ec4b368318f006d38da2e05ebc07676cc48602afaff7e96563e52d"
   end
 

@@ -12,6 +12,7 @@ class Sk < Formula
   end
 
   bottle do
+    manifest_sha256 "4daa0871ec6f79b00bc0a5c4a31e3f7e6092758d2ee4593daa86c3cac25acc40"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3c7a606d83730dbdeb9fb3472c8267cf266c9829f909dee857bf1c9bb9e5fad"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fea644ff8744b8d2a336cd516183cf766c2004dd461c50099ed15e2e8458598e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2cc0b03af7a8cdd88bc6c97953d3370793605b1b3dc6dd7c8b9ce2662926f312"

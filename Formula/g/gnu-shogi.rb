@@ -7,6 +7,7 @@ class GnuShogi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "9617814f93c13ca616cdbc5d2a8706669488ececc990bf01e9df1270a2ede8f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a745fcf306cd74fb1ce6840fa917d2ac6eb0bc2fa7681338e674524cb503939b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e07a2b34459c996910fb2cd8ad3302d978081ab6878330612895115f4b4dd2c2"
     sha256                               arm64_sequoia:     "af1b6d676a20358883f12095fc36af7379e69c8438cc1c3096116b0748952485"

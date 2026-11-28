@@ -23,6 +23,7 @@ class Podofo < Formula
   end
 
   bottle do
+    manifest_sha256 "b2a0341d2b7f140a3ad496fd2502d0f081e7215ee985ac8a6d7b16cc4b3f8415"
     sha256 cellar: :any, arm64_golden_gate: "9e11b51e2e308ca45fb0c483d8adbaaf8272043bb7bd631c12762e92494ce977"
     sha256 cellar: :any, arm64_tahoe:       "f22d4674d26b4f003513bd2a6e44567e71cd0645f356defffe5d71ed03da07d2"
     sha256 cellar: :any, arm64_sequoia:     "369f6c7df2f1be6a619ca173743da48a3a80522de1fe12908d26c6e9641d1b83"

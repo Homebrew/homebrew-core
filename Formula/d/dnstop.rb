@@ -13,6 +13,7 @@ class Dnstop < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ffeb4f0c508e9758c1745679cc22947396a4668fd5b811509014c6680370d579"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2df2784aacf1d4392b4696864a85dd7d67e195d6ad7daf89b503e29461176024"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46e3c705bd4c7649ab67f2712d623825f0006cb764e844131a654fe057de19ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "feab927b414e7fad8995bfb647c2b019bee68c8aa535b5b9cccdd12e048c81fe"

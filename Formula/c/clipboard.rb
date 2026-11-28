@@ -13,6 +13,7 @@ class Clipboard < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bc03f1978415e667deed90928aa5ae95f1586c24cff22f2a243f2c68cf034128"
     sha256 cellar: :any,                 arm64_golden_gate: "c41d59e3cf100f6fb6c26a1c725ab24c8db44d4859c8b542e8ac9e95595bf7ff"
     sha256 cellar: :any,                 arm64_tahoe:       "6747d2a87bd1aa59e30171c55e8c07dcd9d6a153c90c51e33e325a7e5361b5bd"
     sha256 cellar: :any,                 arm64_sequoia:     "21b61029176463f416d7d0c4e181c87c7ec0e6d52d1f1f6f3c7eeba61ce26d1b"

@@ -6,6 +6,7 @@ class Atasm < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "65bb72012e538777ec5a866ba4c60309554b87836f89c265d99cc857f7962ef0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a8df26d09ce0bad968f4d7cbdf046766f8c4745af963aa0708f5c7ad4fb5d36"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95bf01730246e601cc9741c8e232eb4d4d3252db1f474a0f0dc85960ae3df0e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "529892d474aa05429b6d4d0a4f350a393d8ea2acd5c8997d9c7a3434d17f954b"

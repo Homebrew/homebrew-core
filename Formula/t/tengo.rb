@@ -6,6 +6,7 @@ class Tengo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6844b3c05fa127ba5b4ee968d9071e143fee256e3eed10d85261998713970fdc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d62bde00cad2ddbfbf3c210344e0d107daec20dded58d88c0d1d3beba0de1f43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c93892d0177b5d0520a654866c4822554a5a06a8599afdee5185166238e2443d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10c3e44f039ecd6b7f43ceabf80249654e25a079270b25373066051a08e0bdcc"

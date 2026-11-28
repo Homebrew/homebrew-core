@@ -13,6 +13,7 @@ class Bzip2 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d716db5c9030ea1ad48977b8ddf9e3edb7a5bdadbbd47a2495e66d13184f4d91"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "100b845ec9c446ea4ddf99a257fcaf8682b3d1e4abe283d676e5ce9327413715"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e823d1ae6f9409cd524669dfe94dd9922e5661998be5ae416b237aa4713c8d54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dddec821ca1677a0b509f565a4ad1e28d8df8ce8e26e48aa2efb7d2c37cf5d12"

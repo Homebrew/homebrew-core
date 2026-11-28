@@ -12,6 +12,7 @@ class P0f < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "304b33b2c12baed5d1b994c8aac5b0d5d20a6f2944bf84ee64d3c8044a090366"
     sha256 arm64_golden_gate: "a22b52904f96b56bd5133f2d3c9aa38d543839548410edf34808c780e468fe59"
     sha256 arm64_tahoe:       "cdd36b28e785533aadfafbd8067b7f6370894b1e709aeb22824efc7247716349"
     sha256 arm64_sequoia:     "26d47c74e8e4c5b3c8463acf5759301a71513c8421e00d88b79fd6acc1510f3a"

@@ -8,6 +8,7 @@ class GoBlueprint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8f2a90249b9da4637fdae537f2a4a1489c42ac73f91c99e92ce54d0e8246f45b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d27d7cb0462e79f0b41084fe4e7d6c03506e27e4616c80b46f667db0a3b9bd1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42adecab62200e2165d945a5c3b76e4f6cdec39a6a48e8935f6bbf14d86c16a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42adecab62200e2165d945a5c3b76e4f6cdec39a6a48e8935f6bbf14d86c16a9"

@@ -9,6 +9,7 @@ class CreateApi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a824f6ed644de7f42e8a0a8353e485bbeb81b7955e6a8aa3a70508d328d079bc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6e0d09da191881e24adf40f77cfe93e6fbf7a77e50c1d781cf91357eda8216a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "669393e0173057f300559c44055716228c89dbf1dd91a0d898eef408c98ec184"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad0253916ad9e261c6f172f26a86114522ff41915bc71e8d4db3c85692b4ff55"

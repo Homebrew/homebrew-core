@@ -12,6 +12,7 @@ class ExVi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2ccbacd7ab755dae7dccbbf06c2dd723b688b9005a76e939585c1502b9e6d7d3"
     sha256 arm64_golden_gate: "e0634a3b18983dcf31bd0912cecb9f52380041abe25fb13de6095c6e466cb4d6"
     sha256 arm64_tahoe:       "c058c623956ae2057e5bb4a820c91b5f0bf3febf4f128f0f7a6e65a2d5699646"
     sha256 arm64_sequoia:     "6de1a4ee29d49c4230c0d9d044bfee06fdcf5d676c665ae422cf66a25727c398"

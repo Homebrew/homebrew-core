@@ -22,6 +22,7 @@ class Collectd < Formula
   end
 
   bottle do
+    manifest_sha256 "cbfb370381557eb557b71bdc08c20c8c1f4cbc556f3d5ae644701dff7f14e04b"
     sha256 arm64_golden_gate: "44f49a58d3a6954467bb86b35369cced485fff64644bd06f8f293094c7b5a744"
     sha256 arm64_tahoe:       "324dda8ec5aa63c4d4b84b36f6858321e63f31c03e46cf692bf6bce2173df4cd"
     sha256 arm64_sequoia:     "7aea2380df608747796f5f7c3aac79ee6c36a301f07beb4ff25db121119a7311"

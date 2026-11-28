@@ -8,6 +8,7 @@ class Gowall < Formula
   head "https://github.com/Achno/gowall.git", branch: "main"
 
   bottle do
+    manifest_sha256 "09671545c4a7adee3e2592609a86d00038971ca00d68c7489a75640e6de9949c"
     sha256 cellar: :any, arm64_golden_gate: "b4b6fae70cbf03d321a441e7c255de2301702b0edb6388d457e9a58f601e68ef"
     sha256 cellar: :any, arm64_tahoe:       "a9ffe5a25ddff92a09f6e39e6894202d3d408de7d33c7e71f20129d2ffa46a0b"
     sha256 cellar: :any, arm64_sequoia:     "2a6a8cf498a13fa3ed110bc2310dc9c1181889bfb5e5e4063bef60ca9931bd8f"

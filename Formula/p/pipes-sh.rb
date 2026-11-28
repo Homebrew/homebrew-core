@@ -13,6 +13,7 @@ class PipesSh < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1c2ea7ea01fd2af72748154f8ff79ecf8f5ab8c93c0a1f0554affe5ef51b8ff8"
     sha256 cellar: :any_skip_relocation, all: "339995e9ef29b4952bf61b4fe406d71c4c6ad5fc96e3e8f291d98150c6789cb8"
   end
 

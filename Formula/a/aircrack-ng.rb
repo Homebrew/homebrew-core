@@ -16,6 +16,7 @@ class AircrackNg < Formula
   end
 
   bottle do
+    manifest_sha256 "e0aff969c74601455d94ca1e5fa491c5007bfeb6f9a7c2f9b7bf156ba7ae66f8"
     sha256                               arm64_golden_gate: "14123cac9a0b331f6f64966025636c9fd6ab298b1a6ebbdd65f09c6aa540b169"
     sha256                               arm64_tahoe:       "79663b102bfc2f2c70886c84e262cb77814c6138b87e26fa722cfa3e460eeb14"
     sha256                               arm64_sequoia:     "f60653d0f5b9b9f0db0a83aa34198d89f1a33239ce025fec8a723f5c0d1dff53"

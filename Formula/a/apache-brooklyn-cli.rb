@@ -12,6 +12,7 @@ class ApacheBrooklynCli < Formula
   end
 
   bottle do
+    manifest_sha256 "76cf5c5f73149d1441e22018e498bd4f320281a018eb88912081415cce49e164"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2557bfe77cb966210a875c23e034f9f18b8d5cb5bfe3064cf22d2d1974f8770f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "40f8748f92e5bf30f1451b1590f1bcfa7d2cb4001b3b464a3cba2536207dabfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "503ba57fecdd845c589d3d989e55389df542bf408d74c6b6bdaaaaa3b9fa9d7a"

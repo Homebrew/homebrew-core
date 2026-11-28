@@ -7,6 +7,7 @@ class Stuffbin < Formula
   head "https://github.com/knadh/stuffbin.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5fca93ba58fe8c06a0721723469a8fba717b56d1a0cc1735259ddf3714548515"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eaff5db9eb86f0d60104d2721feb320f5b055cfb1bbc2b3333f377449c353f5b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a5cef2de17c168c387ecd9c6eb0bbc7d224f8514e1523e2d120f496276080f0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "402fa14f5eb2b8e670aa9253aa94c89ad8f8153b005b85a9a96060114ff91ef7"

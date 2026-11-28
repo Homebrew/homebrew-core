@@ -16,6 +16,7 @@ class Samba < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "67c259acaaa0378996bdf21c75f0766db0605806fdc90073d729a40efd4957f9"
     sha256 arm64_golden_gate: "a25bfa55d86e95e514ea4c5e9ef29a960d89b185eea0eebd495741c8967c25a3"
     sha256 arm64_tahoe:       "0cf546d7167ecb38f926b3b9e31cd83d8ffdeaf448d2f17814c571fc3cdb7fca"
     sha256 arm64_sequoia:     "97ee13a674e073786f2bb1e2c11e70ad0fec9fd38f58b429e31e6db5c7f32380"

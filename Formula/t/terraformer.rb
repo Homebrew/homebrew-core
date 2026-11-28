@@ -7,6 +7,7 @@ class Terraformer < Formula
   head "https://github.com/GoogleCloudPlatform/terraformer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5f037fcdf6aa634b27155b9cee86d76d01a4d05d20c95c1359c5d17e4dd7398c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae1e2804335ebd9fc79aa23ef5f937afde5c243d9f1599fcb8d553268b28df30"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77df38f3f9fb70c3e797b0383a7806f4b4eb48e6d3966a228b2ae28094f47b75"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76897a56f9ca4e794bfda1657619693478002f030986002ae0488f375f24eaba"

@@ -19,6 +19,7 @@ class Bioperl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f1991e68198b28725c6856fde75f9011d6adc974ff59420b53c8180acb180fd1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "19b723e4c20210e3e27250dafc3aa659fe3a224387fa5bce48e8a8a9b5cfa4f3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d83d9db3a6fed7f4d5a04efe1d52af7f1f5801faf34c26721bfb4a0c38ff7d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "655e18a7ba7f2f704cc49a3f0cfd66f570287f7927e1b907b3ffaa5fc4dd4c0d"

@@ -7,6 +7,7 @@ class CargoFlamegraph < Formula
   head "https://github.com/flamegraph-rs/flamegraph.git", branch: "main"
 
   bottle do
+    manifest_sha256 "67ce2e45672b9df11b4e1f2c656bb605186fbe0ab21fd476f0866605daf22dcf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a87c24899d33404aea909639570ae76f44e4f9dbb7bdd99e901f6598324be3b7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86bd98f347477ac69457d1105949e3c770cdfd7659aa5cd20d36b043322039d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d869a661e92b2b078f128d62a828ca025b485acdbd22d1c605c0a685f6372859"

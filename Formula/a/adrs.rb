@@ -7,6 +7,7 @@ class Adrs < Formula
   head "https://github.com/joshrotenberg/adrs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "da585dd4e39569c14962bac27af68fbf4c24845e30a06db3336b5cfa6192446f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "170183456bc2c7954d8bbc69e88103b9b7cee394dfaf74477fd9cfaf785f4d2f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70961f29588ff096b94de221c6f75c5e226e5bab5c0c53c7792022522edb778e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f876dc19293d4771888e5814c0a618e3a51ab0730c50e39737616c5684915e6"

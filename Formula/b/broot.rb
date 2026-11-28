@@ -8,6 +8,7 @@ class Broot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d7194cda7ebac3ecf0d8db5fd86201e071f91d5c3092c6f54bb5775ac6915066"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e7b8f8c8b8fb31dd60a616ddabc33f508b3a60f7013af14cf9fc36a5a80de6e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bd1896313b9f0379c527b84637c60b4c1cc3779a761d2a4a1186631f0871b975"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4fe00ebaff3a29faf5f514df5046d6dbd2bcfe38ee93ec69a5936bc47c54e610"

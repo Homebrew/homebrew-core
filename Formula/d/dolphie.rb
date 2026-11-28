@@ -10,6 +10,7 @@ class Dolphie < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "93eb038a6aab6be5f3dd13b023ffd7bca7ff7da281aefb9b2c7cde97d6c55a14"
     sha256 cellar: :any, arm64_golden_gate: "1be8359d932e0289bf4dc29cf7043667abed92bf45acb4092fd7d2bfabea9f0d"
     sha256 cellar: :any, arm64_tahoe:       "3808d2bc90c0b5e078ae824cdd942519f9ff7c6b1a18a8549d4fa29833c379e7"
     sha256 cellar: :any, arm64_sequoia:     "f929bdbbd717ec58c60f065ecca9d0f17c1014808c27555dc88f7fb74e29829e"

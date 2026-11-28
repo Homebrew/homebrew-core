@@ -11,6 +11,7 @@ class Runit < Formula
   end
 
   bottle do
+    manifest_sha256 "df65631f3499467b0767ac980c7d49405d0d3e9b8f49670e1012de4779c90933"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b50c6a0e5c1704bb4f6b4877940364229f0e55cdb5432cc1f97b874ce90a42ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9df648ce12c6d653303f224386961cda0ac9f8b0745fcc41821f671538a28c08"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e82c5e0878d603839613a0046ccaa773ba88f67acd54290afd77bc01716e0fb6"

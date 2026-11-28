@@ -12,6 +12,7 @@ class Anubis < Formula
   end
 
   bottle do
+    manifest_sha256 "7ff4fe696375a6d81e9a1f43f8591c424c760cca131ca10a0816bda69ad236eb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e0e14ba5ae7c2f87d3b348eb7504d1492d7e7b61b176720b969cf2ac82cc5c8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "befcb52ce0812d942de5b755e43194e34ca88463e3dc825465fc8bac8544a5ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ee6312e6d5c412be2b8acfd189f58f0877ab9b311ff471028bd6c529f073c6e8"

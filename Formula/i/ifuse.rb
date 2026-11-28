@@ -7,6 +7,7 @@ class Ifuse < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "7521eacbeccf4aa6bcdb942285e9ade1e878c59cc8d8d556fb9552ab369a9362"
     sha256 cellar: :any, arm64_linux:  "fde2c9ac23dd7fe27002f7627d1831aeba02522cac8380db35f4d964c853b1d0"
     sha256 cellar: :any, x86_64_linux: "ddf9ec56b61a314f94d8cc22570fc0ad1eb2f533f8f2658d0f85520c2bd6d47a"
   end

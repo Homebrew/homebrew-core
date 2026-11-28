@@ -8,6 +8,7 @@ class Deno < Formula
   head "https://github.com/denoland/deno.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8c15994641bf4528c0a55ded2ba83e5b9ace44830df37a568adf597e570ea26e"
     sha256 cellar: :any, arm64_golden_gate: "a3343ec3247fe01b0d45bfcf4dc5f7a325c15cef2cbc644479f09c562d8d6528"
     sha256 cellar: :any, arm64_tahoe:       "4da3ac1a16e2b1268c2a55cc19bbef0e5d7a27e81e1ada2dcb54098528e61937"
     sha256 cellar: :any, arm64_sequoia:     "6a6e59fd10a49d2b1edfd1a9c8911f0e601c0a8d87947821a4f43a74a3ab20be"

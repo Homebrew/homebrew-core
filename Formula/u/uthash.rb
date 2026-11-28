@@ -8,6 +8,7 @@ class Uthash < Formula
   head "https://github.com/troydhanson/uthash.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ff4a993f615e7e7f330d6b52302d1d62d5ae4061c4cbffab38f59a63ddd0d0bd"
     sha256 cellar: :any_skip_relocation, all: "5ccdd063c00f0d308b33f2ddecd943e15d4ee9bfbdd8ad1e1bad30a334aec8ec"
   end
 

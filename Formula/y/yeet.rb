@@ -7,6 +7,7 @@ class Yeet < Formula
   head "https://github.com/TecharoHQ/yeet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4510d614776d212b10a209a4dea04308c1b3ca3730c3abc446577242aa78251a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "737a2f5559852831e3f8a4bc65194d16b4c68c70b3d360635279fea438f79f79"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "737a2f5559852831e3f8a4bc65194d16b4c68c70b3d360635279fea438f79f79"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "737a2f5559852831e3f8a4bc65194d16b4c68c70b3d360635279fea438f79f79"

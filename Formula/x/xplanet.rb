@@ -7,6 +7,7 @@ class Xplanet < Formula
   revision 6
 
   bottle do
+    manifest_sha256 "ff33f341c7b796a8016af5b382d21f3e71aaad5f47e1b8ad42d7991417778c59"
     sha256                               arm64_golden_gate: "a76a637e33c363e30d7796cf304ef3df7a66efa055fc6bc6485e281f967303df"
     sha256                               arm64_tahoe:       "7496e485b462de4b286f4128d145dfc58aaba93237aafc36ec1c0138a740be46"
     sha256                               arm64_sequoia:     "1c5fb1f5235c56e1aa7f84415b49428ed1c92532b47697800982f01dcfb4d842"

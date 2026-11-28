@@ -9,6 +9,7 @@ class Weasyprint < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "fc44162a8f70243827d2e9eae29849df384398d94e3bd7001ad2ea88d308066a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2f3ca5ef535806e5ff5cb05d601129d9ae0220d4e09554ca3e0b8493ee3e4e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b386a8eeb59a00ee8f9025edcd8fe156baf4d6461f5feac859bf758d16be6ca0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c93b1e4548b86ef1c555682303956111f13775e4effa7ca9b4b27fdca72cd042"

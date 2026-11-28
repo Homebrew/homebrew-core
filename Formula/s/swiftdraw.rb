@@ -7,6 +7,7 @@ class Swiftdraw < Formula
   head "https://github.com/swhitty/SwiftDraw.git", branch: "main"
 
   bottle do
+    manifest_sha256 "025d165205ef8503feaf6a329f0095f222ca77a7387043353bda615562491ba6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a52e0549049f9fee1018b9090b30022335d69debb9dd7d863afbf68d11c91b94"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "40f4ebfaa9e7907381c4fe4902b41b2499f5a9adea48cdb841c941e748465126"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e81ce9b9959db714a63b024e2b96e05097e3f16e5b79ccfde85f9ed3d8dd604"

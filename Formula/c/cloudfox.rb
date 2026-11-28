@@ -7,6 +7,7 @@ class Cloudfox < Formula
   head "https://github.com/BishopFox/cloudfox.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e54b0d577e285e2b05b0b0b93d2fd2d479de322ef56296610069dba0945b5778"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59b7600aa7c1436bd73bb80a52e94dafd3033447ee8c685a63af9b456f39805b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8992debbe2a49ca5da78a772f3945a1b35e450bdbdc076cc8bfa3408fd249b34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8992debbe2a49ca5da78a772f3945a1b35e450bdbdc076cc8bfa3408fd249b34"

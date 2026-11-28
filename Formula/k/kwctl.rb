@@ -7,6 +7,7 @@ class Kwctl < Formula
   head "https://github.com/kubewarden/adm-controller.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d5e345e9e0bca84ac98e106a2365816d70c296d52bc632cf4d01bd37bae0cfbc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01d128ff632c12a0b4f7fc1bbcd32eb9f0eadc2ddbf8257faae1f824499f952b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ed8301587943e6f6d2548b47dbf97d9137ef645110a0b167a0c90f174a17272"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4112214975d6182a04bbc14828c345d9ca7655c5527a677d0748796bb309448d"

@@ -7,6 +7,7 @@ class Autoenv < Formula
   head "https://github.com/hyperupcall/autoenv.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3144d91d73fa7c7e020262c405100d923ffb4608165bd2a90c04dc6ea16e3e98"
     sha256 cellar: :any_skip_relocation, all: "7d291627ba82fc28ef378728ea6969eb3cebed1e8b2c17b9655cf05745102362"
   end
 

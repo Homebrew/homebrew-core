@@ -10,6 +10,7 @@ class CoboCli < Formula
   head "https://github.com/CoboGlobal/cobo-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d4abaf004053e9b6769415293e187cfdab1d919c0b3ea1cbc9db30d06fc8a2b3"
     sha256 cellar: :any, arm64_golden_gate: "addcd50b7fe1e588c36ca5f1babe2ed50b432ddb0682f94d7992957a93c23986"
     sha256 cellar: :any, arm64_tahoe:       "7d197f1eaa311cb10e365cf271e266104bc58358491db26cce2add6a96f530c0"
     sha256 cellar: :any, arm64_sequoia:     "35337c24c2a9d6fe55042acd59dd6e5d722740a0b0644560c7d2a43d490824be"

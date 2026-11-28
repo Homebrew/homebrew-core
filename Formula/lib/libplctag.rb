@@ -11,6 +11,7 @@ class Libplctag < Formula
   end
 
   bottle do
+    manifest_sha256 "88844711c0e138c926af5e1d5a9a346aaefdb40d0771b130a26beb57bb973751"
     sha256 cellar: :any, arm64_golden_gate: "b520aef7d1da7c69b0422c5af054d599009d0535734187a7aa73d15d55a3b732"
     sha256 cellar: :any, arm64_tahoe:       "5565d31440ae59118983632ac8e0124dbd36246629d49becc4000334155894d3"
     sha256 cellar: :any, arm64_sequoia:     "1d6cbb299e76c1dd24bb07a7731440fef65774c830ed27c70af9c5f48c797fdc"

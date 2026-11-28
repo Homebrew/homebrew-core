@@ -13,6 +13,7 @@ class Ndpi < Formula
   end
 
   bottle do
+    manifest_sha256 "b9e5f5e245310b820557ec91478f7b910094e2e68c6a92580333fb0683c3bb6f"
     sha256 cellar: :any, arm64_golden_gate: "06db5ee2b09c176040edca83d1e7ac2d32af4b87404393f43597588af38b11b7"
     sha256 cellar: :any, arm64_tahoe:       "cf86686ce0f370748f00b3de4919977761898452304852d66defdb96e89d05a4"
     sha256 cellar: :any, arm64_sequoia:     "6233e5f6ef60a52cae5b40b3c7f1f759bcf51e1ca7ed9cd5796565ac44eaf357"

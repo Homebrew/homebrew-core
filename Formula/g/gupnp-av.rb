@@ -7,6 +7,7 @@ class GupnpAv < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e276c498e91341d159ba2fe28c98e9a61aa25eaf3e1e93a698048f139566b7f5"
     sha256 arm64_golden_gate: "3897f2d2dbc7e5ecf4084775761fe83933511ea8c1c74cfcbcfe523c56ec611a"
     sha256 arm64_tahoe:       "7cffeac0778be7f126b8fc2747d2364b679a61898eae3080a8d9118f04d0ee65"
     sha256 arm64_sequoia:     "8c717b7221ffbee007db57f927bf9a25ca05ea0186a9a65464f298315bbaf41f"

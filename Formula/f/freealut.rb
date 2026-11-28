@@ -11,6 +11,7 @@ class Freealut < Formula
   end
 
   bottle do
+    manifest_sha256 "b9d16ba5d9b735687406b953dbb52c46157afe550689e6f92b042b0f30407949"
     sha256 cellar: :any,                 arm64_golden_gate: "21db86c975e94cde68a6c2b8f43a1c94f8a418bfc98086c8b09d51290f07f504"
     sha256 cellar: :any,                 arm64_tahoe:       "b10fa1d850fc453e04334c8e607bc944fdf9bc8e794e480d30ce53a5d2319ab5"
     sha256 cellar: :any,                 arm64_sequoia:     "74fb9b51f64c8f9683e853836bf34c519fe2dc3d58d97a44b0db070bf7b737cf"

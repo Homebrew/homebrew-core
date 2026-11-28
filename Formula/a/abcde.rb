@@ -13,6 +13,7 @@ class Abcde < Formula
   end
 
   bottle do
+    manifest_sha256 "9a802466d25af12b3666a154b4c85da7de31e05f0730060f1c1b0e583ef73034"
     sha256 cellar: :any,                 arm64_golden_gate: "da1bf98477f1e966635166d493c23e14eb812b0b529856acd653341537ba8f29"
     sha256 cellar: :any,                 arm64_tahoe:       "580cb0f7c45b342dbdfac94e4fe3a2dc6db572409e212d963b22fba20a002423"
     sha256 cellar: :any,                 arm64_sequoia:     "48c8a99c5cf28e44096fe46c62f5dc826a90282769b895fb50807cca0f5383b0"

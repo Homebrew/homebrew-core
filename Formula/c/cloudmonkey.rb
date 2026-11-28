@@ -12,6 +12,7 @@ class Cloudmonkey < Formula
   end
 
   bottle do
+    manifest_sha256 "ec09461c184ab2ecc686a29d2ae57af0dc5092873b2212e4d39aed67b0940e8e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba71e93ed07840e25a5381b8f5cac276deff6ef0b3b22f7f4c03521bec216be7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba71e93ed07840e25a5381b8f5cac276deff6ef0b3b22f7f4c03521bec216be7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba71e93ed07840e25a5381b8f5cac276deff6ef0b3b22f7f4c03521bec216be7"

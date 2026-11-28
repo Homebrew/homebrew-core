@@ -15,6 +15,7 @@ class Cdrdao < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "51b27358bfa767d28d75f4667ce34799afbdf3c406f9f2181784ca01fa1db36f"
     sha256 arm64_golden_gate: "8447e6027230d42f921ae8ca6e40e437c5c3673af33791d49c4e531b65fd2983"
     sha256 arm64_tahoe:       "49fec427b9b1123dd7d67e0de9bd03d1a9d9b4011c1dea772db6f75477632e0c"
     sha256 arm64_sequoia:     "1d5c5d5ed4313f9e7b97e0e820496028685d0948c8fba20907d7a691a11f19c4"

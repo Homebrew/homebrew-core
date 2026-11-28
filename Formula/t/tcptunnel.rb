@@ -6,6 +6,7 @@ class Tcptunnel < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "3efe6dd1fe34015e81f9279836d6d640977857cbf0200bc30f7147faf1fd6421"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3cbb7f13150ab27fa3270ff21608f319efd9eb15a3d62cb9ec0a3775444ee53f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a7efb2e5ce2524bfa04b2942b08e245786ac43a8bf4fe6bfd74ec31b9deef4c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8cda7483257c117ca1f5fa465c9659b2dd6ca6e88705c95c19a299b0bbdd2319"

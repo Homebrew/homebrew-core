@@ -7,6 +7,7 @@ class Cddlib < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "604b245eb03722bb4701d38e35c1c2cdec9ddbb4c596469458911b910e702d44"
     sha256 cellar: :any,                 arm64_golden_gate: "e822213fc63d4ae0efed53d193612b215e42c4d0bb2c7727175d07f86856df88"
     sha256 cellar: :any,                 arm64_tahoe:       "d689cf16077c6e02f851c4d2a45b73539c9ad2eab766ab75cbf3ab7c21b50267"
     sha256 cellar: :any,                 arm64_sequoia:     "ac504ee11eb267b9968a1ea970356608880054457bfebd24f18820b1dc6010a1"

@@ -47,6 +47,7 @@ class Pcl < Formula
   end
 
   bottle do
+    manifest_sha256 "18f2736fc612ae1ae16aa8a738383493a81ca36e4980e46bfead60c2eca4e368"
     sha256 cellar: :any, arm64_golden_gate: "fb80ee80a2696ee30cf78f3a895db772db8e4e98cf3f595f3d031c8fb561398f"
     sha256 cellar: :any, arm64_tahoe:       "96e7ff3c0b608fb8f47fcb84fcf91cc735f4abca956829f9394ce88dc194a78c"
     sha256 cellar: :any, arm64_sequoia:     "bafd5a622108d37dd359b1c50c39d9a63c1416e797bbfbe5f7d9a8b2a58bf9f1"

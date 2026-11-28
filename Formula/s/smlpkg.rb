@@ -7,6 +7,7 @@ class Smlpkg < Formula
   head "https://github.com/diku-dk/smlpkg.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2e3d301e6516209a448a1a0e73b8406417c622c00b49adac8de8da0ba17bf6e8"
     sha256 cellar: :any,                 arm64_golden_gate: "a8657f133ba8f0aaf1b29e5584c689c83910e56ffd377043053f92db2a40e9b0"
     sha256 cellar: :any,                 arm64_tahoe:       "d8e1cbe7dc248864f639c141cf9282fb3dff7e11bd6add87392d35a1740b6e7a"
     sha256 cellar: :any,                 arm64_sequoia:     "b926048ee2af5991852a228b739a8655bfa864ffa8e8fb44e814e8a2da2441cf"

@@ -7,6 +7,7 @@ class Scooter < Formula
   head "https://github.com/thomasschafer/scooter.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f04e137158ec5667e04c20efcaefb0c76c7354ec74700b52418cac41493defde"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "593d4dc23f8bc5be85ccc1fda95a3f3910b7f881128b3331ee22a149e5ded48d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c26c3b949b6c1db2acbcbd91fe0dbbd89fe292c8367847b897d6db82c7c7c4a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddebf48048eb7b113ed4112da6c9cdf27a50022325f2cc4bd4a01de901fb75be"

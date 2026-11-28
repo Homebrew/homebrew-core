@@ -12,6 +12,7 @@ class Gromacs < Formula
   end
 
   bottle do
+    manifest_sha256 "a346b753c75aa1e776542929377a5c82aac6e5c29cd9f10f9d02055dd0a07594"
     sha256               arm64_golden_gate: "5affba3979351ffa97c3ddf146a80674cf4291cefbf66937ab5d4fca9e8ec352"
     sha256               arm64_tahoe:       "dcec9b86ecc7c34bdc5692506283e9edfc6517611e2e1b3dcad8c70cb30e8fdb"
     sha256               arm64_sequoia:     "d836f7818ebbb58f8ac48c8f37087a7a60bf8a7e620ff9eb9d7b59015bea8fb5"

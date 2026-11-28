@@ -14,6 +14,7 @@ class Argtable3 < Formula
   end
 
   bottle do
+    manifest_sha256 "3ca6c38807ec3701b999f7483c976d298022b2eb5f060dc243749b9e98d8bc01"
     sha256 cellar: :any,                 arm64_golden_gate: "3508cd8229c57d59f599c6b3d7aa0a0c17db405733c529e2abace1ab97d44410"
     sha256 cellar: :any,                 arm64_tahoe:       "81744f4898904ac8875efc23088a93fe96a5a2a006e38c8c0d85c4829191a79e"
     sha256 cellar: :any,                 arm64_sequoia:     "10573b21ace23e3660cf5377e121b52359f70553e819ea2a0b0557550d01552d"

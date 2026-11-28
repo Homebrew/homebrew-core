@@ -12,6 +12,7 @@ class Pakchois < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "f006cc48b92c6a3054dc5dda4c82c6e7fd44ed08983a2b9d26a2c416130d358c"
     sha256                               arm64_golden_gate: "31258925794e12fc7b1cd5d1d36e901201573820fe34ad7e7b4d0044a6238da0"
     sha256                               arm64_tahoe:       "7f225dfdf9d1ac84b9bbd38a83157664f5b03b6951a09b9888b8b67ab586ae59"
     sha256                               arm64_sequoia:     "9634938ed93d02adaa5e477a29ee2f128d058f63cfbbe9c460ead07b53ac23d1"

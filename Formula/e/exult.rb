@@ -16,6 +16,7 @@ class Exult < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9715d7b4a16490af2783613f64d5c1370e79e5fdfa3e7a9d02d4c4b5f0d19e8b"
     sha256                               arm64_golden_gate: "e495b300f512f65c3667d2b212fffeb8aec0cc3e40dcbaa3016a7a452350fedf"
     sha256                               arm64_tahoe:       "a0dbfdb8bd78a5d0aad9492f99ce27f606410f32fb26d5d88b984b1f70d3d2a3"
     sha256                               arm64_sequoia:     "0eeb4d2fa5348ffff683b054760640c65aab531ac602fd842fa2ccfe642405d8"

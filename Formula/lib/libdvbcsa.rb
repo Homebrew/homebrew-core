@@ -13,6 +13,7 @@ class Libdvbcsa < Formula
   end
 
   bottle do
+    manifest_sha256 "54e842634d2f4432d7420667d8d5415a5515576b52ec60a0e125f4d4a5c395e1"
     sha256 cellar: :any,                 arm64_golden_gate: "5bf9318a6ea1684166518ca16ceb9ea54c458573efb24659995752e168283cc0"
     sha256 cellar: :any,                 arm64_tahoe:       "7978cc5fa8ca42fed7145ad8b1a5e445d1028c0bd30199d306466945e517bb41"
     sha256 cellar: :any,                 arm64_sequoia:     "e5119a840b0c4c13677acc889fc03d4c035c47fd74d6e6913a11786d5826192a"

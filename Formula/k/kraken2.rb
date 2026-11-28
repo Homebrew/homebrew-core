@@ -13,6 +13,7 @@ class Kraken2 < Formula
   end
 
   bottle do
+    manifest_sha256 "adcadfd75b200afa66dfa3656d2002e6e73c0284e8ead4e0e365af21da12e43b"
     sha256 cellar: :any, arm64_golden_gate: "f793cc408b58377d67833e9f4be578789c88f5321170be15d8bf8f634f29b08c"
     sha256 cellar: :any, arm64_tahoe:       "3542091efa6df3d627715383e03fdaf22cf90df3d5a93870f063912594f97607"
     sha256 cellar: :any, arm64_sequoia:     "7b14ae891e96cb97259e95f52c58c995080dab92625f3dff2f678baba54ac032"

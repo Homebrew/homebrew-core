@@ -6,6 +6,7 @@ class OpenapiDiff < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "76f866095b084ff13e57560d418e470a7a93d7dcdc2ee7be55acff0051c83715"
     sha256 cellar: :any_skip_relocation, all: "d6c148ec0b46df02d99c8a8e87e98ebbef0ccb9d776b13c9d2752737b5da3ba6"
   end
 

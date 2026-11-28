@@ -10,6 +10,7 @@ class Zim < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e4c03a768c5e12d4f9bf2f3f57766f48e5408b516ed2b5be1cd169f7077ef624"
     sha256 cellar: :any_skip_relocation, all: "db97bd8040ab582ac6f38728eb27d8908fa92a5c7c5dd01bb4e8a68dba4e813e"
   end
 

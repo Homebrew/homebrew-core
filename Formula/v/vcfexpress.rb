@@ -7,6 +7,7 @@ class Vcfexpress < Formula
   head "https://github.com/brentp/vcfexpress.git", branch: "main"
 
   bottle do
+    manifest_sha256 "64f7b73def43ec831c65cf47506462374a83f9358163f57a9760ab67e86d1b96"
     sha256 cellar: :any, arm64_golden_gate: "75432627cbb9d543e3c848abc92a1d40f70006cde998b4b174fa9a94ecaf789b"
     sha256 cellar: :any, arm64_tahoe:       "6b65c491b553924d74a27e75da784a7b07727e62dfb5dae317775111daded837"
     sha256 cellar: :any, arm64_sequoia:     "0f4758a5a7c398eaf4243ba120eb87c61c21d8ae6ebc2db2156149f502f6c215"

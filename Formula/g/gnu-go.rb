@@ -11,6 +11,7 @@ class GnuGo < Formula
   head "https://git.savannah.gnu.org/git/gnugo.git", branch: "master"
 
   bottle do
+    manifest_sha256 "444c4010ac030bb0adf02290497ed611b31e61cfdba6718bf3b902dbb6a4d36c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfab48def57af5c5f5f71d851d874a7e49bc438c9ffc383b809e94b0ea643e79"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "65707404eb0034b25296dc8c9dfc0dd3ec1016b4ef97744500b702317c50b89c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b638af6216ed0bd736823bab2fe42ca902dd9768a69fee4009726808aeeea448"

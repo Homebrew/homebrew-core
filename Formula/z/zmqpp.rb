@@ -7,6 +7,7 @@ class Zmqpp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d54542f42f280b22697605d2cfb102d58cd6e629dbcdce66aefd80e3f6229212"
     sha256 cellar: :any, arm64_golden_gate: "4b007b7b73f917bb17a305ef332b58169e22696dc2eb47c2c967b2d760b1bc5d"
     sha256 cellar: :any, arm64_tahoe:       "3ac4227c4c1cde3e4032814d10d46ffd02c9e4e8df17eb19836b267bea0144ff"
     sha256 cellar: :any, arm64_sequoia:     "d3a792c4cdb47f17ad6f21a29cc4149a9746803934d20a526a4ba46aa2275b63"

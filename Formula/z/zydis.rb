@@ -9,6 +9,7 @@ class Zydis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7d6a897912767f887cbd094d30dc15e20589508a60970015ca63c8b4d902c545"
     sha256 cellar: :any,                 arm64_golden_gate: "12cc8b4d426c4e70a4b41d9ec51d33f9839fab719439d40f66c0d00ed582e4ac"
     sha256 cellar: :any,                 arm64_tahoe:       "3d64cf57d8e2eb55ac2457d12c35d227cca34db9c480d0c7fe6e41fd207bacd2"
     sha256 cellar: :any,                 arm64_sequoia:     "be71db07f686d7a09c8db9171418d0f8b0fbe3129f02b32b4d2fb956be023a6d"

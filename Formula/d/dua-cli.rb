@@ -11,6 +11,7 @@ class DuaCli < Formula
   end
 
   bottle do
+    manifest_sha256 "465c4fa7c24f84f0764dbcb133bf038ba55f45892b35b40869f26f889e86b794"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed4c982ad2c3b84807659a968f76d1bba26cdac07e9c4eceec230546af932be4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b4030669c1997dd81ad26ab3909526516e0c4b0c55e3783eed9b090274124ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e9d2ebd0569f816e93c244e53b84973ade6f964101d8601deb570b5f26d9d04c"

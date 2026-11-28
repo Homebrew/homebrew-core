@@ -16,6 +16,7 @@ class Curl < Formula
   end
 
   bottle do
+    manifest_sha256 "6f480ec01e2532a4753c81d5b06c8eddbf46caf23f6e118b59c22a80d3836efe"
     sha256 cellar: :any, arm64_golden_gate: "16b951fa8ecede2c254441c26e34814fed37c1e97382dad3016012aa2cbf20ac"
     sha256 cellar: :any, arm64_tahoe:       "44771918de230a1767855f3e6623b280c4e1b238a431e997bec8fc53b8bd8f74"
     sha256 cellar: :any, arm64_sequoia:     "d0245613b94f81fbb069090f4310a6a0c71830a3bf6b3f14ebef30c6ae49b957"

@@ -11,6 +11,7 @@ class GlbindingAT2 < Formula
   end
 
   bottle do
+    manifest_sha256 "a47438717794ad65c056584589e52381c0dbe9b792f7fccbdc95ac9ecc7c0a6a"
     sha256 cellar: :any,                 arm64_golden_gate: "a86a88743af9644f9ea8b92af9c405dc01b52d72be910cf3a218958ee1f5c96d"
     sha256 cellar: :any,                 arm64_tahoe:       "6dddc516878a360ff4c3204f6dbff543c7480ca9a636206f1db433de4af442a5"
     sha256 cellar: :any,                 arm64_sequoia:     "05fe3756c9e2f1a9efec689a64cbc3d55c7d00831af9d19411f9572b71ca81c4"

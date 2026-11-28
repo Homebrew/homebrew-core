@@ -7,6 +7,7 @@ class Dekit < Formula
   head "https://github.com/pvolok/dekit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4468b49e4540935b0ba0177ba3b864a3e127ddc69b28bf6a01e37572272a99e0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8419898240bc8a5758aaaacae90cb3440762e4da4c495ac92e2f6aa8294dd50b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f97d29329ced8fb3335a48881f06183aff2b9b0fdccfbfd94b0b590a25db1ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64f0a7eddb055b3d0dce0407f851e78c917ef068c54e5d3659660000fa4601d2"

@@ -7,6 +7,7 @@ class Redka < Formula
   head "https://github.com/nalgeon/redka.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7ea4a10393b179ddb557e835787270460287df6583e07960dfed20bdf135bd1f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3bf5cdd10e3c316db1bde9a519248abdd4fcd1a78db2a1e29e4a347713f52caf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5812ac99de3bb11d6ca678b33a9e27b9a6926ce6ec94383d4e012ea57ceedd59"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "717f0b8459551d90c97c2d9c3969c6a01c2df71d4b58929a767b33ba7469e3ec"

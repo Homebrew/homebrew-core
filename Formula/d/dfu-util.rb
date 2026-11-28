@@ -6,6 +6,7 @@ class DfuUtil < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "f8e894616e985e1099a9e0d0fe14a5c6d0035b3eb916c584e2b1c82c972dbfe0"
     sha256 cellar: :any,                 arm64_golden_gate: "0679afa326dd982eb9a3b742fe1bb98625caf6dffa362a56a909c2db1532e224"
     sha256 cellar: :any,                 arm64_tahoe:       "53e343420fcab5133dd295cf75d8a74b5933fabfbb53c90c3ef798735b5f9445"
     sha256 cellar: :any,                 arm64_sequoia:     "5cfdae94eea7b66aae31b16dd689bd8078d7aa685786dcf45f9f9324db12727d"

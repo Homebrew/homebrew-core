@@ -9,6 +9,7 @@ class Locust < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "8233deac13df7497528deaf13e9417d4b9f41673c00afdc011b620bdc46414df"
     sha256 cellar: :any, arm64_golden_gate: "348e3b6cf75bb978c50dba18e09b5bc210e4bf7327f8af8638d5ebfd98b5be6b"
     sha256 cellar: :any, arm64_tahoe:       "07b2fa9b1c33e540e7f0f120b4dfb1ceef34ede26266d3d4bd564e98fe162287"
     sha256 cellar: :any, arm64_sequoia:     "af99f1d687e55fb7a186ea2e7ae667f54310f3d4d9301a24113443c3e1df4b8b"

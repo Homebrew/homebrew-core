@@ -7,6 +7,7 @@ class Define < Formula
   head "https://github.com/Rican7/define.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6723e6ac604eb53492746320732b7dff3d6220262ff76af3bed30ef19258057a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d691ad5a6455ec2e4023594e70438ac80180ff3e951435f1f2c5f123ee63487"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b47971b7497fb628d7adea9bd2d657fc4b46ddd2215f8bc388287db13c845d0c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70a825ed3661f2536ed9680f5921d5074247464c0e7f3fd3d7c7c93bef9dc7c7"

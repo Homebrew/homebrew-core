@@ -6,6 +6,7 @@ class Wiggle < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "600b662d8882324f9299e5b15731a892193208805c4ac4a1e882e3dd3e155126"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36566a911489ce42051118090ae84ba6acb8020514ee072a76ae7c8c3959fd7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "87190c54a3ffa3b6212f17c7183d42f8a6615a1da033a9c22175b93363c23e8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8887ecafbe844cb6e671f1b2d74668d28ee8116ad5efe005853c96f4bbe1255c"

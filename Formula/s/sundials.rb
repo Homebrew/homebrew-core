@@ -7,6 +7,7 @@ class Sundials < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c29b20a7467b523c7dbabd9cf486429c2074c4bea6f43f37dc8d47c518af3058"
     sha256 cellar: :any, arm64_golden_gate: "0bee7b3a7d89719e797e7dd0b7551ea5aef1725616baeb4c23b74bf58e4602eb"
     sha256 cellar: :any, arm64_tahoe:       "7e73351e64d9d93d9df664b0b57233ac5fcdc3c180ff2aca85ba158af478ba08"
     sha256 cellar: :any, arm64_sequoia:     "1851856136d77acc4d206f38a7340429d975046bcc57c92e49c934b3eb2a2955"

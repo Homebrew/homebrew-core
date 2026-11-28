@@ -12,6 +12,7 @@ class Gegl < Formula
   end
 
   bottle do
+    manifest_sha256 "451f93a993c3efa2c1ef85cbce6d532ddae855a850d43f279fbaaf30eb79d70d"
     sha256 arm64_golden_gate: "09bde0ede75cace03ec6d2365358d7a801dcaaa53c75decc4510809b2ded3e76"
     sha256 arm64_tahoe:       "ec9ce003ad62cd27ee15e3a5ce94ce04484965f6e2081899ab187030307a17a7"
     sha256 arm64_sequoia:     "6c2ebf4c201aff4e8b6d0d0d75ec93eac13f36900654ac4e3238609529908f8c"

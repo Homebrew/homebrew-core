@@ -7,6 +7,7 @@ class Kcptun < Formula
   head "https://github.com/xtaci/kcptun.git", branch: "master"
 
   bottle do
+    manifest_sha256 "215210336d7851030fc4b3b2fe0085ab4dd87116f2191457730a39d65cf25ce6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "966cf0596429206627bddde19064d5056c205f7bbaa2f4a8359d7b3e045ee433"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "966cf0596429206627bddde19064d5056c205f7bbaa2f4a8359d7b3e045ee433"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "966cf0596429206627bddde19064d5056c205f7bbaa2f4a8359d7b3e045ee433"

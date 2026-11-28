@@ -7,6 +7,7 @@ class Boxes < Formula
   head "https://github.com/ascii-boxes/boxes.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4571217babbf0101d3d6282f7dbcfc79ca4a4b13168df7d5f28ac50d074a1807"
     sha256 arm64_golden_gate: "18b068eb59f4fd0941f50908bd2778481262ae97e92e5ebf90ae551b6606402f"
     sha256 arm64_tahoe:       "88975ffc5b34525ca171ba818b658294644753139db96d716e548edb37ed390c"
     sha256 arm64_sequoia:     "27a303dbf09830d2e13e1444dd7743b2995da3c5e76313b2277a24a03baa5181"

@@ -15,6 +15,7 @@ class Buildkit < Formula
   end
 
   bottle do
+    manifest_sha256 "b9877fdf7562627392c409a2779cdd17286aeab9374293e9652354fa97d05f39"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db56300770288b736a4acefb4b5a2b76411577b0e6c65b0737b479e5fcc4e580"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db56300770288b736a4acefb4b5a2b76411577b0e6c65b0737b479e5fcc4e580"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db56300770288b736a4acefb4b5a2b76411577b0e6c65b0737b479e5fcc4e580"

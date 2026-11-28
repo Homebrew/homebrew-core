@@ -7,6 +7,7 @@ class CrystalIcr < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "b29b120e8de8a09d1c8ef56125ae835ba026bf2bfeb6484c60ac08a997b8ebd6"
     sha256 arm64_golden_gate: "c21cafe1f6624e3f664638d863f7f4b4ec2f34bf25bd16362f0dcf116f3e47b3"
     sha256 arm64_tahoe:       "0eeb299f632e4352bc1de10ab2f57eadd1fa6cfecc457aee62308bac6aac52c2"
     sha256 arm64_sequoia:     "05b06f5e34378d1371b8679250de08974be0bf4c90040c127a602b79719e18c7"

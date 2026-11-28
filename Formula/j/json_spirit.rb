@@ -19,6 +19,7 @@ class JsonSpirit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "666772238116659dd9f6498ab0b3e5b8aa5669d508be1a0df3e704ae54d20a30"
     sha256 cellar: :any,                 arm64_golden_gate: "ff6ba1392c808f5ac9e0810174db88db7a1e685c9ef7e7d4f816e30896e8697b"
     sha256 cellar: :any,                 arm64_tahoe:       "c9211705e246541e5540eab0704d64a67124566cda09695e26b7ed3966b0c61f"
     sha256 cellar: :any,                 arm64_sequoia:     "260f8a8fa379f57ff36cc4a962698ff2c68028b2534f1bfb001f4308cb7e9781"

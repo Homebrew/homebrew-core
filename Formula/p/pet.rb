@@ -7,6 +7,7 @@ class Pet < Formula
   head "https://github.com/knqyf263/pet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "234d9762dbf15ef48d066eb3a6f5dd76fd2e0f8c79851c7722f1ab2b80e5c209"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "49a71b282caa0c6a2b29e5e30794da165cfe6116d6771a378737cd0c94181e1e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2abe7b3a10517de5dbd8061c61f2feefab8008c28230024563b305e63a48c15"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2abe7b3a10517de5dbd8061c61f2feefab8008c28230024563b305e63a48c15"

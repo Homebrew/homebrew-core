@@ -8,6 +8,7 @@ class DnscryptWrapper < Formula
   head "https://github.com/Cofyc/dnscrypt-wrapper.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a8e0cd4d3fcc1249b87cdb6b160b86cddf2b9eef9df21dc223aaed70511a6bdc"
     sha256 cellar: :any,                 arm64_golden_gate: "c1f276203cd1c315fc45d6870f97965f4f0decb931532d83e0dad9f4174767de"
     sha256 cellar: :any,                 arm64_tahoe:       "155ae1204059e3966a89fc6a1da59af00637662f7cb96e2d7a37a7439676a659"
     sha256 cellar: :any,                 arm64_sequoia:     "c044e99092e598b8ae1ea0415864f0f8220949113fdc23e79ac9182ac9932ef9"

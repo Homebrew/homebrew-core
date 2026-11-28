@@ -15,6 +15,7 @@ class Ace < Formula
   end
 
   bottle do
+    manifest_sha256 "0360828c0e24071700c2b6c8eb6c6d17b5a2f52afa2fad2c244b029144ba342f"
     sha256 cellar: :any, arm64_golden_gate: "285859dbe41ddeef30775f0439be848fa4e2d48679656be0251552bf7de44b08"
     sha256 cellar: :any, arm64_tahoe:       "2d77ce8098c09ad168bf5448ee8640200e0313bb3603fbf047fb37403b82f820"
     sha256 cellar: :any, arm64_sequoia:     "5aa502f337d40bcbea1a0b9a47bddf659c35a28caf1f328512d13a323ff5292c"

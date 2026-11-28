@@ -8,6 +8,7 @@ class Tgif < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f0e0fc90d113900bd8764c15beafcf80ea94c3c3aada7a283627f86032e43bd8"
     sha256 arm64_golden_gate: "105eec615ad5c9fde1a68ec83295862b91ced298505d4c537fb66c15ee05c814"
     sha256 arm64_tahoe:       "ba92789379368bb14652f941fc7381ef677fc5bd0b6dea2232d9b85dd4df22b4"
     sha256 arm64_sequoia:     "e16a6b3637b10969037815ca5ef81f56259eeca43f92c033f089c52a72caa8c8"

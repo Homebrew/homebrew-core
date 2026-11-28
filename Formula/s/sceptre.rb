@@ -9,6 +9,7 @@ class Sceptre < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "37a7be39991b7246f2e9f04f8b4aa293da6d48180fa0334ae5b9561d38354463"
     sha256 cellar: :any, arm64_golden_gate: "c020757c1361658d1f14249d77ae2c42a3b03b4afba658a45efb407e7aeb831e"
     sha256 cellar: :any, arm64_tahoe:       "18041315566c68017be2c2e11fb7844b8b4a98e59ece14bb3ef91e534e8fff3b"
     sha256 cellar: :any, arm64_sequoia:     "f3c4942389100d7dd89a26094ce4391502eb211b455bacb6b3e1f6da55103ecc"

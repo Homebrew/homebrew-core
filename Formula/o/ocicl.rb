@@ -6,6 +6,7 @@ class Ocicl < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "60d58ea055ae1e0049a8f1e4caafafc62375ac47ed08f81ac35dfd1420502454"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6c29b386792da25e79ce166c8c78cc3c48919c6a19250927de7cb9615d61eab"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5468e8075a3fc51713d1a79187e5cb68f58b335ff5f981fe99092291b27240dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "228cc5f62eb4a9dc8986224472cd56050b76f7e6f9805ba79ed19b50cdda569c"

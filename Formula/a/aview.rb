@@ -11,6 +11,7 @@ class Aview < Formula
   end
 
   bottle do
+    manifest_sha256 "16172173c42a4f8ecb79eeed3618e8fdb7ef8b362ad71d1375c745dde8161252"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9b949abce90f4864849059649db389e841c730c1d844749d8e8e33e0dd98c5f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f995d46c12b61d831e06aa42646204b6a732b3841ba9ba9e262d3f25ac81f901"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0d6d2b0ec534cc1f23d9a43cca5d6e56afae2da62b68eb2f0675907456e0ad6"

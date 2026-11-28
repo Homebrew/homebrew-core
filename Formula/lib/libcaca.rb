@@ -13,6 +13,7 @@ class Libcaca < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b70cfd9a8209f71f068ac324bd498f59e6046aa6d4f5946c8021f85c434cd2be"
     sha256 cellar: :any,                 arm64_golden_gate: "22221ea7f7e2af36bc16eae966aa8713e9b68f2a4f9449a1bac82536302f6004"
     sha256 cellar: :any,                 arm64_tahoe:       "1bf1cbd0c20bfcec98baa3baf5c7fbef225c45b96b016a7fe0c4b0aba329ba3f"
     sha256 cellar: :any,                 arm64_sequoia:     "73a575ae24fd5a0ef1868a5cbaba6c0e535f3c2b85fbe6763cf9641109a20757"

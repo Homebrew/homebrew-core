@@ -17,6 +17,7 @@ class VorbisTools < Formula
   end
 
   bottle do
+    manifest_sha256 "0c432f6b45083a20ff18f27398b6ac6e659528e4cc4ba315b74dc65cb884712a"
     sha256 cellar: :any,                 arm64_golden_gate: "6a9654152cfe33a92cb44ba2e95d2397a29dba5803bd4489847059d57e2a7007"
     sha256 cellar: :any,                 arm64_tahoe:       "ba951810e66deef3e95f0221893c66ba61714a590200dea95af16590595aba94"
     sha256 cellar: :any,                 arm64_sequoia:     "90772f684b42063eeed55dfe4e3474007b1ff9f6f83114ac04f6b392984a39bd"

@@ -11,6 +11,7 @@ class Zipkin < Formula
   end
 
   bottle do
+    manifest_sha256 "e98c9e0ccf386ea786a8bea6d629c55805e5f260209e5e7c05a94254b2c7444b"
     sha256 cellar: :any_skip_relocation, all: "d51767f8610cbf4a27194873d4629fb034ae7a25ababbf6f675b68566778ce64"
   end
 

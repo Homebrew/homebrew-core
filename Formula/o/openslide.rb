@@ -7,6 +7,7 @@ class Openslide < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ad377984e4098d0af98338feaed35920be225ea994b3df8ecae8b7a1f05c9258"
     sha256 cellar: :any, arm64_golden_gate: "aa5b3ce654b7cf6a544cd88b7fa9e97a56ea582c3d316dc9440ebd24732ce299"
     sha256 cellar: :any, arm64_tahoe:       "7cf048eea4e3bba759ecee695c16dc06f5a0f477a7190ce69f0e750ff0e891d2"
     sha256 cellar: :any, arm64_sequoia:     "5e0356dda9487bdfe10b972bee283fb9d1782a2ae54c5f236480d0a8079ec4cf"

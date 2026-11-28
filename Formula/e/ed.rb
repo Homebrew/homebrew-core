@@ -8,6 +8,7 @@ class Ed < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "494096783899b960fd2f010331389b1fc6663463ed4f0735766bba4714f52ef3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bb1d547e167a08bd02baea122fa95641528021433a43f7706b01deab652f991"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d1b8e53901e0960e73c63de628489abf3fd0168bdcca201ef582bf10809907c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88bfdc980a1d2425920cba9fa8aa9b85ff54a3f82aeefce29d1216ff65d94616"

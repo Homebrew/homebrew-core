@@ -7,6 +7,7 @@ class Decompose < Formula
   head "https://github.com/s0rg/decompose.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e2537d3035ff10b4df06a325091c4ab93130fcd976b7a865ab161eb41ec287c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3732592e595956ee6f4ce6e73ddf208c47e54dbc68803c20dd5c837644d5cbda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d71ca6bc293b1e9a262748b1cd755519c86d18df10e03f0b535e85aa089f9eb5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d71ca6bc293b1e9a262748b1cd755519c86d18df10e03f0b535e85aa089f9eb5"

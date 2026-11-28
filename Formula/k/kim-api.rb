@@ -12,6 +12,7 @@ class KimApi < Formula
   end
 
   bottle do
+    manifest_sha256 "7a3d73789a2d0d916e9253ad67d20d70c0d2e811356aeb08b6c5f9635d6f87d6"
     sha256 cellar: :any,                 arm64_golden_gate: "48804bcaa17acaebd4ea116652c081cbcd830b7d556f290ae80a349599b2ecd4"
     sha256 cellar: :any,                 arm64_tahoe:       "f0d402382a7e3acc25fadf264e845cfd38ce6d90f3655c378131733b12b423ca"
     sha256 cellar: :any,                 arm64_sequoia:     "1181985a7e96785c5ddc7260827b287d0d0903252dc8b3322f0a99cff91be5ea"

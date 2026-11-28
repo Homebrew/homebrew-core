@@ -13,6 +13,7 @@ class Jupyterlab < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0ece029315f472c8d405bafa691ce826bb1a6ba8d3eafca153ad95f535810e2d"
     sha256 cellar: :any, arm64_golden_gate: "0d2de54e6c19a0fb8cb884d4d23f1f926edd72a3a368aecd4bf341134985052e"
     sha256 cellar: :any, arm64_tahoe:       "61b98378583838c9eb187e3538fd72557d8aaa62d5d01360fe8e7bfb5b016d2e"
     sha256 cellar: :any, arm64_sequoia:     "5133acacbc8629d94dddeee96ab68e8c9db3a509fe78caf80612c34942451056"

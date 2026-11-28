@@ -8,6 +8,7 @@ class PscPackage < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "cbd4bd01da0a120e389dd85d4cd86e8c622cc7605d15f668c4c9dbc14751b625"
     sha256 cellar: :any, arm64_golden_gate: "5b5ac1da45cab0eb83a5cc21b35784fc574da458ec06e0077bdc95757bfe69f3"
     sha256 cellar: :any, arm64_tahoe:       "f6c81d6b073711eed4bf20c42410ca4ad7d2d669237ecf6def5804c8cc29343d"
     sha256 cellar: :any, arm64_sequoia:     "a14fb9e6b68780fbec104443cd58fe7b04251878c4db46366c935a130df02608"

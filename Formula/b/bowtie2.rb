@@ -7,6 +7,7 @@ class Bowtie2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "397f3e58975c32ee38a580439cb76384190bb66a86aaf7dcbfc3fa87b28446ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4fa4de54149a23a2c39a27d3ddb776583db862febc4678f6a0148fff43bd56cd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a579b7a13533d8e7a1eb74bed904affcae752eaa0e89599e54cb6c475b1806c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85d97a5b3966b23bab047b167357606dc73a5109d3f0b16579e5c9d9506ead46"

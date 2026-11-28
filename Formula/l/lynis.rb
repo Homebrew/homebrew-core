@@ -6,6 +6,7 @@ class Lynis < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "9a8113d09cab730f46dbb4270382dae1779a808866c8a462ca969e5dfdbb7a01"
     sha256 cellar: :any_skip_relocation, all: "3a18dfac20bd5e3201f449bf3369a021dcf677960bebafda98230897fbdcd4db"
   end
 

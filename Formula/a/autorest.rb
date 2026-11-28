@@ -6,6 +6,7 @@ class Autorest < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5c9d93f4a5185cb9e0c9cb26b9ba23fc21ef465d637213b880485cda9ee89d34"
     sha256 cellar: :any_skip_relocation, all: "b9e9e79e98255f252a645acc787169370311c4822e30d35639cc491e8d67910f"
   end
 

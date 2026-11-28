@@ -13,6 +13,7 @@ class WaitOn < Formula
   end
 
   bottle do
+    manifest_sha256 "07dd8a9395ed69e278fca2767495a713bbb8599dfaa91bd9d5869dcc47dc7a48"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b05d354a50d29f2d07d6b7bff3ae76b609723121adf256eb41a4de9d1263b744"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e548523ed71f1fd1796069ae4182d5ae191eb7a76fc4ad83e39353c648b85e23"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ffd8be74922f931670be9f5bb8fbea47735ddef928a74d44562bcf0e2969c01d"

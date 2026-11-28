@@ -8,6 +8,7 @@ class Calcure < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7b89b5ab04227d24f19261eb28f86800ce601882cedef17d32e6f4212619c343"
     sha256 cellar: :any_skip_relocation, all: "4ca5b71978d27bf939451a8deb88b7356a0621a629eb49ca86164dbde90a4e5f"
   end
 

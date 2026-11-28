@@ -12,6 +12,7 @@ class GitXet < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "60c8929b9a101af3675a711e64f0986b6ffeeba6715d1044ecc578ae56789fff"
     sha256 cellar: :any, arm64_golden_gate: "00a4ff72f704f5acdf38b43eb14501d5bb7383f33523f582582a262a617220ef"
     sha256 cellar: :any, arm64_tahoe:       "91b3c6e5e9ba6482d854737066467323555636a7604a7efb0653ea5cb28adfc1"
     sha256 cellar: :any, arm64_sequoia:     "fd965e43ac38be4e2a6a5c11ef44ad2a825b4194336f4e2f64337a7996564049"

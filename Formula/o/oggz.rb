@@ -12,6 +12,7 @@ class Oggz < Formula
   end
 
   bottle do
+    manifest_sha256 "63dbb888c8c4ca81da65455247060b34d63f52d6600da1ebf104a675ea463257"
     sha256 cellar: :any,                 arm64_golden_gate: "7afd89394e9ade684a35728b5867bcb584b2cc2ebf3ed10ca7ba9e5bf90618df"
     sha256 cellar: :any,                 arm64_tahoe:       "603716b336363c7460ee420337b0de8c0577261236bb6f464b95442f634c103c"
     sha256 cellar: :any,                 arm64_sequoia:     "662621ea7c3e2bba651d8a4d58de1b7e11fe77457919bec4a1a891344a9fa52b"

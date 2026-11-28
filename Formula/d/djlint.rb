@@ -9,6 +9,7 @@ class Djlint < Formula
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c4ce147c480e78392570db9bb3a703399f47f71366f3adef7e7cc24ce4449657"
     sha256 cellar: :any, arm64_golden_gate: "4bd896b888236060957c05d0a29268e4ab413af4681866d476f6c2e39e475ebf"
     sha256 cellar: :any, arm64_tahoe:       "b930217c5fad4472646ec26e79b92f6f4228fb434f00d3d01efa12e6d8c1b909"
     sha256 cellar: :any, arm64_sequoia:     "0b057733de2aed3a1a00477e4a3b50da28dc765ca0002b33ceedc5a8cfdac274"

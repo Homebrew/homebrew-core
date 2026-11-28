@@ -9,6 +9,7 @@ class Unoserver < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "12c9bbbf2e89065c28a99509911e49e676f1bc5059cd497eeb1eda41a1b84f57"
     sha256 cellar: :any_skip_relocation, all: "6ad558a70421755b9353b4f05772c95a72737598b07f5956a9f07feeeeadd4ea"
   end
 

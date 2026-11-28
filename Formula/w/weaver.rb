@@ -6,6 +6,7 @@ class Weaver < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "45347cc16128eb0b3f4bdfe971591099384dc4cb2bdd62a175d6d8b7e633f53c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7d6e0667a49695e2b9bd87d5eeb4ca1f5b489106f01ee9790294a579d74ea63"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9cf53f642dde97db220e7bff17a8d7660c230416fea7ab058af0aab8ff20ebfe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b2c94574fbf1393924f73651ea3276ccc59168872c2e23cced5a2844a895a68"

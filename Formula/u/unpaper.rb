@@ -9,6 +9,7 @@ class Unpaper < Formula
   head "https://github.com/unpaper/unpaper.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bf0a68d734bf7baeccb468039423d00268a8e523a164eb53da2907357a2082f3"
     sha256 cellar: :any, arm64_golden_gate: "0c61d6ab1275feb5ab12931d50dad6e108285bd03ca3b888afcfa6ed6c1e7f25"
     sha256 cellar: :any, arm64_tahoe:       "fc585f781ec6ab7ec82afc6630731152c6de6f9ff74c491f01716f4355fbc22a"
     sha256 cellar: :any, arm64_sequoia:     "5c156bd4eb872947e7428e68101dc2043c8e3d08c51b4bbedb35c9e71cd2365f"

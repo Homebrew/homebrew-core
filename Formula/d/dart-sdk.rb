@@ -13,6 +13,7 @@ class DartSdk < Formula
   end
 
   bottle do
+    manifest_sha256 "0a5119c0c02ae3ee6d1cc84da27ddcdcfe0c9f5520735192298edf99f85b754b"
     sha256 cellar: :any, arm64_golden_gate: "6807c7853a052edb31c54c7395d2b33799c190441b895e2e965568e970b994d6"
     sha256 cellar: :any, arm64_tahoe:       "26e9d9eaf22b4fbb7f0783e8cf629905daaefb3a4f8ccbc3699eb91bcf696c60"
     sha256 cellar: :any, arm64_sequoia:     "4b4cd24b0ad1b9e31a6a54a347a733166734f063bfe6af00b39d81d3cfa14257"

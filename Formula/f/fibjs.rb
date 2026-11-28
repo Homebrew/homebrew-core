@@ -7,6 +7,7 @@ class Fibjs < Formula
   head "https://github.com/fibjs/fibjs.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "c276a3c20372e32f8e04d172187ac00399fa6833e3ddeaa4e968920d32be047c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c12df8fecb417e91ea4510646a0c7425ef3144b997abd229de165baa9acab11b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd81ea326f8dd8bd3ed2c7fbcf7856d00b13d699d26f88d0baf34e07d9367207"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f940f6107a3dd1035e68d8be72bd46d99d90a23cf254084572c5d005323babfe"

@@ -12,6 +12,7 @@ class Aarch64ElfBinutils < Formula
   end
 
   bottle do
+    manifest_sha256 "d7bef9da8f8eb126a2810d7e63e8721cdf16714cb496b80d9b1b5d4326369ebe"
     sha256 arm64_golden_gate: "6b85a7b4fb09a7538e8d2b76d51f60437a9fc5bf97311f6d1d1d7af3e28636c9"
     sha256 arm64_tahoe:       "a24365324be5d8859b33565c16883284547d7672fb69c6a1c8ac92de83fe3b7a"
     sha256 arm64_sequoia:     "a3fa459b1396c8d55ef91fabe9aeed5f900256d16f3b82c9ad112e40877691cc"

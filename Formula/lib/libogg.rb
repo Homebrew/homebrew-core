@@ -14,6 +14,7 @@ class Libogg < Formula
   end
 
   bottle do
+    manifest_sha256 "64f69c475daf6cd6d45037e71ba05242c77e6c8ce02b65a8d6f04beff5443bb2"
     sha256 cellar: :any,                 arm64_golden_gate: "167bcd43f2c162a64d0a29f2f125c491da12632875859652763fbf5a8a0ea014"
     sha256 cellar: :any,                 arm64_tahoe:       "4d9d14f8e36ed913c02201bfc01682ba3f550de412e9a24e3ef9aed4f1b8a23d"
     sha256 cellar: :any,                 arm64_sequoia:     "2423ff6b931f0393cd314052a7328a61fdd6f1d8519b65c4dff5ab560f82c52d"

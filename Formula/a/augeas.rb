@@ -13,6 +13,7 @@ class Augeas < Formula
   end
 
   bottle do
+    manifest_sha256 "7316144b509d5ad82dae09ac7e4217c4c5870c6af460e1487152775c4ed04ff4"
     sha256 arm64_golden_gate: "0d180f1a93cd2464603c0a730f8fd51376b91c7b7dca6dadb1727192c451c9f4"
     sha256 arm64_tahoe:       "61dd4691f30717bdd7c167ae9bc8a0cd891abd6d154d02703999d5c81d7d7024"
     sha256 arm64_sequoia:     "65f7b5c7977745dcda2563cf3a1b9ef4b0caaf38029e07f7dcde94fb65e39e18"

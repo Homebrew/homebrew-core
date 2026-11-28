@@ -8,6 +8,7 @@ class AwsCCal < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "2b519bd694faf33a5fdadc89b23fbfcf16cd37624e1f7bb92af29fa2b58014c1"
     sha256 cellar: :any, arm64_golden_gate: "4fe05862beb90cc62de65c114d28303e16b49784291033388deed1f962080e16"
     sha256 cellar: :any, arm64_tahoe:       "b07ed49e2e61f65a1cf416669387dc582c6dfa254c639841220bac9be9e2ae8a"
     sha256 cellar: :any, arm64_sequoia:     "f9aabf2cda22318de8d70e0eed3239885f7e9d8bc335096226ea88dd12bfa9e8"

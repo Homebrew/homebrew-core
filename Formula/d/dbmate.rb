@@ -7,6 +7,7 @@ class Dbmate < Formula
   head "https://github.com/amacneil/dbmate.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a1416e1a5dd23f8918a4b21423c3dbeb4fef12efedf015ee92fe00f22c2a5574"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3266ed386b989e63bb626f848e160e1772eb94c91bc745536f6bd7cfa924959f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "382c7eb20acdc6a8ce8414e93f49964300c69c00bcf280234ddd566a8698cc26"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "625834a795d9528567a2e863f9bbd75052315023f26da45a136a623cce91fc7d"

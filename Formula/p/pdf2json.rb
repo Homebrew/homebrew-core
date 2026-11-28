@@ -6,6 +6,7 @@ class Pdf2json < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "d4231ed81c59bf2e1af66afed2cca2ad92757b3216ff4d25fd0ecf32d6c40ba9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93d4ff9b65c4cb26b762214e94a3bcb15bc4ea9ec98499f7c9884e6cf536bbf1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "058498536ab559f677a0d83f45179b9958c5c2274378cea76f63fc8e613a1076"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6af0ae7d69db0ff147f44d9f987843ded25580c0d2c5d00b3909f18c4566bdb4"

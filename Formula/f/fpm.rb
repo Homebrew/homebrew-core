@@ -6,6 +6,7 @@ class Fpm < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0251cd4dfba4573b01402e76211debc6487cf7858f5eb8c52bf9015359f901b1"
     sha256 cellar: :any, arm64_golden_gate: "2b91d3c3dd71bf82d76253ae7d1c8930bf920c574f367aacf067863f496afd51"
     sha256 cellar: :any, arm64_tahoe:       "a19641f1606992444c4f5c0813572397b184cbbe4cf6ffd0b67c02c54f80d5ee"
     sha256 cellar: :any, arm64_sequoia:     "792c5891be558b482bae3bb0db8909832eae25f8315513c8e2fed213c0a544b2"

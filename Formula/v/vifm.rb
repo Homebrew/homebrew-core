@@ -7,6 +7,7 @@ class Vifm < Formula
   head "https://github.com/vifm/vifm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a65b6d6a3c890d5043b6570052bf0950d6a1758aa030b73114f8a694902a968b"
     sha256 arm64_golden_gate: "4c42284c284ae3d471ec352888ebd96f1c05b7875322d2b220a48319ef940f3f"
     sha256 arm64_tahoe:       "7ff33180ccb9c5fe8a4cfbf0c13b5abfd73d4baf9a5ec972e5daec799ca3ae9f"
     sha256 arm64_sequoia:     "b651ad7b0043153119dced70de580555b19bdeb76b47e11a6e8aae37b218c8b3"

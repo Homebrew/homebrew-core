@@ -8,6 +8,7 @@ class Humanbound < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "6cc6713b4f59b5150bbb79a05d627c039220cf282b066f8e8d72beb770156b29"
     sha256 cellar: :any, arm64_golden_gate: "5ade92027e0aba5c34526be9fae2a3857a19d82ec1f861495faed51ddcb7deb9"
     sha256 cellar: :any, arm64_tahoe:       "9c7f019d4b81c40bb11a485cff714bdd9ed8c75071ff1d6c32a7ed4adb70fc1f"
     sha256 cellar: :any, arm64_sequoia:     "b1f5309e4bf805d0743f49468cdf22b9f39fabcc1d9982770f45380b2b327ee0"

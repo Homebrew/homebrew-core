@@ -15,6 +15,7 @@ class Dbus < Formula
   end
 
   bottle do
+    manifest_sha256 "a15b9d41eb417a682008ee61f0436c25864aa0e4f305dce6d5c450f297d88550"
     sha256 arm64_golden_gate: "9f8972653845f2bfa57068ec941f0b036587e5d2f1d8415909899759fada1dae"
     sha256 arm64_tahoe:       "3d1593d9f05133c8e58571cc3270a5a1ede8c6d977c1bc3fe10516514a021acd"
     sha256 arm64_sequoia:     "cb4cb9ffcc60f6dbc1631df589c4d37c9d8db68c6def04d547963e8979d8aefc"

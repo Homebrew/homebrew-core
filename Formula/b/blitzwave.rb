@@ -6,6 +6,7 @@ class Blitzwave < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "4c4ff84f278feeb5d04ab06e6ca0f17ad9119148c4c8a94c13bc4235614ceb6c"
     sha256 cellar: :any,                 arm64_golden_gate: "f502e6783c2ac0da43bbcb895e3bc72a6743965f218ca40852893bc7f76feabe"
     sha256 cellar: :any,                 arm64_tahoe:       "af9617a5b1ac77f4118d9bed451601510403a32d7e45c1c0b0c67073f36a724b"
     sha256 cellar: :any,                 arm64_sequoia:     "6ddfd2d5b7388e38647c23c2556e37258da48bbb0408290ccc1e54c5970fc68f"

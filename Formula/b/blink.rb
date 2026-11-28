@@ -19,6 +19,7 @@ class Blink < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c2a33d02208481af7fabb62f1dadf82d3915eead4c5d6295faa1a5774d294192"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93b4d1ffeb443803df329d90ba8959dd6e81a6f3c4cbb8fbe51d3cec51695b4c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe96f01e4cb3db83a0d8fe235ce54e5a00ff81d82da4872ac75772d93b49fe02"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "728a23165b6adb6121ef66bf6b0ef9b9e68d863eb66b33bf40814d19bda11134"

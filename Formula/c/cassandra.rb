@@ -13,6 +13,7 @@ class Cassandra < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d04fc0f6e7376bec38c17fe63a731c3ea36633205ee29151b876db1d92239b28"
     sha256 cellar: :any, arm64_golden_gate: "6b7840959d2d05f86d28ed4ab7599deb9acca6a39ad31d66099e55c714ec75fd"
     sha256 cellar: :any, arm64_tahoe:       "37de0df52ed2e121f2c8b8a835350ffc7b59fe6d85ad1633c5d4249acc54a29c"
     sha256 cellar: :any, arm64_sequoia:     "ee2e2beccc4ca2cb7323a1333bda7e081d1caf732503f2dc3c07a3fa35d6ae60"

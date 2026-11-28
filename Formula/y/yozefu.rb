@@ -8,6 +8,7 @@ class Yozefu < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "eab1111b0bd733507b31d1183bf91e139fe423fdd1769a7d9b54a7d19deecc06"
     sha256 cellar: :any, arm64_golden_gate: "bb9063e143d001351210e40c462f9d9ee30e9372e9ecafcdd8b91d96d76a0247"
     sha256 cellar: :any, arm64_tahoe:       "47f17cfa36c7555cf00f49c4005382e1a3a155dc727a2625251106cbb2b7f925"
     sha256 cellar: :any, arm64_sequoia:     "7de4db2a95f0f618fe83a4afe9589aaea038a160df701eadf8595d7df2e19437"

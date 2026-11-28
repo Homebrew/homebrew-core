@@ -8,6 +8,7 @@ class ThePlatinumSearcher < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f453fcbacde0f88fcd81d3a3b581739aa4a2fa6bc4d1d6d1887d7b0aa5f50f6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c94b4cd5eefe9df62644908040245f2be909869730500db019f445d33f48f7d7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83e283a230eb2226c0664d30e2bfceebf1e5cf42dbf4841bbdafc96cffd6307e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ba93995429038b3bc692cf512396e683d766b131a307e63afbbe913218b54c1"

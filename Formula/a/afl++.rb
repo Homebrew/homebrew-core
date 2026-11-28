@@ -13,6 +13,7 @@ class Aflxx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8b73e7d64702c30363ca00b30bdaf3de01ca8db53d18ed3d2f46d58ebf39b02c"
     sha256 arm64_golden_gate: "c1bef335568baa534e74b980038d04d1c4f9eba041fd32bf9e4c7f4e3549429e"
     sha256 arm64_tahoe:       "4888debf97ab073658a50b47d7d971be1742a7893a359f64967d3283781544cb"
     sha256 arm64_sequoia:     "ad45b7f4085b42e4bb8b619dcb1a50d277f99f7dd1e435ce21808de17987ca2a"

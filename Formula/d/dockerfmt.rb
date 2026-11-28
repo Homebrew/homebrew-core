@@ -7,6 +7,7 @@ class Dockerfmt < Formula
   head "https://github.com/reteps/dockerfmt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1fa57affe57a59ba6e2f729cc05a1fd296056e89cb35c0b56d0a3cdfe0962041"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0154fa93fb6ac7ae66eec73a78f72928dc3082049e8b26404942e648606f1d66"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0154fa93fb6ac7ae66eec73a78f72928dc3082049e8b26404942e648606f1d66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0154fa93fb6ac7ae66eec73a78f72928dc3082049e8b26404942e648606f1d66"

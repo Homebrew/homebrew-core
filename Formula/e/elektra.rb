@@ -7,6 +7,7 @@ class Elektra < Formula
   head "https://github.com/ElektraInitiative/libelektra.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5ba4a436b10f8462612f5d70afb30ce924e802c476b01c99d24833935e653482"
     sha256 arm64_tahoe:    "25f4bf08f433665092bcfa685d6526fce8261448583f826a448a6a1e0cddadb7"
     sha256 arm64_sequoia:  "b9880fd25ffb5e345973fbb4390edcce5c0fec8f438f417f771c14b118ac79a2"
     sha256 arm64_sonoma:   "145f4e7335c44640cb1b89fc077451ab1f0667d00fc9622d19754c8d7fda6fd0"

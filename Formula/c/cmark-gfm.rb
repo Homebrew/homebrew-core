@@ -8,6 +8,7 @@ class CmarkGfm < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "51cace98103c54d5e2a85adbab636d54a5ae84f2a19bd81e984be6bf272276d9"
     sha256 cellar: :any, arm64_golden_gate: "ee420d6bd4c2c39c7a07d057c5930ec4e5e748615fafcd3df6f68b280468b6ad"
     sha256 cellar: :any, arm64_tahoe:       "8e64ee0191d7c9d5bc72720bc27e262dd41cb9d9ddc44a47c2315ca86a5888da"
     sha256 cellar: :any, arm64_sequoia:     "f494a64ec5af2ed9a7f367a3061e8a98f2b6c51a1e0a036efca71b6901963ec8"

@@ -6,6 +6,7 @@ class Repl < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1d57ba1a526e3d691cee0e8d0cb2811360d45bc719a89ebfafc0d83e228b128c"
     sha256 cellar: :any_skip_relocation, all: "497a5e7b673fbd288181f823e1b1a7ba71770b6d3da82bd66ac100c60b0295b3"
   end
 

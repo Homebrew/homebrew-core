@@ -7,6 +7,7 @@ class Tpix < Formula
   head "https://github.com/jesvedberg/tpix.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ccebbcd7affdfe29e4c5102762993ac1e2c7fd7a0f7711e50bf54cd17177af47"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0692ba2be84eddbb9d48da014a4436b16e348ba629b1d22058789c43cb6d6840"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d87b224ced00e835b796c34ed8a01440b0874174f6c3bc872e77f01c31d848f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a652e7455804c8862979ae45580498901bfcf07d08fa63b9899183efd50b9ca"

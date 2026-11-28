@@ -9,6 +9,7 @@ class Aspell < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "49cf37fec70606d69f09bbbc1170daafc14c7861c890cedc1229039ee2baf91a"
     sha256 arm64_golden_gate: "08436da282a6673d81b2c905da102df730e1c4a86e409088ab0892557a378aee"
     sha256 arm64_tahoe:       "4c04fc9c8d318233b046b40e1937da1e18520e90a5c540b705ba44fc75d6a767"
     sha256 arm64_sequoia:     "9c1f28c2289199cba0259868d64a72cf10d6d972f34fdf713a7451e1113beda9"

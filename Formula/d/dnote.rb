@@ -12,6 +12,7 @@ class Dnote < Formula
   end
 
   bottle do
+    manifest_sha256 "984b98d02207021b008707b545622115ae5e289060e42d9079bf6e603573df99"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c0f624aa1d2dc38208be0ae287a76e0c2e8fa6d688068ad31d1375499c27d41"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21fa4192d6a2339847043dd0594643ba4463cfc15a543e19c4bac6d425833370"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0edb2943f3e6812fe0d59141ce3dd403638e89436d4cffec7fc6d1f0f6eb3762"

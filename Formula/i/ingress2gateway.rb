@@ -7,6 +7,7 @@ class Ingress2gateway < Formula
   head "https://github.com/kubernetes-sigs/ingress2gateway.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0d4bd1bc535bf8e295086dc9bf3ad70ee84297e2787dcbdbcea0f206c0e214cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4094fa8098bb209ee2320b706cfafc3426f2b13e09c106065285b55bef2b79e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c666d46833c0a2649f64984d970ceb1b1ee40f7d8edf20306872017b169f7b7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c666d46833c0a2649f64984d970ceb1b1ee40f7d8edf20306872017b169f7b7d"

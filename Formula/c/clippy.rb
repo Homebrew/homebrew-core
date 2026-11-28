@@ -6,6 +6,7 @@ class Clippy < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f958a47b74c07e7dde7901062ee07fb4570b64a995b1853bbcfdca95cd242833"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f8b693ee267f5ef722635b8a3c601c39ac6aa35337a3bf4798a50dbfe3ef0a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa9cfa9be33e988a8d87ae5aa6d344163bfc76609e9340220b89c71babfdea5e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf2c05c7aeb15feef62cd78f00a2471c38ee8f88a5999a11201b290cdb307e26"

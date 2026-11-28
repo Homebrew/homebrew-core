@@ -7,6 +7,7 @@ class Marmite < Formula
   head "https://github.com/rochacbruno/marmite.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f833869b3fc7208279a55a8b61bc0b6e57a3b15d3e8c61654e3692ac7f34bff8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42069c87ea43bdab96fd06edd49cdef57d1419b78f8dcb33d019e89fe5e76c0f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf6d31d6436b9c14d1ff0d776066eb1e30e61023d530004567bc4cb38be2bf43"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d8430843a7a51d92facac975d84e423824ff4d6dd226a40a55a016dfc2862ca"

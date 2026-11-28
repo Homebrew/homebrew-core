@@ -6,6 +6,7 @@ class Kibi < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "06acb58d6c3eda1bed4004f6663ffb1f11f3a7a70f4641be62fbf1b779a4297f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a079b9cb0ccc1586694194717ecd9c389ba5cd6d5884840660711c9bcaf2c4fc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb06d019acc78dbbe42b1f3859743ca1d516eb54cf54a72229aaeb5ee62aacc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "85d1fad82e87446f839686a6ee90533134fb949813bba8cbb04a583294d85201"

@@ -7,6 +7,7 @@ class Stlink < Formula
   head "https://github.com/stlink-org/stlink.git", branch: "testing"
 
   bottle do
+    manifest_sha256 "fab140ad3b776adc546986c37a822c9851287d1e0618af7b04aa11fcc03e36f3"
     sha256 cellar: :any, arm64_golden_gate: "ab7d64c9957c451a8b6883f3ce0b574580cc1acf15c969ca17f6031304771b29"
     sha256 cellar: :any, arm64_tahoe:       "0c7e6d248a855e8b2665b3b960d04f47b5eda457492b70f2f05660d047821810"
     sha256 cellar: :any, arm64_sequoia:     "be6827c8f82ac06d921aa3b140ab047303df80f741d71057b2417935ef840aab"

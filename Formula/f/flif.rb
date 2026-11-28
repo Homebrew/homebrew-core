@@ -8,6 +8,7 @@ class Flif < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9966f15ffcb096bb6a203816014c8f9b138854984fb4984791da631709116f8a"
     sha256 cellar: :any,                 arm64_golden_gate: "1c5f23cbe01ecab2a67fbdb9cf7f25b7efdb5712ba96f368c6babcd3a02edd9f"
     sha256 cellar: :any,                 arm64_tahoe:       "9f31d2fdf99e6e6a7bc79e1cb303d246a023edae4a4cbab9010c991a42b3f15d"
     sha256 cellar: :any,                 arm64_sequoia:     "947265f79e930463ef0e44212cb95aef425b064a9d50abdee3b308c4dc03ab25"

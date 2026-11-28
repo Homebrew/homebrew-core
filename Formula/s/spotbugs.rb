@@ -11,6 +11,7 @@ class Spotbugs < Formula
   end
 
   bottle do
+    manifest_sha256 "3ec45b251846abe07e72cd1da88184089d202e8fc4a72b23987ebbadcfa2f57e"
     sha256 cellar: :any_skip_relocation, all: "d55488bdf0421e05da53eae4f78088d1ef3e2c3e7596385fc49e3accaaa7dd3a"
   end
 

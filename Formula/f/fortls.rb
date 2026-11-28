@@ -10,6 +10,7 @@ class Fortls < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "0af5d2b5c606bc8ad7cb54997600eb79df114d022cfae648f09c32d3ccf7cc1e"
     sha256 cellar: :any_skip_relocation, all: "7fb66a8d3dc572a469a32db0a1d2c1d2ff2d5590abe5b5af954ef05529e7051a"
   end
 

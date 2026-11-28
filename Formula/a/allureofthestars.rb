@@ -9,6 +9,7 @@ class Allureofthestars < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "395e813c008ceb46b551ccd05a66f11e9479b19e518d028163998e23625bbc95"
     sha256 cellar: :any, arm64_golden_gate: "101722f507a8660102607a4ecdde9707ff1fe9334190b8e83d1d45909a2e943a"
     sha256 cellar: :any, arm64_tahoe:       "0cce7783d31164730863db9afeeae32c81412a5d70ce9f6d6287266191cdffc3"
     sha256 cellar: :any, arm64_sequoia:     "1473587658292222a91e20f436d7753e552294cc27d7883365fa9d1a32b31766"

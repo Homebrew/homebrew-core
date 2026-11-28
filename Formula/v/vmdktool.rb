@@ -12,6 +12,7 @@ class Vmdktool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c6bdb51f10f39904f710f79bcdecf2de7c8b44e4f3ae05013c90d4872b4d0c66"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b2468216d87da7bf12b6112e11cc3388c15ca6092144f6662a040e727a936e6c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c80ae2a1f31f2ce299e628833d1e506ac03b5a0a27ba6ad7cae14455a62eec1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c6b696de071b46d21d0b6fd5848fd41fcad54f3ce26c2dbef9ac1373c9bda662"

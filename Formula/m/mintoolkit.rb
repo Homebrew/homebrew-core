@@ -12,6 +12,7 @@ class Mintoolkit < Formula
   end
 
   bottle do
+    manifest_sha256 "35b94caaabd2794bcde95f0f28aaf1b7071ee550f24a76b94564b304818b9f39"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ee78ef0f5ed3923c3ab170c1bb3a640c57bd2b2c7ccab0eb16c84565f7f17a7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46b2ab6b6a9737f6cdd6d71144c5761c0d81800a31dd71c97d3be9833a089940"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29e5e2ea92bf195a054bdb7a00b94a6200a68633883588327ef58d52198f57c7"

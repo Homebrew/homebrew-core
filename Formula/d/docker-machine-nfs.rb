@@ -7,6 +7,7 @@ class DockerMachineNfs < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9554f26b28d373c6cae1da470d228fa17604b939f4ea4fdd658b4d74b5926598"
     sha256 cellar: :any_skip_relocation, all: "7adcced71d07397c241cf4999adf40d17b6f773aa28fc53625df5982484d4c6e"
   end
 

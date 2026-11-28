@@ -15,6 +15,7 @@ class Joyce < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a53a3e401d12d263624b0152e69c518936635025fd766431c848e3a6838bfd50"
     sha256 arm64_golden_gate: "d19ab6f1ea382072a8b00a2aeff4c25f8b8b2a3150c4af3a6c2f41ff66a90150"
     sha256 arm64_tahoe:       "e2158169899c44fdff0bf9b3211bb33383817412c2ede428db4606f04650b0eb"
     sha256 arm64_sequoia:     "dc481968eb3c1cffab85fd94f15c01dac8172ca23b99812088fd9d8626b6d9e7"

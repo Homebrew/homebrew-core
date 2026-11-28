@@ -7,6 +7,7 @@ class Rnv < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "dffcf8861678c4a98c1610443aa56d26e0264f4f54c28b3ac19da1d474975bc1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bfcf56366c8f5c9c8f0fa77f904fad3b6f47ee056bf6535a203a21c837c84c87"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "294d562f37f9fcbdfebca1f0ac3a304e5c749022dd1287a35b847b2223ad9a07"
     sha256 cellar: :any,                 arm64_sequoia:     "c2d6586422e5ac938d5f27b00ba89881fb64e07b84250b44ac5905bd7189bd92"

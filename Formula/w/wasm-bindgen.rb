@@ -11,6 +11,7 @@ class WasmBindgen < Formula
   end
 
   bottle do
+    manifest_sha256 "cf1854fc11f6224db2a7bc2ccd6e481603abfc4ab13c507520e4b6fdd48ca136"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d22d2f668e02ea827d9b9bc0f0c30f8faa294ef5ed227bfe02f8273f644f77f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "932c0b7d566444fb8c5040211029c86b0f453429c9ab5a372bdb78cb260b2dec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c713ef118fdf937941f0fb46a0c83394bf2dcf01adc4f013437189d0cd36d738"

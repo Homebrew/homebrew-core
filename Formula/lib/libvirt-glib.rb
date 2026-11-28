@@ -13,6 +13,7 @@ class LibvirtGlib < Formula
   end
 
   bottle do
+    manifest_sha256 "ad8e3ee3f884d0c0ff175e7dde6ad783fd87bdb31d84bed9f57e9b2b4b017d6b"
     sha256 arm64_golden_gate: "baec8f00928c0aab46d7c7eaa8a1317bfd1d5bc005a7d2b6669ab817b347494d"
     sha256 arm64_tahoe:       "ba34897f21e90fc3c2e580b4b3a736ac40dde9df609b5e8bb650ed65d528bd41"
     sha256 arm64_sequoia:     "2215ee81bf32c6dfb3e1091165cfcd1fd6130d190a368221567d26ac93a2d5a0"

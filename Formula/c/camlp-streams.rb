@@ -8,6 +8,7 @@ class CamlpStreams < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ad4d28b4eb0fd12259406a3cff467df204f84a9eec14331aa299bfd7f3fc1e40"
     sha256 cellar: :any, arm64_golden_gate: "9ebe9ddfd875fb22f45f25ff0709fa92b5e3074068ac0726e0590bf3e48318cc"
     sha256 cellar: :any, arm64_tahoe:       "a5c519c377b6436f0d1c2936eb7ffd60508528e7b84cfcc16f439fbf5c9a6b6c"
     sha256 cellar: :any, arm64_sequoia:     "c70602c608ec248880aebee12d42f4aeb69403b6ce62137adc78e0953500c70b"

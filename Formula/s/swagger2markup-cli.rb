@@ -13,6 +13,7 @@ class Swagger2markupCli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "82d7be77d57d91e1e779a6f9c472a21916a5cdbd1ba731ca01593cea23d97f31"
     sha256 cellar: :any_skip_relocation, all: "371bbc9c30ce8cb116cc9d7ad64b97d87ef6116db53877b067878a2643c3cb95"
   end
 

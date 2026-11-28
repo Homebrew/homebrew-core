@@ -8,6 +8,7 @@ class Chardet < Formula
   license "0BSD"
 
   bottle do
+    manifest_sha256 "8affd32e4d74a201b5d7064620fe2abf565754dff68e86d15bfb9fd7e0489f9b"
     sha256 cellar: :any_skip_relocation, all: "162251ba996471dce3d6ac4b59ea452f13e29e2501039d0a56a2a7770dfed7fd"
   end
 

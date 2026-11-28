@@ -11,6 +11,7 @@ class Diffstat < Formula
   end
 
   bottle do
+    manifest_sha256 "e37aa8a4dc8c8cbe807a9dd2dad6c549cb06a308b9fe50f47d8f58d1e009ef24"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e69c9e2cb992b6449b4cec456286f21723f229fd3f231281cdf59c7c6b5f1a6e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "17326937151e5a26ce3d23cc4d0fcd180a5e76b097dc77c877ea326ef5ac2d16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0052fe73ac867e0e81faf6c93e30acf3e2bb5fe54ad6f37218619fe9883bcac6"

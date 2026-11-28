@@ -6,6 +6,7 @@ class Hey < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "0e8fb7f04d45d59bf5054473d1a6fe77e16ea33bcde61defba80edc1f159a81c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f37a0d7169e5782f1057cbd283e2d2a96023eb8b9b07ae415efe1c59573246f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e6a32dc6db2049f5db08ae59f3e6028a97cfcaba825e1009c13ea4e61f24891"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e6a32dc6db2049f5db08ae59f3e6028a97cfcaba825e1009c13ea4e61f24891"

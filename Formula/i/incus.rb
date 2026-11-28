@@ -12,6 +12,7 @@ class Incus < Formula
   end
 
   bottle do
+    manifest_sha256 "da215a80f2b03e27101af09f3839f33cadea531de054de7fe6efee1befb21805"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51dc23b3808c29a15c9f2cfe3aa37fb2a5048636e45022981884329b03724f9f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51dc23b3808c29a15c9f2cfe3aa37fb2a5048636e45022981884329b03724f9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "51dc23b3808c29a15c9f2cfe3aa37fb2a5048636e45022981884329b03724f9f"

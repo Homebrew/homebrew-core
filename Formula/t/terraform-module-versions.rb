@@ -7,6 +7,7 @@ class TerraformModuleVersions < Formula
   head "https://github.com/keilerkonzept/terraform-module-versions.git", branch: "master"
 
   bottle do
+    manifest_sha256 "66443958ca5914859044749669bb65e795c925c9d83e248bd7f9a5cdfe6e8fde"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "787526aae559186ade7fcda197a52c8ef8bb8b0cf1cdd7782cdb819bc69de691"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "570693949b4aeecf98436163b51c05af549c7100d35fbb07254fd8c9cb085d19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f120f8f70dfe4d25b7df6c6fb2469eeaf6bca263d732ad30397a7ec34e9892c6"

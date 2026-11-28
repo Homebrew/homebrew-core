@@ -6,6 +6,7 @@ class Sq < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "78c17f80755eb282d25fa0d2e65b34583a3409279595bd90c9f315a72ee21252"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfbd14bfd35e88adec5bbf7456046f0d84623686014673f7ab8640cefe2fa1a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3df4964678516d135b293441521b560a9c967204d7ac5d3bd7bf97f6c1cb6727"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f1cb3a1a2a7971f7a8ac7eb5c5c4d51a0359639f461cf49357cfc621e76bea5"

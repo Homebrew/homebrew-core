@@ -13,6 +13,7 @@ class GnupgPkcs11Scd < Formula
   end
 
   bottle do
+    manifest_sha256 "c593e4a6d51f05c60be76d947182d31e10c9f77ff6f623f3f3301562de175e6a"
     sha256 cellar: :any, arm64_golden_gate: "8b0bdb58d5901c55a9440e26aa4517cc7adcd9b11b986a48459ec08fcffa5a46"
     sha256 cellar: :any, arm64_tahoe:       "b11527d4954e4186110bae684771152f7469f62bdf801b237ca835fe90ce7543"
     sha256 cellar: :any, arm64_sequoia:     "c9429a21c0bf49b31071791099d6ed2ca39ef83739bc7ceabf1503c6c2f6bc4a"

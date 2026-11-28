@@ -11,6 +11,7 @@ class Vint < Formula
 
   bottle do
     rebuild 8
+    manifest_sha256 "48221c0fbefd492ad13252945fc2200df65b9cfd108de3aed0b2feacd16036a6"
     sha256 cellar: :any, arm64_golden_gate: "144985ca156cce73efc9f6d1a3e60e6ac20d8278b790dc5856316f099a666af1"
     sha256 cellar: :any, arm64_tahoe:       "adcb2e82925f9dc290f910258cb425236e6700b503c2ee7009f5582a423526cc"
     sha256 cellar: :any, arm64_sequoia:     "c23dfeef0c48935eaf313eb30a3d3d1b8da4967573b03e32cba7862147a81c69"

@@ -6,6 +6,7 @@ class Soapyhackrf < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fd58bb93c01931a907dba84a9e1e35f003e4ca678f7e7ccab2faeaae510ac54a"
     sha256 cellar: :any, arm64_golden_gate: "1fbcc99160d7219dc96156926415df3d6a159b37d1201d691b9bdb0cff19aec0"
     sha256 cellar: :any, arm64_tahoe:       "68bdf01229a87f5ec021931df385772da1e30fb70a98cf5b47cd34d551d5db4b"
     sha256 cellar: :any, arm64_sequoia:     "c667a5ad50c012d56cb279f63ddf3c9e750c5ad92ae4be6f7b225cfe53d53af0"

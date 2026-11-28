@@ -7,6 +7,7 @@ class Zeroclaw < Formula
   head "https://github.com/zeroclaw-labs/zeroclaw.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a87c74986693be4d1bdbcacd531dbd8665afacdf43b77c82eecb446b0bc8c0c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9e2bc2c3124b667712645992c001453386d4a2b5d90deb41ed0cf0493cac361"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c3ac45a441372ce7529f614cb25f1bf1e13ec54b6f37a16e4c9d27b99c97d12"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45762192064ea1a504be8db829bab51d224c8b497b74f5d8148ce747166fc7c1"

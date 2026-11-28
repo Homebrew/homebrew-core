@@ -12,6 +12,7 @@ class Libxp < Formula
   end
 
   bottle do
+    manifest_sha256 "dab41f97fb1f7df0f6e65664670ebc15491574c9cc675865d30ad12705a8c578"
     sha256 cellar: :any,                 arm64_golden_gate: "af6949e98c0a5f7988b6dd9b6000859382efe7adf32c6fbda53e6dc43b34a0ca"
     sha256 cellar: :any,                 arm64_tahoe:       "71bc1ccd3aad45c90fb15295edeccc58116842c11e24958b05183feed04e6b1c"
     sha256 cellar: :any,                 arm64_sequoia:     "58ea4743cac65c66cd744b26ab6cd8e83a282e2da52ef872898e2237c948b563"

@@ -7,6 +7,7 @@ class CargoAllFeatures < Formula
   head "https://github.com/frewsxcv/cargo-all-features.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c69feba3d1699c34ca17945dc9addd84c4c555d6aae97c4520e5005516b2efda"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "af0a1acb42cbc8cd82b8e6203af1c3eae71826b664c5b310ec632f0e9c6f2b3e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98ba4d31578fc103d09b7c255b621cd43665f9f335a2b7a35fef21649d0d6aa1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1175f2a940275fe77a9ca02144ffc55778c9d4ffa2fc92694df644bb0c96e65b"

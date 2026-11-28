@@ -28,6 +28,7 @@ class Unnethack < Formula
   end
 
   bottle do
+    manifest_sha256 "f98ea693c686b5ac43f7eda904b5e6b73dfb9e7c1776d5caba8bae41613ba10c"
     sha256 arm64_golden_gate: "f9b93e5b66c7448c4dee26a032518e8070f046954fdb13d00f0c700e8be8fa38"
     sha256 arm64_tahoe:       "95679ab2628590f991ccb63e169583d400bfadc242a7cc87cf914e733104f1f1"
     sha256 arm64_sequoia:     "fccec5070c4616fe421556ce507d015687ccdcd4da2681b2f8cc676dd4e7df9e"

@@ -8,6 +8,7 @@ class Trafficserver < Formula
   head "https://github.com/apache/trafficserver.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5883d42c5b3499cac3281b0c4b9e464a70b980534a45fca95688953b507c081b"
     sha256 arm64_golden_gate: "028a7cfd18d6ee1466275168c6935fa19aa290a84c69f8034137b8e097020f7c"
     sha256 arm64_tahoe:       "3ee57169cd9cafd6a7ac4db32eb66e9cd78117e5034aac65f9040d0e73e79ccf"
     sha256 arm64_sequoia:     "9a91aaa4a0c7a4e842ccc3abcca182c35459ab73efeeb350be8bc181875026fe"

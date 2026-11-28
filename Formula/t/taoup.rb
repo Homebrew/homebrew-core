@@ -12,6 +12,7 @@ class Taoup < Formula
   end
 
   bottle do
+    manifest_sha256 "ffed59eaf05202f073e8014ad6339f78419cb49f43bc95db8610ddcd774f4597"
     sha256 cellar: :any_skip_relocation, all: "4b77515d2f39a289e75887ad37d90282f02e424c936767c9eafa146bfea836af"
   end
 

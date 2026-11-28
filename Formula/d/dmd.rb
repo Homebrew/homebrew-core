@@ -23,6 +23,7 @@ class Dmd < Formula
   end
 
   bottle do
+    manifest_sha256 "1feb6cf4ddbf0a657f466caeb7ef5ad8ea6836af941236b93a43fd0899803515"
     sha256 x86_64_linux: "d5c219e279810bea09eab40787f9d6fee321d965545eb2687c2ec2b3ac309c97"
   end
 

@@ -7,6 +7,7 @@ class ShadowsocksRust < Formula
   head "https://github.com/shadowsocks/shadowsocks-rust.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2a3b3a7f4a5db4e210298c663d2cbaa97f13bbf4a65597dc8ab8fa91b7e3ea38"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37e008de94c17afd94f7810bc30169f4895ad626de6a4e40072e1d36a6c98bd3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bdad773ad3a247ed1677a5e00d56b7fda4d0dde1eec11fd941857e5ccec6197"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9829b51b4becaaf58079e168b9463447bb76f3ba4cd5f94584307e0480fbe6c"

@@ -7,6 +7,7 @@ class Mbpoll < Formula
   head "https://github.com/epsilonrt/mbpoll.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6cbc6890ace6a5efb76d056bbb39c333936d9789940c47832ab01e97d4827f63"
     sha256 cellar: :any,                 arm64_golden_gate: "c6d8d1d6d2b87d6b529e058d147c0f1fb1cc3b2f0193fb147326a43da687d8a0"
     sha256 cellar: :any,                 arm64_tahoe:       "10b1218b9b816f0931d893ce7cc81f3e1af5a0cd16933c7bb299122281a409ca"
     sha256 cellar: :any,                 arm64_sequoia:     "475ec1a589ff0454a78f47daa221cde466f658eb94b0317a9b136f990fd17f1e"

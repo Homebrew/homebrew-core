@@ -7,6 +7,7 @@ class Dasm < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "d4bb043c4b9de52fdeaf83219866859a4ef1f514336c8ed940a952cdf017b3de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "611cebf8b3746e4151bceabb6277e6869f063b568befa7ddc7db1b386111861d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "131783feaefc2e3ad6f5528895640b78e9de7d824a9d9a383288791c7bebcfb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ccd388fa7ab9a514c2ec04eb7799791e9ef627da59cab3ebb41f8f39c767297c"

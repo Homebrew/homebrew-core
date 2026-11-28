@@ -6,6 +6,7 @@ class Cot < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "7fa287276927bd14b821f08c3c3f6ab0a93f41022e5b1aa285d73f4fa8e994db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b70f92f3b2443222d07c433fd74e1e52632eae59248c1c0a86fd079a8f71fbd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e6ff6083caf34cb7f4c5a2223d901ed8f7728ec7e9e2eb9292db66b153da068"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5875227a4e5b95c54b81a5478b0b01500466644044b5257fc07e5a78e035b88a"

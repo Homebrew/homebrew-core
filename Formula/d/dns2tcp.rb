@@ -11,6 +11,7 @@ class Dns2tcp < Formula
   end
 
   bottle do
+    manifest_sha256 "f27a4452258822506c9b9ac738014b0feda7fdfe58da106856ef87c08701bfd5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "784f90b537b8cf87123930b5cb810088d5da0bb6115739583af911d100eb3d1e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2cefc14058fc1f4bff6d872e8b5ad5e5504891f7992857a5fa8b7f469617c4d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0eb7cacef30472d6ca9cd59507d8fe3f078ad731b1e779ff8147bb2730547adb"

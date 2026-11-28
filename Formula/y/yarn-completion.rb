@@ -7,6 +7,7 @@ class YarnCompletion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "11b036a82c0a9ba9f855fae35760ba7491a92c44685b7395c108f4cae165a7d8"
     sha256 cellar: :any_skip_relocation, all: "e743fe4680eb970207cd4a05ec2f2482f1c3baf96ae04827b75bffb29afd78be"
   end
 

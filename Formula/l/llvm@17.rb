@@ -8,6 +8,7 @@ class LlvmAT17 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "55821bad0773a04de1a34a7654140936c66c72c296f51aed66163b0eb9552908"
     sha256 cellar: :any,                 arm64_tahoe:   "f2de15b5a454478b08b3e67e08bd9568a84b4468120194ec0856e2408123f9e9"
     sha256 cellar: :any,                 arm64_sequoia: "87797d1de6483245791f42e1de022599d4b18f342cbcdaa6cd24ab76c8a6ad1b"
     sha256 cellar: :any,                 arm64_sonoma:  "608b1dc67fe4d80baf65077c69a7c4d58350c800a9e25fce4438f11c90340d9c"

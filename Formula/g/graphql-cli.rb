@@ -15,6 +15,7 @@ class GraphqlCli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9ecb592b2485cf154904d7dff765f7f28bb55763fe58ff27b50cf64a427638dc"
     sha256 cellar: :any_skip_relocation, all: "9acfbbbc98a9212677f8cda3b773d20958ddb1cd5503d2c9894e531e44861832"
   end
 

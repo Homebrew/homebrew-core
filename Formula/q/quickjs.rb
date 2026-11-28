@@ -12,6 +12,7 @@ class Quickjs < Formula
   end
 
   bottle do
+    manifest_sha256 "69bc4157da3ae5c1098fa8784e19d04917ff3421d8e7c24c585d377529b090f4"
     sha256 arm64_golden_gate: "f0f7a0460f6b695931cc8f9d8dda98c8b3f1d57cc8178dba06ab18538559d64b"
     sha256 arm64_tahoe:       "e039fffb364ac044df35683b79969c35b2db9b3b9237664695e71aa11bd63488"
     sha256 arm64_sequoia:     "59049d1e7454efb0ece148ac3f40f530dec2598db54a2e7ea6704b371aa5dcdf"

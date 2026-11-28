@@ -8,6 +8,7 @@ class Chmlib < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "6681613730475c3db447fee11456610564124094b2fb050a9f6228b18240d15a"
     sha256 cellar: :any,                 arm64_golden_gate: "e32e9bd36b49117803f77b4341317a2a46c865452913aec1d5e059fe6e993702"
     sha256 cellar: :any,                 arm64_tahoe:       "023b19e53523d58babcd983aba314c758781ecfdcde1b76881d4b7f99503b7dc"
     sha256 cellar: :any,                 arm64_sequoia:     "035ec89221398776eb098d776c5f451a7d065e3f0ceaf665742c7c9bf9568f16"

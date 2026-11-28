@@ -8,6 +8,7 @@ class Couchdb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "062083fc28293b69b6a7abfd8ca21c12e9b72d7456b9a165fda55fd4a528e67e"
     sha256 cellar: :any, arm64_golden_gate: "eec8fe14f6f743f5b551e2dbf09946696adb8970509b15ba72c3a08665475f75"
     sha256 cellar: :any, arm64_tahoe:       "1dea58d449cb9c9b3234d4e6a2c6d72562e9cfaefb7838753db8d0a0a345adce"
     sha256 cellar: :any, arm64_sequoia:     "a7e95e7bdbe02a677770a13c6dde80c2b980661099f36c15631aa92a4b7a65f3"

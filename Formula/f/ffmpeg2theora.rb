@@ -8,6 +8,7 @@ class Ffmpeg2theora < Formula
   head "https://gitlab.xiph.org/xiph/ffmpeg2theora.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a3766a79d7f503c9adbedd66c568a91fca8ee8f03c347cc18cd8475fed6468d3"
     sha256 cellar: :any,                 arm64_golden_gate: "4ddcd34618c97c723107e06a25cac8622b43c6fc5fd602083ce2a9d5f95e616c"
     sha256 cellar: :any,                 arm64_tahoe:       "42c00e60ebc22a03002de781c194a5bb837e0528fa92c32f89dd65a60c375757"
     sha256 cellar: :any,                 arm64_sequoia:     "f80e6c1cf50dee0a7bc77cd75c58c10814972804cad86dc8c9167e03d6f1fa0b"

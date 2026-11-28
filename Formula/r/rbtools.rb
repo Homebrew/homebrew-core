@@ -10,6 +10,7 @@ class Rbtools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e4989270abf993581eeeb2c7b18b2c1a1d121f71b67cf72024ab21e5260ef2b6"
     sha256 cellar: :any_skip_relocation, all: "8b9467f78945b6f4008ad5689fec576a5b5548269c29a1d2075185d482e6b699"
   end
 

@@ -8,6 +8,7 @@ class AvroC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a8a5a9aebdd6ba8e6d5d0a262b875decab9fde98b028123924b7cbbbe980aecd"
     sha256 cellar: :any, arm64_golden_gate: "cd90c5e29f7244629d1ef4550e31b6bc6394b70a604164b18968bf12bce5068c"
     sha256 cellar: :any, arm64_tahoe:       "63961ea73651a271cb6abad08b6b2d939f24b81894f9cc3eea61867c0647f4cc"
     sha256 cellar: :any, arm64_sequoia:     "da06912d90d900b39c6d8f85295bc8a1fe86cf387c9206a34f6143dad868b220"

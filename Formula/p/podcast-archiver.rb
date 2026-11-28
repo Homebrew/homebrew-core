@@ -10,6 +10,7 @@ class PodcastArchiver < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "afb6706ba3bc605aea5f10d26f0ff46ccff8162cc8a4701528770a67408fee09"
     sha256 cellar: :any, arm64_golden_gate: "cb6670a5f31144a87b8d238088c4fea63af575033b4d927df6bf097a15ce8d59"
     sha256 cellar: :any, arm64_tahoe:       "e921a000eb6ef0a3a51a599bb4393102df068532374922ffa315d06c264ebcb3"
     sha256 cellar: :any, arm64_sequoia:     "e3a72c30c104860a7268e003d8432cfd281f1151f03950b25f29ac9422707b6c"

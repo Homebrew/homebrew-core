@@ -11,6 +11,7 @@ class Joe < Formula
   end
 
   bottle do
+    manifest_sha256 "5417a60be88eefa02f387e709987e3b32e4158ba3b193b9e55127c0920fdfdae"
     sha256 arm64_golden_gate: "64c602e4e93ffca9fdb458713092c1f31c0a00e604abf2de1d62dc25501002df"
     sha256 arm64_tahoe:       "78fb6ee8e904471bb40ca0dfd1f285478219978a7f8315b819c6e982ab593ef4"
     sha256 arm64_sequoia:     "83c44e48090a8681c86cfbab4d150cbe18da6cc43b69eec5b5115f84b6c0fa14"

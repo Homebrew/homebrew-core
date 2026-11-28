@@ -12,6 +12,7 @@ class Vipsdisp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7ecb6b980b3f454996ea5868ac3baf000ca30994b7ad3cf5390aab0fbe2baacd"
     sha256 cellar: :any, arm64_golden_gate: "14865619d69cb5dbe2c2c31f98cb9d5e2864c490bff7261cfe7ffad462e7a3a9"
     sha256 cellar: :any, arm64_tahoe:       "000ac72682a0ac53e15254b17c0cfba939758d7e9075341f0523ae9fc79ece99"
     sha256 cellar: :any, arm64_sequoia:     "dbd0e4346f4add8e69ddfe174111ad6b8fd1f87696f656ccaf325ea3645effc2"

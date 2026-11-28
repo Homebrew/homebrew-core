@@ -6,6 +6,7 @@ class Yetris < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "a63f57fc6399c2ade08272bceb542ccdf685f4f3c1573c641bb4953136c9f951"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d777ad29e0b1310f4362ebf3b7176c1f458db46a0c086676f5efd511b13730c9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20e107c4ccac64993e5c8f794bc50299d759df2b0b9badab5d0a5ec2708cfc04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5358a7a07d701232e1a75a4b28f2e66879d973ef3eb9c848552347505f16ea2"

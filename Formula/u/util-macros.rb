@@ -8,6 +8,7 @@ class UtilMacros < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fa0879291df3c93efc0a738f128500425668f316022a2ec2bd94d5f8e2bc19ad"
     sha256 cellar: :any_skip_relocation, all: "1667d87ebab1bae1e48e9ef068534059be1bc7398cea4a39de35cb850109bd79"
   end
 

@@ -14,6 +14,7 @@ class Backupninja < Formula
   end
 
   bottle do
+    manifest_sha256 "44a8de4c15078e1353d34ca07e2b586aeab3bbe7e9d66c080a925f0812bbc88f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "909dbdb57a8b891ebf9ca64fec6b8788b5633ed2e01dc3f57e654dd1cbc4d4c5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be738649dff8457723e0ea495cc0465166b65d4fe880d303255b2c0c7e579770"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "be738649dff8457723e0ea495cc0465166b65d4fe880d303255b2c0c7e579770"

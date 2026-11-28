@@ -13,6 +13,7 @@ class Qca < Formula
   end
 
   bottle do
+    manifest_sha256 "5eff30f97f27a16772d039b950b67479d38755131aad8e6a99667a4ea1b6aa0a"
     sha256 cellar: :any, arm64_golden_gate: "ad641ecdad18785111bdb66b1b4640f9d0bb45ef4fca3aea611e9dbc6efce6d8"
     sha256 cellar: :any, arm64_tahoe:       "fe698c5e4735687ade5f2e7c36fa498e7e94037f47463dcae03856a1fdd0d1e1"
     sha256 cellar: :any, arm64_sequoia:     "4bc45847b84e7bf714d0482acb1f8aa5ad81089af94686907ad80bdf9e3f77a6"

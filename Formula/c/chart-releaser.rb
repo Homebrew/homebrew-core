@@ -7,6 +7,7 @@ class ChartReleaser < Formula
   head "https://github.com/helm/chart-releaser.git", branch: "main"
 
   bottle do
+    manifest_sha256 "72e9b7c7f4d625c847d2fe516f3c756b11092f2ebca6573387a4ba58284087c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6afbbab4243741ecbd5377f94a17f0287a6f05dcd10df599a344d4b3a36d6e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0d8d8d005096695d14cf0e472be9fa0a7b2992aa4b9fe1241570534c57d6554"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "383abd2d763fc81d32b6755fd37dae0cac2b4c1a4b642a3f433fcf212ea53a1d"

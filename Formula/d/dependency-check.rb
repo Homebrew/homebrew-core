@@ -7,6 +7,7 @@ class DependencyCheck < Formula
   head "https://github.com/dependency-check/DependencyCheck.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8a7d679e49e124c9239af37f0f281eee66eca7c3012e47cd0a0f3ba2a60d6e54"
     sha256 cellar: :any_skip_relocation, all: "1afa418b76e8e058939c5136c6d9500d18ff892b85e83cbf129d0c6cc135a6cd"
   end
 

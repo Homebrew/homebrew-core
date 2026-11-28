@@ -13,6 +13,7 @@ class I2cTools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "222705451438598fbeaa9e795e1620a33b62cea1ce02d7046644356ef509e5ca"
     sha256 cellar: :any, arm64_linux:  "6228c8359cabac82da31be8281bbf7c7b76d398db2917ca9790c466ff9da1664"
     sha256 cellar: :any, x86_64_linux: "0fcc4db1a850c7f7d37e941b6a5de063a3d2bdb5e344aeedcc36d5f768389ab0"
   end

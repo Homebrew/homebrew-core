@@ -6,6 +6,7 @@ class Asar < Formula
   license "LGPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "cc2c17d49b45be95708bb6184a3f1055e358855d98dcf87e719edc70ae9caefe"
     sha256 cellar: :any, arm64_golden_gate: "d104348c15b23e358427500d138921606aa80dd1976c047f87bc9e003dec7ea4"
     sha256 cellar: :any, arm64_tahoe:       "d9fc72b7ad80208c498d9c39deb40ed59ec0d998363123cc9c6322756d99db7d"
     sha256 cellar: :any, arm64_sequoia:     "dd07f32a111c15b3ced7e634f4a0b33635fa502f6272428ddda03f829a7b5f07"

@@ -12,6 +12,7 @@ class Dvanalyzer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "87365de6c7818b2f814ee51e30009676779a8b1c96c3310d97e75ab893bed768"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63624618eb4f27f2d45b46a0bb82453ccae51ecfddd347da4280fe409bcdd736"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e8bb414e0719a71fcc95ea8c1351f983fa7df1d0a3c350182c9be47b8064fefc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92eda7b054009d95d846a8a4cebf111bd26eb9b4340d5548489ed4645b6fd667"

@@ -11,6 +11,7 @@ class Bindfs < Formula
   end
 
   bottle do
+    manifest_sha256 "38a134d0ceb0e459f0481887738bcd3c8479a016837beb526a754039f611d728"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "082f5bc6fe4cdd5dc562c096e2de48b14563db48cd0a87e19f87f5785ff1e6b9"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "52697682462f7a4fdbdbfd29900e55604045f93baaf66c00eccd483602cc7538"
   end

@@ -12,6 +12,7 @@ class Pkgsite < Formula
   end
 
   bottle do
+    manifest_sha256 "579e21770ea529f87a29a9b78301625f831178e07a497fd7ca1fb95cd73d185b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "282d2bbe10f808ef3e409431d41d6f5bac1c748f44c230beca3edc098e74cb1f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "282d2bbe10f808ef3e409431d41d6f5bac1c748f44c230beca3edc098e74cb1f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "282d2bbe10f808ef3e409431d41d6f5bac1c748f44c230beca3edc098e74cb1f"

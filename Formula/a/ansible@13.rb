@@ -17,6 +17,7 @@ class AnsibleAT13 < Formula
   end
 
   bottle do
+    manifest_sha256 "241abbe3ce116ee30524a850eb2885fe6aa136ce45b4918a19b68a9a3f9c1c22"
     sha256 cellar: :any, arm64_golden_gate: "18928d65f523aa1b6714ebd2a30fae6f70fbbdaff03967c517235ad79882f488"
     sha256 cellar: :any, arm64_tahoe:       "47e3f39d75c3be08ce9d1aff5366dea3f66297155f2cc69c824f47879e8cd5bf"
     sha256 cellar: :any, arm64_sequoia:     "6aefa863385f1457b6751290b371116f774368b2529d5c23fb4664a634783523"

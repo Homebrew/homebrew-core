@@ -13,6 +13,7 @@ class Dcmtk < Formula
   end
 
   bottle do
+    manifest_sha256 "8e12a24e3b79057a738da1099c9e9caf87ea8f0a297cdf2a568fa00525c1effd"
     sha256 arm64_golden_gate: "cd6399a121a4089fbbec6b09cf0bd99dbf3ef6e68650732a1e0b306676523a26"
     sha256 arm64_tahoe:       "bf23acc9a0d33a5d1ea5c1b2a6da8ef3ef49b6cbdd5f2ec543ff91dbbfc40a6b"
     sha256 arm64_sequoia:     "fad8788faceae37a90e72404877ffabf975024094c3bea61b12d7e969747489d"

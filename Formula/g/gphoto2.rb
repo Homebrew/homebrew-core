@@ -11,6 +11,7 @@ class Gphoto2 < Formula
   end
 
   bottle do
+    manifest_sha256 "0cb210ed7e85daa8ac4bcc1eb01db65d925c174a97a66880f5bee967d5be7bc0"
     sha256 arm64_golden_gate: "05a3213c80108278740a0169b037c3dbf31c1526659b77bd25390e6ffd01ad35"
     sha256 arm64_tahoe:       "4964d268b7a6e5fe54ace7bf390f1986757b9c1d1f3444e324e8f6f6e026f919"
     sha256 arm64_sequoia:     "189e99f72f8ec50a706151bf4b3ded54ace4ca3bc0fe2fa11898d68f2bc87e9d"

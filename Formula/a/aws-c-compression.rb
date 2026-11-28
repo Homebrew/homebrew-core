@@ -7,6 +7,7 @@ class AwsCCompression < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "0241906245d7cd546862e1f9c89d7331ac973d59684f2855cc3475bb7acbdec3"
     sha256 cellar: :any, arm64_golden_gate: "1184715015c20e58d899f72a3d0f14b4bd82b21bbf730372ab9b293d21c24ac9"
     sha256 cellar: :any, arm64_tahoe:       "a2c53e81a0a8f5295ec41f79a5db591c1eea53b8eeac19b6c8649cdc2c676b46"
     sha256 cellar: :any, arm64_sequoia:     "688a0f79a1afe8229ccd16d7e08c4d6305769b97a95553ddfa0d4c16822d529b"

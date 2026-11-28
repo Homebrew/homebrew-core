@@ -15,6 +15,7 @@ class ScryerProlog < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "485dbe0b9a555d9a40dea9bc7e023ccdbd8e51e320aac2bc6f4ffa62ae149ffc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03a549dd3dd395d7c845aad18d98cbfffd8d6dbff3de623b0f7d8641d0c5e901"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "320510eca9a7076273b0bfaaa37d9abedd3311b1a6d9eced04ed9b86281d81a4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9e8defaace467ed908b1fbdcb22fe77ff53d4ecb427f9120f30a15c12a467af8"

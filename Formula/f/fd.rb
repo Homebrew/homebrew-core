@@ -7,6 +7,7 @@ class Fd < Formula
   head "https://github.com/sharkdp/fd.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c5450db4323f5c0821a2bb5b05b489a870bfff40547b08499c460249746b035a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e03e492b6c6ace144f79e6397b91fff0138b0657fb4c2332ddabe1fda3da5912"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a8696259e252df9394e6f06488fde396b26caa14b4475e4c19074147031c99db"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c22e0e1a76286468c5a8fe2c3e0898dd7bfa127d66374d8bba5368b77dfed792"

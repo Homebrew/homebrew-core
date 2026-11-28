@@ -8,6 +8,7 @@ class Ctl < Formula
   head "https://github.com/aces-aswf/CTL.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c8aadb3ccd51ecbddc5749d301c4c640c17ebeaf02e8b986c1d421cec9832e75"
     sha256 cellar: :any, arm64_golden_gate: "400c29e424a05b0898c56e6455d67b71cdbc53c969354f980018fc1e95cb9c0f"
     sha256 cellar: :any, arm64_tahoe:       "3035799ef4261b9bb5ea6aa0d849eac318792c4e07cda89d260b97e0e75219da"
     sha256 cellar: :any, arm64_sequoia:     "51a985402e336b1a42885d2b9a1f0b9439e13be1868d3136472e79e7e1b45d8c"

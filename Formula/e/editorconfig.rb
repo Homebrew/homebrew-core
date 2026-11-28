@@ -8,6 +8,7 @@ class Editorconfig < Formula
   head "https://github.com/editorconfig/editorconfig-core-c.git", branch: "master"
 
   bottle do
+    manifest_sha256 "564a4ec895dd14dfa5e94123f0694204b9c4ce97b6810912e3077cc8d15f35da"
     sha256 cellar: :any,                 arm64_golden_gate: "8901cf1dd840d5db56e4142471127b428490828eaf406f6b2132c0041669337f"
     sha256 cellar: :any,                 arm64_tahoe:       "24774d709beaff0de30d5f612d858661e9f627260028b14d9533ddd20d1cc660"
     sha256 cellar: :any,                 arm64_sequoia:     "6d701db6458c6fcd8a921913df52386cd39610d9e51a6f9ddda0fd1599e57230"

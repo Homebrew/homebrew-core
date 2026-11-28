@@ -17,6 +17,7 @@ class Concurrencykit < Formula
   end
 
   bottle do
+    manifest_sha256 "23b6527611ca74be80da355d93850eb06a41799d6465b5c265d12c8be72e5d62"
     sha256 cellar: :any,                 arm64_golden_gate: "7e97dc6fe0e658fb2bf5afa39228214d5210935d2bea948eccf987fcbc2d5cd5"
     sha256 cellar: :any,                 arm64_tahoe:       "78b475639766ea82bbc20c59535a1c87c7da041f39734ba5055f7bb91c1a3822"
     sha256 cellar: :any,                 arm64_sequoia:     "64b9e71ccc8a487ee176d5aa42ba6a9506ea3b76982e567cfe666306b5613656"

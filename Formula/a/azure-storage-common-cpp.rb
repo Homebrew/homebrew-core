@@ -13,6 +13,7 @@ class AzureStorageCommonCpp < Formula
   end
 
   bottle do
+    manifest_sha256 "39b9d27b4549c18e52322116260560b81a71e8576988f12fde00ddb693cc333c"
     sha256 cellar: :any, arm64_golden_gate: "ee1f9ed0ce8e806de4e0bde1e60cf28296ac9b211369cbff843170859d154ca1"
     sha256 cellar: :any, arm64_tahoe:       "7428638c7d38903793b71671ed2e140b4a632bc9ab7ed7ffad82acdd46741298"
     sha256 cellar: :any, arm64_sequoia:     "53413259ed5b38e9c0d78b73a83ea2904c3eb39fe20cb93aa8094eac7331d1de"

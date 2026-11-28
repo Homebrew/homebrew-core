@@ -7,6 +7,7 @@ class Tfocus < Formula
   head "https://github.com/nwiizo/tfocus.git", branch: "main"
 
   bottle do
+    manifest_sha256 "eedcc939b2c665d91e0319439a83e0a7ae3ef956363b7ed2780106a0cf1158a2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ce7f86b9d665b48d9439924e0c37a11d6feaf7b5ed04539f6a9af3e4c5ef4b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "258361e1ca78414d867f992032a024b6391dfc49737fbf25e184a3b6b6274cc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5dbfaf820e34ef9e6bb04d45a1d277fea9a27cda78fed88ae90f3686efa0006"

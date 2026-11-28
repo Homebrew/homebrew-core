@@ -6,6 +6,7 @@ class Clpbar < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "2ecd69c9a1b2d4fb50250cce4d9fd7659912d4dcc9dc4bdda3d94fad9bb18324"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47b0635f2e2197301fbfc7b76f061895ca83d8a774da233cc6c64346f0ec4d68"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "428cfe8bba0bbe5074e6ea1f27f05ead41dd9fd65007b4ae9a9490e1673911af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b0b9fe17e86d7a2f3af256a5a55343351fb8d8affe328a5293290ba83fc4d5ba"

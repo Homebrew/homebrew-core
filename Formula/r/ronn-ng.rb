@@ -9,6 +9,7 @@ class RonnNg < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "adb8502067974028d322620bd798934cec7186827dd3bc3aed804dff84cc6fbc"
     sha256 cellar: :any, arm64_golden_gate: "1030b38840a536856013af6907440973b047b9b5abc418a34605d81b16832d0c"
     sha256 cellar: :any, arm64_tahoe:       "dde9c2f7f7a4408122bf2e436c38950b331b89fbf58033f700145e021e64ff48"
     sha256 cellar: :any, arm64_sequoia:     "a3dd75ac390b8dad4a71bf0400e8d7bf9f3dfa7e25c562244b7baaef3e778c7b"

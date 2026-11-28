@@ -7,6 +7,7 @@ class Hr < Formula
   head "https://github.com/LuRsT/hr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "365f26406706797eed780228cd2cbb6c053e78380f96e6be74b8eeb11ad44f82"
     sha256 cellar: :any_skip_relocation, all: "ef156edf072a61b38e5fd50fa8eb8e71f651ed459132490b8994737eb2691ed7"
   end
 

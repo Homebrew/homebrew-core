@@ -12,6 +12,7 @@ class Cimg < Formula
   end
 
   bottle do
+    manifest_sha256 "9b5dedc4232c27aad65155b304164daeb2dc47b84965ce530701fddfff381406"
     sha256 cellar: :any_skip_relocation, all: "062e0ee6c28da0a74dcfc1e2407844ca62c17e6c6dd2c7f34c6b023af02541a4"
   end
 

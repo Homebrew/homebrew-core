@@ -6,6 +6,7 @@ class Awww < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "628c1333bdc519388f5011473afff8972181a0670452a0096195781f1734c967"
     sha256 cellar: :any, arm64_linux:  "0f7a20bc3a33eb692f2efed463cac9e10d998d61d2a761573578703ae790d66b"
     sha256 cellar: :any, x86_64_linux: "8bffa733e52162073e1dce735235170c3b7960d93b954f31c439e9d88b83795f"
   end

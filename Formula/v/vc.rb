@@ -7,6 +7,7 @@ class Vc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1b53a6e24b9eac57c309df74e18bb47aae1c01ef2ec1df0844c275a0347b0937"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c39842e871901f1a2c17c93220cbb9ae9a6d932717258c287ce606634d7796c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d53132f09cec1f76a87908c55b8483b14597f078a4f94e54fd9db46e2d3d3011"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "789847027f8d06a5d306ffcf999f7080b0e257e9e336b557b78beb70f1ac4c3a"

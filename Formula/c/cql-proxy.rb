@@ -7,6 +7,7 @@ class CqlProxy < Formula
   head "https://github.com/datastax/cql-proxy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ab3201ef1f3ff8a732ca76d44e4824f28c8a01634ace21b9028f4c7e16eb8cb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50eb31072ba68acb4dc85fab963bf941b3c7358f800ba6c64e56b2f270c9c898"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50eb31072ba68acb4dc85fab963bf941b3c7358f800ba6c64e56b2f270c9c898"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50eb31072ba68acb4dc85fab963bf941b3c7358f800ba6c64e56b2f270c9c898"

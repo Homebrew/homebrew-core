@@ -12,6 +12,7 @@ class Synscan < Formula
   end
 
   bottle do
+    manifest_sha256 "a20dd7fb3afd28794e141dbd0a0f26a364607b94e937bc6916b87758e3325499"
     sha256 cellar: :any,                 arm64_golden_gate: "afc101c9b37d30769690c3066608b81aab259443c8c6701ca94edd08551ed9dd"
     sha256 cellar: :any,                 arm64_tahoe:       "377c4e84126ddf0320b437927b8c7274bf0429aa68862b4b46187b1572a11d6a"
     sha256 cellar: :any,                 arm64_sequoia:     "5c810311391581f8e9c6c8638d6e11c467198c36c9ebe08ee2f7a25da0d19636"

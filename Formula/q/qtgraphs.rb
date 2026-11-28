@@ -17,6 +17,7 @@ class Qtgraphs < Formula
   end
 
   bottle do
+    manifest_sha256 "87d7a7c3e90493756a14cc8e05405e9bd9f0d61119ff9a4529055716d0591e5a"
     sha256 cellar: :any, arm64_golden_gate: "3b9b72dc57fc0389c797526bde9201ed9999dfbf134dcf6227511304a7d621a8"
     sha256 cellar: :any, arm64_tahoe:       "3a6694fc51a6b9de788bb4a1cea1057115a29473c02e110b3f9d1aed0c271cdf"
     sha256 cellar: :any, arm64_sequoia:     "b4b744cdced50cbf055ff3b00f6e46bc55821e27a5f2e70108c4b8f357d265f2"

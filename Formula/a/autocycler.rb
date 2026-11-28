@@ -7,6 +7,7 @@ class Autocycler < Formula
   head "https://github.com/rrwick/Autocycler.git", branch: "main"
 
   bottle do
+    manifest_sha256 "244e2ec49d6c4f8304a9c2bb6cde692165bf638d0862ce635388bb4b77f7f5f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97b3c91f4fe5d4368d2e43152e74eef0712dbe918156db03b0cede19594796ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dbfd910f9d141af573222e4e54ca5b7df9b965a23f86405565c975ff4ee002da"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9517eaf0df3c86c836c80f337a57b016fcccd1c5bdb632fa3c310d1ef84a57e5"

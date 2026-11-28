@@ -8,6 +8,7 @@ class Nsh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fa2f383f49840b39dffc30fd662bf17043fa32d39e1fec22db14656602b10314"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab8f04db640d8017fbf1e34463224a7ea33694a4608c4ab19fe8be0db29c9095"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8de98d7c1f703f719f7cab7cd55a8f633543319cb60c8fd05bd6bdc95bf83ac7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ef8db75b69ddc2fa1c2a917190320078a4d050906e8695cd6ce86ba7a311790"

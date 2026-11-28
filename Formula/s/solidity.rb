@@ -12,6 +12,7 @@ class Solidity < Formula
   end
 
   bottle do
+    manifest_sha256 "370e129c2a6a3b356db68466edd93315cdc30edb4d6010b123b4fe71b3c247a4"
     sha256 cellar: :any, arm64_golden_gate: "04ee28119d4aec70f23d15c7f502def53f36fd4ceb9fc6039fb5c48cab91b2da"
     sha256 cellar: :any, arm64_tahoe:       "dc3cee6fc354a49e5ae008e6c5f621a35a67ffaec0cda8d48f05b32883d6bc0d"
     sha256 cellar: :any, arm64_sequoia:     "8de7805c75c8b576eb26c975095443921bb0d43977a5f8bc4cda028eba5a387b"

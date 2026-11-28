@@ -11,6 +11,7 @@ class Rakudo < Formula
   end
 
   bottle do
+    manifest_sha256 "9f4362aa839fc096502db1ca42a2b77a0789f6535499cb9670a16b1772fce638"
     sha256 arm64_golden_gate: "49c3bc609bf21e519d9ad09bd6edcf945d20503566406d0c134aa60c3aedcf5c"
     sha256 arm64_tahoe:       "3081eda44e8a34fba65b85a6546bc47db90c67f8618a6da817af0025db275e00"
     sha256 arm64_sequoia:     "e2990c8f4151b2b527666483dc9c3c157dcde00b4f086800101f187ff766259a"

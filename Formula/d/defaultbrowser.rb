@@ -6,6 +6,7 @@ class Defaultbrowser < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "67b1e34f18a1a7aca92c33c7748e52fbaafbe34b2960095548148143c6374af4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fcd90ab254f0c834034be4d56e7f2c73d6e46948d24496109e57c83c0ceba456"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "543a41c1fafa5da62bd86dd329b951a9a7d23b5aa2187b805f454c813308ddbc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7921f729c6afa9a924ffc175918d74e9767059e645491af9cae1df09fa80bfa"

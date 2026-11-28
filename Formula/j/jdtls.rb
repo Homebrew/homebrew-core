@@ -18,6 +18,7 @@ class Jdtls < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f1c62d6943578d4f413e893609b5ea82f28ca89a6d956edb37ea5548b1495416"
     sha256 cellar: :any_skip_relocation, all: "616f896aaebe3e85bfcc20a36e47496e1151ba473619c9a5e036f674a8f991b6"
   end
 

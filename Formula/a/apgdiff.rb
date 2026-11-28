@@ -12,6 +12,7 @@ class Apgdiff < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "be260c4d95ec6ed310c8ee53803503e6805c21d442675bb5c68d982e3f37e05a"
     sha256 cellar: :any_skip_relocation, all: "0ec6832a82b7a0fa10bc3e009c8a85f07439dcc0f94fe9e8e05509c52abe3719"
   end
 

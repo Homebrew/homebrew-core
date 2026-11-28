@@ -6,6 +6,7 @@ class Conman < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "a4bf10172374ce67b079619f77adf060bb064720217015496a2919c6083ff93a"
     sha256 arm64_golden_gate: "23af39369c98bbf2120656977a5f23f22d4a02b76c12c138c5ef13919e0ab9c0"
     sha256 arm64_tahoe:       "3e0eeafbb0e2a0f4be6952f0a557232cf2ab06d7316fe798202562e7c1af9eb4"
     sha256 arm64_sequoia:     "1173da53dd141c2960aea7c848be0ea4c65897ba0c47e5549656f4142879e2c0"

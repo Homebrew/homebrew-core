@@ -6,6 +6,7 @@ class Vcfanno < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "59e73d47da076a6bd9eb2f2bcb5ac889b0981b99528b2bef23c3cdf4b076c759"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "add49d2935e062ec8e5124edc49a76dfb9ebc14ae64f8f40f7eca6038812018c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "add49d2935e062ec8e5124edc49a76dfb9ebc14ae64f8f40f7eca6038812018c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "add49d2935e062ec8e5124edc49a76dfb9ebc14ae64f8f40f7eca6038812018c"

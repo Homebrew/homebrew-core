@@ -8,6 +8,7 @@ class TerraformLocal < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "7cf813035dc3b9aa99f5987778b1b76f53201b5c35cbc92166ca8f14e2d8f4a3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e692e7ed37b7c1ae633a751b853418f08c670c09d68e5e4b16d4a0b3f60ec7ea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed349d431dcee4282f2f1007922e8a8319c658b0d42bd9e64930ad5c88bb8a13"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c70bfb54cc26212ce74a4c3e9264fd3f926750b089cdb6eff205f3b9f0e3768d"

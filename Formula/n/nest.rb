@@ -12,6 +12,7 @@ class Nest < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "96b415f18cace2ef33f2ca00a504c073976622c60243377a652a53a0309c6c2b"
     sha256 arm64_golden_gate: "4526de21f025292a04991033ae3db0e4cd01d4514ab0870807b4b9f805076e75"
     sha256 arm64_tahoe:       "d92504fd5c36cad9f8074cd9e6e0a75c0fca51b4edcc70d9d08df489e48128b2"
     sha256 arm64_sequoia:     "a5488e8621d032e13576d5d597efdba3dbc99a8c356a53c8ae6d94db9dbfe821"

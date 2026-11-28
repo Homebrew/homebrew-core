@@ -7,6 +7,7 @@ class Cuttlefish < Formula
   head "https://github.com/COMBINE-lab/cuttlefish.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca8459714657b1c6aef5d0bcf5451c945e589dc13256b127d986608c717cd092"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "790c1bc93135f66ccffa1a453b8ee7ada035426436e9ae341adfee38b2c7e848"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f25452ab1ab0ce9a1e3627d8f7aac941117e0b8b7d9e13eaab4feac0a33847fe"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e3001392dd25e4f8f0d3bd0ae9fdaca1eff6860d6e4713123989201ef1057bea"

@@ -16,6 +16,7 @@ class Acme < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d66835ab6d19b529429d813e93660c2ba447dd86c33c9b1a5e9e8f2c5ae06eeb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e894feb9110a2f6f251217c1f344f9bf8159709fa1334ad2c53d6434780e13c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "baf7f67a658cfa338c79f0884da06949c43734cb2ad8864b40075337b9800a8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45e4bdc0da9f4cf88bd8be0ea4c3967d11c11a4a56071beb0e9dc72506336319"

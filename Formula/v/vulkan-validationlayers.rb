@@ -12,6 +12,7 @@ class VulkanValidationlayers < Formula
   end
 
   bottle do
+    manifest_sha256 "bb8282ce56970d9338883d96d25251f45d3ee7fc0eee45a31950ff25169b4575"
     sha256 cellar: :any, arm64_golden_gate: "497a4f1542ce1b8bf7a0dace44ef3655f898bc59af3299ee6b7e218f20233d52"
     sha256 cellar: :any, arm64_tahoe:       "32f049cddf7dbc010cde36684577bb4b3f59d021067481945ecde208bcc9d242"
     sha256 cellar: :any, arm64_sequoia:     "a67c7fbd06a68d43f8d8462fb621a0ae0b2a26f66bd356eaf3467cc35b720ee6"

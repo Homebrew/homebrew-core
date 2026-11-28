@@ -7,6 +7,7 @@ class TotpCli < Formula
   head "https://github.com/yitsushi/totp-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a9b1ca0b05bc04e5678f806dba19e6e0f02711b26216d91d1706d0c6e9307a33"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a87f86eb954439cce2b25ee0abbe1fcaa7b3786fabfd0d5d6603ce5e7e7b6ffe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f1100b0352e1655adde8916a571f21ab8c0648bb1855a70b85d58536376352f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9515bdef2db3bf5da965a8277124a63896168381b4b137081f0a00aa8f2d77ac"

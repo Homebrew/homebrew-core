@@ -7,6 +7,7 @@ class Star < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c3b512694a1c4b69a61bb15223d19e65b8b9aa1bffb772729ff90987434ff6c9"
     sha256 arm64_golden_gate: "55157da856f1323d0ddeabff86c4585810d890366bad0939229ec20e4a30150a"
     sha256 arm64_tahoe:       "a02b725729e771070b0d67bfae911ec072dfebc967aee9b25cb4f87354568119"
     sha256 arm64_sequoia:     "0b216c41545d4f606965e8a8210b29433c199fbf4bfa8901ea006a76d0efdff6"

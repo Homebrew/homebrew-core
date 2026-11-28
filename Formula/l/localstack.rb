@@ -11,6 +11,7 @@ class Localstack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e41bc2c78a5f404334c643befb6ef85996baad8d9dbcc0e65756d9291eb67264"
     sha256 cellar: :any, arm64_golden_gate: "49d8e029dfa4f28158c0f1dc44909057157077a94d25831b01c36f3244f4af4f"
     sha256 cellar: :any, arm64_tahoe:       "712fe12abf4dd36b537c8676a71d17daff7c6a9df02073676d3836683da3cc2e"
     sha256 cellar: :any, arm64_sequoia:     "bffb15e283da24f2a249aa750cd7470469d28a076e2ab149d835b3d2bbbe4954"

@@ -7,6 +7,7 @@ class Kubectx < Formula
   head "https://github.com/ahmetb/kubectx.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4aabbdac92f572dc50b0c2f09d79c7a836a87426391f7d4fb373cab59fa300f1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4841224ac089dca72de8918a0e88dd27871ccfba395edbe9dfac08774319858"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c1b987001988e309fb4f479633dc4bdb7c212556853d89f9c33e44012230fead"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c1b987001988e309fb4f479633dc4bdb7c212556853d89f9c33e44012230fead"

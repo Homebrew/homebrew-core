@@ -12,6 +12,7 @@ class Kubetui < Formula
   end
 
   bottle do
+    manifest_sha256 "3a7ff0e762bf3345d3afdbe7d6398ff807775055285e75a823c51ab2919a7b89"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26b320072ae26d3b67f2922789ddf5e08ae63501d7ca245afb645c23894df559"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e058b9505808b58b02379c1bc0af6785237b2da96b7a748baaf5441a699f19e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64b39231cd69738e52a20e34835c8e57a40d48e0a97f86727729709bd57724f4"

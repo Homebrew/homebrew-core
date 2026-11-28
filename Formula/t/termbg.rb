@@ -8,6 +8,7 @@ class Termbg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "37b52d010717a893216b1d5822cf4ca8641a35234c50a9936f4eb7b4d64b15f3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db008794471f7af5971351d24f9c3c3aeeecb19b0cabef3a71ffcd16ac557a54"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d7a36f434cb220c34b75d51cac6d431e730f17828c2a6135a69e24d10eab4f10"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5187b8ae2a4ab84c24ba076b8540a1cec8c515c1c9aed3c4364e102e1dbaba1"

@@ -6,6 +6,7 @@ class OnedriveCli < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "1af5ba50c37c56d148dae8e5a9b75c8810ddbde2d83a62b96390c34d3d768f23"
     sha256 cellar: :any, arm64_linux:  "a79782fe7f01b9d129aa89db886795361e3957a4a8028f1c321f2a69bd83d081"
     sha256 cellar: :any, x86_64_linux: "d700b0fb2253da9dd2d793305384d8e5e4f167895739b5f82f39af9d766d8816"
   end

@@ -9,6 +9,7 @@ class Terramaid < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "53d15454b8df75c17e0ec5787f9957f0a86248ca474c6844c0f0835e3679d5d7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "5deb74301c7852a0a2f3f694bd59b45eef093d121936aa907cdedf0569be19b7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "5deb74301c7852a0a2f3f694bd59b45eef093d121936aa907cdedf0569be19b7"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "5deb74301c7852a0a2f3f694bd59b45eef093d121936aa907cdedf0569be19b7"

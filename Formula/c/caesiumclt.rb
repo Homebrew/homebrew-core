@@ -6,6 +6,7 @@ class Caesiumclt < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "1278c53955a95f0c38051f34527774e47e4637e5c6c6fa4a150fe4a48c9a0acf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bbbbca303b22e31fcae389175956254df7de406501a049d2cac32f6d8ba7a3e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c81c69ecc28f62ada9b8f796d68834be3c6f55b6aa0267384e3851ccb984de2d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3cb517afb1b0438e38bbd0cc417cdd3f1b75fac6211e98b809cb11f040e9a08c"

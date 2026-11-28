@@ -12,6 +12,7 @@ class Xdot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b877f2af606683545f4a24fa259a7b99cac1bcf50f93c8021f9918d20994aa27"
     sha256 cellar: :any_skip_relocation, all: "61a0a9fdd769202ed1407d6164637076b075c2a143f487d87b87e983cc153a84"
   end
 

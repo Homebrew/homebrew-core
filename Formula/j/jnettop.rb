@@ -13,6 +13,7 @@ class Jnettop < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "9e5d1e7f94b444984add08dd19974d8ba1dfc3a7fb8b78292e87f70cffe46d66"
     sha256 cellar: :any,                 arm64_golden_gate: "c8a1876e27e05bc1748c047ed7e49794edb5fca74357c8430a15efd09b1b442a"
     sha256 cellar: :any,                 arm64_tahoe:       "0718bfddbc7db4199af6d06c8410cb25e1c19fa8199e77399b8711bd4537a24c"
     sha256 cellar: :any,                 arm64_sequoia:     "cafcb2e1c6f02334c406bb7ff8b7d73e3caf1a728dd45f1c68dbf69bd4516252"

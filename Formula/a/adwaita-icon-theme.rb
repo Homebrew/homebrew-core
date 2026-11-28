@@ -7,6 +7,7 @@ class AdwaitaIconTheme < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "fc4bad0694011847c5102664a3754cf180bfaa7e87017bdbaefed4e6e4dbda3b"
     sha256 cellar: :any_skip_relocation, all: "f40942bda19569a8dfc6b9c89c2fc7b7e1d89231fa2f0e0478166b08a91b23fa"
   end
 

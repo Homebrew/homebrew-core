@@ -10,6 +10,7 @@ class Sshuttle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fdae78c3eb2beba30e95d2c46867fe95fd45aa32d5cdb95ad8add75e64b3dc73"
     sha256 cellar: :any_skip_relocation, all: "754e347912971329e0e10ce367fa5540294599bf16484b18c4fb3e1bd598c9b6"
   end
 

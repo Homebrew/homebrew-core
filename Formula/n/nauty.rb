@@ -16,6 +16,7 @@ class Nauty < Formula
   end
 
   bottle do
+    manifest_sha256 "a2b55a11d3a4e4984daeeb5dc61af79b4915ca543ad54b625ef9b9d36b88f6b9"
     sha256 cellar: :any,                 arm64_golden_gate: "ee4cfe83a843e42a88249192ac1b0356ac620fec079a53ac3e4ef1a9e21d84a9"
     sha256 cellar: :any,                 arm64_tahoe:       "ad142c57ac892999d006142e11eb4f6ff089c97b3093dde91d57d0b0f04a5ba6"
     sha256 cellar: :any,                 arm64_sequoia:     "dd405c462075aeaf8ee1afe353616bd346d7e59d6916f84d2008b6ccd98c9349"
