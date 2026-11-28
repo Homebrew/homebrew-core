@@ -1,17 +1,17 @@
 class Qo < Formula
   desc "Interactive minimalist TUI to query JSON, CSV, and TSV using SQL"
   homepage "https://github.com/kiki-ki/go-qo"
-  url "https://github.com/kiki-ki/go-qo/archive/refs/tags/v0.5.2.tar.gz"
-  sha256 "54e8634271f15f3dad74a2e4329e81c620fed11d81abd70f95795ceb76ba9304"
+  url "https://github.com/kiki-ki/go-qo/archive/refs/tags/v0.5.3.tar.gz"
+  sha256 "4a62d20427f961997e03ee04d7241ed951d38b4428f81158ff02a1d42872f482"
   license "MIT"
 
   bottle do
-    manifest_sha256 "982bd10d7ecf253a50154f93d814de47ce833b80dd69ca21acfa0ea8d2b35ed6"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bb56727b06d2415b1acb1f5ea42c3b01824b7498cc7f5a3dbe4c0bb1417da5f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bb56727b06d2415b1acb1f5ea42c3b01824b7498cc7f5a3dbe4c0bb1417da5f"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bb56727b06d2415b1acb1f5ea42c3b01824b7498cc7f5a3dbe4c0bb1417da5f"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "cf8c6a7a4fb67f7b581886531db340df5c7d40b57e3f933b1ed204f902f8caed"
-    sha256 cellar: :any,                 x86_64_linux:      "457d4ea2cba251515113fe233d42b0392d3e831586d2295696335dcdbb9775cc"
+    manifest_sha256 "ebe211a6f306a5f578792a0763ea6723376b520fb110801809e47b3a2c609119"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b717759ed9502ce00c3aa0b6f24f96beda1e76521cf4b1791263a25087a8e32"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b717759ed9502ce00c3aa0b6f24f96beda1e76521cf4b1791263a25087a8e32"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b717759ed9502ce00c3aa0b6f24f96beda1e76521cf4b1791263a25087a8e32"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "972cb595cfebcc65134cf56eb0684ed5400eea85c2a20b5330c220a1bbbc727e"
+    sha256 cellar: :any,                 x86_64_linux:      "5135e96b501c43e9aba7cd196ff6845750adc042061d57787ccb10c390423d15"
   end
 
   depends_on "go" => :build
