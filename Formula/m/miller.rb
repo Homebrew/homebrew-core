@@ -7,12 +7,12 @@ class Miller < Formula
   head "https://github.com/johnkerl/miller.git", branch: "main"
 
   bottle do
-    manifest_sha256 "097a59a00486b9116b162ad93a79593ff704b201407feb7676edb7b459b1333f"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "169541ec5cceaab8742963676b197d3ce29a6a685b0cf402756d086a16a11862"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a428edf572f2a8f7770c5faf701a9d4eef7cecc34d28057c2988703284f860d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c9976793042d02cf9bb39562c07120eca9042371a2f73325abc90d8fe2ba1f1"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "afc0feb341ba1855fc9243e513d5510659221488b292e554e5dc2d07004ce1b2"
-    sha256 cellar: :any,                 x86_64_linux:      "6dd7883cb79cfed152e70ee907473aa9d92b4c352ed240a6464f25cce47361fc"
+    manifest_sha256 "be20c22cbbb528638265433f91c0a3666ab33e2189dba255d1c481af14ba6d17"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "68102d60d63dd6811693128cae95162833af3a7b4eff7b709bd787b3a99b71a3"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c39a519197b9dea5b789a1015dfbf8777ef35320a5b64c6b11744828ed3ee69"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11c432706affa62713242070175d388358ecaaa45611f082b573c27314093edc"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "b4ef8d23afc70745d17f233d1f69acabd4503a7fdeb0ed28f766c8cf300d8c76"
+    sha256 cellar: :any,                 x86_64_linux:      "459fb5466c9a266e734f082d47682f1e610f2eb241c54ef8f3d868c293dfb16c"
   end
 
   depends_on "go" => :build
