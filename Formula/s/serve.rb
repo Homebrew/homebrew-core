@@ -32,11 +32,10 @@ class Serve < Formula
   test do
     (testpath/"index.html").write("<h1>serve</h1>")
     port = free_port
-    pid = spawn bin/"serve", "-port", port.to_s
-    sleep 1
-    output = shell_output("curl -sI http://localhost:#{port}")
-    assert_match(/200 OK/m, output)
-  ensure
-    Process.kill("HUP", pid)
+    with_test_process(bin/"serve", "-port", port.to_s, signal: "HUP") do
+      sleep 1
+      output = shell_output("curl -sI http://localhost:#{port}")
+      assert_match(/200 OK/m, output)
+    end
   end
 end

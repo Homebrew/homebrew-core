@@ -44,11 +44,9 @@ class Navidrome < Formula
   test do
     assert_equal "#{version} (source_archive)", shell_output("#{bin}/navidrome --version").chomp
     port = free_port
-    pid = spawn bin/"navidrome", "--port", port.to_s
-    sleep 20
-    assert_equal ".", shell_output("curl http://localhost:#{port}/ping")
-  ensure
-    Process.kill "KILL", pid
-    Process.wait pid
+    with_test_process(bin/"navidrome", "--port", port.to_s, signal: "KILL") do
+      sleep 20
+      assert_equal ".", shell_output("curl http://localhost:#{port}/ping")
+    end
   end
 end
