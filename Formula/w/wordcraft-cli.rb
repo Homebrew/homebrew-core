@@ -6,6 +6,11 @@ class WordcraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/wordcraft.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     manifest_sha256 "153a82a3a5cf8e7be5148126c37d7fbe0f69e368fefb9654816bd651948a8b9f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6819a2006c6f04de445f3d949e76e4fe8a94d990165dbcc0f808612f9edc2bc"
