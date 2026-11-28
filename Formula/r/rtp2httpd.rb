@@ -42,14 +42,10 @@ class Rtp2httpd < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"rtp2httpd", "--noconfig", "--listen", "127.0.0.1:#{port}"
-    sleep 2
+    with_test_process(bin/"rtp2httpd", "--noconfig", "--listen", "127.0.0.1:#{port}") do
+      sleep 2
 
-    assert_match "rtp2httpd", shell_output("curl --silent http://127.0.0.1:#{port}/status")
-  ensure
-    if pid
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+      assert_match "rtp2httpd", shell_output("curl --silent http://127.0.0.1:#{port}/status")
     end
   end
 end
