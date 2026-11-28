@@ -83,12 +83,10 @@ class GrafanaAlloy < Formula
     assert_match version.to_s, shell_output("#{bin}/alloy --version")
 
     port = free_port
-    pid = spawn bin/"alloy", "run", "--server.http.listen-addr=127.0.0.1:#{port}", testpath
-    sleep 10
-    output = shell_output("curl -s 127.0.0.1:#{port}/metrics")
-    assert_match "alloy_build_info", output
-  ensure
-    Process.kill "TERM", pid
-    Process.wait pid
+    with_test_process(bin/"alloy", "run", "--server.http.listen-addr=127.0.0.1:#{port}", testpath) do
+      sleep 10
+      output = shell_output("curl -s 127.0.0.1:#{port}/metrics")
+      assert_match "alloy_build_info", output
+    end
   end
 end

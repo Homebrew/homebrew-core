@@ -41,16 +41,14 @@ class HfMcpServer < Formula
     ENV["DEFAULT_HF_TOKEN"] = "hf_testtoken"
 
     output_log = testpath/"output.log"
-    pid = spawn bin/"hf-mcp-server", [:out, :err] => output_log.to_s
-    # The first `node` launch on macOS CI VMs can spend 20+ seconds in dyld
-    90.times do
-      break if output_log.read.include?("Failed to authenticate with Hugging Face API")
+    with_test_process(bin/"hf-mcp-server", [:out, :err] => output_log.to_s) do
+      # The first `node` launch on macOS CI VMs can spend 20+ seconds in dyld
+      90.times do
+        break if output_log.read.include?("Failed to authenticate with Hugging Face API")
 
-      sleep 1
+        sleep 1
+      end
+      assert_match "Failed to authenticate with Hugging Face API", output_log.read
     end
-    assert_match "Failed to authenticate with Hugging Face API", output_log.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end

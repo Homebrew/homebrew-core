@@ -91,15 +91,14 @@ class Grafana < Formula
 
     cp_r pkgshare.children, testpath
     port = free_port
-    pid = spawn bin/"grafana", "server", "--homepath", pkgshare,
-            "cfg:server.http_port=#{port}",
-            "cfg:default.paths.data=#{testpath}/data",
-            "cfg:default.paths.logs=#{testpath}/log",
-            "cfg:log.mode=file"
-    sleep 30
-    assert_match "ok", shell_output("curl -fs http://localhost:#{port}/api/health")
-    assert_match "address=127.0.0.1:#{port}", (testpath/"log/grafana.log").read
-  ensure
-    Process.kill("TERM", pid)
+    with_test_process(bin/"grafana", "server", "--homepath", pkgshare,
+                      "cfg:server.http_port=#{port}",
+                      "cfg:default.paths.data=#{testpath}/data",
+                      "cfg:default.paths.logs=#{testpath}/log",
+                      "cfg:log.mode=file") do
+      sleep 30
+      assert_match "ok", shell_output("curl -fs http://localhost:#{port}/api/health")
+      assert_match "address=127.0.0.1:#{port}", (testpath/"log/grafana.log").read
+    end
   end
 end

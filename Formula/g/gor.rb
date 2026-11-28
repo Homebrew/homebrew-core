@@ -59,11 +59,10 @@ class Gor < Formula
   test do
     (testpath/"test").write "Hello"
     test_port = free_port
-    server_pid = spawn bin/"gor", "file-server", ":#{test_port}"
-    sleep 2
-    assert_equal "Hello", shell_output("curl -s http://localhost:#{test_port}/test")
-  ensure
-    Process.kill "TERM", server_pid
+    with_test_process(bin/"gor", "file-server", ":#{test_port}") do
+      sleep 2
+      assert_equal "Hello", shell_output("curl -s http://localhost:#{test_port}/test")
+    end
   end
 end
 

@@ -31,14 +31,10 @@ class Gurk < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/gurk --version")
 
-    begin
-      output_log = testpath/"output.log"
-      pid = spawn bin/"gurk", "--relink", [:out, :err] => output_log.to_s
+    output_log = testpath/"output.log"
+    with_test_process(bin/"gurk", "--relink", [:out, :err] => output_log.to_s) do
       sleep 2
       assert_match "Please enter your display name", output_log.read
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

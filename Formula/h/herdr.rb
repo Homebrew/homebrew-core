@@ -47,26 +47,24 @@ class Herdr < Formula
     ENV["HERDR_CONFIG_PATH"] = (testpath/"config.toml").to_s
     ENV["HERDR_SOCKET_PATH"] = (testpath/"herdr.sock").to_s
 
-    pid = spawn bin/"herdr", "server"
-    status = ""
-    10.times do
-      status = shell_output("#{bin}/herdr status server")
-      break if status.include?("status: running")
+    with_test_process(bin/"herdr", "server") do
+      status = ""
+      10.times do
+        status = shell_output("#{bin}/herdr status server")
+        break if status.include?("status: running")
 
-      sleep 1
+        sleep 1
+      end
+      assert_match "status: running", status
+      assert_match "version: #{version}", status
+
+      output = shell_output("#{bin}/herdr workspace create --label brew-test --no-focus")
+      workspace = JSON.parse(output).dig("result", "workspace")
+      assert_equal "brew-test", workspace["label"]
+
+      output = shell_output("#{bin}/herdr workspace list")
+      workspaces = JSON.parse(output).dig("result", "workspaces")
+      assert_includes workspaces.map { |entry| entry["workspace_id"] }, workspace["workspace_id"]
     end
-    assert_match "status: running", status
-    assert_match "version: #{version}", status
-
-    output = shell_output("#{bin}/herdr workspace create --label brew-test --no-focus")
-    workspace = JSON.parse(output).dig("result", "workspace")
-    assert_equal "brew-test", workspace["label"]
-
-    output = shell_output("#{bin}/herdr workspace list")
-    workspaces = JSON.parse(output).dig("result", "workspaces")
-    assert_includes workspaces.map { |entry| entry["workspace_id"] }, workspace["workspace_id"]
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
