@@ -23,6 +23,8 @@ class Wartremover < Formula
   depends_on "sbt" => :build
   depends_on "openjdk"
 
+  allow_network_access! :build
+
   def install
     system "sbt", "--server", "assembly"
     libexec.install "wartremover-assembly.jar"
