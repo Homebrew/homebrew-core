@@ -34,14 +34,10 @@ class Gollama < Formula
     port = free_port
     ENV["OLLAMA_HOST"] = "localhost:#{port}"
 
-    pid = spawn formula_opt_bin("ollama")/"ollama", "serve"
-    begin
+    with_test_process(formula_opt_bin("ollama")/"ollama", "serve") do
       sleep 3
       output = shell_output("#{bin}/gollama -h http://localhost:#{port} -s chatgpt")
       assert_match "No matching models found.", output
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
