@@ -1,11 +1,11 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.28.6-source.tar.gz"
-  sha256 "dc85000640a45d90ca9b77b061f6ca67cce0c4d4fbecf8819647baf573eef101"
+  url "https://mupdf.com/downloads/archive/mupdf-1.28.7-source.tar.gz"
+  sha256 "4052527c5064dc15033f8c2d842665afd409be520c9f52945ef703e5dec9d3ea"
   license "AGPL-3.0-or-later"
-  compatibility_version 9
-  head "git://git.ghostscript.com/mupdf.git", branch: "master"
+  compatibility_version 10
+  head "https://github.com/ArtifexSoftware/mupdf.git", branch: "master"
 
   livecheck do
     url "https://mupdf.com/releases"
@@ -13,12 +13,12 @@ class Mupdf < Formula
   end
 
   bottle do
-    manifest_sha256 "66020aad43fd5abb8188fbab34aaca2c3647bef1b23ead04f37c2a24c7ae70c3"
-    sha256 cellar: :any, arm64_golden_gate: "20cfe1b07f88ede830eb6ce3f61ba871f7ad25e20ba7d7f536fae7fafd6aa0a8"
-    sha256 cellar: :any, arm64_tahoe:       "27671ae135295355150e1e4ad690b0cfc77ddb5b0bff7a8a191cee9dbd61999e"
-    sha256 cellar: :any, arm64_sequoia:     "c643e703aeeecf961b3d0346d6ea471ee7e2af49610f27f6965cb7f8b11a84b0"
-    sha256 cellar: :any, arm64_linux:       "55883dc3463fe051e9a9eb0548cf0a9a4f1ea50127d5522b4488888288bc359d"
-    sha256 cellar: :any, x86_64_linux:      "d642a721d68fce684dc1c79f7def57d839fa6300d4429982759118fef70a2909"
+    manifest_sha256 "a96537f85740200d4477597d8824c2c6c51678c8b0000d0dff15b42684de27b8"
+    sha256 cellar: :any, arm64_golden_gate: "9f468890b31b6d70ec1731d8101cb8bd70ef55d4e85dd586a8a9f4fbe5e42633"
+    sha256 cellar: :any, arm64_tahoe:       "c20b39c28ced27d53b3452884faabacba4f85353d084a284e77aebc61d73ac1e"
+    sha256 cellar: :any, arm64_sequoia:     "aafde4689f6b40e1ac44bb3386e71f020f124df5e12acde49db33041cbb49a54"
+    sha256 cellar: :any, arm64_linux:       "bf9ee4e349ed07d425ef5d707f28d691b96f0a15078abeddcb7fd919a2451f62"
+    sha256 cellar: :any, x86_64_linux:      "36cba2dc8f8cca7d1ead4d98aa0ba2474e763cc84d5c2544323c686ac954ecc6"
   end
 
   depends_on "llvm@21" => :build # Clang 22+ issue: https://bugs.ghostscript.com/show_bug.cgi?id=709448
@@ -56,8 +56,8 @@ class Mupdf < Formula
                 extra_packages: "pipcl"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pipcl" do
