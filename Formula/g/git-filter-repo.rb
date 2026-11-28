@@ -8,13 +8,21 @@ class GitFilterRepo < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "591cdfc66918e39a89b1b48361eefe47e5aaac00f9a322bfbef30459d4241cef"
-    sha256 cellar: :any_skip_relocation, all: "774b68744bca239b25b7e82693204f198c6ab1224ded38d8dd33ec1c23c245d8"
+    rebuild 2
+    manifest_sha256 "8244311c9671002e0eafd2f3379595084b0b34adb0bc60b68020105c73f750a8"
+    sha256 cellar: :any_skip_relocation, all: "d072b2c293b8b0aedd7d2396ffa477eee4f7b8b8f58e22efb95e5ae7ea72f59b"
   end
 
   uses_from_macos "git"
   uses_from_macos "python"
+
+  # Fix crash when a git config value contains a line break, remove in next release
+  patch do
+    url "https://github.com/newren/git-filter-repo/commit/4697eeb37b7c3c30b0492e344f6b89f7139cef26.patch?full_index=1"
+    sha256 "3e9955e75df5d5c43e4adfde9fae62c0738b3e97df980d97f2e4451094806cd2"
+    type :backport
+    resolves "https://github.com/newren/git-filter-repo/issues/684"
+  end
 
   deny_network_access!
 
@@ -30,6 +38,7 @@ class GitFilterRepo < Formula
     system "git", "init"
     system "git", "config", "user.name", "BrewTestBot"
     system "git", "config", "user.email", "BrewTestBot@example.com"
+    system "git", "config", "test.multiline", "first\nsecond"
 
     touch "foo"
     system "git", "add", "foo"
