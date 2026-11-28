@@ -59,6 +59,8 @@ class Virtualenvwrapper < Formula
     sha256 "418ee935c36152f8f153c79824bb93eaf6f0f7984bae31d3f48f350b9183501a"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 
