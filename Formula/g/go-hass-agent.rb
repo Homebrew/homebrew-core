@@ -40,10 +40,9 @@ class GoHassAgent < Formula
     port = free_port
     hostname = "127.0.0.1"
     addr = "http://#{hostname}:#{port}"
-    pid = spawn bin/"go-hass-agent", "run", "--server-port=#{port}", "--server-hostname=#{hostname}"
-    sleep 3
-    assert_match "Register", shell_output("curl #{addr}/register")
-  ensure
-    Process.kill("TERM", pid)
+    with_test_process(bin/"go-hass-agent", "run", "--server-port=#{port}", "--server-hostname=#{hostname}") do
+      sleep 3
+      assert_match "Register", shell_output("curl #{addr}/register")
+    end
   end
 end
