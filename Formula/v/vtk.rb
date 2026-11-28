@@ -14,12 +14,12 @@ class Vtk < Formula
   end
 
   bottle do
-    manifest_sha256 "cb1f90af8d3448a7449935cb126f21ec2068eb73498d384df1b19536c062203c"
-    sha256 cellar: :any, arm64_golden_gate: "a983374364f2eea2bb17e0e347f6bdbe1a3f6f1d967bf86bc517c90b3abe8bd0"
-    sha256 cellar: :any, arm64_tahoe:       "de228c109396cd8151cac4611acd7a82b7771f6b0da7fd390ee7784906d804fb"
-    sha256 cellar: :any, arm64_sequoia:     "0c2361cac87d951a16c02368f8895746fd27271e626449ec4f748def7840bc83"
-    sha256 cellar: :any, arm64_linux:       "a8dc5727f64d705655b966bfd2e8fce6d4d6640296286b2db215d224cb263044"
-    sha256 cellar: :any, x86_64_linux:      "46b55bb5601ef21e2a302d094cac1e7ae159d716a34bf64b2dd399e422e4a240"
+    manifest_sha256 "5c23a81895bbcdd589e9dab568098218e8da7ec00c4e1672b9b16c29aa2f7c02"
+    sha256 cellar: :any, arm64_golden_gate: "48b2beae63b5b8692e2ab672e6e040d5bc216cf6f43de6f550e9e7e93a21e260"
+    sha256 cellar: :any, arm64_tahoe:       "a209d2c98d4ff5beeda6d3f91cfffa29605ef24b7a6bc31e3930f533fed87422"
+    sha256 cellar: :any, arm64_sequoia:     "073733d04cb1eaad593495832b51855ea17c1b236e3ee2006e3fd2cf2be28d90"
+    sha256 cellar: :any, arm64_linux:       "4164a7d767931c68a9ac93d8d8a7bdb9bf9b650a61ea0a4d8175ac33fa07bd20"
+    sha256 cellar: :any, x86_64_linux:      "2d4ea1260297923703f3705cc097381c222d21d4b4ccf5238e3b901cf3b3a3c3"
   end
 
   depends_on "cmake" => [:build, :test]
