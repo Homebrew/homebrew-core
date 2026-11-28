@@ -1,8 +1,8 @@
 class Dnote < Formula
   desc "Simple command-line notebook"
   homepage "https://www.getdnote.com"
-  url "https://github.com/dnote/dnote/archive/refs/tags/cli-v0.17.0.tar.gz"
-  sha256 "29a15bc4e397a1c02117adc1e5a35ff8f6bd35d50cb36f570144a3d10c2ed0bc"
+  url "https://github.com/dnote/dnote/archive/refs/tags/cli-v0.17.1.tar.gz"
+  sha256 "c2f27bd81ee0ead6db293dcaa85dda1fd5a4be6476d276ebab3f1e592795fe58"
   license "Apache-2.0"
   head "https://github.com/dnote/dnote.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Dnote < Formula
   end
 
   bottle do
-    manifest_sha256 "984b98d02207021b008707b545622115ae5e289060e42d9079bf6e603573df99"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c0f624aa1d2dc38208be0ae287a76e0c2e8fa6d688068ad31d1375499c27d41"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21fa4192d6a2339847043dd0594643ba4463cfc15a543e19c4bac6d425833370"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0edb2943f3e6812fe0d59141ce3dd403638e89436d4cffec7fc6d1f0f6eb3762"
-    sha256 cellar: :any,                 arm64_linux:       "271061a746c03a40565e4c9082b3a411c21ecfbe779ac775b3dfe80df2cb8374"
-    sha256 cellar: :any,                 x86_64_linux:      "60be9af2505c5c1073535d141ff5005a263e01e7a788858d769093a782ca0a8d"
+    manifest_sha256 "4d7e76d8ca15882c7b60d80dbd13874e9b28437c3b89a09ccb85d4406ea70ff8"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "55e8e4e406b2bd714718a2dad07c17c7905eab5bb8fd1919476bd82c1e8f64eb"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c01c66cbd20df34fb11c2218e354739ac5b7c8bf604ad2f912b1bdd0d54d1df"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d35446509a6ad0b4fc59bf74e5bc98ce52447e7c232d7b166c3bc44f754a498f"
+    sha256 cellar: :any,                 arm64_linux:       "ef0fe75fd1d133942668505c4cd64c802b2b45c6b8dfab63c6275af508c38d23"
+    sha256 cellar: :any,                 x86_64_linux:      "2067229c0323e07c133dd84a9b21d9d01fea3c7958b3985d8ddfa120dd85b882"
   end
 
   depends_on "go" => :build
