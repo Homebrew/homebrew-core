@@ -7,6 +7,7 @@ class GitBug < Formula
   head "https://github.com/git-bug/git-bug.git", branch: "trunk"
 
   bottle do
+    manifest_sha256 "76d8d22e26d847959090ca88db386c83f88fd14f47bee7a7dbc5c1bc0e1a367d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e030ba13cb1a832795785efc0b6aa180530c2d9b223e47ebfc0fcc7195fbcab6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "422c8a3590a58d4e50518c57bc5b5eb7b96dca2a96c77f54d4d5d3403dce2a7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6eb59604588504f3af487aef7d0de8d02dc45f0747600c762371d7d99673f793"

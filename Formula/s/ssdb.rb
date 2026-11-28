@@ -8,6 +8,7 @@ class Ssdb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a7e8ee9c8b18bdd2dc523e7716676ee0c1489f24f4043dff497b41b8f5933af2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3c4abdf205208cad1e03fbe999901e1293cceaa0face88a1093717455450346"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3fe78871af08371b8d2f7fecbea63b1ff415f7071febdbd4a5ec06d7b08c2c47"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b781dfcd8a19c986f0595815cb3e9bcc8c6a98fc818e90b6d3c4b505b6379e45"

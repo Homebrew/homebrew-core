@@ -7,6 +7,7 @@ class AskCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1c6d33225b71040ab52bd64e7591a1d0f75fec6d97ad69811546658245c15209"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab899bbb64905b1630d5542bc9e8dbf7d1c8fbb9191b2982c22aae447520327c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab899bbb64905b1630d5542bc9e8dbf7d1c8fbb9191b2982c22aae447520327c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab899bbb64905b1630d5542bc9e8dbf7d1c8fbb9191b2982c22aae447520327c"

@@ -16,6 +16,7 @@ class ZlibNgCompat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "262cc6df441cae1e4141e475f37ae2e46e418e6e6a1bdb02fede041b3a281e07"
     sha256 cellar: :any, arm64_golden_gate: "0daac190c96363dd46141a34ab1c3031acbc7016aa2648b2bf2ac8cfb1718505"
     sha256 cellar: :any, arm64_tahoe:       "00816346b3d80b3c1eb4cfe4244b1f386c8f6673e353d1371cb96f63bf10d950"
     sha256 cellar: :any, arm64_sequoia:     "73a98dbbff35ba8f880438081be740da8131b0e3bbfa41f01e0072d140f4a9e7"

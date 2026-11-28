@@ -7,6 +7,7 @@ class Betterglobekey < Formula
   head "https://github.com/Serpentiel/betterglobekey.git", branch: "main"
 
   bottle do
+    manifest_sha256 "22835fcca6eab8624aa529cb0ad1c154da858b664fadc54bcc6de4d2699a2e74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53378e9a7b3568af2d8dd937b26f3093ea6857a6c84a1e5f012758477d55d93c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c4fe7be4741b74ce7cc33da23aca66147e578da2fb5777ddb3651db44dc6e87"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "131009dd80247ddbfc679b0cfebd042d40fc695fdc72c0bec66d560e39315edd"

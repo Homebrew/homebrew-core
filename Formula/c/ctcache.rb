@@ -9,6 +9,7 @@ class Ctcache < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "23f78f17939a4c845120609c15f5c11a8c56ba11c53dd80ce5bb6722a087995d"
     sha256 cellar: :any_skip_relocation, all: "f4d1bb12ce49b05ad4c90d6684c8915f9d38601d24f446e9010cd01377e0fbc3"
   end
 

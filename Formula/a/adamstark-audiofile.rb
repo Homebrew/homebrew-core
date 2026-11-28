@@ -7,6 +7,7 @@ class AdamstarkAudiofile < Formula
   head "https://github.com/adamstark/AudioFile.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7fabff9b4334d5590f76e789c68a75caea76289daa2076187df38a9d88ea0201"
     sha256 cellar: :any_skip_relocation, all: "dce0123d95e01e4609051018ea590c2811908a0e75cb97f7c445c491d21de87e"
   end
 

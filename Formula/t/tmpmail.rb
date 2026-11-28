@@ -7,6 +7,7 @@ class Tmpmail < Formula
   head "https://github.com/sdushantha/tmpmail.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bc8e10d7553f9b09023f31618e634efc0b0f075e98ee0e78ec9853b1a9e42f82"
     sha256 cellar: :any_skip_relocation, all: "81e6aa8ea9a04b09f48bde663f58eb155061f1f83f8647727371a72cafaf9c0d"
   end
 

@@ -7,6 +7,7 @@ class Yder < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d53fb9f736f358a17a87f91162cc8f409015da2b3b7d4d2d0a74d7b6d50f0391"
     sha256 cellar: :any,                 arm64_golden_gate: "f4705fef3371134a3cec45a7605157a1f0779248e287e862665d5dac3e1ee37f"
     sha256 cellar: :any,                 arm64_tahoe:       "9f885260fb16abe855f8334ab2c1b6bddaf032e7e19e1a119bf9ba6280b8e784"
     sha256 cellar: :any,                 arm64_sequoia:     "742de6bb638644e32ac9153a26fb2cecbaa8575b765ab4166221389efc71b80e"

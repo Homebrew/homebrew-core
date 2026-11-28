@@ -6,6 +6,7 @@ class Xinput < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4998bb0656d9ea066926a73ee3111f27071d358964f8010e53eba2a667f27b55"
     sha256 cellar: :any,                 arm64_golden_gate: "c5567c0296febee62b552c7c5f59d1c8d0eb38013b22c5c6e7615eb18a6619d0"
     sha256 cellar: :any,                 arm64_tahoe:       "c8e2d341b5603fdbf07d9ec892b235a61f69ab54e0b6911969064766a6b1976a"
     sha256 cellar: :any,                 arm64_sequoia:     "c70d8603d13e94505f514890678cef419551a0ac6688356fdd28e6ecaad1fffd"

@@ -12,6 +12,7 @@ class Cweb < Formula
   end
 
   bottle do
+    manifest_sha256 "5033ca9cc5ada5b86d8b6d9766b0ae976e5f388a9c61532833731cfd1befab7b"
     sha256 arm64_golden_gate: "e2bad7f62983d6fe9c5929f5e5f66bb01a435ab9e5efbbc980c4553ad576202f"
     sha256 arm64_tahoe:       "c4403e23d80b3754ac094fd08d07b191d100d6bfdf8f3f9dbbb9ee7dbebfa984"
     sha256 arm64_sequoia:     "d3d86635f9c5d0fd3990b130c780fd9b2a91d21222ec7668dbb47db1aedd82d6"

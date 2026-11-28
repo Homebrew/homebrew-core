@@ -13,6 +13,7 @@ class Libtrng < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ff475f58ed35a1b299cfddf47d9af1de19e0392f6b87ca60f887e04ea9e70919"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a1eba80b6da4b00a93779a63ffa79449c7b611800876ee5d1a11564b3a7bc28f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad985638bc3b77cc8bc4799fc9f2e14fde33bc35f40bb7bb3bed57eef38c3784"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "407860b1c724e65566682084b41a25cd77b01aa400e428087e5bf6dc50658f7a"

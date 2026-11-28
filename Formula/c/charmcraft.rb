@@ -10,6 +10,7 @@ class Charmcraft < Formula
   head "https://github.com/canonical/charmcraft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8e6b0aaf4eb6a6013e3baa594ecdd2b821708994dfc7dae5cb0ffee8fff69417"
     sha256 cellar: :any, arm64_golden_gate: "c990f8611999114b86792885610f26a8dd25c7a8efd3fe62e9157a1e2d59495c"
     sha256 cellar: :any, arm64_tahoe:       "8864057d0605e3f875bd21586964a73b9f81f6c817c0c384acc83bd56f5a0f09"
     sha256 cellar: :any, arm64_sequoia:     "31f5570c5620c782ae8416399b8fe6d2e46df6d0098273ff473905493c540d00"

@@ -12,6 +12,7 @@ class Certstrap < Formula
   end
 
   bottle do
+    manifest_sha256 "5224ab4d30533173eca2cc7536dfd91f5516c3d3041be86bc71f9fca021d2840"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7341c7aa9cc1bdfcdd7fadaadf684fdf32edd25f519aa1e2d59f67b4c8100d4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7341c7aa9cc1bdfcdd7fadaadf684fdf32edd25f519aa1e2d59f67b4c8100d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7341c7aa9cc1bdfcdd7fadaadf684fdf32edd25f519aa1e2d59f67b4c8100d4"

@@ -12,6 +12,7 @@ class Pbc < Formula
   end
 
   bottle do
+    manifest_sha256 "9b3c1b58a7bf6810089d828a6726421da3ded48d3340320671c90b8cc941971e"
     sha256 cellar: :any,                 arm64_golden_gate: "4c0e9fd818eabae6a45f1fc0278523d0db3f3a4e4f0395cba99144951dd971de"
     sha256 cellar: :any,                 arm64_tahoe:       "c9aa4953390dd8fc51665f703e72ed82c6d643a75f975cce1339ddb280d212d2"
     sha256 cellar: :any,                 arm64_sequoia:     "540e6c2c25f64b9f01683b78101895359c1e317f0c040e1d6dcae389414faff7"

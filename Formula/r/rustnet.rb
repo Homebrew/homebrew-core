@@ -7,6 +7,7 @@ class Rustnet < Formula
   head "https://github.com/domcyrus/rustnet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "92ee91905988e0a56c8162e2fdae7c89969ab447729d0b9f5429b87672febb45"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b35e186260713cd0a4d0a597923b104ca05d01069d0c1b69919fd4356ca7a3bc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4ac0572fc99041b35b70422aae060a83998cd8eacbdacb2a2cff2e055135fee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d288af449c199ffb5aab9e1ddcef1bbeb7c02764748cf1934bcfe39c478aa50"

@@ -14,6 +14,7 @@ class Capnp < Formula
   end
 
   bottle do
+    manifest_sha256 "3b9990f0837d4494c7a30f1196f9c699b92eb78a2d6d4f04f6eff154793eb2f4"
     sha256 arm64_golden_gate: "c93c4d469c9c1d622f27599c2d7db57a0fac4abfdd87a894f4876f625fca2d79"
     sha256 arm64_tahoe:       "2cb6da9ca100911929078f9f17fd685f7d99d2f6177a6bef2ef49bc3a2acc641"
     sha256 arm64_sequoia:     "c90ad45691676a76f0159fd4f2873036a4c27473bdfa850b00f5323d641f262b"

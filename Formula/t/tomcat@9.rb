@@ -11,6 +11,7 @@ class TomcatAT9 < Formula
   end
 
   bottle do
+    manifest_sha256 "7cf55a5eb29d6065eb6cb3485acfd578b92c751072fc40ff3016d90a9de9ae24"
     sha256 cellar: :any_skip_relocation, all: "ed9177976a6f90a32ca4acc27d70e0f5c10323fb65abbb397939a2d75cf6604f"
   end
 

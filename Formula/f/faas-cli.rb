@@ -12,6 +12,7 @@ class FaasCli < Formula
   end
 
   bottle do
+    manifest_sha256 "90125d89a15eb34017215f9c20a244c455bac2e0e7afb166af7adf2daf7d68f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "72976660daf34feaba5cba88ef4aae18096a99e46d564a77755e885b351d4308"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "72976660daf34feaba5cba88ef4aae18096a99e46d564a77755e885b351d4308"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72976660daf34feaba5cba88ef4aae18096a99e46d564a77755e885b351d4308"

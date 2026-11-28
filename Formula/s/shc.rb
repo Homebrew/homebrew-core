@@ -7,6 +7,7 @@ class Shc < Formula
   head "https://github.com/neurobin/shc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e612dba73747b90fb1c73b5cecfbeddf539c6021063c8e774e937965a3407707"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f3b94c63abdfbe7d423fbc4ed7340cc68d44d4dc6f5e172f1547c4e06f60b2c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6761e8e367e12be8e6c775517cf9799ea7633944000c130ed26e32df8ebbc6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "280ac078e9ec3e7fd245942e1b6d141288fec51877aa5d032e57ce8403d24a8c"

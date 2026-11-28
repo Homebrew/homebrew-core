@@ -8,6 +8,7 @@ class ImessageRuby < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e5e4eac7247430980be23c50aceb956b6126070b3f845a6340e69da7c4486af6"
     sha256 cellar: :any_skip_relocation, all: "6c9c93e10c1079ddab1763ced2e4dd34ccbacabdfd6dc6445186927f1e51abf4"
   end
 

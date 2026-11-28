@@ -12,6 +12,7 @@ class Mftrace < Formula
   end
 
   bottle do
+    manifest_sha256 "2b0f4194c5802caffbafed97527e0cac0c37fb117bfa0bb4ea245c73807ffdf7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da4528de49bddc9a2f4616c55e84eeb18269341af370447d959d0e0f77fed680"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4fe5cceb3c8057226955b07e1d42166e822670ad008611a1accbb3b86afb655c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "79b3bb505a769dc684a5ce9b37295481958300d067479b36e0f10aba0517fba3"

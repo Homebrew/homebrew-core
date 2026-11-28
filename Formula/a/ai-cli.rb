@@ -6,6 +6,7 @@ class AiCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "c087b8fb3b7dfcc7df35e253f18fbb6c3f1701af227d796aa8fe4180f0d5b1fc"
     sha256 cellar: :any, arm64_golden_gate: "8a8fa301f3fab23f56344c19a1f71020648c24145c6f2f85847176df47c891bd"
     sha256 cellar: :any, arm64_tahoe:       "8a8fa301f3fab23f56344c19a1f71020648c24145c6f2f85847176df47c891bd"
     sha256 cellar: :any, arm64_sequoia:     "8a8fa301f3fab23f56344c19a1f71020648c24145c6f2f85847176df47c891bd"

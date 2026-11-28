@@ -7,6 +7,7 @@ class Sidekick < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c5c7265ef9e7479f793ddb5056ad311bad08a3ea9cecf4b4b7a426d2bef02b69"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42075f071566a2fcc27427d12a4eeb743e4a3d5e111510574f4a3145f7cfd5c5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b47090a52636675f0dfae5f548f852059b7dc088872a2d8d64eec484e19db617"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b47090a52636675f0dfae5f548f852059b7dc088872a2d8d64eec484e19db617"

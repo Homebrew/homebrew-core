@@ -15,6 +15,7 @@ class Docbook < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b731c526941c4c4ef5bee6e9f514ff33695129ecbba26eda460953ca6a8561e2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e07b29ba00698f8a8cf80d685379a5ba12ec6bd3167a230f1d3d42eeba6accd5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b7417a524db49b20339879a597e192a07be149a2a9249245da83718f488c7ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b7417a524db49b20339879a597e192a07be149a2a9249245da83718f488c7ff"

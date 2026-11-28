@@ -13,6 +13,7 @@ class ArchiSteamFarm < Formula
   end
 
   bottle do
+    manifest_sha256 "5af3dd125543f944355a28cf5d3a79765718757df7feabde46c6fa35d4be983d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6ea7d56b5af0b0fce8d6f2fb46e5de15d59ab70c71328ccc1e3e2d061c40644"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a8940d885045c8a585684277b77a47d098cc2d4cf9637f870a92c6daaeb1089"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5889d9110decf302f8abdef2e47f1435fadffc75b88aab1cc16bea025a783333"

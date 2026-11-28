@@ -8,6 +8,7 @@ class Htmlcleaner < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5eeb47bb0c5874bc6362915850cf9ff2e65b6d0fdac4c878c6dbc31645459f05"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d67d887439b196980718a6c1fb7b8caeadd7f4421c180dd134d319dcce74d1d7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "481e7ce48a7dc9bddaa359cd8b30412f993266133f606e0970031feb20a3e924"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ee4cfa168e59ef59a77de847f53f23c4f9a2a7be9a1f1844608c72b5ff1b7af"

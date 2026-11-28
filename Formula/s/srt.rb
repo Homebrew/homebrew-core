@@ -14,6 +14,7 @@ class Srt < Formula
   end
 
   bottle do
+    manifest_sha256 "8ee39598b24cdc8dad8b6bb5195aaac3d69b55e2d408facd0e7043c49630869b"
     sha256 cellar: :any, arm64_golden_gate: "6d0783ae84caebbe1c8bd9204bf782b09c6a9cd1ecd579285b8ba2f39cf0d256"
     sha256 cellar: :any, arm64_tahoe:       "def16cad7b4d1d7a2e498b9e46e59798612130e9170af096e60ee9e642737e24"
     sha256 cellar: :any, arm64_sequoia:     "49961e6bb35fb555930142ccea104dacd22cc0d4de367741f6539ebe83a3624b"

@@ -7,6 +7,7 @@ class Bandwhich < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "1765cdadc5588b519ade2f8f77c57f034cae17bff1fe1ccbdd74588af2a13acf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8ab5efbab0f126407abb99caee68f658fbc25c3dc8a4733092d5b80ec343a18f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4116a95dea8bce74c52186d65ac1c7f62caa79e90233b467fb515457000937ce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d32b581cadfef715868a99c40ae75e1e05da92b6febe7129c437df3ba7a1de6"

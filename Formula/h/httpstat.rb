@@ -9,6 +9,7 @@ class Httpstat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8c4ca57817526071721262945fade9768ed1e506151afdf2f642ba53ddaab3bd"
     sha256 cellar: :any_skip_relocation, all: "4c6ac7e7f5619376d294d7921048b7bfc2745c280518b2ce977f8091d5536ef9"
   end
 

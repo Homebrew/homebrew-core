@@ -10,6 +10,7 @@ class Sby < Formula
   head "https://github.com/YosysHQ/sby.git", branch: "main"
 
   bottle do
+    manifest_sha256 "db32b98c9724da91a220d3e9be3eb03eb939c63676fbc2515ab1553c7fcb8846"
     sha256 cellar: :any_skip_relocation, all: "21b9100ccb58f8d777e2a30507452cbfe99cc19c32aeab4d79ae56d87c5f87c7"
   end
 

@@ -6,6 +6,7 @@ class Fastrace < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "bb07755fb6e6d0fc7a8299ee286fdc087ad908fac402fc91c095790e110f3815"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54ae98ac1d551232eee4580be6f797afe7f30d75b0372acfa5dabaebb1ab3f4d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6833c864db6517ac2ef3272dc90fc1925e9b6709437a866b13f2c30e87fe2c2f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "687adb6279fac2aa3a2d12ef7d336a78687285a9336a4d96c03bf8aca55f4cfc"

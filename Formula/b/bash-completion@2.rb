@@ -12,6 +12,7 @@ class BashCompletionAT2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "198ef45d34708fb34b2a1a6e4adfb7a0e08397933cf9dc26c2e5b76ca6e2b189"
     sha256 cellar: :any_skip_relocation, all: "5a5826537a22fd92a5214effe1d41f98343e3d87ac2fc0b9d5ff029462501643"
   end
 

@@ -13,6 +13,7 @@ class ImagemagickFull < Formula
   end
 
   bottle do
+    manifest_sha256 "803097fa77f83c5098eeb4fe25f2e03c00fd301276c62c27d7c679618d25b635"
     sha256 arm64_golden_gate: "4d00557a2d2cc14395caa1e15b8fa0b05e985da0f7e916a5403bee85cc70bceb"
     sha256 arm64_tahoe:       "314b767f4a4ba22c5ae30f78247831ce1aaa5240dc3ebd7d28e667b56fbb905b"
     sha256 arm64_sequoia:     "e1ab4189e078510392d39af7d8ca3c9eaa369bd29d5fbf242ce098e06f0e8619"

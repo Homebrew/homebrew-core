@@ -11,6 +11,7 @@ class Px < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ace185a71fe0107db7ac726b17f7d8facb282ff3ef0b2579e17cfde01b814509"
     sha256 cellar: :any_skip_relocation, all: "f6af2261c23ffcb1f1af3a80a3a7d8707307a3f91d4143b71fba4098ef171c59"
   end
 

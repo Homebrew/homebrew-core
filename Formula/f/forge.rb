@@ -12,6 +12,7 @@ class Forge < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "049b70d0663ea69c84ea1f2bde5561e1915854adc478bf72b184fdbde02252e2"
     sha256 cellar: :any,                 arm64_golden_gate: "ebbf580fa578fffc3f2ab4a6998e917ee85a0398bb2fed5f531faf0a89751264"
     sha256 cellar: :any,                 arm64_tahoe:       "881a8e394fc90cf10ed91fd8cdec8b046805feabe9872cfe657faeab2281f2a7"
     sha256 cellar: :any,                 arm64_sequoia:     "8c0915cfdc9484eebbe0252e8738eb16ae63b7c190a81b601488f1d8b7bad1f5"

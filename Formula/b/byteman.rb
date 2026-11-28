@@ -12,6 +12,7 @@ class Byteman < Formula
   end
 
   bottle do
+    manifest_sha256 "fe9dbd062bacc5c53bba919e45f1a6e218318c126bdf06608799ea87d8a5e372"
     sha256 cellar: :any_skip_relocation, all: "15752ffd2034dba6ad198b1c95cc8ce586553f4480cbb387ae3e254537d0de70"
   end
 

@@ -7,6 +7,7 @@ class Julius < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8b43f2a876c928f4ea58d20c2f1893ec00533e8315cf462416dc9f7ec8a6eb89"
     sha256 cellar: :any,                 arm64_golden_gate: "658206c6190ae0f7aae3c08f44a8a1dae78040c81dc565cb45c7f2f2c3345307"
     sha256 cellar: :any,                 arm64_tahoe:       "b57b4070b691f3335a89ccbe7bc8160cf89ea13740554fe7bc139a44e27225fc"
     sha256 cellar: :any,                 arm64_sequoia:     "90626fdb7e40c9ddfb802d560b463a0a986cdc78ce9f3299560981784c7234c2"

@@ -9,6 +9,7 @@ class Codelimit < Formula
   revision 11
 
   bottle do
+    manifest_sha256 "3b965acb76b0a906e5c53ee43bf92f5dc1850a59e70d29d24e043384de8069a0"
     sha256 cellar: :any, arm64_golden_gate: "aec9b310bffbc2de7c4c4326f49d4c46b045b913d724dabf7c7d529d56f9b8cd"
     sha256 cellar: :any, arm64_tahoe:       "c2a6cc5417267f13751e9bcb753987b05ccc3ec686d7466496a2170b472e6f67"
     sha256 cellar: :any, arm64_sequoia:     "c7a3aaeaedda13266cbae92f38c276011380a75487eec32c0b432e0bfa535df5"

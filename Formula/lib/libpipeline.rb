@@ -12,6 +12,7 @@ class Libpipeline < Formula
   end
 
   bottle do
+    manifest_sha256 "4ed9f0d694e7f1afbc660780655ab8fbba4a46dc039ef9aff78b1db2dd5738ce"
     sha256 cellar: :any,                 arm64_golden_gate: "ddf010894cca4d1f04b2e7fb7079735ee37264d7c6d335bbe6506449e3d528a9"
     sha256 cellar: :any,                 arm64_tahoe:       "3123efab5271d992b2d9aaf9a40465e7ff0dad00904eaa590bae9fbf6f4b4ddf"
     sha256 cellar: :any,                 arm64_sequoia:     "f67581fe73ae3c61a464f81517ad552826b5fa3583c5c6eb03f3da49cf514aee"

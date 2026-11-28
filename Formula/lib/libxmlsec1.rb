@@ -15,6 +15,7 @@ class Libxmlsec1 < Formula
   end
 
   bottle do
+    manifest_sha256 "ed0de6856da3995a053b8a9cc3f7934a34aaa37c309c76396cb649757414088b"
     sha256 cellar: :any, arm64_golden_gate: "291e4edfb032ad38b4990cdf504175c2d5c70dbfacdcf50f03f7804ecf86f444"
     sha256 cellar: :any, arm64_tahoe:       "514ba1e09ca108ffd3fb6f1b08b71960943524e2f086b232e9c4ec0870288e81"
     sha256 cellar: :any, arm64_sequoia:     "d832a71f46f7c8c8e9b63b1cc1620daf30a7993d0fb7475c89251e53b4d168b8"

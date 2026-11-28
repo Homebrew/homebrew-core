@@ -12,6 +12,7 @@ class Ioctl < Formula
   end
 
   bottle do
+    manifest_sha256 "c518a0853bf048d8ce504fbe0613e16ba26c33544558357a51d70887831dd0c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f56f2955e048d2d2af717ca817dc4a21ff876c409ad656a6d531ccc8f5fdb288"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "847fd05800182d81e95a10f73e84537e42746d4e6c87720f82615ce89c58cad3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "35f24549194bc305a54ada0f098fa61aab5fdeb582c0d7c93e1b4386bb1dda24"

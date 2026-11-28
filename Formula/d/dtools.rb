@@ -8,6 +8,7 @@ class Dtools < Formula
   head "https://github.com/dlang/tools.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1d37e7ac4a5eb52bfad54b9234f18424f65cdc816701f4dc59fbabb6b338b590"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8f5eebd9001d19c3de794d504b83203095eeb1b7be1b3f3e1614a33c9f7fcab"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c61b1b7e8fdecbeef4e12d51959c076e593b2256acba6c7e27da09436790ad19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b55e9f238b3af948311be64144efaa93912bce589c7cdcf2a0893e4ba7809fb5"

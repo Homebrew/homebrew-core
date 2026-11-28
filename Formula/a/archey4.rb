@@ -9,6 +9,7 @@ class Archey4 < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "cdc7c010ad4e841ed347f63a9b05e849dfc90a6f9c230eb44b43d3d6aba3a0cd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfa6d2f78c76ed507c5c5b26fa024c65d421410f13d64df70cc67ce5543382a2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0154792e1fb2a7f5b04c5851e9ad65ad3d026c3f21668ad217ee299356de68cf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8c39d4d277039c216edf01fed49f92a5c8784c105a8352985f27fbeb1f287ba0"

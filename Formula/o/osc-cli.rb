@@ -10,6 +10,7 @@ class OscCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a8f97c16402db0a759fbc97956ddc968a2cc5fe18bd41390b857e3dcfa01abae"
     sha256 cellar: :any_skip_relocation, all: "c302da506def984034f833df3da284ebdfcf8ada9fcfe34569efc142ca3a3b2b"
   end
 

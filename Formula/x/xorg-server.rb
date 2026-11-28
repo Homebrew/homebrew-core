@@ -12,6 +12,7 @@ class XorgServer < Formula
   end
 
   bottle do
+    manifest_sha256 "1de68957112a60e728a026cd3c59d3494dc2e3729b9a16bf754270fb8b8ae99d"
     sha256 arm64_golden_gate: "922de97e843c2e71284312cb1fa37a89d296932629ccb0aa46f4044198292cbe"
     sha256 arm64_tahoe:       "ab2bb8bc44572c96888b3a27cc6471130d8c23301e827b2bf0b761f13aa628a9"
     sha256 arm64_sequoia:     "3b40ba7aa4d4ce84cb782c82ed2aa02188a20f77edb3a507d5c4cff881b201f0"

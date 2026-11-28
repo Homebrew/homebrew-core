@@ -12,6 +12,7 @@ class Wiredtiger < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "79f503138b5c20be207d218de9b040fd7123c2c47b5a014ef15c261b94207843"
     sha256 cellar: :any, arm64_golden_gate: "5e151cc2c0ceca8de05d5f4f7f1bf98d5cabf917db585fea82d76fde3cb9dfe1"
     sha256 cellar: :any, arm64_tahoe:       "7702bdf65943a7b8034ec68f5b7d6b5931b924d19af568e296fc19d4f1ac7871"
     sha256 cellar: :any, arm64_sequoia:     "2af1845b1c55625951c23e50faa7b403f2331cb25a0fee4a15aaf21be6104301"

@@ -8,6 +8,7 @@ class Derby < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "20cf5fbeab3b146a0cf404f2dc8b35e9bf283d07f6f15d6628d9e28f054d807a"
     sha256 cellar: :any_skip_relocation, all: "e7ed627ed2f1ea6529efac7f4b480874f4903e5ff671b1f9b885d470132231ab"
   end
 

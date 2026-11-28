@@ -8,6 +8,7 @@ class Optipng < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "96f5cabdb38e8b2f474a57d937be9e624659e5bbda21f25bb73da544595e34f6"
     sha256 cellar: :any,                 arm64_golden_gate: "b9728b9e05f75a3de4387e927bf7d615d3cb122c7edfc56d6f979ba56b3916e3"
     sha256 cellar: :any,                 arm64_tahoe:       "7bc1a16e16342def4b3cb3264737beaa1319d6487d812066d341b2d7e7652512"
     sha256 cellar: :any,                 arm64_sequoia:     "04c60466375077fc2707c4b663c4557f684c2a5a0ad6492f16e6b20faa8c02f9"

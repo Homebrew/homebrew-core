@@ -7,6 +7,7 @@ class Bpftop < Formula
   head "https://github.com/jfernandez/bpftop.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5781d36c9387963316a7d094c8d73ebfeabf55d731fb2d32808474e7ccdfe879"
     sha256 cellar: :any, arm64_linux:  "bf83b22dbd360b168b04a94e9e840ed25812881d1cd0dd471ab7c6661211f8df"
     sha256 cellar: :any, x86_64_linux: "bb886362785d2f3234f08500df78f3321aeb35115bfbec91e07e9a57f5ac677e"
   end

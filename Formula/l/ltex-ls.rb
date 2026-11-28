@@ -8,6 +8,7 @@ class LtexLs < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "af19a2aa3d3033675e6b53e51a8469c0333b29fb7e9f41c05c0f72504c912f59"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8725a5f8bc5c3de7f2c1a5900b44e0aa23e2049040eead9f955a14b008db2935"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5d2dc1612c126df0a99920f428ae300efea2ad97902c12246abb3dbb190ab487"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38ab0f701ab7cfd6103f4dac187e48392fdabea07f476e02aae359c511ceec49"

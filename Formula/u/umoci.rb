@@ -6,6 +6,7 @@ class Umoci < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "231241b2ab81db8018ec065b034675034bbb84a695c242f3bb783604ad94af17"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8beceb63858739c1a6dd124e349d21d8b7de0f55438a4bb2e6d60f201f2a669"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "829bbd94a1b9c3964d348579e9a28529a4ead9ced1b404c4d4f622605ea62fb6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "829bbd94a1b9c3964d348579e9a28529a4ead9ced1b404c4d4f622605ea62fb6"

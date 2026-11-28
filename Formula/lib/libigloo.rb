@@ -11,6 +11,7 @@ class Libigloo < Formula
   end
 
   bottle do
+    manifest_sha256 "e74b76b3f812396d6b84aa600b66fda72fe20d546b8d8f49b0ee8b25ab738ef6"
     sha256 cellar: :any,                 arm64_golden_gate: "c25ba5e8d68badee1969a880a31891c4a1156b7eb46baa98b1a8bd22f5d71f28"
     sha256 cellar: :any,                 arm64_tahoe:       "3d5f68bae027b04b01c5d655f97a468422f9c1c32fe8c82f5402665bad2d0623"
     sha256 cellar: :any,                 arm64_sequoia:     "0013eb663812b10c614a73834810c5395a2ed4b7ad6796a45f26db764133313d"

@@ -13,6 +13,7 @@ class Voroxx < Formula
   end
 
   bottle do
+    manifest_sha256 "e4459d4113c4110eb927eead7f3c6232e6efb54600c04d6e4a24ddf24ad1caff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "58556275cda3b4a697ff91a4699acca99e6261bcfb888b01a2c928f20439328e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e92608286d7f5525760a291095fffa5174353cd4360288b3b370734e266e332a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c76ccd2f7c88492a312735928f7b629188da9bac80b579effbf140eaff73cb7"

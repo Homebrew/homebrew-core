@@ -7,6 +7,7 @@ class Boa < Formula
   head "https://github.com/boa-dev/boa.git", branch: "main"
 
   bottle do
+    manifest_sha256 "43a8d0bde1e5048fd648895f02001adc7071054d4418d3ace6b9976b47b3382e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f2c7e3daa24325b40f783569690beac926cf0ea858f59614757f47a0a0b8ed9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "734b4d4e1d779492698c4a3ff6fa71e831f4f3e4a11de3803d57448f2b96834b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75ceb7e28892c7bbbeb8c530a32e13fccc4a8cece6cee118962bd28e3e77fd2f"

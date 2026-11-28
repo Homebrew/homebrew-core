@@ -8,6 +8,7 @@ class Vapor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c3612746e2bc062fb735000ac644397c8620e2671c1b282b83806c36d1ffcd22"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "648947c1a7ee2636b801057f502e529edac0aa87cf1f37c96508abcaa0f43fe4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d7141680a4ae37fc708f0c89a13e3e3f80d24133f951514042ce9b2e724960d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46f4b86f2f0e4ac77a3c4f83951fb044a4ce019372fe0a74f45b961f13df05c6"

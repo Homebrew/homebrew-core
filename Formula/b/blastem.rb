@@ -21,6 +21,7 @@ class Blastem < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "372372a665aca281107635a08eda0d071bae2e0625fd0eaa2c2c00c15f723684"
     sha256 cellar: :any, arm64_golden_gate: "3fcac028c23517ba673cadb558eed9b76392c5f12ec58617bb078c38b0117fde"
     sha256 cellar: :any, arm64_tahoe:       "343a5f53fef1d5472cd06ac4a32460d5f0ff9845dc8bd67ba4b599308757f49a"
     sha256 cellar: :any, arm64_sequoia:     "f14e79f9a97074fd55a2cb1c5f367f43da3681799f443adb2ed4c635d3fde302"

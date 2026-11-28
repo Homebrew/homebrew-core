@@ -8,6 +8,7 @@ class Dbxml < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f9f13fb3c432dd77cd4ed355008fcb5ebf1025e7d1ef9da7fa837c2d4f24562a"
     sha256 cellar: :any,                 arm64_golden_gate: "59d2bcb6cbd7d1c07f81529f0b7adc9f3fdee30a30f3ccf4f0280bfb591a91c4"
     sha256 cellar: :any,                 arm64_tahoe:       "3828eca647ae656062c684b2a22643d28cd2f0f1664ec44c960a5f7b20a7d5e6"
     sha256 cellar: :any,                 arm64_sequoia:     "2166cda564eb4f6e94f668bb382754318e67ef46b591e4a6a3739a234876656d"

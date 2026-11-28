@@ -12,6 +12,7 @@ class Awsume < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3c71a9976981824e75e465ded8e21dd46f1b3cdef2889f21eb2f7a03baa3ee50"
     sha256 cellar: :any, arm64_golden_gate: "af78cb0c83bc75400956e97603400ce0ade2f6de01db4ae1785c688b58a779a9"
     sha256 cellar: :any, arm64_tahoe:       "a81ceb553ac9409547c59d070bd68b1c64b6c1f19d84900e386c26604398fc4c"
     sha256 cellar: :any, arm64_sequoia:     "a13aa72b6bb24485d4073eaf156a6b0bf7fd4d56c6f2941e54e90b5dbfaaebe3"

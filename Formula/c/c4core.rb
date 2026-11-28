@@ -6,6 +6,7 @@ class C4core < Formula
   license all_of: ["MIT", "BSL-1.0"]
 
   bottle do
+    manifest_sha256 "4d53c0160e1aacd803c7e43bd36e47298813dd47bc4d654582383501caf639e7"
     sha256 cellar: :any, arm64_golden_gate: "3742f1c853e0f626fc5a3bd6fad698d1ddec47a8195b8f38e01ede4cecab9057"
     sha256 cellar: :any, arm64_tahoe:       "214516874ec203bbc26aefa4a3d0619deebf919cb7914ef04a5655e8ad918769"
     sha256 cellar: :any, arm64_sequoia:     "7e1ca65706f1d8e07a95ea9b897c6a93592d84407fd0333e453a8d73f056b622"

@@ -11,6 +11,7 @@ class StanfordCorenlp < Formula
   end
 
   bottle do
+    manifest_sha256 "0dae15ff10763cfd34ae0168d2cb090cbcca516e9011c07b3e2bf76578e974ca"
     sha256 cellar: :any_skip_relocation, all: "57e09b9b366bf5c0ffc54a90d1b933dd4c9de88af2a5d3958322dd3a1e5c76a4"
   end
 

@@ -15,6 +15,7 @@ class Tt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f759a3977ff97aefd12ace4c803fad9db8972aec621b2b4e98d10871a3982959"
     sha256 cellar: :any, arm64_golden_gate: "dcf2c474052ec2bbf472c94eed3550fc6109ad9caeb3328eaf65bbc4fe92c496"
     sha256 cellar: :any, arm64_tahoe:       "b318d909fd2f6c387d24dcb15bbc9d3dff7d304aaba3a2cfcf0e93401a262320"
     sha256 cellar: :any, arm64_sequoia:     "f9f69299289e1be39ef23ad2a9b43e4243b5f7a627ab6c85c69731305f25f2c8"

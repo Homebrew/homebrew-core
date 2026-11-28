@@ -7,6 +7,7 @@ class Tailspin < Formula
   head "https://github.com/bensadeh/tailspin.git", branch: "main"
 
   bottle do
+    manifest_sha256 "50459b4762bc466e4247cdc4edc92fd09df648180cbe3712f2c2aa732c83567b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2a08a045189261d431c6c74c43e603f47413c9b22bf3daf8ab023375033f872"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94e3c4a8793b3144804d122b5b4c211b07a6c036d893d46a6761c99f312415a5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54b8df2e6cf97b132ff9cda60368110959d92ed86cc3993f4f7774bfda2134b2"

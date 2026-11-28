@@ -11,6 +11,7 @@ class Duply < Formula
   end
 
   bottle do
+    manifest_sha256 "68b59148ff21a1f110fddc2a525d568a6ae63fca0bb18e274b71c4515bb936a0"
     sha256 cellar: :any_skip_relocation, all: "b48da865cd1504a00ea027655cc144227ed1fe6b200855b959e9836d281e3a6a"
   end
 

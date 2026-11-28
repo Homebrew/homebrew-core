@@ -7,6 +7,7 @@ class Libxdamage < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "806c738d016fcfce17601c36b043d8d4ae37a5841dc4b9135b49f3149adcfa64"
     sha256 cellar: :any,                 arm64_golden_gate: "05a2b6b378635715c9c07d1f0f54ff3538040bf015514fb361834159cf3be9e7"
     sha256 cellar: :any,                 arm64_tahoe:       "bd8c72e12bc4390bc1cf580b95a249ed14796f2cebe20d561d8990a25f1704a8"
     sha256 cellar: :any,                 arm64_sequoia:     "fb9556f58e05054043c4e7850318a3e830d9eb18c765aba87c8c1fdbc5839f39"

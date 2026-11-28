@@ -14,6 +14,7 @@ class Msieve < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c337829a30ea000caf4efcf1fb4543e6e8642453a6594ea8012cacfc97dc70be"
     sha256 cellar: :any,                 arm64_golden_gate: "851cc3fa44a545820ec049816d0c8a0dc4cd0fc4f9c4b5bacca156c5cb6642e0"
     sha256 cellar: :any,                 arm64_tahoe:       "7e5d447bbc245a2b91d8993937c87c8e559678ebd68f972905d6c11e0d2b29bf"
     sha256 cellar: :any,                 arm64_sequoia:     "73413cbe23c21e464017e6abe5b7b10bf2e3e384e2e23f51dceef0be7bddc051"

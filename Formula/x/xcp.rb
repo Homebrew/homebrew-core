@@ -6,6 +6,7 @@ class Xcp < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "37644758345262786bcc866c34a7a45d2f9fc2da197c8a26796d28707f2f1d00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f722a7a9bdaa2636b67d70317ae8e2894b0a756a259316b1eeaae2689304dca7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ee39e8b353b40ba2151af5b8f932adf7dc639d25eaad39ffc74ac2f30b244ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e35121b99ba7d4c6c28fb4c223ba8a8d5d79a962ff133b867f35f1dae0fb597e"

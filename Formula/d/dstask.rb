@@ -7,6 +7,7 @@ class Dstask < Formula
   head "https://github.com/naggie/dstask.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6bd3d1fb4962056848b48ab228a07a3f0833c12e0490d6ee4cf720980ffbaeb0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d005df027bd2a72a4edc6c68fef7af5ae3394c20916e12ef2f6dd0484f245b45"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efdbaee9c2da836d8c3d05b93d720bc050fcb6f46877cef12e76f414bf6569a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "efdbaee9c2da836d8c3d05b93d720bc050fcb6f46877cef12e76f414bf6569a6"

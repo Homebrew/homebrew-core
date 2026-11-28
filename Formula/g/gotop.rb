@@ -7,6 +7,7 @@ class Gotop < Formula
   head "https://github.com/xxxserxxx/gotop.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5084aa6e7a68b6cbfdce8403baa187b2741722f06473a3d9578d01cc7dc5bca4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e4df3971a711b15eda361c3e1aba381bf026e8036820d3f9539fcc220b8c2c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2df77e8cb01b137d9bd919582a8b7860e482d45b8f4e0249dbee557e63d4724f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c500e1f45ee743f9628545a7de331e9729a90693be2f5dfea3d297bb7d8772d"

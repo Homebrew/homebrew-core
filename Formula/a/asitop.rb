@@ -9,6 +9,7 @@ class Asitop < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "2a89e35538e8350c736578f41a505b36872a46e3e232c126378c890c6c881b28"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "463b3006025df943b94873d8f3c47886aa2c1ae30ecd52023e07ecb7826a953a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d416f6d28565466542c8df78fb4e64584fd04b193bc8e3d7ca2eac2f17591b3e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "34364f798c8d4df63ff17ac8256df157ca5d359ed6216e55133346ce9eeef7d3"

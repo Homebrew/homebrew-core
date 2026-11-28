@@ -6,6 +6,7 @@ class Smimesign < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7927593787c19162aa9f5b17aba7f54afdfad886b1ab51d61b9c1ab174a6f6d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13810a256aec12355fa752a1f1c193ea681b5822511c4b2d2e720c721aeb5c69"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b10ee2fac2f1d8b6e518b4442ee3b59d3f42579c83ec1e8c2fd363ad196d4681"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c9e2064fefc808679e20024cbb97402c88921c56c9638b04cc76a6c816a13f21"

@@ -11,6 +11,7 @@ class Onionprobe < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a77ae857355bcd727855433086259fcce8f407ae345988e6ac85da6fae7cfa26"
     sha256 cellar: :any, arm64_golden_gate: "dc3c48b4eef020257f91f19606124f3e556a41e2bb4c2f240524a5e4e083c20b"
     sha256 cellar: :any, arm64_tahoe:       "b9c74b1513f38c9c2403b7278035d35d58c252fd38d7aa33ed5c605ddd1a172c"
     sha256 cellar: :any, arm64_sequoia:     "17c78fb871572aabf8652449a0c6a2df199b6b4541469a021e68ef15683d9e92"

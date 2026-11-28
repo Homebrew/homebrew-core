@@ -6,6 +6,7 @@ class StaticWebAppsCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f44c5fe5cd592fcd820b82096a8381f5be0f92b9445402c14c4ba513a584fa4d"
     sha256 cellar: :any_skip_relocation, all: "7414bd2516cd7672dd514d234874d56b8b03ac600b93c61e9e27e4d4909fab51"
   end
 

@@ -7,6 +7,7 @@ class Pandocomatic < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "ee8006d2c5fa0a5e822e885f17abe2f3d9b8f7d4c56423c80983487d5b77ca5d"
     sha256 cellar: :any,                 arm64_golden_gate: "87fc6695bd409dbf5402d04fd7b65ceb81f6c1477eaf299bc0e95fdfcf17069a"
     sha256 cellar: :any,                 arm64_tahoe:       "94dead39e2809e446ca5663efc490bde891f3d0e61169c092e7a9b71e1c6d04b"
     sha256 cellar: :any,                 arm64_sequoia:     "9fc14ce01a2aa580eed1b5d3ee9e640012b7c21047ee351b67e5fb9b3487da9b"

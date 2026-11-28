@@ -9,6 +9,7 @@ class Uvwasi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1e4b1060e3c83495d109d3a3ffed7567c40b75e8f00e33d4b60a127fbe8c0bed"
     sha256 cellar: :any,                 arm64_golden_gate: "f39d7c2ad27a65646e153490e9176b92caff28421e9408893d042b1cd07a5c2b"
     sha256 cellar: :any,                 arm64_tahoe:       "c2742f168c40ecdcf97566b4bbca3419dc010995edbd25fd2805c45cccbe11fd"
     sha256 cellar: :any,                 arm64_sequoia:     "3bbe2380eb184f540f5b23a9cd2f92ef21a4779b04ff6068b6c3a0b4e7865c7e"

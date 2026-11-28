@@ -13,6 +13,7 @@ class Dtc < Formula
   end
 
   bottle do
+    manifest_sha256 "e0017cde7e7d8b26818164adc3b1dec00ae55229d0c85c4280b73fce2b705efb"
     sha256 cellar: :any, arm64_golden_gate: "92ee4960b1643f3ba722d3d0cd9eb31af546215c7eaf858e76e2c69dd2c7afe8"
     sha256 cellar: :any, arm64_tahoe:       "c85117d5237ea464866d8712ff9fc264a1701eca34d9d470d720a935c79f61ba"
     sha256 cellar: :any, arm64_sequoia:     "2b800aed01f5ebfc9cbb685536ad1625d1d702ab850bd34639865d3457c4f2e8"

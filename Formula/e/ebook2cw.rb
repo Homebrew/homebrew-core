@@ -11,6 +11,7 @@ class Ebook2cw < Formula
   end
 
   bottle do
+    manifest_sha256 "649eff78ae499f28d661a2660c960fdb60003238ee9fdf0dbd63d473fd01b281"
     sha256 arm64_golden_gate: "a21cecb86b4241e6f8cc2a466e7f2b1f35ebe6b58d8503f10d114bb228b3bb65"
     sha256 arm64_tahoe:       "cd48218169f8f598c5bbba765d4f632fd51eb0472e2416856008b0dd79c1c83f"
     sha256 arm64_sequoia:     "8ee60330873ad88bbe4346269b4ce0f1c1598382e98ebfae5a264d8af4474148"

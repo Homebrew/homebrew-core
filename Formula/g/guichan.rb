@@ -6,6 +6,7 @@ class Guichan < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "70a8cd3174569f901b31b152398ec94cbfae6d0275510b2f38872fdf15455100"
     sha256 cellar: :any,                 arm64_golden_gate: "c5e3a88c9c68f5bcccfae0ce1a744538c5fc7aa56e77fc637a270958a4580b3f"
     sha256 cellar: :any,                 arm64_tahoe:       "2468a859fd2e4f902e76f3ace98dfc55a117ec1a4ed6fe3a114c63020d5743e5"
     sha256 cellar: :any,                 arm64_sequoia:     "a0d1e15669f361e19d404bdbb8b311443da4c4a775fdcb1d8d17a4fe03034e5f"

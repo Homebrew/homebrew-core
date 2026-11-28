@@ -13,6 +13,7 @@ class Av1an < Formula
   end
 
   bottle do
+    manifest_sha256 "a5517f1f43f2c9ebd53bf9331f705c372a0cdaa1506f391b86f97374ed3e452b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cac6c7ed1af8cd38f2a55af4605ea995af7b72c0ef6dbd9c2c33ea8bcc7a58a0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b336020ed3ba0b195b825dc5aaed6d3573ad1720b341b99999a4b5a418fc16e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13b90634026f8e4058a6007fe1bf34f3ad8ff847bcd5114096d253f4b39fadf1"

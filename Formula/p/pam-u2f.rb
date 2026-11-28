@@ -13,6 +13,7 @@ class PamU2f < Formula
   end
 
   bottle do
+    manifest_sha256 "15bc42c720469ed24e8e9bcfdc7173cb07b8185b9b951c1a6dccbd339363fda2"
     sha256 cellar: :any, arm64_golden_gate: "eea123d3d2c8212bf6bf70731792ee7c847bbd873efc44a63469089248174f04"
     sha256 cellar: :any, arm64_tahoe:       "8681fdfdf88df793c747a37ed8fb6ec9e69783dd326eadeaa2d0110b7093eb61"
     sha256 cellar: :any, arm64_sequoia:     "4019cbc80857df4055c5edeb17d6b1b313612680e50043f8671e4463fe3d9b5f"

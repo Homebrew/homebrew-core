@@ -6,6 +6,7 @@ class Gaul < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "9bf1bc0abae27688046c747b3c9755660e545cb807242fa37862e39de0d9cae1"
     sha256 cellar: :any,                 arm64_golden_gate: "efd96cf2da404cb3e41950fde62a1ed1b8e783b4a423885b07424f61206eae13"
     sha256 cellar: :any,                 arm64_tahoe:       "e6d6c2c5f3c790afcff2232f8d2dc371a425fdedc42aa52a33daf94b0816439e"
     sha256 cellar: :any,                 arm64_sequoia:     "f6ef6f6e6711082dd49cae45e516aa9f8fdf0f2942ff4224f6c30d9e75976dcc"

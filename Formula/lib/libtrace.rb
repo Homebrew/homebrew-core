@@ -17,6 +17,7 @@ class Libtrace < Formula
   end
 
   bottle do
+    manifest_sha256 "260c350285f2417c8d3bb62febddd06a0f38802d7c2a78731e7895f034fb7d69"
     sha256 cellar: :any, arm64_golden_gate: "cdff88b830b9f51bb49203b3b585c968095f903722ca27c73918157b41988b40"
     sha256 cellar: :any, arm64_tahoe:       "51730b4731944e1cb02fa1d64d83a1d8677163291c71b1837a36903412d34154"
     sha256 cellar: :any, arm64_sequoia:     "1516903fc0297df9e8cbd5d753c7947670e0a2c3430adf40535001764cdab1bd"

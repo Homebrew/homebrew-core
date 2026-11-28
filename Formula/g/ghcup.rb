@@ -15,6 +15,7 @@ class Ghcup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7c3aa4bc5292a6d405368e39a9b883b039d5ac0d26f508cbd673fb0846b5b7e4"
     sha256 cellar: :any, arm64_golden_gate: "2cb2653fed0088758c6e56acab37b6eef661609e1dde1f6af2d787a9f421a6ac"
     sha256 cellar: :any, arm64_tahoe:       "41ac1d7c50f5cc48c7f797cfa10ac7c3ba815b86ade6fb317f2bea1f1e00ce6d"
     sha256 cellar: :any, arm64_sequoia:     "98ad00690c1f8d6ea6e7e8f859fb4f6d997b25eed1391f18d74a6ac36f456311"

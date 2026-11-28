@@ -7,6 +7,7 @@ class Twm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3fdf4b95e82f4098297e3f692f7af436de81306271a4018cca8a7386ed0b31f0"
     sha256 arm64_golden_gate: "ef3eafad63d25f13c1746678bd3efbbbabd513c3d1710b2bb885d6953fc906a8"
     sha256 arm64_tahoe:       "10c97cb0c9229ad2c77532f6c83736b5e31eb33dc08fe84cd2bd8f7545c56c64"
     sha256 arm64_sequoia:     "55081cc48b42c43ff5affd9958066960f6e178282d70022d70811ae3c6376d91"

@@ -13,6 +13,7 @@ class Zk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f800c1e4a4befea4bad04aaaa485e22f60b9e944a69d9a94e7150d782a3376c6"
     sha256 cellar: :any, arm64_golden_gate: "17a307b11212fbbb7a5c189ba5ef1ae9bdc40b7482636dc14bd7ab59d7c19667"
     sha256 cellar: :any, arm64_tahoe:       "a9262d927cd99f23408ba2e2c099790b6c85e88b439cfcfaefa386ac91833ee0"
     sha256 cellar: :any, arm64_sequoia:     "1dc6aeee97969369c46a43c08003c0b700e0b892f049232114b6a96f6e19bf41"

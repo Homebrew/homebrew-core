@@ -12,6 +12,7 @@ class Tcpdump < Formula
   end
 
   bottle do
+    manifest_sha256 "2ccb73253bdf3d987866e187ddb34d3bd7cf5d0f66e6d3a904f24dd0ad7c7693"
     sha256 cellar: :any, arm64_golden_gate: "341de462ccfc70404357d038d390069652d9b7797471d83ff96cd21302f4730f"
     sha256 cellar: :any, arm64_tahoe:       "784a23c965e8f634559e485dbd2f007cab67c26fa19a08cb0a5df382db4fb147"
     sha256 cellar: :any, arm64_sequoia:     "c12571f0e8bc8e57f9840ccba5613650f40b6a7ee857fa48e1113a6f6916e285"

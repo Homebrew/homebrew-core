@@ -12,6 +12,7 @@ class Lldb < Formula
   end
 
   bottle do
+    manifest_sha256 "ef089d14b2c0e6fc2ac83c44e13b587d95d202a96723af787e9a678ab9516e12"
     sha256 arm64_golden_gate: "9b3ca76ffcb19d01246904d4205d4f76168ac8f6b0ee800be3c1e8f410815f12"
     sha256 arm64_tahoe:       "440571f9d7f30ea761f9392d946d293d1261760edbc9a9fa2d4e0225ec2eb6a2"
     sha256 arm64_sequoia:     "4d80273d2060e73158d2326145cc5c06b412739476c1a3e05fbf073ba7bd87fe"

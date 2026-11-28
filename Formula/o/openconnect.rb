@@ -12,6 +12,7 @@ class Openconnect < Formula
   end
 
   bottle do
+    manifest_sha256 "5d9132c2b9469c609a7d523825482d5ddb83312250452ea785f0f4317843e7f0"
     sha256 arm64_golden_gate: "4e8c9eddb4f1032ac52a50c12912d80bff339316c7637aba8104bc1ec111a5ff"
     sha256 arm64_tahoe:       "f409aa8b1c88ff33f1b5ce49740814bb932dba4a3877bc6a124a0f16fd39bf9e"
     sha256 arm64_sequoia:     "e435e4d4b91995be58f866b8012adda7dcb7cfbdff02fa7abcbf017f0b389fc3"

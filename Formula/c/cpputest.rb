@@ -8,6 +8,7 @@ class Cpputest < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "055e47bbe7d4b3c65fec663d52b1b06d3aa06e1ca10cb0b9fd460433249c2bb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a178df9b3893e29f27d3c70753923da757da91c146c3e2937961a6ed677396eb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "abff3233390673fd95af1c7bccd0b1b9c9687db0057b816cdb43b996f1d0bf73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "04a3efc8b2286e305c60c9bb9f71d34f8fbfee43d875192e0a97546c92e67658"

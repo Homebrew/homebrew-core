@@ -8,6 +8,7 @@ class Ttl < Formula
   head "https://github.com/lance0/ttl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a6853ed6c231e1d423e1f50db4117a5b1874f2e751ee8fc809fd72f1e71f8040"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01fdbc89f70227cb381c8aea20993e32c74dd399fe49b96525877cb649a2712a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "540482f91198db1b75c439836879ae38e6f6a5fba3eb0f2ed9e7cc317e233836"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10939ac76a96b9358d1abe0d56d6591e144ebee334c424c822e65cb1ec5135a1"

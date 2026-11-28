@@ -7,6 +7,7 @@ class SofiaSip < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0f5962ac28c32575fd9a71c0b6d92cb5beaf05bcdf7b19d280240b831d15fbd9"
     sha256 cellar: :any, arm64_golden_gate: "67bdb2c21dbf6434f8750d7814cbc95432822b313516b51ec72a88e3dd00aa46"
     sha256 cellar: :any, arm64_tahoe:       "8b5721163758ead84fa7f2d97b76b7ab16e59b4f7233cf8fe6f3d728025999c4"
     sha256 cellar: :any, arm64_sequoia:     "170a0169e8969daaf6cee1fcb3062724748f93b1fa49238c84bac3e5e5763bf3"

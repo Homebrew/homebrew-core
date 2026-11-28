@@ -10,6 +10,7 @@ class Tsung < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9f4c11952d6b4e10b93074ebc9538d56a2e0edc0cea49b721e4f1aeb02b9305e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9a2957d3ca1d62addb6198ce87dbfbf1ea5e20484d0886eb2b502966137cee23"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1da5e28ebc2cdbbc423599d8ad4a10558df7a0e3435a7dc1dd03d5de86989308"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0716843ec27cd4cb42773d90b4db0ec5f3ce200c467dc9354786cfed3967a6e2"

@@ -7,6 +7,7 @@ class Brogue < Formula
   head "https://github.com/tmewett/BrogueCE.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0585a46e4b1fd7bfd26a971f8d9b34ead7ce7ff716e4cd464d2e4799c36a1025"
     sha256 arm64_golden_gate: "1fff33b966a31b82937a34252a8442c4e9ca6d51ff602076dcdf56d1326092d9"
     sha256 arm64_tahoe:       "2858206ccd294ed6b8c3ac136a96c5f5af9815835fba94b10f2378dbff0ce44f"
     sha256 arm64_sequoia:     "dcf0b0db0bc9e3e8627f87ca35244787bbd89fe093b05327424f8655f598ab6a"

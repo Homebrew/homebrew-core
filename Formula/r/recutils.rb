@@ -7,6 +7,7 @@ class Recutils < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "e96a180ad4c8414e0bc674ea680d650b94bb58e7935036bcbeb6f593f81e59fa"
     sha256 cellar: :any, arm64_golden_gate: "c8cb8ff909e5ab868a75612db3565b95c2a8853e779b33d1bfedd18a863b7e9f"
     sha256 cellar: :any, arm64_tahoe:       "1195eef57e411f91d204f23655150667170fdc64242f0503b7e376deb112768a"
     sha256 cellar: :any, arm64_sequoia:     "f1c4d50014f990bf82b005678e5e50d0437c4832db83e80094e0fcfbad824078"

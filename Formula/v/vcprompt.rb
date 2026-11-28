@@ -6,6 +6,7 @@ class Vcprompt < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "0955cdc5c0e169c465c8e75d81ae50be4209813fa40eb9867063562fe18ba3b6"
     sha256 cellar: :any,                 arm64_golden_gate: "0c46e7c6264eeeee9c59c1d5c22098bb121eebacb52357f6af27797664ec76ce"
     sha256 cellar: :any,                 arm64_tahoe:       "c88613793fa29e4eef8e6871f9974a4486fc0129194e7ceafe26d257a253d06c"
     sha256 cellar: :any,                 arm64_sequoia:     "647b480e6f4b4168c0c89405dfa6351f9a0ae16065be2a90c9822ae958cc789f"

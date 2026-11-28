@@ -13,6 +13,7 @@ class BcGh < Formula
   end
 
   bottle do
+    manifest_sha256 "b85576bd36dce9c8fb579859c357a122448c73de075beaecea3866f0f596a816"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f217f49d45e07616875014f7a5c2f8ab101515d9f0ba6481fc77f430c8e2438"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa3bec57b187a0ccac9514b08d6782f93b7090917598f37c1f6bfa1ba21bcb9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9c25b6baed11d3e111039ea04100d211d37874750f42e2137d78e7774646e06b"

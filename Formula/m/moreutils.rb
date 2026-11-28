@@ -16,6 +16,7 @@ class Moreutils < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "25e0a596d418b0b51789a8df91a788d0ed953c6cd185db6d46de81740527a9fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a7ff4ef8702f3fe3e31a148f87b1a5051804d9b971069fda621668cfd9b397d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4791896aa6bbf8d7cc1a59c11210c687960fb2e6a30980bcf39fe5963de44434"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a381a17a5d3a4db5e311c622d78cf23dbe823b3ffe14fe33eba0269c3eb274bf"

@@ -7,6 +7,7 @@ class Tml < Formula
   head "https://github.com/liamg/tml.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8c25e8c73518429faaad1c9503e7179700cdd9fc47bb2613fc0e524f33709e1e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d02712a008d59e4d803bcf65bbe6df2d0d25ba284a92cb335e1744cb5731bc41"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10b34badd3fef44e0bf17c4b4c82a136d08f4ad72fb80037b5897f338a683464"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10b34badd3fef44e0bf17c4b4c82a136d08f4ad72fb80037b5897f338a683464"

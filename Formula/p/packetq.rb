@@ -11,6 +11,7 @@ class Packetq < Formula
   end
 
   bottle do
+    manifest_sha256 "e384a36ba0bea073e8669cd03939e2d1c5fbdb2e7e35b314995370631b06218c"
     sha256 cellar: :any, arm64_golden_gate: "bffbf8b039c3e2d1364a5114ec3e1e550a51eaa19c46604bdf5dd1126bc67ef6"
     sha256 cellar: :any, arm64_tahoe:       "9e7c6165060837d81be19767afbb9f78ca3648152684e7ecfaa8b9fc4bfc8ecd"
     sha256 cellar: :any, arm64_sequoia:     "93f379e6c0b6f00334b243d08bab26c4f5f43bb5a04fe16254a21948ba4b3050"

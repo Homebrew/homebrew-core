@@ -10,6 +10,7 @@ class Dragonbox < Formula
   head "https://github.com/jk-jeon/dragonbox.git", branch: "master"
 
   bottle do
+    manifest_sha256 "55ae3770bc3134c3d474e2a27fd09086b2a6ec8811b91dafe83f92f7d00a6342"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1f31bdafc74bc9b10fa0fb17aff183bd397a52a31840241b6b518e03fc47f16f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e8d3d051a973de698e054f0cbd6635457ec76d3a290232b6637531587c06fc2f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88e4534f61830511e3688998ce11edb471262826c3d201f38bf6e11115c3c44f"

@@ -6,6 +6,7 @@ class Entityx < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "95f77b13493395404780f349f16801d6baa91d78ac1c49813b6ba67aef809ff5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "127d519d441ad44b619b609cb527b06e8a3d4c973665501817d44cf9edb65b38"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83a257bcf2bbc1ca76e5148faf1a87945d4e987c575c12d3e6417cce65642a1c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e9581dc9272c4aea13b72c38984aa2697cd705083fe55fc96a3b313402428cc3"

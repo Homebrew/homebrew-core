@@ -12,6 +12,7 @@ class Align < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "7c4106f2f1e689fef8e03acf5d074c755c9ceddd452ac988d722cc722a1f810b"
     sha256 cellar: :any_skip_relocation, all: "8322889bf3e340cda1b21c32ff73ad718bde32ead186bf7b4b69f0f88f280066"
   end
 

@@ -8,6 +8,7 @@ class Amp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "12252884850ebcb3cf47bbf9ebd51299d2a40cb35031d34a53371619a040e272"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c4247ca3f34ccf3711a926f8e3e04381f7e88618ec72fdcd06584ef1b5176fc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e68d39d4763586359bea02f2ac21612dd8c0a0fb6030bd02981c5d5f57ce8a24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "434286f4bc1df2e76c8396ab3e72e63d78482aabe5e7fd6bcfb1b5c2ea750873"

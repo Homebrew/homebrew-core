@@ -9,6 +9,7 @@ class Meson < Formula
   head "https://github.com/mesonbuild/meson.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e1ddee64a9e361b9ace6998f86a288090ba4ab30e9415627ee3d8b07b750563c"
     sha256 cellar: :any_skip_relocation, all: "b96956c5579a2a86f58b7a32c98f21bc587b58c2a44f6314ad1ef02b5b09a04b"
   end
 

@@ -10,6 +10,7 @@ class HgFastExport < Formula
   head "https://github.com/frej/fast-export.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6aed60ea44fe8dff8c635c4edfb06d1e268696c2a8f70fbc3e4183a91c879aea"
     sha256 cellar: :any_skip_relocation, all: "9d309f42b21122a4038b57e3a7d0cdb76d970625ab31bdce5c3caa54c0347fc8"
   end
 

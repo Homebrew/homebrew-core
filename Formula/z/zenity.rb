@@ -7,6 +7,7 @@ class Zenity < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c765545ef6f753573ba775ddd71d55d1e16672cbcb8f7f939b62bb0240ececf7"
     sha256 arm64_golden_gate: "3d70bb36451af724c23e4b022ee533fd34a29d2ed91af47bfd0521b3df09969c"
     sha256 arm64_tahoe:       "b422f8fbb0db0178eaaa88fb933b6aa56596fb2b5e4d97fdc44b3902b7b3238f"
     sha256 arm64_sequoia:     "f675d793af98c544a41763e2529a3295acf5f6bd8a8927af64d500c1446f232d"

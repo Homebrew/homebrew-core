@@ -8,6 +8,7 @@ class Toktop < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "692d8cef550c799bc6036b8d17df45959f48a592dd134c0033e0669bbfa92e46"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a17a979c556745dac109cc15f77ea88f1f85748f4e2d1142dfc64ea38516f807"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d94dde0c21278442fc14e4e3e0b69762ae51f4cfd3c404d3ac754b7150cf67fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "128bed798080c3cae87394b84f387b2b9b20106130983f63f5de8dc0b5de83d1"

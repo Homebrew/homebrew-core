@@ -13,6 +13,7 @@ class OneMl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "993302c752f2fe696c59403d1557c72a859b6098a8ff077fbeb6d66835ceab88"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a570301935a2ad0c76d2833a49391059ea6e3ff399764863dc5fef027959874"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "860fb358a7e0ec0e442bef49e7b48935e44f016a46a24d45d488f96944d16f7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "518403a9c2d724be15ba74440476759174fa0f95e7e5e18d799df42dc406d0f1"

@@ -14,6 +14,7 @@ class Cabocha < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "806d23416240a03c945dffbb37f23de0418162e69054dff352f54ffd082efe1d"
     sha256 arm64_golden_gate: "20575b4e20e45470fac00148ba0f4aafb0f814bf7a3ec70d7054bf2df90fc7ae"
     sha256 arm64_tahoe:       "e3862dcd2820bd7abc7984b1ac9449398cad2ec280ca1f757b3809ef7ad8f227"
     sha256 arm64_sequoia:     "10a190b7fea68a71d42b2b95bbae271c6e9c86792c46023b85d8197d9fc1b1f5"

@@ -7,6 +7,7 @@ class TheWay < Formula
   head "https://github.com/out-of-cheese-error/the-way.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1e59cdb2928701e68d7d547798f0eae2c4fd030b17372a26707004eba07e1d4d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f6cd70238028b27d9ad531b6217c7c53320f7ad9ba229ce2d996279148e4c7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e845a243d3985c6399c2284687ccce5b3fb6d222aac698f9be8f7cd3b32ee15"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4494b131233473d0c65fbd5e3a47811f8f49e7759fc61a5274c33705d7091c4b"

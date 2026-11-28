@@ -12,6 +12,7 @@ class Ironclaw < Formula
   end
 
   bottle do
+    manifest_sha256 "ef8f171a58f5280cc507a1fa539014b3fb5f291e465fe560126283e562cdb22a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d0c4087839bef72dbac7d1465303f79d0def698ad5cb8efb87c949b3b887d25"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be6484012551ffe7f78017cb85e134db78e4467c41eac3be95dbafd696c0a643"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6b709f291d54eb0231662e3681e2bc4c3561faafeee6627b0b588710aeeabd1"

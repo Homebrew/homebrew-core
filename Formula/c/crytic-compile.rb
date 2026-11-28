@@ -12,6 +12,7 @@ class CryticCompile < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6b93d8e1117145b5a65c82ed48abfcf0b5f1808bc842e629b53fa12309bc8da8"
     sha256 cellar: :any, arm64_golden_gate: "3836d8778a1c41c75032daf47a92be3f1097f52436e45be801b5e5d6363832d0"
     sha256 cellar: :any, arm64_tahoe:       "8bc2b0b9b77d37c7750a20691915750cd8100f0c8e332829808170f92df12865"
     sha256 cellar: :any, arm64_sequoia:     "b2a04f96745ee13d89a72f8d781b2d08b41654554322fe9eb82290243a6042fe"

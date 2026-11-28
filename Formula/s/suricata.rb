@@ -13,6 +13,7 @@ class Suricata < Formula
   end
 
   bottle do
+    manifest_sha256 "3c725545a5d536156a904672dac8701f0196f4887a7378c9547a1785330db04c"
     sha256 arm64_golden_gate: "97ba78e4aa1c5fa011f1a8483307b87b45bb1459a1355957f12092ecffaddd44"
     sha256 arm64_tahoe:       "229c7815a5c5dc52e6f95bbe71a68695f3ff61a9dd312f3976c4b323430aaca5"
     sha256 arm64_sequoia:     "c38ac7d8545866d4e0776162bba4dfed9ff272da72802ba86808c8d6e4e5f37b"

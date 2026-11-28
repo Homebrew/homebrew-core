@@ -7,6 +7,7 @@ class Functionalplus < Formula
   head "https://github.com/Dobiasd/FunctionalPlus.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1a3de3a0bc60918a32a0ae5bfcc32e799b3b8587cf684be94ff6b869a24106ae"
     sha256 cellar: :any_skip_relocation, all: "99a0a032e6e1a98799d695b1ed87a3f3152807c0d33bc345fd19dfab92a8348d"
   end
 

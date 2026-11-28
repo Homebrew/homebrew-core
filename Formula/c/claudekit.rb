@@ -6,6 +6,7 @@ class Claudekit < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4651540593a00a501e73c727f7b50e28f940fe7d823411a1078d885c41c1ba92"
     sha256 cellar: :any_skip_relocation, all: "ab214114f730abb2e91457d273f6f067aa29be48fa8541e3e85f002f64e4f8e4"
   end
 

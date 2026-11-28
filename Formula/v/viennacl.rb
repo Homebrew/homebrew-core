@@ -9,6 +9,7 @@ class Viennacl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1c98d091fc41e7a4297e316e25cf1da41ea0e334171498376bb67b3098ac13a5"
     sha256 cellar: :any_skip_relocation, all: "3b6b46db6eefa5b811d7b2ca7e1d6bf2de9946cba356f54e9fea0a3f69511877"
   end
 

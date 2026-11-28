@@ -15,6 +15,7 @@ class Hledger < Formula
   end
 
   bottle do
+    manifest_sha256 "8e7a7ef4716584bf85aab2706ba6358dd83d06ffceebd2d3e0cb56138db497d9"
     sha256 cellar: :any, arm64_golden_gate: "a531f8ac867cfcb0d6337172cab9703774508420f92790c8ef40445dfbf8b444"
     sha256 cellar: :any, arm64_tahoe:       "bd735db8e2f23985efb55cf5431df98fa8737a5f0a08943d13d99718187e0d46"
     sha256 cellar: :any, arm64_sequoia:     "40b0a873327d54a350e099b49df1c0550e27ed4e8c17a110e1615bdb3be3ae56"

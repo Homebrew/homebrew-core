@@ -7,6 +7,7 @@ class GuileFibers < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3b7f1a81024730b7ae791f2b3ac5e24de4f6cc16d8770496a9e470156954d7ce"
     sha256 arm64_golden_gate: "20d846a468f1f21cbb74fc73062e403d60df50b81fd6d9acec164051441f7393"
     sha256 arm64_tahoe:       "a198ed5e9b09491ffd641bc6d77a21b6b257487a8f3712576ddd931bd854207e"
     sha256 arm64_sequoia:     "68fa201fb2342fafa93418def0246e248796809a69e22f89dc58bbfbc0c4bae2"

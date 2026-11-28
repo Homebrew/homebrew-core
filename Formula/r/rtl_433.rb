@@ -8,6 +8,7 @@ class Rtl433 < Formula
   head "https://github.com/merbanan/rtl_433.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6c926efa94be1f81a67bc1c075edf03a5e5919e1968bc90a72da91c5a8b77277"
     sha256 cellar: :any, arm64_golden_gate: "cb63d1d4051c9c289f24a7f5c3484101836207eb2bceb5f28501682b8ff5bbc8"
     sha256 cellar: :any, arm64_tahoe:       "60d880ae9575f44dc53d72ca05f666863b2dc87853ba74b14d4105dc3d56b1bc"
     sha256 cellar: :any, arm64_sequoia:     "8b80046bfd0a6375b3a13e6955fed7c8acadd67e56a5a9c790ca634b0aaffb3d"

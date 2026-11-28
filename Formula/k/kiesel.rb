@@ -7,6 +7,7 @@ class Kiesel < Formula
   head "https://codeberg.org/kiesel-js/kiesel.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2c477baa98f592e8693790d2dc73c335f789716ced30bc81797df5b623d1b64a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b050d26dc4426b4b2455d46a36c79865a8dc7fbb17ca10f3dea17d052f64105"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e5acb716e8f9d174d1c96e3280fca4a76fa9b4da336d5a4d9cf125d4e8775ee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0902edf986a74f4d485b205a813afd9da2a9879deafed1cc203a2d44413e1032"

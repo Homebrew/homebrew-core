@@ -12,6 +12,7 @@ class Ddclient < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "79197fab507acf701058b33dd868bb491c8746177c1954ddaad28f18b7601f2a"
     sha256 cellar: :any_skip_relocation, all: "dd5a0ecc4036f9ed9f287ea1240f09cbc2bf2cfeb5d672069e3ea384465ceb9c"
   end
 

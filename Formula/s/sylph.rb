@@ -6,6 +6,7 @@ class Sylph < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7e8c772bf2b428e94b518ad24ab5103d1140ebe527473e08611c05231f8594b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce1cc43a16a406426cde777ee7abfde0553d6c5c8a6461d9bf0bd55b6e6dedc7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e016ca805181652ca6d8eb424163bb2f5ef69615353c4684cf4ed3040672b07"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75192d460f8261a3e40c5343827037c0774704f7020ce2ecc954ecb4419d968b"

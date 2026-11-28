@@ -13,6 +13,7 @@ class Tin < Formula
   end
 
   bottle do
+    manifest_sha256 "0b8b10a4df513be89b369d0637ace1ae35c7b295e6fecd9bef07573da980f516"
     sha256               arm64_golden_gate: "0147d629fbba5edc645df0a3f912282a0f7be121b0c5a6a081890c110fa04a74"
     sha256               arm64_tahoe:       "1e53cebb5c99bc1f13b9b9590fc9ccfd7e33b8bbcd46ab6c807fc36295d84a77"
     sha256               arm64_sequoia:     "d8d5a7b775fecfaeb97fdece2f059f409b7480f0a91112c49aeb772cdd8430d1"

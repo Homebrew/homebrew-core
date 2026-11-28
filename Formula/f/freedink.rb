@@ -8,6 +8,7 @@ class Freedink < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "28565cf360bc22d7dedda92583ab922db634c2fcb78c27f4de8f4928c0867167"
     sha256 arm64_golden_gate: "df6e1ae1fd6b53bb8a09d7d1203e767c3c5ac3dbe39f1b832271178b29b796d5"
     sha256 arm64_tahoe:       "68cd1561bc7d6a477d2d3457a0c1867bf19cec00fd84c46f0fe74fd18d961cf1"
     sha256 arm64_sequoia:     "445ea09cf443c8f5b9bb1f67fc5de82f0735312169e3b009166e1d4ec0cf971b"

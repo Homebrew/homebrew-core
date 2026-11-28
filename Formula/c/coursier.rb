@@ -14,6 +14,7 @@ class Coursier < Formula
   end
 
   bottle do
+    manifest_sha256 "a978f3f1df941ca616858738e8d69de6eca07c2a686d349ce2214ca615b22f0c"
     sha256 cellar: :any_skip_relocation, all: "3f307428d6edf316003c0b10e2e0ff1d5309ec71c3ecbe04836e4b7d9222a456"
   end
 

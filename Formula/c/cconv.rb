@@ -6,6 +6,7 @@ class Cconv < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "074eb42b20cd832bd0e605be48328412194292dd8d805eb3b1a095b4272078ee"
     sha256 cellar: :any,                 arm64_golden_gate: "02821f780c4850f7b1a50c144a1b8dc47e587483fffca6a6f674a189fc6197d4"
     sha256 cellar: :any,                 arm64_tahoe:       "bfb30a39eb38f85420bced927f9c1db3d53a584cf4536a474621ad27a4936303"
     sha256 cellar: :any,                 arm64_sequoia:     "09a537e89790d6af0c6c2f1bd9331b1860b86800285c55c5f4420317aeac02ce"

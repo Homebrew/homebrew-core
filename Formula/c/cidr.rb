@@ -7,6 +7,7 @@ class Cidr < Formula
   head "https://github.com/bschaatsbergen/cidr.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1637e558630cd130940107d52f46fd7aea766bee20a565564844c0b71eed9608"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bd385f6feca1ee7f00cbfafd88f2895bd13c221a88929e8ef89fa40079b0b678"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dcbc8cd8981394e22863784293723d4f498d4e99e7bd887303f627fd8800bcd0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dcbc8cd8981394e22863784293723d4f498d4e99e7bd887303f627fd8800bcd0"

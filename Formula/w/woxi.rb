@@ -7,6 +7,7 @@ class Woxi < Formula
   head "https://github.com/ad-si/Woxi.git", branch: "main"
 
   bottle do
+    manifest_sha256 "abb87ab2119f48f68ff9f346ea2aa2d65b30affc8dd15d10ef08ee98c6d0f40d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7c6b9dd0082a03feadf3107e7e617ae3c59703fd5ec4b02ac1b6af09992ea3c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59c63a311e330c7b7720926ac737873d550372ad008aa113b25a456c52d9a45c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98d190efe1ba3597910d02b1d936c0a570714d268c64b8d173d9ad4a54e18505"

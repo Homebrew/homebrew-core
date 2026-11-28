@@ -12,6 +12,7 @@ class MongodbAtlasCli < Formula
   end
 
   bottle do
+    manifest_sha256 "366940abc1d067752952fc5651af586a2a58a4c0a8807e9bd62425b8ce550930"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "143bc47b8f9666a9a1fdbd4b4d5a49c7fdf7d7c1eaca1194d9d75c107dce41c3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4c14f29322864fbb00f4d99e0f09c36863ff6305701c401703f6e366822096e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "977b8a8440fbdb84749dc74e93190e761a219f83b7cf056d81f0721d897600ac"

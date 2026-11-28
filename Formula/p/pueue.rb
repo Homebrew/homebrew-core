@@ -7,6 +7,7 @@ class Pueue < Formula
   head "https://github.com/Nukesor/pueue.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6f777143513cce0277243ffd1f300230c26b31b8748698a0fdea35a807cd87a9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b37bbaad431b3349abb6b27bfbcf26e634425949c472ccddf67d30dc63c114c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b55ac7e5eca5131d0345cd70c6a42cadcb36f336fa6b7ddbb21eb6301f9da4b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4a775e37b5f599224adc910daa597381b1e4f6a53ad8b5b5f11415d211a3abb"

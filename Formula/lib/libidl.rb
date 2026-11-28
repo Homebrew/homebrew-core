@@ -7,6 +7,7 @@ class Libidl < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "aa42ba63cee281071332c957d0562aa4641b04f818bec899ec74b17540166fcc"
     sha256 cellar: :any,                 arm64_golden_gate: "a6d3733db277d7b88157c0119017434baf2e94a93d22716ce307ec6c1e454caa"
     sha256 cellar: :any,                 arm64_tahoe:       "a0e91391470fe336c418566901c022fbd51387a87581ac820e72592c561001d7"
     sha256 cellar: :any,                 arm64_sequoia:     "dc9090a7f3672741f6edaa0564cc8c5cb28cb24e4bc43108d8953e05f3fb1eaf"

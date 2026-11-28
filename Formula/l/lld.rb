@@ -12,6 +12,7 @@ class Lld < Formula
   end
 
   bottle do
+    manifest_sha256 "17117a5645bb398c37d19599c75acd92222b5ebf4440fee2edf4345a5af98d2e"
     sha256 cellar: :any, arm64_golden_gate: "80a763bfb710e2e6ec13e220204d4c80fb3ee77f4b545399bd3a101f37cb6307"
     sha256 cellar: :any, arm64_tahoe:       "1c2e0a1ad4edbd0082a6f90f434cc40ce8494ae65ab584bed45611ea325b4780"
     sha256 cellar: :any, arm64_sequoia:     "13124f426568b2b1d209f446faea63b2425dc1f1a2540b2b9853706b03fc8a8c"

@@ -12,6 +12,7 @@ class Morpheus < Formula
   end
 
   bottle do
+    manifest_sha256 "485351d91dc145113ac5ec4e7fb74d9cd6c83fbb21301627e292b372c74fce65"
     sha256               arm64_golden_gate: "314c466dbdd5fda4ff9e3aa7e60f40cc5dbb48a2354a93f4d4d45446cdf3480f"
     sha256               arm64_tahoe:       "1a6a07dda8f81959925bfeefe278ecd6ee27550110c0df3c23ab439ea63d9e16"
     sha256               arm64_sequoia:     "b426fd86f24ae833f33a250a0a81add68975b9c729c361eff3a54bed68c38ff6"

@@ -12,6 +12,7 @@ class Vramsteg < Formula
   end
 
   bottle do
+    manifest_sha256 "c21489712c6b9148c2f51151047d4820e0229ceca8ee7a6a9de5db0bebe9175d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "89c3b6c5c36ad0e030dc21dd5eb262e6b3da694120f06a9900a76da82e8d32ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5479befe15922fb1599789c162d94db24b307d31ab67508ac4ca5ab2e416a8a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fc0621375da82a15b6a36551f6fe423df69a79c656beae75ce15a6e6c331556"

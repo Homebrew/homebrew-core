@@ -8,6 +8,7 @@ class VapoursynthDescale < Formula
   head "https://github.com/Irrational-Encoding-Wizardry/descale.git", branch: "master"
 
   bottle do
+    manifest_sha256 "898e37d393b682d8d49a69bb43a896fb75ea79dfe9440b9bd481a18c8b150b6d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "590bae183f8ba91eb69332ad98655cb8ec16692d107546799cd78dd26df095db"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b85bec238cb4346a056228ff9a145c86be263951947c9baca0687a5823ca3b42"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57407f006c35ddb7b664767a56586b02ef8c110fa101534a9abb93a9083cff94"

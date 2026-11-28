@@ -14,6 +14,7 @@ class AstrometryNet < Formula
   end
 
   bottle do
+    manifest_sha256 "cc6cefe1b63fdfcb3604c0b64ff62d2252b3ebe28de2e4f540dea0d9d2959405"
     sha256 cellar: :any, arm64_golden_gate: "46bfc0a2f53fe5874800a68344de95c1414e27751705e4dcb4c175e6c4aec2d6"
     sha256 cellar: :any, arm64_tahoe:       "f54631a7c5d08be6c5c5e537afe3bd0a3fb44c4b7429a92615b1b43b3bf26810"
     sha256 cellar: :any, arm64_sequoia:     "f349d1a6c482db7ce372ed3500ee0879e9f4354e34b7b5b9b05b1425a4db9e14"

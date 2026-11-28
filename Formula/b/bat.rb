@@ -9,6 +9,7 @@ class Bat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d652b02d4b96f85161302cc1466e549cfdc26204320d3a586e0018b0efda0cda"
     sha256 cellar: :any, arm64_golden_gate: "4f85c0855e391d5622c0dba97474ce7cf617ea43f9bb264e6ce4f2edd682091d"
     sha256 cellar: :any, arm64_tahoe:       "19c6976b3466dadae4cc2538dd9f5795d0b1eb9c65136aa7f58cf1e3852ce7c7"
     sha256 cellar: :any, arm64_sequoia:     "e1acf0a602a2b067552610139abd0957bdb9aec8cb54ad883e0c318331300007"

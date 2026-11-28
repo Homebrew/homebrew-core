@@ -6,6 +6,7 @@ class Wput < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "b70e2229f96d4ca6b4fafe2eb7a94603ad3e6e4777244722336619cd525a079c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b2fcb6f2e2943bc1c4f3d3b0499147c205c908ee59f8e87da6d73be1a1b3912"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "228f7a8a4bc5246862d4ccdd64c22f11ae8fc5400f1a5a923ca999ad308a5919"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c7b895351c316eeb37308ac163b54d36c997c2909a00b7ecf3837081af4a1e4d"

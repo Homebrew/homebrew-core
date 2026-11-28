@@ -7,6 +7,7 @@ class Treemd < Formula
   head "https://github.com/epistates/treemd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ee424d118d45000cbaf6709c3f74fedfb0c7e3cdec0b1cd95a4cce300987f602"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d501fbf629662a2c7b232db52220b90b1201eff0f8bdf1e9da7c461cde485fd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "adab7457bf8b506f769667fccb731cddac0c7f7b5429ab1f7cdd635b18566eea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d91b787ba61e5b7b54db108141c01155d496582bff2d952f80bcfeaa9b92b20"

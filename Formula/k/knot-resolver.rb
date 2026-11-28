@@ -14,6 +14,7 @@ class KnotResolver < Formula
   end
 
   bottle do
+    manifest_sha256 "51bb937306635ce1146be1ec0eb38b64aa84beb163903022c7b33fe2df9d36e3"
     sha256 arm64_golden_gate: "17e4ed5fc06566defc2d482ecec5926f1579e1719972670e88174dccc76585c0"
     sha256 arm64_tahoe:       "f452bb5fad7c2016e1ef8a398428440d69457926938fb28f0b7f470fa2026a92"
     sha256 arm64_sequoia:     "1e10d2b91f282207ea06afbe1ba0f193c840d3808e3378b87cb77dfbd21fcc26"

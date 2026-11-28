@@ -14,6 +14,7 @@ class Librist < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "98f2bacda89d0008a3c4b22f3039044208c396e6aef92cdb9ec522d9efec782d"
     sha256 cellar: :any, arm64_golden_gate: "c752266fb4814a60518c578a17fb741d637b3553c29880464ccae428af599181"
     sha256 cellar: :any, arm64_tahoe:       "d53fe875d0331485ee81cf492045ba8cf5551e596299104fc428666bdd328a8d"
     sha256 cellar: :any, arm64_sequoia:     "eb3efefc1292c5e105f3fa8e585d229a5cd9b853f97603acbbe26445faafe342"

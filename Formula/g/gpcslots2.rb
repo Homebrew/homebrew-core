@@ -15,6 +15,7 @@ class Gpcslots2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a12d641f13af05022581f0101856073090d3cf2877218cf010fd4a4548301b55"
     sha256 cellar: :any_skip_relocation, all: "929c7fc634b2f18293d05562d73850df33ac33ff14e1d43bb62ccb42a4ab778b"
   end
 

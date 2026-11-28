@@ -6,6 +6,7 @@ class Libcec < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "ee81e5abf09104b469a47bcf6a46f7129b1c1733691997700cf3b4a3ec399325"
     sha256 cellar: :any, arm64_golden_gate: "94d9e2cada097a78f3ceaca610eecb6113f500f30aecc9d5556f2575cb6b5bdc"
     sha256 cellar: :any, arm64_tahoe:       "7cb2c4f58345e422d49ac65322fd716bc9a8ccff8df55cd5e5a6315e53c2103d"
     sha256 cellar: :any, arm64_sequoia:     "4b48b01de2b23cfe3679d19b66296231c34e283da6b263d839eab8775346d01e"

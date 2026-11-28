@@ -12,6 +12,7 @@ class Minigraph < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c6d17b26d2316c80c297c540a34c8be65a689dfc88fabe0e0b3582909eecf2d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ad59527fbf4ae8292f847f0a660b84216d004c00056d88af892025f06a28971"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48bcee41e459f118349bccc93b32a9e721ce9835f293b32ffc168edae3b6f900"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "013ee66a3369941bfc4fdde7418fd2fbb51247646b89db97334d68c1461abd4a"

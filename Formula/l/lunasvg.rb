@@ -6,6 +6,7 @@ class Lunasvg < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "34114c5b0e4bde9441bc8e0328eadd77ae0b4b8ad67e2473b79a4403c7ee9f8c"
     sha256 cellar: :any,                 arm64_golden_gate: "1890048e73381bac69607861b23528da00f242fb0348d0dc07cba5eb6f4a9185"
     sha256 cellar: :any,                 arm64_tahoe:       "3ba4d114606c7abb635b3520f37ec4cb4ddd24c921d5b01086cd2a0c9cbea447"
     sha256 cellar: :any,                 arm64_sequoia:     "499a9cabbbac89c833bb9761d8216939a695f7ce998da8fcb6783f33b92597ee"

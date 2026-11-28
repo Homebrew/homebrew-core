@@ -7,6 +7,7 @@ class WpCliCompletion < Formula
   head "https://github.com/wp-cli/wp-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f592e52187ab11fa5429056417a74f16cb9b6fc6eb56b879860afb2dfdb00437"
     sha256 cellar: :any_skip_relocation, all: "157dc6d8f92431bf3084c0ce8b8f78149299ad308b17ca23df5235622213565c"
   end
 

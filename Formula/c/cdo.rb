@@ -14,6 +14,7 @@ class Cdo < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "31edb15b5e61b1c144a4da3c9fb9cefa1d67577388fbceb41b30c1cf10ceb988"
     sha256 cellar: :any, arm64_golden_gate: "f9077858f95b445f3163e23b01169213079839c8d024a9df70d83635a4006f44"
     sha256 cellar: :any, arm64_tahoe:       "be75aa3d9169245e31e5e20ba457b54b71733d899b4a0936463b7383c0b61b57"
     sha256 cellar: :any, arm64_sequoia:     "a14b629df79549759e6dba33f2e0fa6ae4e13196622da8f7bd193e69fb254be9"

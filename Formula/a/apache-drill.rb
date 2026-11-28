@@ -12,6 +12,7 @@ class ApacheDrill < Formula
   end
 
   bottle do
+    manifest_sha256 "5847521c0fc641c3ebc5289454cc8d0c2a88dcf46e406cde9684cd26aff1b166"
     sha256 cellar: :any_skip_relocation, all: "8822e3447afdecf6c393810d92f67814473e04f5bee2839e150b3e0ad0194c08"
   end
 

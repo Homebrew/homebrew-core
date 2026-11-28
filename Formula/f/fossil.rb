@@ -13,6 +13,7 @@ class Fossil < Formula
   end
 
   bottle do
+    manifest_sha256 "5dfb31737ffa135ba88dd0ddb0182772c70c2ef618622627318ccecbbc7f5243"
     sha256                               arm64_golden_gate: "766938883d3db17c07df07ce5e31c2787c5e8246179d9419cb68c8329f7cb0c9"
     sha256                               arm64_tahoe:       "5e31addaca063b247a0ea3f933cec94cd2c717f8f5b35f60649acd26d4b98e16"
     sha256                               arm64_sequoia:     "addc876425062178960ac5ff4695d46bf417878ead65c0e46e9d57e01d7a2557"

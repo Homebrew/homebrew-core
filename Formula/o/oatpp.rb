@@ -6,6 +6,7 @@ class Oatpp < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "f6102cb6d369a85b9834549adf7227c5ccd3e6b356dd497ca79fee696cfe497a"
     sha256 cellar: :any,                 arm64_golden_gate: "35bc37448aed088082f7f56835ee9918af13c9d97783d7d7b6bb904a87763d0a"
     sha256 cellar: :any,                 arm64_tahoe:       "1d123435c094ef3f8505f2a0123b98f5bee8686723b01e87b7eac1124319146a"
     sha256 cellar: :any,                 arm64_sequoia:     "9660efd36d9aaa939d7d03d4473cdacb0255c289105c055aa3c66e64b972790a"

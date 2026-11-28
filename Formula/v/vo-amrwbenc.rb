@@ -11,6 +11,7 @@ class VoAmrwbenc < Formula
   end
 
   bottle do
+    manifest_sha256 "e53cf4f67733921f1d349543056f6ad5f626e5be87fce78024e30033d3118ab5"
     sha256 cellar: :any,                 arm64_golden_gate: "464b891fa2ae59c844e178bd834cfe483df389f0de03f3630e3c7ca98f6d6331"
     sha256 cellar: :any,                 arm64_tahoe:       "654ba6332b443125e46a211f00ed4f16b219d6de0068d8a4ea863200e97694cc"
     sha256 cellar: :any,                 arm64_sequoia:     "fec91381e714f851e4215e99f160daeeb8844fe28ac28bb86f4de6076eb7db1e"

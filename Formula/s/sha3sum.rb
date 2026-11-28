@@ -7,6 +7,7 @@ class Sha3sum < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3a75ee9b6fa6b4db5185405531630b34a1af14c486e644a624040bb28830206e"
     sha256 cellar: :any, arm64_golden_gate: "c9f9fb8097d4885e02a56f97c8082ec0b75b16a7c70ed24d37eb0beb323e805b"
     sha256 cellar: :any, arm64_tahoe:       "6302ca9f0b19f528c9d2b8ab0b3c62698ec98a8e0d23a1fef4a516a3de28e24e"
     sha256 cellar: :any, arm64_sequoia:     "e51c856c6039cf07f68188725a788e1e1f9881969497ce2a3145dedac7a4103a"

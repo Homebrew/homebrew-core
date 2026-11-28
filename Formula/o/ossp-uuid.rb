@@ -12,6 +12,7 @@ class OsspUuid < Formula
   end
 
   bottle do
+    manifest_sha256 "492c02b49b1138de09564a523cbbc103297e06df5236a541f3dd88b5cf056f3f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43b6cf5a50fccd89540a90d0eeaee77c2fff228128c0291096f2a78950af211d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d25ab2444dc60f7fec95cbdc75fee7b6594071e0cb203fd395e6fe29fefae1db"
     sha256 cellar: :any,                 arm64_sequoia:     "54fe9ac592343b06d7ce62e286cf0afd06f90be6c9aebd779102403c51cd55ea"

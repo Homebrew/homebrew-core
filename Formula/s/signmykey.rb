@@ -8,6 +8,7 @@ class Signmykey < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "379aa5494ec5de0c6cf617f75a06a819a67ed3864f5df197d4840b7b49c67146"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "40b738c10ccecce3897548cfba39e94c122ffdcebd3e3b5d3fb936097c834d66"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90a3fa84385d0929c68ee02274431316e4084865eb5ad9dbb7cb060be7a7b354"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90a3fa84385d0929c68ee02274431316e4084865eb5ad9dbb7cb060be7a7b354"

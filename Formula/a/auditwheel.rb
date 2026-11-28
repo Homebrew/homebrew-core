@@ -9,6 +9,7 @@ class Auditwheel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "180d52856e5fb54fe594c16b9453b5d257682564c8990a5e1f3d6c10c2faadea"
     sha256 cellar: :any_skip_relocation, all: "67943d7c0e4ac5fefeb877bf5c64c73c76fae624084cb202ad8b35d58a8317a8"
   end
 

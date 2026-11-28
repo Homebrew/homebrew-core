@@ -17,6 +17,7 @@ class Genders < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "40aea1c135f06d71dd735728fd52eb71a4c683188a19b2d53b3d26c9484b6ce3"
     sha256 cellar: :any,                 arm64_golden_gate: "550247ee2322f4f9b607bfeb3a51faa4c7ba714a6b25834806a25e6204267b14"
     sha256 cellar: :any,                 arm64_tahoe:       "eba68a608683a6b5b812d8aaa3a59b4836ec5bf50af50a4115fde697a790274e"
     sha256 cellar: :any,                 arm64_sequoia:     "62f03cd7307b153442bf0354c80db74e9f17b6eb76fc0913e9f58d24d3eca939"

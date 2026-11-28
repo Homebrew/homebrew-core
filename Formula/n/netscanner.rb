@@ -7,6 +7,7 @@ class Netscanner < Formula
   head "https://github.com/Chleba/netscanner.git", branch: "main"
 
   bottle do
+    manifest_sha256 "db648072e3cffa050dece1487515e95dadc65f7eca6d2a16ad9cf8b99ec06b81"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82513712b6ddfe164c63022f12be1bf8ce4a58ca7db32effc8a7ba21f8f13eec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e47b59ffac58aac02957aecdaa003ecd8fde798c9ecc3e97f53c4f68373b863b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b291b0a5d49d813722d135e5ea4b6a65defba828db5330b902a3cc46ea6bf49"

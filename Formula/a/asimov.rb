@@ -7,6 +7,7 @@ class Asimov < Formula
   head "https://github.com/AsimovMac/asimov.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e9b3061cb3de983f3bd5fc43c5c680fb6d3ef8c15e06a12a58aacf1588cf0078"
     sha256 cellar: :any_skip_relocation, all: "752278f6104a90ad8a42ede78f72583c85494a3e2601269d0388425f7228b8fb"
   end
 

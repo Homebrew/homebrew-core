@@ -8,6 +8,7 @@ class Libstrophe < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8c6fa26ce18237e3897c8125650434d55eff0d676b68cb05d29075712bd239a6"
     sha256 cellar: :any, arm64_golden_gate: "9d7e8c18a0b80ac3779819038ed50480ed8f2659730cdaeef0adb2201a8fda70"
     sha256 cellar: :any, arm64_tahoe:       "ef631131d639fb46c768687982c6f0a01469e9fd0f6e684352a25a39e1142ab4"
     sha256 cellar: :any, arm64_sequoia:     "fa404216bb1400211b77a36f83b7da42aae0a55912265bea6acb8079bfb47355"

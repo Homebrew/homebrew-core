@@ -9,6 +9,7 @@ class Libpsl < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a8381a7a0ea27c76520eefb2582667266f3debc95416eaef529c2887391517d1"
     sha256 cellar: :any, arm64_golden_gate: "55221f12796ff26921c5eead5511e2d1f4465c1f8cfc08c164aef8f9e50c9261"
     sha256 cellar: :any, arm64_tahoe:       "3058120ea617a1ba193463788e81b8afd08fcf0abdbaf0bb5bfa85eebc695761"
     sha256 cellar: :any, arm64_sequoia:     "392f0aceca4e4febcb583688fa4bb701853e4a41a3d11446b0deac5231c32a53"

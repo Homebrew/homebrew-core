@@ -6,6 +6,7 @@ class Qdmr < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "bae14ce30600627d9811bff889f6f23ece7046972b9c2af0fb25dce0b51d8bd7"
     sha256 cellar: :any, arm64_golden_gate: "86b6c44ac7cf70ef260f6d682f887eda0caaf51cf54e012ed8063fb2cf13de06"
     sha256 cellar: :any, arm64_tahoe:       "32df27547416b1d925fcf0e6aa83a7da815c3c5713bf8fd79192bbe3f118738b"
     sha256 cellar: :any, arm64_sequoia:     "8dd895f0e54072b336dd3b75f1ded5fc93f3eae9bf949f886ba0207401ff5b5b"

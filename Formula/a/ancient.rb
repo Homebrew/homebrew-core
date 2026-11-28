@@ -7,6 +7,7 @@ class Ancient < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2f6725ea07658e4a502b8a34c251ba44dd6991a0c5c8c0e516dbba39aa9561af"
     sha256 cellar: :any,                 arm64_golden_gate: "55454a9c44a27899501570f81781c989bbf7dfb589c2adb41e04406b4e356d64"
     sha256 cellar: :any,                 arm64_tahoe:       "6817d9ce2e9d71f8e176280373905983d18dc6984a8cb9fd8587a77189ed77a3"
     sha256 cellar: :any,                 arm64_sequoia:     "08b6b80e0b301194514d37f7bcbfbb9f3f6741a5f76d26d11238591d4095481a"

@@ -12,6 +12,7 @@ class Wassette < Formula
   end
 
   bottle do
+    manifest_sha256 "092a3d148b70f2eaafcd59c95f13916f2de0324c24d21827e17b9feaf2975b02"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef62c7ac5ad4d35d1341d27110d61dd581c599143237460b65d7fe3305c13974"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c00fb78d2effda46b3d6e418260abdac618dcdc239c202cf11199575db9b7c35"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "81d4110b0658d2fc2c14fb978ff521161785034e8ef3a6710809fe0681e770db"

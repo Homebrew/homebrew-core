@@ -7,6 +7,7 @@ class Deja < Formula
   head "https://github.com/Giammarco-Ferranti/deja.git", branch: "main"
 
   bottle do
+    manifest_sha256 "744c055e73ee29f60d14bb1e34a485f9e438d400493ccebb0b8b73911cdba2c8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1dea6ae6c577b0cb9967bfbfa134c923f6d169579b797c8bb0f01c2010606b80"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b74e26cdf7af28d48241a01b10ec17a5f615e67f117f0b5f8c71c679c3f3bb5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d87800503cd360d967c9cfdaa5eccd8609380c1047e5b00c4ccf09e43a7bf573"

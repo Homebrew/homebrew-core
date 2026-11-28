@@ -16,6 +16,7 @@ class Nacl < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "ba63e4446b8a7f693f7fc403689d64408ea310f328ba979d2bbc94334a7591d8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3aa3f746329430fae857c3f765afe47e4cba61382a4f7a1af69098e5aec567d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c9e39e851dc41943d39fafb01f3040d14d11d4dba1cccdb9693bc0f2fed67297"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a885034a1e0e2c2a021508bee8ee850bb7b0db0bf6c185b3f884293d39b7796c"

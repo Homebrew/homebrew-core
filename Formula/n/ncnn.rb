@@ -7,6 +7,7 @@ class Ncnn < Formula
   head "https://github.com/Tencent/ncnn.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c6659774d3986ebfd97e104453c78e44dc27a58a90138ab04a90ce4afeef8b85"
     sha256 cellar: :any, arm64_golden_gate: "8bcf7a7a39a4161194131eee348bd22d34f40991472e39e63418c27211c302e4"
     sha256 cellar: :any, arm64_tahoe:       "1e6e67fe148fa5fb4430bb4972ed2a38246368c72d6ade6cd30cef4b24c95bf6"
     sha256 cellar: :any, arm64_sequoia:     "647393223448ac8f41320d7e57c77dc4d576c447eb3129f664ff4d6f8c372966"

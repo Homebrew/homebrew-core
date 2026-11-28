@@ -11,6 +11,7 @@ class PklLsp < Formula
   end
 
   bottle do
+    manifest_sha256 "8db69ba88ebf67112f21b5739f95db063362033d8318c2459f954cee5881d055"
     sha256 cellar: :any_skip_relocation, all: "fd077da0b01625d70d05b8150f15bb2c78f6d07f3d970fbb756a4e7b7996e59d"
   end
 

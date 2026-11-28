@@ -8,6 +8,7 @@ class Unxip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f2971643568da1d6f6a30822fecb7b35c1d1ba6787cb8fb2f603eea19210b141"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5da2aa766052144c13652ee26fdfa154b96d611c3d9ff446aea7cefb60633b7c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3b6c919fc617737fbffc245d013c8e7512c6d7db1c33df373b2afa79d82db96b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b878c072c1a77f52d4e7cf49875b9237d32227aa4fec26c39a88de74081b42c"

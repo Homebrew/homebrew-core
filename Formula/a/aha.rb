@@ -8,6 +8,7 @@ class Aha < Formula
   head "https://github.com/theZiz/aha.git", branch: "master"
 
   bottle do
+    manifest_sha256 "131f562a6e2e187517d5f1b33747c37a4473a892c6f7d0727f1a58ca68c918bc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aaeb709cd5e6b5ca18c3ee11711f015e6d824eac0208fc92f0c880dc8ea08632"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c5c635a3945439e2666c6387fc7adf040ae53448b69cdd10ead335c19238abe0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16696aeddc832f4f9f7c61ce7d3e6a8327f229bdeb941aded1bce4b2285f8470"

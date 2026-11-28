@@ -7,6 +7,7 @@ class Chainsaw < Formula
   head "https://github.com/WithSecureLabs/chainsaw.git", branch: "master"
 
   bottle do
+    manifest_sha256 "52729b72265864c83252fb72515340dde25d32e20081c22a9a7b07aa7b1a9fb2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b728684fcfe4e10716e1ef2272dc2f447eec097db3be31ce458f6d386d9bb9a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6cb643a20618d755be4009ff058fd2ab766cdc995ba5622f608881b332624d55"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc4fd5a7f779623eac609143daa376704da1b3c82276d2ae8cd84baecd07446e"

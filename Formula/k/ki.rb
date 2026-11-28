@@ -8,6 +8,7 @@ class Ki < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "78bd745e8818fe4813c70daffd7f8cdc5aa9c789c04e4f7d643bb943dfb6cc24"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e3e0dbec5307e74aca8119b3b683fefaa9d8bfb1e987354a63bd09a410bd9256"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e3e0dbec5307e74aca8119b3b683fefaa9d8bfb1e987354a63bd09a410bd9256"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e3e0dbec5307e74aca8119b3b683fefaa9d8bfb1e987354a63bd09a410bd9256"

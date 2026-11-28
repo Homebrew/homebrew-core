@@ -7,6 +7,7 @@ class Mbt < Formula
   head "https://github.com/SAP/cloud-mta-build-tool.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d4ebe41c92253c6f26ca6ecf99b7ceebc6e5c8aba16dd0f7ecbee9c74dec95de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ccc59495b37f88d6949c85be4ba132fe214f930e0f74588ac70d7656351d6d81"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ccc59495b37f88d6949c85be4ba132fe214f930e0f74588ac70d7656351d6d81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ccc59495b37f88d6949c85be4ba132fe214f930e0f74588ac70d7656351d6d81"

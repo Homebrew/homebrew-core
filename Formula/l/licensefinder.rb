@@ -10,6 +10,7 @@ class Licensefinder < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "490058995661efd505719d10e4d4711abae6f7c88b29c33af6455f3b397ad798"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfbdef13adb23b2e6096441e61a793f57560d9162ba744f9bf2be58b52e96a12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc612bca33980e0d1b2c51b001fc295934c7d23bec6ecd3e546294488bf384eb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bc612bca33980e0d1b2c51b001fc295934c7d23bec6ecd3e546294488bf384eb"

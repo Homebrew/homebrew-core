@@ -6,6 +6,7 @@ class Ns3 < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "80fb112fc09ec2b1d119579e44fa7bd9710727b9dbe20d561c4d72c7310093aa"
     sha256 cellar: :any, arm64_golden_gate: "fb65040d542a2f21533f9e0afcd390fe2a436bdbe0f3259651f4b891d73e406c"
     sha256 cellar: :any, arm64_tahoe:       "d01683a47fd26a044b332e19e3b9d2d60186b64a4da672ccd57ac05a5aac5cbb"
     sha256 cellar: :any, arm64_sequoia:     "ad22693e94e385f84e5297e3820739a5924f787a08da6a252d997625f3c22050"

@@ -7,6 +7,7 @@ class XcbUtilWm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "dbd29958bcd9dc45db4e47fbb415c127470eb14e33f4883d5417af367ca9914b"
     sha256 cellar: :any,                 arm64_golden_gate: "7c2d47f7e1a217c3888b28b66fac28a66045c5ae1d7a71494585b7af91299121"
     sha256 cellar: :any,                 arm64_tahoe:       "e0dff8d281d331ac4088b195cef01ccd933f8f6c655452e3825c0a18f7be97fa"
     sha256 cellar: :any,                 arm64_sequoia:     "78b8c05d6a387da472f24f9b4fa8a60eb3c1815a2b013a5cd9c379d54362f058"

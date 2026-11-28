@@ -7,6 +7,7 @@ class Daemonlogger < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b64e7b22cd94c9b2e30cbc8a1cd7e188658f48753957dfa44fa89c0f94ccfa81"
     sha256 cellar: :any,                 arm64_golden_gate: "fcb4eddd57951cc15c4efe8c9ade79a5334b4586b68c849a49e69075da23d1d4"
     sha256 cellar: :any,                 arm64_tahoe:       "0ced73ca63e8d048dbc4692cbadf68f13d834fb8e5bf642be31d4573d58d17bb"
     sha256 cellar: :any,                 arm64_sequoia:     "0be691de00ba4892bb91171da20c25ed0d3bda987d6d7345b35e095d06b8b848"

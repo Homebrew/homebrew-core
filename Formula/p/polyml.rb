@@ -8,6 +8,7 @@ class Polyml < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2eff8d318d6151b729385f49905d0302618d5a45e59133d10daa5186c270dae2"
     sha256 arm64_golden_gate: "3e9ef6fa44d5ba6efa835e4a9dfa615d937ad948621ca2274b2606a87bd73da9"
     sha256 arm64_tahoe:       "2e1a65ca5584fbed5d8809d26b612abdedd723df506daa33d82bdd2144a8c8f7"
     sha256 arm64_sequoia:     "73159083107e398682b609d20c700a909a15e9cf8ccb95fc6311c567cc39a9a1"

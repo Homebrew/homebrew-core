@@ -16,6 +16,7 @@ class Vgmstream < Formula
   end
 
   bottle do
+    manifest_sha256 "7dbf8298f012f87dec163ec76e7d57c02bc42c8a9e7028ab5f9f8b431c9b543d"
     sha256 cellar: :any, arm64_golden_gate: "2296b09690a0387667869efeb119ff81f7a3d5a9a671afaf4f76a77d91391cd9"
     sha256 cellar: :any, arm64_tahoe:       "2cae5223272efd3168247e4a51d997e48504cce6e6e7e044cb5f8f9e31be1490"
     sha256 cellar: :any, arm64_sequoia:     "ce92928dd88d7614f902cdfdd6940c1bb5e0c61198ecabf2f1fb9505988163de"

@@ -9,6 +9,7 @@ class Sdcv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cd9afdf1439bc4c9ceb7c6681f6032f0ae71db2dfdd85fefdb29824a532239d4"
     sha256 arm64_golden_gate: "5ef2a8168b81c9c074e661a27a4827f1a1affcab4d1c923caef9db608ad54d73"
     sha256 arm64_tahoe:       "d9e4a0a1b41d6d46b30202780982c90aff2d19cee7333b5f1e9d0da18cf68f52"
     sha256 arm64_sequoia:     "507d6ed1c271d67f1803267eacffaec3b80dc1bb028683e6461874f0656a7937"

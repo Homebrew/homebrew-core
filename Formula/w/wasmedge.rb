@@ -7,6 +7,7 @@ class Wasmedge < Formula
   head "https://github.com/WasmEdge/WasmEdge.git", branch: "master"
 
   bottle do
+    manifest_sha256 "536e7128b82cd12d34c76eb3de453083dbb9e025f177a417455297758b64e0b9"
     sha256 cellar: :any, arm64_golden_gate: "4dcf520433551e0c49e882da26ff2d8f0c0197862e28f01e3c7613d65b0eb4a7"
     sha256 cellar: :any, arm64_tahoe:       "6ed658695e864cf2ca874c2e08f3130c7193c2f38a921595060f404d5b142962"
     sha256 cellar: :any, arm64_sequoia:     "7760b67945473079962c1e35d305360e4797d3fd5dd2ccfe8cc4a7c12adce26e"

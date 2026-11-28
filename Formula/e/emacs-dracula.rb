@@ -7,6 +7,7 @@ class EmacsDracula < Formula
   head "https://github.com/dracula/emacs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "93edd9132668b6706354212d1b20f14124890d5cdd57d3a7d43bb2a3e03c58a2"
     sha256 cellar: :any_skip_relocation, all: "fdd1a29498717bebf1d4eda6f8fdd4645d05d59a62c218407c5a32904780c97e"
   end
 

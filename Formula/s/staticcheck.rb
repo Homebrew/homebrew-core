@@ -7,6 +7,7 @@ class Staticcheck < Formula
   head "https://github.com/dominikh/go-tools.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4b04f1cc3f3e9f5a16777bc7bb0bd2a9ac5fa5db517a42d52f7f3c3e074c61e0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f9dd05553e1faf09714fb5bbfbed2fa228577d5a55c1457233d0280652dcaa1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f9dd05553e1faf09714fb5bbfbed2fa228577d5a55c1457233d0280652dcaa1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f9dd05553e1faf09714fb5bbfbed2fa228577d5a55c1457233d0280652dcaa1"

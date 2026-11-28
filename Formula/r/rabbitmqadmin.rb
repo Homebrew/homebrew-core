@@ -6,6 +6,7 @@ class Rabbitmqadmin < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "74f02390ef22ff03ba87fd800d4f0f086be27cd7de3c22046fdc4648697ec914"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0db28ef58afe590f9ad48c68386563384ae663ba096f8357cb40b45fec28efda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42f321988b091870c9da9a0ed505f75a4c2b77a025b7253924152b706cb2f3dc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3d621a09729b24ea5d90ac73ec765a627224379ba24dd2bf27e71707c2b98ac9"

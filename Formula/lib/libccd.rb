@@ -8,6 +8,7 @@ class Libccd < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b7a9d5b2d8257602bc337979caad564ae6064494f533fbc259bb66a4985d8e31"
     sha256 cellar: :any,                 arm64_golden_gate: "da4fb095bd694a3dbc4ee3dceaa51efba62ce98d60c799e5604a1087b3634526"
     sha256 cellar: :any,                 arm64_tahoe:       "5706b5ddc123fae6306e45daf32a9485c8fa2186bb2966c5d4842c060db7f760"
     sha256 cellar: :any,                 arm64_sequoia:     "69d7221dceabfe62cded58442a541ed7b4e40dc91195ddc1032d9219d6d4eb80"

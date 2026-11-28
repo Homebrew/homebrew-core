@@ -7,6 +7,7 @@ class Helib < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "f7124dc2a59a30c32fa4de488a744021f5a7d43e4bed4fde39ea741ac2e90f87"
     sha256 cellar: :any,                 arm64_golden_gate: "29b9ddeb27b891b3bdecdd03a60223c5b120b9f8d197386dc3ebff8006e4e4e9"
     sha256 cellar: :any,                 arm64_tahoe:       "803815f7a62fe41c3af529f91c0c5dec64562c76a9ed3c3af559f666e554a0a3"
     sha256 cellar: :any,                 arm64_sequoia:     "f9bbc95593524143828d00e06eaea405c7721b737811f782cd7d906b21c2fa0b"

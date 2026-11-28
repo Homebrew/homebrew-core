@@ -7,6 +7,7 @@ class Nerdctl < Formula
   head "https://github.com/containerd/nerdctl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3a169eaad9b7f240aa5bb6322276b70e3cc4a19637ec3ca572487d0638daf16a"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "d365dcd8681e524a062d4ede4acc4c31febae46300e6e05cf851dd81f0b82d9c"
     sha256 cellar: :any,                 x86_64_linux: "a9e086c43c4fc6aa20223fa874b0090f6c66525f6fa9612853bfbc28c7154127"
   end

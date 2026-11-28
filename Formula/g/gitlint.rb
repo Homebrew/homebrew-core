@@ -10,6 +10,7 @@ class Gitlint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "87e23bfaff40ea601d2ff9611832b0649fe2da7ec1f09e8dbfab1a6ab22aa7b5"
     sha256 cellar: :any_skip_relocation, all: "d3d99a1788103eeae31c470789f985372eaeae5de5cbc8168c5a7f3c3a641034"
   end
 

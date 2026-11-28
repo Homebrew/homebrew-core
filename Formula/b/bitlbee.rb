@@ -13,6 +13,7 @@ class Bitlbee < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "68d59e137cd43d62137bfcb7fb5bc75a2d32f98bdcbea8b3856688ee252d1fde"
     sha256 arm64_golden_gate: "e30cabc99cc8497cf9189732dbdb80bc90e6989aa18f915688043f58af9f39c7"
     sha256 arm64_tahoe:       "31ddec7ca433f3bcf5dc5f86206c99464e9586065bf0fbb54b327051ff751dff"
     sha256 arm64_sequoia:     "6a753f8b6013608e71d728f3a7143a3d53656c90c09b52177a0322739f952525"

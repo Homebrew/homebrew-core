@@ -7,6 +7,7 @@ class Inchi < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c56305aee4a35d2aebde78ad8378786fb0d6b50b995bd022e062728eb3c2f748"
     sha256 cellar: :any,                 arm64_golden_gate: "980c4eaad2db4db01ab61f57e4f28500bdd6a614344d2fa3cbc4c98a843c0145"
     sha256 cellar: :any,                 arm64_tahoe:       "36ab60238ffc83ddc7aa58a661188e3f9b9754f07230054f1c3790edab2828d2"
     sha256 cellar: :any,                 arm64_sequoia:     "b423e478cc6264757fbed783be94a094714413c9d5f5c06362bd48a3ed0c315c"

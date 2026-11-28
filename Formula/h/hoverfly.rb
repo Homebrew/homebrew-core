@@ -7,6 +7,7 @@ class Hoverfly < Formula
   head "https://github.com/SpectoLabs/hoverfly.git", branch: "master"
 
   bottle do
+    manifest_sha256 "869ec31c6bbd953876a02e0475bd20387b49abc5a55f8e75f3e981a76c6b4eef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0ebc11bfa49ef7b2fc0af5cd99c715fd3f8080ae699eea8229c25a01c68d1b5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0ebc11bfa49ef7b2fc0af5cd99c715fd3f8080ae699eea8229c25a01c68d1b5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0ebc11bfa49ef7b2fc0af5cd99c715fd3f8080ae699eea8229c25a01c68d1b5"

@@ -6,6 +6,7 @@ class Udp2rawMultiplatform < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d2b85c89a3eaeb2848b54a13f6bbf04a66f53a721acb073ecc668a0dcb130e98"
     sha256 cellar: :any,                 arm64_golden_gate: "64f5505975b35edf05e525c285d317e3b5ac04490965cbcbe95c472691ed2185"
     sha256 cellar: :any,                 arm64_tahoe:       "72ead352399ece1b7045bc70fdc82b5cd82246adf55fb61e6eaaa467583ffb65"
     sha256 cellar: :any,                 arm64_sequoia:     "5c9cec87f3f22ae136248cc81851645b561e7136008a7a2fcdba3787daf3daa2"

@@ -12,6 +12,7 @@ class Manim < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
+    manifest_sha256 "aee8ccc9db6930be12e797ec913b889eb3a943c66e11d79a1cf87b79bc97abc1"
     sha256 cellar: :any, arm64_golden_gate: "1a5ce42ae6a657afe9231c976ba93627159405d375dd133cb9a4f4ab7b55851a"
     sha256 cellar: :any, arm64_tahoe:       "db6b335419741ed8aac15dbbddb8e904d1a4bce2c33092bb848950f3ab63291a"
     sha256 cellar: :any, arm64_sequoia:     "4bb6fd1df6d9e2aba038ae69e5782dbcb9a50acd1ae7de20e4e904c653edefd9"

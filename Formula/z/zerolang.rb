@@ -12,6 +12,7 @@ class Zerolang < Formula
   end
 
   bottle do
+    manifest_sha256 "9cb5031259b2512546d246a40086dbeec26d4b2e686147afae8e0217768aba79"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e351352bed2ab06dcd4b96e1cae09f947c6c05f5bf44a547ddc7307b6bdb0fc2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60063d4a31c92fff77c14731b9374bc1ef0523b637da04bcebaf8d347a747916"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "867c3a8ef068fa0860d6cc658a9ece38a8ccee47d4292d5350f51575d88526fa"

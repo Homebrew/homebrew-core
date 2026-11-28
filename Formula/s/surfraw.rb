@@ -7,6 +7,7 @@ class Surfraw < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6740977666d96856aea7275a21f230e09e7fa2f80783cc51ce65aab1e035601d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a387c994f000e0ccb92813ae83d5671d4848bcf70adbf915168d451db5ab315"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41fcab9dbdb65112b701d420fee1d2411b1f8af7115bb7d5412eb822f27e30ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d04a21e14ecb8b591159c55dbc4a0af5ea0eadaa5dcb581c6c6c4a74d0b0e7a"

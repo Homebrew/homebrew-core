@@ -19,6 +19,7 @@ class Hashcat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f5775f63b8c3558c1bf8d7d24c1c40ece5287873ff8b4d1e762b81eb98deb945"
     sha256 arm64_golden_gate: "98924135cea4a887449031a186fcc22d8967572c25061f9b55029c86146b8099"
     sha256 arm64_tahoe:       "38daa2ea7751cecfe4b549e29dd0cdbe37b50d8843e50d563d3249a009d9b1de"
     sha256 arm64_sequoia:     "4fbcff6248005a9a3b08b37317ebfb77d1f009a2c1a04ebb9dc304c00fc1e035"

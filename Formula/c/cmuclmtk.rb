@@ -6,6 +6,7 @@ class Cmuclmtk < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "0e82f3b7380e0f9817ec6be8f3c467d7afe3869e271a1cfba3029ff171b3407b"
     sha256 cellar: :any,                 arm64_golden_gate: "ac8ae6a25e2e07744f4918f18109e363b9d0815afe81c38ebb8a8177acf55ebc"
     sha256 cellar: :any,                 arm64_tahoe:       "e382dbebb03c49d129bb2eacd23102d828d9814296bb751f275e2bd5cd4ac8e4"
     sha256 cellar: :any,                 arm64_sequoia:     "17749777bf2cedd02ab511ce2bab36a69389ea9c1f0b03c8a92927e3e54a5fae"

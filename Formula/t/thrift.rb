@@ -9,6 +9,7 @@ class Thrift < Formula
   compatibility_version 4
 
   bottle do
+    manifest_sha256 "9ff40c19f0885626f63f32e6246af20b809c6cb99ef36e8055c141f05c765edb"
     sha256 cellar: :any, arm64_golden_gate: "e422a22ab3b0c6ab53ba603582a9d525680b2d108c97aab79105a8b60e69e364"
     sha256 cellar: :any, arm64_tahoe:       "5fed3e2ce1c22f05597ac1f816553ab1c5a56aacf90a6b63b43ab88dfaf94176"
     sha256 cellar: :any, arm64_sequoia:     "0b31de9285cc9bea55943b39d95f061bc1c691ad4d756ef371d3103a1c183558"

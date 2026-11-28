@@ -9,6 +9,7 @@ class Sniffles < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d6c20e6723f31d841e0c98b220470681b7c0a179fdde370f92b6c3ee71210abc"
     sha256 cellar: :any, arm64_golden_gate: "3a6c1a70e2868a6abad4b4ef2b60b2a7c4a7e548c89c965519271b5d29ce4b51"
     sha256 cellar: :any, arm64_tahoe:       "8ae934b1011fa9995db5f5c8fd5cacb4db7d116cd421fec74e0e410787949c5c"
     sha256 cellar: :any, arm64_sequoia:     "92abb13a1b4494251fe55560bcbf91e1acf9dcd2d5bba3017c93e2e8099923eb"

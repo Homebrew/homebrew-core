@@ -7,6 +7,7 @@ class Giza < Formula
   head "https://github.com/danieljprice/giza.git", branch: "main"
 
   bottle do
+    manifest_sha256 "08118689cfdff2fd87998a7069eaba1570633646c443cee2c857745da55da405"
     sha256 cellar: :any, arm64_golden_gate: "bace3a6c060d0cf27fe083ce67c0411e7c95a857f62c87bc2dbee8651b3dfc89"
     sha256 cellar: :any, arm64_tahoe:       "aedfa2ec4113e16783808da789e4694a454c27f9d97625bccc753da91b0a21a6"
     sha256 cellar: :any, arm64_sequoia:     "ce32cb992f9273f6794ac62fdbb885e2c75093e27857bf1dedc8b628cd0b8970"

@@ -8,6 +8,7 @@ class Libint < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "aa087cc73723f950cc44fabde036d93b7b77bc343bce350b3cc5e11854be5238"
     sha256 cellar: :any, arm64_golden_gate: "eaa0f4507ea2ec6ff553c312ef71a06c8d90cbe86e81f6f541aaae275d9311dc"
     sha256 cellar: :any, arm64_tahoe:       "23c21254ea701d450b269710213fe19d9ff8cdcb42c9f5b50a00fff60e00d030"
     sha256 cellar: :any, arm64_sequoia:     "91d3c20a49eb0bbc4443915847833d9ba95a152ad3d9f5a343a69f6aee6a038e"

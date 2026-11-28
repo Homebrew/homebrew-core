@@ -12,6 +12,7 @@ class Dialog < Formula
   end
 
   bottle do
+    manifest_sha256 "1536775136e9f5e3a183be4c4919adee7e643e3dff21a08af80deedb04dbb087"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3482b41e16492f76365cb0394f806dbbe18480c76742e5eee59099161044617a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b080dfe54929c983bb05fe717120f64d4e242f80539f53e28367e1e60f19939f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07cc731b4a83f15753efa7e2d25f90e381bad5900093ebb1b3da3e4859703d95"

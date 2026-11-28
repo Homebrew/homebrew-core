@@ -15,6 +15,7 @@ class UnittestCpp < Formula
   end
 
   bottle do
+    manifest_sha256 "de115dc3f4c9d11fb43d0934a8058ef2aa769f321db3d2291bf7a70dba48e3bf"
     sha256 cellar: :any,                 arm64_golden_gate: "4876a0c6c60726b994ab380b6a5c53fff9c9cce64a9592957c99532b8979eb15"
     sha256 cellar: :any,                 arm64_tahoe:       "2323ac44a3d90775803af02237bc15b7b3ea93c3fa0e7b1aadfb792e4fd29193"
     sha256 cellar: :any,                 arm64_sequoia:     "8477bf1fd9cd1f227c003d267c92492e60b169896c2e9e04b23ba7473b89201a"

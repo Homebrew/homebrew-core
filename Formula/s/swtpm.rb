@@ -7,6 +7,7 @@ class Swtpm < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "7e0d08b927e0b82cf4adcd304dc11da9a24a1c63b64fb9ae7d23db34e81f5f65"
     sha256 arm64_golden_gate: "481e1daf351c3210c7d4109bdf0841c0703ed16b2b7992a069555eaa4a8d8f71"
     sha256 arm64_tahoe:       "13c155af6c66a83912f24c667c397c427faa0176cbb6036eff43b8790b52ebcf"
     sha256 arm64_sequoia:     "8fe633a43a2cbd25cd05a6d7b0bfcc03917e2da3ff3ac01ff6f5be8a7d953085"

@@ -7,6 +7,7 @@ class Dict < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "368b94f418b29162ab3c83bf8a868df2e72d604b0184b71c59d6bf3c942650c4"
     sha256 arm64_golden_gate: "17a1959eabe3baa7e124871059f0c4312498cfacceb1affbcc60f50fb2527171"
     sha256 arm64_tahoe:       "694d764e37305e78a62434292d69b0d50a2a093554ca772789ea9652e56a92e7"
     sha256 arm64_sequoia:     "07762c92a3981c4028fd215f163867bd9fe2499fbd5419ca024bc7a10d7e11d1"

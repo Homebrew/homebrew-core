@@ -18,6 +18,7 @@ class Pcre < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f3343907d540a32d4d27f94a5b87d33e47fb9782593ad28c70f636df30036f4e"
     sha256 cellar: :any,                 arm64_golden_gate: "f90890232816daf79ef9efbf1ea32b9dc28970d6e078ecac538ab047592b3b9b"
     sha256 cellar: :any,                 arm64_tahoe:       "08de2eeaca9c98e70091c9b220f8f570b073f8db982d2451dfd35b1415aab6e6"
     sha256 cellar: :any,                 arm64_sequoia:     "f04ffe5280aa77d2994ebd5ae2d9290d0b7d0471b70df18baa95ba01ae60d593"

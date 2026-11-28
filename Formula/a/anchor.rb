@@ -6,6 +6,7 @@ class Anchor < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "0cb24185c966c82c4cbf175a1c2b12400d9f6cbbd8572f0b47e681d23368f1c1"
     sha256 arm64_golden_gate: "4f95eea51bf17a81c0d96e7fa277ed22be35f485bd6f4decd4a4c35a4b88e4e8"
     sha256 arm64_tahoe:       "d73080046f6cfa6f47ebc05dc9f386694647ead7977ded0b228872118c3daeff"
     sha256 arm64_sequoia:     "4fe59e203357472cf93e8745017c2161282b5116e3804c94d7bfaeb7682d49f8"

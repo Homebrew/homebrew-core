@@ -7,6 +7,7 @@ class Lakekeeper < Formula
   head "https://github.com/lakekeeper/lakekeeper.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f88b7df3859dcf2260548deb5b0d1eadf927c690c337888db7ade58949be9ed4"
     sha256 cellar: :any, arm64_golden_gate: "670d579105e528ae2a378100d099cfa6eb1bdffd621511f466c9a5df8a8230cc"
     sha256 cellar: :any, arm64_tahoe:       "42a6633dc8a60f166b2d6766a1cd0787092a92bb0b567c2fc682ac91d34d5460"
     sha256 cellar: :any, arm64_sequoia:     "9c8e736fde43dad0f93174e5a0f2024e3cd93d2b3608c7ac962c485195ffb955"

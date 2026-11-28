@@ -18,6 +18,7 @@ class Karchive < Formula
   end
 
   bottle do
+    manifest_sha256 "4053a02b7e4911915004c64f9c2d396264ee2c1d23e65a4c44c2a1f632140952"
     sha256 cellar: :any, arm64_golden_gate: "ee811c8e9d98a3b986b736cb677d5fa4418337b3918bcf02e00848f1c6878c35"
     sha256 cellar: :any, arm64_tahoe:       "8d6ae92d2838ac8a8a0a9440f7edb0949888e41473e07fb705ad4ca0e41f1193"
     sha256 cellar: :any, arm64_sequoia:     "ce44273c44192d780c899f72f904002094a7f77f09c8d70bb11c45d6770162ad"

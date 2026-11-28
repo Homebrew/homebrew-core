@@ -11,6 +11,7 @@ class Pipgrip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f9126829d6ab0b257ba717acb89545b7fd37eeae9753e2e8da96aa2a8dbe0dab"
     sha256 cellar: :any_skip_relocation, all: "0e71e5476fabb370bca6b3ab997d770c6657a3f60718fdeca46145532898989e"
   end
 

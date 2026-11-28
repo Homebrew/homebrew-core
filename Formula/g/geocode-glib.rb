@@ -9,6 +9,7 @@ class GeocodeGlib < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f19c1c1e03f01d91392c7744047e50e9d5d4510831adbc4639146a56e7fa29e7"
     sha256 cellar: :any, arm64_golden_gate: "413229d14328ce753508f78320d795a12354500ac310025d8b43e4fd80e6311d"
     sha256 cellar: :any, arm64_tahoe:       "099ca3555aed8dc105d24af84e64cbf301d1a825b27e439714253f01e4b46860"
     sha256 cellar: :any, arm64_sequoia:     "768df1fedb60223b40e5ae28bae291d3a1ab29348c933914e07eec499b411493"

@@ -9,6 +9,7 @@ class Dnsviz < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "4fffbb034731ca6542975725761e39cc253b900b094b7cf6c1eb182a7dfdc38e"
     sha256 cellar: :any, arm64_golden_gate: "6652f0913a6e807f1843cc56ac32426d90bc84594ee3ea71cd38348a4af216f0"
     sha256 cellar: :any, arm64_tahoe:       "c38d24acf57d32566da3c9a441bd3460918f463d32ee5b446ba587802f7178fd"
     sha256 cellar: :any, arm64_sequoia:     "8fbf81f96c144bafdd8ec8f7d8826135486ae4b48bd0ff866f678dfa040597d5"

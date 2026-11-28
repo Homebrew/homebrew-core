@@ -12,6 +12,7 @@ class Libcpucycles < Formula
   end
 
   bottle do
+    manifest_sha256 "50aa2f979d44387f531451090512acba68868ea4a00941b0fe0b84f2006d4e2f"
     sha256 cellar: :any, arm64_golden_gate: "498ea34a839ccb2235e89cb93b923f20521d7d6074add859f38c5b94f555a598"
     sha256 cellar: :any, arm64_tahoe:       "9862a1f806317cdce8e39a432a16748b85fd659c0b8cf9b93e263c4affa76c8c"
     sha256 cellar: :any, arm64_sequoia:     "5e8fb37857f44609865073a133a7e9f415841c3af6dc65b76cfccaa42de8dceb"

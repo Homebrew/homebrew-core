@@ -15,6 +15,7 @@ class Log4cplus < Formula
   end
 
   bottle do
+    manifest_sha256 "f710f157a7922cd38a4ec8b35472d748f95fb30944830233dd136bd19a3d4e3c"
     sha256 cellar: :any, arm64_golden_gate: "4019cf235323c9599990790a890628be52b6067a7bb388841df916c7fda9beb2"
     sha256 cellar: :any, arm64_tahoe:       "477e81e58b0473787ba1f4e14c2b305e292343a72265a9ea527b857f6ec3ab02"
     sha256 cellar: :any, arm64_sequoia:     "632b145bc440e9b537e808104a71ce653e3ac095d34b6c8aca42986e5b66ae51"

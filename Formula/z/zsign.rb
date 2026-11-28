@@ -7,6 +7,7 @@ class Zsign < Formula
   head "https://github.com/zhlynn/zsign.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9ca48320ffdce93592c43f2a49eda83957feb68d8bde96e1d7e7bdadc531eb50"
     sha256 cellar: :any, arm64_golden_gate: "18ec5a9df3e4010e28dcab846759b35960abc7fb1ab171568b6f9b036d3d9579"
     sha256 cellar: :any, arm64_tahoe:       "0e779315821e2b7baa10144d8145393dbb0ec13ef248576d895322e2c08cb29f"
     sha256 cellar: :any, arm64_sequoia:     "cefcee73206f34c7b07f1c5943c06022f43d9c32fe6781445a3cf643f03427d4"

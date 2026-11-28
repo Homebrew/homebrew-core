@@ -7,6 +7,7 @@ class AgePluginSe < Formula
   head "https://github.com/remko/age-plugin-se.git", branch: "main"
 
   bottle do
+    manifest_sha256 "02b72da6091545271d34dd430057df7869843a34cce2d1228d4e358bbfb61260"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d812ffd1b26be7a4e602f37c6023c22680070aaad133eccdc081aa02c8810ba0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c0f6ab0e7b132e6ab579e0267efc666edbb8fe6aff0621d64c4bc5db2dd386cc"
     sha256 cellar: :any,                 arm64_linux:       "9afcc177c0f73d09c3adc17a424be38da65a843311293b241e8915b6e4689dc6"

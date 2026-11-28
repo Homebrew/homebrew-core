@@ -7,6 +7,7 @@ class Gssh < Formula
   head "https://github.com/int128/gradle-ssh-plugin.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7720bdd4d802ab7e4fc7c9071e4c1e082b164f49e94daf0cb4720f85b679dc22"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "7a553584f7cf8db8128678eb9cfaa533d5ded948f46ebc7ca9ed4fc0a0f52731"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "6811a36ed6d1d50a0128cfcbe2d49d1e58e42f5f8f19a77f7e01dc559f6da7a8"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "e78ac9c48bc0993ba4f7f668a3843bfc68156857267809e14b6536ddcb389fde"

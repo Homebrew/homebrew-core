@@ -12,6 +12,7 @@ class Acl2 < Formula
   end
 
   bottle do
+    manifest_sha256 "b09da2050e91e9b9afd62bf1c5c798834e4ebfa47bc73500fa9ccb2b61a0cca1"
     sha256 arm64_golden_gate: "41c1ef280ad4c96320556635f25469d2dcffb8f82829a1e2755c8a7a0996d3cb"
     sha256 arm64_tahoe:       "b6d1d6340a2f29b640ec1a882190d663c91edb4111502d84ffacdec485519a82"
     sha256 arm64_sequoia:     "5cb97fed334c062ca4b2e837b09c70daf0979d167c394738ae14f6f6fe6f9d1c"

@@ -17,6 +17,7 @@ class Ascii < Formula
   end
 
   bottle do
+    manifest_sha256 "30a712587c7ceb153cfef52890aa452557bf41c899356c2d323bbda2f2d44754"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6d8ff81c36d2ca0159f5b630b5c58ea77a6b4a35055a393e8913d0560936e2b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83c6fc145da90e26255628385f2c71e40b984f99231535837f916bbf24771d15"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5afc0f5e4c7a97a66190bc53088517eae9336bc85fcb88e77abbd051e8476f7"

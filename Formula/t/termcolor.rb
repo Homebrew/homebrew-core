@@ -7,6 +7,7 @@ class Termcolor < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6a8fb9167432d8048ba01bf3bb5bc237445f916ad9bd28e3d788cd0b7e757db7"
     sha256 cellar: :any_skip_relocation, all: "d521f9450ba8bfd71eb601ff8d6ac8e8705c12caf6d10bf8d3f2808463d48091"
   end
 

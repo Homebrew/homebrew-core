@@ -12,6 +12,7 @@ class Sdl2Ttf < Formula
   end
 
   bottle do
+    manifest_sha256 "b9c11ebfbbe5b2a0a64c8ea1f7646d1df73efc69e38e8e7f3082861f64b4d658"
     sha256 cellar: :any,                 arm64_golden_gate: "ecb8758ec8e93c5ec217c1e783bf7a412d21af0a57ad3b652cef9d9351d77d7a"
     sha256 cellar: :any,                 arm64_tahoe:       "7464ed639413ddbf1b581564c07bab5d3a45325ab44619ac810af3361f3f7ab8"
     sha256 cellar: :any,                 arm64_sequoia:     "15e7d2771f3011e7acc050c32642eb312e96b51596300562a9f6395669608779"

@@ -6,6 +6,7 @@ class Xmq < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2643226a6069296c755837f8e8fb17fdc01f47c3012be25aca56d3ac16745ebf"
     sha256 cellar: :any,                 arm64_golden_gate: "95b3997453d56e323cea69d63d3ff71c609325ad04f1b22bae8a33e2d5f2ffb7"
     sha256 cellar: :any,                 arm64_tahoe:       "bdc20cb9f508992bee5fb53bbe862f264e56c98a8f5d6d0de0c0e889fe909527"
     sha256 cellar: :any,                 arm64_sequoia:     "1dc74dc83b9ce24f0d76916e4d3d23fd86abf1b5d19fda5775b16dec7f0a6cfc"

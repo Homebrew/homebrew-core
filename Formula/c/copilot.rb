@@ -12,6 +12,7 @@ class Copilot < Formula
   end
 
   bottle do
+    manifest_sha256 "32d77702d663007d405fa825ff224d6b69076ae088c82286110c75b5aa88c13d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e61bdf31b493e99770241cedd65c4124bbdb5b062f442f86d75c380ce3d49127"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6956e0e2fd50ea21db1b36dc6a23a1577c302f659b4b8d1d48d08b0c74df87a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13faf4886169d8f186deaf7635b8c970f23155a7cc871f1b002ff7cd6c4c3cad"

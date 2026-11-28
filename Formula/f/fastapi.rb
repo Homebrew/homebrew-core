@@ -8,6 +8,7 @@ class Fastapi < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "56220e76be713ab5f2f890fecc9994ae281c253668c953e203616e997b3a7250"
     sha256 cellar: :any, arm64_golden_gate: "63feb5fbd7ea2d408a76c6ea2db6499c329fa601afe144cde233d892ec145f0e"
     sha256 cellar: :any, arm64_tahoe:       "7f0e526448e8c09b2a818911b57e14835d86cc1f10119476091ef1ce7721c170"
     sha256 cellar: :any, arm64_sequoia:     "99deaed0ed9f3cc158e9c0c31f365f789059a5fe5b5669d291b1aa5644758839"

@@ -13,6 +13,7 @@ class Hishtory < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ed26e2ceb6bb493128c185f8b3bf303ac18b7365cf962ebc323424d59bd74585"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52e70f9673a5f43315ef2b995105e3da1588fc740ef708551695cca97dbdbc26"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "99dec873524b0cd5ac384478afd990b0ed9ed606c9bc6c94e8c3e7c0622747bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "99dec873524b0cd5ac384478afd990b0ed9ed606c9bc6c94e8c3e7c0622747bc"

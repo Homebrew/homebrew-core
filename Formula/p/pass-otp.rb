@@ -7,6 +7,7 @@ class PassOtp < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "df7c7091eb7bfd81c2beff0f71abd079488a26941d40e29915067e31850d0606"
     sha256 cellar: :any_skip_relocation, all: "e79fd90d07ba181d43a57123d3dfa85abbf2abf93f58dcb431e64823fcc7a19a"
   end
 

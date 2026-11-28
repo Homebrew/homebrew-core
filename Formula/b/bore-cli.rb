@@ -7,6 +7,7 @@ class BoreCli < Formula
   head "https://github.com/ekzhang/bore.git", branch: "main"
 
   bottle do
+    manifest_sha256 "31456bd4ddd897a2b21b7b6b73f645ed990863c1271da655ac51f2ee3a4f5bdf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91e856030d7158dcf6b61e11d5fe267c0243d075e89d3eb8bc010ba608f105c8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10b6d41535558ab9df7926e6275f540ecf9774c443544cc5095af94f610729a5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15e9d9687655043674c052c222aa3e5278f46a8e80fd00913dbc5a620c29c526"

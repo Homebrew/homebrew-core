@@ -8,6 +8,7 @@ class GlobusCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "29761dba6b86388dd4b402553e4d33a94c7161c940254d62757410cad696e5cd"
     sha256 cellar: :any_skip_relocation, all: "89ca8b216e03917813554bbda7b4e3d27ae22e6a7fee9478d9a61beb06d4a939"
   end
 

@@ -11,6 +11,7 @@ class Camellia < Formula
   end
 
   bottle do
+    manifest_sha256 "e63bd47fafb4f78dd3315566c21e491526e8c9011f54389020122e18ef437a4d"
     sha256 cellar: :any,                 arm64_golden_gate: "3aef530ec9a5a69f6c1855cdf72133a567589fc56e65762fb62fb2b50b889e89"
     sha256 cellar: :any,                 arm64_tahoe:       "c02cf24237f1d621d5b395cb126efba1128b422026385868a8bf42ba2444d0fd"
     sha256 cellar: :any,                 arm64_sequoia:     "0679b21bf4e69b52af575fc7c30370b2fe0e70d2639b6fa550f3b4b3a3dfa392"

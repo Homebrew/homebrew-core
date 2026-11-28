@@ -7,6 +7,7 @@ class Xdelta < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "315fa98027ae9f337126a314304b1b038ed1a73636db3ea4af69c4588f097803"
     sha256 cellar: :any, arm64_golden_gate: "e06ba5f00d39b61c4cecf44a11da88219d448564152518507fd0ab022a4db59d"
     sha256 cellar: :any, arm64_tahoe:       "41322090097c31f7c861e73eb75b967b071dfec9d26acf67fa13088e6b0001d9"
     sha256 cellar: :any, arm64_sequoia:     "1a6a5ce5552fcbd970d7d5609fe0b70d84454b6213efd9989e564cddc5fda4c5"

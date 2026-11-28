@@ -16,6 +16,7 @@ class BdwGc < Formula
   end
 
   bottle do
+    manifest_sha256 "7d43591d82b44113c12cb6e718c4a2d3bc60c29ca75fc420fd14cc9312811d8a"
     sha256 cellar: :any,                 arm64_golden_gate: "6f1f7643a4ad32fe2b43522091c9cee8663d8a326fedaa5a7e86871a03de0303"
     sha256 cellar: :any,                 arm64_tahoe:       "31d372ffb4bcce22e9871a81aeba2864f2233a9050b4f326deafdfbb31d21a58"
     sha256 cellar: :any,                 arm64_sequoia:     "4946f5bffaceac9224502320f941350ab5301293e876d947d57926468b880941"

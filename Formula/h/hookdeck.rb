@@ -12,6 +12,7 @@ class Hookdeck < Formula
   end
 
   bottle do
+    manifest_sha256 "802ba70c17cf929e0189e9d22800ea31458a52be31e5c0b1a8dc903e339d10d0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32f9e58d7d94aa8fc9229df3620f3522ab396ae2543b40607abd5490b89cb53d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32f9e58d7d94aa8fc9229df3620f3522ab396ae2543b40607abd5490b89cb53d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32f9e58d7d94aa8fc9229df3620f3522ab396ae2543b40607abd5490b89cb53d"

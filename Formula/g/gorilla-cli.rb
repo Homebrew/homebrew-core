@@ -10,6 +10,7 @@ class GorillaCli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "377edf01648fc2722a8643d55e8cf17055257f40fb365944942658263b189df3"
     sha256 cellar: :any_skip_relocation, all: "90ce1cb08fa3609ce611dcfbfb001512cd5a5c4f1bfa19de9b7be1d5994eb799"
   end
 

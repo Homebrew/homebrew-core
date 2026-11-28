@@ -9,6 +9,7 @@ class PhpAT81 < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "c4e4eef7a2fae7612efef96127a13c05001148095a0514931255d08188b0abc1"
     sha256 arm64_golden_gate: "d2e04a9fab7395d83866c9ee7ec0d264627e3d99149078cb063778f8991a4f58"
     sha256 arm64_tahoe:       "1298460d0d7fe449932e25e39c934f6fd90b7d03c28f268305b944e81b317bd4"
     sha256 arm64_sequoia:     "2d20b0ab939507fb0dc7d5120561d2bb4703fdc4abaca49a54b2e29f3f327dce"

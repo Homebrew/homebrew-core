@@ -13,6 +13,7 @@ class S3ql < Formula
   end
 
   bottle do
+    manifest_sha256 "d9b0ccfc33deebbe3f445eaf49c374ab4d1c99220a384f51718bfcff96de6b16"
     sha256 cellar: :any, arm64_linux:  "26c9a6fc46f42a7865f365871cfe282b0f6c7a0ac07aaf62851ea9836cec2952"
     sha256 cellar: :any, x86_64_linux: "8b670251726d1e8149ce80e70c1fdc41763e905fffc40209eeed8e7891d85bea"
   end

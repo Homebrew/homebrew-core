@@ -8,6 +8,7 @@ class Mktorrent < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4494a502651b14663b31d9eb99e85947ff3a4a3d14cc8b3f4865118fd987a245"
     sha256 cellar: :any,                 arm64_golden_gate: "d46c44ca9365fbdca86e9116613488eaea6be1430606f45d5cdda4c29f139058"
     sha256 cellar: :any,                 arm64_tahoe:       "209bb7d1d0ace5b61f05817162660ae4cd6d7d8816b9386d9e2e29a5c0e5ab49"
     sha256 cellar: :any,                 arm64_sequoia:     "fb59ce178177ace7db7a6d983d42460f1141bffb09be008ed87c3373eb901701"

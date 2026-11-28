@@ -7,6 +7,7 @@ class Dexter < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "982c3de7027863e0c2171ace572deb40c6d8c446a28ce60205bf6c5f4a3d8d35"
     sha256 cellar: :any,                 arm64_golden_gate: "6bc2c747d5a6963b6faf8834ef423ea17f0ea7ac0dcb9708d283eb22d694eefa"
     sha256 cellar: :any,                 arm64_tahoe:       "2b592f0c8333110a04e3c57a72faf10ea3936ac4fe2595a7ca6a3389c6ae66d0"
     sha256 cellar: :any,                 arm64_sequoia:     "652ee45577f15e820fe6d52107b2a4353871261bbbf88393b6e1c81c36dea5d6"

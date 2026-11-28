@@ -7,6 +7,7 @@ class AwsCSdkutils < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "c4095c866c255a9036973fb1fe40112bff0bdda4d7defd20866d1cfe55c1ed08"
     sha256 cellar: :any, arm64_golden_gate: "5756276d411ed024984ee7bb45e373d7b4824704eced8b16f06d3108090a0532"
     sha256 cellar: :any, arm64_tahoe:       "ea064e55171cfa96038657274b54d2794a771939039645817fd514793a0d313e"
     sha256 cellar: :any, arm64_sequoia:     "8a2edf42ddfe0402d5c7fc9f905b0bf322c8702f8646746b4d9aaafbac3da1b0"

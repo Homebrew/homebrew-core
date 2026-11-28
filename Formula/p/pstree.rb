@@ -9,6 +9,7 @@ class Pstree < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "86f007fcf47bcd86360785438f218e86d32b072052e6a3ca8fdaaadcdcbbbb2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad53f58044b5c5e6adbfeeedbfd5dd845e9e33c3b26a1dae8521dafebb29749b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "999cb5fb08aa25b078cf66c5a24c1b1244532e5757965e0089631b3bf4e4836e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d294c9c8a1f140ad0505ab702204a8d909c860318e0013694dd760b95a39d1d1"

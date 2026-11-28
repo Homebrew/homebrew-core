@@ -6,6 +6,7 @@ class Proxelar < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "56bb3074421073ca09627a8f2027f155216dd22ae9146d88019dc32b3c37b4b9"
     sha256 cellar: :any, arm64_golden_gate: "db81050f106a659d15ae5e4ff8f2fbf21b102c41481218af32661a29914950ce"
     sha256 cellar: :any, arm64_tahoe:       "c2b9c45f3e0b465aa2018234ddd61b11e48a7939fc13ec026a5df350b8f801c0"
     sha256 cellar: :any, arm64_sequoia:     "cf9e1f182059f281bbe3c3dd482c642e5dd982c561a85a1d3f6dc66641f5ea6b"

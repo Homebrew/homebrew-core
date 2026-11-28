@@ -15,6 +15,7 @@ class SequoiaChameleonGnupg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "48505fd194b3ef7d2c4b880a22977e056d7a64e6cff0498fab2ad17920da9120"
     sha256 cellar: :any, arm64_golden_gate: "93af757aac95cca95f5a042304150b5e612136ec9b40792ea0c266f7bc8142a6"
     sha256 cellar: :any, arm64_tahoe:       "c403c015707526a39bdc30b276e39b3f43e529cfbd2331666d2cb0dcb5af5577"
     sha256 cellar: :any, arm64_sequoia:     "903fe6979be7521f9a3fc85fc09826112f6dce38f17bf0e2d5daf9d1eea0725d"

@@ -18,6 +18,7 @@ class Avahi < Formula
   end
 
   bottle do
+    manifest_sha256 "9b32df98fd9e353336d81b085c90091ef0b2089511304d878a90135d566af6a1"
     sha256 arm64_linux:  "ab5d4c2704d2796fe9957a62f99c8195054d077570596cb09ca71bc4b74b1fd8"
     sha256 x86_64_linux: "51b84437fd35e39139a86221e62ee8f6b9c70cbb74b2fbdcd5cbd3274ea50090"
   end

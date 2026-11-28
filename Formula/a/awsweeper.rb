@@ -7,6 +7,7 @@ class Awsweeper < Formula
   head "https://github.com/jckuester/awsweeper.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ec4a8a84d950c01bb77e0461a7360e460dbe1bda50588275dc045f4c217e9450"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b0950277be0f8ef9548945cf1c21318d1cdb97c8df22174dcb5c8aa72f2183d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57cca26932b44660312b377bca14d2f3fdde698d215c127f4be5740304cb61ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f22735ca83b553b980c8c4c965b82c74661f63b05b42535f1cf182c6e80d6eb4"

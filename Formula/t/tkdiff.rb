@@ -13,6 +13,7 @@ class Tkdiff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4f330b601ab68fb87eef5d70332f16dcb4dfd883cd75735015e618ae5d330976"
     sha256 cellar: :any_skip_relocation, all: "0d252a16273fc3118cb657242250606329c9076ea30a20ba5ecbffd2b7d304d5"
   end
 

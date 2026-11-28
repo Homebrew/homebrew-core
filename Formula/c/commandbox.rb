@@ -11,6 +11,7 @@ class Commandbox < Formula
   end
 
   bottle do
+    manifest_sha256 "12043e7eaf36ee3252a588af4b7e5d6a0f366a42aec086557dfd0412bf9f0498"
     sha256 cellar: :any_skip_relocation, all: "8e9887816ff47ff9d898668e62f64f8b9fc2f30ac221f742f5320b6a9b62eb24"
   end
 

@@ -12,6 +12,7 @@ class Jpeg < Formula
   end
 
   bottle do
+    manifest_sha256 "390f5b4c859d8a2a52d6574237064ea755a0d791338b1cad6b5605b569fed530"
     sha256 cellar: :any,                 arm64_golden_gate: "4ad5ccc9463c57cce4ace5bb03feafa47c94cd4eac1441638a057d5802d5b1ac"
     sha256 cellar: :any,                 arm64_tahoe:       "9c9a77dbf6f8e31baaf5fcf343a8ce66d368a98239d70395f151a92931965757"
     sha256 cellar: :any,                 arm64_sequoia:     "bfff2e53bb277e547ff825933f99e02d8f8f38f42ca6d971f76ccfb09b4fd5f4"

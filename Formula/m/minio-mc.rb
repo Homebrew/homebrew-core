@@ -16,6 +16,7 @@ class MinioMc < Formula
   end
 
   bottle do
+    manifest_sha256 "fdf7098000567768f80d3a7a4b538637f101fc062647835b33c65dafcf4ec52b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8eccd68d5a334f73d22d2dd1dc4f793b2684aeb5263e2d7153b1fe001fc114c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "de6f7f9346bc488230a9ad97bf4e756b2705218246c89a88a75125d7827e6d66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b4a41f0de492c2ac69846df380757be259e2d762219a1c5a80119ece845e487"

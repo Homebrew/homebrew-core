@@ -11,6 +11,7 @@ class BazelAT7 < Formula
   end
 
   bottle do
+    manifest_sha256 "8dc3671e0fff66ebb709556b21bc203e5fe07d36a7410cb50d1a0b934ab7046a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8d6f123b0cc0e6a686502ac1a669687ee3703360eb2a18023df5d40acea5b89"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f93bcbb668388b2b97b1ab21d56c7295cf2836fad157b1219f5c8a9839640779"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8826b681e3ce36c8684fefe9c7e54ff5a9883588b36fd1d561a687c96549a0e3"

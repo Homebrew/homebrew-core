@@ -7,6 +7,7 @@ class ZshFSyH < Formula
   head "https://github.com/z-shell/F-Sy-H.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a1c0fa60c3b1cf30acddd40a35ff31ad5764b0e3c8920959720968b8831954a6"
     sha256 cellar: :any_skip_relocation, all: "6f111e49b0f927b08af4194279c39a9191cd8ba6738fe8392fed01f4bb41bd47"
   end
 

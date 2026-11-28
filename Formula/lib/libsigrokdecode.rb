@@ -17,6 +17,7 @@ class Libsigrokdecode < Formula
   end
 
   bottle do
+    manifest_sha256 "10ff2f44282aeb251fc606b13bf860be271078a8b80a6887372c443a7bd9e7fc"
     sha256 arm64_golden_gate: "c9270ad711b3a079cde5eeb3700df0d549ef9ebf1e85ed5f60900d24f4ba8ec8"
     sha256 arm64_tahoe:       "bed30b10a44f20e5f2d96a571068a55b34ea8372746c90f110a9ab2aec8b5f3b"
     sha256 arm64_sequoia:     "8197a495bd8e5d4a2bdb2e3a72bbca215b7d93c694bedd78647dfa37d7024b86"

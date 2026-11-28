@@ -7,6 +7,7 @@ class Cmctl < Formula
   head "https://github.com/cert-manager/cmctl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "47aeddc536e09304d07052633a2f2aafa9cb7b300ab5c939d948b31761d2869f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bb85f23d67cf27f6bdc08a39bff5a237178259c41b3875d678a0b8fd56297c6e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a881921ec3321d24f748ebf90006bc22890261054f1271891f8e2afb9248fe81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b3ae32507235bd3c48de6e25c9d32efd67a01754d5a8401bf9723021a8192897"

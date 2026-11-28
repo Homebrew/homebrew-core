@@ -7,6 +7,7 @@ class RunKit < Formula
   head "https://github.com/Esubaalew/run.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1e02578e45791c048d9d23c91de6f5a556dc4ad10c3f1019b545e184e8807314"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "645641c67121535447fc6d0baef9a7341b726e0684eeeeccf833ae7a4f285b53"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f936d6f310efb6d43fafca5add1290feec8a64c8122488ca168f50f132be826"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab69979940dd0caec1d2702cdd2e779874bd0fc3b969b99bef899f041a932a20"

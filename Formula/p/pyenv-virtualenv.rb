@@ -13,6 +13,7 @@ class PyenvVirtualenv < Formula
   end
 
   bottle do
+    manifest_sha256 "a58f0e1566c129ee424e60af11ad6fda11c646bc09e3df624be55bddbfdede91"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f96328782e3a77ab7793580d119644e11c329106620d4c14a6ed81cba589285"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f96328782e3a77ab7793580d119644e11c329106620d4c14a6ed81cba589285"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f96328782e3a77ab7793580d119644e11c329106620d4c14a6ed81cba589285"

@@ -12,6 +12,7 @@ class Bmake < Formula
   end
 
   bottle do
+    manifest_sha256 "793581403d4eb8f678c76ad892f8cc61240983ac0e14fa943b37bf56385d2991"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47a0576cf8407e0ddf40c9f4b2451390098d5b1c95fc6c7530990d487b5382cc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93f2a6f6db6d6fa92fa29472294bcf2d8bb358eae85bce25a3c7d80fc3c14956"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aeb5e436cc198a498e1f90442eefa854ac2c46db20fced7bb0e1c9198b2f838d"

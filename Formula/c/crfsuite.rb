@@ -6,6 +6,7 @@ class Crfsuite < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "8a2f8f1b1ac18985f55bdddc7c034c4c1d4a2bd099d0a6db819dc791fbd67f17"
     sha256 cellar: :any,                 arm64_golden_gate: "1474e5de6de7e106a978ad0fd5783c13efc6eb38e7e98aee112c80a0f438a592"
     sha256 cellar: :any,                 arm64_tahoe:       "65a13d4653a19e899bdbcec57f9d7dc4852dce18c753e31c42102f7ce734bda6"
     sha256 cellar: :any,                 arm64_sequoia:     "a927557fa509ed7f639826d4ba8c469eb580b53dcceeab6268a6519fc1b41813"

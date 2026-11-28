@@ -7,6 +7,7 @@ class StaticWebServer < Formula
   head "https://github.com/static-web-server/static-web-server.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b82f86c56773df7b314beb0cfd7404960a06ffd67cedea5f9ddbc0bb3bfcfb75"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "892eced624496283bbeea0097e221e5853d1307238a246f8c0e2966c6cee2ee4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ac2a928dd2b8c120b5a667c920b40f8e97220d61d877d7302060f8f132079ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f685d1f8ca530bf278a8aa059e89318330a08881293e188c4c10923af20b73e"

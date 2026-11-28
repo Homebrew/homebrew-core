@@ -7,6 +7,7 @@ class Librefang < Formula
   head "https://github.com/librefang/librefang.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e7373133e32e33a2660be2cc3110b436d891cb5f8c98ad55c2a3907e01fba530"
     sha256 cellar: :any, arm64_golden_gate: "e92982abb03181019ce832947f98d5933dfae2ea6f356fcca56759c96e05c67f"
     sha256 cellar: :any, arm64_tahoe:       "4131278025e3b5cbd0ea4ea9db15c511a3b8e66384d93d9a27f64dd9d70c6a14"
     sha256 cellar: :any, arm64_sequoia:     "12050fa9ede503ad4104a437c4e9f5864b34b1c31adfa32dbeabe8b219b5d86d"

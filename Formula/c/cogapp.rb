@@ -9,6 +9,7 @@ class Cogapp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "56ff6da0f5ccceb4a48190f63edaef4c4fd81b994debd1a3d37c890c9b375d3c"
     sha256 cellar: :any_skip_relocation, all: "15c3c54cde04811f64cbd87de1954cf9d2e298a3cb607a8aea373b0f10ea00cc"
   end
 

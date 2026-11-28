@@ -9,6 +9,7 @@ class Ttyd < Formula
   head "https://github.com/tsl0922/ttyd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55da807db1d0f21feeb585598f3b97607ac5f9e8f609919d154f05e9bfad7312"
     sha256 arm64_golden_gate: "c12c23ab10ea0ca8de625359fba6964aed32f2c67b3794459a68e83984dd106f"
     sha256 arm64_tahoe:       "cea9d6cddc179d6219e21ed19dddf4b6c51895696e957999c5655c6f40a9fdf1"
     sha256 arm64_sequoia:     "e074e9140fe2e77d597dfb53b841e0c49aa9e48b9f168ac6e9f69ab17f2f9f5f"

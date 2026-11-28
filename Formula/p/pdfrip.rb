@@ -7,6 +7,7 @@ class Pdfrip < Formula
   head "https://github.com/mufeedvh/pdfrip.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5a35087f91b5c8356ce89b33bd17e2834e3872384df3614fab6e188b56a36209"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee1147cacd73b21de1c30db48f90b78b4e0deef30ec62ccd9549c3afa6f5f663"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5856a2f08d97cb02cfca8c54d867f4265ca284b864ec7c7818c3a3beb4523a3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4f70dca6d1b3856a4082fc53d5532cdd89a827109475fc856c9f63e4623de35"

@@ -8,6 +8,7 @@ class Cpio < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "eb110e65d02f336acfad1a99fb22faae45311d5298238d3e5c3e6b98e516d5a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b945a688c55cdca954fe6ca77d1bf85d3979d672ba21476af63daaa7589fe87e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a1aa072a11ce1402aaf38319e6fc087b9bf4fa029f2b76cc748b0d122f0cdce0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fced3fb939f4c350d3ba4b81b2b071d9510728ea28135429cdc150d40f7a1477"

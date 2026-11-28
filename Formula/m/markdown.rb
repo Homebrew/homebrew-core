@@ -12,6 +12,7 @@ class Markdown < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a7fc3a1f80087afda32eeebd0e055d2ee635e350eba6605a50e902659c13bd0b"
     sha256 cellar: :any_skip_relocation, all: "ba5a95424267c48417d20a1ca2a253366c9741d7d2dcbe71fd7715c1babd1b8a"
   end
 
