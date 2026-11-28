@@ -63,14 +63,11 @@ class Miniflux < Formula
     system pg_ctl, "start", "--log=#{testpath}/postgres.log"
     begin
       system pg_bin/"createdb", "-h", datadir, "-p", pg_port.to_s, "miniflux_test"
-      miniflux_pid = spawn(bin/"miniflux", "-c", testpath/"miniflux.conf")
-      output = shell_output("curl --silent --retry 5 --retry-connrefused http://#{miniflux_addr}/healthcheck")
-      assert_equal "OK", output
-    ensure
-      if miniflux_pid
-        Process.kill "TERM", miniflux_pid
-        Process.wait miniflux_pid
+      with_test_process(bin/"miniflux", "-c", testpath/"miniflux.conf") do
+        output = shell_output("curl --silent --retry 5 --retry-connrefused http://#{miniflux_addr}/healthcheck")
+        assert_equal "OK", output
       end
+    ensure
       system pg_ctl, "stop"
     end
   end
