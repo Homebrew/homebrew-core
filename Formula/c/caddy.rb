@@ -94,14 +94,13 @@ class Caddy < Formula
       }
     EOS
 
-    fork do
-      exec bin/"caddy", "run", "--config", testpath/"Caddyfile"
-    end
-    sleep 2
+    with_test_process(bin/"caddy", "run", "--config", testpath/"Caddyfile") do
+      sleep 2
 
-    assert_match "\":#{port2}\"",
-      shell_output("curl -s http://127.0.0.1:#{port1}/config/apps/http/servers/srv0/listen/0")
-    assert_match "Hello, Caddy!", shell_output("curl -s http://127.0.0.1:#{port2}")
+      assert_match "\":#{port2}\"",
+        shell_output("curl -s http://127.0.0.1:#{port1}/config/apps/http/servers/srv0/listen/0")
+      assert_match "Hello, Caddy!", shell_output("curl -s http://127.0.0.1:#{port2}")
+    end
 
     assert_match version.to_s, shell_output("#{bin}/caddy version")
   end
