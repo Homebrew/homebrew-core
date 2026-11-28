@@ -7,6 +7,7 @@ class Libecpint < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d12b0e311da990c32685a8b327694d8619eb56f3ddb3042912a91d71c1a5857b"
     sha256 cellar: :any, arm64_golden_gate: "f25d9acf57439672db8cf9065bd65651e3d697ae82339eeaf3052c8792e2b6a9"
     sha256 cellar: :any, arm64_tahoe:       "44f7a089df2478520358c2735eb716a52085286619febfb5336eae43e5ac94af"
     sha256 cellar: :any, arm64_sequoia:     "9b314e0990d9f1e3ffd3cbe14d5860c8581f91298a9a046d3af6d16e3e9c00a7"

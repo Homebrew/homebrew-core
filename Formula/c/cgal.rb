@@ -12,6 +12,7 @@ class Cgal < Formula
   end
 
   bottle do
+    manifest_sha256 "44a9bf0811f54780a490541ffdc5f47945933c1a077d7b4e2c3278af0db90aad"
     sha256 cellar: :any_skip_relocation, all: "a630bdf209970775ad7b3b96efbff3f67d901d923c8a1c43e964353123ecd604"
   end
 

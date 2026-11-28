@@ -13,6 +13,7 @@ class BrigadeCli < Formula
   end
 
   bottle do
+    manifest_sha256 "66fd77a47bc6e7a8b260bc8b682dc651a1656e5213c663f9b8a3b68f218ae46a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bac92044f55e2532ca82c06a6497e3c8214de28e4bbc6016f53e54c299dda62b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93938d159d0b3a5255a4bba8897a6e964ca40463210957612ab294e7deebcf27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "297bad8cabf257b37796f62ce59aad4819642e6953fbf75aeedd5841b9ea0da1"

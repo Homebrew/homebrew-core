@@ -10,6 +10,7 @@ class Cekit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d6f19146dd95cf79ebe8445531fc468b66aa2d69e48038c906072c4e0d10b5b5"
     sha256 cellar: :any, arm64_golden_gate: "9f412aa02a6b19a017219935680c16f0f19e9d8d10157e37c7faf70f62fa3733"
     sha256 cellar: :any, arm64_tahoe:       "26a04179b69e9a591d1d7ec82eca6aef1b7575db8c41cdfdad9d98733cd9e8cb"
     sha256 cellar: :any, arm64_sequoia:     "acc266993159621861f82f2e73baaf7cb7df1e20b803cc406e02e35b592b9f0a"

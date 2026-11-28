@@ -13,6 +13,7 @@ class Vips < Formula
   end
 
   bottle do
+    manifest_sha256 "5dd73c1e19542dd64f17b7d32b8eebe885e8aca818392962ea352608655ac8e4"
     sha256 arm64_golden_gate: "3ab6b72606d73d84988d178d4d2068fd7fc335f2bbd69255d1d020d5b4e0eb79"
     sha256 arm64_tahoe:       "84953cacf9f680e4b117d56877af9eb970af31d362647a4e0b86af472572f229"
     sha256 arm64_sequoia:     "3c51bcc9c013629477af326b92c798e3cf5e06cf85e68ebd2a5f2b19fa4b7200"

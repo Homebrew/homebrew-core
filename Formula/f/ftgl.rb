@@ -14,6 +14,7 @@ class Ftgl < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "3d19a96acfea72cc5e08998ec49d0104d7178361ef69330ac4464e47472a097d"
     sha256 cellar: :any,                 arm64_golden_gate: "4c22745ef1829ac4a288dc9582fd7f8b5198eb571f0369c5fae4902e7e0fe5a9"
     sha256 cellar: :any,                 arm64_tahoe:       "12ddf881165473de8bdeaecb87995c36f753ca51a5be48404e5ffcf2c1571205"
     sha256 cellar: :any,                 arm64_sequoia:     "a14fb054d0fbc1e6e11904e32c02be573d3db1c72981a6badbfc61f2f214d5cb"

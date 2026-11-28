@@ -7,6 +7,7 @@ class Hdt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0ed3ee149e8dd0e34dbe2505012d7b13857af9ccb1b1793b9226b9e250543ae7"
     sha256 cellar: :any,                 arm64_golden_gate: "137d2dd95a432ef46f99cbdf3768cb407d782aa8ad7d3d4ca41e3221a6a701f0"
     sha256 cellar: :any,                 arm64_tahoe:       "46d5822d2e9fe086b04b5e0f698e8fbbc6235da2f5a95987ac71479b6c2b232a"
     sha256 cellar: :any,                 arm64_sequoia:     "ae9bd2a9b1e243004fac4cd8f28b283efb97c13700de34d16818e68f3abf5b64"

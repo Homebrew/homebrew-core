@@ -7,6 +7,7 @@ class Tbb < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ddde109a530cc84ba78b55316f6604c3db2bd74bbfe674995c4e33880aef773b"
     sha256 cellar: :any, arm64_golden_gate: "3d1677c85dad2c9d18fce14e69d12d3a0521226afa1c1b9e87bc6f2ed4e6078e"
     sha256 cellar: :any, arm64_tahoe:       "245d6a77dc0e52db1c57c41558b175f9746bb08dea5cadc8fe0a46683479871d"
     sha256 cellar: :any, arm64_sequoia:     "b42c154310ff3819dd5efcef8a52e6f12547bf52d2299c9e60bf88e4c22b46bd"

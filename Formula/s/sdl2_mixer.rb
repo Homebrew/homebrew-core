@@ -12,6 +12,7 @@ class Sdl2Mixer < Formula
   end
 
   bottle do
+    manifest_sha256 "1742caceafecff05b27c613e34df9b4c7d107ca5aae7fbfe89daf093eadd7171"
     sha256 cellar: :any,                 arm64_golden_gate: "81220799623bac0328e3e72ccfccdbd15bc119795260a94753c9646ac679b1db"
     sha256 cellar: :any,                 arm64_tahoe:       "b51467b14224893388dbda5a3154fcd29d63f02fb0810b2aa08844b51b77530e"
     sha256 cellar: :any,                 arm64_sequoia:     "c73b68187c3784df0ca2dfccb296db4b0e87c969dc80a32e27b13cbf79a146fb"

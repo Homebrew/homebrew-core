@@ -6,6 +6,7 @@ class Godu < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b2d7fbd901277553b2374b774bd1f4d8cb5daf8167c1d87ba47553c05542bd74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4797ae57c05cc0f50ffb1b613ec216197f3f4669fd0fd37e6c1136a64c8aaed0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4797ae57c05cc0f50ffb1b613ec216197f3f4669fd0fd37e6c1136a64c8aaed0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4797ae57c05cc0f50ffb1b613ec216197f3f4669fd0fd37e6c1136a64c8aaed0"

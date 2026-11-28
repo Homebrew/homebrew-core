@@ -17,6 +17,7 @@ class Qtlottie < Formula
   end
 
   bottle do
+    manifest_sha256 "052aee2921f4e5f56912bce4a27800e0e7519742c3b2dbaac78b1809e66313a4"
     sha256 cellar: :any, arm64_golden_gate: "10e6085eb0014cd0b100dd00e34cd70295d2b56ce6a8cb6e242632183df8805f"
     sha256 cellar: :any, arm64_tahoe:       "abf3075e4efd657f7bdd3eea1a0100d8026ba64fe28ba2a8dacb8dc24e6c93ba"
     sha256 cellar: :any, arm64_sequoia:     "daad2907205829155b17f3292ba7c67f64b57575d7ffb48346b7eead1d523ba6"

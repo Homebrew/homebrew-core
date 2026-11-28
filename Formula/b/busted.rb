@@ -8,6 +8,7 @@ class Busted < Formula
   head "https://github.com/lunarmodules/busted.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2ea26cb3af441cff61ca6f66ccdc6e160ba3b535c5632373d07bb14d48b402b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82567727e44a170453f9d3d6a43c29465ae31658631f181bdcd2a93f78278c49"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b365b5128600da6de31d3d468d99d5008fb2c1a359362de3fbf7b206e9b307c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cbb42897d81c69d3e00608baa5e8794c24cd5a8e7c88630d94f2c123b358b962"

@@ -10,6 +10,7 @@ class Athenacli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e65b304695febd789aad16b5a7b3fba3d40a032824f015113a46b1e850fb25c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d1da87816be085826a1861a7f42818770c73b609ed4de18232bd4c3ecb86f7c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c732e71dc8d982a98e31783ce782db0fbe133c5c68af65aece29f33ed95c60cf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "25abffd57043fbdda312668037e0899b6293969836e43f996ba27f6b0d99fc5d"

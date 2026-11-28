@@ -23,6 +23,7 @@ class Llvm < Formula
   end
 
   bottle do
+    manifest_sha256 "047ad0827dfae7478a4df5ae7dbf0cfa83fabbcff489fb0aedf2b88d545fbc0c"
     sha256               arm64_golden_gate: "a649443f745f103eeb1b3c59255bf9dcefd7287ec91ce45afcadc2976ca8541e"
     sha256               arm64_tahoe:       "e8479b14cf92f2c1092ef31531a89b8c9b88e97207e3b80e330f2037e594963b"
     sha256               arm64_sequoia:     "8a7215262526c9d76c252136eeb4b972ffd93fa6aa1820a5cd16d21cf1362ad8"

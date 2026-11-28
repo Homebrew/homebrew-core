@@ -8,6 +8,7 @@ class Zug < Formula
   head "https://github.com/arximboldi/zug.git", branch: "master"
 
   bottle do
+    manifest_sha256 "060b093f284a37c013c9e72af337a5a16572b54414d3ba472f942e1ae8945b6e"
     sha256 cellar: :any_skip_relocation, all: "e3834dddcd9eb7036a9a75ea740f0498c6566cfb6dec6f3d20e488b7f4881f96"
   end
 

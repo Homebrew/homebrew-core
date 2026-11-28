@@ -8,6 +8,7 @@ class Vde < Formula
   head "https://github.com/virtualsquare/vde-2.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ed724b1d48f4cf55cf126be2770fc4ef30b3a284b2025ceb10816bea70e9412c"
     sha256 arm64_golden_gate: "972ce0f14fb0fe92932f45b887019b228ac4529f06d0a95eeb88ece1359d76ba"
     sha256 arm64_tahoe:       "7d38316ce1948eb727d590d88e81fb5c74f2ae4f0dcd9b7161266a4af1ff2e3b"
     sha256 arm64_sequoia:     "1e3ffe05a0f354b3909f74d3374fc036156c438147f5ac8dd34a8f747071e9f8"

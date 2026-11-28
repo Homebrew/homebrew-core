@@ -17,6 +17,7 @@ class Mpssh < Formula
   end
 
   bottle do
+    manifest_sha256 "e74affe7d7a3c200bba38e6d6b95681d6f90fe729b0cf98bf7cdd04a3d7c56fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ad2eb82b2a7ede6f65010c0a8ecfafc4ae39c75675aa26e8eb83a1a180282e54"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5dfa9aa8dc66a51ca4c7639f036b59c2b587cfc907d47b400fb03e7df982a64e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b6d83538348cb97b5847fcbff26efc651cf313bc6ce8c4c572d08cf3b43deca"

@@ -7,6 +7,7 @@ class Terminalimageviewer < Formula
   head "https://github.com/stefanhaustein/TerminalImageViewer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "794a65210e24ba10e1a4683a317256e357744b79767851c60a3ad126b78146ab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb939b5fdc99290495f85d4dd5a28a1787481e4847bdac41f9de1be1a6c36cb6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d15318b665e2ca76d7d9f1c2c7f6d6fddef75446202fbd6dc7444a97c14b58d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ee22b5d19739497f5fd9a9e082da1106cca1ebe64d1307ddb436ba7c435671a"

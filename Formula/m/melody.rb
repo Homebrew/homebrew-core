@@ -7,6 +7,7 @@ class Melody < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e8a45a1f90047911debf96ecd440f418144f2936600b3c3cca6004c543a5848"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2c3a01c48adbd6b7af875a7b2b53e46989e4165103aaf36fcd218c7162c6bd08"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f63d6fddea834cd2fd42b11576a634d9b9b22b43029483b522bec09ee4d672c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02ae5a9796e29ff3f0f88a96e957b5c2495a12f27d513eef8ffbf07f07cca8c6"

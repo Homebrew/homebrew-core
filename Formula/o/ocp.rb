@@ -12,6 +12,7 @@ class Ocp < Formula
   end
 
   bottle do
+    manifest_sha256 "ce84d1b454bcdbbfa3f1555ef29350d828e542eb482fa5cd0c09e61f120bce50"
     sha256 arm64_golden_gate: "105092c94082b21c1afe42ce61818d95f2241cdd142ce7d8b6bd815d2a8d77b7"
     sha256 arm64_tahoe:       "7f029bd8a9ea98c6a85482757e87978c7abdca9ac088ceda8b3b46d328815381"
     sha256 arm64_sequoia:     "6500942cdd655aedbde7a7d187215bb8e5e0969a3073fe17c277ca6a92d4d0d6"

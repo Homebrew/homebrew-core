@@ -7,6 +7,7 @@ class Vulcain < Formula
   head "https://github.com/dunglas/vulcain.git", branch: "main"
 
   bottle do
+    manifest_sha256 "bd778ffd9e42de43b3f59d58e75b1cb1efa53aa72cb70bd20133654598417f2e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c338c0cbb14bbf142bdfba4523c03b9fc03b8a5ca221f16c637dff419134ce9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d87abd5cfc86a89c862db01869a7657a946dd65391d3fc9d1962b91fcd3a4b0a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11316f6f0962f4fab1daf39ae0c49fd46bd60167e30dcfa5761826fb54fcd712"

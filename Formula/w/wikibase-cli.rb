@@ -6,6 +6,7 @@ class WikibaseCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5e32ffa735795ce6f59bd6d422668c497ebdf996786a63e78c10e4c1d89a2af8"
     sha256 cellar: :any_skip_relocation, all: "5c8a7b804fd0857838ee8c47c4ad3101608d21981a5cfaaf6f65604e0715aa03"
   end
 

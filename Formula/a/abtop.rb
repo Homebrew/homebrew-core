@@ -7,6 +7,7 @@ class Abtop < Formula
   head "https://github.com/graykode/abtop.git", branch: "main"
 
   bottle do
+    manifest_sha256 "039c4eca47f71542e4a7b93f3a75a343a69b4c0bf4f328d3e8aad485ffc60287"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e2f6e40a84305c167bc3fed7b5b96d9ccd239c475ed4e38d29857fcde07e36c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60d31368845bac83d23861c4dfda9a66a7f8b188c96ed6b9b121077fe934d069"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "12607220722e4b8568aa02e6bc49c9a355c8906f53ebd6efa50f88c54af6ad27"

@@ -17,6 +17,7 @@ class Pass < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ba37b7671b938efe66215d2523d9b245f67e9bbb06387cd801c98666786576e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6cdc9a58159d0de8de8eaa5685f82aa2e56c7cd908e09f99abc854c1b5005418"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98bd9949756576685149b0bba825a0d4a12efc5f256d703236a09e24fb6ab2b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "28e5b23335b5260675224af5d330a5d4f3b5e3d9be5f9491c68dbdb48ab8a6fb"

@@ -8,6 +8,7 @@ class Graphite2 < Formula
   head "https://github.com/silnrsi/graphite.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b8338a98cd5a2b7c435756f1d03510ec4d2b967456d04636b206b59f03ba0fd1"
     sha256 cellar: :any, arm64_golden_gate: "b6a50a657282bc4b277e2b8247bdd507962f90f4343298afe601fafdb2f959d5"
     sha256 cellar: :any, arm64_tahoe:       "c05e664c8872f3a9e08ada587a33d71b841673126840fe0cd301300c1f59acea"
     sha256 cellar: :any, arm64_sequoia:     "bcbf8282acc59c6ed6a0c9a7cf076935735c21de1495bb4e22c3d6bf32f31ee0"

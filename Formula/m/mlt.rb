@@ -9,6 +9,7 @@ class Mlt < Formula
   head "https://github.com/mltframework/mlt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f8db07c78152a570c3432820ff5f0d88a09f53176b748d537cce8fe7d7e57c81"
     sha256 arm64_golden_gate: "f8c2b582ab2106dab0be2c3e21fadf3cd59ae4690162e7bc2396816620b4cbcb"
     sha256 arm64_tahoe:       "cf8d5587e2b0bedac5b12d164dcb53eb1989b1a990095ec940e42428a91dbf3f"
     sha256 arm64_sequoia:     "e6794e1dcf2b135c681701a73d4e1acd842334f331426317ed6debb304c961b6"

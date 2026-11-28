@@ -7,6 +7,7 @@ class Cozyhr < Formula
   head "https://github.com/cozystack/cozyhr.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5c9b694499a0c4e0636cffc008861f6b6a914553aabcd6ebd8ad0919391e15f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "18b05052579d592df19c1daf04f21c32a72e8eeb4b6ba2d49ba1b69f8831ccca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f180b5440e264f7eebc9f4ad530179750a23969d1969d8439df058e3a17286ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8d7ea9cc303fce894d6159c1f92e2ab49117d4751af5b941d6c01365b18a3458"

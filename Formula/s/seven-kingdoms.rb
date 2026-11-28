@@ -12,6 +12,7 @@ class SevenKingdoms < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7a813529b95f4deec11b5dbe98a715c4e8c0ca6dda55136d50a48d4ad43cb250"
     sha256 arm64_golden_gate: "f2185ae5bf536373bb7c03a888cf4aa6628b50fa94f3e2170d233e487d98f702"
     sha256 arm64_tahoe:       "ff7bdbd3a2e4e637a6f90dd9d95051baece154f4abb30ddbb88e4a4a8b84cb24"
     sha256 arm64_sequoia:     "8e23d82f2fa267b2489c5be9f53f9423de28209db8c691a8e55ec97bba8e4879"

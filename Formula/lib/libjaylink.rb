@@ -8,6 +8,7 @@ class Libjaylink < Formula
   head "https://gitlab.zapb.de/libjaylink/libjaylink.git", branch: "master"
 
   bottle do
+    manifest_sha256 "03271ea25423f74d5e441c949c9d6ef8bee269f6e5a8253f5bf829d59460c99d"
     sha256 cellar: :any, arm64_golden_gate: "a91a9b57c5081e9186378952e4955b41f7e11ad80714ca8c92fe69d6af281a92"
     sha256 cellar: :any, arm64_tahoe:       "8e3586f298a475f8d9991d9224d5c1182cc3fd93632f309d6350c1da189dfe22"
     sha256 cellar: :any, arm64_sequoia:     "06d29040f6a0484cda1d317d23a1f89507dc665060d41f6363a894c3601ae0e9"

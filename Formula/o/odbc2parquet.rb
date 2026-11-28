@@ -7,6 +7,7 @@ class Odbc2parquet < Formula
   head "https://github.com/pacman82/odbc2parquet.git", branch: "main"
 
   bottle do
+    manifest_sha256 "276f1d6da1fd05a03cfa3b94d7bff5af9d4908ca5f283eaf8b5c4360b76e163b"
     sha256 cellar: :any, arm64_golden_gate: "f30bb60683b6bea920903bdc0eac81ff0abfb2c5898f9124511dc1a44be116f6"
     sha256 cellar: :any, arm64_tahoe:       "4dcd4ad1a4cd7389030d7b7bafd6c40e28f41c5aa433f7557b6ae6dafcd32cc0"
     sha256 cellar: :any, arm64_sequoia:     "87b1aef161357b051ecb4fd5d8987f4e14ed79aae7ce5e91edf486f2176084a5"

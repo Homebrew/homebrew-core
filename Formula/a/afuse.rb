@@ -7,6 +7,7 @@ class Afuse < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a0415fa6d174e99fbc808db33e5eff472b7b399be60552868e974782ecb35a59"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "22032cf3dd5fe4a2aa623d7bc1f542eebd796f749a63e62907bf1006b2f42d26"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "2d36270c3d62319e03cf6f11756308f5a1f1daef36cebb7ef19376a795002014"
   end

@@ -12,6 +12,7 @@ class Pugixml < Formula
   end
 
   bottle do
+    manifest_sha256 "bf3aeaca456cd257d6b3a48a248308e6b20adf8a8fbcdfe73d4d7a8771fcf498"
     sha256 cellar: :any, arm64_golden_gate: "d8cc90416d203bc021aaebf5913adcf7f9c8a19c55b1e0119979f5fdf403be30"
     sha256 cellar: :any, arm64_tahoe:       "8de9b221f2d31147de65ccf2a91f088baf8f16198c916e704618c74f04b2d93c"
     sha256 cellar: :any, arm64_sequoia:     "1483e3c7254de95b12568d9841f76c2d2324ddad5cc3902cd44facd14c751b66"

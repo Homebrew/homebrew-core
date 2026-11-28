@@ -7,6 +7,7 @@ class ContainerStructureTest < Formula
   head "https://github.com/GoogleContainerTools/container-structure-test.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f4fcdc0e13cf4d1d5a6fbfc654b472e4da09b0b1956b428f850a54a7316917e6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47c584593bb21e5a1022d14efe8e66202ad5272ba705135e6246825b6b5ccb86"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ffadb4b8e066a730a44df161a8994706c19299d4b2016e1f6446c4b87f4300d7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ffadb4b8e066a730a44df161a8994706c19299d4b2016e1f6446c4b87f4300d7"

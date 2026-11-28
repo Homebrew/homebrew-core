@@ -9,6 +9,7 @@ class Help2man < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d0d3a12f595c9eec22608106dddd13735ea1f3ac5940613ead55ea15750a80c0"
     sha256 cellar: :any, arm64_golden_gate: "15f0a87126cbd87f2b88624fa557f9ea7e8b86d2831e13056079f79c80a67e69"
     sha256 cellar: :any, arm64_tahoe:       "e7da765e631d20ed655e5cd3a488288e0922f44b61f2b30d00ba345acfc93999"
     sha256 cellar: :any, arm64_sequoia:     "f3ae41d9332c1117fe072a56d5847877eada2b3fc3aa4e6ba872f0aee159f208"

@@ -7,6 +7,7 @@ class Periphery < Formula
   head "https://github.com/peripheryapp/periphery.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1786e2dfe238b1b8cf3046105152ec15e8e20bbc91ed3862433ea568e3d54efb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91cf1abd736f7f5daab0fe1bfc6ec6c9da87a2fea3d52091934a2cbec72bb40c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f15a284eb5136ad3f57886f3c58a175ee177eae01b0e4574e6c1d4ec9b8acf19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af70d2f0d974fd39d099b14382ccffcbe1742bd0a818888a4050a8c8655f8a49"

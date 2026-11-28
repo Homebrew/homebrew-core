@@ -15,6 +15,7 @@ class AmmoniteRepl < Formula
   end
 
   bottle do
+    manifest_sha256 "0f66db0347a8f05f52ea27eaf7b292752f0a990f8b593cb28324a0e92b3dc10e"
     sha256 cellar: :any_skip_relocation, all: "1ae1d432270e48a8f23305a392d6a84006d52b1bbd660fa2ff90f1f29ab5a27f"
   end
 

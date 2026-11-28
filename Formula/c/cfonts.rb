@@ -12,6 +12,7 @@ class Cfonts < Formula
   end
 
   bottle do
+    manifest_sha256 "9e5a68ce10d9ec2e66a995dff76745ab4687aab75ee257452a910c789c75dcca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef73b3652c470233e97bb791d72419bb731838240f80e5cbbad2427ea84301e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f46ca452dd65aeaff877569858af6fa472cd5110e70f5e0aae8348424cdc9517"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "12145976d033447c9e14e635645be9ef4a4722217642249eb3cc599168cd882f"

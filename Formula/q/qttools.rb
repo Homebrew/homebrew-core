@@ -19,6 +19,7 @@ class Qttools < Formula
   end
 
   bottle do
+    manifest_sha256 "be1dfeed2821a2e01bac6b503591e18d25853a1ee9f29bed63d016fcb342d240"
     sha256 cellar: :any, arm64_golden_gate: "7dfee97bbb7d1b4a2474e3449f2a2d0e836439bac5da1de4cb672e0b1eb4215a"
     sha256 cellar: :any, arm64_tahoe:       "f04dfe220eb9a4bf083001e7885785fd4c177168a346f7243a87bb07818ca3b3"
     sha256 cellar: :any, arm64_sequoia:     "dda285ceee6e4547ed2da70b80089df0946a812f31747513901c09c35e53cf00"

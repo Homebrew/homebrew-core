@@ -6,6 +6,7 @@ class Dockly < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5191643411f386c51b5f0fd660c09b0195bf6ecb06d8b423f66aa43a20eec362"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "653e38b6f26732b4285baf114f43a8ed0cd43a703135f033b4b8b3949b04ef74"

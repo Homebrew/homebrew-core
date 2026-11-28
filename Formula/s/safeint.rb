@@ -18,6 +18,7 @@ class Safeint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9a32a289723b05d64c429d699ac613f7dcfe91ffdce3b38e1942e0d17e47bb12"
     sha256 cellar: :any_skip_relocation, all: "ffba215daf83f5a8a3beffae5f56f6e58288ff1f7c9f35d52edf19db5e935663"
   end
 

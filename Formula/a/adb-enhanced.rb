@@ -9,6 +9,7 @@ class AdbEnhanced < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2e2077afcd03cadf7de003ec2a6c687b9924781bf6ec1cd75e2e84f24ed8945c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "483ae064e1044b73fe4076051e261e85332cb745a29f9be3561d2ebbcbee4bd2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "828e688eda04f785d63146b9a2862b08150e1905412c3ac7d7547df5bcb30667"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5411a417913761684367ee2ab03c8b9c71d5286cb29c4c7581246cd0f6e81b08"

@@ -11,6 +11,7 @@ class Showcert < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3bc1cec9678fc5a4a213a14143c2c1a04ab0c3959b72a28c6405398fa0a17301"
     sha256 cellar: :any_skip_relocation, all: "7795613d06188f3ca5580d076b4a8531ad72af9ff9ee55c6b05f575502a73310"
   end
 

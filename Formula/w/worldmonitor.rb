@@ -6,6 +6,7 @@ class Worldmonitor < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "bf25fe3df665f79a29adf65e8265ca60c99105bbb439f6d4d151c22953792e6c"
     sha256 cellar: :any_skip_relocation, all: "4c7cff57f39d131b9234df352dd500e933fa5f9cf7905207ce024a2c58a87e98"
   end
 

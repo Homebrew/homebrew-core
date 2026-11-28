@@ -12,6 +12,7 @@ class GhOst < Formula
   end
 
   bottle do
+    manifest_sha256 "03d9c8cbc44763839cbef90fdf473de189e8f5b302fed40231ae29d782dedd23"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "71b20f8c4ee469cd5106c777fa36c5dba31f7800f767cb1ffd00918a0484ba7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3a496a3e0a9205f7b1ff3dcae5b3d93a9096a730f9ffa3e39582530c48755bc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3a496a3e0a9205f7b1ff3dcae5b3d93a9096a730f9ffa3e39582530c48755bc7"

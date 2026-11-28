@@ -7,6 +7,7 @@ class Kopia < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "f57a4e59bcf2121539a917703ef9ceffb4c6ea827f78a1c4e8acd8dae6f5fd10"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b70816877b395e2726750d2d8e3a2acb6aa7898fa349c884def90124a302832b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "33461d9506786f717e21efac9d3a14f5198df27763ff38972fda41c51c593f61"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc15f731c30fa347cbfdd76fbdd345d20cc0d2383e1668819d66117bb4a4c5a5"

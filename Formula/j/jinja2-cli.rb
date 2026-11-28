@@ -9,6 +9,7 @@ class Jinja2Cli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6b5b31bd7573c7a3fc2ab7bafbf43dd64db9899cd158ee6e6b3e6ffdda7bd0ec"
     sha256 cellar: :any, arm64_golden_gate: "e3a373d7f7fb80aec73ec26a334e742b179a7fbe5ad4ca5c300ea59168000824"
     sha256 cellar: :any, arm64_tahoe:       "0e9f93450d68abc7749d8f680a2c30e39c6cbc7f56654626e3927d58ed502848"
     sha256 cellar: :any, arm64_sequoia:     "04fee8f85a04a7dcaf3e7be7a92d6e5aac69984a5e687e83417afd51217861d5"

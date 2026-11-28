@@ -6,6 +6,7 @@ class Libformfactor < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "726006e7d7bdcdcec363505ffb62f2304a06a6ea8c7cbf1886a46c73b241a71e"
     sha256 cellar: :any, arm64_golden_gate: "5460f42a8a8a2b30749604a094662d82eb97c237c733aee85bb3e8231002fe3b"
     sha256 cellar: :any, arm64_tahoe:       "d6ed20ea820a3bbfc39bfa54acf1dc0ae6c3be6f4fae05e6ffc9ad40e2b5706e"
     sha256 cellar: :any, arm64_sequoia:     "f78124b91494b63720a9e1715660480d9c7b60a48eae20d26df180408bbeac62"

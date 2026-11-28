@@ -7,6 +7,7 @@ class Cotila < Formula
   head "https://github.com/calebzulawski/cotila.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5e0cd2a56627815a1c21f01c5736210095445c750bf5ff748070d48721034626"
     sha256 cellar: :any_skip_relocation, all: "8144c977b0567dff23206cbf5e24f7fc4aed78092dd187517e8813ca1e12f495"
   end
 

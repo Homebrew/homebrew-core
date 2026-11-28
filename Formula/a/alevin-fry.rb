@@ -6,6 +6,7 @@ class AlevinFry < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "31c4242389894f2360cc769466983db6719b3df734680c640c6f5412c6bd4b8e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3c07f204da2d05f7cb001ccaf12fa4fc76e86cf53bb6a20cae2ed8db835b1406"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed347d8ddebe01bb425cc2b3135ae48a6611c684cf9139a87b45a246d1fc3dce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d90bd1c323ce9995bd29873fe5e80e0a6eba8f7090f124546923ec32d574ce04"

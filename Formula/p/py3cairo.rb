@@ -8,6 +8,7 @@ class Py3cairo < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "9e1686fa551f722b1a3a6ddc34018f30c1b2a6f76c1a7ae4254d83f02dcd2dc2"
     sha256 cellar: :any, arm64_golden_gate: "f655280ba2f9f284b43ab39f3c6a2400d2844a7b1ce0a4c7386e3fb67e03c666"
     sha256 cellar: :any, arm64_tahoe:       "b514f1c006f63711ab230bf3833a5a29d18221777250ec51b6fe2269eb42e874"
     sha256 cellar: :any, arm64_sequoia:     "3bede70c829760bf17e9fa3d66969d3789c85e0927f23b97f07ecc3a2cdc8063"

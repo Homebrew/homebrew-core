@@ -7,6 +7,7 @@ class KubeBench < Formula
   head "https://github.com/aquasecurity/kube-bench.git", branch: "main"
 
   bottle do
+    manifest_sha256 "46beef53a1582112ea2029c80b3df8ce459d313ee1b9981859eee5a7e76abf1e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b077e76fc77e6edb2f467b12b77e645334611ddc2d0a0fc2075dbd80b4ea9dae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54137041c8f63712c87feaf9419da2676babe0c4adbe26be272685166dd992c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54137041c8f63712c87feaf9419da2676babe0c4adbe26be272685166dd992c5"

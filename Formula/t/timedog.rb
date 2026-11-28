@@ -8,6 +8,7 @@ class Timedog < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "689cf08439d98d28f26cba554943fb00c268d71971d49a2c7887d5721ceb18a4"
     sha256 cellar: :any_skip_relocation, all: "a0e45f17640f67392a0681305ed9ea138fde831f355a79ef857d05e1fd7e0b9e"
   end
 

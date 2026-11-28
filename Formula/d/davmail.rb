@@ -14,6 +14,7 @@ class Davmail < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "ededbdd94d778c84fd18ac59907529662c4d56739e0520bc96a9580218436bb1"
     sha256 cellar: :any_skip_relocation, all: "c38ab83a35580e004cc1f5c7d30cfe89125a997bd0ed54057976e3bf342ae3b3"
   end
 

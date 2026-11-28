@@ -7,6 +7,7 @@ class Zero < Formula
   head "https://github.com/Twigpine/zero.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c14c654b2bddc3abbbec133b15818ad5fe6178b3c34437807153304659216b1a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cea39ab4da2815a45e72890c4bfb6e8ddb2d08dc99a05a36d953882aef29686c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cea39ab4da2815a45e72890c4bfb6e8ddb2d08dc99a05a36d953882aef29686c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cea39ab4da2815a45e72890c4bfb6e8ddb2d08dc99a05a36d953882aef29686c"

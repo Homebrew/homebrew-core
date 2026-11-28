@@ -13,6 +13,7 @@ class Vtk < Formula
   end
 
   bottle do
+    manifest_sha256 "cb1f90af8d3448a7449935cb126f21ec2068eb73498d384df1b19536c062203c"
     sha256 cellar: :any, arm64_golden_gate: "a983374364f2eea2bb17e0e347f6bdbe1a3f6f1d967bf86bc517c90b3abe8bd0"
     sha256 cellar: :any, arm64_tahoe:       "de228c109396cd8151cac4611acd7a82b7771f6b0da7fd390ee7784906d804fb"
     sha256 cellar: :any, arm64_sequoia:     "0c2361cac87d951a16c02368f8895746fd27271e626449ec4f748def7840bc83"

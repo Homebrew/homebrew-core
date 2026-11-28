@@ -6,6 +6,7 @@ class Mp3check < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "aad58e1b4fc7ca594906311e8155be47818883cdf45505cff7cec5d38a9454d8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b60390fa5198adb9c61c0365f42d26f7dba3a3ab2290266bd46783b569d568f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7b728bb5db4fb551bba2fe2ca58a59ae28df476caa8457d4b9ee5d04811d77ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5cd5050fc0ece72900fdee9f06144599fd519f2f62fa3ec3f8ed0af1e4805301"

@@ -14,6 +14,7 @@ class Libreplaygain < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "21457b7446abd754e5d88fb6856af8856250af45d84f8595ab4665207cdde27c"
     sha256 cellar: :any,                 arm64_golden_gate: "eaf9087506034cd0f36630575a87c08ba36f894cfb8ce7641aedc5e1868ebde5"
     sha256 cellar: :any,                 arm64_tahoe:       "970cfda9b22895a8b68d1665e41a4106df2bf8e7c446a9c50527eec34a6caaa2"
     sha256 cellar: :any,                 arm64_sequoia:     "72f8e66bd85dbe08e01f9aad98d73a4788a030f34a3f8e40e940c6a62a7fbfc7"

@@ -7,6 +7,7 @@ class DockerBuildx < Formula
   head "https://github.com/docker/buildx.git", branch: "master"
 
   bottle do
+    manifest_sha256 "af1c5dd52dddb719ed8cb31503565b70679e5e95add3cec2f46a92d4cf8c16c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bd90636bf0b17fd072f0aee114ebc8bde6e8ef76ea1b8b7bc6859117ed97a207"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bd90636bf0b17fd072f0aee114ebc8bde6e8ef76ea1b8b7bc6859117ed97a207"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd90636bf0b17fd072f0aee114ebc8bde6e8ef76ea1b8b7bc6859117ed97a207"

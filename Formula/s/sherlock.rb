@@ -11,6 +11,7 @@ class Sherlock < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "74e97b761bb6a40900b2b6c551e56fa5446d2a822af38a841dcb79670373f921"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04cd2ef76415bf14668e74f59c7375e90416c64d1cdc40365f2ae6273797d572"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a418e9e66532490c88bc30a8b78d9eee0b08a79d59eb3cb3efb744dbd7bdf6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a12e3db604fa9ff70800168b87b16246d1dede8217144c5715b86814c1e8324d"

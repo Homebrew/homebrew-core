@@ -6,6 +6,7 @@ class DrawThingsCli < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "7475629549e1c786f631e131a0d58fc39ba4e734e0351df0f7d95233f450ba0c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "49f9668ff1058453b6e6195f0fe120058a9adc0be36b4010f934fadc13859440"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "642a6652bcb502c4dec0ba7b6a5a7343e41c1e344fd8a7d9a3a1e8229ce43db7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7101b8ba38e7a9b392f2c3589c8d123ebeafd2886ba91aa1ce1df60c0e249956"

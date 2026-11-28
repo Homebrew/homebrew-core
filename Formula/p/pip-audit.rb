@@ -10,6 +10,7 @@ class PipAudit < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "b081c13758dc78d198c526fb94c819ff17a275e25923442516047e661b734f95"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb4947c5743fc8e1d8d9ec7c0fbc2e6074fc1f0f01309d7156951ebf2879d152"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e056634e7d9e79b38a5fe8e3ea79a44a76a4ec4ebaa25a9151b7eba4ef722cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ab906ba2a0b4c449f21775b54224561d180367973859f28e88c7988e3248280"

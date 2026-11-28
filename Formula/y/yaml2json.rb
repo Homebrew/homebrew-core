@@ -7,6 +7,7 @@ class Yaml2json < Formula
   head "https://github.com/bronze1man/yaml2json.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c3a0201842d113881833ac8807dd0c389b92fcb68df139b92e479ccfb8f90b63"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bf4b880b38abfca3df3f0fd585e49fab7213b00bdb9a78a1585da032c09c67a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c8f34dd512a3f098cf8a17a3272e81c0b3431babe075795ec2ca02966e01d5e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "81fdf8b90dfbef0a48912f42db8742d4ee5542d87a3f709504821ba7c4aae7f4"

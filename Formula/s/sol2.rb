@@ -7,6 +7,7 @@ class Sol2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "962c6332d0ceec1776c97e63e26538067942b5c084a3b49bf788d23ca2623c3c"
     sha256 cellar: :any_skip_relocation, all: "0eb3e697a4eea493659041a9c714c3b7ba1dad59c38e10fbea596f2d4825a6b1"
   end
 

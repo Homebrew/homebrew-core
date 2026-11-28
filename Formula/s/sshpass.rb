@@ -6,6 +6,7 @@ class Sshpass < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "6f36fa96d43658660870e76c932d25fd9803c5b597fc4d5b98273e17738e13ed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85bc58288a986bd11f65d8ea04fe5928bb9305e3002fc7b60a95f034e34babc7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "963f3ed3cfe2211b809ffa9a0275c2672e375a8ffc06c1df7acf7b69141815d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38020f688c751708ec42752d847ffb0dcaa9987a9cb362f7b20adc80a2c60b9d"

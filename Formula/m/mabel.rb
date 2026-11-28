@@ -8,6 +8,7 @@ class Mabel < Formula
   head "https://github.com/smmr-software/mabel.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f5e323fc0121a6b584c668e4b3b146934fadcd87c5c4bfb99ecabd628255326d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66b18ca641af9976963f57e12f54d863cad0e385c3ae9da6b33a46eb61a8e99f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "960ea70939b5cd3392ea1390f43e87e9d2690a03ca8a2e602935dcc381a8df8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1dd81700a7baedc7bca0ec9daa263464c693f57f56cdcbb57e2def3449207e01"

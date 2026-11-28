@@ -16,6 +16,7 @@ class Notmuch < Formula
   end
 
   bottle do
+    manifest_sha256 "33a3a619dff0d5fc40f2b65e587cd2001325883ea9f23b351a858ebfae606f5e"
     sha256 cellar: :any, arm64_golden_gate: "2e1708161869373851540083096abd8e9b1c5368090bd723305a5a69f33bb546"
     sha256 cellar: :any, arm64_tahoe:       "961f7f1a9ccbc6e2366dcfb9151a0d583cc93b684c6f075a44a4f4391795e9f4"
     sha256 cellar: :any, arm64_sequoia:     "ddc2f6bf7fcfc4ee641bf56cb740f8d95c7bc45682dbf705edb8d774c34511fb"

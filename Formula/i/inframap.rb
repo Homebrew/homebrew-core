@@ -12,6 +12,7 @@ class Inframap < Formula
   end
 
   bottle do
+    manifest_sha256 "7db2b01c69d1b956994e2a3670d71c4300bca855ba9bb358535a27a82975cdac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f4ad7a6c52ec33a4f4b33f611e3f8c2e387b9dfab9747a59a474767a0cd3ff36"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae31ec0395129162af3fedc9c3adb493f972383c7dac5ae7178e2011a6e05911"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae31ec0395129162af3fedc9c3adb493f972383c7dac5ae7178e2011a6e05911"

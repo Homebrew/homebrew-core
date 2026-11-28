@@ -7,6 +7,7 @@ class Doppler < Formula
   head "https://github.com/DopplerHQ/cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "837d75d2890e8bc41192c2def182cc9401974225f828b5e559be9e2cc22c1124"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6321653be05af035fc0529b7b40f3386ff40056351a55c3b13b4ff5704f4d74e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6321653be05af035fc0529b7b40f3386ff40056351a55c3b13b4ff5704f4d74e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6321653be05af035fc0529b7b40f3386ff40056351a55c3b13b4ff5704f4d74e"

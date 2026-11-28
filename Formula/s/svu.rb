@@ -7,6 +7,7 @@ class Svu < Formula
   head "https://github.com/caarlos0/svu.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ad8a04d0fa81e0160e062c3aec53b17bd48a3daaabba3caf2330ae9a5ab8cf5c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b84c4946391ababdae7dd7c853214e628a4b67927b27f8c358f99961dd5efb8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0b84c4946391ababdae7dd7c853214e628a4b67927b27f8c358f99961dd5efb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b84c4946391ababdae7dd7c853214e628a4b67927b27f8c358f99961dd5efb8"

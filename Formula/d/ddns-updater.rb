@@ -6,6 +6,7 @@ class DdnsUpdater < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6a7aa69936dc5fa255321a0984c84250a1cb931b06e59edd38e690ddec7bd5ea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8948db1f54cbf7c4126ccf8f7d0c6ee802a2506a57126451aa1d65d614d62deb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8948db1f54cbf7c4126ccf8f7d0c6ee802a2506a57126451aa1d65d614d62deb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8948db1f54cbf7c4126ccf8f7d0c6ee802a2506a57126451aa1d65d614d62deb"

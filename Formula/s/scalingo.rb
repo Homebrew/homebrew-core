@@ -6,6 +6,7 @@ class Scalingo < Formula
   license "BSD-4-Clause"
 
   bottle do
+    manifest_sha256 "6a12a5da248da83478f61314e4dfc2a2bd3f9f5cbc29e39e2a660d4178f81af3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bbc49e2e6e8009b8c40eed1dd9dd487d856f39e72d2348369fb07ed2ed5d591c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bbc49e2e6e8009b8c40eed1dd9dd487d856f39e72d2348369fb07ed2ed5d591c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bbc49e2e6e8009b8c40eed1dd9dd487d856f39e72d2348369fb07ed2ed5d591c"

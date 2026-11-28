@@ -11,6 +11,7 @@ class Libfuse < Formula
   head "https://github.com/libfuse/libfuse.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5381e66f663abc2cb9c7830473a4395c0e57add95558041b555438f88fd6a9c7"
     sha256 arm64_linux:  "138f629cf866c16046de9b9bb853cf50c5d8dfdcac5ecb9ded9df083de72754c"
     sha256 x86_64_linux: "fd774a4d5fe7a040d5a7b92997a94a2865ad84279970ea3459cb19b858c69202"
   end

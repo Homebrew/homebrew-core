@@ -8,6 +8,7 @@ class Cyphernetes < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dfbb70486780aab2a95b84a5202731c1540e3227bdcd913f3bed237d7572fba1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb21509c70f38803c867c40b2b9ab8be3447e56d79c9e388106128640e310493"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "75b7e09d1628defdfceec77d3588840df8c7b9f5d6f4f2409f3a3b652b0e085a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75b7e09d1628defdfceec77d3588840df8c7b9f5d6f4f2409f3a3b652b0e085a"

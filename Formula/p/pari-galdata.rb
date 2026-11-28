@@ -21,6 +21,7 @@ class PariGaldata < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "c26dbbf0adf99917ecc9b79f39a752f3afe68137d2fac598e393d1b1ef00c19c"
     sha256 cellar: :any_skip_relocation, all: "8c8a145c1efae156deecb6d907d59dcd9c1d8a1610306457592c0d265dd07133"
   end
 

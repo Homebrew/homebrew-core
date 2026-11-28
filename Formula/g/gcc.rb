@@ -26,6 +26,7 @@ class Gcc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a844b6849e1b7519c2e0b1abbc23005997f39e8708c27fcdb2927e253487885f"
     sha256               arm64_golden_gate: "b468e0bdd7f6412f1e4746d6d2040d080bb5c9f8feb9ad30a436357ce24654e8"
     sha256               arm64_tahoe:       "add0ca0614da1d0047af8a71be683be40957096851f4c98ccd89e95b0c4f4fde"
     sha256               arm64_sequoia:     "8c57a4e5c65c93b90b280e3e761833f946b5a7d186f2067d239af44b71c5a577"

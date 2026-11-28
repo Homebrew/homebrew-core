@@ -6,6 +6,7 @@ class Tweakcc < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "50747e35dd00ee432c374406f564cd18ce20cf96af1cf3dc04b2c7ad40954c45"
     sha256 cellar: :any,                 arm64_golden_gate: "73a0512717497d37f9e4047377bb103cbd10bbf7874961549b3625677708cc66"
     sha256 cellar: :any,                 arm64_tahoe:       "73a0512717497d37f9e4047377bb103cbd10bbf7874961549b3625677708cc66"
     sha256 cellar: :any,                 arm64_sequoia:     "73a0512717497d37f9e4047377bb103cbd10bbf7874961549b3625677708cc66"

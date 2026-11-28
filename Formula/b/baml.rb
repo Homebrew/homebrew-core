@@ -12,6 +12,7 @@ class Baml < Formula
   end
 
   bottle do
+    manifest_sha256 "9df81bb9b9a5cbb34c10da1a6b1bf8b6500f2b8ccbd30c92f36bdab9caa31ca0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "508ae63a39863f8e774d66690b63ff6e3cb4a776b7b12ed7571db90b96cd3a51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "337b64f9666b65487135cd06a2a0e23f8e7ba6cfe4fbee8a7c1a386a4aa9c88b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f95c5caad244c8a5966e4e9a0071890ad395b7025b01a9895789285fc4a0ef54"

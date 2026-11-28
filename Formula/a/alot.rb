@@ -11,6 +11,7 @@ class Alot < Formula
   head "https://github.com/pazz/alot.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e129946cdc6ca01e1d5273dd0357ebf6362024708529d6322aefd0ac82c3f50f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "950e7bfd59a2336e80c88938d6391e907d36ada6fa70ba277fdab4115bfd16df"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2d4c3b50d87bd8a1cb07d597b7233105aae73e071487a7efa5a0cd51e192a1b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5eca46b580869353b7ad41f997021ad23c87e182a59a5ba5805d931555eaaa1d"

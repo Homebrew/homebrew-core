@@ -7,6 +7,7 @@ class Hex < Formula
   head "https://github.com/sitkevij/hex.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1a4c74f3893bb852b76df0774363a8d11066a7ba3d644077862f5409e724fc67"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0baa03500a069640bdee24772326f6d885310fd0dc8099716da9a1ee0071c04d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bab058dfb31d93b52b4bde9f8908f2c7e07098d17b00f3bdfcc39231390d8b04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a094e50486bc6049bde40d00c89d14cbcc9b4a2b3fb4009f7fb46ee743385654"

@@ -7,6 +7,7 @@ class Wdc < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "f77d6cf12eac399f3b25f203d0a1602d3364ffe474eadeaf8134935b1932cd13"
     sha256 cellar: :any,                 arm64_golden_gate: "2a216a67acc4a7c0d2509d09a6e637abf9e6f52c26bfbc35b7e472ba1bf7266b"
     sha256 cellar: :any,                 arm64_tahoe:       "7936af69dde22084ed7f8e49514403a1c9b9aa82938548ea110cb466aace40ce"
     sha256 cellar: :any,                 arm64_sequoia:     "f5f2eb2d863e95dfe16936400d38d639503fdca5d2b5130012e14237b0801a6b"

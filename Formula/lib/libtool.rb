@@ -8,6 +8,7 @@ class Libtool < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "10d17fd9c2f413dcb78ebaad54e13c796a54a6c68ac278b92d4adaa474e75752"
     sha256 cellar: :any, arm64_golden_gate: "ae7e1440a083a659046301ae4f01f1bec1ee0f0a859d4fb418cf4cfd51eecaba"
     sha256 cellar: :any, arm64_tahoe:       "719ae9c4597d0198ee77da6bb09dfcb6f68ae0302330f1a1e61503648e59fdd2"
     sha256 cellar: :any, arm64_sequoia:     "86f6495e08630095d0a0a4a8be76d8ba0350985a55ec13fb43a73f5473d2a410"

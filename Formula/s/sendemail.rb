@@ -8,6 +8,7 @@ class Sendemail < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b5bde500b27f52da74ff4b167b0d0ba8f640db3a77a827c1d97da26287aff217"
     sha256 cellar: :any_skip_relocation, all: "113001c5e97ed667b4f8401c335b3a337a7354b1562ca8b40b6499e6cdb68278"
   end
 

@@ -17,6 +17,7 @@ class Cling < Formula
   end
 
   bottle do
+    manifest_sha256 "dcff2f219d465bb0f4b758a6be0dbd3d746775a87bb73fbf64391890afc6e31c"
     sha256 arm64_golden_gate: "ed743f5edec1791a15b862199ccac2adff4a78e72d04ffab6652b868132aba36"
     sha256 arm64_tahoe:       "a0e982f092f47c906adcc71ff75b127822ecfab69cc40d353955a007682e4cf1"
     sha256 arm64_sequoia:     "77bd4ae3b0df3f1a2ac6b89b97653e5b77539f8704b5cbe3fa069f2e0b86fb1d"

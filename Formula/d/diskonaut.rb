@@ -7,6 +7,7 @@ class Diskonaut < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c083c7968dba4b7622767d23ec20aa388b74d70bb828f55dc7c5c971944b6930"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d1679a651e1c4e6245366aec00337cf1041e005f38eed3d603542ab3d258257"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "46ddaf75fd4b61414cb76fa4ac54aabb931aac13253e52e68888852468c14ede"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "519af087c51cd668213e975d31f7da4255f12c7be476a81ceb4bb448404c2286"

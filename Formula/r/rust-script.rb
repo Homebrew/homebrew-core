@@ -6,6 +6,7 @@ class RustScript < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "541fa14c209564c9859639688847d07874c31a482832bf949828bfcf5579edea"
     sha256                               arm64_golden_gate: "961df3665ea223ddb297768e3dccbfcf6f25b927868b138131ad79ccd72c2f46"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48cb1216ddc8cd608e0c77e1c02c26bd97011c332f4eb7cc98c9d2249db73133"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62c6d7194f24ae539710d71a0d704f59d0b269e72ee975b089387562846ca9d6"

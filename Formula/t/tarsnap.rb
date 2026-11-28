@@ -13,6 +13,7 @@ class Tarsnap < Formula
   end
 
   bottle do
+    manifest_sha256 "1373294ab3bfd4de788adce37800386690f798d02860374ff9a2d72f684b6c18"
     sha256 cellar: :any, arm64_golden_gate: "edf38bffee38408a67cb3602464df3846aa647147b402f67d543f6cac9c2a694"
     sha256 cellar: :any, arm64_tahoe:       "88c8a369498d4e6b18cf3dcacd10b4854e04364e223db84f39de615866efc17c"
     sha256 cellar: :any, arm64_sequoia:     "f513c4189124d4f2e08b76d6aec73ce877e93c58a2726292a3abeaac9d0253a9"

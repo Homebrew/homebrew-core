@@ -8,6 +8,7 @@ class Aamath < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7755f80cc1741b8a27872a6d55ac11298064c2e59c61ea9f6a78ccc81e0994e6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a63ca302ea727ef2e05900b353542466fe7689e73c81f6d4e04b1605a2aabc9f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "587054f7e1107e61554956c8ba147c9560af1e7138547651ba82d32464c0862c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7fb04795cf214c974e4e45cb8c369dad3232624dd070641a4f408808fbd98d3b"

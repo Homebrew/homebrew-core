@@ -6,6 +6,7 @@ class Pgstream < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "a64221276ce665bc920197d83526f37029034441bafb9b127eb0030d725831f3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5139df589f96fbe49a781be8b569d8c85a5df9c9e87dd10308ca12531a716c21"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd224c8d9f73e2591b437eb30fe95bcb4ec7b29f9b5f43e5d5aa26268c48f357"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f3de6d813c30c44a5aaf8bc9f63a3636ca0f23e77c556638de0599f8e5ca262"

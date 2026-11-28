@@ -10,6 +10,7 @@ class Airspy < Formula
   end
 
   bottle do
+    manifest_sha256 "52ad080d85004530556dc3a1fcd69ce1a35d6aaee6e7898e29a380dc14286558"
     sha256 cellar: :any,                 arm64_golden_gate: "88ad8246aff8fb852c10755ae1038e80732b59a89e29489b743ea621b2034cfd"
     sha256 cellar: :any,                 arm64_tahoe:       "43ab01541269d098b8b36f73e206cae61390ded5015dd8a795ee0d9917ba10bc"
     sha256 cellar: :any,                 arm64_sequoia:     "6e66f0c2d5fe94466e432a57c49fdcf7cfb6a01f9d71896f74b06e9a3c16777d"

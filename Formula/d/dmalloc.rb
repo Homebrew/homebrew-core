@@ -11,6 +11,7 @@ class Dmalloc < Formula
   end
 
   bottle do
+    manifest_sha256 "239df2f9143e0eb85770d2a2802ad4cb2e5b0df97f488bc5d5d88df1ce3741c5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b6c4c962d90fe2a7da634b991013c051b654c80a12424fcce759eabb42927696"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5739c56456cf07b59f8c884ca56e499aa3e618c2712500819c0457af57018b96"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2406c340e3935d9f228d695c270eb5fd74abef38bafa84f10bded7826c8e8c80"

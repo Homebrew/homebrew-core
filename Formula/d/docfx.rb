@@ -12,6 +12,7 @@ class Docfx < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e4f1ca6e4bf1b43b4bbb21ce853f3736221bf1eeb1b53f6560393484384ccdb6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "54c06778b7e7e7353fe4dae7788706b91435b7d4d2a4b4568180469d1b64272b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6cdc2af546d83db7ffecc8b5f22925955cea95f42afd8295a0005d2d06452c49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2feeda22090cec9d3f438a867f5dcb6f13fc0ac887ab8217d12ac180a5f6cf5"

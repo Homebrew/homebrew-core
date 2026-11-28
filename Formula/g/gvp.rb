@@ -7,6 +7,7 @@ class Gvp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "485ba7c451fea9e0cef67ed5099a89154c00d09d4ff1950673858731135e3b33"
     sha256 cellar: :any_skip_relocation, all: "7570737e59ef17b2cde9b25b56a9f148a839924b0e0bc9b9a91e30ee95b6a3e6"
   end
 

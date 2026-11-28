@@ -12,6 +12,7 @@ class LibnetfilterConntrack < Formula
   end
 
   bottle do
+    manifest_sha256 "8b4aa7ea5d7fc4ef9f63689f5311a9df4556bd4f4a4ab38aff451baf35b7e215"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "0c7acb47bfd4c7e21ee0d3d6454b387d8b74d13bd6fbbaf375ad85b405d3d132"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "af64ee07b344180676533bdd4b495741cf69afd3fd483c166e8d672cc414692e"
   end

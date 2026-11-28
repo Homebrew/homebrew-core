@@ -12,6 +12,7 @@ class Regal < Formula
   end
 
   bottle do
+    manifest_sha256 "d56f5f24a38a5df431541957475b10bacb7e6c80da42da46c9bedc869cdaed0f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b62c1d88ad24042ef9c287778efc2a06c11408913e61c060ffc05ead5da6731"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8b62c1d88ad24042ef9c287778efc2a06c11408913e61c060ffc05ead5da6731"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b62c1d88ad24042ef9c287778efc2a06c11408913e61c060ffc05ead5da6731"

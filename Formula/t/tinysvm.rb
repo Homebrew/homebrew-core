@@ -13,6 +13,7 @@ class Tinysvm < Formula
   end
 
   bottle do
+    manifest_sha256 "2db52e60c898b526385c19045d606df450f31a2f5a6334461f872ff721f9c4ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12c8b0663ab9ad8523195fe0e567559e17648e9e462386ab9fb9a61f04ffc1bf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a2eb89bfd1881f7b67dce74b71a07303f8fb67833fb83d269f1a5546ef23250f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "abf56f8965d9604d945e925ce1d7fe4bb6dfe40a3290f7e60dd7308be6f7e211"

@@ -10,6 +10,7 @@ class AwsGoogleAuth < Formula
   head "https://github.com/cevoaustralia/aws-google-auth.git", branch: "master"
 
   bottle do
+    manifest_sha256 "13179fca8955545cadd8f88f6d43dc256767be36edd9c093e3f40c1da5411dac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b7f6873a41fdf74f84104038b1446ed3b9123c21259c772dcd6c62b7f416016e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b8a08b70f1bf217ac2b6dd67a50e26b4a4d08fae5a2a546ae1c2eddf7aa0239"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c2317181db14c0b54e80f7b71544efc8f9405abe8ad00a4a87d2080fb6fe5f7d"

@@ -6,6 +6,7 @@ class Flyway < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "1d7b78786d1e9f63d0a5483726a296c4bad61a25c907acce9d53244fc89fc4bb"
     sha256 cellar: :any_skip_relocation, all: "3c772485bc2826b1c3f048c8408e10befec8ba091dedca337facb438111c2295"
   end
 

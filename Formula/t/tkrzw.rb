@@ -11,6 +11,7 @@ class Tkrzw < Formula
   end
 
   bottle do
+    manifest_sha256 "cc6389d15f96177c9c93e88f3ddaf92fa9c25d77f0a728545185173e0ff91f0c"
     sha256 arm64_golden_gate: "b5fd8f8ff3959243226ee5d12be2b6f3b535e3e66856d9873d5e8628fcd59337"
     sha256 arm64_tahoe:       "4db2a070e0ca33c21217ffb4cce28b1f5b71f3e2849ff83ab0b5cf4a01d1252a"
     sha256 arm64_sequoia:     "a6611d96c46410a3dde875ad04e6d701c900536ace362b03fd01f7e79877089b"

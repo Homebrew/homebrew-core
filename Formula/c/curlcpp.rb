@@ -7,6 +7,7 @@ class Curlcpp < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "439a217761e8b0f7b1613dd6845a83ad5932a17349fbe6fd1569f2cbada3154b"
     sha256 cellar: :any,                 arm64_golden_gate: "5600048467266c261c46186a32e102feab79c76a07038a98536fe09965548828"
     sha256 cellar: :any,                 arm64_tahoe:       "fe8f2d32c516113abdc6caa797a8d42f11ca2aa9fbb618043ec76cbbab0749a1"
     sha256 cellar: :any,                 arm64_sequoia:     "c436767f9b31dfaf4bcb0b173c8a05c338954f2cfe310cc6a5a4b0abd07f19e1"

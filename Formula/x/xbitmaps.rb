@@ -7,6 +7,7 @@ class Xbitmaps < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3f503ffaf54979c9733316f0ada856ea6aa1413f9ffc9a5cd39b065bb34f5b18"
     sha256 cellar: :any_skip_relocation, all: "db41d221049abcd7de13f3cb4adc6f6d78c7f2db6a154985d188cb362ca3d171"
   end
 

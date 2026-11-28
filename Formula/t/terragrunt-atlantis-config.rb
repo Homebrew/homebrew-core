@@ -7,6 +7,7 @@ class TerragruntAtlantisConfig < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "65d8edde29c57a7f5e53cfb4e8bb380f385da127a99f4bbf7532e7738ccc5b55"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df0b739b281b326cb33d0daa593db1f4048213e79f6722ece25d9081fe91cc57"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "261f959f81e57e9d04a6b54f405b74c9d26543b266badb1b6dd2af33fec1d84b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "261f959f81e57e9d04a6b54f405b74c9d26543b266badb1b6dd2af33fec1d84b"

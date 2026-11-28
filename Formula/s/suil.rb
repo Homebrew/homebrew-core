@@ -13,6 +13,7 @@ class Suil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "537e064d97191146b93f4a3241af0b220de3ff6ba20f1562413aaa0420d77df1"
     sha256 arm64_golden_gate: "5e61204661ea0fb05a4cfd25e17a82727816a0b916f50cb2de73c3d239789f4c"
     sha256 arm64_tahoe:       "f1114139ad9a565503ce1b1605c8f8fca56912801de06cb08629222d29ab690b"
     sha256 arm64_sequoia:     "93c11803d5ebdd53cdba26f7c0c01ed16ff73b8b186a87b78c2636bd6f5ebaf5"

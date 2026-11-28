@@ -6,6 +6,7 @@ class Req < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "fe03c6bc708632ed3075fbdb6be1394c4c5e5e8b8667c13146f03944df313f49"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9fd5ee913e552f842e49758e61d6b2070997119eadd69f19fd6b3b8729cba0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16f15db092a3128344c2731a6294b92c13ac3f1a9a2578333127c40862c24169"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80b342c2fd081a819943fe63fd72a9c3b2e53ffa78ca8d34b45b841f9120910e"

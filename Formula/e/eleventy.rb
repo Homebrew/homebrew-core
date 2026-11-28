@@ -7,6 +7,7 @@ class Eleventy < Formula
   head "https://github.com/11ty/eleventy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c390b875c3d109bc23b62364650b43056612d675ba7f54b66448b37b472dfe15"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f02e15084980c11ec300406f294a6b2eb63bcc4110558a036ef4b9995bd24ac7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f02e15084980c11ec300406f294a6b2eb63bcc4110558a036ef4b9995bd24ac7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f02e15084980c11ec300406f294a6b2eb63bcc4110558a036ef4b9995bd24ac7"

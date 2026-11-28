@@ -10,6 +10,7 @@ class Litani < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "b5beddc4d0f1736f66e246c1c1bca957800aceb3baaf467bd3cfef88583f4f2c"
     sha256 cellar: :any, arm64_golden_gate: "b1f3b9ffe85fe744c934841f1d9c8af12250c12ed4931b394efee0bec76f684d"
     sha256 cellar: :any, arm64_tahoe:       "5511b337ee941ff7964dbf81b151a23600f6c057badb61b0b664d29383411c8f"
     sha256 cellar: :any, arm64_sequoia:     "230060a4d766996de02ae31cd796174e22ad697f6dd4f9df10714eae9e5f84fd"

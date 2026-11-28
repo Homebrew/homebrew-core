@@ -8,6 +8,7 @@ class ThorsAnvil < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "52bb085ef379838d700c5b1b1fcb879277b31bb769340d520487eb0764f0c953"
     sha256 cellar: :any, arm64_golden_gate: "0871d946f7696f334fa8d6426616e3e3e8c063ad4c4df771ad4aec7fdf6821c1"
     sha256 cellar: :any, arm64_tahoe:       "2544b7aa94ce443da0d0ae863a181e29ac0c6fba861c9eabca8fb341181a05c2"
     sha256 cellar: :any, arm64_sequoia:     "a5751ffc5b5c81c242e4c34f5e0f7120a5e67dcc0b66c9e54dcc50bf30d15a0d"

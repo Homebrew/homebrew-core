@@ -7,6 +7,7 @@ class Sslscan < Formula
   head "https://github.com/rbsec/sslscan.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ccf3020efdec59e3e379367167553bb812dceaf67a73681f7061cbb369234894"
     sha256 cellar: :any, arm64_golden_gate: "5affa86ca299cf3baf966cd8db948146ab031aedec56d6602682be0714c8f862"
     sha256 cellar: :any, arm64_tahoe:       "1876b6c059d4dbb162e7461215aaf849b1e9cd85d0fb27ddda329b5b1f345cf8"
     sha256 cellar: :any, arm64_sequoia:     "96ed176e6d46c69085bb57badaf1eebb1cc19a4b4b60630e3965a2f8e578a2da"

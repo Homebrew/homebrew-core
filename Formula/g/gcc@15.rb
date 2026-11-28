@@ -13,6 +13,7 @@ class GccAT15 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9b96ef59903afb04184d244d939762858bbf523cb9d63e1f8020bf9842f00c52"
     sha256               arm64_golden_gate: "0b879258347c95cb581c8d5afae666653dc6e5d5717f5070cb502a9c95019c2b"
     sha256               arm64_tahoe:       "9d1a7c3069a0c1359c6b5453ad8030b3d7744696bb6c5c46a2bd54b46a3caabc"
     sha256               arm64_sequoia:     "6b2ef487a9bbe2f0f3aac11938fd4faf345447afa366f8511072b6be28f42342"

@@ -8,6 +8,7 @@ class Conmon < Formula
   head "https://github.com/containers/conmon.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4bd90bbcce4699730747d585b868a33430525f57d7239e61fa35574309d49b1f"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "ad2a36cee01c75c27125ece2507f51cd3b5e6ffec84ec76cbd23c16315896204"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "08eafee8471ae1ac41c2a408fefdb5059b5d180f84ad17ece149976a661c034b"
   end

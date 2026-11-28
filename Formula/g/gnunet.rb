@@ -7,6 +7,7 @@ class Gnunet < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "e0345f226f0a142cbf5248c8d6954cc192bf4b569ee44ba549e4dfd39b5f2fbb"
     sha256 cellar: :any, arm64_golden_gate: "22f17f226d45356cc00d5690c2df24e16d6093861f47df31f1c72eab5c88e493"
     sha256 cellar: :any, arm64_tahoe:       "513e270330d0c56631842589d582ab4a072cbcce68a6125704970c14e22a725a"
     sha256 cellar: :any, arm64_sequoia:     "a16011195aae1fbfde5459847c841a0dc3c8484f238a4af7c8005ddbf11f80de"

@@ -6,6 +6,7 @@ class Shortest < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4bd9ad11c306a18e305c31fddb595704e5ae0270ddd1a2fc29d6a04ca34fa793"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae5c44ceb8945a25959d01d5d11acada964802ce896fbf5f6176c7805c43ba53"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb3317b16f32964930b0dc0800926f935f8b4b8e43587b6c307218000ff8bdb0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb3317b16f32964930b0dc0800926f935f8b4b8e43587b6c307218000ff8bdb0"

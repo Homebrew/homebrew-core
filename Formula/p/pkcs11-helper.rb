@@ -26,6 +26,7 @@ class Pkcs11Helper < Formula
   end
 
   bottle do
+    manifest_sha256 "0ed907f3cdb8952b508f6e05f2f2c35383eb77cbc4cb69fc10487c70e98b07e9"
     sha256 cellar: :any, arm64_golden_gate: "5831ccf7599dce283920c440b34cc86d5e2f121a77c089bba18e77c040b884ea"
     sha256 cellar: :any, arm64_tahoe:       "c9f3dc59eee6baeba82754476d23350f8059e27c131f032c24351519017cf786"
     sha256 cellar: :any, arm64_sequoia:     "2293800c554d9b1dfd43839455e0c89548077a366238813e3c8bca5cb1c3bc85"

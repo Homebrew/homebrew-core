@@ -7,6 +7,7 @@ class AwsSpiffeWorkloadHelper < Formula
   head "https://github.com/spiffe/aws-spiffe-workload-helper.git", branch: "main"
 
   bottle do
+    manifest_sha256 "23ade37150b7e77bdf35eac1af943499c554c17b0a6f20b57866352076d25c4b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fef17afdd9796fac88f78499fb895f8859f8fb7e866b27314ec7dcdac96eb764"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fef17afdd9796fac88f78499fb895f8859f8fb7e866b27314ec7dcdac96eb764"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fef17afdd9796fac88f78499fb895f8859f8fb7e866b27314ec7dcdac96eb764"

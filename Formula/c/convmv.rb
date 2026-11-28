@@ -11,6 +11,7 @@ class Convmv < Formula
   end
 
   bottle do
+    manifest_sha256 "dd158d61398c7e0db84abea0ec369ac586eff46845769cced14339d4a07df92a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e329414ab7a1ed9e552265325f97365627be653b85172ddb070e2ddbd87015b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3f95c51cf5841e30e334f11d1e579e5075e71453bcf4632f5e85455cb901acc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7d59b68a858b0dd231b5a56326a0ed13f26522b7d3e220c490689779b6ffd059"

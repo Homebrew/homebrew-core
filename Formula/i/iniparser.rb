@@ -8,6 +8,7 @@ class Iniparser < Formula
   head "https://gitlab.com/iniparser/iniparser.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f2004df23cfb52417113b3e0fe4bd49950637cbdefb6c34e066fe3c50f76effb"
     sha256 cellar: :any, arm64_golden_gate: "1591a9725ea441182807bd5a0a5b125e7e84b8f0919b2f5846b0dd81dba9be82"
     sha256 cellar: :any, arm64_tahoe:       "8830552f5c82db87a882efff61ee7fdddfe3bf6b31b5129377356327710bf9bf"
     sha256 cellar: :any, arm64_sequoia:     "a4b78540d02064d07483df6b30a6b0d6ff370449c991e5a2e46f6fe88ce3c49b"

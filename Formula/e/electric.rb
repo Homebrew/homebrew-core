@@ -12,6 +12,7 @@ class Electric < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0c70e618c7ac0d6bbb30dabc6aaf3d509e5907557a9355ee20d63c80df491bb3"
     sha256 cellar: :any, arm64_golden_gate: "84678fff7153f36807c3a80071fb73230d87c3099a070550497a668479871c1a"
     sha256 cellar: :any, arm64_tahoe:       "5c504225e9f608cc2add83506a75884851019564604aecb436cbcc38c2fd1e9a"
     sha256 cellar: :any, arm64_sequoia:     "888df4a0e5f45817c73f3f3346c46584ef49ca9eebf9cee3cca7eeb6246d41de"

@@ -6,6 +6,7 @@ class Changelogen < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "540f711c8117312faa418adeb2b3fa19d5d26d292bd76ac2c89e613622807da3"
     sha256 cellar: :any_skip_relocation, all: "8f81b6116ef1eb1212acc82b881c4bd1c099d9a3221c76ea12203be07f73f2a9"
   end
 

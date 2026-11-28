@@ -7,6 +7,7 @@ class Pkl < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3c4f496cffb56d37eb6b59b55ccbcbefe89249db9a203626a2d4de31345b6840"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2df543cdca9ad79ec8b77f496f0c0f3aa9a2aa2eb86614733b2a344e653a3d11"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4985612f128ad00a55071b2ce9fbee9e403332348dfa1e281d472f1cfc8ee379"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c729911422a4635c8e214177b22deffead0678fa6adcd1a07a07e90c62db92eb"

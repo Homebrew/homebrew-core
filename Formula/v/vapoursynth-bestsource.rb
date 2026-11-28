@@ -13,6 +13,7 @@ class VapoursynthBestsource < Formula
   end
 
   bottle do
+    manifest_sha256 "da1f218fbeaf03249498b17eecfb77681d79e936122a2cd89d08f7106848784b"
     sha256 cellar: :any, arm64_golden_gate: "8a83450bb6659509b78f57c137a5796d78c43245066fa187cfe427b8b7bf4fd6"
     sha256 cellar: :any, arm64_tahoe:       "d8aa49b70135998fd2ec0d9b67b6044a709cc4bc1b19a05a61e91fdae7712e2b"
     sha256 cellar: :any, arm64_sequoia:     "5c941a7240dbfb5ac9b75d8a06d1bedf552844b0f02a456bb15df77aebddd708"

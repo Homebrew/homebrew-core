@@ -16,6 +16,7 @@ class Wireshark < Formula
   end
 
   bottle do
+    manifest_sha256 "2d20c7a487163ea1f4fba1f458b72a262ad5d54f96755489ef27686503b65319"
     sha256               arm64_golden_gate: "62eb1e7f449d42c23cde3e21648419ed2a8692aa4e01b2f95edce4982a99382f"
     sha256               arm64_tahoe:       "c3264739cd1f8b05c944d7f0e45e79693be1d231e8035c3871427a6900d8e910"
     sha256               arm64_sequoia:     "3482dfbfb587c637dc9ff170f08815f037a0e31e473ac847ef3777da839ded87"

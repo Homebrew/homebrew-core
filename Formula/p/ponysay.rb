@@ -20,6 +20,7 @@ class Ponysay < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "fc32db9547b7346012b6e228183a0566e803435975865ae7888445cbe518b123"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3700eccd17ee72657164db2487c86463d1cbbfdcf793ea4a97c0612b9fdb9371"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7ea464892cdd2b245c203e33e7679857663d444b923919da2c1285974939fe0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af2695f055a97a313745266077f95638ac0103ee772184cababcb4f23e8d553c"

@@ -12,6 +12,7 @@ class Mysqlxx < Formula
   end
 
   bottle do
+    manifest_sha256 "82178d92f1c5cc75b434f73f829284e3a6bf9db3ba430d33f4f78379d2bbce76"
     sha256 cellar: :any,                 arm64_golden_gate: "20f3da03ef361b26cd2a5db99fdcc5ecdc688e2e035836fe20d5932e43f63320"
     sha256 cellar: :any,                 arm64_tahoe:       "bb03e282116800237c75a9374bb020f8cd9f6cd84b01a56549da52d595ff79e8"
     sha256 cellar: :any,                 arm64_sequoia:     "5c39095c830382c0de716906058fdfc99dc8ba77c57b2682ffab177767790c21"

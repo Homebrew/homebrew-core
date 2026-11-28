@@ -6,6 +6,7 @@ class Proxytunnel < Formula
   license "GPL-2.0-or-later" => { with: "x11vnc-openssl-exception" }
 
   bottle do
+    manifest_sha256 "817872576aa28492fb320bba250abdf90519d93798a5e599277f152d1362ddaf"
     sha256 cellar: :any, arm64_golden_gate: "bd41c46857ca4994f6058891446285442e6ea0acd3b3a3c648c73091c602a792"
     sha256 cellar: :any, arm64_tahoe:       "5eeebf767f77ae0008d4dd0f6e9537d11d4dc4df5e799e1fb86b5fe428383cbd"
     sha256 cellar: :any, arm64_sequoia:     "4d3d58b0f4961547187ad3aa9ebd2ab3cff42cbfcf9305b6da4dfc164f7deb6d"

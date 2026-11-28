@@ -11,6 +11,7 @@ class Dynamips < Formula
   end
 
   bottle do
+    manifest_sha256 "eee15132ae6d5cdefcc441275bd53142f4d8f5de947332e594914e0d972497cd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc06802900d1ad0a059249764ca05d5031e76379007d64b5a62cd30bf1a927ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "162d5d7fd38e318d1298a6a5f19bd246aeef23c9107a8b6211a45285a8481c8c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c8519babac9fbc49fc9b55242c1943c89adc2d380b32dd46f655292f132b50e"

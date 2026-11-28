@@ -8,6 +8,7 @@ class Scalapack < Formula
   head "https://github.com/Reference-ScaLAPACK/scalapack.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1f15115f7ed22f840da00199a79428e70d1cb8f54630c157c1fc0787d83e5f3b"
     sha256 cellar: :any,                 arm64_golden_gate: "c461a0edc261af73418a54b0ef39703ae761041368b489245fdc978ffa108b73"
     sha256 cellar: :any,                 arm64_tahoe:       "ea0aacd209ff09443ac7fd62e5782b6aa5708b6cf3d9d25e651a95532522e0a9"
     sha256 cellar: :any,                 arm64_sequoia:     "0a7ab3a13e290659080c05f2550e282039f316eb9a11741905ac40842f301df4"

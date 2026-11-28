@@ -6,6 +6,7 @@ class Gtl < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "9e4cb1c9c4843de46fa0ac1931d9b8ff898acad797cbe77a9e684f88ffa34404"
     sha256 cellar: :any_skip_relocation, all: "dbbffe17a2f60c8f527ad4de3dcf24eae078d05df6b2694724649257baddf846"
   end
 

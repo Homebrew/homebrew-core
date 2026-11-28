@@ -6,6 +6,7 @@ class Ddcctl < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "7a0dd01056c6d8b175b4dd3b29ff7f1e14f7aafd6e630368593b74aec17180ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "126f98664e227f2d6a681dde5a9df79bf96f910a8374105a5bcadcecc741d5ca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0377e06b8510577260ae7a490fd2dc63ca9477a43384559cc454409ac9c89dbd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b0badc9ed3ff51d2791d383be14e194131ad46573340e4c6bd2723207c624482"

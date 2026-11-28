@@ -8,6 +8,7 @@ class Galen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7093ab4a95a81b244eb5746cda7d548cf42c0d4f8a0783707eaef6a98fc5a05a"
     sha256 cellar: :any_skip_relocation, all: "1a79c5f2fde4af91e79d29b711b7966e63c07c0d59f97ad4845cd49bac3e54d8"
   end
 

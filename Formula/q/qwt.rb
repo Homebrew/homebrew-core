@@ -13,6 +13,7 @@ class Qwt < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "5c2ae6417df4ea6d0797737544bfc31b7ab09f9743cdc1dc92f84b176a366dce"
     sha256 cellar: :any,                 arm64_golden_gate: "02714827ee51ca2d9216d0c609f2b91cc5803265c49c4eb6e57e3b5e9253a7ac"
     sha256 cellar: :any,                 arm64_tahoe:       "b9997bee5756f9c2f27627b70b4af65e8e83cf742a69fbf190bb82b745ade6f2"
     sha256 cellar: :any,                 arm64_sequoia:     "ad7400e7b47e1141ab0dc73e38ba9277e64815563ab09d098d291c279280c042"

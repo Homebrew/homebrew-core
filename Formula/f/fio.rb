@@ -11,6 +11,7 @@ class Fio < Formula
   end
 
   bottle do
+    manifest_sha256 "c13969daddd73ad69afe036b1f8be88ad224c7bd5f08f258aa992c1fb800b379"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b7197238360929e9f2b3ba6d2fb8e359061dc07dd23a055405440ae9991fe91"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1f4fa60ee65027f3689aa11fe168bde90ffc169c20a92625a18ca6454474b4b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f18f3fa32b5893cc37db51000a8c52ca2b01fadea876a3de006c50307e89a77"

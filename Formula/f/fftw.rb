@@ -12,6 +12,7 @@ class Fftw < Formula
   end
 
   bottle do
+    manifest_sha256 "8a55088494256b5ce836ccc485adcf499a2324f457ca4e384ed6d0b8253495a2"
     sha256 cellar: :any,                 arm64_golden_gate: "284654d06688ccf4c5a7e3dab0be7e429878e31db5fee0386d720e8342dd7cc4"
     sha256 cellar: :any,                 arm64_tahoe:       "76838ae9996012873472e19281919700cbaf2bd8f5b46ea45ba85218c96a7b77"
     sha256 cellar: :any,                 arm64_sequoia:     "7aa76fc0dc0dd1b8941fb7361283bcd229df8a13628b9650507a910087138cf2"

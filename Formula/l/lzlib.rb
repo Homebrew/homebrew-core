@@ -13,6 +13,7 @@ class Lzlib < Formula
   end
 
   bottle do
+    manifest_sha256 "65693b0bd5c9524afb6962fbeef739ba34b5e7fe2b4c11c1fee2ceb493fe510f"
     sha256 cellar: :any,                 arm64_golden_gate: "c8140bdf67f30788b94a31be3a74dc199444102817f0829e1227090c6c455205"
     sha256 cellar: :any,                 arm64_tahoe:       "4fa68a434a9f27132be4cc333ce3b4b9c7bb2a4f15748cc55943331100c281d8"
     sha256 cellar: :any,                 arm64_sequoia:     "0fdfdd31565885e19fbf88a2eb719871c29bd35f159debce604706fabb1ae292"

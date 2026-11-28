@@ -14,6 +14,7 @@ class Daemontools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "4817bbc687706648df5fe5b3bd968b37573abdba34ff429079e02389c4a2d6ed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d68497c07b98344680482637a3c8bd17bbe5cbba1484a0de1d1c63a705addbda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "da992fd278ff1a26880a1a254f7a54e2440ef886c565bef4d52335a53a0efe99"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d5272511ffc8ff84d1a6a86ff7a4b643530c9d1feab3cfca5b70cea23e7855ba"

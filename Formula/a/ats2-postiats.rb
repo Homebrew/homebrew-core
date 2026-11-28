@@ -12,6 +12,7 @@ class Ats2Postiats < Formula
   end
 
   bottle do
+    manifest_sha256 "aa135f9e1491d18877c139177d9c64369d7d3b29e5458630782a98dbdb7b1044"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f7e6de3857d1fd9bd1052a3e6e256cf8b35ae703f69b3f96eb66267cd2b5bf19"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d971aa331b5bb0f2efb3e34658fbc4fdf590dbfaffc3c257f4c16ac177ff6821"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32296b820ff276f1de0eed59460f9dd48ca47132a77fdee78ee19fed9ba46923"

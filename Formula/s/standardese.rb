@@ -38,6 +38,7 @@ class Standardese < Formula
   end
 
   bottle do
+    manifest_sha256 "6cd7d5c76726d9983ff6e897a3ad478dd6310de0693eb267f4a69dafdb2a5280"
     sha256               arm64_golden_gate: "b08295fabbe51894b8122229f9e3c57bf2eded24960c2566da08e826c04e4d18"
     sha256               arm64_tahoe:       "af60907f8dc7197d4571bc34eb016c23de51f8981b73c83f5754e5aa01778893"
     sha256               arm64_sequoia:     "d04fb151ca1608e9fd5e7fc8601aea6c1699b9c15c7aca714ae2169cf737b308"

@@ -12,6 +12,7 @@ class Aarch64ElfGcc < Formula
   end
 
   bottle do
+    manifest_sha256 "297a5d6010d6af1a306bfc23c1f825f05179621228c7cb214e4a1e92ff8cd669"
     sha256 arm64_golden_gate: "b955115717942586694487c914cc96c0c1ae1e7f68f229d7cebbed2b635de702"
     sha256 arm64_tahoe:       "d328f1ebcc29e8ccf5cc27c206c817f540f4da03c36c5367dbe1b23dde8aa77a"
     sha256 arm64_sequoia:     "11f06edc8310eabd919090903d432ccf50159a11fbac85240d80bd46cc285f11"

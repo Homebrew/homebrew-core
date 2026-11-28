@@ -6,6 +6,7 @@ class Diskus < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "45a8e825af07ad00cf3a170495ab3a61d20fd959b037e2e0041ba6e390d4c92a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f000b3b80dde5ce2889984d9a5b923b580c14929e60d5965ce3b144abc0860b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f407f4c6b4be9baf0de69a585e02509c03e1f62530300fd8e1a22da11f3fc623"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f8667d3f87a006feba4bace59e7b7fc7ae44c8bb1d310857048ef94e2f3dba9"

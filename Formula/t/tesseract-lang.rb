@@ -7,6 +7,7 @@ class TesseractLang < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "78798e30216775291e7e097420d834c51d525aec12d44da039b5c0814d495541"
     sha256 cellar: :any_skip_relocation, all: "ff6da65c5137edfec72e7826768d1d8f3fb311c45eb8c0ba21cfff191a7ed56c"
   end
 

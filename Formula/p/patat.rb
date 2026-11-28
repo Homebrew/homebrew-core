@@ -18,6 +18,7 @@ class Patat < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "9d30969f210ee6a218bc2d9cf9a77b8bdaa101c235521e4e309a02409339b1f2"
     sha256 cellar: :any, arm64_golden_gate: "1a70a35719f8cdbb97dbce90c04ce780e3c8c69082c16255244d35b5712c66db"
     sha256 cellar: :any, arm64_tahoe:       "03e84a0cdfb59b453fb6b9cd4351b59c8a9287a3097b1bc9bff077892bb59a16"
     sha256 cellar: :any, arm64_sequoia:     "1e0c475a35d23f87451dd54c16ba46a4f3be52d28c4ccc944515b735d42c1da8"

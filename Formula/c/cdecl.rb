@@ -10,6 +10,7 @@ class Cdecl < Formula
   ]
 
   bottle do
+    manifest_sha256 "633de3509529e1ff96f15d5ae1a26acdc98cebb7d1c08724459507f1b2d1d861"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b9d45dd836448542845c0d12ce9de94767f630413ace1d8d2aaffae9cd660876"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0db165b173c52c419fc2c7f763b42e6834ac534b24fc63203c0242e386d6ef7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4018c09121a627f883e431db8b6c3af88e674945f7b268a3b489e18cb7f8b8e8"

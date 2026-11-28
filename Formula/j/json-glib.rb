@@ -7,6 +7,7 @@ class JsonGlib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cb3360e485f09c61f61d2bc895772ab209524e5c65be9f7504eef1857a88ec69"
     sha256 arm64_golden_gate: "0623708504a6e97d0b0a07f007bc31d72db43db18b2c02e43918a2b6d49e6674"
     sha256 arm64_tahoe:       "795e22cfc4a12fef555dfba6a3222af6cb6d30631cf69f176d1964169c14ba73"
     sha256 arm64_sequoia:     "d0269d6d4933ad3c35fac9503d54facf36ea662a25b255c0d0fdf005bbfa2d25"

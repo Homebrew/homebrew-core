@@ -9,6 +9,7 @@ class Gobackup < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "a6ead096a822479e77410e22ea92a1be73a530aca686b76b8e6289655d1afa70"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "edfbba7dfd6dffd67838ffdd9cf0743efd6562b1462d1b13c0371d237307e82d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cbd9df498f326c7bccb982ba5f85685dd4cc5e8c657d25239b1e35c0347d01ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4fdd18b75915ead2549f90bc2db5250e08ef8401117adbfaf3dc583e30a7058b"

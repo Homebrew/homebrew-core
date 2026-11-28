@@ -11,6 +11,7 @@ class Jbang < Formula
   end
 
   bottle do
+    manifest_sha256 "bf39a2109ba0c6a5b95f772a26131ffb759c660cb2261203af52bf1a470417f3"
     sha256 cellar: :any_skip_relocation, all: "719e926bb0c081978dc198cbf231bb06d63152524f9961c20ae3c96b740047b2"
   end
 

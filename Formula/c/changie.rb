@@ -7,6 +7,7 @@ class Changie < Formula
   head "https://github.com/miniscruff/changie.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2e479885fb6c747e23d7ba2da9dc103bf749a2881ee298516db823535f67ca4d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31c9ec96b426581b004f0465d19965cf3cab339ba3d18ae9fdcef135f88e276b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff2164bf3c8a8222a5122d67d99af61eac481fececfaef7b51367e6e0caca536"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff2164bf3c8a8222a5122d67d99af61eac481fececfaef7b51367e6e0caca536"

@@ -13,6 +13,7 @@ class Ttf2pt1 < Formula
   end
 
   bottle do
+    manifest_sha256 "8021e18339022f521983deb17e77a741b0b024ff24151519a13208a5e74e75f7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f475dc15860dfc77c65aadd53572df5b93258e6a85ac014d736ca58544bfe3a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d173b72ff99b8f7d512c1017fa40e52a1b6f7e5432338f5846ce62511cb219e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b6ad2fb422b592e707adf8a5e622a1aba01994fdeee1979ce0810e1a7fea435d"

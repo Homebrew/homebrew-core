@@ -12,6 +12,7 @@ class WasmComponentLd < Formula
   head "https://github.com/bytecodealliance/wasm-component-ld.git", branch: "main"
 
   bottle do
+    manifest_sha256 "377b543a445f2ce98c885cda31568a8bf434ccb862e039251c125afef26a723a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e815f44ca0906c1ded20fbaf406fb5474bf307fc068b906bf3d4607ff466a082"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3dbfb3d23ab7f6ad8cf353b87ae7b4b4a8bae3617de5255e0d2164666d3e919d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f69fc2c92272f318c51b78620e66c8370fc2642a0abe6edffae08df1e7d81b9e"

@@ -7,6 +7,7 @@ class Dblab < Formula
   head "https://github.com/danvergara/dblab.git", branch: "main"
 
   bottle do
+    manifest_sha256 "90e100d5fd889a67f65f78ed4133f558629039b8b3f2ce0130300f2e47206623"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "31503aa280eb13cbfe0e61cdc43f4e3ed320943c48bb5b4021c4757b16280d1e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31503aa280eb13cbfe0e61cdc43f4e3ed320943c48bb5b4021c4757b16280d1e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31503aa280eb13cbfe0e61cdc43f4e3ed320943c48bb5b4021c4757b16280d1e"

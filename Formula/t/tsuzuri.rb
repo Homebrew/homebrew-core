@@ -7,6 +7,7 @@ class Tsuzuri < Formula
   head "https://github.com/jaisuriya-11/tsuzuri.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6d91335d0b2247d103efb9b98e722b5d3c781f03210d031fb22665fe268abf09"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "302cb42d968393983986cf660964934f0ece39061e03c9d80c9751877be66b54"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "302cb42d968393983986cf660964934f0ece39061e03c9d80c9751877be66b54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "302cb42d968393983986cf660964934f0ece39061e03c9d80c9751877be66b54"

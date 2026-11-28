@@ -7,6 +7,7 @@ class Brainfuck < Formula
   head "https://github.com/fabianishere/brainfuck.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9d55af00ba4c431c21755aed6f10acc3e710efab1a242e866260c9edfe581534"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ee3f407baa7a89428e2ef0811eeff21332a2c6ea83ca7bb6bf4fadc375b3771"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d38b944beb199f418b1d798264e8319b6b2e89e592fceb0ba113bd8b8a151ecb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e316f33095c63723b7cc707d1c3c484d2049292606c673e99053a2364ce2a0e"

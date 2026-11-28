@@ -13,6 +13,7 @@ class Msdfgen < Formula
   end
 
   bottle do
+    manifest_sha256 "d956a033ea9a9e0d7fb0f11b1ae0bff91a00bc1e33584a473c7a96f37c073945"
     sha256 cellar: :any, arm64_golden_gate: "1e062d0c6f7a4cfb50ebee6ef8488324b5b889ac260129e2fd299ac1777aa0c2"
     sha256 cellar: :any, arm64_tahoe:       "e4e81ae6c9cc6e617d568268e02fc975c264d57385049f54e0cd971d7c6ad9a7"
     sha256 cellar: :any, arm64_sequoia:     "09e4e0f299d7f11bdd9d460d898ee3df043547209ec820c283299df4479be913"

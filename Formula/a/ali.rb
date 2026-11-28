@@ -7,6 +7,7 @@ class Ali < Formula
   head "https://github.com/nakabonne/ali.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1d514b36f8ad59b276608efc0316119e8af206c9db0825b3ba572e0dd3933e22"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7223659a6c32314368d88f0801a70bee055eb7ec8450aa5418af0c0c5bbfbac"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "624cc8b3f6325523929329a805679aa2673e4661be3a1fce71e01e0e44b6b50a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "624cc8b3f6325523929329a805679aa2673e4661be3a1fce71e01e0e44b6b50a"

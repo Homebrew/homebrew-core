@@ -17,6 +17,7 @@ class ParallelHashmap < Formula
   end
 
   bottle do
+    manifest_sha256 "1620f8b16f850b7117abf6c10cbfebde8ff93589dac64328f064b5a60795a6b5"
     sha256 cellar: :any_skip_relocation, all: "467ea7c77a227175572912f7b8e4e5491df72f219e51f97babca53b82809d96d"
   end
 

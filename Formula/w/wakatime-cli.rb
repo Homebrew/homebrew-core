@@ -8,6 +8,7 @@ class WakatimeCli < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "c924d5be248cb0f2d4766c5da3e54308224f3d87af20a6e5a8382ceac25d1119"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b1ee21e0160316b220da54eb1bec3f47dfab8b4ead008557cadf1d5c2f19c73"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b1ee21e0160316b220da54eb1bec3f47dfab8b4ead008557cadf1d5c2f19c73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b1ee21e0160316b220da54eb1bec3f47dfab8b4ead008557cadf1d5c2f19c73"

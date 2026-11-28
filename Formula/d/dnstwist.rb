@@ -9,6 +9,7 @@ class Dnstwist < Formula
   revision 14
 
   bottle do
+    manifest_sha256 "356413310f1f75f0f3789c2c9266622779af4ae3d0e3a3782c38c170d20a0075"
     sha256 cellar: :any, arm64_golden_gate: "6ca42b6582dc1ec633dc9630c56749e2ad95679cc96282463237cc8ac0049d87"
     sha256 cellar: :any, arm64_tahoe:       "e6ad4f37d6e52bc089f26d3a5b90c481f86c6b20ddde93afcdd7d4fa2a362d2b"
     sha256 cellar: :any, arm64_sequoia:     "9d94dfafec0a9a818c67eb471c0c2acda8173e4bb9986a7dfd02ba66abfc39a4"

@@ -6,6 +6,7 @@ class Step < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "d116780e5811893523182c320c6f37908cbb6911422c0a6aeb0e9ff684c786e6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a4d097e34ef3ec9bbac57af27566a201890679ac154c56555d7af217586bed4a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0ca195ed5744fb6faa55922309bb903beb84e72b4d244e580f5236042828b0e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ed351d8139def7b42040b036068c48e6ced501ef714add5b46b238be882b190"

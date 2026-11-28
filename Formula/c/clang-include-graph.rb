@@ -8,6 +8,7 @@ class ClangIncludeGraph < Formula
   head "https://github.com/bkryza/clang-include-graph.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b974bf6704e36a9f8212d7cc8611a1ab6c62ff4655dcf802b326b6c25b23fad9"
     sha256 cellar: :any, arm64_golden_gate: "cade024359640ca79eb2ab000aa00ba8c5fd6a21c928fbeab39ea8bed24932ec"
     sha256 cellar: :any, arm64_tahoe:       "c423cbe1c07f46fec7da9366441926e5432b1397cf4089c73eb5f0c8b02b3c35"
     sha256 cellar: :any, arm64_sequoia:     "6d72273c3217f8a0bb4a2ed452022f589e0f04f9b916012441e481e28df609ab"

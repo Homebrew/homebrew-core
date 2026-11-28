@@ -11,6 +11,7 @@ class Dropbear < Formula
   end
 
   bottle do
+    manifest_sha256 "81769ce58c3b10ed9a0f2418ec815a671df04b0d94c8e2cd899659364502f09e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80a254719e498f4c9850ebda4be8f78ed63783f053982d2e5b7c24647392d40a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aebafeea585eaf37df73f14f70cabaffec10d7b35b8a33a075b7797d9d1c4d22"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c655ef7967ea7865d6b790825910d7a9ffa263f31eae9214006158c7048e519"

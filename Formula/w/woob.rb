@@ -10,6 +10,7 @@ class Woob < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "50eb93f8047c01caf23e17d825032ad8ba900419349764761303cec394152a26"
     sha256 cellar: :any, arm64_golden_gate: "e9b3796494e506daabc0ab48928837f3934c76027e801db5e0c10ebdb2a2a566"
     sha256 cellar: :any, arm64_tahoe:       "b50e7fb396568d19a1d0632c358e25e6006c65dd5806e40a0fb659b9976a6595"
     sha256 cellar: :any, arm64_sequoia:     "eaa96eb2cf6643f13864adf6e8b0b7e5139a9344caad7af14e6e6c47fbb9591c"

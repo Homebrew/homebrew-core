@@ -8,6 +8,7 @@ class Bork < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "03c5aa18f4f66cefe064d5426f9e5a5644cc5c5745722e1ea4ed75c6a4f8f8df"
     sha256 cellar: :any_skip_relocation, all: "16ffe8fc8e92fb6b7a8563cf610e9ebef39bb4123b8c092087aba936df7ed44b"
   end
 

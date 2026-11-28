@@ -12,6 +12,7 @@ class Par < Formula
   end
 
   bottle do
+    manifest_sha256 "b252e7b15b184b99abd66c6758e24d657c6e49b295d6214321ceeff7258c48c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9ab9a9caeda9af6ff132136ac0f73d4630ae46d755ea5daa0db7405a8ce21a19"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0978d3a9780b797f148de2ec8b9c904ddca7dc7ed60b51d3d98a902f82a25ec3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e9ddecfb12a39ebdfba8f7b76364ad415565f182ab871210af61218645e5e438"

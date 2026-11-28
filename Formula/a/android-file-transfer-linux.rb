@@ -7,6 +7,7 @@ class AndroidFileTransferLinux < Formula
   head "https://github.com/whoozle/android-file-transfer-linux.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5a1aac7171c3d0defceaa318d94109037ce9879744818291311e048dd38902f9"
     sha256 cellar: :any, arm64_golden_gate: "0995dee98d1aa89c9190c32a295d6f5d4501170957660c80478274639846f4c2"
     sha256 cellar: :any, arm64_tahoe:       "9c78f94ff23b86953403c7cb98850c7451d3dbb99797fc34cdfb91a049b60af9"
     sha256 cellar: :any, arm64_sequoia:     "8c957e831a5b063889bc227ad54a3ad4b91d1df529432b2691a18b0cba527b0c"

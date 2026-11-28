@@ -8,6 +8,7 @@ class ShadowsocksLibev < Formula
   head "https://github.com/shadowsocks/shadowsocks-libev.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1458b65d064cbf22e1e0ae19fe7e3bb1affb9e23c42db634ab4576e07dc4d85e"
     sha256 cellar: :any,                 arm64_golden_gate: "79df11458302fd9a0a07ed8bd6fe34db0c0b129bb810d9a1943e5fba6f449056"
     sha256 cellar: :any,                 arm64_tahoe:       "a42fdc941a6684fc34969d13cfb8943ab85ec4759e6648969c568c08f91578f9"
     sha256 cellar: :any,                 arm64_sequoia:     "bfe681be47331281dfa702c0869bc11e98881b4f3c0fcec40fbaf4cf480935cd"

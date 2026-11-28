@@ -11,6 +11,7 @@ class NameThatHash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "12f70505af41e0ec91c158e865bddfb5800bd81f679459dd3bcbcbba44ab407f"
     sha256 cellar: :any_skip_relocation, all: "f44e5a82d12675bdbf0d38b7747be30e84e8769c238ec60a478af83998d5ecdc"
   end
 

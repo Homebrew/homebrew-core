@@ -11,6 +11,7 @@ class Dillo < Formula
   end
 
   bottle do
+    manifest_sha256 "b860cfb8a29d0519d633967a39251ce1ef6f3526848b73ca5156fce3ece65367"
     sha256 arm64_golden_gate: "9e53e2905cfea454df590baf4ffba3565df42dc44997b2beb634f527d4ff5aea"
     sha256 arm64_tahoe:       "714182643dd7271f7db53ea0a741f169814781a5ed38dfce7cc4c00ff8553145"
     sha256 arm64_sequoia:     "fb195740b308915c58205ea9dd0a0b2c8984671073a4325af5d5fe924a64d5d5"

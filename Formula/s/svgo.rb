@@ -6,6 +6,7 @@ class Svgo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0d3821e9f23f79fb9a9693356013f08eb53cb558675f883a75f207fe37888d00"
     sha256 cellar: :any_skip_relocation, all: "5351c22c31e538f311094815088539fbb18b4ee409b5de0ae5ff8bed40279242"
   end
 

@@ -11,6 +11,7 @@ class Zile < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "425cd9c0b86edf59f4a918a322346931604dff267095ce4dbc6554f58d192c34"
     sha256 arm64_golden_gate: "2c256237ed4c733cde0b396bb6aa46a001f34656b9062f88650faa95de78f88b"
     sha256 arm64_tahoe:       "efce10489a93b24ac8a9312e993a57b981b38fc3decfc9f36e37ca7cfa49cff5"
     sha256 arm64_sequoia:     "0d218900aa4e2a8504325c958be05c5e888d83b319dd7f69c4a47d6bd8ad4c2b"

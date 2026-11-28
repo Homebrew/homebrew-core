@@ -6,6 +6,7 @@ class Xtensor < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "8f84b536bd63f50e4fb4d72fc2907badc975c78e7d33037f44f2b8768dc3bf7d"
     sha256 cellar: :any_skip_relocation, all: "e9e663ab72cc432d95d61cb76e2c062ca1d86a40fe1120cdb92cd22a4623928b"
   end
 

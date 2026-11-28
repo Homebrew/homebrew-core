@@ -7,6 +7,7 @@ class Zf < Formula
   head "https://github.com/natecraddock/zf.git", branch: "main"
 
   bottle do
+    manifest_sha256 "637b4488de88848263c04f146ce9f5eb532563bf91f9b6667d1d3ea0ee66c942"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42f3d7b7d0f17c4b1875355ac88e7ca578c49363487b550d80bd173d85ab7f7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff8a4ce0e60319c68384b126224e2a87aa8882e922906b2bc678362ca229c048"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "522ef5f018185a42effd62b867523ef7190d7ef18a829e1cba0fea412f3f7985"

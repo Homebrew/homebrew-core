@@ -9,6 +9,7 @@ class MacCleanupPy < Formula
   head "https://github.com/mac-cleanup/mac-cleanup-py.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d7d32ac2fcaa23224ab0437878bec5cc9d3819034fe92b9562d1ae475232fa2d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "182e1e360f28cdfb01b36226c254e06f2dc445eb04e4ea36710b984841fdb1ad"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c73433bdc35eaa57fc42067e98680bf2733b55b71450ecb8e15129c254614eda"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fbd980f1ed9cc8838ffbd36dbe81fe3f2d2586f069b70d56f904a64560919e05"

@@ -8,6 +8,7 @@ class Tracetest < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b81bddd0c79b7f5b009a7424d4ae9e14d8175f3dffda5599f97d1a54a8a69694"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2ee1ea32a1bda9a827cb28218b470fddfbf2dad42e397399e075459be904a2a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b58559ad7258bb4a1e2dc9903e0e242575e902f74f09c80113674c36d37de090"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b58559ad7258bb4a1e2dc9903e0e242575e902f74f09c80113674c36d37de090"

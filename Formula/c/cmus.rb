@@ -7,6 +7,7 @@ class Cmus < Formula
   head "https://github.com/cmus/cmus.git", branch: "master"
 
   bottle do
+    manifest_sha256 "687d8e6c9c2c338547268d48b8cf7dd6b20244e11952488b0b164ea0a64aea9c"
     sha256 arm64_golden_gate: "5cdce6ee3cb238d69a4aba58fc2b82df0f7a095b106572cbf98c354cd36b8f08"
     sha256 arm64_tahoe:       "af3d32f2a8e2cf4c3f6342d4a6fff0dd9afd59eb9f59f66ab275c75468401eec"
     sha256 arm64_sequoia:     "461ef110ead5c0019313800b617d3845d0f62fb025e59e852665f1df43cc22c8"

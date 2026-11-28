@@ -10,6 +10,7 @@ class Sqlmap < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8e10397d9afa0231725f8f1e3bdee9252873bb8b381c5c4da01d9bec16385422"
     sha256 cellar: :any_skip_relocation, all: "1bebfbf5f08ba60849c40869b4c7d72f1184e5e44f70c9da064def17a547d3ec"
   end
 

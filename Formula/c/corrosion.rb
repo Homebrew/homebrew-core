@@ -13,6 +13,7 @@ class Corrosion < Formula
   end
 
   bottle do
+    manifest_sha256 "ce529e5e073512be1423853756dfe50770a5d19b0ab2265f7ce8a4898d671748"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99498b93fa5f5cc7e45ae2cd3ef3c69e0a8dbad21b9f5cfadec9f26a316e1b06"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "427c06338a5dfa2298f8b3d6e5e9da2aad80490fee56bce1042b70582414e65e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec0ddf15edc78bae22d82611550a2994a20bcd7194ef2058e38bc072a21a9ec9"

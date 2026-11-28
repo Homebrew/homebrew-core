@@ -13,6 +13,7 @@ class WxwidgetsAT32 < Formula
   end
 
   bottle do
+    manifest_sha256 "c702e262b92570d1c76b93c9dc9285ee3f25ad6d834dc8365518534c76decc9b"
     sha256 cellar: :any, arm64_golden_gate: "b79a10b5d1b192df7347c5f4fc393cfed189ddbc9fe72a5182b2cd226cd4753a"
     sha256 cellar: :any, arm64_tahoe:       "0f261fd4269bbe6bc56ef5b702c3df7eb6a1cc4e73def625843a6f6299f5ccfe"
     sha256 cellar: :any, arm64_sequoia:     "0cc1f249b77dfd7cd22d22412ca659f8de99a890e7a8cb43e3b06db508348cdf"

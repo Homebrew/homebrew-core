@@ -7,6 +7,7 @@ class GitNumber < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8c62354ceb71437a1ed2bb31ed5bd0e997f08a3d2c12850901ee05e284e2b862"
     sha256 cellar: :any_skip_relocation, all: "f006192cf61d5d3c178201835e847dff5c2c351578d90f183f7ef7363d1a1255"
   end
 

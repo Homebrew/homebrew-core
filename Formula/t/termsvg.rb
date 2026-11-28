@@ -7,6 +7,7 @@ class Termsvg < Formula
   head "https://github.com/MrMarble/termsvg.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1dcfdf6deaa3ac1fd45bd745cf9116cc3e3f5d242840b8c1d3df53b5be6d706b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "58d2141772e1fdad264d888d8a48e3318969286012f3137d29c563b4def46326"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58d2141772e1fdad264d888d8a48e3318969286012f3137d29c563b4def46326"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "58d2141772e1fdad264d888d8a48e3318969286012f3137d29c563b4def46326"

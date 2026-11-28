@@ -7,6 +7,7 @@ class Quantumxx < Formula
   head "https://github.com/softwareQinc/qpp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ffa0a9992bd5601af6feea8a01982194998854eb7bdb95616ad67a0b1205912c"
     sha256 cellar: :any_skip_relocation, all: "76b45b86e3065f46f96917225eb9d5580732f69a2db93a43558868eef984fbf9"
   end
 

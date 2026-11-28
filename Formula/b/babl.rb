@@ -14,6 +14,7 @@ class Babl < Formula
   end
 
   bottle do
+    manifest_sha256 "255624377cfa74bcbb3878afa148f54f3b2462a7c2b93022669a8575f19b3e21"
     sha256 arm64_golden_gate: "6fde3daa29c43dd98bf26dd61517ef4d9cf8ffcf6bb4eb71b193228116dbd854"
     sha256 arm64_tahoe:       "62a48f99e10375c85a21c6d8cac6522e3d69969f7aaeaa287f053666b6d044bd"
     sha256 arm64_sequoia:     "b31e9c8879397ac0b7d852678272a5f12806d1aca99e71cae4d728b46b84eab6"

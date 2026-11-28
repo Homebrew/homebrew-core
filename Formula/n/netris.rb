@@ -10,6 +10,7 @@ class Netris < Formula
   end
 
   bottle do
+    manifest_sha256 "ef577ebdbd512a3bc1755b30e42bb6e70087072d4f08dfaf1e72f7fe64288333"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efd73b9457786b5901031c479a8b9a3039cf92a6e950442c6c2bde812797ff18"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a995775e35da0c6d44ebab95bc19340273c50fa742670b5f1178b848fda29b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45fd383811db400a50896723b5c7f9e05015d19208c678d14e52e68031dd6887"

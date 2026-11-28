@@ -16,6 +16,7 @@ class Fortio < Formula
   end
 
   bottle do
+    manifest_sha256 "ee6f81bd3648bf1584c89bf4d2d9998a052846770bc9d428cb5193575e172a5c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cf4bc186fae5441dbe9ae7b4543074704b180aea7117ec3e14a4caf4dfb953a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "619610e7b5088f835c3a8e117a2ea9570926bdf0126afb30eb2c91e18f194190"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "155bf1b11ee8baff2d7ae81360442e5e66b2885e3d1779e3beb3203def98c609"

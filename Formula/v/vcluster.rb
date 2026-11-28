@@ -15,6 +15,7 @@ class Vcluster < Formula
   end
 
   bottle do
+    manifest_sha256 "3429d193e2a40e2e8c270937495976b6ff51b3eb0677c9d923dcd404ed7c50b0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "33e718110c9cb2e37b2706a15350971ba6b986d8ad8f1777e01334ecb3e001f0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9b236ae64c497f8d83537c096f959e87aacc81157982f48f81a1ea2b7d4ccf5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d43a62d4d47a5cd898ed7ed66e714961fe2d1fd5793cea32747e51fb3572aa3c"

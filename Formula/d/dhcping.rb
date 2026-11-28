@@ -12,6 +12,7 @@ class Dhcping < Formula
   end
 
   bottle do
+    manifest_sha256 "be9bd2625e528cdf3efd8542d0d7c20a60bf3cefb8f5c37d43bd83ebfd248d39"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c06fad07be5fd6cff35dbb1bce3e0b8fe2ce523351dabca2994b367bc86d9324"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "508383a636e12497a54b8c5ee9732aaa9e3128e988fead007b84a79e871ff040"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57a8c433ed1c7da1d25968b298425ee8c4eb654cc2c3db24ef634eb98fe2c2f6"

@@ -8,6 +8,7 @@ class I686ElfGrub < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8e52eb8c85bfe67585d9fb31f2a013f6f3aa37781c3033c52132c098ca850f11"
     sha256 arm64_golden_gate: "e46700d96ac1677f1f919a08fc2a2484cc9fa2535a4d08c93716ddafaaef0f0d"
     sha256 arm64_tahoe:       "e22e948d3c138afe51718fa03e908d0dafcc149ae3a027f76627e1482523523d"
     sha256 arm64_sequoia:     "d23447673032cf2864040cebb681a8b6ac490b5ad8003d6408a72335a16f8204"

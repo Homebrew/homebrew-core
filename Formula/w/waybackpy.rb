@@ -10,6 +10,7 @@ class Waybackpy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e49a8cf1e96ec395a719de795649b5b97408a71abb3a9c892deeee53dbd2dd4"
     sha256 cellar: :any_skip_relocation, all: "d2ab889e394ecae6bcf54281539641d40f60892e09bedd7f09e47f58b52c8beb"
   end
 

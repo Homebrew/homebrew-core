@@ -6,6 +6,7 @@ class AirtableMcpServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f3e188b9c26f5224f421573a4e56abd3403ed075cff9368568a88a8cf95b512b"
     sha256 cellar: :any_skip_relocation, all: "c1db26dfbfadb77d7c0f9ee9b8ac765c2711e7f9c2f9eff2b1c4959dee0548ed"
   end
 

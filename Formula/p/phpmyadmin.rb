@@ -23,6 +23,7 @@ class Phpmyadmin < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "652da66c0293d2270b9aacbc94a195c9195c649d71e31b55a550515e65af9164"
     sha256 cellar: :any_skip_relocation, all: "1da2339c67a3ef693c2a1c7612ba8c325e9fd793bd0a2f08706a48e746cc40e7"
   end
 

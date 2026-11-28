@@ -9,6 +9,7 @@ class OpentimestampsClient < Formula
   head "https://github.com/opentimestamps/opentimestamps-client.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8cfdbc26172cee685af3974059972bc1234f4385a64969aa5d322a84b17eac32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3dd60a953f8a5f63ee98b8bb6784c2bf17a44a7dc199f48a03f1d71876b007db"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7346c8ce085d1a05358ab09517df516bd57de3db3863a371c9ddeded1cec0c7b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8449fa8d7cc6e201e2e28a0fd8871c2da2dabbeb3a47507d23a5b7488c934646"

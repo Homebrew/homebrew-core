@@ -7,6 +7,7 @@ class Tlx < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "51809bf95b1ad3b57fd2e33780212d2105e54815f0dbe49f650f3c5d9e892fd5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9b2c612407117a198bca2965dbe60bd5f344111a6835034db4ed62fd1c7603e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24a8426be33e4421b2f636ba05b6784352bd1a559e5b2dde90ecae8420e0f591"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e35cf4b2cf66334a3c6782fef229a96684942f5aa07063874e0020fb319e15b"

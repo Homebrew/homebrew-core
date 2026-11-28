@@ -7,6 +7,7 @@ class Ffuf < Formula
   head "https://github.com/ffuf/ffuf.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ae3911d26301976d6d5055346bd5ebdb710ee5f4d5aed7a33aa2529c6a531c20"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efe21c56bca0d2d5a8cb616618737eae7dad880dfdc71533b3f465464b44ce30"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56b545604136af7af0740ddbc0995318223424a878f1856ab22feb663c16d1e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56b545604136af7af0740ddbc0995318223424a878f1856ab22feb663c16d1e3"

@@ -12,6 +12,7 @@ class Testdisk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "764490798569a418c49e25360a42d92fbfa0f348a9e2ccc1a7dd30e8f74d9189"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97270a347d3cb25912efdb87b122790f6ce0863983655f43697057bb416edf12"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e329a6e62f3a3a45d211f502f2d9286e1f33740bae6b63777166f18b2051138c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eab017ff1b655d0013b12559928b9fd7ed92605a448c8a460e5432ebc3cef380"

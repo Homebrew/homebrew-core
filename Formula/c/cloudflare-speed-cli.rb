@@ -7,6 +7,7 @@ class CloudflareSpeedCli < Formula
   head "https://github.com/kavehtehrani/cloudflare-speed-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e59a93b58278c9576175bb3800188095b573b4a528ff58650a90699ed070fffd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "667c86eba6a8eb1af9c67fc7d6c3a4aeefb5595ee27fbc333d1698ec3e361190"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6dcd8c7dab7e6cefcb1460d70aaf3c79c00701f514ce9100165c1811f4637e26"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4871a6cffaab7c1a314b2f9c3fc2e6610a568a9e9db64950fface2867d0a100"

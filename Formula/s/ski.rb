@@ -19,6 +19,7 @@ class Ski < Formula
   end
 
   bottle do
+    manifest_sha256 "af28a22fc9674dfb84cbbf12cc7bf8cb8c18e27dacb3448077c8267969b89698"
     sha256 cellar: :any_skip_relocation, all: "98a857570a3b6256fa5c54a790c7f688c0283df59cef730b59409d3ede94fa65"
   end
 

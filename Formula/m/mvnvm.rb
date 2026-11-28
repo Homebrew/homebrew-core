@@ -8,6 +8,7 @@ class Mvnvm < Formula
   head "https://bitbucket.org/mjensen/mvnvm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0d4fb47fb0a1f8f49ec748063d4d85401b6128da61e25827c30019dc7370e218"
     sha256 cellar: :any_skip_relocation, all: "03af6e6b002c6e176d523f5d182400b70066fa9f2350155a2cd51abd249b122a"
   end
 

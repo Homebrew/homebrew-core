@@ -10,6 +10,7 @@ class Cline < Formula
   end
 
   bottle do
+    manifest_sha256 "e3737939b99ba4a8d60f681f6693cd8490a68d58909d19fd2e8ee95628e8889c"
     sha256                               arm64_tahoe:   "43511eb558407a9c59a2c2c12c4cdb2975ad9bb704b011dee64ac64a71bcf79c"
     sha256                               arm64_sequoia: "43511eb558407a9c59a2c2c12c4cdb2975ad9bb704b011dee64ac64a71bcf79c"
     sha256                               arm64_sonoma:  "43511eb558407a9c59a2c2c12c4cdb2975ad9bb704b011dee64ac64a71bcf79c"

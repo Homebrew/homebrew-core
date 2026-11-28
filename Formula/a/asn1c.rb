@@ -6,6 +6,7 @@ class Asn1c < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "1131987e29c2c9a0d9a358f32978cc2fcb3065690f86dfb415cd9e0729c89726"
     sha256 arm64_golden_gate: "0e489d0bba6d504c0ff45e0bc314240f6d58e28784a04fd9d0453ee511a354f2"
     sha256 arm64_tahoe:       "8271932dbd1a2224cd82a27e85adc02805d163505891baaa5616634b9feca1a4"
     sha256 arm64_sequoia:     "a09dd4a70cd271295ba8e8a795499fc27930fe234f29d30edb24fdff25aee0ef"

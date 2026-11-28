@@ -10,6 +10,7 @@ class Numpy < Formula
   head "https://github.com/numpy/numpy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a2e4fd869a0b938aba50d1600db835bd4492aecb196ff2c2fe1a6c6595c084e3"
     sha256 cellar: :any, arm64_golden_gate: "6f53fade9bf1192c76dc8461b02e13970f072880482dafc5e41cdca44863624d"
     sha256 cellar: :any, arm64_tahoe:       "835a77ddb8ad8ef0f6029203951a38664da57570fb1f8be5105c38b025ab7cbc"
     sha256 cellar: :any, arm64_sequoia:     "5e93cdbb12d3d14625f0d519d30e4c410c0b5beea23f7990a7e36903288da393"

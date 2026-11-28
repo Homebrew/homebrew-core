@@ -18,6 +18,7 @@ class Swift < Formula
   end
 
   bottle do
+    manifest_sha256 "444d3da2ef8f7aa203fb5a2ac7fb7e715a4378e314e710dc923f752afb61f8e1"
     sha256 arm64_golden_gate: "385a957fc9d5318751d3bca4cee3aea018257d1069cc702e5510e6b31ac1c80f"
     sha256 arm64_tahoe:       "ab995d6d043114b220702d311bf2cf278717eea070abbec32cc55890ae13a2c8"
     sha256 arm64_sequoia:     "eb3f03d34f3480bf9e7876b03f8f3752c367c060b7eeabfec1fcf3abecb68085"

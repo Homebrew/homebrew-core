@@ -12,6 +12,7 @@ class RegexOpt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d79d8d8a1d7ab2301612f1b9f6738c4c26569cbf8a6575c3550eed305cc46e69"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1197624e279eee5b9c4001a2569aa203fcb83eba94d041d57d5a6a633829c784"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb8c9167137fd3a65707f40904f20a3e137082af231aeffffb3b2c85da9faa6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8f6966781bb65e96887151f04d99914b4a4401e4888c2d88d5e82a15aa41937"

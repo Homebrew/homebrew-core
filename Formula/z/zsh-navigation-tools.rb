@@ -8,6 +8,7 @@ class ZshNavigationTools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3049edfa80132873cd4406dc269693104b9016c136c11b37900b1c5ec7ecb8be"
     sha256 cellar: :any_skip_relocation, all: "7f766c2aecf317bed6dcbbe7e5c2f93dd96789e59831fc19195993fa68258978"
   end
 

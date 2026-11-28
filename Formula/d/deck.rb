@@ -7,6 +7,7 @@ class Deck < Formula
   head "https://github.com/k1LoW/deck.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1122b7f04b9f059ba8548b5970cea35af7f443347e290108fcceb01a174430bb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2ad01ff5f2ce3728472d429cfadcdc77768add1faedf6a904e0ae12539033e27"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2ad01ff5f2ce3728472d429cfadcdc77768add1faedf6a904e0ae12539033e27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ad01ff5f2ce3728472d429cfadcdc77768add1faedf6a904e0ae12539033e27"

@@ -9,6 +9,7 @@ class WeaviateCli < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "2c58e9d2af46439ab599194f0123fb34e60e03281d6644b1a2d45052c5f89c0b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b080069fd121700e5aaf1c5830e8219bda1da970a18d6a8967a1157ac5b75800"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "899002d7154134dab14571072469940bfe4096d66c045c362123dbe15bf33d76"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03ec96e255f1d6d602279ae39bda08cba378c28ab753783aaa23c540f42d02ff"

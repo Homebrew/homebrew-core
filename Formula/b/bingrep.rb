@@ -6,6 +6,7 @@ class Bingrep < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "bc71d84edefb37b94326176293c2855bed5197f5f88557f798459347a20a5a82"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "124101d581f28ee28bc44df63cc6458b3478fee75f88b7b84e6a92c82df6eed0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1878348be278edd0d51079d6ffa3b4ff61f7735256fa47a622b0d870655050c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cfe4b3c4ce2806ce0743bbcc6c2cce92e3bae51cbcb33f0649afbb9177b19899"

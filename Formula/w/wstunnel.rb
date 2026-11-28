@@ -25,6 +25,7 @@ class Wstunnel < Formula
   end
 
   bottle do
+    manifest_sha256 "57a6b7fcd79931fd97af5d1d2bd54e7c0d9737ac7951c64a74d8274093929cd5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ed0d1a5201420840792e9783d0d5e9765c929956f591df239111b2218dd0653"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "570bf22be19dd4d14d7d0301a44f953ae87a3f3b22df7d94c1df74b497befaf4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64b16590434589f635c677fe585f35d649726b4cb46610d8f1cfc20fd6ca5def"

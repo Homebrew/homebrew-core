@@ -11,6 +11,7 @@ class Jcal < Formula
   end
 
   bottle do
+    manifest_sha256 "df3361e22be300f4ee3b29a0bab90a1bc15193d25be0c19620d2e0eca5e05cb7"
     sha256 cellar: :any,                 arm64_golden_gate: "aecf3edbdc67556e3bdd88e200fd2786861bf7e6f325b283c25346582a05ce5c"
     sha256 cellar: :any,                 arm64_tahoe:       "1d99b7c820e2ce327574391474b7df09d566a28f100b88de82acf36dd0ba8f3f"
     sha256 cellar: :any,                 arm64_sequoia:     "ab7b65b7a25b070edc429eee2bb0d4aa22065ff6a777a7a431ec40e708de6d2c"

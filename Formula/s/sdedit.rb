@@ -13,6 +13,7 @@ class Sdedit < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9b29e7be44e8859e1a2bf668f89afc853a2b88f21caa24758d8665b856dad711"
     sha256 cellar: :any_skip_relocation, all: "b53e1a2647aa46c3b1955e0aa26329c42d4bb5defd34d3dab8d4a6b2897bdaeb"
   end
 

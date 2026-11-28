@@ -8,6 +8,7 @@ class Libtommath < Formula
   head "https://github.com/libtom/libtommath.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "8cabbefd78cad5e057931ef3e817f4a2c07cfd7d92eede680306ea9a39315d60"
     sha256 cellar: :any,                 arm64_golden_gate: "f45826b83ef5f881e53dea684c700e3e61f832ae2bf41e98f7e8c6fc418cc7e4"
     sha256 cellar: :any,                 arm64_tahoe:       "fe707123e6ec8488bae4013ce49404a63b00dc6c1c11b12202e25f53a62ef586"
     sha256 cellar: :any,                 arm64_sequoia:     "180de0f47bf4ce7ec3a513db509d368e148b42e50cf310666bf9c60a78cf778b"

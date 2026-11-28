@@ -11,6 +11,7 @@ class Gsan < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bdced0451583886cbe6dd08bc676ae8ae9d7435468d33f5e3d270e6a30f3a3c9"
     sha256 cellar: :any_skip_relocation, all: "893b6887104e2783dd4b4fa44feb0d12a01cdf2f2913ce4d3c9b0c3b8cd44342"
   end
 

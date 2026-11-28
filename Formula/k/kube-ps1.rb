@@ -7,6 +7,7 @@ class KubePs1 < Formula
   head "https://github.com/jonmosco/kube-ps1.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c06dbfd7873dd2c443cabae4f6c10ad507ed64d51fa6a80d70eacec56e40c3a7"
     sha256 cellar: :any_skip_relocation, all: "d842ab5faead998444a3b9f26e315d4bcf350d2c20b87cb70b97061dca960b25"
   end
 

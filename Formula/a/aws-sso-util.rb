@@ -11,6 +11,7 @@ class AwsSsoUtil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "825512a69df070dbc03b88214a3e4a30e5ac81fbd990e61cf0eaff05da4d5aca"
     sha256 cellar: :any, arm64_golden_gate: "a9fe974c93af52849f6e64cc3600cff7b6af41e1fa1567fd811bd1f9a6cee160"
     sha256 cellar: :any, arm64_tahoe:       "42fd154d3fde59921257235ea9122dcd0831a9a2206fd144cd75009005f2a159"
     sha256 cellar: :any, arm64_sequoia:     "7b262da17b887f40aca3455e4eba06be00bc2ab60a9d9879be5db3861678856b"

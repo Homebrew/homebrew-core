@@ -8,6 +8,7 @@ class TerminalNotifier < Formula
   head "https://github.com/julienXX/terminal-notifier.git", branch: "master"
 
   bottle do
+    manifest_sha256 "98418b15f59bf87cb235f99a8623d91a7aa6d236c23b30cb128c3548fb21b1fd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0c21a84a332707e45558b3a57e0e36a1914fa789bf335aaef0a66eb1d7a8efaf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "124d27b95cd3911a6d417c0f55a065ca9613a34f4ed4d53263b4bbdca2007122"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fbb85742dd622ef9ff8b1ae2f42a7c8b1687a732379f63901ae27d9af26ff9b"

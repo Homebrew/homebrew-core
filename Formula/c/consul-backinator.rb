@@ -7,6 +7,7 @@ class ConsulBackinator < Formula
   head "https://github.com/myENA/consul-backinator.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0b581f1ffae2890ccced99a3738f712413308bc04d5ccc59a64951ddfa1b4f08"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d06367a4a74c92fa21941e3753bb9e0e5fc9f7f2492d291040efa86e60ef7078"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab0ec7b817355e3a6546b2b0d77026eb3c0bb22c99e7d5c582d8fb9d98b982df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8839abd4d9ee77b2e2378c281bb982e4af742ea32996c592cbd70e39f882a131"

@@ -6,6 +6,7 @@ class Bvi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "147708fa8b91b5665aaeb760877439372ed33a6dcaf222308e34b5bdb54b5c88"
     sha256 arm64_golden_gate: "cbcf586264f91f58ec6220271251e41b4994a17204694fdcb0e5aae4b31d5977"
     sha256 arm64_tahoe:       "e18948359f9988ce1cfc894be133b8c70540c611b93ef222001470fad650608a"
     sha256 arm64_sequoia:     "9968f17b11435b15e8f5182ec678fc9006969d4932119006a3be55372c176d8a"

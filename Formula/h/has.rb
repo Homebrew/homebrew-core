@@ -7,6 +7,7 @@ class Has < Formula
   head "https://github.com/kdabir/has.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a9953873ff932437aeacd58dd672cd1b9aac0267d239b772c853512427887215"
     sha256 cellar: :any_skip_relocation, all: "01b6b5fa1ca423996dc8648cd076389b26fc2d6e3c4c0cf6f1fd8bdf9d161f9c"
   end
 

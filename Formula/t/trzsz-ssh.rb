@@ -6,6 +6,7 @@ class TrzszSsh < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "933db50e4fbbf06832962a5e9f5b1c27767724c97c43b1faeaf6b6d7abecbda2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9fc130fccfeb4067c4443c245ca52b9150e6cbfc4fde3c169a055a6cb0f5b854"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9fc130fccfeb4067c4443c245ca52b9150e6cbfc4fde3c169a055a6cb0f5b854"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9fc130fccfeb4067c4443c245ca52b9150e6cbfc4fde3c169a055a6cb0f5b854"

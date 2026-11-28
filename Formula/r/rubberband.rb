@@ -13,6 +13,7 @@ class Rubberband < Formula
   end
 
   bottle do
+    manifest_sha256 "c0daf80c57cbec6ac1ad7bd8f0871ed03a974f881d8816dc77c929766f5f44ff"
     sha256 cellar: :any, arm64_golden_gate: "b46420de34fcd89568fc2e70c7abf02cffcde697ff5f862e79fbfe80a32dd0ae"
     sha256 cellar: :any, arm64_tahoe:       "65ba1e050a7368f043369932bfc493de4f33f9dda9f6863250960559b5bdf1d8"
     sha256 cellar: :any, arm64_sequoia:     "5ac29718f68b181de61e81dd42bc85cc74cb1fc4ed5fdca541a94224bc43feaa"

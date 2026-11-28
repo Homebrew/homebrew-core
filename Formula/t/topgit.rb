@@ -6,6 +6,7 @@ class Topgit < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "2dd693707372370ae5de1297c50f0b79640a56361b4c78f5f222121e354c11ee"
     sha256 cellar: :any_skip_relocation, all: "00f58e04cdec33f5f8b5a141443aeba8fd6ceb94bc43b834954dbd40eda37e73"
   end
 

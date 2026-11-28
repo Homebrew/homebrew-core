@@ -14,6 +14,7 @@ class Gwenhywfar < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "2f36826e337fefaf0f5a92f2e66cb696f204f2a1d082d80037fc7efd20702f97"
     sha256 arm64_golden_gate: "cfbe6e62a17071fce5540e2bbc2ad0b2b697f7ee1c8b2c33a65e5b39513da434"
     sha256 arm64_tahoe:       "190807d994003112ea563b1362a2f38a76db7dac0a8a236f61785eecc2655df2"
     sha256 arm64_sequoia:     "dfff70d53735882e0af8a5509738196a2a2c4958922ed6714ef600ef7a5bd801"

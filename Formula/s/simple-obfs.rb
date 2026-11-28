@@ -8,6 +8,7 @@ class SimpleObfs < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "4db8a2f8b42004d80ce04c278fed1a2f840f4c7aa95a6fa4fd6f79616de99a74"
     sha256 cellar: :any,                 arm64_golden_gate: "4593f80a10de4bbfae68f5c86922c7cf0ee56542ac6502d18a38d8bd023e9357"
     sha256 cellar: :any,                 arm64_tahoe:       "8e568d3031a09ab024c3b1aa96a5030bdfa52948af522c45958cb27db6b46397"
     sha256 cellar: :any,                 arm64_sequoia:     "6e40cb731be9ffcc73a3a058968fbb776cc5be006a11fc069c123720b4449c2f"

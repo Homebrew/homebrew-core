@@ -13,6 +13,7 @@ class Lume < Formula
   end
 
   bottle do
+    manifest_sha256 "4dea2306441252a25701e45c071ea723ce9a4f4be8639610ca6fbc8262356c73"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0573a7f2e1232ff400aa10e4609f838e6805d40e240daaec8aba98131803316f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be1e075f6f0ed0bd8d58940797ac3089634f84d342db233c6aa7b494724a095f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b291f279b0c9344395c80d831fb850fb0d3b68e441d188a947363539427a7238"

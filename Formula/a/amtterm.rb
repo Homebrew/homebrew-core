@@ -7,6 +7,7 @@ class Amtterm < Formula
   head "https://gitlab.com/kraxel/amtterm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6d2ca53c7429a1f16877ba29d130298f1fd6a74e1761ddd532926daa9bc52cf7"
     sha256 cellar: :any, arm64_golden_gate: "b94eecd4b3aba2faf033d55812dc31091e7c5003e168131dbd273e680cb02b8f"
     sha256 cellar: :any, arm64_tahoe:       "42f7db6addd888cbe1fd7d24597592424c2ee226f4681fd99ba362876165c41e"
     sha256 cellar: :any, arm64_sequoia:     "df3c4f069ff8f7d9534f2bdfeb892fcc11d549b8dce700b4f079cb439ec41123"

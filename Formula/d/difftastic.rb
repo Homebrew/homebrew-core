@@ -7,6 +7,7 @@ class Difftastic < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d8209b04dddcc4217282058095ff5accef7c910cae45b80ceced986954e53dda"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "723b703f2dd8d40a55b8d25b4281d03910afeadc999e894564e10325629b601e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9693c05f15d218cac89059bf485fb18184042794d6b11970c285b1baa18ccbc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ee1042381b293f2e1f013399651970efa781d06830238df8b01f3a63ff8dd2d1"

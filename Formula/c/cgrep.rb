@@ -8,6 +8,7 @@ class Cgrep < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "41e9bf000cc8f1ffd8b1557192e9d3fedd800f09ecc15eb9a1aa1fde9a741f93"
     sha256 cellar: :any, arm64_golden_gate: "6f6ff12d966729cbd0e01729655baf600a221a9a5089045105545fc4d364a2bb"
     sha256 cellar: :any, arm64_tahoe:       "01fdd42f0f899829a1d424775f007c97038081b10d8c415b57060e9899fd5c4d"
     sha256 cellar: :any, arm64_sequoia:     "f942a582bb2c973b99a9c72c4884d4976d9256d7a1b2382167e37f868dceb1a2"

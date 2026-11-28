@@ -7,6 +7,7 @@ class Nats < Formula
   head "https://github.com/nats-io/natscli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4f37043def6079fb9e34a24b7a209ce4d13faaf80a5e99d971642ab84c27adb0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07aed02a4a5fe3bd4bd9d7e4b8da97ecdc1fbabe45298d4487da3e10bceb1e53"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b271b304a8c9418792983c861c00232599d4dfcd045b9cf0169801332c4e2787"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31e0b7d725783d7e56709f77bcc6774af780f3852cc507c848af36a35f28ea8d"

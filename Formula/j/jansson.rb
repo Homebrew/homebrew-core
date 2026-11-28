@@ -7,6 +7,7 @@ class Jansson < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "117f8e4489de3ff79d050f98f6f391e3548a8a52109a03e580f03b2533ec1559"
     sha256 cellar: :any, arm64_golden_gate: "23c4849e3a1a15b424e1598770cd1525458b0f8e8589735cde5f0c6aeb4059a9"
     sha256 cellar: :any, arm64_tahoe:       "363280ce32ec598136c0ddeb8c2ced1fb215f9d69444acfe3d0f11ddaa00bef3"
     sha256 cellar: :any, arm64_sequoia:     "f6f3e1de5cd7b36c7438f0df2ab9792ff83f829b40e23e7063735aefce9a96b7"

@@ -15,6 +15,7 @@ class Xxhash < Formula
   end
 
   bottle do
+    manifest_sha256 "c7628036b94f142a0c4ace433ab2c75d9732c2f8432472b9b966a7c882820e52"
     sha256 cellar: :any, arm64_golden_gate: "8fadb24f4ee2177c8763b1d454dda05c26787af9aeacef31d79f622d6c283471"
     sha256 cellar: :any, arm64_tahoe:       "4378420ce577ea0fbffbac3c97f9bbf8d862ff85bc2aecd81b2d87aeec82e51e"
     sha256 cellar: :any, arm64_sequoia:     "11fa633824f0462f584909a90b3231d4bd18c6735addfd154ffff06b0c0f039c"

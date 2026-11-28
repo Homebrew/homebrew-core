@@ -17,6 +17,7 @@ class Qtconnectivity < Formula
   end
 
   bottle do
+    manifest_sha256 "5b3a06b70ad268be6c96aad192cf1ccdab58544ee39432c70cab12829c0eead1"
     sha256 cellar: :any, arm64_golden_gate: "276aeb46883320717bcf17b114b4d3886c5e45a9e163b60fda6882b8521b11a6"
     sha256 cellar: :any, arm64_tahoe:       "093afb7946cd05be0f8454fbf0c1bbab1d117b02f6eac9f2f1a97e62ef70d934"
     sha256 cellar: :any, arm64_sequoia:     "180887340213edff5abdf471ab94ad111751420666aa57d33932be64b3d9c6ce"

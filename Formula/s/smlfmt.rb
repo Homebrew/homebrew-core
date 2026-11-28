@@ -7,6 +7,7 @@ class Smlfmt < Formula
   head "https://github.com/shwestrick/smlfmt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e28025297f7cea714c4b825be33f6c0b5ac5399629d492c7d2236ad06ab3338b"
     sha256 cellar: :any,                 arm64_golden_gate: "a63e5a4ef2c7523c6b68a6ea7ff20c00ceafd3bf887ed76aae7b9053cf991142"
     sha256 cellar: :any,                 arm64_tahoe:       "6a261ad88d56f8c39d85e62003120fab2d483e2f1a7af2be48e5c8eb7f7224a6"
     sha256 cellar: :any,                 arm64_sequoia:     "06620f62039562a032792cdbadaa780edde9700e4c0499e08daac2243fb146f7"

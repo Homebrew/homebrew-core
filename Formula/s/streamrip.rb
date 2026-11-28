@@ -9,6 +9,7 @@ class Streamrip < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "146b7a75dd58555d92fec426cf0a753f8fe64dc008f84033f103d6b890f7e79d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a6615144922f18822aff2ab2ad3de62f196d3bd185461afcd11fa2a5cade61a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f12de47b8857aa9fc99178607f80cd3b1c5d23a9b5b143e15c214a1bd04d16c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd1990c7fa67a2384d1559f6005bf435c642061e5ab468b03452d87c9837add2"

@@ -11,6 +11,7 @@ class Bcpp < Formula
   end
 
   bottle do
+    manifest_sha256 "86c296761e26bc663db48ab2b3bd4fbbbd5eed90455401af052e2a0e57e4200a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8bcb19b336102529f7be1460053969aa217a8d1e876fac055c9a64bf0e6b139"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa74cdc2fb3f1809b90239f1e60363605cb9d5fc76bded0ea406d6e6920e1bdb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "25716040eca8bdd532b128d8f285d5eaea77d8522a893ede0a59c69515a95b66"

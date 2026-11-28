@@ -11,6 +11,7 @@ class Tweak < Formula
   end
 
   bottle do
+    manifest_sha256 "1d5c33af330bb526341114c1185409c4d03c74c4b401a188ac594cf5a9767124"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8f4bed3ae573a3ae270126d74c2ed0b16745645387ad7af7d12c338c4946514f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cd057cbf1a867eb44bdb3754dd80b9332866977d6fa19c6ecffd35e11df4f5cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf452cf3fc91bce4ad69ee5bea2c8485c80aac9efad963b3492cd10d2eb83619"

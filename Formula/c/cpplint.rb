@@ -9,6 +9,7 @@ class Cpplint < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b82b5a73b96b51841de7e46685d7527181c23554ce18978308e29eb2f8e3fdbe"
     sha256 cellar: :any_skip_relocation, all: "225ee7243776ebb17a4617d5c70a5b925cf4f983d3d68a983f0c0c6a4c7794e6"
   end
 

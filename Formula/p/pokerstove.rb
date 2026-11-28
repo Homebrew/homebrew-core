@@ -7,6 +7,7 @@ class Pokerstove < Formula
   revision 8
 
   bottle do
+    manifest_sha256 "ffffb12a4940370eb100699e160be2bef86d1074bc39ae59be842b6e4edb8fec"
     sha256 cellar: :any, arm64_golden_gate: "89d1ff0270d75f504bd07700222fb265dcfc81cdabfdd2ddc41a25e8c8a9f28c"
     sha256 cellar: :any, arm64_tahoe:       "657cfd5f80138b60153e00a80f29083bfe533354e8bb59d01ea05f05e12e473d"
     sha256 cellar: :any, arm64_sequoia:     "f53dc63b9fb78d0ec507f40e790822eb151177bc78363f0ce9edbe09bb784380"

@@ -12,6 +12,7 @@ class Tombi < Formula
   end
 
   bottle do
+    manifest_sha256 "d46a492752ac1459ad506340ea8427a3fc21a3f4f63c3eefc7630d39b39b9a1d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e79b7541b1fc978fc464f750feba347cca61bd4433eea45efb3c347ac4cd99fd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8b9fc47afc7e904e6228e224ec149dc00c1424a5428bf74d209d6a09eb4d3596"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5daf4a0a78ac44859609fb475554157d5efe4469b0dc3d808b817b645bc3b0a"

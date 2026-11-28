@@ -8,6 +8,7 @@ class Rbenv < Formula
   head "https://github.com/rbenv/rbenv.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f6080b843ffb46dfc1d653287cb7c81cb50ba3e96a48b63f7a1228753289bfde"
     sha256 cellar: :any_skip_relocation, all: "8158fb1f059c1316523b2cc9074c5c041b3944828dc3b76cb032f893e754f013"
   end
 

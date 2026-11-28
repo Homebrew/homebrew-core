@@ -11,6 +11,7 @@ class Tzdb < Formula
   end
 
   bottle do
+    manifest_sha256 "8cdf54fa79beb4a94f921d869f021ff1e6e112cfede7df81a3223c58366e70a9"
     sha256 arm64_golden_gate: "44178343a80320276fd8c7ed164219a0ecae54e4e9174b85d6480bf86d1dae45"
     sha256 arm64_tahoe:       "620594aeea1cf9e1308cbed040844913150f260b55bdc4f58290c3dc4e5214d3"
     sha256 arm64_sequoia:     "afadc17f4bb2d55c65dd65baef63543af67e1bd1658b4360897fe3df5acc28a2"

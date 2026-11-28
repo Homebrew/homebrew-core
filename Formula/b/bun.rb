@@ -26,6 +26,7 @@ class Bun < Formula
   end
 
   bottle do
+    manifest_sha256 "b54ecf130921ac0e6a1de956855740d2ba0e5cf2a17a33a3c30e86be338b2420"
     sha256 arm64_golden_gate: "dedb3c7e91fa5da117dea4c01f9709b123aa4b1d1fa8a739ae96557d4e9e2019"
     sha256 arm64_tahoe:       "204e417d93e48dda51889d5fea60a7228aed6d265dd5f66f02e3c5ecc37d5999"
     sha256 arm64_sequoia:     "2b3fef43cfc0dac7514947fd189c5571dd5c575094dab5b9f99ea3c8112b5fbb"

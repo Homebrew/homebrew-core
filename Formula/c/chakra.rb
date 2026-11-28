@@ -39,6 +39,7 @@ class Chakra < Formula
   end
 
   bottle do
+    manifest_sha256 "808132ccd088cf409d34ee0022556214f207c81851a7799cfb0b0f2be60acb04"
     sha256 cellar: :any,                 sonoma:       "7b16aa6c8b2677f2dba55987d78f4cc867d357aeba2b6b3d97e76e42c6c69c4b"
     sha256 cellar: :any,                 ventura:      "dc7589f199baf02f63525cd1b5adb4e971d87b9c2369eb3e031dd4234acefac6"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "cb090973883ca8832598f8d020bb6c3454567a7a1dd8537325a636be45fb0300"

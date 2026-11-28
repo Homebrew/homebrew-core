@@ -8,6 +8,7 @@ class Umockdev < Formula
   head "https://github.com/martinpitt/umockdev.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9b000b1d6b0e4e6fd1008f47ba45989d09f57ae86905279018443b6388adcd66"
     sha256 cellar: :any, arm64_linux:  "9a3cd07daa15874b01b833701f43c7627a04b303fd1998ff4833d0b917a11461"
     sha256 cellar: :any, x86_64_linux: "b5f457cfb7fa6feebee62df0ec42300790aa3fdb2376cd3262266a9aa0356a64"
   end

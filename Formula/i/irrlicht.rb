@@ -16,6 +16,7 @@ class Irrlicht < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f72d4d29e47e81d28442c8c470496741c8798bdb5ce027e59255a4dea109ae54"
     sha256 cellar: :any,                 arm64_golden_gate: "c7fdcded2790adc32880da0efd774cdc50f161f89b325f953284adc4d2c18716"
     sha256 cellar: :any,                 arm64_tahoe:       "a8314699b2d76022efabbfc053bc1b50eb1d0e6c18a0e1744e7e45ecccab9f0f"
     sha256 cellar: :any,                 arm64_sequoia:     "ac1612d4a8706ea6a300353422b7e14dfeeec124a1a21afa2da6e58930bc6fcc"

@@ -13,6 +13,7 @@ class Sdl2Gfx < Formula
   end
 
   bottle do
+    manifest_sha256 "8d345b25123959dba2f8fbca2cd856b5dd13adb4b0ce9c02cefbf644e2875719"
     sha256 cellar: :any, arm64_golden_gate: "80639812b07f240ef48da0aaca069316b96b48e04cbf3c90b64a63f662d71285"
     sha256 cellar: :any, arm64_tahoe:       "a65576e4fdf58778efc41d07d7609983831ded53618fba9cfcdb9e4323781ab9"
     sha256 cellar: :any, arm64_sequoia:     "629f1fd2011ad495bc0ba4355ba87bb49f9847de49a9920c17b17da7041bbd72"

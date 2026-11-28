@@ -9,6 +9,7 @@ class Topydo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1101a72982fafb04ec9e473d48e4196809aa6ffd1d6a6a2c45a5e11987f1d91d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ee3d2caa07f71f9585f4850d01aa020e885c3ece283fc4943e1d6365e33348dd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd553ebd8c646ddcb106a464e66fee328e12b0db2c438f6f08a55398eac6b13c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4d59de15cf6a613c9cf6ddac886af59cf3ecfcd204510fd89f72984ff05250f"

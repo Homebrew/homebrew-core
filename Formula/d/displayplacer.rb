@@ -7,6 +7,7 @@ class Displayplacer < Formula
   head "https://github.com/jakehilborn/displayplacer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8193281a38e127d4c500224f8d314047f0e75a460459f12996e5be556295b729"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "24224bce7f48ec1c3126e921430f7025f725a15040d44b846c1f03c2267c208e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3130d189e26a7f30517372527c5b28c5c565ef87550944d865cf2bb4f6043cc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "96332bcb8154d5fc6b7fa633fd81beefa075f13f54888285eadbedc7caf55cb6"

@@ -6,6 +6,7 @@ class Bitwise < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "b381c7214189fd7d46f27650a02eb215e3d561d15bdc801c6f570f83fe3c6e8c"
     sha256 cellar: :any, arm64_golden_gate: "87d117e28f0a2506f33cad6423e360426e83923047f14721d0fa36b1cf3b722c"
     sha256 cellar: :any, arm64_tahoe:       "5b56a9177735b6e14880ec3e4377ca8575ae630c1e297b2536d11110467c9b45"
     sha256 cellar: :any, arm64_sequoia:     "6e985e1b549feafa291b5ea826b372f0a327de09ea0b987cd659c9b31b5cc768"

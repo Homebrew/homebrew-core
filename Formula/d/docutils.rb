@@ -10,6 +10,7 @@ class Docutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9bbfe7303d082e04bb3fc8ce0d9de69c0b32532bcc18eafa2038cd352453b2f0"
     sha256 cellar: :any_skip_relocation, all: "04a8f23f994e085aee08118828278b940568c710cab5c09afd04cf4d34413e73"
   end
 

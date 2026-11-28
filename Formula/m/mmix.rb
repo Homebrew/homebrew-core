@@ -11,6 +11,7 @@ class Mmix < Formula
   end
 
   bottle do
+    manifest_sha256 "8e144b0f22fb8da66d251490c50b3d48e8dac53e258c1e3761cce20937784724"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27d09eb4f80bcd1ebec700a58b43829d93945487ef8aa07d192ff69ab4441cd4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7689d31c594d9eedf364554062db949537fddfca38576923554a2fbe0a9f9728"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c3cedb93df0fcbe150243f8251870245301689823aa1f8275c897961e199a04"

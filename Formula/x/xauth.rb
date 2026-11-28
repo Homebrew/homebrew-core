@@ -7,6 +7,7 @@ class Xauth < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "60eb9bad2343ac5a65c28b416bf8c9d7a85a1ab3ed04ed1efe0c34a1f8ff7aa4"
     sha256 cellar: :any,                 arm64_golden_gate: "93961faeb6a6daa771a2f9dca3eda8ab575220f28730b9af01070c5dca2568a4"
     sha256 cellar: :any,                 arm64_tahoe:       "c41ec4cab2cf6579ed12863a167d2c8cd5d9ee442f75e59687c616094960a6cc"
     sha256 cellar: :any,                 arm64_sequoia:     "7c1cda56269b3c051bdad31e681565c66e58c2dcbcb029381de38dfbb353353d"

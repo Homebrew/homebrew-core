@@ -6,6 +6,7 @@ class Mint < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3ac18664d9486a81ac9d3dbe7dc68c0a68b0b9f5d5f051865ef2576a3c75fc58"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a967c9ecdf568412c45f52cc2913edce2a351748e175c2bc529811235da6a411"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b8ee3e9e0b9057b49327c202d96c8b713589098579e3c3f6fad275babe47808"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "03f825e0fd5918402a464d928e1e8ae91622c95cf62098858bd2b40424716e94"

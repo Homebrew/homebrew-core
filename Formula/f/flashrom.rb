@@ -13,6 +13,7 @@ class Flashrom < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c9af8d73b168b805b536941f5efdfce975a07e13e5cb1640e39c3d814c28fa82"
     sha256 cellar: :any, arm64_golden_gate: "0f3053314f9403e0c2717a333f62f5431ddc888a425ec0dab9636f0e63feccd5"
     sha256 cellar: :any, arm64_tahoe:       "de92cfb1a0a58ded94110328febd98a9452de05d1f9e81c4027342103a1e24ca"
     sha256 cellar: :any, arm64_sequoia:     "8738abe3c4deebf1835d30044570b4a8b1d93fff25d3dda72f7f7219f0dd3c82"

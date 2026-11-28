@@ -9,6 +9,7 @@ class Maeparser < Formula
   head "https://github.com/schrodinger/maeparser.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f416c1af6dc6de045fbefcbe3973ae0cf38a88a6d1be0e8f3de6d1437bca7494"
     sha256 cellar: :any, arm64_golden_gate: "271e39ceac157ecc3000f4df42a594c56f50d45dd139e00d83f7d04748879acc"
     sha256 cellar: :any, arm64_tahoe:       "9016cea0792cb1dac70619b30aa6f00ddd5e698a54e55e628d77b2395bb63457"
     sha256 cellar: :any, arm64_sequoia:     "559fa0910133740fab4e00c566397636da7c801f7dec9c49df04f93ac89ccfcc"

@@ -95,6 +95,7 @@ class Bash < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "141a6d5d9a682b131fb3da32a91be12e220c4811481a73d76252e4b741246536"
     sha256 arm64_golden_gate: "27fe00d21b581ba549b9312986b90d2b6e97970743a12a5f9058faf71e40a7b3"
     sha256 arm64_tahoe:       "ac5b291d5571c2aaf30bd17e0df16f0a43723dad8aac2023b9c5904742fdd2da"
     sha256 arm64_sequoia:     "753bdd9943047829a2f8469ed2d29fc71d0de5572df2a6d0e7b3f30be71ae937"

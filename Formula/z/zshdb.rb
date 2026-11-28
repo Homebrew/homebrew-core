@@ -19,6 +19,7 @@ class Zshdb < Formula
   end
 
   bottle do
+    manifest_sha256 "e16ad26ac987639f8066933f7070810db7d37b20b058e84db0449dcadd7a0cca"
     sha256 cellar: :any_skip_relocation, all: "642ce820ac874107e1e57211b1ddc3b34df5da556da39706cdd5fb8f3bee9c26"
   end
 

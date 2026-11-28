@@ -8,6 +8,7 @@ class AwsCEventStream < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "c4f41324461fdad139f7beffc8bfd6f3992c69905846ad7f903cee78021c0368"
     sha256 cellar: :any, arm64_golden_gate: "7f7a1f5d3435b401dadd509955225a96df462bcb40a470be2f69540fc04fbee3"
     sha256 cellar: :any, arm64_tahoe:       "a4fa6ea2c5ca98bdff56e4570fb21301ce43b666b06311c9d57fa5f17a349147"
     sha256 cellar: :any, arm64_sequoia:     "a14c5ec4f3ee3b3b825ffe9809c5ff027af33c04e77bb685ac80dd76c6135fd6"

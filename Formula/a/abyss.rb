@@ -12,6 +12,7 @@ class Abyss < Formula
   end
 
   bottle do
+    manifest_sha256 "dc81624226f519449058771ee1dc2a6d427b5a2c9df566d68aa714cef4c5f3e1"
     sha256 cellar: :any,                 arm64_golden_gate: "82965ec4572d166579262dd20e060a2b9adc5d1cc31f5d33ff086e3d809b1814"
     sha256 cellar: :any,                 arm64_tahoe:       "274f0f758f4cc8852779e2a55f8900ea34ccf7dd0e784396752f03c7e6c56767"
     sha256 cellar: :any,                 arm64_sequoia:     "156d580ae0392d7045dd60c744d4a1a32206a950c86588cb25aa600dedd0e8ae"

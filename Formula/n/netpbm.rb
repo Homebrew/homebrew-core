@@ -10,6 +10,7 @@ class Netpbm < Formula
   head "https://svn.code.sf.net/p/netpbm/code/trunk"
 
   bottle do
+    manifest_sha256 "33b8d0b5578dfe30776d5f3dcac5d9b8fa0d8b953ba3bb00029ee6dfc46e0dac"
     sha256 arm64_golden_gate: "ed9cb4f4f4594ef2c5d2afd7e5ba7bea80bd9d1bbb8d042302385fdce5caa05e"
     sha256 arm64_tahoe:       "3e19506a833bc9090193d61b2c19b348a02ab377d743824f9d16db9e57ea1726"
     sha256 arm64_sequoia:     "5c3d55c105decbc650943223197f02a6a35d08c9011a3ed8ce537332a1ff842c"

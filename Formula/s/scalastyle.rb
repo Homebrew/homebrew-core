@@ -14,6 +14,7 @@ class Scalastyle < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "151c3f8f30365e9a91a52012bd592d9b505e51ea50cb65ef2e3bd6fe0661b510"
     sha256 cellar: :any_skip_relocation, all: "1d29d487fbdb5211082bce9fd7b84028b56d4445ab0b0c9c7b8d3bb4d081cdf8"
   end
 

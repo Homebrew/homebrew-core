@@ -7,6 +7,7 @@ class AvroTools < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "34205e3c2523521f30abed60bdffc75ee883f44c57ee6490b9e69bd10443729e"
     sha256 cellar: :any_skip_relocation, all: "ccab8ac30df1af76bdf80f62a09325e9990da5d1e39dd6b8e44c318fdec7b045"
   end
 

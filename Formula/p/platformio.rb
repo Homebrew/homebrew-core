@@ -11,6 +11,7 @@ class Platformio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "81bce368cf3228fcf1388d55a49c3a997540a4a3fc51ef1adb24b2d8ff723fa9"
     sha256 cellar: :any_skip_relocation, all: "c5ecbf6dd0ba8e617952a1be5bca71b2c5f66dfb40eb2d3f8a76310474659a86"
   end
 

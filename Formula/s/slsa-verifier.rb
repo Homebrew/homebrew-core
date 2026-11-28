@@ -16,6 +16,7 @@ class SlsaVerifier < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e26847ab0e10333905cf72c2aa8ddebf323a2e243e38fb5e0d5188c19cbf89e5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e3dd31cada1435d131206dd9364352c4f8aa74c792491108b541507eec5fd56"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "74a05f9a862de1e4b5ff0c5ec8a276684dddb282196ecb13010941960049274f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74a05f9a862de1e4b5ff0c5ec8a276684dddb282196ecb13010941960049274f"

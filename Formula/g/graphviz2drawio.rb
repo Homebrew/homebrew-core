@@ -10,6 +10,7 @@ class Graphviz2drawio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "aec77587e4ac071c7f76fcb6efffe6b17fe1250e4d5469f4a0000c40a5fee23b"
     sha256 cellar: :any, arm64_golden_gate: "49f7844247d564318b3fcfb31fb67116a79f0efae17318889d5d77aa43c59b9d"
     sha256 cellar: :any, arm64_tahoe:       "621009f437e1b4249c4586c858ff1aa6e958cff04b966b46a09c52a894c9cb59"
     sha256 cellar: :any, arm64_sequoia:     "82ed2505d04133f3714dda02d2f4b28a79c7103f4cd654a7e5b05eacbb184c1f"

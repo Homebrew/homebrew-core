@@ -9,6 +9,7 @@ class Scipy < Formula
   head "https://github.com/scipy/scipy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7791ff8afa820b1b1fcfc56975162e205756d1cedef85c9e150432299880ba68"
     sha256 cellar: :any, arm64_golden_gate: "e8ae830f596de5db64742e9002200e2c5dd446931329ab827699e2ea9e17b216"
     sha256 cellar: :any, arm64_tahoe:       "2c9d141fcf20b4d940ae8f6afc72f2701575fc01a43d9405c856ce6ac7de4c7b"
     sha256 cellar: :any, arm64_sequoia:     "0e257740e396f1681e4db35423db83f19233d25b2d9d4f24d57e243f0c725ed7"

@@ -11,6 +11,7 @@ class Redstore < Formula
   end
 
   bottle do
+    manifest_sha256 "63724ffde8cdab56f65562cedd498f0b409567d17d5b57c0e45f9cb5fb9fac0d"
     sha256 cellar: :any,                 arm64_golden_gate: "ef80672e4711ba56e9a53c1b300c261ba0f865f9f499ddfe16466e0f8cc8bb1c"
     sha256 cellar: :any,                 arm64_tahoe:       "b4f7cfae26c26edf74952a959d8e56b8058ee755bd4384a18089257af330623a"
     sha256 cellar: :any,                 arm64_sequoia:     "722eb9bb530ade0f251ce260bc4f0dc3b519b164e86d2c3792d6559edfd1f01e"

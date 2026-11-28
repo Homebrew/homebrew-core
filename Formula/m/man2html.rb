@@ -12,6 +12,7 @@ class Man2html < Formula
   end
 
   bottle do
+    manifest_sha256 "5fb78eb303f419665c41239982b9a9e3391445b7e7caa147015207ade4ee6845"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0bd678e3f072cd8d19b08dfa1cf7d79c53891d7242f2dcef70ff96f42b32750c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb9e2bbd0ee79ffbfe8d88b22affee3ec6622df5d7275340dfb157b38dd8b15a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ecc7e32cd32d246ff8e3efc5061325d43178e0ed1f32847b501af7c394540483"

@@ -11,6 +11,7 @@ class Restview < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ca1ba9630a72aa8e63ab2a12dfdf7203eb4fa264d405b99716d997b7b19d174b"
     sha256 cellar: :any_skip_relocation, all: "1748f0fcbf60c7a1b82fd8ef7fbc89e336d4dfe198d03cacc5bb484f1d2540ed"
   end
 

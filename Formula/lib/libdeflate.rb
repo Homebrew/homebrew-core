@@ -7,6 +7,7 @@ class Libdeflate < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a142b8b2105d3221ce4a803a706bfeb2059c75042639aebbe8773bbe9891a5d1"
     sha256 cellar: :any, arm64_golden_gate: "7ad79cc5ad2462380ffa1c0d0fae8f8649b3aa0d3ddba463a3a617238d405d00"
     sha256 cellar: :any, arm64_tahoe:       "9a46f024adee90da4cd40a8d0e3386551044c3d815406e50bc7c6ec276cdb52d"
     sha256 cellar: :any, arm64_sequoia:     "f1660f8edad35044cecaa50b957048b3f2933f238c0970531db6bb5fddb09cc6"

@@ -13,6 +13,7 @@ class Msgpack < Formula
   end
 
   bottle do
+    manifest_sha256 "456633af159b4cfd6163a9747015d1811c04652cc46a060c0388757c4602ca30"
     sha256 cellar: :any, arm64_golden_gate: "29aed8bdee290649c3f15afa65d03d506f1993b1a7745f499b4bb88706340c35"
     sha256 cellar: :any, arm64_tahoe:       "0256ac35fddc2e310727c2ebe9303775de6bfa54e71dde35a2c99f3c5e03f651"
     sha256 cellar: :any, arm64_sequoia:     "e096ebf62c431777d00dde83182ee02212b2f0053d5dbb7abbff5800832771b9"

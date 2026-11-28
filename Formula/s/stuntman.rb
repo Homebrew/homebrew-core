@@ -13,6 +13,7 @@ class Stuntman < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d3bfc978e8628d06c9724a08953dc2e0d82841619cd2c28f3ccc050fb79b8a4a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab3bea89624e95a2993e228a66ac19a42dc1e597ad01e7ad1a2d4ce47660f371"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "905f59c8b80028188a9eee9f31b21b77408f3f76cda7fdc5050b193d59ee41c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0042f42b8ca89bfd977af684226d49639dc9036d4b7b52eaa6b742b13e0bd37"

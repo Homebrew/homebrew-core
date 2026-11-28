@@ -7,6 +7,7 @@ class GccAT10 < Formula
   license "GPL-3.0-or-later" => { with: "GCC-exception-3.1" }
 
   bottle do
+    manifest_sha256 "f173486d58e4a8951e9c64cb64d1eb8caf727734dbf0a98c43866c0998e5518a"
     sha256                               ventura:      "1155f38da440c96a9df1442152c3149755dfd369815cf8b967e9bbf2a4874489"
     sha256                               monterey:     "be699cd4f9c26c0023a28eb56e534058cac1ab1b2d06e57b531905cfde49b48e"
     sha256                               big_sur:      "5f40c454e3e3b96578411e28d6ba27679c6d3c182a978c60c3ea8f57f8235033"

@@ -12,6 +12,7 @@ class TwoMs < Formula
   end
 
   bottle do
+    manifest_sha256 "6acf715bd5f74bc0fd402d3a35f543af3d8d8f6bda5b464fae37867bf4794a28"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9385bc47b9c98604fd59b5a323155a5eaaa84473f2205bb08027ca6ff2a42915"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a285c2a4bd7b242170c2394bbada5c79c3932fee9ae03fc327601abc9fd0b36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "49166d4b91f30db20cc9544dce3c7476e7e007becea9cab90efad0143a31d7a6"

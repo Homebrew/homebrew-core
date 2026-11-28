@@ -7,6 +7,7 @@ class Joshuto < Formula
   head "https://github.com/kamiyaa/joshuto.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0a0ca98a44715ea1bed2250d9249e39150a4b15533c76b397b432046f349f7c4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a8ee9aa1872268051fd134c801db8fc4ea6c8a6ef760a415c853a3bfa90eeeb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "997e069c04b3cc971c0a8ff11dd971e7e014d307f727465c48084472eabb83e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a3ad585ca047082e14eee51b99f3b49d398d72aa3fae3832cf14f791c08e3f3a"

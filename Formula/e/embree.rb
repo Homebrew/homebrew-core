@@ -13,6 +13,7 @@ class Embree < Formula
   end
 
   bottle do
+    manifest_sha256 "030b056071440e6e624114759215b3d103d49b073f4cac9461c788e914ca3b17"
     sha256 cellar: :any, arm64_golden_gate: "556634b7a1c648515b02facb99c3801994c44b29cd8afabe6691460459accc10"
     sha256 cellar: :any, arm64_tahoe:       "aa25cece256cb986cc0379ee21c8f47978c99d2ae9bd44a6763eec9ed02ee190"
     sha256 cellar: :any, arm64_sequoia:     "527b0e8608f5fe7fc848776c37282dfd2d3d0576a5be1a029793306976936b69"

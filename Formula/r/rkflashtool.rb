@@ -7,6 +7,7 @@ class Rkflashtool < Formula
   head "https://git.code.sf.net/p/rkflashtool/Git.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e511a7f8f569ebb4d8aa1a1093c04fd3e7db181d95768d97b4a84dc92df9de92"
     sha256 cellar: :any,                 arm64_golden_gate: "36b88ecb3a9a242c0262854d63a50efd60ad6d8d345bb6b699f7c70fac74bc4e"
     sha256 cellar: :any,                 arm64_tahoe:       "f28fa9f142735da8b1dd19222e6ac5c696072e792a8e71fe9aeab969148fb5fd"
     sha256 cellar: :any,                 arm64_sequoia:     "5b977024f0938d2c9cf116821d05dfa00585f65d06b2158daadd6fdd99db991d"

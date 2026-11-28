@@ -7,6 +7,7 @@ class B4n < Formula
   head "https://github.com/fioletoven/b4n.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e11799320b1bdf61457fddb1d0dd9c95d2e63fb020efc6e744a44a7b4e507189"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "595f7ea8364ce79bb46c113095ceef2318828224317d45e46a9f2037d8ef0962"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3a90b1478ba38ceeb02943962062c74e32b40bd2df0adfab248f3d1de39c447"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9039961d191c6c4acf680cbea0d0fea974082445fbbfed81f5507821a44bf034"

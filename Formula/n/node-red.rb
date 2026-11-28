@@ -6,6 +6,7 @@ class NodeRed < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "cce4b43e6933721cbdf1645e701c6523b04a74e3895179d05b6576cb0b1c9daa"
     sha256 cellar: :any,                 arm64_golden_gate: "8ce7c6b03c511ae21e0036037d1bdfcb815bc10c0a1d419ec7ff5e903a8da538"
     sha256 cellar: :any,                 arm64_tahoe:       "8ce7c6b03c511ae21e0036037d1bdfcb815bc10c0a1d419ec7ff5e903a8da538"
     sha256 cellar: :any,                 arm64_sequoia:     "8ce7c6b03c511ae21e0036037d1bdfcb815bc10c0a1d419ec7ff5e903a8da538"

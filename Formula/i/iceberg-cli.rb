@@ -6,6 +6,7 @@ class IcebergCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "bbcd165d36f32251e56823d9b7cd5f186650c79054c1ed89191d259fc7477367"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2b38eb44e2c67ac5052a75ab9558b170fe5f751ccea9bc1ee64b1283e91c423"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2b38eb44e2c67ac5052a75ab9558b170fe5f751ccea9bc1ee64b1283e91c423"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2b38eb44e2c67ac5052a75ab9558b170fe5f751ccea9bc1ee64b1283e91c423"

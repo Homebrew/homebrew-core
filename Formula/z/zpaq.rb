@@ -9,6 +9,7 @@ class Zpaq < Formula
   head "https://github.com/zpaq/zpaq.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b9a2727812a41d79234a00ca91492af331640db8b4bddd2590ab099e591e3674"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a715bfd0a63e50e3e7545dd3607e762c12de1563b4e0c4fbf3efb224f9ff868"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "806e95bf2357903bc8a6a1766850a6030386cef25a672a274315c252dc2b998f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d82a2ae7e022957f0f0675433d8e01622f3ce1a42c2cc7c76ce902f3685744c"

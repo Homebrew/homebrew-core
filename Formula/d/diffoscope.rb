@@ -8,6 +8,7 @@ class Diffoscope < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "8b4efde063422e4c89c65f43d4be945ac8ccc86482ffb7b78c37553789bb62ad"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9605942e6354d55ea17fd57c9dd2169586a8f90f43d64f13b9df6e83d3fb93c4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9605942e6354d55ea17fd57c9dd2169586a8f90f43d64f13b9df6e83d3fb93c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9605942e6354d55ea17fd57c9dd2169586a8f90f43d64f13b9df6e83d3fb93c4"

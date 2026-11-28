@@ -6,6 +6,7 @@ class ValaLanguageServer < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    manifest_sha256 "efbb3694dddc102859e28699444f97f2fd259cbd98d0a5ad5fd0317fed829972"
     sha256 cellar: :any, arm64_golden_gate: "fa0a932f4a1c376e16424cac44d8492ff9c2f960699dfde085f08e9c8e3f3d36"
     sha256 cellar: :any, arm64_tahoe:       "6de961a16d8c01a87334d3e5f8952bccde9d82e321719c8b7606a173b6a4f79b"
     sha256 cellar: :any, arm64_sequoia:     "7b298f02d9378880231ad35d238897b5fa76e7a0c92efc802676f114fe20ab9f"

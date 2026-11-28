@@ -6,6 +6,7 @@ class TsQueryLs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d297d707771fe9897664496db9f8a202004b7d7867213808014b71df431076a3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c50b542894fa018d18b9674eee6b67e2fb33dc8832453068ba76ff5a79c84fdd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34334ac5ff1df55503f68c0d045dad01355c1649713de6558af6c11c085e314b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e0b494e12dce3d824e2f9017f80021e004cf6e0546a17e3524dcda04d28ea3c"
