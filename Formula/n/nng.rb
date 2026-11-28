@@ -37,12 +37,11 @@ class Nng < Formula
   test do
     bind = "tcp://127.0.0.1:#{free_port}"
 
-    fork do
-      exec "#{bin}/nngcat --rep --bind #{bind} --format ascii --data home"
-    end
-    sleep 2
+    with_test_process(bin/"nngcat", "--rep", "--bind", bind, "--format", "ascii", "--data", "home") do
+      sleep 2
 
-    output = shell_output("#{bin}/nngcat --req --connect #{bind} --format ascii --data brew")
-    assert_match(/home/, output)
+      output = shell_output("#{bin}/nngcat --req --connect #{bind} --format ascii --data brew")
+      assert_match(/home/, output)
+    end
   end
 end
