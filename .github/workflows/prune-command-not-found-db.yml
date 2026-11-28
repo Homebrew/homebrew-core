@@ -33,7 +33,7 @@ jobs:
       - name: Delete old versions from GitHub Packages
         uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 # v5.0.0
         with:
-          package-name: command-not-found/executables
+          package-name: core/command-not-found/executables
           package-type: container
           min-versions-to-keep: 0
           delete-only-untagged-versions: true
