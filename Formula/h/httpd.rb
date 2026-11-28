@@ -153,34 +153,29 @@ class Httpd < Formula
     assert_path_exists lib/"httpd/modules/mod_proxy_html.so"
     assert_path_exists lib/"httpd/modules/mod_xml2enc.so"
 
-    begin
-      port = free_port
+    port = free_port
 
-      expected_output = "Hello world!"
-      (testpath/"index.html").write expected_output
-      (testpath/"httpd.conf").write <<~EOS
-        Listen #{port}
-        ServerName localhost:#{port}
-        DocumentRoot "#{testpath}"
-        ErrorLog "#{testpath}/httpd-error.log"
-        PidFile "#{testpath}/httpd.pid"
-        LoadModule authz_core_module #{lib}/httpd/modules/mod_authz_core.so
-        LoadModule unixd_module #{lib}/httpd/modules/mod_unixd.so
-        LoadModule dir_module #{lib}/httpd/modules/mod_dir.so
-        LoadModule mpm_prefork_module #{lib}/httpd/modules/mod_mpm_prefork.so
-      EOS
+    expected_output = "Hello world!"
+    (testpath/"index.html").write expected_output
+    (testpath/"httpd.conf").write <<~EOS
+      Listen #{port}
+      ServerName localhost:#{port}
+      DocumentRoot "#{testpath}"
+      ErrorLog "#{testpath}/httpd-error.log"
+      PidFile "#{testpath}/httpd.pid"
+      LoadModule authz_core_module #{lib}/httpd/modules/mod_authz_core.so
+      LoadModule unixd_module #{lib}/httpd/modules/mod_unixd.so
+      LoadModule dir_module #{lib}/httpd/modules/mod_dir.so
+      LoadModule mpm_prefork_module #{lib}/httpd/modules/mod_mpm_prefork.so
+    EOS
 
-      pid = spawn bin/"httpd", "-X", "-f", testpath/"httpd.conf"
-
+    with_test_process(bin/"httpd", "-X", "-f", testpath/"httpd.conf") do
       sleep 3
 
       assert_match expected_output, shell_output("curl -s 127.0.0.1:#{port}")
-
-      # Check that `apxs` can find `apu-1-config`.
-      system bin/"apxs", "-q", "APU_CONFIG"
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
+
+    # Check that `apxs` can find `apu-1-config`.
+    system bin/"apxs", "-q", "APU_CONFIG"
   end
 end
