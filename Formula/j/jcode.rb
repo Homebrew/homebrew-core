@@ -11,12 +11,12 @@ class Jcode < Formula
   end
 
   bottle do
-    manifest_sha256 "80651d5418f4a8502219eb40c97e0eab837ef2cb7b6950a26cc7a0c399485c32"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c57bd55d0e3b53b2088466a2f37f79896acc683585e742f29cd1e414ef4e0bbb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eac813e950f34c9a6d6a08f19bf7d65dc1fab7b9c58c0803746c3bc0b9dfc8de"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "435095d9668f765bbf05991ac24b50b1336dc00a1bc32b41d90df851fbcd162a"
-    sha256 cellar: :any,                 arm64_linux:       "bc9ef822fa5b32efc8682957a115ee082bf00b7fec0d50fbd4e77c8757544e3f"
-    sha256 cellar: :any,                 x86_64_linux:      "e4faf0ec1dd604fa63f5ae8b1817625fbc0058aa3646aaf8e1852e24c46119ca"
+    manifest_sha256 "e557c540d007846da856be672ab91e63034e74f1e1ef93f7e9d097fd64e6072f"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6715e33b96927821a4a00c6d4c6970f1c37e5c13ea7edb279c784c949b517bc9"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bbb38d79b65f257db4b556bba7a971ab0b124bb6ec48a059c978fb5211b2863e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7346d03cbc8442b4f96eef97b13443b17c4ce9f38737ce46e599eaed5621aeb"
+    sha256 cellar: :any,                 arm64_linux:       "7490d0b4bda193458474b13b633a311e31bcaace963d57501cfab28d98762344"
+    sha256 cellar: :any,                 x86_64_linux:      "59a82d9c7a1fb6463b0743f228ad9561d732a8e3db164928fe3e77259b96c821"
   end
 
   depends_on "cmake" => :build
