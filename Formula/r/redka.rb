@@ -44,17 +44,11 @@ class Redka < Formula
     port = free_port
     test_db = testpath/"test.db"
 
-    pid = fork do
-      exec bin/"redka", "-h", "127.0.0.1", "-p", port.to_s, test_db
-    end
-    sleep 2
+    with_test_process(bin/"redka", "-h", "127.0.0.1", "-p", port.to_s, test_db) do
+      sleep 2
 
-    begin
       output = shell_output("#{formula_opt_bin("valkey")}/valkey-cli -h 127.0.0.1 -p #{port} ping")
       assert_equal "PONG", output.strip
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
