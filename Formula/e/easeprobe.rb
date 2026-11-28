@@ -49,14 +49,9 @@ class Easeprobe < Formula
 
     easeprobe_stdout = (testpath/"easeprobe.log")
 
-    pid = fork do
-      $stdout.reopen(easeprobe_stdout)
-      exec bin/"easeprobe", "-f", testpath/"config.yml"
+    with_test_process(bin/"easeprobe", "-f", testpath/"config.yml", out: easeprobe_stdout.to_s) do
+      sleep 2
+      assert_match "Ready to monitor(http): brew.sh", easeprobe_stdout.read
     end
-    sleep 2
-    assert_match "Ready to monitor(http): brew.sh", easeprobe_stdout.read
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
