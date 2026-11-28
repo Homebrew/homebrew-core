@@ -49,13 +49,9 @@ class Mongoose < Formula
       </html>
     HTML
 
-    begin
-      pid = fork { exec bin/"mongoose" }
+    with_test_process(bin/"mongoose", signal: "INT") do
       sleep 2
       assert_match "Hi!", shell_output("curl http://localhost:8000/hello.html")
-    ensure
-      Process.kill("SIGINT", pid)
-      Process.wait(pid)
     end
   end
 end
