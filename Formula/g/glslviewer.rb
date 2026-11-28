@@ -47,9 +47,8 @@ class Glslviewer < Formula
 
   test do
     cp_r pkgshare/"examples/io/.", testpath
-    pid = spawn bin/"glslViewer", "orca.frag", "-l"
-    sleep 1
-  ensure
-    Process.kill("HUP", pid)
+    with_test_process(bin/"glslViewer", "orca.frag", "-l", signal: "HUP") do
+      sleep 1
+    end
   end
 end

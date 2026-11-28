@@ -45,11 +45,9 @@ class Gitbucket < Formula
 
   test do
     java = formula_opt_bin("openjdk")/"java"
-    fork do
-      $stdout.reopen(testpath/"output")
-      exec "#{java} -jar #{libexec}/gitbucket.war --port=#{free_port}"
+    with_test_process(java, "-jar", libexec/"gitbucket.war", "--port=#{free_port}", out: "output") do
+      sleep 12
     end
-    sleep 12
     refute_match "Exception", File.read("output")
   end
 end

@@ -32,14 +32,13 @@ class Gitwatch < Formula
     system "git", "config", "--global", "user.email", "gitwatch-ci-test@brew.sh"
     system "git", "config", "--global", "user.name", "gitwatch"
     system "git", "init", repo
-    pid = spawn "gitwatch", "-m", "Update", repo, pgroup: true
-    sleep 15
-    touch repo/"file"
-    sleep 15
-    begin
+    # The sandbox denies FSEvents, so make `fswatch` poll instead
+    watcher_args = OS.mac? ? ["-e", "--monitor=poll_monitor"] : []
+    with_test_process("gitwatch", "-m", "Update", *watcher_args, repo, signal: "-TERM", pgroup: true) do
+      sleep 15
+      touch repo/"file"
+      sleep 15
       assert_match "Update", shell_output("git -C #{repo} log -1")
-    ensure
-      Process.kill "TERM", -pid
     end
   end
 end

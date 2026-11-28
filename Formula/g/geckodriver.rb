@@ -34,13 +34,11 @@ class Geckodriver < Formula
 
   test do
     test_port = free_port
-    pid = spawn bin/"geckodriver", "--port", test_port.to_s
-    sleep 2
+    with_test_process(bin/"geckodriver", "--port", test_port.to_s) do
+      sleep 2
 
-    # A functional test requires Firefox so we just make sure HTTP GET has a response
-    assert_equal "HTTP method not allowed", shell_output("curl -s http://localhost:#{test_port}/session")
-  ensure
-    Process.kill "TERM", pid
-    Process.wait pid
+      # A functional test requires Firefox so we just make sure HTTP GET has a response
+      assert_equal "HTTP method not allowed", shell_output("curl -s http://localhost:#{test_port}/session")
+    end
   end
 end

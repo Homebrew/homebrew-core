@@ -37,12 +37,12 @@ class GitPages < Formula
 
     ENV["PAGES_INSECURE"] = "1"
 
-    spawn bin/"git-pages"
+    with_test_process(bin/"git-pages") do
+      sleep 2
+      system "curl", "http://127.0.0.1:#{port}", "-X", "PUT", "-d", "https://codeberg.org/git-pages/git-pages.git"
 
-    sleep 2
-    system "curl", "http://127.0.0.1:#{port}", "-X", "PUT", "-d", "https://codeberg.org/git-pages/git-pages.git"
-
-    sleep 2
-    assert_equal "It works!\n", shell_output("curl http://127.0.0.1:#{port}")
+      sleep 2
+      assert_equal "It works!\n", shell_output("curl http://127.0.0.1:#{port}")
+    end
   end
 end

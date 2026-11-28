@@ -42,14 +42,10 @@ class GitGraph < Formula
     system "git", "init"
     system "git", "commit", "--allow-empty", "-m", "Initial commit"
 
-    begin
-      output_log = testpath/"output.log"
-      pid = spawn bin/"git-graph", [:out, :err] => output_log.to_s
+    output_log = testpath/"output.log"
+    with_test_process(bin/"git-graph", [:out, :err] => output_log.to_s) do
       sleep 1
       assert_match "Initial commit", output_log.read
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
