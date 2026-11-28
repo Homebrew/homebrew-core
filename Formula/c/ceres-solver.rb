@@ -47,11 +47,10 @@ class CeresSolver < Formula
   end
 
   depends_on "cmake" => [:build, :test]
-  depends_on "eigen"
+  depends_on "eigen" => :no_linkage
   depends_on "metis"
   depends_on "openblas"
   depends_on "suite-sparse"
-  depends_on "tbb"
 
   deny_network_access!
 
@@ -61,7 +60,7 @@ class CeresSolver < Formula
     system "cmake", "-S", ".", "-B", "homebrew-build",
                     "-DBUILD_SHARED_LIBS=ON",
                     "-DBUILD_EXAMPLES=OFF",
-                    "-DLIB_SUFFIX=''",
+                    "-DCMAKE_DISABLE_FIND_PACKAGE_TBB=ON", # avoid unused TBB linkage
                     *std_cmake_args
     system "cmake", "--build", "homebrew-build"
     system "cmake", "--install", "homebrew-build"
@@ -71,7 +70,7 @@ class CeresSolver < Formula
   test do
     cp pkgshare/"examples/helloworld.cc", testpath
     (testpath/"CMakeLists.txt").write <<~CMAKE
-      cmake_minimum_required(VERSION 3.10)
+      cmake_minimum_required(VERSION 4.0)
       project(helloworld)
       find_package(Ceres REQUIRED COMPONENTS SuiteSparse)
       add_executable(helloworld helloworld.cc)
