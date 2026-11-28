@@ -1,8 +1,8 @@
 class Pixivbiu < Formula
   desc "Pixiv client. Easy to search, browse, and download artworks"
   homepage "https://github.com/txperl/PixivBiu"
-  url "https://github.com/txperl/PixivBiu/archive/refs/tags/v3.1.6.tar.gz"
-  sha256 "7d563a710921ac38bebd09d8c9e722b26ddeff42b449026bd6bacce835bd164b"
+  url "https://github.com/txperl/PixivBiu/archive/refs/tags/v3.1.7.tar.gz"
+  sha256 "eb4cda4dd438ef69d2b7e96a922a29e01c9c24999c2f49eb3359a9ce8e9d90cd"
   license "MIT"
 
   livecheck do
