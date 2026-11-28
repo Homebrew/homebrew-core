@@ -51,7 +51,9 @@ class MscGenerator < Formula
     depends_on "mesa"
   end
 
-  fails_with :clang # needs std::range
+  fails_with :clang do
+    cause "error: 'end' is a protected member of 'contour::EdgeStorage'"
+  end
 
   fails_with :gcc do
     version "12"
@@ -62,7 +64,6 @@ class MscGenerator < Formula
 
   def install
     args = %w[--disable-font-checks --disable-silent-rules]
-    make = "make"
 
     # Brew uses shims to ensure that the project is built with a single compiler.
     # However, gcc cannot compile our Objective-C++ sources (clipboard.mm), while
@@ -74,12 +75,12 @@ class MscGenerator < Formula
       args << "OBJCXX=/usr/bin/clang++"
       ENV.append_to_cflags "-DNDEBUG"
       ENV.prepend_path "PATH", formula_opt_libexec("gnu-sed")/"gnubin"
-      ENV["MAKE"] = make = "gmake"
+      ENV["MAKE"] = "gmake"
     end
 
     system "./configure", *args, *std_configure_args
-    system make, "-C", "src", "install"
-    system make, "-C", "doc", "msc-gen.1"
+    system "gmake", "-C", "src", "install"
+    system "gmake", "-C", "doc", "msc-gen.1"
     man1.install "doc/msc-gen.1"
   end
 
