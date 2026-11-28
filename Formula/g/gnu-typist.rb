@@ -44,9 +44,8 @@ class GnuTypist < Formula
   end
 
   test do
-    session = spawn bin/"gtypist", "-t", "-q", "-l", "DEMO_0", share/"gtypist/demo.typ"
-    sleep 2
-    Process.kill("TERM", session)
-    Process.wait(session)
+    with_test_process(bin/"gtypist", "-t", "-q", "-l", "DEMO_0", share/"gtypist/demo.typ") do
+      sleep 2
+    end
   end
 end
