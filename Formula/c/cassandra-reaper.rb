@@ -54,8 +54,9 @@ class CassandraReaper < Formula
       s.gsub! "storageType: memory", "storageType: memory\npersistenceStoragePath: #{testpath}/persistence"
     end
 
-    spawn bin/"cassandra-reaper", testpath/"cassandra-reaper.yaml"
-    sleep 40
-    assert_match "200 OK", shell_output("curl -Im3 -o- http://localhost:#{port}/webui/login.html")
+    with_test_process(bin/"cassandra-reaper", testpath/"cassandra-reaper.yaml") do
+      sleep 40
+      assert_match "200 OK", shell_output("curl -Im3 -o- http://localhost:#{port}/webui/login.html")
+    end
   end
 end
