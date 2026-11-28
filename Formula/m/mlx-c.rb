@@ -4,6 +4,7 @@ class MlxC < Formula
   url "https://github.com/ml-explore/mlx-c/archive/refs/tags/v0.8.0.tar.gz"
   sha256 "ea6251d37968ec3a7975982d2eb38b008ee2a6bfa75bee1132cae178a39765e2"
   license "MIT"
+  revision 1
   compatibility_version 3
 
   bottle do
@@ -28,6 +29,10 @@ class MlxC < Formula
   end
 
   def install
+    # FIXME: mlx 0.32.5 inserted `window_size` before `mask_mode`; pass its default to keep the C API unchanged
+    inreplace "mlx/c/fast.cpp", "scale,\n            std::string(mask_mode),",
+                                "scale,\n            -1,\n            std::string(mask_mode),"
+
     args = %w[
       -DCMAKE_CXX_STANDARD=20
       -DBUILD_SHARED_LIBS=ON
