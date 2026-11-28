@@ -8,9 +8,9 @@ class GitFilterRepo < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "591cdfc66918e39a89b1b48361eefe47e5aaac00f9a322bfbef30459d4241cef"
-    sha256 cellar: :any_skip_relocation, all: "774b68744bca239b25b7e82693204f198c6ab1224ded38d8dd33ec1c23c245d8"
+    rebuild 2
+    manifest_sha256 "8244311c9671002e0eafd2f3379595084b0b34adb0bc60b68020105c73f750a8"
+    sha256 cellar: :any_skip_relocation, all: "d072b2c293b8b0aedd7d2396ffa477eee4f7b8b8f58e22efb95e5ae7ea72f59b"
   end
 
   uses_from_macos "git"
