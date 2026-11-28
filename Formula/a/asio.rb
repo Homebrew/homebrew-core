@@ -46,12 +46,9 @@ class Asio < Formula
     system ENV.cxx, "-std=c++11", "-o", "http_server", *Dir["*.cpp"]
 
     port = free_port
-    pid = spawn "./http_server", "127.0.0.1", port.to_s, "."
-    begin
+    with_test_process("./http_server", "127.0.0.1", port.to_s, ".", signal: "KILL") do
       sleep 5
       assert_match "404 Not Found", shell_output("curl http://127.0.0.1:#{port}")
-    ensure
-      Process.kill 9, pid
     end
   end
 end

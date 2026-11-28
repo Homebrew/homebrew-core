@@ -49,10 +49,11 @@ class Burrow < Formula
       [httpserver.default]
       address="localhost:#{port}"
     TOML
-    spawn bin/"burrow"
-    sleep 1
+    with_test_process(bin/"burrow") do
+      sleep 1
 
-    output = shell_output("curl -s localhost:#{port}/v3/kafka")
-    assert_match "cluster list returned", output
+      output = shell_output("curl -s localhost:#{port}/v3/kafka")
+      assert_match "cluster list returned", output
+    end
   end
 end

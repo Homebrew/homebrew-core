@@ -36,7 +36,8 @@ class Bozohttpd < Formula
     expected_output = "Hello from bozotic httpd!"
     (testpath/"index.html").write expected_output
 
-    spawn bin/"bozohttpd", "-b", "-f", "-I", port.to_s, testpath
-    assert_match expected_output, shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
+    with_test_process(bin/"bozohttpd", "-b", "-f", "-I", port.to_s, testpath) do
+      assert_match expected_output, shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
+    end
   end
 end

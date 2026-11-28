@@ -127,9 +127,10 @@ class Black < Formula
     assert_equal 'print("It works!")', (testpath/"black_test.py").read.strip
 
     port = free_port
-    spawn bin/"blackd", "--bind-host=127.0.0.1", "--bind-port=#{port}"
-    sleep 10
-    output = shell_output("curl -s -XPOST localhost:#{port} -d \"print('valid')\"").strip
-    assert_match 'print("valid")', output
+    with_test_process(bin/"blackd", "--bind-host=127.0.0.1", "--bind-port=#{port}") do
+      sleep 10
+      output = shell_output("curl -s -XPOST localhost:#{port} -d \"print('valid')\"").strip
+      assert_match 'print("valid")', output
+    end
   end
 end
