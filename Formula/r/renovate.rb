@@ -10,12 +10,12 @@ class Renovate < Formula
   end
 
   bottle do
-    manifest_sha256 "89931f26e36c5fc3553803f1f1068d75f9967996458aca59feb787b68b1fa1f2"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eabe3315412d35a7544dfcca35d0ff487c3ecaff69f18d9f14cd2f617b69daf6"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eabe3315412d35a7544dfcca35d0ff487c3ecaff69f18d9f14cd2f617b69daf6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eabe3315412d35a7544dfcca35d0ff487c3ecaff69f18d9f14cd2f617b69daf6"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "f172184b371d661156a0e9de69be9e00d1b9e99cbcbc9f7b85b89244d8ba5bb2"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "f172184b371d661156a0e9de69be9e00d1b9e99cbcbc9f7b85b89244d8ba5bb2"
+    manifest_sha256 "d92fb3670c0ca5e889d289f6174e613f9c4e9f49ec126943a6282d87905bd234"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2cc2107b2d1b93b168d6ffc5eeabfc8b489c3bb237b7a3d9b70474c47b616abe"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2cc2107b2d1b93b168d6ffc5eeabfc8b489c3bb237b7a3d9b70474c47b616abe"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2cc2107b2d1b93b168d6ffc5eeabfc8b489c3bb237b7a3d9b70474c47b616abe"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "fa6bf9e7d95a1e9b768d818a15e203b8197192cf437575ec5b5ce9dfa89fd056"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "fa6bf9e7d95a1e9b768d818a15e203b8197192cf437575ec5b5ce9dfa89fd056"
   end
 
   depends_on "node"
