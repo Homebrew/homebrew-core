@@ -6,8 +6,8 @@ class Sandvault < Formula
   license "Apache-2.0"
 
   bottle do
-    manifest_sha256 "7ec26c6a6c1b75c7194f97005398b187f1fb6f607b097bd2f0bdcd71bd3a9a7e"
-    sha256 cellar: :any_skip_relocation, all: "52fd3917c0c8aac5f14c4fd30ad25a3ab7a6e6170cc35974f4b8ed59e39729a6"
+    manifest_sha256 "212690eaa507fa6ed9467ba9789f5d88c07d4588050a67c1a953c32004f9ac5b"
+    sha256 cellar: :any_skip_relocation, all: "5d845f47ce5fe8d66b5960559395dd988d7b8e90e1d39bdd70ad2ce86d21c166"
   end
 
   depends_on :macos
