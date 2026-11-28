@@ -63,16 +63,16 @@ class Rathole < Formula
       bind_addr = "127.0.0.1:#{service_port}"
     TOML
 
-    read, write = IO.pipe
-    fork do
-      exec bin/"rathole", "-s", testpath/"rathole.toml", out: write
+    IO.pipe do |read, write|
+      with_test_process(bin/"rathole", "-s", testpath/"rathole.toml", out: write) do
+        write.close
+        sleep 5
+
+        output = read.gets
+        assert_match(/Listening at 127.0.0.1:#{bind_port}/i, output)
+        assert_match(/Build Version:\s*#{version}/, shell_output("#{bin}/rathole --version"))
+      end
     end
-    sleep 5
-
-    output = read.gets
-    assert_match(/Listening at 127.0.0.1:#{bind_port}/i, output)
-
-    assert_match(/Build Version:\s*#{version}/, shell_output("#{bin}/rathole --version"))
   end
 end
 

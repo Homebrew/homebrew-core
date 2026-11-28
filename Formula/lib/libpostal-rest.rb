@@ -38,9 +38,6 @@ class LibpostalRest < Formula
   test do
     port = free_port
     ENV["LISTEN_PORT"] = port.to_s
-    pid = spawn bin/"libpostal-rest"
-    sleep 5
-
     command = <<~SH
       curl --silent --retry 5 --retry-connrefused -X POST -d '{"query": "100 main st buffalo ny"}' http://0.0.0.0:#{port}/parser
     SH
@@ -63,10 +60,10 @@ class LibpostalRest < Formula
       },
     ]
 
-    parsed = JSON.parse shell_output(command)
-    assert_equal expected, parsed
-  ensure
-    Process.kill "TERM", pid
-    Process.wait pid
+    with_test_process(bin/"libpostal-rest") do
+      sleep 5
+      parsed = JSON.parse shell_output(command)
+      assert_equal expected, parsed
+    end
   end
 end

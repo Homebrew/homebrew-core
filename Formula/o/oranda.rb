@@ -48,14 +48,10 @@ class Oranda < Formula
     system bin/"oranda", "build"
     assert_path_exists testpath/"public/index.html"
 
-    begin
-      output_log = testpath/"output.log"
-      pid = spawn bin/"oranda", "serve", [:out, :err] => output_log.to_s
+    output_log = testpath/"output.log"
+    with_test_process(bin/"oranda", "serve", [:out, :err] => output_log.to_s) do
       sleep 2
       assert_match "SUCCESS: Your project is available", output_log.read
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

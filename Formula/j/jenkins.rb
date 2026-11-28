@@ -53,9 +53,9 @@ class Jenkins < Formula
     ENV.prepend "_JAVA_OPTIONS", "-Djava.io.tmpdir=#{testpath}"
 
     port = free_port
-    spawn bin/"jenkins", "--httpPort=#{port}"
-
-    output = shell_output("curl --silent --retry 5 --retry-connrefused localhost:#{port}/")
-    assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
+    with_test_process(bin/"jenkins", "--httpPort=#{port}") do
+      output = shell_output("curl --silent --retry 5 --retry-connrefused localhost:#{port}/")
+      assert_match(/Welcome to Jenkins!|Unlock Jenkins|Authentication required/, output)
+    end
   end
 end

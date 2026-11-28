@@ -64,16 +64,15 @@ class Lavinmq < Formula
     ENV["LAVINMQCTL_CONTROL_UNIX_PATH"] = control_unix_path = testpath/"lavinmqctl.sock"
     # Disable the TCP listeners, which the network sandbox doesn't allow
     tcp_ports = %w[amqp http mqtt mqtts metrics-http].map { |listener| "--#{listener}-port=-1" }
-    pid = spawn bin/"lavinmq", "--data-dir", testpath/"data", "--control-unix-path", control_unix_path, *tcp_ports
-    30.times do
-      break if control_unix_path.exist?
+    with_test_process(bin/"lavinmq", "--data-dir", testpath/"data", "--control-unix-path", control_unix_path,
+                      *tcp_ports) do
+      30.times do
+        break if control_unix_path.exist?
 
-      sleep 1
+        sleep 1
+      end
+      output = shell_output("#{bin}/lavinmqctl status")
+      assert_match "Uptime", output
     end
-    output = shell_output("#{bin}/lavinmqctl status")
-    assert_match "Uptime", output
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait(pid)
   end
 end
