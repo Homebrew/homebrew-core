@@ -30,6 +30,8 @@ class WaitOn < Formula
   depends_on "bmake" => :build
   depends_on :macos # needs BSD kqueue
 
+  deny_network_access!
+
   def install
     system "bmake"
     system "bmake", "install", "MK_INSTALL_AS_USER=yes", "MANDIR=#{man}", "PREFIX=#{prefix}"
