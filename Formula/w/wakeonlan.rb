@@ -14,6 +14,8 @@ class Wakeonlan < Formula
   depends_on "perl" => :build
   uses_from_macos "perl"
 
+  deny_network_access!
+
   def install
     system "perl", "Makefile.PL"
     system "make"
