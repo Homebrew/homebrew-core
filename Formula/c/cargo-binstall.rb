@@ -15,12 +15,12 @@ class CargoBinstall < Formula
   end
 
   bottle do
-    manifest_sha256 "f51773fa05473efd69de3d1d73e009d3cc8e5a183cbdd5ab060e970dad32f31d"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4358e7d8bd20c6f77e658b9a67fb59b4fad2c2221a2789aa7c2d685071e32dd7"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "22880c2b38d013ae60713f8fb8d77fd7d8747e76d30f961cdc86a38fb8707e2b"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e7735a06e82d669c60ce09358593d66b9a5bbe1d24cdbd75a7b1facf46025bc"
-    sha256 cellar: :any,                 arm64_linux:       "2df470c4df38c6ea0195e10821cb67ad9d452a374eb941b5dc7fe582f14a6725"
-    sha256 cellar: :any,                 x86_64_linux:      "2ac8b8e11ce984c5edcaf6df6c98cd67a5144295ac57076dc6c4225d049579ee"
+    manifest_sha256 "b3b3148f761ea5a6bbeef207712eea12efe6e5df3e061272d15e30bdbf10339e"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "096210030c06e188ebb24100a936294b646dc50445a411d8c2349303ad704414"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "955f110d9332e281b64bcc9513a2f0ec7b13b731ca8b13d41cf6fd4eeae32a8e"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b379a9ca7d6de9b9bdf8139080e4aadea66cb899ebe1eac9c2795c554592e07c"
+    sha256 cellar: :any,                 arm64_linux:       "91e4ad7bc7a13dc623d7befd824f84494e28e6e1dd7eedbd757320419da3dfad"
+    sha256 cellar: :any,                 x86_64_linux:      "b87f00b034a35b2f869cdc530d70c473319c80117bff464af777ca702659c100"
   end
 
   depends_on "rust" => :build
