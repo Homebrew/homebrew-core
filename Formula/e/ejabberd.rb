@@ -114,13 +114,12 @@ class Ejabberd < Formula
     inreplace testpath/"ejabberd.yml", "port: 1883", "port: #{free_port}"
 
     output_log = testpath/"output.log"
-    pid = spawn(sbin/"ejabberdctl", "--node", node, "foreground", pgroup: true, [:out, :err] => output_log.to_s)
-    sleep 5
-    assert_equal "pong\n", shell_output("#{sbin}/ejabberdctl --node #{node} ping")
-    refute_match(/ERROR/i, output_log.read)
-  ensure
     # `ejabberdctl` execs `beam.smp`, which outlives a TERM sent to the script alone; signal the group
-    Process.kill "TERM", -pid
-    Process.wait pid
+    with_test_process(sbin/"ejabberdctl", "--node", node, "foreground",
+                      signal: "-TERM", pgroup: true, [:out, :err] => output_log.to_s) do
+      sleep 5
+      assert_equal "pong\n", shell_output("#{sbin}/ejabberdctl --node #{node} ping")
+      refute_match(/ERROR/i, output_log.read)
+    end
   end
 end
