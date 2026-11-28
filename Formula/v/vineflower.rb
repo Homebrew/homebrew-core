@@ -20,6 +20,8 @@ class Vineflower < Formula
   depends_on "gradle@8" => :build
   depends_on "openjdk"
 
+  allow_network_access! :build
+
   def install
     system "gradle", "build", "-x", "test"
 
