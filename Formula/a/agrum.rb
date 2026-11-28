@@ -6,6 +6,15 @@ class Agrum < Formula
   license "LGPL-3.0-or-later"
   head "https://gitlab.com/agrumery/aGrUM.git", branch: "master"
 
+  bottle do
+    manifest_sha256 "25c8f2c311991935f52e3a7422b9fb23ba16e49338937ceae76dfad3b0c1ccda"
+    sha256 cellar: :any, arm64_golden_gate: "75f7701b02743bfbdf8a9786c5f5a4dd395a037fad8629ef0a1abde932e73f07"
+    sha256 cellar: :any, arm64_tahoe:       "428eb6ebc7d0989861dd98b5b6e7793a2a2ca113dc97c11915df085600260a0d"
+    sha256 cellar: :any, arm64_sequoia:     "03c629839e82ecf13c2078937ca48465c200770421d9fb207f741f2bd59c9a4a"
+    sha256 cellar: :any, arm64_linux:       "dd23954b2dbae278f181802121f83505034e73899baa56f3e39ee1ab8d1ac918"
+    sha256 cellar: :any, x86_64_linux:      "fc4debf676285ecb9bfc3147ca9378686697fe10e27dbeb0eeab49a39ba34699"
+  end
+
   depends_on "cmake" => :build
 
   deny_network_access!
