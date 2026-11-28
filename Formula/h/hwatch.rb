@@ -32,11 +32,8 @@ class Hwatch < Formula
   end
 
   test do
-    begin
-      pid = spawn bin/"hwatch", "--interval", "1", "date"
+    with_test_process(bin/"hwatch", "--interval", "1", "date") do
       sleep 2
-    ensure
-      Process.kill("TERM", pid)
     end
 
     assert_match "hwatch #{version}", shell_output("#{bin}/hwatch --version")
