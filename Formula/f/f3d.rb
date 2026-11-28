@@ -15,12 +15,12 @@ class F3d < Formula
   end
 
   bottle do
-    manifest_sha256 "248ce3fa3ea91ae748256a4ddcafb8716c51638e6540b8a33ba310aa2d102c2d"
-    sha256 cellar: :any, arm64_golden_gate: "51f6fc52c5ab7739ecf9bcbfc7f7bf70465e5ec063972e3a1bfad5352f649247"
-    sha256 cellar: :any, arm64_tahoe:       "c09341f605298fc9d37c5a8e4e9150ddd5aae71d7e6913bb315e67acabf374d7"
-    sha256 cellar: :any, arm64_sequoia:     "a637e5e2eb8a54a3500851d51cea00ff4599b890b8740c2b37b19c91f48cc396"
-    sha256 cellar: :any, arm64_linux:       "1fd021c532aa50503da1de7a376d9d209c845877bca67096413852f9724bec59"
-    sha256 cellar: :any, x86_64_linux:      "44b41fa1c999dfc9979a93f3eaf193932d33b0a80fd82ff1ff2191b95e6b23c4"
+    manifest_sha256 "2dc597163c84c26e0168b42c43766398249e667eb91a63959e3a04e6ca2756eb"
+    sha256 cellar: :any, arm64_golden_gate: "9939e1a95d84353196c33f1e009a3a0b8c6d5d6c518694c4771221ca95cbe485"
+    sha256 cellar: :any, arm64_tahoe:       "3f65a8f056b57e9d523c3dba2eda125b0a97b434bd0ea244acc624b01ee09c86"
+    sha256 cellar: :any, arm64_sequoia:     "aa9c9c4c87afc834417e0a5719479a7430e336e469da033b2854e31956281d61"
+    sha256 cellar: :any, arm64_linux:       "8478423c2341a34a235ca83c64f953fbd2be0a4ae681b452c36aedd816741bd6"
+    sha256 cellar: :any, x86_64_linux:      "3a446853b904df77229af9549f7be6c25d21e66a2992808fa37ec0af131b94d7"
   end
 
   depends_on "cmake" => :build
