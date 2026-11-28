@@ -34,6 +34,8 @@ class Waffle < Formula
     depends_on "wayland"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       -Dbuild-examples=true
