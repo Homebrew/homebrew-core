@@ -2,8 +2,8 @@ class Vim < Formula
   desc "Vi 'workalike' with many additional features"
   homepage "https://www.vim.org/"
   # vim should only be updated once a day
-  url "https://github.com/vim/vim/archive/refs/tags/v9.2.1417.tar.gz"
-  sha256 "01ca38dbe63f5e2235949c08779f80ba3c1073cbb1fa51f1789d6e7eb0e94e77"
+  url "https://github.com/vim/vim/archive/refs/tags/v9.2.1419.tar.gz"
+  sha256 "9616263caea51f81de0318d0dc522375595030bc6744824dcc2d1290dd59cd0b"
   license "Vim"
   compatibility_version 1
   head "https://github.com/vim/vim.git", branch: "master"
