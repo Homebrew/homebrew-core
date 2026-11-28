@@ -10,12 +10,12 @@ class Pymupdf < Formula
   compatibility_version 1
 
   bottle do
-    manifest_sha256 "caea6ef64f4eea37f797549c7eaccee530b239ea8b5589f8a56ce64ca0103a50"
-    sha256 cellar: :any, arm64_golden_gate: "d43a41c84d5115f3e42e82e2c5cf5688337c6b568f1d8a271c49f5d426891fa4"
-    sha256 cellar: :any, arm64_tahoe:       "f18175b29025abce11adbde80eb131f1c498e2a48ac65819e71ea703905bbbc9"
-    sha256 cellar: :any, arm64_sequoia:     "68ada75d1cc94952c215ca0d1d428b195bbf77fc9660eb93aeb77d0c18297a5d"
-    sha256 cellar: :any, arm64_linux:       "0022983543676cfa353edb02753435721d94ec22c7212889feac19732beb6cbe"
-    sha256 cellar: :any, x86_64_linux:      "f97f5325efa942e48b2ab255e71d222f0b6f4ccc3e305fb6c706fe635b5cfc8b"
+    manifest_sha256 "6292bb1d80e7625c359081db23c416702b58d468287390f47ffc46f96da59410"
+    sha256 cellar: :any, arm64_golden_gate: "30525f7999fa45cb0b084ea108259503af893480abb2a23ca6619f6c5d991632"
+    sha256 cellar: :any, arm64_tahoe:       "dc4bb5fc7f9abbc6ad62f3992e65bdcfb2c97c7a3a868c4b8a80cee0aecbff14"
+    sha256 cellar: :any, arm64_sequoia:     "548bdd5bdbe7e7969644d2d55aa9b4269cc0a659bfaa7fa8b3350ad8ea223e04"
+    sha256 cellar: :any, arm64_linux:       "7168655450732c3d4d2d4eb94a8d497421679901b50b5a0fd7bb31f614c4f46c"
+    sha256 cellar: :any, x86_64_linux:      "84ae47ef79ea360d8246aa1529f245dab16bdfb31f89c01ebe85c9f4741b491f"
   end
 
   depends_on "freetype" => :build
