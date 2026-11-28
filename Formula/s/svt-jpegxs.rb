@@ -7,6 +7,7 @@ class SvtJpegxs < Formula
   head "https://github.com/OpenVisualCloud/SVT-JPEG-XS.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1a22f02c4c677ab8312f9bea29a52f36f258089f41f2c7671482fcd8d7beaf8e"
     sha256 cellar: :any, arm64_golden_gate: "8fa8b842e4744078b8e4d3e52166bd82c9400413ed35717c7f96a5f450959a66"
     sha256 cellar: :any, arm64_tahoe:       "333ee3b6829e55cc2371321e0831dc0d825f499166ea899fb83b73b1a56d8c83"
     sha256 cellar: :any, arm64_sequoia:     "e850c1c53e2366460b1caa909fef6e212eeabc94ec1023defef3f7819ae01e99"

@@ -6,6 +6,7 @@ class Fantom < Formula
   license "AFL-3.0"
 
   bottle do
+    manifest_sha256 "5b9bd2cedc56765e7f96618bf0e6e96d25bc1f7475722ca707e3d2f0778947a7"
     sha256 cellar: :any_skip_relocation, all: "ec9cca9253500e263f652274c2af0ee21c19018dbd87aa6dd2ab1eec996e84b4"
   end
 

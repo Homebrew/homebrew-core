@@ -8,6 +8,7 @@ class Leveldb < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ac1acadbc7e4843e63599f506c682182199f5aa7ddd2c995cc622e2f8b487060"
     sha256 cellar: :any,                 arm64_golden_gate: "3df843b6a5fbfb949b905632a63529f7accc4f5154807e05828faa0e16dc29d3"
     sha256 cellar: :any,                 arm64_tahoe:       "3a3373ff147b1d86903e34ffbb189d010826bf7acfeae4de3481fabd01e156e4"
     sha256 cellar: :any,                 arm64_sequoia:     "9ddcdcdaef16a4ecf52daefeea18623f769da2728bff6fcffff130ec130136e8"

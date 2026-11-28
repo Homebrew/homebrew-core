@@ -12,6 +12,7 @@ class Libgphoto2 < Formula
   end
 
   bottle do
+    manifest_sha256 "724cf1065b612197a831961a9aabc482ac485a598c55760c4077ad4299e09728"
     sha256 arm64_golden_gate: "9c9ee29dd0f466e4a3abd33fbd39c94ac625228ef0f7286e5833f48dbbbeebdc"
     sha256 arm64_tahoe:       "829fdae4eafad77c84d7f271ace72ed76ac800c7804cb8721f8108bbb31ea74d"
     sha256 arm64_sequoia:     "55f881afb02888805368a94150e7683e53d5cc25e92ae808ac3dda060dd0d560"

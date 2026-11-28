@@ -39,6 +39,7 @@ class CoreLightning < Formula
   end
 
   bottle do
+    manifest_sha256 "2f6d8deeb962d791d8b53ba71eca687709ca87dbfc92105784c2917ebcd79dee"
     sha256 arm64_golden_gate: "d8a15513f0a04638918fca293bf6080f7c130a86803155b2f4e5d7f33e219e11"
     sha256 arm64_tahoe:       "094f13975c8d7e0885bb4322b046f4e9bacbd34fe92c7b70183144d2cd3e16d2"
     sha256 arm64_sequoia:     "b33c331289541f19780acee7ed3a24f126ecbb3cf98bb0f6ce355d9abe9adda2"

@@ -6,6 +6,7 @@ class EasCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b6904003b2d04a37c03ebcd3852b7d88fd1b29684e65aa66c081f4539b62c069"
     sha256 cellar: :any_skip_relocation, all: "070b104766d43928116364a8c6f45acfc33304f035950fd49ddef7e3445b7b6f"
   end
 

@@ -7,6 +7,7 @@ class Bashka < Formula
   head "https://github.com/dmtrKovalenko/bashka.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f0d5fcb054ab48aa0ff8d7d00a5f236beaa9cc63e927ad5a12543b3fd563429d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd278f5a8eb1e7130b5296c3fb67ec79231a876f17195bd47cb4c11b0c339968"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ae0f89a513551c081718890aa4bd82699e2a5b7c4241dbafd1f9babb570a392"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ab403401a80ed23e813aa5b063a545cf1e95f299499dd915e6503161b6c349a"

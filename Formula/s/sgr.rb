@@ -10,6 +10,7 @@ class Sgr < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "7b58a80da0bf2939a6eb211004e91d854c94f4208631176249e2ef8834a70750"
     sha256 cellar: :any,                 arm64_tahoe:   "e7aebe5abe49e8650c7158dd2c1aa5d3f98c05a45bd71e58ece5ba54ec66a47c"
     sha256 cellar: :any,                 arm64_sequoia: "890716f3428af4db534e207dac500744f869849fa930b5fc86402055eb502b2f"
     sha256 cellar: :any,                 arm64_sonoma:  "c147fc451ccf80fa86f68d471656cef8a33fc0fcd8cd1aa1853f496a898fe02b"

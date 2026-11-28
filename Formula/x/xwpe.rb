@@ -8,6 +8,7 @@ class Xwpe < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6f42135151cfb5ff42161684c078526895193b75d90fff8cf6184cefed7c2254"
     sha256 arm64_golden_gate: "3c9969071fe4a1d90908a343c4cf6fbfed7e754aae52519bb9386268cd4201a9"
     sha256 arm64_tahoe:       "c5f25065066d35c1489cfdd1b2da866525c282609b62d807694e3afda2ca297e"
     sha256 arm64_sequoia:     "fa4762b46bb0d24295b486fbb7fab42e355b22f0e6959a0a098ab4ad42d2c400"

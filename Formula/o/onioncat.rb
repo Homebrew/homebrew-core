@@ -6,6 +6,7 @@ class Onioncat < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "dea085750be8e4b23b5443e90bf678b493e67563ae3ccff66f2afd50d2949602"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bdcf249caa79efe7ed1a6ed89a6fa5a5f1be6f8d4de3253fa1304f0984f9c0fa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "376be0d8ae8f091f6f6dae5beba524fd5ba07e2606264a73c1b827e187dc3ea2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29b153e2b454faccfb935cf8524b3b37fafb5b17a86ba38377d887ca0bbd86a0"

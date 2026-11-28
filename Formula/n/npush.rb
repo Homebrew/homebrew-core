@@ -7,6 +7,7 @@ class Npush < Formula
   head "https://svn.code.sf.net/p/npush/code/"
 
   bottle do
+    manifest_sha256 "a1a3a743ab3a5dd119242af8513fb0ae5d9793c6c8c281c4ddef0dc069834535"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06fb4cf9fa24db9fed39b80beee90696a394bbf9afab29b1fea0a200388a374b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43a5b01bbdaac0c5112a4a7b61e737534968dada416f3ab6fe47b4ad907a1eff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52bb1bf2c16219188637e18260db7c52d8eead9d02dd9f65bb9d7cfb7adf6520"

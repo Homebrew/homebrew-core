@@ -13,6 +13,7 @@ class Dwdiff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0d1ccf34f9285ed1b19709828f066300b85afa1a066937848293b78e12cbe207"
     sha256 arm64_golden_gate: "a0d24f9d39d3fcc02d92974d7ce0a3311e8e8065faedfc50cdd06b4966f6b8f1"
     sha256 arm64_tahoe:       "ed410b5ab3fb27bc8dc7751270ad50d5128fb84471400c3c61e7226f10f1e69e"
     sha256 arm64_sequoia:     "e757347e5a6d1b1ce170d46415a23c96b919a16b054c2b0d7247314f249187b2"

@@ -13,6 +13,7 @@ class Clazy < Formula
   end
 
   bottle do
+    manifest_sha256 "8e41a91a422b9b67b6e3b7ce1512c8910ccbcd2c15d729557a20970be9920157"
     sha256 cellar: :any, arm64_golden_gate: "f3d9ef37f0224e47b5e492a25ac5e6faa3e282d2be0e1461b56f2bbcb6e0b8e1"
     sha256 cellar: :any, arm64_tahoe:       "46af170a343811fffddffcefe5c7ea9f707e492ea941b1930ed8af8279097b62"
     sha256 cellar: :any, arm64_sequoia:     "d5f535a71c9eadc7d802252083ed385e1d66666643e3d2989f04017ade4b9eb4"

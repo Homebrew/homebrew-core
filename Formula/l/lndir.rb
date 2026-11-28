@@ -7,6 +7,7 @@ class Lndir < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d4c2cd3d12b65414dfbe4b6f830e65fb098af7cc364726ef422ef29e8688e527"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11877dde5969265f46b2e8eb717f104918ed50adf38d3a9d43cf938c84cdf57d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f01cd44849addd2936024e18d9a686575cc77661c94538a0e730a2885db5906"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c14db1ae293bad13d546561df38fb953607a0a3932956b2b2404617d3b05bbb4"

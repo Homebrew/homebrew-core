@@ -7,6 +7,7 @@ class ZycoreC < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b70cccb81cabb099c042617cd0e2822f9ada994a079273e08fb23cded01f8fb3"
     sha256 cellar: :any,                 arm64_golden_gate: "ea8eea045150a07d9b43e5f651b1a8a8bdf9b4c23527566a91e9886143a48540"
     sha256 cellar: :any,                 arm64_tahoe:       "9bd66ff88f720bf9c47da552f6072331448fe84df5b7da0279f92c0b40987a97"
     sha256 cellar: :any,                 arm64_sequoia:     "80c639348dfe12bbcd9a604189ca4fa8efe291b8a75085a96bc93d6fbba1e74f"

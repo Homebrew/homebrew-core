@@ -9,6 +9,7 @@ class Gawk < Formula
   head "https://git.savannah.gnu.org/git/gawk.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e6866e60bdeac36df0fa9e3263a16dc9acf9f0d65e09f2031cc0985838d48bd7"
     sha256 arm64_golden_gate: "0a94ede15d069d023cd4f20d27553b8f8684e9ab44e7465686a5f94c3005b9b7"
     sha256 arm64_tahoe:       "935d146fe6c6da7c4b1d33ab7b9801dc8deb5d176e828436a84e7646bf8f70fe"
     sha256 arm64_sequoia:     "25cc590e0c007f8cd1b5776bfdd1fe336c4aec347bae63152bb5756d52ce3bfc"

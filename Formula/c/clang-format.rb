@@ -15,6 +15,7 @@ class ClangFormat < Formula
   end
 
   bottle do
+    manifest_sha256 "d8924922bfa312d2f794a4781be33cdd2faed5710b08842301c6085ed7070a22"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "baa15b07d4ea97e5da1be32d89534a991d012702b9e8c26be152f87a9d2740c5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "afa67ee29cae66c5c99adce1187373bd2bed1b06768a8505c2771de4fba855fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e3abbadb2f094f0cddc46aa35063ab94c04720afb42e1f42888aa42e922b64e"

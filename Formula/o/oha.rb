@@ -7,6 +7,7 @@ class Oha < Formula
   head "https://github.com/hatoo/oha.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1e0785fe5c64ba8efde34519b02cd181a59c525545890134c57c42fc59bdcf29"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4a13fba7f72795e7a2ce5817558ffef55944a1a488fc8c0b72acc799d394a21"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4956395053d93642c680e7a6bfa57893720a8988c9460f036c09e4d3086804b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77c55016ffcde619acb6c58da9cd03d33adf96c93841b867b178c482265fe3d3"

@@ -9,6 +9,7 @@ class B4 < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "04f9d70741becaac8ab5c1a4c8f1caf12c480124c482e8935a6a36c70e1649aa"
     sha256 cellar: :any, arm64_golden_gate: "dd072156124bc9c700880f10eb01623d9cc9b3c040712ae113cb53e7eea36a58"
     sha256 cellar: :any, arm64_tahoe:       "c6853f7e1dd8a4ab8f80a129abdde3d4e0f6d1b6b4285d24d39adaa58e7a30cb"
     sha256 cellar: :any, arm64_sequoia:     "38cd88716b99493139c95595682ed5b4d1701e251cdb1f2acd7d25b1756122af"

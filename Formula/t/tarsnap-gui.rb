@@ -9,6 +9,7 @@ class TarsnapGui < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "91f3a2f0126f0b095dfb79948ffa0e5c13faf02f8f059a5cf1c4b1f26194b417"
     sha256 cellar: :any,                 arm64_golden_gate: "83fddc5567b18002ab0f0ba81acb23abcdf2f697d51c1080b850602eb44738cc"
     sha256 cellar: :any,                 arm64_tahoe:       "bd02f77a05c961179c8cd9c080367dd5792305a26b840bfb4aa5584dedc267d6"
     sha256 cellar: :any,                 arm64_sequoia:     "c9cddf5f7eb1d96d77deabf95a9633bdc7fbc649f8349e6960db1f071346e34a"

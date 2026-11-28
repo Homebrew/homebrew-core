@@ -12,6 +12,7 @@ class Kumactl < Formula
   end
 
   bottle do
+    manifest_sha256 "50b87a237d68ab1bf0ee874341eb33a95f7585db00d88365314ee3a4c5d5c1db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5043e6eb5b50475b148c18f0e0da260f6378144a26b2bc862fb2855526c062b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7afb90baaad3357939c5fe2593d8814c9bd7763c084706f21f27bd008738e3d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91811f15bf8d43d7cdd1f4554cd98239dcd387d69330a38cdf11125262a6ea0c"

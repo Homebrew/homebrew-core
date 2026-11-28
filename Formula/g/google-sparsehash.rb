@@ -9,6 +9,7 @@ class GoogleSparsehash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f475aac238982d6b1c2cb27e8b7cf7f33b7f642bb0014f5beb911895f13d6b0d"
     sha256 cellar: :any_skip_relocation, all: "9624c9bf9296d118481a05a3e05f9f1f8774fda3cf2d53cd63e8a4f926fd2ff0"
   end
 

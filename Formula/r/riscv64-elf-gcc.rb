@@ -12,6 +12,7 @@ class Riscv64ElfGcc < Formula
   end
 
   bottle do
+    manifest_sha256 "d6ccd36da2ebfffe2a4fb77870806e5ed5b5faf12e2dce14e4d009dc2f05cd55"
     sha256 arm64_golden_gate: "3e0abebc851c480c59525a7b3fd8873fc9299fba0a6ab7fcf95930c37d29fc68"
     sha256 arm64_tahoe:       "8f7e26c7acdfe47af2a57220b8ad9e2cb220e1056f79523b6c4a3c223bf81c28"
     sha256 arm64_sequoia:     "5859b76f78cc98f21915025f04ba2b4c8a35a7355e07ef2f7aa41ecf015d68e0"

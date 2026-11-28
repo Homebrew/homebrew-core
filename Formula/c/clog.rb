@@ -12,6 +12,7 @@ class Clog < Formula
   end
 
   bottle do
+    manifest_sha256 "a33223fe60377731edc969760496554598298b5af2d8c2c4d6ed2e1c8aafc83f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17ddef896f3cfc3f375b4b483eb666f488751a14835047e3c013a74691607a78"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c14c0f289d7f795ec4a4cf88ded115bbd95cbe14d1d2da796fc8e2cfd7b63090"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "324768db7056ee6258ee9bc6a19b15e325061e637a4074201e299f110979f81b"

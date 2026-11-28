@@ -6,6 +6,7 @@ class JsBeautify < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a5a8e8d23a39ea48545ae853899caaf786d248617b2b93fe980322241cd1ff60"
     sha256 cellar: :any_skip_relocation, all: "8adba2fdcfb98d4216b4d052f5dc6a76e86a0ef64f4cf685a09f10bb577a26e9"
   end
 

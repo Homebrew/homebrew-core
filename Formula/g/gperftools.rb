@@ -13,6 +13,7 @@ class Gperftools < Formula
   end
 
   bottle do
+    manifest_sha256 "bcb3ef7309fc372b088ff169656f2a23105ddd8b2b58cfe04b7ca25961effaa9"
     sha256 cellar: :any, arm64_golden_gate: "057c3bd0bcd5c262a0ef5cac163de4972775a0f7c01788f62b332cff232371fa"
     sha256 cellar: :any, arm64_tahoe:       "477269987e0cadd0b37c189417cb03068b81b39c0caef3ef8bdca9a7cff5d90f"
     sha256 cellar: :any, arm64_sequoia:     "752546c6762d3f6bc3cd54946a25ca737738d31a8bbcf41557fecc05eb541a5a"

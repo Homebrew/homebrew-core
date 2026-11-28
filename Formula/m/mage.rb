@@ -9,6 +9,7 @@ class Mage < Formula
   head "https://github.com/magefile/mage.git", branch: "master"
 
   bottle do
+    manifest_sha256 "03f0430039bcfcae6b69ba29f7e792bbe29f70f95f317056ac13172b5c5cf1e1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d29b5d303223b80a9b7f5cfd3cf784cf64e46ef0c0b1b5713108c02a6fd19f10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4bd5e578716ac74dd900c27728e12cabea8c7b52d505d5aa6e542530357d128"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c4bd5e578716ac74dd900c27728e12cabea8c7b52d505d5aa6e542530357d128"

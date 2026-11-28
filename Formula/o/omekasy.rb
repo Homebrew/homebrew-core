@@ -7,6 +7,7 @@ class Omekasy < Formula
   head "https://github.com/ikanago/omekasy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "db8bb233a6a0a2ded74f9fc0b852741ff1c77647dbeacab9635d2ee038551f32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77b8c25817994d842b5881d80a4a7ccb31797a8bd660822638421af3f65c0fb1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d090085c33c82273e051eec3b46fa61dd1fa4effbfbbeb80d29d51dbceaddc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19a5bd78d4a91060a4b52b88d2d2948e1200093fb327f10037be87684688788d"

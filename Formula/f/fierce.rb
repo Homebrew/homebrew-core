@@ -10,6 +10,7 @@ class Fierce < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "056b6704bdd959fcdbf83bd610020b6d722018cabb300533d027e28712592c89"
     sha256 cellar: :any_skip_relocation, all: "fcbcf538612e5812a261476e07f4491df5aa1d94f4d113a4a0e6ca29498d8b4d"
   end
 

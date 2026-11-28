@@ -8,6 +8,7 @@ class Jj < Formula
   head "https://github.com/jj-vcs/jj.git", branch: "main"
 
   bottle do
+    manifest_sha256 "85089a2e92baf08a6f369fb3ee87a0546ce13c865ebe6a03437401c662cb2f09"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a5c843061fd135beb9bbc2f2e311c9ea30e88e20e29c9c75a50d43e05900f97"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2203d5f7aa2f0bbd1b3798fd897e8c975a53078efaac67e8a6da81d7c5539884"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8f910a47ef794ed9cc75306042f347536424c6d49263ec380729484aef315612"

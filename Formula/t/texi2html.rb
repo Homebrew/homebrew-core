@@ -12,6 +12,7 @@ class Texi2html < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "fd971527d3a936ff0f6e95bba6af7903501faf7f6813e5ef90abc48b46c0f12c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db39a35044cdd50eaa13a9f728101d1a29d08a14a250fcd8b2b362a658f4b7c6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f76e24ff2903b5bc781b51c1fa641893343610b6827eed40af85063af2def71"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2abbe20da6fd14b3e73a4d7f08f366af564a2dc2e86b39de3291a9f7c3b9eec"

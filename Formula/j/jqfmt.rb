@@ -7,6 +7,7 @@ class Jqfmt < Formula
   head "https://github.com/noperator/jqfmt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "58cbe80be11dfc394c68dc77333d4500500f501d4ce8516dad89c241d22a3b36"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "92800f2d12151a1e4bb3406278160a011aff564acb55d5d7aa587732d555b9c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efccec434c604682d35d22fb555c76a6be98d32061659490e347cfc9899d4fd9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "efccec434c604682d35d22fb555c76a6be98d32061659490e347cfc9899d4fd9"

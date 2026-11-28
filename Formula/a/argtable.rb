@@ -8,6 +8,7 @@ class Argtable < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3521e2aa27824ce08e2669711432d746c18b527ac42e0ae717a4d11c36350ccd"
     sha256 cellar: :any,                 arm64_golden_gate: "774aacc8867c72e7bcadd132ca14ba9b108ce20e91f5949a8f0f748b9431f312"
     sha256 cellar: :any,                 arm64_tahoe:       "0f6b3a1af259640264644f92286a3d96e4fb4ca0dd4f16aabbdcf608117bf116"
     sha256 cellar: :any,                 arm64_sequoia:     "ac1c99cc90796da54dcfa48415939944d6608a1284d6c1eb2650d43717a4d622"

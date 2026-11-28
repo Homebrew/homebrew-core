@@ -12,6 +12,7 @@ class Gtksourceview5 < Formula
   end
 
   bottle do
+    manifest_sha256 "b84d7de201ad1b5c3dccc5a4ef80b0b2a759a22ea3bef9e3fda8bee01b9efeb7"
     sha256 arm64_golden_gate: "2931e55af2dbf475c3aa25d01e0868d10cb37be886a8ea6dfba91613237fe959"
     sha256 arm64_tahoe:       "4cc2c1c2f338e83b99fe83ceffa2dee6a9632a3912536b640b954b6718212b08"
     sha256 arm64_sequoia:     "c52f0d6c7ba5bc3f367c77cab1d08f4d416ea4c1a5fd239e929ff8659d666a14"

@@ -12,6 +12,7 @@ class Cfitsio < Formula
   end
 
   bottle do
+    manifest_sha256 "7e7ee8c110259b7679ce2d62dd46d74173dc33b9e9f97c3b354330e09394c6cb"
     sha256 cellar: :any, arm64_golden_gate: "ab6a2edddf336e8efeb2436b4c0c85439b61131711c31286ec35f55ad135e7d7"
     sha256 cellar: :any, arm64_tahoe:       "f9b46bf80fc9722d2b6fcc4f06ade7a3bb8a3862509fd65c62aa9b0d87b44d13"
     sha256 cellar: :any, arm64_sequoia:     "69d71ee19fc9d2b498adbf462dbc57356854839f5911eecfccdb328105e26b9f"

@@ -12,6 +12,7 @@ class Llgo < Formula
   end
 
   bottle do
+    manifest_sha256 "5bd082eb89c38d58e3677246e9c61e46f9f3927ce0bc8b530a0e4457e6854916"
     sha256 cellar: :any, arm64_golden_gate: "9fb2dfeeb8c94e73ecffbd60b4e017d3d3a6b8efc1e0185d1ed1114a4c345823"
     sha256 cellar: :any, arm64_tahoe:       "63cd9cda2c301532c050f3ccaefd37b9d4208782bfaca320366de1e39578250b"
     sha256 cellar: :any, arm64_sequoia:     "29d94237fb351b3591120ab02959216d44fbff9057af02368b6223ba9268b419"

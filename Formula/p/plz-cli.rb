@@ -7,6 +7,7 @@ class PlzCli < Formula
   head "https://github.com/m1guelpf/plz-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "88153eb6ff553796aafacd443a00a2fff1b600521e9786ceccad1a2d797368f1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43b584ffd72b8a544cf1c35aa179e08bdaf9130036c30241e167fbba2e3644a2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d9b537e8c4b84783ca6dd75eb6135a87aa7bf3acc6a0add1ae66468f0aefe85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "50e07537995ee92719ff5fa052d27a9e7207f5038ffbafb27550be81524e6921"

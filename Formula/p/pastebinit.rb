@@ -9,6 +9,7 @@ class Pastebinit < Formula
   head "https://github.com/pastebinit/pastebinit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d49d580822c834ef7adbdc3db1f8bb7bc700902a29885d08ab5707f799d022d0"
     sha256 cellar: :any_skip_relocation, all: "fbe01a73549947404e9ae1a8dda691e7904117ed61af4b72087f41e35c1caa05"
   end
 

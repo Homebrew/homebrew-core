@@ -8,6 +8,7 @@ class Blink1 < Formula
   head "https://github.com/todbot/blink1-tool.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e61970836ba0ab4ca90bd98ddb135161951d21fd818e87461abf6a9407e1c47e"
     sha256 cellar: :any, arm64_golden_gate: "ded75f815d21e15b58bc190aa257ef612745506995a48ed0020b00b796d08b69"
     sha256 cellar: :any, arm64_tahoe:       "3849d109c823ea23cfff8df0362c3afbf0026e9f8247595f5462c6193be1f3e7"
     sha256 cellar: :any, arm64_sequoia:     "3665d4f6069451920e6b98a2e6b8de14759a6806abfdb06d4e73b9ac969b8dec"

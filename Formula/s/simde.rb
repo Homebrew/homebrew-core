@@ -8,6 +8,7 @@ class Simde < Formula
   head "https://github.com/simd-everywhere/simde.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e9a6594432c15cddd02cf28338eea4fc707fe81162ce3057683f0963b8ce421f"
     sha256 cellar: :any_skip_relocation, all: "8ffb9243611a027320542a403fbcc1d2f7f45516484d44ec5a0fae570b2f7892"
   end
 

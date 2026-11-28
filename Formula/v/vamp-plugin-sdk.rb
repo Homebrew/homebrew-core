@@ -22,6 +22,7 @@ class VampPluginSdk < Formula
   end
 
   bottle do
+    manifest_sha256 "737df60566df3d80ea7fddef3334b424f5dd0c8191179f6c23b8327fb195e7d3"
     sha256 cellar: :any,                 arm64_golden_gate: "4202b4f4a665762e183d74074627e9ef48e9493cea397a81b1ede9608e4675fc"
     sha256 cellar: :any,                 arm64_tahoe:       "9bb7224a25dadc8224c09bee6594dcd2003a0d8a9f43f3bc392d889923ffb539"
     sha256 cellar: :any,                 arm64_sequoia:     "0fd18a6d81ea391818744555984ec3b2f8052f801a097be6511dc4589d9810fc"

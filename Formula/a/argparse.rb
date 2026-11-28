@@ -7,6 +7,7 @@ class Argparse < Formula
   head "https://github.com/p-ranav/argparse.git", branch: "master"
 
   bottle do
+    manifest_sha256 "015fc650da09171b3e510cbf8cdb3c14db0a8d82c99cf2ab5b284f5006548ec2"
     sha256 cellar: :any_skip_relocation, all: "92d7cc74e452d6e188643d82ee165ebae9a929a87f4608b50595b8daea7e91d4"
   end
 

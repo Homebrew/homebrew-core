@@ -8,6 +8,7 @@ class CartridgeCli < Formula
   head "https://github.com/tarantool/cartridge-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d82e293eccfb1c1bed86a66973ce3c30116f93c18a1042f34dcac12a976f752c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1eee262b56e37bf94b9e6512831f4f527ec74a2f4792880b5aa6864445454f8d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13ac19b7e55935af401fefa00a9fbc09839e7f39074eb1a4703d82fc60599f53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c347030987d8638b17325dedf3ecd8a8271de8f1333aa086f7cfb0777c0ff8ae"

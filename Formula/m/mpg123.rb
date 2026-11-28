@@ -14,6 +14,7 @@ class Mpg123 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e7860f687522dd1b61b4ad318a4c87c7972b7bf0b94ccbb4edd0d7dc6b66379e"
     sha256 arm64_golden_gate: "56935f0083f633dda54cf02b939659c5476ba40102dd520126e8c3af762633f3"
     sha256 arm64_tahoe:       "5fcd87caeb9b6e6730d7de5c7738e785c84814c641d1ba9ac578a142d2b033f5"
     sha256 arm64_sequoia:     "80869bcfed43252f222be16fd652b8e691cb4a144778681853ed76e1d45a7143"

@@ -7,6 +7,7 @@ class Lazyjournal < Formula
   head "https://github.com/Lifailon/lazyjournal.git", branch: "main"
 
   bottle do
+    manifest_sha256 "357df0e075ddd7ab88da164e6474befa3e87dd49ea45cd9eab7003f6bc91463e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4365fb59a59ca1f164f0215b21f2e109391a15f35e03cdf8ef26352cc0f74aee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4365fb59a59ca1f164f0215b21f2e109391a15f35e03cdf8ef26352cc0f74aee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4365fb59a59ca1f164f0215b21f2e109391a15f35e03cdf8ef26352cc0f74aee"

@@ -11,6 +11,7 @@ class Mfoc < Formula
   head "https://github.com/nfc-tools/mfoc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6b51da0392fbab5305755ac59b2cf732e9a45e4ff5d7aebae244eb9549530b68"
     sha256 cellar: :any,                 arm64_golden_gate: "700fa58b5516562879dbc53c6b13f06329178421cb23a205134f710c61acb79d"
     sha256 cellar: :any,                 arm64_tahoe:       "3bc4430e432a6be762cc41bde75929ad6fe8395ce5b851fee12e161c81c6bf21"
     sha256 cellar: :any,                 arm64_sequoia:     "3b89cfda6f79a47fad9df8891458eaf4923c2c6fdea0e17a75bd5f9c1fe7fdc3"

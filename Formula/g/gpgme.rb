@@ -12,6 +12,7 @@ class Gpgme < Formula
   end
 
   bottle do
+    manifest_sha256 "50fa5f17d713f46f868a7d8de64f2057a5c868a5dc102c47dd59db582f080666"
     sha256               arm64_golden_gate: "63197bb323b8c5ab478aefcfbf0ace1a20bdc8080f270e610852e646824ca811"
     sha256               arm64_tahoe:       "28fdf2ec352e6caa7c5c9e142eb2d1636a3fee34c1cd8e78ac58ab5eb4581b10"
     sha256               arm64_sequoia:     "a16ad13f866957188976f1fad13ab544f7f7f27118f4450996102840e3e2d0de"

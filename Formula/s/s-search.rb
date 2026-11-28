@@ -7,6 +7,7 @@ class SSearch < Formula
   head "https://github.com/zquestz/s.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e55e342e4d26cec2264762d23616c98ffb4c6a72ad18a03d6d64354d2eb60db9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "59c47164d3930d596543af3b3ad1aec61cccdf95c475bdb2bc1c6c992550ec65"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21d524309004a7a9d7089d8c1aa37a1b61960e5a83f76238d3e8a3c1c5fc5583"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "21d524309004a7a9d7089d8c1aa37a1b61960e5a83f76238d3e8a3c1c5fc5583"

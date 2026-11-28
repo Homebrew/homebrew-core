@@ -8,6 +8,7 @@ class Libgetdata < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "39800ad3fda72855c732736561224aac7c5e2162bae084c733c11e32e53a6806"
     sha256 cellar: :any,                 arm64_golden_gate: "e1c48caed27954e16d927afa25fcea90a7a19b582c53b88df4386c5c5b19a854"
     sha256 cellar: :any,                 arm64_tahoe:       "bea9f976c185d2e9e5377cf772635f6e72a40380bda01cb5cbdb65e22a2a30bc"
     sha256 cellar: :any,                 arm64_sequoia:     "c6dfdb5b0c484f44ba193dd52bed2f63d141d30930340fab2bbfc7a95256e4e9"

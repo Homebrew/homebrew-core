@@ -8,6 +8,7 @@ class Sub2srt < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9fbbbd9ec95c81615d7470a613a7904c11d64a94690a90b557802f5ab7db605a"
     sha256 cellar: :any_skip_relocation, all: "ea67deb8ff20129ec22608ac25dfa2928c935552cd1d8f480c54e2247f04b9fc"
   end
 

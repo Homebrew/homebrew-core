@@ -11,6 +11,7 @@ class SpeedtestCli < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "16ad872ace4508d6e870010e0751dda319f8a869080ebb49ff6c5a0498ea2a90"
     sha256 cellar: :any_skip_relocation, all: "0ddb4de9eb0da75c95a849fbaacee73c02a205dc04b7276cf4c4d2dd8bc2d021"
   end
 

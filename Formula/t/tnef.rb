@@ -6,6 +6,7 @@ class Tnef < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "92069dd2ff5b2d295fd86415f770bf2ee3fd35a7d7878311db3078ce9b97ee5c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c278730388cf9c22bad3fda2a7a89d3911f163345d4bff55eccba743d272b762"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44529baf2a4c808692492827a1e241d50d4664afb347e2c9efbd174459e77dfa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "83bd5a4cd7402252e5b3652cb5660aa5ec15527623608cc08556dbb1c6b14b15"

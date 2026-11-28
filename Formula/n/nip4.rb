@@ -13,6 +13,7 @@ class Nip4 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c732c93a979ad25399f85e2ba9e3c6041a141ea7194dbb1fc7bc912407d96044"
     sha256 cellar: :any, arm64_golden_gate: "492e8f49db685b67f84642d926a1b808a4c0387570e5351a9f8512bec957e892"
     sha256 cellar: :any, arm64_tahoe:       "48b2537486791b695b2db3dfc6f9a6d21d8d5e6e09e810e9a2b78e270b541de5"
     sha256 cellar: :any, arm64_sequoia:     "bf86540a66ee54a7c3d9b23552c791d1e3269a70c6ca39be8f7815a7ef576e09"

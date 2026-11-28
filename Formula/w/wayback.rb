@@ -12,6 +12,7 @@ class Wayback < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ac41d8db2cc019831d0af5840026e46cb4e676c6139eb694b65e6017aa47eae3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1e00be038a571de0c3fc1fa545f6b961818aad104ed0e1196339baedcba7814"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03fae71874bcdcc610263082f1850786599abf830c4f7a11bde7c82b8fed5c69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d67fb8d25ce19684648df9a7c5e41ca21af11c92e51f104cf0e36c1a8c5ad22a"

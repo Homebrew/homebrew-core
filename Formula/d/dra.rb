@@ -7,6 +7,7 @@ class Dra < Formula
   head "https://github.com/devmatteini/dra.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6a50f738e5e06b802e2c642c06dae9bdea169fb3a4b9ae123a70be06ace719c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "88772cfa29930ceda408bae23d34dc9fabac52c5682f07ae039a6bbad3e96135"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e2c3de62218780515b8661681c71c05e233397b35dcf73f0c8799018248c73b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0487f14e52ed15e57b4a7301dda259dffa5e5999c2fb9927f990f0c73f98e5e8"

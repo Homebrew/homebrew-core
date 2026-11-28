@@ -8,6 +8,7 @@ class Wemux < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "c797dce169f50d925bd4fc1aebd8ddc92bb2b5e226e434dead82fd15bb45ffef"
     sha256 cellar: :any_skip_relocation, all: "41e9a8eaac236f236653d1867f1b5de10a03d5de49e1764628284742dc27bc24"
   end
 

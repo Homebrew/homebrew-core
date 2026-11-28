@@ -8,6 +8,7 @@ class Libmpc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4f837f2f152240c023e7b33757df4a929b745fa3fcff59c0fd40632cf6cbaab8"
     sha256 cellar: :any,                 arm64_golden_gate: "49301161f91eb2cea57695a69c8060d6a6c41fa97e98643bf3ef6507f97a5bbd"
     sha256 cellar: :any,                 arm64_tahoe:       "5be7168564102d2666af5a9cc06622e4f9abe8f585b63cfe79d5043bff6a7f50"
     sha256 cellar: :any,                 arm64_sequoia:     "e7723a06cf55d69322ada010ad25c6b34627674729e41d89f2526edfa7ba6995"

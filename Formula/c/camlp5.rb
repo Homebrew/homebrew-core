@@ -13,6 +13,7 @@ class Camlp5 < Formula
   end
 
   bottle do
+    manifest_sha256 "a9295e9850358363fd6328f8df903a95ebb288f50d85518d87f02a2c0f2f68b4"
     sha256 arm64_golden_gate: "6771dc7b70f5289a0a8fa81a55bbe9782b7ece975de3ddf5de026e375140d05d"
     sha256 arm64_tahoe:       "843f00c1252c768ba1fd87f581e7ef1874f07af6e66c43e43cf560957678ff19"
     sha256 arm64_sequoia:     "fe8c2a8c46beca27c0605b2a30e204dc611f9842f41453cfbc9f3181edd79222"

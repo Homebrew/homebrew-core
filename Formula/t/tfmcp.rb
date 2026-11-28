@@ -7,6 +7,7 @@ class Tfmcp < Formula
   head "https://github.com/nwiizo/tfmcp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7b4f44cee415ce0b274c329824ae1619027007646767eb88f3008be59e9f14bf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b13a7b7e33962bf7cc11eb1cee0aca60e4ff7bd9dd8413c47b0832dacc12931f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc5090189f95811b5e7fd7e78eee084af8595dab79fbc4afd866e6a261cc56ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b080181f0bdbeaa02de7b183b08c34bbea4f09ccf059de9de11b7fb6eb409121"

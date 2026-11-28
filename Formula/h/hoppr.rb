@@ -9,6 +9,7 @@ class Hoppr < Formula
   head "https://gitlab.com/hoppr/hoppr.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "1b7202824c769b5de9c8a53ccb344596b9844d8b3e81f9ae8c461db4cbff16d7"
     sha256 cellar: :any, arm64_golden_gate: "46d39f739fa0a9cadfe011fb44d17fd389f5aa9934aa6aeb2389eeb6b71c0c6f"
     sha256 cellar: :any, arm64_tahoe:       "724de0f629dfb76783fffe709dbb936941eb1164adc1cff6e4c2b615fa25d1ea"
     sha256 cellar: :any, arm64_sequoia:     "d2394ecca879ed935a8042902c421de16ff7749a004d53714c1c4b7e4e52cc90"

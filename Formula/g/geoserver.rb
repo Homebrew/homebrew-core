@@ -15,6 +15,7 @@ class Geoserver < Formula
   end
 
   bottle do
+    manifest_sha256 "f4da6497c72bc2091c54ccdc17f2158bfb0f4612a98d58f9106419bb883cfa18"
     sha256 cellar: :any_skip_relocation, all: "d0ea8e40f4ad22af736a075e856318a30b1656db0634ac878a1620028dccfe2d"
   end
 

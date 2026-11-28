@@ -7,6 +7,7 @@ class Grsync < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "1352e6fe19bbf5dd85a69b73af972b6e22f64f78f2b93d7c6117040d7b601c52"
     sha256 arm64_golden_gate: "69961a49597983f5fd29942efa34ca27789b0ec0df9d6f0c9a9435200a5c3247"
     sha256 arm64_tahoe:       "7986e7f825b1b6c2f31beadad835a38e018b215d50ec918a4c943c1449127127"
     sha256 arm64_sequoia:     "7acba4db4f6cd2ad09e1cffff1f7c0d24c46cbc611c8ed9c7e78a604b746b2cf"

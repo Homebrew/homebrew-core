@@ -11,6 +11,7 @@ class TinyRemapper < Formula
   end
 
   bottle do
+    manifest_sha256 "c1b3ad3c3522e13b1aa24a6d40d2ee7cd6f61de6bcb86c1d8666ee1fd5984318"
     sha256 cellar: :any_skip_relocation, all: "8137195f809c8c06fdb9e70153728cebaf0755f4cc426ecfadbd10812531f4cc"
   end
 

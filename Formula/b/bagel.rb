@@ -7,6 +7,7 @@ class Bagel < Formula
   head "https://github.com/boostsecurityio/bagel.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0aff4de10e1576162f7682325e667db0f614b3e3b9908f588a7718db467d461b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eea8bb259b650509513bc8b3c8334b6de77861dff642c4c8f6f2e7dc89cc616a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0cf715981bf87fdb4aef2cdd6eb4af837f3338607aa1ffacc0676caa59fc27bf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cf715981bf87fdb4aef2cdd6eb4af837f3338607aa1ffacc0676caa59fc27bf"

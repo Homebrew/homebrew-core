@@ -6,6 +6,7 @@ class Yash < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "1c0b3dde6aa8bcfbf8573e40bd977bc8ae99056a56d1c15584c1f8674c88d83b"
     sha256 arm64_golden_gate: "092d5b6db53105733c712510f51b21b5d7616ccc3b4e6014629c9b97d1db32da"
     sha256 arm64_tahoe:       "46f099f162e3f4662a0175e1c63afbf9021bf504863a8fce232234dd1ffe018b"
     sha256 arm64_sequoia:     "3aeb8587ce93e7cc6f20ad085aa182c8566e8f200ddf5ffe89a4dade16b8ae66"

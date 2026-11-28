@@ -6,6 +6,7 @@ class Netbird < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "92153670cf591f0bc00d9a5f397ec625de8fdbc884d72beb22f8010a7a487769"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b83d4f778af0b08a265314ef33c8bf931c61058315a8e0ffc3e77985391a3441"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b83d4f778af0b08a265314ef33c8bf931c61058315a8e0ffc3e77985391a3441"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b83d4f778af0b08a265314ef33c8bf931c61058315a8e0ffc3e77985391a3441"

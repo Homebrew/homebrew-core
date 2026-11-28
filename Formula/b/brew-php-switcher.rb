@@ -7,6 +7,7 @@ class BrewPhpSwitcher < Formula
   head "https://github.com/philcook/brew-php-switcher.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6132c794b57b5feab2c0e045749a7ee48e1d968665398a7b366c1b681ab3f5e4"
     sha256 cellar: :any_skip_relocation, all: "e41fbf1a76ac7c925c36ece1c26a597245e89a4c9444b3a145a1e6c054042dc0"
   end
 

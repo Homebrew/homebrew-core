@@ -14,6 +14,7 @@ class Gam < Formula
   end
 
   bottle do
+    manifest_sha256 "8e023eac5e5c99307b741543b88a6921a112da876fede9c9d257f0ea91fbeaec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eed6f43eb8aec2fe00c2b666849f478b6d0961931db1c2048ec7396a546ed1da"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "becca3e0cdb00ec57533e709e8ed321d5d132353671fd4e744399defa581ed74"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b177e6f738fbddf09c3585235b34e7f07ea720d5621c6e70dcfbfcf2e03b291c"

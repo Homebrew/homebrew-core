@@ -7,6 +7,7 @@ class Ocmtoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9c5e5ef926008c34c0e8b124136a21cf8bc643ca84a8afd226efff415373d472"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "917fd4fced07f4d0a2670aaa0f5bdbad38b2981bad232c0c74b653885cc31826"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b14b91a85d26c6219655ee5aeb5ffd349f0ce6c0cd6966e840db79408dbe561f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f51c7a744c58df9f6ae3576de5629abdda34f1488164a8a32b96bd07436012cb"

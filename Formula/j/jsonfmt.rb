@@ -7,6 +7,7 @@ class Jsonfmt < Formula
   head "https://github.com/caarlos0/jsonfmt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c24dc810f0fbb728cdfaf40cb5122eb625f1da15d2d270aded0ad7d78c4601e3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e4bb144af065d20741a93fea99ee79fe60ea271f1f08e83957b8bb9b8db7c2fe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1caa20819c76600db0ef8666a3e5cc1fc6097cf9e3303b7af167d12c2fc051c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b1caa20819c76600db0ef8666a3e5cc1fc6097cf9e3303b7af167d12c2fc051c"

@@ -20,6 +20,7 @@ class Freebayes < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a3bb361a28f71ad7ed3aaf8f30f5e6931a3eb9283eef5ca1c3e0d1933d6fc3f5"
     sha256 cellar: :any, arm64_golden_gate: "ff276b47041a9d546f9a7dc04c7d4d721a62470d8520c50e7d90fd580e3d1503"
     sha256 cellar: :any, arm64_tahoe:       "6ac99ac74405aba54f7b65a2b36ca561ba46b5566829dc1c2b9758cc8be12aca"
     sha256 cellar: :any, arm64_sequoia:     "514ae73cd4c7187fd2bbcbb18ac5f6f688ac03f389e7ec93c50fc29136f2c5be"

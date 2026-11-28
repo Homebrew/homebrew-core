@@ -14,6 +14,7 @@ class FileFormula < Formula
   end
 
   bottle do
+    manifest_sha256 "f850be427636843c1759c26c12242cc01340010a0507f2be580ae5a13150acee"
     sha256 cellar: :any, arm64_golden_gate: "35b1e7ac74e2ecf8759d3181357de9f78ee09ef6b1db5d058113fa23b981fa45"
     sha256 cellar: :any, arm64_tahoe:       "20a86cf7e73bf15221d571d5ccb0c27d7a4dbdbb1b0dd442cf335f3010db6735"
     sha256 cellar: :any, arm64_sequoia:     "b63a49e329af2af9c2f587b5f1ce1a2ee11306328debb50f2a06dfc7d1158668"

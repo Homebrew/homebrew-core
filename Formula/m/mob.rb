@@ -7,6 +7,7 @@ class Mob < Formula
   head "https://github.com/remotemobprogramming/mob.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4f642d96fef98de9eb83bf503fff1103c50a41bc858059b6ed0edffd6f9786ab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df5a204f29366a4521a640a1328cb0d00873a02511ae0d5e2f4d8682a67e3f62"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df5a204f29366a4521a640a1328cb0d00873a02511ae0d5e2f4d8682a67e3f62"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "df5a204f29366a4521a640a1328cb0d00873a02511ae0d5e2f4d8682a67e3f62"

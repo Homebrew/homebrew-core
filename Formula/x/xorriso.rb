@@ -13,6 +13,7 @@ class Xorriso < Formula
   end
 
   bottle do
+    manifest_sha256 "3bc447e71384d4c114e2703d03f913d06a2675eb0ab4e7a4269937f8941aa87c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb73c3f8a5774f08fa1f1b3a41800e16e98950d5fc3236cc21c3a157a252d66a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5741d0c557d215bbed7c7cfa0e27fa783cde03b1e24d1573c307a0474eca4cef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42076b4f0ba09e08ca8a87dc0609b89788661b6e30577022119a934f8dd7197a"

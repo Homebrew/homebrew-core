@@ -7,6 +7,7 @@ class Kuttl < Formula
   head "https://github.com/kudobuilder/kuttl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "67943d8ae123d3ff03b4db30824f7da2fe978a3eb502d3767ebd0b6a8c959851"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c373d20a2189c796e01a0ea310c626143554cfd997c82671420faa6462a3ea34"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c533509932a27a31392e9d63ff6a48a8bef2858ebdb3d57d850f2aeab61879f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2df9160156e122da8b6fcf4bb0ed5fcccaf09131d96598ee6c0fbb3e9c0c99bd"

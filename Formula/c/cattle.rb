@@ -20,6 +20,7 @@ class Cattle < Formula
   end
 
   bottle do
+    manifest_sha256 "c80c768a6710b73f5b0082158a62f07d74a0bf92967684eb9708d3b7c9e0460e"
     sha256                               arm64_golden_gate: "72d214ed4df4ab97b31609775f7fa3ab10fd7ac8a87fc32de1cf09216c2fea97"
     sha256                               arm64_tahoe:       "e0a80736a4afb81659a8e8eaa4dee70a320bc7c8f7c756d14891c333f65748e6"
     sha256                               arm64_sequoia:     "502399f17e0777926e50b1a067eff9ff5520bcbf5457fb73156376891726d411"

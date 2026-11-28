@@ -11,6 +11,7 @@ class Artillery < Formula
   end
 
   bottle do
+    manifest_sha256 "eb9dfc1897855f922098630f47c53651afe1fd54cfa0718ccde765365237cfaa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47aa9a02ff78497faf2021ee9356d68a50e44fadfda1f1fff2d5aca2d5f60f99"
     sha256                               arm64_tahoe:       "9356f86944c290f43571caef54cc62c811eedfcdd29e37fb31ab0937c6ad07ac"
     sha256                               arm64_sequoia:     "8dd6f1c91a1fe2db3e79af9a7b55c6c6d919dc55964190edc8bd73a861599f4b"

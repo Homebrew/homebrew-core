@@ -6,6 +6,7 @@ class Cityhash < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0a85736f09a30efb8201ad30c542de3e3146d7e765f6d9fe21067a671efac9ea"
     sha256 cellar: :any,                 arm64_golden_gate: "64aca84efe8262f21538502f2f9262eb679a22a37989ee3ee3f22314253c9bad"
     sha256 cellar: :any,                 arm64_tahoe:       "a48224df147a6510be1f81144df6c5060ec5c053121bed9ff26e3bc0344585ed"
     sha256 cellar: :any,                 arm64_sequoia:     "ce559172129f8c960379c6cfc4f513d8dce917f386f4471f1a1ab5766a0acffd"

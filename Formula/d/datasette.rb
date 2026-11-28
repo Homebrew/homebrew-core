@@ -9,6 +9,7 @@ class Datasette < Formula
   head "https://github.com/simonw/datasette.git", branch: "main"
 
   bottle do
+    manifest_sha256 "993a243fbab3aea519c23ffda7b4428fe0eebde695b04f21368415b764c8ea1e"
     sha256 cellar: :any, arm64_golden_gate: "3eb8243854a04a2ae360c705e090ab898a4220bea0d5b4880b3dc3325d1e76f3"
     sha256 cellar: :any, arm64_tahoe:       "caa7773b3720456e94fe92b06ca434249c90b4fe276c1bce4cf67cb9d95fe8bd"
     sha256 cellar: :any, arm64_sequoia:     "3ed971719db450455da37c60223bbdf394782def5459581ee2b230b561ecd655"

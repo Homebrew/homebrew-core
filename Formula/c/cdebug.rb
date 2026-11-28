@@ -7,6 +7,7 @@ class Cdebug < Formula
   head "https://github.com/iximiuz/cdebug.git", branch: "main"
 
   bottle do
+    manifest_sha256 "33efc91860717fdb1bd034c9c761b3574f2b083b2203a2b02e13138c01cd7824"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5507cdd3ca194be5f6bc371608f9f64d8b5936d837da3298a4fe7ae6ca798068"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3158b41fb2723b2e09dd4884a9e1e0f280605186931172698a79a46f50cfda55"

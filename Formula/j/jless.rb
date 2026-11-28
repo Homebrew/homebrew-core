@@ -6,6 +6,7 @@ class Jless < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d129b3725b8e391ef5867c5e15529ce13872d24bc1eb2b34893ecf434e1b4ff4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75f1202e8d230683ab9c1dd8af9bfa95d11781c53cf6bf7cae2f6ce03d7b42ed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b17c0b4b3fc59321e8ec683fb7811aac39c4e928191f18a48a6c5ebe0ef5cef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6227a6ccd685510fd4a4db69ac652e12b785dfb320afab4dfdced92ca546f6a5"

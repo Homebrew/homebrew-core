@@ -11,6 +11,7 @@ class YelpTools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "04470da4a80c3f4625807763c0c829e85449ae6d892e6b2301d0a3e5e096f2ba"
     sha256 cellar: :any, arm64_golden_gate: "77c8c92eb99e889b03952f2b35927d6f805401e1e3bfda3aa289a689b9c8cb04"
     sha256 cellar: :any, arm64_tahoe:       "5ca8695e886e3b296dd0a1ee3f973a62233fadadc255b9539a1b5e7b7051b03e"
     sha256 cellar: :any, arm64_sequoia:     "2b431b1444438b813deca46ec0f2f4c66da0b4696e8726b6e202bed041d993b6"

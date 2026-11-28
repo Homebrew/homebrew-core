@@ -14,6 +14,7 @@ class Libdecor < Formula
   end
 
   bottle do
+    manifest_sha256 "14903ad7b3e4bd81ebf8171bafa178b1bf245b54bd8429464c123285df636943"
     sha256 arm64_linux:  "a33126a6a50cb479b6e6cf78afb9c78993e0d4c32fcaf9a7b0809b74691185e2"
     sha256 x86_64_linux: "615d9589a6c9b46664d33c1f955b29659c09b7503ef0e1ccd7444a400cbcec90"
   end

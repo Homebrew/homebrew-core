@@ -7,6 +7,7 @@ class Um < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8ae6934a76e2589395bfdd3f87e58f11b630ab3a6006c2dffd117e5b9dea5239"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "911bfea4cf78ace2bc79cc1997540415d7fdf4437bca0c9180fb5639daf38c86"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "957d4984160680529f05dbe36a2363b541a29f288dde10c65cc3eefa05934cc6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "957d4984160680529f05dbe36a2363b541a29f288dde10c65cc3eefa05934cc6"

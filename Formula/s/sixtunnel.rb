@@ -6,6 +6,7 @@ class Sixtunnel < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "c952a2392a99cc914a1ff8f3a8948c237e050059df4f92c40cfa522a06fd41c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "de34c34f57054508ccf1dc6b3cc305ee3c33e067b7216c65c3aa9582a88a08b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31ea36bb0c9a65137e00a01c1771740d1e716bbec5fcbd9d1395488ed8fbe9d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4835e877672bb690cf45d67eb1abc2d818034668b0c1980927151e1ae9fb6025"

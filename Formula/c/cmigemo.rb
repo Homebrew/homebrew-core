@@ -13,6 +13,7 @@ class Cmigemo < Formula
   end
 
   bottle do
+    manifest_sha256 "3be96d625c56e7b61382b1b5ffde9f7e46e991b9d8eb7f334c7b6444373ffaa2"
     sha256 cellar: :any,                 arm64_golden_gate: "457d81dd9101c789a5844edb826b1665fb39ccbf780a4ca6572b1c0b0910da23"
     sha256 cellar: :any,                 arm64_tahoe:       "b8bf233fe044c8a2bd5bc24fc9bf11eed7aeb0464f67bd7d7ad48f6d9e8edbbf"
     sha256 cellar: :any,                 arm64_sequoia:     "68bc0630d1414e71d16c8a0f39add12897a7f874119a8eeae19e44f28df8706c"

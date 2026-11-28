@@ -7,6 +7,7 @@ class Reliable < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8412786348ecabebf948db985c3c3d867fb544e787a32a4a957d5bf562ef6bbe"
     sha256 cellar: :any, arm64_golden_gate: "5e6aa427352f112d101cf29291e1e464d491d7b68b695ce63c5a71762a72927b"
     sha256 cellar: :any, arm64_tahoe:       "604c34b2a6cc4f5b69da2b80a12b41b6a01a311fe64bd9de79828eeed9c0fcb6"
     sha256 cellar: :any, arm64_sequoia:     "3747f989f895b82cb05df9fa9939b18f5be8c8a2b52181f2152c9ebb09480cf9"

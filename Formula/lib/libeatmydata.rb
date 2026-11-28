@@ -20,6 +20,7 @@ class Libeatmydata < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ebe8c394a4638adffa48a42703d9456fd5b947acfc75611e405c71446530a263"
     sha256 cellar: :any,                 arm64_golden_gate: "cff8c6cad43a0bec1620d96d113607be1296018410b598d6fdcd14fc6584c00d"
     sha256 cellar: :any,                 arm64_tahoe:       "b3541c1127dc057cc98e54fe64f65e7cea63040258b7d8dd33dcaa99cdd2f9bc"
     sha256 cellar: :any,                 arm64_sequoia:     "1d20eb672c446fa9b5c6f44e1f75a165f23b993be2f11ae203e5fe7a4d9a20ec"

@@ -12,6 +12,7 @@ class Winetricks < Formula
   end
 
   bottle do
+    manifest_sha256 "2ed1583bb2d8da5e584fecf39fffbba1a13ce25b1aee57b4470cc8ef92087b40"
     sha256 cellar: :any_skip_relocation, all: "ae2359e4cc84f0b29407d3e4d8824c14ea950f107016b24bc2edf4c01b54485c"
   end
 

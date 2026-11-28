@@ -8,6 +8,7 @@ class Reshape < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7d586a9c12f26421dd48f5d3e60af97159657831838f37cd123c62cdc23bb46e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "919a72c78fec6d8aeecbd0c2eb836a957dd18ed6b7bcb12db06f420e4b4e59b6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "051c88ed0a4bf73cf812a04ea754fc8ea9838c8ecd26e305f57552ef06a93b7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7fe005ae39d7393fe28fc3fb9e659f352f96bec9c33af198397ba80aae2b8f1"

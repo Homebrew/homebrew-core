@@ -7,6 +7,7 @@ class Lolcrab < Formula
   head "https://github.com/mazznoer/lolcrab.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e8518a146211414e0e6b22ca4aaed2ecee4236cbf6d114f17075492f8dfc4af6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "221c480d2bc40f65a6c06b0bec562f3887f6629b208325dc2fde57f43cf623db"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7735ea58e17ab33fa707c88762e57e78b126f328431536d2be729413be132957"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d410c8c3acea7346c1f07c55c8e0227f6410877e35a32f8a7b8beaff4a9f6b36"

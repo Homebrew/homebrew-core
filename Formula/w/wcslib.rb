@@ -12,6 +12,7 @@ class Wcslib < Formula
   end
 
   bottle do
+    manifest_sha256 "d91ae13df5f32e88e24261c2daab48968f8655c8e62147d50fb125f9d60660c5"
     sha256 cellar: :any, arm64_golden_gate: "21a9a9505c067ae549847298646150718819a9a1ac798c77efa418dd980bbbfb"
     sha256 cellar: :any, arm64_tahoe:       "da68897509ba16a668255155c38c88e4e595420b6845903ab41985bbe4df997a"
     sha256 cellar: :any, arm64_sequoia:     "71e292d9ee8dafadfeb5a0f8ce0282c5d934541a7b81059f7b9a3673476b6759"

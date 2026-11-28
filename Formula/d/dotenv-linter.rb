@@ -7,6 +7,7 @@ class DotenvLinter < Formula
   head "https://github.com/dotenv-linter/dotenv-linter.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d508ba2c227a3737cb6c76083ba3745277e0393ebb36a67c2d9646efde5d61b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1d1f32ac6c15e0c9178508ddfc4051545c1c3228ebf377d7b0f6439b00e93cc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23826a36202a165deaa312c7b0029d0c02eef0d21b49c56d20f2deb23cf38de0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c18328c0319bad89891c989253a6ee818fe235f9d439bea847a52b936f50521a"

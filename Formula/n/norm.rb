@@ -7,6 +7,7 @@ class Norm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "005da2f40a721b15b11c7390d6d7eccd28667063525663f40d6019642de1dd07"
     sha256 cellar: :any,                 arm64_golden_gate: "02ad2bf5b58ec821cd29374826cb54910091fe90c4f7524d516d6c02d80a4c62"
     sha256 cellar: :any,                 arm64_tahoe:       "a8b6f0061522bcf29d931c09c1b59ccaa2d80ae14567f7c5dd26daab0c4931bf"
     sha256 cellar: :any,                 arm64_sequoia:     "42f6765ea93269821c415353a75e0439c050430e10d633d259667834b9d00da2"

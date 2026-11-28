@@ -6,6 +6,7 @@ class Aide < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "5fea6a2f759f6a52bdbd53d695f01d75c04d936f20137b5f787ad6d27c7bed42"
     sha256 cellar: :any, arm64_golden_gate: "0a5ed63b74a93bfad3ab08d88509e4fcf6bc4f8772048812369d616168b00f58"
     sha256 cellar: :any, arm64_tahoe:       "f0bc01192335ba42f2a506089bd662604726f0173fb326a5e6751d4074ad9cb1"
     sha256 cellar: :any, arm64_sequoia:     "c2317720077166aa280cca923c9335322c2eecbeea05aafefdcdb5904020a8f7"

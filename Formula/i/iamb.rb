@@ -6,6 +6,7 @@ class Iamb < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "161e2d1e23ac756ef8f9e3b546fc9731bfcda4c844883fb87845a3b5e0f29592"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d54a8ad85db5e100b469ecf99707754a5174456d8c39e553430a288fb3764d7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "869e4d57684b2085f6f0da9e7f13281a134f34e0c277aeb547214063c0a073d8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70289892d0fe9f3b0b763e6d64a4c16ce14398e2ce6b3fc7d23bdc3e4e55290a"

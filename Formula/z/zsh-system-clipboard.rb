@@ -7,6 +7,7 @@ class ZshSystemClipboard < Formula
   head "https://github.com/kutsan/zsh-system-clipboard.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9dd8a76eefd88339c6195620c5bee146404610f8ce8f1d4ea5487bc69a8e9643"
     sha256 cellar: :any_skip_relocation, all: "0020905311350f9aa13a1a35b0632667fe6d4e3bcbbb69110add37eb2ce83b16"
   end
 

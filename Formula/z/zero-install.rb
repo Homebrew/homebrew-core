@@ -12,6 +12,7 @@ class ZeroInstall < Formula
   end
 
   bottle do
+    manifest_sha256 "7fb441c3455ed011fca54c890c19b355d20caeb9ad210427f4ca834d156eb62d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2071d2964e8dac40fd93a7dc52ef5159cb0d379a540af92ee35123dc89987e64"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "72363e55fe980db764f061a8963c2e9fe3fb58370b1daa7fa48ce4bb2729990f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c693f4d80b111a0a5358f8b473320134c026a20d87febc6f827bab257876baff"

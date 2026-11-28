@@ -7,6 +7,7 @@ class Sbomasm < Formula
   head "https://github.com/interlynk-io/sbomasm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7488f943d7a3af0c9c195610c693bf514351b9513f494e2e09e0ff5bf18eb59c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed85cd241fc50cb98a64dcdb5ec39224d8075d466c3243ba8d84366fa5db52e4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ed85cd241fc50cb98a64dcdb5ec39224d8075d466c3243ba8d84366fa5db52e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed85cd241fc50cb98a64dcdb5ec39224d8075d466c3243ba8d84366fa5db52e4"

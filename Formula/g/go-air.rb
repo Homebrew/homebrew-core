@@ -7,6 +7,7 @@ class GoAir < Formula
   head "https://github.com/air-verse/air.git", branch: "master"
 
   bottle do
+    manifest_sha256 "929c943d6b20d9e387975ff5360208359eee18e5097c9a84c1622b6efef55e60"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "49cd4e9d3b72b0eab631f17205278ab2a5f793a3c2f9c93af527586ff08a2e3a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "298a3377feaa535b41040e524c813958f6374016ca91996c7711ed10413c8f34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "298a3377feaa535b41040e524c813958f6374016ca91996c7711ed10413c8f34"

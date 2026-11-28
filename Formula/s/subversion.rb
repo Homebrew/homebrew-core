@@ -9,6 +9,7 @@ class Subversion < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "39adbf348b8595d474ba95e20575e420945627e532de8c1ee19b3f4c0325690d"
     sha256 arm64_golden_gate: "e57dec28a5f11bcf11f8ba204a4067dd831097ce3087fae3d621756b670dd48a"
     sha256 arm64_tahoe:       "33e911ec83ea6db1147065875c787523253c281340ab5c83536a4d105c9d6f3c"
     sha256 arm64_sequoia:     "560f093e7676d74f8f503463c870706b28ec109cb8980ce6e818306aceb55aa2"

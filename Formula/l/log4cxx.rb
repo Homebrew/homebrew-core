@@ -7,6 +7,7 @@ class Log4cxx < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "96e17531b46541f3877e2694ad62f386f00f441f732fd2dd72bf71b9bd10227f"
     sha256 cellar: :any, arm64_golden_gate: "51d1f2f5770c49b19589b1641e96e8434bcaa0ceac8a2782e475bad50cd0045c"
     sha256 cellar: :any, arm64_tahoe:       "0d7ee7d9aa9ce60bb61374e38eb310beaea6390bf1ccfec1e18df144ca35d176"
     sha256 cellar: :any, arm64_sequoia:     "d912c164e94ed6069b98961cc16fb6cc17e8c61ce65537852fefec4fb1bfd167"

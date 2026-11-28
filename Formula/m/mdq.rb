@@ -7,6 +7,7 @@ class Mdq < Formula
   head "https://github.com/yshavit/mdq.git", branch: "main"
 
   bottle do
+    manifest_sha256 "37c26dbae802405b4c42ebf6d52af0dd5aa64e3e461423d7b232de2d63e0f4b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2d70e6891d8dfde8d97a77d1008a0b7f46d5135ba692a7bf2d4cf4cdd9a966ee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "44dbf65e532102fab1fe3696799e103e33914180cc4ff55f53c27581211dab8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cedf5a7d73236bde6a4b2c844b89f7c684345d55f1772c52cc626e3f3903b713"

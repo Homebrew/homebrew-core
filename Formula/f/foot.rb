@@ -6,6 +6,7 @@ class Foot < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "533f878ca91ef6eea8a3c91b3119a4fe6d9ece91610f852329ece5954cc336ec"
     sha256 cellar: :any, arm64_linux:  "71c4df04a0e31846d7e9a9cba3acdb91aaa6f92e53c4452e78727f12b0a6d5cb"
     sha256 cellar: :any, x86_64_linux: "4d702336db3b0885ea84b20f2f2c5d8875d6b0f815231fef460f00e988cd4d8f"
   end

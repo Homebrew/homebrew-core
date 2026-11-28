@@ -7,6 +7,7 @@ class NagiosPlugins < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e31dad72fdd2d49aadb3c608ae1354fbff2a1cde39f335ea6de7328013790311"
     sha256 arm64_golden_gate: "3e443f22cd930fb03b05bc21a1999261fa45438fcb42f42c2b989f0e89fb8355"
     sha256 arm64_tahoe:       "5628345a480acea682615f3e8d7019113801d34734421111ee9eec7feef0c2ee"
     sha256 arm64_sequoia:     "04adde77b1eaf68bba563e941c8d91cbed9f3e76c8e97bab5ecafd6c5f74cce4"

@@ -11,6 +11,7 @@ class Digdag < Formula
   end
 
   bottle do
+    manifest_sha256 "c8d4ca156a1eb6d2bbf9f49b2ffa8005c86cfd74fe7ae3884a6cce7fd94f1629"
     sha256 cellar: :any_skip_relocation, all: "3af153565676568e99be6edfa30c63e2729d7c3e0b1c89cad5fbb49550be4ac3"
   end
 

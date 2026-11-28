@@ -6,6 +6,7 @@ class Seam < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a4353c7c4757ba585b618b2d646d06b14ea7782f49885745b0e5b7453e55d6ae"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fca55a27f01847932a0e31d047d6d2fe377320ea2e32cd784c4b2e65d12414fd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5776e248c793147f00b46b19080a1402107c6044e5b70ed691b8ba476db3f94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53bb37a4c8ff3f0e47bfce2af52178b4321b679825bd56a2c2a2b7af365743f9"

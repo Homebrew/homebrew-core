@@ -11,6 +11,7 @@ class CloudflareCli4 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1844a736365ae1e78ab00d767f92a259476832af4e6bc4cd275b030ce1790ba1"
     sha256 cellar: :any, arm64_golden_gate: "66b7debc1448f7e784080a6e9e5fd5e1dac0f370dcd44590d56c1c8832c0dadc"
     sha256 cellar: :any, arm64_tahoe:       "08a8f55475eb70c4ab1776e55d8a2e944555740acb0799718f1921bc8be60649"
     sha256 cellar: :any, arm64_sequoia:     "26cb0ff5ee86c2de8b6edbe8793625740067340a4cea28c87b23d1f130dabc94"

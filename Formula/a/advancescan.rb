@@ -7,6 +7,7 @@ class Advancescan < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3ee43809a37e494627f712b994e5843bc354d678511adfa67451a874470f4bec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e5188d3a65fce9bc90b751e969f6495315f68e9475d94ba34bf16467d27f4d5c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "911a3103d9849fb5bd1ec1b79d63a77efe11af81bdcda9306682ac32c0a5feaa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d51fc384b0cc7ea1ad507ed2b4e4c4c8bec82d8661cc331c12ae3ef562371ce4"

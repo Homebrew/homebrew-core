@@ -8,6 +8,7 @@ class Dvm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "884673e8c8e1cb148cc2ca0b51c2488bfa64ce7eb6d8659d0d568d7d435a2cc0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2943027ef8de2df445b84f0f406fb904afcad88a1fa8a4cb8c10ddbd0385595"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56c21e2d208ab2c2c030678a272eca714942866e214155e012863c06f103f4bd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10b8afedcce7c95c0d246413aa284e6d7ace1171365c4ccb69998e7a42142d11"

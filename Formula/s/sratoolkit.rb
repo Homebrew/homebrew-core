@@ -23,6 +23,7 @@ class Sratoolkit < Formula
   end
 
   bottle do
+    manifest_sha256 "d7f8417501134a28ab90f2dc55515ad1da5a25c48fa74156d34832965d1b9582"
     sha256 cellar: :any,                 arm64_golden_gate: "c3ce8ec61a97cdaafaf0347df1e8496dc51c7acdfb32eb0f5cae316210b65ca6"
     sha256 cellar: :any,                 arm64_tahoe:       "ea15253c72d8bfbac1caaefac0cf90bc48d6a215af38d5d0b8af0cae50be524d"
     sha256 cellar: :any,                 arm64_sequoia:     "2eb1898cc5afb9fb2e81c1f56a25cdea78385d8a1236721723f36a2223a59c66"

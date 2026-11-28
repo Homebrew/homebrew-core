@@ -7,6 +7,7 @@ class Libpqxx < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "ebca3ee08363509c34f607a1b35ac58c27e1371fcf12a6bb8ed753022e2bc38b"
     sha256 cellar: :any, arm64_golden_gate: "86baec85a91cc925e483e56e4f134e87e3298db5ab4a822baf4a00ee1b98eeb9"
     sha256 cellar: :any, arm64_tahoe:       "0d30cd49ad4b035df2f372c37c5f263247fea8708b18d0cda5ce8399a52f83db"
     sha256 cellar: :any, arm64_sequoia:     "048591e09583cba17b6064712cac75a8593bb557b3c6a30f7d895789d06a6c71"

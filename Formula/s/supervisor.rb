@@ -10,6 +10,7 @@ class Supervisor < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "e1b92822e4a9245fad5bb5e0f20a36b02678e0904062c7438133c6ad72344c2e"
     sha256 cellar: :any_skip_relocation, all: "d81f535e38854e5c83abc34e9400fd2cbc18119947e38cadd097e23f68a9fe72"
   end
 

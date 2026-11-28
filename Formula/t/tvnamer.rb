@@ -11,6 +11,7 @@ class Tvnamer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d84feb5d2335b8acb7439ec8ca6c1770acfdb04a3f7407c9ee2d44e1d246da6f"
     sha256 cellar: :any_skip_relocation, all: "14af555342d269febac06261304c291cb99fad4507f7f6907d349c9d44799dc8"
   end
 

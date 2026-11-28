@@ -11,6 +11,7 @@ class Xcursorgen < Formula
   end
 
   bottle do
+    manifest_sha256 "809de7f20d2e91fa8cccf92db0cfec4cd1d2391173bf63b95d52889e9558ef1c"
     sha256 cellar: :any, arm64_golden_gate: "26b020af08e4c840cd547b19e6c295b71bac2ddfe9c1243cac0a6ede358ef5da"
     sha256 cellar: :any, arm64_tahoe:       "5a0713ff32c930decc388076651fe5e73beb21aa505b03dd4b2728749663d7ea"
     sha256 cellar: :any, arm64_sequoia:     "292615a8474ad7a790aca93e4bc63e0662ff7edb3ee20647b4883ac3172befa0"

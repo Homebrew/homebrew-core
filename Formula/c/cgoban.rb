@@ -7,6 +7,7 @@ class Cgoban < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "b54f89d188595d0b3313745f847b33907ebe284cddfa220036d8f4acb23bd2a2"
     sha256 cellar: :any,                 arm64_golden_gate: "95e7a7eeb9abbae6bb4f4c4cb26d0597abcfb44fd86c656d8f7503efdb7a5693"
     sha256 cellar: :any,                 arm64_tahoe:       "bcd2fe4d496b2e85dec96463a19aef542173bb207e4529f47935cb679f4ed277"
     sha256 cellar: :any,                 arm64_sequoia:     "a775648cbc6f12427ef0a6b83a920bf6b565e3b70b60ce75974d926eba786595"

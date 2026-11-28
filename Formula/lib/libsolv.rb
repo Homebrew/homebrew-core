@@ -12,6 +12,7 @@ class Libsolv < Formula
   end
 
   bottle do
+    manifest_sha256 "8db34cf90a753124fca8aee041504102778f96e315ab3e56a8463c383dd15012"
     sha256 cellar: :any, arm64_golden_gate: "d933d98120851fcb1fac9c504692f7cf75b7671d503d1a787bab8609a4c9b984"
     sha256 cellar: :any, arm64_tahoe:       "dc1d87aa724eabb7ab33863e237780a69df6abbb428d78fe2c87f20f713f13f7"
     sha256 cellar: :any, arm64_sequoia:     "0811abf8219416237a8844c232b9ca687b6e61e60659bb8a1bf11b24a8fad047"

@@ -10,6 +10,7 @@ class FortranLanguageServer < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "0b3993572247ee6b71e8f77f8ccdfe27df9ddc603f1242c49e347608c8ec217c"
     sha256 cellar: :any_skip_relocation, all: "1b328874faa138df2de1e76ad733fa0917ca34c80b619dc13e219da3748d3c99"
   end
 

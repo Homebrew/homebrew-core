@@ -8,6 +8,7 @@ class Crystalline < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "74a207b65e1557f7004501daa2b2ad9bee4588451bd416a5d2f4d1b26c4a46ff"
     sha256 arm64_golden_gate: "5d1b267aa150b0861e16323f7e77ff141546aabaa631b951a8215ff1265fe4ad"
     sha256 arm64_tahoe:       "ac4becdc7a7232e0ccdeb03db13db3530c8cf52920c835574316fde46b102ec4"
     sha256 arm64_sequoia:     "bbbfb855eaecc0fc7f6977e9ecf6cbbf3454d65885eaabe65a9adbf03027b76f"

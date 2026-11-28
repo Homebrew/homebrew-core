@@ -9,6 +9,7 @@ class Sysbench < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fe00c122a09266053f09bb7f3809ed46dd40d69370646f2b1f0b117d335bb47e"
     sha256 cellar: :any, arm64_golden_gate: "18b8617b1b751de9708096f2d5fc4dbffc2b17ecb19a270101156f6ab287eca2"
     sha256 cellar: :any, arm64_tahoe:       "15552662a25c619ba6c94c583c6dde95889f0c77265657d09b4e01bb824085f9"
     sha256 cellar: :any, arm64_sequoia:     "010ae049456b9bafd3eb3ce43553e7186e3e680616ea27ee0964cef0e4f40e2f"

@@ -14,6 +14,7 @@ class ClojureLsp < Formula
   end
 
   bottle do
+    manifest_sha256 "bc9eb95d0a653a9dd09d010305033a253d89dbe4882747e30c3be0b934693d0c"
     sha256 cellar: :any_skip_relocation, all: "b46a4eebabbadf8190dd4cda4f22b81ce9d36d2da1d0878daa4560e354b510d9"
   end
 

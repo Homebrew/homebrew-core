@@ -7,6 +7,7 @@ class Vcflib < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "86464629a5d940af0ed93dea3aee793ca10a9f101a1abe4b03b7a082b04e4304"
     sha256 cellar: :any, arm64_golden_gate: "0b339d97915ac67f305370bd1740bbdd9a75250960b4e71ad5a7c5d24d7654cd"
     sha256 cellar: :any, arm64_tahoe:       "680d0feafdaec559754c45d28da285e78f0e856c524e9f20ae06c1dc68808e77"
     sha256 cellar: :any, arm64_sequoia:     "d13ba9f4eb4c624162094da61897ac7952920a1db1dc178456462e40b24977df"

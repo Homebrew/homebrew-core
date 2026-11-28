@@ -12,6 +12,7 @@ class Libresample < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "994af65ea8eab8bdc3f35bb997a72917d5f3bf033e5b76742e829f2779ece5bf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "367bedd74856265b46c1a57b577482da8d679a806e9684f38368e814ae6022e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "068cbb861da9420760739f884f5d0da524f8d6dd8fbb3496771038f11beb3e2f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "79e7e1ab8736164c5c9c6ceb299995ec9771f0cbc3be4d692799595a5ae844bf"

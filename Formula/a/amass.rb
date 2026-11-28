@@ -7,6 +7,7 @@ class Amass < Formula
   head "https://github.com/owasp-amass/amass.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1ff1491f1ab0df7b9ab437eaa93337f544202bab9db1de1d8de206fb09450c94"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48f97158e2dfbaa19515ee25121d5544c50d78217e631761a51d96dcbcec8388"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "48f97158e2dfbaa19515ee25121d5544c50d78217e631761a51d96dcbcec8388"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "48f97158e2dfbaa19515ee25121d5544c50d78217e631761a51d96dcbcec8388"

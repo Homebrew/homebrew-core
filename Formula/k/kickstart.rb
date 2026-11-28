@@ -6,6 +6,7 @@ class Kickstart < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ef73969735bcc1c29e62396966b00ef051c711ec47cf0582c748ed56acd6b4be"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cab8c93d283eef43e566222ed965157e18d2b7ee1f3db664a61f0461571037d5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4da704a13fe097f488ef7ffff14c2449e08ce87f0863c4d3b0ec1fb4d84d817f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98d5fc2c7dd19846e28d7d3ac0aded2ba9d05a7027a2cd9b7d5d544aa643ae50"

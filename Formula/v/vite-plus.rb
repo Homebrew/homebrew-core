@@ -7,6 +7,7 @@ class VitePlus < Formula
   head "https://github.com/voidzero-dev/vite-plus.git", branch: "main"
 
   bottle do
+    manifest_sha256 "52886e1fb2b2012eddbeb6076dbdd24e139f3cc885dc5f49a2ccfad5cd52f520"
     sha256 cellar: :any, arm64_golden_gate: "091ef5814dfefbac9de99ff0a96a50cc83c7f8ea1604619c889fb320371de51a"
     sha256 cellar: :any, arm64_tahoe:       "123eff351bb0fb8822036aa7a2aae7d819ec0857444ed53fc29912225d9be383"
     sha256 cellar: :any, arm64_sequoia:     "79ae8fb1b6556f05ecc263c21a4996a528fa15caa4330ab2fc5d60744df8c4ad"

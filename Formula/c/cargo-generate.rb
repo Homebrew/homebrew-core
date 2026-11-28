@@ -7,6 +7,7 @@ class CargoGenerate < Formula
   head "https://github.com/cargo-generate/cargo-generate.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a9cbe0e76794524ed446f7ada0973d74ac051a4f225872140eeaf48d57fe7be3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cbfe72651856266cef66c4a5586f591cb869a18864790b34e44bc78bc3277723"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26d1e89a86f50f11e5e0b1c32a74a5882156f9668624b406cd51f4a1cd2e393c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b9d2f0c148e77af6ccb33560d87bb11f62496a1d65e592f67ad2fd0054fa1ea"

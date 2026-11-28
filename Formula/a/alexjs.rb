@@ -7,6 +7,7 @@ class Alexjs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "50f05fe27ee42a2d417426ae9e79280c54bcd0a67698af3923f1e25ecb0a62f2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95e74dc83dc5035fe604c2eac04d20d772b587905f0714bb15444a544dc114bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8e7666f1bbca1055363b542c7937cfcfdcf2ce1667f8e01a3013353a0b32ab8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02502faa257c0027e461b00a8f802c5bb60de704c3f75afbc09aa41b51763d71"

@@ -7,6 +7,7 @@ class Staq < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "8a4f7eec9124f41ce30ce001a4a154aae88ed102b880cffcd6b38157d2d88b31"
     sha256 cellar: :any,                 arm64_golden_gate: "4dfba32ce4385c38317340816f40dcafadf42eafdc2a2872c66e86bf8e9d37dc"
     sha256 cellar: :any,                 arm64_tahoe:       "1518fdd5369e20863afefa4158c78b87fc4f01cf09967623a2b1af8225499790"
     sha256 cellar: :any,                 arm64_sequoia:     "8081f841203e64e3423fb6305558c1a538b86fdcbbd2e13d02944ea36dfa9ae9"

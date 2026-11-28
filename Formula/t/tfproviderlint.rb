@@ -9,6 +9,7 @@ class Tfproviderlint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4533c0181f4e37c49416152ecca6442006ea14b2f798b684c96b9edc0f6ddf30"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c79c8faa554cdc638e79f60d5b567318d5ddfaa8c4272ec420b991a40e1768af"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41e55bedd7227335e6654821fcd14e582d8c48514d8df62a9136a8ef15028d90"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41e55bedd7227335e6654821fcd14e582d8c48514d8df62a9136a8ef15028d90"

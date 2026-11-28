@@ -7,6 +7,7 @@ class Tuxedo < Formula
   head "https://github.com/webstonehq/tuxedo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "39a0c15d4099ef55b42c88e96b51a38bcb76732f2f7a62413718303ef8a8d8e2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1fb2c53041bba38545421c4e28de3e963ee83e96e46184817300507344005db2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02e596e023b079e75b764569297946a78348faebb31e30fecff0f1f1669c4438"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53450041aa8827e0c2d94989d2cccd3b3e93ab3f2552abbdd7fcaf94b9fcaabf"

@@ -7,6 +7,7 @@ class PythonLauncher < Formula
   head "https://github.com/brettcannon/python-launcher.git", branch: "main"
 
   bottle do
+    manifest_sha256 "104dce20b63feac81e7c1214798553e27e530ec57139ea91c14b9fd51ccc3efc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3de711124f2171ac69386e54127ce61d42eb5f09b3a9cc6535a6dd54f168bb7f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d27061039235be846906ba326bd45b8f80aeb0141be76073b509711d3fe28cb3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3af917b0de67e1c9922fe684b03a9097297591db60a7991b8b7229851180f548"

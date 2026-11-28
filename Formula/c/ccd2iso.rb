@@ -6,6 +6,7 @@ class Ccd2iso < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "d1abba5a4ea512444986ad674e758eb0b2df704553b4ec81b105780d244c10ee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "13e086d91b8537a0d3c3caf2ff4ca022168c99ecbfb7fea2e568b2b35c581a49"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0fdfe74cdd573d4b411974eb51ff6d8dd0be85e2ca817a42517d7651f21f638"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7196c00e29751b4d90307dcc66d0d0f329dcce6bc4c9ce9ae88aceef81e55ee"

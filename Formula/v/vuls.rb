@@ -12,6 +12,7 @@ class Vuls < Formula
   end
 
   bottle do
+    manifest_sha256 "11304db2230e7cf3c2c3fb8aa4fe764f3e873cdcc4aa0a293186e17f1af5389c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09e7834ab3ae9d0fa80652eacc6b97765ab50570f5ffae9d501d6ca3ddf7ecff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09e7834ab3ae9d0fa80652eacc6b97765ab50570f5ffae9d501d6ca3ddf7ecff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09e7834ab3ae9d0fa80652eacc6b97765ab50570f5ffae9d501d6ca3ddf7ecff"

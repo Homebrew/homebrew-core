@@ -28,6 +28,7 @@ class ApacheSerf < Formula
   end
 
   bottle do
+    manifest_sha256 "174b6a8672ea65be93a6e52dd21799d38eadad2b9784492727bd1d03df4c5312"
     sha256 cellar: :any, arm64_golden_gate: "aac88de1dcb7b335812f5b0a66a6b9434a39a4404d569aa769704db789afc49b"
     sha256 cellar: :any, arm64_tahoe:       "9a3e8a999e79bd42442c8a39b756eef6021981a41b7a42256fd29b9f926344ba"
     sha256 cellar: :any, arm64_sequoia:     "cf4ac030e7bd4999160a791d4625d88780e2175ef482ce66ec3d524b6b135cb0"

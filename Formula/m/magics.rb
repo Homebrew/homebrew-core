@@ -12,6 +12,7 @@ class Magics < Formula
   end
 
   bottle do
+    manifest_sha256 "60230ad2684eae03a19969663e07bb78c3b01b6431f93da2e08405a9f85451a7"
     sha256 arm64_golden_gate: "d9737c2e7d04839c1996eac86958d1a9bd39e3649a2f197cf913b77df0f1ef99"
     sha256 arm64_tahoe:       "cd5a2ccfa9e68d8293eca06d86e51d3841b44803f9da2914090009292e86610b"
     sha256 arm64_sequoia:     "c9b9a446d0d896390ebe374c377405855062445f3e1e63f58b8c03b52a1d499a"

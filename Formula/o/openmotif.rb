@@ -8,6 +8,7 @@ class Openmotif < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "48bcc3adebfabb6b707a53b4f0a957d4039300ee66fc99d72b1f128c3b1a51d3"
     sha256 arm64_golden_gate: "3a410bd04945d9acc95dac7946cbe079e8b98ac587fe8bead56dd16441b26eea"
     sha256 arm64_tahoe:       "c0bfac872caadffd55339660bae1d6f2b3c7e5453524561f7c74a8ee19c649c1"
     sha256 arm64_sequoia:     "891b9cebcba317b8a31d705ac752f285140823c8e49c2ef07723cb5c909f9c3e"

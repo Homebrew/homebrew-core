@@ -7,6 +7,7 @@ class TmuxSessionizer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "27ef6e133e750ea7bd21fedaba668ab23875d56d8876abd9df8d93679e284cbd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4e7d30c8bd4ccadfc38cdc13122ac9ad76963b5ccda6df050d490c8b994667d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "274c9a679489b35161ee3941b9935b3a414714d82571f22c2864ba9ae5e1c68c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "978c42dcc41dcc146049fd305e71926dd211f916301fdf41fc5225b64ca26c20"

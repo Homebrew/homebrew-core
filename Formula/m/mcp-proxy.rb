@@ -8,6 +8,7 @@ class McpProxy < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "91b17dbf9698e70eb488d3103dfd81c504d00d6cd822e33e9ee573e1d8fa9c82"
     sha256 cellar: :any_skip_relocation, all: "92f61a19273e176623a7c035144c84f70a94bb43e72403db35a5cbcd318284fa"
   end
 

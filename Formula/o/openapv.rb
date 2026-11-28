@@ -11,6 +11,7 @@ class Openapv < Formula
   end
 
   bottle do
+    manifest_sha256 "4c50b183c9b9eb6b39b7b07465308e16c0ba07dde3e79d48d7f77b83353f3c33"
     sha256 cellar: :any, arm64_golden_gate: "2a8715fd76c564d029a4ac0295481b6d412ad22d371e9017905d34eb9877f807"
     sha256 cellar: :any, arm64_tahoe:       "2a11f2037eb3ae23d34b1b7d3bb8d35a1926b06f2dc4f7a3ed46a6f0027db52c"
     sha256 cellar: :any, arm64_sequoia:     "c6e5d28d52c6ba6514ab78fa5e2041c5bdd6c3d25ffa0db15cf22729142cfd75"

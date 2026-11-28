@@ -18,6 +18,7 @@ class Encfs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "865f4caf2b728273cdd8a2d23b4e6759bda464080174f93e5994d50d12fa77b8"
     sha256 arm64_linux:  "162403f3d7c9515050e6d0501ad49bbdaf78371a7cfe5c8d42f21a254531b114"
     sha256 x86_64_linux: "4a267698818351ffbddfb482e139d6bece4a37b266c0dca025fd12bbf9ab365d"
   end

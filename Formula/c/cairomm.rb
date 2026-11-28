@@ -12,6 +12,7 @@ class Cairomm < Formula
   end
 
   bottle do
+    manifest_sha256 "c4a351e4c6fc7c0023a494f6e26b2158a50d5410d4316e8653de1da0c90afe3c"
     sha256 cellar: :any, arm64_golden_gate: "880a5b29d2d711fe20e2114601cf1fc815e42ba1a68e5208065a1ed04303535a"
     sha256 cellar: :any, arm64_tahoe:       "78d38524e50cf3e9e3157639a00c001d718a2f19a6886ad26c2e903c67c0e1cc"
     sha256 cellar: :any, arm64_sequoia:     "517978852a99f9abf1440b4a701083935abf0d51ec0f9ddfa6f8f4ed0bc79856"

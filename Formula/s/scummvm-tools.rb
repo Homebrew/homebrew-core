@@ -13,6 +13,7 @@ class ScummvmTools < Formula
   end
 
   bottle do
+    manifest_sha256 "d4f32c60bb4c6c84d212b59f280244c8b6c1d97b58456e8dfcbb30166dd3241d"
     sha256 cellar: :any, arm64_golden_gate: "1699f9a8cbae6e15eb968ddad4b5aaef03c628e874cb9319a02ffc00927000fd"
     sha256 cellar: :any, arm64_tahoe:       "2ffbac47c4b6adf158cf29db99049282d27c0d0b0f0e0cdae0d4e77d8e23b78b"
     sha256 cellar: :any, arm64_sequoia:     "35a0ed05dca00400f6f3d03c06446a784cb402ad7df1cf793432e88ddb00a7b6"

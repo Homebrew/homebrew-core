@@ -7,6 +7,7 @@ class HowardHinnantDate < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "de5356a8b33550b6364174e6b6124ae3b945801b09422434c179441e3b460cbc"
     sha256 cellar: :any, arm64_golden_gate: "e3b0bd13c2a60edd97b68ab8fae2aa9f3502c53703a2e724d58b7855980c0372"
     sha256 cellar: :any, arm64_tahoe:       "08d425d276d462c1b67bd2ae8e4fc27a6719bfcf614c83a395950a4c748bf520"
     sha256 cellar: :any, arm64_sequoia:     "edfd31d06de8c45bf8494b2be67466ad7119641ffa29faacb37e91c1ba38f0a4"

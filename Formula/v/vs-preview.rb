@@ -10,6 +10,7 @@ class VsPreview < Formula
   head "https://github.com/Jaded-Encoding-Thaumaturgy/vs-preview.git", branch: "master"
 
   bottle do
+    manifest_sha256 "aa431e712940cd89763f973ad3995dfbb10f5f1a66b3f081c112a8e06e1d46bb"
     sha256 cellar: :any, arm64_golden_gate: "d84268eb17182d8ff9393486259f3ac822daf6c237454aa87707030902469001"
     sha256 cellar: :any, arm64_tahoe:       "a221dfba5dbaceb7eb3d3605af42c333b343d2e000eddd4c2f7de64f15f64d5b"
     sha256 cellar: :any, arm64_sequoia:     "899d494e3ca16b03c97e6a9ea4d4ce328efae5695403c762e3922b658b48422c"

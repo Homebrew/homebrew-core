@@ -32,6 +32,7 @@ class Vip < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b1f13cdd16d5f0dfcb5bd741aaa69a6bb896e8ebeaafe7bfd51a1869ae8ed07a"
     sha256 cellar: :any_skip_relocation, all: "4168bb377aa3ca2722f484c1bfbd8c5d89e9231565439ac1ad2ad06ddfeb3d20"
   end
 

@@ -8,6 +8,7 @@ class Cdktf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "529cef3f7d7ab2d7511be5bde61e289fdd6fd6c0baa9a8a9644868ce37c1efd3"
     sha256 cellar: :any,                 arm64_golden_gate: "70678d7b7907c4f843befe2cc2d96aa59bb2a416a48fd1b2541aecef7379119c"
     sha256                               arm64_tahoe:       "0e40207364977f0eb648b11eae2b766f395a8b6dbaf680eecd2cb801b84ef05e"
     sha256                               arm64_sequoia:     "d2628c7283e20253e054eaeb7fafda0ccfdea6ccebe1f669ba298c856df85e7a"

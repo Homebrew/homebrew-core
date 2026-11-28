@@ -13,6 +13,7 @@ class Libmnl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c493a14f71c368e759c40cc5dde737ac4ae40da0bc175d585d07ec3a14140aff"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "a2f88b9fc807bcdbc77da6579b9937d9c993a637187f1b98c85b82ef6d2f5c98"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "7dc8eaa75b820802be23b7ba7a95e3fe7b4788b0ec8f2d1f1f8180dea1a7daa4"
   end

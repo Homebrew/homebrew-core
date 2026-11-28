@@ -11,6 +11,7 @@ class MecabJumandic < Formula
   end
 
   bottle do
+    manifest_sha256 "bb7576ecefc90208d0f5b69a653a59f7bc5c877a0e4345763f8aef6bdcb267ca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d16ee318aa65f66c7501e5f470e9745ce94e17d22a0e2e4c6d85cdb4e1fc2ba6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1916fed29c7a65bba61d492798c38869d624ea1496b03e77f2aca5ffd3cbfe9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "874bddec7db567b9cfc77eae8df900cf54264d6b047aa72ad5de27f10c257f0a"

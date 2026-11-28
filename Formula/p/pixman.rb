@@ -13,6 +13,7 @@ class Pixman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3d9fbe3667d540d29c1241fdc43920fbb4fbb8411b192f693f24abd6ba0c336e"
     sha256 cellar: :any,                 arm64_golden_gate: "918ff532bf70bc121376f4b51420f44fc1abd0b9c519d7f8040f6ad9d304bc02"
     sha256 cellar: :any,                 arm64_tahoe:       "2b011051909d7f9ad432a76d32c0490f796ad545f7acbd6445356024f0c712e5"
     sha256 cellar: :any,                 arm64_sequoia:     "86f5fc013d2b22bbe41c1c14661287bf8e8e4c3ac95cd05b08b886d24918fe34"

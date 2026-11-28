@@ -8,6 +8,7 @@ class Libcaption < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c80b0c010d9b19b042298e73d741afbba5a2fb2c1a3fe10ff0208acf898184c9"
     sha256 cellar: :any,                 arm64_golden_gate: "3a62eb5deb8cb8c9f0583249d8c59dcfa5f2c671960f76c345644f928f1bef0d"
     sha256 cellar: :any,                 arm64_tahoe:       "6b01b50b312db2c4a258c41771e39ae602a435307d50f039271db16dde82edc6"
     sha256 cellar: :any,                 arm64_sequoia:     "3caa51dc2443e50903bce510871e2b444a4210f4ead10eb695c85595fdcc0a6a"

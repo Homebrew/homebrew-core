@@ -8,6 +8,7 @@ class Metalang99 < Formula
   head "https://github.com/Hirrolot/metalang99.git", branch: "master"
 
   bottle do
+    manifest_sha256 "afe0c8172dafd2698b62a8836cb9fe6d5b544514397d8fd956798d640ebbad1d"
     sha256 cellar: :any_skip_relocation, all: "72f34a9d242be857c7fbb45ddc50c1c6f0ca5a034d831ee1909d25f2037d600c"
   end
 

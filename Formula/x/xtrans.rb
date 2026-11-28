@@ -7,6 +7,7 @@ class Xtrans < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "362cbd38268bd7f700ce5d2282f8e5a0ff77a709812fca417baef18fa8604ed9"
     sha256 cellar: :any_skip_relocation, all: "eac4f242f00e4216244a9da8f9470bd0bfd9af02ee9d305d4e5be8bc35aa5143"
   end
 

@@ -13,6 +13,7 @@ class Nanoflann < Formula
   end
 
   bottle do
+    manifest_sha256 "942e000a46232566b710ae5a57e9de27a3d89b00b4460026dd169a21255cc520"
     sha256 cellar: :any_skip_relocation, all: "df10058564e53393a9261e6e2b7b767b2d971988b7c424070c1be65177246ed3"
   end
 

@@ -10,6 +10,7 @@ class TerraformIamPolicyValidator < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d03739250a0b939254fcfbc6f34f537fc580385dfdee9bc2015932fb8ddfeab3"
     sha256 cellar: :any, arm64_golden_gate: "e41a310f421352797217d34a7f29352471048b81f6836a481b1860fcf390228e"
     sha256 cellar: :any, arm64_tahoe:       "76aa7de48ebf9e99fdb368851b781ae83ad8933798c2a499f763a34fb12b67a7"
     sha256 cellar: :any, arm64_sequoia:     "904451df294b4f03394e722099a9ae21dc54da74ea39df81f896155b978b43cf"

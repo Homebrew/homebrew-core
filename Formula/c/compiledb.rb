@@ -11,6 +11,7 @@ class Compiledb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "515bb983fccc7db04bf32bd772dd9db0f44dd6e53a068d45591c82e5c01b6041"
     sha256 cellar: :any_skip_relocation, all: "da10f55570e2a6dcb23dab4247ee939895d15b17a2272d30b24a37848bb3753d"
   end
 

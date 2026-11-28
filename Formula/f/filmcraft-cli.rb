@@ -7,6 +7,7 @@ class FilmcraftCli < Formula
   head "https://github.com/storytold/filmcraft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "00bfbcca9a85cb9236218c8e71109a2ac3ec5a43a921ec6ffbd5d8783e29ca2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e2e7c3745ac0cffa86fac520fcbc6b6a752f1928620d353f382dfa4b5cfc47a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98a58ffc5aeccc4fd90ec2e51b17fdbd3a57daab0b257ba139ffb4ef7bf3e852"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edd7c8a67c18b3f7fae7e14582805a67ff78715735d6887bf6debb9fab2b1a70"

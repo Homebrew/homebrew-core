@@ -11,6 +11,7 @@ class MinijinjaCli < Formula
     strategy :github_latest
   end
   bottle do
+    manifest_sha256 "1775b8399529565f67efe5424266bcbb557c06e046d589a20b210e6b6ca09b00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2aa7b0438902279bb09b661803ad439a88f58e03353cef17029551e4fab71dae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0964245cd25bb40071055e582befe0dd8825c580eb1126cc38fb0272c3609c59"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db642e3e095fb77a6bdb41ef63d68abc1a3596e7242156a6733d576efc6dbc86"

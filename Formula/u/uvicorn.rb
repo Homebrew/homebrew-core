@@ -10,6 +10,7 @@ class Uvicorn < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ed866d04e1c6296f750dfae1124440dcc79aa2b6d4031e988c478601173fb9f4"
     sha256 cellar: :any, arm64_golden_gate: "d80d5a5454697acbd05d821bd1834a4b2e86b6fcf5867156add22d7165330c07"
     sha256 cellar: :any, arm64_tahoe:       "12b3a31a7308d1870bf387512591247f39c7634aabab1c6a3af68ec67f64e76a"
     sha256 cellar: :any, arm64_sequoia:     "72646366ccd5ef892684fd4ef45aa643780de708e14f20ab64829d27364867a7"

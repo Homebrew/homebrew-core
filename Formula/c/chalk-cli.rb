@@ -6,6 +6,7 @@ class ChalkCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9e3f86c32ab2b5c0a9e0cfca431ca5d75ba2bd253b64a831c8c7143c29d556bf"
     sha256 cellar: :any_skip_relocation, all: "888e67d06c5fbe66c72de1de9f759ed9f32fd7a88d9f2158c3626b13f9ecbca6"
   end
 

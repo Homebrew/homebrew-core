@@ -7,6 +7,7 @@ class Weave < Formula
   head "https://github.com/Ataraxy-Labs/weave.git", branch: "main"
 
   bottle do
+    manifest_sha256 "28fbd8c3bedf655ac393f097a400f185f421a0ceb0476dd2833630ae0b1ca27b"
     sha256 cellar: :any, arm64_golden_gate: "ab31b329d303c0cd3ecdfd69539644b39a32c476e9baaa660453a6c4968d4c77"
     sha256 cellar: :any, arm64_tahoe:       "7a38e86ffaceaa31cca3a06d2507ebfd934ce5445486df013ee16e477fe0d99d"
     sha256 cellar: :any, arm64_sequoia:     "8865cec1eb2837e7c44a54aa26e86f5c3904ae49f4df9c7c72e236a106e0a41a"

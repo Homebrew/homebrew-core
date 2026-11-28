@@ -11,6 +11,7 @@ class Paml < Formula
   end
 
   bottle do
+    manifest_sha256 "136a41b183474c765d130211f5b5aedab79dfc35cfc3980528b999974b865e1d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f50c6b751374bb3be38228e0523111df9c4b6ecba96cb0cadc07d883c39309a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "434830dea471f09bec75f37f545e7b01916f53c3d7f875d080d5def4448d4616"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "443dd055dd35ad3a962978b706c18d021c85ebf76da01bde7c2fe5e52727b1df"

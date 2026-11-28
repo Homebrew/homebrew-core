@@ -7,6 +7,7 @@ class Caracal < Formula
   head "https://github.com/crytic/caracal.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9eca5121841548753ed5fd459946b9efa4718257282655435dd67a307b92cfac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "71cbcdae990382445418b638e88b791962f9b849ff5687588dd5543d7846a97d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "736248b14af4194e38b8d5d8103f2f649cc1293391d0ca147f1ead5529e2d3d4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8b9b99080c463030eb02044b0db946992bba13ef79f693498b6f154a41d5407"

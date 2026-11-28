@@ -11,6 +11,7 @@ class Pnetcdf < Formula
   end
 
   bottle do
+    manifest_sha256 "dd457f245602fb175f084b2ff417d7493b542cdb1b451b5fb095c4b28015a682"
     sha256 arm64_golden_gate: "0b71509e01f93cc7e846ebfbd5141c75bbf673c77155026cc79c27771ffa2482"
     sha256 arm64_tahoe:       "521e5af7ae603eed617aa27e55fab4459944cf0d81393537759295c1e959e487"
     sha256 arm64_sequoia:     "26c745ad7dec7dcda1ee1b5ade59a545bed659d2a0e30b8df27ac7f18c104b87"

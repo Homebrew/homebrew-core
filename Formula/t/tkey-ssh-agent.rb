@@ -12,6 +12,7 @@ class TkeySshAgent < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e550e0f82f40a6266e88bd36fe86bf3ef90b4061fa37c6ff193fde1777285c50"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a93701638b4410604695ab4fb117dff199e02cb1444a36975a27ea8dffb524d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edb893d7da405b29310a28fa7cbb7116243741146d95045e84adfc84fd8aefd8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d208c163295411b0f2960d7874601f9ebcb20981a46ce13af48c7562aeb90225"

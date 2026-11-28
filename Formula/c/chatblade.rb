@@ -9,6 +9,7 @@ class Chatblade < Formula
   revision 7
 
   bottle do
+    manifest_sha256 "cfeaffe92b6f4f2e9aa062f37052b2523e96d10e46192928cd452c486819d913"
     sha256 cellar: :any, arm64_golden_gate: "98c0c0129dba20290de64bfe44f1500cd9035b1eb5ae60e5bf3ea21b883db0ee"
     sha256 cellar: :any, arm64_tahoe:       "4750fa3ee256a28f163116725daa5012f394c664248315562588520ce10be62a"
     sha256 cellar: :any, arm64_sequoia:     "898d999024821a31bd1324833ce8fed0b7c38c9fafac15bb010b3cad17ddafed"

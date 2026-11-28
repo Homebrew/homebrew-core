@@ -7,6 +7,7 @@ class Adplug < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7447831dc284fa6a5522553639f11ef3a63ef29f4742ed971909b629543d02ea"
     sha256 cellar: :any,                 arm64_golden_gate: "cf6bfe53e419851291acb8373a875a64d6f2710809c3f7822e48ec7e3d85128f"
     sha256 cellar: :any,                 arm64_tahoe:       "892435c5c1e839118883ea1ccb12ba98ca1e5ad200523547d63bebabaf1b2b64"
     sha256 cellar: :any,                 arm64_sequoia:     "367afb14f5af6fc67209b806c5d6b48bc5b39b45d6981914357f50cfb99e9a88"

@@ -9,6 +9,7 @@ class Gdbgui < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "199a46274a8e6049ecd3f522f79baa1c48b47532c95197c853b2d3cb71650cb8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8337230b70e8dfb11051f6dabc104928286dcf871e9a2fb1b85af0ca144c78d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "919a19dfd2b5bfb0a649bf89f11ce1775613be5f9b0f6e10428254c3f4710956"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad798ae81a8a689f5e5f8d75260e9f08c38b2379e1eedb90e68275597f091b59"

@@ -8,6 +8,7 @@ class AptDater < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "ac46aa2643d8874077e01413e2baa5d7dfd2c5bf608727ac6fa6761851496744"
     sha256 arm64_golden_gate: "891972799330621928a01277fcfbfb5dbbfde4b2825284f7bb4d389a1e3f3386"
     sha256 arm64_tahoe:       "54ac1e581d1005ad7972864ffd240a906e3e4cc3fc3cb1a6167979cf86e02c9a"
     sha256 arm64_sequoia:     "eb9414457f5422b5be9d3faa106b312c63ce4ab50214557eb51ac2778274da54"

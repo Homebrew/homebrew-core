@@ -12,6 +12,7 @@ class K6 < Formula
   end
 
   bottle do
+    manifest_sha256 "7db885c040440701f57b0c7176e976b7f02d2b63bba290e6cdbe8b9b86ddbf5a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82ccb68823ed6e17fd3ffb7a520429b0fc0210e6882457327eca042960272512"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "869e7fa78d5d9fb284fc87fc3cb0f926cba1b94caefebf3f18bdea2912594c19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dfa8c2665a2282ff3589a780fd2278bcb1c8de616bd544a834bccfddcf02d1bd"

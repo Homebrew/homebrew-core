@@ -8,6 +8,7 @@ class RdiffBackup < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "caf7abd3c0d23004b91aa33c429816df7aa86bcde5330879363dd629db146a2d"
     sha256 cellar: :any, arm64_golden_gate: "bd794dd0f598c1069b8c19f2ecdbf703dd29d4ad449de318435badb5918eb4bc"
     sha256 cellar: :any, arm64_tahoe:       "02e02612c2b348abe1ea2bfe25218ffb52e982f6a85789f4d474f13298dea740"
     sha256 cellar: :any, arm64_sequoia:     "e40643ee8da8d16804b9900c0d872f5de44c3f02258a6c46604583e97f8d4896"

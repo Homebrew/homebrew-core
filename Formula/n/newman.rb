@@ -6,6 +6,7 @@ class Newman < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8ee30a37090b5cc6262df8ef43509d90ddfa9771d4b5918c70fe2b11044542d6"
     sha256 cellar: :any_skip_relocation, all: "0961410c814e890488ee7b6bfeaac0c214782539716d6107bad8a2aae281a578"
   end
 

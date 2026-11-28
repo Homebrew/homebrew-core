@@ -6,6 +6,7 @@ class GradleAT7 < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "dce2be34ccb748105403e4c0400f81a063a15653ed775472a5ec4a33ae5095d5"
     sha256 cellar: :any_skip_relocation, all: "d65eb2a55c0be7b144b661bea1d9f3df08d67eb0aa7a033c3088a58272b7b2db"
   end
 

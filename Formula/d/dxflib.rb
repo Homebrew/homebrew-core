@@ -8,6 +8,7 @@ class Dxflib < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e5f84b51882a7b5dadf6add544b5578cf815533d873ae4d8843a9dbb8175b840"
     sha256 cellar: :any, arm64_golden_gate: "c67b371ff4e84bea6a59ec51d213c56148f5e92b31f4b90b5e411ffd8160481f"
     sha256 cellar: :any, arm64_tahoe:       "c67b371ff4e84bea6a59ec51d213c56148f5e92b31f4b90b5e411ffd8160481f"
     sha256 cellar: :any, arm64_sequoia:     "4d62711de529928930dc1bbd6dc10bfb513ddefe875632c8540924a8a842a388"

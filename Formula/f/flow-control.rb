@@ -12,6 +12,7 @@ class FlowControl < Formula
   end
 
   bottle do
+    manifest_sha256 "5b8185929b52db36551ca2395af2e3985b1d56747eb8cd5834871f547a7ca234"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e59b27462e2eb15a69b92fdf4c1e322cd172cdc6c29d5f1bac7fe022244e951b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f08e640306926634db164cab8993ee3057a97470ea97b9a8085bbd264d926a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62828763a413966a8e4e34539ed9efe2477ed85869ad02f0d4b06b19f1410f54"

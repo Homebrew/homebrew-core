@@ -8,6 +8,7 @@ class Dex < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8d2d44c0246ff511823c4c68e0f2faa8b4ebbc53c6054bc2de0c23ef32713ec2"
     sha256 arm64_golden_gate: "522f9004623ff7d41c8cbcaeef91758cc75453d4360584bbd1a4c71ac1773f87"
     sha256 arm64_tahoe:       "99cd1ca32c018d46a6f468a3baab876a0dd11153a5d766b58c9a3c5ad438f13e"
     sha256 arm64_sequoia:     "961f06389b30d15e9464ece560955feff630b3b025d5e02fcc41e8778ced1597"

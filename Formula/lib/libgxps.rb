@@ -15,6 +15,7 @@ class Libgxps < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f92ff0545c5f603745a8255808f9460c810ecb27f510da309c5a29001fc54516"
     sha256 cellar: :any, arm64_golden_gate: "f1523d3e42f2d3fea406e39c50b91bd590a25a8d5a3ccd5850ba3867a5631937"
     sha256 cellar: :any, arm64_tahoe:       "edf7249cfe2f25f697df299831a0cfbd6d4fcf3803b1fcd3cfd7a9767e13e69a"
     sha256 cellar: :any, arm64_sequoia:     "898def3c3d5bca3f781362f31e01f7d70126eb9f6ece12187541f121072ba421"

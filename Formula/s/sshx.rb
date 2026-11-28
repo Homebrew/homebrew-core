@@ -7,6 +7,7 @@ class Sshx < Formula
   head "https://github.com/ekzhang/sshx.git", branch: "main"
 
   bottle do
+    manifest_sha256 "73f09d4a64890c0255cd6319b00604d0652b8f8088e0dc5918a0b84fd33817e9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4815dba3a254d34f85fbcd66f15d619449dbd81035238f0688cd21ce83738f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9d50ad7a068ac3520358e2219172c137bddd2b1c6b415d7dff20c21a10896d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ebd4783508a0db2af33c4d72a8b31d340f822c9d2624061301545f312e05075d"

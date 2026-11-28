@@ -7,6 +7,7 @@ class Powerman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "67e085d340a16989f5da9871e3d605cc35dad18790b8dce5fd398f1becd02765"
     sha256 arm64_golden_gate: "7aab3a7a88e8361fdf0aaba3da9ff50e711d2e6af08a9368440007f006ec92f6"
     sha256 arm64_tahoe:       "88063926073d1f61aab9db6b965e65cc8d126d7521d0b563ae4232e88fb9392e"
     sha256 arm64_sequoia:     "179d0cd8df9b000290df35c0b7d061cab03ff41db3bc68ec40128c7baac54a8f"

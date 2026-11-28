@@ -37,6 +37,7 @@ class Texlive < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "22d92d488a9a76dc60fe5885b44049cd5e2f1cf988eb9e01a349a8a2760fd5bd"
     sha256 arm64_golden_gate: "4394bb142b9cb8e05708228a5c21e425cbf74427328420ce553241df6893e814"
     sha256 arm64_tahoe:       "e9dd7a6d98b2bbbc239eed82b6a3a8174e7b007569cbaf609a1ca00758f245f4"
     sha256 arm64_sequoia:     "892d54c876ae8ead0923cada788757e6d1c3a9f09e15a05b09a1c48c57b0958a"

@@ -11,6 +11,7 @@ class Grokmirror < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a8738dbd56a8632bf14239a5ffbe0f7f710b08e89b3ee19a533efeb2017d82d3"
     sha256 cellar: :any_skip_relocation, all: "4955b0ea765c33769b29d1a4943170783834aef8dbee83804b998adb5aa34ea8"
   end
 

@@ -7,6 +7,7 @@ class Smu < Formula
   head "https://github.com/Gottox/smu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "303fed97972fae5e79ae475b8b961834cc985e20fc9e555239f495ac37bc4e58"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e84609eb29e70f5da66873f21381843f9b8ac7618313af86b28d51ddf2166cf9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae16b75d47384735db2d4c2814049a0eee4b654e58a834b38bf6434c2a0baa91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bda27a644876f6c81baefb5ef848d760a559208664d4460eba40c95c25cb06df"

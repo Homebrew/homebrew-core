@@ -10,6 +10,7 @@ class SshAudit < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "6121c201a0c77e19980bdaea1f7d0b387e0e79217745143a7bb5461a5f30c7eb"
     sha256 cellar: :any_skip_relocation, all: "65f1074f9a362709f7449e794cc2d3555b6a498dd3a6c4a5a2d4afcd865169df"
   end
 

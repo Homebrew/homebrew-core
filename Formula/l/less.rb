@@ -12,6 +12,7 @@ class Less < Formula
   end
 
   bottle do
+    manifest_sha256 "435d61855d03efc7115e1324b89f504d98eb48e07f8a13b41fc32a3258b66cae"
     sha256 arm64_golden_gate: "4424cbf3a1ce87d36b39ab1918bb5d871289f1e6e33a012bd9483f16fb4b82a2"
     sha256 arm64_tahoe:       "4a25aee751a4c5a12886744cbaedd6d60ab039989f764f2e74591567097ebd55"
     sha256 arm64_sequoia:     "1059c6f2cab177f99362517f59e249bd9fa33e8c417056c5acde2804f4861870"

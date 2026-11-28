@@ -12,6 +12,7 @@ class Shapelib < Formula
   end
 
   bottle do
+    manifest_sha256 "8309897c00ac5ea21b74f6745a6d07631d02127d596769f5693d4be37107c46b"
     sha256 cellar: :any,                 arm64_golden_gate: "1706298ea755f8c4301d20f273cb30c2d24e96b752ec61ef7b3bf20a59be7624"
     sha256 cellar: :any,                 arm64_tahoe:       "1d270fad05338b3a2420a96a2b7e5b084a935e840e8deb0038369fffa7ef8586"
     sha256 cellar: :any,                 arm64_sequoia:     "bac4ff987b17640f93f9e9d0ad0c7d046ba6ea780e8804f59a6ea2ebb63c13a8"

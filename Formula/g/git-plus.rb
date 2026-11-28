@@ -10,6 +10,7 @@ class GitPlus < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "e223b3b6019c726f65a723213de0fbcbe83451af9366173daad0e0efdad0074a"
     sha256 cellar: :any_skip_relocation, all: "347e8a37ad5550e55ab6735552ec501678fbdb92b4311db59df20d67c2a7ba73"
   end
 

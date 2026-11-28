@@ -8,6 +8,7 @@ class LibjsonRpcCpp < Formula
   head "https://github.com/cinemast/libjson-rpc-cpp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8459959c7ff3895fb35097340b70d51ad1ee0a2a0b1c089abaf2a9d4af0bb62c"
     sha256 cellar: :any, arm64_golden_gate: "f1ad7639166b21e2239e8e7b8110bbaefe372559384bbbccf4bda11ce8c15ac5"
     sha256 cellar: :any, arm64_tahoe:       "412e9e3a4a8b544a4dc4e94d043a9ff2959f62018a2ab58eccca9facb2b91cee"
     sha256 cellar: :any, arm64_sequoia:     "b33984e457e4de15bcd53282622f9d4a1a98be7e95fee6f576b1122495bfbfb5"

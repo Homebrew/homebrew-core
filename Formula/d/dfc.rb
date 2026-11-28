@@ -9,6 +9,7 @@ class Dfc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "788f36f188a4284d1b7a5caa61cc252eee8127c33615e2d267ae899ca6799ce8"
     sha256 arm64_golden_gate: "0f24de8a876bbf6004381fd1d3e53cedaacfb95197f2333e9b3d00dcee79c21c"
     sha256 arm64_tahoe:       "7a89f0d391fc36d847a8385ade4caee48ac0ee3edac6fd460dfd05f89bd5996f"
     sha256 arm64_sequoia:     "2d84a8c3886281129fbe28c532fd87e12ab4b03d49d69490183122851b57cb2b"

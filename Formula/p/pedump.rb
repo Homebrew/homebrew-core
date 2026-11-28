@@ -6,6 +6,7 @@ class Pedump < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b11114766cee208cb3553aedd36004c3c5eaf10b67025fe90892b28906d994b9"
     sha256 cellar: :any_skip_relocation, all: "ccd29d804ae3bac05e6b7796f812a696feace243c131f3b599dd7f7d86eaa792"
   end
 

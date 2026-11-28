@@ -8,6 +8,7 @@ class Lux < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ac10f20e58466d88085986caf530e09fe2a1a0c4418a8f011dbfedac23c5fc3c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0535549c023b13c5c42c754d30ffcd23ad7cdab69bd0df9a905e138ee41e377c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d1177667581ce7d8f5dab853e3e6c88d2eba6fc3855b5821a29e3a525880585"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "098c398f3aab12f2479004b768757b98ec66c4473c392345b0bc5b5b37c690b7"

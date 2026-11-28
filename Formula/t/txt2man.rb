@@ -12,6 +12,7 @@ class Txt2man < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b72faf336785c795c44e193c992af6dda8684f7e2a2bae89466f5b6c6b2ea706"
     sha256 cellar: :any_skip_relocation, all: "fc8be081e702c9f38869232afb35214fc78bc7765ba03a508f140452ce6fe606"
   end
 

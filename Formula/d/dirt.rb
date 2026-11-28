@@ -9,6 +9,7 @@ class Dirt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "026f89fbbdfdae9df640459bbc50a290358ac24fb14fbd84af2e35a3941a2724"
     sha256 cellar: :any,                 arm64_golden_gate: "1bd47c718cd71cf1feeb41cd924894ffb02664e95d94ff76666715d2b4644433"
     sha256 cellar: :any,                 arm64_tahoe:       "298bd387a65d1a91e835350f47a97b76af44b9466b32b8c2c3a7b67e03736b8c"
     sha256 cellar: :any,                 arm64_sequoia:     "dc07b263a5ea080c3ae14aaaabe185d07c84189e6708cc2206ac74d62e67ec3f"

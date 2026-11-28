@@ -7,6 +7,7 @@ class DarkMode < Formula
   head "https://github.com/sindresorhus/dark-mode.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ff71b9ae3890e7fcfbccd63438183466b1ba5e52e09641ae5677819809d64e6b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b2849c094b7d8793dc8a7d9a25a499d1ee66205ffb1bd1eee6642f5da57867f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f6217678dfa4b8d1be25c7db9e62e604458cf16219b6cc5a4630f5c5d4bdb9f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e1ba7fd046acc377adb6e03543dfa8a5c4376e930ecce45b2ba464b23c808192"

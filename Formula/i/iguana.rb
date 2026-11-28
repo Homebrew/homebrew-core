@@ -8,6 +8,7 @@ class Iguana < Formula
   head "https://github.com/qicosmos/iguana.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3cb44c46ba49d6a4a26c5d58e40f7b6c40ebb9da4f985e2957baca4dca750842"
     sha256 cellar: :any_skip_relocation, all: "647bd296c4d028e746df79db3049226d6c0bf72cdb0e9869bc0f7d7275d5788e"
   end
 

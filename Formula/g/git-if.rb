@@ -15,6 +15,7 @@ class GitIf < Formula
   end
 
   bottle do
+    manifest_sha256 "c0a389a3ae805f311f40672ac6e6bcd0941e0800d853549d0cd8fb4ed0bb8c4b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec14f9ab60d853cb9cfbdb2eb4ea0285dd0bda8b8bd3f2df69b2ea5511289e0c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c717015c51d1fa994f53bc40cd7d4e3b64b0287682c227f5364f7b2b24232bc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2918859c7196c31d059c74c800d7207bb77aa90b6b1ee67f07348a8d9871151a"

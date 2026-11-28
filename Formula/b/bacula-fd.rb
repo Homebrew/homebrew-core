@@ -12,6 +12,7 @@ class BaculaFd < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "4b06bede54d214f3a0c8dc7e3a19fb066ca2b2b59ca2fedbbac2dd5fb8064f78"
     sha256               arm64_golden_gate: "9d6cf94bc8c18cdf8870fcf9b003f9b5013f108ce440703c47594978e3028217"
     sha256               arm64_tahoe:       "5688de1c1f3e7c7b1efc8e82286760a82e302f920d98f156a904d98d642396ed"
     sha256               arm64_sequoia:     "069a15c74ec03e935573c9fca3d24dc68523bbb5e61dd6a2e7ed7c3ecd00d9b0"

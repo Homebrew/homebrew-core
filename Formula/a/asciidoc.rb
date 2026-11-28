@@ -12,6 +12,7 @@ class Asciidoc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "13cf2b53ee9590abd6f4a7bb149a21cc73522ea258dcfb63fc04c3999137b31e"
     sha256 cellar: :any_skip_relocation, all: "7855ebed76e3eb32109ab72cf0013683ef9a34213b8c7dc7aab9b7141db99067"
   end
 

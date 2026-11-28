@@ -7,6 +7,7 @@ class Digitemp < Formula
   head "https://github.com/bcl/digitemp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c4bd704d1863bfe62787dbec402d32e04407e95ac6329d0b41c87e5681ef2629"
     sha256 cellar: :any,                 arm64_golden_gate: "d0c954465b8cab92a8204875ff6daa4d47c8e3f6cfe98d7c6ed2e099035b9fc5"
     sha256 cellar: :any,                 arm64_tahoe:       "4814840607f10a9305f0840e3d93bf5a5ef4c050c4f3d11dc624a9c66df7ac58"
     sha256 cellar: :any,                 arm64_sequoia:     "e807829f6b24e85e3cb39c442aff3b400d886b16b6a17b7122df5b3ec9a92bc1"

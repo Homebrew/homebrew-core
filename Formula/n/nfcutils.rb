@@ -8,6 +8,7 @@ class Nfcutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "aa32de3e4b160addcbfaf3725af7fa2eca8ba590a9cb1785c63225467cdd62d8"
     sha256 cellar: :any,                 arm64_golden_gate: "ce2c7ddd3585cb96e8109bec45b01281de57a99f287625aead4529609eb7b20a"
     sha256 cellar: :any,                 arm64_tahoe:       "d5e8601208972b4d6fbd0f0283072529eae6a61edb01a031ee6ce18c2bc15e17"
     sha256 cellar: :any,                 arm64_sequoia:     "3140444a44dcf96b0cbf034ca29ee04288bcf13e386ad2bacc7692f69c24a075"

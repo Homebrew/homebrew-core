@@ -7,6 +7,7 @@ class Cowsay < Formula
   head "https://github.com/cowsay-org/cowsay.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8c6540d6ebf4d1861be3e4538b50847518d647695f12c38c3f4b45d7d0688c69"
     sha256 cellar: :any_skip_relocation, all: "345e99255a69e9cb188a5a8e6bd8e6f50c334830c8a72877fc6b504c95e5cbd1"
   end
 

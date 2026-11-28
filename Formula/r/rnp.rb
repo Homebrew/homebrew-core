@@ -13,6 +13,7 @@ class Rnp < Formula
   end
 
   bottle do
+    manifest_sha256 "eeac6f86e88ecc0dc15f832c99cd794e4a1609c4492b9703b3b5fbdf61e89878"
     sha256 cellar: :any, arm64_golden_gate: "daafa7c464a3339103e4643094028c08a9a6443a21bd0887d64da2d656e5094d"
     sha256 cellar: :any, arm64_tahoe:       "4964361b5ed77d10a016384d47afbfee1e2e7542221346c6584689ac693a7266"
     sha256 cellar: :any, arm64_sequoia:     "3fab1d7a26b52b094c17977ca50cc3961ab725ad281488a0250adbe4b3da2c4e"

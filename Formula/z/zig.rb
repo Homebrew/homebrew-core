@@ -12,6 +12,7 @@ class Zig < Formula
   end
 
   bottle do
+    manifest_sha256 "7a4026ffcb637dbc98324c1df34bf5b0aa95eced7497e1e46219d8b447cc312a"
     sha256 cellar: :any, arm64_golden_gate: "8cfb43412ab96df414cc0ebfe9713901a202b5b8cd1a1e3b920f128e91830d48"
     sha256 cellar: :any, arm64_tahoe:       "1c8ab891d1e7aea40c4c0a8e0eb0676de2d24e850b67a93c4a4e1c127b15f4f7"
     sha256 cellar: :any, arm64_sequoia:     "d362a466a649b7bef7e461ee630bbabf38277e5113eb22f509968ddb55ac0d74"

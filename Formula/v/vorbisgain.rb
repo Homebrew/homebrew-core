@@ -11,6 +11,7 @@ class Vorbisgain < Formula
   end
 
   bottle do
+    manifest_sha256 "a6a043759aa2849db9841c867f9ffd371bf6f916d931612347ae2331d02f388b"
     sha256 cellar: :any,                 arm64_golden_gate: "dd717beeb4dfbc246d5de0281990047a14f5d9f5b5dfd233bc91a4b1957fffb2"
     sha256 cellar: :any,                 arm64_tahoe:       "2184e1fd2ac1887c416d3aef7c8596ff7b4b5bb34e5f1d2e47f9b4ef54e69094"
     sha256 cellar: :any,                 arm64_sequoia:     "1e173fbe7ad9eff215301e6c55c6b8e30a8299c5f946a4102ef15cbbc5080b1f"

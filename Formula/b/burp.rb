@@ -12,6 +12,7 @@ class Burp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a5a9f63177c107758408b71c3dad1ff1bad4744bc258ab04f03c99e786c7dfd8"
     sha256 arm64_golden_gate: "360debb3dea32a56a320b3624dbbecc34e9638abb3d01232eddcd0afc09bd628"
     sha256 arm64_tahoe:       "c129b737a033d7fbba3e46e3b3044f89225d4cf173be9f0c22a8fb2cae29e024"
     sha256 arm64_sequoia:     "53b1f61a6ac2d34c5ed8b19b91294e54e236376b806c1a2f61f5ba141888dfd8"

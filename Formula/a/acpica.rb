@@ -13,6 +13,7 @@ class Acpica < Formula
   end
 
   bottle do
+    manifest_sha256 "b7693cebf0375993d3d4e86b75fe967bffbe620f8d8f3a8a8a2dd92ba73839cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7e2fb29d02e6e6414598a46cf2e72cf289b385491681bd16e43e2bae8310f6f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93063d10f57ed6b6b5803892fc39a0dc8db3b7952114bb7a5edb414c6e4b1b27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5944c5ef47c213f2eb1dd1d7278397c2e5c3131d295c1124c744611d32ece414"

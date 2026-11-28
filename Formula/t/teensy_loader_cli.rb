@@ -7,6 +7,7 @@ class TeensyLoaderCli < Formula
   head "https://github.com/PaulStoffregen/teensy_loader_cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7c8c22dcccd3f02815e4340421e5811c14fcc683153ee58e0f0c602ce2319e63"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0aaf236e0f3991ac561d8a2bd151180c43e33721c5cc35e94523be793b570629"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "16c36bc25668e666c3ac22f0d6f2f6344e22eddd0488fbe8627481b1e0e4ea9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b91358c333152610ecbdb875f7c77eb7e3e5db9a8165ce08fb4932a526dc1330"

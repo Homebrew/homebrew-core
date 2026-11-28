@@ -7,6 +7,7 @@ class Nemu < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "567a13053013c26ab723775a2db9dc7e38a9784db257cd9a4e9ed32d5132e44f"
     sha256 arm64_golden_gate: "ada86ab170e4c827e2c841ec4c96f3ec2274c7ee4288cb1a21913eabb02ea174"
     sha256 arm64_tahoe:       "22d05d93d1deb46f0103f7cdb6ac44697bb3e5494b2cb41cd37f675d860453d2"
     sha256 arm64_sequoia:     "fa5178f8c869ce40993be28a1410ea7b7bb77c16cd2b6bc9abb4592bf1964c11"

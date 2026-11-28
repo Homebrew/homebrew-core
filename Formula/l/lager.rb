@@ -7,6 +7,7 @@ class Lager < Formula
   head "https://github.com/arximboldi/lager.git", branch: "master"
 
   bottle do
+    manifest_sha256 "86805fdb0e2f1bcecd682d9ef799aa33e9b476a7e88c6844677732f26f45d956"
     sha256 cellar: :any_skip_relocation, all: "7aa16594e53fd48f851e5634fa7095a741355da7390c67b7ead81af131157959"
   end
 

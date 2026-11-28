@@ -7,6 +7,7 @@ class KamalProxy < Formula
   head "https://github.com/basecamp/kamal-proxy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "df822fd304ffa05ab89fc5ac6c6f06cefb757c4262cbd265f6627942b20b85ca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63026d2b42f21e084f1091abbc818e6d5d995aa2068e71d9acf42cce21014849"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d79d7adaa53d99ac5431e58dd0ba36ef0fad8fe43d1743370ebc28063c89610"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f5cf6badd70cf2b2c8d83aff9a196b91ec02587a5de63e3b3bf211234c3883cb"

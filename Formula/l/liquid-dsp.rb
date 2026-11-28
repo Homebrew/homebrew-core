@@ -7,6 +7,7 @@ class LiquidDsp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "ea73f254cbca52d63f1bc65643c4abb46273035810e8e22bdb36daa11fea0a02"
     sha256 cellar: :any, arm64_golden_gate: "08f26b099934aba3db8a1a0c7b312f1fbc05a3790e7469d1e1433edcf972196c"
     sha256 cellar: :any, arm64_tahoe:       "3edba8c938fce60d57b7cfef877a5cf2e82c5c547b4e748b9731c8048e6b9492"
     sha256 cellar: :any, arm64_sequoia:     "1625b8ac210ee3edb1bf5763baf33ac8706c43eead41be7e3f3d27ab1a0d71b0"

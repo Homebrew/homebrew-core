@@ -7,6 +7,7 @@ class Trimal < Formula
   head "https://github.com/inab/trimal.git", branch: "trimAl"
 
   bottle do
+    manifest_sha256 "6ad11ef2124fa03a910ea086be32f39a2f0dbc8d6f6e9d915dcf6d28e7f7c3eb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b0c2e66d1f8646c9b32314b248b41953587cd64b8015a2c5449f4ce02fe917c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1fe61c76b43717d3473edb88ac31f0fe55bf01d25b0aa1dc707eb65eb2cd6cc4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d28a79bf9a963f31e2da9300c02cd2014c8faa575540bd6516818ec3b27ac5a7"

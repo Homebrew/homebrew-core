@@ -12,6 +12,7 @@ class Cabin < Formula
   end
 
   bottle do
+    manifest_sha256 "378abd384c700ae45ea712073d6a2a81da91bf8d04e17c77184a9f3127d47422"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b65193a968d411685e81ea8dc673686df735c344279dcdd34f5cfed5daee86f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9909541b79799233cc3db38c8130f767a7252dc77ad7dc74c4d40d2e55cb9f4f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb4aa8ecf10573d5d529359ceffcec2ca357ea00abe77f24ed56d47a0fa7010a"

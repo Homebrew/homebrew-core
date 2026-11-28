@@ -17,6 +17,7 @@ class Qtsensors < Formula
   end
 
   bottle do
+    manifest_sha256 "81d4b7bd8592a12db3fbb64b86f8b0a472a752c233f39aca83ec1dfe7d5cb362"
     sha256 cellar: :any, arm64_golden_gate: "a03e285541994faaf99a30e393e3edfc1ccdc5fa4f2e0c2551ad6be37ad6c63f"
     sha256 cellar: :any, arm64_tahoe:       "8d05df705300592e5c1803664de9d67fd2ce73117fa49aa27580d3493b5e96b3"
     sha256 cellar: :any, arm64_sequoia:     "909556471da23b841a01db80a956ff621a858a153966930bbbee24fef73f20f0"

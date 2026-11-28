@@ -9,6 +9,7 @@ class Bit < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "51d438be1d050face114c2ef43f3c9917bc920b334af31149704805db56e0de3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05ca9828a0854f2524ed1e74551c7a767d4be7ce742c5d6b4a208c2879bfe2b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05ca9828a0854f2524ed1e74551c7a767d4be7ce742c5d6b4a208c2879bfe2b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05ca9828a0854f2524ed1e74551c7a767d4be7ce742c5d6b4a208c2879bfe2b9"

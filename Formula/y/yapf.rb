@@ -10,6 +10,7 @@ class Yapf < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "6d879616523161add5798d03b83b5971a5e29b6745f2544b5fd7a8ce24ddf592"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1e9f095627274f0c0616a87c9650647c9c86a7ee9e2bc5c7908e61f871dbd55"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1e9f095627274f0c0616a87c9650647c9c86a7ee9e2bc5c7908e61f871dbd55"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1e9f095627274f0c0616a87c9650647c9c86a7ee9e2bc5c7908e61f871dbd55"

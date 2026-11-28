@@ -9,6 +9,7 @@ class EgExamples < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "2d00a16a1d6708867b7a0e70035e2f61f4788e827e0c2902792404cb33b0e576"
     sha256 cellar: :any_skip_relocation, all: "cb81851daf9392a718d867de6024ff0a40a1b3642d4b027338b01e37226a4c03"
   end
 

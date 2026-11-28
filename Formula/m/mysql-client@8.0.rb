@@ -12,6 +12,7 @@ class MysqlClientAT80 < Formula
   end
 
   bottle do
+    manifest_sha256 "307795eb321d5566e52997af6ae23993cbe4474bc5e499a390c45c328cf8d827"
     sha256 arm64_golden_gate: "487736c78ce1bfcd17a59bcd47f93af4090725f9e0b57cb2828d2c74e67e47c9"
     sha256 arm64_tahoe:       "b04aa085d7b540a2a26910f0adc7eaa82776f4a31c050205877e72dc1b0b14d7"
     sha256 arm64_sequoia:     "c62722b6ab50c2608f96655d03136ee76106e30b6ea57e3bd2ed0fa672aa2a96"

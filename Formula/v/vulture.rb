@@ -10,6 +10,7 @@ class Vulture < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b2691e21c170d61a1abd4d4ac03d5d81ea0398a5aca89296022e3e6c002f0523"
     sha256 cellar: :any_skip_relocation, all: "10233601603d20d892777d91a98452adfe1490f02c89464af1edeb3354f749a7"
   end
 

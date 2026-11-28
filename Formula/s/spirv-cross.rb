@@ -18,6 +18,7 @@ class SpirvCross < Formula
   end
 
   bottle do
+    manifest_sha256 "4e4fb0159cf631e1692cff7f12dd400c0fe0fa31b058ea29057270501184ef9b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a62dcfc77bfc53b7c3801a3360591ce39cca2f8f417fe4a5f60f6bca698a455e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fbe28d5e8ec2373465870ee42a0c3ee145390748559a0542ddda8e6dd15d0555"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3bd332f91d03227a11522d36e33c58736ddae7fff83db42d838ad3181a447eda"

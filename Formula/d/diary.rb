@@ -9,6 +9,7 @@ class Diary < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "e52b26e781e39200f99f80115f773d2593d0ca38d12abc0f5f541452c369dc62"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d0b6f5e9ec54ba8bcac32555b2e11c49e93279bfa41381c86b4a964a6da4e229"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2cf6dc0be5b3beea462918ef2b58d2c94ecec01aba46b260a85772abbef73b94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4d8011263079585a4927de9a321597b04e522c33940059d1a97b9f31acf8763"

@@ -10,6 +10,7 @@ class Jtbl < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "5c359896056a0c16621dcaf0680cc131c59f89f60d77edc38e515b1108503507"
     sha256 cellar: :any_skip_relocation, all: "e7ece66dbc2f33abd65e261d5811bd20cd1277c520cef65b072ce05eae0fe6d7"
   end
 

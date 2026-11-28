@@ -9,6 +9,7 @@ class Acronym < Formula
   revision 6
 
   bottle do
+    manifest_sha256 "47c3bcdab5e8caf3e6befacd635e157e1a8def750bd3dcc9f2667636f847e06c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4a6f34070c58dd94f8878cc09af9b731cfa727c1877860da2b80a45a963d242"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8ab6c66b1b93c3fc914bfcc8fe27b2d8cc68ac41c1978d5d71f838f941aaa64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ba340e6cf690a929ad22466884d07e6f8eaa52ea9ac4931a4c2d93d2be4c8b0"

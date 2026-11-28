@@ -7,6 +7,7 @@ class ManifestTool < Formula
   head "https://github.com/estesp/manifest-tool.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4190f481fd52a6bdea981389d2e35eb508e098eed1fae98877383457da035da4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "660e4bf09f645873e17d5374706ea9e08117bf15fa39f670279aa65809d9f0a1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56193e4529f14a40d3806db63dcb92097f8bdd24407040f791262af93067561a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e3bf78982962094d2bb1bbb36c462a633c2fe9c8337978b75ded3794107f865"

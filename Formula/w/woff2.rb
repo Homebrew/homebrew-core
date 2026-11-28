@@ -8,6 +8,7 @@ class Woff2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e12c13190270e4204d06f56bf4d9b5edc2d734c5bbbba66e46df3ad51f60c05"
     sha256 cellar: :any,                 arm64_golden_gate: "4c13c3174a138d9a2dcd1dc3f85bb421b664adc6b4dc6c6cddb7fe39a57a77d0"
     sha256 cellar: :any,                 arm64_tahoe:       "909e53d8bfc53e5f3f8a696caf90d3a2a950614f5590215b3ce6121ec1af3d40"
     sha256 cellar: :any,                 arm64_sequoia:     "f451e27be673ee74d5cdbbb50fa6d818ac48b0800f9daf0c27bb5995c27f8b9b"

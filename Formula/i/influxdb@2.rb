@@ -13,6 +13,7 @@ class InfluxdbAT2 < Formula
   end
 
   bottle do
+    manifest_sha256 "7a4da55ee811f0d22b9f26a9742830a6cd66e1e4977b25b3276aa1c489b25ba7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b620cf9bfb13f290f8ce8e7e216cd329d13d61459eea4761f0073cba6814ae9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3969660a56361c9604b855cdf99e52451cf60a0b11f7f01a62dcd7a45f14f81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "019f7d311265e1a68a195ff702ff5c76f9d2d6eaf0cf93330dfba1599c1c1d0a"

@@ -13,6 +13,7 @@ class MediaInfo < Formula
   end
 
   bottle do
+    manifest_sha256 "5b28d70b9efeee99c82186e8e8d8b0889c2d7da0079483cb0b3bd901522a4663"
     sha256 cellar: :any, arm64_golden_gate: "a0b6129a593b8083d639f2dffcfeb9ae01d115faff9af8d431f4883070623b8c"
     sha256 cellar: :any, arm64_tahoe:       "d6ab5fddf180d74df12bdc9c7394a474c422798230c6cbf710d5be6680b43c82"
     sha256 cellar: :any, arm64_sequoia:     "dd56f31dfe6e864c8f11e89ab2d17f37120f6517c270d34a5fdd06a6c769dd46"

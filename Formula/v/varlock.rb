@@ -6,6 +6,7 @@ class Varlock < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d8f0de4277e3304068cec9023a468c143c45fabdcb027991b9df1ed7345c4d58"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "37c8cce37f428c5ab8c8cbbd9beec9aa82330fe0e3635e3dea3f415394671a10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37c8cce37f428c5ab8c8cbbd9beec9aa82330fe0e3635e3dea3f415394671a10"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37c8cce37f428c5ab8c8cbbd9beec9aa82330fe0e3635e3dea3f415394671a10"

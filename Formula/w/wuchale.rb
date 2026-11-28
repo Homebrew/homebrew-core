@@ -6,6 +6,7 @@ class Wuchale < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "034184fb97ff50b3d723ea2c23289c688bb50789b11ef2d5f28fb8b1e62f6338"
     sha256 cellar: :any_skip_relocation, all: "a852fad3c08ebc0c362e8517e2bad7ccb8256bf01b39a162604c0007ce3242b8"
   end
 

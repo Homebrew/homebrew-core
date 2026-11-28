@@ -8,6 +8,7 @@ class LmSensors < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4e57aaeb414bc08a84b5c664b8c63d7707c9b2ec0a981284cc724c6580160067"
     sha256 arm64_linux:  "05d1a0969a84d7ed3f9b95effe63bc9378452f2a1a1e367b8c8ef1efde275af9"
     sha256 x86_64_linux: "24aa125e2b8fe32e1600b64c0c5d8a32a575db9ef4dea9e17d31c6a02a48087f"
   end

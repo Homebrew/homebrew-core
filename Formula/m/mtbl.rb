@@ -7,6 +7,7 @@ class Mtbl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4779c3ad5e8679d2d84d42aa145e12787ab9e85a8e8369660449cca055d0167e"
     sha256 cellar: :any,                 arm64_golden_gate: "916ef8b0648679e32ee4b5bb2a96e9b7b662f97eb7a8f13a894cffa9a6b5b63e"
     sha256 cellar: :any,                 arm64_tahoe:       "7546780a577d53570daaea86bd9306fad67197ab4fb869090c43d17bbff88474"
     sha256 cellar: :any,                 arm64_sequoia:     "481216ae78025ad4b0e03fe33108dd9a21a82dee2ecb47e301144588bda284fe"

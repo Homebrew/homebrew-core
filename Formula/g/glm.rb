@@ -14,6 +14,7 @@ class Glm < Formula
   end
 
   bottle do
+    manifest_sha256 "cf475dba0c008a12c2b8071b932ade8c82559660d23ef51239d8f2ea30c16c3f"
     sha256 cellar: :any,                 arm64_golden_gate: "5630767da68af2aa4d73e2144d48e10f82df96b7b4362f88e121557bca0b08d7"
     sha256 cellar: :any,                 arm64_tahoe:       "8249c4e8338f0d834f967436fd7dbd239ba6dec2117716983a3fe54a5d091ef5"
     sha256 cellar: :any,                 arm64_sequoia:     "fae85fca847469c7c7e71ea2ef03f363ac98d3b95855c6eb444ac9ea22f7b96d"

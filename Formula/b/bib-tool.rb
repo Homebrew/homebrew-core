@@ -14,6 +14,7 @@ class BibTool < Formula
   end
 
   bottle do
+    manifest_sha256 "a285de834fd93d9cff75efd477923897e3092e5d94422db4a69e0834f9700265"
     sha256                               arm64_golden_gate: "4d5ab8867e55cd3053c3cf73e6a8cd6a0558244f800771727221381cb2308df2"
     sha256                               arm64_tahoe:       "21dc870e5436946a79ee212b44a1d867c872f5c2374a3693563097dd89212849"
     sha256                               arm64_sequoia:     "ce609aa4354f5b345611a48f17823affc614c23600940ec1c90b9945b7199512"

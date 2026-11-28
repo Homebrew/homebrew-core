@@ -24,6 +24,7 @@ class Bench < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "99b3d00ae9b223252de07eac20ef66b9617b5f4e0687a547eced8b77b9f42408"
     sha256 cellar: :any, arm64_golden_gate: "7f49f116eb28fc230018ece96b33a235a90782a893c794fef98fcdc0171e7933"
     sha256 cellar: :any, arm64_tahoe:       "d4fa6fb606a05e02d9252adce611cb82c889d9f3043c0f4f5500c688b21cba39"
     sha256 cellar: :any, arm64_sequoia:     "23f691588520f5c15826d3d4551fdbb14a71ffea81bf74dc99b50e4c590e7657"

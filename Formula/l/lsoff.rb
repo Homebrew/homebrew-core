@@ -7,6 +7,7 @@ class Lsoff < Formula
   head "https://github.com/yutat23/lsoff.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a3619306ff37207dfc92eaed72b0219c3f96f92b865d85d1a76497ce6df16b16"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a0cbdc5bfbcb757d4fb28eee2e440c9bd7d162e82d8b4472e6dd6814fa63b7c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2cb80727b61a20382d3f69d4b1b0c50a94be629fe8db7c148cc23020269d8fdf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aa187b3a13a4495456a2ac662caab84eeca355a3fd9ba52f97ed3462235b9457"

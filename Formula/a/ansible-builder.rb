@@ -9,6 +9,7 @@ class AnsibleBuilder < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "2afe2b371a29191b776c4bb40a51ca9db7c3c98a0549b017db4e1241def38f1f"
     sha256 cellar: :any, arm64_golden_gate: "874766b57678de7117a97a6fbd2caf0cd42fe550df032fd8364c99405fc34a01"
     sha256 cellar: :any, arm64_tahoe:       "81b0a4f82251ad9eb9c3e5c3d31f59d5ff257680cfbbd41ae9bb9aa9e4ebe98c"
     sha256 cellar: :any, arm64_sequoia:     "fa6d255518aaf7b73ae8c1fc22193a4249898e449fe4a219336d16c2a6ff1bbb"

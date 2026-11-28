@@ -14,6 +14,7 @@ class Libshout < Formula
   end
 
   bottle do
+    manifest_sha256 "7ce995a836cde2382baabcfa02182612dc2d51938ba6523434cd771c63edba48"
     sha256 cellar: :any, arm64_golden_gate: "fcc1a1dc7239cdfcb515c1254c50c92281b29ba6dc5f3e447b0b18f69d746456"
     sha256 cellar: :any, arm64_tahoe:       "df51827d3fb5320177e4565522a8599a66beba94f81249834c43f5501105905a"
     sha256 cellar: :any, arm64_sequoia:     "b23ce4d41eab6778cb47172ddf05b60afb984c45d67730f5701336dd3637f553"

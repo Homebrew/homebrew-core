@@ -7,6 +7,7 @@ class Ansilove < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c2cc3522469158beb49cde2a459db86f89d7cb51c002b11b5f8298440a2d578b"
     sha256 cellar: :any, arm64_golden_gate: "f0a4c36ac41dee4c04977ac2a7296bfd055042c6c91462baa21fc75f2a36f7ed"
     sha256 cellar: :any, arm64_tahoe:       "6db266f4198b640a5f9882f920d23df9ae5bdeef6d333b99e0021e441c0b0ed6"
     sha256 cellar: :any, arm64_sequoia:     "c0420df63dd7807eeb8196584be6d024dc9bc2a682fc0fcea8ed786e065f7b49"

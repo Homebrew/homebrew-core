@@ -12,6 +12,7 @@ class Clp < Formula
   end
 
   bottle do
+    manifest_sha256 "8b4da21e4fafbd7c02f959f722bff9305d4821ae12558b0f71fe0445ef50563a"
     sha256 cellar: :any,                 arm64_golden_gate: "cb6a2159594380b731f478836b6a40a3c80b6dd3a00b49b2c38dcecea9e7581b"
     sha256 cellar: :any,                 arm64_tahoe:       "79af2ec608ace169745abb6b7ddbc526e83dfd71ff8d82f29e6967d1fa901608"
     sha256 cellar: :any,                 arm64_sequoia:     "b0f8a10b70873de63db3e2c6850321915a9cea60665dfddd74cf33f76157de15"

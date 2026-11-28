@@ -7,6 +7,7 @@ class Gofumpt < Formula
   head "https://github.com/mvdan/gofumpt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8a81c4382c94801a921edf5a93d71db1a3ece75a0970fddc4c86b0f8e37136d8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c3516a75ecfb1277f3dddb84af979be8e13b702376b343be9624d8b059aa7fcc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3516a75ecfb1277f3dddb84af979be8e13b702376b343be9624d8b059aa7fcc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3516a75ecfb1277f3dddb84af979be8e13b702376b343be9624d8b059aa7fcc"

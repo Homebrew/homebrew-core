@@ -11,6 +11,7 @@ class Dsh < Formula
   end
 
   bottle do
+    manifest_sha256 "4a678137093f34d1ffdb5ba4d6787fbf419dfc31ef7b23224c3b97d6fbe3658a"
     sha256 arm64_golden_gate: "95c94b91fec1c1f7bb4b168ae009654ceb9215de45e4c4ff3bbb268f0e03807d"
     sha256 arm64_tahoe:       "cbb546751736cb2f93c9f59a4851ad2157a1440e5f5e914c15f5efb8800f2196"
     sha256 arm64_sequoia:     "d73aea65a96f05c4040e1b38d8238dbaee979d65c886c388b3eb7d7f5b388295"

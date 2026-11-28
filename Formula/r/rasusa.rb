@@ -7,6 +7,7 @@ class Rasusa < Formula
   head "https://github.com/mbhall88/rasusa.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4738d8e82e4085049b03fc321d3ed66bf95f1b15b2a87f31b52d6d97d4852426"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22c0d94b4a865a2740999e419347f2843c2af59de20329a31fb56e85a7ece02c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59de844a17e1fa34cf2ad206f62d88cc87741ada720c9088802359ade2e0466a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d4bc304786eb86795653ec0b680a599b13e6fa42b2c727e799f64b9b084a8c0"

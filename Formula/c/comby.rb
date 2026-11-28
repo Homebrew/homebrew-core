@@ -8,6 +8,7 @@ class Comby < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b2832644b34c1847287b210bf21aa9827e6fc05f73303fce58592a6cc158863c"
     sha256 cellar: :any, arm64_golden_gate: "72af8c469b86f6143b792522c606ea129a150078893b27b649f900818653e505"
     sha256 cellar: :any, arm64_tahoe:       "a14c34f746c83276aab070a8b4c374fb67e3a2226a889dfaa2074f4fa25dfa7c"
     sha256 cellar: :any, arm64_sequoia:     "e9e977b807fdf51032eb7f7c28abad907dca2669ec81533e76b00ce0534eb740"

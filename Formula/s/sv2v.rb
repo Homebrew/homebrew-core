@@ -7,6 +7,7 @@ class Sv2v < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "908288eb52b4c845150301f7fb599dea909ca1dabd56bad8236471c1a264ed3f"
     sha256 cellar: :any, arm64_golden_gate: "1c60a60fc29ed02a9d4e24c590c94c444333dc627e8e8e4438acf6ccfe6d438a"
     sha256 cellar: :any, arm64_tahoe:       "97819574809287e39bcce5361e3354aa3a86c6b2885e1292b653d6b9ae89c86f"
     sha256 cellar: :any, arm64_sequoia:     "81804764fa5072d33991cc95ceab0fa212a9929846734a8b5d009e95e6b097d8"

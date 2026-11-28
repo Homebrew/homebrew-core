@@ -6,6 +6,7 @@ class E2tools < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "f1cc8498bebde2e8396e061cf2374ff7f1891e597a39fff317430dc2a5884f77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b0d59852dd26e7b6676fdd547443ca6118a299acbe84afcb46a84ecb00b05888"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "956c82862c23ce3476acaf07cca07a5816443e06b8e9ad0f0617d2bc751372c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1d4e761cc4311ffbd6f95f98c70bcef07dc394af629fd89226a27897aaaccac3"

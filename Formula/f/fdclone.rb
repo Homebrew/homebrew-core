@@ -8,6 +8,7 @@ class Fdclone < Formula
   license :cannot_represent
 
   bottle do
+    manifest_sha256 "b8e063d2878feb5b10090aedba787eb2c0730a00e162b76935b715d0c21edc17"
     sha256 arm64_sonoma:   "78daa3983f98bea1071db92ef70b8c9a3ea5e01f1d36a32d093de1512b1a65d8"
     sha256 arm64_ventura:  "6307f6eece0a8e13794fb57ef3ac793c5f72bb2769310803e4fee5bb30352e2b"
     sha256 arm64_monterey: "770b2d767ccfa06c3fe7a4066b59a9e067b27a2f719bac604a1588c7ec57c134"

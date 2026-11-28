@@ -35,6 +35,7 @@ class Qtwebengine < Formula
   end
 
   bottle do
+    manifest_sha256 "49dddc4b0edf60dc82f6db5dd828a44474ee5b3e64bf358f16c192cf13a6d270"
     sha256 cellar: :any, arm64_golden_gate: "f3ed0a42487a5947b51dcde8260ad263330ba09721695b09af841a1044a7a07d"
     sha256 cellar: :any, arm64_tahoe:       "06265816345aa7515a2af51dc318921b26286bdc042bc0a269ffbf4c5a9f230c"
     sha256 cellar: :any, arm64_sequoia:     "f300426e50f98e0c70fe1c465d5d1b539cc7abbb3144243667120cdd1832b994"

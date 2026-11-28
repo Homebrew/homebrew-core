@@ -12,6 +12,7 @@ class Bitwuzla < Formula
   end
 
   bottle do
+    manifest_sha256 "637c0e1eef66bce5642ae6bc89ff8fe2658deb20c2dd4710fafbcfd90222990d"
     sha256 cellar: :any, arm64_golden_gate: "0c16469a4dc86fc28b5072b91eb9f9ff762718cddc6fb4153af3b9e130aabee2"
     sha256 cellar: :any, arm64_tahoe:       "61631969b197f25b9cc4813b60bdcac0dc659618a32a560c43a00c4f99e2c89d"
     sha256 cellar: :any, arm64_sequoia:     "7b29857bb7871d1989e6be275485c5182dcce6094a901fb4afb28a8a52d4c29d"

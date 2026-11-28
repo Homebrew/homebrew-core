@@ -11,6 +11,7 @@ class ZshLovers < Formula
   end
 
   bottle do
+    manifest_sha256 "507cc88dba2cd1137b730cb690086e718c3a4ce7c6e77cabb077baed230fe8d8"
     sha256 cellar: :any_skip_relocation, all: "78b619a87a59fb167481f7dbca50c19e8f09048faa3a09359d54345b4f503652"
   end
 

@@ -7,6 +7,7 @@ class ChiselUbuntu < Formula
   head "https://github.com/canonical/chisel.git", branch: "main"
 
   bottle do
+    manifest_sha256 "37594258f8298eca780c613a48daeb36c61e0eee2e3f958ce445f290fe2d6cf9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "43499d372255a5e31003b434aee2793d3d132b72da15d5301b57621c979d9fdc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "43499d372255a5e31003b434aee2793d3d132b72da15d5301b57621c979d9fdc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43499d372255a5e31003b434aee2793d3d132b72da15d5301b57621c979d9fdc"

@@ -15,6 +15,7 @@ class Libsmi < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "153738bd8ce68ca8c630a4f1e671cdda0c4ca9bd20316d7ef87cea5078b2e8d1"
     sha256 arm64_golden_gate: "faf7c58c617d0c080e8d1c9885fb7e0f75e4d6520fe6dbd573b7b25c51a8ebdb"
     sha256 arm64_tahoe:       "e1082c2409875802d0f39358520e3936b8f02b283203cb6bd50aff0d94fa2511"
     sha256 arm64_sequoia:     "6e30b645bf5eeb0a1b912b806b43210f5946ba59e350650cfa872b5d34baeb1b"

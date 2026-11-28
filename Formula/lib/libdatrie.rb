@@ -7,6 +7,7 @@ class Libdatrie < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d109696ddedd11ab07ab223e74d502845df9ef307d95740656c876c73eef8ec9"
     sha256 cellar: :any,                 arm64_golden_gate: "dc418fb78c371cf3907232c286347bc3e72d93529c8b38e0dc16539e65259497"
     sha256 cellar: :any,                 arm64_tahoe:       "77f8ac3d31bc58f8e000a6b065fa1eeff3c0f832e1d4e3c5fa67b464307c4e87"
     sha256 cellar: :any,                 arm64_sequoia:     "59dcf66f922dd1edaa379fb0ef30034585a7a1760ad0887c95afc0ff00ea667c"

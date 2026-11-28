@@ -12,6 +12,7 @@ class Kafka < Formula
   end
 
   bottle do
+    manifest_sha256 "be392813c9aa9b4b3a3333ef5b2ffc4368dea7dd3ab06f17e75024ac894441fc"
     sha256 cellar: :any_skip_relocation, all: "c50c944f3a17752f275a34eff7d86092b6920a33e528cb33e92c835a6aeabe3a"
   end
 

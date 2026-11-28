@@ -13,6 +13,7 @@ class Readosm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3ae4ed786f7588d16ff24cc7a08d40b1c2304dd7e1053e2542d27fa511be6a65"
     sha256 cellar: :any,                 arm64_golden_gate: "b91c1c3d90ab7f3df2b1abd66a07e543a402c978424a292d0055f6c61fd3811d"
     sha256 cellar: :any,                 arm64_tahoe:       "b9cdc6c5c9194b216fe2df7e303cbd7831365325890ab9567933091b14849b29"
     sha256 cellar: :any,                 arm64_sequoia:     "d4d433f3567a69df0994f2d34b5f99f6dec44c0bb970349a109395ad5b9c5fef"

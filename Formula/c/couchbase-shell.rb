@@ -8,6 +8,7 @@ class CouchbaseShell < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "20855483c44a21c5361bd9d8c7452c22352142cf463d29c378a327aa8836458a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6003dce9b939cde8c9778009829df39a949035f47a66b20a97fc9f7cfb6e72eb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98e6283e63181fdeece944e10ff47c19923eb5c91f186ab97846075d35cce1c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f9bfa398ad3a06d30940ea66ff2f51df6dd9753701f4413ae3e7cc43e653e33e"

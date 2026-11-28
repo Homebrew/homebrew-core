@@ -7,6 +7,7 @@ class Tytanic < Formula
   head "https://github.com/typst-community/tytanic.git", branch: "main"
 
   bottle do
+    manifest_sha256 "67cac6baf3bcb2747bc6c884128ebe92617e7c30012e1cc6d18d15f62c765414"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4ff8b983a4032f3c42bb1e35b8b1562654c32529e59d7b46d3280a15725a906"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a143b2ac2140381bbff172b216a4ae8fd3bd46622858dd833d04fd55869bbfa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c52a116b804e44b808bf762c80b0a725f32ff437526e34c9561bbaf8128610a"

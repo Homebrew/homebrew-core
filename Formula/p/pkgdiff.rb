@@ -6,6 +6,7 @@ class Pkgdiff < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "59ed5c92768d8fe57e567e5a802313a552678c131e9613e9d9f9c5586efd129c"
     sha256 cellar: :any_skip_relocation, all: "d61bc9f1e348b223672343dccd6a023459f729576a4850d91406ef253ccaa8b0"
   end
 

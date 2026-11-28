@@ -6,6 +6,7 @@ class InstallPeerdeps < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d738a92aa53641b8f132124c9f1a25b5fdafbb95f4ffd6739911b9d88ed25fb0"
     sha256 cellar: :any_skip_relocation, all: "eec2d65cc63dd3b8af5a9fd355eded183615f9f987cc708d1ac2a22fe16a4b2d"
   end
 

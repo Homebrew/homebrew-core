@@ -7,6 +7,7 @@ class Pdftilecut < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "477aedf6ea162d95fd2f1c1bf64f1be67f60a457b5633bd324a74aa548fa0e4b"
     sha256 cellar: :any,                 arm64_golden_gate: "53c0861d3ccccd0bbd84a28015c082a77c0b8a47c340d3a91622cbbe045ded68"
     sha256 cellar: :any,                 arm64_tahoe:       "90ee505ab0b2f3afc41e42a5ef8e5e3b02474868b9787fc73cb16d5ab66d909c"
     sha256 cellar: :any,                 arm64_sequoia:     "a0233594179a8bdeb42d430dfe1384c716fff5d1062b8e00be0e0a3012778730"

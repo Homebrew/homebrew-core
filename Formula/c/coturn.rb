@@ -11,6 +11,7 @@ class Coturn < Formula
   end
 
   bottle do
+    manifest_sha256 "522af09f4ab94bbd91b4a60332d239ad23ab91258380a0ffb1824631105dc50a"
     sha256 arm64_golden_gate: "382858b794737f8ca159c4ea3685cd83ec69367a9281cea4dac30ba37012a2cf"
     sha256 arm64_tahoe:       "7dbe6c2b8f06f074beec4322e65f38fb5ebc85ef09276c3b45498bb129e414f9"
     sha256 arm64_sequoia:     "868c6a3dd7923e64f8aa44aa8dd77669c0f47cdc32d332c1cfd72981e3f60524"

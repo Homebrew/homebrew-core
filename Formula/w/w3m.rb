@@ -9,6 +9,7 @@ class W3m < Formula
   head "https://git.sr.ht/~rkta/w3m", branch: "master"
 
   bottle do
+    manifest_sha256 "540746efd13e1307fa415c2ce7f112123fa89ebd316fe39f7cb668feaa382345"
     sha256 arm64_golden_gate: "e6e1ef7d78315e84a9511f4cce13565b1871e9c8fa10b98d474ddf41414aced7"
     sha256 arm64_tahoe:       "9bee09446ab7db97ed5d8ae4fc5e45f7c54b6b1a310b2ba1dd892eaa0abe6afc"
     sha256 arm64_sequoia:     "7afe20edd0af171e1808170cf2c1203ed8c8723952ddc8a52e78e89c6d99715a"

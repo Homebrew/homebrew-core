@@ -16,6 +16,7 @@ class DocbookXsl < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "66a623014d928e680c32c778c4ba60852c3b27af6cb6b8e3500a57fc185c4c7a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b673b7927804220e5e5864ebadb17a5f30ad62140cbba3aeb413417347bb9c77"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "97d7b10fee85c4ad08218efa4b9527b40a412d1e6b439612a76c5eb9c3fe22cd"

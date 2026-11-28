@@ -11,6 +11,7 @@ class LibreadlineJava < Formula
   end
 
   bottle do
+    manifest_sha256 "fce50063b2ed78e71bd8ffa9cff601062725375ad3c18cec19e47806803239b6"
     sha256 cellar: :any,                 arm64_golden_gate: "f76a5c55722abe8e76ffc6b97bbd242225bf35e74f1a49243d02edc7efe69c17"
     sha256 cellar: :any,                 arm64_tahoe:       "c0be01dc30e16481895ced158022bde0abd47698532406fe694974695f028e17"
     sha256 cellar: :any,                 arm64_sequoia:     "52f86fbe9c1b82c3514d13d7a9c4e60cee6f3bf387290ae7ce0ebba3bc98a106"

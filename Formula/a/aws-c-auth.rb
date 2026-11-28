@@ -7,6 +7,7 @@ class AwsCAuth < Formula
   compatibility_version 4
 
   bottle do
+    manifest_sha256 "4d1b4318d04ab07b3fc3199deed66e7343e64b319d5ae242b111478b5e25c2b6"
     sha256 cellar: :any, arm64_golden_gate: "29b29ef1f5ef00ce8a519d98a9eb6c2c4b3a98e9d662b87ff0f46e06598a415f"
     sha256 cellar: :any, arm64_tahoe:       "2bf4faea720e68e6872096269be4a196e6c439a329fd2da8102c7859835c3a57"
     sha256 cellar: :any, arm64_sequoia:     "a141cca313280000d2b667e7132a0940493a4036ded71170ceb8b20c2d6377f1"

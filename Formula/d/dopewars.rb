@@ -6,6 +6,7 @@ class Dopewars < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "6d2d5cb9da53a0f3846589b36d625fcde8fed2d81e729cea77af3ec63c5f7a5b"
     sha256 arm64_golden_gate: "9124b36e81ce76fead891d1ef8e21b4a72909286e66000a8d16083418d7b0c10"
     sha256 arm64_tahoe:       "32b1b72f03015a87d1f859a9f739ca8cb9918f8cfae668d1de4317cbef5bc626"
     sha256 arm64_sequoia:     "8aeafadcc264e12349d8a85fd5f4524a2345b5802397878b5e8c8f83fe7b4692"

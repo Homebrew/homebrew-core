@@ -12,6 +12,7 @@ class Dartaotruntime < Formula
   end
 
   bottle do
+    manifest_sha256 "457599016fcf03d3c0b3c1fb968db162c0baab63c3e21ac3041d8fff5b3c659c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "df95a0a870f34aa4d641516d406b5bf9188b6f4cf00ee75f73c4e4ea85469003"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2338a3a79090297210540f47bab8f8736cf094c38cd68674cedee152172d62b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8724b0232682d7c0ed78378a8542c4a9a07325172c2fbf668b4f240166139dc"

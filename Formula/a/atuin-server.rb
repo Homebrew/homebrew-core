@@ -7,6 +7,7 @@ class AtuinServer < Formula
   head "https://github.com/atuinsh/atuin.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d038385c1b91de493621185cad54723a1af48c64f3dc70ef348f994a80f13509"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5c3b148c44163305099b9a9bafead212dd04b1ad677146ddbfb4a0287b9b3849"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09f33fd9d0cbc98105dc4247b7c1570bc0c6d6dd11482e6b9074315e5f79e578"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9771fb4255cc2563db3077b1836dd193f43a7cdd0ced373f6a69d09e95699389"

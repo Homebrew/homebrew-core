@@ -7,6 +7,7 @@ class LolHtml < Formula
   head "https://github.com/cloudflare/lol-html.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ac29268a75615eee8e7c8bee0ba588d6649837fe22be832a2ed0e7f67bd8c5ff"
     sha256 cellar: :any, arm64_golden_gate: "1274b031831516cb2449c3b99ced569a2a13a0ffcb2fea074c940e57de84893f"
     sha256 cellar: :any, arm64_tahoe:       "2372fb715647e9a2d9a92f30bcd7487880a1f00ea7be666e047e2e252a19e719"
     sha256 cellar: :any, arm64_sequoia:     "bea2758cf3b7d321cef668b7ff6f5a1ad38a2b3008975a269e86638e4d0f35ec"

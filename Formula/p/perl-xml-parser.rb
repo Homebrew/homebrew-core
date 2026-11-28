@@ -9,6 +9,7 @@ class PerlXmlParser < Formula
   head "https://github.com/cpan-authors/XML-Parser.git", branch: "main"
 
   bottle do
+    manifest_sha256 "73d9717c6334e349471822f47c0f75b96314886414306986698a4f4568dfce5b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d4454dd1231b98a0a9563b13d33bf2fee8bf4ea25dce09f384dd5487b3a6895"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c8f72929220beadb381e32462802abfa92f68678d85918810e0ffd0e231f204"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41ff11acec89cd4a2df099c0d1d9e1672ae428cc60b893c660f6007423c7d6ba"

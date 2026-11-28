@@ -7,6 +7,7 @@ class Vgo < Formula
   head "https://github.com/vg006/vgo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ecc49eeba12d1f577c0f67878addc8356fa21ccab1737936673fa3cebb29603f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebe4662e54e85b96b1f8f92f2f22beab2b4b87db4b613b9e3750a12583beaed9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ff3f68e2c54740a2b3cdd2074e33ba392fc4d4398c7ab77c441f96b5294cd4dc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff3f68e2c54740a2b3cdd2074e33ba392fc4d4398c7ab77c441f96b5294cd4dc"

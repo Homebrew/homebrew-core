@@ -8,6 +8,7 @@ class VapoursynthSubtext < Formula
   head "https://github.com/vapoursynth/subtext.git", branch: "master"
 
   bottle do
+    manifest_sha256 "25f52cbdc64977128df84615bf380a92a1e6f562ae6fd875e560cad89a89bb80"
     sha256 cellar: :any, arm64_golden_gate: "e7804cd81ddc9dfc4cb555a77cb4c4edeba47e0ccfabb865070c2ec27ce26e38"
     sha256 cellar: :any, arm64_tahoe:       "c4978b4e598786655954effc2a6502546c80db1ecd48ec84b7ce5618ca0f4fca"
     sha256 cellar: :any, arm64_sequoia:     "87843464f868f4f027bfeaf6d0282f4c56d41066f80b4286bf019fb43dd06d3a"

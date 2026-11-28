@@ -7,6 +7,7 @@ class Infat < Formula
   head "https://github.com/philocalyst/infat.git", branch: "canonical"
 
   bottle do
+    manifest_sha256 "4d51a797e6281d8427ee0bfb5feaf0efe25d24e88090f17d508ef1aa1aa6f711"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "302825c9f8c027b920f99ffd994631340a1656cba825bad42cde4c5f65748485"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50de3391c0125e448685391fdb96fa518f0154837a0307bfade506fa49e59a2e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc0e3f568b11130a1381fe9660e5baf4967f6953a63e3193bd74af28df0eda7f"

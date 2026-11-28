@@ -8,6 +8,7 @@ class MkdocsMaterial < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5df6b8587bea00c42dc84784f9654bfc3d752a679ddf0181a379b5ae39c0a3a4"
     sha256 cellar: :any, arm64_golden_gate: "f541dc7da158768c2e5e5f0cf1e241366cd42977440366494c023a6ac0d9edf6"
     sha256 cellar: :any, arm64_tahoe:       "ea17caff8c1b550168962670c0183108d80986264e9f9f1bdace2760c3f2148f"
     sha256 cellar: :any, arm64_sequoia:     "6bbd6e5626520c5697dde6ba503e82c32ad0318222b56666434e746e00543786"

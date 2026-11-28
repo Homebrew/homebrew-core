@@ -12,6 +12,7 @@ class Wails < Formula
   end
 
   bottle do
+    manifest_sha256 "2b42c043dbec081fbff43f6364b2b7937f1cc8faad9b465709c4cd2b3ca94d06"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "462953e893404a7cb4cbca1432397f25f19cfc181055c025795fb90d81a21a05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a307231ed629959d6379cb5bfcdda5996d798ea8741d82bc33e0f22ac6572698"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "416bcde673338f92762087174f58ffa0c5a73398b4810acc96543091b4db64a4"

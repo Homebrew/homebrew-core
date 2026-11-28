@@ -7,6 +7,7 @@ class Beszel < Formula
   head "https://github.com/henrygd/beszel.git", branch: "main"
 
   bottle do
+    manifest_sha256 "14044c6ba8a1452b3809555aac90a3e099ac3d9f1ecda56e0269a1111bdef9d2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d66754e3c8b09f85aae67d2bd4367bef82e1d746e01383379495a09f6b1ff00e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d66754e3c8b09f85aae67d2bd4367bef82e1d746e01383379495a09f6b1ff00e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d66754e3c8b09f85aae67d2bd4367bef82e1d746e01383379495a09f6b1ff00e"

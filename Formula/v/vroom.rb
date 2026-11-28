@@ -8,6 +8,7 @@ class Vroom < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3fe384fe1bcb2c37907d73ddf05a12db20776d816d12c7e1bf5b000eca128f89"
     sha256 cellar: :any, arm64_golden_gate: "70bb9f8f81057e5809842a2b9e713504ec779dbc04aaf6978cb7e1661b19245a"
     sha256 cellar: :any, arm64_tahoe:       "65665effda41316eca56f3cc55ea85b6a77f82bac89217361e6f160b0e026308"
     sha256 cellar: :any, arm64_sequoia:     "563ae010f0c39f498a37e323c08688adf02f33d8db8e74bd961d18db9a241168"

@@ -8,6 +8,7 @@ class Criterion < Formula
   head "https://github.com/Snaipe/Criterion.git", branch: "bleeding"
 
   bottle do
+    manifest_sha256 "fdb55bbef682b3f826a2d77289386921a106d1352a4840c049d4993cc34ed61c"
     sha256 cellar: :any, arm64_golden_gate: "ab6001c80380e5a71112354992f9bad277cc26869b6aee3a0138f59356ac7dda"
     sha256 cellar: :any, arm64_tahoe:       "6d7692b7bccedbd41434ef540d4612d08dbef0fb9113fd98da47f1826d1eb56a"
     sha256 cellar: :any, arm64_sequoia:     "b8467413f3e3ed2491d1af160ffca6b9d368e8f73678f6148c8de9f2a8677f9c"

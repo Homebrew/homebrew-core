@@ -7,6 +7,7 @@ class Autobench < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "ad7c21417e9ae1ca6ea53c0d7796b0d43bb83de68c02c63503656d5737452711"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d0f2d0bae169c1ead5f17203982d78faafbd518f4b3ca90c2e54069824f845a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3647ac7b205e7a115aae29fc33d72dc21ab5465b98081711240899fdbde2c096"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e205a771a8b315d263fbfb8cac87e6cf90dec528afeb9d755908a9139a2499cd"

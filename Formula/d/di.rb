@@ -13,6 +13,7 @@ class Di < Formula
   end
 
   bottle do
+    manifest_sha256 "605a64203d9b6475e8a119f2323b48acbf2202b5119c26e36c46d3f22a0ca9b3"
     sha256 cellar: :any,                 arm64_golden_gate: "241c8d35ea454be8a7e53557450b8574730a2b8b213aeb9b06b3b790e98017cb"
     sha256 cellar: :any,                 arm64_tahoe:       "62d724a0e3eb3478b48eb8d94c7ba89f3b72e4675f75d523177e7a18a6b37516"
     sha256 cellar: :any,                 arm64_sequoia:     "b0f9ecb8b5537a0b5ab09b4b8cf6dedd3001113f48c220873d9ff4331fe59ce5"
