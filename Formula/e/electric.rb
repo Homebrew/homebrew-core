@@ -61,10 +61,8 @@ class Electric < Formula
     begin
       (testpath/"persistent/shapes/single_stack/.meta/backups/shape_status_backups").mkpath
 
-      spawn bin/"electric", "start"
-
       tries = 0
-      begin
+      with_test_process(bin/"electric", "start") do
         output = shell_output("curl -s --retry 5 --retry-connrefused localhost:#{ENV["ELECTRIC_PORT"]}/v1/health")
         assert_match "active", output
       rescue Minitest::Assertion
