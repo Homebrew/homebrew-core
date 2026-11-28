@@ -62,10 +62,11 @@ class Cntlm < Formula
       Listen		#{bind_port}
     EOS
 
-    spawn bin/"cntlm", "-c", testpath/"cntlm.conf", "-v"
-    sleep 2
-    # "unreacheable" is a typo in upstreams code. There haven't been
-    # any updates to `cntlm` in over a decade, so this can't be fixed.
-    assert_match "502 Parent proxy unreacheable", shell_output("curl -s localhost:#{bind_port}")
+    with_test_process(bin/"cntlm", "-c", testpath/"cntlm.conf", "-v") do
+      sleep 2
+      # "unreacheable" is a typo in upstreams code. There haven't been
+      # any updates to `cntlm` in over a decade, so this can't be fixed.
+      assert_match "502 Parent proxy unreacheable", shell_output("curl -s localhost:#{bind_port}")
+    end
   end
 end
