@@ -35,6 +35,8 @@ class VimClassic < Formula
   conflicts_with "macvim", because: "vim and macvim both install vi* binaries"
   conflicts_with "vim", because: "vim and vim-classic both install vi* binaries"
 
+  deny_network_access!
+
   def extra_deps = deps.build.select(&:test?)
 
   def install
