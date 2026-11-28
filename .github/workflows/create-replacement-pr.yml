@@ -239,17 +239,16 @@ jobs:
           MESSAGE
 
           original_title="$(gh pr view "$PR" --json title --jq '.title' --repo "$GITHUB_REPOSITORY")"
-          gh pr create \
+          pr_url="$(gh pr create \
             --base "$GITHUB_REF" \
             --title "$original_title (replacement for #$PR)" \
             --body-file body.txt \
             --head "$REPLACEMENT_BRANCH" \
             --reviewer "$REVIEWERS" \
             --label "$LABELS" \
-            --repo "$GITHUB_REPOSITORY"
+            --repo "$GITHUB_REPOSITORY")"
 
-          pull_number="$(gh pr list --head "$REPLACEMENT_BRANCH" --limit 1 --json number --jq '.[].number' --repo "$GITHUB_REPOSITORY")"
-          echo "pull_number=$pull_number" >> "$GITHUB_OUTPUT"
+          echo "pull_number=${pr_url##*/}" >> "$GITHUB_OUTPUT"
 
       - name: Approve replacement PR if applicable
         if: >
