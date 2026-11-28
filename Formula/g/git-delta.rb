@@ -8,12 +8,12 @@ class GitDelta < Formula
   head "https://github.com/dandavison/delta.git", branch: "main"
 
   bottle do
-    manifest_sha256 "cd08e50471bad573536d11be06850900fa2c2a95578921708e4ac45f379ca02c"
-    sha256 cellar: :any, arm64_golden_gate: "715b9d12735fead0e9842d0daf780e4aff0a99b8b6fd00c840e0c278d9541ba8"
-    sha256 cellar: :any, arm64_tahoe:       "8eb52fafe80ea7f0c0a56db0658225d6b1a8c39cb00fa125659f9cb33655ee38"
-    sha256 cellar: :any, arm64_sequoia:     "75cb4b64696344f7903a293237e0f5f2c7405ee03ce2154d535fbc92a45b5918"
-    sha256 cellar: :any, arm64_linux:       "ffb46520ad6ede0e5685323f0eeaabb3ca35cd9717ceb355277aa483bd150289"
-    sha256 cellar: :any, x86_64_linux:      "9e25553247592bfdd39090771e877f31856fad4df9205a4f9e424d567e150565"
+    manifest_sha256 "78d39012c3d5f64a0bf86a1470e314c4ce3c80e37cbcc1c20479047a5bef787b"
+    sha256 cellar: :any, arm64_golden_gate: "83dc7cf04fef0e7645f660d70dbc66141d8d57c1011699b957f7e4a9c1b9980d"
+    sha256 cellar: :any, arm64_tahoe:       "ad0866614070a36bdc3cc025ecfe302f223a140a8a76ecd36dd52611c145a91e"
+    sha256 cellar: :any, arm64_sequoia:     "b2bf3e36203eaa0bd1b626f8cac55aeffb05d4d87b8df38d0c94365f17036413"
+    sha256 cellar: :any, arm64_linux:       "26b9530c120c54af0fb1f9cef6666caa0086e80535a5c351e724ee2d81a838f5"
+    sha256 cellar: :any, x86_64_linux:      "2e012d02d91649fcd8ac442f9b60a80f5abaafcc55a667ec71fe6581781b6db5"
   end
 
   depends_on "pkgconf" => :build
