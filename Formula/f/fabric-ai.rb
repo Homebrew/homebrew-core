@@ -1,18 +1,18 @@
 class FabricAi < Formula
   desc "Open-source framework for augmenting humans using AI"
   homepage "https://github.com/danielmiessler/fabric"
-  url "https://github.com/danielmiessler/fabric/archive/refs/tags/v1.4.584.tar.gz"
-  sha256 "49ffd4dfa3e141592193112352a64832e385db585f1c8b6ea053324becf50afd"
+  url "https://github.com/danielmiessler/fabric/archive/refs/tags/v1.4.585.tar.gz"
+  sha256 "98150cfe32679f2c9b09f4ac17de71e1e7bfa764a5c4647f36ed58edc1a8a05c"
   license "MIT"
   head "https://github.com/danielmiessler/fabric.git", branch: "main"
 
   bottle do
-    manifest_sha256 "f569424d1d43cd97166cd34d388d79d8374678a715e7456e69ee2923e821be53"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "473b2f6a3258de472e8fddf916ee7d222ed5a00308cdb57e88eb3faace49c463"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "473b2f6a3258de472e8fddf916ee7d222ed5a00308cdb57e88eb3faace49c463"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "473b2f6a3258de472e8fddf916ee7d222ed5a00308cdb57e88eb3faace49c463"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "3670dab6b27a7a11289472751e1adde5a1b3ca8d7243700c83dc0b0b0dd8614f"
-    sha256 cellar: :any,                 x86_64_linux:      "9a663fbca351750ef20c89b1de5615ff345fb23a17473cc7e380b6939fc9026f"
+    manifest_sha256 "f62cee4087f0042ac41412e23f2f474d04d81dd2845bf32cec628b780bb61fc0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "803e4558845d359ea0cacbd68667df5a797450a5a803fc5426bae4ecd6756681"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "803e4558845d359ea0cacbd68667df5a797450a5a803fc5426bae4ecd6756681"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "803e4558845d359ea0cacbd68667df5a797450a5a803fc5426bae4ecd6756681"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "bb813eedf8f71c68eec922bfbb530cf876a5d6f8a998e57ba13a030127496236"
+    sha256 cellar: :any,                 x86_64_linux:      "41e92696b73e68c4c28c418e8f2d40f96db01adb0cd0e5f422657583cce29bc7"
   end
 
   depends_on "go" => :build
