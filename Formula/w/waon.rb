@@ -27,6 +27,8 @@ class Waon < Formula
   depends_on "fftw"
   depends_on "libsndfile"
 
+  deny_network_access!
+
   def install
     system "make", "-f", "Makefile.waon", "waon"
     bin.install "waon"
