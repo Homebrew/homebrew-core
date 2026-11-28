@@ -1,18 +1,17 @@
 class Droast < Formula
   desc "Opinionated Dockerfile linter"
   homepage "https://ewry.net/droast-dockerfile-linter/"
-  url "https://github.com/immanuwell/dockerfile-roast/archive/refs/tags/1.7.0.tar.gz"
-  sha256 "5acfdb95d78aa6dbef4ee31abc954aeb7c7a84b6bc6de14307d1e061e583da64"
+  url "https://github.com/immanuwell/dockerfile-roast/archive/refs/tags/1.8.0.tar.gz"
+  sha256 "25aee89c883d2a578c16e09760ab0a84246b4d6e8d7192e1e09212b21a11bc56"
   license "MIT"
 
   bottle do
-    manifest_sha256 "fa33e4c27b2ea62543ec196ea65bad20ad2fae55baa79f7453a2832c6bc3147c"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84341dda71e70d036aa6aa7b8823b49640a6256fcf478bf26eeaaf2df69bc81a"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4e90e79021e4f044708898eb631dec18cbe88a95748fe5e9691c066811d0f59"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8170757f11569fec0c06f124701deff67810d4fe2b98ed1f917e53e2b5c92dd"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "fec449fbdebda54b485e67caf1e9cf2bd45c3415ae4b030bd1d0cd3b04e7f90d"
-    sha256 cellar: :any,                 arm64_linux:       "39ca98e1a875e9f74dff27dd9f29014a14d3be0c2ed3b36aaf9ea034f00247d3"
-    sha256 cellar: :any,                 x86_64_linux:      "0b564b29fc87935061d3135cea4be76db3dbe03c7734512d4c3d67f11b44a7bd"
+    manifest_sha256 "bb187ea0c7702dd8e2377ec83821b47a4c354c686d20ac05419c0023cab58ed5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ed36578b651385b91f3f9a894d6e22f8ee819956a776f16cd110eee7897f5eea"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a1ff6ec35caf3d28c4566dc8fd47238138ee8507b2ec09764cafb2c8854b017"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6a7d5477fa7ae537e01c8bb20eb6a244fdf36991207af1088fa9b21eab679eac"
+    sha256 cellar: :any,                 arm64_linux:       "50bff3930171b6ca2a32f2ed5c1b2a79591141eebec966c46acc87d2b4cb9f93"
+    sha256 cellar: :any,                 x86_64_linux:      "6abdc0700ebaf5586d474f0ee0a422071145ae81f13ba70e98ca370c127391a0"
   end
 
   depends_on "rust" => :build
