@@ -42,14 +42,10 @@ class IosWebkitDebugProxy < Formula
     CSV
 
     output_log = testpath/"output.log"
-    pid = spawn "#{bin}/ios_webkit_debug_proxy", "-c", testpath/"config.csv", [:out, :err] => output_log.to_s
-    sleep 2
-    # Setup fails in both macOS sandbox and Linux where we don't have usbmuxd daemon
-    assert_match "No device found, is it plugged in?", output_log.read
-  ensure
-    if pid
-      Process.kill("TERM", pid)
-      Process.wait(pid)
+    with_test_process(bin/"ios_webkit_debug_proxy", "-c", testpath/"config.csv", [:out, :err] => output_log.to_s) do
+      sleep 2
+      # Setup fails in both macOS sandbox and Linux where we don't have usbmuxd daemon
+      assert_match "No device found, is it plugged in?", output_log.read
     end
   end
 end
