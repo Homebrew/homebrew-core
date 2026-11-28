@@ -3,18 +3,18 @@ class TranslateToolkit < Formula
 
   desc "Toolkit for localization engineers"
   homepage "https://toolkit.translatehouse.org/"
-  url "https://files.pythonhosted.org/packages/e7/ec/c4572b49fdb9246f0610b6efcc6169d331f650dfdf2670e1a96c756c468c/translate_toolkit-3.20.6.tar.gz"
-  sha256 "232a2043c438a390fb911eb6b4124e01a983fa8f193e58c422e72cd34bac6a05"
+  url "https://files.pythonhosted.org/packages/ee/4b/ef63ccdcd80657889b2402aca38e1be854e16c02e847faa0b6c7e9c5d2ef/translate_toolkit-3.21.0.tar.gz"
+  sha256 "55c3a87bc59260c2043e6c2e9f1a87a16bfe374a0d6ac7f8bdc6afa8d3d155ba"
   license "GPL-3.0-or-later"
   head "https://github.com/translate/translate.git", branch: "master"
 
   bottle do
-    manifest_sha256 "5b7c924ffe6f83958fd6fa531d9536592bd6475f21635762ab5a06e8ba67f20c"
-    sha256 cellar: :any, arm64_golden_gate: "dd07a6a76a01aff6ebe0cfbdbcefc2a8ae1f743a74ef0d7a2b050c4d850a9b73"
-    sha256 cellar: :any, arm64_tahoe:       "909a18778465bba152872d4db2e649268c111445e68dd8ea4cb715f82992a42c"
-    sha256 cellar: :any, arm64_sequoia:     "c8680ab8fe680b64698d9d72970eea0c7eea42dfb4bdd5046706aa85447b2451"
-    sha256 cellar: :any, arm64_linux:       "fd9ae82a3fb0a1c4d591db905becada60f5c644fd30732e080f724063f204dca"
-    sha256 cellar: :any, x86_64_linux:      "7fe6a961e995bb55bb63413cb4b0db96930204c4d94dd53e402c5799d46e9371"
+    manifest_sha256 "8fd8a524b238a191a08afcee48608f0326db704fc40d8eb26de7c9eefd8f3107"
+    sha256 cellar: :any, arm64_golden_gate: "50813a168d055098d5814847dff23385d0dd6188d17682c7ec68cfdbfa1db7bc"
+    sha256 cellar: :any, arm64_tahoe:       "7c9590676eb918c7ee16562f133e2407aa6a2e37fe3ff38f6d5a14efe2a24b27"
+    sha256 cellar: :any, arm64_sequoia:     "1aaeae72759af0ee2a1e41bb6ead2fe0766e515ce35cbfad4b1de652b743653d"
+    sha256 cellar: :any, arm64_linux:       "e0401a287a65430b6c8b06780cd269c32681ab5696a386e57ea24425f820f5af"
+    sha256 cellar: :any, x86_64_linux:      "c8f2c9cf14310d182aa71fc5bc65f10145f65d6ad4b42613bd893aaa447c2c60"
   end
 
   depends_on "rust" => :build # for `unicode_segmentation_py`
