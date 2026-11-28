@@ -23,10 +23,6 @@ class Mbedtls < Formula
     sha256 cellar: :any, x86_64_linux:      "511c090c62eeaf041e5c047667b8a6ecb5b2c2d996aef940cf5bdcec9e61eb9d"
   end
 
-  # https://lists.trustedfirmware.org/archives/list/mbed-tls@lists.trustedfirmware.org/thread/YPIGCB7WN6GCHOGEGKOJXUYAP7OK527W/
-  deprecate! date: "2027-04-01", because: :unmaintained
-  disable! date: "2028-04-01", because: :unmaintained
-
   depends_on "cmake" => :build
 
   uses_from_macos "python" => :build
