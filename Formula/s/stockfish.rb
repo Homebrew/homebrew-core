@@ -57,11 +57,29 @@ class Stockfish < Formula
       "x86-64-ssse3"
     end
 
+    comp = case ENV.compiler
+    when :clang, :llvm_clang
+      "clang"
+    when :gnu, :gcc
+      "gcc"
+    else
+      "gcc" if ENV.compiler.to_s.start_with?("gcc")
+    end
+
     args = %W[
-      CXX=#{ENV.cxx}
+      comp=#{comp}
+      COMPCXX=#{ENV.cxx}
       ARCH=#{arch}
       PREFIX=#{prefix}
     ]
+
+    if ENV.compiler == :llvm_clang && OS.mac?
+      # Makefile consults xcrun for llvm-profdata, but /usr/bin/xcrun always
+      # return Apple Clang's llvm-profdata regardless of --toolchain
+      llvm = Formula["llvm"]
+      args << "LLVM_PROFDATA=#{llvm.prefix}/Toolchains/" \
+              "LLVM#{llvm.version.major}.xctoolchain/usr/bin/llvm-profdata"
+    end
 
     system "make", "-C", "src", "profile-build", *args
     system "make", "-C", "src", "install", *args
