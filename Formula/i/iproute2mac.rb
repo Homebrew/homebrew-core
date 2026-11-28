@@ -8,9 +8,8 @@ class Iproute2mac < Formula
   license "MIT"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "755ab79b1eb524c6e9265a13a620d5397154d10d15c38776c8321e3ce08abc42"
-    sha256 cellar: :any_skip_relocation, all: "dc08505a778949bea7abc673bcb928910ada16494911e2ab142daef517a35c28"
+    manifest_sha256 "ba99b6411be449f1fd6618083d41c2e2147f1fb4324dae4f933949dc05724842"
+    sha256 cellar: :any_skip_relocation, all: "0725ab2a73a1de64f38b5befe4c57a9f512c10a2e0ad6402717f5191d6df0572"
   end
 
   depends_on :macos
