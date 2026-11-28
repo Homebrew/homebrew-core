@@ -41,6 +41,8 @@ class VapoursynthMvtools < Formula
     resolves "https://github.com/dubhatervapoursynth/vapoursynth-mvtools/pull/104"
   end
 
+  deny_network_access!
+
   def install
     ENV.runtime_cpu_detection if Hardware::CPU.intel?
 

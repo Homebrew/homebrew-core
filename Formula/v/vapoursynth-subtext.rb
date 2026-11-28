@@ -24,6 +24,8 @@ class VapoursynthSubtext < Formula
   depends_on "python@3.15"
   depends_on "vapoursynth"
 
+  deny_network_access!
+
   def install
     # Work around Homebrew's python prefix patch
     args = %W[-Dpython.platlibdir=#{prefix}/#{Language::Python.site_packages(python3)}]

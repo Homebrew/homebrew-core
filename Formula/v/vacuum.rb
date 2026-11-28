@@ -18,9 +18,17 @@ class Vacuum < Formula
   depends_on "go" => :build
   depends_on "node" => :build
 
-  def install
+  deny_network_access!
+
+  def fetch
     cd "html-report/ui" do
       system "npm", "install", *std_npm_args(prefix: false)
+    end
+    system "go", "mod", "download"
+  end
+
+  def install
+    cd "html-report/ui" do
       system "npm", "run", "build"
     end
 

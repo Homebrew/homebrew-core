@@ -22,6 +22,8 @@ class VapoursynthDescale < Formula
   depends_on "python@3.15"
   depends_on "vapoursynth"
 
+  deny_network_access!
+
   def install
     # Help outdated #includes paths find VapourSynth
     vapoursynth_dir = "#{Language::Python.site_packages(python3)}/vapoursynth"

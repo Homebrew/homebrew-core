@@ -61,6 +61,8 @@ class Virtualfish < Formula
     sha256 "de5307ba4b9a0001d9c8ea02832d38f63ca432880f416c1bface61c4323fd905"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end

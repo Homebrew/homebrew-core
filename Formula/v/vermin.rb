@@ -13,10 +13,14 @@ class Vermin < Formula
     sha256 cellar: :any_skip_relocation, all: "1f1c520e383f4d4dc145217f5fabf02c1ac4c6b9e16fd2b047667fc337713eb6"
   end
 
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15"
 
+  deny_network_access!
+
   def install
-    virtualenv_install_with_resources
+    venv = virtualenv_create(libexec, python3)
+    venv.pip_install_and_link(buildpath, build_isolation: false)
   end
 
   test do

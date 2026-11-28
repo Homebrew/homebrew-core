@@ -24,6 +24,8 @@ class VapoursynthOcr < Formula
   depends_on "tesseract"
   depends_on "vapoursynth"
 
+  deny_network_access!
+
   def install
     # Upstream build system wants to install directly into vapoursynth's libdir and does not respect
     # prefix, but we want it in a Cellar location instead.
