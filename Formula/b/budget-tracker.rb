@@ -1,8 +1,8 @@
 class BudgetTracker < Formula
   desc "Feature rich TUI budget tracker app"
   homepage "https://github.com/Feromond/budget-tracker-tui"
-  url "https://github.com/Feromond/budget-tracker-tui/archive/refs/tags/v1.8.1.tar.gz"
-  sha256 "94df80a938e4e9365956dcaabe85c6bb62e6aed8f5133a5c8c01ceb06a12371d"
+  url "https://github.com/Feromond/budget-tracker-tui/archive/refs/tags/v1.8.2.tar.gz"
+  sha256 "df466ea2906f8bce1bc8d7e7b9b75b177da65f83bee30df7af6a664a37231b4f"
   license "GPL-3.0-only"
   head "https://github.com/Feromond/budget-tracker-tui.git", branch: "main"
 
