@@ -99,13 +99,9 @@ class Cppcms < Formula
       }
     JSON
     system ENV.cxx, "hello.cpp", "-std=c++11", "-L#{lib}", "-lcppcms", "-o", "hello"
-    pid = spawn "./hello", "-c", "config.json"
-
-    begin
+    with_test_process("./hello", "-c", "config.json") do
       sleep 5 # grace time for server start
       assert_match "Hello World", shell_output("curl http://127.0.0.1:#{port}/hello")
-    ensure
-      Process.kill "SIGTERM", pid
     end
   end
 end
