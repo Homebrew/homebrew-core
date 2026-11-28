@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.71.0.tar.gz"
-  sha256 "e71d93de41e8e4b2554c36d2ae51758112a21ecf3a8c98605a2c689251e62987"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.72.0.tar.gz"
+  sha256 "7d5964e7e91a2bc04725cf8fb7f4b0481d528e797dbf2ef60a095cc1b82123e7"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
@@ -45,6 +45,7 @@ class Fastfetch < Formula
     depends_on "libxcb" => :build
     depends_on "libxrandr" => :build
     depends_on "mesa" => :build
+    depends_on "opencl-headers" => :build
     depends_on "opencl-icd-loader" => :build
     depends_on "pulseaudio" => :build
     depends_on "rpm" => :build
