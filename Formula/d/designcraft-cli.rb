@@ -6,6 +6,11 @@ class DesigncraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/designcraft.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     manifest_sha256 "b16279de77677a8c29143fccf3d6a8b514b078cf1914f2ea113fc5c3246b8532"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a3fd70ae5369d08b3d22df5cbef5d4746f13e2c2c829d3d42dbf28022dd02f5"
