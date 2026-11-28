@@ -133,8 +133,9 @@ class Gdbgui < Formula
     assert_equal version.to_s, shell_output("#{bin}/gdbgui -v").strip
     port = free_port
 
-    spawn bin/"gdbgui", "-n", "-p", port.to_s
-    output = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
-    assert_match "gdbgui - gdb in a browser", output
+    with_test_process(bin/"gdbgui", "-n", "-p", port.to_s) do
+      output = shell_output("curl --silent --retry 5 --retry-connrefused 127.0.0.1:#{port}")
+      assert_match "gdbgui - gdb in a browser", output
+    end
   end
 end
