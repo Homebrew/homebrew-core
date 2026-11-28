@@ -37,9 +37,8 @@ class Conserver < Formula
   end
 
   test do
-    console = spawn bin/"console", "-n", "-p", "8000", "test"
-    sleep 1
-    Process.kill("TERM", console)
-    Process.wait(console)
+    with_test_process(bin/"console", "-n", "-p", "8000", "test") do
+      sleep 1
+    end
   end
 end

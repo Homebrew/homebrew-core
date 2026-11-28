@@ -77,9 +77,10 @@ class Cayley < Formula
     assert_match version.to_s, shell_output("#{bin}/cayley version")
 
     http_port = free_port
-    spawn bin/"cayley", "http", "--host=127.0.0.1:#{http_port}"
-    sleep 3
-    response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
-    assert_match "HTTP/1.1 200 OK", response
+    with_test_process(bin/"cayley", "http", "--host=127.0.0.1:#{http_port}") do
+      sleep 3
+      response = shell_output("curl -s -i 127.0.0.1:#{http_port}")
+      assert_match "HTTP/1.1 200 OK", response
+    end
   end
 end

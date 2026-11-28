@@ -71,8 +71,9 @@ class Couchdb < Formula
       s.gsub! "#{var}/couchdb/data", testpath/"data"
     end
 
-    spawn bin/"couchdb", "-couch_ini", testpath/"etc/default.ini", testpath/"etc/local.ini"
-    output = JSON.parse(shell_output("curl --silent --retry 5 --retry-connrefused localhost:#{port}"))
-    assert_equal "Welcome", output["couchdb"]
+    with_test_process(bin/"couchdb", "-couch_ini", testpath/"etc/default.ini", testpath/"etc/local.ini") do
+      output = JSON.parse(shell_output("curl --silent --retry 5 --retry-connrefused localhost:#{port}"))
+      assert_equal "Welcome", output["couchdb"]
+    end
   end
 end
