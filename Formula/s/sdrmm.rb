@@ -6,12 +6,12 @@ class Sdrmm < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
-    manifest_sha256 "b0378373ba35dfc29dba24aa09cf22d0e9f2e66339bb1fefd60dcd86a38ef346"
-    sha256 cellar: :any, arm64_golden_gate: "87c2352059327c2875b4d0faa362924f8e52d3e85da15b9c0181477e2597779e"
-    sha256 cellar: :any, arm64_tahoe:       "f4a658da4e095835bf10ac8ec35ceaaac85a721b77321f9c0b7fe96bc0bf5b13"
-    sha256 cellar: :any, arm64_sequoia:     "81a4f5b2c61343f575750053e348a2093d4b7a95b7219125c866e8b27ea54ed5"
-    sha256 cellar: :any, arm64_linux:       "6d9bfc91a3ed8acc9764d64194751fadef03de639375b97fe92a689f9a69ab99"
-    sha256 cellar: :any, x86_64_linux:      "b67852d0231180c02a449134d466253bf09e3365fbef442d7275e628d54c69d1"
+    manifest_sha256 "3d693451d61700739bf154af87ed81f7d023e0e909fb6e28374a90494ecf1a50"
+    sha256 cellar: :any, arm64_golden_gate: "d19143471373282033fa7df5070fcc21b0232b0e82bc858148bafefad892e07f"
+    sha256 cellar: :any, arm64_tahoe:       "c07938cd34045b38fcb59e4f6d86415a703718e9bf7efcc22cc2b76f057ed787"
+    sha256 cellar: :any, arm64_sequoia:     "7b421814fd891d5a5ad6e678317a5e5a418df1c4614b729722e325228dd09af3"
+    sha256 cellar: :any, arm64_linux:       "13a54086fa1588494d484bc467a05829a416b4cff636575549cb95fad77fb824"
+    sha256 cellar: :any, x86_64_linux:      "3b60704b30d8f7f31496c4382a58f8f14758974b976897fdbd21b8c928de0a9a"
   end
 
   depends_on "cmake" => :build
