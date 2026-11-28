@@ -67,8 +67,8 @@ class Jack < Formula
   test do
     args = ["-d", "dummy"]
     args += ["-X", "coremidi"] if OS.mac?
-    spawn bin/"jackd", *args
-
-    assert_match "jackdmp version #{version}", shell_output("#{bin}/jackd --version")
+    with_test_process(bin/"jackd", *args) do
+      assert_match "jackdmp version #{version}", shell_output("#{bin}/jackd --version")
+    end
   end
 end
