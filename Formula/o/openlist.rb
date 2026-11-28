@@ -11,6 +11,7 @@ class Openlist < Formula
   end
 
   bottle do
+    manifest_sha256 "4052df5d53bd140fabbb8b59f9ea1fb0d2088b440a616f92047d6b4db6f7a60b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b30566adb51646b950303415de9ee1ac83c70cc58a9518c1136b959023862e42"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2c25f479c5456453487bfcf4e2b3ef1afb08bd4837339ad9453e947d804d3a4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bb5af0645130b68e721b2c797fa15a2f8684b569b69c66886ea6575406a0603f"

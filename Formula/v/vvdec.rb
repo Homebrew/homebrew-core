@@ -7,6 +7,7 @@ class Vvdec < Formula
   head "https://github.com/fraunhoferhhi/vvdec.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4c040922dd7632f456bca6694c73a21388e59e0ce6d04ac833629c9d17bd69aa"
     sha256 cellar: :any, arm64_golden_gate: "3dda1e912c843aadec9e67b16ede9f8253250f3b1ff45bca2a788532f9c1b12a"
     sha256 cellar: :any, arm64_tahoe:       "6221a50ee5cd77e9ebb307854029dab189a80bf96de86149e3b1ca0773a60d8e"
     sha256 cellar: :any, arm64_sequoia:     "568e0a69764622a88b31db393ade2aad0903985b742545425afe345fd9aad458"

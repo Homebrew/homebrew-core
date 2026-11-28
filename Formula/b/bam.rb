@@ -7,6 +7,7 @@ class Bam < Formula
   head "https://github.com/matricks/bam.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dfe09cc7666bb811f7de8e450d2f2029481e520dbe6179aba2dee9cd5ff14b95"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "773392c0ee9db42b82ad2be097d3aab63e97e4ff05e4532f633e6cab16ae71d9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b8de9dd63dfda7b5b54d80b09458897660a18f8bc7e81ccf5fcf10e30890f69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "adebb626ddcef7b484f65ffa378f7b8301106618b360871f442da91f2944a410"

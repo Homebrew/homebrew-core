@@ -12,6 +12,7 @@ class Ptunnel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2413ca2ef18b602fb7350b2c37effb52923837ba98b7c9af8de8c0a377da9463"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9dc3430313797bc1bc746ff040698366ff50d438a7d457a8958ac3b6eb5e488c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0049b270a67c200fc498f50bfa732e2812106e758b2ee1eac0e43ca41e48c241"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc5d1df7e57ad9f2fe35f68eef503fd2f9bf7da2edc2d0374acc3a37891ee13e"

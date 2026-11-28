@@ -7,6 +7,7 @@ class Ijq < Formula
   head "https://codeberg.org/gpanders/ijq.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f3475e56117c91362bc98e9e9301630d9942be142cc00509392b46e9e5b636ec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c7cd4f3ad5a4b423396510d1f871c9d5c2162c1333fb8dee4e1daa74dd898ca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "58a34da35d3b607e8badcac6544903c3460b4eb3be4e4a5dc5a7581e12cf1a16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "430a888f17b6e28fe8bcb42200ca82d1c568c349acbd5f14088c571231c3fdd4"

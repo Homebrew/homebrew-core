@@ -13,6 +13,7 @@ class KyotoTycoon < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "73f492978a723553ff9b8650255d901d63acf35627d9cf9b01d32d6fb88fd01d"
     sha256 arm64_golden_gate: "7d0f49f7308d248c4a42634c50a8ccfb712377b894675306e023df21d02abe63"
     sha256 arm64_tahoe:       "409039aba15f91854558024a2b4b4e7238164950a0f9aaecd576c0414c9b225b"
     sha256 arm64_sequoia:     "8b2c6c299276fdc723900da83356a6fcdad858b663efa0e62b58e82270ea9c1b"

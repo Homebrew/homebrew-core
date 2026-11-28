@@ -9,6 +9,7 @@ class Dvc < Formula
   revision 20
 
   bottle do
+    manifest_sha256 "52d4521ca636ef9567ef848835a4f445d9ad11e0c66e44c63603503ce2ed1bb6"
     sha256 cellar: :any, arm64_golden_gate: "2f4686934f33e2950f6610579dd8a4af39fc94f7709d61199507011251ba0651"
     sha256 cellar: :any, arm64_tahoe:       "753db0728b4f3b626f5b2a0f8561d678e4353c3819ad578ac920e0df92ac50d8"
     sha256 cellar: :any, arm64_sequoia:     "bf30afca4cdc09ceb910060af7c09b254301e247634ea4fca9ebd78b102a4094"

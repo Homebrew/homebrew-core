@@ -7,6 +7,7 @@ class WormholeWilliam < Formula
   head "https://github.com/psanford/wormhole-william.git", branch: "master"
 
   bottle do
+    manifest_sha256 "663e51e0794240724604a2b3a9c4ece17d90df4d1ed15a08fb14917427ef9f32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "130f84457ced663e4e55e20cfd6e282475d719ef31056322852befc20562be17"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34739b2a39653c214c26da30f0d05f88ac8dc70b21f2d35d9d9381fea1bb3f14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "842582898b124a66cc3f7881433e1a156a9c92b843984b0e74b94d586600fb71"

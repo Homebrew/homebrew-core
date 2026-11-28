@@ -11,6 +11,7 @@ class ApachePolaris < Formula
   end
 
   bottle do
+    manifest_sha256 "6e5bfa7ee29ca7ceaf0c3212f69cc7c4a3d211fdb570da592176718058ce1872"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ac5bec114d12a4f0b6e942823f6f166062a99bb0384d4257460682f3f7ce3e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb9e0aa6bb8b2fdc360ad34cdc16e489f7f6c3a03d1905a61d6673a0fd15cf10"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31ad1440589b42e3b985dfa1ae18a6da5557f3ed7ff4c29de7539325dbd9f176"

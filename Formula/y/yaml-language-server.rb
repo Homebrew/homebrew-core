@@ -6,6 +6,7 @@ class YamlLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ff26e15aa62b5f66bac2bda1b561c5f158fd0b5fd14ebefb9ad954a652ff67f4"
     sha256 cellar: :any_skip_relocation, all: "bdab92505aedea21a2257d99978063fc0303a85041898ea3d39d5ac611061bff"
   end
 

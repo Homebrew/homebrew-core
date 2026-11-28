@@ -7,6 +7,7 @@ class FlowTools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3e0a19eb16a77bbc68bebc71f61bd61b9289eeb52a04c13c650f4f037d84deb4"
     sha256 arm64_golden_gate: "02f9410f5e51f89d34bae9d26b11fff87890c45003f33114d044e513011aa520"
     sha256 arm64_tahoe:       "c6ac8dfec95def2a25acdf33db6ddd896f473f64c402e415753a316d0eef78b1"
     sha256 arm64_sequoia:     "7e2efd253c92894d3d2a423bc535eb5fea7a8507b677e1346e14cd6cc925aef9"

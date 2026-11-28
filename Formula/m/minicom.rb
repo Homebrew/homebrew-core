@@ -11,6 +11,7 @@ class Minicom < Formula
   end
 
   bottle do
+    manifest_sha256 "bb03e16a6bc86d16795420b4a1068d7dcf754108981f18dc569c511c3774616f"
     sha256 arm64_golden_gate: "7ee73d67640f0ac057430a14dc4e90419aeda0f4919e474f4d2cba5c89f8278e"
     sha256 arm64_tahoe:       "a7ccffde0108b847384bfd1b59b65de15b2fa0038243b4b89929469f9d8e3a31"
     sha256 arm64_sequoia:     "c1046b7a4d8540dded35f2d6c758132ca368ff643ace8a43830c93933dde4211"

@@ -18,6 +18,7 @@ class Openmsx < Formula
   end
 
   bottle do
+    manifest_sha256 "b15934969314dd85363c0683ab9672a431a87f97a3f75685020c8fc54451276c"
     sha256 cellar: :any, arm64_golden_gate: "2ae66970aac4664f3373b1b892da9efabc19ed01193dabf4c09ac8fd3261ec68"
     sha256 cellar: :any, arm64_tahoe:       "23a7bb25f72ddfe64eed971fdaa8b1fd566f49dcadfe6eadcaa888e760b1c988"
     sha256 cellar: :any, arm64_sequoia:     "13d30058a4ea35d335fb7346384ed4a55a4b3c5c7577c15b30b296c2b65228af"

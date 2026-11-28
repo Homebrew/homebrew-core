@@ -7,6 +7,7 @@ class Cppzmq < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b2dc7e8f34c1d02a65d5f21b3731a379e07fdc633d4c6e7f16a6637938ef45ee"
     sha256 cellar: :any_skip_relocation, all: "5aad9277c9ee7b3140a55c7602ffc5f2be20dd46ea77fcae0ca4bb75c47fb372"
   end
 

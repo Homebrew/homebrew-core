@@ -11,6 +11,7 @@ class Megatools < Formula
   end
 
   bottle do
+    manifest_sha256 "f1389c169f8f84d9e20a5ac915203f3ed7d161c5e27915277794fff96815f43c"
     sha256 cellar: :any, arm64_golden_gate: "b8de0384ada644416dcab2cb3a8f716ac97264fd3a04fbdf8087fc546c236462"
     sha256 cellar: :any, arm64_tahoe:       "4bd6ff739b042cdee5e6b516af1b0ef91dc57375f5ca40d7bc788aea4c2c1a95"
     sha256 cellar: :any, arm64_sequoia:     "1025d6bd6f7e94990ac89856ce9ff9a35414d5335103ad56f9856cbc0d18f4fb"

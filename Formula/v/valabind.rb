@@ -7,6 +7,7 @@ class Valabind < Formula
   head "https://github.com/radare/valabind.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e5b99ea82139e9e270143ba800c00596370fda5c59a6069126159d24694b0e58"
     sha256 cellar: :any,                 arm64_golden_gate: "6b5a2adc75229e507db46d7c83f1b8f5657a72c33c4e85028f3acb589abb2328"
     sha256 cellar: :any,                 arm64_tahoe:       "96644c5f33f86c6ede04624797bab4dc30b9c3b13437307749cd7c995023dd7a"
     sha256 cellar: :any,                 arm64_sequoia:     "a0ab6a915e8f5d8f4335c97b059775eb6dbe465f5d9cb856383a82adef6a8182"

@@ -10,6 +10,7 @@ class Cf2tf < Formula
   head "https://github.com/DontShaveTheYak/cf2tf.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b679cd60ac6fb62f26f2efdac1ae1da923fccd7df955dd6588b70cd2f6b8b7ce"
     sha256 cellar: :any, arm64_golden_gate: "3b5afe1e4a68bfd9a04f763eeaca22fe5a8ddc0175f4e37a8bf553c83fbee538"
     sha256 cellar: :any, arm64_tahoe:       "b0e54ceced89096201583986d4ba4eace95a9fe138b15dea1c62fc8c5546600d"
     sha256 cellar: :any, arm64_sequoia:     "ba869c97666982a758cbd2de4e7f58040d794637ff4cf85f887e9f66c5efecb9"

@@ -7,6 +7,7 @@ class Unibilium < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "df3f70997301f3213d5609170ae4ac8d86123a94dacd637dd7dd8a3b5a36e3c4"
     sha256 cellar: :any, arm64_golden_gate: "955d75f75ed264c4efafbbe4b4598825070db0cae8f2a87808c95d9fb44ae2ab"
     sha256 cellar: :any, arm64_tahoe:       "236da70149748828b1b4835aceb4800717b8ec79d8f4735d0c0991b0f2a2c996"
     sha256 cellar: :any, arm64_sequoia:     "3eb5e89e95400ba3546eda862f14d5c7b71f9aa63996eb83e23968bd111a6dc5"

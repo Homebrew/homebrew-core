@@ -11,6 +11,7 @@ class Calcurse < Formula
   end
 
   bottle do
+    manifest_sha256 "2ace74e21b55039baf868393b60af36180c2b735c7d0c2d13d200a9bde9fead2"
     sha256 arm64_golden_gate: "5d919d1105101456dc8edbd70ad16f914a028aa3210cb6d3205afbd8a9f2a4e9"
     sha256 arm64_tahoe:       "2ff5c6cda82119ae5677bd6f0331b6443f52a2a8472497198f5524b90c076a93"
     sha256 arm64_sequoia:     "f0c8b5a5111c647332d1ffc1e54b6eaa6d5884fc50ca4371b84d6005ab8468b2"

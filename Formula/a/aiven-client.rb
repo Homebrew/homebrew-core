@@ -9,6 +9,7 @@ class AivenClient < Formula
   head "https://github.com/aiven/aiven-client.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e76d4e71d4024f0d73a2ac1cf733ff1502144540daeb31d5ae63043dc9676013"
     sha256 cellar: :any_skip_relocation, all: "caf4dd9371e094d470cfd99d42e0decb9ff145a17d5cc8ea05433c8323455006"
   end
 

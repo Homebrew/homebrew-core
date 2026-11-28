@@ -8,6 +8,7 @@ class ChartTesting < Formula
   head "https://github.com/helm/chart-testing.git", branch: "main"
 
   bottle do
+    manifest_sha256 "11af492340901609133f8197710c5595ee3f19d49763c50860e2e8e0ff451576"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b93e26f8d7b204fbe9df598dfb786e8a8180071ca1790566fc6e9271dd33bdc9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b93e26f8d7b204fbe9df598dfb786e8a8180071ca1790566fc6e9271dd33bdc9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b93e26f8d7b204fbe9df598dfb786e8a8180071ca1790566fc6e9271dd33bdc9"

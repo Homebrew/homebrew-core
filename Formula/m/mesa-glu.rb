@@ -8,6 +8,7 @@ class MesaGlu < Formula
   head "https://gitlab.freedesktop.org/mesa/glu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f61e053952336c2701b7ee371987f3b812f73b96b1a532f6a4fca13567c41e10"
     sha256 cellar: :any,                 arm64_golden_gate: "f8676f60468b7a011cb2f436a961520d097e27d2c1bc607493523879786eef35"
     sha256 cellar: :any,                 arm64_tahoe:       "04be327648775a1c07ed70dd1fbe931983e013381f3459c10c12132fee8c7283"
     sha256 cellar: :any,                 arm64_sequoia:     "20ebc8dee6088f6f72e85c115535d7ae2d91af99b06dfa347bb9fb159d1e593c"

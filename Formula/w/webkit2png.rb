@@ -6,6 +6,7 @@ class Webkit2png < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "e331f0105b1b1f67ec8e4629bde75b41ba003d7ea8c46c15281765ecc88f55d2"
     sha256 cellar: :any_skip_relocation, all: "ad209d841f88f9b5d3a969e2493d853237c89234bd09dfc3d1aa2106832d2d7d"
   end
 

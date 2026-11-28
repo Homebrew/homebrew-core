@@ -6,6 +6,7 @@ class Dipc < Formula
   license any_of: ["MIT", "Apache-2.0"]
 
   bottle do
+    manifest_sha256 "1a9dcb4428759c2ab9fbbc1543305b328d52b5d10c673237d4b7646638af431d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3bc4de6978b343b7e1e07e6055d6e68b2deec854f1eb5572f6f8bd5961220f72"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d52b47ebc1d3d20a2e250c465ac049a73fcf6656a28950be303c3d01eea1e5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "497816e52f824984125a054da99497221a2e9509c352cf96850a0b1bfc8fc808"

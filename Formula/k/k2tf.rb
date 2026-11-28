@@ -7,6 +7,7 @@ class K2tf < Formula
   head "https://github.com/sl1pm4t/k2tf.git", branch: "main"
 
   bottle do
+    manifest_sha256 "af7753938d95390071e80d613328e18092186f687a30c02d863e814168069bd9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c62d961aacc54f15e26def3f930fb825eb1c99bdb591bea8df2cfdb880a668a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d502873a00e376dd401a35fef734c406e676f78ce142fa74ddf586bfa7a32185"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d808b0a5af45f1ef97f4e8da0bfd7d479d255df1e3defb967181ec464507b85"

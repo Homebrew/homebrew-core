@@ -7,6 +7,7 @@ class Diamond < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1cec4a1ab75b959abe79a9b2de558a8878fd08b207fbb11202c63c373bdb06b2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70f71cc45c1aa79d860b339a5f24b7bd349f0fa64edd7543b7501fcd54d23fa0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04949f1905cdedba2ab0c22745d0cddac07450f89a57b9e3b4280b442b6b189f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "574834d34813cb9f8ae14ce88f73e94c62bb6c0c0b38130a27166f940fc8b127"

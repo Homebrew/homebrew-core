@@ -8,6 +8,7 @@ class Matlab2tikz < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "38368589ec2826cbff3a7d717382ffa773aac5d413f39c878e5965152bc854b0"
     sha256 cellar: :any_skip_relocation, all: "eb8e50b9e5382c9cf9664a559dab432dde58e071bc13d97fab006273184d3002"
   end
 

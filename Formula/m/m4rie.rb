@@ -6,6 +6,7 @@ class M4rie < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "94c4ab72e1ed8725831f184faf0d8283fbb668e3d08b4602bbb5ee71d882d25a"
     sha256 cellar: :any, arm64_golden_gate: "8c3013b6a51f9cf824952d783321ecf595417efaa54cf82b27b4c7f7972cd25a"
     sha256 cellar: :any, arm64_tahoe:       "21f9f9dc9b232eb6ac5886157ceae1b9c4bd8c3035563cf586fa89d8994854a4"
     sha256 cellar: :any, arm64_sequoia:     "eb00887b658776dcd0188d91e7e9ebe566d0639b99cf480f7e9ced7c4286403b"

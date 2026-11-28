@@ -6,6 +6,7 @@ class Skylighting < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "87fdb7014d2ca3dd01a5370fd2f8e0c79ec7f83be3b916c896bdcef8f092df94"
     sha256 cellar: :any, arm64_golden_gate: "847411e10873ad306943ebb698367e3c01863c6e4521589570235ae51812412f"
     sha256 cellar: :any, arm64_tahoe:       "97e2362843abfeace57c206c68ebd59168773a8c15042576a79a715b32b2775e"
     sha256 cellar: :any, arm64_sequoia:     "a07712f08675e94a754cc5976657defb1f9e25b7b35fd6605faa09e94b9b5863"

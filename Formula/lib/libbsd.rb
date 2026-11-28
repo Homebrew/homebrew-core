@@ -21,6 +21,7 @@ class Libbsd < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "bc251631e8f37b8a0ebb2eda8c71303a121990eec8c2f09924673c6968dcfcd8"
     sha256 cellar: :any,                 arm64_golden_gate: "6ff33c0353c55e3695d33688cf654851e738cc934ea8ab99ca8a1f6689161039"
     sha256 cellar: :any,                 arm64_tahoe:       "c7f96d1094ff2cc9da0513b16d0b0367baf7181648c7b95c18e038283cd76e0d"
     sha256 cellar: :any,                 arm64_sequoia:     "efbaa69a0a35faffb4aea0d753dfb2b9c0d69d2b75e082da79ff3c1217f71220"

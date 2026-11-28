@@ -6,6 +6,7 @@ class OpenJtalk < Formula
   license all_of: ["BSD-3-Clause", "CC-BY-3.0"]
 
   bottle do
+    manifest_sha256 "6ee7b02e03e1dcaeaf13a789f835a17dc3426807c6452f5dbfaef933ac7573cd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2f88ec5e20185e1a1153b6bd3f7f6d5f1a256e01a57dd130ef9a11fbe0bd67d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb7361d9bbf78cc39da0b9992981dc8485c7f5ac0f5f3f191f5e0b27c8c1b9ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "51df7e0512ffe97b112a49dcb57c51da678a0cce2893cf8e3a9430044aef7d7f"

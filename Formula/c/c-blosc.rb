@@ -7,6 +7,7 @@ class CBlosc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0f8d3b9c82685012a69a7b2d10d2cdd1a84782ad104e31c1726780fb2a4cad18"
     sha256 cellar: :any, arm64_golden_gate: "24db67e9fb0e885be0d0a7b7212df1050d4913f8ff02a6848033d8a47cabf390"
     sha256 cellar: :any, arm64_tahoe:       "8f3e601e99393d1929b14d52c6f68792c9feee477f490f989820a3d341b3624a"
     sha256 cellar: :any, arm64_sequoia:     "342b604169fa91f42f41682c3f9fa1b2dbff32dbc462f2435f5ec7d787ba63f6"

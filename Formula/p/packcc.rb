@@ -12,6 +12,7 @@ class Packcc < Formula
   end
 
   bottle do
+    manifest_sha256 "d3f80f358ec371ba42db5542350d2be569b96028a1a494ece1628ad9a1852460"
     sha256 arm64_golden_gate: "5d73244e09aa7580af573c022ca066c02ab0dc40cd6d99dac788ffc5bf31e404"
     sha256 arm64_tahoe:       "48a1bbbb6c7a797742b5f50f84739d27845f560da0f40e0e5157d539b2a185d6"
     sha256 arm64_sequoia:     "39534f1afb2fe241fac5cc52f79b37001e947ed4cdac51160370edf634bed2c8"

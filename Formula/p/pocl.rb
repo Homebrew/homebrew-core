@@ -13,6 +13,7 @@ class Pocl < Formula
   end
 
   bottle do
+    manifest_sha256 "a786a6b48990eb8825400424b32629431e8586c4740eb4c7721c4a7f8e07e525"
     sha256 arm64_golden_gate: "82dba1ab99489e8af1374ca5eb49a26a89fd95295909570c715f81bfd9065691"
     sha256 arm64_tahoe:       "db8ffc6a44bff02e7f328a66ae573c5b98476ea6a1fbf3706c99d5f3f52bb7cc"
     sha256 arm64_sequoia:     "a58f0c781bcc66c136993c02254b0f9119dd98e28ebb2d53cc461eb684af7880"

@@ -18,6 +18,7 @@ class Ballerina < Formula
   end
 
   bottle do
+    manifest_sha256 "6b4c587aee618b63f695d0613cd0fde9304568ee80d37889bd96ba4bf45dc57f"
     sha256 cellar: :any_skip_relocation, all: "e95f41d0a98de9af903df838cc444743427886eec1a0a36cd56dc86bf5f6c0c0"
   end
 

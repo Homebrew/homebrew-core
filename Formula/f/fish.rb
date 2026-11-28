@@ -14,6 +14,7 @@ class Fish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "311629c305aff6d787e8abe7799819206e923672da01267f940fdcb385fc48fd"
     sha256 cellar: :any, arm64_golden_gate: "fff30eb9cfc4c346addafecbd79a361078c5fc3ac3a1145336f116aa1f2dcad3"
     sha256 cellar: :any, arm64_tahoe:       "9ba271b9578b67538c408c488680b31d9e9c4cc55e2b00970913bd9b7bf91f89"
     sha256 cellar: :any, arm64_sequoia:     "e0b4f919892ab14edfb938750f65ef688e1613fae672d7f1fcaeaa6db5478a1e"

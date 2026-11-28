@@ -11,6 +11,7 @@ class Lft < Formula
   end
 
   bottle do
+    manifest_sha256 "f4721a82c40e52dc5249780ac3d5e3e6c4632822dbb1325d95fd6cb7d99d4348"
     sha256 cellar: :any, arm64_golden_gate: "c5dd47b4eef51708b3d47b69f48d6688942d2ba1b983fffbd65f97e8e058b51c"
     sha256 cellar: :any, arm64_tahoe:       "ae55e4195d44275df1000b94d37ecdd26d1d90891d4c2f0bcb34001957b47ef2"
     sha256 cellar: :any, arm64_sequoia:     "b8ac2a1d5a00bd891f4f2030677112387d54629c3fb6d9b7d6fd37355069d08f"

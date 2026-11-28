@@ -17,6 +17,7 @@ class ArpScanRs < Formula
   end
 
   bottle do
+    manifest_sha256 "99ffb8ea6fa800ae2d151cf5a84cd4f28290ec563514e83a8a47733c0c0aed49"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c56dfded512377156f19c2260b144fc163d4c7de38d7248e8c6191ef6eca24f0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14bd6fa1bb860ec13b1dc36252df0b426b542579156b511498cb5db789cc3f5a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "807c0ba92359a131432f619bad0e1b6013e50f269c4bc79c3d5e47f8dd123089"

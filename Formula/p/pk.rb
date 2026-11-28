@@ -6,6 +6,7 @@ class Pk < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "df78f8b1f4f63d4a8810ae25a0d2b68d024cefc8b5fb42b773df1e4c6e9fb9c8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b2e808f6d12658699ecc59a3ddfd840bf2a554cdc618955ef55bf357b0a7cf10"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3974a59cd7a66f2f4db021e85d5a4460b500cf91899c908f5bd2c2cbab17dfcd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d0ffa53ef80ffb3a77f3329df0e76ec6a586f2facfd2527f5602e89cb989fbe7"

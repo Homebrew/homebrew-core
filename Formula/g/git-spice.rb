@@ -14,6 +14,7 @@ class GitSpice < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "ca2ae433434eaedc07fe473f837e1ff65a089f8246683df662b6831a20a52c04"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "731c4a4fd9d507881ae09d1296622da18a199f9c94b1ad61a43a5b937f7032cc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "731c4a4fd9d507881ae09d1296622da18a199f9c94b1ad61a43a5b937f7032cc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "731c4a4fd9d507881ae09d1296622da18a199f9c94b1ad61a43a5b937f7032cc"

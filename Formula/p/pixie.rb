@@ -14,6 +14,7 @@ class Pixie < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2bc1157c512cb5c005d0372ed05825bc89b6bcde8e3224cecd2fc84a7da67a9e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5aa120d8ce9d2457672f97163d371c93a6deddd37b4f525954f9439058ba726e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83b266db822d9793caf6cf5a03e8317e02739f0d5f9406ca81beaec183f0146e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1d6e42fdcbc35d05f2eeaffdf327ee3ca07e8e8ae7f07d418441f7446eee67f0"

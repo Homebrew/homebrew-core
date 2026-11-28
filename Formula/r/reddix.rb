@@ -7,6 +7,7 @@ class Reddix < Formula
   head "https://github.com/ck-zhang/reddix.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2a8b2b8497168e37005816b5ab8d73fd961f31a90bc3fa490dd39ab5f3046bd2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fac6bb5d3f03c073271bfa837448e8188e193602cd84f9bbe75624e8146066f8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e36b6e3eb90ab065727639e5feeba9aaf128f2f5da15d632c1b7b8d45573ab38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "16bd6f29709efb81b7d293068c5ec997472333c282ca862ff37c4b5b7bfdb3fe"

@@ -8,6 +8,7 @@ class Jsawk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "46cf10d463cdcdaf1c8264368dc91c58a14604db72645433b886375818ab6e09"
     sha256 cellar: :any_skip_relocation, all: "ad82c5334cd78f71f7faa8835d7c3315e0ea98f26a9a2615d8425a72d77242a5"
   end
 

@@ -8,6 +8,7 @@ class DepScan < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9b13b42432baa278977294f93c50242526b2e6293a0fb114901c4032ea9d0795"
     sha256 cellar: :any, arm64_golden_gate: "97068f229d4396bede760ba474b0f764ff0a1e15279080bcace05c590f2633f7"
     sha256 cellar: :any, arm64_tahoe:       "a65ec6c1fdfb4f2244150d17d1a52b9c92b8317836ac7eb48d0d015cc02e6776"
     sha256 cellar: :any, arm64_sequoia:     "acda365609ab5f994c5271cbed021762beae1f475415da9d780ef76450e56721"

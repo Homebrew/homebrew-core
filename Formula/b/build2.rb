@@ -13,6 +13,7 @@ class Build2 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e977982ca00ddec36f288b2dc66e86b251781cb2f3e287f0499406075e5e880e"
     sha256 arm64_golden_gate: "450780f27354cd64b8337c66f8d6e04a415d5b210bc7cc5825eda8fd120d5684"
     sha256 arm64_tahoe:       "5285330bcb3d10f853f55dd47d0c37cc7aa13ccf118cdab916c558d7cdb757f7"
     sha256 arm64_sequoia:     "16688040662f95704dae80d2242f0fcbc9f9ce2fa8723f01afeb71e13c7f4368"

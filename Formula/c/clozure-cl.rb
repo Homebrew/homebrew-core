@@ -12,6 +12,7 @@ class ClozureCl < Formula
   end
 
   bottle do
+    manifest_sha256 "85255780f8d95e8e63af55db4b5a87757d31cc6f809559000be8006a16ebeb95"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b5b1be3282c54d8514b89cc45c91f6268bbac2cd5aa80a4777433f9653bced3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "25022257c0255ef2f2e180a2a8795965a9f8862aa53f4f8f1b44e6f616d54cb6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ea12d8bcc5606182ab2561f78ceb262d534a051c4f60ab93415fd6b048e369b9"

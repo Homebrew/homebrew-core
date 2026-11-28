@@ -7,6 +7,7 @@ class Cmark < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "92ab88b30652aec065140975d9b1d702d6ca368362378a29d64ae934697a6de4"
     sha256 cellar: :any,                 arm64_golden_gate: "8b31972f504541843f516c29172df9aa98d235ea0e2412a9eb51b40bdc6527cc"
     sha256 cellar: :any,                 arm64_tahoe:       "23df2262fb8ef016f8f60bdfcd875a08de7f184f60c2263991c79af9cd772ae6"
     sha256 cellar: :any,                 arm64_sequoia:     "91068cdaa2e4a69d056cf074c5e4b74737b749c40a4c3ee9fba0db317cdc4761"

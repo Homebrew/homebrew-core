@@ -9,6 +9,7 @@ class Gfxutil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "88a0fc162d296ed10869ab71237e34f324c9b535d5ea4627b9e2f6eef8e1058e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc3d312f7b33ba6e153ebfc22111d8f5e8037a80ff0d78613debf8a46fe10335"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ee145a2ebb496024e4028f02130c629f532c35f630090b9f4d94dbd3f2fa1ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e8ea9ec58fff7c3186cad6cc50f50a8af31be3d5f9694191fb9e92671ba6d3b"

@@ -7,6 +7,7 @@ class PandocPlot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "582e1d10828ad1cba8e57519c58e769e681a2e3ba39776a68ae383fc5fda824f"
     sha256 cellar: :any, arm64_golden_gate: "63f7a2128a43e9952ce8a54b7634ad66c0ebf3c304a8ba30b231923f2c887eb8"
     sha256 cellar: :any, arm64_tahoe:       "7f29f9f8ff09401b710c2de8ef158e13777021577641638b97cb6de661a31c3d"
     sha256 cellar: :any, arm64_sequoia:     "30685a01e5310fe12e87d9aa304bbf9058fa9eef64bbb75b1bd5259ea688bc12"

@@ -13,6 +13,7 @@ class Adns < Formula
   end
 
   bottle do
+    manifest_sha256 "7eb16164f5f02b0a0684d1076d82681d26bdae0e308ffec8924733c36490316c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f37840ca2880b5bef50a47f5f4b2ac273dd37d268e88bbf5de618fd9334d803e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f97460489cdf303f9b431a72e96666fe38f4a4d0de5370c75bb1b960fcaef5d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77170c7a123efa6a5717a542e8b63c8d407004fbcfe212a56e58cc413691449b"

@@ -14,6 +14,7 @@ class DartSass < Formula
   end
 
   bottle do
+    manifest_sha256 "abfd982babc151a0a220e9af31402e7579123229d9de6355139a5b3b409a0b7b"
     sha256 cellar: :any,                 arm64_golden_gate: "f4c95b0edb572dd3ca7ee1ca07ea6b6df522fdd59069fa7dcfcc4dc002a4a75e"
     sha256 cellar: :any,                 arm64_tahoe:       "59e4d7a813f64820ce7caef61e062619e2ddab1328cd99815ac9a04d7e7c8ae1"
     sha256 cellar: :any,                 arm64_sequoia:     "8c8701cbe1277f13be9d1e90bf1cffbf2161809b4a7fa1333be8b670ca5872e3"

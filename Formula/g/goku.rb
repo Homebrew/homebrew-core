@@ -7,6 +7,7 @@ class Goku < Formula
   head "https://github.com/jcaromiq/goku.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0ef799dfb4654aaf34ae21c48e500ff5b97d59cdb8d41e586176cbb7392bbe74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dbcd2cbee518cc09233c38879efac3e233587246c172d9e075a4819ec107a6a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c00f79db8bb7983c31fc349b3ecf9ae7d56d82c03aa38180fc52d2571ed787a4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c4cea235901e79e89c646070ddacf7966b187020bfe47e758c1aa3a4496c1cb"

@@ -14,6 +14,7 @@ class TokyoCabinet < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a55b3fba049447042569545116fa7175466964b553b47934031524daf4dc07d1"
     sha256 arm64_golden_gate: "8d260ceb122d4ef2cb23eee0377e689867d331dc87cf4023a0cbc89d6d5ac39e"
     sha256 arm64_tahoe:       "4443340968f13e90acfd2e0491be08daf43624bb64554b72d8f36997013650de"
     sha256 arm64_sequoia:     "972d0577b287658d7e6998da98ca2ec90a4f556ac8477b6d2bf0715a9a3a53b0"

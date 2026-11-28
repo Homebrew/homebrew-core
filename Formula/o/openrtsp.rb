@@ -1,11 +1,11 @@
 class Openrtsp < Formula
   desc "Command-line RTSP client"
   homepage "http://www.live555.com/openRTSP"
-  url "https://download.live555.com/live.2026.11.22.tar.gz"
-  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2026.11.22.tar.gz"
-  mirror "https://pkg.freebsd.org/ports-distfiles/live.2026.11.22.tar.gz"
+  url "https://download.live555.com/live.2026.11.27.tar.gz"
+  mirror "https://download.videolan.org/pub/videolan/testing/contrib/live555/live.2026.11.27.tar.gz"
+  mirror "https://pkg.freebsd.org/ports-distfiles/live.2026.11.27.tar.gz"
   # Keep a mirror as upstream tarballs are removed after each version
-  sha256 "f2cdb4101c4be01d6b61c2ac8cd1674c711eb00c4bbb43a492e52ae5761244d6"
+  sha256 "b10f5f5ae768c2fa9c175d7ad31b2e17dcbde9598ef368f012921f55ad69c336"
   license "LGPL-3.0-or-later"
 
   livecheck do
@@ -14,12 +14,12 @@ class Openrtsp < Formula
   end
 
   bottle do
-    manifest_sha256 "598efbd2b1961ffc8e97523c35559aff2c48a50e92a1e13836706f4411458cbd"
-    sha256 cellar: :any, arm64_golden_gate: "3898f1811943c9318b836dedb068ff9524487dd51a2404001d0a94eccd29aa65"
-    sha256 cellar: :any, arm64_tahoe:       "a9b929e4dd12d4842090c5ce0dfae1633b781a1ae0724bf1f6be566007e18bb1"
-    sha256 cellar: :any, arm64_sequoia:     "656978932a69cc7ae052af2789e8cd5e0fa7f0438df35992e593b48a41dcc3c7"
-    sha256 cellar: :any, arm64_linux:       "ee3525314a4e494d8889a335bb5a43336421914e498b4ad4ba15e62bc9f59de0"
-    sha256 cellar: :any, x86_64_linux:      "3d986f237935264b037147114f8393ebe46f10767ac92bc05fae2735c3160474"
+    manifest_sha256 "2b9c1f4b23b73c5140b52bb032096aaff206744ab01038029d070370cd4e9839"
+    sha256 cellar: :any, arm64_golden_gate: "750463352225383fff99830a671c0b8e945bbe47d3dcb5743a1b46e5eb77c09c"
+    sha256 cellar: :any, arm64_tahoe:       "4325aecec9ab02a8ca5ae3f6e7ee2c3736b81fbef4803dcdc6f84dd0ddadb21c"
+    sha256 cellar: :any, arm64_sequoia:     "d7035cbab6ef16a142fa53e4bf2a68e68a56e909bf7228c3723ed97cddee5a49"
+    sha256 cellar: :any, arm64_linux:       "eb0b6c43730d2e62604654f2778b0850495055199e369c69be04189155335b68"
+    sha256 cellar: :any, x86_64_linux:      "f6a85d483f27116becb7aa92899cd8e24d1aa267e4e9263b99ac619c34678b1f"
   end
 
   depends_on "openssl@4"

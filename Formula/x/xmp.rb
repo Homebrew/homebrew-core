@@ -6,6 +6,7 @@ class Xmp < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "82cd366ff19afb624011b258c2f0af4a18fce0224cd6287f630cfb5c6f7d88e4"
     sha256 arm64_golden_gate: "2ec1d15e70bdde683b1a7f16a7fe2c5c8fa4b6f06d14466dda9712809d7b36f8"
     sha256 arm64_tahoe:       "8a83641cb1f63efabdcb932c6bfea4c44915514af1186394dab92ee332154332"
     sha256 arm64_sequoia:     "d8a40694abaf2eb15637f85c4faeb950867e74346070e44698dc449e4343ec95"

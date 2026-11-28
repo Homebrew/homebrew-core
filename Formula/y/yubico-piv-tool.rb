@@ -12,6 +12,7 @@ class YubicoPivTool < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3ced2835677ca68036e3ffd7b3e34930356b75693c97505a54782ffba791a8c3"
     sha256 cellar: :any, arm64_golden_gate: "e1483709af170adefa9460acf1b5df1588a58c200a78a1107c244de609326c2d"
     sha256 cellar: :any, arm64_tahoe:       "5276dc02eb4082e94f23377ce12607dcb3da58cfddeb39781eda5355a5b7e773"
     sha256 cellar: :any, arm64_sequoia:     "100e3a16c8c0029a0c896f1b0cc60725e2ddae683f1633c7a976ed7f594f3aa6"

@@ -7,6 +7,7 @@ class RevealMd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c4ec2cc04ec5cde7562299db7ef80ed3a523875d0bc6be0177e84ca0218d4c1f"
     sha256 cellar: :any, arm64_golden_gate: "9894ad668b98aac5215a89bdd31e39be7d73962f1d8101690c6022154e9c6f1a"
     sha256 cellar: :any, arm64_tahoe:       "9894ad668b98aac5215a89bdd31e39be7d73962f1d8101690c6022154e9c6f1a"
     sha256 cellar: :any, arm64_sequoia:     "9894ad668b98aac5215a89bdd31e39be7d73962f1d8101690c6022154e9c6f1a"

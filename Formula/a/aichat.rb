@@ -7,6 +7,7 @@ class Aichat < Formula
   head "https://github.com/sigoden/aichat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c8398f15e04843ba86cc93ad527e15ad2b21210eb400939a59d808b6dfdb1471"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e61722b4e203ed93d28a3125aa138f05d3f265ea175dd10e8fedbf31644df4e9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cb51a984d400d6c62b6978a9d9c1e13c5d3837d9d2aef4f1d838a03d5b127f3c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1b2c49651e762004cdc4851d8397d8b5677cc0b804e67486bd35a8c7de99507"

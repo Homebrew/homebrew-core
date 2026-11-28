@@ -7,6 +7,7 @@ class ThreeBody < Formula
   head "https://github.com/rustq/3body-lang.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f592f80f1ea81e2d9c5cafaaed0ffbe9f7408da0545053fc86377734e9a96d28"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bad03a01b072c8919641891c7460c51e8ddbbdb80f656ca93791f4e8a763e328"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "80eaf013ad1372dff0e75a304e1a699669d19bed0d5eb9eaca11dc0563e647e7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b14b79b6374be096bc29c9e9f25a429c9330d1bbf42bb7228a5df22b038ccce4"

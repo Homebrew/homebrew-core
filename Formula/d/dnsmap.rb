@@ -9,6 +9,7 @@ class Dnsmap < Formula
   head "https://github.com/resurrecting-open-source-projects/dnsmap.git", branch: "master"
 
   bottle do
+    manifest_sha256 "919e2c54181c4be689a9bf1f6961ca27331d51e38e86a30d52d08d0165b8683b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d6ced014a064aaa2038bf012cdc7ae5aefbe24ed1877cbd85f6e304af2a00b1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4134bcbd1d8db51421b99a06ed1e19a6325672e0c70a67f7ab9754335e801558"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "61337c7ece0f713abedf4081d0519dc7979872a5f0142467a419d892332dcaff"

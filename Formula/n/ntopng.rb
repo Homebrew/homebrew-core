@@ -8,6 +8,7 @@ class Ntopng < Formula
   head "https://github.com/ntop/ntopng.git", branch: "dev"
 
   bottle do
+    manifest_sha256 "b08f6c694ed8b6dd8176e2c481983618e93a78824aa5ce6e2c5baa4bca318731"
     sha256 arm64_golden_gate: "37381eb9f9831c10fa8fa1e877853324e768ff8ac963382f843fc62813ab7f7f"
     sha256 arm64_tahoe:       "06b606903dd365640d36987212d1017eaeff8e40cf52ea9472b0b9ac58700a4c"
     sha256 arm64_sequoia:     "58f10c0010a276626927d010d9ec96f00a25060293aed36c40c1e9ce87f5d3e9"

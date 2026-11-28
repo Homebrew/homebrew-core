@@ -8,6 +8,7 @@ class Nodeenv < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "b041a80248b4d603d6946f84b9ff51d5b948d7b2bf6d78e30363cc2766bb835f"
     sha256 cellar: :any_skip_relocation, all: "9c8c160de1c363b8fd2c51adaaac767fa5245015a36a16fc909c67c521edc009"
   end
 

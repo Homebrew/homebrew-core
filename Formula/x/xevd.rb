@@ -13,6 +13,7 @@ class Xevd < Formula
   end
 
   bottle do
+    manifest_sha256 "4c06deef86adfd69dd97a2762d1f169f8ba9e5580525154a8a19ac78307100a4"
     sha256 cellar: :any, arm64_golden_gate: "a16754afa6aed4a775342f46366b599c4883094969d484b530cc37a945689fa4"
     sha256 cellar: :any, arm64_tahoe:       "f095092643e78a002de5a4caa2451c8b3ac55c41deae5ef2e310a5c2dd6dcf6f"
     sha256 cellar: :any, arm64_sequoia:     "4ac67dcddedf6b3dfe83ffc9b4d77023ba6610fc26a84826db96e0f4b23a3854"

@@ -15,6 +15,7 @@ class Spr < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ec9c526ff60c01d35f61feb91a69843651efec5f35c07f8a1227307ad265578c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "402d5523feda2e6e2370582eef83d31bf22a21bf7afad9f692a4ba2f894554bb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d9c8d24a6f722c177614b872ea6bdc77b8ac486cd41f62efe3ccd8e87a352074"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05ae7e78476ea060c0fdf2c9834daad1b79920d797e0e4c4ebd33eab985ace25"

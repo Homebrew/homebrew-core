@@ -14,6 +14,7 @@ class SyslogNg < Formula
   end
 
   bottle do
+    manifest_sha256 "e3150d0b233b45706ef1a880826703061bf409a06b8201274f970d15b73c5b1d"
     sha256 arm64_golden_gate: "e3fa684eee1c2bfa2d5f7b42f46628913751501575e68f3c83fc502fb34defe5"
     sha256 arm64_tahoe:       "0c86160a2673577c1b3e65e5bb87dd0f6ba50c0c8ac57bf4dd9ce68e038c444e"
     sha256 arm64_sequoia:     "bc7549e2cffd86b72e55e5b4aaf875f474b98e1751be27adeb6dd19c085c0631"

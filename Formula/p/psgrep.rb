@@ -8,6 +8,7 @@ class Psgrep < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9a8c548652d9f23b234f43725804d3edc5d6c80496b3bb88769bf363ce2ff13d"
     sha256 cellar: :any_skip_relocation, all: "9e809775d826f04be40a2cea6237bddf7447458bd4933e474db09b836b02e69b"
   end
 

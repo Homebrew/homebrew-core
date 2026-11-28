@@ -9,6 +9,7 @@ class Mallet < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9aa84195f302704763c51a93433dd04135da06c8d4b3ee4b2b7d88d3da1f4157"
     sha256 cellar: :any_skip_relocation, all: "2a79370bb96c6b93c4e5ccea01dfd09deeea7bcd7410c34ebfbd0584e24939e3"
   end
 

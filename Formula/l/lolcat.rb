@@ -8,6 +8,7 @@ class Lolcat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cb30d96e35fab378db529e927ee71b40a50289e8b05e3d5108d857b24a8f2591"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85511054bd23c54e89bdb5dd1bffab15424cbdfc9caadfb2374138d2d447f40a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf9d988ab99f1d86813542accde8feeb4e0119aacd845cb5f3332403cffa650b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf9d988ab99f1d86813542accde8feeb4e0119aacd845cb5f3332403cffa650b"

@@ -10,6 +10,7 @@ class Lorem < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "cb3ab78abb1365ff5653eb2a5a4029589558f36d16a23924965d65fe74a38d96"
     sha256 cellar: :any_skip_relocation, all: "8b19f09aa8ff1a1e6e6dae8a356ac8ae90992a3435540b0fd71b7d39a7d3f360"
   end
 

@@ -8,6 +8,7 @@ class TreCommand < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "147bbf474aa79402be279827cc7a70ba469d3729838d9f4a8845b6466fc0f238"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "debd694e0d30653be1919bd0bd985ed7cd6691077b6f3b353625403621866add"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "61124e9bd9782b9ddfa36f838995411afa0d901063b33eaf25e527c5e63b7b8d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ece0114a11a6a7358aa4465613c05ea48a12b002bc425cd08ce3ed0d86c24b30"

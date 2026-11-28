@@ -15,6 +15,7 @@ class Mold < Formula
   end
 
   bottle do
+    manifest_sha256 "8d3f7bb390ab0582bdc391e14f0a75fb16a3a5ad8910c8194904ef1bcb98e9af"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d650eeb42f0dc200cab6b45134fa59f4445f27208842c8961b6a70d8f2bec84b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8f01cf08c344876a3ae42209d875f3f4f7f6c13d1484e7edaa25184e2f4321e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "701bf9b883b67b4b0bd3b795ee37db04f2ecb2e3dc532275927772a4b1443a58"

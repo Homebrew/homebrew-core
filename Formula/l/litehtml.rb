@@ -8,6 +8,7 @@ class Litehtml < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "737f0f7d718de8740a417ac5d645a3d4486e71d9166d05008d30537803d91ea1"
     sha256 cellar: :any, arm64_golden_gate: "3144634607fd48ab5a17952215ea0ad7116629c649b6c3070d72c354090fc9d2"
     sha256 cellar: :any, arm64_tahoe:       "c04934f95374b07ad5d68df56857dd65da292f20a0a3ebb421eee96d0b2dfd8d"
     sha256 cellar: :any, arm64_sequoia:     "e378dc8a204fb6b918786c6317f83630948af24976d148ad664531e9d6a37fe8"

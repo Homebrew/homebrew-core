@@ -9,6 +9,7 @@ class Sourcekitten < Formula
   head "https://github.com/jpsim/SourceKitten.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2592f4596ee8237247400e90bf4001633cb675e36e4eebbec8463d37de4bf0dd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e15a7f54eb6a633cd4cf34ba15a2bfcf7e91bda5147b76ec473b04b24bc1284"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "034e8d5f425af20fab1f554f1e1501bbee64538ea0bcbc8d2304ff4b408a4f87"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d693907284b8d624882b9c18f6e743560b325b1d4b3d4e6dc809a04d234d5062"

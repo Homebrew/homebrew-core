@@ -8,6 +8,7 @@ class Krunkit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "21124bd951c6b3148febb02dd9280969d3e36d10e6b2250fd27870c745e64bf1"
     sha256 cellar: :any, arm64_golden_gate: "4c4d642f464057ca963cd9c2052084c41ee9bf083647bb91237aa31dc5ae86cd"
     sha256 cellar: :any, arm64_tahoe:       "4903df907de9473730db8039a8e737ec25422413831f2aba484abb9a87335a5c"
     sha256 cellar: :any, arm64_sequoia:     "9c296146afa55c183290349e869d6e9f712e83cb2aa2e9a91ec0df6f9ffef0d2"

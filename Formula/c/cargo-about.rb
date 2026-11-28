@@ -7,6 +7,7 @@ class CargoAbout < Formula
   head "https://github.com/EmbarkStudios/cargo-about.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c060c65a4ef9d8c55be853e68e795388832137c30b94491f92762a46248c9ccc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "361ed227487e5fb3b1178758fc3760f38e45c62b7a75f8718fb98cb457bb8290"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "38eacf888f9c3e12d500b7ab2ef80c24c311571e98549eef33d80e661748b7f7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "786530ef6a5e4e09f2b7560aae19128db824fa9d4d4c3b63452c0f364263d383"

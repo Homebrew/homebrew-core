@@ -12,6 +12,7 @@ class MecabUnidic < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "418adb8811a9d307bf2a1e12edb9530df94283eae94afb3a8148fd792d78c046"
     sha256 cellar: :any_skip_relocation, all: "41360acf4a7845341e5aa6b3dbd168c083797ad7931f5eb3bd4b40730b02276b"
   end
 

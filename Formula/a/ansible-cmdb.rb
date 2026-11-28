@@ -10,6 +10,7 @@ class AnsibleCmdb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a2e8a526022beb944e32f678fd19943329c9d467d31c50637bf26ef402e4a68d"
     sha256 cellar: :any,                 arm64_tahoe:   "b6be47954b66a7ecc04bfff866f4417a531171c2bfa3dcf1ac7c17ed5bac7e5c"
     sha256 cellar: :any,                 arm64_sequoia: "2164c629351884de60aaa7fa684d2384ee24e81c23f5515064becc5728cb7597"
     sha256 cellar: :any,                 arm64_sonoma:  "f169a1b45de20cb12c7b2c8399fbc32e5d565a808d4a11b919d9595e02ef7175"

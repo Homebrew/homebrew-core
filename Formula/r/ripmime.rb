@@ -6,6 +6,7 @@ class Ripmime < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "f437bbb6dc3242256146b29836768f401b4a99024cb3e3c78aae0c38b7883fe9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e818af8d390d8c5c2298bc80a4fffe278032e37ed2688071c79fae346579edfa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5736f080200de4ac8a01866619a98584ddb207bc38d62c41654c620bb4a8528e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6d5c2db89d1a44f0e239ce29344d3c0fd8cf1bcb87323604a35637c216f74a2f"

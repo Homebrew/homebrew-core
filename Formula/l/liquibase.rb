@@ -15,6 +15,7 @@ class Liquibase < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8e0c48c5beb9d332cac2fdc6695f3580bdfc229c250a07a95c1de6961b22e5bd"
     sha256 cellar: :any_skip_relocation, all: "222519225b5374762241360ed0c6720d11f31a6b996c2df9268fe321bf7917aa"
   end
 

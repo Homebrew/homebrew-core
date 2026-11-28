@@ -6,6 +6,7 @@ class SpectralCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "e30be8e13be8eb4714f9867e8105c0b7c754398e4a5b054ec83a99752b11cb31"
     sha256 cellar: :any_skip_relocation, all: "b734c594e640772201d207be85dc6b08a1ae7f84cc6e60062f86181a78f3c9a8"
   end
 

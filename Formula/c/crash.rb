@@ -7,6 +7,7 @@ class Crash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "60b09cde3b4746204b2ae94bdfe917c2ff9f3387ada582bb6280f1853b03bb1d"
     sha256 cellar: :any_skip_relocation, all: "f2b6a3446992c7b2b38b4db049afc77e08c1eeaa3780d12686e298d4f705420b"
   end
 

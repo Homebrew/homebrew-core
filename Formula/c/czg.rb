@@ -6,6 +6,7 @@ class Czg < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5044b2979dc50bc382474ba82c90ddb38573b9eb158f1fde869f5816612ec5af"
     sha256 cellar: :any_skip_relocation, all: "795a8e706b718384c33d98f12801fbf489c654ec3b7ac3d54fe8a953bf31d0a8"
   end
 

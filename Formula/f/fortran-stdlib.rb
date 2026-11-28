@@ -7,6 +7,7 @@ class FortranStdlib < Formula
   head "https://github.com/fortran-lang/stdlib.git", branch: "master"
 
   bottle do
+    manifest_sha256 "72d04dc956dab1cee9023cbf15a58cb266b3b6302c8d233646dfc4504fde27e9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8d0512d9ed42c56d7a3e545a0d9b05dc4ec7dfcd5860d211531c97fcf6ebbde"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "019e3842f56d2193a7db71556efd8e93bdafe4defceea47da9ced6230444546e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab2688d5cd5a9b0c2fd3e2cbfc6cd0a6d717f8d247823433140d661f3aec0f6c"

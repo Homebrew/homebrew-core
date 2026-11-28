@@ -67,6 +67,7 @@ class Agda < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "538d56feb338a6b032d2ada970a0e0e765d8e5f790652345f0f97bb0c3ef3c2e"
     sha256 arm64_golden_gate: "431d52e45f2a28a93d8bcbe0cdbda69f672da86d51a62489cbea3a6c404f831c"
     sha256 arm64_tahoe:       "fd94a785f1177731b324c1df0075aa8beb5d58077a4ade1709aea53102e8d622"
     sha256 arm64_sequoia:     "c09872cbc1abc5eb2229fd44a0cee222f2b258fd67c2fd46f4b93ef4e140802e"

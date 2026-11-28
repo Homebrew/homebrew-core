@@ -8,6 +8,7 @@ class Libpeas < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "49ae58a0e381c40e44381f40830c422114de490b368a2632ba94abf9f20bb80e"
     sha256 arm64_golden_gate: "89673f946c510b1d959d2e20212461961f7ffd76e070d3b45e7a2bf6b4053a3d"
     sha256 arm64_tahoe:       "9441f8a9568cbfc562b0c65e9a4ecb88cac6e9cb6335e4896c608d80cfdb9704"
     sha256 arm64_sequoia:     "3ce3c7be74bcfc806d5fbad7cd6a9782c59744c48d6847a97b35fcf453d11eed"

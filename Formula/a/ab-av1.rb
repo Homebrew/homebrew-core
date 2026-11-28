@@ -7,6 +7,7 @@ class AbAv1 < Formula
   head "https://github.com/alexheretic/ab-av1.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c3ea1b170dcbbe2f91eadc006ad14f711b719ac2b4a41d79ca60becdad709ab5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "380c27101a92878daf03f6861bf27c7c55768ea0a8ba0de6e162c3c226d917b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8d395dd46e581282927b7f416ce5be0491f0f75414812ac9a651bcb5963a5a20"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3084d1adc34bade53059b76b11b7a66f8b8ea8eb8c20d7c212e56e1f51f2f574"

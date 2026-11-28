@@ -13,6 +13,7 @@ class ApacheArrowGlib < Formula
   end
 
   bottle do
+    manifest_sha256 "b365ded43c2bf0db7eee298265f99f33036c0b14d995314e245452d854413ff8"
     sha256 cellar: :any, arm64_golden_gate: "0fa11814e476620b7162422677b1d297a5d1a7ff38a46f4b6811a26516aa175f"
     sha256 cellar: :any, arm64_tahoe:       "de4e39599d7e53f3bd384e7374c3afac7a53f0ef97c9e4980938dc9345195a3b"
     sha256 cellar: :any, arm64_sequoia:     "0e00fad1c31493dd3e5077d1c91f9c32fa8c0f40fb834b0e9fa0c83346c47cc8"

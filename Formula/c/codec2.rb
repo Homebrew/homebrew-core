@@ -21,6 +21,7 @@ class Codec2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "07c907a3fff5e5a1f66c04850e73f49d549c1a20c6bf06c26d704e0dd8392040"
     sha256 cellar: :any, arm64_golden_gate: "ab0628f64e6690a8fe3d8a0de9920fd4bcd4946b33789eaa2cff468605a20805"
     sha256 cellar: :any, arm64_tahoe:       "308f2acfaed2fc56992a4764a2aabc09a2d82148597e31449f3b56243b8fcca2"
     sha256 cellar: :any, arm64_sequoia:     "95c3aca8f5f5d196313b21b8b888783754f6ec51f4b82a00b9016505a5686cf4"

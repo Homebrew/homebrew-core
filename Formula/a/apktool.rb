@@ -6,6 +6,7 @@ class Apktool < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "cfbe5f262baec01f8fbf9f0b5d0fcd5f63022842033651c033088502ff0559ff"
     sha256 cellar: :any_skip_relocation, all: "9a376927a5c810db5be63363485bfe4fb51cd0d6774a617b5ae37522a4d55300"
   end
 

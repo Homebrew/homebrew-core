@@ -6,6 +6,7 @@ class Prettierd < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "2ce25d89fab644fd38a0da2b785ae4f2a417cee5ff4e9d0f8c1edc0063ee1cdc"
     sha256 cellar: :any_skip_relocation, all: "57e91f77cf7721ce3435a35f1145f3e9df6ee0d109bbc0921e3cd54c9ea64fa1"
   end
 

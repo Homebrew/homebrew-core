@@ -8,6 +8,7 @@ class Asciidoctor < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d533ef1337c737e34a39224ff4f84eb790ecf2a210018c814e891f466527508a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f23e439ed2f428dcdff377e3d8af969460061cecb38bd323bfc54bc5f7c6e299"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f23e439ed2f428dcdff377e3d8af969460061cecb38bd323bfc54bc5f7c6e299"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f23e439ed2f428dcdff377e3d8af969460061cecb38bd323bfc54bc5f7c6e299"

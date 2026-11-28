@@ -9,6 +9,7 @@ class Urlscan < Formula
   head "https://github.com/firecat53/urlscan.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9af3ac786e254dd9b047dc9f63e24ad6325492ac5627a9920272e3b5eef15ddf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c60c3331ca35e51bf612954664183bd02ae615b7d5330e7f91ca46326a68e73"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db794f758d3d607b98d8c2684e294d59893570dfec5aa26a35880e05faa75785"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3fc6bcd3a26192b3fc1365a2d148804a7b5d2f6ffda34b61fbc15dc218c1e385"

@@ -11,6 +11,7 @@ class Twine < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1c6814f69b055ab3b011468f7c9067c39ec93ddf56d31797ba42cecddd5b4c25"
     sha256 cellar: :any, arm64_golden_gate: "502ddcfb4f2a843bc8b3e2b8cbf1ca7095edd83f6a9ae9641e9b70035a3cd49d"
     sha256 cellar: :any, arm64_tahoe:       "f68c8ae1c86fb25d96907d38b66c4e3cddbf7589106cbcd2609bb1aae1fb12d4"
     sha256 cellar: :any, arm64_sequoia:     "6846ce419e9ffaef2e3e4e536004a19afa04f7ab69d6d1bac7e7b3b6473491bf"

@@ -12,6 +12,7 @@ class Clair < Formula
   end
 
   bottle do
+    manifest_sha256 "971dcd43f51113fc062edcca267dd6d494da7f0c58731bf0ed660502b67b1d41"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "caa65083ea6e9be2a01cbc0334e6947c87e52fb2d6d14233c26cc08c809ba019"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ffe483117f1b13ffd763e48a0aac9971d8abdef55e907df19e58827db27c6b6d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f5862c80475a7b964fb8c18e038f7b209e13fc8952a8ca72e80cea7dddff7e2"

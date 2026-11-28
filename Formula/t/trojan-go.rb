@@ -9,6 +9,7 @@ class TrojanGo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "111af61f5b8726c088798fa4099d8efa4f7170f479b98ea66a855303ce5fb2aa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d31ef130c4ec5f23bc52886417a6875dcff0758c90d7654d30d34c82d755288"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5ff7287bf3913b64c7f3a691df6229bd4a2dbb5f44d46e73ce1b36b968bfdc2"

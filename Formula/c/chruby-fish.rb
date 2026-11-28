@@ -8,6 +8,7 @@ class ChrubyFish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5f83a682475aba3fcbfce307221efa9f8c2b64428d05f30808d76ae3b73e1e9f"
     sha256 cellar: :any_skip_relocation, all: "c4fc2b36d5552646f11abaef2bf3c8f18a3de7c6126e2c1d3ff653c83f095825"
   end
 

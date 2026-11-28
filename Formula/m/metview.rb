@@ -12,6 +12,7 @@ class Metview < Formula
   end
 
   bottle do
+    manifest_sha256 "cdba1d71e188ac6adc513abce88223cd14107be9a744cb1fb9cf19e9d2022ec1"
     sha256 cellar: :any, arm64_golden_gate: "dfb282b1c5507e99fb619cde5a4c87802b82888db63dbfb8e4eed976e4a9ed9a"
     sha256 cellar: :any, arm64_tahoe:       "4dee35909fa7bc6d88967a6912e0353ae2ecabb62d94d662fb0c5a4bc98d4a13"
     sha256 cellar: :any, arm64_sequoia:     "2a203d99f7c6c5925331c1ff4bba1ed94657b65b23e1bdb326c079b2ec81da21"

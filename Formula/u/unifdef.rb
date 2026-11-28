@@ -11,6 +11,7 @@ class Unifdef < Formula
   head "https://github.com/fanf2/unifdef.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2cd8203140ced207f52989e21b02d3e5e6d659d269d7bb977bdd5e8b13a58ff3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1017fe3fc8d8401cf881706433388be6f067309485a94b57d42e219d328f4ad6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "32f10f0ec152a2e92709ac763ae4538cc33d0504be7981302da2d9e183d55334"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d582e3e4238886e561523bdc7f0a1066ac4316c06efd6efd710ba0e6f7ea5898"

@@ -15,6 +15,7 @@ class CiliumCli < Formula
   end
 
   bottle do
+    manifest_sha256 "d52dbde16ae3a8a9b70b971de5c4e3a08d0c5005649e28327a051a1ee9fcc395"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16ddb3115382631494d93f21bd14128f2215264ab8738cd19d23928929c0a06a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "813cd825372b5aa2d636ca77b23c90bbbe6ef4843bc5e4e3c67af646c235d679"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad3c42001808f207eb0ecf0224c4d93835320a445a46711d31614d7bed4ff898"

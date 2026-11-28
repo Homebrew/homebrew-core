@@ -8,6 +8,7 @@ class Glpk < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cefaa278e5587f6227dffab2c14223f05c5173156eef1951d772e21a561ee9cf"
     sha256 cellar: :any,                 arm64_golden_gate: "a100b95363267be7c9156c013b2cc8aff450b2230657a2cd8b17014f5faa8459"
     sha256 cellar: :any,                 arm64_tahoe:       "c60115e0b7c9c13a5e6fc91ceab0aab253c1bd161dae6151e56713a6de6589d5"
     sha256 cellar: :any,                 arm64_sequoia:     "d1711f363503b065183cf833d4d58ecd91dd06ac2b168af7bb217727a46e8f7b"

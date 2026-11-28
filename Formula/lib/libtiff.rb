@@ -14,6 +14,7 @@ class Libtiff < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e27ac2f74fe2170b69a4273f33b98194ae57a700515cc89b2b27ef44ea095a19"
     sha256 cellar: :any, arm64_golden_gate: "2678f5bb80b0578e79c76f747b637781ab3629b0c393e8c7d060ead4d42f9d6c"
     sha256 cellar: :any, arm64_tahoe:       "9a0ff1ac153879e9fb324951f33fc52c797149a6de44176e4fb80f0c8adad9a8"
     sha256 cellar: :any, arm64_sequoia:     "e971adc15ce3387a9c68a10ff1cf431755faf0e86b9d3a6daf668efc2f6f31d8"

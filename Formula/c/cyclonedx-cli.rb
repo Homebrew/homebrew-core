@@ -7,6 +7,7 @@ class CyclonedxCli < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "138832981fde2e7008efff7295d006a06826cb029a03a14e088a605101fafb4d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e60d340729ff074fdea36fe60af23b8b48d2913cb262f7ae6191334936ed727"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fccebcfc177e5593aabe03abfc950a9887118b868113f1fb87fc73f929bc9aba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "87099c60d6548f5fddf1899e73fbaa669620d16132591b8fdd0672d9b00f8983"

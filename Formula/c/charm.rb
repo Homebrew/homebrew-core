@@ -9,6 +9,7 @@ class Charm < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "299eefc69026f0b121e88ff08daf8e532371a9de7a344a94414b6745821440ed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b9a5df58877af8e3ad37c3385f8d2e8135cd35f080a446fe279678999a7b1927"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9a5df58877af8e3ad37c3385f8d2e8135cd35f080a446fe279678999a7b1927"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9a5df58877af8e3ad37c3385f8d2e8135cd35f080a446fe279678999a7b1927"

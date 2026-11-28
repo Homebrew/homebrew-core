@@ -26,6 +26,7 @@ class Flexiblas < Formula
   end
 
   bottle do
+    manifest_sha256 "cfbd92f959c116b025c795d7010cb2a7868ead0f2f5c38b478bb6bbd286e58c4"
     sha256               arm64_golden_gate: "bdfe66d20a8f68de1b57905c5ace3e695928c2ec84fd51d9f48a325ca7dcee12"
     sha256               arm64_tahoe:       "05bba3927380ff8a265da10c84f569fff2cd132e187afded0faeb69059f04fd3"
     sha256               arm64_sequoia:     "8cb09438e43dfd0ee600bcd458e5355bd9de97deb9a5d21682c840b6d35acce3"

@@ -23,6 +23,7 @@ class Volk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1f7dce57f51ad0f82d7412b2b437eb34dcd94ce828b7a008f43237fb1e6f8145"
     sha256 cellar: :any, arm64_golden_gate: "4c7107f873563792a3331165478d81e21d3eb6959795abb02b1c2100f8e4235f"
     sha256 cellar: :any, arm64_tahoe:       "32f197fc9ed1e52973bc0dd90dc643e84480b7fee8b525d74e04478bf6d9d518"
     sha256 cellar: :any, arm64_sequoia:     "09cc4a97b1af64c4a804b4e40dc0a049d3d622402c925c85bf8f7752646daffb"

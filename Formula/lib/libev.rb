@@ -13,6 +13,7 @@ class Libev < Formula
   end
 
   bottle do
+    manifest_sha256 "7e7c55dd5a1cf60705cf94bbe2eedacad81212120408631009c190dd737e5152"
     sha256 cellar: :any,                 arm64_golden_gate: "a584b6cc864a99db341af68b51456b172e25e51601fcd2fd2166b643fbd2e07d"
     sha256 cellar: :any,                 arm64_tahoe:       "6f3bcc66907452a0f795ad6532d69deacdb1059379ca5a94da3a3e286342f94c"
     sha256 cellar: :any,                 arm64_sequoia:     "67740e5ba01e82c140ceadc512aa26a3990bfadaef0f4b545ba7f9aaf24c50bf"

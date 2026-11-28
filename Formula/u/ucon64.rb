@@ -13,6 +13,7 @@ class Ucon64 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "876f513ffe1d20076effbd4faffd9701f998cad5e5d8d0d0d7e10e9f5699b460"
     sha256 arm64_golden_gate: "11d07bc643dc75ae9b97d4434c9d24696c3761625c2e5ec416a88657ee19f5be"
     sha256 arm64_tahoe:       "5f3fb969676e2ae50d11401a3b4da71df0a5e99adc037ba0f04fca6c9def11d7"
     sha256 arm64_sequoia:     "6c441a8fc88d68888010de08d4c309e113f51d7678e61708b6210fa08fdaf851"

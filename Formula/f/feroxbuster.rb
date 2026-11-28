@@ -6,6 +6,7 @@ class Feroxbuster < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "7d49984f36c274765701adf58af2d72873cb37afb58c63a878ebc2d653602318"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d10158ff551d838481f26ef80f5a90ae643340bf6968d96b57adc62b06f9e0b0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7cad76ca6438ee744b26fb8b18506e5b95dfeb4430894adad724394a591d80f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11cbc814e32b12539004720dc865b62ac5a0c8b1fafee4c25859982854ff60a8"

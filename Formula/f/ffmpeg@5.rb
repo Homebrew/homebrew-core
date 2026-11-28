@@ -15,6 +15,7 @@ class FfmpegAT5 < Formula
   end
 
   bottle do
+    manifest_sha256 "6e2439309780a6210882ee9ae8d40b56af4fe84f21ff6cff2833d74156bb65e8"
     sha256 arm64_golden_gate: "ae919cb189b02f1b9f467dadce04ea32aca4c2c6adcdaae1adb7f3c2a70b8359"
     sha256 arm64_tahoe:       "00a0694e72b000d3bb48b478317c6bf2402049cb157b6000a346cfa0cd21070f"
     sha256 arm64_sequoia:     "53b00d152f58da5e2af779c48d6977d22d783a99649cc9d914aec49e02ec2503"

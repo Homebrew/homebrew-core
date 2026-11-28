@@ -27,6 +27,7 @@ class Xsane < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "983b7dc710d799bdc5ac8e9139a6c72a143885a6584dfd47926b06f3cce7d2c7"
     sha256 arm64_golden_gate: "b8d5a5f54e7504207fdeae582113f9819c578f67485c638a895ea8dbd44f88ee"
     sha256 arm64_tahoe:       "941fa6509e6e252e468c894c6066dbd46c301b2c3046059e6c4f8215d391294f"
     sha256 arm64_sequoia:     "0d66e34d8305f5d856e9f83e7b5aee1dfea383b0ac21071a064f1d15536f259a"

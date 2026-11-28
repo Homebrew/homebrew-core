@@ -6,6 +6,7 @@ class Sac < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "b1438bba6b1b5ee413ac02cf60582bc233e97dcfb0e55a8e110c4c4c40b2b036"
     sha256 arm64_golden_gate: "b4effd458af55e1172c9e56e455e5fb5bb3cc2e50100c228a74ce4b1246c7674"
     sha256 arm64_tahoe:       "9e9bbc30fbcb510a79c778d2d997d29d4ace345b4d4c213f0b4eb00c8af0503d"
     sha256 arm64_sequoia:     "bcc90e2b9ecea74aa7e5a916e280b37d862bbf409060f2308e09796f57b17f8d"

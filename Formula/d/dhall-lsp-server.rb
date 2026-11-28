@@ -25,6 +25,7 @@ class DhallLspServer < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "992b6b0f62d7dcdc87c412587307bccd92f78d0f6ca5a3f4f70072dbad268477"
     sha256 cellar: :any, arm64_golden_gate: "d4065c5d504c76de3ccd8b0cc70eec8ddf824c36d0d4d39a26a7f8fe4c179cc4"
     sha256 cellar: :any, arm64_tahoe:       "a6daaa49d5c98125647b3cde6f70c733acbf19d244a67d3a3b8b664ec17e57c3"
     sha256 cellar: :any, arm64_sequoia:     "aab22a2fee405b6ec9218b9d82c303fa382456fc4e40c057f7ae10568f246492"

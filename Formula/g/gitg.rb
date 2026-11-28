@@ -12,6 +12,7 @@ class Gitg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4f5c7893e504bb3e57144bcd7f7ba1424c9f15d9c9e4d6302a9256fe69f92cd9"
     sha256 arm64_golden_gate: "cf8bbcbdcf258286243965dea44f4ce5e049f5366f4b4373420ecc75909c749e"
     sha256 arm64_tahoe:       "758cebd9f9840d9442de01e5a2bc5e81578a8c64e138f58b239059e886554328"
     sha256 arm64_sequoia:     "08f44f87de55735b7c2fc3d1b746f5665424272c989ff4ee36daf7687a6d9d4d"

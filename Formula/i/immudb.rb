@@ -1,8 +1,8 @@
 class Immudb < Formula
   desc "Lightweight, high-speed immutable database"
   homepage "https://immudb.io/"
-  url "https://github.com/codenotary/immudb/archive/refs/tags/v1.11.2.tar.gz"
-  sha256 "5860663e92b663d0e72c2b4cd4a995090029e7d6e3b6a678115896f757300c21"
+  url "https://github.com/codenotary/immudb/archive/refs/tags/v1.12.1.tar.gz"
+  sha256 "08d31dece90e219f306ab969256b358c7ad353c5166d811c971b6cdb4c447446"
   license "Apache-2.0"
   head "https://github.com/codenotary/immudb.git", branch: "master"
 
@@ -12,12 +12,12 @@ class Immudb < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78fddfecd5e4e31a882cf0fdbb110f0ccc812c85cb969a8f3ad558e4f19b75af"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05a0677a94130862db77cba29cc366dbf6839802de57314a8b27d15a6daa1a84"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17fdfefe8d6ef09fb53acfbbadce791fd0ab40d585c8ab90542d7ee0cbd3f757"
-    sha256 cellar: :any_skip_relocation, arm64_sonoma:      "ea001725decd6a3e5a9c8634db35ae3bb2b7b6bc0e724b91c6eabef1f0472c98"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "4e18996fc161ad906666306907c227009fb7420d190b1a02bbc92c4d34836b2d"
-    sha256 cellar: :any,                 x86_64_linux:      "79e2201dd7f57e476e7a3fd69104a795d6cd285d8c8b96c416badaac6d2cd697"
+    manifest_sha256 "e10bd0b97a2dca639e96ba53a6979524db297946e602fd17252b28cbde849552"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f36d6a03ab665298f90562f4ef456c14b2f1d3b27d22240b3e5a910a6a4f4ce0"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8ddc310a38122ae96c3e096813eddedde8da8b18f71f1556432a98ff90d5047"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc464aa990ee42d88b0a6362f84729c4672651c016d8f4972fa98b1c884eb6d1"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "509d5577e9fe388ba88af0b9f9aee7b2ba94f619dee143f0f0749dc52fa77202"
+    sha256 cellar: :any,                 x86_64_linux:      "f6efa8b498ed40e4ad73aad4c3317c39b4da398aedfa3683591c076a3b938a46"
   end
 
   depends_on "go" => :build

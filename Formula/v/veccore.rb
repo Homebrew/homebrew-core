@@ -7,6 +7,7 @@ class Veccore < Formula
   head "https://github.com/root-project/veccore.git", branch: "master"
 
   bottle do
+    manifest_sha256 "69f3b5e43e397ffed4e3b6f2c7f1a54e12f156f957680f4b7aab6ae94bc00a36"
     sha256 cellar: :any_skip_relocation, all: "7cb81dd2bcb91896afae27ce9431387752ef9a6a443da7767a6bef6faa945a4b"
   end
 

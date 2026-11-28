@@ -13,6 +13,7 @@ class Vncsnapshot < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d1e4f0dcd795f649a3225535fc1688a54a23ec3f9c5a2cdbf9f4ebb21777e304"
     sha256 cellar: :any,                 arm64_golden_gate: "c9043d53e0848fbe9280c66b0883a3af8ac1505ed673c8872afbbe8cbd85e443"
     sha256 cellar: :any,                 arm64_tahoe:       "cdc55184ba7f8d8bf9c418d2f76e64a0a58e53e99d6bc9cf0e1859c671e7879d"
     sha256 cellar: :any,                 arm64_sequoia:     "09203a37167b3df2545c21b0f7b9afe38c4de502df98ed1b7fda849f03fabd03"

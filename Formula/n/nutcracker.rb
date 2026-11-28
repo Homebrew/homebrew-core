@@ -8,6 +8,7 @@ class Nutcracker < Formula
   head "https://github.com/twitter/twemproxy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c63bae803fb9394300246d0c5549e943812f8264dae618979ce2ab19f539886e"
     sha256 cellar: :any,                 arm64_golden_gate: "4f5c03ad6a1f5a35ccd89a51dd36cf2639435cf6665583d405124019449dc293"
     sha256 cellar: :any,                 arm64_tahoe:       "abf045b842b325b9beae4b4081057f70d458359c2fae9b4792a4130d74120943"
     sha256 cellar: :any,                 arm64_sequoia:     "9858288de204b1ebddc2500149b07ad6cc6c08f92f37936d0055b5f4820bbb03"

@@ -9,6 +9,7 @@ class Dotdrop < Formula
   head "https://github.com/deadc0de6/dotdrop.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c1db52eb60cc01159db86c0955ab6ae9e6e724106e898b442605a359a4dffb3a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "286c4f1409ac2509c5e0349772004c657a932198a649eef9f46d2ea0fd2f28ab"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8be07f530f1768c0fa602b353f20fc4955ca40097c6eb0f59909aa675bd48ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5f3c93cf249479b22d4d716aa59a19ddcc1ad4a256d7c7f32f8b413900499a0"

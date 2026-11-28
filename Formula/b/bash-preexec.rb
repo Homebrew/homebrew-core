@@ -7,6 +7,7 @@ class BashPreexec < Formula
   head "https://github.com/rcaloras/bash-preexec.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ef8d6921a22ecca436b82122dd0380add2672478e7cc82d6ecf95401e500915a"
     sha256 cellar: :any_skip_relocation, all: "e11da546f75f80cdba63dafd4c9268d8e646e816e30bf2c254148744321fd326"
   end
 

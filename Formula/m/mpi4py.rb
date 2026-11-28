@@ -8,6 +8,7 @@ class Mpi4py < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "afc80c6e69bb1fc6597832ea4bbc36dbcd2788b4a7812d6f3b8783507f3e4f45"
     sha256 cellar: :any, arm64_golden_gate: "5eae24fbdbe6296f6312cdc6ea98b48efcc8c8debfaddb7372c51d39e87603e5"
     sha256 cellar: :any, arm64_tahoe:       "c7a78b2264a41ab9a25d2544a0c7885e23854d6ca35e66e91c4ca6f79eca11c7"
     sha256 cellar: :any, arm64_sequoia:     "fb53a0590092fc3ed90b1741bd9a319169a9be601342e0c2fb24dce74e3d9419"

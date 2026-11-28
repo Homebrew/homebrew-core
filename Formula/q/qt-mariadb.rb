@@ -11,6 +11,7 @@ class QtMariadb < Formula
   end
 
   bottle do
+    manifest_sha256 "2381597c93210adab60bb25e7146235eeb2f8d341ef8879795f4085762911450"
     sha256 cellar: :any, arm64_golden_gate: "4e1b0a436464732e79bce1b44cbb7bb31161094afcf326e2837c2522c49c2e24"
     sha256 cellar: :any, arm64_tahoe:       "b021b88523275419d29d9cf7a301f651d786ea725d7a66c765269d1d2be17521"
     sha256 cellar: :any, arm64_sequoia:     "a3f8f9c86584f28e0b9b2e534998388a5513cbe1dc09a908055235406ac671ff"

@@ -8,6 +8,7 @@ class Invoice < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c1270591ed8954cfba3fe4fdac219e02bf81e7ec79aacc1e9214d3fe10a29de2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "08a1eb4f8e9557eb86a9402f93169dd4a4558b28613d9439899e4c1c173ed4cd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3666463773abc10aef019abd54dbac8b4b699db7783fc0b54e7be6c59b5844df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3666463773abc10aef019abd54dbac8b4b699db7783fc0b54e7be6c59b5844df"

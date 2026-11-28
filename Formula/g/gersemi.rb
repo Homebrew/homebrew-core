@@ -9,6 +9,7 @@ class Gersemi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7e87269941fc47dd5dc418515a8c7db474bc58a4439bdd045c35852760e2724f"
     sha256 cellar: :any, arm64_golden_gate: "e2abbfdc83a8a95b02e9f874b6c23bbe7821703758408086176ebf9a414c5d60"
     sha256 cellar: :any, arm64_tahoe:       "a5b3b993074eaadd2d9f8298d2fb5d561b2fe3f99cf3ffa4c17278cbec080b02"
     sha256 cellar: :any, arm64_sequoia:     "fe4a48e58a4c5221bd390ca17f4be4df85a6b899e92eef51c516a89e82b9b1ad"

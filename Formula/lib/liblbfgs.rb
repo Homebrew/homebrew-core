@@ -7,6 +7,7 @@ class Liblbfgs < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5d58961d43ecd7abc9109c30fadb54f3bda2b4d75025daab919bb6c6c91ffc23"
     sha256 cellar: :any,                 arm64_golden_gate: "bcb59ee5132c84a3517603aa023200863cd9a70cad3c0c8c1c63a37752485ca7"
     sha256 cellar: :any,                 arm64_tahoe:       "d88172caad8ef6e5a35ca17ed81ee20ecb8bfe0a245f9ea1b7b16e0c88bc3cb7"
     sha256 cellar: :any,                 arm64_sequoia:     "9d20979a75f869868f997ad0c9596646bb3ccc5683b54c192a923f5818096444"

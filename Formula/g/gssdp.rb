@@ -7,6 +7,7 @@ class Gssdp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b1584eb63c532e17886a5812eac8716da81d0afbb114caccc88fe5e474a0adcb"
     sha256 cellar: :any, arm64_golden_gate: "e193e87206ffddd6b3c50aecdb66ad41dd246d9f03ecae3f23cf6a4d025e53ff"
     sha256 cellar: :any, arm64_tahoe:       "4e0ed096a873cd3c8ccc2407bad5c975aa3b6cbb3e54e309f3457dc779efc926"
     sha256 cellar: :any, arm64_sequoia:     "f23aacffe48fc74672e44f272db8f929911725b0cd6d54b5069b665847825dc3"

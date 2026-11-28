@@ -20,6 +20,7 @@ class XCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0edc9864e36c21d6c89adc5cf7cc4dfea5d5234aa3110320e6a4cb3234cfb75e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "581fa1294754ee18b605d1a971843dca8c92702bffac37b4e07d1d3bb2e6a356"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "852cce2762b67456aa39000532c63778ced8169b467b0929d1784966c4bb3003"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0135846a45437ebbd360004d2d82000c3b15b814cb383c8f6d2ec40cea54202"

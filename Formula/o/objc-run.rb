@@ -8,6 +8,7 @@ class ObjcRun < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "6da5bd5fcdd834bfdac06ab151d1ce2af41016fd7764aa3f8db9779b1ff724ea"
     sha256 cellar: :any_skip_relocation, all: "50066d41f8749f1c5865836c1ce1e1a89b502357aebcbd1c8c088bd04b9abc79"
   end
 

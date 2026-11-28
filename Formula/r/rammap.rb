@@ -7,6 +7,7 @@ class Rammap < Formula
   head "https://github.com/jwanglab/rammap.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c740fea960d16cafb00f1178d5015d0c37c195f4d89ce03472a5de3c26a93889"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fedad69bfb4425e5c0373f617dffeb98562f29fbac5e8f8b49816dbe1f05773"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c581cab3411839cea869625335457898c9e597b57d9d9c454eabc51438511a9a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38b1ce9ff42b9f110c8602eb394c284e30bd8e4b103d781642151c8005974fd0"

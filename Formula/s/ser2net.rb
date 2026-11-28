@@ -11,6 +11,7 @@ class Ser2net < Formula
   end
 
   bottle do
+    manifest_sha256 "f9f5eaad59f54d9a4d3ce91ab4405ffa86257ac67f4d4709f6607b648ad43bc4"
     sha256               arm64_golden_gate: "f45e38099aa5e6fae3a521292aa11a45ade31c1b1d17131b8265f732b6b25ffd"
     sha256               arm64_tahoe:       "3c214f961d732a82ac62fe977dde82c7912de54d826b1e23990fc035572f4e02"
     sha256               arm64_sequoia:     "fd7227618e0430537da799a8e4dae00cd08c880aba27dfaf727f5df16d6faf39"

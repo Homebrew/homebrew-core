@@ -6,6 +6,7 @@ class Wtype < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "992d737496a1e736f2ac7f6fc80051de7856ae443a8c244da26b68f75cd83e20"
     sha256 cellar: :any, arm64_linux:  "b42851dcb1be681c7fcd878dbb2dd02e1e3da9bb3d8ce3606129a990673215b4"
     sha256 cellar: :any, x86_64_linux: "3884b208e31bb6afe4dd693c5d1241690d732ba201b715ace851cf54a10d5266"
   end

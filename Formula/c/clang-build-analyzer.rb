@@ -8,6 +8,7 @@ class ClangBuildAnalyzer < Formula
   head "https://github.com/aras-p/ClangBuildAnalyzer.git", branch: "main"
 
   bottle do
+    manifest_sha256 "de4e9af053478f12fbcbec7deff871308ab504de3c44511fc47841e35d1b31ba"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f9b0692d9647ff70a20c647a05c314a7071928a7c4ae6677d40a7d9fe858c38"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14419000811d5bef08eaa62f796264dc5268bb9a95a7b907c6e38936f06ab1ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e93f14923fdb699565dced9177cb214af4e3da61fca3d4de41461eefa32c0b6"

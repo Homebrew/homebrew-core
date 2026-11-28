@@ -6,6 +6,7 @@ class GlobalArrays < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "78d101baa756318935a3e3f0167c51bc46573113d0c68a5820e1d055adf16ed0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7fbd69dad95f7d02f16a8ab240a358bde5716af87ddb7b6d80d3c3f1faf0cc28"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "80442594d07072d82f44fd596e5c600e32cb3323ecd8d69030450222493306d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "426c2d6a96b66a43adaf73ab90b4ebffe52ba64de01ab72aa06d279ab74571a3"

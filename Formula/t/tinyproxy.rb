@@ -6,6 +6,7 @@ class Tinyproxy < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "9d337ef011f0cbf49203597517e6a8040ad98158c078d3962626cdd218896c5a"
     sha256 arm64_golden_gate: "06dcc9796f26e46d9fa8a55fafecd63b61b9c979b4c80e3768603341d1ab10fe"
     sha256 arm64_tahoe:       "ac4cbc5308a528478d5972dbc951c2420abc1049d7061823735b648f9d864fd7"
     sha256 arm64_sequoia:     "e0c3141a074ebc5b4f27ab91d20b6b447133a55fcca98d3cdd95dbcec14e1b58"

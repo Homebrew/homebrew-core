@@ -8,6 +8,7 @@ class Conftest < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d84da7ba9cddf72f5b2542fc4d85e3ff2b321cb665a993c404c3e669df4ccb8b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c2b306fb1560944374b67ff2e5ea1d79abd99fe42277baa8684ca18f368210d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1c2b306fb1560944374b67ff2e5ea1d79abd99fe42277baa8684ca18f368210d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c2b306fb1560944374b67ff2e5ea1d79abd99fe42277baa8684ca18f368210d"

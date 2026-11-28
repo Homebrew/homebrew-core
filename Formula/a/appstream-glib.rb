@@ -15,6 +15,7 @@ class AppstreamGlib < Formula
   end
 
   bottle do
+    manifest_sha256 "b7932544d123b2754267cf84375d2dfc27d46fbb6e9ef1a490df64affbb227a2"
     sha256 cellar: :any, arm64_golden_gate: "b9b94b63c21e90bfef27625b98fba4e0c1deb438b2fc872978b0f1bb66a16a41"
     sha256 cellar: :any, arm64_tahoe:       "5940ef5586450154dfd2eee03d673fce232374fff4f7f5fd6d44a87d1f7343d5"
     sha256 cellar: :any, arm64_sequoia:     "e571c3858322af4ee835adb1bf539d44210b647adc9bd67f998501cc9da377a7"

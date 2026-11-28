@@ -15,6 +15,7 @@ class Ledit < Formula
   end
 
   bottle do
+    manifest_sha256 "7c699b90d3947db2bb830eacea4d9265ca11c38a007cd9f7b756e03d55bd52da"
     sha256                               arm64_golden_gate: "991855179eac253440d7e9286c46839ea9ce0fea6475ee1a9462120a14ab14ab"
     sha256                               arm64_tahoe:       "4588fe36e65c0dc2aceac049ce08b4896dbc68c3937894f973c9b3302efd7400"
     sha256                               arm64_sequoia:     "d5591770d02fd1dbd69441274604e91269742865c2ac64dedeb95cd3f8cdabc4"

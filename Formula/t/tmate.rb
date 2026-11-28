@@ -18,6 +18,7 @@ class Tmate < Formula
   end
 
   bottle do
+    manifest_sha256 "caa96f739b8823077fda8f40e664e777e34948e70721c1f72d997b9a018cf28f"
     sha256 cellar: :any,                 arm64_golden_gate: "e07e97f36ab5a67b3a6d0aec353dfd72c6691b0d00c0f175f36ae4cf14762f7e"
     sha256 cellar: :any,                 arm64_tahoe:       "e05c861a81f5b44cf1c246ef007a24de34c6499c7c6b1fdf97ccfb9f9d43f3d4"
     sha256 cellar: :any,                 arm64_sequoia:     "b27b6f267188c6bd851cf061dc7fabf97a127c7930a57070cb46caf0333ef71f"

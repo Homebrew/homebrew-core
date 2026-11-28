@@ -8,6 +8,7 @@ class Libdc1394 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9a608478e5bc97c09096a19ff4f1021c00bc84e60ba8a7d78d9688b2d640c19b"
     sha256 cellar: :any,                 arm64_golden_gate: "86accc1247ac72bb515559928323a239c16f2c7183e6295891902092f31c957d"
     sha256 cellar: :any,                 arm64_tahoe:       "334905f44916998f84a6b1a24bb52253e2353d7ed2dfe454b0f292cdfba535b7"
     sha256 cellar: :any,                 arm64_sequoia:     "ba66548f7e17020550447fda651d518994c0fd6603c196a5f191545d1d865356"

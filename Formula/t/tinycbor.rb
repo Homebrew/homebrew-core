@@ -8,6 +8,7 @@ class Tinycbor < Formula
   head "https://github.com/intel/tinycbor.git", branch: "main"
 
   bottle do
+    manifest_sha256 "133bdab3e0bd3959359163e3936439a6187eba65a0f5400488a0a7405427f1d6"
     sha256 cellar: :any, arm64_golden_gate: "69bb0fb4fe8219830f9da5a9ea943b6712a89f0f11cfab53e161c511b55206a9"
     sha256 cellar: :any, arm64_tahoe:       "9adda5625b21c4893bcfb858dc936594b3581cba54386aadb6b39a72f9afbb55"
     sha256 cellar: :any, arm64_sequoia:     "65438bea60631c2f6b8f31d672cefbf84d2cfb6246c224078f8d0f3b029ed60c"

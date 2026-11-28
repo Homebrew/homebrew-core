@@ -11,6 +11,7 @@ class Corkscrew < Formula
   end
 
   bottle do
+    manifest_sha256 "553b39b488014abcaf2bdc1ea5054445f477b0a8d7e376de5a10f3dbe7f62793"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "62b0ee031c60f51caa016df4dcf6142422a3f1fe843c471fa9a509117db7f107"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8fb1637fe7c64ef0780be509b1882ef5607b92f5773a3cf0992455b4b8d6f7a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60b43c6123028edd4951e90bbe16241142cfb4c84a2f2e4db96eef2d802d31b4"

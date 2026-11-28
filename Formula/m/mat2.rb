@@ -12,6 +12,7 @@ class Mat2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6479d85295cb9d0710134139458e8f76aaeb567539122b1035f394401a166d26"
     sha256 cellar: :any_skip_relocation, all: "a719f021ce410189759f2b39c86a8aa6cfb591d5783f0ea5fb2e82fde90d9732"
   end
 

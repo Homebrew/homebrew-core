@@ -8,6 +8,7 @@ class Actionlint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "164b607a6588c7f924ed268990068f15ce7afaa6f1149c559703084caaa98cf4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41e4f13772ee2d57f6be7a99c8bf0baa23b2401fd4f1d82f40f7d25b3258cc05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf32eeac6a6f6dcd816944d78ad0c1553952c3c2b5c72c71ea4fb71aa777ca75"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf32eeac6a6f6dcd816944d78ad0c1553952c3c2b5c72c71ea4fb71aa777ca75"

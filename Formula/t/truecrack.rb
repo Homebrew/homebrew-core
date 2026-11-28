@@ -8,6 +8,7 @@ class Truecrack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8f8086f4528ae188da3915b6afa165504b04103fed7abc79b1d49cd9840aebbe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e27d92969ac49b03d1465776c81ed863ab92dc8985f9b545dc26ac3b61109c2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fa006f2b40a1844949c625ee3ded3b0626420c1969b7595b5081ba471a8ce234"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f14ab900548cbe7d0b0f713604d6d63a7c41874e9d73d36f9aa0ff36ab58af33"

@@ -8,6 +8,7 @@ class Pangene < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ae9607f2e9d22d920228d5b58b0cac92404491b92c6b33dbaf560b9f411c4d5a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "41899a8964f4d26cca62314950bfddba733d56a08eafd55da15c730e0a3c6062"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e9554d2a1b331e934b0406114f7715310f2ed7098974c296aeadb30a0c9bcfd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd8173d3cdc049cae0b8d4a5552e37a3d8e0d1e005c7b0612265f21ce95d6000"

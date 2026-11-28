@@ -6,6 +6,7 @@ class Aspcud < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2e3bc7273247c1272bb99c97dd821a005859c8247801819f15c22fdd51a1ba47"
     sha256 arm64_golden_gate: "b8244b4472239f983d5d1f7480e4e3e909f09d57461b2136596cdaf734a7598f"
     sha256 arm64_tahoe:       "38a5c5010a8e9f38e95233d7b20dcdb75b76c33e1cb3f80410dc01b277ddc17e"
     sha256 arm64_sequoia:     "429008eb29edff4d08e840bd0eb373ea061c357d01ebab4e416f9d4681b95b0a"

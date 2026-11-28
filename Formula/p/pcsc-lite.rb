@@ -17,6 +17,7 @@ class PcscLite < Formula
   end
 
   bottle do
+    manifest_sha256 "fe9a5b59a1af63cb34f2d6e624069e8f4f9e1e027f7027321ca0243a5347e23e"
     sha256 cellar: :any, arm64_golden_gate: "503f966865ba587bc44a11643ca38e93e50a24c62e085ef2e9704b66a45811e2"
     sha256 cellar: :any, arm64_tahoe:       "396b6c078477107839c5e8bab551740b858ac5ecf5f03891c3700c50e63ca4bb"
     sha256 cellar: :any, arm64_sequoia:     "0e71d7de444b79bf63c7ab741d43cf11092c9b7527c49197d672e8d0932308fb"

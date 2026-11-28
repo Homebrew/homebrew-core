@@ -7,6 +7,7 @@ class TfplugingenOpenapi < Formula
   head "https://github.com/hashicorp/terraform-plugin-codegen-openapi.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a0ff452e30f39a997bc6e4e638e9e63a272da4798170aa9d64544978bba3a9a7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a78940bfd37f403045a0c28fd347d1cd5febae5b9a567a098a89ce9d27fab208"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0aeb3eacbc8acbd4b5b6a3def118e3b020a5b46615cb1404b35ba8172aba72e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0aeb3eacbc8acbd4b5b6a3def118e3b020a5b46615cb1404b35ba8172aba72e"

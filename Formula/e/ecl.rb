@@ -14,6 +14,7 @@ class Ecl < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "1dea5b4bc70ab2f0b87846b51cd8b2d31a412d7a8dcdd9470937d10b64d0a98f"
     sha256 arm64_golden_gate: "02473510f53c47386f3226cc0685e36efb8e96e85a5ffda110fbe8ca2505491b"
     sha256 arm64_tahoe:       "79f4778027f26a5ed162a672840d50acd347aeaa73ebb94d66cbd072f048e060"
     sha256 arm64_sequoia:     "dbc7411cb1d7d85e211fbfcb1ac245fb077312b194394ef5b7879a389a3a4d3b"

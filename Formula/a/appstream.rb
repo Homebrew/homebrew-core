@@ -7,6 +7,7 @@ class Appstream < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a778965eddce327e7b6f444a51ff93fc07ddc1dd2ae1784a69941f38933f227d"
     sha256 arm64_golden_gate: "0960ca171fa051e95e7299828d174457be5c9b0bc7adee39496235e63b723c7a"
     sha256 arm64_tahoe:       "3529a8d73c8565daf22bea0d7a8f2834619894e30e116fde46645bec9cf15579"
     sha256 arm64_sequoia:     "703ba59e3f4b4110ae6a801fac545d6990efdcc464cabf045c50e1d0ad93c3a4"

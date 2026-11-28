@@ -8,6 +8,7 @@ class Libpostal < Formula
   head "https://github.com/openvenues/libpostal.git", branch: "master"
 
   bottle do
+    manifest_sha256 "aed86f71c829744ce4abbc53274f227ca84489e737113e794987ddaeff319c69"
     sha256 arm64_golden_gate: "1c113ecef9923ffa611861aff70804be21b53c41b9df289630d3596e3152625d"
     sha256 arm64_tahoe:       "cf3a9637bea332e8d28cde170dc85c7c5dbb4b5731886edd9f30bed504742e5b"
     sha256 arm64_sequoia:     "954b38f9b41bb3fe6702b91e2589baa8023b459162dc3bfa3a3dd6218bf33312"

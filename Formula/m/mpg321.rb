@@ -7,6 +7,7 @@ class Mpg321 < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "8fc84a26a78a55419a4ff84dbd5faebc428d62105177514cd8d55eb42eefcd41"
     sha256 arm64_golden_gate: "3f4b3d0864196826ff6e55808433b70cbe785215b5553295933458884bf61cc0"
     sha256 arm64_tahoe:       "4582777d133873930312cc1c4314d0997e3219f582b07c771a4f413b5cb0cfc5"
     sha256 arm64_sequoia:     "ed6f4de0b208b65bdc562fefd7f6cd8dbad5b6489b52bc24b4bf9109de4b6f35"
@@ -38,7 +39,7 @@ class Mpg321 < Formula
 
   # Apply Gentoo patch for Clang 16
   patch do
-    url "https://gitweb.gentoo.org/repo/gentoo.git/plain/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch?id=ba6b4630d2b4cc294a3057b1f4770650bcb12c87"
+    url "https://codeberg.org/gentoo/gentoo/raw/commit/ca7af246ae4876e9a3e594d236322490892d55cd/media-sound/mpg321/files/mpg321-0.3.2-clang16.patch"
     sha256 "bafc5868a8293fe465449ab27bececc6039001b1519af872ecf4178afabc1a5c"
     type :unofficial
   end

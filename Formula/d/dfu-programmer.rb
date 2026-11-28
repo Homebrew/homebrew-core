@@ -7,6 +7,7 @@ class DfuProgrammer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "af3da4bce741174a0bd2cc5647c796817e61a3473ee49da6c2a1602234289499"
     sha256 cellar: :any,                 arm64_golden_gate: "c2a2288a2155f4c230a77bd83a3243e5468f0fd21a2c51fda28d1bd0cf64ca72"
     sha256 cellar: :any,                 arm64_tahoe:       "6e4e503268ee717e7eb68d2849204d017e4a1cab2094cf80363b92a73dce1adc"
     sha256 cellar: :any,                 arm64_sequoia:     "9d8e4b2ed240a48c18c466631c2157e6d7b3d640d205cdda06ddfe86a3751b7f"

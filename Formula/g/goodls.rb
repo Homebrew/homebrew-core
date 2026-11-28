@@ -7,6 +7,7 @@ class Goodls < Formula
   head "https://github.com/tanaikech/goodls.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a7c8e486b755cb368921b6099db16f68e5a0c7d5700dafe8b538b366eae4f5b3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a3be62c47f80ebeb36e5cdf3f9dd9e9bbbb19540355d835ad274e92afd870ffe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0b0351feee58be0f96c55c2a71854e2deda7707b69685200fbe2132068389e54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b0351feee58be0f96c55c2a71854e2deda7707b69685200fbe2132068389e54"

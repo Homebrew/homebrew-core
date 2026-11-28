@@ -7,6 +7,7 @@ class WriteGood < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8ecc8671d432a09171e3860f7ec44441fbb1197a98258a18d8741f8699cb445d"
     sha256 cellar: :any_skip_relocation, all: "ce08c97d8a8666ed1721ab835d166e1ff865e2ee2ab23c58018021baf89cf360"
   end
 

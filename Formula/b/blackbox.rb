@@ -13,6 +13,7 @@ class Blackbox < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "9deafcd46d69132e3c800c8d0025f6aef4e1b37ebc5b02b55c48933344b5c06d"
     sha256 cellar: :any_skip_relocation, all: "878400e4eed8cba1adc57d86a4b2672e1e4c95bd0928b4f121b0afb849073374"
   end
 

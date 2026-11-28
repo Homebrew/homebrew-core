@@ -7,6 +7,7 @@ class CargoShowAsm < Formula
   head "https://github.com/pacak/cargo-show-asm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6f348d953593f9f21cef91cce36dafd5b4edbb8d50ea6863be8e80551b740158"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d2bce362fae80a9ba81095d9aa4e2a24fc9554c5840cd01a2a42135eea1a2726"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70774e5d99ae37b1415c53aecb36b1076b464de8da5a81c9e9c3a15c8b8364af"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9648cea0036f4f7a71a05865078f058b6d3dfc625f5fc33b8083b84bce0d3fcd"

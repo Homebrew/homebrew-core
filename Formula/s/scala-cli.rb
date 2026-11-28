@@ -13,6 +13,7 @@ class ScalaCli < Formula
   end
 
   bottle do
+    manifest_sha256 "d16704c948719b2a33b4836b21264f7d46b5ae3f195e107b5d80671b60a5c9a8"
     sha256               arm64_golden_gate: "46b3a4f6aa560615579b6ae7b2b65c39b834e3ab47ccdc2bd67eabed0cc9a67c"
     sha256               arm64_tahoe:       "72f6130bbfa4938b50a1c900d2153d4f726ec25e717df832024a55a4ed2b4198"
     sha256               arm64_sequoia:     "45edffa1b57cbb607c5372008416cdff2d925f4fd498832b1666eb5124510f82"

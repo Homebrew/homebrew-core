@@ -6,6 +6,7 @@ class ActionDocs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a09594bdf909ec596e55b2cf8f0162ef6f7cf981bfa7a1e1b32244707144cfef"
     sha256 cellar: :any_skip_relocation, all: "89a129206e1fd2a3bb48e3f7923ba2bbb98c3533d28332c2511c6ff093807f51"
   end
 

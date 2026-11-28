@@ -7,6 +7,7 @@ class SpeedtestGo < Formula
   head "https://github.com/showwin/speedtest-go.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ece65c990dba19016b90f86f663f322b040805be6d10f1d8cd4cdc934c562781"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c30480c4f4f69864564dd7b1ffed55c8f95fc8db6c14b4dca9d8ac0866d1486"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c460180f156e1e70209edc76a39348297fc69452767167a8d39623305ece5703"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c460180f156e1e70209edc76a39348297fc69452767167a8d39623305ece5703"

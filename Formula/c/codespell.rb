@@ -9,6 +9,7 @@ class Codespell < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ad6c43e463862c9f11c0339e1cfda40fd21da71213a81d66f641e81ebee84eef"
     sha256 cellar: :any_skip_relocation, all: "d0333b7cca34257d2f7b3e5dc9b5de21c46cb3d40abb08ed87a9fd2f9e1cf85a"
   end
 

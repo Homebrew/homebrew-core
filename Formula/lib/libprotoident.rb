@@ -6,6 +6,7 @@ class Libprotoident < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "08f24bea9a190dfb23b78754aabc4995a6be8063cede00067fa77b06fa3243a0"
     sha256 cellar: :any,                 arm64_golden_gate: "26b86dfc6f9f591c145726633e0090a583975688cc846d59603908192d5f45ec"
     sha256 cellar: :any,                 arm64_tahoe:       "fdf436dbc3db7c88d53ab0d2a1ac534722344549e2bdf01a87d9186c5df82bd7"
     sha256 cellar: :any,                 arm64_sequoia:     "411cc8c16803983d058bcff78dfda085396c97551e1cc1b70e0774e1278650c3"

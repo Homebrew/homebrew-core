@@ -12,6 +12,7 @@ class Cscope < Formula
   end
 
   bottle do
+    manifest_sha256 "9d61d57f552800365e71b2b63076578a650180686235ed3945b4e9b20d999b77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50691ebbe133d17baafc3c06c132cedc7bfe42b810cf3ef6ec5b6d84fe7ec07c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a0a30f47c29cb9473180bfe1c3670ceff999e1cd694babbe88d90e012cca0827"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "690ea8542348fc155da1a174f6e98cf08d81be181a222853a504124c9071c08b"

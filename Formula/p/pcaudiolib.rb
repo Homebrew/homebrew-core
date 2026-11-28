@@ -7,6 +7,7 @@ class Pcaudiolib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a10bd3c3dcd5a872c1f6a49b887908ceaebab3dfa07f267d819eabf87c1a2c9e"
     sha256 cellar: :any,                 arm64_golden_gate: "d3d2a3921bf151eb0ea70be556eb0c95150bec5f85878e6c2f7695cdef4fbca0"
     sha256 cellar: :any,                 arm64_tahoe:       "797c5e0ec4adb982e3efbcb3ff386d0ad3bbe212e731ce88375002cc6d0cf72d"
     sha256 cellar: :any,                 arm64_sequoia:     "9581956c3f6ac62ed80312bad32f93be3bda767e7fb6ce251c600971371bbdd8"

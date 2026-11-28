@@ -1,18 +1,18 @@
 class Hydra < Formula
   desc "Network logon cracker which supports many services"
   homepage "https://github.com/vanhauser-thc/thc-hydra"
-  url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.7.tar.gz"
-  sha256 "8dbe11e5858b8c1aab7bd670bc39a3483accd09e147d3dd981fe11a7fa0d10de"
+  url "https://github.com/vanhauser-thc/thc-hydra/archive/refs/tags/v9.9.tar.gz"
+  sha256 "aa0cac9797a745f38dc2ba580f00af7c695d46b9cf1ced6a1ae8e62ccd999f0d"
   license "AGPL-3.0-only"
-  revision 1
   head "https://github.com/vanhauser-thc/thc-hydra.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "db3f55d755f154a5fef8c0d754985dbf23d53aca67c0d301e564826a1303a201"
-    sha256 cellar: :any, arm64_tahoe:       "2d199dbae3ac05667fc94351a2a07a16bd49b9cba698aa2d4e9ded70139db1dd"
-    sha256 cellar: :any, arm64_sequoia:     "54c50b3a1a414ee3fdaba86f3388c951457d2c8fb51f5257286893653d95e223"
-    sha256 cellar: :any, arm64_linux:       "9c5314fe1c462d3af36e8a6eed9ebe21fdcf39195b30c0695dff139e445eb7a0"
-    sha256 cellar: :any, x86_64_linux:      "630a3e26e5ca96e0237a6a1df562ee87a7ef8037a5673e713364e8d7f0f4379e"
+    manifest_sha256 "1432b0ef5453030dac514c0cc543c39b1e04a697935aa50fd9c1b2f09f713ce2"
+    sha256 cellar: :any, arm64_golden_gate: "83a0cd0f77a09238a89762b89018570651c793353024246a5877c9a1d215378d"
+    sha256 cellar: :any, arm64_tahoe:       "af750d49a27b259639ada9b434f72e7971bebab5773771a1bc49331b8ead5119"
+    sha256 cellar: :any, arm64_sequoia:     "2933c0a752e290b8272ab76307f239f1319372908e08501c00275efcd1944406"
+    sha256 cellar: :any, arm64_linux:       "8534107ca265fafc40ab8554c817c19b87bda0a44aa48379c34a9ba0303591bc"
+    sha256 cellar: :any, x86_64_linux:      "1ee47a2677e1bc6e9a328f0f2a9b3228ddafa17c3d8199177b4e42d382cbff39"
   end
 
   depends_on "pkgconf" => :build

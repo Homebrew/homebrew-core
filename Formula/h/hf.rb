@@ -9,6 +9,7 @@ class Hf < Formula
   head "https://github.com/huggingface/huggingface_hub.git", branch: "main"
 
   bottle do
+    manifest_sha256 "df067ea0d67941889b07872f08d579b5a176f9f063cd54a4e35c5b0611b70d08"
     sha256 cellar: :any, arm64_golden_gate: "219d93c9e8ef41bcee447229155320e81c3b677bbdcc73f126885504927c88a9"
     sha256 cellar: :any, arm64_tahoe:       "4d37082648b99e9dac7da2b9e5c8b575565851fbd32698dbcd41150a114bef59"
     sha256 cellar: :any, arm64_sequoia:     "e99e5f18acdc911c2671431879e40252ec2349b4e11c5a53e7a8a9faf6902cbb"

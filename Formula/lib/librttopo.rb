@@ -13,6 +13,7 @@ class Librttopo < Formula
   end
 
   bottle do
+    manifest_sha256 "0eacb13726caff2ddbac5943e4e9cccd2fc4728c76833c75bd10abb68c34d2e4"
     sha256 cellar: :any,                 arm64_golden_gate: "6846d84fa84245d4b3f318972a8046881b18c14ba87d035e8f80e54e7aa4128f"
     sha256 cellar: :any,                 arm64_tahoe:       "96402f9ebcae6c7b387f95565523e927a702cee02b90253b8fa0c1e654e3a4a5"
     sha256 cellar: :any,                 arm64_sequoia:     "93fca6e17145fc8eacdc667787aa422507c03c5cc868907ef140892ac8be1394"

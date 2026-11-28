@@ -17,6 +17,7 @@ class Tcpflow < Formula
   end
 
   bottle do
+    manifest_sha256 "d939a23ef4f5a1e9b0a7f871126508c3949b535cc00d453af800853a82f6fadc"
     sha256 cellar: :any,                 arm64_golden_gate: "5fa37459da7ee5c5e5cbb1b5e267efedd159183bacfbcc538b6635b4c13ec0a7"
     sha256 cellar: :any,                 arm64_tahoe:       "ca1a18ffad5f2de19a52597725a0b8d2486dd77506d46afd7478c839750fd448"
     sha256 cellar: :any,                 arm64_sequoia:     "8487cadd6630cded0a87ad961533fbd103970672b9cbb7408f8e6ab6fb464e7d"

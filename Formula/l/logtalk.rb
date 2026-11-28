@@ -15,6 +15,7 @@ class Logtalk < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "03bb5deaace70ae05717c5db69099406e9ec3c5140d5d0c7a68aba23b8051001"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48cf25d967c9f9847f2e6795c144af7c20768f8802a6034cc0445ad78e2a4baf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78f5d49c63ce66b73956214d5cf11cd5f0b767cd45ec751471be2473afd2489d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0c931d9d7975078d4e8d55c7481d4c8725d19ed29dba76d1c9ce2ee01dbe68e"

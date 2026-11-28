@@ -6,6 +6,7 @@ class CargoChef < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "f82ccb4edc183898cd3b629774896abd0270ab4d6bbbe74a92515ac85523ac89"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "733168df649be3f6b3249bcca25b843a9e08e606ce93e810972a64441c0d5ab3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0a9f15275a1f0e042bb2e6681a3ae78e4f82df0bd87bfaba50fae02505a10a69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f844df2f951eb772b31353861d85ded4c7fc93d04af14b52db27eaf2356d2044"

@@ -7,6 +7,7 @@ class Klog < Formula
   head "https://github.com/jotaen/klog.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cba97d61ef4775c6004e0c5bad39fef88c71fbba4e5b0bd91188cb922d2becfb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "392b4b7a819fa3f60bae2e65a25db261fb8ba140936698d24097cc56cebb68d2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "392b4b7a819fa3f60bae2e65a25db261fb8ba140936698d24097cc56cebb68d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "392b4b7a819fa3f60bae2e65a25db261fb8ba140936698d24097cc56cebb68d2"

@@ -6,6 +6,7 @@ class GuileGnutls < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "2bc42cb9f3649c8c403dab00d6993c63637a2251caf42c9c1575b63c0bc7acb0"
     sha256 arm64_golden_gate: "93e16d2e9efc8b4c198fb1eab6ad25d9f8962aa2f8d517cbb70536c9aadf71e9"
     sha256 arm64_tahoe:       "075240290a35c9e2fdc8135fa2b964fd39f658ec6d224be1f6111376a4fd445c"
     sha256 arm64_sequoia:     "0c86c9616f89f8638906860034bb711503ef5e1cf232d1702284fd9e82d43d97"

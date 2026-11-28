@@ -8,6 +8,7 @@ class Sfcgal < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "26e118f18ae45d7314adfd3a595ca835e70a8b90353f5df9623427a7d2a80171"
     sha256 cellar: :any, arm64_golden_gate: "2074a64bbff4044ce3a5077b638fa2e850cbc6db25b19e7c46a61980dae1036a"
     sha256 cellar: :any, arm64_tahoe:       "db74c9aca42ddbe59b08e178673d939fe9f8a6ad5b6c88fa3f091fa31beeb30c"
     sha256 cellar: :any, arm64_sequoia:     "5025298f7c948a1032271d10dab015ca661a2142573c005cfe89958c8d6f8454"

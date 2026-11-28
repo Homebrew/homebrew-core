@@ -12,6 +12,7 @@ class Swaks < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c57519604b7877271bb542029d79db0d200c444172c2ecda6b9049b669f00aac"
     sha256 cellar: :any_skip_relocation, all: "c306783b36231b83d1c0935e526206911e61c3e1d58a011ea97b9132113e9f06"
   end
 

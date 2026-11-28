@@ -22,6 +22,7 @@ class Libgusb < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "73c021662f14b219bdb709da9c1043128138119b79c0f14e5bf69481e3c2adbc"
     sha256 arm64_golden_gate: "389de0b3db5ddb0555c809b918e138141cdc17ef20b734175454a97f80e39216"
     sha256 arm64_tahoe:       "9a924d348ebe1a2ff29eaed944df1cb686f800f03df3b9f542b945dea4142471"
     sha256 arm64_sequoia:     "6a247b6f7a80c357c0291050630e59923832d57940e8d44e19108a2b81a5f553"

@@ -7,6 +7,7 @@ class Classifier < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "685c3edb835a6684c5fff9e6cb554408e91f9ccf7efaa74cd5c510dddf21b90b"
     sha256 cellar: :any, arm64_golden_gate: "227d4a46a66a0506c573c54536df448a017b1afb7534d6075c770cc9c318b4bd"
     sha256 cellar: :any, arm64_tahoe:       "ba0432ac209fb148332377e1498b1e49bd711358e563011214302d9318405357"
     sha256 cellar: :any, arm64_sequoia:     "872a0c9dd40f86f84a8de9c558f937ae482731ab2e0bdb95c0a26f35e32f7b28"

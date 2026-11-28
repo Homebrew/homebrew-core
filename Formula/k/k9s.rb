@@ -13,6 +13,7 @@ class K9s < Formula
   end
 
   bottle do
+    manifest_sha256 "1a9d8664c5e7865a6711d26cdc399d3e6956f74125e575ff8da43a3c300f7901"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2447bdc35f9ab7103be963a17b7f414ebea0df757da02e2f8073e05091d9f880"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15fffdcadce29edb0b3b8ea6042dea1e49f3697d2d9b93be135487f9c7d8ea39"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a168ca99bcb4cf901567a62c6b0c575394743733bd9c57771cfa4c992e97c81f"

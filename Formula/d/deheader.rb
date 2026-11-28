@@ -16,6 +16,7 @@ class Deheader < Formula
   end
 
   bottle do
+    manifest_sha256 "c1b82148fa0d26a0d7fd74e2514cf77a03c57e93b4667abcf7435056fa26ca71"
     sha256 cellar: :any_skip_relocation, all: "6f8f29cb6ec6a901c6beb182a2d98a1e4dc767339f0110e05d995ac8367a443e"
   end
 

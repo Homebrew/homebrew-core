@@ -13,6 +13,7 @@ class Cairo < Formula
   end
 
   bottle do
+    manifest_sha256 "e6778a1f52dd356425f1e7fa12e15b4894f69d09e47cae6adb8460b62fbde81c"
     sha256 cellar: :any, arm64_golden_gate: "1dab52f452b0eb0a90432a5f1022529abaab3aaa83b36b9e0edde404ee168f0e"
     sha256 cellar: :any, arm64_tahoe:       "e067e63e664c7d95bdff0a08a293b4a0182a26f38b750f5f7958012e00823416"
     sha256 cellar: :any, arm64_sequoia:     "2eb1ea8f47088a4bddf68c052eef3ef5e52a5bc1369118d432db6bea2e363853"

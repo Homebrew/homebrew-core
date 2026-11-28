@@ -12,6 +12,7 @@ class GemCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "5c4ca968acbdca524cb9f2c199dbeea57f0f66446bd313a7a04c47a04fded227"
     sha256 cellar: :any_skip_relocation, all: "ae8a1951beb43f5f63f4a3961545d3a325e8ccdbf9da708c5175673012a5757a"
   end
 

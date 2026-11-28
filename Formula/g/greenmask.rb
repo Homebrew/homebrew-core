@@ -12,6 +12,7 @@ class Greenmask < Formula
   end
 
   bottle do
+    manifest_sha256 "39f267c6c9473a3831dba55c8e7116790c5c512916db5607b529e63630710df0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93df83f8b1a139e612be941eb789350af8a216e248fde81b70bdcfd0598369f9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "93df83f8b1a139e612be941eb789350af8a216e248fde81b70bdcfd0598369f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "93df83f8b1a139e612be941eb789350af8a216e248fde81b70bdcfd0598369f9"

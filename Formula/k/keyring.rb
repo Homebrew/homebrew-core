@@ -10,6 +10,7 @@ class Keyring < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "88e1cd67245158699de525680cd4aef7ec68cec8ccd5d49ef53b76febacba600"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86f94c50ce6737d913970d5badc8c67485df39bcbac166b3b691904ca33d7aa7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86f94c50ce6737d913970d5badc8c67485df39bcbac166b3b691904ca33d7aa7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "86f94c50ce6737d913970d5badc8c67485df39bcbac166b3b691904ca33d7aa7"

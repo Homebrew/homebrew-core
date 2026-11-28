@@ -6,6 +6,7 @@ class GpgTui < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1a67ab9ca7c1219eb981cb30f8a992d9a5fb4f74aa1e269495de678decf19236"
     sha256 cellar: :any,                 arm64_golden_gate: "8b157e8aedefbafb700eda85661a8b92e195d666e8a2b5493a4961de136ed1ee"
     sha256 cellar: :any,                 arm64_tahoe:       "94e1ca211a1dbd8fe30446a69bfeb8a47d927c5085bf49a597a3ac4cf8c02147"
     sha256 cellar: :any,                 arm64_sequoia:     "004f11be603db86cb34c5adfbcc867fee9614e62815954f334d60d4fdebdfb99"

@@ -7,6 +7,7 @@ class Xcsift < Formula
   head "https://github.com/ldomaradzki/xcsift.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c6fdf938b33b22218cebb10df052c3322b172d637b47b28eeebd853079ef3364"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "093cd9e316fa7527bcde8f6d3bbe7355a3bff5cd8d28e59754e9e6179c7b16f3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "284cf3cc5064cb3fd393c3b78fe159a580077c01b5ddb8ebcdd3927db1fee5d9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1b77d2f8b8103d405bb331b756c390499facdfc7ebcc9253f21a7640a067f1e8"

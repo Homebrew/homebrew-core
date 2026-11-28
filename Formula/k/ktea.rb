@@ -7,6 +7,7 @@ class Ktea < Formula
   head "https://github.com/jonas-grgt/ktea.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2f8812579f5d408990954f5cfbbd70f997fbc919a3091487be736bd842d0d075"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2284654e3c343a9b43d735ef47f75d088ee0c7be1c943ba1f3b7522c610b026"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e2284654e3c343a9b43d735ef47f75d088ee0c7be1c943ba1f3b7522c610b026"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2284654e3c343a9b43d735ef47f75d088ee0c7be1c943ba1f3b7522c610b026"

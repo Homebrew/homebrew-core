@@ -7,6 +7,7 @@ class Libobjc2 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "38bf3b6572c6eac6679c46343884bf9848ec1fcc33e3d4f54a0c7e2ac13dcd71"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "f3555edab456c1bc62c1d549893f3bf913382b7e3b8ab56b367d3d3d4ce212b9"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c6d20fc9b954bab4b841f4249bf92440214685726aa61033b866791898b4e8d1"
   end

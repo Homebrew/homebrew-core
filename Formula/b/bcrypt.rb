@@ -12,6 +12,7 @@ class Bcrypt < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ba53a3d98ade9dae6ec4b2612884e05c33dd84a2ad65bb04b7894a50ed4660d6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a7c6cab48838642cffe49559524376a3c058f58a2a9d159fb530f6b9d1f34d34"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d49aa09bacc40f805eba8376e5b444b9c7824737b8beaffea99a15b9a1fe58b3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3894598a8efee061b420dcf12be46a810b27daadca63fe1938482a22cf4dd746"

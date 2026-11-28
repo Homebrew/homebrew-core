@@ -7,6 +7,7 @@ class KanataTray < Formula
   head "https://github.com/rszyma/kanata-tray.git", branch: "main"
 
   bottle do
+    manifest_sha256 "64bf954a639d68df60528b645c818f34dde608b6ec0d0c21944c53af0b000176"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "daeb512b82b3f8821e6ba29fe407e6d540386c5995e886f7d9b844307b5e26ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebb165f640d1eb5fd95d1901b4ff647f04c32d8f4aa8fd9ebb89710884119609"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92b91c850fc4bdf541df557f70fba823a303326acb59c0cfd22a96c04dd9566b"

@@ -7,6 +7,7 @@ class Code2prompt < Formula
   head "https://github.com/mufeedvh/code2prompt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7b2e2f1a7706006548a7fc5a1c6e6786f658fda88263de98db336a2bf050d89d"
     sha256 cellar: :any, arm64_golden_gate: "2d50d0a0b2e6b17376d54114227d8faeef934990586dac85d642728a6bb81c08"
     sha256 cellar: :any, arm64_tahoe:       "1d2ef2f2614821901b55959c0d5202f8baba4b395370b7c2ef5ee13fdec9eaee"
     sha256 cellar: :any, arm64_sequoia:     "6c44b6490c5b23ff62845d1868308168cb2849c09067d4c59bfc63aed7988f0a"

@@ -7,6 +7,7 @@ class Fastnetmon < Formula
   revision 15
 
   bottle do
+    manifest_sha256 "b58051f8c7847c08d02add089d9490f6e51094c8d78061cce1caa28874edf9ba"
     sha256 cellar: :any, arm64_golden_gate: "f95d3a968d469fdd122aacb36a308cce239d1350758ea510a2b858034a6b88e9"
     sha256 cellar: :any, arm64_tahoe:       "d81099209c20e5e451657a9521580cf78c5d747c62212e6b92e2e9090ccc1175"
     sha256 cellar: :any, arm64_sequoia:     "0c6aefe22d27b9fa63a23e840992f58f7d42e7c6b4b4ef8b4467c5147187ad82"

@@ -7,6 +7,7 @@ class Ghcid < Formula
   head "https://github.com/ndmitchell/ghcid.git", branch: "master"
 
   bottle do
+    manifest_sha256 "73dae13a89d0c673e8ec9d98489142030d4eebcd96e2c2ba3e41f29d934e8e7f"
     sha256 cellar: :any, arm64_golden_gate: "b2986ddc45fc288d0a5bb09f23322be208f67ee21c407ea0fece995e63f14755"
     sha256 cellar: :any, arm64_tahoe:       "310f31bcaae877f6c38661e74398f90dbe1da2df04fe518cef0a62f594cf8533"
     sha256 cellar: :any, arm64_sequoia:     "ccb28c12d791eaf4860378a29b2cb9d33e31a7ffcf70b324180794afc91fdcac"

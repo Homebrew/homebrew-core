@@ -8,6 +8,7 @@ class Uchardet < Formula
   head "https://gitlab.freedesktop.org/uchardet/uchardet.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e5c9317a133e625c95e00e63d8fc1f1dd30681f06e2a0216b7ad59a25b05828c"
     sha256 cellar: :any,                 arm64_golden_gate: "39012729aa9ccb5ac679caac6ad69e4276f5aafdebb12548a3046bf1e3e0ead2"
     sha256 cellar: :any,                 arm64_tahoe:       "9c7726503e9063cc35716cd81cd22ebb8dbe34aec0922bd02d90b5a435940476"
     sha256 cellar: :any,                 arm64_sequoia:     "171e31b14ade23db98fd45f32cebdd1c278ce5b5d629d4e3be7c81a56bee03a7"

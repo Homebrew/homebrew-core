@@ -8,6 +8,7 @@ class Colormake < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "30bb1e783154b2f8d4ae9847511e0c98dd306090b57dddb191a2435d4497105e"
     sha256 cellar: :any_skip_relocation, all: "a628cc6cde2a938abc044ae867405b3232bc9c999b10729652fbe3088535da44"
   end
 

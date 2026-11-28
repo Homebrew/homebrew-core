@@ -7,6 +7,7 @@ class Felinks < Formula
   head "https://github.com/rkd77/elinks.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b1e921cf77a2452dcb2d092e64e39d8b131cc38064ecb94a0327b05533793b65"
     sha256 cellar: :any, arm64_golden_gate: "14bd279e8b0107cf4dd52657eada8b2bbb4a465cb48dde9f78c541b2a760568e"
     sha256 cellar: :any, arm64_tahoe:       "804d1b3d616ab0e9c86b93255d083edc11fa1d2712f4b8af895c6bd755a03a5d"
     sha256 cellar: :any, arm64_sequoia:     "f99ce5754dc6c1ca5da7b8d9e2cb8458d2b204ce111fbd83f31f08ca0c95a37d"

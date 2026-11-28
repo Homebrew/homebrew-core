@@ -9,6 +9,7 @@ class Coconut < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "a908729f8c9faeaa3ee5a7694cc1c4435556198861215e7c74238a19cd23bd5c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69bb75faa0d17adbcdede9b3b5dd61f6431584bb49f0adcb1de8268134121cc3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "30506434e84de574edb173ae77d56d24a58401ba7f4f7143498f6776b9c571b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fd6dc8fcb05ab81b665f03f956c7340ebf4ff416462b56d9bfd8f09feb7909ff"

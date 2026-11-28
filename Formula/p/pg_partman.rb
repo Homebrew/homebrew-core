@@ -12,6 +12,7 @@ class PgPartman < Formula
   end
 
   bottle do
+    manifest_sha256 "87b66638fff98c7d829abe9da159f7ae0cca79fccc1fd163393ccd99971f6413"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "328d5ec2bbc08b85120f17786ff7c25940017a01679262b42ebf4d8a6a94356c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e88e9c496e5599357cb7be11765f66e909997aadc6cfa4510a229a91cc93ca1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "28c43fe6246433804f677034bbab7bba14ebc19aa23d8ccff2008fef71ebb91f"

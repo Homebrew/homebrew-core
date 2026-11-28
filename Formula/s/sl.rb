@@ -7,6 +7,7 @@ class Sl < Formula
   head "https://github.com/mtoyoda/sl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "919122fca0edaf81c50de145dfbda4c08020c3bccbe27a3f961ab589aa77c1f1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53f72c00b42706e3268d23b7371fba05c543ac6db855cfcf50511243bceae954"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "99c2620dc9fe4058ba790fd445adf4160f5201ef2ad2abae5b9d90b707684f26"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "154511be7a41ffedfc392b2be2134fc6e5a0a7de8a34c27cc00b41dce1f6cd38"

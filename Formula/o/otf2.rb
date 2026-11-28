@@ -12,6 +12,7 @@ class Otf2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a760d02795fe53f9111973a7a5c01b33130e9146447102cbf80aa548afdf9eba"
     sha256 arm64_golden_gate: "ed969eb7ea11f1b0dae92542ba35a95bb0a2490ad5122246a5e7848802ff39f1"
     sha256 arm64_tahoe:       "19832cc78f09c74fcb2302f1bfca65b009ef5792b7652436b329af2d3743e0b1"
     sha256 arm64_sequoia:     "7b055aa1059dabf91b8d3a2355898d2c9aaaaf1a6e2704feba854948f97febc0"

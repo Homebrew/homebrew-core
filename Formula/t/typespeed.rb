@@ -6,6 +6,7 @@ class Typespeed < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "3f66a53bd7269116fd31458d208912ed5fd0155bac2059465ce29840200301d2"
     sha256 arm64_golden_gate: "a7b5f4caa4c34ba1b7e05009679fa7487f5c7f679f8edc7d50a1155abbbe6581"
     sha256 arm64_tahoe:       "0180b1eba9c871f2ae91394a54bc99f92e5c48db780f1ad601bbfd2691bf4e5a"
     sha256 arm64_sequoia:     "ab447d0e1c0d2482ef500191eb296b9da4a5d49735d9326e5c738cb496aaaa43"

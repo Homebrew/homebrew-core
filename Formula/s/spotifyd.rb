@@ -13,6 +13,7 @@ class Spotifyd < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a97c5219c2631d92b28128dd205ebbe5f4c346a755e3c93b06fd523cb395a961"
     sha256 cellar: :any, arm64_golden_gate: "9ea10c41fa0b39188f05fb4c520d94bbfc32e368ff879efb68591da32782ab2d"
     sha256 cellar: :any, arm64_tahoe:       "3e9ed5d7b835838ee4b7d51f5bb21e2cdb7f621fc275749e644344a7a321fa9a"
     sha256 cellar: :any, arm64_sequoia:     "2af21b852dac007f969a09a5ac7341b9b6073f5afbdb4673cf4c7f909c1f0f9b"

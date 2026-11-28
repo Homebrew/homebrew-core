@@ -18,6 +18,7 @@ class Wthrr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c5fd775e9207ddf9167433b88db588f217f2f370ee02164a87e78b9138cd2550"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b7ded6fe6f3bcace79f5eded82a4d78aac60c6eabbb48fb5a0ab05be8e07e22"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fffeb331d7010937a3ed451b50bcefbb2b421db64aa6c05fb92eeea0733361e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "728353e1b8870844618d9dcf2664be705a7b865459120abffdaa36ff7d08138d"

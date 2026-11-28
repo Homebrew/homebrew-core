@@ -12,6 +12,7 @@ class Solana < Formula
   end
 
   bottle do
+    manifest_sha256 "0992bfa69e1e9735d01cd990bd72f6203c1a2c80bbfed83d85aedcc161fefc2b"
     sha256 cellar: :any, arm64_golden_gate: "49bd419751170b68f6ba09b473611d513b0a4a4d56fa6fc35e401feeb789927a"
     sha256 cellar: :any, arm64_tahoe:       "4fc8ee2a6830d59cec1afb678a40787b2bab12a86b4319f03dc57bfcc064eaa0"
     sha256 cellar: :any, arm64_sequoia:     "437b5d61f18fc074b13bfb99fa9b01fb7bac023c9abe957cc0770f70098c7b03"

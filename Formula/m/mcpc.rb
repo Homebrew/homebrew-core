@@ -6,6 +6,7 @@ class Mcpc < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "fb5a5c1dcfc3285ef950bc7d1947873f6c4b590d428928d21ebfce70e83bbc28"
     sha256 cellar: :any,                 arm64_golden_gate: "9220739edcb5cb01b7709e27882204ac4f4b3835638e06a3740a7e45ec9102c3"
     sha256 cellar: :any,                 arm64_tahoe:       "1774a5515217084fae88a48b43f5b28e0e78739c21033a8ce10231063c8243b5"
     sha256 cellar: :any,                 arm64_sequoia:     "6609feb96edf54efabd26df35595d0d22b10362278ada43e44fce783fc271957"

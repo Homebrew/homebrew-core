@@ -14,6 +14,7 @@ class Zlib < Formula
   end
 
   bottle do
+    manifest_sha256 "8d515ad0eb3d9b28d7724f9923edd7fb2938ea89d05aed78bbc361d066c579da"
     sha256 cellar: :any, arm64_golden_gate: "4fce88358803cd0dfdcc14e2afaf932af2a6a63927c197029e36bf13a072b002"
     sha256 cellar: :any, arm64_tahoe:       "af30c0eda23564e812e00202ef7ae256584016dcbb0b88afb1120e768224de87"
     sha256 cellar: :any, arm64_sequoia:     "89a6f0a9841c9d3b38fd8733bd905fe2f2b218f803c77c7043a6116dd9f3b037"

@@ -9,6 +9,7 @@ class Gruyere < Formula
   head "https://github.com/savannahostrowski/gruyere.git", branch: "main"
 
   bottle do
+    manifest_sha256 "39c82ce1057f312d578893a92375f02709848ffb6b0525889f5675a03019d212"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfd050e5c656e07832f88d952a5380750cee15875e24a0435db208e33f009003"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a7cfa6be6f363a1883573e73fe9376ce945f989fe43f3635eaf760b083f957b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a1046f20c8630c5b10b74d4f985e620d8a5f6e9c1217fd90a0d0e7425422995"

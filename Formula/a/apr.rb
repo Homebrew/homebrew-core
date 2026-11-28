@@ -8,6 +8,7 @@ class Apr < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "df6b49e5c4299a5d153d6bfd3d78645f16afde42b740d933f2991133b5a7a2d7"
     sha256 cellar: :any,                 arm64_golden_gate: "38aa447e66b938737333b9858aad2386ff52daa70aba251982312f63e73f878f"
     sha256 cellar: :any,                 arm64_tahoe:       "a8dbcf3f996ba1148b936081612ff5228cb4ba5a08de6635a695bd9ec6963266"
     sha256 cellar: :any,                 arm64_sequoia:     "58a68eee9f289319c41100b42bddbaa265366c093e0c0f83e4295c7a535d7395"

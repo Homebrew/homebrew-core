@@ -8,6 +8,7 @@ class AmazonEcsCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e0e15ef008f08a6fe36717de864a73661bd5d528b148c6f9c052ceab9eaf971a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2306871b56858aa6b1fcb1bea92a38ba39e8181cfb47694165d802f87e555b46"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9a98803f22995cb9fd3ccfff0d9ac6bcb8de73df88e94c9bf60f16181ffab227"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "946c2dea923a3f6ce1247becebbe353802a74bf44b5142d0ad0d5548e8fc1ea5"

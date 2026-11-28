@@ -15,6 +15,7 @@ class BtrfsProgs < Formula
   end
 
   bottle do
+    manifest_sha256 "b74b78393eb097d0f41bda2939cb34417ce5f15c526ef6e514254cd943b6339c"
     sha256 cellar: :any, arm64_linux:  "a5557e547355e0963e61f3b4c2b28b38c05005b13a4d6cba866f3d1a7d124951"
     sha256 cellar: :any, x86_64_linux: "1a7019dd517711c172e5cfae574ac33c8ffb4c513ec0cebcec6c2425f87ec05b"
   end

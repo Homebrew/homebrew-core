@@ -7,6 +7,7 @@ class DbVcs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8d335aee5a61611a980b562f47340bc03b80ba1183b10489b62c7ecd12499309"
     sha256 cellar: :any_skip_relocation, all: "babb3e6342f742d8b4ffa1773605d2c946d01c67829bcaaaa71b701781d99ddf"
   end
 

@@ -12,6 +12,7 @@ class Toilet < Formula
   end
 
   bottle do
+    manifest_sha256 "3f3fb3714ecf6528ab3fa47f58bde46d69575b09bec2b1a1b4d2acaaea7ebb59"
     sha256 arm64_golden_gate: "6ac1f8c2920b108b7a51224b55fc6c2866b7a628239d28d8c0403bc51e4c3bf2"
     sha256 arm64_tahoe:       "bd5b942e1d680bf03e3cd4ca644c4468e4184804f9e42044cd4e8a3d8be4df13"
     sha256 arm64_sequoia:     "2c559d7c5172c0f9751ecb6a75a550e1202cf3f09a0cf867799672beea54c2b5"

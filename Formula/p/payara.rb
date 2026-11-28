@@ -14,6 +14,7 @@ class Payara < Formula
   end
 
   bottle do
+    manifest_sha256 "72c5972f30c7bd7046f2e4a2bb83d3810adb048e77d3942d61352500f310d7eb"
     sha256 cellar: :any_skip_relocation, all: "4b6ec5c7955046a20b255a7d4b789c8c82ea598eacf2348d30c209750e209685"
   end
 

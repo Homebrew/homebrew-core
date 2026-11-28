@@ -23,6 +23,7 @@ class Click < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7a2ffe2cddd2089a4d7dae74f8669391f570d13ecd6ecb3269c6bd44d9b10dd1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2b106cad284cc001d5c47eec4aef326ffb6cf54c454c58307d8b7ecd7aaebba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "40cf8f177a79ec8c1c80268788b4a60fc9723fe5badff33aa6e61c05c6235e73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a877b7525e77625b581f2dcbbbaa68a275be940e42f15a1de288a1b5e8a7894"

@@ -7,6 +7,7 @@ class Ahoy < Formula
   head "https://github.com/ahoy-cli/ahoy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "31acecca38a6e4b884e24a107a0de839bac89e5bd31038544e531b42ad7685af"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b8b6fca45fdd1b82131871ecfa6e04945d56e199cf1ac9ae9731fed551105b81"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8b6fca45fdd1b82131871ecfa6e04945d56e199cf1ac9ae9731fed551105b81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8b6fca45fdd1b82131871ecfa6e04945d56e199cf1ac9ae9731fed551105b81"

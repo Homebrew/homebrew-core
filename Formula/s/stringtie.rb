@@ -8,6 +8,7 @@ class Stringtie < Formula
   head "https://github.com/gpertea/stringtie.git", branch: "master"
 
   bottle do
+    manifest_sha256 "951cdaaa531a38311b1ab6888be0074122093f17271804888be9ac5b710cc111"
     sha256 cellar: :any, arm64_golden_gate: "f1f074beddd61dc54fa85b785e176444544a95acd6a48fef98308f687bb81ca9"
     sha256 cellar: :any, arm64_tahoe:       "9a26d854ed3f0ae70cbbbbef204aa8aa69e55538ab25bd2142f2faee79839a43"
     sha256 cellar: :any, arm64_sequoia:     "b88561bc6091fab88b8f410b0b5aa0492c6b99a10f8435470fb7521c523428b7"

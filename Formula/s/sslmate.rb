@@ -12,6 +12,7 @@ class Sslmate < Formula
   end
 
   bottle do
+    manifest_sha256 "e66065db7252ecea15911861380a969260bda06ffd82a42516deb5cb5bd5436c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c11ef144e1241670a5681202a5a42dfa7cca27d7bd7dc4b40876ad61700e59bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "60ca144e9ecce60f4898bc68699d18242f1e362264cfde911cf0b9267810b10f"

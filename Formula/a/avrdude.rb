@@ -7,6 +7,7 @@ class Avrdude < Formula
   head "https://github.com/avrdudes/avrdude.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0d1dd93fdd5f2b90a2300e60178711602417882050bcdc2108da070478ab79a8"
     sha256 arm64_golden_gate: "0ba01d7b32c136a2281e74ae06185066579fea5aad59903eef3def364132182b"
     sha256 arm64_tahoe:       "f2f74daf7772910b888c482b0d3ee6f92506ed9c1518c67cc41ee2bd43ecbf35"
     sha256 arm64_sequoia:     "b52edab65d14b4e34784484b1cf2917486acf4c6258741e72321d88c85f3640d"

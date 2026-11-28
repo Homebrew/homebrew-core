@@ -9,6 +9,7 @@ class Pgcli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "20dc54053022667c4dcdbdeb3f31d60e3d11e8f3f197edf8840e57a054d5977f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e0a1e4963f8c8f87bf9ffb0ddfbbd9fa856650d77df38bc6132fdebdba7c3b15"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b15fcb4a3367e0b2aceeab086e5d3590f7af3d6064157be94f655f20c3c866ad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f85c3033bab150e4b4112c74615aa7c7e84fddd88e7f459f0a2c4d78a3d0a78e"

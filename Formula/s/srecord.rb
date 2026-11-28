@@ -7,6 +7,7 @@ class Srecord < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c0efdebd42d54c147b1bc13e59f387f5bf5c01ac069af3769547244241cdf1b2"
     sha256 cellar: :any,                 arm64_golden_gate: "e780bada8c7c0817f9750775c7c2c0ec4619e82ed57378de44f0fb510266406a"
     sha256 cellar: :any,                 arm64_tahoe:       "054d26597b7a4c444cf94c279055aeac127939f40ca58928ccc5a0295c6312d5"
     sha256 cellar: :any,                 arm64_sequoia:     "fe9526b920ca097bcc3662d2647c08cfc54a4625a87b2f3a453a4e5f8ad7d23e"

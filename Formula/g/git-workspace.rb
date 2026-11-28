@@ -9,6 +9,7 @@ class GitWorkspace < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "b373e82c1b0eaa2dbbab6c4cbba7a2fc1f1dbd8db1ec4fe254dcc5f8e9546623"
     sha256 cellar: :any, arm64_golden_gate: "760a72caceb7ab8586a3bda29de83afb4859b90494cc7784133b85905ff6f5f6"
     sha256 cellar: :any, arm64_tahoe:       "287d4176521300d2316c3d8269415953438589b4f4f182e51f487944a7975e8f"
     sha256 cellar: :any, arm64_sequoia:     "693010f83b8e50c1a21b087b869270ea226eb6eb56008c8f5ef046376390bd54"

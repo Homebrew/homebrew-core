@@ -14,6 +14,7 @@ class Aqbanking < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "8a0169ad526e5761cb6732255a01d7f43a924d527f2abad4f27aa26ba3fe5512"
     sha256 arm64_golden_gate: "629e8f3ee5692f3f5538cfb704ff8f23ee3a4cb38bee5fc8ec2fc8c5c8d77782"
     sha256 arm64_tahoe:       "0df5c83604300fc1b70b8549c0559841496a02e0f1ba5a6f103c59f17aaaf6b4"
     sha256 arm64_sequoia:     "4fc0da60ea3cf71d31af15da9fa781f36f5a9278fa43a125127b4705f33b972e"

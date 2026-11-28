@@ -7,6 +7,7 @@ class Modman < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "ff11918898c1ff3df37ca7f1a8a1af3ac878fcc5c69330fb8375a58ec2eeb6b2"
     sha256 cellar: :any_skip_relocation, all: "f932bb64388501a75aff2a97fe0b75b6bbefa13d38f29d99cf49672015aba60d"
   end
 

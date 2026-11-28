@@ -12,6 +12,7 @@ class Freetds < Formula
   end
 
   bottle do
+    manifest_sha256 "7febc3db20e7c841f7635eaaeb15523fad0ad2a2ecd4d5c114be1a1d4ae50494"
     sha256 arm64_golden_gate: "938bb72503154d9282a030b9fdabb3897e9608a4d0c5520eab47fa59d638e262"
     sha256 arm64_tahoe:       "324e24580da6db09ed3c22f8ea20224aee7165e3cbdd0ebe10b97d0377941e32"
     sha256 arm64_sequoia:     "5ea438e7b8c0a51165e5bd16f32213af09af2dab5ae8a1f3050a3a990dfae05a"

@@ -12,6 +12,7 @@ class AntContrib < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6cb2a12ae3c7a6130498615f2fc4a380c058a527e885fdff72b589b2fd58f3de"
     sha256 cellar: :any_skip_relocation, all: "11f6456cf47128a33054e067467dd8186dfd6db33c85cf60bb8620e4a269fced"
   end
 

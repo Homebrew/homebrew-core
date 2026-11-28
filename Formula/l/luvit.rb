@@ -8,6 +8,7 @@ class Luvit < Formula
   head "https://github.com/luvit/luvit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a78e69f087ced7e8b2ed454a2afd675c0c6dbba924418c312d000906df5df364"
     sha256 cellar: :any, arm64_golden_gate: "59b5032657078fcf6273ea3d1472d836379f4234291fe7bf05b9bf7fc7928327"
     sha256 cellar: :any, arm64_tahoe:       "0acde22c5dd7a185d1f3680373709a855742092b525799333d2e33b3afceab5d"
     sha256 cellar: :any, arm64_sequoia:     "5d7239fd6d1a9b1883055d18d7e435ccdab18a77cd4b744553a2e43f2831f054"

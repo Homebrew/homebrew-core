@@ -8,6 +8,7 @@ class ZshFastSyntaxHighlighting < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e3c9184eb11c24a08d67b6bf49a4437318711b4b90bd338bb325a69d7994c48d"
     sha256 cellar: :any_skip_relocation, all: "548b80e35f30d83768a48dee91e0f3e39ef7a3b1af70d65560fd15a75a5218ba"
   end
 

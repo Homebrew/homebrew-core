@@ -21,6 +21,7 @@ class Libimobiledevice < Formula
   end
 
   bottle do
+    manifest_sha256 "1705e7586da22d7afa41d44872c7e0aa4a07820540d32ddaf4c1b6f6244baab6"
     sha256 cellar: :any, arm64_golden_gate: "bc7cae16faf4ddedf0d6c75652bf0c82dd674fe96ed601917aaa3e70a714b549"
     sha256 cellar: :any, arm64_tahoe:       "2d6452378134837c5948786665ae1084b73e26cc63ca7038775b8c8a63f0587e"
     sha256 cellar: :any, arm64_sequoia:     "0dbe0bb370482fac0ab4198e5b0bf8b12dd81aebdfcd5bea9245987cf8054a9f"

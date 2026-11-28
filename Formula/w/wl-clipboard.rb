@@ -6,6 +6,7 @@ class WlClipboard < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "f6e3b87129c823b56ba08031a9db86b84feba0d68e0ebc0b255ff8ccd04e6552"
     sha256 arm64_linux:  "2ed9df6478788ec465afc01e214fc62780ff19216a9c5427296d8362a79fa2f6"
     sha256 x86_64_linux: "3c5d5d55a1ccbe9df625a0cd3ca1d64538194afdae28c3d3e36d39a70f3e5cc2"
   end

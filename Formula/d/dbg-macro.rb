@@ -8,6 +8,7 @@ class DbgMacro < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ba8f126f6945abb553461ba8e754b4190c2b790b088aeb33a60691bc8386465e"
     sha256 cellar: :any_skip_relocation, all: "c3b797e721c386d0f07439cb9d8cfa7617f467e1e577aa8bda1127094c08e87e"
   end
 

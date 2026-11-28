@@ -8,6 +8,7 @@ class KubeScore < Formula
   head "https://github.com/zegl/kube-score.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e12b539651565562449f2e7ae4c03dd81a7a514fcfbb049e87e4c6235ff67e63"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3f163fd94a5cca5921b9fc9de2629da7494d133318c2f7514abbc0b581c007e2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f56227624dd0d4980bddcaa35592e0848a44dced318dcb595838eec62bf8b835"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8c59a7d469dad58f1fa600c7e28fd9355ea66991c5c96921c72408eb631c8823"

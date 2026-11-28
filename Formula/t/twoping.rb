@@ -10,6 +10,7 @@ class Twoping < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a3251b1649cc32ecb3dd50abbae179542b48a3b7568d45e5d7563cc0c8951556"
     sha256 cellar: :any_skip_relocation, all: "30568e3164d4e9557b59947705a1216a99e179dc1c9f09652bf9b724caa71fb1"
   end
 

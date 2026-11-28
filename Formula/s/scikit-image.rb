@@ -10,6 +10,7 @@ class ScikitImage < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "eda385d07e5c2b9c72a33ab7d8cc9cd077187fa761e2b13cbbc5b388aa9c1b4c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96d3e25bb4d214ca64001bc26309236a605b708444cdf8d59b04ded274d91403"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf69dbdc8ef6157756a37c2ba6746ca6ac2af13a6f067e606a62537418673c95"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e351e9fdedaec1f60926ee273c6dd492f2654d5ef21cbe2a7e496cc3d7baee1"

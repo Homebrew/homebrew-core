@@ -11,6 +11,7 @@ class OilsForUnix < Formula
   end
 
   bottle do
+    manifest_sha256 "bffc1a08ebec16bd81458ea29c5d94c1ed0a2a4b6125da06ae457f0f353ff8f7"
     sha256 cellar: :any, arm64_golden_gate: "9cbfb2000539d72a7f67e6baf5bb3850b501d1b9610c8627b08bffa18c9e84b6"
     sha256 cellar: :any, arm64_tahoe:       "c796e59f2e1a32dc30250d5af154aaf496c1978b9bdabecd3100b5be274ae546"
     sha256 cellar: :any, arm64_sequoia:     "e5fe474aaf7c63d3956c977a388bf6e3b358a077595a4a7a74f826279c1f193b"

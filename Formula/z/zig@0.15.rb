@@ -11,6 +11,7 @@ class ZigAT015 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dc19db5bd542188f661382d9f6199d7df28e0c6deb90bb34f2c3a5e1ba2c0f1a"
     sha256 cellar: :any, arm64_golden_gate: "5d6f38219bd78bf111b00a640d4d6aadb75a480da61fa8ceb947a9ae61ef1eaf"
     sha256 cellar: :any, arm64_tahoe:       "7bb95027a7c58e87b0849908d70acc21c52d457eff743804171e0ea51568d349"
     sha256 cellar: :any, arm64_sequoia:     "6642afc23c2a5205fd0c05955d624ece59896d0841c675ea826c1ff7b2ef36c2"

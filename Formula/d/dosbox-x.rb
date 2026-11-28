@@ -19,6 +19,7 @@ class DosboxX < Formula
   end
 
   bottle do
+    manifest_sha256 "0427c93aa256748378c6f829f8ea66cebdc9b5226ab3ec0672ca4feeb76d736e"
     sha256 arm64_golden_gate: "828ac729952d469ff3b14ceb62f6796a787a12f05d566ce7f236cfa674dc5b7e"
     sha256 arm64_tahoe:       "277c70e19dee2ea0603bb504331b35b46bf6d7027ec8a5d2f88fa06b6d12753a"
     sha256 arm64_sequoia:     "1a17b3e7dd0b7147b3c889e24a23ea03809d6e250cec08b424aacb2e408b5e50"

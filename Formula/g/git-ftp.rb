@@ -9,6 +9,7 @@ class GitFtp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "bb174bd420cbc81f5ced67d1deeaa4b25af42cdcb6fec30e801599cf1494dc46"
     sha256 cellar: :any_skip_relocation, all: "95470631e72758db4f8eb07739a78f6265c09bcf41da6f69bd8c701f02bed360"
   end
 

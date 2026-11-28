@@ -9,6 +9,7 @@ class Ffind < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dbcebfb7be38fc40447e6f4ae23b714f8b0314cbc5f369a096de0f96fe83d5be"
     sha256 cellar: :any_skip_relocation, all: "04003304502f97107473f1e6be50bf658ff48ec2f8b3c2b12e743279bbfcb2a7"
   end
 

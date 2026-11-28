@@ -10,6 +10,7 @@ class PdfTocgen < Formula
   head "https://github.com/Krasjet/pdf.tocgen.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a39251087bffc0e56fd7fa4b36023a2d84c161ca382a1bc586641f7acde176e5"
     sha256 cellar: :any_skip_relocation, all: "5fb44acf3659163c7de0e1e69ee6b809da266b5dfce1c77961ad4ec1a67589bf"
   end
 

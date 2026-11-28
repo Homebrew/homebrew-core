@@ -7,6 +7,7 @@ class Meek < Formula
   head "https://gitlab.torproject.org/tpo/anti-censorship/pluggable-transports/meek.git", branch: "main"
 
   bottle do
+    manifest_sha256 "344e9b01ec69920e28ecf4839906f9cce3f6e1e75797f291cf413d25284966d1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4852ecea791e0557cf667b619fe574858b30aebcd26e73aa48fc9a7eff65cd6d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d41beffa2dbd3d1b66ba353e51e329fa491d6413dc526c0f9993d41f06adabb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c939314234b6926d31c68588a3b6c6f044daf7012ba72d567166402de563747e"

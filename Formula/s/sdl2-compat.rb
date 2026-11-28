@@ -8,6 +8,7 @@ class Sdl2Compat < Formula
   head "https://github.com/libsdl-org/sdl2-compat.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b5d7ec84b220a905a73d931db26dbebc9d0ad6624cc9a38adbbf6d9c99578221"
     sha256 cellar: :any, arm64_golden_gate: "139bf83cf71fda12c0ca21c6c5bd5b4d523b6129da62f4f4033b75550ff47a98"
     sha256 cellar: :any, arm64_tahoe:       "32ef73fe92e17d21856399165bc902f74f3c0e87d03021e3e945dfc4dd2d771c"
     sha256 cellar: :any, arm64_sequoia:     "0051ded084f7a73374bffe09df4cd6a0e70ccee6b3337a5843c152111bc01c28"

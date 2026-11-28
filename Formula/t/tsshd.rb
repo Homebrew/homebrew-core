@@ -6,6 +6,7 @@ class Tsshd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "22b0d2b344f7e801b7ae375fcb575cb5d9569f237fe890ae607d2de667faecaf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07588d25973700906e01641c9937f8d64cee275dfba9c24cbe4a410808125c0a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "07588d25973700906e01641c9937f8d64cee275dfba9c24cbe4a410808125c0a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07588d25973700906e01641c9937f8d64cee275dfba9c24cbe4a410808125c0a"

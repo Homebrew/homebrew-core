@@ -7,6 +7,7 @@ class Brag < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "75b20a5377d4c2abc412d260cbe7c38b043d9267fc36f366bf711b948f311fba"
     sha256 cellar: :any_skip_relocation, all: "112ddb2485aa0730c63d109081ccf086ca5c83c0de724cb1914722f63e4ea8ad"
   end
 

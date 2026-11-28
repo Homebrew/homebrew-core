@@ -7,6 +7,7 @@ class YamlCpp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "565f6483a8c7397ce79c0b8d5d0c6d9da232f98116445a1c9354c546b7f268b1"
     sha256 cellar: :any,                 arm64_golden_gate: "c43861001f5ef91c3e726635c216924af2189e285dee7f4afb4f00b68571e6f0"
     sha256 cellar: :any,                 arm64_tahoe:       "fd9acbbaebb15dfdb1096ccff63da963421908b3e2a7a0f28ad572f3c8cf467c"
     sha256 cellar: :any,                 arm64_sequoia:     "404b99a2150c5d600ff6dfb683501a18257626a74b1a1ca53fdc8e0f63251c70"

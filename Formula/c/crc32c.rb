@@ -7,6 +7,7 @@ class Crc32c < Formula
   head "https://github.com/google/crc32c.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f835a8ec23350735de64460b9b1146363669ff013719c5d5f24fc2332443d5e4"
     sha256 cellar: :any,                 arm64_golden_gate: "af3e50c471cfec926263787a85ae717b1d4e8232e1dce06b8a8d17f39023675a"
     sha256 cellar: :any,                 arm64_tahoe:       "8e3aaa27057bb4e44a84d7fcdef9f8fea950c18d34017a3212f4f4ee9d0e6f03"
     sha256 cellar: :any,                 arm64_sequoia:     "8ea83fd9714095d17ddcb3b8a8f70d2c5694f35b7b6edc17aa8b32e6952295c8"

@@ -19,6 +19,7 @@ class Pce < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "846cbbf8d1a67a4bc6042fd19bafbfefd2e2a26d2157eb54e031dad97aa3a2b0"
     sha256 cellar: :any,                 arm64_golden_gate: "c5cc1717844e98b3fe2026ff9fa1604c12ec46ed3df7c733e05b3a3f34cdfab1"
     sha256 cellar: :any,                 arm64_tahoe:       "e75f725e3f355fec9e470c79180eb547575cee5c223e58ec67c2d4affa16bc30"
     sha256 cellar: :any,                 arm64_sequoia:     "e3d82bb4edc2bdcf6f53ca58219d9f750cda8e0bfea13859764900e9d143d709"

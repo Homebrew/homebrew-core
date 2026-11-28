@@ -7,6 +7,7 @@ class Engram < Formula
   head "https://github.com/Gentleman-Programming/engram.git", branch: "main"
 
   bottle do
+    manifest_sha256 "365a76e5c251881fdb7431a9f0cb468d7c6034ba3c8eddb9aba2c06ede2864d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "04b5ef5e39b579963c78216ec2dd29980060333119607700021736202bfda8ce"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "04b5ef5e39b579963c78216ec2dd29980060333119607700021736202bfda8ce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "04b5ef5e39b579963c78216ec2dd29980060333119607700021736202bfda8ce"

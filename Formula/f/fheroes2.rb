@@ -12,6 +12,7 @@ class Fheroes2 < Formula
   end
 
   bottle do
+    manifest_sha256 "6c4289a95dfe141de26d3a226d33841a5f32d1952d710b42db31b9dc0ad09807"
     sha256 cellar: :any, arm64_golden_gate: "979a0550b236b29a76b703deaf4f6ac57d5cab5cf552e33f5aad1ca16f96fd3f"
     sha256 cellar: :any, arm64_tahoe:       "1d106935e8d78fd6cf547df6d61b2c8c52517d010299610528d2bac1a70e59cb"
     sha256 cellar: :any, arm64_sequoia:     "965575020e258e941605f223279cda81bea985cf7c1b27236b5811a58fa59755"

@@ -7,6 +7,7 @@ class Wzprof < Formula
   head "https://github.com/dispatchrun/wzprof.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3c47228306f21adcd31050038c654159c87bf8a29fc0e11e38eb17a4b8f50843"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd2f3d52582990793e980ad774bda3ba5abd46443ec6c7177e9889083632321f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1730b8de6730863c0725a3468613f2d9c5ad5165da36a44b134b1f30ccbe2012"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09412fe4df2eeb2fa3e05a8da39a192f7bb5e38b98ef5c6924f93dd50b8c6abe"

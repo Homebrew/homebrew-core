@@ -18,6 +18,7 @@ class GitImerge < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "fe7ccb59f72baa7e1b4d9da95a0c1841f925d3570ea3412721e7194ab8373dc8"
     sha256 cellar: :any_skip_relocation, all: "7b4ff75971568d2bd712d22e35083b9b6d7a3a2ce8b8ef5db47085a2ae055653"
   end
 

@@ -7,6 +7,7 @@ class PerconaXtrabackupAT80 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b3413a0ab7ba90ed3b4f25637706b92f685f8a063102c46ffa2482eec9e87e6d"
     sha256 arm64_golden_gate: "f9853d6bfdd79bd0699790e088fcec09c7d89f1f0e68fb20c50946613603ac5a"
     sha256 arm64_tahoe:       "9fba7963229bfaac880b0e2119044271b5d4c26ffe36690a3c8eebd548386009"
     sha256 arm64_sequoia:     "17006c18a74027359cbfd1ea4ef52fe00348e386c4d93dc942f6b7d9a1bbd697"

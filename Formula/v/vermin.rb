@@ -9,6 +9,7 @@ class Vermin < Formula
   head "https://github.com/netromdk/vermin.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6b6a2e2c60cda5390a8a3daa7f9b59ce800bf4c296fc8a0b9a0d20fb89be2f52"
     sha256 cellar: :any_skip_relocation, all: "1f1c520e383f4d4dc145217f5fabf02c1ac4c6b9e16fd2b047667fc337713eb6"
   end
 

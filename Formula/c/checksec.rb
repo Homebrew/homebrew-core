@@ -6,6 +6,7 @@ class Checksec < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "fbe7d5d9a69d2f248a79c10773c4f49cb7f7bc513f3e04cf66f81bcc155bc27a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "997e6a475c5e48a997cfe68f38673f11fec663b86de250d3b7d8e378d82153af"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6e4dc921476d5c23ece70ee896f2252d86ca6853df595e1656711dfaf115b949"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77ea4b237ca591a62ac01107af0ef993ee692e19f479e1e29a2ce9259773c5df"

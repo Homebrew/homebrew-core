@@ -7,6 +7,7 @@ class Configen < Formula
   head "https://github.com/theappbusiness/ConfigGenerator.git", branch: "main"
 
   bottle do
+    manifest_sha256 "edb817dd508e37df596ebc4d36f30b271b39dd4cbae363e9ddd9bbeced41d851"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4b11116d1060c66a59445df7a79c81fd0936a441fa10ddb957af27899f8775fb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6065f7176f6749015d33a8b03a07fd9d4274686f797b8aadc81e2632669b242c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4afca8fd4567771c799d14425f4085ddc23a1ca5f89e32890dba233919e3ae9"

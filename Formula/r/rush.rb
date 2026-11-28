@@ -7,6 +7,7 @@ class Rush < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "6f32d16281c0fb1705c9b133884e94089b148d6545e1582321c7f8cc907175ce"
     sha256 arm64_golden_gate: "01bd2753d19ccc044a7045421bdb9a7659a954817060c1397944d3f25ab95c25"
     sha256 arm64_tahoe:       "949f479b1e1d414b24cff1c6fe3b9b487308b0099b26e4b0268858c6bb403c6d"
     sha256 arm64_sequoia:     "8b4382d4d29a8b19f80b688720739341a2c50327fdac6f779110133a15df8137"

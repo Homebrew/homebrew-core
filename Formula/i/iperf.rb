@@ -11,6 +11,7 @@ class Iperf < Formula
   end
 
   bottle do
+    manifest_sha256 "0b88bd26b4684c4af5d52aa0771005623a415fcc0425d7c420382d3169f51624"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5cb8057354a66f09f2d3e55c779160d00a5742bea396dfec5483d6a7cf918ce3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cffb79e318b18bb8ffe58ddec42841b7de49ad42c167a421df93758608a78958"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "db6efa4665fb211a816b35f09bcfa864a730c6e4090db7980237fa59a21a3ca2"

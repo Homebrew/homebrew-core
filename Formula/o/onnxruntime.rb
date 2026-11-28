@@ -12,6 +12,7 @@ class Onnxruntime < Formula
   end
 
   bottle do
+    manifest_sha256 "e794c081758c9ea17ebab8fac481df17651275e013fce551e1243671b507adea"
     sha256 cellar: :any, arm64_golden_gate: "756dbf106ccd54b45c01fe5f80458b949a5e8e1a036576447a9be0298db88bbb"
     sha256 cellar: :any, arm64_tahoe:       "4d1a1a90456c57cb4ec6a8a2aabaef4ffe14995dde54de10a0c75e9ee21e0135"
     sha256 cellar: :any, arm64_sequoia:     "5cea3fb7fbef84304e8cc945fc47914e9daadf79bd7dd397980b973e1960abb5"

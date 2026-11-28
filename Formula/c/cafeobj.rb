@@ -17,6 +17,7 @@ class Cafeobj < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "dd3e9cee2ce6be5fafb7055995274b67ab8cec62d01df40a4d5ffb0c27582ac0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a24206d6592735981bcece76089d4f805395b29bb1abba6b02bc3f87693576df"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3816497dcfe09704825701f9c1d7401906d7d2977d1a237554eb8c014f08934c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e276e1f6077e65371b1e2ad548736c190c22099ae144db02eef4f04fc1e92d6"

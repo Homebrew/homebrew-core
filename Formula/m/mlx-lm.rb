@@ -11,6 +11,7 @@ class MlxLm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "41c43e92cfb10e3022a0d07500c51eefb0587037160178a61b9ee2102d2490f7"
     sha256 cellar: :any, arm64_golden_gate: "1abba3420eaa10fa5ecf7d1cb7ac10674865c30d4e1ec295ed069507634970d3"
     sha256 cellar: :any, arm64_tahoe:       "84ffd9d912a7af49d270540bd56c6d61baf4a972e6beb2f252f5d289e6183072"
     sha256 cellar: :any, arm64_sequoia:     "bf2494bddc333750fb00e330135b343e5b70601b6c1a785f4309c814b27103f7"

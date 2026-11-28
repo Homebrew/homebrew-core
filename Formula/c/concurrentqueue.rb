@@ -9,6 +9,7 @@ class Concurrentqueue < Formula
   ]
 
   bottle do
+    manifest_sha256 "9a04b9dbf0e87e63ea157bb19a654f0b132097afd9894ff7ac07216d7d5e629c"
     sha256 cellar: :any_skip_relocation, all: "627800ae0b728b9f2064ac6ff8ffe1cd7c26d094a0bac6be9459ce48ebf666ca"
   end
 

@@ -7,6 +7,7 @@ class Arttime < Formula
   head "https://github.com/poetaman/arttime.git", branch: "main"
 
   bottle do
+    manifest_sha256 "baf8074962d27416ad0e90410550d5345d46c64951aea3b8ee4e09021060ecb7"
     sha256 cellar: :any_skip_relocation, all: "ef556d2933044dbc7906a0761f63045d1c9f7b0d7e0bddf11d5967034e194aef"
   end
 

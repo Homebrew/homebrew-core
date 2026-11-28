@@ -6,6 +6,7 @@ class Pegtl < Formula
   license "BSL-1.0"
 
   bottle do
+    manifest_sha256 "100e7f7ed43ebcc2b2ca00c5f16e44ff07a1f14a3c053d35b805960a41d30287"
     sha256 cellar: :any_skip_relocation, all: "3442a0ffb5d5d3f892347f7dc7f2fd940b191ab6026210c021f43be5a76bf4d2"
   end
 

@@ -8,6 +8,7 @@ class Vectorscan < Formula
   head "https://github.com/VectorCamp/vectorscan.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "047c2858352065f1b49683bcdc862fd6019d514a9786819b17d4f751709927cd"
     sha256 cellar: :any, arm64_golden_gate: "be51d7a3b1140b8a673aa6c6da9c9f48e0ad81cb42e056f4f2589b61724c5b87"
     sha256 cellar: :any, arm64_tahoe:       "df6b7e60803aba7c1f10e2f05628a5e4302b85e39954df64a29f184c89493f11"
     sha256 cellar: :any, arm64_sequoia:     "4bf3e1e734efb30d41e0a1ed42eee43538860ef56eb0500cdaf30a0d6bbc1254"

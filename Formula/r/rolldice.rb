@@ -7,6 +7,7 @@ class Rolldice < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3947b15570bee93a67bf8be6493242f8c039f61d4bbc76a3d92f67c170888be6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "17bad19248ee5c8593e2e2edb0c770c100003f94b2a286e6f19680714c965afc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09a28787c7477eadf288aa7a5ae71453ad26dd4625bb10f16fc018268a30d3ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "031af343a052cfcf699f759e5437a87deb519e69a4a5e6eefb321b9e2e1076bf"

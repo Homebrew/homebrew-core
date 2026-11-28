@@ -7,6 +7,7 @@ class EtcdCppApiv3 < Formula
   revision 55
 
   bottle do
+    manifest_sha256 "5c0027c07fc2aa98b97d5fa1f458da967c62d4fe88411b7c3f89d74ed877843b"
     sha256 cellar: :any, arm64_golden_gate: "fbebdf92a432ad2c5d226acefc64dbd1c5282b98510ff287200194d22dd306ee"
     sha256 cellar: :any, arm64_tahoe:       "c1da23cf81505fd4a967ad1fb59940b25f1bf01699289b155a39ae9700b631b8"
     sha256 cellar: :any, arm64_sequoia:     "8c390af212e54cb28aad7f3f02d0dfb39b6e281abf1d1826636e0da82f822e77"

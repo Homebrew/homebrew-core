@@ -7,6 +7,7 @@ class Buffa < Formula
   head "https://github.com/anthropics/buffa.git", branch: "main"
 
   bottle do
+    manifest_sha256 "19e0bfde8e5b2008faf1a17caa3d6232dc9efb30aa7fb99150e2ab2e1cc95ede"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06137f13c1e30225215d549a7291c685ed7befaa4f51bcb27c002ca23a17a52d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fe82829a739811b15b0914d5e5dcf7be41cf3ce36d1158139735a134576b0695"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b807cf70c5bd86053ebbfa1897e43aedd0e51d06cd9160ed8c5822a9081964d1"

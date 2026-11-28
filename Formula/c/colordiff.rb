@@ -12,6 +12,7 @@ class Colordiff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "79391b1088ca817126bcb5759b6b8b8f31c1bd41a3e946ee2e31cc219b2da4b4"
     sha256 cellar: :any_skip_relocation, all: "c5f2ba805cda620b13a3505474a5ff2e3d119e1239cd6c3142a0c4c85dd6c29a"
   end
 

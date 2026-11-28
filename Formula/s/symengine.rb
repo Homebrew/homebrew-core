@@ -6,6 +6,7 @@ class Symengine < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "521ecd2d7e44c8ad2589ee2900163ccb18301022b5daa5244a335de2d34482aa"
     sha256 cellar: :any, arm64_golden_gate: "801a3d5fa8670387af7ca4064a773c004fa292b2668cff252175b15eaa2bce87"
     sha256 cellar: :any, arm64_tahoe:       "0c0cc9baa96d71eb7ef2434bc00acf7b0cef8156f800906125bc334c75685b26"
     sha256 cellar: :any, arm64_sequoia:     "8f95dff39598085208a6ee4d3c68e42ad58fe1c503c6a959315a9bc47f2b65ef"

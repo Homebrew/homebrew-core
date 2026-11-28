@@ -7,6 +7,7 @@ class Coordgen < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7ec53f56f27efd178ee35539d7230c3f507225d0463a4a62e1d5a2d4c0a700d9"
     sha256 cellar: :any,                 arm64_golden_gate: "8d64977d2f3d038efabbcd36c5cda09adbe4b2c85792c19a0678a039bc0c7044"
     sha256 cellar: :any,                 arm64_tahoe:       "b6016edb22f9c1467d088684311a5de1a03f156031c99884f5a04bd55b4b368f"
     sha256 cellar: :any,                 arm64_sequoia:     "f3291f603f1f55c41163e4acab534a3fc8fb192582deff462ec8894764ba5bb9"

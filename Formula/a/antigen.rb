@@ -8,6 +8,7 @@ class Antigen < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a1f8f6e0e13a869ae5af54dca9383598e00a59b963f602b0ea9da5898dc3aa3b"
     sha256 cellar: :any_skip_relocation, all: "3256f387fafd0971b040e466f519ba6be88de0a5d98aec8310b173b8ebfed7a8"
   end
 

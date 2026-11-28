@@ -8,6 +8,7 @@ class Stubby < Formula
   head "https://github.com/getdnsapi/stubby.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "bb8e67422bbe3ca0a1dd36889e387889422f035ed2cc08c3ba3b5cdcc799afa7"
     sha256 arm64_golden_gate: "53cf1ae763ad5f9b2e9f406bb3c6acb88ce57b4a9c7f23245a41caf3e78aab17"
     sha256 arm64_tahoe:       "78a752f51fc6e9bb87be7be10fde0e62b77b32a585318516f8d5a8e787b80b1e"
     sha256 arm64_sequoia:     "2e789612111c36d6f8f9a181fbf29dece851640359f2421b622852fb859c4cb5"

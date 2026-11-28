@@ -8,6 +8,7 @@ class Hlint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2b5988e6231198e3f41098858e49e95b802d916010ca833094fc524fb8250a74"
     sha256 cellar: :any, arm64_golden_gate: "ba1a360762c6ef0e4685d31c4af53a306118aaba0274d245af0fdaa6092a5ef8"
     sha256 cellar: :any, arm64_tahoe:       "8895a29ca2131a788f2ea046e1536014e10814e06db0b20ccf17aac20d4ae44f"
     sha256 cellar: :any, arm64_sequoia:     "ac21cffb2a6f0c3e001be4fc90533bbdf55d6759dc92ab6614d8f344e841a5a0"

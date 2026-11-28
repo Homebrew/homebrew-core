@@ -8,6 +8,7 @@ class Undercutf1 < Formula
   head "https://github.com/JustAman62/undercut-f1.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d1e6a50f809ba8c5779531449e8497e58efb0a89bf8ed567a9ffaf76d033c234"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d1f456ce62a2bdad70713410b13986b21d344a5ba6eb91925c2d09baafe2fdaa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9803c171167e49a072d6f27e0ea9f4e17091c337dafb685835aab98cede4f762"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "509c5ec5d6f9340863f1dfc168ba4fc396048b35116f9bbece986415020c420d"

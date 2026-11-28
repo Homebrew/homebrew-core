@@ -6,6 +6,7 @@ class Hadolint < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "24d4c4146ac47d9d08142aca8712a4845bd5969afe967233ffc793ea620719f2"
     sha256 cellar: :any, arm64_golden_gate: "3801b8730805db20066e8fb3e581570b8c457f71382d5aef7433f46d76b1b2c9"
     sha256 cellar: :any, arm64_tahoe:       "3b56bd5bd4962f8a11044ebb2390b47461cc9765f7b5e92ad62b659f610775dd"
     sha256 cellar: :any, arm64_sequoia:     "2c0d588da3ac20ef9345530a5d7b2aa686eb70366003b63b711e63ea88386938"

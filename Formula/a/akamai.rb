@@ -7,6 +7,7 @@ class Akamai < Formula
   head "https://github.com/akamai/cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "7f770856b6972775bfda6da8c03bbeddea2bfff1cdeb1e3fd39dcca3c53cf95d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c359067b64ff126a1d8b136f6f348d53857c42e3570c972be87e5cd08b155af9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c359067b64ff126a1d8b136f6f348d53857c42e3570c972be87e5cd08b155af9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c359067b64ff126a1d8b136f6f348d53857c42e3570c972be87e5cd08b155af9"

@@ -6,6 +6,7 @@ class Pure < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2f19a1201faa030cabdfff4599f0dfcbedd84b98766343fa66bcfa7675f43bd1"
     sha256 cellar: :any_skip_relocation, all: "c65ae8a659102083a7c0dabf507efb3cbdbc31edf13c9c3d78821cf2504f03ad"
   end
 

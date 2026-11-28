@@ -7,6 +7,7 @@ class Terrahelp < Formula
   head "https://github.com/opencredo/terrahelp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1b399682fd5f03542de3e5f494ce01be86e917311d8716f05f1315cd0d12ec11"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d243f723bd17846003d8a001a05e9d1c5fd1cfa71e6ae58dc1ad6ed13de6ced7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0473183fea6fcf7de2d8bb2a2ff65a1230c023e994b2cc1c1bcca147d16c37ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b5fc796c20c29a328691b8499b2987a5249ea4be381ceb270d73200dfd310f85"

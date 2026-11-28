@@ -8,6 +8,7 @@ class TerraformLsp < Formula
   head "https://github.com/juliosueiras/terraform-lsp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "09593af5522894d3d1c43ec5dd363545517487ce10ce662b73f5a9300767941d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d804d20ffde5a40d4b63459b5f755df7c766faef70770c1f3c52814bef913746"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e520989a451215fc8aa36173dbce765df4d6abfa73ada73699898677a0c76baf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e98d5085bd970cb5d03bc97f210858c8de0115a912ac62dd7859749b84fd5a98"

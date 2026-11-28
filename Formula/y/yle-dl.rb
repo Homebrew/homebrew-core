@@ -9,6 +9,7 @@ class YleDl < Formula
   head "https://github.com/aajanki/yle-dl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f219bee57636257580b1632cb7e3cca5292764d2482cec6299fc5b67e7d682c4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ab17ae57276fea4d29a63d453782fd26424faaf2df3e1bb4f639960ba3c3676a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f90361493db7e557df2b7fda5c0130c7bf70b51d63ce2d563cb6f589b1cbb941"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39826de4e80cf4e904d0ec454d0ff42089f4540d9c7c444a7ce794101ec14c95"

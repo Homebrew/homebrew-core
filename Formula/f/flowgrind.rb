@@ -14,6 +14,7 @@ class Flowgrind < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7bf7875d8937dddfb5e6cef37c1dd7bfad2ff30f1ac2b1a416f1aedaa7f2296f"
     sha256 cellar: :any, arm64_golden_gate: "048fca783fbf50d8a1bb73d9724edb37f83ecc82cae12dbb952d1b12c6f52d39"
     sha256 cellar: :any, arm64_tahoe:       "4b48fbd91d33f54b410c4449281b3517bedf8a42174cbd0351209e84443751e2"
     sha256 cellar: :any, arm64_sequoia:     "ba20919ba3b0427735800935ccf724f606c00aca71c5d4d1a04b36d532702ccd"

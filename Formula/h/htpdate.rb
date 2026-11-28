@@ -6,6 +6,7 @@ class Htpdate < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "a63f3396c7482076d00830af6a858e346910bc2e7751dd37483e3b282670f480"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c19851f27f2b44bdbe96c7bce23c908813692604d84a88c508b10907255bcf6f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c79aeaa809a1a655acfb947efbf82b08e05ab7129253c54876088713ef0fdb9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f125ebdf91cebf9321a700da992c6e9521bc1c658a751cf6c8bcf841b0f8c9e2"

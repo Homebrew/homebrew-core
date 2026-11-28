@@ -12,6 +12,7 @@ class Acl < Formula
   end
 
   bottle do
+    manifest_sha256 "8b97b804f26bd9a663b9944bd435073936fd4210d5f0178eec1712f3603c4ab6"
     sha256 arm64_linux:  "48bae129ac5466a87580baa10d4c9fa6e371767b7d0d86380c25d6f642a4d64f"
     sha256 x86_64_linux: "cf320c35f8f78b11ae1d7dfcf0dcc8e4f532755ecb13d346cffa363e5eef7f2b"
   end

@@ -27,6 +27,7 @@ class Taskopen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8e8be882c30063c223dd0ce434f107fb215c5dd6a3469f8a42eb82e593e81c71"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ac50d2818d5d2d5b467e793014f2ef3381a6145cba60297b7c544f872a3b4f8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9da42ed8caf399acc74ddd682209d6673a47eed66c23172fa9856882554113de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38746ec6070116946d4d63fffceebd884df4db71e8092958d0197356ae693ea8"

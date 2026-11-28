@@ -7,6 +7,7 @@ class Rad < Formula
   head "https://github.com/amterp/rad.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0fffd842bbe531fa94f04450bd49802a25bf0b6056ba175c07b7b09d48aef05f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85e2ae6d41e7102363db880cef8181f748970091509c79698b70b23293723580"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb296a183ab58ee5ec13af9d735651f12d6033615effe7b6d7800fa71b209dd0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8419fba4cd5a145380279f6de6d7bc2f1e7f5d78ed7a1637d2eec44282dbf04"

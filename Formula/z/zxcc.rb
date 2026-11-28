@@ -11,6 +11,7 @@ class Zxcc < Formula
   end
 
   bottle do
+    manifest_sha256 "8ca0ff3e11561cf2caffbfd6f3d0e8dbe5ceeddd9f0a1ef2c40121f471e0dd12"
     sha256 arm64_golden_gate: "5f6d71c7738479dbb740c006ca4b8f45d138d29ef521eb29692dc366282d61f2"
     sha256 arm64_tahoe:       "e312260a654050c8776f39d0558ab6c5e9b7d62f4f219475a13dcd8e75fbd759"
     sha256 arm64_sequoia:     "bddad2d64c555a4a13ba9cbc9c0cb6da0f249f6ef360c2274626a8b036c473a3"

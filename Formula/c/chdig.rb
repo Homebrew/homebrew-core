@@ -7,6 +7,7 @@ class Chdig < Formula
   head "https://github.com/azat/chdig.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4353c6e66b4935a318cfba6e3e20da1ce0fd3244a798f95fff7845678e6c864b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d9892db7abde56cb8885a58a2982c68b537347267065b4dddd6f951e4bfd194"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7c1277f91296ccea8dfc1c1b18f98fdccf5cf8921982feec8115482e1b00ed5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4d95f24fb80a3ea532b50fad4bc339aa3a01fe1d1ff7e8b677787c19577497c6"

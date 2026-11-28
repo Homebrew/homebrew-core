@@ -6,6 +6,7 @@ class Memcacheq < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "72158e6b6c924e6a4aca19aa7934a160f13ba7fb1d3e738d847724695141e9b1"
     sha256 cellar: :any,                 arm64_golden_gate: "c5177f05d852e7aa068d50459d634952ceaf82805216fb1b073d67f227038669"
     sha256 cellar: :any,                 arm64_tahoe:       "657efc2a568e13bb0f9d2197f5cb084e56c1c55aa99cc62d45e51d199ffb0a93"
     sha256 cellar: :any,                 arm64_sequoia:     "2fb49de889de4fa7c037d8b01d7c75a5bc1f8e2ba57658fa6a936d108f2155fb"

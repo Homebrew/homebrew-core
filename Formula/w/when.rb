@@ -7,6 +7,7 @@ class When < Formula
   head "https://bitbucket.org/ben-crowell/when.git", branch: "master"
 
   bottle do
+    manifest_sha256 "15950e126277deca865d50920d43810e6b5edee3a7f0445f9cee720a732b5944"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7a3da61c2683830fa9fb2c6b3a2ea01ca5a715b7d3cc930ff02a6e23db1e133b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb5fab0bd5a3c23aaac7bc49bed557d69c6e71e9691d9f855c6a30386dbe7002"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0731698fde0d9766deb700635985822f9a76e1fe3f2a18ba74f4d8badafc785"

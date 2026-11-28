@@ -7,6 +7,7 @@ class DmtxUtils < Formula
   revision 10
 
   bottle do
+    manifest_sha256 "2e930d350ae2954f47cd853a098710e078165bd20a0ed1e3c2d319e5ee7c1442"
     sha256 cellar: :any, arm64_golden_gate: "8433706a01a1807aed78ef65b6c6dd2b11210164fcf10ead795924ea163720fd"
     sha256 cellar: :any, arm64_tahoe:       "a9bbe445f01e034c3ce5118fc6b337ee25ee255486a561c2efca07bcdc7451e6"
     sha256 cellar: :any, arm64_sequoia:     "6555934ddec5067a3cebe730f2f3203673070196d857a84f8c21bff336d1d2c9"

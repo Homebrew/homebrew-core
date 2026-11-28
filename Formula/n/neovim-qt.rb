@@ -12,6 +12,7 @@ class NeovimQt < Formula
   end
 
   bottle do
+    manifest_sha256 "6a26f56f65d1451173027700075d0ed6b11650b3dff17d16e2e2852cddd87e9d"
     sha256 cellar: :any, arm64_golden_gate: "b731a1253ac3839bd01b56e3232633b331c445735daa10a712cc408eab12aa4c"
     sha256 cellar: :any, arm64_tahoe:       "c33aadb50706b177c168aae918f1666a907380123e143e2f0770e3ac01dea200"
     sha256 cellar: :any, arm64_sequoia:     "abc8c56b111ad50a172845722e45e1088f0778653ff7f2daf36478b02e477ccf"

@@ -20,6 +20,7 @@ class Vcpkg < Formula
   end
 
   bottle do
+    manifest_sha256 "0078d2a8812cb642b12ed877079ae72b9e2bfe49448a520d4c56f3bb394f8b29"
     sha256 cellar: :any, arm64_golden_gate: "c78cc083f18d1c930d1a577cda4b980a376c35d0335230ef3c95131791ccee98"
     sha256 cellar: :any, arm64_tahoe:       "903fdc2bacaf706138414cebbc968da3cc6c1918809c0a1bde052026b0af7455"
     sha256 cellar: :any, arm64_sequoia:     "c771ca888a7bc45ccce278ec7d2fe99391002ce6d0d878e30b09106292014f48"

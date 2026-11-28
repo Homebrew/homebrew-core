@@ -7,6 +7,7 @@ class TlExpected < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b2ec1445e5715bd6cd27331231b1c7429ef58d23b65d7464c233ddb8bae3fe33"
     sha256 cellar: :any_skip_relocation, all: "c0a6195be54cf7f219a4a6f4d9f4fd5955b00f24a786f21d28a48a0d7bd3b98b"
   end
 

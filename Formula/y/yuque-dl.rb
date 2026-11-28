@@ -6,6 +6,7 @@ class YuqueDl < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "72aa8a6f0207679e49074691b7b7e214dd228b95c2c6b11b4fdd84f4fd603915"
     sha256 cellar: :any,                 arm64_golden_gate: "96e29145a0521f0594fcc1948631d198e63e8aa2b1e1e5f735c9718f17ae9f44"
     sha256 cellar: :any,                 arm64_tahoe:       "96e29145a0521f0594fcc1948631d198e63e8aa2b1e1e5f735c9718f17ae9f44"
     sha256 cellar: :any,                 arm64_sequoia:     "96e29145a0521f0594fcc1948631d198e63e8aa2b1e1e5f735c9718f17ae9f44"

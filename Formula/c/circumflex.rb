@@ -7,6 +7,7 @@ class Circumflex < Formula
   head "https://github.com/bensadeh/circumflex.git", branch: "main"
 
   bottle do
+    manifest_sha256 "868e0cbf306b6484faa47589841553e4682e64de5051516d2191dab760ab08e9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "663967727e8598c5328297256bf75c8e9a4f24adfba6d8a5f86d1e213a8aa4b5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "19dfc7ba1ebdba82d46b8df12a6d674fe3255df05a2117f801c76fe1936c4717"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "079be006d0074cee8a247fe5343e2ce17fc182b2152accb00387755b68b778b9"

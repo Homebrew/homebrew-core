@@ -10,6 +10,7 @@ class PrometheusCpp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "118b6893f0efbb9c2e14658a67676afafdcc12f225a25aac5481f435ecc5ce7d"
     sha256 cellar: :any,                 arm64_golden_gate: "a4009d9e72e19fa4e5b38d07a1250426e222c3778a52258d4a4fffb8f2ce2931"
     sha256 cellar: :any,                 arm64_tahoe:       "3660e1736e0bfcfe5209102c6fec8f01868a26c83fee73ae7cac08b29b25bc98"
     sha256 cellar: :any,                 arm64_sequoia:     "4bf41e8ce0a562c0a9f078a374826156129b7cb9cddc165ff406df1a95774053"

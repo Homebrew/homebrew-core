@@ -6,6 +6,7 @@ class SnykCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "27cc6750ef65a2bab8ad0f7792ccba16ddb956afb9d2e454107716d8d3de890e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb74219266eb2076f73e9b81964e58ceae5fde504f794c3f7a17b2673c593e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "adb74219266eb2076f73e9b81964e58ceae5fde504f794c3f7a17b2673c593e7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "adb74219266eb2076f73e9b81964e58ceae5fde504f794c3f7a17b2673c593e7"

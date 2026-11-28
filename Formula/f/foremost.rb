@@ -12,6 +12,7 @@ class Foremost < Formula
   end
 
   bottle do
+    manifest_sha256 "c5815b03e44b42c9491652d680b114e783cb3394a318e803837f573c916ededc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eec374e1819f679943b69031f2151e6e03efd192c38a60bb6bdfe6ed4af27daa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d52d6e93501d0378121aab45c81f3091eba21303e633ae7194670860e36a5740"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2fc223a574f2cc52cd6a40d668429f11a7211a34a206f49f1af4329f14a537db"

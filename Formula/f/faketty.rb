@@ -7,6 +7,7 @@ class Faketty < Formula
   head "https://github.com/dtolnay/faketty.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bdd9e06c50c611d9c15dd9492643a1f8e745ed5bc754cb5b33447ed5ff5941f3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5e4b0dad03c2d9eb7d099d2fe3016d2caaa28dbdaaf6b8400c639dc248553d91"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92820ac01d85d1939292145678ee3c0660ebaa419a1f47e5f217a52b33a83056"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4956cb6cf1169269b944ff90babb618991430de400c5c2da869d81800ac1016"

@@ -8,6 +8,7 @@ class Caf < Formula
   head "https://github.com/actor-framework/actor-framework.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0a797126270bc2abe7fc6939662b5bc1850dfd5db6584ef8966b26b4d4165217"
     sha256 cellar: :any, arm64_golden_gate: "b66ac1ea69dc7ced6e3e58552c38041c8398e3bb283f6a29155afece3e755db7"
     sha256 cellar: :any, arm64_tahoe:       "c60f46aa757ac231b3e43c7a215e0678db8053ab2ef1e34fea168e7a327b1580"
     sha256 cellar: :any, arm64_sequoia:     "a63573dba3ca05be8b524081f41b1691c52a4cc968bd8a4027f6e35b499d2e20"

@@ -13,6 +13,7 @@ class Libcap < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6de9aa43f7a7b4c9d0780bd1e4a33269e61ef5559016e43c0b46569f317b1885"
     sha256 cellar: :any, arm64_linux:  "ace490a7344980dcb006d0f32699648006b8fdfd5ac51de04c6106d142ef467e"
     sha256 cellar: :any, x86_64_linux: "18ad05f305a2ce9c296a0651d06a475788c435e10aec75924838d40fc67c516b"
   end

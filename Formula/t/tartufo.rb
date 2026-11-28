@@ -10,6 +10,7 @@ class Tartufo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d919363a73abe6942efa83487d8181a663676f7a964a806effde402ffb985d58"
     sha256 cellar: :any_skip_relocation, all: "0e177441cfc751cba42894505bf9e74d77d2155b1ded113fc4a7f392231ab540"
   end
 

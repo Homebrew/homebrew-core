@@ -7,6 +7,7 @@ class Cloudprober < Formula
   head "https://github.com/cloudprober/cloudprober.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5fea9238192b514bb159e1eb4f2a5cd776c3a9f46c0b4b8e5172803d192f5693"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "546ee137c4f3d9e2feb5599050b52a357821f6d494d0064b20020ec4dbb7df0d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d9ca03454c49981d0ede0b1e4bf332213cbfa0fef7be80a6c2da9717e1de7fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1bb8980fb89da4ac04dd58eec65bf7bfba0dec7db92fd1b8e5b5d36f69abcb90"

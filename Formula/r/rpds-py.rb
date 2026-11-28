@@ -8,6 +8,7 @@ class RpdsPy < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "db9bd5e7ff34e92c7db086f518cf3b497ee0d2c85ae4b0c42ae053c4be349db4"
     sha256 cellar: :any, arm64_golden_gate: "a154a5dfe03e74b4c9e234b03857192b03d6481ed8778cdb10153520cdf71eb0"
     sha256 cellar: :any, arm64_tahoe:       "cda0d16b742cbd255f000cec01112f8355b1dcd38d5b8258559867c0e69e4922"
     sha256 cellar: :any, arm64_sequoia:     "7d5a8f7549ab54ef273b015bdb5c954f06854f2b15f42eba37a715023ed3d63d"

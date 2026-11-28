@@ -7,6 +7,7 @@ class Zsv < Formula
   head "https://github.com/liquidaty/zsv.git", branch: "main"
 
   bottle do
+    manifest_sha256 "89ca7827cc43922510ae052c3aa2d163ea37da644215f79a5255318ea97091b4"
     sha256 cellar: :any, arm64_golden_gate: "61cf2d5f83cda7d65589f2e3eb25075c678999ad49a5c1f7c8c981f4db63f714"
     sha256 cellar: :any, arm64_tahoe:       "0385e07e82fb155bc58b105985655ce5bbb71d3976acf23bd1496df0063a12ef"
     sha256 cellar: :any, arm64_sequoia:     "e6a20199421a90f61baf9b96dc9818b829ddd9828085da7b42b8cf3d7f0b93aa"

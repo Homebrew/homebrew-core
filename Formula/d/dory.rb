@@ -7,6 +7,7 @@ class Dory < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cae72bd7bc44fb9d484326d5b8a964677d94d43794393e11b567925a25c7f980"
     sha256 cellar: :any,                 arm64_golden_gate: "da9e448c32b1d8a6a6344ec265a928e1e437b746300ad61c6a29d26a2aace512"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9c554cd1ff4108aa4262eb12aa832ecd12632c0781352e211d67a3ba3c28b630"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e75ebd666b1c2b3d1ff21d0cdc9d8f820935e41e32c12533a544ccc4563f44db"

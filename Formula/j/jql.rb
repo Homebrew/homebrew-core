@@ -7,6 +7,7 @@ class Jql < Formula
   head "https://github.com/yamafaktory/jql.git", branch: "main"
 
   bottle do
+    manifest_sha256 "29c8731980dcdb7c2530b8cd8b3fc523f9e1e654012d3e1607e17ce366fa2ed6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6eb9b5abee328f4e51cd5d37947f9851bc3d487a0097b4c656f30fd7230a9100"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf4743004ece1b8a8ea1fc81a201671be2012562c4646f9fce0d3fb33e9fc115"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4335b8ca5b2dbaca1e48652405a169c5d027aa5f4b10013a4f73c56665909dee"

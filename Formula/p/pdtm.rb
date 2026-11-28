@@ -7,6 +7,7 @@ class Pdtm < Formula
   head "https://github.com/projectdiscovery/pdtm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7e45cd0133ef20e4c75d12f0115b220879704d8b0379f75de41774adb03334f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f95ae4e03b30d5f910667933d535d0cabeff594dd11c72c6e33eceb0958e1cf6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2b9f3668495240e5a1b9e72e32372aec4b9b14ad6ca9400246bb1a7dffefecc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17972afcb0cfb327b5992bdee4c21db685faceac1801d9a9e44f655105223792"

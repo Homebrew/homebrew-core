@@ -6,6 +6,7 @@ class Sdrmm < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "b0378373ba35dfc29dba24aa09cf22d0e9f2e66339bb1fefd60dcd86a38ef346"
     sha256 cellar: :any, arm64_golden_gate: "87c2352059327c2875b4d0faa362924f8e52d3e85da15b9c0181477e2597779e"
     sha256 cellar: :any, arm64_tahoe:       "f4a658da4e095835bf10ac8ec35ceaaac85a721b77321f9c0b7fe96bc0bf5b13"
     sha256 cellar: :any, arm64_sequoia:     "81a4f5b2c61343f575750053e348a2093d4b7a95b7219125c866e8b27ea54ed5"

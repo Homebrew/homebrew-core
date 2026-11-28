@@ -13,6 +13,7 @@ class XmlSecurityC < Formula
   end
 
   bottle do
+    manifest_sha256 "fd87f13af36ff18d6b5f6c97e23d7deeeceb7a9e0583207d1a6a18ca0289d66d"
     sha256 cellar: :any, arm64_golden_gate: "8e258dd35c83055e4ea2e3f87d161fd6c1e305aef96127aaf3976de906f874cd"
     sha256 cellar: :any, arm64_tahoe:       "221f874bb731ad783cbc0fe9f87f6303312a5bedbc7647ab0a9baf45965bd696"
     sha256 cellar: :any, arm64_sequoia:     "dace6d864716bcdaa77cfd543116acf83ce7a2d4f673d85d16bda59a060addc5"
