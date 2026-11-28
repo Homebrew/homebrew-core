@@ -35,11 +35,12 @@ class DdnsGo < Formula
     assert_match version.to_s, shell_output("#{bin}/ddns-go -v")
 
     port = free_port
-    spawn "#{bin}/ddns-go -l :#{port} -c #{testpath}/ddns-go.yaml"
-    sleep 1
+    with_test_process(bin/"ddns-go", "-l", ":#{port}", "-c", testpath/"ddns-go.yaml") do
+      sleep 1
 
-    system "curl", "--silent", "localhost:#{port}/clearLog"
-    output = shell_output("curl --silent localhost:#{port}/logs")
-    assert_match "Temporary Redirect", output
+      system "curl", "--silent", "localhost:#{port}/clearLog"
+      output = shell_output("curl --silent localhost:#{port}/logs")
+      assert_match "Temporary Redirect", output
+    end
   end
 end
