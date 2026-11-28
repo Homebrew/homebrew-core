@@ -1,11 +1,11 @@
 class Mupdf < Formula
   desc "Lightweight PDF and XPS viewer"
   homepage "https://mupdf.com/"
-  url "https://mupdf.com/downloads/archive/mupdf-1.28.6-source.tar.gz"
-  sha256 "dc85000640a45d90ca9b77b061f6ca67cce0c4d4fbecf8819647baf573eef101"
+  url "https://mupdf.com/downloads/archive/mupdf-1.28.7-source.tar.gz"
+  sha256 "4052527c5064dc15033f8c2d842665afd409be520c9f52945ef703e5dec9d3ea"
   license "AGPL-3.0-or-later"
-  compatibility_version 9
-  head "git://git.ghostscript.com/mupdf.git", branch: "master"
+  compatibility_version 10
+  head "https://github.com/ArtifexSoftware/mupdf.git", branch: "master"
 
   livecheck do
     url "https://mupdf.com/releases"
@@ -56,8 +56,8 @@ class Mupdf < Formula
                 extra_packages: "pipcl"
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "pipcl" do
