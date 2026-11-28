@@ -3,18 +3,18 @@ class ArxivLatexCleaner < Formula
 
   desc "Clean LaTeX code to submit to arXiv"
   homepage "https://github.com/google-research/arxiv-latex-cleaner"
-  url "https://files.pythonhosted.org/packages/e8/c4/edd686daabd0a853ca2754b91ea54eb546639cb2ff8ed49a3d4d0e21b046/arxiv_latex_cleaner-1.1.0.tar.gz"
-  sha256 "ebe6e52b910a424348be2712f1764e69b0b1f7446e59f0fdf23f5f92e67a2a47"
+  url "https://files.pythonhosted.org/packages/bd/57/eae3111c3ad921237b70a0d6482502918980cbfc2e0596429a568d39c463/arxiv_latex_cleaner-1.1.1.tar.gz"
+  sha256 "61b11cb676c259c81c0b4456953b4c624ce9d5b1042a4991ef44e932d3c824f9"
   license "Apache-2.0"
   head "https://github.com/google-research/arxiv-latex-cleaner.git", branch: "main"
 
   bottle do
-    manifest_sha256 "525b5ab0e6d9674c87e1a37b93ba8984089403bc52b7d17e902c55d81c2768f1"
-    sha256 cellar: :any, arm64_golden_gate: "c51d62983c087fbef85bdd0b4c93158f15b9819a51e0cf16c2688cdfe66390f9"
-    sha256 cellar: :any, arm64_tahoe:       "90185ff0b1d18d2e8c6d85a6d824be8f3f99bab8ce04f78eb83dd7d71bedd70d"
-    sha256 cellar: :any, arm64_sequoia:     "52ee22c14c7d1df686d6f9069ccd9a76b4e912a34a2bb25ee474ecf9b5cbb8d5"
-    sha256 cellar: :any, arm64_linux:       "d1651f0b610841c51b8f2bfd6c1228967b5dd2f7862ccd39c9a6d4528ab32207"
-    sha256 cellar: :any, x86_64_linux:      "9a8e12bd44fd536ed0d602a6acd441b4f5dfd6ea3adce88daa769a0bdaa4eee5"
+    manifest_sha256 "7ae07902453a937696c756d046a9f6f822c9f29a8ba793d901e4fc86f8d7774c"
+    sha256 cellar: :any, arm64_golden_gate: "1d632fc84c8f6c3d60f96fa5208c75115364bbb869df01b46e11a5bd83bcea0b"
+    sha256 cellar: :any, arm64_tahoe:       "f4ffbc3599c8fcf231748b93dceb15f8e2886211e0c2b50c8a30360841034bc1"
+    sha256 cellar: :any, arm64_sequoia:     "7c1c50278a8e73e330d9f72476ed069b61eda071503533cfedd9b5ce084b68ad"
+    sha256 cellar: :any, arm64_linux:       "2e97ea1ad6fc10ceba6f01afba36ec851acc0b5ca3e0da2963e6fdc475137a2c"
+    sha256 cellar: :any, x86_64_linux:      "bc56be9a2e730e101c93f2a017d1bd53cff0f3402f702183d41cf70046d7ba73"
   end
 
   depends_on "libyaml"
