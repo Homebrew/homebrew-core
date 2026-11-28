@@ -1,0 +1,359 @@
+name: Build Intel bottles
+
+run-name: Build Intel bottles for ${{ inputs.formula }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      formula:
+        description: Formula name
+        required: true
+        type: string
+      publish:
+        description: Publish bottles to the stable GitHub Release (default branch only)
+        required: true
+        default: false
+        type: boolean
+
+concurrency:
+  group: intel-bottles-${{ inputs.formula }}
+  cancel-in-progress: false
+
+env:
+  HOMEBREW_DEVELOPER: 1
+  HOMEBREW_GITHUB_ACTIONS: 1
+  HOMEBREW_NO_AUTO_UPDATE: 1
+  HOMEBREW_NO_INSTALL_FROM_API: 1
+  HOMEBREW_NO_BUILD_ERROR_ISSUES: 1
+
+permissions:
+  contents: read
+
+jobs:
+  prepare:
+    runs-on: ubuntu-latest
+    container:
+      image: ghcr.io/homebrew/brew:main
+    outputs:
+      formula: ${{ steps.formula.outputs.formula }}
+      version: ${{ steps.formula.outputs.version }}
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        with:
+          core: true
+          cask: false
+
+      - name: Validate formula and read bottle metadata
+        id: formula
+        env:
+          FORMULA: ${{ inputs.formula }}
+        run: |
+          if [[ ! "$FORMULA" =~ ^[a-z0-9][a-z0-9+@._-]*$ ]]
+          then
+            echo "::error::Invalid formula name: $FORMULA"
+            exit 1
+          fi
+
+          formula_info="$(brew info --json=v2 --formula "$FORMULA")"
+          metadata="$(jq -er '
+            if (.formulae | length) != 1 then
+              error("Expected exactly one formula")
+            else
+              .formulae[0] |
+              [.name, (.versions.stable // error("Formula has no stable version"))] |
+              @tsv
+            end
+          ' <<< "$formula_info")"
+          IFS=$'\t' read -r formula version <<< "$metadata"
+
+          if [[ "$formula" != "$FORMULA" ]]
+          then
+            echo "::error::Use the canonical formula name '$formula' instead of '$FORMULA'."
+            exit 1
+          fi
+
+          {
+            echo "formula=$formula"
+            echo "version=$version"
+          } >> "$GITHUB_OUTPUT"
+
+  build:
+    needs: [prepare, publish_guard]
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - runner: macos-26-intel
+          - runner: macos-15-intel
+    runs-on: ${{ matrix.runner }}
+    timeout-minutes: 360
+    permissions:
+      contents: read
+    env:
+      FORMULA: ${{ needs.prepare.outputs.formula }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      BOTTLES_DIR: ${{ github.workspace }}/bottles
+    defaults:
+      run:
+        shell: /bin/bash -xeuo pipefail {0}
+        working-directory: ${{ github.workspace }}
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        with:
+          core: true
+          cask: false
+
+      - name: Pre-build steps
+        uses: Homebrew/actions/pre-build@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        with:
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+
+      - name: Build bottle
+        working-directory: ${{ env.BOTTLES_DIR }}
+        run: |
+          brew test-bot \
+            --only-formulae \
+            --only-json-tab \
+            --skip-online-checks \
+            --skip-dependents \
+            "$FORMULA"
+
+      - name: Post-build steps
+        if: always()
+        uses: Homebrew/actions/post-build@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        with:
+          runner: ${{ matrix.runner }}
+          bottles-directory: ${{ env.BOTTLES_DIR }}
+          logs-directory: ${{ env.BOTTLES_DIR }}/logs
+
+  publish_guard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    env:
+      PUBLISH: ${{ inputs.publish }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+    steps:
+      - name: Require the repository default branch
+        run: |
+          if [[ "$PUBLISH" == "true" && "$GITHUB_REF" != "refs/heads/$DEFAULT_BRANCH" ]]
+          then
+            echo "::error::Publishing Intel bottles is allowed only from the repository default branch ($DEFAULT_BRANCH)."
+            exit 1
+          fi
+
+  publish:
+    needs: [prepare, build, publish_guard]
+    if: inputs.publish && github.ref == format('refs/heads/{0}', github.event.repository.default_branch)
+    runs-on: ubuntu-latest
+    concurrency:
+      group: intel-bottle-release
+      cancel-in-progress: false
+    permissions:
+      contents: write
+    env:
+      FORMULA: ${{ needs.prepare.outputs.formula }}
+      FORMULA_VERSION: ${{ needs.prepare.outputs.version }}
+      DEFAULT_BRANCH: ${{ github.event.repository.default_branch }}
+      BOTTLES_DIR: ${{ github.workspace }}/bottles
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      GH_REPO: ${{ github.repository }}
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      HOMEBREW_GITHUB_API_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      HOMEBREW_DEVELOPER: 1
+      HOMEBREW_NO_AUTO_UPDATE: 1
+      HOMEBREW_NO_INSTALL_FROM_API: 1
+    steps:
+      - name: Set up Homebrew
+        uses: Homebrew/actions/setup-homebrew@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        with:
+          core: true
+          cask: false
+
+      - name: Configure Git user
+        uses: Homebrew/actions/git-user-config@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        with:
+          username: ${{ github.actor }}
+
+      - name: Download built bottles
+        uses: actions/download-artifact@9000827ccba6bdab643e8b6fd33ac0654aef8333 # v8.0.2
+        with:
+          pattern: bottles_*
+          path: ${{ env.BOTTLES_DIR }}
+          merge-multiple: true
+
+      - name: Verify default branch is unchanged
+        run: |
+          core_repo="$(brew --repository homebrew/core)"
+          remote_sha="$(git -C "$core_repo" ls-remote origin "refs/heads/$DEFAULT_BRANCH" | cut -f 1)"
+          if [[ -z "$remote_sha" || "$remote_sha" != "$GITHUB_SHA" ]]
+          then
+            echo "::error::The default branch advanced after this workflow was dispatched; rebuild from its current tip."
+            exit 1
+          fi
+
+      - name: Validate built bottle assets
+        id: assets
+        run: |
+          bottle_files=()
+          while IFS= read -r file
+          do
+            bottle_files+=("$file")
+          done < <(
+            find "$BOTTLES_DIR" -type f \
+              -name "${FORMULA}--${FORMULA_VERSION}.*.bottle*.tar.gz" -print | sort
+          )
+          if [[ "${#bottle_files[@]}" -ne 2 ]]
+          then
+            echo "::error::Expected one Intel bottle for Tahoe and Sequoia; found ${#bottle_files[@]}."
+            printf '%s\n' "${bottle_files[@]}"
+            exit 1
+          fi
+
+          prefix="${FORMULA}--${FORMULA_VERSION}."
+          checksums="$RUNNER_TEMP/intel-bottle-checksums.tsv"
+          : > "$checksums"
+          tahoe_count=0
+          sequoia_count=0
+          for file in "${bottle_files[@]}"
+          do
+            name="${file##*/}"
+            if [[ "$name" != "$prefix"* ]]
+            then
+              echo "::error::Bottle filename does not match formula/version: $name"
+              exit 1
+            fi
+            remainder="${name#"$prefix"}"
+            case "$remainder" in
+              tahoe.bottle.tar.gz)
+                tahoe_count=$((tahoe_count + 1))
+                ;;
+              tahoe.bottle.*.tar.gz)
+                rebuild="${remainder#tahoe.bottle.}"
+                rebuild="${rebuild%.tar.gz}"
+                if [[ ! "$rebuild" =~ ^[0-9]+$ ]]
+                then
+                  echo "::error::Invalid bottle rebuild number in $name"
+                  exit 1
+                fi
+                tahoe_count=$((tahoe_count + 1))
+                ;;
+              sequoia.bottle.tar.gz)
+                sequoia_count=$((sequoia_count + 1))
+                ;;
+              sequoia.bottle.*.tar.gz)
+                rebuild="${remainder#sequoia.bottle.}"
+                rebuild="${rebuild%.tar.gz}"
+                if [[ ! "$rebuild" =~ ^[0-9]+$ ]]
+                then
+                  echo "::error::Invalid bottle rebuild number in $name"
+                  exit 1
+                fi
+                sequoia_count=$((sequoia_count + 1))
+                ;;
+              *)
+                echo "::error::Unexpected Intel bottle tag in $name."
+                exit 1
+                ;;
+            esac
+            sha256="$(sha256sum "$file" | cut -d ' ' -f 1)"
+            printf '%s\t%s\n' "$name" "$sha256" >> "$checksums"
+          done
+
+          if [[ "$tahoe_count" -ne 1 || "$sequoia_count" -ne 1 || "${#bottle_files[@]}" -ne 2 ]]
+          then
+            echo "::error::Expected exactly one Tahoe and one Sequoia bottle."
+            exit 1
+          fi
+
+          echo "checksums=$checksums" >> "$GITHUB_OUTPUT"
+
+      - name: Ensure stable bottle release exists
+        run: |
+          release_error="$RUNNER_TEMP/bottles-release-error"
+          if ! gh api "repos/$GH_REPO/releases/tags/bottles" > /dev/null 2> "$release_error"
+          then
+            if ! grep -Fq "(HTTP 404)" "$release_error"
+            then
+              cat "$release_error" >&2
+              exit 1
+            fi
+            gh release create bottles \
+              --target "$GITHUB_SHA" \
+              --title "IntelBrew bottles" \
+              --notes "Homebrew bottle archives for intlbrew/homebrew-core. Asset SHA-256 digests are exposed by the GitHub Releases API."
+          fi
+
+      - name: Check release asset limit
+        env:
+          CHECKSUMS: ${{ steps.assets.outputs.checksums }}
+        run: |
+          release_id="$(gh api "repos/$GH_REPO/releases/tags/bottles" --jq '.id')"
+          assets="$(gh api --paginate --slurp "repos/$GH_REPO/releases/$release_id/assets?per_page=100" --jq 'add // []')"
+          existing_count="$(jq 'length' <<< "$assets")"
+          while IFS=$'\t' read -r name _sha256
+          do
+            if jq --exit-status --arg name "$name" 'any(.[]; .name == $name)' <<< "$assets" > /dev/null
+            then
+              echo "::error::Release asset $name already exists. Refusing to overwrite an immutable bottle; rebuild with a new bottle rebuild number."
+              exit 1
+            fi
+          done < "$CHECKSUMS"
+
+          incoming_count="$(wc -l < "$CHECKSUMS" | tr -d ' ')"
+          projected_count=$((existing_count + incoming_count))
+          if (( projected_count > 1000 ))
+          then
+            echo "::error::The bottles release would contain $projected_count assets, exceeding GitHub's 1,000-asset release limit."
+            echo "::error::Use a sharded release scheme before publishing additional formulae."
+            exit 1
+          fi
+
+      - name: Upload bottles and merge formula metadata
+        env:
+          CHECKSUMS: ${{ steps.assets.outputs.checksums }}
+        run: |
+          cd "$BOTTLES_DIR"
+          brew pr-upload \
+            --verbose \
+            --root-url="https://github.com/intlbrew/homebrew-core/releases/download/bottles"
+
+      - name: Verify published SHA-256 digests
+        env:
+          CHECKSUMS: ${{ steps.assets.outputs.checksums }}
+        run: |
+          release_id="$(gh api "repos/$GH_REPO/releases/tags/bottles" --jq '.id')"
+          assets="$(gh api --paginate --slurp "repos/$GH_REPO/releases/$release_id/assets?per_page=100" --jq 'add // []')"
+          while IFS=$'\t' read -r name expected_sha256
+          do
+            digest="$(jq -er --arg name "$name" '.[] | select(.name == $name) | .digest' <<< "$assets")"
+            if [[ "$digest" != "sha256:$expected_sha256" ]]
+            then
+              echo "::error::SHA-256 mismatch for $name: expected sha256:$expected_sha256, got $digest"
+              exit 1
+            fi
+          done < "$CHECKSUMS"
+
+      - name: Push generated formula bottle metadata
+        run: |
+          core_repo="$(brew --repository homebrew/core)"
+          changed_files="$(git -C "$core_repo" diff --name-only "$GITHUB_SHA"...HEAD)"
+          if [[ -z "$changed_files" ]]
+          then
+            echo "::notice::Bottle metadata already matches; no formula pull request is needed."
+            exit 0
+          fi
+
+          if [[ "$(printf '%s\n' "$changed_files" | wc -l | tr -d ' ')" -ne 1 ||
+                "$changed_files" != Formula/* ]]
+          then
+            echo "::error::Expected brew pr-upload to change exactly one formula file; got:"
+            printf '%s\n' "$changed_files"
+            exit 1
+          fi
+
+          gh auth setup-git
+          git -C "$core_repo" push origin "HEAD:refs/heads/$DEFAULT_BRANCH"
