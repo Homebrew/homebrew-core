@@ -1,8 +1,8 @@
 class Quint < Formula
   desc "Core tool for the Quint specification language"
   homepage "https://quint-lang.org"
-  url "https://registry.npmjs.org/@informalsystems/quint/-/quint-0.34.0.tgz"
-  sha256 "845ecadc2af9a57317e8db84d4d90f8bde8476e90f8248bbf82b0eef100cf5da"
+  url "https://registry.npmjs.org/@informalsystems/quint/-/quint-0.35.0.tgz"
+  sha256 "138ca6a9447bf485675e986c44388d1ba0bf06d9b7791023214faf4d63ceed7e"
   license "Apache-2.0"
 
   bottle do
