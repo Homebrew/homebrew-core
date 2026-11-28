@@ -43,20 +43,17 @@ class NatsStreamingServer < Formula
   test do
     port = free_port
     http_port = free_port
-    pid = spawn bin/"nats-streaming-server",
-                "--port=#{port}",
-                "--http_port=#{http_port}",
-                "--pid=#{testpath}/pid",
-                "--log=#{testpath}/log"
-
-    begin
+    args = %W[
+      --port=#{port}
+      --http_port=#{http_port}
+      --pid=#{testpath}/pid
+      --log=#{testpath}/log
+    ]
+    with_test_process(bin/"nats-streaming-server", *args, signal: "INT") do
       sleep 3
       assert_match "uptime", shell_output("curl localhost:#{http_port}/varz")
       assert_path_exists testpath/"log"
       assert_match version.to_s, (testpath/"log").read
-    ensure
-      Process.kill "SIGINT", pid
-      Process.wait pid
     end
   end
 end
