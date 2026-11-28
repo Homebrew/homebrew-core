@@ -49,15 +49,14 @@ class Tile38 < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"tile38-server", "-q", "-p", port.to_s
-    sleep 2
-    # remove `$408` in the first line output
-    json_output = shell_output("#{bin}/tile38-cli -p #{port} server")
-    tile38_server = JSON.parse(json_output)
+    with_test_process(bin/"tile38-server", "-q", "-p", port.to_s, signal: "HUP") do
+      sleep 2
+      # remove `$408` in the first line output
+      json_output = shell_output("#{bin}/tile38-cli -p #{port} server")
+      tile38_server = JSON.parse(json_output)
 
-    assert_equal tile38_server["ok"], true
-    assert_path_exists testpath/"data"
-  ensure
-    Process.kill("HUP", pid)
+      assert_equal tile38_server["ok"], true
+      assert_path_exists testpath/"data"
+    end
   end
 end
