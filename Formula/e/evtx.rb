@@ -7,6 +7,7 @@ class Evtx < Formula
   head "https://github.com/omerbenamram/evtx.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8d43da816017668e6eaa44c310b2e07dddd0a3cbfe2b5e20b275fafb437f16d0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fbd6423e69d4e16125ecbe90717158b26116b866912eda15a96008281efb3463"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57b865e3cd45b3102f4fa5ff7d5cdd389da2ab1a72d87ed843dd02eceffa45c5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b229f72673d1c252dddf2ccb6acdab4e899fca350ffd39a02b131013fd922fa8"

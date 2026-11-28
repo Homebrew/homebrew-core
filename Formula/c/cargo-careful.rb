@@ -7,6 +7,7 @@ class CargoCareful < Formula
   head "https://github.com/RalfJung/cargo-careful.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0232f5fde485994bda24d9f67d5bfe4cf1afb2c9f1d5fef8217d5a4dcbff8da1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23e7062453eb1f00e1cda3e7605687b6d28c8caa3767049eed1a120c4fe848d9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23cb59889107b3ff442e9fc402d83401ee9555fc8b84957ccde3a57574c664b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e386d3e2c1f4d6cffca6640ba265e593bf5d00df7b809ba2491390a36fbe64f"

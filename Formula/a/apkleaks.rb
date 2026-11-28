@@ -10,6 +10,7 @@ class Apkleaks < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "03bc03ad13191ffd4321b704382bbf9285574a1a99e5eb3a0e6e726dff3ea9b2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "74359130b3a57e9aef3c4f3992783b7d05c69448b0732197488dfadb1f4a4a97"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03f62b90841d8055e841a55c342ff007aadd4b3277d22a1c3075db602cd31161"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cf764402848a48c8278f653c664c275b190723b4e70a62f9513e42601e617a38"

@@ -14,6 +14,7 @@ class Simgrid < Formula
   end
 
   bottle do
+    manifest_sha256 "5571436c1c4b6bfed9422efbfd38e176a390aae0cfb09a9031494e6b30f95554"
     sha256 arm64_golden_gate: "44fe3117ec46b9c25d779eb7989bdfe0821d6ce9e8e47ed34802bded67aac15f"
     sha256 arm64_tahoe:       "bcf91f84735c132eb5b5cf75be878af982f1b73c1a56f3699963cbf800240843"
     sha256 arm64_sequoia:     "e5b23d1ca8ab7b0967063337ebf71a8378564474f3450dc818f4dae4aa67d960"

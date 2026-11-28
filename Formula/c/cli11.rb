@@ -8,6 +8,7 @@ class Cli11 < Formula
   head "https://github.com/CLIUtils/CLI11.git", branch: "main"
 
   bottle do
+    manifest_sha256 "297fac8f0648dce419d9b604c46f8a591004caad0b9ca4583b5232dc0948e1f2"
     sha256 cellar: :any_skip_relocation, all: "3bf8de501264890b36e7c4a4704ecc97d96fdeddee61662ce60a58143b7e5e68"
   end
 

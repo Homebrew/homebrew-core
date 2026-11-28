@@ -7,6 +7,7 @@ class Pandemics < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d6fbe091ca49bfccd9f9650a8056af433b0d59d1371aa22b2bea06f8d6b31206"
     sha256 cellar: :any_skip_relocation, all: "56f5dfc850d49885e631d590e330b5555985312ec11a483ac8001b3ca9f5be46"
   end
 

@@ -42,6 +42,7 @@ class VirtManager < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "365b5e36ed42430b7bc8edc7822781b50a2f6446bcd9ce246d64b93dca7109e4"
     sha256 cellar: :any_skip_relocation, all: "652774da2005b93011d2df76ed403c650913a1ecc11af917f3605801f397fbc3"
   end
 

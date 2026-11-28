@@ -12,6 +12,7 @@ class Mlkit < Formula
   end
 
   bottle do
+    manifest_sha256 "e89f3c6ebd4a84752a9930b39eb312db0bcbfb72415c19ca915ac38e34e288ed"
     sha256 arm64_golden_gate: "f79f526d5ba87ba88f2e6cbdbf2bc385b58b0cfe546f04b873a33351d4aefab8"
     sha256 arm64_tahoe:       "9339a7e974818f982ee114a12ebcdee918c94342ba5007bd765a9027fb398f11"
     sha256 arm64_sequoia:     "dec13d45199ffa8bab62ee93c957eae61228aed979a39baf4f1f5c8dfa95605c"

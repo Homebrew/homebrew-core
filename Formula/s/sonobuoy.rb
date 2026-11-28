@@ -6,6 +6,7 @@ class Sonobuoy < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "cceafc473e9483e07e3c6f7dda23499a30f9dfaf467575e364155641802ed77c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6943e364ad93445132bb07dcefbb4e089d87686f06b8e8e3748d199b716aeb26"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7c10513bb921264169aef710eb983e686dd4e767199a2b0a49cb591bcecfdf3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7c10513bb921264169aef710eb983e686dd4e767199a2b0a49cb591bcecfdf3"

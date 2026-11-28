@@ -17,6 +17,7 @@ class Julia < Formula
   end
 
   bottle do
+    manifest_sha256 "622c6c4102d6d0f2fefdf106578809e66059f6d140a2feb2de203b96f8617ca0"
     sha256 cellar: :any, arm64_golden_gate: "d63fd3799057df4562e21076754305e56657eee7bbe9517ee1e746e24c3b15ff"
     sha256 cellar: :any, arm64_tahoe:       "6c7a4619906848bdce915f9ded0e71bf8135aca96aa47c8dbe008146463cc5f9"
     sha256 cellar: :any, arm64_sequoia:     "6a1264fb7d448748ffb37a7969f0b0f800637502b96ba51025f354a656c60b71"

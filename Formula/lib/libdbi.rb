@@ -8,6 +8,7 @@ class Libdbi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a33c0deee0dcb96a6826a61afcc35f86938bccacc95ba68fce73697c8ef8a484"
     sha256 cellar: :any,                 arm64_golden_gate: "17bb180f16b813eac825ddee3f47760d2f384e0e3a26d85839a672fdff502ff1"
     sha256 cellar: :any,                 arm64_tahoe:       "2a44b6636fdd1a1ec49d06a47fa0b3b82fb5de1db98f124ed6e3b6c5dc5ed7f0"
     sha256 cellar: :any,                 arm64_sequoia:     "2ad28ca963e05bb6c228aa9d10507b53b2ff673a3a2953f6eb05f89a36bbccd9"

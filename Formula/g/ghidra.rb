@@ -12,6 +12,7 @@ class Ghidra < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4914719d0ec0238df63c1bcbd9ecad98429ca369b7dc544f7b3c7452ff4ea7a2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f20f3c3ca9eb0a3ce8fa9522b16f251e937f54e33624b8e1e16eabf99a9188e4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cee537edc3ede3db751094a5eb02716250d64c78b8036d0ccc2d5b6f2870f8f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42603290241b67c44e61bd05c3c4f17f269c4ef589466d12c0fc6ed32fbcf57c"

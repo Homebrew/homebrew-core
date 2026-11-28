@@ -6,6 +6,7 @@ class BashLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c0bd490322cf360cfacef091e017d983db15ec0dfae7926775135663df35a0e6"
     sha256 cellar: :any_skip_relocation, all: "06298f2450bc4d7cebb61ede9c83771977b0d84faef91516ad1ec9bed88f1f40"
   end
 

@@ -1,17 +1,18 @@
 class Libmxml < Formula
   desc "Mini-XML library"
   homepage "https://michaelrsweet.github.io/mxml/"
-  url "https://github.com/michaelrsweet/mxml/releases/download/v4.0.6/mxml-4.0.6.tar.gz"
-  sha256 "ec1af6f7a752f63649ad00cf7355cf36366ccf729658a1a4696270de8bd74854"
+  url "https://github.com/michaelrsweet/mxml/releases/download/v4.0.7/mxml-4.0.7.tar.gz"
+  sha256 "5e2204b7271327e618ab181cf036d4d72dcc393201933060cd34d73d486ee5cc"
   license "Apache-2.0"
   head "https://github.com/michaelrsweet/mxml.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "b26c5e30103ccf3cde2318342f04005b32746c3172ed11b05dbd0ffcb1138335"
-    sha256 cellar: :any, arm64_tahoe:       "f1a73853f88ad5939b1ee35b19ab0a99a86bb2510d8b2e1be51444c2d0dbd309"
-    sha256 cellar: :any, arm64_sequoia:     "72c5171a3de34db7a162fb5aa0b44c5db9fafa744b967fe77e1b4d706ce48414"
-    sha256 cellar: :any, arm64_linux:       "b6c398dbcd40129bfe717049bc804081286bc0ef2ce8d0984dd61cf9673caab8"
-    sha256 cellar: :any, x86_64_linux:      "f47fc4593704d533469508e90eed317cd2e4fe36b231093e0a95e8cbcfa44dd8"
+    manifest_sha256 "fef616dd021f3b5110b488dd4ff5a8350c6fece4d6dd13c7add68495ee17b3d8"
+    sha256 cellar: :any, arm64_golden_gate: "2179d8141751c97570d245fec006fcbd587ccfe052aa7c79107d9b0a51f8ef0c"
+    sha256 cellar: :any, arm64_tahoe:       "a0bb4fc788b770d96a4b7b923ab1a07338de7d70211b45dd5ebb0b7528bb13cd"
+    sha256 cellar: :any, arm64_sequoia:     "19ecd215325f7080bb1229179f47b98ad57d62a27ca68ba0ba7bd19ab960aefb"
+    sha256 cellar: :any, arm64_linux:       "7667c105825d1fa0c72aa09782ff844a39f6f9a78b5ea934ac4c1a27144d7bd9"
+    sha256 cellar: :any, x86_64_linux:      "5f63e885d9ad57c57887ee89268c4bd7b0a3ec7d6fdd32efd036d6af62524869"
   end
 
   depends_on "pkgconf" => :test

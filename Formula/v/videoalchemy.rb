@@ -8,6 +8,7 @@ class Videoalchemy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3da9c696dfa5ad6cb79846631c7e0559dd697c66f05916cc5b12f05a891d8016"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4980c5238c1d529412b6148b31723f659c9ae8835564dafbc700529747cd5039"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0d1920eb31c8a15e3e2960eb5d79d232609f85085091dfcde6db588a7e82527c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d1920eb31c8a15e3e2960eb5d79d232609f85085091dfcde6db588a7e82527c"

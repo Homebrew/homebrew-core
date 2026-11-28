@@ -7,6 +7,7 @@ class Cppi < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "fb6a5839f147216cf819b17de0075dfdff9003092bed382979329e1001d9712f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b981ada51bce78fec170baaaf9b3fe49f5bd0670cacb5ef880e7bfb222ed35a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e9b12e9a7ee2a641efd09fadfb1da89946c3c9f2145f06e08660109196df0f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad3274881902eed64b3d3a8d0c846e7dcb09e13d6dd972551de0cc2fa09f89a0"

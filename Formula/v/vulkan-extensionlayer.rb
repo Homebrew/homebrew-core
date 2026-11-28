@@ -12,6 +12,7 @@ class VulkanExtensionlayer < Formula
   end
 
   bottle do
+    manifest_sha256 "33a7479e4e28a6b07fc7c9ea3e2693b09601e7828262b4f92edf4069807653ad"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d519fe9b2fefd8d7b9898c3f8c6a66e76ef91723af1fb0573fdfb7f96a18cdd2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d09061de10fb5c0fb1895186ba834aacdaeded1b2acd67fe2f6a9dfcb9fecfca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43add39da38f0b95b1ec4a4196a4613ea0d40fb0aef42fe646957f8899ce7172"

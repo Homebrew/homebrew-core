@@ -10,6 +10,7 @@ class Proselint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "648d471722425759490d380986f5fbcf04e1438834a58f0df43ede786677fd6e"
     sha256 cellar: :any, arm64_golden_gate: "276d4f0eb6a7f395b9337fbaf210fa0771a608d9847e3b0a30480d99cb26c551"
     sha256 cellar: :any, arm64_tahoe:       "f8a636473c4a19a5d0c2be4473cde65887f6d0c4458ee0b7ea31f0f6a4313602"
     sha256 cellar: :any, arm64_sequoia:     "b54b0554049ff36fe4e68f2a79a2f5a0e2fdb6c3f61acb2efa9a7bfcfae62fe5"

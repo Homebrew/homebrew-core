@@ -13,6 +13,7 @@ class ArmNoneEabiGdb < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "74a374fc4c5b1ce6b9d17899f7dc2d44ee028b2f80a95ad06c3e11ce54c66420"
     sha256 arm64_golden_gate: "2320ab678e7e144c1a6044ce875f201fad9d09e3178446d72435094f77f1d9de"
     sha256 arm64_tahoe:       "67fce6a2642eed6e634b1c81cab770c3ceee8484aa8d678f37089ac6948d442c"
     sha256 arm64_sequoia:     "8842d13fad824a04177373ec80ff5f2c4f64f8d7890ab6d9353a00d806ec6650"

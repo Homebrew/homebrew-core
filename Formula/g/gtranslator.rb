@@ -6,6 +6,7 @@ class Gtranslator < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "ad19748635c957c525c6620183423e3420a0af63dc64a02833a31f1a7500464d"
     sha256 arm64_golden_gate: "a6d399223174174830bfdaca7969447dd822866305bf17fb84172aac2473da18"
     sha256 arm64_tahoe:       "a31efb66e77100c660097fdc464a80b0d2a0290cd66ccfab0ae57595ad874556"
     sha256 arm64_sequoia:     "0b835e5c0d0860ac633eccc8701a8e60bf2b5a2b0dbbf4e4c0aae5e7226758cc"

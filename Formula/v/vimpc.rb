@@ -8,6 +8,7 @@ class Vimpc < Formula
   head "https://github.com/boysetsfrog/vimpc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0ebfdae2f51a086f2fb4638881b6d734664fe9c74c33a934ceb68f993bffcf41"
     sha256 arm64_golden_gate: "ea70d9dc5ce69e304346ddf5b092598b5c339c85957d8823143818c34c49b01e"
     sha256 arm64_tahoe:       "8013c280a8da6f6acbe6df84589b721620b2ae2d171374a8a1775e80636d213a"
     sha256 arm64_sequoia:     "1fcf1d047f24ee3ba7d4ef487535073559d3cd25129d607581784f2625e40bcf"

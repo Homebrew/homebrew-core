@@ -7,6 +7,7 @@ class Lazycontainer < Formula
   head "https://github.com/andreybleme/lazycontainer.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e81dcf0f788bb6db5d682ffdd47db46b19c63f47a8647fc005734f2222294bf6"
     sha256 cellar: :any_skip_relocation, all: "da661af9f663b723ceb3433f5da6f21a47e6d3bc278ee279c33f683f9ce81ecf"
   end
 

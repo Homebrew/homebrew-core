@@ -13,6 +13,7 @@ class Mairix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f74f1d96fe425d219fd260717e6d04a1e78e16331942383e6bb9c89354e5e548"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9f09bb38bb7308a46115bf90951f5cbfa8e1c57a1fd5a90792fcd849bb8e056"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "91307d1806d9def7532d3966be022cc28f5493f0989c03c44ba32a43f4cf52e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3dabeb1e236f11f349787f65d4546483721fcc7fc5490f7b7af2c7886c767b6c"

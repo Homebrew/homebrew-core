@@ -8,6 +8,7 @@ class Checkmake < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "d2525ce0c37f75717424431fc27504e635c42717ddbba26420f18ef7c4ce7da5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03b0296c51a1a1591cfb4ba020fb11433650c830e1740bb5dbf9c93dd5bdfd36"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e5495d72ffcfc0321d0246cb8c413d9fb06d441342d4687b4d6439119acde275"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6b73e17530d40a205b4bcdba99d62074de8a667d84c2028fa54f2bec275f9604"

@@ -7,6 +7,7 @@ class Proxyfor < Formula
   head "https://github.com/sigoden/proxyfor.git", branch: "main"
 
   bottle do
+    manifest_sha256 "037fcb2895c1d0bd48dfc35f85885d83be587b0250901a76916addb306f2f995"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "be6e74644f93ced92deccd6c1c53318f4920df521bace175804a50afb60d55ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "949fa8ba3a87e64a58c042fe41b28d8f81891b08436757a0fd43c55a8a7276b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6447af4607f2a07504be751324b5771f1db26846b5c4b426a11a615ba9b7487d"

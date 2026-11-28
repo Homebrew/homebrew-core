@@ -15,6 +15,7 @@ class Aalib < Formula
   end
 
   bottle do
+    manifest_sha256 "ce6152a79a8dd7db3e053d2392fcbf4d39e04ea36c6177b853f1de62ff349af6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db7ecd1f7a0f3f20bdb092218ce3a4d202b3db18a4955f9e7f6b58a9a7b3ff2e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4aec0f6a61caa07dcdfd47a8579ba4f506b1047cc0b822fe0321e123e638764"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "404c97537d65ca0b75c389e7d439dcefb9b56f34d3b98017669eda0d0501add7"

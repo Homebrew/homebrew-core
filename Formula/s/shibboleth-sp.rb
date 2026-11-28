@@ -12,6 +12,7 @@ class ShibbolethSp < Formula
   end
 
   bottle do
+    manifest_sha256 "4a7391e6d370f531b3a16c5bb0f690d6c4bda2d97a0f9860224742b6ea17b47d"
     sha256 arm64_golden_gate: "32b6a15b4b194bbeee48e7f97d167954cdc9bc80e7ad231d6d85c646e0714650"
     sha256 arm64_tahoe:       "310022c7d540e88197aa85fd0e438d5bb178fd07209209a790f530e81f8e4e12"
     sha256 arm64_sequoia:     "4e5c506fafc3b73752e30309a6accd074762d83488bcb10c0f99839853a0a99e"

@@ -7,6 +7,7 @@ class Typdiff < Formula
   head "https://github.com/sou1118/typdiff.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9c225816aac044da137dadf31cd156210d74a8dfd206cf6033cb2a13968af30f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d83a91146d20c565a5e558be80515f57a2db6cd5018b8b4519fa5af797318d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a3d45b7ac0dee958f8d5b9adbfa505b7c1eea1a2bf45661d83d85b4ab4ea4aa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43c4a3767d0cbc836bc440440a529c56820753a65ff9bfcedff4eea1944c187b"

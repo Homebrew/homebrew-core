@@ -3,17 +3,17 @@ class Memray < Formula
 
   desc "Memory profiler for Python applications"
   homepage "https://bloomberg.github.io/memray/"
-  url "https://files.pythonhosted.org/packages/99/3b/8f9736cbf698e62cb7efb0e1715a30d6d06b3cffd980b435209eb522d5f8/memray-1.20.0.tar.gz"
-  sha256 "ce1f1d900948d57d7db5b5d8d81f4ebfcb798eff674493503ce5bfaafcea84dc"
+  url "https://files.pythonhosted.org/packages/3a/06/f176068d51dd3eafc557f64d87444e6c015d3327257fa62aa806d9c221d3/memray-1.21.0.tar.gz"
+  sha256 "cd8f6bb76f35b40242e64f69353880d3b6da772f82f715ef218c706534af46da"
   license "Apache-2.0"
 
   bottle do
-    rebuild 1
-    sha256 cellar: :any, arm64_golden_gate: "9d5ad6d244d087d7be54b5a3d3e7c9a34727eced75c38338f85e239d35ceabca"
-    sha256 cellar: :any, arm64_tahoe:       "d62562682513908aa5340b837faf7de2bb57cc7640d30002bdba91a949c98f02"
-    sha256 cellar: :any, arm64_sequoia:     "b5b6e0fe8991439b8d7cf74ff1232e402622566f11645b44af5a0db72245ae1a"
-    sha256 cellar: :any, arm64_linux:       "5798952644c594aa5191563a33e27a88654ab25edb70f9b4de45aa6d24cff237"
-    sha256 cellar: :any, x86_64_linux:      "f5d9a10cc367b4dbdeeb77d6ec684829eb6fe32f6b89dfca7898a549af3d137a"
+    manifest_sha256 "8945389eaa85161ec6e18a303f554c394aed7e79710d12dd3f906aa3e752c71c"
+    sha256 cellar: :any, arm64_golden_gate: "835fb5ebeec7e9bd83edc3d12d77b389d4f224e3bd96aed1823d907e92288f4d"
+    sha256 cellar: :any, arm64_tahoe:       "edd7a81097f43af4e90183d0117aad97ba20e8a929a468318df950b5e38ae15d"
+    sha256 cellar: :any, arm64_sequoia:     "a1de88f591c4a14a73e5ba24e22e602e580f63705f0aab09aff72cdb78f69b3b"
+    sha256 cellar: :any, arm64_linux:       "ec29066af9ada074cc8c2bff04e7ad159882f1078404d072478b7154cc36825b"
+    sha256 cellar: :any, x86_64_linux:      "e0d27884f613287a84379d5abfc8969caf794cf74d46861a068174c05d6dd901"
   end
 
   depends_on "cmake" => :build
@@ -50,8 +50,8 @@ class Memray < Formula
   end
 
   resource "markdown-it-py" do
-    url "https://files.pythonhosted.org/packages/06/ff/7841249c247aa650a76b9ee4bbaeae59370dc8bfd2f6c01f3630c35eb134/markdown_it_py-4.2.0.tar.gz"
-    sha256 "04a21681d6fbb623de53f6f364d352309d4094dd4194040a10fd51833e418d49"
+    url "https://files.pythonhosted.org/packages/16/fc/cee2c45553c9a9bf77d8b0c391560c556d7ed756b1f0bb35eb5d48db09ea/markdown_it_py-4.3.0.tar.gz"
+    sha256 "91a58fa5b72c71a40cf7177250fd767480d7a2bb3ac426ccfb76fb90305fdaaa"
   end
 
   resource "markupsafe" do
@@ -60,8 +60,8 @@ class Memray < Formula
   end
 
   resource "mdit-py-plugins" do
-    url "https://files.pythonhosted.org/packages/59/fc/f8d0863f8862f25602c0404d75568e89fb6b4109804645e5cdfb1be5cf56/mdit_py_plugins-0.6.1.tar.gz"
-    sha256 "a2bca0f039f39dbd35fb74ae1b5f998608c437463371f0ff7f49a19a17a114d0"
+    url "https://files.pythonhosted.org/packages/ad/a4/77a4e1be19fd9b08993c76d5e54979ac836b327754f1f5fecfed1b56cc67/mdit_py_plugins-0.7.0.tar.gz"
+    sha256 "26d2179227aaf4d1dc7acffe7a738cbd15cade6b5a61cff0a2cbf9fed93efede"
   end
 
   resource "mdurl" do
@@ -70,8 +70,8 @@ class Memray < Formula
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/80/a8/66d45abadff219e36e2a824181b8f6a67e7ed4572934d6252c71c29d5731/platformdirs-4.13.0.tar.gz"
-    sha256 "1aa0b0d3f224c1f07c295121e312a5a24a180d6ae5a8425ea1784b3e3863e9c0"
+    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
+    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
   end
 
   resource "pygments" do

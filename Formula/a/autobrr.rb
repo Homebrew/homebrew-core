@@ -7,6 +7,7 @@ class Autobrr < Formula
   head "https://github.com/autobrr/autobrr.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "1abe28456c87ba85d5c468e886c1e1491234721a69632cc9133c5138b8734160"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "be341d9a763ebc92541708af7382c7e51d64512ba09544698f2e6381c800fcdc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c401068c2647c8e922f6d4d4c0fada9eee1e304803d59369fa775da26ff71b9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1381280dab46b36d9381c887052108cc304c2b4075765ace4d082e503253dbeb"

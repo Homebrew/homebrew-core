@@ -7,6 +7,7 @@ class Lockrun < Formula
   license :public_domain
 
   bottle do
+    manifest_sha256 "7139ff10770b4c1021efbb45b8ed12f55b386852613f81e0f519fdf4cdbdb2c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a57bafed3eaa5e13a515934bf074af6dc350e8f0c770fc62ec2d33b416384e87"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4fb5751401d9a0c9e2cb5abef0124aa4fa8ed867591b6055fdb52455452b6389"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa9f904cbb5c509a1aeef7afb173599b212352054380f017c9ff657a90aa866c"

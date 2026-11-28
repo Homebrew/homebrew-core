@@ -19,6 +19,7 @@ class Pulsarctl < Formula
   end
 
   bottle do
+    manifest_sha256 "909fff0cfdd983e6bebb068230bde490e2749e9082a702fb0f01f5ffd5e9a9b9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "027d9487cd66234456f5bc0421538faef4df88d4d8718eec3aad3645948021a2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "027d9487cd66234456f5bc0421538faef4df88d4d8718eec3aad3645948021a2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "027d9487cd66234456f5bc0421538faef4df88d4d8718eec3aad3645948021a2"

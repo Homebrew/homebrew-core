@@ -7,6 +7,7 @@ class Flac123 < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "eeb0255d295905cb494271580450663b8c2b6f3bc4be08db36d912400658e74f"
     sha256 cellar: :any,                 arm64_golden_gate: "c6802e6478d9dcc72b599e0ebed418a5026f2f38c2273917c931fb29ab8cb992"
     sha256 cellar: :any,                 arm64_tahoe:       "f7767128158cc744c62fda8c0c6e9c22dd2732e5e04e15b47b79d6bdef89c4a1"
     sha256 cellar: :any,                 arm64_sequoia:     "f1d6d3f1269accb9be1c482d9cfa9179a29423fe0dcc9ab8823132e4de9d861f"

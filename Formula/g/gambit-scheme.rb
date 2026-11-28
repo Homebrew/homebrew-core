@@ -12,6 +12,7 @@ class GambitScheme < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "861effe9b073ace82ef7e39aa4f28bfe2f4d8c046cb708d8d1b1d3533ebcc7f5"
     sha256 arm64_golden_gate: "71b7111dd6f7b3c1bd0e711493cfc468dd6ba15ae5236811c9642496960ca53a"
     sha256 arm64_tahoe:       "18972a99033b1bd893b769bd0e6a29267a1e7e8069494512a007a6d25b32c7f6"
     sha256 arm64_sequoia:     "5d4867bde22dc23c0821177f759f25f8db1c1e3e6b75c24253c5f7239e89e146"

@@ -12,6 +12,7 @@ class Disktype < Formula
   end
 
   bottle do
+    manifest_sha256 "bbd8ff3110b05db21d46f17419ced26ddf7d60dd1f852c2aaef2d772fd6bced5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1487dab5af75571713acefd821fb3873ce7ce857cb4915ced2b52eef5f763fed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "42c78cc38ea028f25b5c2122e72e66d49803b717c8994a45db84fda5b192f492"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc0c898196ec806c92c56cda1d1edce496eb6dea79d614ab746021f2e315ec4c"

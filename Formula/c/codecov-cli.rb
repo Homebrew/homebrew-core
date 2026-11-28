@@ -9,6 +9,7 @@ class CodecovCli < Formula
   head "https://github.com/codecov/codecov-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f689092f7cc97f4031ea828215c8d11fbd1a4033689c2ce95b515a0c49a24375"
     sha256 cellar: :any, arm64_golden_gate: "be39a692b3532dd6916f0fe7d7818eb96db4b894cee6215257d3de6911216bbb"
     sha256 cellar: :any, arm64_tahoe:       "7275d21d76a057e7bbde21764739c56eefe0e37bb7b18b51600e65dde2ecee8d"
     sha256 cellar: :any, arm64_sequoia:     "676f8c0815bf63119e0feb666c5131d66fcc2cba469127acb8cd72225a36a45e"

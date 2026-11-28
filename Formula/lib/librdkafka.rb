@@ -14,6 +14,7 @@ class Librdkafka < Formula
   end
 
   bottle do
+    manifest_sha256 "7641ceaae2eab8436cee8bdf85f3896de67a1bf6f973bd7778cba4ef56cdf442"
     sha256 cellar: :any, arm64_golden_gate: "65f514461395d96e732205fb23a549dd030c264f1f55de9eedbf1ed7b24d4259"
     sha256 cellar: :any, arm64_tahoe:       "6158cd4b04a7034da5543eca3004eb64610f4094c7a9ffcc74ce561e40b7b739"
     sha256 cellar: :any, arm64_sequoia:     "40adcbed915d53f85e575aceb2e43f2723835a5706de6bed51f068c930486cfc"

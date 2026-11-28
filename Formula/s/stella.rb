@@ -13,6 +13,7 @@ class Stella < Formula
   end
 
   bottle do
+    manifest_sha256 "8f3afacc849ac7a58e74d0415b3fb8af17aeba2034fe2f06a755576ad3d00b37"
     sha256 cellar: :any, arm64_golden_gate: "4ecef385b0fa5a1ea6360646f5bc39d9b102c8ffe250a9f068360dfaf6719cc1"
     sha256 cellar: :any, arm64_tahoe:       "703f3018a3b24a427048fbdccfc071351ad394c18de036ecad0d3ad1e315755a"
     sha256 cellar: :any, arm64_sequoia:     "8827c4413e4115e2112db911ea5e1452c6fda6ae7107c1a8978b52a217aff422"

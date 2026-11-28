@@ -6,6 +6,7 @@ class VueLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "27407e35149956225e71faf10f5cd4ab1974ea6038159c2368e9cd33ce22a1eb"
     sha256 cellar: :any_skip_relocation, all: "6e40d98bc295999db0bf0fffa3d2f3ba35f9cc2ca59c3c76b5d107f0f2309ad9"
   end
 

@@ -7,6 +7,7 @@ class Urlfinder < Formula
   head "https://github.com/pingc0y/URLFinder.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cc2931ec028214bd1d75cd1f7e5da9840f1af456b7d63a3a96f8c41a9efdd58d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ec12ec58a7946d7a31bbd76e647effa1d460ae01fa52d504063540a5513c470"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e090b38146d744327eaa9f3920c4f19d73f8a8850944a2d2c1ceff4207de8442"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e090b38146d744327eaa9f3920c4f19d73f8a8850944a2d2c1ceff4207de8442"

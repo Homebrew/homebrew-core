@@ -7,6 +7,7 @@ class Dupseek < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "a55ffe6a8d608d3da2c60f0e84b1f8197419313374989ca12cb94719c6f0d699"
     sha256 cellar: :any_skip_relocation, all: "af5b3ecacae9c0ace4403ba786d09138413571a9dc52d95ed59b289118683ff4"
   end
 

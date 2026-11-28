@@ -7,6 +7,7 @@ class Timewarrior < Formula
   head "https://github.com/GothenburgBitFactory/timewarrior.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "2199ca4ae989829b72b4cb2319cb204f6ca0df73f32c3925153da2b631af1dcc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0b099a641650592d8eed2d703a4511cf2b0a09410780db6f6368d02924b6171"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1ad712be1d19f06d4676c19784de958e4405048105cbe7bd87759e40c7858bf8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0c5a5d58e9349840b8ca58c9e4dbaba061e92792e08be0d665c214ccad0d8d61"

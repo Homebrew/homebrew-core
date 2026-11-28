@@ -8,6 +8,7 @@ class Taglib < Formula
   head "https://github.com/taglib/taglib.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9d1498e7a9deb29f6b787dd47e67cc13a3ebbb162bc96040c960dc2790ea5dcc"
     sha256 cellar: :any, arm64_golden_gate: "b1f9a63c6bce451b0355942da7792231f2b4be533d5dbc1328888259939708d3"
     sha256 cellar: :any, arm64_tahoe:       "d8c52b4c84c767b812813e014c4a4bf07d5906e281cc9d12c3e2a41d6de5b4a5"
     sha256 cellar: :any, arm64_sequoia:     "d0c4b888ad066f830a5725ae3cee6c96b871193214303629fb9f484e15e519f0"

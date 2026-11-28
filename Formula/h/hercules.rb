@@ -8,6 +8,7 @@ class Hercules < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "abc5390f95091f5a71901d90638756fd04f9f80f374ef1b67f168066ccd00efa"
     sha256 arm64_golden_gate: "af4fae048c7e916644bb9208eb88822e41f29469b827f0153a1a3be5935dac54"
     sha256 arm64_tahoe:       "c39ccead16433acc00edfe54721fc9354225596901556828b5771ba04dfb0826"
     sha256 arm64_sequoia:     "d6bf59da64af8e0c785e00a0dd9650079d6a947889a2a6ad11f0db47c095187e"

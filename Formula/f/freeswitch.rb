@@ -16,6 +16,7 @@ class Freeswitch < Formula
   end
 
   bottle do
+    manifest_sha256 "f011e5193938352520f52988666eba3feda2708f7eb164f2dde83b49ddc7e8e5"
     sha256 arm64_golden_gate: "5fd319a2da6039225a872dde62e7b7f0a353987f2d8dcfd7bfdfddb5785bc698"
     sha256 arm64_tahoe:       "9288f91320436552d468af928717f050d87db91e54ef63d7cb520544ad82b571"
     sha256 arm64_sequoia:     "da74f8944749ecc9d22c7303d60c46b77c5fcbeea64b203df4d4f23369d8f84d"

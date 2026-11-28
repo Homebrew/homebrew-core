@@ -11,6 +11,7 @@ class Yewtube < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "167ab3e46b845141ef1f0e90f654361594f345a96b5f59de8554762b9334e5c5"
     sha256 cellar: :any_skip_relocation, all: "452ea9193a15d3609439fa41e521c8c20144af6c6630cc50c79f2a4488b1a1e8"
   end
 

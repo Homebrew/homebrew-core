@@ -7,6 +7,7 @@ class Polkit < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5b04baf39962091c640cd6da72e43c54534c057ff8e20cbc8f0af3da65c3bf2e"
     sha256 arm64_golden_gate: "daf513f1270b19090bc8c6060877b860b4424af4bceaaa98d2f6abf6505616b0"
     sha256 arm64_tahoe:       "9ead3bd790d8dd4dff010e83f9d039d7ade180c86343b685b2549cc00756aba3"
     sha256 arm64_sequoia:     "ee6c7cfb714f6b61a9cad87ef6088874fad6af4f957124131073442459d7dc49"

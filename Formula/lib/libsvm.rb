@@ -12,6 +12,7 @@ class Libsvm < Formula
   end
 
   bottle do
+    manifest_sha256 "df52b0a928b372247ca195ae2bec1c955363618fcb9cbafbe0bb72ec3bbcfa2a"
     sha256 cellar: :any,                 arm64_golden_gate: "b285bacd4daa0bd9b1337dbea171df78ecfc2008be6932781a804a5730f0a4b7"
     sha256 cellar: :any,                 arm64_tahoe:       "9dc419641847bea4ed0dd9bd75efbcee7ce92258b76d54a71183a8a87822753b"
     sha256 cellar: :any,                 arm64_sequoia:     "dcca828a3fd8e13db027d142d5416fa00c637d00a4baadb188721959baa54eb1"

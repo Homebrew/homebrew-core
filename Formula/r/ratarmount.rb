@@ -10,6 +10,7 @@ class Ratarmount < Formula
   head "https://github.com/mxmlnkn/ratarmount.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e8c54d8f9eb2333a564e851b747d6aad31aee40c110174a1d07b33ad447b1ea1"
     sha256 cellar: :any, arm64_linux:  "37cc093abd33d83ebbc5b2563dae1eb84ed449a106f967726ef0ff77a1232fe1"
     sha256 cellar: :any, x86_64_linux: "b1514e23dfbd7d6e47cb25e06a61ff9fd05a7ba7f932346cae801edd0f2b9f88"
   end

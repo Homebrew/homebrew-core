@@ -8,6 +8,7 @@ class BoostAT185 < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d7cdae62a5626f5bae1ddda9e7b2ce43fbf0d5c4fa136c3019998950697db3ea"
     sha256                               arm64_tahoe:   "8ebc8c02aee17d821fb71e08dc2df9cece6f9c27920a08afb77e987949cd6a9f"
     sha256                               arm64_sequoia: "86f1d77d5e7aaf72aea541bfe5b3846ecd7ecba66c810eba4282a96ec5365598"
     sha256                               arm64_sonoma:  "fe46b68ddc038313a967ed74ea32daf49dc247bc42cf552ff89f7f62bb444510"

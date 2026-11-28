@@ -10,6 +10,7 @@ class Gitup < Formula
   head "https://github.com/earwig/git-repo-updater.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5e8cfc7e0d3509ad4b76acaff8f9c876fd439f0d647ede2d513c895c100afeae"
     sha256 cellar: :any_skip_relocation, all: "1b812936bca9c0622b9de4dbde68754f8b150f59753412448411076fc6d1db79"
   end
 

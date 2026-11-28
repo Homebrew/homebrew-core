@@ -24,6 +24,7 @@ class Bitchx < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "8c9f3dea9321382c4d6397c36308ea3ef732d02a8bd59d4925be2d52a85f94c0"
     sha256 arm64_golden_gate: "a9724e79fc5e24bd9d6fdb777f0e856c0658fc92b70cb9a7eec23a7ec516110d"
     sha256 arm64_tahoe:       "7e65b3f85145e10a3622f5b6d3302292f53a6cf4e895cc497595c70d3fb5f04e"
     sha256 arm64_sequoia:     "f46880225ae77a603ea81fb7dda6762e4f25954b1b35753b51c0dd8707b5317b"

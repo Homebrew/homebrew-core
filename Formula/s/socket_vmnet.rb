@@ -8,6 +8,7 @@ class SocketVmnet < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e36d72dc4f66c3e40ac32878c26c5a25115fd4cfbcd8f9211eca3ba7953e0338"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51cf2fadc5a540d5645d5f474fd94d436186b93f5332888c17304ce21778689c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3120039f523d59fe299b4f3595b0db5f59af486def3c7108ffe22579292227e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8734ebe53397638b77dd5bf51c15cb6eaf4aabf297a315868bef2ef6505c31d7"

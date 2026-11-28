@@ -7,6 +7,7 @@ class Sickle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e8fc830ec3904a327f86bf733b403a977fd0c4ea87e447ccc30219bb460e311"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "751264054bb236ca532e416ab833228a36bac7f2250d8644f28a41ca10be2051"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d4472a3191002f70094fb8bc4356ed355a05d141439be1354b33693c8bdfafcf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8308015c2c4e6f6dca8a7e24996a0f75cec75690b26c26b1bd0bca68abc4df58"

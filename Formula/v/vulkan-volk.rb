@@ -12,6 +12,7 @@ class VulkanVolk < Formula
   end
 
   bottle do
+    manifest_sha256 "f97f7188c8b333eab196184b213fb4350b02af330d5840fc8b090159487414ae"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e926e3f9dcac9d6d37133c9d08e22eda3fcef34de5020b92aa856b58a2848c3f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "79016e63a2ca3a22580c510f53e71547350b5e21f5256041f3388c58c7a5bd23"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38eda90543cb761546c42d1a5b2ec5de676c506ce8ad25b69fde7a928e2e26bf"

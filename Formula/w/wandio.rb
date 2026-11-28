@@ -16,6 +16,7 @@ class Wandio < Formula
   end
 
   bottle do
+    manifest_sha256 "369796f34c7d0f28bf122da5bdf82d828e3c44d13f1e8a607def05d1b11765cf"
     sha256 cellar: :any, arm64_golden_gate: "9059dffa44fbaa590677869e6d5ef2fce023efba315e108d756c46916a07e389"
     sha256 cellar: :any, arm64_tahoe:       "56ba2de2f56757135f4e1c9d46641493dde28ba90b355508d245bf2ce21197c1"
     sha256 cellar: :any, arm64_sequoia:     "e56952eebbac33e9e4fca5a66b9dbde26a7cca8ff2deb2aeb3fde9dd1ab93c2b"

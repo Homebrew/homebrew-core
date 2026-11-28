@@ -10,6 +10,7 @@ class Darker < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e1d4af209b01acb187b5c31387c4fd917be4d485a8270ca777beb396cb22fd35"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7f1211b15f64ec6e8c2e65f4b208f5823ab8e0b366c45562ed0c3a0d02a387e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5dd4ade2999756f7691d45dbfcf9d3710532de0c1e9326836783dfa4042ee8d7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "028ff23bc9d07140746b474147f9781040a3b7c4ff4c86e773e141487ec3ae53"

@@ -14,6 +14,7 @@ class Swiftly < Formula
   end
 
   bottle do
+    manifest_sha256 "2a8618d477eb6f22cee9aac706d9c1dd0287fd8c568b50878ea4a8d10428dd2f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09ece07976ecbceee230ad2471b0848d57ca98bbb4265539a175b838a4018636"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e09894c9e9173ccc97101c91b802f048abf1dd2fb66b7e3ab65868fc9f8e827"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eb782b765678c5403708142c483e2b270c41a4c18147682c9955b977b41b09f7"

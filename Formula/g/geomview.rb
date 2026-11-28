@@ -14,6 +14,7 @@ class Geomview < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "834f5a548a337b97675abbddb6ed878a4849864c06531e6e95295de57b3b6c33"
     sha256 sonoma:       "4abe048bc7d51440a13c37b0909f86e3f31156e60c3b46d9bad15d89d443e963"
     sha256 arm64_linux:  "804ee62bf1f5e24cc61b161c0c666d92e2adad235e2bc5a4cc1a36fa71ffa889"
     sha256 x86_64_linux: "84578e983605a136c1a474020e5424035749d299c8e4171e7d8e7e962dfed0a2"

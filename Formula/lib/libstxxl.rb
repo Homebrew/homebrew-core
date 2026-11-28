@@ -7,6 +7,7 @@ class Libstxxl < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "31d18b8e64bfadbffffee029a6a48ccb8186eb7b92a955df8a9ee0bc66a383a4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c551ef2ed7fbb9a13218b7cb6a1640fe56bb94ba4cd4c1e945466c0acf70ed0f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03c216058f8bc2bcc297b0703e6138afbb06eb45b4e2ac46cd72338d99afdb49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac60f2dfc0086a695e795f12152c7738118487cfe73195a0b26d4642e75fe668"

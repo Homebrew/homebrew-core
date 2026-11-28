@@ -32,6 +32,7 @@ class Luajit < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "79cfeb841e9da959a754bd7d0f6522deeaf3c1d1afab27eb3923c9cb8e169919"
     sha256 cellar: :any, arm64_golden_gate: "a75c12cbad0bc309d28e87d011fe0681f7038c66b2e58727bd15eed0ab0d284f"
     sha256 cellar: :any, arm64_tahoe:       "5ea5c9dc027f473831e971097874edccaca024fad5fb2b883197919ec78c5425"
     sha256 cellar: :any, arm64_sequoia:     "4244194db9599a26c25c4ab5d147aadb064daa7dcb6d74ae069e5b3d7cf2766f"

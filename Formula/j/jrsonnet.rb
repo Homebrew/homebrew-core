@@ -13,6 +13,7 @@ class Jrsonnet < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "003a7338c403c26749122d3d2fb0099406f28db4660928fdba0d58ecf8fec7f3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82d5b24d2553147fc34a7c36a9a0fa2de7e4a6db99bc21b9695529ddfd7c20ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb53f849aa5359474ccf9503d1c6a6ac9fb48090ac9d179dd46447d1eaa1eb0d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "94ee1130ef46c19c4de00aa49fa41b50303af407669bd8d28d179046fa995dce"

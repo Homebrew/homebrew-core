@@ -11,6 +11,7 @@ class Trader < Formula
   end
 
   bottle do
+    manifest_sha256 "5adf647f8087df55d54b22e863f582738af4d7eba80cf47ad9a08d4f6139ea64"
     sha256 arm64_golden_gate: "447ce50093cf5efcde8f489790b9212dff11159e65c0312fb1060db4be0f9135"
     sha256 arm64_tahoe:       "513d2d7550f77217676f2fd6f5514cad6662438f366345104ece54d02ddfcdb1"
     sha256 arm64_sequoia:     "614e2e693386cee1c199613821ea87403750a36f5e47074188688a25fcfa4761"

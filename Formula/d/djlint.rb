@@ -3,17 +3,18 @@ class Djlint < Formula
 
   desc "Lint & Format HTML Templates"
   homepage "https://djlint.com"
-  url "https://files.pythonhosted.org/packages/e3/c8/ac99e8a7aafda0561cd89120e6b0c0e6972f79f8c40c6c679ca1da3a1fc3/djlint-1.54.0.tar.gz"
-  sha256 "2086b83e151af72c20595e15d6017469bc69dfb4f832558d7f374a252e99f01b"
+  url "https://files.pythonhosted.org/packages/04/16/b152b1908921108d8a5d6877df56da5182177c958b462d9b0bdefb617b53/djlint-1.54.2.tar.gz"
+  sha256 "4ee5783cb0b31efe239a4edf467dead6bed45d882980b5edf3cebc43a0c5ff38"
   license "GPL-3.0-or-later"
   head "https://github.com/djlint/djLint.git", branch: "master"
 
   bottle do
-    sha256 cellar: :any, arm64_golden_gate: "4bd896b888236060957c05d0a29268e4ab413af4681866d476f6c2e39e475ebf"
-    sha256 cellar: :any, arm64_tahoe:       "b930217c5fad4472646ec26e79b92f6f4228fb434f00d3d01efa12e6d8c1b909"
-    sha256 cellar: :any, arm64_sequoia:     "0b057733de2aed3a1a00477e4a3b50da28dc765ca0002b33ceedc5a8cfdac274"
-    sha256 cellar: :any, arm64_linux:       "05eee04b216d9fba6004057b28dc5cbcb4c9adfed45786e0c58d1bedb9e2ffd7"
-    sha256 cellar: :any, x86_64_linux:      "692f05ce075913cd234a9e0e0c4816617f5298a3077ffe20099d450879228ada"
+    manifest_sha256 "6b6c3adc601ca38df4d84a0e20edafe0e30bcf3490a65b44323cde30909a749c"
+    sha256 cellar: :any, arm64_golden_gate: "5baad78034f487ebf972ee96eaf3a07ea128fd0eaa01cb4634f1b38547802e0c"
+    sha256 cellar: :any, arm64_tahoe:       "f01d31b411e87b245ee05b07a5d973c586cdf38e1e372109057c83d60b8af0c3"
+    sha256 cellar: :any, arm64_sequoia:     "a80cdc89cb483235cddcbce672c6fa5085e31759ba780ff50ca390d469cc592f"
+    sha256 cellar: :any, arm64_linux:       "6ec03f191fddd074cefe5f585d4f1d60671694a7b3c3b0775565ba3002034293"
+    sha256 cellar: :any, x86_64_linux:      "3935d06b1f00dd0e889856dd0a653ee4c88e7e007c29fe07e014c6c1fa6c22c3"
   end
 
   depends_on "libyaml"
@@ -50,13 +51,13 @@ class Djlint < Formula
   end
 
   resource "pyyaml" do
-    url "https://files.pythonhosted.org/packages/05/8e/961c0007c59b8dd7729d542c61a4d537767a59645b82a0b521206e1e25c2/pyyaml-6.0.3.tar.gz"
-    sha256 "d76623373421df22fb4cf8817020cbb7ef15c725b9d5e45f17e189bfc384190f"
+    url "https://files.pythonhosted.org/packages/76/b8/c0b780928e2fb1c87e9e375818c6f121da2398b071012d1747be300b83f4/pyyaml-6.0.4.tar.gz"
+    sha256 "e24bf71af8a432d7808fabff134d38dfe16d3cbb41f2873bb4b1e42422de0a1a"
   end
 
   resource "regex" do
-    url "https://files.pythonhosted.org/packages/cf/e7/67c67920a3b5183388e0853a0a564a4bf60f2dd190a4e7626f5dad2fed62/regex-2026.11.15.tar.gz"
-    sha256 "d6ec7e29e62ebf93ab2a593d1137022b6025497d8610e5cb666d52f9ee5bb0ce"
+    url "https://files.pythonhosted.org/packages/fa/b8/61d96601b737305a04161da340499cbb3299029d4ea0f9c717bc35977c2b/regex-2026.11.25.tar.gz"
+    sha256 "d3ea8d9698f13f3fd08c65f9bed0bb07bcfff80b61dfa14d86b8cc398f886588"
   end
 
   def install

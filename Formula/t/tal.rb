@@ -12,6 +12,7 @@ class Tal < Formula
   end
 
   bottle do
+    manifest_sha256 "94122a620351faf0eea984603279e76c0b101b8723bc16b28465d4f706eb2f95"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d5f0e1767b74ae9c78e260d66c1900a930a7de1df4dad97b5d2e5341e9fb0b1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3aad8a5f10c8cee1e5b9dbfb673a6b05ff97774e5cb2f0f813b76c893b3e424"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd3c811b07d428e7beccf39eda7c3a0af73695f03188dfc7ea652472d492c794"

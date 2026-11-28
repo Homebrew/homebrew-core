@@ -7,6 +7,7 @@ class Wego < Formula
   head "https://github.com/schachmat/wego.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5fc73bbef6d3700904414b8929bafe465b757ca2171d66aa17bbc9970eee7bc4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cdd98e3e87015e11058a040926c925e023ab06f919775908b15f5a3abc683552"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "591831e4debaf931b8a40abaa611fc0b694e269a008627a1e672b5c81e31a9c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "591831e4debaf931b8a40abaa611fc0b694e269a008627a1e672b5c81e31a9c8"

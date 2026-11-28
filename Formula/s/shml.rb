@@ -7,6 +7,7 @@ class Shml < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b19863d4a5d7d3033b6204dd55163080a1decc8fdbfc691c491e910e699070c7"
     sha256 cellar: :any_skip_relocation, all: "54617898e5fd7439756e61a1ccb2489d41ef4c5183b8b248156e4ecad3bf245e"
   end
 

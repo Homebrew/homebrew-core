@@ -13,6 +13,7 @@ class Libxaw < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "37562df4e0a6d00e14300b3c08fb2c5ad5b28f6dc8379e1d2a21c8304c996ffc"
     sha256 arm64_golden_gate: "a2aa803fa7ddae8dd6c3d8cb5fcd776ac7fecad6eb82ef113eb031e0d3651deb"
     sha256 arm64_tahoe:       "4ecd7079a01f9f836d228420134c77a0c4948760ddc1dad19f816fe5ef6ae6f0"
     sha256 arm64_sequoia:     "fffcdd2fd7d440a43218e33fe5e4de0c4fca96641deb2c832abaca62b04e3b2f"

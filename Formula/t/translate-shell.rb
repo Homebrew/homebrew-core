@@ -8,6 +8,7 @@ class TranslateShell < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a3b5f6aeea07bf294cd898ed972f9b7e99ef49fbc104b8d85ef6ea9be37d4080"
     sha256 cellar: :any_skip_relocation, all: "58078d2c0655645aa195c91dc972beb161c90a4085a58bced9d2a9d9830c7b92"
   end
 

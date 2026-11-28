@@ -11,6 +11,7 @@ class MdaLv2 < Formula
   end
 
   bottle do
+    manifest_sha256 "d4b82725ce8f3b831862e8de4ffd0167e516c9afb5beabbec2c5c19a96833b8e"
     sha256 cellar: :any, arm64_golden_gate: "bae09bbd63b2a67088403d3974c36cee86e4be971ee5ba04071aef8f4ca0a4ed"
     sha256 cellar: :any, arm64_tahoe:       "447ee93aeb3642b63ef2b53240819f591a759b3ba9f41fec46064ad2d65a0c81"
     sha256 cellar: :any, arm64_sequoia:     "5df0bbe04df736019264d64fc02e3804c3b60127e998195f52c1f540a70d3ee2"

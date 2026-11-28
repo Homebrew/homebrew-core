@@ -13,6 +13,7 @@ class MsgpackCxx < Formula
   end
 
   bottle do
+    manifest_sha256 "f96693e8a3abdbcd6cc4302a5c7c48ca65979171802a09f3928c4623390d144a"
     sha256 cellar: :any_skip_relocation, all: "01cb7589dc70746dda9933c2ca5b02197b948771544bdb519b8c5f626fd72f7e"
   end
 

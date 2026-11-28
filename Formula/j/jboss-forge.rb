@@ -19,6 +19,7 @@ class JbossForge < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d62865df6ece005e53a47f6f28c55cdd2485aaecd3664bc8e5086e5af92430ca"
     sha256 cellar: :any_skip_relocation, all: "f94f4ca9e8be07c5fbcf13f5c685b071091e4ee55dbe6e0bb33cbfc378fa9d07"
   end
 

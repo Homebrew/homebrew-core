@@ -6,6 +6,7 @@ class Ttdl < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "347b949ac254ba5c2ba1e67b5404878ed653fada23d868a18751f285a64fbbef"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f65ff1d0c1559dc24cd8c4db2d7728a1d4d6388cec1a007178094795271e6fbe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2da3bf541810b732f4da16193c4d962bbfe7ae4973ab272fa56a6f84e753088e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "341b8b3c1622308f8778f6b921db664b07a9be44d1cb809b0008f11e3473bc08"

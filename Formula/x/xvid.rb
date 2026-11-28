@@ -13,6 +13,7 @@ class Xvid < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "272966f93f1065f1a256164b61e96a7ddb76e3a49c91757e6e1ded74366c7fbd"
     sha256 cellar: :any,                 arm64_golden_gate: "090ab624e194d0b737ac9b282f24cb5d51fa9e6b8e67b3a5285f00019cc6d50d"
     sha256 cellar: :any,                 arm64_tahoe:       "3a95088d2a638b37179758a0abdc7324ab03097b02f2216b67989ae87d3b3892"
     sha256 cellar: :any,                 arm64_sequoia:     "e7e300ab7d6f6872713f63145b650c66d0d9841a691eb44c4ab3adf06ce57f33"

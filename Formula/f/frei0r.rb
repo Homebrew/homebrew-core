@@ -7,6 +7,7 @@ class Frei0r < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "546d09b7d7a759712a34dcf8c84ea165bdebcfcfd2c8d0c42f7a6beae969b14a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05cb8f77b9460ebb1c33eb25fd6940fb62f923b5edbf2a3a4da3697f9b3327f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77deddc2b5735ffaf736ce6c08ded0e7c35dd08089a1b34b344ea3c1ac19d401"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a52ae8e900b7ad897f674979afbd097894820d669ab27df5c3db7a179bc20561"

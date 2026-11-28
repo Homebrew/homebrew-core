@@ -7,6 +7,7 @@ class BeancountLanguageServer < Formula
   head "https://github.com/polarmutex/beancount-language-server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6d4a7b1959d14bb4ce95e7a166009b3bc998dd703f1d433a317ed57d4ace9989"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efdcbe9a5a994ed9b58786c2a6f71c95184ea32ca9eae8dfd49dbed29774c710"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3706c546f4094adf3e5bdf53fabdcd425bd623835e8b4cafe1802bf220abdcc3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "837a0c5b62df48ce8d1469c4dae7607423cf16566171ded5932ca9b0a3c392bc"

@@ -8,6 +8,7 @@ class Cliam < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d8372f06f54d38139f1ad28ca20b53741ac078edfae0cfd7e40ed5067ff55b7c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8e502e11d3bc88b9b57fdb9b0ab427b65adbe0a47fef9c678edec152b0529c1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eeafe136193d401e2cc34aa783643bebd6f72c54c77de32f17513f60ef4a5daa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eeafe136193d401e2cc34aa783643bebd6f72c54c77de32f17513f60ef4a5daa"

@@ -17,6 +17,7 @@ class Wasmtime < Formula
   end
 
   bottle do
+    manifest_sha256 "55a693dafdd8e75e62cf806f2622e9e950e8c546b410d2fde0da0ea2df959fb3"
     sha256 cellar: :any, arm64_golden_gate: "30e337b6d9f2fcfe551b11889dd4bb7b5a082d0dbc9dce9e2d498033658613e4"
     sha256 cellar: :any, arm64_tahoe:       "a7860aa8133edfb139053b23e4c3d650840b4dd219cb3df4090976a957121aaf"
     sha256 cellar: :any, arm64_sequoia:     "35a603f6a49bc1fb1fb960437698da8eda6e596811701462f0693244805568db"

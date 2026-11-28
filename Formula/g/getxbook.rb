@@ -12,6 +12,7 @@ class Getxbook < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f53f8c45db046d48b7ce5ffff43779965fdc4c76a01bec2073bdb93eef54b2ba"
     sha256 cellar: :any, arm64_golden_gate: "7793d356cf9b68b80252935afe198f9a762984db38dd7d100129b79ea8b72e2b"
     sha256 cellar: :any, arm64_tahoe:       "c6379b8509478c4deed1c672e2a6adae0a113885812edc61510ce706b436a2ea"
     sha256 cellar: :any, arm64_sequoia:     "7dc7859714c82d25b8b60eea5d33e25e0ae7846b8f7c7fae705871142d6a0a1c"

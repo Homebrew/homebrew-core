@@ -8,6 +8,7 @@ class Oslo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "54d92bb00b6936f8bb4c0785d5826a94cb525ccc267d1d892795b9c59bfe7bca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5877c9dbab9fafb47f3b0cb36a4af14f5d4284db0d43c054d38228ba9dc33ae4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1836a8af35219dad7ccc7356b6fc21582ea7caf647794abcf8e49de38c1aa0d8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1836a8af35219dad7ccc7356b6fc21582ea7caf647794abcf8e49de38c1aa0d8"

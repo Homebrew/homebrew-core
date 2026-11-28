@@ -13,6 +13,7 @@ class Cgns < Formula
   end
 
   bottle do
+    manifest_sha256 "b387f919699d0fcd2304c83630e762dad10fb5a30c71aa22030f514f4677e7b3"
     sha256                               arm64_golden_gate: "c47b62c4cb81ad6533e0d7072ae6af4d6a555961b257acf7c6feb576e73af132"
     sha256                               arm64_tahoe:       "c8229b3a6b131912d7652140857ece7f0a44a190488c01ebc747d31f94e127c2"
     sha256                               arm64_sequoia:     "e1d1bdba8c38e5099a1f8e2027a5856ec8eb8ccd0cb92fcb23f09d696f6eb73b"

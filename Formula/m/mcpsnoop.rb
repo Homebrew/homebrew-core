@@ -7,6 +7,7 @@ class Mcpsnoop < Formula
   head "https://github.com/kerlenton/mcpsnoop.git", branch: "main"
 
   bottle do
+    manifest_sha256 "250a063513d15c58e81fa956cf613b0cb99c0e5b09afd77acbd66dd222b04268"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c15a8afb0e1a9b1d896fb35ceea1720e118540e055f95e4ffb2af642bd76beec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c15a8afb0e1a9b1d896fb35ceea1720e118540e055f95e4ffb2af642bd76beec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c15a8afb0e1a9b1d896fb35ceea1720e118540e055f95e4ffb2af642bd76beec"

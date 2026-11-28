@@ -11,6 +11,7 @@ class Img2pdf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d1199a3b5db6059aeaf3197fc418a35e7b101c9b91fae4ff60ca0e3b34f0157c"
     sha256 cellar: :any, arm64_golden_gate: "4a421c302d106b5ce96c46bfaaa6745f9f1d871b970f30a827ce5d2fedbca3e4"
     sha256 cellar: :any, arm64_tahoe:       "d0e78d91b191baf86f8d13f956baea5ffd647b9ee6b7b493d7bf8fe3adc45497"
     sha256 cellar: :any, arm64_sequoia:     "14f04c5d20be7f1056201609ce6c7b9de596569b3085d08062735bfbcc74a78b"

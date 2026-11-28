@@ -9,6 +9,7 @@ class Cgvg < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "8a92ace628c571e1d229a6886aade9d8229ace634aa60f1073ec6055a8ba6160"
     sha256 cellar: :any_skip_relocation, all: "06ba6e4b8f27a86f39d20fa7d6b0b456d584d9973f15c5a7916145ae46c4d989"
   end
 

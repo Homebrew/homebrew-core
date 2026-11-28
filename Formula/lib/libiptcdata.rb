@@ -14,6 +14,7 @@ class Libiptcdata < Formula
   end
 
   bottle do
+    manifest_sha256 "c32eebbf19d34df10e0d69d30e6823f0eb259dbb316066a51baeee71c59d5c1f"
     sha256 arm64_golden_gate: "784d1a0c481c74e53c4640ecf8ce7ca957927d8ac82991372cc2fd0885b96a62"
     sha256 arm64_tahoe:       "56f886ae4863583e9c8d911dd0f312b1ddb7330043e3296eb5cdeeb14cdf13f2"
     sha256 arm64_sequoia:     "b05cc07d640693e52679619487e236f3685a1d35ad1af434d44f231a1d26601f"

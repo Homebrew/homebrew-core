@@ -9,6 +9,7 @@ class Xonsh < Formula
   head "https://github.com/xonsh/xonsh.git", branch: "main"
 
   bottle do
+    manifest_sha256 "22f9597887d25b185c93cacc2e7710f76908378548d8974e60a1b498b293f981"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6bef787c86b4d3c103522ecbb59e9ef54fc8631a659ddd9888097e49cc75b6f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "733875464be2647887d2dc800dd5413305ff98b02faf478f88713cb44d64e9c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4191aaaacda7249c6d7a7ef81ff568023caccd2f9d639f9aec0f5a3ed8989075"

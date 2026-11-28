@@ -8,6 +8,7 @@ class Xcv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b9e64cd7f2a067b0e68cd1f5029b491c3dd2afce83e87904fa7ae7646d292358"
     sha256 cellar: :any_skip_relocation, all: "d9e0dfc790cbc0a90240e2964f439260ea656a826d7688730bd9c304232e733d"
   end
 

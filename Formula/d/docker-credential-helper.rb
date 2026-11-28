@@ -7,6 +7,7 @@ class DockerCredentialHelper < Formula
   head "https://github.com/docker/docker-credential-helpers.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3a669c7b9eae2189d74ef365ad89dd38337651e1c753a46a00209f0cbb7e636d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e10dba403edee43b5d503060f486bac64e025eaa5818a934f629ffc702becade"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27219ec92bc2ee7f9e34e22da3bb7a9efe58b6169fa5102bfd2fc10f7f0912ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9316607c2830d78d0cc905d2b6790399e72c6e3b2093418b14bdc6bafabdbf94"

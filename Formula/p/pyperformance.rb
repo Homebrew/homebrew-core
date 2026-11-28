@@ -10,6 +10,7 @@ class Pyperformance < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8d5e01e0fac44985881558fa18043d399faab50b21b4020a3bb515ee73012f59"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99ce5f81c38fc29c5e8276aad5abeb64438b1e92dbb6e6d2a995aebb922c5a67"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "311bd9c8fa497645bf1b52ea724b05ab51f65226c8633b991158b7f62c493119"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fa03097d651a4d16fbcf1c7fa9f4809753cabf8271bae759e3ae6e92e0761946"

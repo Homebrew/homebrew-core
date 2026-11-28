@@ -12,6 +12,7 @@ class Zsync < Formula
   end
 
   bottle do
+    manifest_sha256 "be061017f75928ad7f8e8366112afd034de3a3e3c32a4b0e080fa475cedaf602"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3ec667f5549bab02ef2249cbdfc25431fa440bdd27b929260d46c401ea844cf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a4acdec8c2fc88425b1389ac2839c04af8f182b5c19885ddf9dd6525074cd21e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a4acdec8c2fc88425b1389ac2839c04af8f182b5c19885ddf9dd6525074cd21e"

@@ -8,6 +8,7 @@ class Ppsspp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8f61aac6bbfa967dd7dca90eecfbb47a9f4b27db0710fb19568606e0c70d9d8b"
     sha256 cellar: :any, arm64_golden_gate: "d57e2b00b58fe3b87e3ca67239c1667b3acfb6c55fe7ba67204ba278b98e064b"
     sha256 cellar: :any, arm64_tahoe:       "822fe417a8375d4e2c0e5198051f96ca6f26f1f76860eacf3b0646d7fe3b7d31"
     sha256 cellar: :any, arm64_sequoia:     "50582846511f08c2de05611b5ccb9d3c1bb150eadfa995045edf6263df1ffc87"

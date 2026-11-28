@@ -7,6 +7,7 @@ class Libtirpc < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4361998fbbb397cccc8501ebf25d18710aa79b548d11e5584dece368260d27cf"
     sha256 cellar: :any, arm64_golden_gate: "5dc87a12351be4204fc6456aa5fa13a36a9881d750835547727b42e439e70b70"
     sha256 cellar: :any, arm64_tahoe:       "b97951d0d42373be38554cede66e7a4481300117ac2e4e5fd6b2a3843c9d08cc"
     sha256 cellar: :any, arm64_sequoia:     "42a991e6d667c2293fed5e12ccb576e1a38a92ee700052c969f815aa8c660836"

@@ -17,6 +17,7 @@ class Qtnetworkauth < Formula
   end
 
   bottle do
+    manifest_sha256 "f0c11bc6c111b5f45aad122720e3fdebfeefe28a468842b4334004951847688d"
     sha256 cellar: :any, arm64_golden_gate: "166eebdb9b1f587f252c1ecf5bba11715080f6c2c9993c917ba9b647a1cc6e58"
     sha256 cellar: :any, arm64_tahoe:       "0c8b19cccbf8a6024b83727cca865636f29207e94bc55d692311033055f960c6"
     sha256 cellar: :any, arm64_sequoia:     "9c28e80a98532ce825b55d3afbb6615e654a931f8eb4e93b9ad60cac710dce19"

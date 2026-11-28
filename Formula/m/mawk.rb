@@ -11,6 +11,7 @@ class Mawk < Formula
   end
 
   bottle do
+    manifest_sha256 "606f862f73fca2a8845e20ba994a27324c2b15fb7a1a3fa5c38f5469c220dac3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "af8bbda002827d6e349138bd99cbff2d7c0e237233ef7e4f191b7a45a561f60b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cf4ed75710af2d4e5d6a50d1563303510e789498875b7724367805f6db524361"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "803a6960151403d036b163aeb09c13248f78d63314ecc97816ad03188c39334a"

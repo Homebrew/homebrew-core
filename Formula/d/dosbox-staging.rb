@@ -38,6 +38,7 @@ class DosboxStaging < Formula
   end
 
   bottle do
+    manifest_sha256 "280b21aa73f36611171dee4fc17c43e57703264f266b9b4fa1790bafe3ed92ae"
     sha256               arm64_golden_gate: "93b9bd92c7182805a4911405e98506a9545ddd467be6fcc8869c921f3fd81958"
     sha256               arm64_tahoe:       "30ad9bc41600692e66ceb028a6bc3f89c69ec1a5460a5f676487cd2e8fa9e989"
     sha256               arm64_sequoia:     "dc81c0f9d57b86249c4f2791a673193f3e91f211e5f2d88b934f0ca92c408c00"

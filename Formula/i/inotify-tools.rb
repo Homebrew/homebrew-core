@@ -7,6 +7,7 @@ class InotifyTools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6ad7dc75d3d1d68d84e97251f85ebd7a4e5c28496b9a6796d1a3f58f5082ff90"
     sha256 cellar: :any, arm64_linux:  "78136867b3c009d088b2a6acf7f825853e86ea4c8296c4383cc53afd04563b1b"
     sha256 cellar: :any, x86_64_linux: "d01aebbaccdca654e3421d8543ac2166684e1dcccc6c2173dfc49e9fee944c03"
   end

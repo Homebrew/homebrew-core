@@ -8,6 +8,7 @@ class Ttmath < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "24f274dc7d3d8cb29a8836f917a338aa2287879a275445254b86ae18c6cf4033"
     sha256 cellar: :any_skip_relocation, all: "3f53ff4798c67c56be591df93ec2ee2d2d5609ee894d958528ebd2cb65a75ccc"
   end
 

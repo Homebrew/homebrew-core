@@ -13,6 +13,7 @@ class Ocproxy < Formula
   end
 
   bottle do
+    manifest_sha256 "dd588b3b26416de88b1659610a75dce099076a35bcd00fc9a6f14a2a25a5f4a7"
     sha256 cellar: :any,                 arm64_golden_gate: "dee0148ad1a50bd65e2869c5f9205f256095af38f55f9f96fba0333a8bc171d7"
     sha256 cellar: :any,                 arm64_tahoe:       "232ed1e8370dfc9d92ffba5176c4792024f8a682e1091c427ed252a9c550c0d8"
     sha256 cellar: :any,                 arm64_sequoia:     "46d04d2d8fb1173d250c9a568512984ee10c67d0538224248858944a7c65dcf2"

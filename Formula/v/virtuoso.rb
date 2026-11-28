@@ -17,6 +17,7 @@ class Virtuoso < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6b02bb5312e782de35d61d116b5ecfac95c162f17279cde17d17f3647b3289dd"
     sha256 cellar: :any, arm64_golden_gate: "3b6bc9a6c291d222e83fa65a6bfd9dc13f0b808c5307b22d0de497ff6e3d670d"
     sha256 cellar: :any, arm64_tahoe:       "a01d634fc0a122c2e133dcfb55143d72a2c34b861133061604772f792d0cf46f"
     sha256 cellar: :any, arm64_sequoia:     "a4378e99e79e94f8f373027cdb1f9c682dc6277f8d7eb8b9748e67d284e2dd63"

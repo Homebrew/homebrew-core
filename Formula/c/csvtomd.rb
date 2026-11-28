@@ -10,6 +10,7 @@ class Csvtomd < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "6641fd71342f1431895115053e75b7f4b20266fb9f36ffc30865b3696e3989f7"
     sha256 cellar: :any_skip_relocation, all: "5ec7258739ce76c3ca9987d824d27efcd6897ba1f75e72fe59dc975f5e4b1246"
   end
 

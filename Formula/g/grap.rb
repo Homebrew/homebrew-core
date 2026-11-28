@@ -11,6 +11,7 @@ class Grap < Formula
   end
 
   bottle do
+    manifest_sha256 "60b3ffc03523911d47b372fea83810c4cd60e578990d20ce5f36e932dad88156"
     sha256 arm64_golden_gate: "c26664837a984e2976898f6b34ed582e43be807b001f579cc483ce232aa2b138"
     sha256 arm64_tahoe:       "2fcedf83a80e2a8f119cc9618c9b7ea778da28290c424e35ad9bac0c772f0d72"
     sha256 arm64_sequoia:     "7847dda0c19b96bed615ddf354dd379ce1954df1ee54f8fbd2c19c43152dbec8"

@@ -9,6 +9,7 @@ class MoodleDl < Formula
   revision 14
 
   bottle do
+    manifest_sha256 "1ef9deefb5dafbd66d137a432df3632789aa7e37306ce5785dd34068ebea9823"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4efabee3ce54df573d8a94757e5d06651a0977d25e78071ad750cfbf9c5fed4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "239c283d849d5ccc486aa277c1c53427bbf471bd642a239d7a898ac4a61517bf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "58ad6896a227beafe6e1565cca27eddb034dd66a056274ec5b90f2ec9163fae3"

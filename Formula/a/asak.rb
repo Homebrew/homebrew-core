@@ -7,6 +7,7 @@ class Asak < Formula
   head "https://github.com/chaosprint/asak.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2c393ad91ce139b4a8491352763906bf8856a7f33370c77a132b2f7be9260da9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f4105837149ad3736a13468fc6ed5d97c1586f0c44758cae8d61455c8ea45301"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ece34a9219e864c87ba8cb21d120dc79100df2bde873715f5fa45401b7af0548"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1aeb82e44bd338080df9218164db8ce26330b5f4c89269d45a8f16147757602f"

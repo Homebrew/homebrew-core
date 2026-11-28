@@ -14,6 +14,7 @@ class Yuicompressor < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "f152d4180b51f03db7854ca4acaca4030f3ce95fcdce0b2e391f86f9c897b414"
     sha256 cellar: :any_skip_relocation, all: "85fa9d1169b77f59259088ebe086f6611f7d14b87216c4e3ed0090f3c04f34cd"
   end
 

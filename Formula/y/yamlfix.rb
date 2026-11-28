@@ -10,6 +10,7 @@ class Yamlfix < Formula
   head "https://github.com/lyz-code/yamlfix.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1b25ae4afdbd5349868a1c7613e20501a692e7cf6ee35bd6ba640a5b55011061"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e48609d764baabfe99ac4b0e9c536ad056453965ea6840fb9fa8fb9e06bb71c8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e48609d764baabfe99ac4b0e9c536ad056453965ea6840fb9fa8fb9e06bb71c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e48609d764baabfe99ac4b0e9c536ad056453965ea6840fb9fa8fb9e06bb71c8"

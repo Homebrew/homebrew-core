@@ -12,6 +12,7 @@ class Pax < Formula
   end
 
   bottle do
+    manifest_sha256 "c406cf13d44aa7a0c7705627fddcf324ed7fe3d5c76d48ad0c8ad1067e946df5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a8a7db9e2f81b928b06ab5c82a2312f41d3ca0b2285ad3986b1191afa01d02ef"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d22fadfbcbb47721a7e9730f8ce344c3c2cfc235f6387dfaf12be14b24039829"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ac5cccaffe97f01cef5e2615cc7e7b5832226d1773610ca19df65f54d35326a"

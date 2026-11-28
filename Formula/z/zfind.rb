@@ -7,6 +7,7 @@ class Zfind < Formula
   head "https://github.com/laktak/zfind.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ad0609460ba5e89a90022e0af8ec2cbae50a40c64a5ecf5ee955c03504532198"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "57cda6f96d0460f0b9b3a85300169e8999df3bed251fec400ed915bf14b9c396"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9484b12aa34aabcad72ece4f46b0dd3bd97591c180a40363116d3e3f31c6244b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42a14d6e1ee0eb40c0309c893b877c1e7440796eaf7209db195c576362f096e3"

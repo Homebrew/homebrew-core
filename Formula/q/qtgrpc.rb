@@ -19,6 +19,7 @@ class Qtgrpc < Formula
   end
 
   bottle do
+    manifest_sha256 "dec07d381b4f7294a8ea01b4c903917043b91f10856d666ea8835f4a0e95751a"
     sha256 cellar: :any, arm64_golden_gate: "fe99a6bcc97f5198e9804096a81a0c386603f11df1451adb4c6f00315f4cda92"
     sha256 cellar: :any, arm64_tahoe:       "038147e90ccdc1d3d89a91da2771e08bc584438f89a6b614126f8b831e76c9bd"
     sha256 cellar: :any, arm64_sequoia:     "76932f09697b959f4ac676f38b5bf43a72277a7c257de59e7d22c4710068992e"

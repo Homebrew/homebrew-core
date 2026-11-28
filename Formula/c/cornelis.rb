@@ -8,6 +8,7 @@ class Cornelis < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "6ad18d84a20b84707bc80d8f0a1415ed093196cb22dae307fe1d9c111a93caed"
     sha256 cellar: :any, arm64_golden_gate: "ef9be5bb0bae4f7873bc5dd6e20ccec100eb7e60f46df7d62c206774d811c7b8"
     sha256 cellar: :any, arm64_tahoe:       "823e1f7d48f7728b1938bfdc6f13d5d019eed5aea1dcaf0ffe76c0bf023b5c1d"
     sha256 cellar: :any, arm64_sequoia:     "4c512b4a244010948e8610c46841d572bbbb27c6e9240a1b755a42cabafcfb51"

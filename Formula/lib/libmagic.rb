@@ -11,6 +11,7 @@ class Libmagic < Formula
   end
 
   bottle do
+    manifest_sha256 "52ab2b7793901371b78f43d169dbaa9706cdb79608a6e40c3b9dcaec8c5557b8"
     sha256 arm64_golden_gate: "a8688b01c786d1b6c27d273c347e3f8f15f996a40827cf057dbe92573e13cbd6"
     sha256 arm64_tahoe:       "c8c01258938e218cf9dcff85eaf7580b299821fab53f4d6706679d41d55b476b"
     sha256 arm64_sequoia:     "c6e5827a76630cd9d8d7cb5ec0372c372cca1da5d80d4a578931020332ee3e88"

@@ -10,6 +10,7 @@ class YouGet < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "11f98eef769ab1b091aae845a853bbfeb8d8b62481a8f4356a93580399850202"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5af36643b679d3ed5136e13626d1a0bffcfb1aaa8ea4f80c3e1b78c9be6db4a7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24db47cca71c512e6193a0c85e8ffb202e7d950dab53a4789999d7ea4ffcbe04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "286f972ec36ca0369017c18819239f1b8777021462bde933a61fa372bd63ad87"

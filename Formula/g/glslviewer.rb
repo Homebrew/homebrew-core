@@ -15,6 +15,7 @@ class Glslviewer < Formula
   end
 
   bottle do
+    manifest_sha256 "8ee5d4bf98c254a78ffebeb0ce72b9b1dab4e107ea046085b481b2821db88f39"
     sha256 cellar: :any, arm64_golden_gate: "3f6ccfb264d1882bbadd81b5123a756b700d6cc8a6e32c871eb308a2576cb08a"
     sha256 cellar: :any, arm64_tahoe:       "ef4a5d219028d7ea4a08bf1a050e3c67f20c78a24eebe767b740528868659cfb"
     sha256 cellar: :any, arm64_sequoia:     "95ed442adc21687a48ea4013dc18894dd52969bc67278275f406bc153cb2fe18"

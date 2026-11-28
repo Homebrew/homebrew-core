@@ -7,6 +7,7 @@ class Colfer < Formula
   head "https://github.com/pascaldekloe/colfer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "74aefd26e38f91c27f4b5a97db43922368eb49912c2c18ca424aa2bae3e019df"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c16accfa983d75bcff5d87531a26c0093a45652f35c8bbb84881f5a02790c0c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6753b9901bb37c362353210bd3fb81d2330d08285934c9fe54f79abdf644cd2f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46194d5083a34ae3e54cdd690610c1dd5fa385e2311cb1bd61e852029a53ec85"

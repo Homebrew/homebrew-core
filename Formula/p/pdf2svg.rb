@@ -6,6 +6,7 @@ class Pdf2svg < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "436429314168a86c73aca0bf14a71b19ee7c1a6ff2cdec9f1896496db687f2c2"
     sha256 cellar: :any,                 arm64_golden_gate: "ceec11ced7300e7d43177f0a33b6fd32345b01555e99af16f7bf75854d504608"
     sha256 cellar: :any,                 arm64_tahoe:       "58b344d12758452174b82e00489ee46159fd8522d1665748c87226b390bb2a42"
     sha256 cellar: :any,                 arm64_sequoia:     "9d3dee3bc068da7b48766e2020f59c88b699526c1e0649569ff6ead73832a2d2"

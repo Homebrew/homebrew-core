@@ -17,6 +17,7 @@ class Aspectj < Formula
   end
 
   bottle do
+    manifest_sha256 "24f5fcce77d9612e8c2090eadb088e8a8423f24584b51724c2adb99b11dafd08"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d70e4f59ccaafeffa77427411e24b89925c396c67dbbe9328f1c089c8e92ac8a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae28a75f1f27bff6a4306655002263f8474d91065966b44665d02baf167ff8ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae28a75f1f27bff6a4306655002263f8474d91065966b44665d02baf167ff8ef"

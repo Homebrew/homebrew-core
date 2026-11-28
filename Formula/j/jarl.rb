@@ -6,6 +6,7 @@ class Jarl < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "100274dd2994628db3dfb2686e94801577dcc1f39eecd5286aaa77cecce276c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce4654b9bea5aa5b5a0ca325a8fe18f9b7ec91895aa7c9858fee1732f0a542a3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9572e0cdd3cd1d29d45269ba2f55cb0d8c7714bf130f854d98730e948be50da7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "61deacb0a5dbc82146109355c98e3c4d419d785cee312f4c45ee0bf3275eb5c9"

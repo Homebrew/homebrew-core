@@ -6,6 +6,7 @@ class CsoundPlugins < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "1f5a53cf016ffbc5bafd9e2d87168f50f929dee7128b17129c835728fbe9557f"
     sha256 arm64_golden_gate: "a5d7fb7c2700679a0407972da0607d7540bac9cc5fcbd8a0fad48279d9fa4dc4"
     sha256 arm64_tahoe:       "b00abf374beaf23b853c36b37984c8234ff470ade121aff86c77ec9f1ada60e7"
     sha256 arm64_sequoia:     "076029ed4d523b26b5e5502b181ff8830cc91128aa61f8120e2d498fde314048"

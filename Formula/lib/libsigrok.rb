@@ -50,6 +50,7 @@ class Libsigrok < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "78c192a58e3d141e73d4ccc0b14e914dac654dbf130db784066ad53da3fb9f2a"
     sha256               arm64_golden_gate: "009b89ccb79ec3cf829d13817aed5138ed4243552533bb0bc123644442dbf6ea"
     sha256               arm64_tahoe:       "bcfaaca5249efd3400a5611b2cae07f80e1c179dcde274b1d3bd4e34779c13d6"
     sha256               arm64_sequoia:     "3953ff1611f9d1f60b6d574ce945ba34f8df60844fcc70b7ee0c967dc881fc0c"

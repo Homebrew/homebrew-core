@@ -10,6 +10,7 @@ class Cppman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "59a17af9e0ccc3b3aeb806e6957b6ecf22db76b3897c4172f727c16089e403d0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0753f3c0011f608d95c1f9b45f6ecaf0061da6aae053d40bd43db921049ba5c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "067845e68c81d2428eec951a67388cc308b3aff83557a93161638c67ff34757c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dcfe857c334c4352da0039bc7cca8bef7fd82da434850f365441f08380554ab2"

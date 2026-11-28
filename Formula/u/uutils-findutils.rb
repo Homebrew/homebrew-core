@@ -7,6 +7,7 @@ class UutilsFindutils < Formula
   head "https://github.com/uutils/findutils.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a101877534bb8374afa32f44e8f8eca627848380d65d084a6a928952834e0e70"
     sha256 cellar: :any, arm64_golden_gate: "13aa41b6dc8193d4384839047e857168c29105a3a07984f8c8ffd871fb1a8d80"
     sha256 cellar: :any, arm64_tahoe:       "ffab93a4a672cf3fea6c6184cde73db7f28b6c825f4b9ee28f38578aeddbdd48"
     sha256 cellar: :any, arm64_sequoia:     "14bc09b33c21300ad37c0396695b97a12c4a7cbf6330ab2fba8fc88a044e61e0"

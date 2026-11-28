@@ -13,6 +13,7 @@ class Exempi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "74d1bc3dae4d9cf91005bada2a9f8650d1eb96c5e73f3e4e7b8bb1bd4c102003"
     sha256 cellar: :any,                 arm64_golden_gate: "c10d6126f322830409a2a0a4d9c6fc65db53b9fdd1b703b451a6d7f55860bba1"
     sha256 cellar: :any,                 arm64_tahoe:       "f9404d65e273a1db86e861cf3cec91b90d84e6f9cf730b16be039e7e9e9fd9f7"
     sha256 cellar: :any,                 arm64_sequoia:     "119f156a24d54cf6fd5ebfea60608d8adadf7d9631e6b98d32d281279fb75331"

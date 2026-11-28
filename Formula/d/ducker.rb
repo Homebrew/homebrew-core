@@ -6,6 +6,7 @@ class Ducker < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "e45c9716fd71668351ee1d55fdb01fc51d52d8d0caea81311ad100587ebc1c29"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f88edc03fa80185dab67d4168bd411cfb840901e3a2504efe0387a898bb44b4a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b0c5d716a4e2af43b24e7ceb7d1e09b5856a2103d133027a442ffb0fd2104321"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a54018ff813415704c08ef18f54122ee747c452539271357dc240e93b118d13"

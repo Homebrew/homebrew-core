@@ -7,6 +7,7 @@ class Cascadia < Formula
   head "https://github.com/suntong/cascadia.git", branch: "master"
 
   bottle do
+    manifest_sha256 "186589aaecc2e697ec958d8425da9117cae7914d31c3ee56e915c09f4b7cc62d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e8f6952520c280bb14a0bae256b2de3d5fa69fd1a425b2c03865c1765cdff041"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "848529a838caef0f7a03d69fc4289fa3a1e766519c70e299cce9190493aa440c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "848529a838caef0f7a03d69fc4289fa3a1e766519c70e299cce9190493aa440c"

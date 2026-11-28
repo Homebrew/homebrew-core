@@ -18,6 +18,7 @@ class MecabIpadic < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "beaf5bad172903aa536fbdbbb6e7552f1fd115a1099553e4ee0be01401a3d469"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1dad4b22266ef949d6db8a6dc3f1a98d4f23baf7f31e477d5968ffb4ebe3fa71"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3bdeed6d823a573bbac30e4994b79e26ae025379d2cb9b2193128b0cda7aca85"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b0b12716ef5436fca113fb97c824e532b50b86ef59cb5b035498d00f54579286"

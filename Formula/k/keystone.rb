@@ -10,6 +10,7 @@ class Keystone < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "6ed972055b1d52d88e9b76dae227fa3435e2b4490fe9cb9d60615825a522368d"
     sha256 cellar: :any, arm64_golden_gate: "778ca2c22d2f7f31fe852406e0b843f337dd6339120e00b2ace28cece0ea6c6a"
     sha256 cellar: :any, arm64_tahoe:       "6fdcb3473e6ef6e69c13deb8493faf16ef5b5fcf78487b1bef9d601ad10c2de9"
     sha256 cellar: :any, arm64_sequoia:     "93f04ae45bc858856ae22ed8dcffa6cb8c946b24a134458a3f4e983cb076ca42"

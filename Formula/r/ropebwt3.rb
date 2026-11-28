@@ -8,6 +8,7 @@ class Ropebwt3 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "15520d8baf7a6bb25ab865502b66c72adae9c200ac480957d12f830d697cce99"
     sha256 cellar: :any,                 arm64_golden_gate: "2fbd6e2c2ce8f712926af44b906ab691dd8995148bcff7923a0224e4f3b058fe"
     sha256 cellar: :any,                 arm64_tahoe:       "ceb1467adeb7b88f75b34df0e9e4d4680428c3d3f470731a54b89654240f0c02"
     sha256 cellar: :any,                 arm64_sequoia:     "cb74b320bb47569ad99f4f971eb293f180dc16855e39fe1ff78e4f7f17db5262"

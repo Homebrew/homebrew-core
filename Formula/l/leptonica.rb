@@ -13,6 +13,7 @@ class Leptonica < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "af62d8f8d56ee7d863f3a58dbaa27799670be4f992f5c00f9307bc937a55911d"
     sha256 cellar: :any,                 arm64_golden_gate: "724c8c7898e9483c4d9bf610b0c6f7b47b409b66be866e96ab53b98b0283f117"
     sha256 cellar: :any,                 arm64_tahoe:       "6932bf1645434e6c93d7bd4ca86623c55bdbd6d386833ebbdae969c581d4d303"
     sha256 cellar: :any,                 arm64_sequoia:     "305a35821bb0d618e614c791e7fcd9e58e92b08d5763b4b4e1dbdcf69619d034"

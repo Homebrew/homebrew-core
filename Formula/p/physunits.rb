@@ -7,6 +7,7 @@ class Physunits < Formula
   head "https://github.com/martinmoene/PhysUnits-CT-Cpp11.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0907d1c4c1f464fd33db93a937d016f7c71a5023dee3024001a4dada030192b2"
     sha256 cellar: :any_skip_relocation, all: "e4d6c75204e45953990cd24da453433b51fecadea96fae5565348329c66fd687"
   end
 

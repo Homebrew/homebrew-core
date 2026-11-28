@@ -7,6 +7,7 @@ class CargoFeaturesManager < Formula
   head "https://tangled.org/tobinio.dev/cargo-features-manager.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0446bc5180d4a5d4e13de01907ae503737c385f858a54333d7a5b921cb0af452"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ef06f722fbf9d170afa21a95c1c03ec1904c96c0cd1da554b9ecf28f6190c421"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8159619cb9d57546837377328b34f49d80144cb6d897885aa93ce405741ce182"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e04dd0616f9de191578403a1eeeab8ec1f4b7675572422f468d8756f10f109fa"

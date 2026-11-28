@@ -6,6 +6,7 @@ class Witr < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "728916e0cdb00998adc76bc6f3c301221ea5c2bd0e31fd074263c27d3d255500"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84a9999489408a0df28a3c3a2b6ef3221875028047b915976cdf7734562b358d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e0814a5a4d9ff19b747d4ba9625305e47c4cfad8b4e2fb62ea42f01508966f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f32dca5487d698306fbf0feb4b4ebe6d4d0c33c3592337c0bd5835cf67195df9"

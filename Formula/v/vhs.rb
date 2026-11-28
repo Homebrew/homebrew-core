@@ -7,6 +7,7 @@ class Vhs < Formula
   head "https://github.com/charmbracelet/vhs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4403f90dc46bd706779eacda3e9489cd917841bc78c6b636bcaa41c1b0e53a4f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "95ae3e96bc433efaf012880b89edb1e511719bbd497adea94280c0c7587fad1e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "95ae3e96bc433efaf012880b89edb1e511719bbd497adea94280c0c7587fad1e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "95ae3e96bc433efaf012880b89edb1e511719bbd497adea94280c0c7587fad1e"

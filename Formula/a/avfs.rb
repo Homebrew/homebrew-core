@@ -16,6 +16,7 @@ class Avfs < Formula
   end
 
   bottle do
+    manifest_sha256 "c31327f753886f37233d04483c889c8da01eabffcdda99e4530d87fec10ae9ba"
     sha256 arm64_linux:  "ac51b01c84fbfef1e9c0772ff4461db668ef7eb1e7afe73440bb8ec77ea7ac6b"
     sha256 x86_64_linux: "895ffb92e873e6275a5fa024d535d469679f0931cdac2841b4604eb54bb4c45b"
   end

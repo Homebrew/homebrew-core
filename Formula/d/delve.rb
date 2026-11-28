@@ -7,6 +7,7 @@ class Delve < Formula
   head "https://github.com/go-delve/delve.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4635199d103cacbdb1f7fcb59e0a61ae2aa9fa721f4826d561fdfc9c20113b2b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2b95af1ceba96c075ff60bdbbd7ba5ea120a0f8a73cab85a47b123d3cf405638"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b95af1ceba96c075ff60bdbbd7ba5ea120a0f8a73cab85a47b123d3cf405638"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2b95af1ceba96c075ff60bdbbd7ba5ea120a0f8a73cab85a47b123d3cf405638"

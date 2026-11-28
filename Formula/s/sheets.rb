@@ -7,6 +7,7 @@ class Sheets < Formula
   head "https://github.com/maaslalani/sheets.git", branch: "main"
 
   bottle do
+    manifest_sha256 "992017787b5586a787e8b280f08c15da0c1213c55d79d0f5aefa5c65e834924f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "673bea1814e20e5f8dd94fd5dc4aa557c9ab1ea741c027bf33e0991e849ec562"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15ae8d60a16d08c389fa2c33698848b1f17d865c1627be3a6a254ca71dfa3e33"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15ae8d60a16d08c389fa2c33698848b1f17d865c1627be3a6a254ca71dfa3e33"

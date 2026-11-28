@@ -7,6 +7,7 @@ class Goproxy < Formula
   head "https://github.com/goproxyio/goproxy.git", branch: "master"
 
   bottle do
+    manifest_sha256 "75a94fd6e09e5f4cc9ce277419f8583d22474e926697e12646a47e8b20cab6bd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bba789f06eefb6deda4e46228532cb52fa0ac2065ec530d6c8045232ab1d9720"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6fe5b22a2855bc41c990c21c058242eddda66aaccf7651ddc499bb45086213f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4628f23dc61779b619443f499de2c7c9c59af86728a04b0c87f6e6230d99ba0b"

@@ -6,6 +6,7 @@ class SynergyCore < Formula
   license "GPL-2.0-only" => { with: "openvpn-openssl-exception" }
 
   bottle do
+    manifest_sha256 "c591818cb2ac1a39babab6c50a1f3f75f4a7e33dc7d87e0dba744819ee23c3b5"
     sha256 cellar: :any, arm64_golden_gate: "21a13214c2e342729826c304cec3a1a2972315c0af7cbeca78e5011ccb5060f3"
     sha256 cellar: :any, arm64_tahoe:       "58f8adf056ec963b144e7ae68d764423f4b5a42fae6a75a572d216143f577daf"
     sha256 cellar: :any, arm64_sequoia:     "7a6895a7dd8fcdb78ad1e33ec46091e546e319aff50743dcd39cb0152de206b9"

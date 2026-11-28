@@ -11,6 +11,7 @@ class RandomizeLines < Formula
   end
 
   bottle do
+    manifest_sha256 "74cee4173f6d2e6cdea05eb8f9becf80801ef46eedd145680a46a5084b22d75e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b6c28adcf2d03822f5caae9d86875b7cbb93dcb234f1f3211c0e156ad2c4f1d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "54390ca4a64d2cc044e4a562f868476d9821274a86758db0fd035079fe9e5db2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ec08636ac3e5aa68060b1f43a1bd6a5cad418f489a4bbc9b9554053aa06188e"

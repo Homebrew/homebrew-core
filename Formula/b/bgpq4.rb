@@ -12,6 +12,7 @@ class Bgpq4 < Formula
   end
 
   bottle do
+    manifest_sha256 "e0b4d1214d93b80f070b997d0116523af5a91d0a1f0accdcced7f9cef3cd4b98"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "529c8f5d2cfa881163af8e10660e9ac72bf05152034dd0326924b7de1ff90a6d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "469313e0a6b2553d2d7a8f50aadfa0e5250fe81529c2d03247abf5e77194bafa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b0fec7a9018f00cbc8321a856081ebe8fe9c700fd318116bcb3ad0d1b9cf4117"

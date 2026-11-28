@@ -7,6 +7,7 @@ class MmCommon < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "03472dc265fe6ab59d68388814177db978bcfdefd3764cb5760a49b47a88c7d9"
     sha256 cellar: :any_skip_relocation, all: "dfa327802c470402e5e48819701e3c5cda885a677089d83a3b063e8364d42bf6"
   end
 

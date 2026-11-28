@@ -6,6 +6,7 @@ class Termshot < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b7c4f8add40ff37bb3e598ecedecbf27ab08d2b6a66db0bcfea5a960916df280"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "173ecdf0e37df689651b2c6282a841e12bf806583eb946ffed94fe9dc8958d27"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9e84923bf4300c54e04efee620db1bde1ea367dcc0f2dfafba0c46b92dbaa4a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e9e84923bf4300c54e04efee620db1bde1ea367dcc0f2dfafba0c46b92dbaa4a"

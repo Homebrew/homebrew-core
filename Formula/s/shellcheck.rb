@@ -9,6 +9,7 @@ class Shellcheck < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "acad5720761e5d8173b0fa64ccc3ecc0a683cdf92ca75c25ecc64911a34363ed"
     sha256 cellar: :any, arm64_golden_gate: "c25e9bf8d768c22363c476f333d5ba3c890255a057fcdb34b79d860712292359"
     sha256 cellar: :any, arm64_tahoe:       "102f7f385855df8eabf5c9017b8d729a02a5ccca810aa23e3ae700a46226ab70"
     sha256 cellar: :any, arm64_sequoia:     "7fda74bb60ad4ea2b2a7a6f75ed9d51457a0e238a6abb8c91ad7ce63f4d4d517"

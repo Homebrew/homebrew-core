@@ -7,6 +7,7 @@ class Bookloupe < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "18865ce6dddcba2b644ca646aec59b81c0b1920eedfbb76e440ab102c1a2a460"
     sha256 cellar: :any,                 arm64_golden_gate: "d9a57dd3a30df7f326951caf9e83583ea13206465206860f1a7da6872f348995"
     sha256 cellar: :any,                 arm64_tahoe:       "5fdd9c33dda4df9eb880724c9ebf43aba9c5c9ebcd3eaa3659c06dee3506a9af"
     sha256 cellar: :any,                 arm64_sequoia:     "7ba3e588146783e6f0257c71de17fd54e6f4690c272790982b98f58bbfbf62f3"

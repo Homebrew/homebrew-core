@@ -14,6 +14,7 @@ class Src < Formula
   end
 
   bottle do
+    manifest_sha256 "b638ecb01291aee8223aa4add3a3858814701e47a54ae67f6756f3abb66d62e6"
     sha256 cellar: :any_skip_relocation, all: "1f93fcacb4087ebac44a21d38703122dcf6b86b6c64e6b5b9a20c1d3b571fb91"
   end
 

@@ -12,6 +12,7 @@ class Firefly < Formula
   end
 
   bottle do
+    manifest_sha256 "29c2e1482cafbcdaf717ab46a7b42603698e73c91f8ba52b0617ed69b153dd5a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f27ea667d989b8c7423a1a3168867399b98fdbd34a0f3522633f1f44afc6371"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23c8e358bda21f179ff5b0211f8bb73012c83d5816b021e2790ce46b9dc291c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23c8e358bda21f179ff5b0211f8bb73012c83d5816b021e2790ce46b9dc291c3"

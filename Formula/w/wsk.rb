@@ -7,6 +7,7 @@ class Wsk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1d1fe66d4bd6d876f8935fdd35c9694c76d1a509265115328ee17f71ff056250"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6865120e7fb25c90d75b1b274a8644daef75355e99132390e200d31e6c3de24"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b614420f313bdc3e60321943dec593d6baea0d75dff36d25a6152d283f5f5f5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d021a20a2281bc21cc5e1512fc566d655403d2e807b65108998766d9f2439db5"

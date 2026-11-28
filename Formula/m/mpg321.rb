@@ -7,6 +7,7 @@ class Mpg321 < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "8fc84a26a78a55419a4ff84dbd5faebc428d62105177514cd8d55eb42eefcd41"
     sha256 arm64_golden_gate: "3f4b3d0864196826ff6e55808433b70cbe785215b5553295933458884bf61cc0"
     sha256 arm64_tahoe:       "4582777d133873930312cc1c4314d0997e3219f582b07c771a4f413b5cb0cfc5"
     sha256 arm64_sequoia:     "ed6f4de0b208b65bdc562fefd7f6cd8dbad5b6489b52bc24b4bf9109de4b6f35"

@@ -8,6 +8,7 @@ class Simg2img < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1cb23c5485b62be2a548d711fd4d9cfa87dc02be9758001bcc221dedc279e651"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90492389946fb9a18e65cbf50b327e3a38d9a9cd71c74d574d6a5a989eb02cb0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "24a4849d1dd7c830c30fe616fb752e3fd0c2fb11313ada32d3355762d4765881"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9577828d12632f3b93ffb4a5ab7d41ec8a103c0c79bf3f63b82b2c5c4824b7bc"

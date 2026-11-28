@@ -7,6 +7,7 @@ class Liblouis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9cd54d37c12925ca5977e5172fdf739219ce996eee390aaf8a08bba5b9ff8a0a"
     sha256 arm64_golden_gate: "60cadae9a7434f9cb7887560efd19cb44a70b8157aed040dcb813d811ce8386f"
     sha256 arm64_tahoe:       "56e4f4d314661bce75bc35213f0d3ec49e0f30ba998a604f64d74217b7a3b002"
     sha256 arm64_sequoia:     "f6ae9d39f4433af8607ebdda1456d64c0a0bd9927ba5a3640fff8792531748d3"

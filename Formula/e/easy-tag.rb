@@ -8,6 +8,7 @@ class EasyTag < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "52251a5ff27171f1e8275f9eb001fd7313453c8c8f52323c996cc4a251aa0d36"
     sha256 arm64_golden_gate: "0691714914efb06d5d02bf4a841d91742f03b89c431e603e496ba7d56f643e08"
     sha256 arm64_tahoe:       "fc83e82e1bf16cb52d433688b8c8b89374c2d09027a453745e57ca27ee5b3b4d"
     sha256 arm64_sequoia:     "f79b0ed3c4026cb1c8019b60bd0ecb5bf466b14e758a70cb4e35bb6642e45c98"

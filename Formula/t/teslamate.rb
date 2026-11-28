@@ -6,6 +6,7 @@ class Teslamate < Formula
   license "AGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "3c56745c211de1bea42126b08f381dcfd4bb448234ccc7fca48a4efdf67d8040"
     sha256 cellar: :any, arm64_golden_gate: "0899d0dc63b15f12c67cad629b1a69bba04809fe47faa0e7c4aa935508899b64"
     sha256 cellar: :any, arm64_tahoe:       "4e90bff20f1097562212b80f121deb2f4affbc3cd5ffa97388d22fee145a7258"
     sha256 cellar: :any, arm64_sequoia:     "dcb6cd9cda8498b5137daa705c6887d1d3bf511c789346370e47f7430240b8d2"

@@ -7,6 +7,7 @@ class Websocketpp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c20d7cf2706ff5d26a5698b1793283b664be6c61358fb80b0b14d1d5545ade40"
     sha256 cellar: :any_skip_relocation, all: "782e6a1f87776d26f0aa59cecb2413a4e1b69291cfe5feadb07614138280ef11"
   end
 

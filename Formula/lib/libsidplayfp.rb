@@ -11,6 +11,7 @@ class Libsidplayfp < Formula
   end
 
   bottle do
+    manifest_sha256 "c610f72e13d1f0ab2947e7c3306c86d9b9822271af3a031b77e7abca5e9fb81a"
     sha256 cellar: :any, arm64_golden_gate: "32e02d3142a0d86bae26899a23d4549e2c7abde2b303cad7e750c108d98aa464"
     sha256 cellar: :any, arm64_tahoe:       "67e359a1976948d5cb47aca7b3f9be9639967f8866953baa1b4d6ad9a1132687"
     sha256 cellar: :any, arm64_sequoia:     "6020a145aac9cfca4e20ddb830f587012d59b685196d546aacbbbf9a1f9b9cc2"

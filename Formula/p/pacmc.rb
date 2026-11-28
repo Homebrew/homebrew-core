@@ -7,6 +7,7 @@ class Pacmc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9ffb77bb8ef4895f2779a6a2e64185837bf6566b75daee7968f81bce9f281ab5"
     sha256 cellar: :any_skip_relocation, all: "9d54abfccc300901396d32f398dd0560690dca1f3414ed70a66156924ea8397f"
   end
 

@@ -7,6 +7,7 @@ class Mp3blaster < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "bfca4409993b9486def3c1ad2175df48a937a9837e4ca24fed50dbddac9ed436"
     sha256 arm64_golden_gate: "b1daf0266572326a65db60911a75ee90d4633a5d2d0fe56a24fff4ee225fe9e2"
     sha256 arm64_tahoe:       "2cbfef0efe3e24570f47c861959ab0cd66697709e878f9fc29525b8b25ce703e"
     sha256 arm64_sequoia:     "63db46a60c041370f9850800c5db80e4aae38d3bf3f2320cbbfcc03e5bffa2d5"

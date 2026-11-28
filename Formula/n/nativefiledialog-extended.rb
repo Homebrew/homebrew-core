@@ -7,6 +7,7 @@ class NativefiledialogExtended < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f295b36f611748b53eb0b515b7ea2de3e047683ef1e5282f76d81dab3c9b0e00"
     sha256 cellar: :any, arm64_golden_gate: "d368ee5c6aee72210d1852bf1eb11104ef0d90d769a04a1870ad08fd95a97c17"
     sha256 cellar: :any, arm64_tahoe:       "a9edd26f4d75837a4f6131d0c939f053807c85889ba11f03b996b968c2f7b5bc"
     sha256 cellar: :any, arm64_sequoia:     "20da32af5dccba65607c4843b948b3229fcfdd1b780ca78b7480fb848c321ea2"

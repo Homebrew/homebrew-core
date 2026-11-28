@@ -11,6 +11,7 @@ class Unoconv < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "de1a57692758009dcd46dbc06e6e613275c52c6bf9665ed67433f04bddab7403"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "f291c61047fa90c216cc24d8363d849594bfac8ecbe103a4163a5fdd1c2621ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "f291c61047fa90c216cc24d8363d849594bfac8ecbe103a4163a5fdd1c2621ab"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "f291c61047fa90c216cc24d8363d849594bfac8ecbe103a4163a5fdd1c2621ab"

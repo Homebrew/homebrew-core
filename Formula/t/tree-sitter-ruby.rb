@@ -6,6 +6,7 @@ class TreeSitterRuby < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8a07406113702c9f87b2636759b4f94eb42041173f0e22ad0054a68e0a3ab98b"
     sha256 cellar: :any,                 arm64_golden_gate: "48a000a87d99799cacc2bfee648fc5705997c1a5b085cd08f387b2d804f4dde5"
     sha256 cellar: :any,                 arm64_tahoe:       "394475b85b7a20b4a98422f2c7a39c7b76a0f0b2bfb185419a4dd18601f33d97"
     sha256 cellar: :any,                 arm64_sequoia:     "c330f405d59e440333f38cc2a838112eb942ca80f3221ec91f85ec34495d7667"

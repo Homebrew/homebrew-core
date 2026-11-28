@@ -10,6 +10,7 @@ class Gdb < Formula
   head "https://sourceware.org/git/binutils-gdb.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e13c88984da39e12cdbccdc012755d916a96e66091a122958feea57d05bb50cd"
     sha256 arm64_golden_gate: "8dee7b8cc7eee80d35988b2ae17291083b8fd951209cb4f60afc9a4cfa8d3ceb"
     sha256 arm64_tahoe:       "c616c89bff1382d9481cb51f8e3737f91684f7b9efd184eae0f4fc71749e6f7f"
     sha256 arm64_sequoia:     "5ef8f3a5486ae4343d5ed0993d6a3b30f2b12899bdf94c73e522011528e6e097"

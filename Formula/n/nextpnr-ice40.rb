@@ -8,6 +8,7 @@ class NextpnrIce40 < Formula
   head "https://github.com/YosysHQ/nextpnr.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a64a55d7b606eecd610f4ff505ded910e4fa3d25c3a399d09b8da1d91461eff3"
     sha256 cellar: :any, arm64_golden_gate: "d97901ecf10487fd92f7f34a193e1e0698499ca040003f9841ce676d42bc5f7a"
     sha256 cellar: :any, arm64_tahoe:       "7f02efbd0f4bc7f93ffe34d0c640b59fc0cf942de0831832e39a880f6fe11e11"
     sha256 cellar: :any, arm64_sequoia:     "3b43f3393502055f80869b1f9a4da0dfd12ea09e26dcfc334e03ed3eddf79ab0"

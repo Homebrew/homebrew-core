@@ -12,6 +12,7 @@ class Dhall < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f89c791b506903e32490aa4598c72629d92f9644653ddcf0d46ebe4207b5d10e"
     sha256 cellar: :any, arm64_golden_gate: "7bb432e62b9701bb77decc834e2254d2dfc6280df24b3b2f26273849a6f20392"
     sha256 cellar: :any, arm64_tahoe:       "4dc1b8489b6a23b7c9ead22e5f14a2c0cd352006a6a98004d0df11fb066518bc"
     sha256 cellar: :any, arm64_sequoia:     "4efcb45660caf4d565e55e92b72bf91b1f6fa09c7237e09becfb718e3ebdafbd"

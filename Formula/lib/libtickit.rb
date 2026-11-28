@@ -11,6 +11,7 @@ class Libtickit < Formula
   end
 
   bottle do
+    manifest_sha256 "ccf7f767369011507ac8fa53f15b5f24dd168629888bc68a9b59a1b1b8a32605"
     sha256 cellar: :any,                 arm64_golden_gate: "0c57be2aa924604d99ad81a73f3b5c259d3f841f5011c2c081aade0be1bf7165"
     sha256 cellar: :any,                 arm64_tahoe:       "f22fdb55d11dfa484d90767cf3f07c18f5ccdcff5daa6fab016f057954b6d2d5"
     sha256 cellar: :any,                 arm64_sequoia:     "50d992c4b4e54c4396fe26f3b103d48266caca33b703d26be6c98b8aa7c34b82"

@@ -8,6 +8,7 @@ class Stoken < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "72d0821ffe4bf875fa525d45afa6f274ceef427f928c3171e3b10d5a257292f5"
     sha256 cellar: :any,                 arm64_golden_gate: "e29db5cc3c80124d2f93bc2f7c6c907b339b533d7fdbfae3db22cf67649ab05e"
     sha256 cellar: :any,                 arm64_tahoe:       "13f7f789acd86bfb43e32a93a22c14e281f0182333228f649c1fdc18bbd3d53a"
     sha256 cellar: :any,                 arm64_sequoia:     "6dd71ade20837819b4d7278cff667d12707a25506af24d3c0fd63f146f21be52"

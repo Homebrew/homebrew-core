@@ -11,6 +11,7 @@ class Base64 < Formula
   end
 
   bottle do
+    manifest_sha256 "264004a61df50365d4dc0752014afd60099716c5fd57b3e2bd8ca00009e50eec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0483622e0586f12209ec69d0925861c3ba9827ab672eec560400d206e3ebfa7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fbf459526bc50316ed55f1e5ea972f22658ba26aa8e0b4b5db5b984bc0fbceb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17aef54e36b9c3ce2cd832c59d4cacbac0584a1a9db7af45e1728d6fceeb760e"

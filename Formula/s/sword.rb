@@ -12,6 +12,7 @@ class Sword < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2974dc5708ec20c2d5df8eadb77a3682971d436cc5dfed7e3cdbf748bb290225"
     sha256 arm64_golden_gate: "423d25166aced2700fdc5315605a2818242e99a8f6d3168bc54f0a76d2c27a46"
     sha256 arm64_tahoe:       "152cbcfdc848a2a2b963b31b8dfb29c11c93178dbb234aa5e7d6469ec802e12e"
     sha256 arm64_sequoia:     "ae84e96561ad0d9a0a773cf2c453f49e300f49b645f096100dcc422ae6b23628"

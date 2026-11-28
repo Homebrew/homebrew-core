@@ -8,6 +8,7 @@ class Tup < Formula
   head "https://github.com/gittup/tup.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9cb2128043d4de390373fc9e1f333f531061327058849a4b68ef7e7955a77664"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "04d0f54b9afb1fd40a96877e366db5a482b201e01e2d5bde296c618c1738314d"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "2d1f0921353b16d91b7e91ad6bbaf443f784eebb3f9d1f2ce22058e3e888d9f5"
   end

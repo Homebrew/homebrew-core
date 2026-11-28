@@ -7,6 +7,7 @@ class Redli < Formula
   head "https://github.com/IBM-Cloud/redli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d60f1e83fcd7e2963f7ad05ee8c094c94482fe617a49ea5dfa6ee4a11030ec41"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d60a8c48f79b093cb76e5543ece8d7046b2fdf451b13fd99a47eb790579a30b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "551d5aeaffbb3b043b44b4e18fc830747719372caf61cb6955bc1ad08887b775"

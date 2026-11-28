@@ -7,6 +7,7 @@ class SnxRs < Formula
   head "https://github.com/ancwrd1/snx-rs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fad1088b2b170d3ac106ba609c3c0cd0a6006f871d6c6bfcb4b33120c285de2e"
     sha256 cellar: :any, arm64_golden_gate: "1b6e2806b3f4f2894e63908ff150ad65048b7471626cc82bd40995f30c44d78d"
     sha256 cellar: :any, arm64_tahoe:       "40dd6b4dcc24e0a90059463274ca92a694c150cd98690297192cac5f2889345c"
     sha256 cellar: :any, arm64_sequoia:     "15721c484458f1f3c73f0f965140cff6a978d26b2c911c56f5c66de0f70fa97c"

@@ -11,6 +11,7 @@ class Xtermcontrol < Formula
   end
 
   bottle do
+    manifest_sha256 "6da80b282cd945fc28cc4c4c315a97ef10167d1cf869bbd9637023371b948061"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38f0066a8ad185cb36214a5ac6b6989e4864106d8d15523d83c139ed1e8fb4c4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c64d391a46722330134e95e9765d92c5c20cb556f73cd182a7193db2ec41006b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2f77bc8528460547f51d0df2efe56e9d491050b006ea977ef4a5c1848cb122e"

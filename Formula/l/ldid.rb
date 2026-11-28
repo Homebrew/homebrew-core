@@ -9,6 +9,7 @@ class Ldid < Formula
   head "git://git.saurik.com/ldid.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8584ed18c192b0bc5fcb8a5ffcb1c81d8dee7adfec809a3b83a6b75da3d363a5"
     sha256 cellar: :any, arm64_golden_gate: "7c8799de0bd1159299e337f15d28dc7e53b6e3d1bc2c6b4525b2acc31a250ee1"
     sha256 cellar: :any, arm64_tahoe:       "b1deffb6e575a4996e31cef6cbc56aa009f5eea67b73b437f6aea597198866a6"
     sha256 cellar: :any, arm64_sequoia:     "bafb40af217fc882cb89890b1c8ec8943d006369ad8736d5d2e6533c209b282b"

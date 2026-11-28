@@ -8,6 +8,7 @@ class CppGsl < Formula
   head "https://github.com/Microsoft/GSL.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5940233b8e1e0928f59f7d527583bdb4e08178d0a9fc95d345ea76af9bf53db4"
     sha256 cellar: :any_skip_relocation, all: "98d286960afef25939b81793ccc8db35e11c0a8368accba6121796253ecec647"
   end
 

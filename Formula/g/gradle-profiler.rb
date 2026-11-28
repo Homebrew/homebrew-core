@@ -7,6 +7,7 @@ class GradleProfiler < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "4ca6ad163f1b1e072d9e62e89522017c16cf83b5c86a84d613da8556cec71d03"
     sha256 cellar: :any_skip_relocation, all: "64753f4f208d98dfc417288c873dff761271e9e9ab1f6179c1241756453163ce"
   end
 

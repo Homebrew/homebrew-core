@@ -8,6 +8,7 @@ class Hidapi < Formula
   head "https://github.com/libusb/hidapi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "49cc8571eef6100b10558eccb5d01619737c525212d5a63554690483c62418f7"
     sha256 cellar: :any, arm64_golden_gate: "adf377bac31b67f0b3aad40d7567610ba159ae6e4b503c09232f78683a4de2df"
     sha256 cellar: :any, arm64_tahoe:       "44f19f17ac637c9ff3e24fd442205c674ec8f5fcf9f7a06e0135e2091a1bc367"
     sha256 cellar: :any, arm64_sequoia:     "fbfed806633cd2477bdd6055b7306fbcbf84227a0bccb35cdec4017889371fee"

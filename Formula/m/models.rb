@@ -7,6 +7,7 @@ class Models < Formula
   head "https://github.com/reyamira/models.git", branch: "main"
 
   bottle do
+    manifest_sha256 "adbaa5456dcd0a2dbae1dc40d1ca6ab8152e03f8ee8a694defea01c435c9ab85"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "608cd26ee67e9fd73c8255db99394483a237ceffd06dc9ca1dadc4dfbbef72c4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "65438fd19e6cbcd13fbd7af709ace4794461cf5bda2ad70a7f9ea7f0e61bf658"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f7846c19f643d0e308239ed80491b0e23595994e47c6de25d9aceaa4c6f92311"

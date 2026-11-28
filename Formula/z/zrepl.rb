@@ -8,6 +8,7 @@ class Zrepl < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "80397eb6ba1c30017869e551ba368ec843ddd98c6ca7f3e0745e961ec7f30ca0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16d6ce0638baa05a692f8db179079d78c3939542337708062793ab6baf39601c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18a19ca879a02097dc1cb1d0dd2b72b4addc92c1405be553d80b8090580a4610"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "53cc9ad155f92938fdd6504bf130c16d043186c7fe8ff1b250bd4ede6307f3f6"

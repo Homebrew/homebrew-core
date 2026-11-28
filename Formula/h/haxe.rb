@@ -15,6 +15,7 @@ class Haxe < Formula
   end
 
   bottle do
+    manifest_sha256 "6649b95dfac297defdaf7ba5ff30e9a912f6dd7453b43bf3a208afc519eb757c"
     sha256 cellar: :any, arm64_golden_gate: "d7f7fc04c41690749214482096dd1d65c92e58ac0f803db6cab4c784d466f400"
     sha256 cellar: :any, arm64_tahoe:       "e3e44a1008fad87b7dacd36c12af42b2e47effdf570f41f5545a1fc5b98cf692"
     sha256 cellar: :any, arm64_sequoia:     "ead9a4b59aa64ed4672abe196cb614f42631bdee3e17db26123b6585220cfd97"

@@ -8,6 +8,7 @@ class Glade < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7ad703bea474c2c31d240bba9a18aae59118709e48e50006866c5c43cd9499e7"
     sha256 arm64_golden_gate: "2c60635ff61fb73cba21c2751e1bee96a3836b1e492b11c7e4488860beaac9c6"
     sha256 arm64_tahoe:       "e0a5106b1b40c33b0637a7b713a544023d04aef3006600771947360bcfafe5bf"
     sha256 arm64_sequoia:     "7faf1cfde42ae08400dbe029171e8e0c28e56da3f8a105248a3dcdaab7444477"

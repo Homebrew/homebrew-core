@@ -6,6 +6,7 @@ class Bumpp < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "16257c937e4dba25ffbf3cfb0fb0d3730688e0b8afa3bed92369953419f4f112"
     sha256 cellar: :any_skip_relocation, all: "bc7b478bed1e9bcb818a33163442f62527ca6ff68d9fc67987991dda4c50687a"
   end
 

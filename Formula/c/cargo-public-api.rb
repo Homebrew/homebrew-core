@@ -12,6 +12,7 @@ class CargoPublicApi < Formula
   end
 
   bottle do
+    manifest_sha256 "7d05b501c58f5d651a11bdff07a30f04e10026ef4770ab5e38c8d3566739f8b3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91139b9e3f5c2f31824edabdbaab743cd161131fa4bd4ef043b1b621585947f4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "db071533a416d48c8c480911fe57919be1099fea22d47e5ba28a6f57d70fc35e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe411e1973d77e0095539997133446cbc5d538ae545045504472ad22336131e6"

@@ -9,6 +9,7 @@ class CargoBinutils < Formula
   head "https://github.com/rust-embedded/cargo-binutils.git", branch: "master"
 
   bottle do
+    manifest_sha256 "575326d26098ea42cb36efd70992a47f30451b057aa309c05862e51c33ed19b1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c278c32585690abb6c8ba8836ff0f57422543656cde076d68f053fa0ecaec822"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1462ea07e63a12bca4c626cb452706ea56780f777a580ba4080c87978b661af8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e345e71200c674756c1c5052eb06d5c5476ab91b0446b2f53fb4d21329e86f8"

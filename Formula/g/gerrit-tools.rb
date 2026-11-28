@@ -8,6 +8,7 @@ class GerritTools < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "11df082f3a9876122946ff8702329f25741ab64234ba6b3d2331a52117cdcd6b"
     sha256 cellar: :any_skip_relocation, all: "5f4f0ba04b41b1b03bfb7341f646cdbaca62ae8daf624675e1c08e0c05ba07ef"
   end
 

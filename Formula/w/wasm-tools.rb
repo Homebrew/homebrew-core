@@ -17,6 +17,7 @@ class WasmTools < Formula
   end
 
   bottle do
+    manifest_sha256 "16942def8624fd6a59b340b417139a4522723fb6e2c4d64c330d161198b6d871"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69daaae6cb407f63dcf9c843939e0e6093b7ace4e5e00315bf0b41f1e7502250"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "285abece21e8bcb49110a3fdda7addd8bd2b5c4ca3b87f765c663ae427557ee0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec8a9b9552012e7c08754d660df2788d645e752914bb7b7f583f13525efdcdf4"

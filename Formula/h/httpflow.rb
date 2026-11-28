@@ -8,6 +8,7 @@ class Httpflow < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2d95def7c78c40aa8ddd1edb6e7222b743399b2629dbb133f43a56cabb3e0f18"
     sha256 cellar: :any,                 arm64_golden_gate: "68f30da4f400129c7b363467d7a6c36a438558cc34c855e5923c6cba9d9d5f05"
     sha256 cellar: :any,                 arm64_tahoe:       "6e9299b293094af5b4947a5d1ebdd4ff98c6f56b5d1e148b0b3df61a5cda63c5"
     sha256 cellar: :any,                 arm64_sequoia:     "7579060ce00a8d1c70203cc1670139f45d92f7d22ea820b61c5fd7aa3c2828a6"

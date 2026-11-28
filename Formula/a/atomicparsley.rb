@@ -11,6 +11,7 @@ class Atomicparsley < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ba58a495c2d61e1093d725ce59366d73e3609f3645efce6ee19e414ced2c766b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f280a009d0fec1a5463a33edd069f79d3e963dd4b9968e6c0ee42df5af6c4058"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70e708c09ef763d61b8bba8195426c515a20408adbb3addb3c9e96316ad6f769"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09957d7903f650b1f90891fe07b25109750396b1879ecc93427cef1d141a512d"

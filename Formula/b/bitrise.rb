@@ -12,6 +12,7 @@ class Bitrise < Formula
   end
 
   bottle do
+    manifest_sha256 "10cdcc304a88e826c9c77bcd0b60bd6e0dd63a0cca7fbcb9371ab832a477f06a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e66b1b3dee4c03a9bdcc20a63b0a13802aed26678c9930ecc70f5bca9aa476d0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e66b1b3dee4c03a9bdcc20a63b0a13802aed26678c9930ecc70f5bca9aa476d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e66b1b3dee4c03a9bdcc20a63b0a13802aed26678c9930ecc70f5bca9aa476d0"

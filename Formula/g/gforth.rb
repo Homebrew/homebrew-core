@@ -8,6 +8,7 @@ class Gforth < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e57f792bbe087919e1f9154f80760c503662f0f152ad64b5adc30366c2cbf45c"
     sha256 arm64_golden_gate: "49de4c97cd7b4127d077014ee895c33eaaaeeed3196a7f6bb4b753d805ec44d1"
     sha256 arm64_tahoe:       "ede972e5e6570b4811d3967dd77c8780142c5bc97884a392c523b4b91b913148"
     sha256 arm64_sequoia:     "d883e4eb6b087d2168148fcef85b3d792c38f748a0b18b7a303151d9247df073"

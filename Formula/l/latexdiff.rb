@@ -7,6 +7,7 @@ class Latexdiff < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "18d835fcf3d913ee5398274098b9aa71e7eff4da054f69b1adb26c6598a66848"
     sha256 cellar: :any_skip_relocation, all: "7d747cedc4241a804cc7280b7605d20853ddfdbad574b7ee90fabca194f23152"
   end
 

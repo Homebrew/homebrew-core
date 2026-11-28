@@ -6,6 +6,7 @@ class Zoro < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "052b758781caf41ec92a5a9e729209da78540e3c71f9e42eebb9f762491e9e49"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f1562fe63ce51c313e710092f5e3bc3a86fc6ca5dca1f5600129b421217dc5e5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8cf70a14160538590d696a97a39afbfb1d69d238b808cc0b4392f94313e25b17"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f74a1978da2e5be1134fe0b9dfcaf82794b27b2ed4dec8cabf74e0771a5588d4"

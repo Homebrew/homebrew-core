@@ -14,6 +14,7 @@ class Libcuefile < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "350ab0862eb7a512c598f7bfac6e7e1e41363be42f8909f07429235c185c2dfc"
     sha256 cellar: :any,                 arm64_golden_gate: "e53ae12545bfa15015d2c86717d09f8b8e56c23cb1743610bb1e0ba4d1c4dbae"
     sha256 cellar: :any,                 arm64_tahoe:       "1da2975f32e5909cf63724ba5a9479544a0398a7a0d2e958a5ded75262f83799"
     sha256 cellar: :any,                 arm64_sequoia:     "34a5359939dfb84fbbfff58f7ddfc220c7dde287dcda457facbd29e8fe91f0de"

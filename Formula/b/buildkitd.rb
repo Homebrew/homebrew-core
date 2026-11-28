@@ -15,6 +15,7 @@ class Buildkitd < Formula
   end
 
   bottle do
+    manifest_sha256 "e90a898ae8491b38e5b6e355cb50225283c3ea8d7879088a10b124402b2f54e4"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "2f97091ef666938aa633753a38c6552b47186b1209458eba41737c7528386798"
     sha256 cellar: :any,                 x86_64_linux: "717e09c882c041f0e68a23e0c38c905a819bb81e4648b56d6418a8654d3b7817"
   end

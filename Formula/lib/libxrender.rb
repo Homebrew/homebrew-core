@@ -7,6 +7,7 @@ class Libxrender < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "35c0139934dff54d301d91a45192bafcae76194472ac74b480726b3d234c7f14"
     sha256 cellar: :any, arm64_golden_gate: "98a4cdc34145658f8c4e5a27d78f985bab6c955485da21f5890f41bbd9ac56b8"
     sha256 cellar: :any, arm64_tahoe:       "cc2f74e28c8a822020f025403796b560f937e46bfdae46b83f5d4860aaec7cc7"
     sha256 cellar: :any, arm64_sequoia:     "d281b755455ee77f28bcf83c93501b525d7eb2c7a4b8eb8fdf640ee2c6e4b69b"

@@ -12,6 +12,7 @@ class Serd < Formula
   end
 
   bottle do
+    manifest_sha256 "1ab362600d7aab33c16a116affb663214417564137defb16d4709a164b43a877"
     sha256 cellar: :any, arm64_golden_gate: "e1262072c70ba4d562dfb5295475439b1e6112d623a38649b1e304e8c1eefe3c"
     sha256 cellar: :any, arm64_tahoe:       "d39be0f8c1498ccd0c59cd20ce515c65e21c38552407261dbd39f690224b0b43"
     sha256 cellar: :any, arm64_sequoia:     "e5ec3d695060a86f1296d2a486231c905b2946ba9778e359294da8d76f3db2b2"

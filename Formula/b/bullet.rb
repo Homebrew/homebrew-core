@@ -9,6 +9,7 @@ class Bullet < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "25f3bb647723100f2d109a11d60669e37fe96ae0348e949e3654bf6efae81b93"
     sha256 cellar: :any, arm64_golden_gate: "c461c2ded66ee288ea1df87192f23570211f92e72cd4f80124194a27c446b3f7"
     sha256 cellar: :any, arm64_tahoe:       "405a0fc527245d26e417c75a10b70056497436c62c5607e56368272c702dae45"
     sha256 cellar: :any, arm64_sequoia:     "288b77ba8d42262bcdf224d709577e225717a4a6930874fe84009f98314d64a1"

@@ -10,6 +10,7 @@ class MemtierBenchmark < Formula
   ]
 
   bottle do
+    manifest_sha256 "ac6c86aa048d0973f6cbf5874a642e2434ff67ba281b7e64a9866600733eb4a5"
     sha256 cellar: :any, arm64_golden_gate: "6a51da7c122049b5c29d8a4425b45f740923c488757f470a2ce4310901218bf5"
     sha256 cellar: :any, arm64_tahoe:       "ae40da1fdff8aa72c39fa0758f74ac7d1a0135558f5e6d0082b73b69d394e29c"
     sha256 cellar: :any, arm64_sequoia:     "a590b1b16b663598a3e20934c6c84d812d7ed7a1531b9317dcb9be32d5f419df"

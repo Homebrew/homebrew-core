@@ -8,6 +8,7 @@ class Fcgi < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0ec9aa9cccc0c0bb5c75c28440f7884f602c048e4248bdeca09de946e4e7b54c"
     sha256 cellar: :any,                 arm64_golden_gate: "be1c4909039113d2a7d10ab5b7f6b75d1f1e83c853afb6574554f07fcd4c2bec"
     sha256 cellar: :any,                 arm64_tahoe:       "eb43b24ff7e561b526e8f85a3c04a855b7696e77a8150b8668407dabaffa1c8c"
     sha256 cellar: :any,                 arm64_sequoia:     "048a15902fbb7994659f3a3938c5aee8341a92310dcae1faf0f5cbbff909375b"

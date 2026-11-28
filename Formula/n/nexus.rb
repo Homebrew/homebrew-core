@@ -15,6 +15,7 @@ class Nexus < Formula
   end
 
   bottle do
+    manifest_sha256 "ddb357baf8d0576e4cb4854451ab99a55b5b3e9e0aaf9fbcf5f03fd5b84ad06c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "99c82dc24f743a5f6c3dffca0d63db617a3687d148f3ac0587f1371b60ba7e04"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92e4f21ddd50ba67c101a253a66cee866dacee776bd8b2f6d45367a2c0d37914"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "279a22b391223af89b97b01a9fe8b062da72fbed417f1892636032d57509acd3"

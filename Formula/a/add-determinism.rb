@@ -8,6 +8,7 @@ class AddDeterminism < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2d3dcded7df368ae18fc8c6e63c958d5aa53b5addea66ebcfe5354314902d36d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "502754d857be8def74ac72a629fd740e70eda83cc94fd2fc006c8b976aea7f0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5112c9697dce39b82608d86eaee231d3ea2b9aef4089042bbd25d2cddfd34609"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88bba9a7d573d49125884507b22aecf7795fc4df8d1df723561d736c4fb6e77a"

@@ -7,6 +7,7 @@ class TCompletion < Formula
   head "https://github.com/sferik/x-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "55c5292fd87292182a6ffff7219195db21aaf7a64df35bebdb273c3585305da0"
     sha256 cellar: :any_skip_relocation, all: "8f41fb3b6dcda43958db52bea7f259cddd0272735e4f09eafa61a01637ac9b9d"
   end
 

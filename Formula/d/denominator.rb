@@ -12,6 +12,7 @@ class Denominator < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "334a470793b2b7981cf028448230ce01b1270a75618dfd5e64203582d850ec77"
     sha256 cellar: :any_skip_relocation, all: "3da7d5704460e94f75bd1241c7d285971b2c22f23633c2cea058cccefc6a65e5"
   end
 

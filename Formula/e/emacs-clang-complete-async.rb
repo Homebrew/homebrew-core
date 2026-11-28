@@ -20,6 +20,7 @@ class EmacsClangCompleteAsync < Formula
   end
 
   bottle do
+    manifest_sha256 "51e1dba209e8cd6b993c37877fbf5b4c2dd0084c057ea1ef0dc66946766fbec5"
     sha256 cellar: :any,                 arm64_golden_gate: "78b6a0ba7dcfdbaa12838420162256e5053283124545077b8f1f83dc6e30fe4a"
     sha256 cellar: :any,                 arm64_tahoe:       "a296b59b9a23aea107b92e8144b2e95886767871d898d0a9afbf04bec6ae0ccf"
     sha256 cellar: :any,                 arm64_sequoia:     "171855a6a36e55afe0109bf492172c3718b566a6de8a962f5db0557ed1e16e43"

@@ -6,6 +6,7 @@ class Xclogparser < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "5ab20800ba27d985100c7e8e20fceedf05b47183934cc0cf8be7fd394ddd9b92"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ba5d571c43da427646d3fa96040306e2f77de9e1abe0e7be6a334b9e869dabe"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2421eb83c5d32b86b451a600cbccf5369953d1e7bd020df77369ff4142e38efb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6df028fd0d5fb6a9f0cc32b141d30e66af196ee64af63e0b63a4c551a2c9df11"

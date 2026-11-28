@@ -12,6 +12,7 @@ class Fracturedjson < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "12d0980b22b242b85659864ec8be30f3a9f28ec5d2981e2bb62e6a03eff4c3fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "86aaf461427214793d4dd980e9b7e1551056ee8a309c17e59aa22613aab4fb75"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c016d2004045b7295e0cb9b061eda412f51b0e6dba344f82954299b5e61b68bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a7d9fc03eb134805ebad5306bfc5df6478153b4fc9a820fdce1de529c45d8eaa"

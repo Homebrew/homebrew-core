@@ -13,6 +13,7 @@ class OcamlFindlib < Formula
   end
 
   bottle do
+    manifest_sha256 "fcf6f880cc080480f2a85ee60d9946ccea119a1930a746b0ad712f8d0029c3fe"
     sha256 arm64_golden_gate: "e3095dec7164f19e001e68f0fcde7706ebdf0c948f62b49567b01d43a68f2c6a"
     sha256 arm64_tahoe:       "c8059ed5d4c4be71c00cbc45523f849a5b20978fd26d169ca1a0d026b833254f"
     sha256 arm64_sequoia:     "7d798db740a8f7e6a05f6b692efc4683ddbe29ca3604271eeb736e134006b7c6"

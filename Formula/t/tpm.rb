@@ -7,6 +7,7 @@ class Tpm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f1c7662cca4c395d6782d6d453517a30bd5b187239a0a3b453f8ae67737e4464"
     sha256 cellar: :any_skip_relocation, all: "585e25b7dbe7d14caa7056eb0cc5f180256d8833a0e2e8fbcf01e72016b74c08"
   end
 

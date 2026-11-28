@@ -8,6 +8,7 @@ class Libuecc < Formula
   head "https://git.universe-factory.net/fastd/libuecc.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f5e6d320e68d4d632f30c31599b829128a898e52e1b808b8f682de6b8335d7f6"
     sha256 cellar: :any,                 arm64_golden_gate: "37b76b20f3d38dfe1ba804190bb0a68bdbc867b8178ecbda50620cfd1bee2663"
     sha256 cellar: :any,                 arm64_tahoe:       "d27a92b37c542bc9880f60bdf8dce4dec889c93b469e8cfc855d963ade17f9f8"
     sha256 cellar: :any,                 arm64_sequoia:     "a94e6f279789d442ddfce719d48af0c5a430e4d255f9c8dd16b7cb691062988f"

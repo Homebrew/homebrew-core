@@ -8,6 +8,7 @@ class RnaStar < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "42e2e597aa5ac88b726365fbfb06cb32f1033d66f37f7c9e13e21cede1a1c37b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f80ba008d841d0161b05ed5807c919cb78c8140ddd0d2e6ad17d91151478029b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3cc36219b20aabc038935df3d795f5ab8046d67f88ad40bf1e90b74f10746621"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab4489cd7b4f3d2272e70a64f88240cfa7f9502d96b483459c97900ff61f9f6c"

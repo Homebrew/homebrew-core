@@ -12,6 +12,7 @@ class Liboqs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d7d7f092c5da61aec9818d89096976f768500962b6098f10de93ae5592983ad2"
     sha256 cellar: :any, arm64_golden_gate: "49219c29dabe554d5a94683c09188a52f0a809875bdd88e70342abbc10690d7f"
     sha256 cellar: :any, arm64_tahoe:       "d1bafc1d1aa7d09b2b4c5efb2d4713327fc3100cfd9bf149851ac7d3fe567546"
     sha256 cellar: :any, arm64_sequoia:     "eabb4df936ed371458d18485e9b59bcd315ad59e06d38b90a0a859e522cb9491"

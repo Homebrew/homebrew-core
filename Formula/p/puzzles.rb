@@ -18,6 +18,7 @@ class Puzzles < Formula
   end
 
   bottle do
+    manifest_sha256 "95222267bd91b8db95669c420ed8d1ceacb35389cb218571a386ef3a1ef50fbf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d2dde5e14b56e30fe518228a95d073c69103d83966e9bda0a136bd6b627ccd5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f37b6594a62e3229ed97777a339ab9c76dc388c1b2564274545fca7bd669689"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45b6378ea2b57396d2585ed89fc028dc07a08eed9b752022e7b32b106ad7e888"

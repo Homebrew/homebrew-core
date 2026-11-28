@@ -7,6 +7,7 @@ class Seqwish < Formula
   head "https://github.com/pangenome/seqwish.git", branch: "master"
 
   bottle do
+    manifest_sha256 "45d83e2aa6d469359611f829f60541945857216df8edcc22f1bfcef3b8b78f47"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5bca0eaf7d73231e1703cde9a05387e0654622f92444293b6f7d56e45d77ca79"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e1178a7c1c1aaa90a647ddeec643cbd59d41628c6f7d2c407fad512dcabbfb25"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a14099bc0cd618cd905a81cbd70f4ffaa179e343a4e99a9bc7f56e4936d895c6"

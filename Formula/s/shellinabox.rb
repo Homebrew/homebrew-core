@@ -7,6 +7,7 @@ class Shellinabox < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f4fba3ec8e23e5fa4bf620429aeba03dff2d9085d26ec2c36353d52c66c35c2f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ea510a3cf1cb34a6fdb44081662fd974f01843f9a99601312604f4f88cedef4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5e835eb13f39a9faebb3ebfcbbd26861145d379763e12c2b4da564bbd51d9641"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a4e0703c4b49df806565798a59db8bf4fd002d98389f86d01da2fe0daf1ac3a"

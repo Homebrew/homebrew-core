@@ -7,6 +7,7 @@ class SwgpGo < Formula
   head "https://github.com/database64128/swgp-go.git", branch: "main"
 
   bottle do
+    manifest_sha256 "42de7f26fae6468b14c17cad42763a602b750f71c48456fbfb5065e12bf58604"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f221a53e8242deea76c53c0aefa0a91cbfec71cda28de4489d9d09114291780d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bdfae695127feaa5e26ec03dcbde71f75803c2dab1e4d8c0c297a80dea58ce31"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bdfae695127feaa5e26ec03dcbde71f75803c2dab1e4d8c0c297a80dea58ce31"

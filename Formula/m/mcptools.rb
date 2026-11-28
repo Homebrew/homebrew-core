@@ -8,6 +8,7 @@ class Mcptools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cd21e7b32fd4fe7880d6225478ed01db2ba69cf1e2975fe1961a5b4a89456cec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9a112acf1c62ca05abbda030e049ceed7f6ff5dd46fa991dd30554f8584f6b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41935d9845af05cbe0d5845d48d39ba22cd2acaa506a7ef3b8d0236bd6a506c1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41935d9845af05cbe0d5845d48d39ba22cd2acaa506a7ef3b8d0236bd6a506c1"

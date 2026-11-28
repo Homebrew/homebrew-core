@@ -18,6 +18,7 @@ class Prestodb < Formula
   end
 
   bottle do
+    manifest_sha256 "a08708b322b81262c90f8bba218c48d28fc7b9e8281cc26ba50539d0c9c0501d"
     sha256 cellar: :any_skip_relocation, all: "81257ae1aedb37811384c1d42cbfe1d2e6b78946e7b91222a5452bbd35b39c7c"
   end
 

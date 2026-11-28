@@ -6,6 +6,7 @@ class Flyline < Formula
   license any_of: ["GPL-3.0-only", "MIT"]
 
   bottle do
+    manifest_sha256 "084173737dae16b4a75a9267ab87e6ee875e173f6f8add9c1d6eb7bccc3aa25e"
     sha256 cellar: :any, arm64_golden_gate: "710c2860779eed5789e3c8b39ab83a38ff709d516043f508b3e5225997d038f6"
     sha256 cellar: :any, arm64_tahoe:       "ad6eeffce9118e252380f866a4badded648bc54c3f5f1becae77789b2774eedc"
     sha256 cellar: :any, arm64_sequoia:     "a4300e8a536adacec8223ecfcf98f432e3795ddadc076c4eae654b585a20e549"

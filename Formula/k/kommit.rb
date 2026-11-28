@@ -7,6 +7,7 @@ class Kommit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4e56579efa2caf3301c5d1bb7d07441f77873b4821dcf90b16ecf8f8c6f0ec25"
     sha256 cellar: :any_skip_relocation, all: "e27d05c078699c3a5c3ba379e6a598cd4b96142358bf41fca14cf2faa83251ff"
   end
 

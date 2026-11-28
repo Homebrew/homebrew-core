@@ -8,6 +8,7 @@ class Vitetris < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4b6661ed8ab8f57b55587f5d828fdaef57759b440237b29420ddd74796d5e3c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ccc5a0713c2012560f2bca7163b4d8150b2768b230915748fa7e34f558099da0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab9a0fde775af14600b636a041e026c987933c871cec3e67a4184f6521a61b2e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dd6ea28531dfab3328f90186dc273aec6bc0fe8aea3975c464fc69f780566547"

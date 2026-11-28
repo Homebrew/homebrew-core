@@ -8,6 +8,7 @@ class Lbfgspp < Formula
   head "https://github.com/yixuan/LBFGSpp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c5a6159590cdb4f66b35b519f85f8e086370dfbfee3ba2557d9ca09031762324"
     sha256 cellar: :any_skip_relocation, all: "5a7448c359aea68fd3317768eb086befc6442be56cf0d1c864d59aea9150d9da"
   end
 

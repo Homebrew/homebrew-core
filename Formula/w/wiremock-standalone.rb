@@ -11,6 +11,7 @@ class WiremockStandalone < Formula
   end
 
   bottle do
+    manifest_sha256 "38d9b8eed7269e17ec62c7fe43ebadfb2fa86d3f1a3b8b89adc200deb45e64c2"
     sha256 cellar: :any_skip_relocation, all: "038c521d40a77423d0e9b7c8ab50f19e05972835263eb0d00ca9a3d311c0541b"
   end
 

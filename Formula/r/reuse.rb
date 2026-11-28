@@ -14,6 +14,7 @@ class Reuse < Formula
   head "https://github.com/fsfe/reuse-tool.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c0692cb0adb682df184f0ddc42bd2b19fabf3b99173d82f025e55e7879514607"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6b88cc8c60f14bdf43cc6bdc56713761a8dd940963ebb6f9bc423784a89f2170"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "256215501b5b7a067e28516b5a7a73dfaec134fb260621b028a7f1389adb4198"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ba4231e7a1aef0c8723a5318bd97b4669b057e77096dda4edba52f02d337818"

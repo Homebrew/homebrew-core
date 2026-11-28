@@ -7,6 +7,7 @@ class TftpNow < Formula
   head "https://github.com/puhitaku/tftp-now.git", branch: "main"
 
   bottle do
+    manifest_sha256 "03b9e37801bf016ac5e70fde6b683d3ea2e72e497097c2b098037b1650124540"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "afb13e4fd73d939bf9be500b3e7aa60402335b1ab9e475a115034edb09d7b0a6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7ce9f2e42db06397ce68aece55bf85848ea8a08f253aafd0c0c2429435dc75e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7ce9f2e42db06397ce68aece55bf85848ea8a08f253aafd0c0c2429435dc75e5"

@@ -8,6 +8,7 @@ class RsyncTimeBackup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "afa00ed63977cd53227d2820cec45cb432babf84962901405153a23f8bd698be"
     sha256 cellar: :any_skip_relocation, all: "f5fc0d52255efff1f05d7820ae5c155fc59214934687e00e805911fea20ca6c6"
   end
 

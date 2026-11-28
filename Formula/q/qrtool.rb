@@ -10,6 +10,7 @@ class Qrtool < Formula
   head "https://github.com/sorairolake/qrtool.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "107ea0a5707d2d611f16a7bcbf4319ef81c155deca3d6935e7ad51dd18f71c99"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "16ac33c7ff2223044a8714638e40f88230191d4a7c9d023ef14d0cc5c5097517"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d7fd728f1573a70e95e09560370b8188f45d896e5ef439301ef38de09d7433ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f04b0dac70a55a97a3db5c72a2420b4530d32bf11ad40d292907cfcb28ca845"

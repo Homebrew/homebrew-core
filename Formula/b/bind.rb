@@ -25,6 +25,7 @@ class Bind < Formula
   end
 
   bottle do
+    manifest_sha256 "fff6c081abaf110cff5505abff11694216075caf1a670f415b02238945d2cf30"
     sha256 arm64_golden_gate: "7d65d065d5445ee437d57e4954b8b288c1c8a39f2c543abf062574941344d742"
     sha256 arm64_tahoe:       "711a153584643c474ff1c3d8dcaaaefd6a4a04764b8034d4e2f418df83a50ff9"
     sha256 arm64_sequoia:     "5b8c924e8508e5b7ccf7393b7df3ef027e3053aaa38bbbd12a1ad64077e8692e"

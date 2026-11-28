@@ -11,6 +11,7 @@ class Gupnp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "54d3c2e6a055ea0c672d9a6148c02bdf087e0e4d26c463c918049fc634563e58"
     sha256 cellar: :any, arm64_golden_gate: "95b1f52125f9094faca42206523eb85114295ce0c1a74e15291b4bb159087788"
     sha256 cellar: :any, arm64_tahoe:       "35ab6ff76a2f81c5b3f0ebc819cd473c8975f928f33f264f11e453badcfe3d2b"
     sha256 cellar: :any, arm64_sequoia:     "1e0ced1c92b924a60930a47c747e3231e0880a2e06b274ea8b5459415b939cb9"

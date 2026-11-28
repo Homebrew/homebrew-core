@@ -11,6 +11,7 @@ class Tcltls < Formula
   end
 
   bottle do
+    manifest_sha256 "43c61620c32b66da620267170758e01fe9fba4162287b175664e659394072b94"
     sha256 cellar: :any, arm64_golden_gate: "cba54878d7156ebfe2226fc1e7272a3a3687e44f4c05fba779fd5ba827377b3c"
     sha256 cellar: :any, arm64_tahoe:       "242a551b11f27d1b0d6e880ac71d4e8b75095ad4a154244aec4ee2b1f1b0a71d"
     sha256 cellar: :any, arm64_sequoia:     "89d1a7abd5f143bd10e8bb0e95b1ecf0448c12d7dc39d85df4da971a6265bd4a"

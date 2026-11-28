@@ -18,6 +18,7 @@ class Mkvdts2ac3 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9a84034dbd35b3ee11ff8b58a114f8797e7857e4676ee5fc8feaf4bddf9c6d9d"
     sha256 cellar: :any_skip_relocation, all: "a5a856ffc05eeb709725402da52d138058873ba0876d66b95106ac95e47489eb"
   end
 

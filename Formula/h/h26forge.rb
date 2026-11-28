@@ -6,6 +6,7 @@ class H26forge < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "afe68d185ef006882a83660ba61aa195d78d6dfdd831e03bcb2d8395862e2c4e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bfe92baddfbfc7f5fe18f6f221e7061d29874208cbaa945e0610ee1b87db171b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f1c1f2d0a4dcfaccd11770de03afbfcba696294d3167519fe72fc122ad4984f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d06793175eeeb5e1aea26650c793e33e06e9dfa9e53e422055cbf44d3ebe3909"

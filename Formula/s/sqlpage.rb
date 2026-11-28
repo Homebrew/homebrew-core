@@ -7,6 +7,7 @@ class Sqlpage < Formula
   head "https://github.com/sqlpage/SQLpage.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a5838e8a6b99819ca3b5ea0ffd4221870fe09a99559bccfe93cba143dd9ea568"
     sha256 cellar: :any, arm64_golden_gate: "74da50d69bc513f1926749c501f851f3d439ae33adca8575171f0f7325de5966"
     sha256 cellar: :any, arm64_tahoe:       "23782ada5e303b79ba456726b6bf6ea130e19c7fa07f2f4a58b13e52d8f25dfb"
     sha256 cellar: :any, arm64_sequoia:     "90116e6d65501116223304dbaaa6a651aa801462a39a54943fd922a84d89735e"

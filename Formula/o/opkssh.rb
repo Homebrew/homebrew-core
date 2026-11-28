@@ -7,6 +7,7 @@ class Opkssh < Formula
   head "https://github.com/openpubkey/opkssh.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9904dbba34f2ab3ece718cea3247dedf9acb1472c1eb2f755e8cccf5fedad3b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d08fb6876cd0621504b1c88e67e00a4a2de5e50b903232cb16ae01ec01863176"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d08fb6876cd0621504b1c88e67e00a4a2de5e50b903232cb16ae01ec01863176"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d08fb6876cd0621504b1c88e67e00a4a2de5e50b903232cb16ae01ec01863176"

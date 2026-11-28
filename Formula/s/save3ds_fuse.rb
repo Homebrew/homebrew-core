@@ -7,6 +7,7 @@ class Save3dsFuse < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0873cef70555bd343c2feaf20e6f1faa902b206a63715ad651efdc021fb9f2a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aeb3c342b554a06da26c0fd097f35faefa9662362f966eec3c8de00613449116"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7066052c1d3ab588faf21f2dea3dfb908f4837fa7f361ad0c5af12ea2566fe0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a602758550d203e0a7583b046eedabcefe521271bc833bb7031145b914a40bf"

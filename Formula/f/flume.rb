@@ -8,6 +8,7 @@ class Flume < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "bb39aaa1a3715fa270007ff9e74b0b6241c8b6690e510f9396462ec246275146"
     sha256 cellar: :any_skip_relocation, all: "48db8221f283446a57987c14a36acd4cc21848c24ca31b00f45b59ed12bf3710"
   end
 

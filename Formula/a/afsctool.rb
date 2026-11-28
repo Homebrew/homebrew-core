@@ -24,6 +24,7 @@ class Afsctool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "96c856fb7b57a315bdc6feaca80e9fac555600a3d6d17d5bf191e46cb728c185"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2062dc7cb1f0f2ecf20071f0ba204c58adace79e59c033146db513a454d83964"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "551e9f8910b53ce228f1f710e100c54266cbed7ffa3a087ecec516c71bba5dbb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9eab0e700160a5bf2d1f62f8e67a017280e10315030cb09134933ee782974a95"

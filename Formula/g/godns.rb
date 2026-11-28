@@ -7,6 +7,7 @@ class Godns < Formula
   head "https://github.com/TimothyYe/godns.git", branch: "master"
 
   bottle do
+    manifest_sha256 "306b2ba6b20e0455ae4d57cb2f5aba1bdecc5f357ba28796139b7cba115cd97b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9bd2f3cc464a9b13ed3d180f2afaff2e52ee3aa8f814d35f714b03ffbd04e29b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9bd2f3cc464a9b13ed3d180f2afaff2e52ee3aa8f814d35f714b03ffbd04e29b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9bd2f3cc464a9b13ed3d180f2afaff2e52ee3aa8f814d35f714b03ffbd04e29b"

@@ -6,6 +6,7 @@ class Nedit < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "5fc9a85b8b641810e5c7ba004a11a7f1d5227b3932af11de631dfcc82dcf49ac"
     sha256 cellar: :any,                 arm64_golden_gate: "967c78047a9e98f4b875241c8f33823457a18fc9a592d0c3d36b8b7539352a17"
     sha256 cellar: :any,                 arm64_tahoe:       "57c0e5d9d4030379c66950917aaeb74062f7f0885699a90b126831122f39abc8"
     sha256 cellar: :any,                 arm64_sequoia:     "0e75d477419cb59869db55d119950d0393d22095a273907129516479f532cd62"

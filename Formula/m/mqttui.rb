@@ -7,6 +7,7 @@ class Mqttui < Formula
   head "https://github.com/EdJoPaTo/mqttui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7a24793f470d7bdc2386b3a408f9a9475a83054e97eb2053e0fe7cdf37092010"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "673cdabe5d9addcc6fe5b081512d6bca6cf2228b45a49ff09b2dd0d17d8ce577"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63fc5e813bc6e2d15b0a303a97c4e85564518b0544b7e316e78baf1e1358b889"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baa83e67d90b3d6c98a3dc1adeb5d2579c2a9943d802dd17b0c36c28c07e9548"

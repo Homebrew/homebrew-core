@@ -6,6 +6,7 @@ class Adplay < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "adabd5156aee94d010ad80642c4da505a270e10c130d9e0b0cab5256d7c0be78"
     sha256 cellar: :any,                 arm64_golden_gate: "2f4f8491abd7f11a4fdda3e3a9f0c1796d87c8fea8d85508d32a44bd2ce0e891"
     sha256 cellar: :any,                 arm64_tahoe:       "09db45033118afa94298a58b3514d0265fb3f11c90341760e20899663ccc4fd8"
     sha256 cellar: :any,                 arm64_sequoia:     "967f04bd760c74ad7d1f31dc4e4baffeabe9db557959465fd6d27a9834a42aa1"

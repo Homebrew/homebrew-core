@@ -10,6 +10,7 @@ class Netshow < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2ef08a1431c0c9caa3c4686cfa3c9b5f5770e4be75ba9c9e692074bf34f3b5f6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3ee0ea4ffc8468d54b7cad5e54e2fabef94f15fdcaf81761ec4258e86337f0f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f2e5d8bbb50647e17520d1080ef187eccbbbb627aadab736ebd0bd8856609bf3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "77febd95085c23f04910eae82ce5ec4371cb3b2f2a5b167aeb9ddd583f78720b"

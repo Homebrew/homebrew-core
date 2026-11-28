@@ -17,6 +17,7 @@ class Minio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "57e34fc740fb11268d8415fd453b5760d3c8d6088ffd1a12fdadabce748e2e32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dca65714c5b06ca35154a93e9182f3e145e270019ddd8a59267e65c9b2f49458"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f399aa93691336acf3ef6f79c08f97f2d43784ecf14d1f535c77bd3813082ee1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "70f9defde59619293b7a906256a5ae47901e138fa3d34e56f37254041adee9ef"

@@ -7,6 +7,7 @@ class Vfkit < Formula
   head "https://github.com/crc-org/vfkit.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cdeefc5e4c0a11f836a5a47d6019b1014488a1f85ff9d4797192a1ccfbab159c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da8421ecca099c02afdabb99abfb8713f0d6f7053a503ccbc37b5efa9c6f84e5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "edc280884decf90f3544f21534610bf70bfdd9cda6c3d3177059778432390a81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3fca0c9bb4db4dbb061b8af9d998195db6c675aed00255b5db72f8d07d8c657"

@@ -12,6 +12,7 @@ class Rabbitmq < Formula
   end
 
   bottle do
+    manifest_sha256 "2d1e68564daa50d794c7595df85f30a233a0b3975f729859ec6d5d1684220e49"
     sha256 cellar: :any_skip_relocation, all: "08b4a8490b9223cf492ad11de28fb50e657e57af7d6fc482ac1b3e7fd3fc1136"
   end
 

@@ -9,6 +9,7 @@ class Icestorm < Formula
   head "https://github.com/YosysHQ/icestorm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "24deb4679d320c5bdd5b6311bc0cc0cf34c848fa7781697a88829e354752b041"
     sha256 cellar: :any, arm64_golden_gate: "fdba6727b9028fba662c2c52f826cab7852e2533e415156add6fba0c5f72c191"
     sha256 cellar: :any, arm64_tahoe:       "16d3eb61d416359779ab3686db2a2761c2557e7fa3d472a3a291aea191f95d38"
     sha256 cellar: :any, arm64_sequoia:     "5f22368099b4364bb74d9d8a2c14e0193a76a0699c1096e1a4c2236d197dc67a"

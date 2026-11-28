@@ -7,6 +7,7 @@ class Dnspyre < Formula
   head "https://github.com/Tantalor93/dnspyre.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3fdbfba2b529e62c9231bc42181bf6581517fd48af6efaa13c49038916a7d532"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3992a5b65b65adba31f0bb6f4cd4e27640505e879249654c8e6c7f0f3b2327bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "060c75ec44e639b249ac75d745f7e64082b1a034e223d3cc816a4c7e47349a82"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4eede3a1c70216af7d0e1cd6c3ee84a7f6609f5b066d273dc942048f8d5eb50a"

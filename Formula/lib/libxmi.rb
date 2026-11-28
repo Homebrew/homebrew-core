@@ -8,6 +8,7 @@ class Libxmi < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "4a42b1c97d1eb9cc8b5dbed76e7ed25b9c95a727ca73dd24bdc5cf9db4151f91"
     sha256 cellar: :any,                 arm64_golden_gate: "9270428e7e0b52c250bf65271e760da946af29ea2a586f5c3d24d77cf079d5b0"
     sha256 cellar: :any,                 arm64_tahoe:       "97d08e23a85103e733e90fa33b96e59f5f141f6081e5d09f9c8135e0000d221a"
     sha256 cellar: :any,                 arm64_sequoia:     "02dd0c4d25870675c7609b021e7030213aeb55b2799eb0c4d981842637ec29f3"

@@ -3,18 +3,18 @@ class Apm < Formula
 
   desc "Dependency manager for AI agent configuration"
   homepage "https://microsoft.github.io/apm/"
-  url "https://files.pythonhosted.org/packages/90/4f/d5b12765837bf43044610bcb7fc02f7617d316ab94937639d1b72addec08/apm_cli-0.39.0.tar.gz"
-  sha256 "c5b343d63a7294105e8e4735f58e87a3e04a89c358ed884abc7c84b65394869a"
+  url "https://files.pythonhosted.org/packages/fb/60/3121ddecf7c5c5a74799bad82c670c1dcb23fae528fe94ae86209b1ca43a/apm_cli-0.39.1.tar.gz"
+  sha256 "b569fea62e19504a8d5fd4983f765241eacebd4d7f64465c105b755450b67b96"
   license "Apache-2.0"
   head "https://github.com/microsoft/apm.git", branch: "main"
 
   bottle do
-    manifest_sha256 "e793b75926ce7e257d8428769926367ca0765cb7381904867424d767826b18a6"
-    sha256 cellar: :any, arm64_golden_gate: "fd81417c73c59b0258d72d787306f055e2c14c54a3909e1b20baa6016b0c929b"
-    sha256 cellar: :any, arm64_tahoe:       "cc983c0a4aa774e115a04f3e61c371774b446519e37c52976a4d8f0b5724654e"
-    sha256 cellar: :any, arm64_sequoia:     "a6a5f62d7703b892ef96830bf1a7b23cdf16a7a5fc4c59447a129ff33a46006a"
-    sha256 cellar: :any, arm64_linux:       "30390d1dfc5b93978bb7293ff45e1efcec9a29a2fc76189323972d78e9938637"
-    sha256 cellar: :any, x86_64_linux:      "0b0a0266a13136606ed6398987569d47e340d5846793508a27041a0c60ad62c5"
+    manifest_sha256 "daeec43c92d7166bedaf108076ad6e9ebadfa1d0590875c3f3b6eeaa5ec83b96"
+    sha256 cellar: :any, arm64_golden_gate: "cbdc725529d9ce10920a5c14ab24db98805ad7f5de21f225c66071e4f55b3330"
+    sha256 cellar: :any, arm64_tahoe:       "9b41aa821599b750daa298da8e127ed3c49f2d88b653b446222b3df62de8b824"
+    sha256 cellar: :any, arm64_sequoia:     "b42fb7870624557bc74cf080ec8571609c9d7d81997a429762e61323d056342e"
+    sha256 cellar: :any, arm64_linux:       "e8127fa6e96506c3eb3f203d909105bb95fb78c75b5fced4c38817fe01aa7c4d"
+    sha256 cellar: :any, x86_64_linux:      "4d225fd41fbb94f369b33580bd3da836828d0e4a748908cf63befd650371885f"
   end
 
   depends_on "rust" => :build # for jiter
@@ -161,8 +161,8 @@ class Apm < Formula
   end
 
   resource "openai" do
-    url "https://files.pythonhosted.org/packages/7d/ca/d9d1549c71723eb8fd2af7173b1c22ed065d10107b1b6438453a1b3f2ae2/openai-3.59.0.tar.gz"
-    sha256 "e4e57d5c28bed6efe6483c9f61ba59be13fa16edde4b771cdaf5c7ca70bc9ff1"
+    url "https://files.pythonhosted.org/packages/3d/25/e8930142b7d668fac78b1d7bd278f7142ea32c233ef762f9aebef0c07ea6/openai-3.60.0.tar.gz"
+    sha256 "077657587f7d2d55b943a135c3e183f87cf7dc66644caa3c0bbc2bde1fe65de9"
   end
 
   resource "pluggy" do

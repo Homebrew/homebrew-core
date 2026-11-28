@@ -11,6 +11,7 @@ class I2p < Formula
   end
 
   bottle do
+    manifest_sha256 "4822ac59171dcba6b655d45de531b0bb2daa4bf5112360c70e554e19b7754af3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "793e798ff3a1ecb9b8ed8614db769b2e81f5c938c2f065dc161d6d3d202a1ae8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "00794a527eacd50af812e3b7eca0843a11e00559e950137cf87c767e56af1560"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a2cca3beb80acd9de2ae5f4a3e1f4e2ba13b836d3876890bfee19068059c3d9"

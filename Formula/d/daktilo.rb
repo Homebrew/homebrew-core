@@ -6,6 +6,7 @@ class Daktilo < Formula
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
+    manifest_sha256 "3f92703d1ac6dfcbb2673517612f380dc8bd683eda238d994afb4ae7974f83b8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a3dd66392a241458646e5c823ca1911f63fdfe1732b3928f2175c9255fcce1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4ff1fd88a5f22968066a2fa40a1bf920755081c46b445c51fd1513efd7de2d59"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08b93c796ccf69e6ad63d6a0109ddd3e497ba5dafcf0d050f818ea1ea4211b0d"

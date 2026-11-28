@@ -27,6 +27,7 @@ class Polynote < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1e04a53caf9f47de315596fd3ddcb0d7e58ff91f8658ecf45cfbf5adacde1b9f"
     sha256 cellar: :any, arm64_golden_gate: "56198e1f17cb8971b8a0ebc92aeb1631aafc6973a26f9fb6958e32e154c195c6"
     sha256 cellar: :any, arm64_tahoe:       "c4fb116bffc7612087967855144b11af3e742a5524b0a61ee63798360272a706"
     sha256 cellar: :any, arm64_sequoia:     "9ae73b23ad747fc483de5d6ad3dc1987b255c6bef3295011935fd37d8c8dd317"

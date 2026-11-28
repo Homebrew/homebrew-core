@@ -7,6 +7,7 @@ class Rdb < Formula
   head "https://github.com/HDT3213/rdb.git", branch: "master"
 
   bottle do
+    manifest_sha256 "86e023e6c809ca541633aa7802a62dd60e90aa4862e92369203f7c3c4ebc7754"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bce159d0c84fa960b01cff5afb6113c4ce3951e098d0859b89b7016856b5b547"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "59096f5bd0c5a0ce3c0e0bbea0c07957f7444e93f831d8f32bfe66cb59dbc2d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "59096f5bd0c5a0ce3c0e0bbea0c07957f7444e93f831d8f32bfe66cb59dbc2d1"

@@ -7,6 +7,7 @@ class Teamtype < Formula
   head "https://github.com/teamtype/teamtype.git", branch: "main"
 
   bottle do
+    manifest_sha256 "206316a5a354ebd2264b30e52b846ec84fbc65f728f2f8249fde897d50449154"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "26a9d361e16c3df573bcb67519841e7d4adf5888f36f1d01a0581d9bc6c07a21"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "14bcd3a933d5617ee1e77bf49cf4bafbeedf8115560d65b18784f85f766d4a19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d77b5b2a78cd3daed2ec8c08f8dd4f141b63c3ccb35306fd00bffd8d34c98bcd"

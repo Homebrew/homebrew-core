@@ -6,6 +6,7 @@ class AnsibleLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c61a5dcc383df1951173afc24d30241d7fa5e3d8ee4dd0cc06e5cb5ccf152d9c"
     sha256 cellar: :any_skip_relocation, all: "c669fa7e8a2e4f823b6a09c953a4de371310e690e9233faa05fdc8f3f997d2f1"
   end
 

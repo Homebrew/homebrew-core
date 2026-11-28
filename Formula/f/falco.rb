@@ -7,6 +7,7 @@ class Falco < Formula
   head "https://github.com/ysugimoto/falco.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f2cd1df010216e4dea98a269e52036dd6305953a9dd4cb1aad28004733c1aa8d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91881cf91a5b5630efa1844ea0beb3e784acf8ec3f18049bc2e24bdf5fb3a503"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "086b2b76fad2f0dd4b8ea6649e83bf0ef92993017af5a54ff8bc99767ce33b31"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "086b2b76fad2f0dd4b8ea6649e83bf0ef92993017af5a54ff8bc99767ce33b31"

@@ -7,6 +7,7 @@ class Stepci < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "09af509fd520bb04759d6ce2e1a32de10d104e5187cc0ce39cc507ec431090de"
     sha256 cellar: :any_skip_relocation, all: "98104a3592dd43f41522aae67073e1eed4344638c7501aa6617af89ee207d163"
   end
 

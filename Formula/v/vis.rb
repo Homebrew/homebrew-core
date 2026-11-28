@@ -20,6 +20,7 @@ class Vis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c310cb5fd0e6890133f9db1476dfa41e286384d90550a0792868592ee10c5c42"
     sha256 arm64_golden_gate: "631b8f632f72ed0eb6e054463caf75827b860ebc5687a9fd0d067a3c599c8537"
     sha256 arm64_tahoe:       "97ddde56165642945938829637059178f29af95c72a5482bb9a7272c626c61dc"
     sha256 arm64_sequoia:     "3f88d6256d0451e27a3ff8f196a8265ffeb0a3d342213a920b8241cae163f95e"
