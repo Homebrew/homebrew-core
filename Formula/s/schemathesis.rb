@@ -3,8 +3,8 @@ class Schemathesis < Formula
 
   desc "Testing tool for web applications with specs"
   homepage "https://schemathesis.readthedocs.io/"
-  url "https://files.pythonhosted.org/packages/b4/af/040a3eb1f8023ce182d953b6d2dc12270e03431ca20305495195cb2b7db4/schemathesis-4.34.2.tar.gz"
-  sha256 "bf5ca148c4cbedecfe3818ff869da56dc791a7546b774da7fb5139e922d32ded"
+  url "https://files.pythonhosted.org/packages/3d/29/d122613339c07f605e724e1795422a5198a7438d540a6adbb7a8d827bcae/schemathesis-4.34.3.tar.gz"
+  sha256 "f46c1430ec54258180243760e94253b4e3f33bc687dd2e3e19946db7f229f8f6"
   license "MIT"
 
   bottle do
@@ -72,8 +72,8 @@ class Schemathesis < Formula
   end
 
   resource "jsonschema-rs" do
-    url "https://files.pythonhosted.org/packages/97/01/5bd2786aff44d4535abb777206743ca10ede10f8bb7a65b2b8662bc49df1/jsonschema_rs-0.63.1.tar.gz"
-    sha256 "e4f96dea00aea944636d77fb8d624a73bcfda541c4f068089724199d1d0e5f32"
+    url "https://files.pythonhosted.org/packages/ae/6c/c744cf85d5c39b1a6144c71c8a16d611445a0a43a31acb2256881982197b/jsonschema_rs-0.63.2.tar.gz"
+    sha256 "958257f484816ac0c22fc1a2b7bf5e19f17247b687b7e90191114995960e9768"
   end
 
   resource "markdown-it-py" do
@@ -107,8 +107,8 @@ class Schemathesis < Formula
   end
 
   resource "pyrate-limiter" do
-    url "https://files.pythonhosted.org/packages/2b/0b/f69f1614940f29d51e31d4fe8de69b2b4d411094ba3c77f50da34dfb63c6/pyrate_limiter-4.5.1.tar.gz"
-    sha256 "7f03c6a9235b00a4ba3c7b1e8cb6b23fbacc9d40b09f326220917a12ef22cc09"
+    url "https://files.pythonhosted.org/packages/c0/6b/e7b8b1068c86bd9bc4397b80a0e89a0890706a8441c76df118afac17972e/pyrate_limiter-4.6.0.tar.gz"
+    sha256 "9530258e021193e776ff348a95106c88569e033fa43248e5fc484959ae9d4b40"
   end
 
   resource "pytest" do
