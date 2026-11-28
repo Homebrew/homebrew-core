@@ -7,8 +7,8 @@ class Appium < Formula
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    manifest_sha256 "48f7dfe876ef4f468a729900086a47e24098808c2c55f35e5f7cc888659f2706"
-    sha256 cellar: :any_skip_relocation, all: "d2173487c2f9c47d4e78dbce2e7dd9e03e76d6fedcb854b56aaf7f68bdb39248"
+    manifest_sha256 "e7b61ae07d91bd38180b2c0d2ed2214f6460e911d70094cc7f3c7505275e14ec"
+    sha256 cellar: :any_skip_relocation, all: "c6faf46d2820ffce51003df3961678c0eec0ff267c5ad270e36d624cfbe5f496"
   end
 
   depends_on "node"
