@@ -1,14 +1,14 @@
 class Appium < Formula
   desc "Automation for Apps"
   homepage "https://appium.io/"
-  url "https://registry.npmjs.org/appium/-/appium-4.0.1.tgz"
-  sha256 "4aab952a46fa1966691b41cc8b2623fb3c2187415e335cbeed08dd5fbd9a52ff"
+  url "https://registry.npmjs.org/appium/-/appium-4.0.2.tgz"
+  sha256 "7db80d25a2247b276ca8304bcb20659d909c0d74ce9526aedd0d828342e74966"
   license "Apache-2.0"
   head "https://github.com/appium/appium.git", branch: "master"
 
   bottle do
-    manifest_sha256 "48f7dfe876ef4f468a729900086a47e24098808c2c55f35e5f7cc888659f2706"
-    sha256 cellar: :any_skip_relocation, all: "d2173487c2f9c47d4e78dbce2e7dd9e03e76d6fedcb854b56aaf7f68bdb39248"
+    manifest_sha256 "e7b61ae07d91bd38180b2c0d2ed2214f6460e911d70094cc7f3c7505275e14ec"
+    sha256 cellar: :any_skip_relocation, all: "c6faf46d2820ffce51003df3961678c0eec0ff267c5ad270e36d624cfbe5f496"
   end
 
   depends_on "node"
