@@ -51,8 +51,9 @@ class Conman < Formula
       console name="test-sleep2" dev="/bin/sleep 30"
     EOS
 
-    spawn sbin/"conmand", "-F", "-c", conffile
-    sleep 5
-    assert_match(/test-sleep\d\ntest-sleep\d\n/, shell_output("#{bin}/conman -q 2>&1"))
+    with_test_process(sbin/"conmand", "-F", "-c", conffile) do
+      sleep 5
+      assert_match(/test-sleep\d\ntest-sleep\d\n/, shell_output("#{bin}/conman -q 2>&1"))
+    end
   end
 end
