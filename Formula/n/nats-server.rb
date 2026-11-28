@@ -40,14 +40,17 @@ class NatsServer < Formula
   test do
     port = free_port
     http_port = free_port
-    spawn bin/"nats-server",
-          "--port=#{port}",
-          "--http_port=#{http_port}",
-          "--pid=#{testpath}/pid",
-          "--log=#{testpath}/log"
-    sleep 3
+    args = %W[
+      --port=#{port}
+      --http_port=#{http_port}
+      --pid=#{testpath}/pid
+      --log=#{testpath}/log
+    ]
+    with_test_process(bin/"nats-server", *args) do
+      sleep 3
 
-    assert_match version.to_s, shell_output("curl localhost:#{http_port}/varz")
-    assert_path_exists testpath/"log"
+      assert_match version.to_s, shell_output("curl localhost:#{http_port}/varz")
+      assert_path_exists testpath/"log"
+    end
   end
 end

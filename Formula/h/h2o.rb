@@ -92,8 +92,9 @@ class H2o < Formula
   test do
     port = free_port
     (testpath/"h2o.conf").write conf_example(port)
-    spawn "#{bin}/h2o -c #{testpath}/h2o.conf"
-    sleep 2
-    assert_match "Welcome to H2O", shell_output("curl localhost:#{port}")
+    with_test_process(bin/"h2o", "-c", testpath/"h2o.conf") do
+      sleep 2
+      assert_match "Welcome to H2O", shell_output("curl localhost:#{port}")
+    end
   end
 end

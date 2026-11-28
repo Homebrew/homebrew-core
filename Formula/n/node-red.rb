@@ -32,17 +32,10 @@ class NodeRed < Formula
     assert_match version.to_s, shell_output("#{bin}/node-red --version")
 
     port = free_port
-    pid = fork do
-      system bin/"node-red", "--userDir", testpath, "--port", port
-    end
-
-    begin
+    with_test_process(bin/"node-red", "--userDir", testpath, "--port", port.to_s) do
       sleep 5
       output = shell_output("curl -s http://localhost:#{port}").strip
       assert_match "<title>Node-RED</title>", output
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end

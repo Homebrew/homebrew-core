@@ -37,13 +37,10 @@ class Snakeviz < Formula
 
     output_file = testpath/"output.prof"
 
-    pid = fork do
-      exec bin/"snakeviz", "--port", port.to_s, "--server", output_file
+    with_test_process(bin/"snakeviz", "--port", port.to_s, "--server", output_file, signal: "HUP") do
+      sleep 3
+      output = shell_output("curl -s http://localhost:#{port}/snakeviz/#{ERB::Util.url_encode output_file}")
+      assert_match "cProfile", output
     end
-    sleep 3
-    output = shell_output("curl -s http://localhost:#{port}/snakeviz/#{ERB::Util.url_encode output_file}")
-    assert_match "cProfile", output
-  ensure
-    Process.kill("HUP", pid)
   end
 end
