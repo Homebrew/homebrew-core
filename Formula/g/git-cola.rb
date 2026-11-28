@@ -3,8 +3,8 @@ class GitCola < Formula
 
   desc "Highly caffeinated git GUI"
   homepage "https://git-cola.github.io/"
-  url "https://files.pythonhosted.org/packages/9b/28/490fa1db84c7d3a791005eab93f1f8ae94cb3c5d0e4410c51805b279aa58/git_cola-4.20.0.tar.gz"
-  sha256 "cd0f40e7cdda4695f89b24e099ccaa5387850e8512db338cdea34b5f4d26e47b"
+  url "https://files.pythonhosted.org/packages/b8/c1/d12324a3c35588aefe82fcf1e77a936ecab8c60c42a31b691be3e432563b/git_cola-4.20.1.tar.gz"
+  sha256 "f221f5d4be5fae19cdf413de502d381ff5ad5cea843bdf20da24ed8bf66296f4"
   license "GPL-2.0-or-later"
   head "https://github.com/git-cola/git-cola.git", branch: "main"
 
@@ -22,8 +22,8 @@ class GitCola < Formula
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "polib" do
