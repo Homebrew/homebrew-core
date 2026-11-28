@@ -118,10 +118,9 @@ class Envoy < Formula
       s.gsub! "port_value: 9901", "port_value: #{port}"
       s.gsub! "port_value: 10000", "port_value: #{free_port}"
     end
-    pid = spawn bin/"envoy", "-c", "envoy.yaml"
-    sleep 10
-    assert_match "HEALTHY", shell_output("curl -s 127.0.0.1:#{port}/clusters?format=json")
-  ensure
-    Process.kill("HUP", pid)
+    with_test_process(bin/"envoy", "-c", "envoy.yaml") do
+      sleep 10
+      assert_match "HEALTHY", shell_output("curl -s 127.0.0.1:#{port}/clusters?format=json")
+    end
   end
 end

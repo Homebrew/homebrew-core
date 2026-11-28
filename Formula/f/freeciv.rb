@@ -100,8 +100,9 @@ class Freeciv < Formula
       assert_path_exists testpath/file
     end
 
-    spawn bin/"freeciv-server", "-l", testpath/"test.log"
-    sleep 5
-    assert_path_exists testpath/"test.log"
+    with_test_process(bin/"freeciv-server", "-l", testpath/"test.log") do
+      sleep 5
+      assert_path_exists testpath/"test.log"
+    end
   end
 end

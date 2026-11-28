@@ -229,12 +229,12 @@ class Fava < Formula
         Equity:Opening-Balances
     EOS
 
-    spawn bin/"fava", "--port=#{port}", testpath/"example.ledger"
+    with_test_process(bin/"fava", "--port=#{port}", testpath/"example.ledger") do
+      # Wait for fava to start up
+      sleep 10
 
-    # Wait for fava to start up
-    sleep 10
-
-    cmd = "curl -sIm1 -XGET http://localhost:#{port}/beancount/income_statement/"
-    assert_match(/200 OK/m, shell_output(cmd))
+      cmd = "curl -sIm1 -XGET http://localhost:#{port}/beancount/income_statement/"
+      assert_match(/200 OK/m, shell_output(cmd))
+    end
   end
 end
