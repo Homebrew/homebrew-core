@@ -1,15 +1,15 @@
 class Asccli < Formula
   desc "App Store Connect CLI to manage apps, versions, and screenshots"
   homepage "https://github.com/tddworks/asc-cli"
-  url "https://github.com/tddworks/asc-cli/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "10556835479a6a958fd3278f6c1e5331e161779101f477c6c75aff33ed5f26f4"
+  url "https://github.com/tddworks/asc-cli/archive/refs/tags/v0.19.2.tar.gz"
+  sha256 "1ffd1585a02c9557e2779c28538801e6412d88c29e461e09489321c15076b82b"
   license "Apache-2.0"
 
   bottle do
-    manifest_sha256 "f19bc3be52f874b67b04e4e9b2efa85133a4e6dffbe400d6d21d9b9ec8a5b5e7"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bcd18c09a8975eeaf6aa710d3d519b0b76eb515455d160010d288b493ef5f21"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0abf467c1ab406e82651090ec79048be1b8ca93974a7df154f2fa4bdaf1c6987"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c4b77d75ede1c9d2ff199758d210a023eb95810a6b5c75b8633b1cafe9807042"
+    manifest_sha256 "e700c8b2e7527d212a714b7a307d55b495e90e100158bd575e5975d14535e140"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e7e86e8aa5c3a0b9e7adef3218c995274fe3713498fa7711227ff48fc59d55b5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e4c877bc7204f15b522d95422e083c322cc93c1f2904069e87f41deec41aa0f1"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac200fddfbd606aa448fd104033202cbb46283a100eb1658a261dc0afa38ef43"
   end
 
   depends_on xcode: ["26.0", :build]
