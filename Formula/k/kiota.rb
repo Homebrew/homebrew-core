@@ -2,7 +2,7 @@ class Kiota < Formula
   desc "OpenAPI based HTTP Client code generator"
   homepage "https://aka.ms/kiota/docs"
   url "https://github.com/microsoft/kiota/archive/refs/tags/v1.39.0.tar.gz"
-  sha256 "0008e9ffda62e2b962114c800867b0fb7f082706906956862a3fb48e4464bf2d"
+  sha256 "bdccb057d063fecd650d10ee2f289d6894a68ca3a554c2636d308b3047c1ef48"
   license "MIT"
   head "https://github.com/microsoft/kiota.git", branch: "main"
 
@@ -19,6 +19,8 @@ class Kiota < Formula
 
   allow_network_access! :test
 
+  def dotnet = dep("dotnet").to_formula
+
   def fetch
     ENV["XDG_RUNTIME_DIR"] = buildpath
     # Ignore dotnet version specification and use homebrew one
@@ -30,8 +32,6 @@ class Kiota < Formula
   def install
     # .NET named mutexes need `XDG_RUNTIME_DIR` (or `USER`) on Linux, which build containers may lack
     ENV["XDG_RUNTIME_DIR"] = buildpath
-
-    dotnet = Formula["dotnet@10"]
 
     args = %W[
       --configuration Release
