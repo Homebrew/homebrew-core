@@ -17,6 +17,7 @@ class Naturaldocs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "43e32d6493ccf9d9bac04978ef9a3835005dddfc40420ec594b1a0daead6dba0"
     sha256 cellar: :any_skip_relocation, all: "a439b159358c64b91076716aa62efc0f80cd08938a4a35daa35dd397817a474a"
   end
 

@@ -13,6 +13,7 @@ class Antlr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f0f017b84748b7f5eb0c9978d90366c0babd36fcac8d9b14696e8a8a386dfa66"
     sha256 cellar: :any_skip_relocation, all: "bf1e63a2591afe5116fe381032539b9a7ce76854f99f3976b9a81fa617b2640b"
   end
 

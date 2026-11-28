@@ -8,6 +8,7 @@ class X8664ElfGrub < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7d1af003c656d9243500a79a63fe9803d1b22871041858af273aed0841be3877"
     sha256 arm64_golden_gate: "cb3916d196c369d89f9588c56da5cd85bdafbce16d7e0926129eb597fdb99ba6"
     sha256 arm64_tahoe:       "53b8b89694c2d829f0b1a2d2f66d2337c989701666214a98bda3669e835ad9bc"
     sha256 arm64_sequoia:     "5c7bf91186736387bce0a339c643572cbd603ff797360e3077b3d56568d9ede6"

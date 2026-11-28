@@ -6,6 +6,7 @@ class OsmGpsMap < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "4a733ea863f2266577e1a357a80af89ecbbe091e39e1fac7d3c92cd4e43ba45d"
     sha256               arm64_golden_gate: "9a229e9b70d62a524600d7f89ebda612f222bffabd2340109bd9ba1ed96d4247"
     sha256               arm64_tahoe:       "175de31db5ba8bd2636c7fa860f6a13050ea71363f9312c339cde398493c5167"
     sha256               arm64_sequoia:     "a8e0f7a4b7046c6c30afbd7a1931b617be827530341d606ef316309db1ad8181"

@@ -7,6 +7,7 @@ class Keydb < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "3801bd06759771a462f98124a44cf9b94275d5c27ac57ba2f42ecaef30d8ecb4"
     sha256 cellar: :any, arm64_golden_gate: "dbd7a7d4d5dd931fb2fa335d9ffe8ac973599524b3035138cfeed494ba8f0737"
     sha256 cellar: :any, arm64_tahoe:       "76057a065995260cf2e4d9e6fd9b6d7e133920f0d996e700028b718c0cddf02d"
     sha256 cellar: :any, arm64_sequoia:     "5de0dcfd335e9541513acc7e34ebff337877cdc7b6bff9c31728550d227f7028"

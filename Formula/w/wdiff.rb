@@ -8,6 +8,7 @@ class Wdiff < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f6a91549805905fbf316257edc22557ffcc32c60d9c559be6c82cc9ac044f594"
     sha256 arm64_golden_gate: "dc8240927b1f768e46971d0f8aa24d42953f615890dc0bcb75e3c99033c8b2ec"
     sha256 arm64_tahoe:       "ce4adeb51852e112fe76a73a1c38062eda8608965e06ca78023874b9f59b79bb"
     sha256 arm64_sequoia:     "a460deb2bef54642d0647be807c43bf61d5a2b00435d7f69a6b9323ae5c6822f"

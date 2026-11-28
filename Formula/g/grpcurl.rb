@@ -18,6 +18,7 @@ class Grpcurl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2397927091886d1b81a00fff4260b6046b2fa5c0e92c76980ecb902d09e07793"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "847022e00e458ffe5ce4f7a69305ac8096ae718ad2a4e78698237f1be248ad94"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "847022e00e458ffe5ce4f7a69305ac8096ae718ad2a4e78698237f1be248ad94"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "847022e00e458ffe5ce4f7a69305ac8096ae718ad2a4e78698237f1be248ad94"

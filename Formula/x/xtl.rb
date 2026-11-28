@@ -7,6 +7,7 @@ class Xtl < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "aa5b69a2fb6d8a8bc0f5a84ea213e1fc16634283f615ec44699434f2408a53ea"
     sha256 cellar: :any_skip_relocation, all: "d90f6f106f3d81356101e8ed533410aa4d4ccb952b90ce93e7836438fb3d5377"
   end
 

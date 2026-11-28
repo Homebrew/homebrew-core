@@ -6,6 +6,7 @@ class Libaegis < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "74fa2b55b50c7543a8dbcb4e006d38bcf129f9bdeae72f6467d9a629f568e0fb"
     sha256 cellar: :any, arm64_golden_gate: "dc4fe27e728f04ca93a5a781e846f73ed8b7572b4e8fcb4273455c34c7f6826a"
     sha256 cellar: :any, arm64_tahoe:       "c59c43ad6fd7d1aac73412d9cf382916a3904b26d48903b2456e51cc19296de0"
     sha256 cellar: :any, arm64_sequoia:     "681b3b703a09efee168e1a541f1c1191ebd9d4767c2720b6e00e564012b7d960"

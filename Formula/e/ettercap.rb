@@ -7,6 +7,7 @@ class Ettercap < Formula
   head "https://github.com/Ettercap/ettercap.git", branch: "master"
 
   bottle do
+    manifest_sha256 "77e3227c385a0cf329b4a2c78bb9a2ede9ac720a6df47c71a58c67c4e61b462a"
     sha256 arm64_golden_gate: "94fde49a647d5c290599892ea329d1ce027a5de8f0049f3641e0dd10d972a423"
     sha256 arm64_tahoe:       "ccc5a8a01f77738e5083c53a540526fe129dd8644bb7ad20ead42cdd3884daca"
     sha256 arm64_sequoia:     "d76c6e32c35b21507fc465279b7d3abaefa2bc99a2747996f2b1370650b05199"

@@ -7,6 +7,7 @@ class ZshViMode < Formula
   head "https://github.com/jeffreytse/zsh-vi-mode.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8d0f5191bd4cd248e7d92eb6c7792c8868c5833e14a6ec77c90239bf4aa501ee"
     sha256 cellar: :any_skip_relocation, all: "640f9ffc4af6c23405417a2076f924ddfa3b07be4eac462470f6521c010841dd"
   end
 

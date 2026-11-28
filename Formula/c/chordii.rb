@@ -11,6 +11,7 @@ class Chordii < Formula
   end
 
   bottle do
+    manifest_sha256 "118cbe55c2148d8372bc9bc666352f961b874344f691010345d87ab31e4298e4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7ef93583c8a8014ec9318e19ae10d319c149e11f10fa2cabbcd996d25389295d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d07735a1513b3c86ea5fa4db756e4c2238c7bb4ab60bfda160e56940c5abca28"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d957516291bf50268bfc7a90bfb72ae62ae3e54e249a6156033f0938c9d4fbbf"

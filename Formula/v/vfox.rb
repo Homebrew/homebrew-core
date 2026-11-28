@@ -12,6 +12,7 @@ class Vfox < Formula
   end
 
   bottle do
+    manifest_sha256 "4353f6270fef3526fe91108a40ce92501d6f97e81a4334ec9c857529bc7d840e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f7686da7d7d19d26904f0619adcbd6e93be6b0605d9ab12f813a5484633e2204"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6c371dc0e90b8e6298d7184d423845d8f5e59fda3d2018a2e0a9c499f2f0762b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a356161e940da69a33a3f3e83d100512387d695d3e3f5ce1758d88a087d4371d"

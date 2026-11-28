@@ -9,6 +9,7 @@ class Aom < Formula
   head "https://aomedia.googlesource.com/aom.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ab898672b5869d291c6cdedea04c35ea7da92a9d434beaf1909e68d3f450b75f"
     sha256 cellar: :any, arm64_golden_gate: "62c6e88627ca648845e877164e637feb66e64fbcc95a839f1f4a484fdfa359cd"
     sha256 cellar: :any, arm64_tahoe:       "1700f28827f8c737481b7f0b702aadd0c2c760108a3cf9fa8c227e4bfe17e518"
     sha256 cellar: :any, arm64_sequoia:     "39acbc6e2fc0c0e02623a314fc1247153288cd4c30d8945e45e4629da963f784"

@@ -7,6 +7,7 @@ class Gonzo < Formula
   head "https://github.com/control-theory/gonzo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "acff0af124f878a2822a9beaadb660d281b76bcd56bb26341a0baf92bd27ad15"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "28b5841cf9d00975af0c80f3a4309d1fc94f6fc703d99acf55a4c5621e00514e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d6602046e138f09da26fa730ac9660480847da629d3fbd85bb6179f64b0deb8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2d6602046e138f09da26fa730ac9660480847da629d3fbd85bb6179f64b0deb8"

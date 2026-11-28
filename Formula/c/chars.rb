@@ -7,6 +7,7 @@ class Chars < Formula
   head "https://github.com/boinkor-net/chars.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e0ba5af7a305218b5153fb7927a1f56f806863de80ba18c041611fc3d74a639c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0d72753abd4cc91ef8c61fbb10b484ee229fbf5741dc13c8c463b4daeeda57a4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f8ce443f25310a09c925063e8900fa1385d6bc02501595f7b47d92d813a7031"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "217f90ce26ac0d657e7ff5fc13bb07fa945453e9877adbf436af02380e65c8a7"

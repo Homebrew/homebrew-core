@@ -7,6 +7,7 @@ class CargoZigbuild < Formula
   head "https://github.com/rust-cross/cargo-zigbuild.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f159dee8be5351d0a474b37e1f4e0b6f936157a54ef14a89c2ce42a6d9a786d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5495c5dbcc246e8538e9eaa4536a06c9f8c95643a83ca2cf1ce261c9767c075f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d263c42afe4e7e3ba55080aa7635687f85996b8cd965321adb2340e0d698c763"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "208ff9560a20bd7108c16ca090a91e5bbad648960fcc7ff99933cfdf85851952"

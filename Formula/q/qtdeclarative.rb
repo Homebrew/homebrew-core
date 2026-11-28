@@ -19,6 +19,7 @@ class Qtdeclarative < Formula
   end
 
   bottle do
+    manifest_sha256 "6522b6a3850c0e5fe4d1336d28595af92455fe74ccd1ff786653ca8b1962892f"
     sha256 cellar: :any, arm64_golden_gate: "e01498eeb11eeaa6feb6f04df86379cc87bbf7b39b3ab8cc3af30a968fefbff9"
     sha256 cellar: :any, arm64_tahoe:       "8ce531e7a1ff16db7af85da8beafd35926ca562a214941cdeb83047d188d9792"
     sha256 cellar: :any, arm64_sequoia:     "1c86d9cf50b1cce13e3470e6327a4d5f8db6c746194c9e7c73bdc9afd6d5dfd3"

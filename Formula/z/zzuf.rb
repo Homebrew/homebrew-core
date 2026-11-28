@@ -6,6 +6,7 @@ class Zzuf < Formula
   license "WTFPL"
 
   bottle do
+    manifest_sha256 "2183e822f9cd209f296cb0db00bb3faab25c10142dd978656429f1af705c7397"
     sha256                               arm64_golden_gate: "301f0b8d8c0d552c91914fb8401ff8d7eec9ca134e16c3990b1ab98d21de240a"
     sha256                               arm64_tahoe:       "a4c4c66658aa63cc815d056e06bce100d7907cfd53179b98b596f440a1d0cd15"
     sha256                               arm64_sequoia:     "6ccb5e6621aa95f4cb62afebe5f4c3aee322b8d207a10d3cbdc16bb073c09aa5"

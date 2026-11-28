@@ -14,6 +14,7 @@ class CargoClone < Formula
   end
 
   bottle do
+    manifest_sha256 "f6fc281367933128ead7fdc56dfedc3c6131755d3a8599581626a338372dfadf"
     sha256 cellar: :any, arm64_golden_gate: "4656087b15aae68a6771c3ce4c1782fda2d5e7c7b6f01108e1b38b974c2c6698"
     sha256 cellar: :any, arm64_tahoe:       "e60d4bc33ebf7b22b8a9bd79b8cc2fe0369ef3c5c2d2c6da9f2ad584b5b5eaae"
     sha256 cellar: :any, arm64_sequoia:     "d9aab0bcd25722d20597ae86a349c57013ba81f13deb238b39abf068a151d6bb"

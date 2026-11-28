@@ -6,6 +6,7 @@ class Alda < Formula
   license "EPL-2.0"
 
   bottle do
+    manifest_sha256 "8fb2326f38d4fd382fa4d4c80e935aef1f6eeb22d818819aa30e560574636408"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "331918f7525e70a2c8070aa2570bb636a80e384a8142b28ee27f4f3597ed1c31"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "698d91011f327dd3d2a3c871dc9f832326561a6fb5ed36702d975f601add097e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ec38bebe40697ba05c96bf07d0175d276b7db956e0c057cd8f4c260511a9885"

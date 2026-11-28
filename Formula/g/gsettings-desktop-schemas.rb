@@ -7,6 +7,7 @@ class GsettingsDesktopSchemas < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "571cee7e41d78a386f7d52865447837ac2e7dc925c51e499957e168a8d88add7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d70b0494de9d764c4f893a22f75a736aa97b8de37b9de51da36a0789f134f1a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d70b0494de9d764c4f893a22f75a736aa97b8de37b9de51da36a0789f134f1a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d70b0494de9d764c4f893a22f75a736aa97b8de37b9de51da36a0789f134f1a9"

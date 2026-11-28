@@ -7,6 +7,7 @@ class Cpufetch < Formula
   head "https://github.com/Dr-Noob/cpufetch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "302cc9bfd7c5c8c2b0f4c939a979a5c5683f4d439e3cbe51681a8867e9fd8c93"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "be5698995f6e78b36157af25a7846457960675f61c96249c38b1e2b2a44f48b1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cbdea8515700936d548b6baab978624be7e9fcc94dd3121a5962d58074cec48c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a1b091ed4c78aede110a601f2f57ced0b6c30754f1032d284d613b3bd3a3ab78"

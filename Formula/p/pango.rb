@@ -17,6 +17,7 @@ class Pango < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9c36a5befce5dabda050c71a08134f4fe0369fc1a66973b6d5bce76eca41ea46"
     sha256 cellar: :any, arm64_golden_gate: "99d7073e54a0a36b77d730b06103a232e88a8aab7d5fab8005fe3ccc248429c0"
     sha256 cellar: :any, arm64_tahoe:       "9e58508e6ae06c08ab7cfe5fac5cb8b0899cfb7c1f24fbc6363d030319ff1780"
     sha256 cellar: :any, arm64_sequoia:     "4fa58f7090be47c43b3d7411aa961bd0a67cf84850554f08eb7b0a41cab0b0e9"

@@ -12,6 +12,7 @@ class GoJira < Formula
   end
 
   bottle do
+    manifest_sha256 "8ee1036305c2425424d71db5eee6bbc689f1f0371faca78912f7f74b5b1e154d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "026224184b664ba170c592f8303da3c32461865745704355bf64cb11a986151b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "379b37138dec50af1a721ea979bc968474ff2f5dd901e853516836fbe205b456"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "71657b7b31e15f29675a246bb6a900dd5ae8d7156bbfe7aea9c2f07f460da220"

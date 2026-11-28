@@ -13,6 +13,7 @@ class VulkanUtilityLibraries < Formula
   end
 
   bottle do
+    manifest_sha256 "516306bd3fd5090f824a55147f67e109a1cf53b4efbadaae351e792ccb7b1497"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ce4f8956ef1835eea8fca571a7a4eec061060a59b1e22a25f689df4a78cbb32"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "66b533c7d8c986bbf5a74d86ab96a22da354a52abe890fb9a5116894a87b0a53"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8c1ff63fd0e47fb63489054680c18d75840a8b47dcfffbe8e9950391cdef4a0a"

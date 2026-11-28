@@ -7,6 +7,7 @@ class Id3v2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6b3a7c54834bb6180f9eac949ccaec34e5270ed3ed64e09608d7d723145845f8"
     sha256 cellar: :any,                 arm64_golden_gate: "3b845c5466cd4813a08f61e2ebd90a9fd81088fe1143c4bbd402c0bdc0ff389f"
     sha256 cellar: :any,                 arm64_tahoe:       "33aafe768f00f1a37dcc4a02ea2ebca5a06fe9548ee98fdab3b3f598ba641512"
     sha256 cellar: :any,                 arm64_sequoia:     "87cb393fcb36c2c26e7af47a89e78da61e7a75e52d528a26191449f17c8a05f9"

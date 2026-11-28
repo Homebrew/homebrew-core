@@ -7,6 +7,7 @@ class Doge < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5fc5a20d3fbb39f8a3d7f9461b5d1fd7f5df96bd401b2ec4930965cd2bce034e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1b0e18f93bb0fc4b1919efd31251f88ea5594bfe4b33b9403bb88f678965e1ea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b09148d5fa1c4730220c64f1958f1e41c339d7d8d0755081b3630b92cc992f2d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e4ea11990dae5172828276d789e317f3f597085b8ca3f7c50d286d0437d8b5da"

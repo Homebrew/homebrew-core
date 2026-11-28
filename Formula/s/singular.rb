@@ -39,6 +39,7 @@ class Singular < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bc3c8e047b334c329336983a4470e29bbd6eeb1cc594b492e58230ad339569f0"
     sha256 arm64_golden_gate: "cf2dfcca855c1dbb38a55f6bf3ed3fbcc16f27c0f0ed5812350178f9bb206d4c"
     sha256 arm64_tahoe:       "c2247c8d99c4b9d966f26968cbd1713c962dc008a6b97b6aa7fb80b6db25d62d"
     sha256 arm64_sequoia:     "5e03ab7db05efb09e23c15eb24ffa75d9b950a34f67cfa160758027927783ec1"

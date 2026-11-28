@@ -11,6 +11,7 @@ class Dotslash < Formula
   end
 
   bottle do
+    manifest_sha256 "20175dbe3b1faa01b9871633b37af2d059318fad495d4f1ceb5045f295e4850a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "922b39cd7f2ebb17955b6d09f147103c206e8a5a7769a43e9cb61eed67c40976"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be6210c4f1c4480fd8467d1fb0289f15b5378d53711af6b680ef8befe315df7b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f4e6f136b3909e6ef3152da3322ee09f4f7a6fdff9a7b8b83df267cfc4726e3f"

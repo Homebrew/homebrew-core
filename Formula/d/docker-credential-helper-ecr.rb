@@ -12,6 +12,7 @@ class DockerCredentialHelperEcr < Formula
   end
 
   bottle do
+    manifest_sha256 "ebf13cea2bc6f50036bb6ef25931f6e05ffb6aa08455dc951161ef5bb258ad83"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3000010b6a643b2487436072507381c715ac3ebc6ebe2825931cc744c94221b9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3000010b6a643b2487436072507381c715ac3ebc6ebe2825931cc744c94221b9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3000010b6a643b2487436072507381c715ac3ebc6ebe2825931cc744c94221b9"

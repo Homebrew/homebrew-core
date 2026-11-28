@@ -8,6 +8,7 @@ class AsmLsp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "80aa49c5ccafef03d1f770145911609483304a151b850aae600b74d941172b7d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c2955de377dd27c4226e64d2701f0e14086a85dce4d43635dbcbc84ac4e4f35"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4429273d74303faa38c6fbb7b2074db7c922da25dd9d347624b6a263d21e4ba6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc076b8590b27a9df2f227487ff8c19e6b13e084d236a572c074431ba9faf7a3"

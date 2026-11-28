@@ -7,6 +7,7 @@ class LibpgQuery < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "5d45d6370c5baafeb89d48cc5d7c2080df65634415fa563ae9bd6dd1f3196b40"
     sha256 cellar: :any, arm64_golden_gate: "6f0b6079051efd7269309edf8ce2e78753114d910e9d32ea30fab1bb7a44e8ac"
     sha256 cellar: :any, arm64_tahoe:       "b2f8e2ad27549f4fb8c4bcbdc4fe2da63a30277b42b5fb0dc774b6e55cc3986c"
     sha256 cellar: :any, arm64_sequoia:     "a4d6331474f417f6044e55a0c391761ad621f7f2d81ae876b225175af5ca94ec"

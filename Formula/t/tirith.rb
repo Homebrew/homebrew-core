@@ -13,6 +13,7 @@ class Tirith < Formula
   end
 
   bottle do
+    manifest_sha256 "0426abc7f850545ea3e6242af37ee7f3a874c956554d880daa650d5bfa02c3e5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "deb0fd62298eee14703bf3386c56b7270c08736fe2127743c475523ce6ff677d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee5d9eff3a6d5479854173aa55f271ecaea697a5953470ef5d09969408f209e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cc9803643bc14e745e71d24f57226a7d10fc61e4f30e94f432e4d300641b387d"

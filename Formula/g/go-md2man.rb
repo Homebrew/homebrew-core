@@ -8,6 +8,7 @@ class GoMd2man < Formula
   head "https://github.com/cpuguy83/go-md2man.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2fd8f0f943c8e9d62f2a85d249d437351adb9d1a5b9950b1e766fe2403993b8f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf2592a7344dd0c141977ebff455218a31af931c280a2126207c6d028974688f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4879fc7e3aa3b31a88c26085ef7f7e15a2cf4df720e6809e26d1a2eb91f31fc4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "88fbded5a27da6f0f25f33b129b3164a0c4509f49c635c56f5154c3503cef78b"

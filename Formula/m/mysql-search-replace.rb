@@ -7,6 +7,7 @@ class MysqlSearchReplace < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "aa00cd0a341f85f62755669d7cfb7f94533d98de0ee1accb1c55c98d9a631951"
     sha256 cellar: :any_skip_relocation, all: "83006f9192e3961c1251b9c11f255afe703ae3076598b2b148e211c18b6dba41"
   end
 

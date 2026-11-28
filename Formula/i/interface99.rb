@@ -7,6 +7,7 @@ class Interface99 < Formula
   head "https://github.com/Hirrolot/interface99.git", branch: "master"
 
   bottle do
+    manifest_sha256 "27694b22734422444a10bba4d10f7d510de0917d9c734bafa22c0d40c6f120a8"
     sha256 cellar: :any_skip_relocation, all: "cdcd1817a2f31b433c04ed591b2f5de07141a3e783de280b0c7431b68dec2556"
   end
 

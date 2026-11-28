@@ -19,6 +19,7 @@ class Taplo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0284143a47a811cdcc722957c94f2793406fc9b1c85e2e44ac5d0e4f2d2c508c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "083349d35d830f8d6551da50beabc7d224fb06102b1b6fd87d0593ed40aed902"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "45ab756df1ba17d564eb5b5132320bd54ed6ce1c87ecd6cc4f060b7c9f464bfb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d7f802f8658952140d83d60e0c62d3b09532db224f749bd46d4969e094661aea"

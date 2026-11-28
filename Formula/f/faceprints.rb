@@ -7,6 +7,7 @@ class Faceprints < Formula
   head "https://github.com/Nexuist/faceprints.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3d8e59d09518fd7ad4b3dba9a71ca63cb83a404371e16833f44dda534f6ada7b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8fcbac02f023342cd65158bf221d47366d220fb72964b156460fa673e2f44916"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bb178befed4a4d82d787f5e2e51c57b1b1ebdbfe3bf0ae87d3d9b5ea8209effd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "35d54d73d2266b3a81c863879ff51c1273fc77c0a280f091a8da8b493f40d70b"

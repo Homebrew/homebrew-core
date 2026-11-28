@@ -12,6 +12,7 @@ class Valgrind < Formula
   end
 
   bottle do
+    manifest_sha256 "eb4cd664ec7574009f425f64282bcade18d9f659b65b31b8f637a5a17dd8f551"
     sha256 arm64_linux:  "ac0e1eec275ce44731ba1ad2e4921f01c16a69b7694dc0a7d72e19d0e31a5e5b"
     sha256 x86_64_linux: "e69994d21faf757c040a66a31d0ef5700661e813f9b37befcc527d89de0cb5e9"
   end

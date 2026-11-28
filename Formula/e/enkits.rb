@@ -6,6 +6,7 @@ class Enkits < Formula
   license "Zlib"
 
   bottle do
+    manifest_sha256 "a85a7ee94716380486667ebe1b9f0e03e68a5a0868672f78a9f652391bd660eb"
     sha256 cellar: :any, arm64_golden_gate: "1eb3d23be5b64aec1effd546247b553f28839e0b384442bdb2704a838d2b3944"
     sha256 cellar: :any, arm64_tahoe:       "401d2242276475ba7176da65f6de0e70f767a59a1ec50239a14f9d41901e20d0"
     sha256 cellar: :any, arm64_sequoia:     "df82b8c8ce8d5c0ceb55ab5e572b6f61617ba2009469e9586d6adc2b8a6a64f4"

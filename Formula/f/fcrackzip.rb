@@ -12,6 +12,7 @@ class Fcrackzip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e77effdfe16f9aef553957124fc0887c2373270dcd3c6928697676819e9e8b8a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c9b901da9e7b0b17128ffb423d2b54423376fd6a13baba52c5e9c73065d4615"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c9ec0de20570467b787bfe40641aad62b1c0426f8d8441491d169f255daeac2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e8664e8c1bc24e41f3d6c16b32eec831c057d13c191245d0d9d726709a23cb5"

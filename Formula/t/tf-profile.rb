@@ -8,6 +8,7 @@ class TfProfile < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7e771b584fe886a1fa6f64876319e2cbc18cfd1facf511bb0ff49a4cdec7f11a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c3dea637ad6300491568c2a8421d1b128ea7395aca18600bed82d50c831797e5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2f2be0e109cfe0075937bd1654d7a35776f509cdbbc76099cb18ff546ffed9c2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2f2be0e109cfe0075937bd1654d7a35776f509cdbbc76099cb18ff546ffed9c2"

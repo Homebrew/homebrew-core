@@ -6,6 +6,7 @@ class Nullhub < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6df61ba2c9247205b90ce647d85c36e9e02d172f22666ddd29820b9c1a351f37"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e26b7e1a88e25e18a75544121a488b916f6d209f79417ed8822975e433eb3dd3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8827e0e560b6d7bc76cdf3ba0b21b8244508ae056a7b3149e92809db1e9410d7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69213fb5068b44644b456d2f3bf483289a708d0b9d327bfb289d02b8ae45f25d"

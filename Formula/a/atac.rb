@@ -7,6 +7,7 @@ class Atac < Formula
   head "https://github.com/Julien-cpsn/ATAC.git", branch: "main"
 
   bottle do
+    manifest_sha256 "daaa39084181a693d1e11edbeea0f90095c80b270d97d44491ef52c9adafe8f7"
     sha256 cellar: :any, arm64_golden_gate: "67388cc622f5850aa2d7f1af0f199e27233ecf4d7e8d05ad86f03afd26489d7a"
     sha256 cellar: :any, arm64_tahoe:       "1b37cd21394c7e22cebe4c97817cd731148a5917d7aa6e5169cb45ff19670272"
     sha256 cellar: :any, arm64_sequoia:     "65c774f656d17fe803f1ee0368f7282773365db68ce38f852dc521dd0952cf8e"

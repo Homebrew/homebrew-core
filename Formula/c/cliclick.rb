@@ -7,6 +7,7 @@ class Cliclick < Formula
   head "https://github.com/BlueM/cliclick.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8d953488eb49030eb2941730ef9449a82b19fa21948d1df8d59c2ecb93cdf6db"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "414fb4eda86d983ca894071daec49c7f221cbe2e20d5d1499e1ed23e0bd642ca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5c8f28d14d1ce1102ef17284756944a808bab97b0ee2d8dcb66ee1b58350d6fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "275cd8511ab45ec069851af600597c453ed20b7c63fc6fc01d9cc9693a965282"

@@ -11,6 +11,7 @@ class Vile < Formula
   end
 
   bottle do
+    manifest_sha256 "57ad7c39acfda561dc184367bc1408cc19051abec6a6e123f25d808d226456ff"
     sha256 arm64_golden_gate: "6489a874a22c0e3d4fe81a9d6a394284607f3061cacadd5019eaa09b4b9464ad"
     sha256 arm64_tahoe:       "ae7efab15213d0ae0107d3a433ff1c7f4b76b1edb01cc03939d186cd4ce98131"
     sha256 arm64_sequoia:     "3c5aad26fe9462da4a3a634c6ac8799ee3d8350b897e497bdf3e92051ad38033"

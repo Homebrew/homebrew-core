@@ -9,6 +9,7 @@ class RbenvDefaultGems < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f5bd6e104641866f14194805c4575731f6ead434ca90b7835111e80d0dbd3ae3"
     sha256 cellar: :any_skip_relocation, all: "ec2121dbae6293c76ef8493c2a22b95f44e2ba23442525daba4757bd9cc3b535"
   end
 

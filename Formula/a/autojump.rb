@@ -9,6 +9,7 @@ class Autojump < Formula
 
   bottle do
     rebuild 8
+    manifest_sha256 "c9ab08bbd91e889ee07cf6de08f8be7eceda9488ca325c5e37fce96375682ff6"
     sha256 cellar: :any_skip_relocation, all: "2e91a76c910c3ef7afdf39371eb866c2e75f8be696b71bb42f81ce6727bab1a9"
   end
 

@@ -8,6 +8,7 @@ class Garble < Formula
   head "https://github.com/burrowers/garble.git", branch: "master"
 
   bottle do
+    manifest_sha256 "97b63913b205ea685e3a46090fd1218ba3619ed910868cdc466137fd28cb60a5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e912468f827c6c6764fd7a1402505f9c2806b2afb0e2fd800a637e96211723e5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e912468f827c6c6764fd7a1402505f9c2806b2afb0e2fd800a637e96211723e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e912468f827c6c6764fd7a1402505f9c2806b2afb0e2fd800a637e96211723e5"

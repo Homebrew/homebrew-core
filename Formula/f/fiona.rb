@@ -10,6 +10,7 @@ class Fiona < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a9ba2fdf66351b1f0dc4599d281a00025adab2b0483ab3fc34a1cdf64e743864"
     sha256 cellar: :any, arm64_golden_gate: "b3894082992e0f3ce486e2688c5b7d63bdb39ec9b45983f6fc41d08ec992f0c4"
     sha256 cellar: :any, arm64_tahoe:       "4f257790d661ab260a8f06bc666f284f713a72b3d628b0479d181d9c545d7556"
     sha256 cellar: :any, arm64_sequoia:     "981393e7eb02958c6eb5e44d2b03c88fe374f49c77ef12d32c11de792bfb02a6"

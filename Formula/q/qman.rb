@@ -7,6 +7,7 @@ class Qman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4b8a95a2f978206b3717dd0970212619e265d563a8fd861e4132f715f10ef1d7"
     sha256 arm64_golden_gate: "b426fa629fcb6cd6b91f2b7dae636726f18248ae2439589bf2f89c046a6c7303"
     sha256 arm64_tahoe:       "e07746ea2c127a2ce52d95614a7ef968ee4a6866b4c22ff72129e63b93920cbd"
     sha256 arm64_sequoia:     "b9860b41ec038ef4e8ee10a812061d10200e79de99aa688b98c6e708e44e52f6"

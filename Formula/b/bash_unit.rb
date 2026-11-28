@@ -6,6 +6,7 @@ class BashUnit < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "6657147d9d75cd3d3d88c3b0a436a45048f8f582666bfdb86aa8b4d68ad813fc"
     sha256 cellar: :any_skip_relocation, all: "8c7b39455fab02fd97f73960e4c41b3d65f7695d5442d3950385c4d5fe874f09"
   end
 

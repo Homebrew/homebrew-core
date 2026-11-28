@@ -11,6 +11,7 @@ class Reprepro < Formula
   end
 
   bottle do
+    manifest_sha256 "91946a4848339c7488400e56aa22738758bc36c215ed78a9ad6d78156613251a"
     sha256 cellar: :any, arm64_golden_gate: "9ea3148c5e3db6b48cf84812f13f9b94b47e1960c50a68b8f6059f812f31dbf5"
     sha256 cellar: :any, arm64_tahoe:       "d105743acb1ed3af2639fa57bc63d091887aafc27590b566010c3862f91f0831"
     sha256 cellar: :any, arm64_sequoia:     "b706bf94071d033c83360f93fce6f18480a89585d5f151426de28c2cb6e3f4ba"

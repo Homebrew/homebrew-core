@@ -7,6 +7,7 @@ class Sops < Formula
   head "https://github.com/getsops/sops.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f8e6b3d4f63a318c741d82f473f8472e9ac56f432edcb13624eb56d142688f33"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "23c1c93aee914c3b6aa7431f7f8fcd58ddea579e0588bbd4844750cd7de98b8d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "baeff34ec84e339c8b1e3d930e53243a417c897b73773c47f73d68db43c5448a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "baeff34ec84e339c8b1e3d930e53243a417c897b73773c47f73d68db43c5448a"

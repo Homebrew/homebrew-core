@@ -7,6 +7,7 @@ class SsllabsScan < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ef6a71325f7c94ca5635ca466b83d33f3866f14637d65a902c545096b4c8a33a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd354dad33816680567dfea18a4b8b59bf0b39d2b84d46f8589d57d4d498d25c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f8a61fd15b012c3792bdbcdc8229833e8d9d4f9e8b009e3f88d7e8a477ac111"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d639a0a8a695a23b9554d15893132fac16c35675d8e84651696f9b2f1a7ab1a8"

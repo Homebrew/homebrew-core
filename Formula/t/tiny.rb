@@ -18,6 +18,7 @@ class Tiny < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0af7d410a4221f00e5f5bf7596a4c2fc66738e3055db83db41182cc5c1e4921c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1bbced67ee76780d5bcd0d08348b1e8b16c87d2f77ed3d2008a788616a621172"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "409cf746d200608b66065da0c9258866c93931b4cbd257d9e1e8dfdf5906d863"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54b3020e74188e882e7f7909636752940895082a00de6fa37ced26a77636fd81"

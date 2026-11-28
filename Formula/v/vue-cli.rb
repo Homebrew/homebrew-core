@@ -7,6 +7,7 @@ class VueCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f8de5efe5aa7e1fc227446284f8ea34297f6943ed7c3810347edb593dfcf7495"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "99415c2c2a9d3487c7bd190b79d63434126556c6afa2ccf482e618b52b071c7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "3b72fda6c0563cd941f67f7fcff7ce0562af8f248188775a0409c7c26e23a2fc"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "c106882fcbc2627f6939d21aa711c75b8781a49a846b0a2c64a3a48d230f1bd6"

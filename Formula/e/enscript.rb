@@ -9,6 +9,7 @@ class Enscript < Formula
   head "https://git.savannah.gnu.org/git/enscript.git", branch: "master"
 
   bottle do
+    manifest_sha256 "93b755d5d85d49ecc6b219d7657f6a78554feaa5ba8adb587c3ff2ec1480bc38"
     sha256 arm64_golden_gate: "153f5e3675782e5dd0915fa7f7c452cd0fb87d2617c7e18aa3bd365cb67aa3c5"
     sha256 arm64_tahoe:       "8ec384c474020c7910824f10690c55502ceaa686c444c4989dd3785268dac77a"
     sha256 arm64_sequoia:     "2236c54447fc2e015995a2fa047dd406dbfefa9db547a10b305e5817482d8446"

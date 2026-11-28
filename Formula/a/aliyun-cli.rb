@@ -12,6 +12,7 @@ class AliyunCli < Formula
   end
 
   bottle do
+    manifest_sha256 "bbea2c49854484307e6955cc64cbb3767cb85d4dbd40dd0622334d1a60110247"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6b34637cf6be328432994ef42f7cfd07a4cf66f48ebe9fb4384f9174fba82f8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6b34637cf6be328432994ef42f7cfd07a4cf66f48ebe9fb4384f9174fba82f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6b34637cf6be328432994ef42f7cfd07a4cf66f48ebe9fb4384f9174fba82f8"

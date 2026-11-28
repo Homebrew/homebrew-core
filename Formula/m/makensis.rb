@@ -6,6 +6,7 @@ class Makensis < Formula
   license "Zlib"
 
   bottle do
+    manifest_sha256 "db6cd68f3e277c3a2a9f9971ea4b114633c8085e2418c16e1991e740ad3d836c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb902fdc6f21f2d0dee4f78d6a1350263901624217ed2ae591b94d107e665a38"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7c507dc02c50a630db44948fc68ff4dea7c2bae64592d96d134952c2624ddc1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "02605964f5fb05003331867c10cf89dbfa0bf4eeeca7ee397787a4d8084837ac"

@@ -6,6 +6,7 @@ class GnomePapers < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "f4bba0bda66511477f3959d8976f3550bb0dd1dae176ad7b45a1934b32463941"
     sha256 arm64_golden_gate: "6f8be0e1cbcfd5137b4cdd00cae89547cb21740fc901d9588ad6f9ecf95e9c3b"
     sha256 arm64_tahoe:       "da53f4399ec5f490911694b5f646260278de69c9ff81499fca84a905409bdc56"
     sha256 arm64_sequoia:     "1bed9b320e5861ce1ef07297ba84648f358706a8afcd46381da9d7e4197eebd3"

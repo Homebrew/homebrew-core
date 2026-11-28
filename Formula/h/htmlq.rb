@@ -8,6 +8,7 @@ class Htmlq < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c63d43afdb89be82a008a677899ec0bab46cba521e19b7e38429cd5408396b32"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9a9588db1de2b2bf01b84fc15df77776e762ae1b39a96a3d685ee6f0df45c962"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "10400c86049f0533ce50d31348a73cfbed969c2143c5080c674b962378b6d81e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dad7b90fdb9cf7781efc52510275c94be20072923755c429fcbc72f0101fbc7d"

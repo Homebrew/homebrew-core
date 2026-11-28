@@ -12,6 +12,7 @@ class Ipsumdump < Formula
   end
 
   bottle do
+    manifest_sha256 "84c212baaa54d5d1d23c3cd43e00c6d289f8d380626735ccddc7efbf3abe10f4"
     sha256 arm64_golden_gate: "f44556d6832eb946a39ff748c18af74bab843c5adc544549137d4be4f5a407d7"
     sha256 arm64_tahoe:       "4b887c63e1aec769b9142c42cc8e5ddbb8020ab232604111f635c06e4a61ba6d"
     sha256 arm64_sequoia:     "df39ad78cb2e3dbca54558205978fc4c39ffee8b17f11027f51c62dab42b9da7"

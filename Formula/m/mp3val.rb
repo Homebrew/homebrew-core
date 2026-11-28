@@ -6,6 +6,7 @@ class Mp3val < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "c9366df5152693e5f308f629ff7de0652e2abd4c7bb49a6799adcdb2810f17b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84c7698453f1cbcacbb0f5e7e1a6177655128ddf5fe454c5d1ea50b5042bd5f0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b7165855c5d406a93a818986f684dcecde388a8e65cf0b5922e9f0b4a1fafccc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5c10f2c40b3db42ee31ebdff666e1f56da1b200829945556f269cc1be920c64"

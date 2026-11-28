@@ -9,6 +9,7 @@ class Icdiff < Formula
   head "https://github.com/jeffkaufman/icdiff.git", branch: "master"
 
   bottle do
+    manifest_sha256 "45f6e8d79d5726a758bcf675d29fdd785e6304da48f26d1b470f36fed2747dd6"
     sha256 cellar: :any_skip_relocation, all: "0983cc614b2109d7aab7d91987c091341e27c51a4dae4e5aecca3decf6602e39"
   end
 

@@ -7,6 +7,7 @@ class Fplll < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "03bc6af98849ae86cd22c945154a1033adac0e62e5881f785f13f6f3a34b480c"
     sha256                               arm64_golden_gate: "ee484c59a301b6b0cf65d3e136a09a94f113dc2de40b644f4d73eed3b0d94379"
     sha256                               arm64_tahoe:       "695205a1c567c9f190fa106bba08341983123bf5581b4ca39d6f4c57b536e2a6"
     sha256                               arm64_sequoia:     "a25629aa8d961b12af85b7c04935f1133c8a18dee209ff4a593692e11543dc3b"

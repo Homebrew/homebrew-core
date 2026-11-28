@@ -6,6 +6,7 @@ class Duff < Formula
   license "Zlib"
 
   bottle do
+    manifest_sha256 "66091306d920a31a8786a2dc620071f404aaf09d87e6cf5d136db3f12b891b00"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "039f47e6bc5929c1b67882f354006f144841b952b01f697197a09a36aa271982"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "643c694ade386db6a76b2da2cabedb1068774a1d4bb9f6ab48b86703e0a58935"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c424b8c034bc699eee2d55c766aad34f4f7ea1f46a5c6f0a6a221159917fd396"

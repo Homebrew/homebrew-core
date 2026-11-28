@@ -6,6 +6,7 @@ class Lrdf < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "34b9b7b3bdafa5cb636f089de663cc6c4a676c790d78ead22809090646a3b4b9"
     sha256 cellar: :any,                 arm64_golden_gate: "51100cc212124ae72acc5dc7d59630cac760432b951bb873b4a80aca7acc8d47"
     sha256 cellar: :any,                 arm64_tahoe:       "c09fe231441b197696150fc815ddabbcad7a895048555bf374f2064eaf277d09"
     sha256 cellar: :any,                 arm64_sequoia:     "e4f7f5611084a0b10affb934cbec578c9b021da49d439b605539da12666ee47c"

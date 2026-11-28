@@ -13,6 +13,7 @@ class Xidel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "578b2a1d3717e8bbe0f3d19e7330b449e0469674735fcc72864036862e75f270"
     sha256 cellar: :any, arm64_golden_gate: "1d1553e622c0ec71255940058acf72941ac2d1eae5337daa46dad9e1ef961612"
     sha256 cellar: :any, arm64_tahoe:       "1d1553e622c0ec71255940058acf72941ac2d1eae5337daa46dad9e1ef961612"
     sha256 cellar: :any, arm64_sequoia:     "6ecc8a2b6d82ad2eb7d2752521cdc0d5bde48e2d30bb86a62ad71a8580d2ace5"

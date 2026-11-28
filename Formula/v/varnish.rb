@@ -12,6 +12,7 @@ class Varnish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0f9a6f491d34da3a4056d077cc0cc2d6c0e14a8a7675967fc54c70e2cd41e919"
     sha256 arm64_golden_gate: "5743f8185faae8bbf62299d043e5fb5735e76829913709f349f2aceefa5c16bc"
     sha256 arm64_tahoe:       "31f8a6d2501682262e417011f9519a921d8ed0dfcf502629624cd6ee56b582b8"
     sha256 arm64_sequoia:     "47b0ab43e0452ef95facb1a6826317e80d8b085e62e2175ad83f8c27eda291d7"

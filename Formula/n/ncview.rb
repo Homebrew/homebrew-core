@@ -14,6 +14,7 @@ class Ncview < Formula
   end
 
   bottle do
+    manifest_sha256 "40a481961675a977fb802e983cbabe603a57b0263f0f7ef00c0e266347144efe"
     sha256 cellar: :any,                 arm64_golden_gate: "193853e09d0e456e2352e95f0d291985342b93f67b10640450eab4fe8f95c001"
     sha256 cellar: :any,                 arm64_tahoe:       "e3346928e2612dabba4b6798e8f9cb497ff302f1972344cd5271dbb2034ad2ae"
     sha256 cellar: :any,                 arm64_sequoia:     "2834b30675b2ef5ac05d70cf900f8dee5543198f5bdd95e67af41a732222f9c4"

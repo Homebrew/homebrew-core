@@ -6,6 +6,7 @@ class StructurizrCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "62073f11d0652052f09de34d54ee63bdc18e5b7b71330f609cee828b06d10ab6"
     sha256 cellar: :any_skip_relocation, all: "0825af5401fa205d327c343adbbae0868cf9c0c91ec83182110a99f62239a8aa"
   end
 

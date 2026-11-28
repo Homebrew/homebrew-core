@@ -7,6 +7,7 @@ class Shellshare < Formula
   head "https://github.com/vitorbaptista/shellshare.git", branch: "main"
 
   bottle do
+    manifest_sha256 "088b7bb229ba320098e8e8f686dd2294958d73ae68b2ff0f7623c12a5696acc5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d912694d2a977d299cee1fc083b0d875280fbbb2bb9f6912788f591e2f27e1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7155cee155b3b2ea60dd2d7e2331c60b34796fb009b3f26a0bc9aa7bcb712bad"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "561a2d1a3f283a2cd6adc9025632bed740f776e504daffd382b3e719a2954b7f"

@@ -13,6 +13,7 @@ class S2n < Formula
   end
 
   bottle do
+    manifest_sha256 "5be078548e88485c35caaa5370b6981d227e12d8f90b7b1702a106ed9937b294"
     sha256 cellar: :any, arm64_golden_gate: "98bb19919b50b98d0a4d43fd67afed30d3552187ccb25cdfa03a5108399ea791"
     sha256 cellar: :any, arm64_tahoe:       "f9d1307d3c328d8bdab146f09d2023a61f52335aa476749030a7d0d3ffeb9b99"
     sha256 cellar: :any, arm64_sequoia:     "a2c0402c68793387352f6280edd4a14e7e712a2971e8807cba45fd2d8543be9a"

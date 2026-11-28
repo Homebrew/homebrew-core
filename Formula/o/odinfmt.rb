@@ -6,6 +6,7 @@ class Odinfmt < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "59b3cc5dbedb234b6c8874373017c9ce384aed0d2d188d4685784b11a94eedb5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10284b27f8570672c207ed3084a1a9ba3a85f07d5d4bf51fb01eaab1b8c4abc7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5ee4be269f0d1148c5cca6364a4fbb59af9df327e697f7b6b5490fb03591821a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "626e68176664c8c39b8b353df977c5c97834a838c9708ca87f0b215289ebdeaf"

@@ -8,6 +8,7 @@ class AyatanaIdo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fcf7de5427e26e1304cfa4a9b9e07cda6147c41c9afeb481d7583180c7f7a178"
     sha256 cellar: :any, arm64_golden_gate: "5d0af5ab2a2e00224ea5a389c67f0205e4cd2a088d5f196b40ad25d81a53e727"
     sha256 cellar: :any, arm64_tahoe:       "fdd3dea9088ce3de66656684a292ac3cabe7540fe8e58df4d42421d356c2bfc5"
     sha256 cellar: :any, arm64_sequoia:     "768bbbd7532ca49a378cd7e79700b73257ae55344f0cc7c2f81817cd899e14be"

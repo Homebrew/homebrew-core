@@ -7,6 +7,7 @@ class OpenTyrian < Formula
   head "https://github.com/opentyrian/opentyrian.git", branch: "master"
 
   bottle do
+    manifest_sha256 "635b1cee35adc841391e7336bb8de309378932bf849e44e2ceaa14e6de43617b"
     sha256 arm64_golden_gate: "50321ad12a5de87cdf59e63584c9e3bdbc46242f60349b26fa21115293c27ae6"
     sha256 arm64_tahoe:       "a367545bba9fcd03b3894a1768523704e3728903ab1e2ae5a26820c5f307e5dd"
     sha256 arm64_sequoia:     "049fab6183403a11363acdbd0096b8209446dabb641a1c01433564a98313f959"

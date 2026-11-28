@@ -25,6 +25,7 @@ class Clisp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b7e4dd05b4882f00c63938276fffd82c9407ef49bea84b466385360783bb728d"
     sha256 cellar: :any, arm64_golden_gate: "3d72c06219102d616fe394651760e449ea6d03341c1e936721d0a746e48175c2"
     sha256 cellar: :any, arm64_tahoe:       "3af53aa873a0ed7d2e43fac7c09fd80c127e2069d69a814422362dc2e66fc264"
     sha256 cellar: :any, arm64_sequoia:     "6333c511593cd930393b6b446ec2e60ab6a5acb75ebad2f6a383b0b8f6b6be1a"

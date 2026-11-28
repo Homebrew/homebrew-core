@@ -7,6 +7,7 @@ class Yor < Formula
   head "https://github.com/bridgecrewio/yor.git", branch: "main"
 
   bottle do
+    manifest_sha256 "202d0cc10dc26e9b0069e97bb352a188c2f0112b84bfb6b397a3d541d8f908bb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c1e71b55593c08ce2d7121739ff52bf5fcfe11d46165ad385fcb21711b47bf1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5093c27de138a131d29e9b82498757aaea499bdaed28051c8267349ab14e9214"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bec81b4e0759d619616eecc9f20be5c595c59a4a3d54d2931048317a6ce32a7b"

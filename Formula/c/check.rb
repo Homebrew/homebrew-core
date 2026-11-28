@@ -7,6 +7,7 @@ class Check < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4342935d0b35d4bb2da47a632427234ba3d846a70e0799729b50e5f83527c594"
     sha256 cellar: :any,                 arm64_golden_gate: "e76a439dc2fd5bdee069b0a992a20890219dbaaac2446a1cc44dd702c6f2bcdd"
     sha256 cellar: :any,                 arm64_tahoe:       "ce6a229334822ebeb404ea91776ddb2727e76754724dbc6b7dae91cc274748cd"
     sha256 cellar: :any,                 arm64_sequoia:     "11f6f6c67483ebc4a230480a1b068882a8476afc52517d2d68de0ecc24ea305b"

@@ -7,6 +7,7 @@ class GitSecret < Formula
   head "https://github.com/sobolevn/git-secret.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e33fd9f0761a196b3185206b3522fd588fbe5ea4a31eeb3cc85e9eae8be0fd12"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2d24b583e9e65b2ba4645b6aab47c8130dad681ed4dc816960239cf289ad40e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3d07ffe72c061cfdb5b4264cd54023d58454b18dcdd01f8e6367f5110d8e96d2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "312e53ea34e56c911631589636df17f4f8cd00488f4dd1f8eee19896d588ec25"

@@ -12,6 +12,7 @@ class Wmctrl < Formula
   end
 
   bottle do
+    manifest_sha256 "fcdd8299a5d5697b60179ef6e5d38b41f3572974d37408cfccc9bfb3f43a3a72"
     sha256 cellar: :any,                 arm64_golden_gate: "ec472036c2084afbf91e48810cce669aaf79ce7298438c7b417abc5101606f07"
     sha256 cellar: :any,                 arm64_tahoe:       "39edb4ef55820d995ac4b636c4215cee31e25c958f59f1d843cc85ee38e690e8"
     sha256 cellar: :any,                 arm64_sequoia:     "76d0afbd8d8a925bf3d2137457f49f03f9550733358079820150adc2976010c3"

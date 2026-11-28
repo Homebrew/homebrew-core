@@ -7,6 +7,7 @@ class Gflags < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a9024d8d26e4219db1348e9cff4e40dcad70b099c98363594d2e7d51d0784bb9"
     sha256 cellar: :any, arm64_golden_gate: "0736a8cb0e6b635ede75c9fc9f5d4b4c2a6983f5a15526f78d04d7dcfbe27449"
     sha256 cellar: :any, arm64_tahoe:       "edce804ef0a528dd0bea7e40318d2ee95eb17f89c4901efb776e144bdb13aced"
     sha256 cellar: :any, arm64_sequoia:     "1738d417945489b66d70a22966a2fc2d0b81ee1b3fc19e36891d02bed73d3671"

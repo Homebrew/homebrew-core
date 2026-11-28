@@ -15,6 +15,7 @@ class Kubeshark < Formula
   end
 
   bottle do
+    manifest_sha256 "cb848d9ba451690813c0ea56d757e362129f52efddc55a216ab0dd414489885d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5868c967311e7989ca6b8dc837dbf766936be4c1d3c97e5834ba9c86bcfe474c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3650fd082d8d4ce6d12f50d11ff23eda6e28b4a1401a8c85850688d1135819b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2ccc1203f3b3a18e2985c67da13f76ed7addbde1f5e18d03e489105d34262fdb"

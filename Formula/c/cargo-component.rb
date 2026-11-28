@@ -7,6 +7,7 @@ class CargoComponent < Formula
   head "https://github.com/bytecodealliance/cargo-component.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4b0528005da1c8f46e6bfb5a8349afbc24f025504d84ee272d92287f1ae9aeab"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a63994eca4f6df3615367bd5ebc958ed19e4e367b40dd1923f9c957155eb6fc9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3497716750d824a4bdf9a76887a0bf65d91f2e3cdea5cee1e61db5eeafb0dff1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "365e0a9252cbc901b8fc5b7185c36856710c2b6f2c61d5be3f4e2e7fad810644"

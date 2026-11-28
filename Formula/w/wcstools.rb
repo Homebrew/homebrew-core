@@ -12,6 +12,7 @@ class Wcstools < Formula
   end
 
   bottle do
+    manifest_sha256 "3ce8065c56b3e596d03a3809475fc93eafbe90401bbe034696a7fb2a797b8bf8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47ca3bc754c304b96dd0e46d15e31a023c46cce1d7c8ec4a227ff204d4eeb91f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "77a31db1617c161a3b9b32c79738444ee90e0493eae441dc5782b790331a37a0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "71c2d28775be44e3d583d1058fc42b7ed1facc6d2a47fa0f51a6c4be76642bf9"

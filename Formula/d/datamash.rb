@@ -7,6 +7,7 @@ class Datamash < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "813d87dcf8a7398b624c3367bb9bfff564fab81a8c0e2ed447c627c8b731be64"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c1b1ee10d9d6635203cac85c9dda5c9b4b2c256c663c868b5180df4c8bbfad05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "024c8e8b9117739fa27275f1dcf4a683282b2e255041fd532097da1c49abe802"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8cf2d4dc46574a42e8602a933b68fedf07cf904e14fc08f945d615df872ae42"

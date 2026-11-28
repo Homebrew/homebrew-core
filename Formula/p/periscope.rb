@@ -9,6 +9,7 @@ class Periscope < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "25508e4a235c6d8eb3df93e7f86cd4e89fd4db2ceab7d60be61e3862321893c5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "46f459c7cf20afd5f66557c9f6f6ec7be4c0c848249085c9a2867f513cb8611d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3189320a2bd3be0f1919621582743539f0af9915a92b26c2d4e95dc43466dc21"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c40e9cc889cfec650492994dbe0e5a9a17a9755f925bc73f904dd0844801fccb"

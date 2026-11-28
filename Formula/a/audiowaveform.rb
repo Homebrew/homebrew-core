@@ -7,6 +7,7 @@ class Audiowaveform < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "294fce58d56cad812f9d94df0ba56ba83a62c7c5cc079a23007044280d22a9bf"
     sha256 cellar: :any, arm64_golden_gate: "0fa9a362eccf394c01aaa1468ad5da87e190c40b1b07c0f379fed54476ae5de2"
     sha256 cellar: :any, arm64_tahoe:       "9172fdfdb61944eb65e4e0a77811ef0b15ab19e5dab5b69562517de137ab1be7"
     sha256 cellar: :any, arm64_sequoia:     "49a5359ac7e0da2120e27fef9b050469ad5da4e7545beaf710b93e4fe72f7505"

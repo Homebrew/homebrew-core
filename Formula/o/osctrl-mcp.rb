@@ -7,6 +7,7 @@ class OsctrlMcp < Formula
   head "https://github.com/jmpsec/osctrl.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "b0a0f7a599ad9e26ed136c5e58838647a31637b9c6d5cfdff0fa47a95804d021"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "efdea31ee8b3aa4cc45ca6e125b991486b9da4d17817fbf741fc37a6f59199ee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a11d403df92f70d109183f77a6a8186f316a2ea325de4957e2af53a2ea908cd1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c92daed58859f8bf52649845749f71ef64ebf91225d9e3689c33fce87fa361c"

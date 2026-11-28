@@ -7,6 +7,7 @@ class K8sgpt < Formula
   head "https://github.com/k8sgpt-ai/k8sgpt.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8f18f9302b5a397c533487731d94854b6b4b67e3b7a8e9deb56029d8f317152e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a25091a0a7c9a600535278fc1f60a53e79a343fdb6ffc02e7f3e925ad604623e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e143adddb0cfc61b737bbc56ef0b45066e9e30c55b4c52a8ae088c347b41145c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8721a7155df58096c40ac8fba544130bb464fa8bca1caf998103cb2bfdffe32"

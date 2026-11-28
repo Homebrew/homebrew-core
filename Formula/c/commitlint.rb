@@ -6,6 +6,7 @@ class Commitlint < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a004e385457667da4c50b20d71f4aaf36e98f877a286e78d737e5f53ad984832"
     sha256 cellar: :any_skip_relocation, all: "7f18d69515a6ae99c5f6f4729ccbdec7d30078bb2a27df60b41579dd27dc8dd1"
   end
 

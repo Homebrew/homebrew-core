@@ -7,6 +7,7 @@ class Flactag < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "1b304e195b57b1a140b5985c91358642415dae828b93ce8cc99a1bc9a0f83be8"
     sha256 cellar: :any,                 arm64_golden_gate: "61d4e84deabcde4d4539748a95db0e543efd07f6aba8f7f5fc24055f67a460b6"
     sha256 cellar: :any,                 arm64_tahoe:       "a51e19be9701ccbe86b20cbe0444217655d0e0c0c02779a0784b4e5bc5830f4f"
     sha256 cellar: :any,                 arm64_sequoia:     "8701c9513901987485c41ce6778104199cac3fabcdfcc1fc2c82717ededa93e8"

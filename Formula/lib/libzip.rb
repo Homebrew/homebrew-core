@@ -12,6 +12,7 @@ class Libzip < Formula
   end
 
   bottle do
+    manifest_sha256 "44be726a2cf59d65f3e25aaeae0e01d6e57578c1dd3f11b0e76f8234ca556855"
     sha256 cellar: :any, arm64_golden_gate: "904a47abb734c9c388a5e2cc0838b35327bbbe44f65fe0f89f7860b1c915db5e"
     sha256 cellar: :any, arm64_tahoe:       "9c216cb9fcb520b58d2c2011e4cf8f04d36d2ddb6508ef05b1bddbb55992fc47"
     sha256 cellar: :any, arm64_sequoia:     "cb823dd0266ec50ea17789d93c11ef1bcdaec9c1c7f6aa6e8cc9f8e48e0da58b"

@@ -9,6 +9,7 @@ class Sysaidmin < Formula
   revision 21
 
   bottle do
+    manifest_sha256 "967c8ae3dfe40b9e89537121d3f1041a5a2380ba7d004277bc7059c71801cb42"
     sha256 cellar: :any, arm64_golden_gate: "bf75ba401386ebc97fbf899fe2b146482a1fd0cc9ad61accc816a48ce100fae3"
     sha256 cellar: :any, arm64_tahoe:       "6eacbe249c2061c36ae5ebf9ef98ec3a9ecab8508e1a99ebc5f142f5d4916f7a"
     sha256 cellar: :any, arm64_sequoia:     "2a30d96032f2067a89240cf04d43f7dae2064f30ea8bcf20e9f77cd3bff376c4"

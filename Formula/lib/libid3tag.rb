@@ -8,6 +8,7 @@ class Libid3tag < Formula
   head "https://codeberg.org/tenacityteam/libid3tag.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2fcf1cb09a949f8a02b0bb5297c211e8d9bb8d535bfc6653dbecf469dc7815e8"
     sha256 cellar: :any,                 arm64_golden_gate: "547b6cb0da1127e7cb8ce77ed8f0ef2c8d9b9effae3717edbb851d3b3b2d8a1c"
     sha256 cellar: :any,                 arm64_tahoe:       "100a58c3e4e26404d62e85fcabe8d0b5ba411094db8c97c46be1d916f95524ca"
     sha256 cellar: :any,                 arm64_sequoia:     "648b4d4cd348899aca1edeb95d63f3039083fe86319ac3c502e929fafa2388ce"

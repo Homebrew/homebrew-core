@@ -7,6 +7,7 @@ class Cgif < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d992124dad3a8ca98555f97aca069f594fa3d75a9c8798014afd06c953beb2d1"
     sha256 cellar: :any, arm64_golden_gate: "493490c6c5249bfc7b07cd5bf2f8564a61b71586034c48bf6476525696a31315"
     sha256 cellar: :any, arm64_tahoe:       "d75ec69bc88cef73779767051f99213c77faac034091f59236072ee91ab4489f"
     sha256 cellar: :any, arm64_sequoia:     "131c156f5a88c943d7a010a6401ee4c648029b8f0c63f1b3dabe52c98693e997"

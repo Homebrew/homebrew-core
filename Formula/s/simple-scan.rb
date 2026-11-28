@@ -7,6 +7,7 @@ class SimpleScan < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ccf3ffadcbb5d200bbb2389189b1b7073249891701668d5d631acd54c74be05e"
     sha256 arm64_golden_gate: "684d488a73efaf90a49126292de6cd47c7e05f15ccd5072c8f67166f37dadf69"
     sha256 arm64_tahoe:       "30596e583545482e3ed302507f1bf848eb62758e673acd3b9f2512244319c780"
     sha256 arm64_sequoia:     "cc55f2d2bd85105945f2d5c9fa45d11d7e3ef0135b8a4981e7ab535df97c8848"

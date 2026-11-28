@@ -11,6 +11,7 @@ class RxvtUnicode < Formula
   end
 
   bottle do
+    manifest_sha256 "f6f95df597eb89902e03cfc480b461d29828603258092e3f3038e37d0029a42b"
     sha256 arm64_golden_gate: "95c9f33b6c07894afe1c840447f8f9ef823b78cab62daf16c9c36997dc89faa1"
     sha256 arm64_tahoe:       "f01e13ec624a599fec75704162cc3aca71a2c9f178614479d23f337949a0015b"
     sha256 arm64_sequoia:     "1bca4e20ce69c4bdc1f42fc9a288802358b1f764fb0e381dd96c71c582d6ff74"

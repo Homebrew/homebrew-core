@@ -7,6 +7,7 @@ class Newlisp < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "433ca8c87f4ce8bee10091f2e38531c36ae2d63435e71b1bdd81eb0b15a8254a"
     sha256 arm64_golden_gate: "38cfdf51233f82d62778d182abe4f7b606bb3a4bb99221893fa5ade61bc3112d"
     sha256 arm64_tahoe:       "cd0b1afe583ffbacd299097ba50acf21f8343d26301612afad78ce5ce18f56a6"
     sha256 arm64_sequoia:     "c650062494ac00fe19dc828930d6748e11cb89b40b8f9bb248425b7a8dec8cc7"

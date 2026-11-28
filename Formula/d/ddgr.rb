@@ -9,6 +9,7 @@ class Ddgr < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c6ed3aaedbb7f54ccf33d2f3407c8ffc04b1d9f7d6db83595db53f8f1da877ce"
     sha256 cellar: :any_skip_relocation, all: "fe1e5b35a67ae65335a46b0cc9fa8d362f9196aa64a527f7f73210d95fd97848"
   end
 

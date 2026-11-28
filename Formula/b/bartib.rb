@@ -6,6 +6,7 @@ class Bartib < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "a7e2add60add49ab419c819e15a49d126417d6026ffec1816140288a7e516c61"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f50e0ea22e4f359ccc197f83a0e46835e671f8017472fd43195b70d11e69309d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "52b6b03f65e39ab962199f96aad40078bac3c6b13214803724efc8bd3490cbac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9be195bbd5899cb6db9a41856d9b40b47bbcb7d420ccaf4de1e5ca3e3da6937a"

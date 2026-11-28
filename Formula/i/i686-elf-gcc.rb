@@ -12,6 +12,7 @@ class I686ElfGcc < Formula
   end
 
   bottle do
+    manifest_sha256 "cecb88c05288f56c7b35af1509dcec6fe02c17964429f1869f4e25febf1e937d"
     sha256 arm64_golden_gate: "852196052721b7ee5018c13f69145c7d520d4b350ccb04e41f472ab24b609fc4"
     sha256 arm64_tahoe:       "06ac3ad32b5a3354f93081c71b69d196bb870b675eb673366f7fb1ca1bc2da6a"
     sha256 arm64_sequoia:     "07a994743beac9bb814bfdd9e6f7610706950087520d01bdac77ca49fa695ed3"

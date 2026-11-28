@@ -6,6 +6,7 @@ class Libesedb < Formula
   license "LGPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "24e4de207fbde68ec1088f8d27604d2416b246c5ef2980cb9d1c11b238340c80"
     sha256 cellar: :any, arm64_golden_gate: "8b6b68fed03192f214a575f8cd0e713061dd4ab2919983cba2c548229b385977"
     sha256 cellar: :any, arm64_tahoe:       "e63439975c686ac79d7d641ea4c1e8784908e41034ff79bcc79e5bbde7b83d88"
     sha256 cellar: :any, arm64_sequoia:     "6a7b88c41fe74eb4d9be40809121a31bd33eb137dc33ac50b15c1067e09b15b8"

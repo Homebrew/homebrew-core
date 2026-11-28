@@ -8,6 +8,7 @@ class Charls < Formula
   head "https://github.com/team-charls/charls.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2c311bf120a93bc0e81d59b9a465f87bd3b7ffb525de09014c6c50aa2d21b785"
     sha256 cellar: :any, arm64_golden_gate: "6f24c580dd9af1b9dd9e680edef59d026a5189c8a553f8c654a7756e32f799b5"
     sha256 cellar: :any, arm64_tahoe:       "64b8f53f9a0c638f6168f0e22ec9517a7b13beddcecab47d70ddae652788fd33"
     sha256 cellar: :any, arm64_sequoia:     "0dee7e1585e8c31b235fe7b33451496fea21cbf452fcd94674bd2e33adcc2881"

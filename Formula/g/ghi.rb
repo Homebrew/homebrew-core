@@ -8,6 +8,7 @@ class Ghi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da2f75e9b16cde3d125c49aecc3ecf20284216c6d29a32bb214d87776b4b065a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d8aa99010f86f8871756394c36920cbd7351f292deb823a7172551f34587a9ee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a1aae6d56ac822129634f25eb1d4c79c36f4ca5c1995262571d32eb9011bb329"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a1aae6d56ac822129634f25eb1d4c79c36f4ca5c1995262571d32eb9011bb329"

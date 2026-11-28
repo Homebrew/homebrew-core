@@ -8,6 +8,7 @@ class Pickle < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "c6e03904cd6e4b37be19b47962d2759c9cd87de9418e52b2783c6106d40403a7"
     sha256 cellar: :any_skip_relocation, all: "2d08a3524b6b3addc133a13e292110ebac7ef414b426b8158022afae6eb2a132"
   end
 

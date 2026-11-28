@@ -6,6 +6,7 @@ class Elf2uf2Rs < Formula
   license "0BSD"
 
   bottle do
+    manifest_sha256 "ea5d946f750b1563eae5df9793df04882204ae1369ba97e39b85add93fa33a01"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b1497d5e07206eaa4d818ccf4ac7d83c64c944dc7b22a47419e776a27ac5facf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b6d36f51c622f0baf332930c8ae232cdf04395cfdae78fae45b8560ec51ab54"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b7ddb264f138b166b3f291dd3f98cb3beba2bff0a7823d36f45c2f4e98b80d6"

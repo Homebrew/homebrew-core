@@ -12,6 +12,7 @@ class Apcupsd < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "51765250e673db6c3f7e035e9cd79da40155e7da6fe3077fd652453d54ebfffc"
     sha256 arm64_golden_gate: "6aac153f13de084f92795e666eb7a25608edef9eaa1e44890704c84506f48fda"
     sha256 arm64_tahoe:       "b3ee569355dc3304f2efdf334b2b130088427c6cb9001213c73837ec7ef26160"
     sha256 arm64_sequoia:     "42e5ae7b28e6a629784dc2fde07477671a8348544e1472de2fd27ddf88a55dc5"

@@ -12,6 +12,7 @@ class Gloox < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "75cf863b10a4d0ba58561c81b2098b70d0ef5f628944c847dd5bed67c73a5075"
     sha256 cellar: :any, arm64_golden_gate: "15e119b4db6baadcc2c1e77bc4826c9b0921bc22b12e08032b3a76726d6dc37d"
     sha256 cellar: :any, arm64_tahoe:       "304e8bffdea49fdf5962fac2f0d4e9edeab843b7627999d3b188bf13b069eadf"
     sha256 cellar: :any, arm64_sequoia:     "afa88750e0693f66261b38412a1aa3e7610d73b44800303993d089284424d83e"

@@ -11,6 +11,7 @@ class Cpmtools < Formula
   end
 
   bottle do
+    manifest_sha256 "be2c1ad335baa32d6dad4e285c0667edef054bd2c656a766447321e1dc7cf4de"
     sha256 arm64_golden_gate: "10a95d9e1c825cb9b1397d36705c920f9070d5edfe803be604184be6bfb530bc"
     sha256 arm64_tahoe:       "efe04ea8503804dc1106da71858d617f5daffe04adb89a312aa32116396af00d"
     sha256 arm64_sequoia:     "e689ad1b8bec7b7fb8b2f39ddccca66072998a172b7ef8788eeb6e54d06c4395"

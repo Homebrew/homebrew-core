@@ -7,6 +7,7 @@ class TechnitiumDns < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "8c14bd89b240fbd03340eef8b40f96155e543f1eb2c692b0957c7c63c147a157"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4be24dbac555c64e093b5b11290345bd7bcfea328f15e71235156df8a0a79ea1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "795ae9a3c226db9e86a9c07735ae2194564029ce45a51cd30f0fedae4b5594e4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "022cc5ed39c4baf2f9eb3fa3956f18150eb8ce11e7d9e31580bf5ceed0a20f9a"

@@ -7,6 +7,7 @@ class Annotsv < Formula
   head "https://github.com/lgmgeo/AnnotSV.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cb32fabf442ea068e791b6f9c63cf309cf8471eb3463b75e8f7c303d6182d57d"
     sha256 cellar: :any_skip_relocation, all: "bf5a6441920e56fe816839ddf1f85dd51d97fa701bb3c14712b23209ffd0dc61"
   end
 

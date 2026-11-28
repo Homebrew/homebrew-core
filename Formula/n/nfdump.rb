@@ -8,6 +8,7 @@ class Nfdump < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cb2cc477798e61fc43bdd6cf217304e6d5790aa99098261d515dee08ad689ae1"
     sha256 cellar: :any, arm64_golden_gate: "e503d3f84145d4f523be259654eb0aebc9259a36c9c7880d743dc2f987d2e38f"
     sha256 cellar: :any, arm64_tahoe:       "8af6ec9421617e7dfb41fd2a8dcddc9221221896cd96b4bd09a2ba6e06efb2a4"
     sha256 cellar: :any, arm64_sequoia:     "d929d7c54ab4f3f60b5959e3ffd9fb45675ede6741ec323f36126889d6ac8df5"

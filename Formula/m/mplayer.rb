@@ -14,6 +14,7 @@ class Mplayer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "86f163c7db6d5b648a7e8b797d81d5ed896705a954f030807137046cf9b6dca1"
     sha256 cellar: :any,                 arm64_golden_gate: "994155c53e155e7ca4eb5d848c6940f88c1de5e3307567681dd13c427b4fd560"
     sha256 cellar: :any,                 arm64_tahoe:       "1d27bc5e20a020dfc9cbda188a2d8af4cb54203b3a29bf97205ec5ba5c15038c"
     sha256 cellar: :any,                 arm64_sequoia:     "5acd5d7ebed8bc44b0aff0360bf20ec76cfb1a732349f8ece45bf84517db0b47"

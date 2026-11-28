@@ -12,6 +12,7 @@ class Newsboat < Formula
   end
 
   bottle do
+    manifest_sha256 "74083ee2c4ba8c9fd78d0c41877e717927f8daa313f90c8f1780a8aa2ea9c882"
     sha256 arm64_golden_gate: "65f6e4342e40360b603fb28f9830e44ae015bea7dbe633dfa5f450e3c069945b"
     sha256 arm64_tahoe:       "0c2ff6cc5e5145d8155272cd666926558ecefda18a82807c9a84aca98809d0ac"
     sha256 arm64_sequoia:     "b6479318b3f7e5ab216b5211d9ed0d09e911a2a2629c2572b179cebcfa727b03"

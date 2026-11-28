@@ -11,6 +11,7 @@ class Libgsm < Formula
   end
 
   bottle do
+    manifest_sha256 "7f58dc93494b59790706e2733a2e3616b85a8cef600115b3bfe12dfe56aa3e2a"
     sha256 cellar: :any,                 arm64_golden_gate: "72af565e3954c2cc4a901c16e415c875d8ea0b16dc9ba51beb4c8903b6b0b6d8"
     sha256 cellar: :any,                 arm64_tahoe:       "e637baca84f26ef74730d06d4eed5cf3ea69730afb45a598f1b7a50a2aa91136"
     sha256 cellar: :any,                 arm64_sequoia:     "40de9bf0cb4821fca993112eadbdd1eaf40c9e71d48fc66dbb1f67ab9987ead7"

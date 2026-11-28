@@ -6,6 +6,7 @@ class Sec < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "fca505d2e3c8da355787cfb9b7f2423791c260f5a8d71c02129a9bdb26dce5c3"
     sha256 cellar: :any_skip_relocation, all: "7ac5555f3b48c112484a49be8909c19ad5d8a0f81d776cd2f70d165e495b790a"
   end
 

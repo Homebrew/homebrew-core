@@ -12,6 +12,7 @@ class KimiCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0e093be2c964e88aaf8190377ccf2cb35300f4e2b21364224a7ad0871a15b0a8"
     sha256 cellar: :any, arm64_golden_gate: "7d68b325098be9804e1fc6e20bbb50b159f475d31f4eb8ea38bb0bf053c2893e"
     sha256 cellar: :any, arm64_tahoe:       "b38f5386ffc624755fc06b38bab2d8eec2049df5cbf2e2c9287875fd19251005"
     sha256 cellar: :any, arm64_sequoia:     "58fd8018117a72bd86970eaa23f71e8c8b8befd46b5f94ffaca5ccd6d0eb568d"

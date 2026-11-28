@@ -14,6 +14,7 @@ class ChipmunkPhysics < Formula
   end
 
   bottle do
+    manifest_sha256 "71e5a3e50e192bedb8305d48169cf1b3aed9a0f0b25ebcbb3958def72742019d"
     sha256 cellar: :any,                 arm64_golden_gate: "1d2e9ef15f4d181f03999b9945c26cf9dae8b8c302ba4566700a0a71b6ab9952"
     sha256 cellar: :any,                 arm64_tahoe:       "812f69a9a0065f99dd7c215c6de16629def031aff0bdb8e315e91113c9f45a7e"
     sha256 cellar: :any,                 arm64_sequoia:     "be1319def436cdfea53765897ce02cb7a223df465dbac30190d605c0d8c20738"

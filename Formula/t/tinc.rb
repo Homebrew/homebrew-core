@@ -13,6 +13,7 @@ class Tinc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f23e591c3bf215105534252c9204fa7a01f8d8bdb12bf9f71d2c1207c7f9d322"
     sha256 cellar: :any,                 arm64_golden_gate: "f0793c40c70e0c2c946c05f27293bec76ab2366c88832a9ec2e381cdfbb6735c"
     sha256 cellar: :any,                 arm64_tahoe:       "787c187e6c7506a56b7c112480a601d7e881a17e52429c0f30e4f2b63d39ff5e"
     sha256 cellar: :any,                 arm64_sequoia:     "85c840467466955dc20f3b7bf38e814da2c30495fd31bb9ddc843292096d5ad5"

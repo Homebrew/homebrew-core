@@ -9,6 +9,7 @@ class Wordgrinder < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b0aeb0dac7c84c0b3865eed82afadf2ee1451acbd2f75b0edb0661a31bdae364"
     sha256 cellar: :any,                 arm64_golden_gate: "ced17d174b1aeef84dc764700b7666243a82360346183e97e298284c52e427ab"
     sha256 cellar: :any,                 arm64_tahoe:       "3246a1cccfec9059f9801b89d70312543e99eb7d9c7804af04f6bf4b97221eff"
     sha256 cellar: :any,                 arm64_sequoia:     "8e499389ffc85f7b3d5ebe39ae10b8a428b2543fbf436e6ead264c23a7f5301d"

@@ -11,6 +11,7 @@ class GiDocgen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f43899b1d1b86b64e1af3e95fb69f0bcf9472575fb3896f6a965936c832e3cf1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51de041c1e7c0251ac6f23cbbf9b552bfb30f9be5bb54ad6b3ba5479886753be"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e8bd069b7b033e0ad35a0091eb760418ac8395fc0e9b2553105842bacba0730"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b1930ae861501550ec82c48d91faac19067bd9b768b79083ebb2360453fe2416"

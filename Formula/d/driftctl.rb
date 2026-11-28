@@ -17,6 +17,7 @@ class Driftctl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "edd7bf88af779e8a3cf0d1baa56140f53a9dd6e4215ce8e2c822ae99f0fa8c86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b79e5a410380d4859d5e2a8e8b119af1322fced27177a11ca3e91f503ebc9c55"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e1e9c8ecb8968ad121f735bb0caeaa299f0c672aee5ff126f75c5e995c60019"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e1e9c8ecb8968ad121f735bb0caeaa299f0c672aee5ff126f75c5e995c60019"

@@ -6,6 +6,7 @@ class FxUpscale < Formula
   license "CC0-1.0"
 
   bottle do
+    manifest_sha256 "62ff493f69127b917224b2f1d460ec24ca508e1e6802f135b962e4ce757511ad"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4311a88b2ecde390d839f18846834af3355730a9eddb69becfeedb2ca4bc31a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "716acd22ebfeb3e4fc274d5a6e7a8a46f33b08f1c44a52c1dd6aea8f2e8790a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7e70bc33a0cd634e64e7d4cbffb3776d3240a6bd43b892c2c2ea128bd673e94d"

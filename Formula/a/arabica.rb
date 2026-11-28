@@ -20,6 +20,7 @@ class Arabica < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "7eb648ffe8431af91e1d144aa949f4cb36498ca4950320ad207d2cae2f58c144"
     sha256 cellar: :any,                 arm64_golden_gate: "9894818dc68197bac84b8b19785dfff403ceb947a8cc6f1a4b34b9020b8301a3"
     sha256 cellar: :any,                 arm64_tahoe:       "c5797a1e8e13b35bfb400c09bd783382c517006dafae47a33204a1f292faddd0"
     sha256 cellar: :any,                 arm64_sequoia:     "5448f9dfdd462014fca6f549d3d8e42a8831e7af763ec90ec55d5f9de259a171"

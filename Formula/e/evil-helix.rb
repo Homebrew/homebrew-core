@@ -19,6 +19,7 @@ class EvilHelix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c22e13ff835478c6cf92047c0faa3b9863fb6a2d947c543829e63ab6396e0a60"
     sha256 cellar: :any, arm64_golden_gate: "fa2eb1968aeba1afd29b1ca4d2dbb2e3405e9cf4232cfb896ac8f46e8a69cb36"
     sha256 cellar: :any, arm64_tahoe:       "6af5528b5378995f37aa0f49096968400036469e0d0b8281d891e7fb4279a058"
     sha256 cellar: :any, arm64_sequoia:     "828a3f90d5df9d7b1c23ddff5e90332a17f6643bf41f45150e7346b75865368d"

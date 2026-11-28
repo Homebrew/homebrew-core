@@ -8,6 +8,7 @@ class Libharu < Formula
   head "https://github.com/libharu/libharu.git", branch: "master"
 
   bottle do
+    manifest_sha256 "34971fc1077eda06e2e059f1dc21719bc2935d3057bdf8e9f156784ee4ed2219"
     sha256 cellar: :any,                 arm64_golden_gate: "67741fd9a1ec19a18423c3c1766fd9710cd0b74092a6ff3f44b65c2cb1890e11"
     sha256 cellar: :any,                 arm64_tahoe:       "7c711120c3924fc180e54f7948b7c21ee8e9695d61d5e614ce491cc57c2ea70b"
     sha256 cellar: :any,                 arm64_sequoia:     "eac020c6b4a0a047413108e13b3c89707bb08b03053de172a0a13ba2f5c1b369"

@@ -12,6 +12,7 @@ class DvdxrwTools < Formula
   end
 
   bottle do
+    manifest_sha256 "ff17a8a354deacad41ad73c1654ad93a7e21fafa100a9d57de24d6f5498a730f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "962c63b601719f98831780a8f3d5820d08b769d4b4560236b0947baefec2acc5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8daeeb4d38982c4948e79c9ec20f0e600cbd0c6c55d56bb4f0b14c617e8600e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef7c367570d1a514f8c5ee0c9a7b9e758dcd12a6ae8ece7fddc835f39ad9b319"

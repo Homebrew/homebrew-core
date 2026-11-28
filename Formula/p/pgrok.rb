@@ -11,6 +11,7 @@ class Pgrok < Formula
   end
 
   bottle do
+    manifest_sha256 "155980d568695899da84192d0b7c69e496c3a79b47dba04a80cc5a77826b7374"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1aab6b97ced5de92663e6ed40de7e7e7f145328d03353fd7e4f2aa12a2e33e7a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1aab6b97ced5de92663e6ed40de7e7e7f145328d03353fd7e4f2aa12a2e33e7a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1aab6b97ced5de92663e6ed40de7e7e7f145328d03353fd7e4f2aa12a2e33e7a"

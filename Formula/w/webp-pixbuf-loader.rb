@@ -9,6 +9,7 @@ class WebpPixbufLoader < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a19bed65522af521ab4470b7a2ee60a605fb0fc5bf557193cb9732cd5adfd717"
     sha256 cellar: :any, arm64_golden_gate: "665dd4028b4caa882dc587b17fb481a4af606eacdc40441cce3504ce8a0c35ef"
     sha256 cellar: :any, arm64_tahoe:       "467ab2b45de6bd89134d996c60f43d5e31be59fe7b456aac4438ea3983724803"
     sha256 cellar: :any, arm64_sequoia:     "c51af8034aa08c422d03f920a6700592e626a1d92d0660f4b391add97552da80"

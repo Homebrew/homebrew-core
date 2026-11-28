@@ -11,6 +11,7 @@ class Largetifftools < Formula
   end
 
   bottle do
+    manifest_sha256 "f6afbe5c85a82581235cee206f0f1a4f2e078febe3d27135670e8a477c3520e9"
     sha256 cellar: :any,                 arm64_golden_gate: "df2bba5bc2cf46a84778ac50ae5faf2a58712fa169c5e0e500386de0b29cd80c"
     sha256 cellar: :any,                 arm64_tahoe:       "84f779bd4774fc9825d78fc4b2b485652c52bb3b06dc4147fbf70efc99c61c61"
     sha256 cellar: :any,                 arm64_sequoia:     "e7ad30862ae1b715271064e5487dacac835007e1d1465a61796192d33849ef69"

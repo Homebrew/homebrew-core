@@ -7,6 +7,7 @@ class Tfmv < Formula
   head "https://github.com/suzuki-shunsuke/tfmv.git", branch: "main"
 
   bottle do
+    manifest_sha256 "29833fe533184895b5c7281f3a58e3f876c1c2fddd73a98e84891ab99f4dd444"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a6b8eda21963e159deb2ca52e2d393eaedfcecd91cc42c2eb1e49c2e116c13d7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a6b8eda21963e159deb2ca52e2d393eaedfcecd91cc42c2eb1e49c2e116c13d7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a6b8eda21963e159deb2ca52e2d393eaedfcecd91cc42c2eb1e49c2e116c13d7"

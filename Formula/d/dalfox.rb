@@ -7,6 +7,7 @@ class Dalfox < Formula
   head "https://github.com/hahwul/dalfox.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a36903bfe8a8749f808c9e08a63efc458b2e06987fa400bf78a2a9e807ce573a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8e3972ab205b9177b5ccdec97f60e0bf825efad16ac10ad90c5d4861fcf59de4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6bd20b84c5031e5c13742b8fb960e9875ef67da01bcb33b6086bdb6e186dc75"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "733c353c8820b9ff3862e504e9dd363456584a57d4f6811ba71369287aa8e322"

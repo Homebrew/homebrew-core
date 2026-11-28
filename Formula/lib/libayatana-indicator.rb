@@ -8,6 +8,7 @@ class LibayatanaIndicator < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2f7704ac121b5822fb9b0d9cb6d8e361b223b7c691d5f0703916065fae4144f2"
     sha256 cellar: :any, arm64_golden_gate: "b8d699daf235aafe9cb8655e88b8f5bbb9d3af5b6a63e676086737ff483e5113"
     sha256 cellar: :any, arm64_tahoe:       "8a0b1232e8286fdfd594d28265f9abcf1a34fb072e092c1039fe7f5ae16b43ac"
     sha256 cellar: :any, arm64_sequoia:     "39b911c2dde3c755f012186cd0407d768df3b559d9ebf31445a0e55dd3018dda"

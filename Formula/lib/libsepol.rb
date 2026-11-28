@@ -12,6 +12,7 @@ class Libsepol < Formula
   end
 
   bottle do
+    manifest_sha256 "17de66ad017f7c29110fb729c52a375e45e685da8faefd198d24b936fce93d20"
     sha256 cellar: :any, arm64_golden_gate: "cb8805be0297b49ef4aae1eaa6a31285ef171810f40f025ee639fd30dbf1363b"
     sha256 cellar: :any, arm64_tahoe:       "5ac2c0ebc7c086598a60b278d4d5fee2a9a4ca777458d56bac01e70cad1a1a6d"
     sha256 cellar: :any, arm64_sequoia:     "a20b8bb3630860f9a4f767e2618197a45236e91be7dc215daee8374b55d2102d"

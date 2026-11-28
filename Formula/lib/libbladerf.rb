@@ -17,6 +17,7 @@ class Libbladerf < Formula
   end
 
   bottle do
+    manifest_sha256 "97102193c43872c2d6dd21d538b2b5402088087eb058c2cc085210025dc6701c"
     sha256 cellar: :any,                 arm64_golden_gate: "65570ab33633e678668478eaef32dd76c1c8393878a0242e9bbe6a8898e79bf1"
     sha256 cellar: :any,                 arm64_tahoe:       "febcfae38d459de288b75923c21e2364c439f2eb550c8bebd881bdaa4d1ef74b"
     sha256 cellar: :any,                 arm64_sequoia:     "60b5f9a58a606f815208847c0b8da31a7bdc534a36ec2b781d3e2f51c31f2175"

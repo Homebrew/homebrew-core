@@ -8,6 +8,7 @@ class Carthage < Formula
   head "https://github.com/Carthage/Carthage.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1611c6889058157a33b8b3bf29a66368df253d92ea9d4f55c3720a569e3b471d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1bacf7a6de2ca8867a0c76a172a558e675fa837fa0cbb9646cfde3bc8469a6e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20456de113008e847a0b4abbafcb6e829a537d8aec2f60702114b5978b3839c6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ab671fcc4b39986c412e44002456ec71e5ee23ac9574bcbe653f2c7f1e0c3c8"

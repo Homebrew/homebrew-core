@@ -11,6 +11,7 @@ class Dooit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e17ea2db92269b72b1311545d5aa7190ba37759b134b775d3b9764bcae346c67"
     sha256 cellar: :any, arm64_golden_gate: "2bd7c59690e5bee6896bb59eadca2c0d72698a7183c72872ee47bef1614e961a"
     sha256 cellar: :any, arm64_tahoe:       "c5cb004c0e1c71edea6e5d849345b34e500f0bb47fd8db8001c1765ea8464582"
     sha256 cellar: :any, arm64_sequoia:     "7b68a1ae12d11ec94a29ec932793ca58c364461515009d86dc8d37b746066ef1"

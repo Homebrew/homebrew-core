@@ -12,6 +12,7 @@ class Unp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "99d41d958d42add3d51e98f468dc5b2db06c4aace02f3f7fbfa1761afa3291c3"
     sha256 cellar: :any_skip_relocation, all: "fdcd81250f756b4075c45a1a4ca5282fab58f2b70008d85da4ad3fdd6b91738b"
   end
 

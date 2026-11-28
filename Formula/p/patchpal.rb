@@ -7,6 +7,7 @@ class Patchpal < Formula
   head "https://gitlab.com/patchpal-ai/patchpal-gui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "70eac63339174f9cac40d38c2052343dca187602550f7f54f147182590811fce"
     sha256 cellar: :any, arm64_golden_gate: "82e66e49b716dde47a8ee2cefaae6328b26b0ce54e157f05fe0c9e6b71f64eb9"
     sha256 cellar: :any, arm64_tahoe:       "c3a7bc18acdeb0e644b3580ed109fe9a0c57a43afa7e1a7026c0d8bed737372d"
     sha256 cellar: :any, arm64_sequoia:     "e04418ee7052ba37dfde718c5cc1b0f0b7fcba29fd2d67a6058f2ffd7f03e204"

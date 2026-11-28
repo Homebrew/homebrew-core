@@ -9,6 +9,7 @@ class Texinfo < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "6a4a20ead0c6f41a5ae02ae706038eb82957adda3bf2d1d3b2f032dc03f41e8d"
     sha256 arm64_golden_gate: "e4a78fc5cbf40fe4e772f0fd111f92f3f5bb1480307647fa381d20c4df6a3bb4"
     sha256 arm64_tahoe:       "17f0c0cf884670ec1cb6ef941804649a40a46599f3157d66eb3462cc6555bfdd"
     sha256 arm64_sequoia:     "8fee9bab9242aba8f21e468b7e3261ce8c4bf8963c0b5590329131a129d2a197"

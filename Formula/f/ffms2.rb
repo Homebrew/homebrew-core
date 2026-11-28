@@ -16,6 +16,7 @@ class Ffms2 < Formula
   end
 
   bottle do
+    manifest_sha256 "a93733f5ecb99ee7116b4e3bec5558cad38e17278b0d1a225cc1491ffaf0bdc5"
     sha256 cellar: :any, arm64_golden_gate: "390bc343cb9bfb518424e86486b2caaf0795bb8e4b6d9259100244b25f10a280"
     sha256 cellar: :any, arm64_tahoe:       "e655531ea369437dc0207603d7a40b5d1402350f753f6da925a7aa02377a314b"
     sha256 cellar: :any, arm64_sequoia:     "b81d18042f0c46ca625e453167aa4e566742e195035a5ead37ecf76b97ab8c2b"

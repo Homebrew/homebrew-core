@@ -6,6 +6,7 @@ class Structurizr < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "911eb774db4ddc2e6b107597d7825fb22dd252b30fe2db112784c8876eb33782"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d90e0bc830044703d251452daa61d0574c01d326f2baaf4d0b5664db38094cf4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d90e0bc830044703d251452daa61d0574c01d326f2baaf4d0b5664db38094cf4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d90e0bc830044703d251452daa61d0574c01d326f2baaf4d0b5664db38094cf4"

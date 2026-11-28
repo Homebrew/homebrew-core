@@ -19,6 +19,7 @@ class Qhull < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cca47a10eb796170502b1c663f071ef86262547c6b305ac80e86692d7855b502"
     sha256 cellar: :any,                 arm64_golden_gate: "22229f68660cf839e1b4654ce3ed8a55ef78b9ada2e36d857f806207f5acdd1d"
     sha256 cellar: :any,                 arm64_tahoe:       "e63077686c1ef66ea9f65e7e10d842aa788bdf21b6011dd3c0b2ccd35195ddb7"
     sha256 cellar: :any,                 arm64_sequoia:     "03294d7f8db8437cdf8d4d679ae41808a195b733907bf638671f99089592dc17"

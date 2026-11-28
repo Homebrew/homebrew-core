@@ -38,6 +38,7 @@ class Kytea < Formula
   end
 
   bottle do
+    manifest_sha256 "3d8bbac8c064c1fc76f6e992d849986d4cf71c957f7eea8c8b13350a01b716f4"
     sha256 arm64_golden_gate: "1216643647f95275e3a8427f783be186a422b892eff6c420d25754ee14655d90"
     sha256 arm64_tahoe:       "5ad912b4301454e3c29c5dd0f9b4c9b592d140d0ecc24cb12261408a7dc5ea56"
     sha256 arm64_sequoia:     "0afb996003e2ad0e1443b6a260fcebf6ae349022a1e082ae467bc96d77000b1f"

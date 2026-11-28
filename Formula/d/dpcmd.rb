@@ -13,6 +13,7 @@ class Dpcmd < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "f486c29ae7b06837d7602a62d75d85559c588c17cc1cffce63bfa8578db67dc5"
     sha256 cellar: :any,                 arm64_golden_gate: "976d5c8ec1a532293265691ee699a4d1f5cb8923ed97fc634bd485d0935bdff5"
     sha256 cellar: :any,                 arm64_tahoe:       "4f5102a2acb2ba277359e059eb1bfc1c18b9608625c56b67b8a37c3bcc0208d7"
     sha256 cellar: :any,                 arm64_sequoia:     "46dc23e75280d9ee1b6d06945dbbe02c5df6548a593a463dabf7c8f08a2cb805"

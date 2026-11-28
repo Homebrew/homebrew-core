@@ -14,6 +14,7 @@ class Jupp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5505eaad9d8f50341b3d871c3b1b4eb196b2125021dd863b6c0974f9f26412d9"
     sha256 arm64_golden_gate: "a657f7b97ce2a81ca28fa85e4d66f779b9d5c36eeef6a7f21916cadc1ca2fd12"
     sha256 arm64_tahoe:       "9ce260439f94128f52d4dbe25f3e996487635255d9ce292bed9f51b4eefebb06"
     sha256 arm64_sequoia:     "4e6f9df5e42351cb3f393b9d33b52a65a7c2eac52ef34cfc95a90e2e03acdc98"

@@ -6,6 +6,7 @@ class Aoeui < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "5bea575de205cd231d62670b5e451e3e725c7a9b04e48c2ca7563ab2b7eda82c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "85f2926a6fd0b3bfdb0fefefbda97175bb53074c2c3c29a1651023048e4aa23f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5db4e6bc86d61cb543bba6cfc8f46bb1db2dd51314701866c881c50b09e4aab8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d884318d049fd6851389c8c37f7c0eb1042fbeb00c7cf7d0829ce6ab3d45d81d"

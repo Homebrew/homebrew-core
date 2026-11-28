@@ -6,6 +6,7 @@ class ClaudeHooks < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6c9eb652070ff54dd29af3515d3933df6174db9c07363350e01cc9b42ea1092c"
     sha256 cellar: :any_skip_relocation, all: "a8961c6143bc341ef7586a528fa3d52f32c72463e9ef14b8bf73f3aaeaee273e"
   end
 

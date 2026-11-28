@@ -7,6 +7,7 @@ class Tuntox < Formula
   head "https://github.com/gjedeer/tuntox.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b79bd23592deac1a73c8d85489b1ce8d88fa88f338fa26ad1f4946071440873c"
     sha256 cellar: :any,                 arm64_golden_gate: "414f777fed2798ba67b79193ee6b6d2487ff6208d385818a0f135b3e2fc99449"
     sha256 cellar: :any,                 arm64_tahoe:       "bff9afd8a3a6496881f6ad2d4920d3caf40cc4310b6240c989a1cc009e37ea5d"
     sha256 cellar: :any,                 arm64_sequoia:     "a89e240676e2a2acce9e69f80a92d36cf7a15f22668227aec6ac8cbd9aaffcc9"

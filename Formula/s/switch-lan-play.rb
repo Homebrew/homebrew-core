@@ -7,6 +7,7 @@ class SwitchLanPlay < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "780cc3795b389291038b486b33ca103c33a1f31b72bbc1395e31e214a8cf80b2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "172d15b636a210ea5bbd56cfdd3d57e4c1f753d45602b8d8f5a1a7151674a203"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc7be8d18040e7c518cd4f4eb42e99c53b4b8601b9f291d2ea766d3c8dade613"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62c1155ae43a4751ab7efaeee9e02c57e8782186aac73312eb874289f7e6aec4"

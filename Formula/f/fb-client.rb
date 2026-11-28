@@ -16,6 +16,7 @@ class FbClient < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d37a987213b1170de2a5310a56340b3fd9fcf3f7541796af706a3ec0f958e052"
     sha256 cellar: :any, arm64_golden_gate: "73eab9597ced2af5e28f7a3580e80ad54e9aebc93177dc75c121f67c5d9acb77"
     sha256 cellar: :any, arm64_tahoe:       "aea1a956520bef76111f72cd9949a8e74678117db6d7c2469877637813f5906c"
     sha256 cellar: :any, arm64_sequoia:     "e49f0cbd68444ea836e10c1c73c7dd62187bc168ca5d3295932529e04d9e57ad"

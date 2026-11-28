@@ -9,6 +9,7 @@ class Virtualenvwrapper < Formula
   revision 5
 
   bottle do
+    manifest_sha256 "9f8110cc59d0749d945f90fdd398356f11d072861dddcd54fdf74c32311c143a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d76065757e7c0321d0a397663da7590d74e2617d499e7fa6e97640315c7778c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d76065757e7c0321d0a397663da7590d74e2617d499e7fa6e97640315c7778c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1d76065757e7c0321d0a397663da7590d74e2617d499e7fa6e97640315c7778c"

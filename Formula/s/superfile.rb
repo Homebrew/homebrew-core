@@ -14,6 +14,7 @@ class Superfile < Formula
   end
 
   bottle do
+    manifest_sha256 "5ded033f33f6e619d1868b6b87d90d64fb68f67cb5acf700ba01941b92d82773"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a02936ea1b3a238114e51669b20df6d2296cdb3413127f38cd319d3a853db4a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ac6b9039dd9dd4775e061fc75f002d4bf1811f0bfe702ae7cc89b4291896a7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a39ac00b7c541b5fa21d4cdaebf73014e1733d8948bc12355f794c2cde361747"

@@ -7,6 +7,7 @@ class DockerClean < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8f5209c125dfd0cf90b19e38deadd7b55cfbbf1370f850f8cdf2a679f659081c"
     sha256 cellar: :any_skip_relocation, all: "8534cd2757101cb7ea6fc68d2175147769009a5b6bbab15d87bd5b83f46a06d6"
   end
 

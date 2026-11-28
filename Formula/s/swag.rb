@@ -7,6 +7,7 @@ class Swag < Formula
   head "https://github.com/swaggo/swag.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8c122e51d391e8078b5ca917073783749edca13a086f3b8e65b2bf9c679dcef7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ffc09993bc7b37288b3a0484f851bf10ac2ab84a108045bbb42e33e133bc4fe2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8cbf4841f7ebf8f91b1e4034211085e4671d8b9fd81ef7c0a4b774489bb6fbc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8cbf4841f7ebf8f91b1e4034211085e4671d8b9fd81ef7c0a4b774489bb6fbc"

@@ -6,6 +6,7 @@ class Libhttpserver < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "c38e1477dd93c9945c19c0b7544212ae2953604909f5ab08e7440432fadd35e7"
     sha256 cellar: :any, arm64_golden_gate: "ff0afd3a1a8230f6b88866bd3479bbc0a73b3c9ec163d156e684be494fee5020"
     sha256 cellar: :any, arm64_tahoe:       "15bbcf2ce98a99c639113f41fbe376f3d57a81f56108ecf4f07192f4d99fa36a"
     sha256 cellar: :any, arm64_sequoia:     "12458ccbe10f0e689d04cc02ecb01215b29ecceabd790cc60e9812582240369b"

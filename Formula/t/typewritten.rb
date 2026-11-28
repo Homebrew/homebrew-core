@@ -7,6 +7,7 @@ class Typewritten < Formula
   head "https://github.com/reobin/typewritten.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6d0b3c14361362a9715d6c3986b3e86226341f5e25abf11ebb1bf3a16200b299"
     sha256 cellar: :any_skip_relocation, all: "8a6b8fe7ec007b83306cbb94c0d4fed1f6a39fb4f3f053cce9420e4ddbca6137"
   end
 

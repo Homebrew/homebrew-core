@@ -13,6 +13,7 @@ class Libsoxr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "bece2051611de7f5bd27964ba271c2e9e4ef8ef4a252da874f9696d27e4440b1"
     sha256 cellar: :any,                 arm64_golden_gate: "75cbef5fc1102154ba29c48795117b641c37d90f90b4d010d72766a4408cde75"
     sha256 cellar: :any,                 arm64_tahoe:       "6fd815529e1078139d7965e7bb7e92b4fa5680e74ca671357aaf4c0e1ea1dc95"
     sha256 cellar: :any,                 arm64_sequoia:     "164c5e70f213a0cdd5b9a764da773e79bc35753efc54d46e0710aee172de3640"

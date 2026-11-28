@@ -13,6 +13,7 @@ class Xmltoman < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "781e3c64ab5cbefd1797d997522365a338a4a85cfc16677f74db30567f10617e"
     sha256 cellar: :any_skip_relocation, all: "030311ad2a8646176d1d60e593d9829323b27d8412838a6751b850af08d2bdf5"
   end
 

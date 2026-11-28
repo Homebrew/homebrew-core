@@ -7,6 +7,7 @@ class Libgadu < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a30e596f82b479ff4c636214fa1eecf19fa7ca60c0009662599239a50f18735e"
     sha256 cellar: :any,                 arm64_golden_gate: "4d0da0f47e7d7df9da31a54a6fb6425108a6024316cec4ab7f640a497a96ab19"
     sha256 cellar: :any,                 arm64_tahoe:       "879445863308113193c508342b36698ecdf0d0e5f44f3844458429283d8a1c17"
     sha256 cellar: :any,                 arm64_sequoia:     "faad50d22aae75f047e8a3bbf4241ca918cad6808e306400123af10e820902f9"

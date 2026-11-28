@@ -8,6 +8,7 @@ class Zsxd < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b9aeab5548fd9471367054c7ecf322b8b4c59b91f30cc428865b01a59e95058e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6bc8c7173f7b23da9abe48125bf7bd9ad4f50491608b0a56a3ad9a0dc3d214bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f1f3d492a406445db86e75543b26e128ddf690e9c8360362185cbb564319112"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f0acd40f96b33fa5dfb02c86c7c5565d0c02043888ab1824e9c65bc515cbd8e"

@@ -10,6 +10,7 @@ class Toot < Formula
   head "https://github.com/ihabunek/toot.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f0df0adf740d0d0276a583d0eec9c9da34a237e1a28f48da3c827663f5bfdc3b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "693fe50a12961b2135636693c5f6f2de098f5e36d44387cf144c455039a1e6aa"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4a3a6f2d8135b5b620f6f622ef8ba5f03865455f9967f73ab192793e8f006583"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a20fa97ee748dc1d4a76381ed3b24c1cf8f255b3e04819784b62ed3ee772c4d"

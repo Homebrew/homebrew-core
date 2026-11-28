@@ -11,6 +11,7 @@ class Libmetalink < Formula
   end
 
   bottle do
+    manifest_sha256 "8ba68049a4e114a15a4bb3b27d9ea5a94464a560810833cddc4ec6ea66b1cf9e"
     sha256 cellar: :any,                 arm64_golden_gate: "64d30e57ed5ccc33d53fa10455e7c666ffa427b299900e0206496e6e6c7c4bbb"
     sha256 cellar: :any,                 arm64_tahoe:       "60767e9756e2cc9a6fb4c7057711e320d0d1d204913c107c2f866ddc982fea00"
     sha256 cellar: :any,                 arm64_sequoia:     "4ef91819c19bd453ad990a0cea47a38c4b11f527c6a04e91fbca1743bbe09e78"

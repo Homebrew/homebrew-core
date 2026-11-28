@@ -13,6 +13,7 @@ class Mpdas < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2fa7b2201e8e83a03f3c2467174011f606aad8a2f847d6eb14ab96c9d18bdfac"
     sha256 arm64_golden_gate: "5fae906f7ed849255844347dd4b6a141703ed2166ff8d0b779cf5a653caec093"
     sha256 arm64_tahoe:       "42aa6fe164c3cd7c89bff4e7cbbe3b6488a6588067997a33b05b8e8b2f3673dc"
     sha256 arm64_sequoia:     "df5684e5298c02319fea93f70ecad6210c12b66bd1ca2686ec9758dcbeeba20d"

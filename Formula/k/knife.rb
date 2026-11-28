@@ -7,6 +7,7 @@ class Knife < Formula
   head "https://github.com/bl4ckr0ss3/knife.git", branch: "main"
 
   bottle do
+    manifest_sha256 "014b04c3c782b1bbcf8d0915ba184c3a13d358e753e3e4393c085fd53d556ede"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "591acaaca4bb7a9427cdc7b745dc45e7961399432dc2fdd90caa2f3d274bca87"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d83fd2671419ccf0ac7b09a9d981cab4579e1115b427b112aa6846dcbb9cae01"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7983e958dedcde1f839064019c32f511e745bd527f9944b275c4552d5970383f"

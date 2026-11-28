@@ -7,6 +7,7 @@ class Tika < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "6b866ed7bc3f25167cf13227fb18c29f1aceaef389a5a194c2c41e3c4daee366"
     sha256 cellar: :any_skip_relocation, all: "cc2780dea7bdf3384f6ffcf17319b2412b0c3bec0a1344986c0a7c29501294d7"
   end
 

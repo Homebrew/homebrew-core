@@ -22,6 +22,7 @@ class Yasm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "06e933fb2de8d79746094fff86a8219a05ccfda422e5ce162c7f310a531d21b3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5da29404532f64edf5e78131339df1d486c1ddbfb74862f7874353cbc7f2f95c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "356cc23650d159d2f22aef89c9f7542efba9297e424a9d2ce1c822f69b352d9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "45b7744e4f66670c270ac4aa64836625a1806db9ac97920476620d340cbbdd96"

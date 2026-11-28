@@ -8,6 +8,7 @@ class WhisperkitCli < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "78abe52b5e713343322499d88d4a1b1f367798ff1c63580df17f2a7065a83947"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9671ccd6ad3cfbd39a55c3a8c2c364672c94902fc20a6eca102de0c76b08f7f5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98d932596bf479fac27ff32936432eaf9ce30bd7eedf2190ed740beb2d69f334"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ddd45bb672a553bf23f713fe135bf8d6c1c303de2f7a0bb220c420674e734fab"

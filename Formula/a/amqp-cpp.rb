@@ -13,6 +13,7 @@ class AmqpCpp < Formula
   end
 
   bottle do
+    manifest_sha256 "8d674d9513e9f2bb2aca2ccdb2261031b372937c53dc3078ad7073abe4bf8dd8"
     sha256 cellar: :any,                 arm64_golden_gate: "6613434fce13d2bf9997adab4c1482f27b9d8965bb47cb935a6e1e605317668f"
     sha256 cellar: :any,                 arm64_tahoe:       "e45212f8e035ad4f6e765889bb949bcf8f60fef844b0646eb7006fad0b959605"
     sha256 cellar: :any,                 arm64_sequoia:     "2f0ec346eb00e3280870884df2cb742dab7b834a3a1135ea566d57717c65ea5f"

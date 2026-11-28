@@ -10,6 +10,7 @@ class Sdl3Sound < Formula
   head "https://github.com/icculus/SDL_sound.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a40d3eb30c7f5ead54c9ea110875bbddb2f01eea1d7fcf949da3cea7f8a50567"
     sha256 cellar: :any, arm64_golden_gate: "06917fdc9131b1f0fb79f554dd7927ceceddfef0304f5a6d6d919f9ca115deba"
     sha256 cellar: :any, arm64_tahoe:       "934528f51b4c39df59a8c22dc4ad42d418893b0e3cb6594112381f4f8885b930"
     sha256 cellar: :any, arm64_sequoia:     "256cf0518afa8b156a212bff1960e97bed6c3ac9a14313d5aaa3532f74664161"

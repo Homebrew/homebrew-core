@@ -12,6 +12,7 @@ class Lame < Formula
   end
 
   bottle do
+    manifest_sha256 "30d931b56885dbe30a24b586920d20f3e60e46af0115c163d165088ae600cf2a"
     sha256 cellar: :any, arm64_golden_gate: "c7803cbfacfe405583edef9d81056088008b8cb1e8efca6c2ab1983e1af35de6"
     sha256 cellar: :any, arm64_tahoe:       "b0fe0cfb39c74a53b7635833fe3293a62c886b084bc5ccc8ed7cd177803182e4"
     sha256 cellar: :any, arm64_sequoia:     "552d24d56ff0d3255e9a3519a368d0ce45de86b5b2967b338209c1a22cd12969"

@@ -7,6 +7,7 @@ class TemplateGlib < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f19eb634800d10aad7866688440c351a6cd9185d53b5f38ea9196d16931aa9c6"
     sha256 cellar: :any, arm64_golden_gate: "c7d7e146b38cc24a3dae317dcbad82b3eecc32335b6e922f12ec75d7091dae59"
     sha256 cellar: :any, arm64_tahoe:       "934953c6f2489b4b93150ac065da9734ae0eca17027531f6f4b13ec9e67158d9"
     sha256 cellar: :any, arm64_sequoia:     "15c9037f32b68d162ee9e7930736c185ad01790df7c4ea87c41eaded8b121419"

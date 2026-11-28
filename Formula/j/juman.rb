@@ -19,6 +19,7 @@ class Juman < Formula
   end
 
   bottle do
+    manifest_sha256 "4f26d97b939c2135a048b66bd5435ad15088ab354cfc3ae5e4e879981bf05ffe"
     sha256 arm64_golden_gate: "6510aaac5cbcf265ccdb0df6ba65397842cb0b22628b4253b2808d44a961b36e"
     sha256 arm64_tahoe:       "68ea21f6a0d59d8aaca739e79302615c6dee8dfc5f5f15f6e686a3df478e8372"
     sha256 arm64_sequoia:     "8db93b953c7cb1eac967bb6b7ef3cce0479f2ebecca298de87b92aa8e5324013"

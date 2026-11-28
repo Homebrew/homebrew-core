@@ -8,6 +8,7 @@ class Visidata < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "88bcc9c67d1a69d055bd8b242e6b752e233a8a9f8a462b2c80f2891292c1f79a"
     sha256 cellar: :any_skip_relocation, all: "1b214353a03642fa1a91a7315500e026fa5d7084edbd8f185a54ae094c9699c0"
   end
 

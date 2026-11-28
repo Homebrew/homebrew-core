@@ -11,6 +11,7 @@ class Tta < Formula
   end
 
   bottle do
+    manifest_sha256 "e29cb6f013fedbe8c1e69d33728fccfbcc51ae1dad3ade59094d2102ed0a6cfb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d27d19954e6d0d26aade2c0102d92a1fc6dbee46a20a366231b0baefc724a757"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f8a462551e8fec801357526eed49a963aaa646f1c9ff3cd657ec1787ac8ff9f4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eaf4b5e6bf2e815f028c54bb2df0d3470f984495c16526ee8d51ea6a08c3a7fa"

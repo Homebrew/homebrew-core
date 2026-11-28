@@ -8,6 +8,7 @@ class JsonnetBundler < Formula
   head "https://github.com/jsonnet-bundler/jsonnet-bundler.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ca084fdbcf302de2772292102cffc411b8c7b008b14fd50c8e82c01ee22d4376"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a7d106a66e4e3d1f9c890d88f71c972921b3f050d42155ec232728e110f606c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f4e614b4857b69871fc27b90b18d4e17d24951b2351f70596b39e247c9c36d67"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68bb147a2c42552de0ad48ba06125c83402858c56650e29f266443cf9974e11a"

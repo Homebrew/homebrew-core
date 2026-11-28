@@ -14,6 +14,7 @@ class Netcdf < Formula
   end
 
   bottle do
+    manifest_sha256 "a1e2421a31b7c5bb9a2247b7c783bac4e76f21032478df6c6c21037c4258715b"
     sha256 arm64_golden_gate: "e4b6a880a8a9a4e354db231c7f7bb029cc8318cd504b5dda98110bd2c089c498"
     sha256 arm64_tahoe:       "61dd571420bf730f8bc3f24b162ba5450e1aa1eaa522aa592038bd8622ff4c10"
     sha256 arm64_sequoia:     "b0720ba605f4915d5fa1edb1a2288f276bd07749f97d4921988f2ac71e244011"

@@ -12,6 +12,7 @@ class Plzip < Formula
   end
 
   bottle do
+    manifest_sha256 "f4979c8ee3f6eb650186c1ab9f78401842b9aec1d6bd5a2c50a6e0bdebea61c0"
     sha256 cellar: :any,                 arm64_golden_gate: "90e4a359b4df994668fd79f2fc8a136470d3915643c65b63ee3bacb79b4fd746"
     sha256 cellar: :any,                 arm64_tahoe:       "7e9a39d0c7a76d4dfc59bf8c4a57ef23f7fc5dec279cfbda606ab6d29c4ee524"
     sha256 cellar: :any,                 arm64_sequoia:     "a359a880525cbbdecf7b43d17beb3063e4d143708739cc656fc55d51799fbb43"

@@ -11,6 +11,7 @@ class Percol < Formula
 
   bottle do
     rebuild 7
+    manifest_sha256 "ecc59384eeed666de19dd7133a79c86bdd850f9b9d510ee175fde8c4013dfe97"
     sha256 cellar: :any_skip_relocation, all: "7e532aea84d749b2e3ad1a5ac163da21037904b9026b90c77caa2aa5df42a408"
   end
 

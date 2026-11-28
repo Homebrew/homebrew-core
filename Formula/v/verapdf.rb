@@ -12,6 +12,7 @@ class Verapdf < Formula
   end
 
   bottle do
+    manifest_sha256 "701d81b5db7169ac07937c532a438131d43c913e92e69e930ba4a3f98adf1b13"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38d27f278d7bfc58ba5dae932e6564e2fe859961e0bab31d53365468a7330b7b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b75306d0a3543a7fba70241ef295a3743911d1fc45d4aba53358946e2f757357"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "758fd615119ba60d715edf48d4c186e5e9e37f44d470714d9453574d7a292435"

@@ -12,6 +12,7 @@ class Lutgen < Formula
   end
 
   bottle do
+    manifest_sha256 "f61d300c4089b03d5efd50edd3f7c356ad7dd703a3e4e4fef47a7ca5a212a379"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "38a4c5a9c3edbaa10e1292099ea8d73442bb21691bb663e2229f9a3d5a752cee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f56fd5db55c6549dc2164e0584fdb2e8c6279550828dd8d5719033c844ef91c3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbf13ed6a2e07e210b2c7d087c19023424bf19fcf437c7d29ecc553d2f2af7f4"

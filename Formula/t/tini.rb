@@ -8,6 +8,7 @@ class Tini < Formula
   head "https://github.com/krallin/tini.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b5f97281c53bc666d5624bc86beaf39b7b33c540d0e5323e0c8517189677f95f"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "98e1acab93b214ac0868c19198d76251a733e0e9fe6bb7f5ed8b233eb2a84bd4"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "9ca9b3fab3fee8f2083f628d7efd73899455e873d6dd2e25dc87f1dc27c8581e"
   end

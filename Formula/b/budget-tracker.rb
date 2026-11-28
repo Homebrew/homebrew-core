@@ -7,6 +7,7 @@ class BudgetTracker < Formula
   head "https://github.com/Feromond/budget-tracker-tui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "07a9114e6d3eb6e02f6867ceda8db93251c7a9cb71af73967deb9b8d6ec7fa6b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "466d09481ea98e1fb853183ac34d7dd5660f5dad15360976e888b8b7b85415e1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a78c44f92c20db8fa11120ad83a4a5311deb2e27da2b2ba426ead9b3d4a072fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "193f228724eb8f383b65f2209708eef997f62748a6e6f302a46f4109ef4142f0"

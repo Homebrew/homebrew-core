@@ -13,6 +13,7 @@ class HelmAT3 < Formula
   end
 
   bottle do
+    manifest_sha256 "e944a1f97ea7cd399476bc2c95d408140e8a8c4fea161e9d2f7a15132c627b3c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9c46c273263e43c5cb3502cf39cdf8af6706daa33bd4cdd0a97b34d6a109fca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4256323bc6143e2593bbb794cf852736f23b0a9b53e22b2f0843625a27619f3b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "837ca4f9c9dc2f6a75764403dd7e5028d6067bdaf9706fff68e77321fab97ac6"

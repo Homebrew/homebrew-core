@@ -13,6 +13,7 @@ class FabricCompletion < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "91e13010df2470252d86b777971c94b74ebfde62600ebadf0141df7277a07470"
     sha256 cellar: :any_skip_relocation, all: "3d2a6d8ccfa6f87727fb8d7530c7a4fb20fda11dd0a580740bb7a4179b0e54c0"
   end
 

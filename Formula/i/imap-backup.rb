@@ -12,6 +12,7 @@ class ImapBackup < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "756978f65ea2d8192534aa4c6b5b5a9406a14870ad85a23a77d4c8e5c7445c27"
     sha256 cellar: :any, arm64_golden_gate: "3aef7b12e25c877678d31632a4125b19b39fefffaebb6ec8ffe299c71986d988"
     sha256 cellar: :any, arm64_tahoe:       "eeb2993395021dd3dc8abca2d48bbddb22efecc566a0c98c8f5e50aba6441dbb"
     sha256 cellar: :any, arm64_sequoia:     "5c81870ce3000963a29288356aebf47821988358b48ff07b699a69ce8f9df024"

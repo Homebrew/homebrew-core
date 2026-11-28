@@ -9,6 +9,7 @@ class Txt2tags < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "6ca2ed7d2225d7503b9b7cac3e4372f132e6a81502b3cbf35de8509502bedb14"
     sha256 cellar: :any_skip_relocation, all: "80cd9ce2147e38e29ecf1de148b892ce27c16bf0a7b89f571136ccfe03d17c4c"
   end
 

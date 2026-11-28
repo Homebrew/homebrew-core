@@ -9,6 +9,7 @@ class AllRepos < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "be344ae87ec5db2b8e1829b5336c2541e1dbf0e61ff279b76f2dcd40a07e23e5"
     sha256 cellar: :any_skip_relocation, all: "e3bf5fa84da4b7797ef0843604d99d3e49a742d32ff3c60576fc86ab1c737d9f"
   end
 

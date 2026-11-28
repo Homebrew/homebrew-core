@@ -8,6 +8,7 @@ class Zimg < Formula
   head "https://github.com/sekrit-twc/zimg.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1792dd5915bfe602ba8437fc8ccfcefe490ae66343b8e957629e255ac5adfabd"
     sha256 cellar: :any,                 arm64_golden_gate: "8015c851b2c81c3131ab91b18e957140e2b129379bf27a7036e5d3eb03a15954"
     sha256 cellar: :any,                 arm64_tahoe:       "2beb74e61904dd631d9dfc8e43ae710572041e93058d759b77c37b20c6a9a431"
     sha256 cellar: :any,                 arm64_sequoia:     "ee8314ce01c48102e3f977540d6095a444ceb8bce71f1868199c47cad4ce12e4"

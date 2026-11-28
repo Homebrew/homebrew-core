@@ -8,6 +8,7 @@ class GitUrlSub < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6fbc3d224252cec9346a6e7bb94ff405f8ea9658ee23dcdb88d2f396acd9230b"
     sha256 cellar: :any_skip_relocation, all: "055dea89e85d2f7947a37817d5d25f502f40416d0e35ccede1bfeb7795891be0"
   end
 

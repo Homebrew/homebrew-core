@@ -7,6 +7,7 @@ class Upterm < Formula
   head "https://github.com/owenthereal/upterm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "23e37a16ae0a910c6535b51a1aa81b57cc1343e47781a7533dc77de688e86bed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d6dfdd19c29b968c5bb58eb022eb81cfde33f778f1a3337fdb24787a3aff6a9c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2c759623c5b837db67a7437c07100d2d8701fbbc3f106dba471e7539fbadab9c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6252f27b825d0de37ecde1bf7f901e22766e72b5205de63f0fa76bb0f388981e"

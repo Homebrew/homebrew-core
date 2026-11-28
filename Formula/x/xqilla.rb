@@ -13,6 +13,7 @@ class Xqilla < Formula
   end
 
   bottle do
+    manifest_sha256 "a3ac7ad5a5cd276f28e607f6c74cc8cde783c2a35ce76916d33a7ce721653629"
     sha256 cellar: :any,                 arm64_golden_gate: "8d1d04088282a46898d4eeff3b1f356158582501b761607c71927a5867253bd4"
     sha256 cellar: :any,                 arm64_tahoe:       "b34e7fa213e9280c6343d21d71355f5ac4e115540d2c81b31027172af5de305f"
     sha256 cellar: :any,                 arm64_sequoia:     "83e21758a4570293176969d68d027817a4cabbda27702a1f17df9d21256ef45d"

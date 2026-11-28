@@ -7,6 +7,7 @@ class Snapcast < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "fb691d0d88da3869bdabda7788b8db904e7f082fcd61975ca98fe882caf1edfb"
     sha256 cellar: :any,                 arm64_golden_gate: "c5b86c0ba4392d3534ae4baa1d4931e0dea8bf1a977e0461a4a13de8a971b5ce"
     sha256 cellar: :any,                 arm64_tahoe:       "ff3736ac6d060aa12bb5f20c9bdff44eddf1599e4dbfae99cb62ca5d58cbecd0"
     sha256 cellar: :any,                 arm64_sequoia:     "f029d457826ddc09f04d6a68a07ed0c7e08d2d19ec7afa1068b23ba824bc5d73"

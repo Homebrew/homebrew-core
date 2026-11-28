@@ -14,6 +14,7 @@ class Parallel < Formula
   end
 
   bottle do
+    manifest_sha256 "1456a0f5f8c527e22bf6baa8ecee401509056d5d5fc3f69cf82315e650df497c"
     sha256 cellar: :any_skip_relocation, all: "cb9bd16c6cfab7d2f0b0119a0f344473c4455bf03cd420a2ef45358e5d831fa9"
   end
 

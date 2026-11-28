@@ -11,6 +11,7 @@ class Siege < Formula
   end
 
   bottle do
+    manifest_sha256 "4f25e8737bf3b3b2a061201cf0991c2f2caf6204cb403218c0bd2376dd7c7202"
     sha256 arm64_golden_gate: "e3756d9d1f62cba420dc2df43ac3603467d14f06b0282500122183beb7048440"
     sha256 arm64_tahoe:       "2cdb19baca89915784b97b94d03db26c9dcc6bf0f40fb7f0a2be5396f6cae544"
     sha256 arm64_sequoia:     "85f0075bab6dbc6748b14de742aae5eda40056eccf78cd9c30ee3e0f2d23e4ca"

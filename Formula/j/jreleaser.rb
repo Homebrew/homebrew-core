@@ -11,6 +11,7 @@ class Jreleaser < Formula
   end
 
   bottle do
+    manifest_sha256 "7573c2f5148cfc060eb7494419a2cb7b33ecebd2f0a6720831a680d75c62cc95"
     sha256 cellar: :any_skip_relocation, all: "c3b7eba99eb1e27608a48b092004a7f3a6ddda5344d096a41729a422ee7caa6a"
   end
 

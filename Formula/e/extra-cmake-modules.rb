@@ -13,6 +13,7 @@ class ExtraCmakeModules < Formula
   end
 
   bottle do
+    manifest_sha256 "4492cb3ef33c42576a5d9cbaf623b8ad33fddb321a74016ab5671507f92e8824"
     sha256 cellar: :any_skip_relocation, all: "a6126fbcd14ca68d49b20b6fb0161b988b3d5d720e661cf07c48585dcf4cd8dc"
   end
 

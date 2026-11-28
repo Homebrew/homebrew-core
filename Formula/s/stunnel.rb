@@ -12,6 +12,7 @@ class Stunnel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "807c8451b73d319754daac05e6db8ed6b1867fb3254bbf37b043c66ea6101457"
     sha256 cellar: :any, arm64_golden_gate: "4044153e9399a0fb0b9cef7909bbd2af734d8544b7ad9f97df792cb33673ae11"
     sha256 cellar: :any, arm64_tahoe:       "03ff961d9d1484ef6c5ec0102d2d8ce0ea63c9e79289a04d131507aa94dd1bf3"
     sha256 cellar: :any, arm64_sequoia:     "2ca637904a66de67e377c34661fd60702398032ff1a71805e021e755bc1a9066"

@@ -6,6 +6,7 @@ class Arss < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "49dcaf6083dc4a8aa0be91a1bc7a8afa980693db0c746f8adcb4eb22a92c5cba"
     sha256 cellar: :any,                 arm64_golden_gate: "268d1e33f29cb014957a8b8dfa5ef882005b073092b7fa0f6b5494adff0fabdb"
     sha256 cellar: :any,                 arm64_tahoe:       "bfe57aa3bd356a8a7d3b616e96f854b484a92be45620cbf9ce3729a7ded493bb"
     sha256 cellar: :any,                 arm64_sequoia:     "02051c251dcf51557823a6ae6effb432c9c892a42a3ab19e80c9b8f0e61327ad"

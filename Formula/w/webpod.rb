@@ -7,6 +7,7 @@ class Webpod < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c78776f1dfa15acac6a5d60a07d68ea0a4baced0a8c187e568fadb0ed07f4578"
     sha256 cellar: :any_skip_relocation, all: "ef076e7974529c853c352407873ff5cd53c23fccd374510778b508983995bd3a"
   end
 

@@ -6,6 +6,7 @@ class VimClassic < Formula
   license "Vim"
 
   bottle do
+    manifest_sha256 "1f0a2706a838ef433f7832677ae42c16b034915366d6ec39749be527bd59d650"
     sha256 arm64_golden_gate: "8c4f557bd6f096c1d0bf29dfb0c898654227def6f2a9d5e330cc71319b3f70c5"
     sha256 arm64_tahoe:       "3121c85d28de68639b7c4788a359dda9c8a4e15aead23e16331e2d256ab5ae99"
     sha256 arm64_sequoia:     "2ec28ae6e1bfa81d91f54b1e3057cb7c129595cda8a45fa01421bb3205f177c9"

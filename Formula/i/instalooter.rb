@@ -10,6 +10,7 @@ class Instalooter < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a2c0ea9954844ea84780b8c78c2eb54611fb8d7f81cb2aad7d9076a75fd805e4"
     sha256 cellar: :any_skip_relocation, all: "44f39eb826b945320026ed80070e2f529453df91d4ab6726e086a9060bd34803"
   end
 

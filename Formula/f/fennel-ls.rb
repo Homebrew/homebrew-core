@@ -6,6 +6,7 @@ class FennelLs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "6364bc86b06b3dc3cd737d52ed6233e186053c4d20e0c0e32dc2ded3924c6b17"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96b6c43c6a8f866866846a5663b54fb0841f7e33423a2f926bbe03347facbcd4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9934b9c9d2df6da8693af31de78af5146777a2ba90bf6f6e57d9ba33d274a09"

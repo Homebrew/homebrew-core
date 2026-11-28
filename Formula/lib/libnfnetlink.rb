@@ -13,6 +13,7 @@ class Libnfnetlink < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "31b5df896d531d20519ba6e801f462b8b5c6876d8213f55bbcaa29e6e73a69d4"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "29a3d3fc305c9252a22b3bce85447d2f895924c959185c00889cedc2d23fc78b"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "927f6b62c2f87ff79d92d07e52bb312d3fb24731e694cc804179730b08f15eae"
   end

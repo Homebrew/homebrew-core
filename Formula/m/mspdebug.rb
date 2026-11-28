@@ -7,6 +7,7 @@ class Mspdebug < Formula
   head "https://github.com/dlbeer/mspdebug.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b321c31a48e21acaaa716538a195083b40827e7a0b124a18970fd9ea9fe4293a"
     sha256                               arm64_golden_gate: "d37f75d829c15bf1a0297eb0852d8c8e30026d40fb807e794811f888d4d748c5"
     sha256                               arm64_tahoe:       "951ce1dd56ff8622c0ea45cdeb334e1e1cf4bcb592684e4c2a571621b91a763c"
     sha256                               arm64_sequoia:     "59160aae0981c9f56eba3a0cf4645dfc2cb806f6826d4f9c1dca33bfaf033104"

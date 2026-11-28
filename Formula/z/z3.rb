@@ -14,6 +14,7 @@ class Z3 < Formula
   end
 
   bottle do
+    manifest_sha256 "f01900be5ca8abbba52ef1b0f43975422ee9ad4939012cab0c070bc72844466f"
     sha256 cellar: :any, arm64_golden_gate: "1bb351ad59044730ab9088dfaa9e64cc9f2370cd05f5fad97dd743ad2c1ba867"
     sha256 cellar: :any, arm64_tahoe:       "0a1edb2cc2d6a9d6a0cab646e75f5ea8ce909f2ea80f0f38c96ab57ebd429a3d"
     sha256 cellar: :any, arm64_sequoia:     "96f4f8878b2dca58c0e32cc5f5ba2d5a9996e00b66b11a33040764db66dcfae0"

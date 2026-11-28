@@ -7,6 +7,7 @@ class Wifitui < Formula
   head "https://github.com/shazow/wifitui.git", branch: "main"
 
   bottle do
+    manifest_sha256 "f0ffa585db289defe88d7956ba1e371528eb5117b53870a0d2b9da9335e655a4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f26b402ae7d0633b466401e7a8fa981549b3850935b4141763b68bcb6cd94c00"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d208680502412041387ce6043a6e6fe833646d572350f81914c402749cbb4284"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d208680502412041387ce6043a6e6fe833646d572350f81914c402749cbb4284"

@@ -6,6 +6,7 @@ class KotlinLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5c7df9e396227cb62116593908745c13a8def12335fe925206d2d2b082985f34"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "321df23b3258672d0df70c3ab7487ba73611916a2cf30089b692e53090731b51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82192bd12da883553702631b7bc43af82148f6812cee104f5cc2f1c89058da7e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a8f715a1cb3d08aba2c7691f832a7d7f080a456b31b7ad27c319e82eaa7b276"

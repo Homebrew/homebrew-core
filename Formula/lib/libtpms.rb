@@ -8,6 +8,7 @@ class Libtpms < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "94d7cfc51761344239090fe4b9cf177b5a3ac1dd63eb87c202cdfcc2bca9e02e"
     sha256 cellar: :any, arm64_golden_gate: "8335ea28c832407e001886232c1fdd6e45da78a314a6dc812efc96da4504946f"
     sha256 cellar: :any, arm64_tahoe:       "8407b49b8507d71716c2d7c63624448922c5b30284924811e815233318e6eb1c"
     sha256 cellar: :any, arm64_sequoia:     "d3fc62db2d34cd269b402be7e1a4f2a9742b638be26ea4f3b1a640813271e10a"

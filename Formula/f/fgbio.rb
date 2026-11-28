@@ -6,6 +6,7 @@ class Fgbio < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d694cebe9672736d3e241ef727a179f2afcfb4a6fb9a5b22a0a4cb5fa8c9e6f5"
     sha256 cellar: :any_skip_relocation, all: "03ea7b7b280d63b143ab95aaeff84e80ba99915ff896017876b58d43047a56ff"
   end
 

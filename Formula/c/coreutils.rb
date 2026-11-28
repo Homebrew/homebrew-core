@@ -9,6 +9,7 @@ class Coreutils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2912de5466de9e2e45c6dc2ea40f8c78479304ea28260afeede965e460db81f1"
     sha256 arm64_golden_gate: "3230dfda5ec735db8f69a113518a68f8f375f929178cab7c69f618c2606aae9d"
     sha256 arm64_tahoe:       "38e01cd05410c44aa21fac5ae1700164771cd2028a9e1506f07a743b53a7b73d"
     sha256 arm64_sequoia:     "c845a8ad8933ec45614e331e4f861862a4766a716ea7c13ee102e50a056c7792"

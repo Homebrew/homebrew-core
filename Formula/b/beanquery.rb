@@ -10,6 +10,7 @@ class Beanquery < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d1525b3a84554d726fa26b475e45fbaf6cae98f39be360a9010ef77c7debe460"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dc5cb548f518d07830368db0034c8d4688b46f3d6feb4d56e024dfd2394b2b9c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1696997edb1352415a9147ca591bf3664fe9d679867bcee6aaeca1fcd93cc664"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b973c462f3942b3f7bb0847e79a13f9fbe443cd15b9c06d2fd7f22c97dc95fd"

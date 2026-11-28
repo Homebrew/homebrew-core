@@ -7,6 +7,7 @@ class Libgr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "037c8277da99afad96a556b39135df1ad480376305dfad8698d29f90d9b0f0f4"
     sha256 arm64_golden_gate: "97470c73731b8146e302578111249e07281c10b1d364c84ca25d1b22ad064f68"
     sha256 arm64_tahoe:       "2ca280b0b4e763eb659d22585a55b903c796fe2171e8cec2b5220b1adf9c820e"
     sha256 arm64_sequoia:     "c5b621c207017e2d3537fab8618005bc7fe9500e99defe7531310d8012479c62"

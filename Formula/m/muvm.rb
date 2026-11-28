@@ -12,6 +12,7 @@ class Muvm < Formula
   end
 
   bottle do
+    manifest_sha256 "681ceba79874c554bfe04955a8fb65ef4f2570c9b4eec3989237b23c082c5c3c"
     sha256 cellar: :any, arm64_linux:  "3656663dc227a4d05ec516cbdc9c872f5062fdfa46101f4dd7a2506a44a16c44"
     sha256 cellar: :any, x86_64_linux: "0e9f1785c519d5f38c185da985cfc74128d53f69522f65eb9a4791eb321ebc8a"
   end

@@ -12,6 +12,7 @@ class Liblerc < Formula
   end
 
   bottle do
+    manifest_sha256 "3c7cd3ca9d47e7aedda0065bb4a41bba4432ebeadf0649fdbc131dd00eccde64"
     sha256 cellar: :any, arm64_golden_gate: "1cd5dd2e502dac355e2e57c4efd0dd31597846b79830c7972359b8375f30e0a0"
     sha256 cellar: :any, arm64_tahoe:       "b61635f91bd88667aa386fc6bbb67df1af289d51daec935a00f89159c3548841"
     sha256 cellar: :any, arm64_sequoia:     "cff8a14998073c9dd1a91f291258e0488e0d5670db80a8e2049d1c0e7e6f7ccd"

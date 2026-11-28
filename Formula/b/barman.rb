@@ -9,6 +9,7 @@ class Barman < Formula
   head "https://github.com/EnterpriseDB/barman.git", branch: "REL_3_X_master"
 
   bottle do
+    manifest_sha256 "164761545c9cdffe5e263f2409761befb24a86741c223eef02e4f3d0a21cd388"
     sha256 cellar: :any, arm64_golden_gate: "807b020165260e205d057450f2bad47b17c0d1d4796fa875cdc6ecc9f0ff500b"
     sha256 cellar: :any, arm64_tahoe:       "fda0c7c42d4181abc7ca33d61ac556398dc77e8cfafb07d672d20720096fb24f"
     sha256 cellar: :any, arm64_sequoia:     "477dd38796ee7b570afb69326a5508f4d2ed39b115b25efef3274b20ae55297e"

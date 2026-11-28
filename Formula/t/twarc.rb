@@ -9,6 +9,7 @@ class Twarc < Formula
   revision 6
 
   bottle do
+    manifest_sha256 "653c75304fa0e17d75b9df056b3c738ad6129fde37cbde5426619df738b97c73"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "301420766927f86379fad6ab03bd6ff889e33bae0b910908ca5c1836452b21b7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37452918470d969d813ad9b0dd31fbb917d78094385ab511c6c616cb157f12bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56e03475a85cf25772d9feb3ef1ca34de2227fa82908dfb1891e0854db72e7c5"

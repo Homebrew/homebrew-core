@@ -13,6 +13,7 @@ class Wabt < Formula
   end
 
   bottle do
+    manifest_sha256 "8531cbe450b4b8b53950bb57dc671b70211d630d4afb8fa9fb3e83a1f77ae819"
     sha256 cellar: :any, arm64_golden_gate: "4c2876aaf9add1bc6463c8640b38f96b898a37fe791be8d345b38121bdf63f58"
     sha256 cellar: :any, arm64_tahoe:       "fb7ff2dcb629614985f5039c63b3f8fb998d3e30d95018c7d2001ec20dee2886"
     sha256 cellar: :any, arm64_sequoia:     "1575999319eecc660b7fcfbe5bb19f0a0262a0e52de14b152a8d331f6ef84eae"

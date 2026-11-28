@@ -7,6 +7,7 @@ class Bear < Formula
   head "https://github.com/rizsotto/Bear.git", branch: "master"
 
   bottle do
+    manifest_sha256 "698f449ba0e7a229d626ab5345666b733fcbe9c7ae3ff8c3844117e9a1cbcf9d"
     sha256 cellar: :any, arm64_golden_gate: "179961370d51510164f0a224b3a96085c85148d3b1bc98bbae113f0b2eb478dd"
     sha256 cellar: :any, arm64_tahoe:       "f895e4ddea72676743f8477440816ab77d0369fb1f7cb23ab27b5dd7522452ed"
     sha256 cellar: :any, arm64_sequoia:     "f05e97f4fa36e553db6ce2e9c011a12a2a07ab65fc2cc2631b3291cbc6ed5cc3"

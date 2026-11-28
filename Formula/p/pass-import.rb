@@ -11,6 +11,7 @@ class PassImport < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "800fe7522d0025ffbc9ec9da8903c6c2961ec0d48cb8dfabf9d76b31527ab575"
     sha256 cellar: :any, arm64_golden_gate: "8ba42d8e09358611c6680a076e323f1e5e349d4c733efb9a3be5c0ae892c0cd3"
     sha256 cellar: :any, arm64_tahoe:       "16231a09dbc58bcfa89cf7df5836ff28f8fa44aaf0e809f47e9d08b10e81eca6"
     sha256 cellar: :any, arm64_sequoia:     "ce9560660ba0130ebeabd3881dcd368e508ec102893bc4f13940b277f2f87791"

@@ -12,6 +12,7 @@ class Tractorgen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "344cff5a570e3ff6ab22041a071147dc39b22002552546c0b5d5304c9404a3fc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c285d1fba09fc473bdd92d6d8c8dc47fc0cb51056ae714dcd2d604d6b73ee81d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "81c1cbe1001cfa689511d5c002fdf3a4f619fa0973a3c86b376e34ef5bedfe4c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2bedfd7170837438de7a29894660b3ae2e9c885167792ef3521a19e419c9e91"

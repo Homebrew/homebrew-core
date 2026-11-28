@@ -33,6 +33,7 @@ jobs:
       REMOVAL_BRANCH: remove-unused-patches
     permissions:
       contents: write # for Homebrew/actions/git-try-push
+      pull-requests: read
     steps:
       - name: Set up Homebrew
         id: set-up-homebrew
@@ -132,7 +133,8 @@ jobs:
 
       - name: Create pull request
         if: fromJson(steps.remove_unused.outputs.patches-removed)
-        uses: Homebrew/actions/create-pull-request@61b401267256bb9c047d6d1481b176d5772a0ba7 # 2026.11.23.1
+        # TODO: Pin a released Homebrew/actions commit and add its version tag.
+        uses: Homebrew/actions/get-or-create-pull-request@b4c226ae32acab42c7c2c0745ad224a1e9958022
         with:
           token: ${{ secrets.HOMEBREW_GITHUB_PUBLIC_REPO_TOKEN }}
           base: ${{ github.event.repository.default_branch }}

@@ -7,6 +7,7 @@ class Tass64 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0e995587f2779811987126f2d8b233562bd7c8f7476698ee94536cd68689ff0b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "666c89b012cf9bf2c1ab0d5653116c1e16ec1414b27300bd543547034be348c7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "03b1af6642d7196b136bc4b001706670f3c390c8b20c241b257a2d3b06f750be"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d23f98e527d005deb40dd737df7e79ddcaa192953a55effa2fbaa9907b0ce9cb"

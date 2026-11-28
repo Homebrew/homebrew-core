@@ -12,6 +12,7 @@ class Bbtools < Formula
   end
 
   bottle do
+    manifest_sha256 "1ecfb3fad13e8a98669ae1a9540eee7fec47bf4d43eafe607fa39e987a091dfc"
     sha256 cellar: :any, arm64_golden_gate: "7452fce62e08c0ef7a8dfa52ad9fba3c5a14c0cb25033b05e957911d9a76a763"
     sha256 cellar: :any, arm64_tahoe:       "688f314ea90cba27ac3f215ebaa18243e098c54491f1014702d79bcf477b379d"
     sha256 cellar: :any, arm64_sequoia:     "e1293ae2798c90a89d4f7aa3877ac2ec70d80898f73d730f3e5c1b878b485dab"

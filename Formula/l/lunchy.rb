@@ -8,6 +8,7 @@ class Lunchy < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "00f9ca7281566354d4cc34b0e6c7301bd6b8ea272238e0801a42ee89b4edfa90"
     sha256 cellar: :any_skip_relocation, all: "071a71f4b6716723c0c3de5ce2daa1521e2fb339e009ea0df5e8ba1763a6fd8c"
   end
 

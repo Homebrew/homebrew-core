@@ -8,6 +8,7 @@ class Leiningen < Formula
   head "https://github.com/technomancy/leiningen.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0874accb3ccc86567fd73f455f23c911c44def62c61f00c3e569ceb99da94805"
     sha256 cellar: :any_skip_relocation, all: "fdaa310cd6906415154f38eb75600cc82061506041e9bc388f809c40f1a7d9c4"
   end
 

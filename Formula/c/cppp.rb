@@ -11,6 +11,7 @@ class Cppp < Formula
   end
 
   bottle do
+    manifest_sha256 "cc9da30a02d2f7515cf40210b6c75c2576d9222f8f8542c84b71832dc5c8d43f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5b042bb89f4b53089fe53a1c84813dc5705f50e647cc078f92601dcc676db429"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "29bae12103813789942c21786cc253702a2d5eae6baeff11561afc12bbafde7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b14311322cdff7ec30e93ba573bf916eae962c7d2488e7f85a88a4b8bead0a6"

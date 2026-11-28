@@ -19,6 +19,7 @@ class Planck < Formula
   end
 
   bottle do
+    manifest_sha256 "1cb02e226e0469e937d12e24594bbde77c2e5b8bbe05492848805070239f0a13"
     sha256 cellar: :any, arm64_golden_gate: "8680de65eaa4ae9d6622a37254168939549193657754f2a2d32eae62f6fed3d6"
     sha256 cellar: :any, arm64_tahoe:       "e43ad145117248b4182265bb0adc006af4fa7ae9ebb66f4959a47989083264a3"
     sha256 cellar: :any, arm64_sequoia:     "2a364731985dee22c1bc8f8436f52a651618156bc9c5c8fe34ac1ee24c52f14d"

@@ -7,6 +7,7 @@ class Fakecloud < Formula
   head "https://github.com/faiscadev/fakecloud.git", branch: "main"
 
   bottle do
+    manifest_sha256 "66a91efd7555ab4d6bd85de29dc6f2c9d4897e3a304979fdcb94f60cbbf9d592"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7b8ef9d38a88de5f7ee16d7457f05349bc4e68442cb171d963a6e9154de85d31"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "199a2aefecbb94a5dfa8bf0a988403872d1359028da4fc9f818c2dcf4a8c3196"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6e57de9087f91c161eac14f668f7fcf2e6376bcb1efb6ff6b7ec51b7f07e75b5"

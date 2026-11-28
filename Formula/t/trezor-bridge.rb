@@ -8,6 +8,7 @@ class TrezorBridge < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9a90913358295d033e03df3e328e74696455097c0edfe524b96fab296899ad57"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "073cb7b51c72e127ab95a01830d7bbe79407273a6b6cce699dfe9bda81ef4ddc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2292705ad88081147e09d6245be6c0582f14204d88b28adcde3eee6e7f04332b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4402cab315a593f21dc76e910c36b4cc69725185897b78a74e944858bec9a1c6"

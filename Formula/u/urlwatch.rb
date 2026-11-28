@@ -10,6 +10,7 @@ class Urlwatch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "710aba500cc2b5b7b35e3bef6723f29d8a8cd2acb9db64a3ea112a135f9933a1"
     sha256 cellar: :any, arm64_golden_gate: "f9889a3885bbf9f8b9234283893c8164bc0ff58dcb942ae8406078d2c2a2c8f6"
     sha256 cellar: :any, arm64_tahoe:       "b0e5e22c4423559f7b2db5e2a49dbf436ae75d98097fffedf81895e4253fed59"
     sha256 cellar: :any, arm64_sequoia:     "50b228b2ea421cc84ae4b8127f973b4b4a6d226f6acdb6284dff5f56217d2daa"

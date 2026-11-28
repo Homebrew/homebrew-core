@@ -10,6 +10,7 @@ class GitRemoteHg < Formula
   head "https://github.com/felipec/git-remote-hg.git", branch: "master"
 
   bottle do
+    manifest_sha256 "546f47f1159e4e03268753ce06f44a4a75636816fd7faf609b03108a3f329ee7"
     sha256 cellar: :any_skip_relocation, all: "e90eff0db403519edc1c7a28c118fca81a007fe16ca8b909d80b320136d26bfa"
   end
 

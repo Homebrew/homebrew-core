@@ -10,6 +10,7 @@ class Gimmecert < Formula
   head "https://github.com/azaghal/gimmecert.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2ea00eae8cbbb9603fb1131e5df0ef78c2d92f2f661742ddbf375a90303fa883"
     sha256 cellar: :any_skip_relocation, all: "2b05dc239a921ac47ef10829bdfe96e1e9b5cbb13e6c8b219c9612f851188691"
   end
 

@@ -7,6 +7,7 @@ class Tinysearch < Formula
   head "https://github.com/tinysearch/tinysearch.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8d3b3f827d4acca618d5f8889c9f4108b340b4c8ccd4ff59d4c5c96bb4086b76"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0f503356f2e04eb0253f8a69d7eea188b143fcd5bfd29c0fa8edff03e693349"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd1bcba140be308db4bcbc7b0209b7a67aaf7beb00061e1f18e2dfaea6117e0f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a29b95208d6fbcab54ebe8bca57e339909c57843e62797d3aa69aed42e169c52"

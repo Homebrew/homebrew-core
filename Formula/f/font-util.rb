@@ -7,6 +7,7 @@ class FontUtil < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "529ccf80ced8e022da2ddfc62cdd55cd1652f94cfcf2e1c44b77121618f4368b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce49a3627e0c54dab9343e522d2dde1e397393d5168717e5c9ca5999adba2bc0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c36ca76580fb353bdfe1380fd2f21bda85acccd1a877a231af3053752e4c48c7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4e57594b7b9b844d9ca329f6a0a5e579ea4d7ca1f62cd3815d98a3fe19ff2f6f"

@@ -11,6 +11,7 @@ class Tmpreaper < Formula
   end
 
   bottle do
+    manifest_sha256 "7abe86f0987360e8835dc34d7cfd2795c9661b5cc89f06272b3cc59a9e914d01"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0db22d74199cf3fb82545c5e11ec4d3dcd9d85f1ed2beac813e63d33fedaba8d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "30aab94f88a07061601a3333b691fc941c683b7936e955bac83de7c48f97c482"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a134d1977bb0607e2b93a5e35fbfa2979310e58042604a858f91ebe5bef87b4f"

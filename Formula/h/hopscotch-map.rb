@@ -6,6 +6,7 @@ class HopscotchMap < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9a0830180527da72e750d62ffe2232ca8f1956306a16f031dfac76eb50070797"
     sha256 cellar: :any_skip_relocation, all: "48f35372243c02af50dc2657574c9d10e2715401827b01f6996a08fb28650e00"
   end
 

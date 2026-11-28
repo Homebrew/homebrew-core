@@ -15,6 +15,7 @@ class Ain < Formula
   end
 
   bottle do
+    manifest_sha256 "dc7290f314bd837ff6179524f2febe0cec0acabea84bc0e4ecb1e2daf45f64a9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4594a73e9c336dd339fb03e8ff324ac815138289dce9cebc0a5442d913bebbdf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e0f860b88ce92fc60e45285259aad2671904bfca0d1b929e47204c2a32bddab2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "470ca30ee09a8e40745f90086841c36f4efe34acdd7c7398089a6a6597314bfa"

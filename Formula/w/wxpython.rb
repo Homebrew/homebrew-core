@@ -6,6 +6,7 @@ class Wxpython < Formula
   license "LGPL-2.0-or-later" => { with: "WxWindows-exception-3.1" }
 
   bottle do
+    manifest_sha256 "924e62b3be7b047d98ed3c285f6d37e9b4a794dab59969f61c9d4892f990afbc"
     sha256 cellar: :any, arm64_golden_gate: "67dea137c83fa377c922b3fe3d1a314588a73eefab8b56ca34924605ba70644c"
     sha256 cellar: :any, arm64_tahoe:       "37b612a78a8c6ed233badd4b583833375fd93fafaadd181936ec538d8a86e0f6"
     sha256 cellar: :any, arm64_sequoia:     "110bfbf2f74c2ddbcd21aed2402d511f70041d84f71c934a3e483eb3f28c97f2"

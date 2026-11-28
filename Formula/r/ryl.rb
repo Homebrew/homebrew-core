@@ -6,6 +6,7 @@ class Ryl < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0723c02dd12041a69272f02e2c6d1dbbfa70d6126020a5d9e816201ff35a0b26"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0a465e2aeaa73c8d8358b671e49d0d3aa7e8e618e976c77b98ba9a9898f005f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d89cfda8f932d4ce20af70d64cc25cfa09d30d429c8f814057b43db5fff3a440"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "efc348b8f226fddea45572aced8b2cdacd4c982139d588760698d1281c9c23ab"

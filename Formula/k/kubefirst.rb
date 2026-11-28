@@ -14,6 +14,7 @@ class Kubefirst < Formula
   end
 
   bottle do
+    manifest_sha256 "3157dd296ba16af407927db7688a410074c4c85596d0a5dedc35d3bcb8fc07b9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0914fe4fc9293602eca5eab37a13bfd85564abbcaef26e1810fdc75f55d8519f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a787be0dd2873b9245890777b5969bd8e8fe950a155b504d2bd2d53a25eb0a77"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "848d1c698cdaca90d400bafc245a0899d2fa47cf8b53bf917648476d0b8536b8"

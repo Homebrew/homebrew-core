@@ -8,6 +8,7 @@ class S3fs < Formula
   head "https://github.com/s3fs-fuse/s3fs-fuse.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ea764302a1ebfe0dc70e8c06796b819a3a90bfac0f9093e835730ef5b88f47ed"
     sha256 cellar: :any, arm64_linux:  "c39bd09bb49cb1e6c5cb23109650c9e6261c116a11557976c6bdf08d9a97ddbd"
     sha256 cellar: :any, x86_64_linux: "a21d2bceaf67f9975283e2e0b91b8d48d31265a04c474ffa5af858f68bdb5441"
   end

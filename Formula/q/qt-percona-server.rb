@@ -12,6 +12,7 @@ class QtPerconaServer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8105535a47183f5a82c07b8eea683eb89586bd92a0a0b52bcf79131b976fdb34"
     sha256 cellar: :any, arm64_golden_gate: "c1819ba1c492abcd663eb3e3ddee66fed0cddb3c8fee5ee4b173aafd15f1bdbd"
     sha256 cellar: :any, arm64_tahoe:       "0d70d3e0acd07253d4b6af4a5c54da298abc8641488c81d6ce0c26d1fbdea31e"
     sha256 cellar: :any, arm64_sequoia:     "06dd1d8540bf01fbcc00dfeadaf83c03783aea29445bf9ea699fe0023f63be01"

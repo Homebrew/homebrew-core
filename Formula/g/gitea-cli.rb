@@ -7,6 +7,7 @@ class GiteaCli < Formula
   head "https://gitea.com/gitea/cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9b9d288bde7a511e5fb068e7bd685c23f63f7d2b0481b0562f0490d32e1a0d74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ba6860fc515dfa8dbd0e52c42b47415627bf35f2555e87c08f24041aa28ee41f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba6860fc515dfa8dbd0e52c42b47415627bf35f2555e87c08f24041aa28ee41f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ba6860fc515dfa8dbd0e52c42b47415627bf35f2555e87c08f24041aa28ee41f"

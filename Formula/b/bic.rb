@@ -49,6 +49,7 @@ class Bic < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9d22109200c7c294f8c1b0206ae156d0b5d8f413cc4ef4f0fbf922c0b405a325"
     sha256 cellar: :any,                 arm64_golden_gate: "92ec3a62024035924497e3b93de06392a378a8f3cdd98b7354a5e6c5d93d5be3"
     sha256 cellar: :any,                 arm64_tahoe:       "95d273611ee6c62e77dbcf51696f2d1af33b20e76586a35d2e93975b92257cbe"
     sha256 cellar: :any,                 arm64_sequoia:     "4d9fe97eade0c6ce2c65f69f49950a1f523351b31fb8f5c7d759617cf1aa0e9e"

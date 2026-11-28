@@ -17,6 +17,7 @@ class ApacheSpark < Formula
   end
 
   bottle do
+    manifest_sha256 "01ca431ff55b5ed0eb5e363cd8daacdbc7e6226ca016ce4ad58e54cb42859d19"
     sha256 cellar: :any_skip_relocation, all: "500f8553701e92439afe9ea084e75ed2c514bfc20602726d41f68ba7338ff5b9"
   end
 

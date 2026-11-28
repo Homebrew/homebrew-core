@@ -12,6 +12,7 @@ class DatadogStaticAnalyzer < Formula
   end
 
   bottle do
+    manifest_sha256 "10db45cd9e6e979f438b8a63eababd38679742d19ec8e66d2515175027ede06f"
     sha256 cellar: :any, arm64_golden_gate: "66d410b21ea24101eaa4bac6a48b0b79b76ebcfada5552a76649103684f72aab"
     sha256 cellar: :any, arm64_tahoe:       "15b898b26fe65516b1f10a9bf9a314e8a2c57652270ba911cfcf63e208af184c"
     sha256 cellar: :any, arm64_sequoia:     "f153578ef428650470a0781b0f5b3680719d283f5a942fa07559d4290eb4b78d"

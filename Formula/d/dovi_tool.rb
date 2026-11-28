@@ -13,6 +13,7 @@ class DoviTool < Formula
   end
 
   bottle do
+    manifest_sha256 "b21fd519fdc33a281fb3d52df46fbe1d279cd6e13d9b978e992596a345c53ee0"
     sha256 cellar: :any, arm64_golden_gate: "a2187370de11d987d11b0fbdea569f83235458327707c573c82d36d58274f0cc"
     sha256 cellar: :any, arm64_tahoe:       "b267ed3e0c71c3238d2bc2f6ff21a8f386a1fcbddb0bbe1e57b64d2b51d8cadf"
     sha256 cellar: :any, arm64_sequoia:     "85000a231b6b50d62f70305c66597a7a3631f3fe433848592a9a53536952ec2d"

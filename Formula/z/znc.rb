@@ -13,6 +13,7 @@ class Znc < Formula
   end
 
   bottle do
+    manifest_sha256 "59bd4f1562c9efa0214826e58f28e74e74481adb736718519e1777bdac1ef3d3"
     sha256 arm64_golden_gate: "679a9e32470742f87d57f966750719744043696f200fb53bdde0caba2d2237b5"
     sha256 arm64_tahoe:       "47d26904e4f30b0244626623d2e4913a6b7143c6b232dacebcd4f7591b3aabc8"
     sha256 arm64_sequoia:     "5123fcb3933cd787a570b66c42ec3bed2f14c4cb02784eba5b6005514433a96a"

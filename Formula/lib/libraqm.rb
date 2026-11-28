@@ -7,6 +7,7 @@ class Libraqm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d431a043e6518fcb64cef51a797fb48caf85c3ecb0112a21d426935da58e6373"
     sha256 cellar: :any, arm64_golden_gate: "5a92ed6de2ac727b9e9331d4c55b056d666f54fa4e0e7e4587a87db6982cf5f7"
     sha256 cellar: :any, arm64_tahoe:       "cc58087be4b56fc11117a57536b22de178c9349003baa4d2d46b1f650468bbbe"
     sha256 cellar: :any, arm64_sequoia:     "562eae89ec18a9e0fe45e3c3337e029802fe59263acf4fb4da8509c8a6986a43"

@@ -6,6 +6,7 @@ class AcesContainer < Formula
   license "AMPAS"
 
   bottle do
+    manifest_sha256 "e493957455d88832d28901313aa319c3a20c4ef92e173987034d9d76baf1ba61"
     sha256 cellar: :any,                 arm64_golden_gate: "02f53e45013bb26f36ad14e6c881e4a07a3add40b391fecae8ee74000d76fb1a"
     sha256 cellar: :any,                 arm64_tahoe:       "99edd15fca4a15e40dfac78586b15c5c86fb13ae9d05024f837fc7b28aa7abde"
     sha256 cellar: :any,                 arm64_sequoia:     "470a323cfa40f185682a38aa7ecb04256cebf17b0b854e444cb89d02c09c7d0c"

@@ -11,6 +11,7 @@ class GtkGnutella < Formula
   end
 
   bottle do
+    manifest_sha256 "18b064d6006844f85b9e88f652f70ac44144124a65c9fe42122b3f5cdfaef377"
     sha256 arm64_golden_gate: "d261e6e17dec3840e816f620a0e91864b8df079a2599cfe37dbe175154683c69"
     sha256 arm64_tahoe:       "9582742005c1465ce216041c79f7f3eb78f165086c799ac49bc10e9b24c2c5fe"
     sha256 arm64_sequoia:     "a34532d9d85ce69bfc7a33a52cbfdf11a4e24c8dd1c0e46851ca3953bd56a7b3"

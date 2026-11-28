@@ -6,6 +6,7 @@ class Credo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4580a508c130abddad599289f2f7af6548adeb53ae671b5e82b428a24a248b86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c3a6aa0cae7638b760484fa7eeadf6235c32e42235267e1fb14779d1bbd5fb8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f4f03983a52bfb2685befc67359c58fe72e89494a138a7958a80de8dc236d327"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37378aca16a01f33c71c2a1cf5ae810f2988dfac5aa920c916614d34b63afcee"

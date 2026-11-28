@@ -7,6 +7,7 @@ class C10t < Formula
   revision 14
 
   bottle do
+    manifest_sha256 "efacf46ad165d09f23e9ecfabb8f392b4a00142f6988d9a08df04bb29de7243c"
     sha256 cellar: :any, arm64_golden_gate: "200a2abf48358245151bcd72ef04d3c634d9056c9bb98379a2f14cd5d2346f8b"
     sha256 cellar: :any, arm64_tahoe:       "5ca341f82db975b0e1c4acee78df074d57c6e65d2b6be401dd57eb2afc0525fa"
     sha256 cellar: :any, arm64_sequoia:     "07ccefb123d13aa7214e2dc0cfd452fe30e50085614192e608abc4c7f8fc5002"

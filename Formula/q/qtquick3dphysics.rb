@@ -18,6 +18,7 @@ class Qtquick3dphysics < Formula
   end
 
   bottle do
+    manifest_sha256 "7c882fb5dc5520cab9ba234a6f2e87b08c579db876fdd64870cb21ade29600db"
     sha256 cellar: :any, arm64_golden_gate: "832491a2ac014c14a2c4698002f92d4ab7f6ee802253fbca6ef5745e6c66d3e6"
     sha256 cellar: :any, arm64_tahoe:       "9854eac2835edfa18987f713ddf0fe2b84d339b4561480b5a7f3fc712929f9d9"
     sha256 cellar: :any, arm64_sequoia:     "1ce3eb673a6124ef352d5988050484a37c01ffc8ffbd3a2fa3832415c4ac9be2"

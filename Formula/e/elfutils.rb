@@ -16,6 +16,7 @@ class Elfutils < Formula
   end
 
   bottle do
+    manifest_sha256 "cbcb0dd762cdcc928c17e91a418d64862ca7544ab8cdbc003abd8e2bc160a77e"
     sha256 arm64_linux:  "016cf02a099a01e3bd164512c49cc98de5e4c7d8b810bd184d5f2ef814d63848"
     sha256 x86_64_linux: "8d8590853f50dc056092afa497854439954ae8c768c1330450a553f702f492ae"
   end

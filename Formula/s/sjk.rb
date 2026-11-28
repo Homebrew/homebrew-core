@@ -7,6 +7,7 @@ class Sjk < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "84bfadf87e845849e1b4eba0d422339439e04672f14ae16c65da3f68756a4b91"
     sha256 cellar: :any_skip_relocation, all: "14d24741238dcbbe71fa663ce2bc230b37cdd5dc0f06086d1020250b86ef71b4"
   end
 

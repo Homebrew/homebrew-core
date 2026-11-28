@@ -8,6 +8,7 @@ class Binutils < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e69fcc41608742d664d50cc7647363dc100705b49afb036deb1d6d9d45039c4b"
     sha256               arm64_golden_gate: "ce37cd2ad2a4525011a99648d6265b2cabc0fe1464f528a52fe4dbd9db9d9929"
     sha256               arm64_tahoe:       "3453a1b0d79fcf2f8cdb994352a7a0c42f075027df3c5af9cd3b59e48d925217"
     sha256               arm64_sequoia:     "d5a0fc7a1ecde47af381298523ee64c9072041531634e405e2adac034d73095d"

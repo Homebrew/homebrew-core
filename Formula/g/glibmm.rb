@@ -15,6 +15,7 @@ class Glibmm < Formula
   end
 
   bottle do
+    manifest_sha256 "31a27b012d48c6d0ed905c859d9ebf0e422d23ed0e73f448be4a60fe732fecd6"
     sha256 cellar: :any, arm64_golden_gate: "7ba4aedc30afd3dfd37ac7d3955e2c9ef8eacf4f006806349c309e604a2f15a0"
     sha256 cellar: :any, arm64_tahoe:       "51649501dc86d69f57c88a5fceb479d0f007dd2e17d740cc714a82f111903ae2"
     sha256 cellar: :any, arm64_sequoia:     "ed5d4e505aa436dde063d19fa2950fd7b796312472f94b4a70e70ae8e701cb15"

@@ -7,6 +7,7 @@ class CfTerraforming < Formula
   head "https://github.com/cloudflare/cf-terraforming.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f7f10246e052f095e829afdcdff375df1c96bba8deba94802381b51ac8b12366"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "363d3c1b2f9aafe4f0b5022231547692d3fb4075e99d47f85253aeeba434cb3d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "363d3c1b2f9aafe4f0b5022231547692d3fb4075e99d47f85253aeeba434cb3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "363d3c1b2f9aafe4f0b5022231547692d3fb4075e99d47f85253aeeba434cb3d"

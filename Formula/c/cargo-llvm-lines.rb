@@ -7,6 +7,7 @@ class CargoLlvmLines < Formula
   head "https://github.com/dtolnay/cargo-llvm-lines.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9d69aa1745e8fe08a9a5da5f31bad77a0dedb559a870716c308ababc4b8d0b84"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d19c876c6540a35b39bd493a8cd6083b5f0b30308d105958f0275f0aad68088"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "906520a5b5f770cbd8ea9263473f04c0492a7bd5a724dfe2fbe1e645d6063981"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bc97862430d9ed5dac448be41a0660acc9f3ad28277fa05af1cf53932a0fb8c"

@@ -7,6 +7,7 @@ class Gpx < Formula
   head "https://github.com/markwal/GPX.git", branch: "master"
 
   bottle do
+    manifest_sha256 "81b1faafa4076fa7073fb32b874430919df35c720c2255a7be09969d7c9e7e15"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "78f2b34fef84cff9b61e584a71ae3ada9a6b87fba8fe5300243f76c808de7452"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b22447a95c344cc87486222b09771e583af5854f2f8e14b57dd833af9bd88546"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4cce4b9145a373c3c34a20ebf23371a7927d0de776d583dca2b9e711ca07e30d"

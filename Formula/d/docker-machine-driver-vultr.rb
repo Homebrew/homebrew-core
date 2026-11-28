@@ -8,6 +8,7 @@ class DockerMachineDriverVultr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7fd85680fd195d0d06eb7a55b683f24423638505a3cbfe3b487a36f762bd1d47"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d334101552b7cc0af9b6fd7558ffaac42d4726569d0fa82e3abffe988afb0ff"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a2113c1e6022f95fd189b597885b1dbd321584adcb48558d5918d8b8c3b82d0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8a2113c1e6022f95fd189b597885b1dbd321584adcb48558d5918d8b8c3b82d0"

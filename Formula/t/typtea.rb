@@ -7,6 +7,7 @@ class Typtea < Formula
   head "https://github.com/ashish0kumar/typtea.git", branch: "main"
 
   bottle do
+    manifest_sha256 "28b42c78acd3560793a180d2eecd1efbee7d29383d0865e718a10bd9fe0d16e4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e231c86c04ff9b7c925d019e6036fa71b32803009f8d1713edab46caabca951"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34762664901bd215ea8d9bfc390daa6ccfbedd6c3d511abab0867de8a27e1aa5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "29331a5f5f84fbdbf6d724163f70bbcce0bba015850e62f8e4185292b661dcc4"

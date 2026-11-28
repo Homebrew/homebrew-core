@@ -13,6 +13,7 @@ class Yq < Formula
   end
 
   bottle do
+    manifest_sha256 "699ae024e78f94044d3c40c8e2f71e460a472a153be26acf680f736a1452734d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebcabd62fd524873c22ed5b86efaed3ed60d1563f89e1896be436ecc08efec3f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebcabd62fd524873c22ed5b86efaed3ed60d1563f89e1896be436ecc08efec3f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ebcabd62fd524873c22ed5b86efaed3ed60d1563f89e1896be436ecc08efec3f"

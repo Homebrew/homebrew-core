@@ -11,6 +11,7 @@ class Klee < Formula
   head "https://github.com/klee/klee.git", branch: "master"
 
   bottle do
+    manifest_sha256 "51b41c3b76e0993e09ea222e2c7aa370bd55582a55a3c58e550e5ca6bb7d2635"
     sha256 arm64_golden_gate: "c1c591802a460aceae21559f6967749fad07b7fecd1168c090181fb3c271e4a6"
     sha256 arm64_tahoe:       "9b9d55f472d672d42a84f074c2601faccc3e8a9f4c2dcf564875a5b40f2eb46d"
     sha256 arm64_sequoia:     "36dbb1977c48ad8e5825d22f152ab0ff2360647890d3361c1a7891ed4323684b"

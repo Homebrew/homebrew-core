@@ -15,6 +15,7 @@ class LinuxHeadersAT44 < Formula
   end
 
   bottle do
+    manifest_sha256 "49d8bd58cb2d6a5f0ea4cee350857425d257a30570a2bca3c159a6b0585bfdcd"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "c8bc54c61dd81f71ece06e6634c502b2cf9712f1e9d70b034c6d1f0ea9491946"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "207ef524c00761a5bad4f89f66577682590d7f954d524fba0e27fac886b47606"
   end

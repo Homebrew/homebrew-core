@@ -7,6 +7,7 @@ class Cariddi < Formula
   head "https://github.com/edoardottt/cariddi.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3d9a1433c21e1cd120849ab863f7450dd08971ea3633d1ac787139e0a84ad4f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "27681c82372b67c46f629d614bae9d21b067948f9851bcef8cf414153eaefcf7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f556c527c702d41a7afff38b79ab305eb476c78ebdc461e70d0023b5bae2f9c8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f556c527c702d41a7afff38b79ab305eb476c78ebdc461e70d0023b5bae2f9c8"

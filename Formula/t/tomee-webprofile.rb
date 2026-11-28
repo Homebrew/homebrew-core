@@ -7,6 +7,7 @@ class TomeeWebprofile < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "f1ea0eb8d3b17ca8fed002b4ac2104e790f47eefe231d01ae14bf3b00a106a7a"
     sha256 cellar: :any_skip_relocation, all: "0d2995674cd8bfb16791039e145fe442832414d3870102d0c78fd640cc81f32b"
   end
 

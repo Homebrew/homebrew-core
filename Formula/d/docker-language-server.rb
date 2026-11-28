@@ -7,6 +7,7 @@ class DockerLanguageServer < Formula
   head "https://github.com/docker/docker-language-server.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0d8045a8fea51f1e8f61d5963a14509ceaa447c7485e9b8c81b972c753450e82"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "749bf6f4fd3fab89f4571208ff1748ff4002d0614ea4f7469c74eabef4eedb89"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "efd5817ad29b5c1f08f19b03b566a6a6ebcce6b21a698c4e4eac8b2481d1fdd8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ea8b95be41f9ace28ef2b49b515fdd250d705c42ffec78c9c084ee57f38af014"

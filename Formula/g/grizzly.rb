@@ -7,6 +7,7 @@ class Grizzly < Formula
   head "https://github.com/grafana-cold-storage/grizzly.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fc6c0df526c3c003cbd7ea60b475d4542a4a5e5a237d3064e1b71be860fe0eb7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e598bfc60d3ef71e44154e525a2163cb382feea95eaaaadb2996839640c58db9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d7d0f848c871281f79da1be4fba2bb1c7c0eabb1a15c19b854d661aecd4a948d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9c00e5b79f192d86d855287c9abb183eede829f47d6892bfef011d0977fb45cc"

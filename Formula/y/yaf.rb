@@ -14,6 +14,7 @@ class Yaf < Formula
   end
 
   bottle do
+    manifest_sha256 "c72b08b679ab75123ca64dd54932917728ac7cde43f2f4bc898de42a4c49c1bc"
     sha256 cellar: :any, arm64_golden_gate: "633a1b77ac1df3ceb191f08561ae9041819023a4f5b4bd11c36a63fb16f22849"
     sha256 cellar: :any, arm64_tahoe:       "7d58b6b29ef0bdac04e40a4f9dbe5cdefec4681d2d164790fd6b1eb77468335f"
     sha256 cellar: :any, arm64_sequoia:     "44f5446df10c09d8c593272f90eb1f601c42d450c97b052a543a7c9cd2876a53"

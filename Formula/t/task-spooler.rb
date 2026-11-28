@@ -11,6 +11,7 @@ class TaskSpooler < Formula
   end
 
   bottle do
+    manifest_sha256 "dafb3bcb2c6c444d4f56dc4c15f120ac308fb47a9ce9af67e3189122e0d6d3c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9fb750badcda12cc7bc2a30756562de61134968482fc7131acc85eab270dab5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6fab747d55e44eee46a7f17c3a0857634ba8b2cda0c49e34580358f2752a6a1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ff018af3a0e83b17b8ceb146b94af90ef0056ba238d59f4e9967a7dfb607b9b"

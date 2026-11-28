@@ -7,6 +7,7 @@ class Yh < Formula
   head "https://github.com/andreazorzetto/yh.git", branch: "master"
 
   bottle do
+    manifest_sha256 "27329998c82aabf15918dc5f9aceef478be84424090e53bdbcaf19743bdf9ba4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "814426e213e5d4d802adfe3aaaf67c3aeeaf7720b016da9a59dd6b03dcfa7851"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e86e1650543e20f82c853e9f33f44dfa71ff7856fed04e03d9b40db36991546a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37b637b99befa6608662694e5100828cf4ad50a9513e57cae75febfd04e9fc96"

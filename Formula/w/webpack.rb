@@ -7,6 +7,7 @@ class Webpack < Formula
   head "https://github.com/webpack/webpack.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2a652d6f2e6f2dc7c1ed4f6b2ef06048fdbc4f9634b4e006094d1a29f77b46e5"
     sha256 cellar: :any_skip_relocation, all: "45bdf52e3b3fad78e82a36ce8f9b95c5e4d9b2a3fa5c9846b80ba091a4ccb711"
   end
 

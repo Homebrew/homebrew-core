@@ -16,6 +16,7 @@ class Nelm < Formula
   end
 
   bottle do
+    manifest_sha256 "0b45ed45f34ad90e008679102ec2e8577b0b2a0929796b4743b24b360a826464"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8b60070aeb6511c1b770f9423ad1552b81fca17caeed0b1b9ce78b865f3cb986"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fd7b084b67f4c4301b281dfab184d8722c2cb2576ff7c675edc23a9f61c5e46"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "24f04543f9acde2c83aab15192ca5e2c5aef65940cac856a8547809d9bdae32a"

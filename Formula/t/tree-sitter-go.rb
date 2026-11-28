@@ -6,6 +6,7 @@ class TreeSitterGo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "68fbaa7ce38032238fd098a6cdcd101eb802c3d6be7d3c56d54f3580f9f20ed6"
     sha256 cellar: :any,                 arm64_golden_gate: "7dbf9dd6e46189d71db7dfa94f5f9fafe00359bd40cd077ebedaa885e25b4b68"
     sha256 cellar: :any,                 arm64_tahoe:       "abb2cdf96e2e7a44bceb1db0e97650d6574f514366061804a97d59f8e76d106f"
     sha256 cellar: :any,                 arm64_sequoia:     "7d424b01e2607f8ab843a09e12adb43b39944e405d53e8350b5d029d1aab1309"

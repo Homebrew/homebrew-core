@@ -7,6 +7,7 @@ class TwoLame < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "afd1eb156a6deb288407e5db08724d5a94acce44ec69863ff7be690ab290f499"
     sha256 cellar: :any,                 arm64_golden_gate: "a266bcd23148b1f6b2d98b606c5115055b618a2cc16d8f513b98eed69dce1df6"
     sha256 cellar: :any,                 arm64_tahoe:       "3d0622b14c8204b38bc567923186649071882fca6ef5e8315d049958c07ca5ed"
     sha256 cellar: :any,                 arm64_sequoia:     "8adffc94879ee562f0f12517db906144dffb3e5154318eb23bd33426834f32dd"

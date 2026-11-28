@@ -15,6 +15,7 @@ class Zurl < Formula
   head "https://github.com/fanout/zurl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "40b446b432fd7b11d2072fc073ffb37c3da462ef1e1a29881eb2df786909e8e3"
     sha256 cellar: :any,                 arm64_golden_gate: "753d4e57f9d68223ef7b02b6fbf99e1114e2f57f82b34d815812da3d827bf544"
     sha256 cellar: :any,                 arm64_tahoe:       "eb2c86141ca65e087181c6d802dad72bb3d0b3ecd75286663077b29ef5ee8ed6"
     sha256 cellar: :any,                 arm64_sequoia:     "6b0d185ef6601a9a7feb2712ac0b7d4242e8e35e4572cb8aca3c88109461f1fd"

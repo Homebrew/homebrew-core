@@ -8,6 +8,7 @@ class GitGrab < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a5e55c0478b77cbdb4eb720ed38ef591ab3257ecc5044f7b985c696f57985734"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2a2f807206148d18e040a4fb039cb9d7eabfb85884abfc8351274e551db3e4ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ade08cdebf7cc28c45de74e9e06f568a396dbee11c522a9c784c5d8995d8cd7c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23aef87925b49840bfa24eb5abaa8d4395239629476e1c3b236488f35996af5a"

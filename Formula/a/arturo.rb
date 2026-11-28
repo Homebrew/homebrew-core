@@ -12,6 +12,7 @@ class Arturo < Formula
   end
 
   bottle do
+    manifest_sha256 "c62bf622a3a098d33b0ce6dd26d50f7d804f0f45ade3958520a696299ef71be1"
     sha256 cellar: :any, arm64_golden_gate: "d3d392a781457f57fbe5126ebe1914f2e84039a7cc6ba188c5c3a56346522c72"
     sha256 cellar: :any, arm64_tahoe:       "b899df59b8b96cd710949593ec374ffdddbb7f2281b7aef184a9c213e5e49fca"
     sha256 cellar: :any, arm64_sequoia:     "76cf334701487a8f5a5f98b66a3695a59bc032f90b6f87be80f1748f47236925"

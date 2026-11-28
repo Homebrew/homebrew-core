@@ -7,6 +7,7 @@ class Graphene < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "f31101e4a1687640b0300950a3dcb61ee1364670793b8d761fc6c08a4e5409a8"
     sha256 cellar: :any, arm64_golden_gate: "7664a167e70d1b0ca1a59a549796e708791542e3ba5cbf6d6145648bb791f884"
     sha256 cellar: :any, arm64_tahoe:       "b6625af7453d52f016d1218f609bc2044066b81331b90a1536522441b7919816"
     sha256 cellar: :any, arm64_sequoia:     "11188e7d35c1a2c58483be14dc3ab2699d1829b8a1f4819abb00cdf566e6ce2f"

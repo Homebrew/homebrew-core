@@ -6,6 +6,7 @@ class Krane < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9693d6e16589db6b86f5c809c0725daedb00fc5f5c688ea8e7c5ad0b57e1bc86"
     sha256 cellar: :any, arm64_golden_gate: "31df7f443f3c01ffbdebedc34b969285852a04f74bddd165a951dc0625ee5a45"
     sha256 cellar: :any, arm64_tahoe:       "7fff026d82c3c1ad0e1e100ea2932b3f4dd3d40e6d3568a663da7ee92db168db"
     sha256 cellar: :any, arm64_sequoia:     "e3a9158fd797a5314a600199928d4918cc37812a6d3f3c5c1b5084eeb2bcc313"

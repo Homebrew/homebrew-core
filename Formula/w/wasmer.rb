@@ -8,6 +8,7 @@ class Wasmer < Formula
   head "https://github.com/wasmerio/wasmer.git", branch: "main"
 
   bottle do
+    manifest_sha256 "769c5ce43a521891aeb2839e88192f12e74948af5a5f5cdadf51501edf1fe0bb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d1867c9c1f0e48c21de11d758636b45cf6e83bc9b51ff5054b3fe320d9eed8d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ee4ad5bf6368e2c8d7b4477447be3710e7c64f840f33ae5b5001464b52474bc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1753a7b257a88f08391dc99cdb16d91a97ffd815f79744acfdf231f8735c981"

@@ -12,6 +12,7 @@ class Libthai < Formula
   end
 
   bottle do
+    manifest_sha256 "70295a1b97ea01be1d76ec30b740157bc8899c03196bf35e3bfc428eb77a467b"
     sha256 arm64_golden_gate: "ee89eebb2d42b8d7384e15487fcf7d2925201a5fc8beddfc54f6cd9748206d7e"
     sha256 arm64_tahoe:       "683257ceaae0ebf522c07e2fd39b82863ff54d35ac8a985d9d62597bda8a05b3"
     sha256 arm64_sequoia:     "428726b804e7bb80faef7381ba27b0be1a0087e54746d0f355c0af7575220ac6"

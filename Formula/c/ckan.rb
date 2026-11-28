@@ -12,6 +12,7 @@ class Ckan < Formula
   end
 
   bottle do
+    manifest_sha256 "4e5c957e5d3d9b80d469eb8056cc1022d9b2f1e5ed079f1cb1304aebffa8daca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e82842b138c68f3bf99c799358d0a99453f558c2196c41172835b7ed76d1bfbf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec6124396ab9a00b540e0b925643213a50be95c54b365f98247959622a0fd825"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef595601d00d07c7f0d4f765583a804e532f1336059e23b8eba6db18ef0addb1"

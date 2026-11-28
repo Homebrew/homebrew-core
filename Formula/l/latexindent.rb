@@ -6,6 +6,7 @@ class Latexindent < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "fd029c4c95501dd08cf271c5beeeb0a5959941506dd690d19ad01385c4e0b0cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c93e6c51534a030e542eb8fd82df7bc247ce4d9977b69ebadd035eff5a86d70d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e440fa2b59881913020b6a4bda2f2722f4724f384cc7c2b671e2e65a0700a349"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ffdaca71c671b5872e7a0144fd58232e09a316f040b70810e06e9d9924a6107"

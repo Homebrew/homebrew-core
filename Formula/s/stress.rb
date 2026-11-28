@@ -6,6 +6,7 @@ class Stress < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "20c747a2a91e03e861ad4d1eb9047e8d4c091d81957f6f634fb4e0be25d148fe"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1cd290b2a861392cc795f7714fc8390c99304d022861344bd02f65ecd3554f15"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bc133ce107c928388f3e8e1ae2ec46c12fac73f1ae01281486530180d60adba7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7b3708a81bbe9930b49170bb1bbed935a7f4ef6e1c0aa5d6501ab2fa4d2598a5"

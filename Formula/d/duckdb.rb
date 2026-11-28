@@ -8,6 +8,7 @@ class Duckdb < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "005ca3f25a6c9ca5e8bbed425e57af0cd9c95cb01fc9f807c5377c2b3fe15750"
     sha256 cellar: :any, arm64_golden_gate: "70366b6021757995ee977924d36a948b40dc748dfc1b53df5d6838dab38dfa6c"
     sha256 cellar: :any, arm64_tahoe:       "4c20b4187aa6a6f0c85d31643cc5b96597a9f7cd7a48855d6f24641cb0b5ed86"
     sha256 cellar: :any, arm64_sequoia:     "ca081c603065488f74c6f8de8d2c7f4a45a873171c8802bd9ef39a45c54da6e7"

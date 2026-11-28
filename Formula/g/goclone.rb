@@ -8,6 +8,7 @@ class Goclone < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "eda8cc65cc70654bb1feb6abb9276446dc3bebda776b83551bae59178f9fe1fb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ce31caf4a864a31dc0d335c339b52632ec543c08c735a8c19d386633a72b0221"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "427643691179069c7834cf098036b07742eb8e17ee9de1ba024f022b59791a41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "427643691179069c7834cf098036b07742eb8e17ee9de1ba024f022b59791a41"

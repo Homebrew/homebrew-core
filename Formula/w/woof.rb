@@ -9,6 +9,7 @@ class Woof < Formula
   head "https://codeberg.org/nomis/woof.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e0af00fd59dec46e85c468a53c01658392c6d6decf15aab031153454cc077c1a"
     sha256 cellar: :any_skip_relocation, all: "874dadfaaf9de27426d3b1583882ea00c1f88f1f777ccd214023117f5f805d70"
   end
 

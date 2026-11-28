@@ -14,6 +14,7 @@ class Kawa < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "66814fff769472391d11991c2e02ddedb869776be9f3bf1f645b6af71f263f0d"
     sha256 cellar: :any_skip_relocation, all: "c7ea8432d31f2ae8fdcf5307d328016c728f51db2bc2c76f10161d7c40fcb962"
   end
 

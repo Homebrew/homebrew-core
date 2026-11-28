@@ -7,6 +7,7 @@ class Crip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8ff4534d44bb30a82bf30d6b87edefa02a83ef471c1f3ad89e7a5a4c762e4b96"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "620b86110d2b5b03c9a0145a4aaac7fdcdced8663e029c2c3d2bcd4e832d1dda"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca2b51dd1f72872c202f2a8be9358f16cd5a204de372a37ca6b32678b6fdba55"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "80801324dc53446dc5bd878b47b9fd7fec99e63d007d73019ab55626e6287d2e"
