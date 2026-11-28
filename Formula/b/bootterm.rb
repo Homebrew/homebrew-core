@@ -1,8 +1,8 @@
 class Bootterm < Formula
   desc "Simple, reliable and powerful terminal to ease connection to serial ports"
   homepage "https://github.com/wtarreau/bootterm"
-  url "https://github.com/wtarreau/bootterm/archive/refs/tags/v0.5.tar.gz"
-  sha256 "95cc154236655082fb60e8cdae15823e4624e108b8aead59498ac8f2263295ad"
+  url "https://github.com/wtarreau/bootterm/archive/refs/tags/v0.6.tar.gz"
+  sha256 "5bbd8914fd4f0ffabb594cee540eeecb9ceea9ac1212928787ce226cbe6f9eea"
   license "MIT"
   head "https://github.com/wtarreau/bootterm.git", branch: "master"
 
