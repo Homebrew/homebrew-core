@@ -1,8 +1,8 @@
 class Lego < Formula
   desc "Let's Encrypt client and ACME library"
   homepage "https://go-acme.github.io/lego/"
-  url "https://github.com/go-acme/lego/archive/refs/tags/v5.8.0.tar.gz"
-  sha256 "c536853627d2480611cc728819b400d994cd02c02df6711808552183b762cb15"
+  url "https://github.com/go-acme/lego/archive/refs/tags/v5.8.1.tar.gz"
+  sha256 "6a3a6ff38e02248cd6b8d992f05e0ff191ba271947d6a7bd89629e36870e5a57"
   license "MIT"
   head "https://github.com/go-acme/lego.git", branch: "main"
 
@@ -12,12 +12,12 @@ class Lego < Formula
   end
 
   bottle do
-    manifest_sha256 "52bfab1ca6ad8e5edce23634062b2c8ea2b8c6c79796669838c32adc4e651b6e"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "186bd0cacf749f3291f22c83b16a756dc41062649e4ab733ab4c1cb92b0c9458"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "186bd0cacf749f3291f22c83b16a756dc41062649e4ab733ab4c1cb92b0c9458"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "186bd0cacf749f3291f22c83b16a756dc41062649e4ab733ab4c1cb92b0c9458"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "465bf9fd32b1f7b03cc2a82163e71f46557b83d463de2d0467c56da45cae571b"
-    sha256 cellar: :any,                 x86_64_linux:      "87a0072bb98155e5e5c7f741971980bbf3420182d0d9b0e0800778b94aebe015"
+    manifest_sha256 "04eb08c460bf9f09f0156be8469b76a2cda3df79f5aa4ca04987d84809ef83e4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "97402cbd449bf842822a99a99c44f13ac5e379cab808fb946f26313eb30cd87c"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97402cbd449bf842822a99a99c44f13ac5e379cab808fb946f26313eb30cd87c"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "97402cbd449bf842822a99a99c44f13ac5e379cab808fb946f26313eb30cd87c"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4c1d8be431fd15c601e3a5f63dddea6470525f2d096dc7f736dbb84c656d008c"
+    sha256 cellar: :any,                 x86_64_linux:      "b546cedf4e4d2d835a9c4581791cae56b49fc72e126cf2d212ab31cb0a5d8576"
   end
 
   depends_on "go" => :build
