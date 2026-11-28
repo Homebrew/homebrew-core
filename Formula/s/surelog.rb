@@ -1,18 +1,18 @@
 class Surelog < Formula
   desc "SystemVerilog Pre-processor, parser, elaborator, UHDM compiler"
   homepage "https://github.com/chipsalliance/Surelog"
-  url "https://github.com/chipsalliance/Surelog/archive/refs/tags/v1.91.tar.gz"
-  sha256 "2e443fbd00b5ca5aba36d16d31268d3de4ee6baa000bd4f2d5716c94507683ee"
+  url "https://github.com/chipsalliance/Surelog/archive/refs/tags/v1.92.tar.gz"
+  sha256 "496f0dd10ad8635ff4c5007333f9b8de57f79c19388ed857a30953406614e369"
   license "Apache-2.0"
   head "https://github.com/chipsalliance/Surelog.git", branch: "master"
 
   bottle do
-    manifest_sha256 "f7e055de48675d1879208b82150cbae9015979a678427bf17d3f51531b9411b9"
-    sha256 cellar: :any, arm64_golden_gate: "42e9e6d3850146dd6b854f2aa4cec71f2ecb01ad3f9d55343e8ffdc4944d9be6"
-    sha256 cellar: :any, arm64_tahoe:       "dbabc1de4111df046a02ec53e226592d4d57bab28874a366aa3572ae405ae0f8"
-    sha256 cellar: :any, arm64_sequoia:     "6772da5986f78b59970c396efa99b047ff0f5fbc6be86be4e2df6b9b498ce3df"
-    sha256 cellar: :any, arm64_linux:       "0f512cd9ad6d95e0efeb42bdd88fe7680d177ee33f31dfac61e2029197c479cc"
-    sha256 cellar: :any, x86_64_linux:      "3713bcf19aa859b8b1aa0abf0665007c37abe8b128adff5a9bc7e7da37162187"
+    manifest_sha256 "eb3e914a718229ab4b5c9e2396f561ee2f324240c9c7d4f3b22089e726f49f2c"
+    sha256 cellar: :any, arm64_golden_gate: "8c6c3fecfb546cae179b5845570ed9a9b73908b172239b064b1b90f0b0098cec"
+    sha256 cellar: :any, arm64_tahoe:       "99266b1b00cbd10403667e6abd7a37e44eda7d086360f0392d67fe64273749a4"
+    sha256 cellar: :any, arm64_sequoia:     "db95a0598fddc225982b54945dd160ca4bc0d66fa26282eaebe3e121cdb20f45"
+    sha256 cellar: :any, arm64_linux:       "15c7ba033dd2529514934d9fc8ebe0e0eec8184329d238f0a66a44de198d4b3e"
+    sha256 cellar: :any, x86_64_linux:      "4476e83ebdf1d39b9221a37101b60f7bc7b827fd041ff345b8ef6c3e71c847b1"
   end
 
   depends_on "antlr" => :build
