@@ -25,6 +25,8 @@ class Ufbt < Formula
     sha256 "30d9f4a7201bdce3ab7d9cfc0f9ee9e18c423b2b1d1668141b0dd3594b368ffe"
   end
 
+  allow_network_access! [:build, :test]
+
   def install
     virtualenv_install_with_resources
   end
