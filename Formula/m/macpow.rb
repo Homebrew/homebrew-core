@@ -6,6 +6,13 @@ class Macpow < Formula
   license "MIT"
   head "https://github.com/k06a/macpow.git", branch: "main"
 
+  bottle do
+    manifest_sha256 "e0c4b6d77bed124054b705ebcf39372fc089d204e8faa726beb0276da6e44fd5"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "695c53a338abf6fa3d00ee4464266088ef9a84735cefe3395d2c7d104a2af794"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56d7ca0f96bbc0de2efad0b911174907fede1db1c280b3c62882f11df9251823"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2832f75b5b9190ed33903b9deab84d06ddc2d6d9b96ddcc6e2eaf641bf9acba"
+  end
+
   depends_on "rust" => :build
   depends_on arch: :arm64
   depends_on :macos
