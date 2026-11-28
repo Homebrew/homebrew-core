@@ -5,19 +5,18 @@ class Icloudpd < Formula
   homepage "https://github.com/icloud-photos-downloader/icloud_photos_downloader"
   # We use a git checkout as scripts/patch_version runs git commands to update SHA
   url "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git",
-      tag:      "v1.34.0",
-      revision: "47039b6ec264f03ec55083eb8d8d6063a1d8f4fa"
+      tag:      "v1.35.0",
+      revision: "01c5beeee5d428dca5bccab2353a7d2226b52988"
   license "MIT"
   head "https://github.com/icloud-photos-downloader/icloud_photos_downloader.git", branch: "master"
 
   bottle do
-    rebuild 1
-    manifest_sha256 "ac3785d92c96dad9c884a361e00263e4ae5a379e1c89ba84e52b5bafbabe0fe9"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ca2b2b888220b6a1991209f1a8ca6165e477c7a8a562c23416dc82fe41a7664"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fb3d2fc23258fb72a3d7ef6db712e10bfb43405541aa00256a502d9cc5d208a1"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0e6931a32f50011d3690c3a77975c04e50b5856bff4507a0a832b9ae123316b6"
-    sha256 cellar: :any,                 arm64_linux:       "32cc2df93a4dfa545cc4f2c85777dfaa13182a6bcb2992348bf39a23fb3e143b"
-    sha256 cellar: :any,                 x86_64_linux:      "fb2b25f3bf45db825d7b5d2f142844efb6050172966c17d5083a276eb658331c"
+    manifest_sha256 "2d70c2bcfc93a88c196d03ec264cd82b2cef6ff57e5e6474d98482ad2b49cb78"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b317a6707900e5b227278e70001feaaf77c6ec9b200f768e57da334bce7baaee"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba71b73548e516b846f41f4c5cb48d5563161f397d7831f25774c54703c11619"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7c652e49416bc9a70bd5d593bb36989cd0e87312e84ccb021e91d071f95b1565"
+    sha256 cellar: :any,                 arm64_linux:       "924da9d34e00fed1f1d7380b57bc93d4ee2a1f0c2ff33ba1510785ab21e1be0b"
+    sha256 cellar: :any,                 x86_64_linux:      "31431cca318fbc8f999d79e9f5f014c50bfe2834b53c411689c662c9c8f4b088"
   end
 
   depends_on "certifi" => :no_linkage
@@ -40,8 +39,8 @@ class Icloudpd < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
