@@ -3,8 +3,8 @@ class Virtualenv < Formula
 
   desc "Tool for creating isolated virtual python environments"
   homepage "https://virtualenv.pypa.io/"
-  url "https://files.pythonhosted.org/packages/a1/89/e84f19b1a87f70637694494018fdedb395aed90da17872d31e1eb2314d41/virtualenv-21.15.13.tar.gz"
-  sha256 "f3ad23551343034e613f9c4d8279f282958a19729f5fc2bcb758afcf95fe3a01"
+  url "https://files.pythonhosted.org/packages/20/e2/3f823c1394acf9e22d1f0e700d0edf3398209e99c04f69bcd50c279913ea/virtualenv-21.15.14.tar.gz"
+  sha256 "6c6e7aaf88064767c75c32a9df92eaa425cee5db4cc21caf031a78d89375d57f"
   license "MIT"
   head "https://github.com/pypa/virtualenv.git", branch: "main"
 
@@ -25,18 +25,18 @@ class Virtualenv < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/e6/86/a5b9ec254b90efb180e390e31a4fa50a93b714d6e4174fa9a4ee25607159/filelock-4.3.1.tar.gz"
-    sha256 "4c5ee627c401f1863ac6a0de9a14a28d3bb5f8c730b45e2fd6e5dbc79cf34b9e"
+    url "https://files.pythonhosted.org/packages/b2/de/99f4266dc2b97503fe35af46d4bf54ea4d434bc322992103145c9de7da95/filelock-4.3.2.tar.gz"
+    sha256 "4f0a21c70447782453c06bb20a9863ee385ead1abaef22049af79289496851b3"
   end
 
   resource "packaging" do
-    url "https://files.pythonhosted.org/packages/7d/fa/3944b40b07da9ce895c0e6303a5ab7d53da063554f534556b134a54d6093/packaging-26.3.tar.gz"
-    sha256 "94edc256424af38762eb31306eed28beb9f0efc50a8837492c9d6fd6004aed79"
+    url "https://files.pythonhosted.org/packages/c3/75/ffb1dc0ed12352139fb4ca0e3fde4325a23e3d0f3f40efe89717bc4f557b/packaging-26.4.tar.gz"
+    sha256 "c4b671c41ddb9bf26e543c37723610d28fb6bf7affc4da17cf048d419d2c062a"
   end
 
   resource "platformdirs" do
-    url "https://files.pythonhosted.org/packages/71/18/0b0d99f5bf164f04a7a9534c3dbdbe4d5fd2b382667685ad40c192c4d3d1/platformdirs-4.14.8.tar.gz"
-    sha256 "96893d686e84e9e6f358a9ea41a8de544df66dbf2ba6cda250e7dc73acf85b9b"
+    url "https://files.pythonhosted.org/packages/d6/96/549558270586699a271a18b1111482dc3fc39baa0ef61d183e230d2c961d/platformdirs-4.14.9.tar.gz"
+    sha256 "c6b188e03ffd4dfe1bf8c4bcb47cd94711af244a9852dbff60297bd753684d5d"
   end
 
   resource "python-discovery" do
