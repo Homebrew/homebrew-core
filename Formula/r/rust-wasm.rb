@@ -1,8 +1,8 @@
 class RustWasm < Formula
   desc "Rust standard library and sysroot for WebAssembly targets"
   homepage "https://www.rust-lang.org/"
-  url "https://static.rust-lang.org/dist/rustc-1.100.0-src.tar.gz"
-  sha256 "e8904548563117043c24a67c4967119b7c9ed304821988283e7681122ceec98b"
+  url "https://static.rust-lang.org/dist/rustc-1.100.1-src.tar.gz"
+  sha256 "67a6e519b177b5f62cb3685a200527fc0fc685df40a33ca2017f14bafd6bf710"
   license any_of: ["Apache-2.0", "MIT"]
   compatibility_version 1
 
@@ -11,12 +11,12 @@ class RustWasm < Formula
   end
 
   bottle do
-    manifest_sha256 "28a70a54df6ed9c345266b4cc0f26ef732c86c5b65ea3021cb325a2fe2949442"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a50677159da179fa2019c8e82cae19ea68a247cea716319cfc684882f0fabeb"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a50677159da179fa2019c8e82cae19ea68a247cea716319cfc684882f0fabeb"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a50677159da179fa2019c8e82cae19ea68a247cea716319cfc684882f0fabeb"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "76d3a03ce1a6e93fa311e0000a6d22b8d4eec2578ec73544f5d95ad9abf20d92"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "40a295e97486282674991d69911cf3ceea7b894f1663fa76da3df48cd1693849"
+    manifest_sha256 "df33da3d3c23c2cab857efce363d5c0c8a8f7383a9bfe448970db74804641d9a"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1e032192f122a18cf76cdc72571fd4207f89128861030e7f39b0f09766e4c0a7"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e032192f122a18cf76cdc72571fd4207f89128861030e7f39b0f09766e4c0a7"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e032192f122a18cf76cdc72571fd4207f89128861030e7f39b0f09766e4c0a7"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "429f5c598fb4950037676afd805c7212d8058fe2904f73409af487dd2e1ccb25"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b20ba89a314e549d691be68daa03d45f2af4478b94b1e82799367c285c3adc25"
   end
 
   depends_on "wasmtime" => :test

@@ -6,8 +6,8 @@ class Rust < Formula
   head "https://github.com/rust-lang/rust.git", branch: "main"
 
   stable do
-    url "https://static.rust-lang.org/dist/rustc-1.100.0-src.tar.gz"
-    sha256 "e8904548563117043c24a67c4967119b7c9ed304821988283e7681122ceec98b"
+    url "https://static.rust-lang.org/dist/rustc-1.100.1-src.tar.gz"
+    sha256 "67a6e519b177b5f62cb3685a200527fc0fc685df40a33ca2017f14bafd6bf710"
 
     # From https://github.com/rust-lang/rust/blob/#{version}/src/stage0
     # HEAD does not use these as it needs a nightly rust
@@ -84,12 +84,12 @@ class Rust < Formula
   end
 
   bottle do
-    manifest_sha256 "3f4eb684e9ef5da517d2c6082202da23277bb85e98d06588174f2637092170ce"
-    sha256 cellar: :any, arm64_golden_gate: "e525b3182b179bfb2792bbbd6644766598f3b185c8ab7058e12557e855243629"
-    sha256 cellar: :any, arm64_tahoe:       "60fbbefcaf2809073d8f24eebdb5e2d48b76bcc74aec22ccb6b648a3211b5ce4"
-    sha256 cellar: :any, arm64_sequoia:     "a65ac97028ed89aa3dcfbe1a955558a3132831db28334687c487fc566080adb1"
-    sha256 cellar: :any, arm64_linux:       "57c148e9205d594d2d3c0591f1ca4757beb34927a43a5a1b1a8b47b0040e4fa0"
-    sha256 cellar: :any, x86_64_linux:      "05c02ab708592053b0b7a108299c385da9bed2be60cefb20b9a46b0f36637371"
+    manifest_sha256 "75e0aecf2625d44e5b20770a3c91d1e6a5e2c39d8520382293630b44c1a5cc5b"
+    sha256 cellar: :any, arm64_golden_gate: "983df8951b0dd6f842f9467bef41f6fbe5b113b01c8b51c5105a74ffe76c490c"
+    sha256 cellar: :any, arm64_tahoe:       "ec589afbb4144a2c613282760010ba6665490ccf0db6c082e9a995eda66ff130"
+    sha256 cellar: :any, arm64_sequoia:     "dc458d36dbf85969623ed67d31fcf32747d4d8d50f3afb0ea8aa9a11ff9cac65"
+    sha256 cellar: :any, arm64_linux:       "67fd8a9bd8089d1dbb8305b3e07da2facf3fd34240ced1290b7dc1eb97ff5412"
+    sha256 cellar: :any, x86_64_linux:      "98e4598ac8271f5e388b9ae8b0d394c46a42ad500702c6ccb9189ebabd59add7"
   end
 
   depends_on "libgit2"
