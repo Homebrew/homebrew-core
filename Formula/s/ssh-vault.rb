@@ -9,12 +9,12 @@ class SshVault < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
-    manifest_sha256 "363e6a52fcc71c9e3af990c850b3e66e46d0cb7d4afc845ba55016f39caada54"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48048fe8f28e624def37117b03ef27d0fc52ec192f2b017440beb49def886707"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05a4dde969d03817468ef74bd6d4e60255c0de0c0cb9a5512402b02721124f1d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c14e723a5151dbb503edc72c9d691155dae9703334116e09bfcd3193fdb14a14"
-    sha256 cellar: :any,                 arm64_linux:       "7db7078d2bd908236d5a82a02ff00e4b87cb3a23022595ebd37405547bb7c751"
-    sha256 cellar: :any,                 x86_64_linux:      "e0a387cf0993416f60b2d7b0f0532c869ed484a47b0070babcb9efeaebe18287"
+    manifest_sha256 "3eb23cf409b57fd4534bd96244bdbefac1b89104fec21c6bd1d1bce3f1fcd713"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f49e24045d0c6e1427d137182273dd34629e9ef2c2ca70f55b81f20bf30abde5"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e32e95958180ca82c9c5ca0ffc35222cadd2f7f1ff35cdaccd6c9d52dfcb469d"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad93673a81ca3bd999bfd02b68ec1a0d45525e292bb6d32d3121bafd22295009"
+    sha256 cellar: :any,                 arm64_linux:       "b64717a634035b6b737a1e2c72169861c65c0865d1564114ff3f8f50900031c0"
+    sha256 cellar: :any,                 x86_64_linux:      "93fd1a26ebe8b485186d1903f7faca814b664ed7af39694626d42bf39f55e93c"
   end
 
   depends_on "rust" => :build
