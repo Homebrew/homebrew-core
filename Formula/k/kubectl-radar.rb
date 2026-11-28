@@ -1,8 +1,8 @@
 class KubectlRadar < Formula
   desc "Missing open-source Kubernetes UI with a built-in MCP server for AI agents"
   homepage "https://radarhq.io"
-  url "https://github.com/skyhook-io/radar/archive/refs/tags/v1.21.5.tar.gz"
-  sha256 "231fec25c0fc83821a384148aa39b7f520c6b1acb01fbab9e387c971395c763b"
+  url "https://github.com/skyhook-io/radar/archive/refs/tags/v1.22.0.tar.gz"
+  sha256 "b8052f5180ec6cd1e0a32938b4d2ebaa0168eb8bda15a23b5c79f0da172eee5c"
   license "Apache-2.0"
 
   livecheck do
@@ -11,12 +11,12 @@ class KubectlRadar < Formula
   end
 
   bottle do
-    manifest_sha256 "d30ec7567bb9e3dcac003e7b87d239a92101c695f081cd430fdad46ed81c2a86"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80cec9fb3258b8ec957f8923ad39eaa8ee586b63f78757b73a9b8eb78fe8fa4c"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9ecb25f28215396afbd97cb059a42862ebee40095a0a2bd9dea44c5975a267d6"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f17b3d6d045d740baf60db4333d42cf7fe1cde8680b461af590364caea7f931c"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "a32a3e1e7ba8d98904cdd69e343fafc5d166105ddb206a3871ffe53c16d158b8"
-    sha256 cellar: :any,                 x86_64_linux:      "a423279ab101a57479e2c33ee8b8c54eabef13527c1143f29a1bea2a5d5cd493"
+    manifest_sha256 "4974a04b072b049d96bf0a450be892921dac7eac5a38e2430ad58e1a8c5cdbf1"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b1019a573a13ac33ae1bdd109aa5c3a630e971ef326a84a0bf6d206ca479844"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f23cd744474ef160287a96cf3bbe3d786eff33d8ebf6fa2f05232252866a7f30"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "136d7d19a10edf6384ac8c7aa95880b539c6e577dfa1a510b2f204a65b858095"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "afac96bea3e4b66d7f98db96e857aa5a183fc35780fe12389b99f1e69ed0b67d"
+    sha256 cellar: :any,                 x86_64_linux:      "b20a07a0281559d498d5fac5a26bb6ad15d7dc26c3fc8d9b3bdd511e363a0efc"
   end
 
   depends_on "go" => :build
