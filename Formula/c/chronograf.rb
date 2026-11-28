@@ -7,12 +7,12 @@ class Chronograf < Formula
   head "https://github.com/influxdata/chronograf.git", branch: "master"
 
   bottle do
-    manifest_sha256 "0e8b123f0f91c6dbfc6333d3093bad165d5c21acad1f48f40728c513aeab3fcc"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "888b6b9ee5f8545725cd44ffbd1296e067a3f69bdef1e0596d9db23be235f0cd"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a192fd1f374dfec43c00eda22fe215ac89f808973c8f88b6118a64555f8203db"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5e48d7b352285953ccbf99c1ff03de52465d2d41c68d45df7f5924a99f4f9fb3"
-    sha256 cellar: :any,                 arm64_linux:       "241b8e968d6d916f5800b191508f8aa8cccdf09581650803fe0b0335bc8e82c5"
-    sha256 cellar: :any,                 x86_64_linux:      "54fa7696c8a6b88a5d2fb6c3d56f5c8a2bae64ab2bd32f519878eb3d7f12b825"
+    manifest_sha256 "8ea54468886d2689c8077e67bb72f1440fbe765df81d4f2a170b132263f75ee4"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7771de68b772242acd9d12224c4f68b77d78c2ff271555e062461863e0154317"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62c8eeae9f1fa422608d9e95fa18806d02684f5cc0eefffa00642af7b964ebb8"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a2397c5f694916b19a02d99326cdc6496f0b211240a370132de50d05a6493e5d"
+    sha256 cellar: :any,                 arm64_linux:       "3c65df97a9475fcb8de94cde4b5f6937dd85bb00cd0afdbb29048245d78d02ba"
+    sha256 cellar: :any,                 x86_64_linux:      "324260cfb8b416c3d485d86d51824ef8682b4547bb6d7ebf786581b216ccc823"
   end
 
   depends_on "go" => :build
