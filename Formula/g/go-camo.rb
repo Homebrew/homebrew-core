@@ -35,9 +35,10 @@ class GoCamo < Formula
     assert_match version.to_s, shell_output("#{bin}/url-tool --version")
 
     port = free_port
-    spawn bin/"go-camo", "--key", "somekey", "--listen", "127.0.0.1:#{port}", "--metrics"
-    sleep 1
-    assert_match "200 OK", shell_output("curl -sI http://localhost:#{port}/metrics")
+    with_test_process(bin/"go-camo", "--key", "somekey", "--listen", "127.0.0.1:#{port}", "--metrics") do
+      sleep 1
+      assert_match "200 OK", shell_output("curl -sI http://localhost:#{port}/metrics")
+    end
 
     url = "https://golang.org/doc/gopher/frontpage.png"
     encoded = shell_output("#{bin}/url-tool -k 'test' encode -p 'https://img.example.org' '#{url}'").chomp
