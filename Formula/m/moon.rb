@@ -5,8 +5,8 @@ class Moon < Formula
   head "https://github.com/moonrepo/moon.git", branch: "master"
 
   stable do
-    url "https://github.com/moonrepo/moon/archive/refs/tags/v2.6.6.tar.gz"
-    sha256 "c488915d88621582274baa829ab85b06451273e409b31d6bafa43b4aba65871e"
+    url "https://github.com/moonrepo/moon/archive/refs/tags/v2.6.7.tar.gz"
+    sha256 "9feff287ab1e8f39962b7c14d653ce2cb958a4d6f112d8e17f319eaa361003a2"
 
     resource "git-url-parse" do
       url "https://static.crates.io/crates/git-url-parse/git-url-parse-0.6.0.crate"
