@@ -1,8 +1,8 @@
 class Smenu < Formula
   desc "Powerful and versatile CLI selection tool for interactive or scripting use"
   homepage "https://github.com/p-gen/smenu"
-  url "https://github.com/p-gen/smenu/releases/download/v1.5.0/smenu-1.5.0.tar.bz2"
-  sha256 "2de2217d322a5e28cb20f9128e60df6c00b4e8e8879381ac8ed8bdcdccc4c5ca"
+  url "https://github.com/p-gen/smenu/releases/download/v1.6.0/smenu-1.6.0.tar.bz2"
+  sha256 "dd7affa67149b5ebb792764cf70ed982712b4008352aed3a43f7dad6b8bbe7dd"
   license "MPL-2.0"
 
   # Exclude release candidate tags
