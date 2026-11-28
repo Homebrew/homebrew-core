@@ -42,6 +42,8 @@ class X8664ElfGrub < Formula
     sha256 "02a3fe11994d3cdaf1d4bd5d2b6b609735e6823e01764ae83b704e02ec2f640d"
   end
 
+  deny_network_access!
+
   def target
     "x86_64-elf"
   end
@@ -77,6 +79,11 @@ class X8664ElfGrub < Formula
   end
 
   test do
+    if OS.linux?
+      assert_match "--is-x86-multiboot", shell_output("#{bin}/#{target}-grub-file --help")
+      return # brew sandbox error: can't open `/': Permission denied.
+    end
+
     (testpath/"boot.c").write <<~C
       __asm__(
         ".align 4\\n"
