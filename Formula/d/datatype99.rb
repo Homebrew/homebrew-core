@@ -7,6 +7,7 @@ class Datatype99 < Formula
   head "https://github.com/Hirrolot/datatype99.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4f1f1924c5590f558e39aedb332705867fd3c06ee767bdb0da2aaa85e7e6807b"
     sha256 cellar: :any_skip_relocation, all: "de27c538560d8993175a1c972437f30e9de4d719154b3a4851f154610cb577b1"
   end
 

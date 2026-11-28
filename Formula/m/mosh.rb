@@ -8,6 +8,7 @@ class Mosh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9810efb39028c6d8bac8428defc2117534837fb87aa7a7e0a94c49a77c7f40ce"
     sha256 cellar: :any, arm64_golden_gate: "2a6fda6cadc30f71c946cdd175d673bac2a3a66da8defd0f59eaf74738e4388c"
     sha256 cellar: :any, arm64_tahoe:       "bb486005805a4fddce729231b85fad256120c0851313a085d44843f2a6a6d3ec"
     sha256 cellar: :any, arm64_sequoia:     "b1c2a786c156c761f2073900233edc9ca87b1d246dd7323c882736aa559ff45d"

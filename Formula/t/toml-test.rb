@@ -6,6 +6,7 @@ class TomlTest < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "750a13caf021f4121a5f0f1aaa9694d1697318196a370e98f2b1c2726075a6a6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e885ae2dae1472f42df6363f9dbdc584261d18c3e2327127df958651ebfd548a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7af4042ad74ce2aea27d3ca24b0dba2519f2a74ace4549addf0bd502afec023c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7af4042ad74ce2aea27d3ca24b0dba2519f2a74ace4549addf0bd502afec023c"

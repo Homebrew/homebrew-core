@@ -8,6 +8,7 @@ class Freeipmi < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "647a2474c178c8004e65a42e6165b85ebd4c1544189793fad69ea50782b11292"
     sha256 arm64_golden_gate: "347bfaa6be50d30ca86a51aaf3b1dd7b5d7e467b8526ca9640b99b8a9a99ecc4"
     sha256 arm64_tahoe:       "df9e2b1b93b118953d354f84b58b6bb4b6171cdab1dc17e9639f2241479e3e7a"
     sha256 arm64_sequoia:     "35ffe138e00f0c9898de00644d3a69308ee163a7e479c45d703e83e7240b9772"

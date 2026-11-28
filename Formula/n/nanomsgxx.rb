@@ -7,6 +7,7 @@ class Nanomsgxx < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "e0ea0eecfad0727d85ebed5c977f7bdfbdd56b39072893cf64247b6055084750"
     sha256 cellar: :any, arm64_golden_gate: "01912c3e6e92067cd9b234006271a00b235a3a91f15f5e1948aa7add4830b6b8"
     sha256 cellar: :any, arm64_tahoe:       "8517e8dc49794d794f4a1fd2473039e6bb1d0e90065bb53123ddc4bcf652fbe2"
     sha256 cellar: :any, arm64_sequoia:     "f6a068a937d9f6eb8f01697600b851a6e4a938349037d759f52b2f14133f7529"

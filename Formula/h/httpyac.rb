@@ -6,6 +6,7 @@ class Httpyac < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "3792f5ad545d7813d19577f71dd423e877615ad1dbb23b39624755aa83ddee66"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b4358f0e4b479887969ccc6ced7513f4524eefee3193507da4a858b4025d38eb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c9385fc282fdff9c2b672ca82bad9ae9f9c6de9057de7f85afc4beaf599e1d3d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c661e19ffede29528d8ac52646f9453c17bced8e814b33fc3c078092d28a434e"

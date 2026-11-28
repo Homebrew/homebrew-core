@@ -17,6 +17,7 @@ class Bender < Formula
   end
 
   bottle do
+    manifest_sha256 "d1dc3b997294dd883c8d35e8c0f9326da5f35579cc856a45eea855e14e0c54f2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "84d0393345e63606f22bb8c38a7742464449d258606adbd4f65049f64c73bc13"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4330a343a7070d8446296916c499c4115d3061c0355c0532f5cfa9e02f03c355"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "634d2f71374c3dcb5f56774f52acfefddbb675015423b04dbc6668b7ced45134"

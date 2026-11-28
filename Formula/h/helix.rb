@@ -8,6 +8,7 @@ class Helix < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0a854933574914e4f4d929e0b26b52c97742a5ce63af774d42bfc812aa6458f7"
     sha256 cellar: :any, arm64_golden_gate: "4e68c5975370f7be5918cd8c160798b3e1b4085aea62403181924e8685256b6c"
     sha256 cellar: :any, arm64_tahoe:       "0a55fa8eec03e38aaadfb2df8cf3f09d1bf9a1078c12ba7bbfded3b1253c7dbc"
     sha256 cellar: :any, arm64_sequoia:     "590d036799387c9ca8dbda933a8c0fbb2361a98932973d862f3e08960e1a6556"

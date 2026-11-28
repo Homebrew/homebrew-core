@@ -9,6 +9,7 @@ class Diceware < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "96c343ac191126d6029e74a83c2923078ba1dcd42e6bd2c2041534efa99cc2be"
     sha256 cellar: :any_skip_relocation, all: "071e3eccb812c87b1799257d1be5e262ee02c80c118b2900f879fd6a7605feb9"
   end
 

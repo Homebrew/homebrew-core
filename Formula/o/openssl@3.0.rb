@@ -6,6 +6,7 @@ class OpensslAT30 < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "d1388c607643bd7a37fa743c689de45c3db6a064c5ba62be69aef305e6c9938d"
     sha256 arm64_golden_gate: "3eb68288be3381f503aa67a95a34713544b8fc287fbeba77bd66f0115d7cd1a6"
     sha256 arm64_tahoe:       "2295775ec80d44056c25fa40fb496b049d7579dd6e69c0c1d7c65b282a37a789"
     sha256 arm64_sequoia:     "3b8c7748950692dc5930477ee965a0f53fabf84f83ba7ba8a04429fa41f90bdf"

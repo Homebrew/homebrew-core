@@ -10,6 +10,7 @@ class Mk < Formula
   head "https://github.com/pycontribs/mk.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5de431d6f95451c7e6032aa8a3986a8242bb6ab7f392af27969ba2db2518d268"
     sha256 cellar: :any, arm64_golden_gate: "0de03d25d2796dae03d021ad834fcbe2dde3176fdb2e5697521be9c27cce6643"
     sha256 cellar: :any, arm64_tahoe:       "502b3d42113eb05786faa9ba457126350dfd4a7a7100a99177c445a07f01f13f"
     sha256 cellar: :any, arm64_sequoia:     "d48f5d65d8a27e724abbf038d426c6e344d3572c7b46c1d7419ba3a6a3039bc0"

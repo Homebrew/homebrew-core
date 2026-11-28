@@ -7,6 +7,7 @@ class Beecrypt < Formula
   revision 7
 
   bottle do
+    manifest_sha256 "82187b656af0c5e05be01e80ef7a71d0d622c41d69e5d2bc34334cd21cc0e14f"
     sha256 cellar: :any,                 arm64_golden_gate: "68993a56b4e836c284eca96c85ed004214973cf52397b71c96890a2073c883b7"
     sha256 cellar: :any,                 arm64_tahoe:       "19bbdbe37b8f9c59abd5ed8ce3a6c5c0fa4ac50734b445bc9f6a8bb05666c890"
     sha256 cellar: :any,                 arm64_sequoia:     "9d436aea574fc90b56ebdd14da2f08d7484209ddc553ad9a9928bb1b0e2ec28e"

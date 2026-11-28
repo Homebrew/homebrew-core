@@ -8,6 +8,7 @@ class Qpdf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "4daa5411f27cd1e44b9b441e38b40613a6a9a384e458222e03fe0ec0309b3a6b"
     sha256 cellar: :any, arm64_golden_gate: "6a29f56ee4fbb9f342f0d257b2d8a719dfddda9b2fdc184d0ce5c6689a72d60e"
     sha256 cellar: :any, arm64_tahoe:       "266096bc99d1f3df03a686608bcdf98c4ca57e8b3dc0e7da4e4e97666956476a"
     sha256 cellar: :any, arm64_sequoia:     "801ac5a6b352e1cf25028490f0528af657f55bc6d0f805a912c8beac9eb41d7b"

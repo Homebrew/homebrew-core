@@ -4,8 +4,8 @@ class Gam < Formula
   desc "Command-line management for Google Workspace"
   homepage "https://github.com/GAM-team/GAM"
   # PyPI package has different version `7.50.0` with the github release `7.50.00`, so we use the github one here.
-  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.52.05.tar.gz"
-  sha256 "c3ecbe4a882ace5dc6f26aaade40bd4a7cbe61c9bb614fd0e4e254f136bb06a4"
+  url "https://github.com/GAM-team/GAM/archive/refs/tags/v7.53.00.tar.gz"
+  sha256 "2a14dedb672d8f3117a4a74621835ec6be55323c928cdae83171b9fd3c43c808"
   license "Apache-2.0"
 
   livecheck do
@@ -14,11 +14,12 @@ class Gam < Formula
   end
 
   bottle do
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eed6f43eb8aec2fe00c2b666849f478b6d0961931db1c2048ec7396a546ed1da"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "becca3e0cdb00ec57533e709e8ed321d5d132353671fd4e744399defa581ed74"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b177e6f738fbddf09c3585235b34e7f07ea720d5621c6e70dcfbfcf2e03b291c"
-    sha256 cellar: :any,                 arm64_linux:       "abfb5f03d3b0a0776c4063d7d0a9aedcf0f7f750eceb877308bf41a0a81d62e5"
-    sha256 cellar: :any,                 x86_64_linux:      "4803dd3c64477a77b54b6c97e4ba2606cbcc548c602d8fdf93a0bea06fc81516"
+    manifest_sha256 "4a36d5f5ba344c707422449fcc954fdd2f8a7033ad5c37c677d8f5de9842e6ab"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e5fb660a17cb9a9699ccf21fc758df66ba2abe1ff107c67675952df06a5d1553"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "70a8a81c4f4635e63f7d5708e32a4a940875c3a062c2d1adade68d646172eb94"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8b1b3936e4396b2f03b01481c72c38d2a7a7570d6cd44a788020a9a89665d25b"
+    sha256 cellar: :any,                 arm64_linux:       "a31fe04734f9929021498d72601f41e9eb99c68c3cb227783409c915594f2ef4"
+    sha256 cellar: :any,                 x86_64_linux:      "a9fc3805e847bbd1f620c67484534d6c118b84b643f5c346caede619f40d8936"
   end
 
   depends_on "cmake" => :build # for pyscard
@@ -50,8 +51,8 @@ class Gam < Formula
   end
 
   resource "charset-normalizer" do
-    url "https://files.pythonhosted.org/packages/33/1c/f41d4e74c28ab327ff3acd36053f7ea506c55872d7a90b0fa71aa3ab0c89/charset_normalizer-3.5.2.tar.gz"
-    sha256 "39de2a259fc954455c57274dc94c79d5842774e1247a016aff30bc0efed0f4ef"
+    url "https://files.pythonhosted.org/packages/c2/c3/cae6d3bdefd96a941ffc247c714ac4babc488a69012e11c058f6c17c6c47/charset_normalizer-3.5.3.tar.gz"
+    sha256 "a250888753faa289e2997962fbb17c4960cbdb58575533ca6fceee68c224bdff"
   end
 
   resource "click" do
@@ -70,8 +71,8 @@ class Gam < Formula
   end
 
   resource "filelock" do
-    url "https://files.pythonhosted.org/packages/a3/1d/d730c664fcb4f1d264a722722a3134cf0881854f73c1fd58abf87572f232/filelock-4.2.9.tar.gz"
-    sha256 "96530b7c538d4ea08493ab067247aab7948c54d8cd622cce711c97cccc5d9896"
+    url "https://files.pythonhosted.org/packages/a1/cf/05bcdacabdc0aec7dc8e19d76281bd82325df62dae3b6430e9ba57397689/filelock-4.2.10.tar.gz"
+    sha256 "fcc3c0cb8bfe7f4b3bb0e231c04b15dbad068cb3c2515f343d8fde4dce93bd5d"
   end
 
   resource "google-api-core" do
@@ -80,13 +81,13 @@ class Gam < Formula
   end
 
   resource "google-api-python-client" do
-    url "https://files.pythonhosted.org/packages/b6/47/077e889d3c618d971d3bce4ab198c645a607276b8d4bb151cfe78d2c92bb/google_api_python_client-2.201.0.tar.gz"
-    sha256 "d5691982abd7287f53cb0b0e0c6a9984d4103cf864ea0a88cb6e4347bbaf70de"
+    url "https://files.pythonhosted.org/packages/22/59/70df770dd367e268f0382fc98c6976d1e210e47351f263cced5b95989ee0/google_api_python_client-2.202.0.tar.gz"
+    sha256 "ae126c8e91f43c331e23dbd83bc4a8075699dd48089cebc7295f6ab2f5850fc5"
   end
 
   resource "google-auth" do
-    url "https://files.pythonhosted.org/packages/c4/38/d79ab09dcfc1e1638d887c8f65657619d3ebc454165c558ef79355971ce3/google_auth-2.62.1.tar.gz"
-    sha256 "3c8e1ce2553784ae17fd220e6f88df3281d86ab98019278f436d06dffab17a9e"
+    url "https://files.pythonhosted.org/packages/4a/d4/87353e950d653d87360176363d51f316e8e368e1ddbb7ba7aa5503c30c3e/google_auth-2.62.2.tar.gz"
+    sha256 "046c61a72d3a847d6df6417a7f0d5cf054e3b82bbcb54fb1e69d47880964049c"
   end
 
   resource "google-auth-httplib2" do
@@ -130,8 +131,8 @@ class Gam < Formula
   end
 
   resource "httpx" do
-    url "https://files.pythonhosted.org/packages/b1/df/48c586a5fe32a0f01324ee087459e112ebb7224f646c0b5023f5e79e9956/httpx-0.28.1.tar.gz"
-    sha256 "75e98c5f16b0f35b567856f597f06ff2270a374470a5c2392242528e3e3e42fc"
+    url "https://files.pythonhosted.org/packages/9a/d5/b4d2c4d397b7c0222635cd069098f232fb5cba31f6749e77b339e263b52c/httpx-0.29.0.tar.gz"
+    sha256 "700928ee6c1f4213795e67c47eba8f8553639069fea89199f71d654e38edc593"
   end
 
   resource "hyperframe" do

@@ -6,6 +6,7 @@ class Zlog < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "5392acd347a9ea4ac74d9a9b057365c4ffb3a6757eb341f75e8bc5847b951254"
     sha256 cellar: :any, arm64_golden_gate: "6762b89a3969799654e217d8fd88a14e563c48d1308df70098e1e16610b3fbcb"
     sha256 cellar: :any, arm64_tahoe:       "f31caf504a45c8972ed9cf0940447699c46e5dbb99e21db32d0cf23b69db7657"
     sha256 cellar: :any, arm64_sequoia:     "ea3d476b22dac374ebbc2c4b598301441b3ef46fd17b2b8d94348c79ef3a49bb"
@@ -20,10 +21,8 @@ class Zlog < Formula
   deny_network_access!
 
   def install
-    make = OS.mac? ? "gmake" : "make"
-
-    system make, "PREFIX=#{prefix}"
-    system make, "PREFIX=#{prefix}", "install"
+    system "gmake", "PREFIX=#{prefix}"
+    system "gmake", "PREFIX=#{prefix}", "install"
   end
 
   test do

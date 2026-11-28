@@ -12,6 +12,7 @@ class UsbIds < Formula
   end
 
   bottle do
+    manifest_sha256 "71c3b2fe57a4bd875998dd9a1a60c0e9cea231100e50783ac3044a564dbcdbab"
     sha256 cellar: :any_skip_relocation, all: "c9491342e01272aa6c99d7a721050ba0aea50334eb462541d2d657ff8b74707e"
   end
 

@@ -8,6 +8,7 @@ class Ykpers < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7e9f461fd77ca008aae596af2785464c61f49d97d8fe1ad721cf65ebb90487ac"
     sha256 cellar: :any,                 arm64_golden_gate: "7c82f7160107fa48e22f417544ae6e80ef27bb8648909c8ec260f795274b06ea"
     sha256 cellar: :any,                 arm64_tahoe:       "926db3e02f205b9e785c45dd758876a906c0892c0bb3c3d3dae64067adb3972e"
     sha256 cellar: :any,                 arm64_sequoia:     "55b5c0412c66507bcc30d4fad0b66787aa34ae962ad6ce088a4500d7c330f94c"

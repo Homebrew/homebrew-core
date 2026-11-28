@@ -6,6 +6,7 @@ class Watch < Formula
   license all_of: ["GPL-2.0-or-later", "LGPL-2.1-or-later"]
 
   bottle do
+    manifest_sha256 "f0ec25eca21eccca90bf028a89b64906a5910d7f09b00f4383231efb76a4273a"
     sha256 cellar: :any, arm64_golden_gate: "fd6431ea396b55e3845411f74823a7081c0a837d77fd6cb3a13b22e3a81fb9f1"
     sha256 cellar: :any, arm64_tahoe:       "2aa3ccedc5de11c238fcd45b82de1d48970d0e87647d8eccf7bf0d57489640e9"
     sha256 cellar: :any, arm64_sequoia:     "ecb6d8ef08094cf29623dbb0c7f05242a028a9212eb5d6137cee63ec8ed20240"

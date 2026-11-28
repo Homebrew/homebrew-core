@@ -7,6 +7,7 @@ class Advancecomp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "41008ba9de17d322be954001fab7793c897f8ed24a5b4e2928ab0bbec62af69b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "274716e34c405e16be861b08d6c81b16a2c648d22b3d52a009e1756e8cd42d16"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "645f12c923d703bc3ebe073a81ae42f37f057a80f5be2e47def6e0c42455617e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c3df6813916f0d8c24a7a17b68fc3cf37eaca1d9cd239dd9614541205a1ad5fd"

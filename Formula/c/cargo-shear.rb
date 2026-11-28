@@ -7,6 +7,7 @@ class CargoShear < Formula
   head "https://github.com/Boshen/cargo-shear.git", branch: "main"
 
   bottle do
+    manifest_sha256 "dffc1aee540fe5f6897c9d6d8350fd1a8d932438d92d55ffeacc2958b047bb76"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b72443821c8288e4e12cae5ac2448b8b7988d4c66232fe54a02a62f3a596c1e3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4e81ef3e948cf57ed49201fc33629ea6ec455109fe762373a9d54e583272db2d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc92e7709cac8c2dc19f4278c5aa4db3e181f08bb829f6fb247f2b30c8080cfb"

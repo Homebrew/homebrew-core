@@ -11,6 +11,7 @@ class PetscComplex < Formula
   end
 
   bottle do
+    manifest_sha256 "2c295d50c0e4029d96223d1ffb3f175673b449fbe05a68f0de0f5dd41b29fc35"
     sha256 arm64_golden_gate: "d3c4e851cdafbbe9a8a2b12034cb395c12a4f8099af2cf9d4070ac9243f59700"
     sha256 arm64_tahoe:       "880a136dc6d328efc87e449017898a1f641d313de9e6e00d8862203df6acafdf"
     sha256 arm64_sequoia:     "637214648997610d0ef8d1c50196a02633b41cc3a289e7c58ff76adf6aff1b88"

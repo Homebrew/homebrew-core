@@ -7,6 +7,7 @@ class Orcania < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1ecd5c37980fd080d7f4ddd8d277735e07366bfd5f5bebf2a9b922c1262dada7"
     sha256 cellar: :any,                 arm64_golden_gate: "d61be4b820bd1090d204b42f8d97b83f9e09860c326a54402004200a5e784726"
     sha256 cellar: :any,                 arm64_tahoe:       "5fee2615d28af2472b03eb9499ad1eee7e17549a421d7212d973c8cf2a39a430"
     sha256 cellar: :any,                 arm64_sequoia:     "4c6bcdc1d22075f81c8d4660d2e7f26bf495a7d3b71ba07dc73cec9cb60df3ac"

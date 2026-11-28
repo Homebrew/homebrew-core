@@ -12,6 +12,7 @@ class Libselinux < Formula
   end
 
   bottle do
+    manifest_sha256 "2de8d4255e0f634c032816c209d9e3604d1a6e4e980da9c0e178e47a955a054e"
     sha256 cellar: :any, arm64_linux:  "c997ac2e0dde0159775d383a9a40aa9dea9449d1076963b7a046263ed09bcad7"
     sha256 cellar: :any, x86_64_linux: "1249c10e7d9e630a71a252d7988d2f5bffa0144174e5c80ff705b89470ec0968"
   end

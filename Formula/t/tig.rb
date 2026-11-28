@@ -7,6 +7,7 @@ class Tig < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "d076b77cc085c166b10ba528e4b34e8bc747c39277449daf9dacde8e798a7c08"
     sha256 cellar: :any, arm64_golden_gate: "e9d6cfc916c4a230698fd99ec76bfda6b477af57cf115aa161596b87db79d46e"
     sha256 cellar: :any, arm64_tahoe:       "a83c57684c8ea6b7f227bbcde3385a7fcc8187104b3ad8e21391e2dd9699f84a"
     sha256 cellar: :any, arm64_sequoia:     "0af8cce2768d41d225e143bc885894897a9976194c69c0246e89e99e5b972462"

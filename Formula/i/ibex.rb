@@ -13,6 +13,7 @@ class Ibex < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ada13e933fed4872eccf88a9790d7822a31be581ba0f70a840c0b063fe4459ea"
     sha256 cellar: :any,                 arm64_golden_gate: "85de0fc27e2c8c26f447d11d1e6ca41dfa3ed52e82a350b397a4d231998ac014"
     sha256 cellar: :any,                 arm64_tahoe:       "747a401be0719a9769ff455db67125bdb0d964b6652d92a14b5472f1dbe4464e"
     sha256 cellar: :any,                 arm64_sequoia:     "47d818bc1c5ab5bf229e05f581dc8ba87cceb42f3681202380cf396041528340"

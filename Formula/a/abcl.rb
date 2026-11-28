@@ -12,6 +12,7 @@ class Abcl < Formula
   end
 
   bottle do
+    manifest_sha256 "cd648a301857e246ee426e30dc10356019a86599dfe2092668ccfbde6d5844d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ae483f4e30a5d3d1990a70446bf7eab24f35cde8030b3f3e35fed57f9b0207c4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3231aead5669b78ca3b23ad314c5bc1135178182fcab8ec84da66ecdef470350"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3b54e12b38b7736c33fe43c677c4d396337617e4f0647a2d5522bde43e31fc0"

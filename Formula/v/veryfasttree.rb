@@ -12,6 +12,7 @@ class Veryfasttree < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5f77ed0381ee01874ccc90667e1cc63c9c721def72fd59d70307c7417d99f451"
     sha256 cellar: :any,                 arm64_golden_gate: "d09e1ed55dc4a0d4f71838d5ea4fd0ecc788a55244c3c521033e0ea1a7861c92"
     sha256 cellar: :any,                 arm64_tahoe:       "614e6b99cd1f19ab66d559dd984fbc057bb7dc9db8611529d297e3e7ef2104ca"
     sha256 cellar: :any,                 arm64_sequoia:     "4f01aa7d1c95b9588f6b72b9e351cc25cf643d9cb5b1e27fda88d7ccf6282986"

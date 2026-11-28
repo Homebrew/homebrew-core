@@ -6,6 +6,7 @@ class Dislocker < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "cccd9f7d9d435dab524670b5d91bf3f4212ba67777aeaf7fb6789b49c3c0b17a"
     sha256 cellar: :any, arm64_linux:  "f6e80d889582a40b533dd207dc86ed1d2981946264750868cfa91db3ca58aa70"
     sha256 cellar: :any, x86_64_linux: "34e170b158892e7e2c35bb82c570c909e2ae63b2d04ef232bc7742de0a8ebf4f"
   end

@@ -8,6 +8,7 @@ class Zrok < Formula
   head "https://github.com/openziti/zrok.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0e6c67e45d94b116f2cb4e831540c68ab72db34865f542e512935561fe4a2eee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b60d3864962c87a0da559fa9c2c2aa4828349aafcbefb63f88b3f98165ba6c8a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf42681f2c23e609dacd33a1f9221ff83142f73dc3ab275bbfb3b2a37ed88080"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "afc86526d636753f8a06ab89388a60289d48d64659ea5bed149fda85680a3818"

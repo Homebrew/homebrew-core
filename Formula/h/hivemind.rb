@@ -7,6 +7,7 @@ class Hivemind < Formula
   head "https://github.com/DarthSim/hivemind.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b3578a2a9608bae5f6b101dae9b680be6d77816eaa87f72f377a5b55bff7b6c2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "70174dbc8fbef382933bca19a4ce991cd8dd8a6c005a1241c3caf3ad886698a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86b3f4017f9920e1035a4d888d7bcdbb34d99c75ae1f6500570eb099a241aa4e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "703f51c01ebed71957e5579c9c753b3090443312b6d6c69a019b0be10a6aa4b9"

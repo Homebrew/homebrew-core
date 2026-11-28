@@ -6,6 +6,7 @@ class Bsdsfv < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "f128d8ba0400b35cb17396fa589d6cd651b42b5372c73ba17df77b5d6a0eb460"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e6e88f181157fb8a41639dba370de62b9eaa24fd887e9da09e99266a1594825d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f9574e283a380ebdba76ba7ede0ad884261ee528e481f77cd4783e3d5b890e3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "524701069b0a0b5434b2cead350b18ef4bb2b394d7a82cc73c3fab9baed107ce"

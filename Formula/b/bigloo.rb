@@ -13,6 +13,7 @@ class Bigloo < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e2984e5b69e76dd662f628f67f9d622ff4c77908ebb866cc23a6b5c2ffc4865e"
     sha256 arm64_golden_gate: "d4a98348d2651cdb124603b9032418875b906dfc443f206abbe38dd8c9a40f7e"
     sha256 arm64_tahoe:       "a75e58d36fd68cac86fc79db90752199ba7cb5726c033441b0242a0635d7e135"
     sha256 arm64_sequoia:     "b9d60b1a1aafabfc1ade5ff39f9a2a87b6fc1aff1809ad331d92a9938ec9dbf5"

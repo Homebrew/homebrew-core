@@ -8,6 +8,7 @@ class CargoHack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a0d5746f2fa5bcab29c6a98251a1bc16f1e1e72ba7a602af5ee14126f6b780d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4832ba24b16b7ba02004adf2dca0a8906111b83dd45487cb9423b73cb70d3de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08c833bcfd850546eaa9ab41ba0808aa8943b1df7ba7f313dcc324c19c656b29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5369b22798c58c87944f6ca3ed3d6523e706f1d2f9b1efbab4ce938230c95b21"

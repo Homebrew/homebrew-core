@@ -7,6 +7,7 @@ class MacosTrash < Formula
   head "https://github.com/sindresorhus/macos-trash.git", branch: "main"
 
   bottle do
+    manifest_sha256 "229103cfec7ff772822ac5b6d5eca3bd0b64152b8864e754f12276b2ac1aedc6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48de6414ed3227546ddb8288712f595782b9ab3a8632f6061cd13b7f92336700"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "527fe913d039d21ebeb41ce0229ef539d1a5f6b74a5aa5b74237cb31d45a1af6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6f7b441ad551b252c7a9234af6ab721d67ea78b554688603b560b7a66aee262f"

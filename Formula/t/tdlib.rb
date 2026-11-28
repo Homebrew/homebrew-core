@@ -8,6 +8,7 @@ class Tdlib < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "0e218e30e0d8d292432b297eff334dc89e1af802f862bfe2bceb37020ffc5823"
     sha256 cellar: :any, arm64_golden_gate: "822250da1da3a72dc4182d90565382875560d1b2d5d5bdc32d9a25960bf3d75f"
     sha256 cellar: :any, arm64_tahoe:       "2e08058c919f73a66663bd6b09489d99b484094d00b71852cb0236abf6d34ae3"
     sha256 cellar: :any, arm64_sequoia:     "6c0cf344b1c403250842e3f2d19abcbf2ce58efe21a3e2b034cc48e38d0627ea"

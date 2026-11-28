@@ -66,6 +66,15 @@ jobs:
           run-id: ${{ inputs.run_id }}
           github-token: ${{ github.token }}
 
+      - name: Verify write access to the executables package
+        shell: bash
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          oras login ghcr.io --username "$GITHUB_ACTOR" --password-stdin <<< "$GH_TOKEN"
+          head -c 32 /dev/urandom > "$RUNNER_TEMP/executables-write-probe"
+          oras blob push ghcr.io/homebrew/command-not-found/executables "$RUNNER_TEMP/executables-write-probe"
+
       - name: Pull executables.txt from GitHub Packages
         run: oras pull ghcr.io/homebrew/command-not-found/executables:latest
 
@@ -83,10 +92,6 @@ jobs:
             --bottle-json-dir="$GITHUB_WORKSPACE/bottle-json" \
             --summary-file="$GITHUB_STEP_SUMMARY" \
             "$GITHUB_WORKSPACE/executables.txt"
-
-      - name: Log in to GitHub Packages
-        if: fromJson(steps.update-db.outputs.updated)
-        run: echo "${{secrets.HOMEBREW_CORE_GITHUB_PACKAGES_TOKEN}}" | oras login ghcr.io --username brewtestbot --password-stdin
 
       - name: Push to GitHub Packages
         if: fromJson(steps.update-db.outputs.updated)

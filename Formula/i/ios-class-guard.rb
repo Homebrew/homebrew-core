@@ -19,6 +19,7 @@ class IosClassGuard < Formula
   end
 
   bottle do
+    manifest_sha256 "14bfb5ae18cf9b0c8dbf54563235ffc8b2e1fbd87dc25d05ed1816799149dd75"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8620b0943f6a4d164e59a69254fb370a928e9d29ac8bffaac156c7b3bebc4dbb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "309a61c546e963a18349f50f48dcf782c98fedb310b248b9d2d9936d842d5ec1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4de6dec4f0120a68ac884defc966d1e3ff7da2cae669cccf3b80f72cdf7e7ddc"

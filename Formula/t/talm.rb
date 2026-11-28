@@ -7,6 +7,7 @@ class Talm < Formula
   head "https://github.com/cozystack/talm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8333c8cfb964815a04398b1027d3de83e4902c30752653d476c1505e91f7fc6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2fe5724023917cd14f2fac587731c9e5340c6e59ec717e69828c59eeb198ea1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e93787d3df711e7f6614daf1923f5e0434450380b0563f44a4e63bf26526a4ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3012237959e6845db3d26c598524514df1ae3810b297ce010593149961c97e10"

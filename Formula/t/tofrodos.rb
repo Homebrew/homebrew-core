@@ -11,6 +11,7 @@ class Tofrodos < Formula
   end
 
   bottle do
+    manifest_sha256 "4e84f842033eb0835b52932dc3518a1c1b6e5cbc614db4035aa697f40e3b0ac2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "342942036f6109280bc10b0a27de08487212f40bbe71aa405a042b8123c7225f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1975780f21d7e2504649dc52b92bc234bff4e58064c0dd93c15da11acc56ed62"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8cb6e9524618be985e77720471ffe31fe3e92b2132ed61509caefd537434ace"

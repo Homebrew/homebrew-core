@@ -6,6 +6,7 @@ class Evince < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "f4ddb44a5f80400a458330f528c0a884848f166c403dcbc613668628281f9880"
     sha256 arm64_golden_gate: "46463020ba0f562b6fe94d836fcf4a786e9e72661045ed80de2e5fb9d07310c2"
     sha256 arm64_tahoe:       "b1d5f9ad6fab5f058ad3940b413441692af461bcdaf44dc541af04cd49a8d4be"
     sha256 arm64_sequoia:     "6d0a8b81ffdab3b822401aae5f00437b800afe058e91c9622dd0551db59f8b14"

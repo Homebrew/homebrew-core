@@ -7,6 +7,7 @@ class Hexhog < Formula
   head "https://github.com/DVDTSB/hexhog.git", branch: "main"
 
   bottle do
+    manifest_sha256 "21a837cb61ef7b36a188ec6e4a62307d48e08f490f82b5048d4d2dfa2c2836f2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2e172490d7e0c5a9a13e175e740a6874a7080477b33c23087b880409c21ffc1a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bde40a9e189b6f6be35e4ba2898a82d45e254d1189fc9e3f73e4342d91b09d8e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "935652feeff33ebcd7ae3e5cb78b48d8090dd530d1ed2b08c2ffcbd28fcf5a6f"

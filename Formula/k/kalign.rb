@@ -6,6 +6,7 @@ class Kalign < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "6b0641af6730db2f58d052f404e58bbfcc7fc5e01b236b8776cde165093dc4b8"
     sha256 cellar: :any, arm64_golden_gate: "4c43619c7d280716e5d59e91a1858ebb2e0ce2a234968aa6ee8ff147655fc88e"
     sha256 cellar: :any, arm64_tahoe:       "a7484a3ce74c4fc64389e85ef0420f0c646c58b754228f72764069e0149bddda"
     sha256 cellar: :any, arm64_sequoia:     "2eaf0722a0781be6c30838c5c5848c44fc940dfaf51b27b4cf8c82861009f958"

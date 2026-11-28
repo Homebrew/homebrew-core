@@ -7,6 +7,7 @@ class Hive < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "67ddbe94b2408cdfff89704f7124c1d49391fd6b6d5235886aff3877fd6a96c4"
     sha256 cellar: :any_skip_relocation, all: "c0aa6492035555c2d378c5cf93bc5aab63f8d38b99b49cd2fe2ce8c2fa411c19"
   end
 

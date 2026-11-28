@@ -12,6 +12,7 @@ class Gl2ps < Formula
   end
 
   bottle do
+    manifest_sha256 "6455e4ebd30708ba390167c9dfa41ed74726e5929726277d38b78da0f87c3992"
     sha256 cellar: :any, arm64_golden_gate: "52ec6b7e9e0fe0284f68f65968e2ee6ff58f280fb0036b35d2f02a987b46b472"
     sha256 cellar: :any, arm64_tahoe:       "724fa9c959ece3a3bb1b88ecfdf998a47697e41a3af09bdc428b06c5d6ce97a7"
     sha256 cellar: :any, arm64_sequoia:     "5a11513099ebc466ea9ea99358ad7fddd200025a671e79524bc242317cd2ef7f"

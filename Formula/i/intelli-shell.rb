@@ -7,6 +7,7 @@ class IntelliShell < Formula
   head "https://github.com/lasantosr/intelli-shell.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4e816ce03564890b86abfbf0c314baafd81436b9156940b7babff622f1c1331d"
     sha256 cellar: :any, arm64_golden_gate: "ade651058f420da579a8510d727509618a24e368d657600f644558894d6e209a"
     sha256 cellar: :any, arm64_tahoe:       "7d140f4c61afae48c439b06b4e13c1267b0e818e839588cbfca704bb1850d346"
     sha256 cellar: :any, arm64_sequoia:     "f00515b8d6e920f319a78eef8389ba7a235659b1be570e963f792f326180f99e"

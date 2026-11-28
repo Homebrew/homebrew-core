@@ -13,6 +13,7 @@ class Wv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "32121377f584bf06c975af358eda6fcd59d63abb54f7c35184d3dc21bc917fdd"
     sha256 arm64_golden_gate: "7ae681c7ef375b89a1855ea10e7b6fcb3ef5e2af8d1fecbf05811b7bb9b96b6e"
     sha256 arm64_tahoe:       "0b1a7b66a5369c2e739d1b1b39315a0813672e1e3a314e9656d4e3be6bf4dece"
     sha256 arm64_sequoia:     "c0ae3245bfab0575b61cd15afeb41080e5e8de9c0c032855b882e2186faec7ac"

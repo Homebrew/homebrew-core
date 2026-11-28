@@ -6,6 +6,7 @@ class TtySolitaire < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "c3bdd30b704fe1eef1322aceec6d363aa076f1c437f5907e67f91e583094ba40"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "83d09519d9d688aa0f301ac92502f2d6d7b6a7b0778b72a94e12345bf64444f1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "68978167fdbd89196ad631d75fa0e2011379fcb816213f845b158f773a71815a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a922321fcc1b9359ea8696d2cdc9b67707d0a53066bba8107a4f0038ddc63283"

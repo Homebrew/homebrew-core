@@ -11,6 +11,7 @@ class OpenlibertyMicroprofile4 < Formula
   end
 
   bottle do
+    manifest_sha256 "40bc953b24353d008b29ff1db4992b04783b3162dad3bbdc7142d789839473d0"
     sha256 cellar: :any_skip_relocation, all: "6a4f1713b76fd8bf152bb7e4b1418f460dea67ee40668cfbb9f5f745dba7d8a8"
   end
 

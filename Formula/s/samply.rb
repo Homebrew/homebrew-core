@@ -12,6 +12,7 @@ class Samply < Formula
   end
 
   bottle do
+    manifest_sha256 "b4bc7721be22be8ce023df13948d19a0a329ab579a7bb56b89d4d990b23ca9dc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dfa0512acc36200234167be89793eb437df038d94596a0cffb355e9b3a0cb9f8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7c85be94ac3ab2741c5674f88393e4a40cebededb1bded0fa745a7014befb3e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74b84ca23e39806e347daaa2f0643e67dbdd9d9524ffefd5e33d3209e7d657de"

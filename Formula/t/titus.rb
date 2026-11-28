@@ -6,6 +6,7 @@ class Titus < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "b6fbc5232c803a73082831cc3d6f1a61920ec8383eb06327cbe86b1ec52164c2"
     sha256 cellar: :any, arm64_golden_gate: "d771130129b920f1bb6f348ebc967118c0030ade27d8b0c021f32a265179e268"
     sha256 cellar: :any, arm64_tahoe:       "2355122f540cccc2baf019e0e101c171de401af47ce78bdfb2f982d0ac5ec2ce"
     sha256 cellar: :any, arm64_sequoia:     "e83ddfea9f2fa8e6043652c14bb11994c82e62170adb07fd5573f69a34fd99a6"

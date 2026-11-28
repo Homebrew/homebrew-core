@@ -7,6 +7,7 @@ class DexterLsp < Formula
   head "https://github.com/remoteoss/dexter.git", branch: "main"
 
   bottle do
+    manifest_sha256 "efa32816eceff141de4c4e275142b6eaac4ab4856cbb162fa7694b8a214f67f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c66e4e613f241aa3265f2ae0a56a665b1a0b5904f54920cf335c68e1b25ce210"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c3a3e835cf020d0c3d194bddc69e9e5382f23eb6f9645f62db31347dcfa3f5a5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "93657f0be80d0916e917f4254f9acfbe25b04fef9e84fba1b2214b9072fbff07"

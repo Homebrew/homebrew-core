@@ -12,6 +12,7 @@ class Libvdpau < Formula
   end
 
   bottle do
+    manifest_sha256 "0e1393100b3a67b482cc35766d75b904f437ba8929aba150f78f6a5c8075bebd"
     sha256 arm64_golden_gate: "e2cf9b0bde078fc96f6c33df099f77afad21cec46350d8a6d9a84c67f9f1a120"
     sha256 arm64_tahoe:       "f9726bd90703d99de544a8ad2b2f4e043b547a82af7887ed0d220d8f011612e4"
     sha256 arm64_sequoia:     "8baf9479a1307dd3f6819d5953b200195a91d7c522f01b2b4930e9fc750b3615"

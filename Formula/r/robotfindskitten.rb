@@ -11,6 +11,7 @@ class Robotfindskitten < Formula
   end
 
   bottle do
+    manifest_sha256 "e0d0d96f5724d60ca5874c0711b5f86038480bb9e3fd3aa3b4fcedc126a22f1f"
     sha256 arm64_golden_gate: "744b8b9d46d07331c724c46e7194b13601cabf0d221493cca0b0bdb4b9b980fa"
     sha256 arm64_tahoe:       "79b4d620100949927587e4ec4e3b90399210003b38f4282ddf185fe5d30aa0eb"
     sha256 arm64_sequoia:     "bcb3b99eb6b681c89972d4d241983e0b6a6ae8501df0e8991d139976ab678e1f"

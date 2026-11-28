@@ -7,6 +7,7 @@ class Ulfius < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "fd84f7261b3d916d6eac4c88573e491a084a86fea9011e29721a62446ccd99f9"
     sha256 cellar: :any,                 arm64_golden_gate: "a682d30e92f973c77322a6aa993b8602c05d8787af4f7d8471ef29e801bef3da"
     sha256 cellar: :any,                 arm64_tahoe:       "bb83f403a0e3afaaa29a55a287d41397502b098108788889be264e68fa406f93"
     sha256 cellar: :any,                 arm64_sequoia:     "caf3377e92811c768853a8751e55284e0f5ff6e490cfc43a1943255d41018e57"

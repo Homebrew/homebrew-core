@@ -22,6 +22,7 @@ class EulerPy < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a46cb5a629ca8c4081585b1caeb3d7b839048682c4ef854850ca3638d50140af"
     sha256 cellar: :any_skip_relocation, all: "312c6131b3f8915132ccc76a74083c142034b90924665e6b4add191739d866fb"
   end
 

@@ -7,6 +7,7 @@ class BackplaneCli < Formula
   head "https://github.com/openshift/backplane-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1163720b60bd65a76ec78ce0789b9d3851ac5b5696696acc7575bf2c63bd7b69"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bbfdcc5f6bd20189cd672c440260e8875ec530229e5f45414a8023255a788796"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "398647210e97e6118183c05410c302fce4f91e7afb5223108617278ae92abbd1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4ea2db9005234db38970a9628fa8a286fd8ba6ca1d56fc78898e3e3f5d7df9a8"

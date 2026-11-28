@@ -9,6 +9,7 @@ class GitMachete < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "04c074cd19f311e83e65a0ff9f6448b34cee9d21100391de95d1ca210f1b92d2"
     sha256 cellar: :any_skip_relocation, all: "426c58f15ea470666cf6b556bec8ca0305129b23c1092793be4d4cd8a630f685"
   end
 

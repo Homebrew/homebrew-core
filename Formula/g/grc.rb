@@ -11,6 +11,7 @@ class Grc < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "23119538f2ecac70df6e7c53218752fb44c5a9bcbfd57b0e80c751c8fbebfc1b"
     sha256 cellar: :any_skip_relocation, all: "867660b03cae504f71739b503970f364b4e8319020545f2afd3aeade942fcd2d"
   end
 

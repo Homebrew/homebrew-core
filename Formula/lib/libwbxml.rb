@@ -7,6 +7,7 @@ class Libwbxml < Formula
   head "https://github.com/libwbxml/libwbxml.git", branch: "master"
 
   bottle do
+    manifest_sha256 "eb8ab9c98474cd173c5e55e4c4a4f8cf0e76f66183db5d0a75a954296a870f8c"
     sha256 cellar: :any,                 arm64_golden_gate: "46b3d47e337ea8942000c150216801e67537e2e32e7131e1ebd73d4d8a7b8659"
     sha256 cellar: :any,                 arm64_tahoe:       "b4077cb6043d9751ab422e9591a708f7f698389c9b036062fe153a61d50f78e4"
     sha256 cellar: :any,                 arm64_sequoia:     "07916c39f4553dd58011f13bf93e38769b5e4995a7622b98fde568fbf77a0424"

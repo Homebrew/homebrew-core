@@ -6,6 +6,7 @@ class Jsdoc3 < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "bc2cedcd9d87c1b7e3fb3a152c3230f7e052547360fdc102847624d1ee3f8755"
     sha256 cellar: :any_skip_relocation, all: "8d86f3f9bc538cb7fa6038821e62cf8aa0bfff3a057799f3aab176894a6c8b21"
   end
 

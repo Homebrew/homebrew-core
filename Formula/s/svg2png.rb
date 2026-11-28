@@ -12,6 +12,7 @@ class Svg2png < Formula
   end
 
   bottle do
+    manifest_sha256 "3c09a7b6e78efc820cffe902d2cbeb7ab31ab774b6ce9b9769db5c2c8850b31c"
     sha256 cellar: :any,                 arm64_golden_gate: "a30a4a94c2d7d5e990b640960e4345be4cb522e178dc5ee1de4fa89eed603a83"
     sha256 cellar: :any,                 arm64_tahoe:       "f2f63cdb301aee0ab366dbf9abb382d7e774ff3e2026d9b6801259d2777db247"
     sha256 cellar: :any,                 arm64_sequoia:     "35e0958cd39141bcefea89ffb6938e60c495151fff2d0c09c22cc3cb2d5a2d90"

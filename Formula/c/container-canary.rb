@@ -8,6 +8,7 @@ class ContainerCanary < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "afc5bcc5c759aa9fa40def3f60f66e03e2e02a21b1411b62a515ea4b128a5312"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69ab20c1c0210b3bbf07b5e11b7c7472624dec3b4ff8c280779fa7c099af4ec8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fcbdae7844f8bce0c68e61297e385395bf4a2d7796ad9006a339b7c981d71ac1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c0f3f8842347f850a77c1fcb74699751032dcb82f2547c6afbf9c84cf3529cc7"

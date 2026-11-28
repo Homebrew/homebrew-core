@@ -6,6 +6,7 @@ class Xlslib < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "45c687318f8b9889ec4b26217e8d67eebaca629ddbf1d2061cb85b3cf116caa1"
     sha256 cellar: :any,                 arm64_golden_gate: "6f84db461f136c7a8b30df66f7eff6ba458426d3b59ee635f1f9876bffa7b712"
     sha256 cellar: :any,                 arm64_tahoe:       "0aceee9730d6524acd094d61efcf3b89387d79c7e10dc3bbbac4cf52ccb133ac"
     sha256 cellar: :any,                 arm64_sequoia:     "67eee141556944e992f338143289b2021e22023d5f205f571e56bca3a8c2b1f3"

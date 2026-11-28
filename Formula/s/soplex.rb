@@ -12,6 +12,7 @@ class Soplex < Formula
   end
 
   bottle do
+    manifest_sha256 "9f0df367dc646a8ff3f1d81da75d21e5a26d64b7bdf0a0058b660a7041295822"
     sha256 cellar: :any, arm64_golden_gate: "c2ae4c15de4db6494a960143f7c16bf8f9a3f297dfff54b21a620f54a0bfa799"
     sha256 cellar: :any, arm64_tahoe:       "eac15c7cba992d07b176eaf59f148fe574cc41b9a65dfe26c515146588bd3ff5"
     sha256 cellar: :any, arm64_sequoia:     "58bd2205aa57bb30bebc87bfa158895c4babfb015813cdda9227c5a50b3fb646"

@@ -8,6 +8,7 @@ class Mruby < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "575e3c28d63a3a1e902ae54489c4e3b7a6641db26f3c70f29d2f2f32f6250b05"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "94de3bc09ba9d07d0a92e20061f7bc1ea53fa96d31bfc1e4675240e3a60a8240"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a778a666feb1f5d51fd3eb467e60a57a7fef4186493dce030dbc05116982a14"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "13f8a942e4ddc94e887fb1f5189eef6911f91367568a3a9a30052e37d57d90ff"

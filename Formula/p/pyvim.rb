@@ -10,6 +10,7 @@ class Pyvim < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9248d713719c4032df4325f6a5c84cba98dc15a27dcae4c60dc26c7d9a70ec98"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "256e18589710ad7ed0448f0bc0eb03670d7aa4cfad723af2538c96ca45db6c25"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "599048dc5e4be6430fe595f912c32e2970db218522dcc985dc69de041c52a3b0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "617114c69fe69b9fa0ebf68bb5a03424eb7cb9bc446223d8d91f98ea916abd80"

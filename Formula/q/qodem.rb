@@ -6,6 +6,7 @@ class Qodem < Formula
   license :public_domain
 
   bottle do
+    manifest_sha256 "0825a459527266dca60544fbdaea5fd3cac0fac247cdb77daf46ed17136f283a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c4ffe936064fa11187c7fc3d24d0f87361dc64c218ceb2125d3277d97778f7de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "62259c018c435331adcb0c9d99b72f119e03d4cb549a100e758f96deae273b8f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82b1c05936cabb7c92111db07b6443f9dcf4313bb092321cdfb32b9b0866e675"

@@ -7,6 +7,7 @@ class Mummer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "61e2778b78d530eff7e49e28f81d54f0a94924f3efcbaa4b6491e14a7ffdbdbe"
     sha256 cellar: :any,                 arm64_golden_gate: "cd8b6c9f741ad5219f92574f023afef7687545646291ec99823fa971e771eee9"
     sha256 cellar: :any,                 arm64_tahoe:       "ea0c12fffc202ecffba587be17af6930099814e91deed4a211e8a61b0bba6813"
     sha256 cellar: :any,                 arm64_sequoia:     "4ef96b830de6516a971c825d97a1de9b020f6fd2e6fd8a61fc3ed3529ac03ea9"

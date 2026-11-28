@@ -12,6 +12,7 @@ class Grpcui < Formula
   end
 
   bottle do
+    manifest_sha256 "984ed90df85ebc8c054585344da56d21aa8aa6da0dca29536d810c3ab2ba0b73"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a69ee03023f21ca7577740f8d714178fba4d044bc3a6d56ba791a3dc2abf04a6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a69ee03023f21ca7577740f8d714178fba4d044bc3a6d56ba791a3dc2abf04a6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a69ee03023f21ca7577740f8d714178fba4d044bc3a6d56ba791a3dc2abf04a6"

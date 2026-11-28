@@ -23,6 +23,7 @@ class Httperf < Formula
   end
 
   bottle do
+    manifest_sha256 "2040006e4b92d468c2557265d089fbbab4ca3f7927780a7589228cc118d40d21"
     sha256 cellar: :any,                 arm64_golden_gate: "7ee5a261544b086a5500643a6b07132145968f2fff9352aba702e9f37b8687a0"
     sha256 cellar: :any,                 arm64_tahoe:       "7058120f2bc830d162abe7e7f1732bd35a69a9b1467e9ba159457f91aba5eba5"
     sha256 cellar: :any,                 arm64_sequoia:     "efe2209f501fece87251e41daa112b47530b39045e957fb0e8e443e883ba465b"

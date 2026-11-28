@@ -17,6 +17,7 @@ class Fpc < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "729a27daca791ca00658e96580ad1435da72f6288887cbc5c15bf1196d1a26ef"
     sha256 cellar: :any, arm64_golden_gate: "580f3bdbf3f5578d13113ed8f65827f3d8136f7fb5793a9e80110074966961f1"
     sha256 cellar: :any, arm64_tahoe:       "83461758109bbaece09f36f9083f5e95f9be24c2d189de5f5551c0a0b36c1b5c"
     sha256 cellar: :any, arm64_sequoia:     "4f9b1d19a5fd90777cfffdb6b792054d408308735d4861e02795059accfd30c8"

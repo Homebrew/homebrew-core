@@ -11,6 +11,7 @@ class Xmlsectool < Formula
   end
 
   bottle do
+    manifest_sha256 "bdaab89365d8b9f125959d0b92509fc3544ee913f0abcd3770537eb203348e29"
     sha256 cellar: :any_skip_relocation, all: "8c96a42cbce1a2f648e740c9b81d868009eccd90cb83ef3cfd74a2cdcf06c6f3"
   end
 

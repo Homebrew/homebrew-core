@@ -7,6 +7,7 @@ class GnuBarcode < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "bf79b8e4dacf0f57f6c44072c94dfb9b2ac3b58cf7a8a21a1496978a527e8c77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "53d7c8fdc482157a986a6a1f12515a608194c9c745b4b2c9111e1283632dff68"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57fbf7e1c8368b3405d771acfaff14d5f41d970681575c4e45484a8760a37a02"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "30ba34d1c972ec24c6f5ccd484585cd114456d7a6523f16f31dcf58c81089663"

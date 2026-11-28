@@ -7,6 +7,7 @@ class Soapyrtlsdr < Formula
   head "https://github.com/pothosware/SoapyRTLSDR.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4554295682136389d0d160f353dd3956183763d60da001e4fb018d77b91b1cfb"
     sha256 cellar: :any, arm64_golden_gate: "136c704cbf3dc9d6fc14abfdb7cc0cd932da3d2ce599e9181edb1c976c039ca4"
     sha256 cellar: :any, arm64_tahoe:       "309c2ad92ab86080e8d531570758962b3ce31ff83aa0f33b486637ed1a8a3fd8"
     sha256 cellar: :any, arm64_sequoia:     "25919bc08646a423801c31624bedac3fcbabb7ea697cb66fe8f774dd2dc39aa2"

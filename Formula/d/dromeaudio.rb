@@ -8,6 +8,7 @@ class Dromeaudio < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e2586792ee6b922228f375049d649c38fcbfae6ab412d13c49e4baf61c64c2ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "caa20933486c0d5609e92bbdfa895b2944702bbe8a98a47954c9c5d50a2ffb00"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "955eefdfe1d3fe73315f0f9c2eb9c90a08444658caf30b5c9235aa27337980bb"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "6dfb5e4fee8100aaf2ba927c2eb06f0ab7ea5b988f4e40b226653b9547937668"

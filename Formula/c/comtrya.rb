@@ -7,6 +7,7 @@ class Comtrya < Formula
   head "https://github.com/comtrya/comtrya.git", branch: "main"
 
   bottle do
+    manifest_sha256 "70a27a246b85d2af62ea3ce7393970a15c32391441cadb36d0249e86ae435d95"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "93f4475e365b86ede4cedba1f4326ef958d24e1608d4286fac431aeb1282137a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d47418f399155160faedb236b13d882ae55200aa9cc211e4f5ad4c77013aec29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46bf7dfc1bc293ec74fc38268c4ea93141cc02e9da597659c9b7211e31b1d7ff"

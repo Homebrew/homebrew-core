@@ -7,6 +7,7 @@ class Crit < Formula
   head "https://github.com/tomasz-tomczyk/crit.git", branch: "main"
 
   bottle do
+    manifest_sha256 "92e4e9232abeaec68a923a0278cb6ff29cccf3e5393252ce09eb4ba483348c0d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc073cb7dd2527548001321874fa7d56b3b87aaf104d8c6ac90cc8fa7e66f2a8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc073cb7dd2527548001321874fa7d56b3b87aaf104d8c6ac90cc8fa7e66f2a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc073cb7dd2527548001321874fa7d56b3b87aaf104d8c6ac90cc8fa7e66f2a8"

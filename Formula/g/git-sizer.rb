@@ -7,6 +7,7 @@ class GitSizer < Formula
   head "https://github.com/github/git-sizer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "43a24a087f2f672e59d5f4385f09113f83d4f1b9737dd7b49abb4408a45da569"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f57eb07ee7927a6697de207a68741289aa1f811885342732c58b1b948a2b10e6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f57eb07ee7927a6697de207a68741289aa1f811885342732c58b1b948a2b10e6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f57eb07ee7927a6697de207a68741289aa1f811885342732c58b1b948a2b10e6"

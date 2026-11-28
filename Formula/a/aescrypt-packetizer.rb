@@ -8,6 +8,7 @@ class AescryptPacketizer < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "e8bf584e55f9a96378aee14a119da2f2562ed7ed81a47c68aa4a754d5a541a00"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "f8ea5602c897a56c72464bea7b0de0b3e06694dae88df581be1e27aa6a67a2b2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "1039232a96b3efc3d8c4a1da6d48d8d37cc2991e8275dc467d0b8b16229ead5c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "d840ff8d10cb48274d58dac6bc26126ceba767c36e56b2e9e24f2b591dccca0d"

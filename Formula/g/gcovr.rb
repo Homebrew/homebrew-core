@@ -9,6 +9,7 @@ class Gcovr < Formula
   head "https://github.com/gcovr/gcovr.git", branch: "main"
 
   bottle do
+    manifest_sha256 "49bea53e8c8ed8dff34acb44c18e9a09f2a473c5e8aea69aad34f2780ebc85e6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cfede2b0df62e8e982bc45a2f891e6809becfd22fb52324f80ee8c317a037556"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "20ef4bc5d10ea700df93c319c420f663986a4c02dd3e2f2ce1f570669e0a3462"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d1c7fcea0a995ac322e619866c38d32379d553ddf06cfe58567f9acfbb0aa71c"

@@ -15,6 +15,7 @@ class Pktanon < Formula
   end
 
   bottle do
+    manifest_sha256 "539bf0c0c68829acf3ef9cb970b7e346ec9b78b031cf05087219dd26a800ff73"
     sha256 cellar: :any,                 arm64_golden_gate: "74b43a4466ab6dc21de7a4fac7a6ab08922fef150af5ce6cbda592f0b9e732af"
     sha256 cellar: :any,                 arm64_tahoe:       "d90ddd6a6904fe38ba56eb87fc3b31c29cf19e4f67f3251245cb8ca8aa072c8e"
     sha256 cellar: :any,                 arm64_sequoia:     "44134c55be8a09ccfa54203ccf2ce297df8c8a76e4ef3c94040a523c0bf50cda"

@@ -8,6 +8,7 @@ class BootClj < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "58827422e8fc71be03f4026475836f6e03fef3d70e107f3e490786cc01ff3ae7"
     sha256 cellar: :any_skip_relocation, all: "5d6682e08bc0900b365f7f704190ed3358ff39d7d53cde67e813d79e69f28f2b"
   end
 

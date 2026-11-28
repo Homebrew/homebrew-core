@@ -13,6 +13,7 @@ class Termrec < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "2716e0b8906fb1764cc8523aac6e020e9615ab9b6a82632265d83c6cfbdde8d8"
     sha256 cellar: :any,                 arm64_golden_gate: "4f71dd0fa408f4685253fd9c5eef957cba775cc6a27c6978678ff5bf81a866d8"
     sha256 cellar: :any,                 arm64_tahoe:       "83130b80ca5853bcb36c51451cf600c22c5fa8138cd525723cd8e9b960ff9791"
     sha256 cellar: :any,                 arm64_sequoia:     "9a3d784e024e949a5fe44cb29e1edfbe6021bc07f9aba114337c49aa9e94f755"

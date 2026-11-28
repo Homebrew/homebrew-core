@@ -7,6 +7,7 @@ class ApiLinter < Formula
   head "https://github.com/googleapis/api-linter.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8f5b3e2a9fbe3a4079ff298b78b1ec90b103184d8503c9da18efe81134f557ea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3bf773f270fde947e63ece734b57f2c3c99242811fd0178d2a5a71a4dcc6eeee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3bf773f270fde947e63ece734b57f2c3c99242811fd0178d2a5a71a4dcc6eeee"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3bf773f270fde947e63ece734b57f2c3c99242811fd0178d2a5a71a4dcc6eeee"

@@ -7,6 +7,7 @@ class Cpulimit < Formula
   head "https://github.com/opsengine/cpulimit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3fdb750a7d542e7b2692468c50e82312ae3edd5a4851ca45a3ea9ff33ee85479"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3bbcfb44cc053f263aa1f5ed27715f579c30b9b5989ac0f90b438014162a7506"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b5d88d4e5afdf6bf19d2069b78a12afb77e1f5e2ddf3b34b1cae55528a8f7bd6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7eca714845ccc7a47497489a5075812b50700960acc1eb7eeefbfd5921851a76"

@@ -14,6 +14,7 @@ class Tivodecode < Formula
   end
 
   bottle do
+    manifest_sha256 "3c95f460c080ad23a68e72893ba11e072bf6fcc9d525296336fc476c08b0177f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "96a9b6acfaf8bbf746191f95b0564ccb2d42ca4984b6fee2d263b65af76c1b6a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6aef5d85f98c48a4aa08864d14228ae5770baf31272041e54624ef837c977000"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "43393a250746ba85b622a828143a3a24a89d89ffb72b2c38d05161432fd73875"

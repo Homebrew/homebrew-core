@@ -14,6 +14,7 @@ class Sqlsmith < Formula
   end
 
   bottle do
+    manifest_sha256 "91a338a1fc13e61b3975dd37834bae755ad3eb8ea9b8e0972a0c8a32822962f3"
     sha256 cellar: :any, arm64_golden_gate: "201ecf965ac6739d67d41d07643281dac46e90978ca1417f11e689392d4e32f2"
     sha256 cellar: :any, arm64_tahoe:       "292e6cfdf04ed8f5230af4fe96a82070bdd3d5556944f704ecf9040f7bcc7097"
     sha256 cellar: :any, arm64_sequoia:     "c1ea6cb97d77862f8fb57d9bf930c271fc3b7ab31f94ff44a95dbf6a1721dbb0"

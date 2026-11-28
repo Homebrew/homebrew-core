@@ -7,6 +7,7 @@ class Libxshmfence < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5679d41ece0a0ebcc8840a2f9475a5ca38d529ee3fcb03675f1a20031275269b"
     sha256 cellar: :any,                 arm64_golden_gate: "265dfe0fd8ccf6d2748fe82e6ed161545605172337aac89371516f2f9b8602ab"
     sha256 cellar: :any,                 arm64_tahoe:       "c2db54053a9c58d5b8e5fdea2f705a4c877fe73dc26dcae6ad1171fbecf8dbb3"
     sha256 cellar: :any,                 arm64_sequoia:     "e594a6ecbb103e2afcd62ce9093d3b7c42cd606af7ba3a82cd9a4c539e4d2d52"

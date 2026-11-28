@@ -6,6 +6,7 @@ class Gnumeric < Formula
   license any_of: ["GPL-3.0-only", "GPL-2.0-only"]
 
   bottle do
+    manifest_sha256 "d8cb4914233827ccc08182f56f63a8565de890270273fa8a541efba9f9c24101"
     sha256               arm64_golden_gate: "fa1cddbde5d32c56f9b5b40dfe610a5e6bb43aebba8b493823a2295a7d2a4983"
     sha256               arm64_tahoe:       "d52dd5b83933ebf27018a2dbf28ef48692b1df0be7bb5f091725a64da534191b"
     sha256               arm64_sequoia:     "2541e9e5802d4c9fbef1435cc100807773798b281a5d6c1a9fba688a90554bbe"

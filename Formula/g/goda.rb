@@ -7,6 +7,7 @@ class Goda < Formula
   head "https://github.com/loov/goda.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a1c6152aaeca6b27fd828cd3be1540eba68ef13206d3eaf425f45f3b46982984"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "683d29f3ff9e383188144b8b2d6a5252662a0a33d3cbb451c4c62fc3b31d1692"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "683d29f3ff9e383188144b8b2d6a5252662a0a33d3cbb451c4c62fc3b31d1692"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "683d29f3ff9e383188144b8b2d6a5252662a0a33d3cbb451c4c62fc3b31d1692"

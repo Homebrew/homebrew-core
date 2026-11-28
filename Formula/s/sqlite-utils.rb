@@ -10,6 +10,7 @@ class SqliteUtils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "30056c1265f9413c32bb8a5ef0ea3a06d89525555705991921cccddbe11b880e"
     sha256 cellar: :any_skip_relocation, all: "d9931088ed726a100ef580291faf84e71b80486ef8f1fb3196031800b43dd8a3"
   end
 

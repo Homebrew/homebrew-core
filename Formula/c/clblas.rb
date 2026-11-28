@@ -7,6 +7,7 @@ class Clblas < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "9444d7f6044613e5e25ee79959301425f7ec7262d36fd689c96dd94f218a44e8"
     sha256 cellar: :any,                 arm64_golden_gate: "2966c1bd1a41c9b599ca1bf51d1161b9cce9253b0d90577c51750afa0c2851a6"
     sha256 cellar: :any,                 arm64_tahoe:       "e6c3905b2128cd5fece2722262321cf7b446cb8119cc0c96f33e87a0e534a9d1"
     sha256 cellar: :any,                 arm64_sequoia:     "e01b9a3b09dc996c6feb5b474e99f463b4079417aa0c24c69d5ace2cb896b036"

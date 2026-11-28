@@ -14,6 +14,7 @@ class Unison < Formula
   end
 
   bottle do
+    manifest_sha256 "088b2ded30b208b17ff92666bdbec69878c59c94265acb64601c965df81290ca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b5adddd9463407007e83ba233420ae37aceb6c61edf115a0adff52b413db9f82"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a0f9bceeead6c636d254f70e640f5127a8f81604bae15f7a43d909822923222"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a0b0b57bb93e181c0766094af21e01948e5fc15f7e8e1b7b8449c8588f7c4271"

@@ -6,6 +6,7 @@ class KubectlExplore < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0f1f03fe19f99c5ea8251c145ee8f9e12e1343e7dc132d2a9f87b840eeb3e4ec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ac664e9f99bc46c7b13c2e8923a5add2af29282112eec9271f78c0bd37d4cf32"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0fff5a08cce8dd8ca15622ddccc271090a0ee0adbd0de46b500b784f8d9065bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7d6b640255911b9fa0b75d9ff9e7cf90a04efe360315763318b505a8b6ec526"

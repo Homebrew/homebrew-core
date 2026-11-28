@@ -7,6 +7,7 @@ class Ziggy < Formula
   head "https://github.com/kristoff-it/ziggy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6edbbfe16baa8996cd3a027fddb4addd30ece13f3dc737370b92f103115046b7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f257bf69db05e9f786c5e7dcfe340ea03d1314381f878eb8e487291978ab2ab8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0f1569054c3191f2bb6172a73a277d1c03f5a02b1e7d26822898562be692667e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "367a02639d2acbc3265fb2cec9686d5a767568ec162d214b954a5d869bd6f037"

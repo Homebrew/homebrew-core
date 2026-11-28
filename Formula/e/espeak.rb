@@ -13,6 +13,7 @@ class Espeak < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "384f7194339344069098f9c5631e79d3f2abd05a560eadc9df5e36eeb7ffa609"
     sha256 arm64_golden_gate: "7a8b1664a93dc03f4f34d491d44e6a90cefc4f66d201231640fd5aae24a83a25"
     sha256 arm64_tahoe:       "79fcbb8b62d46c59ae01252339039e5370c4b9c267a4239466c14cf351521685"
     sha256 arm64_sequoia:     "ac1da3a5f93deb24bce3a169193104a8d57b6e7d25ba5b757d381b7bdcdae8b0"

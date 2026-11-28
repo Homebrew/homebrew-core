@@ -8,6 +8,7 @@ class Ctop < Formula
   head "https://github.com/bcicen/ctop.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0bdaf4be5ff2c56835ad1f33fc58299457269e78e75d834fa92f0b8005eff504"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2cee1034b70c496c37fe5ebe16fba502a52e39a9330bf7f77e583f200094b634"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4ddb01679cc99906cb9a7e87ce4784d8306356a4b80dbb50d2c325c7e43f893c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cd09dd7c11239dd436500639b817a7c935a16033630cfc78b5f6a3acbb763089"

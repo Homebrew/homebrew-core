@@ -7,6 +7,7 @@ class CargoUdeps < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "7eb768e762fba49168d81220172cb14b64e44c68336cd6c9ba7dd9296dffdd63"
     sha256 cellar: :any, arm64_golden_gate: "2106e88f26c88f445e5d4bf658113459a29edc20c13202104385f0a8a3759782"
     sha256 cellar: :any, arm64_tahoe:       "45c4062d3480f18c3daccea786172f411867d17a7e1d23d52f03f48cb11019cb"
     sha256 cellar: :any, arm64_sequoia:     "936916be7035a4f7f72b80786586462c2668441b0ba7c33ffd0efb8ea8be8e05"

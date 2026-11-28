@@ -12,6 +12,7 @@ class IsaL < Formula
   end
 
   bottle do
+    manifest_sha256 "eacf6b0c9c569864a7d79c3c660e9b681f1d921a8228e0c6d94d783a677fbe5f"
     sha256 cellar: :any, arm64_golden_gate: "7b396a8a4d3862c9de77367090e2509a424d1d6e10ab8230230ca0cd81a1ceea"
     sha256 cellar: :any, arm64_tahoe:       "bc6e6381b5a9df13aef59a6b14b9a4eee9263b09a409cf2dabbacb122aa2e630"
     sha256 cellar: :any, arm64_sequoia:     "13aa54060840fb0f9894541046869602fed6f9cb7ae2d7ec76a7a8b9a896ab7e"

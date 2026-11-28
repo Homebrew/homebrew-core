@@ -7,6 +7,7 @@ class Cflow < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "95ea84fb58d07617a9a57f9bdd46ed8a2632b55d1a4df4d98f10be2de45054df"
     sha256 arm64_golden_gate: "3f656cb9ca638a55faf60a50b46a2bf2674672da65928c6fc77c3d899e6d180a"
     sha256 arm64_tahoe:       "7677a8663bf8dbc2178670bc1db544f12fbb8c87d644c3863457e40ff6a6ea84"
     sha256 arm64_sequoia:     "6d482293b619d39dba15d8a1956ab25b4434ae53fe93ac269e9ffd2af7f33cdd"

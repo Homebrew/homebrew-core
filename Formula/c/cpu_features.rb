@@ -8,6 +8,7 @@ class CpuFeatures < Formula
   head "https://github.com/google/cpu_features.git", branch: "main"
 
   bottle do
+    manifest_sha256 "89438797277529d308cccf760c100c5e3a88d07344e7407e3a2695726e57d1ae"
     sha256 cellar: :any, arm64_golden_gate: "bcd3518e49afe94bde737c4934e019f388d7aed51bdd88ec0c96b32a8bf579e7"
     sha256 cellar: :any, arm64_tahoe:       "a7ab8c99995cba65930e1ecc83f5687241a3b25b4df82b8065fa4dd1edf5cff7"
     sha256 cellar: :any, arm64_sequoia:     "1a45dbccd31a7053940f2a93560070bd13104faa0ce4eb02d464c6a433f56af4"

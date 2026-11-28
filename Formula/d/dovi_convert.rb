@@ -9,6 +9,7 @@ class DoviConvert < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a11d181579150aace9baa25fc59e8f1715a16d3170cc4c2dbbc68e7832e0e861"
     sha256 cellar: :any_skip_relocation, all: "6e290b72efb6eb68516da6ab3da4cce8f8da72bd28f8064dd81598b5af15a189"
   end
 

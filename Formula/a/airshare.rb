@@ -10,6 +10,7 @@ class Airshare < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ffc96d94592a8a754a6458ee69a23ddde38230c2310fb05f78d01978818d6d4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20de8b7ca9c85acae70de29d9b2b017e7d7b5d10533fc800de305a6007381885"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92eac11af00881a641f5f7f4e8ffe5f979200f3e6b9ac24b10cde48a2c4644f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fccf6c3402700144b21dfe22693d49441c6d68be5690f2441ff1e38c30011d4c"

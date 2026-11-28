@@ -25,6 +25,7 @@ class Projectm < Formula
   end
 
   bottle do
+    manifest_sha256 "259db1e8966ce100e380e58db399380cd7f75f1677bbc2c8c64e3c22c3531eaa"
     sha256 arm64_golden_gate: "34f9f39ee0b018df19e8599da0894dbc591281d1d227732b0798e7bb5bad927e"
     sha256 arm64_tahoe:       "7f0815b03bcecd38afe7c9a8750a0822d9a17646c7e92f420e0fedb096c2709c"
     sha256 arm64_sequoia:     "a579de759ddbc2ca8b39a3dfc1cd7d2b936369790efaeda1c59efdbd63db5b2f"

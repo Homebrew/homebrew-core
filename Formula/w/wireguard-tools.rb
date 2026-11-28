@@ -16,6 +16,7 @@ class WireguardTools < Formula
   end
 
   bottle do
+    manifest_sha256 "6302741f3fbd46fbffe541f9158e61314e12f5f5cef4ec0a1ac09955367787dd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e615974e9fcd08d36e20c68b246d676aea5c0407478e8f195a1c29cf1e06c9c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0dacbfadaa9a5ed82a409138304c28b34cd13509f10ae25b788d1e72f7250281"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "00e71a7b3c0c144730bfcdd4e87001fefd9960ce6a9f842bc85794f4138e62d7"

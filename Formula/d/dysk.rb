@@ -7,6 +7,7 @@ class Dysk < Formula
   head "https://github.com/Canop/dysk.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e8bedbb3d167b6f40edae9bb6ce5444e19164786b1bdf00f0571a30ef029648f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "83e82aa6ab4373826caf36c691bdcbe8fd022211be5be2fc9a0ade35a0933877"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e104444d8211287af92577f4363743677cd37cee24a7fea044fb35fa559d56fc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ed174398c2fee4ed7eac2d33f06d33efbb124b963209f350cc0251e28c8ca3d7"

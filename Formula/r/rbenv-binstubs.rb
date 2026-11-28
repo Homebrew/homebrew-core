@@ -9,6 +9,7 @@ class RbenvBinstubs < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "594d270f4bb7bd1b1bf5c8736bae0fea290495af208e9b898a898811aa79b464"
     sha256 cellar: :any_skip_relocation, all: "cf92d2a4a872f49ddf33d4e4132ab0d1de390bf0c027a0f0e27925110bb01fe5"
   end
 

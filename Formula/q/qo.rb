@@ -6,6 +6,7 @@ class Qo < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "982bd10d7ecf253a50154f93d814de47ce833b80dd69ca21acfa0ea8d2b35ed6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2bb56727b06d2415b1acb1f5ea42c3b01824b7498cc7f5a3dbe4c0bb1417da5f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bb56727b06d2415b1acb1f5ea42c3b01824b7498cc7f5a3dbe4c0bb1417da5f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2bb56727b06d2415b1acb1f5ea42c3b01824b7498cc7f5a3dbe4c0bb1417da5f"

@@ -11,6 +11,7 @@ class Locateme < Formula
   end
 
   bottle do
+    manifest_sha256 "4fd0449ba71d3a7242e6598b22c8a2952ec805ecadebae19b9f1a2968d1b5c9a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "396cbc17c7965a1c78c1d5e30b0ca7286fb4fff5844c388bf45ac2bae6085e51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "105cc7bd0d5ced058850ebdd18e3b57d0969f9ef9f185665e28e785194e5cf6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb9d44f815969d55f09881d36089f4a34a43f7d63ad665a5dec05d8c39c55d59"

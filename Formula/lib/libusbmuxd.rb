@@ -8,6 +8,7 @@ class Libusbmuxd < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "dda86851a5846a17d999dc6a14c5a54638c3a02bbcbeb9d69db39dbf80196d3f"
     sha256 cellar: :any, arm64_golden_gate: "2839eb617eca09b376f3ca95de69418a682f9a726fbc99d0b4186ce3449c6434"
     sha256 cellar: :any, arm64_tahoe:       "cd4e39092e81fef19d844c344b4c27f1be39002e4fe9e37a981e1ccb362e3d08"
     sha256 cellar: :any, arm64_sequoia:     "16b44e022f024205a1eb1421829f3f60ed845f6c2c64d6f02eaa2372585abb25"

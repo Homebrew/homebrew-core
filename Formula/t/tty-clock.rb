@@ -7,6 +7,7 @@ class TtyClock < Formula
   head "https://github.com/xorg62/tty-clock.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2f58750ef87bd2fedab27006b01306308621202c427dcb5328c7bae344b8451c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "76f35562339d68deb3565537d383849849e66b7f055c3d6e848e3e1efbf8aab8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8de065838a148bed951b9e337b8a06f8db5fda6dd7c16a2b299b42a14b8730a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7068bc510258482b8643c72d3cd98e5aeb11ec1c870a4f843b4dab323adc5437"

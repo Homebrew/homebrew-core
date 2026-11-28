@@ -12,6 +12,7 @@ class Uvw < Formula
   end
 
   bottle do
+    manifest_sha256 "099cec3da4eb6bcceaa7bd1fbdc42f48cf60f25a2804f3220e7d90e94e7f7a9d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6213226739fd0ece612aae0ec00bd14f5ed3fa0086a9c22e458e7f2dbe5b2d8e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "594413006be49d686f144c3122cb960e9eb204a9dbc3503dd7622b8051b61e78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9ffd8957741528fa17ff2883d204d9a86f58bf13f1d2d12e11b9e23436412c1e"

@@ -7,6 +7,7 @@ class AwsCIo < Formula
   compatibility_version 3
 
   bottle do
+    manifest_sha256 "16e9190ee6723b3fd18ce7c83bb8fb472df1b85da2d3a72f9bbf55a77151b200"
     sha256 cellar: :any, arm64_golden_gate: "59075a59e321d1de870b509f4412c88e57998cc1ed686ea0210a847f2a1db16c"
     sha256 cellar: :any, arm64_tahoe:       "358a3c0c91b18cff6206eccc98cc1540be5e0f1bf5125095290f4f37a6cbe71c"
     sha256 cellar: :any, arm64_sequoia:     "fa73d2047a4ad15c8898e5fbbcc1f0f25c858c79e14d18a11e9913a810979170"

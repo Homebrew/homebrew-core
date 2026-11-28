@@ -8,6 +8,7 @@ class Glasskube < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a9da7a1cf7271a0eecbad3325bcbb04af550c5092f09f31f1c49f5d541d5875e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0ec205b5fa89cc52183ceae3606c8635f9b2d69860d1b120c4bcdbba6c909f9e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3babde1be2c32139d55c3d9d357e0dc0647acf1c51a7969c32fb219e01bf7671"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3babde1be2c32139d55c3d9d357e0dc0647acf1c51a7969c32fb219e01bf7671"

@@ -7,6 +7,7 @@ class Inja < Formula
   head "https://github.com/pantor/inja.git", branch: "main"
 
   bottle do
+    manifest_sha256 "c8d112ae69fb1bc81f6fdbf8bf3999c14e899452ca733923573b20b402db6698"
     sha256 cellar: :any_skip_relocation, all: "231ca1e3911473b3cad187701813504adcb75628d382b7bb80f08f481728315f"
   end
 

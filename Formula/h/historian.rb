@@ -7,6 +7,7 @@ class Historian < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2fa8efb9104f0f48d96ff092ab7f451008fa971a9b4f0a5833922b1c26a0c268"
     sha256 cellar: :any_skip_relocation, all: "189a00a7ac7714b8c9c9f5aa6691278538a072629bc6fa24ab99812d37b9e58d"
   end
 

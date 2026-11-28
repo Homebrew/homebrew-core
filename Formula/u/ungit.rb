@@ -6,6 +6,7 @@ class Ungit < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "1af2c4e46bb9bff7b0e13d9042988f2f799c4735fbaebd53743194b937b1f006"
     sha256 cellar: :any_skip_relocation, all: "2fd45c6ddef5ed4e9766abf5d6098cea756f93fd50156d24cd9c1721d75cd876"
   end
 

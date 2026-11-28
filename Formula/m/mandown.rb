@@ -6,6 +6,7 @@ class Mandown < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "ca0617397e9e71c65d474eec47ac7222d00cfa4ced04e5c5d3e2a8c68016ff90"
     sha256 cellar: :any, arm64_golden_gate: "3b449504af7e4a74813ded40c61badf79bf0d6f4b9aed15b50c26a4472516df9"
     sha256 cellar: :any, arm64_tahoe:       "67c94490d14924523d9bc259f691e3a03f2f3690fd1afef13b566c8379c1d41b"
     sha256 cellar: :any, arm64_sequoia:     "ce8872683a7e2b3d9548dffbe16fd41b35ef17f697fc8b4dca2e2d6bd28c84e8"

@@ -8,6 +8,7 @@ class GoogleBenchmark < Formula
   head "https://github.com/google/benchmark.git", branch: "main"
 
   bottle do
+    manifest_sha256 "2296c79bb7c07396044e45d78a6e961ea0b765127c29485583bc87e0c6922ee8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4cfb010a52dc70ed0f3eae99bc0132197e2a6c8ea098513323127213ba6a9bc4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08aa1d2c26de8f05870eff02b3fff6b90bcb0b74ab64a1cd5f7e35638e45bfb3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7409914c8dbb678557f64ff5fccadb64f4549fc5d4b611dd3a7ae4cf31236fa4"

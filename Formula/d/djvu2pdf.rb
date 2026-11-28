@@ -12,6 +12,7 @@ class Djvu2pdf < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "980b258d05ac29cc266fd16887615d1da3a11e38d0a4ec3b9d3d5a66e3af8c67"
     sha256 cellar: :any_skip_relocation, all: "9fdbe69a5415de2630d2a2934f513f985db8d4917b5451ef0241fd125e1096fc"
   end
 

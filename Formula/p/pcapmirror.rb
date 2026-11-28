@@ -6,6 +6,7 @@ class Pcapmirror < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "c8cf322727d03aaee5e5120b6fcd3723f262c8467976d74ff3166ec7e986a134"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "77f47da4783e995fe6b2773ba2098655c2a440da28d5022f6c6a9243c65ac26c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ab6d79df326037bb047fe8cfc6dc549cb747f0f7188d23f1949796d5f42a2e4d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "771d61c56e1f6586f11cd438648d263170c45f210c11793f9ce35919204d4a60"

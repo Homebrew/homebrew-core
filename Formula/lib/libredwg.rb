@@ -6,6 +6,7 @@ class Libredwg < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "341499289cf83c3823366f1488ecc4da6adff6be661507b4acaf95bcfac2243f"
     sha256 cellar: :any, arm64_golden_gate: "52af574f09f32d0b027b86ae788c63bc7abbbd9c4fa60782db4e80a7cc9258b3"
     sha256 cellar: :any, arm64_tahoe:       "2e5efe7bb02a7067cd67e028da20b90a56d45fb126352d7d963de8ff8c6a2298"
     sha256 cellar: :any, arm64_sequoia:     "88669a054da909cb7af46735a28230457a623f24fe729e9ba638d49ae883850c"

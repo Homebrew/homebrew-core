@@ -6,6 +6,7 @@ class Vexctl < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "8c1e34fa8ee3f334cfa65d558842ee001be42a5928fca8ed4765ed219e37b5c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c89a300ad937726a7a06e582220e57532fa4d1db5636e969d6171af6898c36ce"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0bc558faeddb53ca3757ebd389f6375fd7496715ad291a55175a4105011a022b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0bc558faeddb53ca3757ebd389f6375fd7496715ad291a55175a4105011a022b"

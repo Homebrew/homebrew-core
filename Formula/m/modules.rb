@@ -11,6 +11,7 @@ class Modules < Formula
   end
 
   bottle do
+    manifest_sha256 "e55b9a52e709452b8b137269f6c2da69d9d529e36a6a583cbc3dcea36e5a8473"
     sha256 cellar: :any, arm64_golden_gate: "f576e16b0001fe35da4b63000582a18a0120c91b7154d01397e58354aae40fc2"
     sha256 cellar: :any, arm64_tahoe:       "15d5c0388d4f43239ef034f5547902395b514c304e1fbd8fcc257287f66bd212"
     sha256 cellar: :any, arm64_sequoia:     "0aa6131d168592dfac4877a4ded5a1183692f5cad9f3adce13083c6ba99189e7"

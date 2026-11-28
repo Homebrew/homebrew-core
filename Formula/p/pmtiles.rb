@@ -11,6 +11,7 @@ class Pmtiles < Formula
   end
 
   bottle do
+    manifest_sha256 "bb09f156220cd55fa534d06434cab8410b074edbb10b28ca59ce19336aba6733"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8476a760676ae10da0cd17f4b5163cb7c89039e1db17fcf17093e6aa964fa0ea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "97a0329f0e88fbbac341495b5615b1d4086dc1401f60d68c5ac1a4971de70e96"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e7ff0e7d2200f4cfa2a2c138130bf8d1d3d0199ae86d6912c6cd2a8062afdd9c"

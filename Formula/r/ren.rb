@@ -10,6 +10,7 @@ class Ren < Formula
   end
 
   bottle do
+    manifest_sha256 "8ae2b37cb1ee3c31cf8c484962001a6e2a2d7e0f9f9be1accd1143440b492c13"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "dd1bcef7e041d5f11b9122048420b65b003f0f4f981cf4d43247263e7f25d3e4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f780992d99547f095b09b50acb32ffe22ac0b9e973965931cbb2ce796ba2d1f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7a3c1d2e3849aad71fa4b7f54cfbae86184153159a8019839ac7fb69747cebc0"

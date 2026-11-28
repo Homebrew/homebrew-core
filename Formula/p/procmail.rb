@@ -7,6 +7,7 @@ class Procmail < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "00d191146b2ea40e27a6e5d896c1880bb9ff03691c98da7d1781401020782aed"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a4f2aceb9d4b4d82958ca0f5245d4801ec215ceb2a4417e0341baae9c421e72"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b1bfc16b0cf3a29c2782b0bd30bbf11b04f0586a01a6ebeac2aad63fbb9a8c16"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4a2dee1f884a35fe10236bd86b12bd6bc507aa720f764be04e75fdc042c75fd8"

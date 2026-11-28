@@ -8,6 +8,7 @@ class Xclip < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "cc3623bba087171bd8008c1d4807c4e28f18becaa2ee103fef22ec3e4e63059a"
     sha256 cellar: :any,                 arm64_golden_gate: "37c761d3fcd0ab9926ac62587fe8630232498a07539c064a341b9afa00a837ef"
     sha256 cellar: :any,                 arm64_tahoe:       "d3179fb90856af5401a1104cf9317c4f6da846e0bb54781d43b1b24f2518c8c7"
     sha256 cellar: :any,                 arm64_sequoia:     "74cc7bc3e57ae35a2f0a1880ece87d5b3e10b25e11a898f7684defbfac3d4a37"

@@ -19,6 +19,7 @@ class Cvs < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "6019bac74d3cf569b7223888a88b3282d247488e88ac014a73fbc4cee58f8c86"
     sha256 cellar: :any, arm64_golden_gate: "da1bbee384e68883e5534bfea38629f9f47bc312c2306b34daa62e44db98c925"
     sha256 cellar: :any, arm64_tahoe:       "baba178520e22fa032dc3a432bb4d91aaac9051bbfc027562b7c561a695cac97"
     sha256 cellar: :any, arm64_sequoia:     "7fe2dd380a1d94ade479bb1f6b0f4a9736bf6ff7530765be18169649e650d961"

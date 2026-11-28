@@ -23,6 +23,7 @@ class Audacious < Formula
   end
 
   bottle do
+    manifest_sha256 "b870a1dda9c6b5bff3f9d6c3401aa680d19879fd643836e4d4c9a9674438bc25"
     sha256 arm64_golden_gate: "05e512a320c9de13f001842f19df6e52b94d12e08c1147196fd047992ae559a2"
     sha256 arm64_tahoe:       "9b30d83a47b226b502061acd077c21440585c176069499a71df0d39d7d295ce3"
     sha256 arm64_sequoia:     "5dad01e77ea67872e8a1ac924cbd61fb07b59c2518356fd704daa6966c7edc46"

@@ -7,6 +7,7 @@ class Tere < Formula
   head "https://github.com/mgunyho/tere.git", branch: "master"
 
   bottle do
+    manifest_sha256 "17c4a2e0e4f05cffde37cfd23d8c3cb9c33466d0929dba00540fb21a33901547"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "12e284ffd376169b4e0718fbc511b9584bbceff942f374252c83f52763f86260"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "787e582804b995bb8b5d87d670ca4043d3647a94c11afa8e332f15656935c7ce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c9a60b3dc17b2a32d0ecf1836b3914099c6ddc58f19261dae3b5fa7166b28ae"

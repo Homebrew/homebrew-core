@@ -6,6 +6,7 @@ class Youplot < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "42ef71492c1fce6ff369b0b0b18270f8e85424507fe46b682855968b7c5e8709"
     sha256 cellar: :any,                 arm64_golden_gate: "71d4f30f11ea7a156bb6beda0f2a52c7d0e8751996684b1f0fa821bc0c2a1b8f"
     sha256 cellar: :any,                 arm64_tahoe:       "dc94ee1841953db68429b184f1ccf38608174114f6560ecf9469f72c1e95f7bf"
     sha256 cellar: :any,                 arm64_sequoia:     "9136892172c5aa99186e6dcf0fdef334339f4b0cb0c15efa580d28b1ac72c6b3"

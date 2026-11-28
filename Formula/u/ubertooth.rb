@@ -9,6 +9,7 @@ class Ubertooth < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f3adac5a1834e9a4ba348db367ed4a4b714a444f75a7412e801b11165b2466e4"
     sha256 cellar: :any,                 arm64_golden_gate: "52ccf8bbba77533b6f2a0d6dea54e84433e7e37477e05bfe1e7e2c7c009e5fa1"
     sha256 cellar: :any,                 arm64_tahoe:       "7013ad79a01ca1cf9d46d00110bc15a9610de9a2bf80a7951244ab2cfdf1adb7"
     sha256 cellar: :any,                 arm64_sequoia:     "fa7215f06163e3333e33b92dd89476ced1eaa8f7ca3c2f5e790494832cb73cac"

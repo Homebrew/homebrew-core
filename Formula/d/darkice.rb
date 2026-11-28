@@ -12,6 +12,7 @@ class Darkice < Formula
   end
 
   bottle do
+    manifest_sha256 "5d5768da6d176eb8e1ffc514a757439c1c883dee12106966f9b9e1cd670ab652"
     sha256 cellar: :any, arm64_golden_gate: "744a5e14a51612494cf8e3d12309793158b230554e63c7d2ac96363232fb7acc"
     sha256 cellar: :any, arm64_tahoe:       "7faeeeafe0d8fe698edc5d398ec2352a91724df5bc46f8d1161d918202ed4ef9"
     sha256 cellar: :any, arm64_sequoia:     "e85c04e13db9d2f29031a5f1113cd39f0ba94bbb9ec9a42d74be052ed590b0bb"

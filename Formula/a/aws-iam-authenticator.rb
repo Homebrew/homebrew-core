@@ -16,6 +16,7 @@ class AwsIamAuthenticator < Formula
   end
 
   bottle do
+    manifest_sha256 "ae09e7302f3312b093b27614008049963c2156e1bba9d1425581070c3f360c84"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "75ae15d50b6c4d41d993ff0431aa43a7f4a05b80ec9a11a1fe657f024c60984d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b01e322a4fa25e1c12d3829f3fdac435eb38b56eef2c2cc5ac3e8d9365557295"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "822e7574ca90f40a35574309a1c9721360d5e9d5be7ca0d8e7090bb709d9d608"

@@ -12,6 +12,7 @@ class MenderCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5b437fde35017ee8179256ccec691a6598fa78850f51c76d7157455f2b32b375"
     sha256 cellar: :any,                 arm64_golden_gate: "634acefacfce7569712a966a8e02fcfca28c37045332abd143f60e65e7d37c23"
     sha256 cellar: :any,                 arm64_tahoe:       "8f0671cfe824e3f01e2057b81f12836e55f9b0b8fbf055636189d197bcd3af41"
     sha256 cellar: :any,                 arm64_sequoia:     "5e0e61309b5cd8784776ef9edc0a2e3fd7a0c2af80e5006aa05628a1d1d512eb"

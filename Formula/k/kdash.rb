@@ -7,6 +7,7 @@ class Kdash < Formula
   head "https://github.com/kdash-rs/kdash.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0664dbc579023a3872a899bf0139226b77024f1a8c307a27553513b49fbb9c59"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "92bfb1fa454b28fab15a199308442389acb3df1703c4cf52b13dd86e431ef54e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e98f730211a8fdd7bdfb0747d78f7dc99a877dbd3a26ac6556c876f617a06de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b637dccc9149bf2d6d8f73463a70d46613a295ebe6dddad3661ce59adeb343ff"

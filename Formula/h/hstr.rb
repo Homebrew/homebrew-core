@@ -6,6 +6,7 @@ class Hstr < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "5f5741844551fdac024cbb68872f64ffb02c97168f820136c1abf3857d2ea74e"
     sha256 cellar: :any, arm64_golden_gate: "ae32ff85108d4355f6ac8b2eca4b147fb615b7a11e575769b518d5663d91bcb6"
     sha256 cellar: :any, arm64_tahoe:       "c0a9127495a86f09c7f828ad8c41dfa8ddce35f33515e9863a44bef64d502554"
     sha256 cellar: :any, arm64_sequoia:     "a05c15326d66c23b9ab18e48f7bc050896fc74c923e605ad759af60b00a1204a"

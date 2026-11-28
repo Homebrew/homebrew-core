@@ -13,6 +13,7 @@ class Dcraw < Formula
   end
 
   bottle do
+    manifest_sha256 "af714161ef1981bac8330b02d1c335767f97026edb8a641cac7aef89574d666e"
     sha256 cellar: :any,                 arm64_golden_gate: "29bd73fe37d49a0f253810299d61f35ab1ae80e977ae4b2e213f161ac4c4e8ff"
     sha256 cellar: :any,                 arm64_tahoe:       "06e4e4b56c7abf6a3401a398f2b0caca6851a348dc87215c53ccb1eef0b38e18"
     sha256 cellar: :any,                 arm64_sequoia:     "a083652ace0c260b03d51e3a34412dd5f9213cf146dca60f6d5d2a1ecbc8c191"

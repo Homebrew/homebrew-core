@@ -13,6 +13,7 @@ class Libdaemon < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "99ea0eab0d70262b398aba38b4eda9514efddaeecd1d279a78c355c58fea8e6b"
     sha256 cellar: :any,                 arm64_golden_gate: "e77df5e2ea82b7c28e4a9062d5a8d899a2b19a5d90854c6e204c25006880f61f"
     sha256 cellar: :any,                 arm64_tahoe:       "b5a484b80371d6d282f43e26bad28db36b03be6ffb54e54e0a453ab57492c3ef"
     sha256 cellar: :any,                 arm64_sequoia:     "5bb178b81ecf063f093a88970d991bd20550e492496e317a8617b1fb7c8874d4"

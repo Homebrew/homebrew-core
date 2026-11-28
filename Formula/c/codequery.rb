@@ -6,6 +6,7 @@ class Codequery < Formula
   license "MPL-2.0"
 
   bottle do
+    manifest_sha256 "6e0abee6138cd737652e598b91bdfebebc66d814f6e639d46545c3523bbd7642"
     sha256 cellar: :any, arm64_golden_gate: "a40c3e8aec9dc15509aa80458d1f6b43caebc16bceee96193b4afeabd6ef1920"
     sha256 cellar: :any, arm64_tahoe:       "699c385165820cc6959a2f2d03a1a9c813e83ed9e8004b5dc81cefff1b3ff49c"
     sha256 cellar: :any, arm64_sequoia:     "671cfc9d735b78eb01a803a48ef43f300dd3196e2d1dfaa0cee793ec270b9baa"

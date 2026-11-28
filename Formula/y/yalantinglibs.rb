@@ -13,6 +13,7 @@ class Yalantinglibs < Formula
   end
 
   bottle do
+    manifest_sha256 "f1b3018c80a074ad80ecad7311492169d8cd35a9e170d1c7cab5d2a9e937fbbf"
     sha256 cellar: :any_skip_relocation, all: "3a7c99cc93921b67d8b4ea20eda1da4b4e66624f6d0b1be00f407a44d1a0bcda"
   end
 

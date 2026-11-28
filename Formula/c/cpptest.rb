@@ -6,6 +6,7 @@ class Cpptest < Formula
   license "LGPL-2.1-or-later"
 
   bottle do
+    manifest_sha256 "3bd150bff715355dc0f2d7d8f834cacb0437cfac3e6b30f24c4e4d96d3d78547"
     sha256 cellar: :any, arm64_golden_gate: "a6e005ad6ccd746830ec51260227eb4deb051368be0e6ace27cd3e208259181b"
     sha256 cellar: :any, arm64_tahoe:       "ff05d900261e941e09c50275a3562648b96203434cdfaae13c4998c3c947a97a"
     sha256 cellar: :any, arm64_sequoia:     "78d8c7f0a5ae8a12dc07e4297cb4dfc3ecac2fc34d9abd61344b09c0ffa52c10"

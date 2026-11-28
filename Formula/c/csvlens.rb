@@ -7,6 +7,7 @@ class Csvlens < Formula
   head "https://github.com/YS-L/csvlens.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e95bccb8036e4a46905753ff8bf15be27cf012a88fed0f850bbd5a3a7d8c2eb4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8211d37d8f579ea0a6cc6ca3d80d6d3b8cdf3fb3a88ce4fd856793f6cef6222"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c11aa18b416fc38eb25df2ec3963fb2c5c300f8979aeba2642ec780865858d34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dcb4d3a424d61a67bafa876bfc9125dc5a9e582a4fe1acb6c6e51f9112a99247"

@@ -8,6 +8,7 @@ class Nali < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a6d977f371fc85886141a6bdaccc3c45aefcb7e3ecddd22869986adb93e3452e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "88d41959fff2296346b793938ba4a00ffb6d5a8ec2837970923cfaae8ea0030c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "15cbc69776a3b3868d0ec51b308fbeaece9d47ab8e70b782e4eae9bd545fc8df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "15cbc69776a3b3868d0ec51b308fbeaece9d47ab8e70b782e4eae9bd545fc8df"

@@ -8,6 +8,7 @@ class GitStandup < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "5862f70e9e82f2d357a27b69b3b8a037bbf91cbad5efdd1af3edd36dfac4d550"
     sha256 cellar: :any_skip_relocation, all: "592920ec8fc670fd61e01e6526d4e016e9cbfd7585fed0803c418e62705696d8"
   end
 

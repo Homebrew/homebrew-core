@@ -6,6 +6,7 @@ class Sift < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "bb8df23f085444b446cce63e05b14c3b1b3f08f7cb9906850730f0a011a2b47a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6e7b95209289d754b70b8fff2bab33262fe5fbf4177839ed174b6f9650212c51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63a713de84853df834f46bd90c66c9d7f0f0019a7da4a36a4c5f61a70cdcce46"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "63a713de84853df834f46bd90c66c9d7f0f0019a7da4a36a4c5f61a70cdcce46"

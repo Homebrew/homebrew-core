@@ -7,6 +7,7 @@ class PythonAT39 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1e7b075bac6a8d1c1efd5d0a5fdee893cba75e3c6bc9ef4959dd722a82aa38a9"
     sha256 arm64_golden_gate: "0e13914f9a25f392b03a7ee0397937b283a617c74a9daff2661dd0e847b19928"
     sha256 arm64_tahoe:       "5dacd6c96b01ab87a5ea6112b9d90185ebaea6057d8fce7b8f4abc435a767830"
     sha256 arm64_sequoia:     "86e3f3b3e6661968121763e16e65af98631914c9fed3b6776313baae75910623"

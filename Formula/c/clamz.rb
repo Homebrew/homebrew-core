@@ -7,6 +7,7 @@ class Clamz < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "504d55cf9befef4b0cb901502023bc944bddbd0b11dd5120cf9d659dfa250518"
     sha256 cellar: :any,                 arm64_golden_gate: "3b4608fe7dabe8ccafefdd95b4ee7900e52fc027a0b52770858a056b98e31583"
     sha256 cellar: :any,                 arm64_tahoe:       "0d263cb2b16259b06794b4470e155967eab994f538c670fdcb2db680c5c5f03f"
     sha256 cellar: :any,                 arm64_sequoia:     "60807a8f262d22bbae1e13db11d9a7d9765896cc3c0e08ab919194f94e114705"

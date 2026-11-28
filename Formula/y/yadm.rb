@@ -7,6 +7,7 @@ class Yadm < Formula
   head "https://github.com/yadm-dev/yadm.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "df47f11d6343885b579688239bb4b548fa667e86ddfc0052c596a33007ed163e"
     sha256 cellar: :any_skip_relocation, all: "323e01bb5b2d4578628cf24afdd1446f6b858927b62cc461da626339f5c053f0"
   end
 

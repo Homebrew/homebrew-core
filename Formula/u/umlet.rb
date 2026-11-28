@@ -12,6 +12,7 @@ class Umlet < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5d9d0c943682277d738dbe30dff25536c2110abbfc1191b4e1faa217b3793bed"
     sha256 cellar: :any_skip_relocation, all: "81e9e4e1e8f71f11e7ddc0468109c03b5fc37353620c24c34fca14eace0b1373"
   end
 

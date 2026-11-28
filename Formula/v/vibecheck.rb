@@ -7,6 +7,7 @@ class Vibecheck < Formula
   head "https://github.com/rshdhere/vibecheck.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9e6722ffa7342fb95db2e11afaa0b0a70fe42652443e0812fdaf550efb38516f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6af750fb800c94ddb43376bcec0be7b7b078219139a495f4fcb378ebf1367236"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4b6f1b521cb68a3f2e8cf8b49870bc59809ec2b2867e452a0ed543ef363b8b84"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4b6f1b521cb68a3f2e8cf8b49870bc59809ec2b2867e452a0ed543ef363b8b84"

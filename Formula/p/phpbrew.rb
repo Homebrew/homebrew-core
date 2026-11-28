@@ -7,6 +7,7 @@ class Phpbrew < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "7185fece7ed131430894f2d39aeded8e78cc73ae818048ede3e972bfbfe6730b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eeac85a92b0e59a0adc48584f946e2e73b407b7b7201b584f9b72461623fdc8f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "992d2b69cb519e50c028fa60a1658e6b3d2845628263d9d82aae34d723cc71fd"

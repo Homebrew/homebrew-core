@@ -14,6 +14,7 @@ class Topgrade < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "c1d1896e5c59fb520aaa96d869d884e1d1ed3334ad01d3b5d3f1bdc652642d8e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "faca9c37f7981ad94cdb90549f14c1df29cd72f4a6c52b9f7152e596d0c01707"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3458f2ef196e9488c96e91d717a47b9b416c02420c350f9bdb29b46d38fcea03"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "221c1769c64ab361e94ee141e1df43bdeb0b2845b9acc7b83d6218040e670ecc"

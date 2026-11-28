@@ -14,6 +14,7 @@ class Hfstospell < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6e92ab36bb18c84ac9ef20142bb92c77135cb0896fd8cc5af66336c2855a6db6"
     sha256 cellar: :any, arm64_golden_gate: "6f37dc919e6b410812d812e9572f59e75152367de402c65022b84fa21e800e68"
     sha256 cellar: :any, arm64_tahoe:       "6acf41656584d5141ae13139ceed08bf56e057e2de4cef793b3267a5a2d0a772"
     sha256 cellar: :any, arm64_sequoia:     "f2987bd478497991ef7b8cb85e63a54b0c771deae132a90c790bf5590279e089"

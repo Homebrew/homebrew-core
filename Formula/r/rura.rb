@@ -6,6 +6,7 @@ class Rura < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "30e81bf8e1c4f05e64e76eff4512893db06e979765756078cf8474544da0cae7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8e08ea527b02edae098744f484c30b467fc1a6341be8a1c7a00902cfd1f37e3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "50f73ccc63a08335c0352dcbbc56c8410d4b61aa19276f15ff1a22cdf86decec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8dd4f255afc64e51c3b784a69b3c7a3741165c244e69309f4c9c7ff29ad9ab54"

@@ -8,6 +8,7 @@ class Grep < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "31f2b5996e74b0c8095c522d7b63a7720e7da0615028f1c64001eeb46ea83d68"
     sha256 cellar: :any,                 arm64_golden_gate: "b6ae50cc043529aa626ea1aa0956606322eb02311c6d4b8b7be38e5f8c1f6136"
     sha256 cellar: :any,                 arm64_tahoe:       "f1455dc9ac997c60bfe18c1f147c1fc9f72e7c5096ff59a2c41cd97f0ca99936"
     sha256 cellar: :any,                 arm64_sequoia:     "cb3715e0ab1d3d667c577b6823d444ade6ea5ca2f6bf82a30daf072bdb8f0f3a"

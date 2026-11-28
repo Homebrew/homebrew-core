@@ -11,6 +11,7 @@ class ArgpStandalone < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e8e324f8d85393c1a8fc822df49aa88c425f09f41313ac0f8ad72bd7f454bcce"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d9ed7d2c1e021585ca577b161c59dcaf7cf99727c572af7bcffc582da87ff6c2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4e16dcc9c857334ef0c9edee97b5063ead0f3f8dddc428ccb9cbeec6881a104c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b71de47f10a604629ded46675494d28ec5189153afe353425a4f6f52ab879f29"

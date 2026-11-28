@@ -20,6 +20,7 @@ class MariadbAT106 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "377ec19f1ecb65db915f653ff412e9b5b57a510264957f34c270470d941de386"
     sha256 arm64_golden_gate: "07a3364401fc451a627db1d64a094e9aa10838e9265ad6b2428e8a6ae78874fc"
     sha256 arm64_tahoe:       "c9a4be125d5d6af86a1589a39ef030a5a2f3674bd6e5154e35b22ec3859ae0f3"
     sha256 arm64_sequoia:     "bdfd99a99b97605f6c16f2a98e4923845f4d4aedd901a63426d248da5df2b9f3"

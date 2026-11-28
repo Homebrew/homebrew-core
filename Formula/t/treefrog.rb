@@ -12,6 +12,7 @@ class Treefrog < Formula
   end
 
   bottle do
+    manifest_sha256 "223e32c3d17edb6e348a5d014d4452d53493b3ade922298ed0d0fd02fc8949a9"
     sha256 arm64_golden_gate: "1b01b98db7849758db5b429f3026df9fff32e82189157e0c1680495efd61f0c2"
     sha256 arm64_tahoe:       "04efdcd8ca8589c1ac601e2ece09d5c280eeadafe2c41112f6022065f1f6ce4f"
     sha256 arm64_sequoia:     "80c20b2962f0ede687fb148b4aeda8ae4bab8d6eae56077b43fef5a2ce3841bb"

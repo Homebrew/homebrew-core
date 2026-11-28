@@ -17,6 +17,7 @@ class Cfengine < Formula
   end
 
   bottle do
+    manifest_sha256 "836d03665cea7d6cfd34c8997d1edf947855e160233c6fabc36f8ed2df96521b"
     sha256 arm64_golden_gate: "515b67cde9cf20546dbd9f8d62e377cd8eb45e6eed8a57da55b1dd4d414e2bfd"
     sha256 arm64_tahoe:       "8d3e6c69df8774c97c08a791258c3e69ad96dfea7825065a12e8d05fc22ee7e6"
     sha256 arm64_sequoia:     "f5f093e482c0ed6c0e1e93eaa49c046eaa4c43329395c64828892501890becd8"

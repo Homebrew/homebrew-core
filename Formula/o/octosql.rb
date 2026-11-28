@@ -8,6 +8,7 @@ class Octosql < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "10418ab5ce700203b89c0857f9c1e3b0f551eb98b0ab2ed49afef76b4dfb7f91"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3077f533d977e5b6db53751f2c8697217bd95b76f6896d9b694dc4220119eca2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c72a70690339c26059914fd99ec9e7ebc9b35b828ee6c07cbdde7af8bc1f7e5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c72a70690339c26059914fd99ec9e7ebc9b35b828ee6c07cbdde7af8bc1f7e5"

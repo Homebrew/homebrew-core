@@ -12,6 +12,7 @@ class Cgl < Formula
   end
 
   bottle do
+    manifest_sha256 "3ea40eb3655c815ce5cada46230904c5393143a4618df437db495deb599562ed"
     sha256 cellar: :any,                 arm64_golden_gate: "27adb6672d03327142c37a6bd6f0ade5e14a2075b0045d5277962551e14dbe84"
     sha256 cellar: :any,                 arm64_tahoe:       "9ea3fb77acf4c37b612b9b679d107a72816e5b649252d6e81e3257041a2d08e5"
     sha256 cellar: :any,                 arm64_sequoia:     "e33e192a6cb3365113015774ee902ddb2a720088eea8ed1a798a1a1fbaac4fa1"

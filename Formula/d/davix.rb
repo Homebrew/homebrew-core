@@ -17,6 +17,7 @@ class Davix < Formula
   end
 
   bottle do
+    manifest_sha256 "14c054623f233636af571576be80c3f1711cac65f73c418d7aebecc4b176b2e4"
     sha256 cellar: :any, arm64_golden_gate: "d4d7f8c10dbc10d91414afc02a67cc8d6e26accce634872cc51af610f58ca8d4"
     sha256 cellar: :any, arm64_tahoe:       "7b741a287cb9064e54af4f07d8c6a6377733b1bb2222fc0a4e1160b4a76d73f7"
     sha256 cellar: :any, arm64_sequoia:     "8e75f4bbfa7dc97c3f389dcc417000fa4f1bf55a282e4825ffc4817f9615dc9d"

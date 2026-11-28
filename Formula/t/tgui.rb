@@ -12,6 +12,7 @@ class Tgui < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "09f8ef4b1bdb60c28043cb5b5c5bb950f4a85958189f92264b9167f176e1f72b"
     sha256 cellar: :any, arm64_golden_gate: "dc21459f599692bc5af688bff211f25c18b2643375cba0fb19ee6dfe45ff3cfd"
     sha256 cellar: :any, arm64_tahoe:       "5baf47c3dae461e0cb08d37d049c432deabc74480efd9b59d79ca2726f3e573a"
     sha256 cellar: :any, arm64_sequoia:     "e306726a4cb13fad0b3e1c57bf7d26bd8b67e02e4dc0907616e2e39d80954ed2"

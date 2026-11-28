@@ -12,6 +12,7 @@ class Unicorn < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3e9cec1bf827e88c18f488d3cbba6853fa8d932faa91886b891c8b1a7b3717e2"
     sha256 cellar: :any,                 arm64_golden_gate: "90fda545b75beb730b6c0bc61d5d3284e71cefe0825cc543d021dfd0f49574fa"
     sha256 cellar: :any,                 arm64_tahoe:       "e317a3a90c3c1209bd849383f6b3a4b12c4bce696e1265c86ed4f4982581d274"
     sha256 cellar: :any,                 arm64_sequoia:     "717aaa05f34162a41e10f5abfe602e4782dd96f36f430cf95a54a383f946a138"

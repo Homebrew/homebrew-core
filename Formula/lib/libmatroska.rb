@@ -13,6 +13,7 @@ class Libmatroska < Formula
   end
 
   bottle do
+    manifest_sha256 "9f1968091634f2d743fb2aa59c65308f7e101eb1e40ad86bef40371352d06901"
     sha256 cellar: :any, arm64_golden_gate: "4bac3a2208ad48e9c909cd61b1b8e74867f4c81f0c3f72585a3a9a21c9b7c518"
     sha256 cellar: :any, arm64_tahoe:       "551207828f6f2d1dffc9a8a66263a58370081abbaff0ca238510fd6806ddc023"
     sha256 cellar: :any, arm64_sequoia:     "f56ce932de982e4bba15a674e8fda795e1e17299aaa230e7a34b9fd6b371ea48"

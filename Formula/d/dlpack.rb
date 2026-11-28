@@ -8,6 +8,7 @@ class Dlpack < Formula
   head "https://github.com/dmlc/dlpack.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5ad5a5c9354c2c1c2a2f9b05d3b94de6dd28a0634bee5ed04adc5d8cc429129f"
     sha256 cellar: :any_skip_relocation, all: "7a4bb23794feb82ebbb1f9707114f0bf02893d5d3fc6378172e6393a42409a58"
   end
 

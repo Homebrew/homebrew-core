@@ -7,6 +7,7 @@ class Tenere < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "663834c1fcd077a08eca7b0d82569996a44caf22ab0baf1b84aaa142873c87b0"
     sha256 cellar: :any,                 arm64_golden_gate: "74ad8108311fac759bff5ed6fe5e15facca48ae02f899c4f95c6d237fa35f0ae"
     sha256 cellar: :any,                 arm64_tahoe:       "c38603fac8a4260aa58239dd60db6e0022749b1900c9162c8e8446c8147004a9"
     sha256 cellar: :any,                 arm64_sequoia:     "421869a74b7a05778db1ff54c259378e9820626ec6b52958809de541456b8148"

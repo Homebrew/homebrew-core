@@ -8,6 +8,7 @@ class LibsoupAT2 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ae26a5f0e2f4bd1c2fef73a1815b108306a07d79d5792848d1efa5c83f2b5fcb"
     sha256 arm64_tahoe:   "3843052f79eaa80401b387d1a0c3092c87530d4d3b8990c62a850be37e70c379"
     sha256 arm64_sequoia: "5daa9270adbc44160747bb08e6c50b61e1421582474480ab35a23cf8d20746fc"
     sha256 arm64_sonoma:  "a6c52b69c5d790f34cabf7b34ea5c01e80d3a6bdd29b54a2f02fc0f2e1dee285"

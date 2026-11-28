@@ -7,6 +7,7 @@ class Wiki < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4a8535c5908f67ea5b6e99a53a46a5d2ddd3ff43c800b708beb875fc119f2a96"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "599b6bc13279811f7950b1ac2a170292f250aef8b5d3917254163b516984278c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "599b6bc13279811f7950b1ac2a170292f250aef8b5d3917254163b516984278c"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "599b6bc13279811f7950b1ac2a170292f250aef8b5d3917254163b516984278c"

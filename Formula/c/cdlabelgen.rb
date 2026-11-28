@@ -12,6 +12,7 @@ class Cdlabelgen < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "133d9b33c7731932b2e2a9e33adfe9d7f1fb5270759d11948481160bc2fe7120"
     sha256 cellar: :any_skip_relocation, all: "b59e22a5f1b438e89d6ae6cc662a70c09c9fd3aeee92538cf6a049296a0ca2be"
   end
 

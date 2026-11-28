@@ -7,6 +7,7 @@ class Auth0 < Formula
   head "https://github.com/auth0/auth0-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6ab9f8b914a943d6caed78b1ee3bb93076dc0a6065c9b65c22aa7d9121d17e2a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90b21b1fd26c57fcc1dafa20729bdd4010ee5e1ed87eefb433811b225df79171"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90b21b1fd26c57fcc1dafa20729bdd4010ee5e1ed87eefb433811b225df79171"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90b21b1fd26c57fcc1dafa20729bdd4010ee5e1ed87eefb433811b225df79171"

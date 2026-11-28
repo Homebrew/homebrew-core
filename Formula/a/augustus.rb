@@ -8,6 +8,7 @@ class Augustus < Formula
   head "https://github.com/Gaius-Augustus/Augustus.git", branch: "master"
 
   bottle do
+    manifest_sha256 "adfc999e606d664c0e323f625b7aa6a54fd3585fa902f139d523c0841acb54ee"
     sha256 cellar: :any, arm64_golden_gate: "cc45fc515c2cf627de764bdcc3ad98dcf2e32e0a0aed2dcd303b716e3948838d"
     sha256 cellar: :any, arm64_tahoe:       "e0a564d394d12f7613b2e36fcb67387f22a9f3148902d642e868b8be0c63d823"
     sha256 cellar: :any, arm64_sequoia:     "c21d3fb3e27b894318067d2b7fee41b7d51e46bec958378724c4811f0cea0644"

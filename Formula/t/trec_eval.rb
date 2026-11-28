@@ -6,6 +6,7 @@ class TrecEval < Formula
   license :public_domain
 
   bottle do
+    manifest_sha256 "0e6a4b89f565b38cfc61c8417f24c3634ae8cd8a8cbb0da314a282e1944a213d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0aaf9c29d3a09caf094b1fa74d49a0db0fc02543de83614c01c47d3d2650d459"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7c621fd9585129cdbb8342e2580dcf9cd5149da3f7ebaf9051e923952a42a5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "17a87e5ec7a9f6e1f74c1c8db2cd5468fa6d42721675e02d98cfc4cc88dca4bd"

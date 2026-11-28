@@ -6,6 +6,7 @@ class Cocogitto < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "357a1f682b6bd79a1744f6b54e6a07268441a0c6f2afb44152606fd81e01c454"
     sha256 cellar: :any,                 arm64_golden_gate: "c008f86b6724fe3e7769f6f2654cd9e79f9ef2902629f8c240fee116d0524dad"
     sha256 cellar: :any,                 arm64_tahoe:       "88ff662284f7f242372e75430dacd7eafcfc26918e61981abfd74de963c9b34e"
     sha256 cellar: :any,                 arm64_sequoia:     "69d6b4328b431c98df2b7f2f9e654c1f1ebd83d5d455eecca43d1865ef2f53a2"

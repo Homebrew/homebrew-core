@@ -7,6 +7,7 @@ class XcbUtilImage < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "eb9cbd30f204caac8fedc76f1d3476c4269b5bd6cb6a5d8d7984f464431c6099"
     sha256 cellar: :any,                 arm64_golden_gate: "26f5b827216a78252ee5652e4af380319311a0f21fc739b9f09d2c5e713dea4b"
     sha256 cellar: :any,                 arm64_tahoe:       "6f1af8fedcf855ff37794ed6fb607be0a4d560afee79e3fa5ba79ec6bd877d29"
     sha256 cellar: :any,                 arm64_sequoia:     "e7ebd7a81c36003239f80b1fdd67650d6eee527482e2f2f70edc14b631f77224"

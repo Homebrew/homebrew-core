@@ -7,6 +7,7 @@ class VectorcraftCli < Formula
   head "https://github.com/storytold/vectorcraft.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9c5f71727198948041c53f85aefd3799a11758efbfdea0e313184f413cbfff6f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "892bdaba363ab198c9310511168a40191817c290c8aeac4c35c127949b1156c8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ee39028594da829168c0da159a0073da0bbbefb35516dd9f6bc4dc1e20c98543"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7d7aebd371866e9f15c3916776bfd52dde85495d9897a3ab727d44c750561509"

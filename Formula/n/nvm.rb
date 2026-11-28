@@ -7,6 +7,7 @@ class Nvm < Formula
   head "https://github.com/nvm-sh/nvm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "6695b1cdc25015ade7ddc0e71aeb665a0194a2dd8bae14b3aa54e9fe69667484"
     sha256 cellar: :any_skip_relocation, all: "dfa46614b551c6bc46254ebee3445d09d953eb282d6ea3c855f429f9fb2724c7"
   end
 

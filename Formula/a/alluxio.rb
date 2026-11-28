@@ -12,6 +12,7 @@ class Alluxio < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "70cd54814bf4764afc85c68247651a0888014768e5b13b28bc810de71fcae6f1"
     sha256 cellar: :any_skip_relocation, all: "5063a69bf2f9fb8db4f197d44aa9098e206c9b69ab03c2c7f3a2698c94c21f8c"
   end
 

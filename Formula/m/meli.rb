@@ -11,6 +11,7 @@ class Meli < Formula
   end
 
   bottle do
+    manifest_sha256 "877489828bd8674788e9cca42db44614301b7096c32a6c866d25349b95fbe593"
     sha256 cellar: :any, arm64_golden_gate: "9f23d84e82737440694c0f0cfd7fb3169024a9bf8bb8206d2d587f5e8daceed3"
     sha256 cellar: :any, arm64_tahoe:       "8fbbfc465d353040699883c77d43b81094f4baca29f62fd3aa3c144ee1d06992"
     sha256 cellar: :any, arm64_sequoia:     "c13ef814e01243533236abe641efc2cac46a82ba4bf8c711bb0a7a6a193716a2"

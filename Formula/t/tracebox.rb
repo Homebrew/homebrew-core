@@ -12,6 +12,7 @@ class Tracebox < Formula
   head "https://github.com/tracebox/tracebox.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a099a8bbd1309a2be1da2bb75c74bf53756d9001b2b18118e9b48fe388276171"
     sha256 cellar: :any,                 arm64_golden_gate: "6fbffd6bca3b2a0a826ae4ce5a66e4e81e777de14d0040c809974e2657ba941e"
     sha256 cellar: :any,                 arm64_tahoe:       "432ecef65439685b42ec4ca64303631cf4aec005e044ef86d18cfc290df88a29"
     sha256 cellar: :any,                 arm64_sequoia:     "a236c267cffde3f5e896d9796858a36440deb2c762ac165c4eb69fa7abcf5053"

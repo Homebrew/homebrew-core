@@ -6,6 +6,7 @@ class Mmtabbarview < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "4f21e876fcf747a73a8f1e0c37509dfbaf14220727a6286d15a4565eb255763c"
     sha256 cellar: :any, arm64_golden_gate: "b8efc4e8c154e5ce88c4978e26ce8923f2ee7fff8e9872852700a43d11ab2132"
     sha256 cellar: :any, arm64_tahoe:       "a502f7deb3e18188669316c46c503980256b4286d0c52d1e211a772d45919844"
     sha256 cellar: :any, arm64_sequoia:     "9ae9758b04f5cbc6068b0e41266db2fbad7065d90134060c27bc73d36d780c2d"

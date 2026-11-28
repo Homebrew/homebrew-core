@@ -11,6 +11,7 @@ class Bnd < Formula
   end
 
   bottle do
+    manifest_sha256 "1e112ee0f6159d6c29afc34788aaffb2fb01203025217299dcfde85722bf7998"
     sha256 cellar: :any_skip_relocation, all: "79d07a944ecc04d3b52b36ac20cf6229087c18d11a27367815acfeb679d0ade3"
   end
 

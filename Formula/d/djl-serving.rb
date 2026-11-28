@@ -12,6 +12,7 @@ class DjlServing < Formula
   end
 
   bottle do
+    manifest_sha256 "663207993e5b39f09acefa66bae508527ab8546e75b75d52bd4cdf9873776f69"
     sha256 cellar: :any_skip_relocation, all: "56d09133de25da28047f2f8c5fe26b6ce8994b3c15a2b27d3758bccc4c4d419a"
   end
 

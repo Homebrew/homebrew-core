@@ -7,6 +7,7 @@ class Envio < Formula
   head "https://github.com/humblepenguinn/envio.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca607030d5c8627c81082eb8451ac4bc2ab2eae94616f24864c8d4b28e1044cb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc4a036e588c4bf02b8b5d0224950c168f52d3c972d6d47be584271618dcc339"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df7e57535ad3830ff003f53e1124ebe879a74867bf5688d89432d52a9173250c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2e43b713ed2cf6335250f0eb8a9a024a8410d7a98e9c1324c9cb07761b41824"

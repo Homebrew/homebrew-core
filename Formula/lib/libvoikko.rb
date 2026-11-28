@@ -11,6 +11,7 @@ class Libvoikko < Formula
   end
 
   bottle do
+    manifest_sha256 "49bbeb8a745cfdc10f311281026732f639714284bb853d7ffaeac709a524133f"
     sha256               arm64_golden_gate: "189c823fbe86f324501840fcb3a634fe2e05cee2f1a3ccb945e08e6f4865c186"
     sha256               arm64_tahoe:       "5e7950f8b97300217f3ff6e9d8fa7a39f778f91fbb094e6a1106c155012ffe35"
     sha256               arm64_sequoia:     "5618bf21692759e6d99d69328f3f0e7035e6efc7a4c11d859b5773f1ee198cb3"

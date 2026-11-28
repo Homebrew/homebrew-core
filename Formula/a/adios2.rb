@@ -13,6 +13,7 @@ class Adios2 < Formula
   end
 
   bottle do
+    manifest_sha256 "3c449f902513b167769956c4d2ec9eb17fb921e8042f507bb8f53a61a246b919"
     sha256 cellar: :any, arm64_golden_gate: "88ceacce907560d13eef2864e34100b8d08b98f26766d28677731e611f7caf99"
     sha256 cellar: :any, arm64_tahoe:       "f1cb508a9939ce64631c156eea6f3311cc4c92ecc15eda53d4f1b1592e839f30"
     sha256 cellar: :any, arm64_sequoia:     "cb4409665a4ab4ae7fa0a591bd55145c2876fff872f6e1b0a44b9f66b74e38c3"

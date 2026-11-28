@@ -8,6 +8,7 @@ class Kubebuilder < Formula
   head "https://github.com/kubernetes-sigs/kubebuilder.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4a0e3e7fbd0390a96e0bd4f7e67a0019aa46e20bf10a840ba41232001583f608"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b9426683dc0f8201c4548f901ded21b2ec737297a30e82fafb13b20037ccb144"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b9426683dc0f8201c4548f901ded21b2ec737297a30e82fafb13b20037ccb144"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b9426683dc0f8201c4548f901ded21b2ec737297a30e82fafb13b20037ccb144"

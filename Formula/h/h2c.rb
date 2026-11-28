@@ -7,6 +7,7 @@ class H2c < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "dde6eb6138e8138c7e10d2b1f54b458d9182c4417d0eb7d6ebe6d211acfdf4cc"
     sha256 cellar: :any_skip_relocation, all: "1380fd71175ca3911be9411e849ff6a739dca5b676771a42a6437c629216983e"
   end
 

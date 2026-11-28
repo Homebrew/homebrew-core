@@ -7,6 +7,7 @@ class GoogleworkspaceCli < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "d520eb16716403aee09376d845f591a6f429c10e227ab57acc7efe17cd4396f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c7d4872259e1a29638002e19eaba72940258adae4c62b5d01cb84a507bc4bd81"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "18208a0875025ab3617eb6f298f28e101a71b4620eab0ac0bd596fbeafbdf7ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "940f4f2d3150d855468a3f8adba6c72b074f4dad5b6edfb0bd946958ed42b14f"

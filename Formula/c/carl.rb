@@ -9,6 +9,7 @@ class Carl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "341081bd6c5f505a9c8031d898f9d879a760789178b41861e7ceb05e966ab98a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "aec212f922cf9b19fa3f5919ba5c6bfce4eb879c812d39e7ba0bc63d54c9105d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d21a990f8c5f3931d93da22faf9d36b3b6787ecbad375d8320a036aeb8594ba"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5d47ce1462ef9d2611a7733caecf43ffcd219d4a331b2344696ee629ebe0a06"

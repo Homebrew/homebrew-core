@@ -7,6 +7,7 @@ class CargoDist < Formula
   head "https://github.com/axodotdev/cargo-dist.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e4a27676c41fc2db94681ee0d66bf7081e663addb0eb4a10758b8207b8f8b63c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d2d497bc7b33d10a90db7c137e86d8e1989ce8c49c3fcd4faf409d8f52aad1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "25d7cb5606cee145bed9b88d7ebd3a2eb90a0a57a23845054533bdfa8030fbc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e80a4e7fde668266311c6ac95d5deb904c374a4082b952161439e3fb1fad737f"

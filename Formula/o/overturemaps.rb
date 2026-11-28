@@ -9,6 +9,7 @@ class Overturemaps < Formula
   head "https://github.com/OvertureMaps/overturemaps-py.git", branch: "main"
 
   bottle do
+    manifest_sha256 "20311baf711d93fe4e1aa6a866cd31c7538d4d7746046cb01f465bbe79af36ca"
     sha256 cellar: :any, arm64_golden_gate: "f3143d40e11e8facee1238487bb436ca8d47925f6fdabe30974e2151369a1dd3"
     sha256 cellar: :any, arm64_tahoe:       "cf0f3e0cd7d574160403bbdfd0a488e189fb743807fa30a1bc72f4e2dc158b6c"
     sha256 cellar: :any, arm64_sequoia:     "c7c7f3bd43a892bfcb8cb8a7a971230313dc3bd03e3ed685c2cad8e3dddf8a9a"

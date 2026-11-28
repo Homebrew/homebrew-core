@@ -7,6 +7,7 @@ class Superseedr < Formula
   head "https://github.com/Jagalite/superseedr.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d4cd8b075a63d6f5421cdb441bc675444a4e436f6ab236f1cde80b76de4c0c76"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c2be13009e012232ed9c3d317919030a86618f66d6e6b9d63a3387a8fd2ac127"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d07c73721cfe6ede7e452f0f1cd64629b1af2ecb4dcf4a91309ecd61ca09fce6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f72c7b38c20f1cff1e8cd632ec4c0c54798d16365401225935feb618990294f3"

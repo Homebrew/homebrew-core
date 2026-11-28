@@ -7,6 +7,7 @@ class Inspectrum < Formula
   head "https://github.com/miek/inspectrum.git", branch: "main"
 
   bottle do
+    manifest_sha256 "48e9d3165709e40e1d291f1d290406f2229a54a402b1a578667c428a723ba35d"
     sha256 cellar: :any,                 arm64_golden_gate: "7744c38e8df7e3cd973d448c1b12f2fa342c7a69df9027d91f13b835cfb16b5c"
     sha256 cellar: :any,                 arm64_tahoe:       "5c21e4520df7498e5a4e54bfad5930e87379dc94f359daa059399a58a7c52546"
     sha256 cellar: :any,                 arm64_sequoia:     "2cbc4ecbe7531a6d91f495a71b0c133c729e381ee9930ec0fbaef5c39ee28c83"

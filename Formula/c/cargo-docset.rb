@@ -7,6 +7,7 @@ class CargoDocset < Formula
   head "https://github.com/Robzz/cargo-docset.git", branch: "master"
 
   bottle do
+    manifest_sha256 "96567f80a38a2ffa1f4f58f6573e6c54db1793efbcab2591f27f73ad62651b40"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "be49c8c9219c12a7d69b66b0dc536e8a9a02a784e9054e93f471d0783f67aa9a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "760e1422ff6844a8f4133e095dd22f59d046ba01b0eb9f880548b7af7a02ffe2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5c4351f68e1d7fb4997246d0a1ff54e85b3aae4524bcb0cdc0bac379a88ecf54"

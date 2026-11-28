@@ -7,6 +7,7 @@ class Stormy < Formula
   head "https://github.com/ashish0kumar/stormy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "12c6625218931e14ee9eebd8d06f2fabc40c6b43d8e51958a7934f83377683d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cda2580cdf4e8f834a0e15c6a854930f0811b539f03dfd04d8789d62afdfdb61"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67985bd5741387e48074e5ea65d239509ea4474a1a5d81c613772eac32d5df34"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f5afa7f01c4edb5cc517ce4526a3a406b68137f228168d2210f035844d0858b"

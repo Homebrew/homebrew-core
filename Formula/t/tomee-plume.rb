@@ -7,6 +7,7 @@ class TomeePlume < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "9660fe2d6cd1dc034f0b2cec8b779088bade63f432293bc47abe8e0f321731c3"
     sha256 cellar: :any_skip_relocation, all: "f8533a89d6795ea62436891a41ec921d19c88d4d12ae0c3b8b4029cb1efcd071"
   end
 

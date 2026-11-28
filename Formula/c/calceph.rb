@@ -11,6 +11,7 @@ class Calceph < Formula
   end
 
   bottle do
+    manifest_sha256 "1a4d03b3b64d28c29a23a42779aff4ae6482b20040cceddcc454d5e5d9841284"
     sha256 cellar: :any, arm64_golden_gate: "82950772ec0dc121bac775e5430730da451dfa429b14e36cdc85ecf273d18b27"
     sha256 cellar: :any, arm64_tahoe:       "5f9ee625bfc6da755cc6747e51b330dfae42478d1f580e3ed05871df08fdfb77"
     sha256 cellar: :any, arm64_sequoia:     "f575faca305766338278980c758e8bbdfd660a90dcaef6f51af5d8a644ebca6a"

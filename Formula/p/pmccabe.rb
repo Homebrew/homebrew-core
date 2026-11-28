@@ -14,6 +14,7 @@ class Pmccabe < Formula
   end
 
   bottle do
+    manifest_sha256 "f661254dab78ef44446dc79d786cd743dfcc11ea15588eee324899ec14239529"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cc073595a5a99ca82b5abb7885fdb09425349fc3a6a09a2e062ed7b45e6b0a97"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "390360b12123add592c3b8c8b9fb1a7009de3c4a41d0a874af226e78abfafc86"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a5dbd167ff346c7f8b94537ae292dcf9cda189607d6410eab88d2adbc1599b92"

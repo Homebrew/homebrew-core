@@ -6,6 +6,7 @@ class OhdearCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "f0df71c34986930ca36ed28dbf8827bdd44e1f9af5ac9bfc2bb46aa13d6312ca"
     sha256 cellar: :any_skip_relocation, all: "08c5e9d7f0693bb17ac54631509b1ca214b30f6efadb208814acfc116e7dc4a0"
   end
 

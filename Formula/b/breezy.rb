@@ -10,6 +10,7 @@ class Breezy < Formula
   head "https://github.com/breezy-team/breezy.git", branch: "main"
 
   bottle do
+    manifest_sha256 "06b488c7752f90c38c6392a5f143e7d6cd878b1e39dc0a64391099c9e97c3721"
     sha256 cellar: :any, arm64_golden_gate: "5019b82bc91a7086f27e67f1ce5fdc4d5c6c9b75b0c379180b641219296d900d"
     sha256 cellar: :any, arm64_tahoe:       "d9b2d5d6e28bddab37a363fb8578dd3f73cadb684f8828408142f8fa6e8d347e"
     sha256 cellar: :any, arm64_sequoia:     "f76d6fd562d1d1c663b645aafafc6a62bb73b8d680fc970089539ba4f8273c64"

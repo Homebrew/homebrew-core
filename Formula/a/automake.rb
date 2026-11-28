@@ -8,6 +8,7 @@ class Automake < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e183820ee9352e94ad8d81319b12caa856b8d731d7e436d3577ae32aaaebf5f1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4f537192c9c75892b2b7b87fa9f74db0949365a7991554ac9c3120dba44d949b"

@@ -12,6 +12,7 @@ class CargoCrev < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a223b24755b102a0053d7a311c65ad4aaf298cf93b6499adb1154aff00049adc"
     sha256 cellar: :any, arm64_golden_gate: "7715a41968d82d25241c56d134cc8c0a15b92e26ee16abfc1278769956138128"
     sha256 cellar: :any, arm64_tahoe:       "52765d78d0e19c29e71b554601533ba069e7a3ac25f4fd6ee162e4a097d2f55e"
     sha256 cellar: :any, arm64_sequoia:     "8f06b458337b3463a93a32c48b90a43dd03fa13dd13bc382837248fe1b83b345"

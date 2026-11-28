@@ -7,6 +7,7 @@ class Terratag < Formula
   head "https://github.com/env0/terratag.git", branch: "master"
 
   bottle do
+    manifest_sha256 "609de3a9cb284cbaa025f2d01d245a95bdd7870dc659712185abf1c1735fdc82"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e51749161d7c5a4ff1c962a64843facbd584dfea55403bc736f25f59d5b1a09f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e51749161d7c5a4ff1c962a64843facbd584dfea55403bc736f25f59d5b1a09f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e51749161d7c5a4ff1c962a64843facbd584dfea55403bc736f25f59d5b1a09f"

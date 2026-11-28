@@ -7,6 +7,7 @@ class Pyrefly < Formula
   head "https://github.com/pyrefly-org/pyrefly.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4fb5de61f1e29ce1ce52efe3b8b5ab934ab23b32f0dfc3ce72ddcd4cf00d07b0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cb712d43facb0047eae466d403919377a8b5a8b05c3b2370d67fc9a26aae0843"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e390270efc702cf14b59af95a29b492bff4224f6ad79584fb08b110fcf8f3bc8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0ac2c0d1d06117d6a5a0926626dd22a493d41f5f0fe0aa84370b2fb1ba97b03e"

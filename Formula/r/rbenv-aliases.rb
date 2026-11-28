@@ -9,6 +9,7 @@ class RbenvAliases < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ed1e8a334aa7e1bf7366c0460666aa3a62c29d7871a6ceb3c06de0314fbe2299"
     sha256 cellar: :any_skip_relocation, all: "1478142388cffd4c60833cdc2b6e7f3bcac3f6e8b15e095167718ceb0cd7c237"
   end
 

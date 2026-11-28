@@ -6,6 +6,7 @@ class Treehouse < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "616b010bb25c925b78d80f597ece936f90cca45b82d3ab8325cadf7981cd6e57"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03d451267356a38275df60567c5b8aeacf21de848aec05893de994766e20a089"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51587bac743fe37edf8cf82c57185d3db03328339fab7ea312dd2611e7e0ae30"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ef6473d5578a0c76ef1a36ce4eb83f7ff538b22a3889eb2506e6c381eaf3ff50"

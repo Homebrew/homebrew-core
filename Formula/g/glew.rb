@@ -9,6 +9,7 @@ class Glew < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d572909fdc7ef339110769365c9fabbc36324a9a88c35fb8dfb6cb914c5ef2f7"
     sha256 cellar: :any, arm64_golden_gate: "6fa553d6cf43a6eab23005df9e38bd5b2f6597534f1e1cc53b9ffe7a0398e9d4"
     sha256 cellar: :any, arm64_tahoe:       "41a7f57c0f003d4ec7e042fde179cad2cadd504418db453a9738df775214a608"
     sha256 cellar: :any, arm64_sequoia:     "db97decd397b3df69d9c00ebedf0442bb756fc0da6d10c029c51a8779deb2bb6"

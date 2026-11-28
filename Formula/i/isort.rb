@@ -10,6 +10,7 @@ class Isort < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d0398cee27259b8002cececc45c27f8eb592c45357d9dce772c3bb0276512ec0"
     sha256 cellar: :any_skip_relocation, all: "a5a99acedabaae197c453882a363e463fe7ff273e1b6a7d192d07faeaf037caa"
   end
 

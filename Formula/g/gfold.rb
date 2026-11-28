@@ -12,6 +12,7 @@ class Gfold < Formula
   end
 
   bottle do
+    manifest_sha256 "eca11fd07a6fb593c1261e5903016fb32c89b9595bdd02646e4c64b079047a2c"
     sha256 cellar: :any, arm64_golden_gate: "72fb93ab699ddb00c33ac819e0e36e382fafd0889994732aaf27f11d98a18ccc"
     sha256 cellar: :any, arm64_tahoe:       "0362e3af27dd1b571e1b14d12941fb320ccebad49f8dc97f1ef43c8267e21476"
     sha256 cellar: :any, arm64_sequoia:     "75f8f681479f82cdd5456e704049a12cff6757d13e01113b9a3586729685644c"

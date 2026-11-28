@@ -6,6 +6,7 @@ class Xmlstarlet < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a24e0956a2071c0bc25faf9734bd8a1ccead5ee55316c1f79fad93ef49bd7c7e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "09631d0ee9ab22a357c16ee928e8d1b972e7b3098e010c7ee17ae53e71ebfe90"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "090643f7c2b0378ed14f9b503a3989f5d839da35c2529308416bb3af3cf44ca6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5ae76757bf87ab27b3517f6321a7c10db390d6dee14db6b320baff3ba5e398ae"

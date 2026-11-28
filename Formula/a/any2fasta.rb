@@ -7,6 +7,7 @@ class Any2fasta < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0ba25f73e7ff998c5244ff59407a80ec3004fcf7f8c682b4a79561947a41d355"
     sha256 cellar: :any_skip_relocation, all: "bba7ed684a5d3c4472a5c4aa1bac8c7aadc293bf6e6e198a35ca094bfd867d28"
   end
 

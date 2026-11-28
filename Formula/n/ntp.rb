@@ -14,6 +14,7 @@ class Ntp < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "3a8fb45aec9f7f7fa2e8aed081967cd3ca293111bd16fcffab2f98f19462a604"
     sha256 cellar: :any,                 arm64_golden_gate: "056306bba2e7c882887f7a80e6ec87a6bf2a1a15c968c1f1fb794734e9294004"
     sha256 cellar: :any,                 arm64_tahoe:       "67f312e7b755756bb74869269cb8b4fd9e582e6f265be0730c39d541422b54cd"
     sha256 cellar: :any,                 arm64_sequoia:     "991683b9f1c1596bd5b8c518bc94efc07539371b2ef0c3ee49144e2db44d4e8e"

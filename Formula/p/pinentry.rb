@@ -13,6 +13,7 @@ class Pinentry < Formula
   end
 
   bottle do
+    manifest_sha256 "0a38c5f4ff60ffec4751d4b77a4bc1e8ec0997f5c1bd996c95eb3c2edd33eed1"
     sha256 cellar: :any, arm64_golden_gate: "12da28eefce12a79764f58d84b87896daf9ec44d7645d41b6434c3d4a2d58ba3"
     sha256 cellar: :any, arm64_tahoe:       "21e2614c38af0287f96dd0c288dea2c13bfbb7810ce1d6e659ed82e5c2073c92"
     sha256 cellar: :any, arm64_sequoia:     "eb7ffd4b8a4f31ce85cf0395656bbc1fd5241fdc1b9f92d9900e813993d4e1e0"

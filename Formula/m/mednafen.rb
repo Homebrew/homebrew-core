@@ -13,6 +13,7 @@ class Mednafen < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "88f9834626664b8ffee2e276331c381e92f77dfc45239a175654d25f5a72c251"
     sha256 arm64_golden_gate: "0c4266946a01e3c9f3d1b47ede16067d3d0d3acd91edc819a5a7d4e344e9e484"
     sha256 arm64_tahoe:       "2145cf181313a45d6c144a8050fd7c81a53346b15aa5283772b2b3ed4ab7e831"
     sha256 arm64_sequoia:     "212f9102b71ec08e7ecc343d9a71dfae00d614b686d6ba493e0fb8634566c5fd"

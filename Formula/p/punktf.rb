@@ -7,6 +7,7 @@ class Punktf < Formula
   head "https://github.com/Shemnei/punktf.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7573fd0f4ff18c37a4c25becc53367fec84cf1923f1526fab802a405d0e77386"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "579dfb5f6e949e7519770d54878f05c1a3a3b76f63d5433b67dc80def4ffa7e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0bc1e636ada40b6160fec2095fedbcd472a369b61ec45a1464801621b89ea61a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fef7aaa4d61cf8f3bb0ebec8d120a4ac3608c7a98ed18fca64d83ac1840d5c4b"

@@ -12,6 +12,7 @@ class Libnftnl < Formula
   end
 
   bottle do
+    manifest_sha256 "7a07059fc445ea9fb8f792a5264149efe4b69d9c3f829edd40a2126117abf044"
     sha256 cellar: :any, arm64_linux:  "8bb88e18c2ec7f3ee73a0b4dff7c70bcafb1f837486d1f97284e8e028486a3ce"
     sha256 cellar: :any, x86_64_linux: "3b2e888c2d03cd2f07f1eac05e3e406aea7004d1499bbe96a08ce5230063366e"
   end

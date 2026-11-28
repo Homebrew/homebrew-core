@@ -7,6 +7,7 @@ class Libnotify < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bc040b6c5bafbfb75af08d3c133c6bde8656ce1b5bad4d4bfa94e14aa0cbca42"
     sha256 cellar: :any, arm64_golden_gate: "2eb6e99dd9d15ee38593cdd68239c88165e7ff5a132c35a2767fff539c3bb190"
     sha256 cellar: :any, arm64_tahoe:       "17d27073f8693a48fcb06242b0cf2f95f387c59ca1cdea34ba6f7ac6c37fcd2e"
     sha256 cellar: :any, arm64_sequoia:     "d996e1c3ff28aa9f40862aae4c4d38cb21d1cc9c56acc5cadb784e351e8f0991"

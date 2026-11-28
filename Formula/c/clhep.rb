@@ -7,6 +7,7 @@ class Clhep < Formula
   head "https://gitlab.cern.ch/CLHEP/CLHEP.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "ac574af63679fd73a2304a45c2c9b6082b4621c841ac1736cd37e4ab2ebc9c9b"
     sha256 cellar: :any,                 arm64_golden_gate: "651ec44a2cdc6afd711df121ccb7d68181212aee0ec4c095b58c2f00bfa269e4"
     sha256 cellar: :any,                 arm64_tahoe:       "cf183afa1e10e5cf5a22b0c8e56acd6dc3ee832cb38abc08c4f65ccc6d61be32"
     sha256 cellar: :any,                 arm64_sequoia:     "4d6bda58d173b42913d91dded7b7ad721b358260a8382934fafdb464cafbc786"

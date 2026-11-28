@@ -7,6 +7,7 @@ class Vitess < Formula
   head "https://github.com/vitessio/vitess.git", branch: "main"
 
   bottle do
+    manifest_sha256 "52a973a8a9500b1222754da61f4a19fe1eeadf11680154bfba45638a4607ecbc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b2268434c2e51838c54bd81784cb9892710bf172f87b931e943e2038663973c4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2268434c2e51838c54bd81784cb9892710bf172f87b931e943e2038663973c4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b2268434c2e51838c54bd81784cb9892710bf172f87b931e943e2038663973c4"

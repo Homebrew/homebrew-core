@@ -11,6 +11,7 @@ class Hq < Formula
   end
 
   bottle do
+    manifest_sha256 "9ffaa3018b5e0047a5a9c27847f3422313d8d3ebba7888b8d5ef62cc6cd7f13d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b42ee13a7bb2109545f8b549720df87124d3c099af6b3e4453a867de8fce6b67"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cc649ddcba40f11b96eb1ad1589f4aa507f4df907c67a249cceb9837f068dfe3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98303f1643d1cae4cd2c7c12b89eca81e9861cb85a3ff9259b7e91e21cdc81e1"

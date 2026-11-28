@@ -7,6 +7,7 @@ class Yo < Formula
   head "https://github.com/yeoman/yo.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9debcbd2ba4b9bf91cf1c8bd89ae33ca996c2abaf54cda4c1271876786078b92"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "179037665e2c984c829ce615b5068764c90ad3972d4bca9a1fa48452e76b522f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5b7987d0debf1e8b671ef5e14dbf896466c1cd55baefdb61c803f43f36ebc103"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5b7987d0debf1e8b671ef5e14dbf896466c1cd55baefdb61c803f43f36ebc103"

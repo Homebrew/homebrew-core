@@ -8,6 +8,7 @@ class Yosys < Formula
   head "https://github.com/YosysHQ/yosys.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9cc89bf41b6516278f1c9e4912d40a4358f37bfc5c1cdd55b27dbb825c6e773a"
     sha256 arm64_golden_gate: "653a24453a8b9125c352ab55d14c1703b4210b1c2f29c94e7b871f7c06a2b07d"
     sha256 arm64_tahoe:       "4032409cfb47e6d0d6b35eeb19a16c3d010797923a7a206d1ef30dd5df289ca3"
     sha256 arm64_sequoia:     "033dd90b9d15446fdd177f848624309cd372e2f70862e45e7395274e7bccea66"

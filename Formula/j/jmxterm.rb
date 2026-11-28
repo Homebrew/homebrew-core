@@ -7,6 +7,7 @@ class Jmxterm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d187d4f2906a5be9e4dac763ed016db0c2f051a415277f2f0ff522d881b9d81d"
     sha256 cellar: :any_skip_relocation, all: "03113ff040a52832b1202c64ba4b784662b455e6aea16641d42206fa7c770661"
   end
 

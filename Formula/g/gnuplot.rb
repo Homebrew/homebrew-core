@@ -12,6 +12,7 @@ class Gnuplot < Formula
   end
 
   bottle do
+    manifest_sha256 "48b1cebd169bd9554e23bd5d7e24862ce663d4a4b2f05b83a3a0cd90cf95555b"
     sha256 arm64_golden_gate: "2fd945496dc795654ebf62ecb365fcfb6fd7b37b5eed6561ccbc885e8dca2849"
     sha256 arm64_tahoe:       "b4699393b6588be003f891e0fd87836a10024d11e10b3cff71cdb9aabd53ac1f"
     sha256 arm64_sequoia:     "5359d6afc0ddef2ed2f1f283f9ca50b66d6acca3f72b8976ea6b8008e098d293"

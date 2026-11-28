@@ -7,6 +7,7 @@ class EbookTools < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "ae88edb85f02d8450dd1fee99d0efda4d58d0c5cd36183fa85c5cbd5b4530835"
     sha256 cellar: :any,                 arm64_golden_gate: "01f249ed6c2203782d233ea61448c56c40aba4204fbae934bdcf22b420b07990"
     sha256 cellar: :any,                 arm64_tahoe:       "9cac7c5b835702327a836ed085a05cf2e7198af37bbc0d1e5704b2c587e68d3c"
     sha256 cellar: :any,                 arm64_sequoia:     "71206983efece5f146c2ec3e0df4f41afa0a3d9332fd52ca9050f1dfd998e48a"

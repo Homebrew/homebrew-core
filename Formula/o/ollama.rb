@@ -2,8 +2,8 @@ class Ollama < Formula
   desc "Create, run, and share large language models (LLMs)"
   homepage "https://ollama.com/"
   url "https://github.com/ollama/ollama.git",
-      tag:      "v0.40.18",
-      revision: "924cc286cc592f49c481fa84e15fa60dbc75989e"
+      tag:      "v0.40.19",
+      revision: "8ae8acb81afba9c3c67adf08190964eb7d1207ef"
   license "MIT"
   compatibility_version 1
   head "https://github.com/ollama/ollama.git", branch: "main"
@@ -17,12 +17,12 @@ class Ollama < Formula
   end
 
   bottle do
-    manifest_sha256 "811fea96668959630292bbd123030de5b5636e4a0f51992c857420bafc73dd70"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3e364fdfeedd2b02b00615788abf9c36c53f88c4b6e6eac72a17a5d1ec369c26"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "230e204e7ac2f850733efa1def6a4354c0f138ebfaa4dc6aab07568ec6949973"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a09ff62d553e85771014c208a50882fbfbfece8c4a9f88efa651a61fdcbbac59"
-    sha256 cellar: :any,                 arm64_linux:       "f9059d016066e0c7b909922495fb8adbbd71a3082e84a7baab0f2467c3a4abe6"
-    sha256 cellar: :any,                 x86_64_linux:      "6a1d56214165ff160771b58304b85e0a39fdc810433f18e0d00a0ee9f4112d35"
+    manifest_sha256 "d82a065f2683b191616506b7b386bd8e416ffdc73dea3438c0ab8320a5903d4c"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36f170371d470f46c1369a842f45e79bf786967869c7857b5aeb46da2322159d"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "212874f7bea58aec849ac3f1b3e1a78f0899794303708fb03570380a87f4d4b5"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fb31057ff4b39d0fef7953069a235c76ab466b7364e4168364e13b38b88440c7"
+    sha256 cellar: :any,                 arm64_linux:       "5f6e5193ed680cec92b174a2bfe237adbe8fbb18f0499660c2f9b5f4d5c8356f"
+    sha256 cellar: :any,                 x86_64_linux:      "2947583ac47b9015b4f6ec1ce5ca681a6466bb1297073a604c52cbb8dd0c6f17"
   end
 
   depends_on "ccache" => :build
@@ -46,8 +46,8 @@ class Ollama < Formula
   # Pinned dependency required by llama-server
   resource "llama.cpp" do
     url "https://github.com/ggml-org/llama.cpp.git",
-        tag:      "b12651",
-        revision: "f5e6915c28f10330885fcb9243a93ae98d3115ab"
+        tag:      "b12734",
+        revision: "52f6e0247a5a7b0aecaa8e70ac128f6942899c4c"
 
     livecheck do
       url "https://raw.githubusercontent.com/ollama/ollama/refs/tags/v#{LATEST_VERSION}/LLAMA_CPP_VERSION"

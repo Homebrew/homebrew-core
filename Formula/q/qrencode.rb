@@ -9,6 +9,7 @@ class Qrencode < Formula
   head "https://github.com/fukuchi/libqrencode.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c623eadb6a21bf83cd35d02f62e3e4504eb69e2a25e15f95907c22e60e21c99c"
     sha256 cellar: :any, arm64_golden_gate: "11b9224caf25479dfb8b314fd62fe3550f99ecd9e84d8324f2af05040f7cbb98"
     sha256 cellar: :any, arm64_tahoe:       "52a9ea0465a3446c8b0930bbd7c0d5ac0c84c350992fe4937de39301758e2f20"
     sha256 cellar: :any, arm64_sequoia:     "8f2cb82a0924e1d5b2ce0f5edbc59884bfb35b5ab8a7dae5a7b3f362679e278a"

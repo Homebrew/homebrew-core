@@ -11,6 +11,7 @@ class B43Fwcutter < Formula
   end
 
   bottle do
+    manifest_sha256 "50a5b0d051155a35e9011bb8946c597b9c4cce0dff44b973b35054f83165bea8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8d3b3d9900452b2cb1f69d78cc5aee52e6d7a670846bd304f75b746c7f8fd42c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "57b8e25d937753bafc32ac5d300ea0fdac6352bcb4216eb12e56ea651f603e66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "736cdf5c49916cf6889ca822ad79807073a7468d804e1e68f9a33aba018cf83b"

@@ -7,6 +7,7 @@ class Yacas < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "02e3285e3ae6f69d191546b7d2069a471f31bda897c3db02eeeabfe08149d849"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4c8a15d8045ddbf1f7b27fe1d7f4eeff1fadcd20f735a3ba1f77d317ca3059a1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8a8b658cbf16d46fc9c8284203475de7487cdd16120d1e32af3334a71b9cbb31"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc6a29cf051c3fe413734f62fe49f1e06cbc42e8243e79ed514848dea52304a8"

@@ -7,6 +7,7 @@ class Astroterm < Formula
   head "https://github.com/da-luce/astroterm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4ba10a61a7b0e318a56340356c83d6508166f1adeb4f8db69dc12a79fda4f00a"
     sha256 cellar: :any,                 arm64_golden_gate: "52489c11882d44c2b4c42fbba0ada5a7045cab22cf7b25a8850832f2c3c071a9"
     sha256 cellar: :any,                 arm64_tahoe:       "366ef8ecc45c6c188f134156cc8562a4e3ce17934e4406c236969482281cace6"
     sha256 cellar: :any,                 arm64_sequoia:     "e5b2c209d0b5739bad1537dca88864d25d57002942479efe45dea9ea8cd583a0"

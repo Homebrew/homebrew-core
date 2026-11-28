@@ -13,6 +13,7 @@ class Libunwind < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b662ff2c6506d838aaea0db5085bc66b7890cbdda0cfdabbf1be9b8487f720a8"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "c36c1cbc4e8cc6072c609ecc76f2fd8546dad4e1cebe8d41cd69984dcba2babb"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "87c11a5130ea0663cb9e9b007d734470522501d25591b2a7f58034376f7aa3bb"
   end

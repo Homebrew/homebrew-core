@@ -7,6 +7,7 @@ class Doxx < Formula
   head "https://github.com/bgreenwell/doxx.git", branch: "main"
 
   bottle do
+    manifest_sha256 "245a6491e1b46f7cad15fe7d808723feb550deb2a4c8f2a6a1f02a562aa887ee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a71504468f72a946b7791d3957c7d389069e6f74c705b138bf283b25ecacc1eb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6be0a3aa1a03e30b38cb28427107453bcb32129ab15b54f5532ca9101ee3c177"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5fe939787e7e4ef12201afd9c362ae7ae9f94b3e060c7ad7bbec0937a5702d5d"

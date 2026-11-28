@@ -9,6 +9,7 @@ class Liburing < Formula
   head "https://github.com/axboe/liburing.git", branch: "master"
 
   bottle do
+    manifest_sha256 "16f0d258144f308a8350d1b62fa2df40a9d9cc30e33f7f1a1daeae3e1ac29140"
     sha256 cellar: :any, arm64_linux:  "5c14e93ed3fef11f661c7a2c57683d4c6aae389719b00464c7669769bd25a483"
     sha256 cellar: :any, x86_64_linux: "fd4d058f57bb17d59ad2ed868146a48b857b9a7caeb38917d7555fccf2562e15"
   end

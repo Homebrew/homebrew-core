@@ -7,6 +7,7 @@ class Modsurfer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e485a91e0d19ed08a0946a0db84d9359ec2db312550b579819b2763c5b0939b1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d561740c72ebcf3a01fea7db5ee11eca2486a607a20b94161b87af75717d8e2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3e519824fac34bcc80c508da8c5c2a1fd4f09aac1280681f9c26874ee29e4e40"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d25c85d57efbf38fa29fbc83354de21d74379c9ebe208603afe68225acacb993"

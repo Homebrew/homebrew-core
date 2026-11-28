@@ -7,6 +7,7 @@ class Gomodifytags < Formula
   head "https://github.com/fatih/gomodifytags.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8e8c9bccee775a0c70dcbc03feabd18ae92b1cef22421d8eadf54d2de79e6be3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bc55c4951c0e1f7e2e55e4c4e4f129e0f4148859fa0ab013924621ebd4b4c0ae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2bb3e43ab010627c5f030b08b5dda260dac10c5035303c9188eccaf2e0ab0e04"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b7474e31cc4b65ec1f641c57a371aa13754a0044cfd63f611f29e594e799ea7f"

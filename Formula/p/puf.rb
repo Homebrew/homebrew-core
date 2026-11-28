@@ -6,6 +6,7 @@ class Puf < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "05c4ec0624f8b90b953e4902ff4113172fa7b0440dacf251801a1ae815a2cbf9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a1271666f819250f5e39d68c854e2127b7708e36a758de79a0dad21aa01780d3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ec01e1392c1d20a55a38aa3f02102a9687184966b760254a2fb280c37f48da73"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "148adff9f4f307fc6b8a94bf5a5baa2c66dd8f3aee810c349a4cc3a356517d90"

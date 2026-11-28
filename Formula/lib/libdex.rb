@@ -16,6 +16,7 @@ class Libdex < Formula
   end
 
   bottle do
+    manifest_sha256 "7d0d687b9e8c0a7bfc4210c4ebdc0afc19f702c8d5ae232c605d3b7f70758188"
     sha256 cellar: :any, arm64_golden_gate: "6d403716b8ff08c22e9d74d1e99258ce473f212f26d34d2ca75732e5682a0659"
     sha256 cellar: :any, arm64_tahoe:       "7dd82413f48fe4c16e7d254d00910ef2c83cb712694c06242645f46494f8b286"
     sha256 cellar: :any, arm64_sequoia:     "95db5c7aff4f53550fe217d7bc07cc3a44cce1eb2af010223cf76fd9c65b79a7"

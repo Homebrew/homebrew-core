@@ -9,6 +9,7 @@ class Abseil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "221050bd509b0c89c924bac4e58da97653d8ddb27037c0b8ca6230848ee7dc97"
     sha256 cellar: :any, arm64_golden_gate: "2646bd89795f0c7a87af89580cd3f14a29eef006ab76fed189eb1e70250c9fbc"
     sha256 cellar: :any, arm64_tahoe:       "ba58c7ded7fbf67a9bcd508055ad1ebd2b3503bf20e0153a92386cc9459d6568"
     sha256 cellar: :any, arm64_sequoia:     "8a6b64d5f9d44c579343f1ffa7587d08be653c193f5af24579f6ffc1530431ea"

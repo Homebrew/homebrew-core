@@ -6,6 +6,7 @@ class S3scanner < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "571c44ba76223d8b5fc2cb479cded6eb4e998411af81f035a8fa2a2235c60fb4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7bdf764beee77423769acaa6535676a1a82c3745d0cbb9d340adfa2ae1a9357d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0510af529926557aa5c049cf576240df2a44f0d48b2d978cbd4dbe8bd3ed84f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e8d161cfdd4356026c4625343354a2c58c59cc07542cb5b29b7117acffd19b3"

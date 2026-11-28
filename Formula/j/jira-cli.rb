@@ -8,6 +8,7 @@ class JiraCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "42f4afbfb177a363ff6c0419a0450e8a2d3935d4ff97d891e46624796e094ce3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a71337a0ac787ea86414d2b54603fc4dd0bca705b72e3661d63fcaea1140c367"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "83bde3e196ac3281f1a71331661523f60660a8a0b701f7d0560fd81d74fdafb9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2091e947050eba96546cfde048c686b091d3328caa65afca1a9b7de37214f3bc"

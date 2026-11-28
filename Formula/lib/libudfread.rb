@@ -12,6 +12,7 @@ class Libudfread < Formula
   end
 
   bottle do
+    manifest_sha256 "308ab7e6c6851f6343cc3d4d09e4b10841f6ae4457b52281b0497f570e0293d6"
     sha256 cellar: :any,                 arm64_golden_gate: "bf7577c2746297b4a52b3bc2afe8eeca2cb70f8f66e459684db604eec6f6baa0"
     sha256 cellar: :any,                 arm64_tahoe:       "c30a3d1c34e209bd79301f3626e0e617ed841979ae1e33b0acc066c9643f9dea"
     sha256 cellar: :any,                 arm64_sequoia:     "a563689c17ca21d204a228773ec9380b5b0880bd3b0ab322170f8596be7f844a"

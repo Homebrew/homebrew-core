@@ -12,6 +12,7 @@ class Mpegdemux < Formula
   end
 
   bottle do
+    manifest_sha256 "409bdc6f547d9f25d101e43eb0b8cd5aefc4bc0953310a354358a0266bc4e5da"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "127aaaa5d59af67c74f239360757f70dc669556690d40a2930a9b944d5e29006"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8009d2002ba680af6e0ef4d3addb176638b15450967b07caa5817f95606e80b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "596de6513b152e156fcffbfb37e42b097606fc3efed168190998049ddef8b9ff"

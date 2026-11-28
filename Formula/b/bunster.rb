@@ -7,6 +7,7 @@ class Bunster < Formula
   head "https://github.com/yassinebenaid/bunster.git", branch: "master"
 
   bottle do
+    manifest_sha256 "27ac092698aeae32bfcf912cd17d2ef07b0d04c1341051b67b96bd533c0c37a5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4dd24e47cdf7ee5e4566461053c3eb1aa244f5987985456cd4b195f2dacad9b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "358db3b08f9fabcf962e0342003873fd4c2aa20cad61a6bf41ee2ae61a8b53f6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b582d338176ba738133ad00602adf2bc34f43c1ea6f56b6bfda7c65a05474c8c"

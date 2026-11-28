@@ -6,6 +6,7 @@ class Jscpd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "608caaa9e01fc1a7ed3780e6c4cd941d14fd21217f124ca0d2f224c1b05938ce"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c88fe70cf25b83ee86930e1a1e159d8c52dc399611a9738ec0d110d8baa189f2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "518dd55874820ecac67f74bd25473243ee6f0f8cd2b005dda90b992c5c77a68d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "127753b8923a80b214f3ce3e0569d7d7788071d9a924259caa42f759b38eb94c"

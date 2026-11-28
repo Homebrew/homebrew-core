@@ -7,6 +7,7 @@ class Dasht < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0ef97f0e8cc668e22aeeeac5270757615ce0c22c515dee38879749fbe4e9e630"
     sha256 cellar: :any_skip_relocation, all: "14af08c8719ce7e688faa8b061141624a912960bc57d53499161428f08820b21"
   end
 

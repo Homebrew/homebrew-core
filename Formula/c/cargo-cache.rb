@@ -8,6 +8,7 @@ class CargoCache < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "94288ebd6e542cb334f5ef341da20390587e5208a1859c159f5d19b43ef7acac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a407781fc8352e519cd14da35f9b90ba2b79cce80648ef012cb6f77c13b6abb4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ae58970c1cad67cab7d1c1ed0b354989d34eccfcdaaead753754d12eca1aa2b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "133e58a5df245b9b9dbbd403e1046c33783a29c682abfb03a6b9242da7187c15"

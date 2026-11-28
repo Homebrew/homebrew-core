@@ -13,6 +13,7 @@ class Dlib < Formula
   end
 
   bottle do
+    manifest_sha256 "53512bd5bcafc3d8e3e3b8b78a83633b7981105eb5d8802bda191c7c07e95831"
     sha256 cellar: :any, arm64_golden_gate: "b6f6b2ed845eda910d5b67434ea9909cb70a5cc08fd5f1e70f04fe2e0e48b27e"
     sha256 cellar: :any, arm64_tahoe:       "c06e88b703bd85b9c2909ce4c683972ea65eb5361f2f00c96bc2f7a5b13bc687"
     sha256 cellar: :any, arm64_sequoia:     "e429fc1cbf6dcc70f37abb4d99b42e53f40724880d4145a29e6bdbd296087534"

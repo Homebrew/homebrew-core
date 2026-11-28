@@ -8,6 +8,7 @@ class Libimagequant < Formula
   head "https://github.com/ImageOptim/libimagequant.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8b04c6be7deaf9238e15f73c653054f98710f77177585f27611a42431c78917b"
     sha256 cellar: :any,                 arm64_golden_gate: "bc199055cc07090e3b88a54d48ae3d04502ff16dacb5c851846dc2719985cb09"
     sha256 cellar: :any,                 arm64_tahoe:       "9fe68c59c0500f834deced30fcd58c965148988f238d51791d39c6c284d71684"
     sha256 cellar: :any,                 arm64_sequoia:     "35636b9bf13cd99e77dec879e87736122925c790fec18da07dbcbea76083bdc6"

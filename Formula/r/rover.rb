@@ -12,6 +12,7 @@ class Rover < Formula
   end
 
   bottle do
+    manifest_sha256 "5212a2faaa67861159762353271d49efff55d2f741acef14290e51a3ab774b34"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "534fd31be00de5a2e3c2789d60f25fa714aa9a9c07703cbcb314732499944460"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d6052c6cd4a8aeb3740a73b3d83e5ce98abee0bebcad23074765b3684dacbaed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b6a48a1c70ec98fc27102a3e45ba985cc397bacc549dcc90088423c4b47a3785"

@@ -15,6 +15,7 @@ class Tailwindcss < Formula
   end
 
   bottle do
+    manifest_sha256 "2544fa00e47254b9bbc278939331b2c2505d1296d7091246741ee3ebc516831a"
     sha256 cellar: :any,                 arm64_golden_gate: "c16b2dbc4151f2e39b77063afc398a6cd8b26f2c12c01e58484c3b060037da5a"
     sha256 cellar: :any,                 arm64_tahoe:       "c16b2dbc4151f2e39b77063afc398a6cd8b26f2c12c01e58484c3b060037da5a"
     sha256 cellar: :any,                 arm64_sequoia:     "c16b2dbc4151f2e39b77063afc398a6cd8b26f2c12c01e58484c3b060037da5a"

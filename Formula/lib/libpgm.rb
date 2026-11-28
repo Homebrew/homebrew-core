@@ -21,6 +21,7 @@ class Libpgm < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "f5bd10c106e4551bad401637cb5597300d0e8cd46fce235bef1ecf9ac6379673"
     sha256 cellar: :any,                 arm64_golden_gate: "113b59c69ed9e2a066498229dc0c6e200e5fdc2b59c7210aae8d4d4efb08769a"
     sha256 cellar: :any,                 arm64_tahoe:       "d78bfc9ac9873ac2b3756155e86e9df6fca639872048aed76446856e08635588"
     sha256 cellar: :any,                 arm64_sequoia:     "0f2266ecabc1128e3a70ff8e31864e6cd556bd20b66cc2c74fd32011b2646dc4"

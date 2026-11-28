@@ -37,6 +37,7 @@ class PhpAT84 < Formula
   end
 
   bottle do
+    manifest_sha256 "8bb6a26cfb839b03040afae882aba851112a4d0e44948d9e4e22f2ecf9c49482"
     sha256 arm64_golden_gate: "672748e6b5adc2a314f0f72beeee4abdf4d36705e3113ae3f33f888823a62bf1"
     sha256 arm64_tahoe:       "25b725388712e0fa450e5fc3d6a2b21ff30eb1151d017539cbd046b3fae33e3e"
     sha256 arm64_sequoia:     "8b31fe501116a173559f711fda77f7439aefae0c24a7d2ab8fd4157d312fb20f"

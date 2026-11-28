@@ -7,6 +7,7 @@ class Neverest < Formula
   head "https://github.com/pimalaya/neverest.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ac666e3b2d8aa079fbca3f10b6bc5af1d3488fd24a265057c723e3a324d4704d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "8724834d76f0b3ae85de2cd78efd915e013ea6e73e6fcc4aace2fe2bca4ee2ac"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "9ea446d70657b4a63b0cea2a1f008409435072a5e99610924f6b5b1dc0efff1d"
     sha256 cellar: :any_skip_relocation, arm64_ventura: "4c4727f47e9b3c380fb966ac11ef3196bd253849273c5a129e1cfe2daec11d81"

@@ -7,6 +7,7 @@ class UBootTools < Formula
   head "https://git.u-boot-project.org/u-boot/u-boot.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5f7ad0446d8afe9c8d63910e6e2f12e3602c9281aba500a90b158295725ad346"
     sha256 cellar: :any, arm64_golden_gate: "44227749415024779958ece965c1f4d57002a27fe4c13eebfb495173ee84b76c"
     sha256 cellar: :any, arm64_tahoe:       "43425048d4b74664ee9f14a37383edbe1b38fd57747246e4a81deb074c133899"
     sha256 cellar: :any, arm64_sequoia:     "200480d90561d05d5879efb4c30c3157b7d18a232c2fa2bec85c2d932c61f0e6"

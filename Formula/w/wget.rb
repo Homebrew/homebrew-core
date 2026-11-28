@@ -19,6 +19,7 @@ class Wget < Formula
   end
 
   bottle do
+    manifest_sha256 "27a700573b7994cee5ca7e782b343696e2f9391ca3e8c49983cbb7079584bce0"
     sha256 arm64_golden_gate: "d89ea78fbc8ec79a80d52c7dcaa28e50c2bb435acd1470ee2cae4ef7646eff7e"
     sha256 arm64_tahoe:       "38024004cafd418d1ce2e2cd6b11ecf8a5e6a24d2641ba624dd016bb650d2240"
     sha256 arm64_sequoia:     "899cfc98a094aa22f54d7b46762f2e9529dfa621bc2103d2612747ad251c633c"

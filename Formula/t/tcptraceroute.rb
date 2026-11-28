@@ -27,6 +27,7 @@ class Tcptraceroute < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "cec54722dcf0af39d3259059fc818bf49da00fec1e632ffac3c3b7d6af9bb975"
     sha256 cellar: :any,                 arm64_golden_gate: "8882b1af8dbd40d1ea98492aea68a6ec0103605221ee08e21f997544fc8444a1"
     sha256 cellar: :any,                 arm64_tahoe:       "3487da59a7faa8fc676d540fd1b5f310b62b845250e1916db5dfbb192a37b76f"
     sha256 cellar: :any,                 arm64_sequoia:     "07b6c54371373c5e7e23fba003ca0177fc103f0b9c84c22a4fc1d718fd96bf00"

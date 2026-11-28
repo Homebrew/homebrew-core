@@ -7,6 +7,7 @@ class Bossa < Formula
   head "https://github.com/shumatech/BOSSA.git", branch: "master"
 
   bottle do
+    manifest_sha256 "866f35b5e65cfce0b3a98ffb6d7b34e7abd0fcf760aac99889cf782865a8a73c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c355cc965b0a83bfd28a145b56a7c8bce2082b3a25e428d083df9058a9bb126f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ce5af8cf28d6afbc05ee144e859c878eaf19ced4bdd3eac16ef67a0335f62abf"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "72aece3647237751f8f18d1cc9af56dfecbc84652321ef43137eec8c47fd7922"

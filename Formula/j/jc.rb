@@ -8,6 +8,7 @@ class Jc < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "5cbdb3fd1bc5bc87e0d611cceca3d77fab313153480e0e0074f622e4619a8026"
     sha256 cellar: :any_skip_relocation, all: "77e9fc9841bb12d5289f4112308848f0bd88c3c7d360b8fd7729eeb56b264e8d"
   end
 

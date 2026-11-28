@@ -12,6 +12,7 @@ class Xa < Formula
   end
 
   bottle do
+    manifest_sha256 "f23e2c1f762f40a44a704f532fdac52cedfeb0d3480f9b45935293b83e539f0c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "81a8305c109fb1d5db2c7888fd8ebe73e414b272a268f99284616f833dc89923"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dc108ff2d50d93bfab68fa7e95a6968a5adb2dcc3a8a8fa2fcb4ad1f6c500517"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e7cb61c60ee5fc683a25d3b2569089a26d4cb1fad041c31c42c9bcfd738ff4d"

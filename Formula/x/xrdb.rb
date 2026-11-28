@@ -8,6 +8,7 @@ class Xrdb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "91319a564eea83040cf126c451d94d5129df7f52e14e620acf96875ce3de304d"
     sha256 cellar: :any, arm64_golden_gate: "de514ce3ca23012eda0c38f03e40c5865bb8ee8a9299b449a3162c61356fcd55"
     sha256 cellar: :any, arm64_tahoe:       "7ddd048d9e571628fea436be64442dae27dbcc875a8d2025299e2881645436c6"
     sha256 cellar: :any, arm64_sequoia:     "4bcb60c61e5d6ba2158bcad4ea980f315a9b2f59ced380856ca9fa6b90bc593a"

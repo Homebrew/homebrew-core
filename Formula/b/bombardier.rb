@@ -7,6 +7,7 @@ class Bombardier < Formula
   head "https://github.com/codesenberg/bombardier.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d57da6cdf321eb0923d053cad5acfb6d1fc0b26453dd7909f0812f8f0517fa2f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f07b106fd4f4be61a66daa9a1ff5be87634c27904428e3971969f9df4b165876"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b978ad033988b894ab8f8010b68e50cf7a3485ac575e7d1e4a0118913a400e1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9485c29e3e9dadce928f167deea422c02238f212e5cf46b51de4e3298e25b2ec"

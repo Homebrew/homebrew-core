@@ -7,6 +7,7 @@ class Coffeescript < Formula
   head "https://github.com/jashkenas/coffeescript.git", branch: "main"
 
   bottle do
+    manifest_sha256 "054636f83ffd7dc6492624fde35e2ece8fc9a1052861db2ac4740538df538a47"
     sha256 cellar: :any_skip_relocation, all: "290c9308c48324c3b433bfc3f60f1f006f3e806c34f16f80dfdb2567c3c9ffa9"
   end
 

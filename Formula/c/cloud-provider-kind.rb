@@ -7,6 +7,7 @@ class CloudProviderKind < Formula
   head "https://github.com/kubernetes-sigs/cloud-provider-kind.git", branch: "main"
 
   bottle do
+    manifest_sha256 "553e2ab75f0922727971b5a397083e2c51aa79f0c03dd7462a2ff29b93a8de5f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c497e9ef00709e97cb72209c64cd596219077b8db62984f9cbefe544a390fe5d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9363d9263416f89282ebea7e0600f029bf6edb850a6306bb9d407b05b6ac53ce"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36767915314faf5005d7474fff9598c17145243986d4c50c283bcf5d0806baa9"

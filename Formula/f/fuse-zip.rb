@@ -8,6 +8,7 @@ class FuseZip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6fda355071f8407e4c8dcde8cdbb9e4ee39428b1d23f0f8f326aacf8b03fbe59"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "b9ea1815940249c680e5f6524a9da80d600f3dc8a1d40d89dec4b49de64b4d66"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "0e87dbeae5e24ded35705e704caf66faec39dc8971742ff43c7a45882ef6e349"
   end

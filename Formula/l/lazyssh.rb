@@ -7,6 +7,7 @@ class Lazyssh < Formula
   head "https://github.com/Adembc/lazyssh.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0abe7123e4864b94023950c0bb850475f79622d6eedf78266fa576e03ae8159d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b123005eec6584ae8f49295526684527af292a306e9f90ee6b90e954d1023312"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3b9e98e23b086b317416d036013ed8651e58aa1de3876fa42b444bbec0439ee8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3b9e98e23b086b317416d036013ed8651e58aa1de3876fa42b444bbec0439ee8"

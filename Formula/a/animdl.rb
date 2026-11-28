@@ -12,6 +12,7 @@ class Animdl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "14ce6700f0ef0560f502252a1d1f26026b41d0eb598a444b39dc480c91514c71"
     sha256 cellar: :any, arm64_golden_gate: "bf36eed3bcedf3c138f265c904214bd94ec03e5caefad1e6fb3f57df9e38c2ac"
     sha256 cellar: :any, arm64_tahoe:       "1464716e132b361ec911d03da71a5d134bc7feb3d5f4e89d2fc4a2cdb536e89e"
     sha256 cellar: :any, arm64_sequoia:     "02b9d736595715cdd28bf3b3a0b178ccdcd48f359b5542fb061cff13e872cacd"

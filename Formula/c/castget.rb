@@ -63,6 +63,7 @@ class Castget < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "458f106ef6631a2778cc7bdef6ccc28f2e274119641c5b8b4182541991d07df6"
     sha256 cellar: :any, arm64_golden_gate: "73ff49a2510eb9e6061af65d7e75baef771761272773580c15e7bb82d9cb61c5"
     sha256 cellar: :any, arm64_tahoe:       "107a3398bb0e141bf22a51e4d3b01e6245fb76135167ff49df224b26db1edf55"
     sha256 cellar: :any, arm64_sequoia:     "9e1f0da319e1dc24196e32a50e69bece2fb6b49ce4b41fe4b7e49925b6f1b85e"

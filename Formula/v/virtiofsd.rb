@@ -7,6 +7,7 @@ class Virtiofsd < Formula
   head "https://gitlab.com/virtio-fs/virtiofsd.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ab59268f9fe38e6128ee8c8c3e617dae98444eb2cc058156d1e526006b5006a5"
     sha256 cellar: :any, arm64_linux:  "5234dc848f77555c4fed0b8ca3b15804a0050cc38ba7619f442b7c8ca7abd348"
     sha256 cellar: :any, x86_64_linux: "6ff40d1e12a7926fa221e64926a88eb66424a3d88938a039608776de7400ff12"
   end

@@ -9,6 +9,7 @@ class ActivemqCpp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4a6b1543a43f9496e39e6630cd6dbf2bf10d348b879d71140e42e22caf7298cb"
     sha256 cellar: :any, arm64_golden_gate: "6e323f753dd000afbbdc44da469b9fa7ce351c2dfa8eddaba51525570b11a972"
     sha256 cellar: :any, arm64_tahoe:       "9c9a911b431b088b643b759c0ae1a33e0ed6933671138960ba934dad44b32ad9"
     sha256 cellar: :any, arm64_sequoia:     "c2ffccf0fbcb9a47d9d9c3ed078bc26579d49e6aeeed67d9c521993d4de17bf8"
