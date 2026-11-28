@@ -1,8 +1,8 @@
 class Sacad < Formula
   desc "Automatic cover art downloader"
   homepage "https://github.com/desbma/sacad"
-  url "https://github.com/desbma/sacad/archive/refs/tags/3.0.4.tar.gz"
-  sha256 "31780c419c4ca14310c8ac7023faf03ecb17a0098013f134af9fa750810d322b"
+  url "https://github.com/desbma/sacad/archive/refs/tags/3.0.5.tar.gz"
+  sha256 "4d025914e24fe5b47c8a76f24c7b0931528e4d87df51723280bae2f501f51636"
   license "MPL-2.0"
   head "https://github.com/desbma/sacad.git", branch: "master"
 
