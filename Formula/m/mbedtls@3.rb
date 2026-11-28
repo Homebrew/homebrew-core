@@ -12,6 +12,7 @@ class MbedtlsAT3 < Formula
   end
 
   bottle do
+    manifest_sha256 "6920c82d521e75e3eec45a12a4245ef5fa5d74b4fe28d1054d3aa5d72125f3c7"
     sha256 cellar: :any, arm64_golden_gate: "fd87eb9ce5612a9510d85130b036d8c2b34798d3128f53d992702c2f8276e5f5"
     sha256 cellar: :any, arm64_tahoe:       "962810743b805cd8ddadc42b8e3c202463d521557a23b7ea972fa9ee2375989f"
     sha256 cellar: :any, arm64_sequoia:     "4f12bfd22f62f27d11001294032c6e5fc6fa0ff4e2709c8bee29680765ffe787"

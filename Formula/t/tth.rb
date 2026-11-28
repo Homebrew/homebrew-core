@@ -12,6 +12,7 @@ class Tth < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2faa22a4633e6ae014f2b978a406bb2afedf3bf1d9c69464f4de32e3d6e62778"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06963633191d990f5f72bb63fb68b2a2488fe7be56eb082453cc87c0c695cc49"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78e1ec7d5be8797a77a217fcc2554a1449311cd638fba7ef1f3c9a706c50f027"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9de28731b96776948549eece755898c358e0df99e6078f8b6eb07baaa489efd9"

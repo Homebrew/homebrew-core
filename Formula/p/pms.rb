@@ -20,6 +20,7 @@ class Pms < Formula
   end
 
   bottle do
+    manifest_sha256 "6b1490054a2ef13decaf14d5a29ae2b3dad3775d561ec269eee7b37f37da9b84"
     sha256 cellar: :any,                 arm64_golden_gate: "9848d0c86513725f1c44483d3d060f30665bf8445aea67a33172feb0aea00339"
     sha256 cellar: :any,                 arm64_tahoe:       "9ea144b1cf1481050e378149ef8731963f537878c38d74faa182a687e85d64a0"
     sha256 cellar: :any,                 arm64_sequoia:     "24de40d237ca53721190a990da548b37b777fa60e7599c9c0c0dcf289333bbeb"

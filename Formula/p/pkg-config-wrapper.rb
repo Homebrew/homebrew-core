@@ -13,6 +13,7 @@ class PkgConfigWrapper < Formula
   end
 
   bottle do
+    manifest_sha256 "e005506bbba7c58d570c121fbf9f4bb1d6436a89f961531c592fd99e7ace824f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "eaa5fece3f6bf6d26e25c19178cb1db07edc5100e00455fb3b591cc1084f59ca"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eaa5fece3f6bf6d26e25c19178cb1db07edc5100e00455fb3b591cc1084f59ca"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eaa5fece3f6bf6d26e25c19178cb1db07edc5100e00455fb3b591cc1084f59ca"

@@ -11,6 +11,7 @@ class Tdom < Formula
   end
 
   bottle do
+    manifest_sha256 "9740f5a81594fd0469c9590bfd3ab7dc23c8e93184cae92b53df39b09c3ed70c"
     sha256 cellar: :any,                 arm64_golden_gate: "add55f5e88b5fa95d2ef948741c23f3765c74c1cf5182955d72cf6f360b1101e"
     sha256 cellar: :any,                 arm64_tahoe:       "7cfaef92f1e79bcce4c0e7ed3ba44b81b68d2a8b0f955d92fd6463f5c3e31cc0"
     sha256 cellar: :any,                 arm64_sequoia:     "132444e6d526fd8ab26c5cedbd60ea6eb070689e8551eed98eec3e3dbbb75790"

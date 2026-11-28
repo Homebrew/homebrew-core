@@ -8,6 +8,7 @@ class OpenclClhppHeaders < Formula
   head "https://github.com/KhronosGroup/OpenCL-CLHPP.git", branch: "main"
 
   bottle do
+    manifest_sha256 "081f73a9083799e008b15f4db20e06682b97d8d5fa844ced8cbcd411f84afc03"
     sha256 cellar: :any_skip_relocation, all: "18397e5be17e6421fb8a654666530d31d2b94916b2f877ecf0f8ba2828f9ef69"
   end
 

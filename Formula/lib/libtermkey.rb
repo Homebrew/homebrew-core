@@ -13,6 +13,7 @@ class Libtermkey < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b183b29ebadded0ad7c648e56c554258d9fc24cce0cca9fea22b4db423e2894f"
     sha256 cellar: :any,                 arm64_golden_gate: "b5fa989c3e5d3a6adea3835c8c02eff2fd69ab48b2059145c14ef37f5400b79d"
     sha256 cellar: :any,                 arm64_tahoe:       "3f3b0155836ea23f051a5b94c6129d6ed1927f9daea716e1f72634470c7557b7"
     sha256 cellar: :any,                 arm64_sequoia:     "8c57ec64138dc53f48eb64c8dcfb06c3da89bd5cf9cdd2c6187adb2d7b09c3d4"

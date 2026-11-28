@@ -12,6 +12,7 @@ class Bibtex2html < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c1a618b73cc1b6777b6939355ef4e0c63192b15a4d7aa941e34e5e6a35d22372"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e1e7cddc8dfbb810b84e6040dfd76f4fb2b722d201d06fee8aa6e093c82ced43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "261c680993c384f4739fb747b85d0c6b346e5075a0450c588d4cd25093359d30"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ec23acda42eaa89ba7dba681bdf117a0abd5b083e57f718ab35c5402d31e1470"

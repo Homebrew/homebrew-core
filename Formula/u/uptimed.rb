@@ -7,6 +7,7 @@ class Uptimed < Formula
   head "https://github.com/rpodgorny/uptimed.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fa018b094e84498bf1e52555e60102ed3db8594f9765b6042f01b790965f4ede"
     sha256 cellar: :any,                 arm64_golden_gate: "0eaa92c8dd50e6622735b5eaf292c68cf50be9ac22898fd53f6882453fc4c9dc"
     sha256 cellar: :any,                 arm64_tahoe:       "1a4da6e33e3e7435bc5113e5188a66010b6040ca93d94516083b81c58b054141"
     sha256 cellar: :any,                 arm64_sequoia:     "ee7bb2f7dc9f48106feb78d76476b6adc63ac69234e0b09e4a032479175aac45"

@@ -7,6 +7,7 @@ class Darcs < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "19abf8825f6dc4027b8898860901a9882bf59e7bdb257f6b260f026974c8fa73"
     sha256 cellar: :any, arm64_golden_gate: "d20671a904d62e1da5f4e79ead1652d06ee82afb92c955bfdda9ab609d2fe7f8"
     sha256 cellar: :any, arm64_tahoe:       "15d6477c7276b36495d448682824d46e22025f40fbc2c06db2b6555b3474e41c"
     sha256 cellar: :any, arm64_sequoia:     "f6e5bd3f5eeab927c43ca8b9c4a5ec1823f27ba058aaa31d66b355a365a16b19"

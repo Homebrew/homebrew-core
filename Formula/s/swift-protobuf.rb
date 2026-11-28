@@ -16,6 +16,7 @@ class SwiftProtobuf < Formula
   end
 
   bottle do
+    manifest_sha256 "7be4c76ff3fa03c34ce517501dfce8349479489d24127862a7338921234d65c0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a381e7a32d29722c1b71e3c28f6203846d589c2bae75a457ea954c2158f71b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2be933e858ee1a4c059147b92a14dddf89c4d66421b64901e27ed8b2fbbb69fd"
     sha256 cellar: :any,                 arm64_sequoia:     "1d1b10040f31ea241f672c6a183616d3c9c7d67fcc77364297a9db4985bc9301"

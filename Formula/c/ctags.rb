@@ -32,6 +32,7 @@ class Ctags < Formula
   end
 
   bottle do
+    manifest_sha256 "9c614101e8e58d35d31d0898c7c7859bd83ce29c3dea64217010c0547d76fdbd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "66d41fb531fe8d19a5b94f45210af459cf80df7a4d3b7cb1dc63b77719343226"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1b09e6e1c3e9649115863ee3cea2062958a73f832210c98061679f217f3ad98a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "614a735ab93afb5ed2a2f12a66819e0b35a1c644021670057d0cac0fbe9910ae"

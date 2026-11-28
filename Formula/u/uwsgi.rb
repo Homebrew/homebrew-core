@@ -9,6 +9,7 @@ class Uwsgi < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b275b1c7e837ecadec3f09236c8a9f6a9fa23f87e08e9a7c14a6f253457ecd29"
     sha256 arm64_golden_gate: "c3c4882b13f589ddd83b30b7a0669f3eeb865d8d97b57709244491a1c5539584"
     sha256 arm64_tahoe:       "13c8016763b564bb5eb29276015851074a7324f85d39ebe01d3e663b3bf111fe"
     sha256 arm64_sequoia:     "2c982164edbba34380742406043c0852215d0baf6e118e2f1620615c59fd554f"

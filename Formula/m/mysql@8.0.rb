@@ -16,6 +16,7 @@ class MysqlAT80 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7ab791fce23e14cf54a2d878aaf70f22d32c497f4e4345760876283ca49c549f"
     sha256 arm64_golden_gate: "cd84509234452aee69c602243d6ae00bc79d4ad51aea67e56dd46b81ba8b815f"
     sha256 arm64_tahoe:       "4a85d1976fe1daa64777c539b1059267e240de623a83879c0743b8ef90ac632a"
     sha256 arm64_sequoia:     "4f53425962642e737efaebb71b0a7a00e70cc4b5ef705cdc2d9ed64708211ca7"

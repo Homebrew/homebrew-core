@@ -7,6 +7,7 @@ class Elm < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bdc735fb2bf9972cb75e3dc2afbe0efba1707f91bfe7276251f42fe131921258"
     sha256 cellar: :any, arm64_golden_gate: "58aab6f16a5900cad12eb45300f7d80ca00cbf4ab993cda6b4a7ec0ef98963ad"
     sha256 cellar: :any, arm64_tahoe:       "d7269573de9e73adb8940893d7009eca38c008236e8738119ab02e9f5c77d057"
     sha256 cellar: :any, arm64_sequoia:     "71ef1668e5f6c738e40bbd154cf72e94f0c4e2616b295c5694b2319e943235ee"

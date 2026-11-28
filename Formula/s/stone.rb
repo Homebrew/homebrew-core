@@ -11,6 +11,7 @@ class Stone < Formula
   end
 
   bottle do
+    manifest_sha256 "6d31aa2d4f508db9c87ded968dc023bc4698323911205dfacc3538b4a4a8cb87"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f8b3a763f4e38d3334c4ba9f0dd12dbbaf4de36aa9c38f0a9e626ad8e88f845"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6fb8cbc29b5fe932beb7b3af3f5d6c2d19bb2498bbbbba15ea02c75c16a8a684"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ea5e1f4e87879d1281b96a0ee7950c74e639429d622fe4e4ecfa2c2155ddc051"

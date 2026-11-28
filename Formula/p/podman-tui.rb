@@ -9,6 +9,7 @@ class PodmanTui < Formula
   no_autobump! because: :bumped_by_upstream
 
   bottle do
+    manifest_sha256 "6e5b74f5066c058af9a11a214dfe6df656c836d4344a05c7924a6714f9d04c8c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d81002f5595efd25aab4539662c23117eeb9ce6cc6c34fd798184e03b8180220"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d81002f5595efd25aab4539662c23117eeb9ce6cc6c34fd798184e03b8180220"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d81002f5595efd25aab4539662c23117eeb9ce6cc6c34fd798184e03b8180220"

@@ -8,6 +8,7 @@ class Mjpegtools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "71927f226701c6f98608ace7afd171240b304ca95e7e76e18c8c1c01e027e330"
     sha256 cellar: :any, arm64_golden_gate: "b837a632e4043b64a8eb3a6cc1fc8fd27358c6d6a79e0728ed8364b839afcfd1"
     sha256 cellar: :any, arm64_tahoe:       "2abecdb0e554d4f388fff7348b628a47fb7895743cc8868541724ce4d85ae88d"
     sha256 cellar: :any, arm64_sequoia:     "c47b25ab68df1da19d4fc125415cec33f6c19dfdb61e7df83a67f34571fb1540"

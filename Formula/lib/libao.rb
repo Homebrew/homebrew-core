@@ -9,6 +9,7 @@ class Libao < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "a791191a4b424d70f49a43403c4c960619a690914054e78a0c4921dd89cdeeac"
     sha256 arm64_golden_gate: "e9721527ad5259b1a7939f3322faf84bb988d6b4dd5e043168f39b3ae100ded4"
     sha256 arm64_tahoe:       "e5015eef806ec149f9ad6e502d1aed412e9746da6f5ba2fa23947a5e58641d0b"
     sha256 arm64_sequoia:     "18630c73a7d4187e4ed527096e9450a4d26bcc4a5918bf94656fe641be16922a"

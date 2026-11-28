@@ -7,6 +7,7 @@ class Vcftools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d5f5ea0db1b23cb9fc08eab83ad0df2afcdaff391afacb98fe94e395d3830167"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "acf44e2e1d16b466f597ae33c3fd269bd230caa5eae23e336eff43e444df60a9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6f628a8d64c2eef1dad37e8c4f74ebe84029e88b6098266085ad3e90802a71f9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3951341670d6519250d8d09cf76707d7acc47dccd7d88b7b5fd104016eb240d0"

@@ -43,6 +43,7 @@ class Pgloader < Formula
   end
 
   bottle do
+    manifest_sha256 "d3c24e3217a5970914ad8fe7693beeb22ae6217186954081584b74d6a457e3ff"
     sha256 cellar: :any, arm64_golden_gate: "e8fe4fee4c412f044630dd7895ea2ccdfaea858329311f5ae47422aa113783a1"
     sha256 cellar: :any, arm64_tahoe:       "f165cb8d195b73c68033bbc9f88807c694f86868928e544eb3fa0efd6887831d"
     sha256 cellar: :any, arm64_sequoia:     "6d197ce7cb750d3b7fe7df0d687ab23915f0b5c52474e2169c2de306d9c28cdc"

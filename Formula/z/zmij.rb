@@ -6,6 +6,7 @@ class Zmij < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "33d3eab56c13ee96f75d7d2578c7c4f6a3db9769e142d2f2e01077777a6ef278"
     sha256 cellar: :any, arm64_golden_gate: "62d66e334e441e90a5523a174382817d668eab622d20c9b1b700e80aec81c76b"
     sha256 cellar: :any, arm64_tahoe:       "4d0a4759ed511331f2f6ef0b39add6a41ae103972fe27e34c60392f9dbd5b417"
     sha256 cellar: :any, arm64_sequoia:     "a7590743f17917101da42245d6f8f3f9f35c3c7c015c618eb9bb76bc1ec248f5"

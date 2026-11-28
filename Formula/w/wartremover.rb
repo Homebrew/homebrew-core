@@ -12,6 +12,7 @@ class Wartremover < Formula
   end
 
   bottle do
+    manifest_sha256 "b9c7a3c253d53bc535d48317b2600deeb2afbbd6ed8b255d0aa4cb6e60d35af4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "98c429ae80b3516e29dfed49932e8496088559ac554896f44982bf3ebf95e186"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98c429ae80b3516e29dfed49932e8496088559ac554896f44982bf3ebf95e186"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98c429ae80b3516e29dfed49932e8496088559ac554896f44982bf3ebf95e186"

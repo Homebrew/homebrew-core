@@ -8,6 +8,7 @@ class Licensed < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e7e45a1513f500a2e15355b02ac0cc9b593879a9453c7c06fe99bfd9073af221"
     sha256 cellar: :any, arm64_golden_gate: "52d3bed78b31dff0f55443fd320aa473637ca9cf153a51d38705b7ee1dcf7b38"
     sha256 cellar: :any, arm64_tahoe:       "bf458db419e1e6824d7a37a817cb1f8c7c81ee308d799b83985699f7004249f8"
     sha256 cellar: :any, arm64_sequoia:     "7e3c06e73f0ce734a57fbef409a23925b27d772f9004a3919b4b7888ac833a1a"

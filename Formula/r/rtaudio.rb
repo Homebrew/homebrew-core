@@ -8,6 +8,7 @@ class Rtaudio < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b4d66f418b83d0b0fd499411a9a7119b03705bc1cf3a081fd290b771e03d4925"
     sha256 cellar: :any,                 arm64_golden_gate: "9671bee62f1a03fa47400604d355a310e95fdb4967df8b2c4989ad86fb8f52cc"
     sha256 cellar: :any,                 arm64_tahoe:       "636ce2d8b737d54f783dc197c20333d6476aa1c3f6a4999c43667d8b34caf7d3"
     sha256 cellar: :any,                 arm64_sequoia:     "b68191b6cb2a95518f1287e8edc1a0a8891797be09d9bded1505e867e42c5864"

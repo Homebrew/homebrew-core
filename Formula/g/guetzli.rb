@@ -7,6 +7,7 @@ class Guetzli < Formula
   head "https://github.com/google/guetzli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5956d99ac1519d90e141cbfa7cc83864a75c32e8cbf58190346f11dfb5daa64f"
     sha256 cellar: :any,                 arm64_golden_gate: "9db766ee99eb62ae831c19ccb1ef572be593b44d689a231b31bba10f307c2bd5"
     sha256 cellar: :any,                 arm64_tahoe:       "848e59c5a4a60bce70dc21cfc9501bbe56f15d7d76475b7043e21cb2740f4f41"
     sha256 cellar: :any,                 arm64_sequoia:     "a9d736ee968abfde99d6ccc42c9ca5793ea9d7b1e52b7127314a1f8fcfcf32fc"

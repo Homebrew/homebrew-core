@@ -12,6 +12,7 @@ class UutilsSed < Formula
   end
 
   bottle do
+    manifest_sha256 "460266ea4076d0e93e1f5374190455927324ff7cfd51ba4d04d7bf509b5495bc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7abb69093fefa114e7ff36c84f41862abe994785abf0aceabddc9e7e28cc102c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6988b38caad8d732881bda8576227216cae2de5b3f3850c50fa76f0fd820fb5c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf93a351fc747944a9a77c9cf0d2f53d09725d6fad66a20cdee0751ca1ec7b01"

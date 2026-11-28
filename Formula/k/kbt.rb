@@ -7,6 +7,7 @@ class Kbt < Formula
   head "https://github.com/bloznelis/kbt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "8176aa14f0465d26ad7ce9d8d0148c26db09f7140e90195e02c2cc0f25eeef94"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f433023f4d640c49f11a011ad6e65c303f3f39e3ba09992aae957a700905beb9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ba6a98a3b3b84992ec766d517d9d29e5ad5b01313389a126945418b9c7e01bec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0120aa35263ade59259cbd0160aede274aec0e9b596d1fa4d54af2456bb0a030"

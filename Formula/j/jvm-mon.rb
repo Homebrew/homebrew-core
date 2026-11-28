@@ -12,6 +12,7 @@ class JvmMon < Formula
   end
 
   bottle do
+    manifest_sha256 "0759a35737a624f4367af81e46040be5d4d4d399d787745cbf4e67e1461efdec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "01f510494d209ae05c088c18cb10aaab7e9a8773d014602098850a196a7d60d9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6d642e46eb31394c752d72259da9ea93eff02d017cec4e5cebeb4af0ccf06fc7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ec8458aea8a3a61085af2f928b83ba20f97e6ac8cbb79abd68df625201102f1"

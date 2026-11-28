@@ -12,6 +12,7 @@ class BatsCore < Formula
   end
 
   bottle do
+    manifest_sha256 "0f69b6f8fc714488d155d4d3ff1c3ed199e68dd910bb6b4b16f1bc2401f3bbe5"
     sha256 cellar: :any_skip_relocation, all: "3ba6d697b92936bcf8730f783b6c49c13666e2d286ec7e7300d58c0dc35ac502"
   end
 

@@ -11,6 +11,7 @@ class Bibclean < Formula
   end
 
   bottle do
+    manifest_sha256 "cdac4cbf4700f4488bfe0a23208efbf1688797301e9bcf38499f2d9c4259709a"
     sha256 arm64_golden_gate: "c03b2ac15046681d936c7039d4a62e1b05297eae7af5446b52c6fcd8881c4bf5"
     sha256 arm64_tahoe:       "879cc1d92309684de3e1d3aac3f3ceae0751b013e52bee638c67c18fd63dbf92"
     sha256 arm64_sequoia:     "13c1d6444ba0a4dd09e6840c29240a230d4d5bab8946912b275fc53fca9558bc"

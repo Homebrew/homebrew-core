@@ -7,6 +7,7 @@ class Ord < Formula
   head "https://github.com/ordinals/ord.git", branch: "master"
 
   bottle do
+    manifest_sha256 "69611eb7201b5b1552bfa19ea5f0b347ec17192fe02a9ad37158d4c532bfd501"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "feb807887702429fd13df6bf5200a3d40b81661f036e3cf39e63e19401e45040"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bcaa804722edf48ae2ea0168957fb27013f1c7e4ddfff7d11997b7d97a7a7baa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e2648d262b9c0bf85ae5a027480b038a23c351dff1ff5040bc6160433410996d"

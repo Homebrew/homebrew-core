@@ -8,6 +8,7 @@ class Trino < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "747eb082058ea49de25948b642a8e43f5952f0a4675b5225d6011d0a116a4187"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "98dd750134ab167de0b3b8c8a46d700e90b18834baae19e2f5c823ec2404c924"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98dd750134ab167de0b3b8c8a46d700e90b18834baae19e2f5c823ec2404c924"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "98dd750134ab167de0b3b8c8a46d700e90b18834baae19e2f5c823ec2404c924"

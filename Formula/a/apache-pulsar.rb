@@ -8,6 +8,7 @@ class ApachePulsar < Formula
   head "https://github.com/apache/pulsar.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b0930a7059a8c09d459f822351c676f9dbaa315649b8eaf1e681f9554b1406b5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "055caa7795442f432aa9fc10a06d4165659c5fe05a78dfb41dfbc9490a89fecc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "055caa7795442f432aa9fc10a06d4165659c5fe05a78dfb41dfbc9490a89fecc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "055caa7795442f432aa9fc10a06d4165659c5fe05a78dfb41dfbc9490a89fecc"

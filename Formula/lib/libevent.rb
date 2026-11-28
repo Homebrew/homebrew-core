@@ -13,6 +13,7 @@ class Libevent < Formula
   end
 
   bottle do
+    manifest_sha256 "94f22101d16b710f264f35a715eb0ffe1c82937658883abbb1e06d31480da89e"
     sha256 cellar: :any, arm64_golden_gate: "45b525d77c2ecc4cf0172587e929a2bc872b1e01aabcd3679b0f60f4d76ceef7"
     sha256 cellar: :any, arm64_tahoe:       "a718c5bf998957d5c75e242ad4a0e42d86730d3321facbea282cc37cca74ff45"
     sha256 cellar: :any, arm64_sequoia:     "55344e687f9be992ae9dca23aad5bf6f3bbaa9e63031915cd2738da11787500b"

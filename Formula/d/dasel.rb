@@ -7,6 +7,7 @@ class Dasel < Formula
   head "https://github.com/TomWright/dasel.git", branch: "master"
 
   bottle do
+    manifest_sha256 "688c6d1d9f319b35fd263cb4458a45c4ed3a50b2d8004c073a1ad9174c72809c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "657d51847586d3cf7ef7246e33eb8f0975fd6c68b3c321bfcc1eb3259c282072"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9b23b22c84b8d83259e490e327ad55155c0f988dccec71f2180ae223e7f91d89"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9b23b22c84b8d83259e490e327ad55155c0f988dccec71f2180ae223e7f91d89"

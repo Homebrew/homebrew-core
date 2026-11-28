@@ -7,6 +7,7 @@ class Dcp < Formula
   head "https://github.com/exdx/dcp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b38a1d9c3cbcc0623c83332f06372a0ccd6769be98da6379a9e127f5ef6041da"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "44214f3568b20bdc85a8066b8384b6bfde1b3a6658ac47ca718201f00f809ff3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "08061eec2befb7c29aed3087ba5e6ac7a6459410d80c5630d0b47efd3ba65ba0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb44281e662eb5bae136d9e3d6d6e0b84b230fa0622d0b3abab0a60bae216fa9"

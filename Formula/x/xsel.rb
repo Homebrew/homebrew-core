@@ -8,6 +8,7 @@ class Xsel < Formula
   head "https://github.com/kfish/xsel.git", branch: "master"
 
   bottle do
+    manifest_sha256 "22ced7ac2631cb563a0eb53a771ed1e77e4634dcde81b8cdfe318966fa0cf82f"
     sha256 cellar: :any,                 arm64_golden_gate: "c5b49db143d30e6213f787a72a7712a8701a7b322632799d00c6f3ab50dc9e0a"
     sha256 cellar: :any,                 arm64_tahoe:       "4b77e0f9695c3024acfae203e697084bd2dc38dedfa687df634a44edff53b570"
     sha256 cellar: :any,                 arm64_sequoia:     "b4ef9c989ee8e286f69314d95de96579f0a33336fb5b673b494c27f764c25998"

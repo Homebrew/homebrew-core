@@ -13,6 +13,7 @@ class Tmux < Formula
   end
 
   bottle do
+    manifest_sha256 "84efad24260af4c6060b8ca3ff22dcfe6d7aea59dbd9237c17614af26673b31e"
     sha256 cellar: :any, arm64_golden_gate: "c01ce1665582878b8d62f8768b220409195c9883d9c34820aa9cb58cbc27f37f"
     sha256 cellar: :any, arm64_tahoe:       "7af474204938c09cb35aef901d32e2633b90a27505eac076ac551170c3c393de"
     sha256 cellar: :any, arm64_sequoia:     "b436a1f261f94981c3b99429131bf719a8d56437896502815caac53a735db041"

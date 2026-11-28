@@ -13,6 +13,7 @@ class Binaryen < Formula
   end
 
   bottle do
+    manifest_sha256 "441827574b9180ac1c3ccee480f060c2628f5d7004a5c07c654f17d7312322f2"
     sha256 cellar: :any, arm64_golden_gate: "d98332fb7205da8d5f51cd41bad8b3c5390ced0aec627a49b63f6add4f54b711"
     sha256 cellar: :any, arm64_tahoe:       "22c610b253130cd20d22055ed8af19b919683ae2a337b6a14010f8a2abe295e1"
     sha256 cellar: :any, arm64_sequoia:     "2258f7ce1551dfaeb292ac27dce0340d07be96d66b6fe7eb0708194c923a4b7f"

@@ -6,6 +6,7 @@ class Bzip3 < Formula
   license "LGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "94c63f03cd3d4fe36c89ebf9ad21f4a49209c4a2c9710002af0332f5da61372b"
     sha256 cellar: :any, arm64_golden_gate: "1146acb73885c6b8640bf7517221e34fda1b796327c60724ca69d282e63873ba"
     sha256 cellar: :any, arm64_tahoe:       "3c44d92972b3d067382d423b1aef224ad0160a3dc6e0d3330d4b486aa3fd5e2e"
     sha256 cellar: :any, arm64_sequoia:     "f2cfb9f2f5765127c50e9d47cf8fc9898e0782307d1610e04306ba1e161daabc"

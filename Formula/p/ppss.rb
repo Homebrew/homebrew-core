@@ -7,6 +7,7 @@ class Ppss < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5b7cc5720b57ee184f82074222f5c82f35b71c5733277655db486581093daee3"
     sha256 cellar: :any_skip_relocation, all: "e341e42c45d8ab9d5251b5330405329c45f1342a2cd94a466764b894a2b9ac6c"
   end
 

@@ -8,6 +8,7 @@ class P11Kit < Formula
   head "https://github.com/p11-glue/p11-kit.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bd587b10dace665c8a9b76da331469cab808a7cb65bc57e8d090807c032db720"
     sha256 arm64_golden_gate: "a0751e0579ea06c14793f5b95093c34921df22e74cfe9101d0d396e44b7d378c"
     sha256 arm64_tahoe:       "9ed312a272c9972e1122b0957e63e944d2875d38bec6c865cc9248114487d2cc"
     sha256 arm64_sequoia:     "5d529f086a87a2d2e6dc22b48e43502943cbd900bc2e3350a32b1337078eabb2"

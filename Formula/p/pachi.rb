@@ -11,6 +11,7 @@ class Pachi < Formula
   head "https://github.com/pasky/pachi.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b80c4d91bbfd1ecc4ac7ba75981c2c5cde13ac34ec88f34feb85c6117ccefaf8"
     sha256 arm64_golden_gate: "4687f6d2edc32b869f2ba241ba20d432b3a53e3862f8850ea47959dd72f6e4cb"
     sha256 arm64_tahoe:       "3a8e2d2a3d9d6321c122671b5f379b49a34f458557e23536d68ee735162b376f"
     sha256 arm64_sequoia:     "933f9e9186fa5bea05faad8bcc54b02ced0085739e0690b4b4e42b07f666b753"

@@ -11,6 +11,7 @@ class Libvisio < Formula
   end
 
   bottle do
+    manifest_sha256 "b5d105d02556e2ad566c0334a82bdd0bb76396f06f5bd51ece4ed38238f23ca0"
     sha256 cellar: :any, arm64_golden_gate: "1ba55bc6d363dfb65454fd5f2ef269b6164ac924136f67554ab0f204fc34abb6"
     sha256 cellar: :any, arm64_tahoe:       "2e6e55f0f80404a0239a22f61f424b28cd377312e1ca87b0a02e0a6fd5ac0423"
     sha256 cellar: :any, arm64_sequoia:     "f1c5ef54bd6dd1f0e8b0aaab02b0aa2eb7595fd2e8c0c5a8663420fb2dd6a9f4"

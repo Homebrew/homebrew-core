@@ -13,6 +13,7 @@ class Unum < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "36580db80bfb52c4fc97f91e77187d150e4b09664c49c2d76043b6873f7d8d0e"
     sha256 cellar: :any_skip_relocation, all: "49e6e959912529d4da9b0097beac4bcc654679022720b74eff4c5010d5ae6c77"
   end
 

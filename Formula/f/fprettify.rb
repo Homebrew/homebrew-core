@@ -10,6 +10,7 @@ class Fprettify < Formula
 
   bottle do
     rebuild 6
+    manifest_sha256 "eadd187487551dcaf842c40609f288210978004155b59db25f8da49a95812253"
     sha256 cellar: :any_skip_relocation, all: "2eed8e7434178165e755f3a4862a8b79e045d89b08754c9e7abccfd918b4c5b1"
   end
 

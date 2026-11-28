@@ -12,6 +12,7 @@ class AwsLc < Formula
   end
 
   bottle do
+    manifest_sha256 "0e526a2728ad1755d32c8b59ca6562767ae40d5b784bc1be0833c271e3c7c9b3"
     sha256 cellar: :any, arm64_golden_gate: "59632bccc84feabde9759d332b5679143b343b1df281ab06a8bc508a9bacbc32"
     sha256 cellar: :any, arm64_tahoe:       "355e1f40ea38f5f42a8131be28e02cd1a36d119c8c0e2994125c3ce56f890bbf"
     sha256 cellar: :any, arm64_sequoia:     "f8384ef6d3e74a99ef2e483f58bd1d89ef9c00bbfaa7aa6b1ebb44799f8549da"

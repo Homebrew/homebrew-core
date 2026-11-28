@@ -15,6 +15,7 @@ class UrdfdomHeaders < Formula
   end
 
   bottle do
+    manifest_sha256 "1b9102b9ebef3cd64736d4ca1059116adfd734bd5333bdeb6f9600e0aa2d41b7"
     sha256 cellar: :any_skip_relocation, all: "74d6893697e98c62373905725cbea8ae1c1e90e5870931cd9b9b8d092ab04c81"
   end
 

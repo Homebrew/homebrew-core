@@ -6,6 +6,7 @@ class Liblc3 < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "758510f214c41722138350f83f8132327a0a7120b6057b8e4434d57a3841c732"
     sha256 cellar: :any,                 arm64_golden_gate: "2483de44dfce66dbc072154cd2cda3c1be1812fa5e3353c251525d50bd182da4"
     sha256 cellar: :any,                 arm64_tahoe:       "d948beab725c1b53b092cf3ddbef489e72a04958de5a1dbce4fdce578a703fb7"
     sha256 cellar: :any,                 arm64_sequoia:     "997b5d2fdfceb35010b61b89004b9ce8e2a5630aa9c90d1f322e62db53641dae"

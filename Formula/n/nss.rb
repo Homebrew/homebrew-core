@@ -15,6 +15,7 @@ class Nss < Formula
   end
 
   bottle do
+    manifest_sha256 "2904817b93a5fce028ce860e8ecdef21e7c26f9d4d8682a180955d03b36519e9"
     sha256 cellar: :any, arm64_golden_gate: "67fd8cd45a6cdef966d13bcfc8d5fa1f08735ee8a72fa1ff61bd905ee86350e1"
     sha256 cellar: :any, arm64_tahoe:       "c65937972682479a5dde0108607c10227c4e3f7e239ba2d138554b8cd710a9ad"
     sha256 cellar: :any, arm64_sequoia:     "fbcd7c31872709eedf1f5221b21ab0bbbe569c5d7809478ea192e39b3d9eb727"

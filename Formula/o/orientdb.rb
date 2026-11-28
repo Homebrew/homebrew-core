@@ -11,6 +11,7 @@ class Orientdb < Formula
   end
 
   bottle do
+    manifest_sha256 "bbbe99435bd363430199003d67581d0156418b40e9fa7f01ba4809b337aa066a"
     sha256 cellar: :any_skip_relocation, all: "749f7b824f1298e03cdcf19412d05226e70c2562d9f67a1f7aefd39721b60059"
   end
 

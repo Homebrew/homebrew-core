@@ -7,6 +7,7 @@ class Libbpf < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "bea04e84851f58111c1ea560a80b095b9043d58901d4b5cf9321ffd4b9e2fe34"
     sha256 cellar: :any, arm64_linux:  "0f59485aef544d9260217f4a9c34d35c20260b9bd025bf15e1e843d0a7f878f6"
     sha256 cellar: :any, x86_64_linux: "0e3b153bf3900e43906a552a465a539a9a0934af418a65c9848f79b23556080b"
   end

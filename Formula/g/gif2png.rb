@@ -7,6 +7,7 @@ class Gif2png < Formula
   head "https://gitlab.com/esr/gif2png.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c61ab11f6b04b8f67773eb030fe8159c3df25bfa31d4bf9d3a02c3deb188ccb9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "caa7de99a0ecfc3016898cd0508685e7f023c37a29ff37c4519262935eed88f1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9072daea5a28d0eba5c9a9a257d3b6c4db506850664c984c99b00ec9a3468261"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d6eb0df92c042ea7374914ce882ec21d65472a09f5013630b36a241078d60b72"

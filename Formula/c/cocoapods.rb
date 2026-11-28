@@ -7,6 +7,7 @@ class Cocoapods < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "c5ba2cfb3f381ebfffc140c0adaac5c347e81030def992235c65b1821ff807be"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "518d2ab4921ca19bd794420c1f8994697851facb47c26087f36f80f64810e1ed"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "518d2ab4921ca19bd794420c1f8994697851facb47c26087f36f80f64810e1ed"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "518d2ab4921ca19bd794420c1f8994697851facb47c26087f36f80f64810e1ed"

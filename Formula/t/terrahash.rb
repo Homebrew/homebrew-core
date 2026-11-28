@@ -8,6 +8,7 @@ class Terrahash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e3cce97007c8ac14c85bfa9c278a9153418ed75e0c464bc3c0f62d41e121afdc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0fdb7b06269d960fe1cbc3bb158bf67bfae0a02c5178fa087503f9c73348577f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56190ed3f9318c57e6dad7a1f6677d39b0a5e13990594e4bcf73582b98b450f2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "56190ed3f9318c57e6dad7a1f6677d39b0a5e13990594e4bcf73582b98b450f2"

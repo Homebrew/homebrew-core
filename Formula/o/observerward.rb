@@ -7,6 +7,7 @@ class Observerward < Formula
   head "https://github.com/emo-crab/observer_ward.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8a85d1b063ebd38b1e217a539fd8ef1d13b986636b1f36de22fe48ab9b5c491a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "790f921122effe3f4fe4f0f4b5febc0237cf797c48e8668eac523bde7a8cd00c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad45962a94360f7db14ec4faca26119e7ce57dda2d5d44fc8a1e7f759005563b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6c2e0a7b68b60d16c7fc1742c816388e4d28500a60313a205624210937b46901"

@@ -13,6 +13,7 @@ class Virtualpg < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "970be0833639f651c9ee1305b1bfe4e734fcef96283433c5abcc165ca0e4b7cd"
     sha256 cellar: :any,                 arm64_golden_gate: "6f21a6c0f0e7c61e2eebebac3a5d276cfdfee0e8623d373080c5b57a86135a65"
     sha256 cellar: :any,                 arm64_tahoe:       "96423b815a0781a3635f54f02bac58f5b6f97ad735184005b812b7bbe2bda8c6"
     sha256 cellar: :any,                 arm64_sequoia:     "8e204f28da296c7deb1ce80831b2bfe8d7456aa540642c554de86f031c7aabad"

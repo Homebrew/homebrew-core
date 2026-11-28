@@ -9,6 +9,7 @@ class Certsync < Formula
   revision 13
 
   bottle do
+    manifest_sha256 "f5726beabacd33717fa8f7bb59e41c603e68318969a93265969c2899f8fd04f5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4d35428a0d3a980e05a06eb29a6af4c9027fbd49b3f4dd3bec1d80c62ca63031"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a7a84414d390d521dde8b9e4f8302b74d5ca4e07c56b1d50976a69f06a855260"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e8224b2da2399974b09528d59d26d8fa61ef0231382a7acdf3fd71515ab26ffb"

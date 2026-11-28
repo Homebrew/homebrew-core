@@ -7,6 +7,7 @@ class VapoursynthBm3d < Formula
   head "https://github.com/HomeOfVapourSynthEvolution/VapourSynth-BM3D.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cd45361f9e958c73f3ada50f7a51582f0670283e4beb9192d9418394e6b79129"
     sha256 cellar: :any, arm64_golden_gate: "100bbe3525e64f05a9519fad09cbe8bef1d5951e45c4cd2442ae606c847cd450"
     sha256 cellar: :any, arm64_tahoe:       "4baa36264f436024e6aebe7a6910ec07aaa5e587ea09a8ba97471110ecafef1b"
     sha256 cellar: :any, arm64_sequoia:     "7bd087bd90cc07f0054820a50ef74b593afe44fafa8c20f074cd8a961d3a9c64"

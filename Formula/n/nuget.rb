@@ -17,6 +17,7 @@ class Nuget < Formula
   end
 
   bottle do
+    manifest_sha256 "a62e551ba3e5186d2bccace6f3b81b8ccc93096a84a304e813bcb3d3f6b7f60e"
     sha256 cellar: :any_skip_relocation, all: "6227f9f3c8b1860e1be3aac7986cb5cb50892dd452ac6d5f779fdcec50cb2e60"
   end
 

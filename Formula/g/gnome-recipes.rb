@@ -8,6 +8,7 @@ class GnomeRecipes < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "801ca09db9fef63ee8bbe79841e04fa4fa88deb86bc9e13925e82767c3c2e788"
     sha256 arm64_golden_gate: "1a29a889e9b0fdabda43e42b771f4928d8c4dd17e1899a2db971ed3d66f983cd"
     sha256 arm64_tahoe:       "c3d2fe01ea97827e715cb29583797418cb4d71b00e6ee97d9f8dfaeb96bcf4e2"
     sha256 arm64_sequoia:     "48061c558c7b2a4ac42a5a0fee09187c92323a1a3a261133edcbd765e07f16fe"

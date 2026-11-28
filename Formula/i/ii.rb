@@ -12,6 +12,7 @@ class Ii < Formula
   end
 
   bottle do
+    manifest_sha256 "74fc24c24b1105c6ccc9f986f8e472b65c7d641ef0e5f7874db0116f90306fa0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cccb45f22e1bda217cce1d220fbe2f4ebe992732989b39aa32b0b7a83c0f68a2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "894efd0eec847bf1e4490057f2ca140dacf7c5a26a251a56660101c78eb777a8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ab84f7b5884e3b926510c76631987ea2eb214d73c0595af30063c7b0131fe759"

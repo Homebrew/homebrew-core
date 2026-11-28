@@ -13,6 +13,7 @@ class LibpeasAT1 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c1fa28ff86204838773ecc7fbc22393ce6e9ccf593030458e9d93df8227208c8"
     sha256 arm64_golden_gate: "03fc4c7a900b9c2d06f7bc7d36f6a657693caeb1fd9fdcddc50bf0911f4cce69"
     sha256 arm64_tahoe:       "eeb58aeab4af7fbd4ca2202fecd5e51a456689d9f4d1c96b8d76e277802f1025"
     sha256 arm64_sequoia:     "f492e286d623b5069e567e2e873d07cad9a0375f9ecc899bb9848b36eec15e8a"

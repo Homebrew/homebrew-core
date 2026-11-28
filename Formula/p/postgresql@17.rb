@@ -11,6 +11,7 @@ class PostgresqlAT17 < Formula
   end
 
   bottle do
+    manifest_sha256 "bbe0b866a74e8dd75c8facb387a0ffba8fb261608a8d4fed33c565e5292e7e35"
     sha256 arm64_golden_gate: "11db98ebfada77d52ed6bf142e0646f5bcbc05f599e698ce22b3582cf6e79dd1"
     sha256 arm64_tahoe:       "3397650718a1162408707c4687228f3305f785e9af8c53e9872b155e8ee6a23c"
     sha256 arm64_sequoia:     "f17b6e907936d9e02b6b860e876feb66c5da3cc89906c1b80e52d5b849d56138"

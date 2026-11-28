@@ -7,6 +7,7 @@ class F3 < Formula
   head "https://github.com/AltraMayor/f3.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4e3a38c2fc1449aeae91ba178a4d54d3c62297d56ee6dca2c036af390cb24d02"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c0725ca7077ced38a59dc7b81bc0123aa427596afd76216fd6009470ecda26e5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2a1fa8a2cbf80773e1709d368f4a2f245af846d30bb0b974d3bd4f491b9bc07c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aadb9f85ba049cc4c33b3b6cbc8d11d075ef9d0f0c4e029d1344fb9f3c5609ab"

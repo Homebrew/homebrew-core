@@ -10,6 +10,7 @@ class Isponsorblocktv < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8ebc2af94ac0a933e5f8e865d3442d0cb47c3b673c3b5adefa4932003d4a0d5a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f548572871a9ff20ab764bd34ca874cf58e7b488cfb4bd581683b69840d7a2bb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23d30f76dd55f0f6a22a72e8f7395b940cc50908d6402094d7f0fb1e97ded098"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ac52112fb78bc64acb29f104b84656529d008f94a2ca0e8e4db9efed6bfccf4d"

@@ -7,6 +7,7 @@ class Odt2txt < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "022c84eba40b2d2e3591d961cde83c3423de3684acbed34b7baf6604866f1fca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a09fdd07ff665ec7349d1cc92bd2b016aaad95692ea089a6184086af4352181"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca8de3bdaff0abb474769434e2e6092d96befa2c79d741d387ea29be3c5c0969"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ff99e00af2117a1c83d6a07d49286d93270c76e1be4b3fef4b5834daecda6a1f"

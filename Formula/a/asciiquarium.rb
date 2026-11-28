@@ -12,6 +12,7 @@ class Asciiquarium < Formula
   end
 
   bottle do
+    manifest_sha256 "33d8fccdbdbb10c0920a0554f20cdbbfe65d22e27085a5183c8ae0d255e3cdcf"
     sha256 cellar: :any, arm64_golden_gate: "87cd5f6d40aeddab0aedaa98883a35967c9fad8c062795dc3c5e685b7e9b5999"
     sha256 cellar: :any, arm64_tahoe:       "ebc54810e56523c2123684e5545afe93c8cdd6f723b53142c7e9fac508ae71e7"
     sha256 cellar: :any, arm64_sequoia:     "dc7d7818866d54974751f18f9718751a34aa2d6101f2f15780ab26f874d0d409"

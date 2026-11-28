@@ -7,6 +7,7 @@ class Briss < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "9011c7fd6f2f8cb42329a6a30629133af417e322c290239cd701ef44674b7a0c"
     sha256 cellar: :any_skip_relocation, all: "7e198b253f493cc8b14159aa43e522d82a8ce999959f36a66ae0a1d86a173496"
   end
 

@@ -7,6 +7,7 @@ class Immortal < Formula
   head "https://github.com/immortal/immortal.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d00cb778d9417b64a91a7ef7497152b4620e5239d77eb38f07866622b806105c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5ed5a9e236b3d7baecc402801967f8167cc47a2fcda70645b9f650f46bbd5b62"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26861092dde978f27339910033364f10dd3161087633aa496060bd8fa34fae36"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "26861092dde978f27339910033364f10dd3161087633aa496060bd8fa34fae36"

@@ -15,6 +15,7 @@ class WasmMicroRuntime < Formula
   end
 
   bottle do
+    manifest_sha256 "39bbb6bcc5d7f2efe3ea3833bbdcbdd9b2af75eeca3ef038249cf43530747b42"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "061c8bbfeef2fb74276f11f5a16fd3e3a393e64e270ec75c7d8df84f85b67b6a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "868ae97be1441e76511383f63b9676e039119993966ced1b09ee6b36e0894b46"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90d8de07b469d3b8141011c79a8c1e0cc7a78914a9be15c570bdded91177fb60"

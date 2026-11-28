@@ -11,6 +11,7 @@ class Ctre < Formula
   end
 
   bottle do
+    manifest_sha256 "8bace319168f298ea59a274e63a874588b676c62c77df5b72a7e1c820a5217a9"
     sha256 cellar: :any_skip_relocation, all: "27bbec85b0afe0bf5ff53c9b1850c7ffaab5d58cd4c7e421c70a954d62526b1c"
   end
 

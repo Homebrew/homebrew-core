@@ -30,6 +30,7 @@ class CeresSolver < Formula
   end
 
   bottle do
+    manifest_sha256 "4525427b3792199dc2120dbbc5eb67da6a9663e122b5d63255adbe55d091f98f"
     sha256 cellar: :any,                 arm64_golden_gate: "9d27f4a4963615280f74b88bfc54b46fc2245f39ed76822f6f6e5f27dc71001f"
     sha256 cellar: :any,                 arm64_tahoe:       "8bca5dac2f24d423391151bf8fb69c53b119eb94e5ba899f95fe961cac036ee7"
     sha256 cellar: :any,                 arm64_sequoia:     "05cf5a6bb6673ae173ed0832fdd1fa8fcfe5a7fd4db1947510f0f61501d94984"

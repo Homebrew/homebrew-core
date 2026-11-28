@@ -7,6 +7,7 @@ class GolangciLintLangserver < Formula
   head "https://github.com/nametake/golangci-lint-langserver.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1ecbf20d9be8c8fab7673a5b16d4951f81e563495b9ed597bdedf95deabb33e8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9feef8803e60ed93d950b2bce827b8f7520356e8ab74fd8ee5e5b61570f9638f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "09b9cd130cddc6d9dd601a0ed223ae6868ea4c9095247ea1f860b728a41d813d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09b9cd130cddc6d9dd601a0ed223ae6868ea4c9095247ea1f860b728a41d813d"

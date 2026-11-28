@@ -8,6 +8,7 @@ class Ry < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "27158afeaec3d44649829a38c970f0fcf17e1d2ce585ae1d482a6c9913854eca"
     sha256 cellar: :any_skip_relocation, all: "8b92938f20452bf4ad49ef46d0788aac93d5b7f5846cfd3fbaa387da67a2e56e"
   end
 

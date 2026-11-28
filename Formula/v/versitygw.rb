@@ -7,6 +7,7 @@ class Versitygw < Formula
   head "https://github.com/versity/versitygw.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca3dae9c67545a972bb28fc02d4a5a57bcfde700d252834139fe393fe358418e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6992c8a63d1b23528cb0d1db7165e2e3e0d7499a677b99e0020f535bf9f56493"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "301f546a560332a9a8e09d4b8270fc2dc939a67c3a0a6bef060232c3c541bfb5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "417033ad76a0b8b34888a59072d7cd36262fe86c8b09d74c66f5a02ae6e205d5"

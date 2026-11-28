@@ -7,6 +7,7 @@ class Ccal < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d9da0cc420cd414267c39d841f1a5c0480c88449a6cb514a4aeda462c177f491"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "886e52e30ce5de3a7be8fecca2367e09629a0832f48d286d61b122e77fc98f95"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "514253e54ddbf113dd2bfbb6c18e70d7640e05a7fad9f5a833f4d62a582e571e"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "9e29b7227b250b957eef3c4ad4f111147c20d81d511fbbdcd0940ae3eed77671"

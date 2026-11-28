@@ -11,6 +11,7 @@ class Sdlpop < Formula
   end
 
   bottle do
+    manifest_sha256 "bed69a0f9d69fbeb835aa637ef7a964ff8d9eb5d4d54d4f3cc12b8136cf494e5"
     sha256 cellar: :any,                 arm64_golden_gate: "f276805fc1f14ca646c5bcd369f80c9426384a544d341a4f6b4f4697ff97799a"
     sha256 cellar: :any,                 arm64_tahoe:       "6e3cea82ac70bf426add75f5a387ca949deda5662ba1dbf3a5e0d22ac4f88270"
     sha256 cellar: :any,                 arm64_sequoia:     "b71553517e9b05d247c8d440606ece9cb18ed9362e2dacdda29ff653158777fb"

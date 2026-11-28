@@ -13,6 +13,7 @@ class Typescript < Formula
   end
 
   bottle do
+    manifest_sha256 "fa6ecb664e9126008019006399b56b5cc1fed8ee34b30f198657a59a9bd96867"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "470f605fe17553307fd39545f9966ad8be2a8e34f5f05b0e0262bb9e5a159713"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "470f605fe17553307fd39545f9966ad8be2a8e34f5f05b0e0262bb9e5a159713"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "470f605fe17553307fd39545f9966ad8be2a8e34f5f05b0e0262bb9e5a159713"

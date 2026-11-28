@@ -7,6 +7,7 @@ class Minizign < Formula
   head "https://github.com/jedisct1/zig-minisign.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0912fd5a9c1e9df3f7a35ee2a1544cfed69a06f53051471c60b6c656cd98e69b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0e4f46ada73e31793e4bdee42e19dbfa9421ae0e1086e1b0f1c72bea42e0080d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "34ac32cec571e5b5394abc6783d05bb72a6a7188ac3ce86b222d01e19aef100d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cb1471156e1e04eb60aab7d544544fbb7fa55c3fad7eec69cbf6ddc98aafadaa"

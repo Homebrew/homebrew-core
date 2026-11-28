@@ -13,6 +13,7 @@ class Hashcash < Formula
   end
 
   bottle do
+    manifest_sha256 "a35677ed5b1674d5d9562b3346220e492a248fc3fbbc1ce95ebe2524ed0704b6"
     sha256 cellar: :any,                 arm64_golden_gate: "c2f21847e34b57a39974a8a6acbf35cf9e740a8dec04f2c582d6eceb2c470f2d"
     sha256 cellar: :any,                 arm64_tahoe:       "26f68ae8588611b8c34206972c00c1d064151c7f2a49134ad4f51e33bda89d2c"
     sha256 cellar: :any,                 arm64_sequoia:     "38e173f8538d6024cfe2563dade3b6088f9fcc3bd224ee0b9851a1c16c7ab026"

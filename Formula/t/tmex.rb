@@ -7,6 +7,7 @@ class Tmex < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3af7e4a48b04aba65bcbd1164fcfa801c3f02a1240d812bfc05d5be47312ce4c"
     sha256 cellar: :any_skip_relocation, all: "7962a086b783ba9d0c735495c568e5a2299e8a33891772d70069dd68ea2d408f"
   end
 

@@ -12,6 +12,7 @@ class ChocolateDoom < Formula
   end
 
   bottle do
+    manifest_sha256 "26fab45b5d5b607acf215011845fc64565ab26a26366923a70ae320518f3997e"
     sha256 cellar: :any,                 arm64_golden_gate: "e29a96e2f2e9cbfa8fe5db590bf15f9a6b748f6d9c5c9806a5ab8dfe0648f01d"
     sha256 cellar: :any,                 arm64_tahoe:       "c2c512540ff8466c3ce24619831d65d9890388c6489c3cfa448e688a7ca0084e"
     sha256 cellar: :any,                 arm64_sequoia:     "bec38408dc088130d0e681ec1820f8f921ecf57bcbacf74732a619036451c5eb"

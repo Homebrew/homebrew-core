@@ -9,6 +9,7 @@ class Arpack < Formula
   head "https://github.com/opencollab/arpack-ng.git", branch: "master"
 
   bottle do
+    manifest_sha256 "55720e347ee35aaa09aa37e4c26afdb7f6edbd1ed4ac400cf6b0bfa88465714b"
     sha256 cellar: :any,                 arm64_golden_gate: "f30e80e2aaa1acf76554444ff9ae14d5893c9d68660bde18cb431bb3310092c5"
     sha256 cellar: :any,                 arm64_tahoe:       "49cef98cf7475c671e5826e23a50d8c093a34685d6a98ed55614916f2196408b"
     sha256 cellar: :any,                 arm64_sequoia:     "476f1c28808b3115fa9cf72d17bda20b989dc60d911d3abe85be50a92bd1d6a1"

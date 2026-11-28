@@ -19,6 +19,7 @@ class Dosfstools < Formula
   end
 
   bottle do
+    manifest_sha256 "a7c7d53bc06d600c4821addda3d703b785a9236859ea501bf8bbfeebf9a1c3bb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "150c94173b111360f374d2367ac48a24f4329dcab61d64b57660c881ac023776"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d54a1407f985fc34279f07ead09aa53ae0cbe1a24b8a7328d4cbcb8fb24d9c49"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a865f34d1361ac215e3ec359fd524e4ee92ea63cac75ccaac99298c871aa4b28"

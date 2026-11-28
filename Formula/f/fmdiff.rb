@@ -8,6 +8,7 @@ class Fmdiff < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "53bcce0f206af373b744c144de6963b551d5620522e03c913a2e67a0051f444a"
     sha256 cellar: :any_skip_relocation, all: "a2f4d1e3f09bde0fd9d7e7e146bf4f0709f94b67150a54991ff10959f85fa22a"
   end
 

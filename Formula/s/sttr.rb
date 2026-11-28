@@ -8,6 +8,7 @@ class Sttr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "600c429ac7499bbcdbc7c1867a4e36484fa3f0d3258a52fe519562125ee8fd2c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5af038687945365b0225ba2ae96669532704c7019a83e1348c840886c4cb2629"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "41b39d24d4c8cc8e75d384bbd42bd9bd22a7da7ac5954b3ee6d1652cbbd9c9d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "41b39d24d4c8cc8e75d384bbd42bd9bd22a7da7ac5954b3ee6d1652cbbd9c9d3"

@@ -12,6 +12,7 @@ class Asciidoctorj < Formula
   end
 
   bottle do
+    manifest_sha256 "ed135419eacb295864772394529d7b7f2d61d5c02b6e38dca1c180e9aa16afc9"
     sha256 cellar: :any_skip_relocation, all: "8aab5c459734531d3ff945ef0e3bf29663caac82240c36f836dacd7435ddb751"
   end
 

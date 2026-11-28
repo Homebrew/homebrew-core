@@ -13,6 +13,7 @@ class Tinycdb < Formula
   end
 
   bottle do
+    manifest_sha256 "16135d13c003ebeca3da297c63acfa05cfb54ba3b3c9baf25baad8bb682b69da"
     sha256 cellar: :any,                 arm64_golden_gate: "e53d45e3a4001e3c640fb2bac5eadc193cc2893d0f5e133d72c405d97ad8a8b3"
     sha256 cellar: :any,                 arm64_tahoe:       "bd03805a76b700768943e3216fba150262d5fb9f121f1e46e7474c761ce647da"
     sha256 cellar: :any,                 arm64_sequoia:     "680cfcfc325b233fe7340563af3250740568b8a3689fae20f477e108ed673a8e"

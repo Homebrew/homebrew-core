@@ -15,6 +15,7 @@ class Rubyfmt < Formula
   end
 
   bottle do
+    manifest_sha256 "657cd8757a394a0db3614ab283958f41e1e70228952850aafb4445e77e0cee3f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "900a9e8c743d0c1bccf9f369d1eb1904e76caefd319df4a1596232e365060ec6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c196e389362aa426bac9f7b0c6edf06969eef6ffdc3a477b7671e24a05b98ef9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bed4c85a6140b97fbb79e66e7cbc45361e6588b33ee3f3f943ad229a0d1a115f"

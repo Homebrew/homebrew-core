@@ -12,6 +12,7 @@ class Aider < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "52a0ddf83ff5aaba3ed4452398ff600c66b2785e547b6cd28de7ba9bababf93b"
     sha256 cellar: :any, arm64_golden_gate: "e284718dced73d2319aecb53260bc218eb349d264db2acc159f3cb89f8ac2374"
     sha256 cellar: :any, arm64_tahoe:       "6fd6864b922fddaae2904a5e1813f4db9bdb51bce7fd5727807bf602c6a15546"
     sha256 cellar: :any, arm64_sequoia:     "6676e8cd88b1c1256d341dec6ad86e40961ad4b311b53bbf6860ee0b291e39a8"

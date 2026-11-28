@@ -6,6 +6,7 @@ class Sispmctl < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "05af0e816bbac9379773ef2f088af99fd29b52dcc3b61b8bd7301d633a1d42bb"
     sha256 arm64_golden_gate: "de5c7db82cb4d21b478255ef942d54e4b16080734dc4f5414958447467e40cf6"
     sha256 arm64_tahoe:       "de0d97fb734c7e84c8cf6035079379103a41120cf72687594db4726f6185ea9a"
     sha256 arm64_sequoia:     "4550ae3f2066c6806e0f0805feba3128544530eec07f0a5c50bf95e24d9e2454"

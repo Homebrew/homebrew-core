@@ -7,6 +7,7 @@ class Authoscope < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "10d0a0666afabeb9d1a289084a09b2b77b551eebff06071f61acc0686f01bbea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "74412d84ad37a9306a8c611dd6838c760861128b92575c8ddc67ab3e20ff700c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6eaad5b4287b9e44492653bd7d5996f61c1b29d996e6ca4a045c6eb5019a10e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a49139a43ce427a0b371ff1a5e2ab5859c0e79f3738acbe4b74c17dd4cb8024"

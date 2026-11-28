@@ -7,6 +7,7 @@ class Pioneers < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "f8c2edf4a57e1166ff1d21ad954e9ebb04fb74a172a5403d1c5daa1bf8b6bc55"
     sha256 arm64_golden_gate: "2eb3bd7f7dc51920f6e6ea4004475df52ccebc80fcbd60ed85c92a91ccf8e254"
     sha256 arm64_tahoe:       "adf66c9f80045db5ecfe7557d06d1e6aa95dc4a8e07c6d144106b350f5826c7c"
     sha256 arm64_sequoia:     "f8818813a32e582cfe48b07fea5acb1f9796fb529586e2b1d73eded630f64eb4"

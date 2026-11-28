@@ -9,6 +9,7 @@ class Dpp < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "37a3b4ec53d4d328bf2dd1aa369fdae1d59d4e707b60931e07a71564ec2d1ea8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b833fa8c13d96cfd0ae6dd2dac37755f7879fe1b938b38ec3cc43ed05789e164"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "86cb5490c0ddbbe4e7a242cafd4e776a243873dd649ec1e077b23e91e6cab1bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5f0fc9c62c460aba1532c7389e42c9bb85da0bcfa38607b76a361cb66c0d396"

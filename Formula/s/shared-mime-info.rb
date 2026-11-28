@@ -16,6 +16,7 @@ class SharedMimeInfo < Formula
   end
 
   bottle do
+    manifest_sha256 "e1c2ca2e5c08d9583f919adef4aa77743e0c8438d84bbb615d3b42120c2e0eb8"
     sha256 cellar: :any, arm64_golden_gate: "0f296575eba0a479fdb7fe5ea9f6d048f57411c65aab6ab03d8a56b51c60f725"
     sha256 cellar: :any, arm64_tahoe:       "175d0d795dfbb1874181f80b2c113d07477e3adcde031bbf4d7dc4eafe9932a7"
     sha256 cellar: :any, arm64_sequoia:     "eb86118daf14319d85ea1cd9e63c240bad0f7d595154a2b2e2c68c362f02ecad"

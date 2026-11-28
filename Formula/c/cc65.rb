@@ -8,6 +8,7 @@ class Cc65 < Formula
   head "https://github.com/cc65/cc65.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e2a457d0bcc3e796db1d34ee860b77ca872b5e675bab2178404bb6b39d5dff3e"
     sha256 arm64_golden_gate: "e015ab4160d0d394e58f09f97d15e0fa52a3efffeab3d89d31fc880c4b457ac5"
     sha256 arm64_tahoe:       "f920a8752f63358eadceb552629837af0fe7e35461c0d98c0430ede6cda0a4c5"
     sha256 arm64_sequoia:     "55807c89176cd3d4570b3728a7fabf1ac2c7014d11f6aec4ca5ed7fdd58c364b"

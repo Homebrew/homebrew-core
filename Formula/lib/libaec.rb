@@ -8,6 +8,7 @@ class Libaec < Formula
   head "https://github.com/Deutsches-Klimarechenzentrum/libaec.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e827ce166f362b09611a99bdd14249f5836430d7fd0c7e2abdbaae476441fc9f"
     sha256 cellar: :any, arm64_golden_gate: "869b8090dd28b0c5222e43698ea3ec0c3abe0c321cc2f7689a7218bceb33d36d"
     sha256 cellar: :any, arm64_tahoe:       "250632689a82436e1ede76aeb877c96e311028102671aa3759966c11facfef0d"
     sha256 cellar: :any, arm64_sequoia:     "8613415289b9b15534e6096b2cae6efd8942bc83ce21db6fc3297362128d59af"

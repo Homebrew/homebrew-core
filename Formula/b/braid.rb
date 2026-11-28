@@ -8,6 +8,7 @@ class Braid < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8384cb47543138c6a3eabeeb9c9927030064901c9d9670abedb9431117fdd94c"
     sha256 cellar: :any,                 arm64_golden_gate: "c05c65188edbc49cbe9a91b140b58838c33eaa3f4cd05ed6cfd7d769584772fc"
     sha256 cellar: :any,                 arm64_tahoe:       "595da34cfddb9113bd28b7cc30eb1902a21fb869cb403866101d446cc89c33e2"
     sha256 cellar: :any,                 arm64_sequoia:     "b1543df0eeeb51fb4d0bbf8db358cc41066098070c70978601154ab444598efd"

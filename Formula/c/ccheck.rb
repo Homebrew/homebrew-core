@@ -7,6 +7,7 @@ class Ccheck < Formula
   head "https://github.com/nerdlem/ccheck.git", branch: "master"
 
   bottle do
+    manifest_sha256 "93349af9450a0d37084619ce116d36680b5fc86a82faa75a78eb5c8bce17321d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c5565489bd0f6f3c605cea24624abcce94a97704bf2fcc85236dc8f20b73e636"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "26489d1d45ade5e4462eaa3083558f872018bcd9d9e47b98e122f2dd086b402a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f0f8816e58c6387289a2ba6392a03b40c93f1f4e6fe840ff840b7550a476a7c2"

@@ -9,6 +9,7 @@ class Ant < Formula
   head "https://git-wip-us.apache.org/repos/asf/ant.git", branch: "master"
 
   bottle do
+    manifest_sha256 "30bfd2d84025792d59a6cd47f75e51fdbd092e16e22c35d93f35815c3a4f350d"
     sha256 cellar: :any_skip_relocation, all: "b8d23835511c9f5ba4fa46fb17691a09cdce2e73ae8134679858b33afcf28d31"
   end
 

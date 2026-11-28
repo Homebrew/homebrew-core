@@ -6,6 +6,7 @@ class Aicommits < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "07ba0ceed749a0533af77fc1fa7c4f832a0c5b9e22545a281dd2db7700b19a16"
     sha256 cellar: :any_skip_relocation, all: "d0c583607160e54e5a41566102bcdb13ea36b1bdf71fe2bf1445d3715066e3e5"
   end
 

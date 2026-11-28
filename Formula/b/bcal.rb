@@ -11,6 +11,7 @@ class Bcal < Formula
   end
 
   bottle do
+    manifest_sha256 "6ad3553699b13783b7ebc15ed8a559f393d6e04dd9fa12bbeadf4dbec075dce0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "03eadbc7dd38eaf08b6f41622b64f3690f1889da8c6bfff3e7d8af9cfc942f05"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "23a90d61c6c0649143a059f62a3b28ff6029ee96a15f2583810348138997f4e2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a015f9c45c2119bcf4fe36d2de093ef2174845c6773a995aba1d2101d3c89c8a"

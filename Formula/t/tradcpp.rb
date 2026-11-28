@@ -13,6 +13,7 @@ class Tradcpp < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5b2ab685e49da31a5d75ea1d05e672ac1fab749188768cda55c167655779ea16"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "47ee8924a4fcde3f1e86e530ad8ed4d8afdff932269952c7ac352d2f3e0aa95e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "68bb9f87e1ac6100139f901a1b2f1de048f4bc3a7c09604ed35c4e46791a886a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "794a2163ec873f752cfa605b86a1cb8cba108bebe9d41f371bd444e63a51b2dd"

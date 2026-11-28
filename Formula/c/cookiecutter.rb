@@ -11,6 +11,7 @@ class Cookiecutter < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9e9411c4420bc314f0dae01d9224248f5f106b6ef48299766ff5955b9a9a4770"
     sha256 cellar: :any, arm64_golden_gate: "143b9742d1bc3c1e6dc0bba5bb318551f6975483c823e18e75fc7efa0904fe1d"
     sha256 cellar: :any, arm64_tahoe:       "ffa3719113641026d3c09d5fc9b318f30166e593afdb65d5a95fc06c9fbb9f86"
     sha256 cellar: :any, arm64_sequoia:     "1c6e52c9fa3ac7c96e3159b92c5c1369a311d0c1539145331c346a9e8c1ff4dc"

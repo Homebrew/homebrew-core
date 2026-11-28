@@ -8,6 +8,7 @@ class Skalibs < Formula
   head "git://git.skarnet.org/skalibs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca016ee1dac23de724df2953324456d382bd3cacb0b43d32f169c62a093fc4f3"
     sha256 cellar: :any, arm64_golden_gate: "f9ea2841a10c1800bfe3b67edc23d2949f5f9d9cd6d449f9369f946451e7ba04"
     sha256 cellar: :any, arm64_tahoe:       "4f07e606d0e15631dcfc2f81c210857feed5e4281ed28a5ca31e411eedf7f0b5"
     sha256 cellar: :any, arm64_sequoia:     "1d2ae8a01779354d206527671c810e1be4d62d662c9d24803b6e84d6583952da"

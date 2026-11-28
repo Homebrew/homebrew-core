@@ -12,6 +12,7 @@ class Hl < Formula
   end
 
   bottle do
+    manifest_sha256 "b2e44ae53190cf5391cce465ece6cf42dfa01eaf2e5598c4c6a248f0c8317c2e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "42c97646c22584c4b4b9df01dc2ebf89f14663b19b7821f60095271824bbb50d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d34d6c5e2ade39fa93dfc5c969f94d7f053b48c8756d7c7b79f85b362d06e81"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62218be7c51556ce2f2b761686e02ce03969c3f471521e906deae4ce5618a364"

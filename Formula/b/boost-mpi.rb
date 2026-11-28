@@ -11,6 +11,7 @@ class BoostMpi < Formula
   end
 
   bottle do
+    manifest_sha256 "cafaec8f96475f215b0e847ac3c884257ab77f3699b139428a92354c38559ded"
     sha256               arm64_golden_gate: "9d9bc83db8101a23834a590c4d8a54bed51fdf3801b69b97161657cd98372031"
     sha256               arm64_tahoe:       "208ac9d44a3220926166fed43f27d407cb0023a6b4f1159e5d895cb6adf825f8"
     sha256               arm64_sequoia:     "f1008f6aaf5637dfc69aff90d7844832b0bb9002eee6dfddfeb3eff0452985f9"

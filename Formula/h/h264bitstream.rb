@@ -7,6 +7,7 @@ class H264bitstream < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "290d5733f5afb89b618e1282ac0eedbcd4c39fbdf9a871736539c10c24c8da21"
     sha256 cellar: :any, arm64_golden_gate: "d3a17c017f2a07e9b1fcdbb28a13bcb77a832a13ca822c526ed3d950b579cd41"
     sha256 cellar: :any, arm64_tahoe:       "2a26f743521111c30c2ddd9baa974de4b4908511a2bbc8caed57d46fe6790881"
     sha256 cellar: :any, arm64_sequoia:     "da6abbf4e95da2578b850a730702a1cf3ca352109dc5dec1b2c75f255e76e0d1"

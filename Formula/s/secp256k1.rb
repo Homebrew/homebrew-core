@@ -7,6 +7,7 @@ class Secp256k1 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0c3db4fb17bd88c0ed6c2439165728324515cf5601c452d060b588ba6fea7fbc"
     sha256 cellar: :any, arm64_golden_gate: "47a86ff197ae053bd88af676bd6b91ecc7ea71029de063f49d41d9a147c74fe3"
     sha256 cellar: :any, arm64_tahoe:       "3cfd59f39885c79d2fecdf2bce38c4328d62157caa0e1390abddbefd7f31be24"
     sha256 cellar: :any, arm64_sequoia:     "787baf3e52ae25e66a773250914051e720239832c23aaa6289b43c912c81d315"

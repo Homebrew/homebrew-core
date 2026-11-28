@@ -14,6 +14,7 @@ class Zip < Formula
   end
 
   bottle do
+    manifest_sha256 "48e3993ae7c63ca668882909b4172dcb23b5fed6da17e9ead37800ddfa79d858"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "384ea7c636af67de3b5898885c7f24a79fbdc4409d17aaf41c968a3002b8e3b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2d31ef9b8ca3f872979468ae9c81ecb927b9b71b78dbefc615377ae20cdf3ed1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bf7b94eed4eb68d54de71566aac0c8bbde496d1e122c0124509055f3ffdcb0f1"

@@ -7,6 +7,7 @@ class Libmatio < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2cc4b152e6bc23c9e5e95b53b5792b37f85712f116797fcd782b3e1a89a2cec5"
     sha256 cellar: :any, arm64_golden_gate: "ea6990edca07e7dd50b4654d08ad59ea7f37611a6c31e77f40b3fde1d300b7dc"
     sha256 cellar: :any, arm64_tahoe:       "f5d198037e29963a23930586dbff4632a96f4ced4578732e3bb939884e89ffc2"
     sha256 cellar: :any, arm64_sequoia:     "10db79a6aec8d6a18760edd33ba274a523ab86fdb53b190a278eab3dc559bc25"

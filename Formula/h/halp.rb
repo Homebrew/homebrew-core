@@ -7,6 +7,7 @@ class Halp < Formula
   head "https://github.com/orhun/halp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "56d3c2d1874176e1da3bbbcb1073be982f73aa43cbb3ae9fce1694669ef03fe2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "33032cc69c312bfab2c8e002528317aefab5c98ef99d0f035ed9e68093567046"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e355185848abc6b530cde818d30f01f6d4aebc6340000867cf3260c4983dbd69"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90151c6762fc2f8f021d83dcdfd7791a1ec6eeb8f21326a99045bf430f6fd04f"

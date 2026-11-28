@@ -12,6 +12,7 @@ class ArmNoneEabiBinutils < Formula
   end
 
   bottle do
+    manifest_sha256 "a7ec5b9425ab94c5c65efa4554c7a5fbecd116db7503f5fe462b647534c164e3"
     sha256 arm64_golden_gate: "05d4711f24e6e42e3138b10f83f07cd3873488c7f4cd6e7a4ba4dee251d6dbcb"
     sha256 arm64_tahoe:       "9b2c0bddcc6c6f3665a06e9a8ebf3677fc220abaee18f884269a015c3677d4d8"
     sha256 arm64_sequoia:     "9153cdcd4472668a94b048a6aa2fd03ce35d5faa2cf7969747477365ecb2da4a"

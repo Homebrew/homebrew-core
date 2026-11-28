@@ -17,6 +17,7 @@ class Qtsvg < Formula
   end
 
   bottle do
+    manifest_sha256 "541ca8e95e99976e623ad7371c7bb3223ff15876ba97a4eb408536b95e67612a"
     sha256 cellar: :any, arm64_golden_gate: "d698be4c6f245af24a86e6ac51263591d9482dda1e16c8bf39d537ed55e813c5"
     sha256 cellar: :any, arm64_tahoe:       "1a50f2c17b353307677e196b992dd177245fcc89b0e729657928973f1af6b175"
     sha256 cellar: :any, arm64_sequoia:     "a5c37e6d73df990d07e2211012db88abbecf978e163bfe7a02a558e14e8472e7"

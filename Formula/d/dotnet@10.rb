@@ -15,6 +15,7 @@ class DotnetAT10 < Formula
   end
 
   bottle do
+    manifest_sha256 "ad38172d3533dce23f11b05ca4f09bb5f8cf0b14d5bd468c678a66385a0de117"
     sha256 cellar: :any, arm64_golden_gate: "3b820aad1ba0859db5ab9b5cba4678f7eacc92862715c6c89a537e556dc83e4f"
     sha256 cellar: :any, arm64_tahoe:       "a0846d2bd5c5577b3bb8c58e4b9b8a21a5ce96f0dad568c54e178faa5482ed2b"
     sha256 cellar: :any, arm64_sequoia:     "157118d4c8d95d6cdd7552309e17dad712b2ceaeda8e6b5db053b7d8df4b1294"

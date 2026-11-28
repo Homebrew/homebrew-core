@@ -10,6 +10,7 @@ class Papis < Formula
   head "https://github.com/papis/papis.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3f49fbe54e1e313492df3c38b149e8effaec3379e9b10fce65665cacf575f006"
     sha256 cellar: :any, arm64_golden_gate: "50d0efc95c85acd635aebcaf5e65a299098885feaba1941c79051222bfbaf532"
     sha256 cellar: :any, arm64_tahoe:       "f2791ab83517e4e04b91e63a57857b042e99c1b7895959b57838c05ae6615c0e"
     sha256 cellar: :any, arm64_sequoia:     "8e511b0418c26cb018a8d0328e6e45d050488a01953d5be45a6c5c67d8507b22"

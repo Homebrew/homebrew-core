@@ -7,6 +7,7 @@ class ClaudeSquad < Formula
   head "https://github.com/smtg-ai/claude-squad.git", branch: "main"
 
   bottle do
+    manifest_sha256 "1f728265fa9458b15a10f8b73bca21834fa823010a2283d42de8ebe396a8d113"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "064efb573ff3695fe312c6a3356cefdb903097fcf3a0d25d333c082abd5a23ba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "37922f7be81e49e073fe85f21b62b73761faff988e3f9f9d2fae196021e02080"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "37922f7be81e49e073fe85f21b62b73761faff988e3f9f9d2fae196021e02080"

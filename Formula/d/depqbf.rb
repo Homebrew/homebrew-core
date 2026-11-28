@@ -7,6 +7,7 @@ class Depqbf < Formula
   head "https://github.com/lonsing/depqbf.git", branch: "master"
 
   bottle do
+    manifest_sha256 "df084847234de211844cd27968f138abece1ba790c08731cc5315cdc3757c98f"
     sha256 cellar: :any,                 arm64_golden_gate: "465635d639cb725cdb29df5409c43afe2a5d55e131cd13a7f0e0c92dc65347c8"
     sha256 cellar: :any,                 arm64_tahoe:       "5494cf1ffc209c33da83751528490bb7b8324e9cfde890d66231916ffa9c9eb9"
     sha256 cellar: :any,                 arm64_sequoia:     "77fb774ec31c1de16c6136751d66b3cb04d9a7bf0e2fb8c4e51a56db412310c4"

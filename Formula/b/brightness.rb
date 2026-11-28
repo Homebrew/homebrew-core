@@ -7,6 +7,7 @@ class Brightness < Formula
   head "https://github.com/nriley/brightness.git", branch: "master"
 
   bottle do
+    manifest_sha256 "2d58a6600322df33d60c921e5068780822ed816758ba27fb9b4c500bd46045f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d3e8ba40a64d0e881fb4e8c5837b39ee35b3d1b6dba43053680958b37cad4328"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0e6517dcfe7a3a982012ed8311ab590f4d071382d9e80ff60c8dba7dc0075e0a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92e87e26e1e82ded8087e37e6e94624f80af2b1d84248fb70653da8c86688396"

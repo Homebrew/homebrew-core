@@ -7,6 +7,7 @@ class Difi < Formula
   head "https://github.com/xguot/difi.git", branch: "main"
 
   bottle do
+    manifest_sha256 "3bff42b9948e5632dd75a99b789c14642d3755ac75563b01fb9dea30a0cb20e1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "05e08897f506d63d27433dcb951393e62ee5bcdf495b8559ea7458cdd732786d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05e08897f506d63d27433dcb951393e62ee5bcdf495b8559ea7458cdd732786d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "05e08897f506d63d27433dcb951393e62ee5bcdf495b8559ea7458cdd732786d"

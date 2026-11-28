@@ -8,6 +8,7 @@ class Vala < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "319707a01f92a1ce07a71c63a44fafb2c13a75c67fa80eec834f1fa48327ea68"
     sha256 arm64_golden_gate: "05f822310b3a2ff54b5b8a04516fdcdddccc6081cee03a12da66366e10210c38"
     sha256 arm64_tahoe:       "7236e77a2e6bcc1b77d1cd7c8eade63f63459fee2c0429b84348eb86cd1d81b3"
     sha256 arm64_sequoia:     "ca08db6836916f2a967cfc8a289ebd93105e793385b9e0a37076e4fb770a8b85"

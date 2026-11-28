@@ -7,6 +7,7 @@ class Lcdproc < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "bfbc80cbc517b0f84cba561024d0a7ef8b0658d97227de3493f66e389a52c2e3"
     sha256 arm64_golden_gate: "d956ddd86fe3f32d7b1c30fcba6342c7f8d300cb6155843de706c6f5605ce743"
     sha256 arm64_tahoe:       "c2685b2448e1356097e6eac9c25749bb2ff46414f72c2724c23c40cc346ba1f9"
     sha256 arm64_sequoia:     "3eca8d7c437762dd23e0781803c8c4c9c8b96372254c260f94c2b1c16b0f569a"

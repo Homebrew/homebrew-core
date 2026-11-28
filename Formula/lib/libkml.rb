@@ -9,6 +9,7 @@ class Libkml < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "86b4e0ad3587ccec33405ab85c591d224de1f023444b8c5e9bfb260f9a23bc99"
     sha256 cellar: :any,                 arm64_golden_gate: "36f86305a6d5dd0eb784ee6021ed46be809c7319d5b82627ffc8115cbe673ceb"
     sha256 cellar: :any,                 arm64_tahoe:       "3ebb7ff52e177135e9778b32bced8bed361a34ac4558ad2c4f822a40c41e21ae"
     sha256 cellar: :any,                 arm64_sequoia:     "8daf78b5ae08619b23adcde8f6fd3b9c5d676bb904f912f4627a9e4b39f6752a"

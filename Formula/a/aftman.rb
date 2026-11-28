@@ -7,6 +7,7 @@ class Aftman < Formula
   head "https://github.com/LPGhatguy/aftman.git", branch: "main"
 
   bottle do
+    manifest_sha256 "471884fa1b2cd629890990a210f88514f8724d5b1081b3e43453f8522e8cad69"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "e2b825b23c892fdf2a0067b011ccbfd4157006d27a5d5c115499331c0345c7a9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "57feb860410d508174e62f9f07d467da9ca62c88b35005ea5ebcbed2ed87a71f"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "79678c381bbec86c92bee17e53dd01f34355e0dcda445f5a90a1d287c4825c11"

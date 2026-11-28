@@ -12,6 +12,7 @@ class CodebookLsp < Formula
   end
 
   bottle do
+    manifest_sha256 "eabf9bd081fbb54842b572ac614e574d59c7ebb4e430519cf888d93737a22099"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bf7f6fab42d896a2d4ba1f7936949eeee8213c34b3538c4a16af90aa2ae76bd3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1e54c0ac35aff17075b2f2f01e948e914ecf0fee0a9ae0e241a33ef326d56e61"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5304677b110c5508faef049f96667ae749255a4d2585519e22b49f28d4dd4f37"

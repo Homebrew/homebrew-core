@@ -8,6 +8,7 @@ class Libxaw3d < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "74a0f11a7cd96332b0f3949ca8c2f8ffc29915e82097d2372ffa4f1201c5c462"
     sha256 cellar: :any,                 arm64_golden_gate: "8c3bcdaed34defe95f3e8d12469b86a536329c964d3c11ac69886bc124996bcd"
     sha256 cellar: :any,                 arm64_tahoe:       "6096ca109060e0d44327e3f087cac26e96fdad05e1abaf75e072ececf6390fed"
     sha256 cellar: :any,                 arm64_sequoia:     "84926ca78b2283f5c32b42e003c4a6711d208aa2c0d31e81192816561e967830"

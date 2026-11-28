@@ -11,6 +11,7 @@ class DetectSecrets < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "87efe36b799d3f5442331beff834b8c23718f050f12a28ddb78d1f5e9d203d78"
     sha256 cellar: :any, arm64_golden_gate: "0ef04f26858a8d7592e83f41fd56f314b923ecaab18c8a2e0ffdf1a3290a113d"
     sha256 cellar: :any, arm64_tahoe:       "437d77b2c669a347fa5d5058bd6fafaabec1c664b16ab7d6f120494f8f79f4ef"
     sha256 cellar: :any, arm64_sequoia:     "bfaf53140bb7d49dbbbaeaed63990632219955ef839a164b56a0094d3f0d8ed0"

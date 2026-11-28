@@ -8,6 +8,7 @@ class Asroute < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "32de141abd83a4cf80e03a1a59de255563c38597cd66a71188ef92eddec72c77"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a77834434b7b01265ed035592d0ae485a8604da32ad59220be8269887d0e871"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c6742a4381bdb0de6f208dfcaba3e95ca02ffa9c7ff2263ed492ac082af55d24"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "46518f15ede2b92592176216ba3fbb3aa9bc582b20208ea475a8028745b621fc"

@@ -21,6 +21,7 @@ class Xboard < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "543cb650b3af7879e8294b404465102a1c6d44b37b00dcf33ce5084bbba4fcb8"
     sha256 arm64_golden_gate: "74171650ea32aaa60891345f4d72f953901bfa37df649b6c229b78ea4865107c"
     sha256 arm64_tahoe:       "53d55768d79426bf00e69bf7db2a9a05a53c7f9b0b8dd7545f988e50e79f990a"
     sha256 arm64_sequoia:     "d667ffcdbf166279d7cfdad4d6f21f53a8e44639d5bb211e70199f005681027a"

@@ -6,6 +6,7 @@ class Youtubedr < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "8f1154cd70ccfa375c7a876082670930bd8043cbf4663b114294017ec6ec352c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b8d7caed31508e087e9fa2cab2a92bee662d05c173667a6c4240dc9f80a5aa31"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8d7caed31508e087e9fa2cab2a92bee662d05c173667a6c4240dc9f80a5aa31"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b8d7caed31508e087e9fa2cab2a92bee662d05c173667a6c4240dc9f80a5aa31"

@@ -15,6 +15,7 @@ class Zyre < Formula
   end
 
   bottle do
+    manifest_sha256 "fac9ad990a18e93d7b61d67a65f18bb83334f9ace9417a309c02f1394b181d02"
     sha256 cellar: :any,                 arm64_golden_gate: "e0ea1a77bbebd7729a24c411d2623b85801eccac7eab456644cb4278629b2659"
     sha256 cellar: :any,                 arm64_tahoe:       "b97b8410e7d03d6c84387280d17c503707788453fa8016649bcac985509472dd"
     sha256 cellar: :any,                 arm64_sequoia:     "94ea60be41bac352236e7e0fe5dedaf16d53e985cb4bf7bc003df2d25565fa85"

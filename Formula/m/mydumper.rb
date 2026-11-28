@@ -13,6 +13,7 @@ class Mydumper < Formula
   end
 
   bottle do
+    manifest_sha256 "20c5a3f653b7e3258099c82215692747e081a164a42558e3c86769994929427a"
     sha256 cellar: :any, arm64_golden_gate: "233af161a27e9117aa45375db2e16870ae6f7187abb85230b86c7e50b9aeaae2"
     sha256 cellar: :any, arm64_tahoe:       "3e8448d791f07c24f3bdd8077532f85e9d5fee1bcb39ee73dfb498dacfdb56ce"
     sha256 cellar: :any, arm64_sequoia:     "7e0c50087579b76b96bf4f7c6e6f61dd6900da199cdea709f1c00da58efa84dd"

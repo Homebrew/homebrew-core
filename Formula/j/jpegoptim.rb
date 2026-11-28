@@ -7,6 +7,7 @@ class Jpegoptim < Formula
   head "https://github.com/tjko/jpegoptim.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0669024cdff85d8b88719b4b760bae7be14ded451846b49ded5d230c50efaaa9"
     sha256 cellar: :any,                 arm64_golden_gate: "affa4a86ce17cc42ea701a1b8f40055b1197f32dfb245d7e29bfe4a79e004819"
     sha256 cellar: :any,                 arm64_tahoe:       "17b597c1c3a8a0d3ed76c1b01e068e9922d0dc2242c92494e88ab25a53da0c76"
     sha256 cellar: :any,                 arm64_sequoia:     "03905aa303c9a5d5b6669cac8f0c4f46fbf4fe3f54ede70d9bc8d958a1e486b3"

@@ -7,6 +7,7 @@ class Chopper < Formula
   head "https://github.com/wdecoster/chopper.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fae0898b98954c6eec090d06025c59f2c9cce79cd4087aa0248f4a4393e3769b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e2da445b34e705eb275c041c09dbbaba477589fb44cfdfd5ab0323e884a6044e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf94e9510a482e0c5c3f53b2f98b919a7dabe03ceecaaedcd27ff9cf1995bf6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9134d08fd6e25bfe15149d6c72302ddb77692d1650a99cb09b7c0a419c598af4"

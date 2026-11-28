@@ -20,6 +20,7 @@ class SaxonB < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a5d12c12e322958c3f228fb59334c210d6d194c8ff19ff48ab1cfa207f16cb9d"
     sha256 cellar: :any_skip_relocation, all: "689001c5df91d0cf80e9ea2d72a5a8ae88abb45142dd47bf9797728d215d2139"
   end
 

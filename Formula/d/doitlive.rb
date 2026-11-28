@@ -11,6 +11,7 @@ class Doitlive < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b0a390655bb9e26da5c19ed3520cae786b9676bc9cd2452cef70efb0223ed7a5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bfe840853cd36a39848c2445e56cb4ce03d084118422a4377bc124dba0d2e0a4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7d27cd0cc8eb296d75499181740375bd1df860590d08b9dc0900222ff268b74b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe2eba4a1d63f8e27fca2e6549c0a914467c2f6981dda19ab5af1cb037de6545"

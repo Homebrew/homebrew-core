@@ -8,6 +8,7 @@ class Wiiuse < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2d518f40eddc6cc8bfc632384b6ca2496e90d34d408e968c1dacf87d7d5a5d24"
     sha256 cellar: :any, arm64_golden_gate: "f7cb495f77d3c10593a9ee7047829389808d9fdb8d279f5f70fd5827ef371941"
     sha256 cellar: :any, arm64_tahoe:       "fd5a82ce640c286677832fa788bbe784370c41b13425a619e2480873aa205ac1"
     sha256 cellar: :any, arm64_sequoia:     "b7a924dd8a993b16522c7a871afd957ffa717d9af11ebec54bf17bbd0c2ce046"

@@ -12,6 +12,7 @@ class Libgig < Formula
   end
 
   bottle do
+    manifest_sha256 "ed39d1e1ac1dc0f266916ece81e33dc22b266e07d7c98409006d22c2f3cd0a00"
     sha256 cellar: :any, arm64_golden_gate: "22aceba70b09b0e590d38c37c54f5da80507300be4a83e6ca103a65dd5905b25"
     sha256 cellar: :any, arm64_tahoe:       "709c6f82737e01325335fe8b829b363041dcdcaefd339f70938d6db33cebcc36"
     sha256 cellar: :any, arm64_sequoia:     "2c8e798f84258ce101d047efd34db83e9aa338b86bbdf6e86caee48ea295e4fe"

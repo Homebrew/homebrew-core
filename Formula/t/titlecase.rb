@@ -7,6 +7,7 @@ class Titlecase < Formula
   head "https://github.com/ap/titlecase.git", branch: "master"
 
   bottle do
+    manifest_sha256 "55f2d0cd041abb0aa8256a4c42d98b7c95db335fcd4f999fcff299dfe85e675d"
     sha256 cellar: :any_skip_relocation, all: "58818d9ed040c4248d0fde4cbbd9affdc6ecde2b9cd3d3fd3ea74df606ffa6ee"
   end
 

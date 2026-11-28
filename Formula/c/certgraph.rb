@@ -13,6 +13,7 @@ class Certgraph < Formula
   end
 
   bottle do
+    manifest_sha256 "50079408941015cdab2f7fc715923e9a5b9dabbefa1a976c51bf72753a16cf2f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c15573064d15a0d1608b1ee9bd7766c28acc7852a62f5c9575202fce1d6ed0f7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c15573064d15a0d1608b1ee9bd7766c28acc7852a62f5c9575202fce1d6ed0f7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c15573064d15a0d1608b1ee9bd7766c28acc7852a62f5c9575202fce1d6ed0f7"

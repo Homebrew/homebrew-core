@@ -12,6 +12,7 @@ class Goctl < Formula
   end
 
   bottle do
+    manifest_sha256 "e107c0f12b31f08dd64db9d029591f19de225a6ad79882efc15d4a3a442154b9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "30b815a0f05963c7813d0df72bf92f4940a48096160f2af4f854db70bbfde108"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "47c5587b97bc94cc6310d67f0991c268b3fdb44eed6d55093867f2f7a51ae32e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bee67440bbf36e46481e028a338bafdd04e239d4686049102b794068adcab5ab"

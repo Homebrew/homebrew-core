@@ -7,6 +7,7 @@ class DropboxUploader < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c1062722df597266846267552ececa551e0090b62c3ac4f44b51ca63ebc5b6d3"
     sha256 cellar: :any_skip_relocation, all: "7c75671b625c28098f9e47ca1290b976943c041666e1250798f2a0cc5d73135d"
   end
 

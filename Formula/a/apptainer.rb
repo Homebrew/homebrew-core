@@ -18,6 +18,7 @@ class Apptainer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8a47d7285c198b1ae70d051cc3e9bf13428f0203c0481460abcbb840322c72f2"
     sha256 cellar: :any, arm64_linux:  "6f2b5c7119ab40712dec2149d33646a79f9f51b7709b83951c0af2f5068fc43c"
     sha256 cellar: :any, x86_64_linux: "b689135e50e3ddae1ef82575396728b723aab9b13a17516d0a8a2cad5380ac4f"
   end

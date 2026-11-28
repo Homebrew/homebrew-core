@@ -16,6 +16,7 @@ class Assimp < Formula
   head "https://github.com/assimp/assimp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a4573ce4120efcae65ddb13e93cccf657678e2cbfe496de59aa377bc3cfd641f"
     sha256 cellar: :any, arm64_golden_gate: "33b634485316f645d29cf271fcdf3066af99024385edfdc942ba1f7be97318d7"
     sha256 cellar: :any, arm64_tahoe:       "4e3c3f0573c0ff85ea12ae50d58579cd9dca6c5e5c4d5fcefd355852a38f984b"
     sha256 cellar: :any, arm64_sequoia:     "b87f9aee5a5fd5c7ee22c6097df9be220d6fe647c8063ed8047a6324da58fcfe"

@@ -11,6 +11,7 @@ class Libpointing < Formula
   end
 
   bottle do
+    manifest_sha256 "cdd7ba93f031a9af42dbf3a5254484c0944f8ca0c217dcb503fd7dfc64b098bb"
     sha256 cellar: :any,                 arm64_golden_gate: "7f2f1c6079112f1b2b3181811ba921782e808fc2b0d5574158214f24a4ded094"
     sha256 cellar: :any,                 arm64_tahoe:       "77cf45ea25e9ccec41d9be73e28da4d1c2568d9ab42000ba543e1d904853f6ed"
     sha256 cellar: :any,                 arm64_sequoia:     "fc963b2d475b92c4a7fd7a525d0ae301cedad7c825d50bd47f1e174be955ab51"

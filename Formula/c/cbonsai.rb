@@ -6,6 +6,7 @@ class Cbonsai < Formula
   license "GPL-3.0-or-later"
 
   bottle do
+    manifest_sha256 "e9c513bb51c2482f0fad96bb100a26b9eb55ba5b968c5f01a04454cfba98b691"
     sha256 cellar: :any,                 arm64_golden_gate: "beb4a552869bd2b9150c056871b2c4b8302b48e12d3bb5e0adfb3b5f0eb2b3af"
     sha256 cellar: :any,                 arm64_tahoe:       "37e1bd7792b0722a35a28ac8e248d711f23ece8fc43fcfacfddcd8fa72db9f94"
     sha256 cellar: :any,                 arm64_sequoia:     "869d5f9329619e9bc7fafd702f44e2f3725cde753cc0c4b8653599b70153d0c1"

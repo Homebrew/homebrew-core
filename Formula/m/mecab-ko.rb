@@ -13,6 +13,7 @@ class MecabKo < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "1b5f3bae19919858f9767db6a7141b7db6d63e2268429680b16ecda9088e9350"
     sha256               arm64_golden_gate: "8e7d279f93501bd9895fd3eee5e76d67799b49992e90bc6a03924f992b532ddf"
     sha256               arm64_tahoe:       "1dc0d604faa74cae746946732a15747d93933ebb2c5f8f4b04c9a2a491e7d430"
     sha256               arm64_sequoia:     "c50f25a8f6a26b3a337386a95f81db1d8f4a5a70b836735dee5b07c054fe74c0"

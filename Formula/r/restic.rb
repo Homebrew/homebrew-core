@@ -8,6 +8,7 @@ class Restic < Formula
   head "https://github.com/restic/restic.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9425afa73c708884c13b9287b346cd5d8c3bfbe57fbf77169393d5a1dc1f775f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "06f0efa7880f0985036e2ae22b3f307475a822ee1b90ea2d7502eab2cf246ed1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "06f0efa7880f0985036e2ae22b3f307475a822ee1b90ea2d7502eab2cf246ed1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "06f0efa7880f0985036e2ae22b3f307475a822ee1b90ea2d7502eab2cf246ed1"

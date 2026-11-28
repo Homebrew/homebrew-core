@@ -12,6 +12,7 @@ class JdnssecTools < Formula
   end
 
   bottle do
+    manifest_sha256 "d84cf93ece7f021946718736a74935715a6f2034bb1e4c20c45c523514b5bd3f"
     sha256 cellar: :any_skip_relocation, all: "335b0bdd8d56fab77cfad389f7b53ee11b21c9af83df56cef1c80463b48b1401"
   end
 

@@ -6,6 +6,7 @@ class Mklittlefs < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "0e0f22f9e5b166069ec6e9c1d48205ff5ce36325b4016fa1bbd557af055ee77f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7e63645eee01c1b16621f2f422ef4e022a42fccb28528c9f02199dfa2a554300"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ebd5f7c2ba836785f2a85f02288e6b3cefdcac40f2e0c4086a291ec1f9b06e67"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cbb829ab8e9c3c40a518155aabc2d05808689225bb7177e31ee3ad2b80a2bc7e"

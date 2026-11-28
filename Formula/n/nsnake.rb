@@ -8,6 +8,7 @@ class Nsnake < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f9b14bb836a8723c0483fd3b0ade3078589c62c6ff7c81f447040ca79348eac6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8b47bc59bde8dcfbb1c0ca44b9bf1941ecd7e5aebd0bb2a4ef4d00321c295c9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1ede653161111adadc9dc28604dc24adf4ffba2657224e300c613c230d46bfc6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d833e90080112061fbc54747bda14a5d5c1ac48bab003c62cbb9a2f1a71f1578"

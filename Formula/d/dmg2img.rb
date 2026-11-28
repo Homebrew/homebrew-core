@@ -17,6 +17,7 @@ class Dmg2img < Formula
   end
 
   bottle do
+    manifest_sha256 "2ccd4f8566b3ea3edf8596a6b74ccdf781d9230c04b7863a6cf8bf0775f9fe2f"
     sha256 cellar: :any,                 arm64_golden_gate: "1a71b81f4cbee9f3d202b6f67eea28ed0908c78614ddac70feb95058a7af64fc"
     sha256 cellar: :any,                 arm64_tahoe:       "97e3ed053a2252ee6050c04f82331806b860b598b78da1d16df9230ab3c6d072"
     sha256 cellar: :any,                 arm64_sequoia:     "84d01aa11f77179290362b3a5a2125982e0f1361cf3b6c3b978d2e759072bdaf"

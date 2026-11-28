@@ -6,6 +6,7 @@ class Bgpstream < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "810ae67dd47f68f369827d6b8fd1ca8d1a5b398becca7fc0d88c1318597717a1"
     sha256 cellar: :any,                 arm64_golden_gate: "580c790e05fa1aa31fb20b9665ccc60b90fb14b956600a6e53ff4e7026fa7f00"
     sha256 cellar: :any,                 arm64_tahoe:       "c060368caac64c91df708d5b62f1e5ff276d94447b98c59cd168a0158890d1e2"
     sha256 cellar: :any,                 arm64_sequoia:     "8db317338ecbca23c82ea862d2f50c557262929d5c805abe88cf601dd5377da5"

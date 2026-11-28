@@ -7,6 +7,7 @@ class Samtools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3d6300450939d4497c5053ddbdef248dbef50b97820651a2aef92569503fdb54"
     sha256 cellar: :any, arm64_golden_gate: "c7d4f2a00b5e769a8674b5a515665786af7d5551352b51092c0b78c67f5c9b0f"
     sha256 cellar: :any, arm64_tahoe:       "0957908dcf06a7b52629ed06aa6cc9627e02bb1afaab1d0efbc7f9780c2b4672"
     sha256 cellar: :any, arm64_sequoia:     "2eeb0091bba04d3bd38e4f72325f8f4fafad4936f8871e756ccb94b3a67ee220"

@@ -9,6 +9,7 @@ class Adaptivecpp < Formula
   head "https://github.com/AdaptiveCpp/AdaptiveCpp.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "29667f9824930edf7cb785b982037e8743b34998edbc0d175c80970ff6e3599c"
     sha256 arm64_golden_gate: "3a3c7652bc638e00799f49eee8287ecce83c400fb4b513c1d6c260dfedbe3552"
     sha256 arm64_tahoe:       "b03aa7145c4c95b0eb07bb56a163742e17a95ca172958c93cfab371debbf94e9"
     sha256 arm64_sequoia:     "20564093bcd1393f762ec007ede0922450ab60012db7bbfa5d723f9807909461"

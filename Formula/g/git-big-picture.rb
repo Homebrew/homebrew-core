@@ -9,6 +9,7 @@ class GitBigPicture < Formula
   head "https://github.com/git-big-picture/git-big-picture.git", branch: "main"
 
   bottle do
+    manifest_sha256 "623fafd0f1cae49bc8ef7c2bd66c686122a5b2d474013aeef880a7970b7d90b8"
     sha256 cellar: :any_skip_relocation, all: "76b44e88e8497b78bfe5ea50e8f5059f0a09a0b96687d3fcdda268e727f76dd9"
   end
 

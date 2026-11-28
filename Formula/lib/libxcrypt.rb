@@ -12,6 +12,7 @@ class Libxcrypt < Formula
   end
 
   bottle do
+    manifest_sha256 "80a89f8e0bdeee4028d08fa7f532c607ad28b96c2f7714ecce718364a388eedb"
     sha256 cellar: :any,                 arm64_golden_gate: "35a824fc898063ae807823d2c6d9c9709bf9215f2b65c9437e66c42f79f2afd9"
     sha256 cellar: :any,                 arm64_tahoe:       "45b16874ed374eda84779a795aa32640f86759dd480f470567949b7639a8e3ee"
     sha256 cellar: :any,                 arm64_sequoia:     "04b6d0459d587d4137b8fdc9d7a711bf5df1405afae64997d4d8f6016df50e20"

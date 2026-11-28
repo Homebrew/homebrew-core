@@ -7,6 +7,7 @@ class Waffle < Formula
   head "https://gitlab.freedesktop.org/mesa/waffle.git", branch: "master"
 
   bottle do
+    manifest_sha256 "82436a5c3f8011cb7c1492fea13a13360576f7ad66b4f80dcf5dfc8cbaaaaa19"
     sha256 cellar: :any, arm64_golden_gate: "5c1fdf85e9b6135bd5ee8cd9c8f560672c7bdd832d4360b086ff4e6773b818d9"
     sha256 cellar: :any, arm64_tahoe:       "2dd69169a48a2d596930174abd4cb49de0c96f34283de5149573b9161a342d90"
     sha256 cellar: :any, arm64_sequoia:     "38ea5644a64bb6ec2ddb776b680a1e66b0c95e8aae5eee55be80bfcee34a4d98"

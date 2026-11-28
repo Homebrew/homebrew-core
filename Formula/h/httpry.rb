@@ -8,6 +8,7 @@ class Httpry < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "161737f3c01ed966c1d5cf2303b419cc8d2ae4dd8a621052e731fcc8f4d17fc1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "db604d9531a21f5f9a3af8286bc426e17cbdf0649e11d5cc3d5d366e2689afeb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4d7f9814a19d86ed059a4d1f4e6a6ae1e0463cba42b53eaf0405d4a624f55e78"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "efbe819748288998ac0d955481db2aee1846e2e70db91a72ea2c4652accb95e4"

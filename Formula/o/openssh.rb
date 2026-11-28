@@ -14,6 +14,7 @@ class Openssh < Formula
   end
 
   bottle do
+    manifest_sha256 "e21d4b0afa5e2ab20fb9b2cef8ad5d8d39d2f0b0cae3360bc055cd8b9624c660"
     sha256 arm64_golden_gate: "c420fda22de5514ea105cf753099f41ff47a31fb2bb5ecd041e3debbe451373f"
     sha256 arm64_tahoe:       "5686aec4f22f807d68dc4cba6b22d32e86f0f41b5e93391a533b04bdb65ffb45"
     sha256 arm64_sequoia:     "a0bb9799d7939bf20297f1e8daae9aa1c9966858abf9ac2832574abedc67ab9d"

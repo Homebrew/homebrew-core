@@ -13,6 +13,7 @@ class Magika < Formula
   end
 
   bottle do
+    manifest_sha256 "7b435fed28eef539fb6a7d5729f7bc0bfd0fd35eb798dc9e9bfba87923500155"
     sha256 cellar: :any, arm64_golden_gate: "60f23f9dbafc87a6930d80d28fed3580073385ef228e6471a111a9968534ecd1"
     sha256 cellar: :any, arm64_tahoe:       "7cd47bdd1337fa961b886edf9a83b40c5776a097f949e2b44e5cd625732e76f5"
     sha256 cellar: :any, arm64_sequoia:     "f66dfaecd742cb60aa90d076ca3264a4ea6cccd99bcc1c3d6cfba28045a52049"

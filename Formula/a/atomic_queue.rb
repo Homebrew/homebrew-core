@@ -6,6 +6,7 @@ class AtomicQueue < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "78c565e06b210b0346df75fec4a45cbdbf6555795cea1002463d5cd3387b709b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7f0efd983f44e6bde5d7aa18466b0883b764edfe8e5b764493152be3f806d1ac"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7f0efd983f44e6bde5d7aa18466b0883b764edfe8e5b764493152be3f806d1ac"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7f0efd983f44e6bde5d7aa18466b0883b764edfe8e5b764493152be3f806d1ac"

@@ -13,6 +13,7 @@ class Halide < Formula
   end
 
   bottle do
+    manifest_sha256 "7de5df0b24c5c6e11357771e6e84988dedea2b9decb797e83f0683b547d66e97"
     sha256 cellar: :any, arm64_golden_gate: "4b68d3644ef118b686d0f998652dbbf8efe2fca832dbb6fc273422a2e65bba8b"
     sha256 cellar: :any, arm64_tahoe:       "7ea4d3d40a0104a7517436cf9dd9d4cf9171789cc15c4e49eabc50782b427964"
     sha256 cellar: :any, arm64_sequoia:     "4f57547b5ca43b2f63767b40a5607fa76926f8e6bcdeb7564d90cf066a11d8df"

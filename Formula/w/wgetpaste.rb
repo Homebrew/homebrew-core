@@ -6,6 +6,7 @@ class Wgetpaste < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "90487740817ea52556cc2f3d2431cc84e4d56a3476ce0ff56a0b3d98703be4ad"
     sha256 cellar: :any_skip_relocation, all: "19eda68054f097182aff7eefd0edd7cb34b02d1e380b74c01cc6523d5bbcd137"
   end
 

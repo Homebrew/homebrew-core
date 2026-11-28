@@ -12,6 +12,7 @@ class UcspiTcp < Formula
   end
 
   bottle do
+    manifest_sha256 "382d8830563b48d45eebcecb50655783202fffb7ac6fc10558087e26ea8214f1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4ff35592758a0c647d8b639cdeecedabd257fcb854d546a2f354fb764f5a435b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1e6c8483d5cc332f7a227ecfe6dcab0392f2d4cbbe33e144dd1c2650d89a86b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "08361b13bd495c563f6340c7cf4aecabf43475f00a3e47116295de56a014c8cf"

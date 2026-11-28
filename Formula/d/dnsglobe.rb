@@ -7,6 +7,7 @@ class Dnsglobe < Formula
   head "https://github.com/514-labs/dnsglobe.git", branch: "main"
 
   bottle do
+    manifest_sha256 "de55fc88fa82a95fd8329d89e742397b7b2d0864dbed791e7476530bcc10f205"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "062fa46e2cae44fec8179c8eff6438a456da85268d338c7731704dbed971c1ee"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "51105646fca308e35e70e56adaa169865bcdc142e94b2e963376f45c62439f86"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "554bfbd15feba3e77f87eeec867ed71df9520ce8210ce4e8c9bba8b389004131"

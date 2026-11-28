@@ -8,6 +8,7 @@ class Pixz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ffda45b46f2d6b1f5b758887fa4611795ff7f884ad8a620d20857c57d7030d28"
     sha256 cellar: :any,                 arm64_golden_gate: "989f7a916662ea5e758e3ec00325618d9d90b0490a0c009c0bfc2ee559b324bc"
     sha256 cellar: :any,                 arm64_tahoe:       "b760a3d166ab9febb997a2e8b0b295fbbc8d5d4b50ecbc068a38e61a09ba5977"
     sha256 cellar: :any,                 arm64_sequoia:     "a92eaf0c89c34b5db225090adeedd24d26e3481d46e43eca1e94a2fdd509a98a"

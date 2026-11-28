@@ -6,6 +6,7 @@ class Instead < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "45d9a37cb7373a6a6ac6ba65dd14b9933f80cce29ddf839a068131898c8123f2"
     sha256 arm64_golden_gate: "86219e7e5aca92b1a1d4b8f639d1946232d2221e527b749f49ba407e533d2452"
     sha256 arm64_tahoe:       "7d0732d392fc927db7d778ea935d92d2e0c12de4286b8b3bf44f5a93d12a5a7e"
     sha256 arm64_sequoia:     "cb326b3adb5f8d7f31bc7e7a4cde8924a47cdd0c7e3c7f65420ca73fa2eaca57"

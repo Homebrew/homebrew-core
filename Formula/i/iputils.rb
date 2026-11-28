@@ -8,6 +8,7 @@ class Iputils < Formula
   head "https://github.com/iputils/iputils.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a068228049605e1da517bd7a01d5d38ec83c384d86eac11ffa49b6424898349e"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "37484fe1294ed3aa7acb9e302b59eff14e200c35659d8e1efdfdfb1fad80ecae"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "70b1f0b987ee90225aecb3dec9012bdc1a8e25cb5f6b0530af39dae2c46970bc"
   end

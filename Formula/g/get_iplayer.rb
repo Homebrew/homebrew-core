@@ -8,6 +8,7 @@ class GetIplayer < Formula
   head "https://github.com/get-iplayer/get_iplayer.git", branch: "master"
 
   bottle do
+    manifest_sha256 "566f339ab444f1b5932f3e3242dae26f525a9a020c07694435c6a9ec50f07cac"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "82ce824f54caf6a105dbcf29a9aa7b6effb5e4d5dd06a248a6e921ff483ca95f"

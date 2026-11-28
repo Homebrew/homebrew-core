@@ -13,6 +13,7 @@ class AzureCoreCpp < Formula
   end
 
   bottle do
+    manifest_sha256 "3860469c1ca1e0ae1e6e3a15a92f5d4d4469994f06770b6594badb0803b0193f"
     sha256 cellar: :any, arm64_golden_gate: "a13c120f883413abcb8c0bc04b2d9030c27d49496f187cbcf9f0c8ad188fc1d3"
     sha256 cellar: :any, arm64_tahoe:       "20326047f180a75904f9bd54283db5e8066c9f7fbb4ef1442b0524a3a4138ce6"
     sha256 cellar: :any, arm64_sequoia:     "10ba6183849f3a316c696f1d7a24e41929fd55b97d7e794597ec9a6f098ef98c"

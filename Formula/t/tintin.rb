@@ -12,6 +12,7 @@ class Tintin < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1f877210795e10e6a8bf82a55e71afdb695dbde083611debd9225d0bf978486a"
     sha256 cellar: :any,                 arm64_golden_gate: "737466d2ec0e880abdd86c4ad89c29ee3f4d4eedc83d1788714115d2f1c0b283"
     sha256 cellar: :any,                 arm64_tahoe:       "1b32873045afd7f28de23d1f2e7bb8cf6d2443b5be875a075e9788f338f941b0"
     sha256 cellar: :any,                 arm64_sequoia:     "a7173fdb565b12114bf44ab36fab43de5d51d1fa31210463fb4dd895d880b87b"

@@ -6,6 +6,7 @@ class Picocom < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "0a878bc769fe493cb61a10abc288624aae8865d0e68b9a810ece28f830955264"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f0b57bd8a770c0e6f67d847470a806c3cd61d11559c3144d58305ab021a7a0b2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "286ea19a5c354df6945f1e2ac963c6de413004013d342ec27b0b5a2b6ac37c7d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "eeaa2ad46eb0932dec9c49251dfe3454c59d1584a868a85ae639eedc8f6587c1"

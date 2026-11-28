@@ -12,6 +12,7 @@ class Djview4 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "77cd0f92e2c02d0625e625fb016f94074a329903509d2424feadea6dbbc6f31e"
     sha256 cellar: :any,                 arm64_golden_gate: "031cf89ed6f0eb9083e327e2aba6066a1adab55b961c54ba3054c1a6d20ac4c2"
     sha256 cellar: :any,                 arm64_tahoe:       "97d3a20862eef89b5dff5f2792ee3f5b08adcbb5c4edfc50d350030a9c326c67"
     sha256 cellar: :any,                 arm64_sequoia:     "b4e2f07c9690a2303f9b85c67ab95d6f5c2d6daa2da3bb8f64d69d36d3f003e8"

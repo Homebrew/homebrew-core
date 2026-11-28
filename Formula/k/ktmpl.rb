@@ -8,6 +8,7 @@ class Ktmpl < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "757cbf9023953e0f1f47935ad617622ff39041d6e309b2079f4fd010e1567a75"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4a6baad7c6f425d5b92e684e2ff6c8be973eca616f7d3cbeee58a7754c07f6e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a4f4f2bafee96a36ab50f17f2c89af0c75c46269cd2f1ebb35de8de69984866"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2dc088f8bdd186bd390a9f26861ce4eaad7188aa36c5d8e269d0db6e4ca8dcb8"

@@ -14,6 +14,7 @@ class Goenv < Formula
   end
 
   bottle do
+    manifest_sha256 "7d39e864f080dee4eec76170accdde80b66bc83b7439a2b4b0b21f76e61ebf92"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9d45841c2a4104bfb19abcdb421451040da43be685b53d10147eacd1369dd195"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9d45841c2a4104bfb19abcdb421451040da43be685b53d10147eacd1369dd195"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9d45841c2a4104bfb19abcdb421451040da43be685b53d10147eacd1369dd195"

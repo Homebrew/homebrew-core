@@ -9,6 +9,7 @@ class Gcem < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1029aa840d0bf7c48a9713d593846a166c126c91b15c87f6ecb9b15149e6c3a8"
     sha256 cellar: :any_skip_relocation, all: "9922cb2ea8c9e1410e66b74c11d2f9e5dbcb44670f96603594c63cf705d8d444"
   end
 

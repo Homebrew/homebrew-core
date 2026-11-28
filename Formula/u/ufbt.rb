@@ -9,6 +9,7 @@ class Ufbt < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "074eaca1f057ac7e40e556627eb32ff1b6df848093c80b11838a29608cf3f132"
     sha256 cellar: :any_skip_relocation, all: "00e922d31e19d1c9aad213ca15399df739f4d450130d1247444a8cb2c4807a74"
   end
 

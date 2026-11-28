@@ -7,6 +7,7 @@ class Crcany < Formula
   head "https://github.com/madler/crcany.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0b33fe3c7b7ededf485cf85cf5ff068fee9eacc81d8a83353895441b0e975445"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d4263a4ee26e7dcacea2e15de4ba9bd016263d973e9f544af115de71c83857d1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "310705bfcb672936583047b27aa427f521040ed64ac1caf7857658f0ad573bb5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "edc3456fd296ee992ccd6dc5f64082b1b52789679ea5068c8326874ec600863c"

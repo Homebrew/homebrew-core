@@ -11,6 +11,7 @@ class CucumberRuby < Formula
   end
 
   bottle do
+    manifest_sha256 "21836287983517330689917021a6d18da31d1527945aa6ad3eb29e1ce843c0b0"
     sha256 cellar: :any, arm64_golden_gate: "fc788a838ad9447aad98d1639bc48dd8aa3eeb4463567eb09f595c6534e046a5"
     sha256 cellar: :any, arm64_tahoe:       "2d281de5a8d2f8454befe3278ecb6c3e6c9a39b47189c8928868a6093eb0f45e"
     sha256 cellar: :any, arm64_sequoia:     "390e6851c3ce0de5c71dc8a9de6b1954b0911a3475cdeaac58fc26a3af6bba95"

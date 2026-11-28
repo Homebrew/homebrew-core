@@ -14,6 +14,7 @@ class Pyenv < Formula
   end
 
   bottle do
+    manifest_sha256 "daad89d0c8aed46990bdf9a793d4dd10852a54332780636ce5c5b67aab77f16e"
     sha256 cellar: :any, arm64_golden_gate: "0ef95b7754bdfb329c02d4c03a5ba9b55b0c4d016ef5a5422d52860c3de17c1c"
     sha256 cellar: :any, arm64_tahoe:       "8ac733ff074ff044f0f503a3ee78e36b6c9864810104659b6d5bd4ea802586d1"
     sha256 cellar: :any, arm64_sequoia:     "f02987dfcebfd12a9e8e887d194f303f7cff616056f5bfcd674d6a01cf57a5d6"

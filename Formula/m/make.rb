@@ -9,6 +9,7 @@ class Make < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a3da08abe3c73ede1f418d286c49fa3ac402161518f1cdb05d2209d6b09a0d42"
     sha256 arm64_golden_gate: "a20772b154178b89c58dfac3c209945f3fe0868a3064a521e0a9be5340761726"
     sha256 arm64_tahoe:       "c46713c2347b3af91fc3fb41f215f26341fec6df4687af080e55d921858f06d5"
     sha256 arm64_sequoia:     "f361639a5ec1a9355e12f985c511dd6631b6790452a52057032a3a07a690ca4e"

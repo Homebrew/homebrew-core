@@ -14,6 +14,7 @@ class Clens < Formula
   end
 
   bottle do
+    manifest_sha256 "3b280b82e59f891c51f67b3c127613f7bce1a97df0f484112b195c95c34abefb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "486cbc236880619833487662bbb87d26cd784b36ead3c4c940d0b09b68f1f281"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ae9f115b19edd75f00e434a0cbc10025f607c99482ca901323005abf3a9fc93a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "27badceb51069c0b5dcc5673744b149caa21eaf48719005480dbc0b6dcd8a153"

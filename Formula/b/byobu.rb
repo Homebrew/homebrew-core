@@ -11,6 +11,7 @@ class Byobu < Formula
   end
 
   bottle do
+    manifest_sha256 "3efc2557397d4c192185f6d803adfee17a4a9efbe1ef4d342442ab8981eed027"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "cee1a38018295be3e68baa8e2397b8fa4d628cd62d8194b7a60217a1ffd6db41"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "cee1a38018295be3e68baa8e2397b8fa4d628cd62d8194b7a60217a1ffd6db41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "cee1a38018295be3e68baa8e2397b8fa4d628cd62d8194b7a60217a1ffd6db41"

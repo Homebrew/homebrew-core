@@ -13,6 +13,7 @@ class Postgis < Formula
   end
 
   bottle do
+    manifest_sha256 "38de9730e25a79d26f62522201008b2b4df956347edf16e4e9915973b3676a24"
     sha256 cellar: :any, arm64_golden_gate: "2f1b9274adde3ae5b09e919d926aa7b62a18c328818fc6462da83aa775dcb400"
     sha256 cellar: :any, arm64_tahoe:       "4f77712e7ce00b697325f79378c905070cad295fc0cc41695f3b542712719ea9"
     sha256 cellar: :any, arm64_sequoia:     "3e0e225813f837b098e9b4886df6e83967306a0b73d77d08213071dfd5bc3011"

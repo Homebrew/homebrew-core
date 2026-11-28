@@ -7,6 +7,7 @@ class Cctz < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "26e24b9dcca8ced1bfdcd37d57952d039cb7cf69b7fe086595ad9a3dee98e082"
     sha256 cellar: :any,                 arm64_golden_gate: "23caa9eddc2e39b396a3cad468e331e8d8bc2411e7b9198e1a00099469b996de"
     sha256 cellar: :any,                 arm64_tahoe:       "6284d05bd82c833d038e7fe7a1b46288db768f917dc7a54c0cbd0ec60ef49474"
     sha256 cellar: :any,                 arm64_sequoia:     "2712e262130449fd148e9e269ef211baaf180ad6fdee8e53ae0677d5edff39c1"

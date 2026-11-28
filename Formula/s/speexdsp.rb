@@ -13,6 +13,7 @@ class Speexdsp < Formula
   end
 
   bottle do
+    manifest_sha256 "d2b69eddf187695d4622c38d70d2951e7583d95cc041957aaaaa48fc18026833"
     sha256 cellar: :any,                 arm64_golden_gate: "a2320386798a6df29d57c7a166361c66ff17840ad8deca0b8d9b03c82822dc44"
     sha256 cellar: :any,                 arm64_tahoe:       "e7647620836f6c58957deb0c5994b29b087c0574b5feca71fbaa9dd67d15a092"
     sha256 cellar: :any,                 arm64_sequoia:     "c19e5962197be02c5124dc4c2cef39ef6a6b00bddb5f3cb7dca9c3e31929d086"

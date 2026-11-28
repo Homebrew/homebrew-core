@@ -27,6 +27,7 @@ class Lammps < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "11b9e10cc3d268b5cf6fb449f38204a886fc32506dd499b424caa4534919793d"
     sha256 cellar: :any, arm64_golden_gate: "61bbaaea377a313dee32a754670509258da0d2f439c1e8e9d5533959d6dd3bee"
     sha256 cellar: :any, arm64_tahoe:       "f01cf00e5dcf66151abc9741205a0a8afae98f98b72e7401d2ba088483372a69"
     sha256 cellar: :any, arm64_sequoia:     "99b068016e53b8be09568164d6f6a293a6627f41ddf4e462be52a0de4e242831"

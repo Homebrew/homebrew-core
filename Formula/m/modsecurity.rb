@@ -6,6 +6,7 @@ class Modsecurity < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "d14dd9efaf7453ad9e669385d16044154a185a4a4a43202a42010c365664969d"
     sha256 cellar: :any, arm64_golden_gate: "69455a24d9a40cd015552a36f685d73db4042af46b3dd88dcc97f203556fd1cd"
     sha256 cellar: :any, arm64_tahoe:       "8794c92d822c313a32a8dbc3c98f12e12059e18665422530360827ca4c5f253e"
     sha256 cellar: :any, arm64_sequoia:     "ce76ad59f0b43361b075163bc96f29c43fb2ac3b31a38aa4fc52022dfe6c5e1b"

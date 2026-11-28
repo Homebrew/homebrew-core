@@ -12,6 +12,7 @@ class Gradle < Formula
   end
 
   bottle do
+    manifest_sha256 "c8f68039e1bbc9430517fea10413beba0da3e6cabf9058e95f584d57ef89474c"
     sha256 cellar: :any_skip_relocation, all: "3e0866d766d276dc82ed1d5349adcc2ccbd8b4396f4d3865b35e9884be0a3701"
   end
 

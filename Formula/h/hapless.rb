@@ -11,6 +11,7 @@ class Hapless < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "983fd90ab4c9b348d906995d1a811dfc8a74fb434070c9c4382853ddb85ea2b6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8c4a8abad7a825e0af46936d46b1d7c37dbf3a3bdff7a94c2e119b0a27f37eea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "773eaf7faca505c02feaa8cc7a710414fcc832dbc6a7dde21612637bcf9ff1fb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0210b50e7a01cfb54fbd8c11007103b568e5265bad5d8b5368341d191342f1f0"

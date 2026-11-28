@@ -7,6 +7,7 @@ class Yatas < Formula
   head "https://github.com/padok-team/yatas.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d0952448ef39ddf89403110126d32de5afe1984c62f3378569b6177b2d22b2c7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7d70c37608750984143eb31cab267a3736f49638afbfd7e88a3310a05b53fb36"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "68c90ed32a2ab843066a54f859e89126b50ca638e3db0de2c2fc31d5e0ffd0c0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68c90ed32a2ab843066a54f859e89126b50ca638e3db0de2c2fc31d5e0ffd0c0"

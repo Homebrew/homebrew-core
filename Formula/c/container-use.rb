@@ -7,6 +7,7 @@ class ContainerUse < Formula
   head "https://github.com/dagger/container-use.git", branch: "main"
 
   bottle do
+    manifest_sha256 "49516e698eafa29475471c341b6a7e2175eea460ba1dd886acfd390114d1783a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b49bb50af1e4ca691d212a6ff22cba7b3c633279608cf15af794c5f233291586"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "76b8ffe481648077829aef33f240710acbbdbe6d4e7b3892dbba16289cd943f3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "76b8ffe481648077829aef33f240710acbbdbe6d4e7b3892dbba16289cd943f3"

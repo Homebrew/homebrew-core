@@ -7,6 +7,7 @@ class Mosml < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "3be123f1e34d812d866304517772ea159ef9c04a7df13b51ba0fd81c72f5359d"
     sha256 cellar: :any, arm64_golden_gate: "12330982905c21a44082b1c229a6cc82a7347b83dd8112f1d87a5303199637e0"
     sha256 cellar: :any, arm64_tahoe:       "1a7e823a23f184f14b86c7f1c09aae850e733352f8b369a7460a4b4dffb2f7ab"
     sha256 cellar: :any, arm64_sequoia:     "e7767561750b13027b053e1a080b8bcac8d5e34bfdff98089b4e51c4c0c9e8bd"

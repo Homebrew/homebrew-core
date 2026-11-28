@@ -13,6 +13,7 @@ class OpenSimh < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "35560b316c1d72a719f68c16d223ac9b462af5ad0a4bbed5384108982142246e"
     sha256 cellar: :any,                 arm64_golden_gate: "12a8e52d2c7206ac4a49300539c77233a6daf12c759287a94765d61337c9dfa7"
     sha256 cellar: :any,                 arm64_tahoe:       "14ca95542e0080680f5a68363b5a3cf88faebd66d2a85e0820048e4019a5b38c"
     sha256 cellar: :any,                 arm64_sequoia:     "25571e5341da2b41ee773893e974a462101e920cc7d92b27bd789ccd2f027989"

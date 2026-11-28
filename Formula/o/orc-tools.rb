@@ -11,6 +11,7 @@ class OrcTools < Formula
   end
 
   bottle do
+    manifest_sha256 "847b217db8235285f72b05781615d9b7a9b0cb744017b6f0952fed0e92935821"
     sha256 cellar: :any_skip_relocation, all: "e81a7d37e5eb942b1b4c41d9df99c036bddc80c333c383799d8d39897c8a2c07"
   end
 

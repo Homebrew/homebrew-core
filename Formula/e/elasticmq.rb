@@ -6,6 +6,7 @@ class Elasticmq < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "e3ebb06d4788ad2eed595e216868db8e17238d3848676632dd8cdf675c21e933"
     sha256 cellar: :any_skip_relocation, all: "1349e260f8076539c1a65d055ff5267a21fe023a2ff712b909970e08e6cd0a07"
   end
 

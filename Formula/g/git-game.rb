@@ -7,6 +7,7 @@ class GitGame < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9279f79c148751e94c41d407d704f4fdbc331cca98f18748d69d5972dde08e42"
     sha256 cellar: :any_skip_relocation, all: "fa90fff3303bfe31a09230d1a67d12fcf483e1d82be4bcacad64ce064f396338"
   end
 

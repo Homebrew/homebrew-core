@@ -16,6 +16,7 @@ class Gerust < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "5e3abc65a0b1e0d35af2430a7112d6d61a924f52c521fd59aa696d2f05dc4477"
     sha256 cellar: :any, arm64_golden_gate: "dce92a54ea226c22e48bc45fa9c9d498804ef98994b12e51d92be280d0d4ad95"
     sha256 cellar: :any, arm64_tahoe:       "ff96cbb5a7aa4292de83433d6e04285a51b82c1e8c6f671158c32f668cdc982e"
     sha256 cellar: :any, arm64_sequoia:     "1692fb674c42960e04779bc18667ebdc1bdab41a62f50292a00871d7b2db4108"

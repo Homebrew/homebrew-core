@@ -6,6 +6,7 @@ class BehaviortreeCpp < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "9c8f3cd287a54b592119e9344a0416a0b449446e462487ffe7616edb3ca79494"
     sha256 cellar: :any, arm64_golden_gate: "725bfdbf10d7bfa413436e796612e6e68e2c3532f21cfa4adf15a4dda9cb041e"
     sha256 cellar: :any, arm64_tahoe:       "e0a82ad8859296d6326be624a06bff825a1918d706d711d497d271e001e37a66"
     sha256 cellar: :any, arm64_sequoia:     "08b3eada795f6a95d71fca1c44462854b175f9b65637f2086aa16978c4caa7df"

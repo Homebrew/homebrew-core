@@ -12,6 +12,7 @@ class Leaves < Formula
   end
 
   bottle do
+    manifest_sha256 "b60e0b6303e4f161056d70897019792cb03ec113d89800eb35bb231d01fd5c3c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "98dfe289e60ac86bc32b944adf4eb9c5b46813f1fd9e40d6dd5f2a07e4b5a3de"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e087447950e226b19bfffea60b8ea976a537db6aae81c9bead79a9cc1c3ddacb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fc96d24b74345c2b52a20c0ec4828bf70a1add924b6da549b3218e258ede623e"

@@ -7,6 +7,7 @@ class Hunspell < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "7862d3eb844ddffc9ecb63e17ff94e5b4fdaa3b3bb2d0725e3ab3335e38eb067"
     sha256 cellar: :any, arm64_golden_gate: "758f13e3e0cc168aec0e5d6145bd49607333a623cdf8c044a7794a4d153a9d66"
     sha256 cellar: :any, arm64_tahoe:       "4d78ed9081b45b43e45abc361025acdf66eaa57b74825bf05a40196f0f145e08"
     sha256 cellar: :any, arm64_sequoia:     "7fc71825c85bea935f4d3a365159543c40370c6211d7e5bb861a5de6511b1876"

@@ -8,6 +8,7 @@ class Libquicktime < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "87d44c4c243ce204cb12e32a495e745110eb30a078a64e66e9b1337e3924b5e7"
     sha256 arm64_golden_gate: "8bb983fb399d51ef30b373ce1084ed1ebc728ad7996f840348d9e700a0f54001"
     sha256 arm64_tahoe:       "5f0134430e06269fcef851532addb2e837cf60ef41c44ad3dd9155c1d5df6b50"
     sha256 arm64_sequoia:     "aa6f973349d6fa176f4078a6f7c7f256ecad756d6f0cdc82b7bb9f43063cb5fa"

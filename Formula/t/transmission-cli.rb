@@ -11,6 +11,7 @@ class TransmissionCli < Formula
   end
 
   bottle do
+    manifest_sha256 "dcf48eba28c70f654c61121bf5057797565ecb73c2b8dcf5cc0a6307b68e5fc0"
     sha256 arm64_golden_gate: "fd2aa4c65db4aa0a9639b3b63122f3887867a005fc456df64eb67e946fde8f7b"
     sha256 arm64_tahoe:       "07044357b54b21e5060e979174680b39cdda9249107dcff7d969de811c9c6a5e"
     sha256 arm64_sequoia:     "50b2637125aea3be830c2e483be6aadc0b23d7fd8ef4a2d4cfe9157712cfc752"

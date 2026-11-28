@@ -7,6 +7,7 @@ class Libdivide < Formula
   head "https://github.com/ridiculousfish/libdivide.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4c454b597319518b7254e386cb3feda6c3f040bfb1623183fbb44af3c22c620d"
     sha256 cellar: :any_skip_relocation, all: "cbaaeb34b8633fa12c85f274bf6a60123a25b041a1185638ddd28ea8bc21c1ab"
   end
 

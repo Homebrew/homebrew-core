@@ -12,6 +12,7 @@ class Rv < Formula
   end
 
   bottle do
+    manifest_sha256 "5cb319899fcbff0b01683e0479d6165dd07b396d66f49c4e77db9ace52edfde9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1d731aafc757d7cfb3eb2745a3ba081b0cda164baa7121213f0bdff756475182"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b62190ce98b75f8bf7c530c494c152fc965aaaf87600c7cb0a27b7742e0047e0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38b39731b4cade9a47cbb38636269b9583f74816c6a569cb147d4d8568bed686"

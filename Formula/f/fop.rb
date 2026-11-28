@@ -7,6 +7,7 @@ class Fop < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "22773523a606aef61a6c03a10b3e7ade1ffec7e053c9b2c7f4cbebc4b864336b"
     sha256 cellar: :any_skip_relocation, all: "2f25c916a8397621ac52b8c6fce2019473c0d276930c939a5691fc7b3f1fe03e"
   end
 

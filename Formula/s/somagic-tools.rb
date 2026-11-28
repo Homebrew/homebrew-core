@@ -7,6 +7,7 @@ class SomagicTools < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "8fd2ecac36889a92e18ffea3bd6fac8c7c5fc57ba67bbed5a578353b6b7b6635"
     sha256 cellar: :any,                 arm64_golden_gate: "dc5c35a5486a0c1fa16cfe6962808c06853971a728e322eecac4ffa0b94bcdf0"
     sha256 cellar: :any,                 arm64_tahoe:       "6efbacaa2b232898e3149d4392e6a6575cc34835b34cbf268bf73ddce6aef79f"
     sha256 cellar: :any,                 arm64_sequoia:     "6df28d78f161dc5a7e4a53d329db5c191848fe0c50abf3d7b0d71019d0ccbdae"

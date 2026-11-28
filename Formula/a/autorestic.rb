@@ -8,6 +8,7 @@ class Autorestic < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f62fc19c6148ee7b04d067cc154ee078292fa5e282c12fe4f338d5dbc8f7d8b8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "56da39e13fe9b8b35c30cb50b42368a325049e54fd570bac1aa37568f5c41ce5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f21af72312fc4c5b3e77d2d70f4c19a814bc7e8de42f5a3d368db39b4c60abcc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f21af72312fc4c5b3e77d2d70f4c19a814bc7e8de42f5a3d368db39b4c60abcc"

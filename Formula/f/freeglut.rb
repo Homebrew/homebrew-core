@@ -8,6 +8,7 @@ class Freeglut < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f54afd8819d943ad06bf00b53546b3281fd3adb13db4a485c9d8e089c8756cc4"
     sha256 cellar: :any, arm64_golden_gate: "df76f97416453a3a908bd1344e54f6ed98edb12c70d2eaa5953f52cf31d2602d"
     sha256 cellar: :any, arm64_tahoe:       "0f211e5010be3c1e5d5b9eb61f574558fba876456385cc822db183cf67c8c3c6"
     sha256 cellar: :any, arm64_sequoia:     "b83d33f198634143226f771055570cf99ca9893eade73ff1ec798bd953c55a60"

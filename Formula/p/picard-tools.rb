@@ -11,6 +11,7 @@ class PicardTools < Formula
   end
 
   bottle do
+    manifest_sha256 "2ef4523f10d16ab8a9c9e072b57fab47dd2c68ac8bf2c2da30c667c850b79f43"
     sha256 cellar: :any_skip_relocation, all: "ccbe234ab7b0642822fae316e80b74614b4ca908c5abf3c203260d9ff28d50da"
   end
 

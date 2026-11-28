@@ -11,6 +11,7 @@ class Latex2html < Formula
   end
 
   bottle do
+    manifest_sha256 "7b7e49d77d5acc249997a4cdfc266d8856db91d433c970afd076b1e82f265af9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c060d51eba275fa85510aa6194d1c7c17b8280717420945aa8727d27b1aea60"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c4eab1a95e9acbb8c752f81b1edcf03f4f0f0cb287c8c865fb565f68e722075c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7faf0c531948aa38a9bb1025c69c82ef0b66f4c74c2e1b5a6de4239dbd8ab179"

@@ -7,6 +7,7 @@ class Libnet < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "a7604f4910c8366eb35b6435a4a504fac26c0eba929839e0f1932870593a6ea0"
     sha256 cellar: :any,                 arm64_golden_gate: "6c963bfa9a60070c29cc0c162843b53d7b353dfe22e165b20c860b769acd3f79"
     sha256 cellar: :any,                 arm64_tahoe:       "1a947f6508603cdc9c46aab18eb6b812ddc91d39be2f6431d912e271b041779b"
     sha256 cellar: :any,                 arm64_sequoia:     "e1aa2022d333a395e5add872c8f9facfdb1811b28bb2706bff2ce97923e671b9"

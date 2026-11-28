@@ -9,6 +9,7 @@ class ZabbixCli < Formula
   head "https://github.com/unioslo/zabbix-cli.git", branch: "master"
 
   bottle do
+    manifest_sha256 "9b8ef56cb656bdcce415f005b7374ea79b5fc2311f4cf20f786951b0565a36dd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b38571e82b89c35c658c7d727d8bbde2d7fce48ef733b4ddcd58d9d851eb1d27"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "bf7fb9e6b9fb465bafdfd6ed9e9a67df2727d9099394d40148d823d3350f3793"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1c2722ac6f63d991a2369e7bb72fd518a2d0479a2af6c5204aaadaa8cff203c5"

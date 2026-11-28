@@ -6,6 +6,7 @@ class Ccextractor < Formula
   license "GPL-2.0-only"
 
   bottle do
+    manifest_sha256 "8e4ed127261cc29bc797c918d38f5c8d739167d3a06f42aad898ef76034a6171"
     sha256 cellar: :any,                 arm64_golden_gate: "dd8e181b4610cbd8f9225250d3c4fe66762851e85957bf5cf21ee8c12cb31686"
     sha256 cellar: :any,                 arm64_tahoe:       "12c08c826b1c250658d66d379f72561580175beefe027cc0c171dffa67eba093"
     sha256 cellar: :any,                 arm64_sequoia:     "0fcdc7c0b826a813a867b827dd893fe2cc37febbf6288f2a5d7b548044d6260a"

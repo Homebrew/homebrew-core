@@ -13,6 +13,7 @@ class Giflib < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a76521844887e524b102cb18217ad74a8431a749405fb99426fda296187ec9e1"
     sha256 cellar: :any, arm64_golden_gate: "bdf5a53f053c10c716573cf955e5f50d704d97f9d2dedc781161031744b77849"
     sha256 cellar: :any, arm64_tahoe:       "5bf0850f756c9fe9469d628d1833b0d44db914e44b6b67037e91312c0d0f560d"
     sha256 cellar: :any, arm64_sequoia:     "cfd0ce71b021f10c57fe01270b77703a82c56032afd078a48d7ad48c603ae0de"

@@ -6,6 +6,7 @@ class Tdf < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "f4062c95adc53ec1abfeb91ae73ea0af3ca254cd32da1fabbb08962b234620f0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "956b41cdd4253a34f1678d1cbf2193e83756d65a8f591fe0191a84b1e1fa4f0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71af477984bd5fd4044a11b7afa2bedff0342a2df7d93030420db76423d11c55"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e5985bc9a56f4f4696d5eff6f8a37ea6f5fdffd510daa23f1b6c66c33e24d99e"

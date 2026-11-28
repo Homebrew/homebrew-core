@@ -7,6 +7,7 @@ class Bootterm < Formula
   head "https://github.com/wtarreau/bootterm.git", branch: "master"
 
   bottle do
+    manifest_sha256 "37f079acc9ed8e27e899b900bea810033155fa9266455a0651eb401bcdac1674"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "723d94599cda97442f5fdfcace57a0e6356f44902c87f0c662387ee1c8f7beb0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2092a71f18955ebffa5397ce9350880cdade272e5010568da99ea58f2d7ec89"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2a229cac60be2ea2f7c899a3b314daa4e561fa2d5a84e1b7c5e921ccec2f693b"

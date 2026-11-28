@@ -7,6 +7,7 @@ class Clblast < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "be6aa4a13db27e649d7445de4a6770dd8475059a8cfdfd1a5049ebaa099ee36b"
     sha256 cellar: :any,                 arm64_golden_gate: "880c47aba78e088e5547172e8964d6d30d1a8586f54af6642027e7e028b0fa03"
     sha256 cellar: :any,                 arm64_tahoe:       "6419de6a1707a9f92213abcdbb0c4e4488d5ff3418bcbe963baa4d5e72216f89"
     sha256 cellar: :any,                 arm64_sequoia:     "da027f3b522bee07118cc60e30053e1f00225d999662ffff5c87b4142b424c09"

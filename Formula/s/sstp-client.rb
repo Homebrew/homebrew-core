@@ -9,6 +9,7 @@ class SstpClient < Formula
   head "https://gitlab.com/sstp-project/sstp-client.git", branch: "master"
 
   bottle do
+    manifest_sha256 "d3780488abd0f2e99bf719782e33040ee359ce173f9cc7367910bb1dc0ea4394"
     sha256 arm64_golden_gate: "4eee3d36b131fe0e40ea50de49deab2d679afb6b10a920dc853a3863f432996f"
     sha256 arm64_tahoe:       "6e3051de8c12c66ef804f62ed0a41bd3ed39238b26583079fdffd0801667dd4f"
     sha256 arm64_sequoia:     "a2888685823ef9d57a79d9bd9c7433cad2c4c4d7386117245ce1149bcfef5b9f"

@@ -8,6 +8,7 @@ class Convertlit < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "50e84a712f84e00eb2a5a434e0b6d6e748d92dcf7c7f2ab944d2a5c3421c7872"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f509f1e2a4dd042ae325e96072a15bb7fa4f77923ff9dc51773494cc72094e25"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0cfe39c84460ec28081f4e2fa92771253085837c8986d9d3121c573eb1a6a072"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af81e33973b458225160387d713ab4646496719b4c0a3ae064dccf92c7e3efbd"

@@ -6,6 +6,7 @@ class SshTpmAgent < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "d5b74413b31e69e370d16edfd5a7a044299bbbdf897ead05d80c12414916d195"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "da6db2dd2ad2cee583de59d02f4b3913871b7666ecc6c0e7e17e44a80575d6d0"
     sha256 cellar: :any,                 x86_64_linux: "e5f42eace6a0666da95b20ef5c3269d53b4369d5457da6bd51c292e1eedb393c"
   end

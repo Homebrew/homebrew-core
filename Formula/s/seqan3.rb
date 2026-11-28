@@ -6,6 +6,7 @@ class Seqan3 < Formula
   license all_of: ["BSD-3-Clause", "CC-BY-4.0", "CC0-1.0", "MIT", "Zlib"]
 
   bottle do
+    manifest_sha256 "8e34f646e58543ca636f33ff64d00ac435838c1dbf5f9683284da098b63541ac"
     sha256 cellar: :any_skip_relocation, all: "499d33a9a9efa955370914435e49c28c4b49c1a688370486edaee273831589f1"
   end
 

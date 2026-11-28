@@ -14,6 +14,7 @@ class Xapian < Formula
   end
 
   bottle do
+    manifest_sha256 "44dc2afbe58a07450f0eae6de00f83006896ce8eeb5c556aa0b5be1da434125d"
     sha256 cellar: :any, arm64_golden_gate: "863e3c289292470c672f4674fba1b1c9f6bfd2260082ae0f88722f1772cdf1af"
     sha256 cellar: :any, arm64_tahoe:       "1fdb939960308f643cd58fda7b79c4a37b720e9631d3f75004243f7f8560ff7d"
     sha256 cellar: :any, arm64_sequoia:     "30a37bdafc5c9b8e7cf98ce7b18182aa9c4a365c75aa1084922cda357be749d2"

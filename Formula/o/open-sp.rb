@@ -8,6 +8,7 @@ class OpenSp < Formula
 
   bottle do
     rebuild 5
+    manifest_sha256 "5341f3b8d42489a6cc77cc239356c2ec69f001b696c159bff41581f9600c82d2"
     sha256 cellar: :any,                 arm64_golden_gate: "ee178d2e50c9b85801d5d1ddf8ba1369ddec07cb792553348b81832b80909c7f"
     sha256 cellar: :any,                 arm64_tahoe:       "8686abb8d8b1f3054a19a2d57d9c2bc72820d9a5e7b61dcaea2188f103a50026"
     sha256 cellar: :any,                 arm64_sequoia:     "06f749f6c70ec8df9f8a171e3528d6d322b3d71cb59002fb4e02804f8b70bcdd"

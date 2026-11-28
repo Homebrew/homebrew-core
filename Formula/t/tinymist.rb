@@ -15,6 +15,7 @@ class Tinymist < Formula
   end
 
   bottle do
+    manifest_sha256 "3d6a88a25ebd52ebf13c1f67bfcf6e737274aa19f18b789413a04d7cfeb83690"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "da8c697ab00df754547d88cb1cbb02e6610e1e6091d47d52cdea8ac5a9a0aa7f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a87968a0d5b4bf51010f300dfeb6090a578595ea39b0a3cb0dd5b5a69e465f5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1e6ef452a873fdb55a1009d77fbebafe1bfe6776e0da911ac62c7d69edcd9e11"

@@ -8,6 +8,7 @@ class Libpulsar < Formula
   revision 6
 
   bottle do
+    manifest_sha256 "a329c36e7d072f41233720072eefe443c3d287dccaa1cd8422b5025124d74cab"
     sha256 cellar: :any, arm64_golden_gate: "bbf80de57dcad2c7bb1da98e913e36b4e70a0a51ced6afb93567f984a65cd5e4"
     sha256 cellar: :any, arm64_tahoe:       "a5c787e3d881e732744fe067657a554979668fa08c430c647b66222463e3f37e"
     sha256 cellar: :any, arm64_sequoia:     "e32066daf506bcce8cde469159885a2d531fcbe14ce16a6d2446727cf939ff75"

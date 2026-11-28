@@ -12,6 +12,7 @@ class Asdf < Formula
   end
 
   bottle do
+    manifest_sha256 "809dc5022897dbcce8b85165e75c7c835e5edda90206d18ce1cbf726f3e93ab7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "11395793631019858ca30d90a18dc1a91d2d73312d01365488d03f8c3a641fbd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "11395793631019858ca30d90a18dc1a91d2d73312d01365488d03f8c3a641fbd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "11395793631019858ca30d90a18dc1a91d2d73312d01365488d03f8c3a641fbd"

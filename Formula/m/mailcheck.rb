@@ -7,6 +7,7 @@ class Mailcheck < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "abd3a3cc5281e7dd4696150a227b4775242aad345c290cc01fac64cd6dbd1f97"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a4bc1f7c913076ef17c1b531efac03d16993d206cb7ad979b21dd416ab0ff51"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "78a04acdb60b3a1876761dcf587175162fa9512b795863b3e7acbe78c3d4c415"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f8feccdcd2c1ee2bed597b1195571b042969ef0a793fee7b239ab56dd6d6f3c"

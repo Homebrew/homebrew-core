@@ -7,6 +7,7 @@ class Osdctl < Formula
   head "https://github.com/openshift/osdctl.git", branch: "master"
 
   bottle do
+    manifest_sha256 "a68fa08b66dbc0ad7774e8bf6d3af652433f2d6d4f09a927eb6336f6f51a5a30"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5f9462a76b063ceb80d4745d1d894ed5b654f71e165bf85eeec663779f5b1d29"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5f9462a76b063ceb80d4745d1d894ed5b654f71e165bf85eeec663779f5b1d29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5f9462a76b063ceb80d4745d1d894ed5b654f71e165bf85eeec663779f5b1d29"

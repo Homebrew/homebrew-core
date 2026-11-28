@@ -11,6 +11,7 @@ class Ack < Formula
   end
 
   bottle do
+    manifest_sha256 "8574aca2d7de376a7403f96174336b6fb0976269845095bef15423a2c0175e7a"
     sha256 cellar: :any_skip_relocation, all: "0f50e7b207da891500f42b5671413f290d4db5fea49943cfefcc74a3684760d9"
   end
 

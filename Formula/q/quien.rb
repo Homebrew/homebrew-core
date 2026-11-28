@@ -6,6 +6,7 @@ class Quien < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "2cf7ae3eec9878baf535291bf5ea632ec73afe6888d2dc26c59b7bba99c22a70"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b036d1ad1027960f69d0a6e1fb2dc88f7e93de724aa48d6cca6a35975bfc27d3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b28b9ec48f4cacf36536d308bcd2fc3fd7fbe53f90b192f1e1e87de407fe1a64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b28b9ec48f4cacf36536d308bcd2fc3fd7fbe53f90b192f1e1e87de407fe1a64"

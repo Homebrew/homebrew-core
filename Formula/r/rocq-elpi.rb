@@ -13,6 +13,7 @@ class RocqElpi < Formula
   end
 
   bottle do
+    manifest_sha256 "c9765afef98f5db974caa8e362d256bd0b60ed693a2bfdb520451a9c9c0d65d6"
     sha256 arm64_golden_gate: "c86c5816abeb8f1eb3d1f4a7ad6df035bb0eadd73ff90ed754c6c197c4cfde55"
     sha256 arm64_tahoe:       "6217e66bf965c0e89d7508e5d7c18135134f9afd94280b3f2c41de517148c17f"
     sha256 arm64_sequoia:     "3e65831a3751e43e1bd284339c545bc0c5ee897d100f8dff84d08c944669d8da"

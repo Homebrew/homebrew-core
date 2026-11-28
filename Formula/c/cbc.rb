@@ -12,6 +12,7 @@ class Cbc < Formula
   end
 
   bottle do
+    manifest_sha256 "c7c710091384a13983b37a90fe1be369b30861a5f909fdb8c21634a8d07a9676"
     sha256 cellar: :any,                 arm64_golden_gate: "7c7740e812cf52f243dd60d4a2fb97c1102889e51380ac7e9b0a5e0952752f28"
     sha256 cellar: :any,                 arm64_tahoe:       "52ccb68fba8383cbf511aa50e4995c895319c8922f21fedbda41e9f620f91736"
     sha256 cellar: :any,                 arm64_sequoia:     "d2c10a57a7d316a86559b3d3cfe129a42b7ffc7dbbfbb5c286e29bc802c78e5a"

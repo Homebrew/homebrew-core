@@ -7,6 +7,7 @@ class Rsnapshot < Formula
   head "https://github.com/rsnapshot/rsnapshot.git", branch: "master"
 
   bottle do
+    manifest_sha256 "750b8ec89262ced38a35b76c87e17f8b7951361aa4dcbee3f11991869e201308"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "baaee4115805330726ae123c2e347b7fd794707960e64d81d207c728ae8e8162"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e6404aabe4e16911cc94cc72f61b06e05cb1837c21ab04294d0916c109b068de"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "39b58196928c11b7de3c7dd9672da95b53d5df2c03191b9a7d6aafb869b02a95"

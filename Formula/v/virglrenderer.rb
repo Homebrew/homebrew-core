@@ -10,6 +10,7 @@ class Virglrenderer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b934dfca158408d04503fe0fa65bcc2e7c713002c2f6d71a711a0db886e67424"
     sha256 cellar: :any, arm64_golden_gate: "66b8d1919b5b787dea68a3c7671ecdfaef2c89b877c776ab7032ca41d1b06dc1"
     sha256 cellar: :any, arm64_tahoe:       "869be31d85a28d0a4bcfaec116a2c76ae4026082d84c0a9aeadb3a9143650d09"
     sha256 cellar: :any, arm64_sequoia:     "2d6979a2108089d81fd4233b396efcf287b90748fc68495de15506dd676be7c0"

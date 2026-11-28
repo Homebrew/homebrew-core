@@ -30,6 +30,7 @@ class Calabash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8df7908f94fa95f5fc67c63f29f997121ae7be2ceb0689eaee36a77d89c62038"
     sha256 cellar: :any_skip_relocation, all: "c9cd2c20bea227a53c297e2bf265302d5c8fc696e5a5efb99982ab4eaf7ed6b6"
   end
 

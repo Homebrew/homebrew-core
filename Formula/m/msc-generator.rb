@@ -18,6 +18,7 @@ class MscGenerator < Formula
   end
 
   bottle do
+    manifest_sha256 "a62d4e15e3acb8ba8da90e8328152519194fa9ce62c408d77c0c2e18728390f5"
     sha256 arm64_golden_gate: "791cf09e9ae47908933dddc7a4fd781362f6c3aed18dcae8456a933e787de271"
     sha256 arm64_tahoe:       "9863a4e3cf0c45e8ff8a6978cc9dd3e63cab38ec15df9c4fc9ac6dac7a40081a"
     sha256 arm64_sequoia:     "5c8f6d9d99c3f6d845700894e19a190016a8a4a3b8e6eb34cbe3c097c2e495c7"

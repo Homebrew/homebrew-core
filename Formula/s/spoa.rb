@@ -7,6 +7,7 @@ class Spoa < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5b3a993b8fcc2174c421521788eefecd19f386e99d3753afab79a7e8a5369a9a"
     sha256 cellar: :any, arm64_golden_gate: "917e9fadb2ca216ba79721022a4982e3e4074efe0cc1c4891595c9ba9a67fa60"
     sha256 cellar: :any, arm64_tahoe:       "00eb584be69d6f80170e8cafe0edd4e6f2ebe86d297b961ae7979bb11b04bb57"
     sha256 cellar: :any, arm64_sequoia:     "1068ae766eb60ed5755359cdcdaeab543574b607d0bdacc86e875122e2316a33"

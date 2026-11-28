@@ -7,6 +7,7 @@ class Libuvc < Formula
   head "https://github.com/libuvc/libuvc.git", branch: "master"
 
   bottle do
+    manifest_sha256 "44024f11e738be5052af48c783d05daa0dfc255bd035419e553766059ddf436a"
     sha256 cellar: :any, arm64_golden_gate: "8d0eb73050dc38d7b3f9b1ea67c1bdd3f63b1015e8176b22420f463d66daa8d0"
     sha256 cellar: :any, arm64_tahoe:       "faa9fad40a8c3996eb1fecc8b7423efc262c2e3ce082bfe9e1419c6666344216"
     sha256 cellar: :any, arm64_sequoia:     "a79956a7e56ec8daabff9b189021da651e18e9a61d988eb3d07bc620741eb3dc"

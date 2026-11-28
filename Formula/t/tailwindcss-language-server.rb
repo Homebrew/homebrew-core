@@ -14,6 +14,7 @@ class TailwindcssLanguageServer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e3856f4a64cd117b17423628928a14cb8f6a435914882f9f7994335b5789601d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "018efd02aae8afaf25d5df49966ed0b14ee4f2fcf4b84d81368db6e0893a0f91"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "018efd02aae8afaf25d5df49966ed0b14ee4f2fcf4b84d81368db6e0893a0f91"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "018efd02aae8afaf25d5df49966ed0b14ee4f2fcf4b84d81368db6e0893a0f91"

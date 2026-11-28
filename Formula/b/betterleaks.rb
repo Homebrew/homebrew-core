@@ -7,6 +7,7 @@ class Betterleaks < Formula
   head "https://github.com/betterleaks/betterleaks.git", branch: "main"
 
   bottle do
+    manifest_sha256 "303447f0d9290237580586d0ad58e0e2225b826519fc33c810b94cb087e97534"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "69e4f80c2258b775ab2f8b67eafd954c19679889c495cef28221386625a56ce4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69e4f80c2258b775ab2f8b67eafd954c19679889c495cef28221386625a56ce4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "69e4f80c2258b775ab2f8b67eafd954c19679889c495cef28221386625a56ce4"

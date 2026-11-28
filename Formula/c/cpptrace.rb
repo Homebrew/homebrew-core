@@ -6,6 +6,7 @@ class Cpptrace < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "af3853c94334c52a5798ae6befe9dc2678e8598bf4921aa822d695bcd41dbaaf"
     sha256 cellar: :any,                 arm64_golden_gate: "37e719fdde77d5d65cc6a46de3c05a0e4ca0c1b1995d2e66ce183647f1dae80f"
     sha256 cellar: :any,                 arm64_tahoe:       "714c67c234ab6bd2171290fd8d6738e1a79baf2ac93f3fb9ddcba22f510b8492"
     sha256 cellar: :any,                 arm64_sequoia:     "1e2015f8f8175f025a2afef193c218f2bcf6491a597b3a24383680cd608511d2"

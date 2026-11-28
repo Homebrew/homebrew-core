@@ -6,6 +6,7 @@ class Gsmartcontrol < Formula
   license any_of: ["GPL-2.0-only", "GPL-3.0-only"]
 
   bottle do
+    manifest_sha256 "eb454a4876e97658e057c9f7d65b416cfc08f8fb773e111fadf087baeefbf213"
     sha256 arm64_golden_gate: "af2352ffc4d3e9fe181b8b470638d052151c0a75714cc3f443f6c3faec401f57"
     sha256 arm64_tahoe:       "cfaf1237a9a274431f67a88627cb0a794662c85d083d2e7dd46083422ca821c4"
     sha256 arm64_sequoia:     "fec689ece510c21ae0589fce4d135a403f7b59904e2fd565d00079a21d3cf2e2"

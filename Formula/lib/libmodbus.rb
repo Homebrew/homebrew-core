@@ -7,6 +7,7 @@ class Libmodbus < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1138e34eb2b52e68426d3e327609473c49637f10c1f60b72894e546a3430e546"
     sha256 cellar: :any, arm64_golden_gate: "98e188647aa1c980362e85784933dfa087c2663d1bf57fa6e7cce80116620825"
     sha256 cellar: :any, arm64_tahoe:       "5073559c9b2644170da1966b1a9e493475eb09a7076bb95bd00fe09055a235f7"
     sha256 cellar: :any, arm64_sequoia:     "4fbc2fde606f9b205870d1b8463a059a3f49594386b52f4a0cd5f24d0e59bcf1"

@@ -7,6 +7,7 @@ class AsyncProfiler < Formula
   head "https://github.com/async-profiler/async-profiler.git", branch: "master"
 
   bottle do
+    manifest_sha256 "75d58054fe01673411f8030c2f419f336a48c363c50d2828a8cef401c3e4d2c2"
     sha256 cellar: :any, arm64_golden_gate: "7c23638889a7f7adaf509a9f97cc9db2247596d06088f498ff51aaf1d5395dea"
     sha256 cellar: :any, arm64_tahoe:       "c5339c2ba41d116da1ff5947e3a02d472ac9883c938d65741cfb15b9d8661770"
     sha256 cellar: :any, arm64_sequoia:     "8db797e09b9abb6fc5387f6676cd476397f64c3b5c56f7966ac3a077a8323c7d"

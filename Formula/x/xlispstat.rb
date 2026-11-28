@@ -16,6 +16,7 @@ class Xlispstat < Formula
   end
 
   bottle do
+    manifest_sha256 "a793976b161a2697bee691c82d92fc3fdca35192fafb8b7a59dd95113e5019da"
     sha256 cellar: :any,                 arm64_golden_gate: "0185f2074b74da5c9612e17a37a4722935fc045c7c673d7dfced53a3da6b808b"
     sha256 cellar: :any,                 arm64_tahoe:       "cf23b57eb4e3246a8456d4243f04d704a3a2128d763021876a9b5777010888e5"
     sha256 cellar: :any,                 arm64_sequoia:     "455b2e247dd57ef595e2576a56d707ec8ced866ec15d808fc2cf93089aff07b6"

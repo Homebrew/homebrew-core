@@ -7,6 +7,7 @@ class AwsKeychain < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "c7949bc43e02a448f57b99e85b4aeb8a3ea54010a615e1f75124f82fc2618cc7"
     sha256 cellar: :any_skip_relocation, all: "133f33991e2bb9a17768272ab806e803b25935480f4eec03826c8ecfb3d93272"
   end
 

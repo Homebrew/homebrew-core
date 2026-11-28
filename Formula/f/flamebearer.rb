@@ -6,6 +6,7 @@ class Flamebearer < Formula
   license "ISC"
 
   bottle do
+    manifest_sha256 "682a48786b069db046974fa16a94e71f474362352d7ba8f954eaed23f518d2ba"
     sha256 cellar: :any_skip_relocation, all: "6e47f059d69e35fa11b6995c304ed1f3251bbc65d1f98e28265292c7eacfa307"
   end
 

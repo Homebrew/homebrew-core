@@ -6,6 +6,7 @@ class Fastbuild < Formula
   license "Zlib"
 
   bottle do
+    manifest_sha256 "616dc3bcf9c34835987f71d48148cf601c8df59d07300a78e14105913b725bcd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4e6392f24858b38998a52ad924f655dbb8fb736161d6985bbcfc41ff8bee69ec"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8b53e07d404e86d3bc520ad354735640bb580eaf7a60432f51c7fc8b20191b6f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0d2505f55b7703a8894a18b923bc8f01357a9835d688c9750fa6d1f788bba103"

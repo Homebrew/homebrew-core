@@ -12,6 +12,7 @@ class Plank < Formula
   end
 
   bottle do
+    manifest_sha256 "0534e14aec015aa9efa7ee9dd8093494aa039707c3813c4d8ef9886bca2ed384"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4643aaf8e57553f8ce8dce5a3c40759374f2b74e0f41dd552c8214f01e3c47b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac1ceb4106e80992e3660b5952f11d6a0e29c1269ebbef672f647cf752d26e20"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "902d73cd939a2dabe044db2f5023ba45c1c5ac8c83e77f650110fd167d03dd04"

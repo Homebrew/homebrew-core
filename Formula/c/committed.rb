@@ -7,6 +7,7 @@ class Committed < Formula
   head "https://github.com/crate-ci/committed.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5f90ead501cb6df0d39b937a87f24c85b61ae434f89ec9d5ee3d00ba58bb07c9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "91ed5927b949d7b8e4322f68601a5db2350e8b331e3239fd1d9f99d7f3f8906d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fd2122a39de5b2bb0aba7fe997c11f2e6f75e6073d460a0eef4b5edccf43637d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "91a0a892be8fd45dab0b3fe0d9b3436595d9fd740f20cb8cf4bcbd8ddc705ee2"

@@ -11,6 +11,7 @@ class Tccutil < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "487deba591e8c4703e7f6960b6fe11204f6ded67d6dfd30645ad37ef4110dc18"
     sha256 cellar: :any_skip_relocation, all: "b8c38cddd25c2f2c46b5c38d4f424abd6280ed51c0565a389d81dbb8515e3121"
   end
 

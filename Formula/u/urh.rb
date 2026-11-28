@@ -11,6 +11,7 @@ class Urh < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
+    manifest_sha256 "4f68b60373599e32849a4f11c26144317860f576637da5a926a01573863da44f"
     sha256 cellar: :any,                 arm64_golden_gate: "e7599c480afbe4006e47bbea703b34921045225c789ddb3dabd333634f8735bd"
     sha256 cellar: :any,                 arm64_tahoe:       "d045c9c12bfa3c15c40058b62984619e91fc1e7883b39ff2693e140e806f71fc"
     sha256 cellar: :any,                 arm64_sequoia:     "21043800855ce2da2456d600a7710040f1af40e620f6e7269890cd9ce16e0b0f"

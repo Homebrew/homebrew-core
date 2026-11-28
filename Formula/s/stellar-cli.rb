@@ -7,6 +7,7 @@ class StellarCli < Formula
   head "https://github.com/stellar/stellar-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b7784d2d07237c1d41e68c41ac8796532e6fa0b3412ea8a39c5a486a46f6f0de"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fd612a77fe8bb996d7dbe8805507de1597eafada542eb81b6cb0beb58d348aad"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3c751a89d17e98c91c3593ec845ed83b4d7f378288c9e9b6049beb2a7f26361d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1f267d407b19663e9202236e9fa6ded0006cc431d361400be6542444269543df"

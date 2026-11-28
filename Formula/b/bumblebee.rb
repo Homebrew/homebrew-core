@@ -12,6 +12,7 @@ class Bumblebee < Formula
   end
 
   bottle do
+    manifest_sha256 "54e6fd25ea74bc5e00888904b67f801df7a8e0725ec51a3896510274c98cce74"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2460a8c31a9ee8ff7ac7424b5b57303c713ed06e625e47e4b434539095d426b3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6dbfe7e8d0492c91365a14e8431707c6ddbb75dd83b465087981cd13a018958a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6dbfe7e8d0492c91365a14e8431707c6ddbb75dd83b465087981cd13a018958a"

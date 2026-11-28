@@ -7,6 +7,7 @@ class Lfe < Formula
   head "https://github.com/lfe/lfe.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "521346a9dadb10f968a8d08df4c2a32c182af5baa3c7b75c0f69defdd802e4a8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "39940532dab4b44a5872bf4747f60f8ecfb9a6637931623ae233af891790f76d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7a8623073ae4695d71a1c6ebd25e33982f5919c8f8178674242ab160ee689fc2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "bd4b14d7ed48b9e86067da8b52c5653954185a0ea9b20213b554ed285a0c0547"

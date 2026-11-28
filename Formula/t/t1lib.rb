@@ -13,6 +13,7 @@ class T1lib < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f6cf35cc8c9f465b5cff0e32f7bf87ce29833c43b58080be18599567fb610b49"
     sha256                               arm64_golden_gate: "57c81750cb5074f5de318ff1e6afaf983bdd514981d0844a197756281c4ca131"
     sha256                               arm64_tahoe:       "8d2eebfeac867815095b36e655608d597e57085aaf03946b961fd50b551ba984"
     sha256                               arm64_sequoia:     "b13bdc384d062e0a30c75b4ec280865e39273acb787acf872d98a416a5b08ffd"

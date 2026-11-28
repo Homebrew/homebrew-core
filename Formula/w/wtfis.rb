@@ -11,6 +11,7 @@ class Wtfis < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "346d537865c7401db5f09401aa9ababe0404a40b422a06ad8c919fe7e20d114b"
     sha256 cellar: :any_skip_relocation, all: "84096a3b01bd8c885915810a02b618a351bd635d1873a5c8feb58018332f0ca4"
   end
 

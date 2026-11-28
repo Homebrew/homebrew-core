@@ -7,6 +7,7 @@ class GooseLang < Formula
   head "https://github.com/aardappel/goose.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cd504c79c46d6434a5ab4ce7a5c62dcc438026d4ff669456c5d7f5c2f41094c2"
     sha256 arm64_golden_gate: "28a9e5fee8c539aa2c7737ccfce3f5d3dac632f45a05665b3d2868fa975a28f9"
     sha256 arm64_tahoe:       "54a2bb55837e0e800801836da97109175855e94e4dc7e5e71dc838d3bd3f429e"
     sha256 arm64_sequoia:     "c3ab0cae845f314248cd6116f5ad49d52f9b13c5032a4ea7cd8e3b6083b17215"

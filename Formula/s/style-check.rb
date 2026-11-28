@@ -15,6 +15,7 @@ class StyleCheck < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b643e8ff04867c08302e059b243e65be46c52c9d4c287a75b147132e439987ea"
     sha256 cellar: :any_skip_relocation, all: "fb1e03c25875d0cf1b78f401e403452420169250d6fd6cee1be00d4d8bb51725"
   end
 

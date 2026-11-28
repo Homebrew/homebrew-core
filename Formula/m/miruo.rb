@@ -7,6 +7,7 @@ class Miruo < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "c5eb776cffd4c432c46821eb86d7324f8153344832a66453ec23a53ac5c67dd2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2a2272a2b50b817c39792a03094a8bdbcfb6b19eb215fc21b7a0c637f23b9d3c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2bbd65942dc88b12e85715f157eaf8f2f76976616a11d5177bb118a02515d5f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "07c790261ecabfbdd53bd0bec573d4e93148f906229f8e3e2fba8a6da213794e"

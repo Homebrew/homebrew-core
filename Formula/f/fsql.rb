@@ -8,6 +8,7 @@ class Fsql < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f1a966a885912ac1d26606ed313d1f90f89189bee843a32f2eedef67c37fc080"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "554fd7b47d8a66fac5a83800286587534f17809886bb6f8675022d031627aaa4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5998a7b21ebfca7e45beb100540c2c03e40b2a46fadd68f411f2d23ce94804d1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5998a7b21ebfca7e45beb100540c2c03e40b2a46fadd68f411f2d23ce94804d1"
