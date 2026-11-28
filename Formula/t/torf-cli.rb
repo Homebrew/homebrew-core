@@ -9,6 +9,7 @@ class TorfCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a9e2e663044a69a2b5c64d041236bfd1ecc22ad64afb9c34afe4de7cde7cfbdb"
     sha256 cellar: :any_skip_relocation, all: "f9f1bc0a40053035ab17d61c55094d5c659b7aa24b21c60c2ce8d79b1cbc7d9b"
   end
 

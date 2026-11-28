@@ -7,6 +7,7 @@ class SssCli < Formula
   head "https://github.com/dsprenkels/sss-cli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "64fb54089855f760c4637809aac2ba3088cd2acc2a9e69b422207a8fc580750a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3fd4d3a635e92e528de8f6c64a3f747d76d5e722832141bdb79455b516b5517f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "17aa2621801ef6f326675f97f014800f760ae7258fa1aad314a35489f43b1ff8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "10dd0e8768b42070c548e1666353af62048beb03bd519cea52dce9feb6a074ab"

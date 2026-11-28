@@ -12,6 +12,7 @@ class Lazysql < Formula
   end
 
   bottle do
+    manifest_sha256 "8da08c90dd3df7b99228035a913f5f0202c2999ab494feb288989c0d74297db8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8c44a18cf6e0efba9a0b5bef56cd0c309f6c0e8a7327c045510f55e8829badc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c8c44a18cf6e0efba9a0b5bef56cd0c309f6c0e8a7327c045510f55e8829badc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c8c44a18cf6e0efba9a0b5bef56cd0c309f6c0e8a7327c045510f55e8829badc"

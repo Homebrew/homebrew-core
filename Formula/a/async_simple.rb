@@ -8,6 +8,7 @@ class AsyncSimple < Formula
   head "https://github.com/alibaba/async_simple.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6707736f2ffcda630869e30ba9a8a5dce30b340d03b1304853b512edad6fb824"
     sha256 cellar: :any,                 arm64_golden_gate: "46f44ccd3304307eb0c97889e9f7aae441870e14edaa67534b63644bfb479748"
     sha256 cellar: :any,                 arm64_tahoe:       "ea3f1e248db7c9bbaf801186303a6c6e633476b1fb0c0e6553642c46abc191ad"
     sha256 cellar: :any,                 arm64_sequoia:     "582aee9fb04f0106f59850ef5001c8fb830da5f16ecfc60e6ee0b37de2c10c15"

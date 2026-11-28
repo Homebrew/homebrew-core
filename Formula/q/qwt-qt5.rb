@@ -10,6 +10,7 @@ class QwtQt5 < Formula
   end
 
   bottle do
+    manifest_sha256 "48100fc373b00e92c4bc3bca4342faa2e223f1fc3791ba557e14e30b16e8e2db"
     sha256 cellar: :any,                 arm64_golden_gate: "ffd1705a85f3abc9086b5d2b49699dc0e6de280cb4536644d51c2c130d52e4e4"
     sha256 cellar: :any,                 arm64_tahoe:       "50d8256a3eed2810739b8e3ef00d8290ec2b70c526578063864b73540e09b897"
     sha256 cellar: :any,                 arm64_sequoia:     "92b1dc9c4e182b760312b9b520cc45ae9a236566ec0183bc6eea6e92ab874651"

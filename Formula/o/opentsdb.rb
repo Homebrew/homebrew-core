@@ -12,6 +12,7 @@ class Opentsdb < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "feecc68653b6f6531f28963647baed38408cc758166f7f2ceae26c2d6be6e6a9"
     sha256 cellar: :any_skip_relocation, sonoma:       "1e94a2ce5cc95c944f5763df3442cc2fe71d12279f134b0a051549c6b4bd902a"
     sha256 cellar: :any_skip_relocation, ventura:      "022671a452bff9bacb3c84213f26adfb9d4fc50bdfbd28e2997262f6f5936607"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "e3cb78193f508228b2918205e3c4303febb1c2dd525e4a6f8d503866b41407f4"

@@ -7,6 +7,7 @@ class Vegeta < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4a6e2f661be1a7f216954e91fe4adcbf04254d27f4396a00a7a8adf27da7bf35"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "731943174e7fd1c208cf68e17d960db11d9cfb3c5059b9a84d56e4d88ccac5af"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9e4af909ecd68850af6c7bb8718c06f9e4dc48fbf2a7021cec0ef576d97ed1d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9e4af909ecd68850af6c7bb8718c06f9e4dc48fbf2a7021cec0ef576d97ed1d5"

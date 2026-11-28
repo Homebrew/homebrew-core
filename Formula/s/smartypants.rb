@@ -12,6 +12,7 @@ class Smartypants < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "db8d22f687e4f329c212d5505cc9b07d9a4cf3583b7498f80bdf883c2597054a"
     sha256 cellar: :any_skip_relocation, all: "3de13f7bf233a663c066ff5a8b1a27ba3ceb278ac9c1e750f7f70d1723572dc4"
   end
 

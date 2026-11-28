@@ -7,6 +7,7 @@ class Chezscheme < Formula
   compatibility_version 2
 
   bottle do
+    manifest_sha256 "d58c6344f1bc82cfbd75447d9484b49e0c39098fb78200a42f85e6e89b9a8837"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a0992f634b1233cc7787e5a9e1526d98ccdabeeaf6affb6678d13fb3be66be59"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1d4b81b7346fa611f3035f53f94320a1f63ab41af0077d30701c31acb9994a66"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c74f9813bf5b89b6b75e771d77b33cd6a58dc91389ed92fd6852e27edc0eca08"

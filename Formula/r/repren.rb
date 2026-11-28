@@ -9,6 +9,7 @@ class Repren < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b638109607c43b8be3c3ac584a415ec0a2b9d09c6b2441a7b074c1d801c11848"
     sha256 cellar: :any_skip_relocation, all: "c03ca2e24b9d9d78324552efa5976f01a8b48a965880e0c5ea7647d7a4bd8bcc"
   end
 

@@ -11,6 +11,7 @@ class Goredo < Formula
   end
 
   bottle do
+    manifest_sha256 "04937ecacaeb99a61b1172f5431636e81998c4fbd10a5b4793b5d2c4a02e6492"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e59caecdd28d474af08ef5f6d3273a1df98aa3b40e19acd6c9c970a8450710e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e59caecdd28d474af08ef5f6d3273a1df98aa3b40e19acd6c9c970a8450710e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e59caecdd28d474af08ef5f6d3273a1df98aa3b40e19acd6c9c970a8450710e8"

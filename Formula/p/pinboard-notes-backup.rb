@@ -7,6 +7,7 @@ class PinboardNotesBackup < Formula
   head "https://github.com/bdesham/pinboard-notes-backup.git", branch: "main"
 
   bottle do
+    manifest_sha256 "60a392146f07daeedd40a63fa72e32bed8dc905654906e699a7b83243b593ce5"
     sha256 cellar: :any, arm64_golden_gate: "6bfac23b984fdfd44d10901e9d3e104a5ea5f2ebdf6b9570d2219b29713bb3d2"
     sha256 cellar: :any, arm64_tahoe:       "bd2c56e222b2cb807951af276d1ac11be1606fed2e8eb72bcb4bfbb63820a761"
     sha256 cellar: :any, arm64_sequoia:     "9af682e38cd19f166b21ee9bb3c3db0896ded9c895a732c3fc412c3fe28e46b2"

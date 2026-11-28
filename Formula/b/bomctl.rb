@@ -7,6 +7,7 @@ class Bomctl < Formula
   head "https://github.com/bomctl/bomctl.git", branch: "main"
 
   bottle do
+    manifest_sha256 "44db8a1df794e623b525ccfc04cd7ca021f949c68097bb47958bbb26593a85ec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6a4a550c6385e3b87e5ebf381e4414342b5131954ea769cef130ad193b858500"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a80f0acd6667c9b0f50c91abcf5ba91da45e46e384b3ab6f43d8aa4c4848fe27"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a80f0acd6667c9b0f50c91abcf5ba91da45e46e384b3ab6f43d8aa4c4848fe27"

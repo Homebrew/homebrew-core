@@ -8,6 +8,7 @@ class Lima < Formula
   head "https://github.com/lima-vm/lima.git", branch: "master"
 
   bottle do
+    manifest_sha256 "979e23f7c6cf9c96e88b1cdb61c7b0bf2183b666bdd3a904954bcc3aaa669906"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "63c44cb5e32dbc42f0bceab7a1333c8e0886c8e57b8d6dc9dee866821e97295d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "31d56468c1ea24705ebe1a195a7b6cb8953031ebcf14beb9b979e2a50326092f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c50b922d11d6d9b3ca799bca38f185600c9d6c662ad3516e15759f4514e2789a"

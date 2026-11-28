@@ -7,6 +7,7 @@ class CriTools < Formula
   head "https://github.com/kubernetes-sigs/cri-tools.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1d3d35a0ddc093889f99bcf15b4247aebb67247363a6d0ce1234bf2ce9e1adda"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "847fb78804de38d4a692d41942f7c2c8900e26d9e6829ce022c5ee3df64d1946"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0fcc2024f6276a66caba51963dc3111c7af42084e0e6b230935c9c9a9e56fcfa"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0fcc2024f6276a66caba51963dc3111c7af42084e0e6b230935c9c9a9e56fcfa"

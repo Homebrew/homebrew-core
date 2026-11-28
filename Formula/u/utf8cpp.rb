@@ -8,6 +8,7 @@ class Utf8cpp < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "b874f3fff2586ff5270cf3298b116dd2ba2e1c61da6162602e459162fedafd94"
     sha256 cellar: :any_skip_relocation, all: "6c905c42482c85254be51d84768c382c5a5a200e326447e3bbbebe9e7c8f5c50"
   end
 

@@ -7,6 +7,7 @@ class Oak < Formula
   head "https://github.com/thesephist/oak.git", branch: "main"
 
   bottle do
+    manifest_sha256 "80cd58fb542a1a8bfe6bf6b29d130a563c7e47129a4539c79dc1a41ec78e8f0f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "10c7917447e3957844035ee3cd8cb48b5f2bc843a61d72d30370e06eee4c1143"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "815a55a839e22f2903fa5dcd1b0b0c7add13323dba55b9b6cf25e3bf6b89644d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b4add3db56fe8171421dc3fd528ee7d39b54936c03d75b89a42a24c8d8a3a151"

@@ -13,6 +13,7 @@ class ArxLibertatis < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b52538eab6667475f6bc1db1f655d6a46020005168011db319008b49dde6dec5"
     sha256 arm64_golden_gate: "e9e3ba7512696c5734388ec8401086029cff865f417e251b89f3ac63f73b02c1"
     sha256 arm64_tahoe:       "75fff5f90379f2579818f529144c817b0a07de9f4e3937fc4046287271042b14"
     sha256 arm64_sequoia:     "0b1d9d0b4667e89fbefa27c6028933704c1b1c1d16cc806310b0ddfb6d508a0a"

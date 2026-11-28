@@ -6,6 +6,7 @@ class Alpscore < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "fed6aa4b954a352293b20a552ae6ec7ca64864f20ca10d536d6419e99a31bfa4"
     sha256 cellar: :any,                 arm64_golden_gate: "7742745181fbba3555d0c594df1775d01361944720ba54d554d469b250882648"
     sha256 cellar: :any,                 arm64_tahoe:       "16b003e1fcfc63f47e2217207533f1405444f36f6b369ffb3b6a87797d2299cc"
     sha256 cellar: :any,                 arm64_sequoia:     "d508dd93dcb9b30108f016c3bde1e489a068ffd973c4ec1b8d9533a8a46404ca"

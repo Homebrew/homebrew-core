@@ -13,6 +13,7 @@ class Darkstat < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "da3d3d82acb4b4d314a4df1623d3a7399a0f1b1e0ac09e6e4b25c169786ce0ee"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7cbe6221e6f53b1f5534d7500b388c6af71af6b61073209e9e3267469e34fef3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8cfccbabe435d29d446814260e1b72630779beffead9eadd470af5afe9312693"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23eb83cba8e48928c0cd41969bbdf96ccc3fb71a4acc4c1c66ad335fd40ab9f5"

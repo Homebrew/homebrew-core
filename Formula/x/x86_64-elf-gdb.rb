@@ -13,6 +13,7 @@ class X8664ElfGdb < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a594d52887c407cdea19af333ff91a30d462cfc4127e3ede2a121d8224a23f1d"
     sha256 arm64_golden_gate: "3ef4ffcb0fd2789a7c4dcd777289341d5bf0d95b59abde3d89c15a0bcda2268e"
     sha256 arm64_tahoe:       "9e7e6abb63af266858bb9dcd58e1cfda0c6589638cbe8b16955f50c477df9651"
     sha256 arm64_sequoia:     "dbc7eafda9bff3b2b560f48bc43a575cb8c5e6322b1f6e4b7c93d4046fc5c96a"

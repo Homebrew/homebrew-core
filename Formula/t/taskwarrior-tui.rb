@@ -12,6 +12,7 @@ class TaskwarriorTui < Formula
   end
 
   bottle do
+    manifest_sha256 "827a64cf5aa506278190d0e59a35be7aa62e7b13a3fe44d783f92fb7b4d8695e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ec300ac02791bbcb0f999ab152cacec17ea42f5318793871e92bff9b3efc6d88"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "96fa2c2c88328272ecf5576f66421c7ff5d3b0d83b134e1902dce92aa6fb4820"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "74b3d43a88bfe85b4ede427d3ad6f6853ec45bace2b77f9370bbe1c29366f5a8"

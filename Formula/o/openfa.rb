@@ -6,6 +6,7 @@ class Openfa < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "5fe8ff0e648ee7b9809ea1b3d2146eb4e05a96fdedea195d44c3ecf774e494b1"
     sha256 cellar: :any,                 arm64_golden_gate: "dd78e57308d0bc7fa286f68d43ea1dc773f78076c206d49920420140548c9e3d"
     sha256 cellar: :any,                 arm64_tahoe:       "e09325d56359bc60015dde514da142c8dafa405b278ad12b37d61aa9b9a50097"
     sha256 cellar: :any,                 arm64_sequoia:     "c0ba14a0c9fb154470b308670c6c8a6ea0115fe4c12aa402380cbbf0987c2252"

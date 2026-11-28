@@ -7,6 +7,7 @@ class Ioping < Formula
   head "https://github.com/koct9i/ioping.git", branch: "master"
 
   bottle do
+    manifest_sha256 "907947cc82125a53cab56cf1e9874e837cc5988c4a6152859a56addd384389bc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7add7da3cf5b507b290e1209fb24ce411850b6250be379b8aafd810cdd5ce891"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "89b62c484eb018e00e48c62aa6913d204e5a21d52b24b28906032c13ec278e87"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "52741ce205f6edd2660c7848d815fbf708aeecf69439a47984dedd602c0aa783"

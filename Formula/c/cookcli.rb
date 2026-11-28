@@ -7,6 +7,7 @@ class Cookcli < Formula
   head "https://github.com/cooklang/cookcli.git", branch: "main"
 
   bottle do
+    manifest_sha256 "543ef7d073536ede0c2ed75ab06fde64c3a2bbac10959ca4d8ebffa41d33bdca"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fde96a3776323273d59b0353ebd3eb2282b4e472841dc69e4abd042d05af2a99"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "71188a033c9295c5e65f60ec149785b633d3780cd793e5dbb1a7b3971aa52eb4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7db9bfe3eb7b6465ee0ac101c0aeccae98e65ba3b9a3ddee1a8bf4fa4d8c12e1"

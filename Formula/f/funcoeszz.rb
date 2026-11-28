@@ -12,6 +12,7 @@ class Funcoeszz < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e015c2173809a746085f712cd91b343bff372e721dde21075ed1f4056baedaeb"
     sha256 cellar: :any_skip_relocation, all: "b9d4a7633bfd39f84797948a471e9d231cdc7539e472dc982cc33c2f4b6d3e88"
   end
 

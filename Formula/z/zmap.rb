@@ -13,6 +13,7 @@ class Zmap < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4228efd2f7ad2419f61bb845b6a7f2e28e8db4f25f0ab0a506b1d7b9609491a1"
     sha256 arm64_golden_gate: "0395a8921d0d23d1022233a1cf2a8b7fbdd2d83da35611ce26c199d4fd4578dd"
     sha256 arm64_tahoe:       "a78dfb358782c21ebc754ce63d0d54b80d274b7f73b2f5f3fe9c8fcd04972c3d"
     sha256 arm64_sequoia:     "06ed1558ae552a5e77602d41086a4e25d3d6eaa03615a7e850db885d817f29e4"

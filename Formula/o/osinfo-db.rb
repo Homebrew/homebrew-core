@@ -11,6 +11,7 @@ class OsinfoDb < Formula
   end
 
   bottle do
+    manifest_sha256 "059ae57a632b60d0ac8fc72688618a28af04bb310aa0bc30fa773d14d6d9d370"
     sha256 cellar: :any_skip_relocation, all: "c478c34be23a267ad436ccd7e7dc241ed2d840b1b1ca45b19439f9bf3746234f"
   end
 

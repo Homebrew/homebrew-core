@@ -8,6 +8,7 @@ class Ditaa < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d517b1bfafb4e2c756a692a9d9f337f82d3a72d906c2c6832357b74f93604205"
     sha256 cellar: :any_skip_relocation, all: "4e03eed43d92f5622e98144174fcd5f40dfb2b0bbdcb819aa5b59ec61d5fb632"
   end
 

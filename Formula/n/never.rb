@@ -12,6 +12,7 @@ class Never < Formula
   end
 
   bottle do
+    manifest_sha256 "4f338b5cee9e64a9ff5be5c14c61d8bc77c58334b9b45d25824cf41b1d84e957"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "467247170e88b692d12c91870586240bf4be7743873d126a7a20b3d2635974d6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "56ada0c97c552e92c8b84dadd236772dcf5b2c6315390f32a4fe99baf0481fff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1ec72ae68f2d53ebd8a8e21e712726b4b0ed35f083e95a7752db9ef4df9d2814"

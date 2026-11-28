@@ -9,6 +9,7 @@ class Cram < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "81ff2fdc2413cbf66ae1ddeed27639268591f3fe7c404e6ee116ee8189c33df3"
     sha256 cellar: :any_skip_relocation, all: "16012da21815491e985665b65396aa0c61332cad5dd200bd081f6250f9ea5a4c"
   end
 

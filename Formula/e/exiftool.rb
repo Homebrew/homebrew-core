@@ -21,6 +21,7 @@ class Exiftool < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "51fb61ada2311ce3f27b85d0dbfc80f2004357d835b934734debc28afd9dbb3f"
     sha256 cellar: :any, arm64_golden_gate: "b2be112059660150c63351003a49503472acca8ff37cea2d14f16fad106d9909"
     sha256 cellar: :any, arm64_tahoe:       "e6c1e9b3dfeb0a75ca5c85b03ece555aa69528d6cc0bae152b17ccef19054707"
     sha256 cellar: :any, arm64_sequoia:     "d349210864b16b26f0896e5dc6869a065b6b32434519765f2b6ab25012d53e10"

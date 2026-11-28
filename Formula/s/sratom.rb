@@ -12,6 +12,7 @@ class Sratom < Formula
   end
 
   bottle do
+    manifest_sha256 "68f23cbf4b85eba9640aa1ef519d8ba4f0f5e2cc41d039c4ddf523eaced6d432"
     sha256 cellar: :any, arm64_golden_gate: "3045cf52efef3a70422c11c3e0720e6f13bb1e71005c1337f58e4397f5d864c9"
     sha256 cellar: :any, arm64_tahoe:       "44de40b23201133a3e6186c80df57447648e7384b1f25855651b19cd6feec9b3"
     sha256 cellar: :any, arm64_sequoia:     "00eb48d6d7b4806436f5b5643bee8a27d53e34258e2499e47c6f8df54736def8"

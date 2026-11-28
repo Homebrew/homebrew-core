@@ -10,6 +10,7 @@ class Aerleon < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "03a0e2463c80a0ad9c545b3a9c01d8023d5f41413012e5323482026ab2458abf"
     sha256 cellar: :any, arm64_golden_gate: "82b6072b7119e80184baf11f8bd1f54bdb52904869c54b227f6387c23276e3db"
     sha256 cellar: :any, arm64_tahoe:       "d03ec72cd6b33e50a9ed9ba406f9668d39f6ef4682369e229576e4042d49084f"
     sha256 cellar: :any, arm64_sequoia:     "32f390d55ae2bbf6cf3414350acecd2951cd60dcb352533de5a1f59bba65a3dd"

@@ -7,6 +7,7 @@ class Zeptoclaw < Formula
   head "https://github.com/qhkm/zeptoclaw.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fa932f852755c6871c2745e6a09bdabd66ee9f359220bec13b22cfddb516cec5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d427f96c2c468f172ed7467247ab65f2a815ca60e5776357413c18a32a361a6e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "310f465b5b8ceab9ec074ee7aebb89efb8f18ceb6ee1dae9d9f1c089fddc92ab"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f268c8228dd222d78c7b285ea6c6ee2b42b1e4ae7d3f352e8a1a1c6e9c7664e2"

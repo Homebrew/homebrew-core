@@ -28,6 +28,7 @@ class Abook < Formula
   end
 
   bottle do
+    manifest_sha256 "81bc3a527f543e97297fc8d0e79585b6b91529a45b3d5d046334c55b466637a1"
     sha256 arm64_golden_gate: "bdd0b75c64c8605db868b4d3d94e11b813e344dcef24a4e34c25e9a96c181f92"
     sha256 arm64_tahoe:       "4179f858a3406d98bbf021e5a431cf064b6430839a4210643925af38a9c037af"
     sha256 arm64_sequoia:     "b0113dcc3ee161e37ed8c9fbdab0175486bf04c3a5e802b46dde3b015fe67cac"

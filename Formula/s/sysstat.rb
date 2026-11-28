@@ -7,6 +7,7 @@ class Sysstat < Formula
   head "https://github.com/sysstat/sysstat.git", branch: "master"
 
   bottle do
+    manifest_sha256 "4ce95b3079a3be2edb1c4b9f061b8cfe8a90dd0df47b10594b01fd104fcbd3db"
     sha256 arm64_linux:  "a57bf29f699848fa2520b8246c3d9b0cd725a8c3f3dd4ae2ef50fe09fe727de5"
     sha256 x86_64_linux: "558167ac35a8b5a4b5bbddad619a94dda00565317ff755c9878bf70bbaece9cf"
   end

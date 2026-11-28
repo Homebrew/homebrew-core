@@ -7,6 +7,7 @@ class Matcha < Formula
   head "https://github.com/piqoni/matcha.git", branch: "main"
 
   bottle do
+    manifest_sha256 "9501e48f03962b93c7d717a2edd85656c71294b8b63bbdb36c2b58fc6fca14e5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8a469526b014bbac015bd08ca0408b0ffff78346df54c11cc8241866663bd13d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ad7f42f9b518ff57b98581bb1b533a682f23e678e0fd2bef23737b1f19415a4e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ad7f42f9b518ff57b98581bb1b533a682f23e678e0fd2bef23737b1f19415a4e"

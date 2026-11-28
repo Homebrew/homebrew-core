@@ -13,6 +13,7 @@ class Launch < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d4afa4d93f4742f9910a58d43a59ee2004f3a940e7066bb13ae49703d77707ec"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "6710dd4fa0d9ac51b8d40c72bf9e9b2c25398aaeb1f402dd2a6a5288a49edb1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d2a2a782722ff22b6b83014e8d62aed20453c44ec04cbe797daa4e2cec79882e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "54d531c3c1a2663b5666ac7f0b7089173994b80420fcbfff0245810e46c26121"

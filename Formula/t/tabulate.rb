@@ -10,6 +10,7 @@ class Tabulate < Formula
   ]
 
   bottle do
+    manifest_sha256 "978421ae1056f3f78773791928ec9d1b571b04469ba324c01d5623e066648d19"
     sha256 cellar: :any_skip_relocation, all: "079837d4b81f9905891ee95cb53c95d74747f6a61d84677603782411826e9d58"
   end
 

@@ -11,6 +11,7 @@ class CmakeDocs < Formula
   end
 
   bottle do
+    manifest_sha256 "5b4fe280b00410740841d62fa6398e97ff513d1bef36358b09840067edf7108c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d69f13702cc8a42122c611747cc628a7afddab78ac3603ba0e444eb7416fa353"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d69f13702cc8a42122c611747cc628a7afddab78ac3603ba0e444eb7416fa353"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d69f13702cc8a42122c611747cc628a7afddab78ac3603ba0e444eb7416fa353"

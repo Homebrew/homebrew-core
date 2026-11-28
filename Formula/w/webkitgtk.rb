@@ -12,6 +12,7 @@ class Webkitgtk < Formula
   end
 
   bottle do
+    manifest_sha256 "295c1d994c79ef4ef4a5b34694590eadcd46785bf474a7daf63f6563810749ed"
     sha256 arm64_linux:  "de59005ac3a476a64213bd60fe16053c4c57853350a80b721469ab639916a401"
     sha256 x86_64_linux: "e20302225e3256396f2ffe74d98a5625fadf8829e90cb2e350efc3776565e556"
   end

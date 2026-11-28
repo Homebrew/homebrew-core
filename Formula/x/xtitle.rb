@@ -12,6 +12,7 @@ class Xtitle < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c7d750b9045b3afb5a62486795047c064d2c526a6bc840abd2cd4b7c527b0142"
     sha256 cellar: :any_skip_relocation, all: "62511b7ce2a8440cd64bdf6fb05a1015920d610f254f95d01fb020c1c58c819e"
   end
 

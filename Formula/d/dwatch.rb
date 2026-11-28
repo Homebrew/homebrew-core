@@ -12,6 +12,7 @@ class Dwatch < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7ab54a71b2a6c71c87b766c14e68397843fa78911c5cc552215af5dabfacf6e9"
     sha256 arm64_golden_gate: "241f3f5de79df7a7ce4b675452932c80a427592aac1359dc7f288e77331e56e7"
     sha256 arm64_tahoe:       "d8916e526f70eb17c0010715a61c5746c20214fe8210f544f50650358ab1bb0a"
     sha256 arm64_sequoia:     "5a80233a94231468b47d75de46c5687c8c274771ead2c2131634c7acc224390f"

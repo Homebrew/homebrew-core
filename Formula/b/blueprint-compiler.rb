@@ -11,6 +11,7 @@ class BlueprintCompiler < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "1ab162334d081c85e3cd2f8f772eef65150b4086d3faf143646a29c778361c51"
     sha256 cellar: :any_skip_relocation, all: "1c48e4394e5fa23d8c7a3cc52bc27c482e6292fa8181f6aff9929be37ba4a543"
   end
 

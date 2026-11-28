@@ -6,6 +6,7 @@ class Dnglab < Formula
   license "LGPL-2.1-only"
 
   bottle do
+    manifest_sha256 "e25c34ea85f7f9e0140d02b5c4504e5f977ad053eb2f865f1fff59d24f208707"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "7c17db110faa5bbd3b4969611566769f0576aef59934c3afbdbe63acea63e672"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27d958d8246856fb1a25e3dd521762bcbf1b87822f790f4a6cc238b23a3ab8dd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "8ce158b689cc93fb85322d9e0df0afa2f224e0588ffa510856bdbe4d830000b5"

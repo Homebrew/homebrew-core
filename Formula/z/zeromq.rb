@@ -13,6 +13,7 @@ class Zeromq < Formula
   end
 
   bottle do
+    manifest_sha256 "e3faed054087d4ea767d54892f8431ce9ac6925a581e95fb95232506c1895765"
     sha256 cellar: :any,                 arm64_golden_gate: "18fe4e8b7528051098ba883bb6840e72325fd3d45608e9e02c95285f8b3bb6cf"
     sha256 cellar: :any,                 arm64_tahoe:       "76e3d40941eb6d5d2ea5f94c017fd3503b68aee2aefc017291ab38b729fbcf08"
     sha256 cellar: :any,                 arm64_sequoia:     "03990812828803732fe5253d9940e1a769012068f9af165804d2dd30255aa3c4"

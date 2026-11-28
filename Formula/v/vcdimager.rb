@@ -8,6 +8,7 @@ class Vcdimager < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "7883a716ce8af8e090ad9d330df26a7660cd4c1c21a092a2f6ed26639a20bec6"
     sha256 cellar: :any, arm64_golden_gate: "ad19208d3b6dc992843a640367912b99322abfc11c9b234491325105471f483a"
     sha256 cellar: :any, arm64_tahoe:       "e45840390e18c75e9c7c069cf3737c1497438dbdae5c439647601b3cc806c10a"
     sha256 cellar: :any, arm64_sequoia:     "1c3d9b650ca9edca6afeff27b21715cfecf1b1028e7651d2a6d3c8d6cd88a959"

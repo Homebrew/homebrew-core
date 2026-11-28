@@ -15,6 +15,7 @@ class ApacheFlink < Formula
   end
 
   bottle do
+    manifest_sha256 "e990fb0d0d7f59fadd1cf90f6d414ef5abed065233c90e242812d8993ecba4d4"
     sha256 cellar: :any_skip_relocation, all: "984abe2f1ab48c877e0a26fdfbd5f85852fa1d3932b37517272e5483ea4c7687"
   end
 

@@ -12,6 +12,7 @@ class BaidupcsGo < Formula
   end
 
   bottle do
+    manifest_sha256 "95db56bc29cd388e2f142cbcf322002ec8856911605679e8aa5d1673ac5cb663"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "024ca2bbe5b36b194a31418715b4bc80ebd092342ac8e504a1c80fdec1a50ba7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "64f9017b324cdbf7a9d368bf9f13d90fcb2c2056e9098d4e2b107e96eb4fbe6b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "64f9017b324cdbf7a9d368bf9f13d90fcb2c2056e9098d4e2b107e96eb4fbe6b"

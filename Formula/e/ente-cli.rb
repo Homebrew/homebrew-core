@@ -12,6 +12,7 @@ class EnteCli < Formula
   end
 
   bottle do
+    manifest_sha256 "a2fea2a7177812635a98e788e3fd228f913e74dd43ca22333a8799ca05b40a80"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9c515886570e0de9ef642d90fb2f22adc96084d4f02952fa3e42e2afd4878669"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2e90b3d7b814ad43fb45d6c89b9bc1b83c5d686018f7bc26ec33d1dae188c054"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e90b3d7b814ad43fb45d6c89b9bc1b83c5d686018f7bc26ec33d1dae188c054"

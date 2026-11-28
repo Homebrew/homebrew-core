@@ -6,6 +6,7 @@ class Sd < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "15d29a061fbe61a8459aaff38687410560a2ac21a51425027faad0fe56b3811f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "74fac58a2d04a0c34baf3a9169d33f20cd55d3032f5cebb86122879dd7647063"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ca1aca6904f51e3f5922a1e98652c57de939ce1fdd2a69badf7b54e4ba0f0b35"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "95f3e8cbafad64e9989ccc6e3ce299d147c7303090e0acee1926a90aec858779"

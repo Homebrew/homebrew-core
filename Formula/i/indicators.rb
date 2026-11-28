@@ -8,6 +8,7 @@ class Indicators < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e201c0bdd97a5defe1e092fe012cfe9620f5f076df1230cf87b8b7e6f04fbdbd"
     sha256 cellar: :any_skip_relocation, all: "2322751e34abbf99f523edd2f22119089ce3ce2935ffc919e6ba6c2e2b6f72bc"
   end
 

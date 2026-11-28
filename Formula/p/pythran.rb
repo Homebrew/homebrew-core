@@ -10,6 +10,7 @@ class Pythran < Formula
   head "https://github.com/serge-sans-paille/pythran.git", branch: "master"
 
   bottle do
+    manifest_sha256 "1342df2e8ecd6b1b70dcd372bf04a3852dc75c88c9d60ac0100571aaf110bfd5"
     sha256 cellar: :any_skip_relocation, all: "4df21debe48d1f89f3a16f361c91dc908572339671f2ae9cba1ba205969d458a"
   end
 

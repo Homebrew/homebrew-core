@@ -14,6 +14,7 @@ class BashCompletion < Formula
   end
 
   bottle do
+    manifest_sha256 "2b5e997e5ba43b4d91e3ac25dce980cdebe3344a362c08d7281a16b5f25c13e8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8b2e422b710f155fe3a6d90ca50be653a427df08aedfe07e975d9f71c607184"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "286910bb6889fd2cbafa738ac0461c549846e711fa00fb29d335fa5c1e93973c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6727e6e418e740531b75aebedaac6ceece0a0865f4f46dd0351d265035b497e9"

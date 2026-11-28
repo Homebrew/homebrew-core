@@ -11,6 +11,7 @@ class Avimetaedit < Formula
   end
 
   bottle do
+    manifest_sha256 "6ce8183427894707cb92149fdce43bd53a5d018447de27493034c74b9294bb5d"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e50d35af6ba3b00d2b23095ea9c9a686c3dc575b32ee7c290553a7a6e5b9aec4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a3354d0e2c79d26a44be8eaa5297b6d3142b8a2754b2e9b4103a521f0209bcc4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d4a0e40875df5de8808e670967741dfbf1587d033d3262754e99ab43213f63d0"

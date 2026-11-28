@@ -7,6 +7,7 @@ class Aribb24 < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "e9a9519ab11e524b878c1ea0b6bf1fef29d5e4909b4db23990558a06f0be4923"
     sha256 cellar: :any,                 arm64_golden_gate: "ad2ca862e3088967bac500d2d42048b1b13803bf32ddae3cc42e9b48a50ac83f"
     sha256 cellar: :any,                 arm64_tahoe:       "68aed54c8d78b72dcc8306e91e004c2afcf193563be22adca2774fa094121ee5"
     sha256 cellar: :any,                 arm64_sequoia:     "4f5a5fb9f91e28f11bbf33dda14a54b36510cecc834a29f0ba28d980a57760fc"

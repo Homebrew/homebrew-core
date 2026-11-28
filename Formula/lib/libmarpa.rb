@@ -7,6 +7,7 @@ class Libmarpa < Formula
   head "https://github.com/jeffreykegler/libmarpa.git", branch: "main"
 
   bottle do
+    manifest_sha256 "35e0e11ac9c4582a38269e129d8506d4bfb12e892d4e849d0dead66220263adc"
     sha256 cellar: :any,                 arm64_golden_gate: "6994e2215e97b2ff66376f443bc8309ee41e41c22fea02301762477733fe3d0f"
     sha256 cellar: :any,                 arm64_tahoe:       "5258cd212c7322f4c3641a3467e9d11e66dbb381d62b9a6861893e059af5d9a7"
     sha256 cellar: :any,                 arm64_sequoia:     "34dbf51117d4ac3e153c94f33b9484b45456bef0acac4bf40b0b65a41c76a935"

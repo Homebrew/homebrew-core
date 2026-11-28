@@ -13,6 +13,7 @@ class Figlet < Formula
   end
 
   bottle do
+    manifest_sha256 "2c0ddb78939ac14b4780286a8624456bd297046bd595f4f5c1ac092a74459e73"
     sha256 arm64_golden_gate: "72fa2c07819d283584cf383862122ea5ada67c0a53fc72c123506f097961fe3f"
     sha256 arm64_tahoe:       "08cea07f0d5aa44680d79cf97dbae12da8f80e85deb70b36f0e701be0896efd5"
     sha256 arm64_sequoia:     "a157e5806797a85551f7773614157047dfa09fb38e76d6502cb93c79a207851c"

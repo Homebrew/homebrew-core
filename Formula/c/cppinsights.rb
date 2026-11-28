@@ -6,6 +6,7 @@ class Cppinsights < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4ef9f41dfff83e47d3fb51cdeb483f512c12459332db128102a4b6e5737015c5"
     sha256 cellar: :any, arm64_golden_gate: "b5633c0e313c6fd70f9410ffd5a10617ecbbaaa152713b912d5da69cfa814863"
     sha256 cellar: :any, arm64_tahoe:       "30982f0823a19c63dc716f05d93eaa5c7ac2597d7a31de8234160b90d9de5eb6"
     sha256 cellar: :any, arm64_sequoia:     "3e791d40ac93afe5c9fef513e43f01c5ab05dd6eb5bd98d5c95c9adfba99824f"

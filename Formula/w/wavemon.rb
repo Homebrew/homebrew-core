@@ -6,6 +6,7 @@ class Wavemon < Formula
   license all_of: ["GPL-3.0-or-later", "ISC"]
 
   bottle do
+    manifest_sha256 "3e09bf88c345b4f555b6ee4606cbb7553d951e28ad33f91a7a215cbd753953c5"
     sha256 cellar: :any, arm64_linux:  "6b1dfbf93c4901a09b94379557ad72d261178a2eece733b6fb751fbbde3f1f82"
     sha256 cellar: :any, x86_64_linux: "293ca56289c6308d9fb7db0d0220385c7f22d9e2720507c19c8988ae302b7d74"
   end

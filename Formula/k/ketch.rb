@@ -7,6 +7,7 @@ class Ketch < Formula
   head "https://github.com/1broseidon/ketch.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ce6b9dda8936ad73d96695a198eadaf4035cdd7c79e14b2b27bde159555d2a04"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c01e6a0c15b4b759d96546dc03bfdb874b18a86a6b5a314296717ea5c0f14996"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c01e6a0c15b4b759d96546dc03bfdb874b18a86a6b5a314296717ea5c0f14996"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c01e6a0c15b4b759d96546dc03bfdb874b18a86a6b5a314296717ea5c0f14996"

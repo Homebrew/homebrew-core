@@ -12,6 +12,7 @@ class Atool < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "781a343f2c0b7df366bd18fd6889744b74d484e024bd4df2551d7664b116b7fe"
     sha256 cellar: :any_skip_relocation, all: "7bdc1cec48daaf7c140aa3ebb5e32ea863e560947ff2ed110339f84bdcea25c4"
   end
 

@@ -16,6 +16,7 @@ class Peg < Formula
   end
 
   bottle do
+    manifest_sha256 "3d2a647f317eec5e3c14b29a3695b14532ba491c46240e8e0b23df7e8d4d4216"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a48db43a0086f487f99520766e360d7f4d04735ea697ac3cef5b8b4822383384"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "69199b8b5ca9791da1895d31d558d1205468f97741268abb2bb7944320cf050b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f2404175aa4fe06bfa03b4cd11cd1aa8ae657e85353062c11c73c553544a032e"

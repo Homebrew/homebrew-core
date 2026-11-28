@@ -10,6 +10,7 @@ class Pidcat < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "a510b4c9f5d1f1c45e6267f5669aa5e2b8e4a549565cc0b6904e88e59f55ac92"
     sha256 cellar: :any_skip_relocation, all: "c340b62825f294103c9e4866ca70e7cc13b85fd6adafcee7d9661bfad1743949"
   end
 

@@ -12,6 +12,7 @@ class Mdk < Formula
   end
 
   bottle do
+    manifest_sha256 "91fc0a869c3005353ccbcc95833cf64962284e213cf8dcf5af2d257a76bfb4c5"
     sha256 arm64_golden_gate: "2da64b7147ceebdaddea01eb498172d916401e13c6e250fc6a4b135b92934347"
     sha256 arm64_tahoe:       "7826d050643554b4fd5b996d6d435b817f5afc3d377838c17603134ee397387f"
     sha256 arm64_sequoia:     "ad86e88bcdb7d4a02549a80945c2bf96d74c7d95ae55d3d25a654c8ce74d09bc"

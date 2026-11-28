@@ -7,6 +7,7 @@ class Ccat < Formula
   head "https://github.com/owenthereal/ccat.git", branch: "master"
 
   bottle do
+    manifest_sha256 "fb5402fde51b0f99615399219ea8ced7e412cae6dcb7458338b0598d89a1cf7b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "87996f0ff92080b4477100bf5d799038207fe9419e908fe5f630acd3742afbf8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "21843d1726a746b8fcfffac1d1cfb9f28c56ecaa54d596ee041f531d78e02cdd"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "57638eda46f68bfaf966e488fb3f7f49c7fde0386cda8f751af2669186abc1e5"

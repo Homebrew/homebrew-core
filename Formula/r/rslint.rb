@@ -8,6 +8,7 @@ class Rslint < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "7652a263eb187804974f992723c6fa2829f27ce50ff4c309d46dd7c2836bab85"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "52aa80f624082e70072a4f158db8217b06fa12289522d023d5b8789012404150"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a889ed0f08b3102adb969159e71ba2d28aa7c40b1809c5fa10d7d57350e9731f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "063ceea1423e7a6c428f7d9c517c64a773eb5a0ffac97c55a45558081aa93d9b"

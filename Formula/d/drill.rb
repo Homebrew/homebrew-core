@@ -7,6 +7,7 @@ class Drill < Formula
   head "https://github.com/fcsonline/drill.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b4cb1c2075cb5347e36075e1da5e3eb1d8a1920403c228aad2885d5229b53fdf"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5704bc0839d81cb6cd38203501eae06a07c424fd7dc4819b07827a1bfbb2c01a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f5fe8459f6c6bf6d0f41b9e4344037bc1ec1ef675dab697f7d02d7a7fd1e1850"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c5622dc4dca9eb03bcd4d038981ef8f3f5544e4402f167bde23d95fbd20d355b"

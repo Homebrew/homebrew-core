@@ -9,6 +9,7 @@ class Lpc21isp < Formula
   no_autobump! because: :incompatible_version_format
 
   bottle do
+    manifest_sha256 "275b2fcac6dfabad3eeb95c788a5831ce639807f447e279e902f471a0a9d4740"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ffa66800c7e379de8a2f8f63c6e4158a7b26f895fda64c59ecd7cb066097e608"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e9869885d3e10505fb16dd89ef1b5047a77e0b8a4231b9acb7f94c0da9099ea0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dc0f9ced6f8764ed8c4b7502ea6a4643621c3a4694530fbb9cfa02378b5ac760"

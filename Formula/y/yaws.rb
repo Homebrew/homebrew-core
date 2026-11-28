@@ -13,6 +13,7 @@ class Yaws < Formula
   end
 
   bottle do
+    manifest_sha256 "f25cec29213e38fbff5b0f677ed569d3bef9109d502505a84a43388383c1c9d5"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f3d54f22f8e3bd39b373d53db77c1fd2006a7319d5119e6e68789dc0c61a5da4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f0629320e62e14c5dbfed5c834bfa166dd1077cd5d0df943ba18d5d721c0b7cb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cb3c87cc60dd5dacb0b6acc9cb7fe99ffd0ab073ec160fd373c91f2be09489d"

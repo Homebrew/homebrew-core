@@ -12,6 +12,7 @@ class LibgpgError < Formula
   end
 
   bottle do
+    manifest_sha256 "69c7133b8f54b2fce4574be4707334998d5b164e86b48651b065bc43df2dabca"
     sha256 arm64_golden_gate: "bddda1c754a492bdc762d5eb66571bd658501c4fb4597745e17768f172a39734"
     sha256 arm64_tahoe:       "74ecfae7911e36e85f9400931acab43770544c7826a3e7a8176c6410dfc10735"
     sha256 arm64_sequoia:     "d209486b1890cf8194a71c00d976bdb4708ff82336232e4b7b38c64f7686de6d"

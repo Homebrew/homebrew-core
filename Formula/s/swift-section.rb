@@ -12,6 +12,7 @@ class SwiftSection < Formula
   end
 
   bottle do
+    manifest_sha256 "f33a7801b0a7f43c58b8e749b2d387ddaeaa80208d7d688d18eca3c412530085"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a27eb2b153feee43988b5e3a60950d530cd7f344b4f40f6d6509c160056ed24c"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "27cf48ae23eaf03ad08f271d8965c09cb9e4cb79260747cf05ab3f135cc420fa"
   end

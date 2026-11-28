@@ -9,6 +9,7 @@ class MacosTermSize < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b5e74f71abce3e63b3e086d2ae34a1b3ee208eec86d223b7ce7d56f980034ef7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "bffbaf74f12d2c0474ebcae4c18e2659de50b963f641998b7592bbc9519a88d6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "046cbcf0ab73b2a5f6e22b25bf54bbcf305f9a7e8b0af9cb6d60ff773da962ff"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "62b5941a4c8f70dc8ba5564ca015d47a4a6d816932df80672375e3942d097e18"

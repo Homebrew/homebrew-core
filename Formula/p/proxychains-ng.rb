@@ -7,6 +7,7 @@ class ProxychainsNg < Formula
   head "https://github.com/rofl0r/proxychains-ng.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5442716ea910dedaf6f391dd01414ff29917b2029d4425cfa3c5988db92dfc42"
     sha256 arm64_golden_gate: "8aaab6d5705b8a9e82d715c64062db783f3fff78104ec31ed62bb157174e1d58"
     sha256 arm64_tahoe:       "418c5e81d5428eed0a654c7f98b7e125391eb0477ab729a6e6b9138cbb55cc30"
     sha256 arm64_sequoia:     "77c425c2b38228ba4db47361008f8b71ae6277f46cf6a83383741de47babcd7b"

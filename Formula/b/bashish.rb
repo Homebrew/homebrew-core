@@ -7,6 +7,7 @@ class Bashish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "36504b77cdd5d0efb32bb144719dfea3753fb4464451b65ce07969c44f623ae6"
     sha256 cellar: :any_skip_relocation, all: "593a8963d32a22c3c7a65c3d1f9f8ae8fec9a0a85dffe8ad5c71baba839091ca"
   end
 

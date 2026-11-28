@@ -11,6 +11,7 @@ class Ddh < Formula
   end
 
   bottle do
+    manifest_sha256 "66903b355dfbf5bb2b6938bb24d69e45f85ed0d3fe6efd29534f9479743082e7"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5c6d1e51468e04d3b0aa9ca5c6e91b2064c458165c123aa0ade6eb4dac7699e0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "2b2788b0596f11e1662e743517535b5b5d61a034fa8b6ad5d4df84853905e58e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "c38c189b4375eb8031c68bcd0c6f070ec7ce5c851306322d0b15d5c0a797f242"

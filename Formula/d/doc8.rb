@@ -11,6 +11,7 @@ class Doc8 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7a3ac5b4182beebf686444ff98ed930f3ca889af8a40012e6b39f4d96121abf3"
     sha256 cellar: :any_skip_relocation, all: "b245ad59690256035fa27e2e98202870938e1d058c6ead2c46406cc64216db17"
   end
 

@@ -12,6 +12,7 @@ class Orbiton < Formula
   end
 
   bottle do
+    manifest_sha256 "771f205fd82a03059c0072f6508087bf4b6936e8bf4d7cda06e8ff8d26fa2ad4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "613a11a1e024856175564516349b636cd7b736825a1799a3a47615d9a802e9b4"

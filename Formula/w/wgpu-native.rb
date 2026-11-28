@@ -8,6 +8,7 @@ class WgpuNative < Formula
   head "https://github.com/gfx-rs/wgpu-native.git", branch: "trunk"
 
   bottle do
+    manifest_sha256 "0d07f18b2a7ffe8fa72c6d747aed0ea609b6b27755f9be56b525e29a31f5c672"
     sha256 cellar: :any, arm64_golden_gate: "4a57eb324844a8a3ed9af23d647133ab535798691af6b97804f1ecf3a1c96aec"
     sha256 cellar: :any, arm64_tahoe:       "b204aa50abf15cbacfaed382c0d2c6f9d0d0d49b71e06a8d26c2b66ce98dc082"
     sha256 cellar: :any, arm64_sequoia:     "b24aac8b8d17043e288ad92be12feade652e9de73d49c72800ef9ae7e7f95552"

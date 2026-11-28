@@ -8,6 +8,7 @@ class Jp2a < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3f0f0f00fa1894467c6767c2a7071270fc661b01d08abd6c2c9a50a9cf3b39b7"
     sha256 cellar: :any,                 arm64_golden_gate: "fd0d855fb6e554b22ef939b1eb89d2b7f2e6effba95631e67b8db653aba18e1a"
     sha256 cellar: :any,                 arm64_tahoe:       "e2b8603ab0f2a1415dd3813da7096f960a788fe1200329038bbed63190474283"
     sha256 cellar: :any,                 arm64_sequoia:     "a5de8e7c8f37a34ff6f7e997926b0bc68000abca2297cf9fa69ae1fc094f00c9"

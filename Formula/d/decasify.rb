@@ -6,6 +6,7 @@ class Decasify < Formula
   license "LGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "e6e30ea2e7ed854a0cb512a1eb66cfdb6a63fb77d2aaf24607ca3008a9c53113"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "948155093299a2bc266a818fc401eb203f319f866d91217bb20ba5182b257285"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8f6984e5c6a88b14f0c82c3b726a14ab54dfa0ce824118af032bd9bf65549980"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "22ea4a70d1b78471a9bd978c3f706eacc1e2809cba9b7a42cd5d765c9efc5275"

@@ -8,6 +8,7 @@ class AprUtil < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "5a18bd0a26e9397a442e638b729cb51143fe1df06f01c63bcb80e31f6f05891f"
     sha256 arm64_golden_gate: "f7f7174af2e16984ca464ec9fbfd9df33ef2e3c716afb410a024c1d1983f7786"
     sha256 arm64_tahoe:       "272ac1650856bfba7c5b033e3e118c5d28ab271ae7ce6f469eed954d126ab577"
     sha256 arm64_sequoia:     "f62ab082561dd6956e950bf71b4057645c27dfb2e0c2bc36335e103932a1668b"

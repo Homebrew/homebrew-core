@@ -12,6 +12,7 @@ class Ivykis < Formula
   end
 
   bottle do
+    manifest_sha256 "6a1114f31f5499fa1cd405d7a5f40fae720986f8ecd6030e05cb4d4acea055b5"
     sha256 cellar: :any,                 arm64_golden_gate: "5aa2f73d100cee86dc028cde5d40f18d1eacd5db203397cb9b573cfe995fa2fe"
     sha256 cellar: :any,                 arm64_tahoe:       "39b186ef9cd3390cc76db833ff0ff45a534810fdfc76858eff1b53f945613277"
     sha256 cellar: :any,                 arm64_sequoia:     "d76bb73ff8c5001a8347d9f382e2ee49b500773ce56d0a611b8828c856d5b93b"

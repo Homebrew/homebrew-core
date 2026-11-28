@@ -12,6 +12,7 @@ class Calc < Formula
   end
 
   bottle do
+    manifest_sha256 "058a1051fb7d8ada0cf45fd3ac7e51659a67b221e1c32bb84d7b303cf3f31298"
     sha256 arm64_golden_gate: "0edf5361bf3a7a3e59c5cf28cb131be9d56404567909df0ac5d8ba6f1a30db74"
     sha256 arm64_tahoe:       "2b97b124467e1165ac167933d6c4c8da8ba8bb41affba09d02ecd7cbabe0030a"
     sha256 arm64_sequoia:     "3dc9dfbf237fd68855b2f611bf671054fbdd38fb78b9d357ecc5792c4d0f8ee8"

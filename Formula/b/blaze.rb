@@ -11,6 +11,7 @@ class Blaze < Formula
   end
 
   bottle do
+    manifest_sha256 "064bf205985e501c989791405ce423ea323377141bdea8009172a16b4c99786b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07f1ca4591284c3a6c28eb578eae3ca6a2580d1fcb37dca76f7d3fb0f94d2548"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1f564399ba9c93c4246e3cf3679b5b49661edb3ad9077afab40f94c220e6d49c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a80081c26f45e68615e6ef2dcde4f354ee8dc05cf2744d20d75efee48f7e7864"

@@ -15,6 +15,7 @@ class Unzip < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "966c3d191ed655790c5ad156f994a3f9ece55d014c39dedb9b1eb47269515dea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "525f5587e23a595a3e3e1d11a574c29c5a475585fd19b0c7f675895ef41c9608"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "be1cb055cbcf3e1420ea25a48ab6da010c2e70efff5ffe7e4e91dac7231c4ae2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "fe1f7ac37950ec13dde20b2ab1eb86eb45f066a305df1fa6c8349d6de0e14dec"

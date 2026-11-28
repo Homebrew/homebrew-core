@@ -11,6 +11,7 @@ class Gcviewer < Formula
   end
 
   bottle do
+    manifest_sha256 "cdfa531fbc6980a716a0158ee3da1aee2c82f8824d6ce9656493e041babaccdc"
     sha256 cellar: :any_skip_relocation, all: "b9de4dec3e8697881b60484da3b016d93ea54738c69accc151cdfa43e2f30eae"
   end
 

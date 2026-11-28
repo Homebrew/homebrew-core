@@ -6,6 +6,7 @@ class Lmod < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "39b6ebf5fe550a0fad6da7a0155e8cfb0fcb6b7529cdfa8a28cd9ef8c441b90f"
     sha256 cellar: :any, arm64_golden_gate: "f6d3f91b369d6164ae9790583a44f4689babefa76591e297404836b9ea628ec8"
     sha256 cellar: :any, arm64_tahoe:       "8a9d866eb06823e9050d84a62a7c2de8dd08df3e552ef36a3e0b290c62d1b9e3"
     sha256 cellar: :any, arm64_sequoia:     "bf2359552704c3c04337dfb85bf3dc8d8e3038251fae8a6cfdddf0ffd7fc5c22"

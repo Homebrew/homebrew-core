@@ -11,6 +11,7 @@ class Whosthere < Formula
   end
 
   bottle do
+    manifest_sha256 "555f83f0ab07b341cfb26c0f0bf3a673c6f2342103e61f24cd758d4ec354ee53"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "36275c0ef5c5591103b816b7113993651e8f131db4206437a9ed090927a75abc"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "36275c0ef5c5591103b816b7113993651e8f131db4206437a9ed090927a75abc"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "36275c0ef5c5591103b816b7113993651e8f131db4206437a9ed090927a75abc"

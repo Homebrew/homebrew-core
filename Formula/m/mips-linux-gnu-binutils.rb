@@ -12,6 +12,7 @@ class MipsLinuxGnuBinutils < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "19c4615080740c38d143f499387566183dee5a1d4bb4c56ce9ef2f5315731955"
     sha256 arm64_golden_gate: "e6bfc98bd03e3485bb3616651af3e09703c5f6604e7be0f7b0e8a4646e9031b8"
     sha256 arm64_tahoe:       "980558e817525f937d255feeb3fe04334261f903a169e76a5cbdef4a5cdffd2b"
     sha256 arm64_sequoia:     "1ec55ff7f1a0c691ab2566c2ef8b42fe48e0602bd3550da8b05329ca30d5a4f4"

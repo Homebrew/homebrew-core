@@ -7,6 +7,7 @@ class Crabz < Formula
   head "https://github.com/sstadick/crabz.git", branch: "main"
 
   bottle do
+    manifest_sha256 "46341508b24876213c0cd5748b7767e2156409cc210ab3ea9886486c474c5ee6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e7b6ae9b4895335f60034a78497f1a4a1e0124f62df1703b9dee0bc7a1b61c1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a77bd30e73d8f12c1b496023c63ff4fb2bec06d4e7e4318115446ea48de5c9bb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f9a4a7963fbb54987363665afd1d43b254a5745629637dcec5fd822221e9e70c"

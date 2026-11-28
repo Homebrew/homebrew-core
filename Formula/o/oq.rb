@@ -7,6 +7,7 @@ class Oq < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "59cac4e53466be1fc857aca1a2204da2b22cb909d200daf44fc87d093eb8d04d"
     sha256 cellar: :any,                 arm64_golden_gate: "d1dad828e007f7c3873fe0154b7be1c05ecb4d252e823400dd47a0c244d5db2c"
     sha256 cellar: :any,                 arm64_tahoe:       "023cabb88d541a227fe92c766625d0c1cd39a4d754d632db66d3c50b2e569fe2"
     sha256 cellar: :any,                 arm64_sequoia:     "9c6c9f859e94646a4a4ee19c52ca6a458fb606e39f37476211bde90df945f16b"

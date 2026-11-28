@@ -12,6 +12,7 @@ class Castxml < Formula
   end
 
   bottle do
+    manifest_sha256 "891d001ff1f0c6fa9ebb5d8e5cc7e09f8ef0a119f1927285fc146d478d0ad5b7"
     sha256 cellar: :any, arm64_golden_gate: "039a14ae39047740a8b6850f53d88148b722bc071cd37395bb8a44c71cfae1f9"
     sha256 cellar: :any, arm64_tahoe:       "66736a050176a0b00c1e9e4ce673d27d54bf71de45418a1fdf4237f9802febaa"
     sha256 cellar: :any, arm64_sequoia:     "c9731c93b32a473bd9068438e8d5d883a20b26c2c5320779af2ada2d291aede8"

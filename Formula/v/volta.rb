@@ -12,6 +12,7 @@ class Volta < Formula
   end
 
   bottle do
+    manifest_sha256 "e7752d37b3be76c6ec767c2b6d05532f8933701a3aa2c201cde9dbcd62143a86"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9005f17220b3e5789a7c6a9d153eddfc7e39ae69051da025c5a9ff0a2e441670"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "60e950c599630d46e928ddbd6f9cf4494dcbd5a7781e116c0890aa156de912ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "acfec2a99f0b9365f89152d6796918fab98839f43a7f16a3a180417e2082f5fe"

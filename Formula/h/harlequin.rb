@@ -9,6 +9,7 @@ class Harlequin < Formula
   head "https://github.com/tconbeer/harlequin.git", branch: "main"
 
   bottle do
+    manifest_sha256 "b1da60e5b992e01583377615aa53c79a68c879f2e4381d2b2f0e9d1a6c29d2c1"
     sha256 cellar: :any, arm64_golden_gate: "991e65115a82cf7a8492f3c7728ff1e360f534cd5bc852bc247ef7317a45c924"
     sha256 cellar: :any, arm64_tahoe:       "cafa0f170a7f2acc4108410cf0e9aee4d49a33f068b9836d397a4a6d3ed5d144"
     sha256 cellar: :any, arm64_sequoia:     "62071d2e9d49cb11e8c06e76c8ed94440d3d420ebc4f2b5fedd4294565f459ec"

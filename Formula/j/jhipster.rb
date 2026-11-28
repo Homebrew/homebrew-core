@@ -6,6 +6,7 @@ class Jhipster < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "f2089f211e40a2de09518ce17be2204419911c90d4d14d54ffa668939adbacc8"
     sha256 cellar: :any,                 arm64_golden_gate: "9a63c7efd4f26262656ff10909656bdae9dc41a6175f41f0ab24c38fe4f66ed1"
     sha256 cellar: :any,                 arm64_tahoe:       "9a63c7efd4f26262656ff10909656bdae9dc41a6175f41f0ab24c38fe4f66ed1"
     sha256 cellar: :any,                 arm64_sequoia:     "9a63c7efd4f26262656ff10909656bdae9dc41a6175f41f0ab24c38fe4f66ed1"

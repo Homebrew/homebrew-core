@@ -8,6 +8,7 @@ class Zplug < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e29f3c8129e0a9f3da500c7e232e082fcbe8f1c50760cd836429dbf3eb24742e"
     sha256 cellar: :any_skip_relocation, all: "c99ea3312515bf7de844cbe43af641afebe319549ff5c8c719ccebff79810999"
   end
 

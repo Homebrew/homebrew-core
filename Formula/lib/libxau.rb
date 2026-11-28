@@ -7,6 +7,7 @@ class Libxau < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "80da7800fa6d0b2842834f018017c56b63811deeeda6fbce0490a842e42bf82c"
     sha256 cellar: :any,                 arm64_golden_gate: "f880b5b3db6ef66ecebc49402c2ed48ffb00e288340f056f077f9f83c82ab3be"
     sha256 cellar: :any,                 arm64_tahoe:       "503040606c5d29dd415f2c8dcba7e181d259e4cdff02d1d8bde4e9ea5244765a"
     sha256 cellar: :any,                 arm64_sequoia:     "e8a5fedbd9e5c49f10006171decc5b1e56c48fbd4267e7668f813e47c0da984f"

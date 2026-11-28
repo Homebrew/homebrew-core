@@ -7,6 +7,7 @@ class RobinMap < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "94809067908a2577d0e77fe76442d750e0882910b705eb99d643581fa3187a5f"
     sha256 cellar: :any_skip_relocation, all: "672e92ee26dbed640ed6617e5c386f91753e9b9b7a3856fe16aa7f3798435df0"
   end
 

@@ -6,6 +6,7 @@ class AngleGrinder < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "348dab1a8f4db8ad5c652e734b4717b14e90635dd31665f13fdb129d0491e65e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e55db13cb3f5ab49becce7b640ea2522303317b1a47f686ce83717040dda3bea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "98723fe85d178aac89df81a680eb6219bfb4559d4f5e2c78d7b09753e64b7ce3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "280e3f3eeb588c1af385fad6a05e08f5e6091f8114c268d56bba319a61800c92"

@@ -17,6 +17,7 @@ class Librsvg < Formula
   end
 
   bottle do
+    manifest_sha256 "0232065229508602c3812105b6516147c5dab59eaacf662cf9dffaadb840fbaa"
     sha256 cellar: :any, arm64_golden_gate: "4bf727a10083f030348c98b94bd1589092527c42fc119efd9b622f37287b5e33"
     sha256 cellar: :any, arm64_tahoe:       "9e66074a308d2245eb81886bc5648dc22acbb113d80a5076bf45dd5212034239"
     sha256 cellar: :any, arm64_sequoia:     "7cec71ffb43c1515ab1407fbc4ebee727653d71f9e5b152aa752f3e3d7a4f226"

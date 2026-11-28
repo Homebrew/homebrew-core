@@ -12,6 +12,7 @@ class Clingo < Formula
   end
 
   bottle do
+    manifest_sha256 "b1539b10d199e753d3729123cc61bad9378045f0e5bbdfc4168fa1c32a6f9d7a"
     sha256 cellar: :any, arm64_golden_gate: "c0ca281d75541169a2e0d96f15c9124d19275190d326e36dd2fc9181b4d900d6"
     sha256 cellar: :any, arm64_tahoe:       "06e5319794a0356d7af5d51ab931a345d139fee4ac45f9f20c381d46663862d9"
     sha256 cellar: :any, arm64_sequoia:     "d8c51dd05900aabd0540447c84a194edf3498b47c8892f76a30e37f6f3a75a09"

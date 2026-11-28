@@ -18,6 +18,7 @@ class Cryptopp < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "d406d96ec3cf274a3a5c16f6371b295acf82c75f788f39e1e965bf921643d473"
     sha256 cellar: :any,                 arm64_golden_gate: "27c429389617bfa389f2b6dcb0940b3e17231a52c60944f9478310060d91f5be"
     sha256 cellar: :any,                 arm64_tahoe:       "53bc84217451c7ae2716346f62519e9b100409180949df14259c0159c04166e5"
     sha256 cellar: :any,                 arm64_sequoia:     "bdd7bfce252e592dc412d8b735a4fac2c9d5868607abbf9253a581c288c21dd9"

@@ -7,6 +7,7 @@ class CssCrush < Formula
   head "https://github.com/peteboere/css-crush.git", branch: "master"
 
   bottle do
+    manifest_sha256 "67b8ad10344b8c04c1fb077f2e2df652f831d85cb0fa933c447ddacb4fe8a9af"
     sha256 cellar: :any_skip_relocation, all: "85d7cf94858273e35f58f6d87bf6b8d62c0fa9b595bda0b716bd684f60c538f3"
   end
 

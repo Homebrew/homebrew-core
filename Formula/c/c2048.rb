@@ -7,6 +7,7 @@ class C2048 < Formula
   head "https://github.com/mevdschee/2048.c.git", branch: "main"
 
   bottle do
+    manifest_sha256 "46f11755fd41636e01e8ece325e7fe38ef98e82091fd91babdea73630e9ea262"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "34d1b744f2e83653e15e47921aab9b516f010678e52b5e95b8d7b8d66c5769a5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "7e2167cada11507d11613f88ff12ece3ef94c4a798e57f758c47fb719257c18a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18e9b337d2b521fb6d57a1dec101bf9f68f22e1fd188a1a3f2be1a853b6e2b98"

@@ -11,6 +11,7 @@ class Nift < Formula
   end
 
   bottle do
+    manifest_sha256 "c5f5f3ddbda8f92340b3bed06e4f619a5a1dcb381948c2d8fd467f7b11b30293"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c637828ac075b284da3a44e49d96732652d9f3763eacadeee137ccf6edea3dae"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eda0edbe84048db4e7c6751b23a4166c3ffabb9681e47447aedf96f1e3d9c149"
     sha256 cellar: :any,                 arm64_sequoia:     "e0552aea8f5e1d30fd7cc9ae2b64d7ebc213623a65940020dc8a8aa652424819"

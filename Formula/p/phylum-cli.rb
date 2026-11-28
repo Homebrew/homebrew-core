@@ -8,6 +8,7 @@ class PhylumCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e6703d094df4e708a6b3808ae065c3c2f85baa42f443534c6d4fd572b3a439f3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5dceeb00592791ac487c2e268f73392b3bbf6c3aad79fd8497055c73eb74ca94"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a5c41404363af5e2bb318cad8f06e8cd609343c3b4efaeca80516e070c5b26b6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "953504f633a2d23202b0e33a9ba472be2b6a181c9c2987998b4e3eb3de1028e8"

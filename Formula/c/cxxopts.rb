@@ -9,6 +9,7 @@ class Cxxopts < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "0c556435a596bb39ea619867c8f0c0b6fadc4f83b01e447a31293b05997bacf1"
     sha256 cellar: :any_skip_relocation, all: "5c90eb7984473c65039f6dce14c4d9df760f5545777d8901dd5725a87f72a43c"
   end
 

@@ -9,6 +9,7 @@ class Terminator < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "27558b851dcb42c904aa8fd04d1a1a4c0855c7c9a58aeaed47c85f788984a05b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "80b77252e05f646c8c63ad1900f4ac9719ba96054daf649dfe2be7ffb34103d2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5adefd53b8360e8874e2f1f359af102ab64917096be48dcfe0f9ffeacc7e2097"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ae94d242749eec37319b6713a52674b4fc4cfb8114934f0e9e1999967ba6531e"

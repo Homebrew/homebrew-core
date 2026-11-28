@@ -12,6 +12,7 @@ class IpRelay < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "ad5f86e18f6349bc3572c27681662c499dabf1e7dddcc7bdbc113108261bed5f"
     sha256 cellar: :any_skip_relocation, all: "ea932a50ad3b1643e87dab5b41be2a75c2ac1f22392930e1cf3f05e85beef8ed"
   end
 

@@ -7,6 +7,7 @@ class Cloudpan189Go < Formula
   head "https://github.com/tickstep/cloudpan189-go.git", branch: "master"
 
   bottle do
+    manifest_sha256 "18cd25310f396d49b6096ba222270e0b66325cc1769fcbbb9dbd816b63ec6554"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1779c82503f4c736e87a1151a0d166ba7e445400a5d64a09a0e57b9eb52a48ea"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d292a2bd969d609f7f5f005b2f8e59a4a3807dfd6271d2e01d1b0d5807d1bae4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "793542588a08328d55060fc0faeb3808bde9656eee00e8df0b9ca98ad70ed9b0"

@@ -6,6 +6,7 @@ class WrenCli < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "a9aa1e0e0dc00d6d8b702e66c7ee92371bd7c1fe1e8b1e18f1b9aa0669353830"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "387b1963ccb6fef07cd32e66af4fbd86769d075774d02eb08a1d6ff1c9ccadf8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "94398558d4e785bfeaf83be6aeec15896129441f07d3226003521bf882a1a200"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "09debbe79f6af18ccbb0f2a4aabf117cfa7b3a33fb455fdd7b943ab8c8e399ce"

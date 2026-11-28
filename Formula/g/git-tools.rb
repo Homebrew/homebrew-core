@@ -9,6 +9,7 @@ class GitTools < Formula
   head "https://github.com/MestreLion/git-tools.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a78b5214aba1b2443368cd903287e5617a51e72c2a291b977bd08deb8d5b8aed"
     sha256 cellar: :any_skip_relocation, all: "ba1a42e203720e6a74dcdfefb2653be957015fbd115415686b119975f111bdb6"
   end
 

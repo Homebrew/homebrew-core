@@ -7,6 +7,7 @@ class Zls < Formula
   head "https://github.com/zigtools/zls.git", branch: "master"
 
   bottle do
+    manifest_sha256 "890d061c4a6abf1ca442cdf71c871188d959eacfdf99127d5dbeb8d1ddb362f6"
     sha256 arm64_golden_gate: "999e91008090c76179cd10f9a51300c4aee17c362b569f3b34dc0e13a6679823"
     sha256 arm64_tahoe:       "d997a2712be7e252c15bdab97ec3508f4cf05cb8918e1fdcfa5874e36b3326cc"
     sha256 arm64_sequoia:     "65246a8d4c16a17044328ba06466e4e1f6b9eec7e06691db96a6c9801b8ac018"

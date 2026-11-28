@@ -12,6 +12,7 @@ class Wimlib < Formula
   end
 
   bottle do
+    manifest_sha256 "a650f3a6d6d3e77071b9d0efd070d1782bdd13de9da44dee4dd0c1c1d5f0c19e"
     sha256 cellar: :any, arm64_golden_gate: "08e15f04cd58bedfc69eb9f87fd528c77fd32799f7084e6cd78cdda06c888bd5"
     sha256 cellar: :any, arm64_tahoe:       "d77899c4baeac118aecdeea00047733d1420f8a1b86d509a5bb8cd6591f041ce"
     sha256 cellar: :any, arm64_sequoia:     "627b03499f9e0b076c16e25ec65c181ccfbf66aec7c8d065499c87c1e44dfd20"

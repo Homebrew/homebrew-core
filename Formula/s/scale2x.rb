@@ -7,6 +7,7 @@ class Scale2x < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5a860ba8c2b32ce1ac48773dfcc475919d6f7166808966d4f2572eca288a3217"
     sha256 cellar: :any,                 arm64_golden_gate: "d4486afe3c48111a9ce46bc0f90555970c78cacb7fe19d7188583f60e06ced12"
     sha256 cellar: :any,                 arm64_tahoe:       "46d736eb0b365a16a20ae85c4d4f1f957491666df314029dfa1183d986cf9f2f"
     sha256 cellar: :any,                 arm64_sequoia:     "ba1b6ceb8693ea2479b14398ac09a5ae05927a71a648e96c116eaa0e81b4a229"

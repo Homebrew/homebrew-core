@@ -12,6 +12,7 @@ class ProtocGenGoGrpc < Formula
   end
 
   bottle do
+    manifest_sha256 "5b22fec8db92b6b04bf6c6a7e41ef32f47d0973f082da5e9c0df1f1ca80820dc"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fe65676b9dc6f7cb25a369d79d4bff4e507558484600f06ffdf6e6929a2010dd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "613a0784608b460910965dff2dbe76c7019ca21366711fdf2f0c72d87d1627ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "613a0784608b460910965dff2dbe76c7019ca21366711fdf2f0c72d87d1627ec"

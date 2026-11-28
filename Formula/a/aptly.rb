@@ -12,6 +12,7 @@ class Aptly < Formula
   end
 
   bottle do
+    manifest_sha256 "8b7de40c8ac0b917ac5358cab56b536593809a7569c68cceea68fd9936ba4b12"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1c38b2548697afb527c0230a9b0ed3e17b60cbbde6e60431ece5ea6158400921"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "38fc5f4613ad94e1683a9811b56dcc872ae1891a00a4cf50c030504b1b1b65c2"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "38fc5f4613ad94e1683a9811b56dcc872ae1891a00a4cf50c030504b1b1b65c2"

@@ -7,6 +7,7 @@ class Batik < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "2bb8abb479250e1b6c19b4d0650c601d4fb170a6060b9f29dc16596d74728524"
     sha256 cellar: :any_skip_relocation, all: "b965bb122d0335788cace4ff4bbc9e2dd93c69b639e0697441e3bf7e88f6dca9"
   end
 

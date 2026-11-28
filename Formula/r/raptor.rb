@@ -13,6 +13,7 @@ class Raptor < Formula
   end
 
   bottle do
+    manifest_sha256 "ed674f9c5e7fc5d0004a3c829d4d41ac0843b6bd53b314825a88d87dc026562e"
     sha256 cellar: :any,                 arm64_golden_gate: "0277f1d8e644e9702667efe0bbfd1679e0165c491086330ddc66584b5d7f679b"
     sha256 cellar: :any,                 arm64_tahoe:       "1bfb13b805a48dff3dabd1424ffdccda68a6862eb2b245f544e8cf9b1a02c0d8"
     sha256 cellar: :any,                 arm64_sequoia:     "d912659b927b80b53f507ae55e23bd3761c500f1e93d076b150f07b4b72ab9c9"

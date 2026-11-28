@@ -7,6 +7,7 @@ class Pig < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "d1c57f39585dc97699c3d19da2e0dd7904367b02f75135018571aa2ccc31f1e7"
     sha256 cellar: :any_skip_relocation, all: "680feb2c17ee7bbabecf33a8c7fb892d4b7b607c5a2c1497ddbfc07108d35453"
   end
 

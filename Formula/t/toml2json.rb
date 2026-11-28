@@ -7,6 +7,7 @@ class Toml2json < Formula
   head "https://github.com/woodruffw/toml2json.git", branch: "main"
 
   bottle do
+    manifest_sha256 "cec587ca6f047ca75cc2f69640fc30f17239ba2fa977c668ee347c6d27f79e3b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "609fc2384c6eade2952afd6c2260fa83e4f0a490f9f9fd455ba6bcc8c9f82cf3"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e7b2b0427521ab532a532e7c79660a039ab61e4d25d40b110accec10b997e4d3"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d3d3a1fdf26a222e53b14398cabf8f8d726359ab6bd73969ac6a814f3d66564f"

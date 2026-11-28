@@ -11,6 +11,7 @@ class Libabw < Formula
   end
 
   bottle do
+    manifest_sha256 "88832c9aa62107df60555ce14d8a3d7e5633dd988ecf2716c384d09f88c20875"
     sha256 cellar: :any,                 arm64_golden_gate: "9ed9553645353afc7c0eb5d953ef0054a9286ab21c8875e3ad54cc2ff5e6af4b"
     sha256 cellar: :any,                 arm64_tahoe:       "bfcad8f4a2996c41ca06abc385ebd8e66b095c21d68201b318e21100893cb8d8"
     sha256 cellar: :any,                 arm64_sequoia:     "7a0bcfd97859385bb0715aac6a71ddb2d34e646e876deea0d6dd88da6241f708"

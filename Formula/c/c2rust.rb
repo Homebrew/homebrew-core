@@ -8,6 +8,7 @@ class C2rust < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7ed23839ab816b3a89583e28674a747facc189b0122ee7c886f4bdb90a46c3d2"
     sha256 cellar: :any, arm64_golden_gate: "5ced02018ae3d0640b8551011f1088007e929a3e0415cee5be512b2e4c33a3c0"
     sha256 cellar: :any, arm64_tahoe:       "773ad17a6bd39b4207f6c55797968b2f4884a179282a4d15f5027482fce0bb04"
     sha256 cellar: :any, arm64_sequoia:     "debf7581eaf94a16143d6ef4e1b9c3261dcf59a9012193c89b89fc27c84dbe61"

@@ -12,6 +12,7 @@ class LldAT22 < Formula
   end
 
   bottle do
+    manifest_sha256 "3f491b9896859e68cb383f06490d34cf63f83608d031acd4ce6d6c6dfe0524cc"
     sha256 cellar: :any, arm64_golden_gate: "0cdf400c0ceac00c24673c6677734954067cd1510620e46eaf77f0edd790246b"
     sha256 cellar: :any, arm64_tahoe:       "8ebadb3038efaddf7e25528e591638038f7a21b14158419f0d4938d124a927e9"
     sha256 cellar: :any, arm64_sequoia:     "c5a61f9f79f0c52e986eae89761969afc0c8555683897102d8898d881431f2c9"

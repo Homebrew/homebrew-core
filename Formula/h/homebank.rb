@@ -11,6 +11,7 @@ class Homebank < Formula
   end
 
   bottle do
+    manifest_sha256 "4eef4581fc2912deb3c60290e2685d94673cc203302bbf40b4306434e165258e"
     sha256 arm64_golden_gate: "1cb5dffff7a9b706d9fc1a8314fb733ac7d1e9dba92b590acbf21cb7b0dc0b46"
     sha256 arm64_tahoe:       "2401e8227cb13f9de1dcf89b6bfd0eafa26b38d12d37bb8a29e10092b49f8c0f"
     sha256 arm64_sequoia:     "80a9c76f9e24b128cd09d0df0389487d25de98a69627db6b238c73e3c467d228"

@@ -7,6 +7,7 @@ class GoStatik < Formula
   head "https://github.com/rakyll/statik.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dc38fdfa04b3c79bd70962d1fb92eecf9d4c599cf34ad0378fbeef751571acc0"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "51597f00a58628b424c45ff43136fafc0dba2dafcfaab8a8608880a09301506b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c672e9f17026de9c38075bf52e483f3bca5ca36fa89817fd2c788d27a94c2df"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "4c672e9f17026de9c38075bf52e483f3bca5ca36fa89817fd2c788d27a94c2df"

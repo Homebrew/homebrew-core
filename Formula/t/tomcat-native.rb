@@ -7,6 +7,7 @@ class TomcatNative < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "88d7767e03618487698e421ead4aacaaf306f4341ce0ddf44083cbbaa15de4af"
     sha256 cellar: :any, arm64_golden_gate: "dc934497c32239fc13dfbeb08f58ff47b828497b804cebb55bde114c204fabda"
     sha256 cellar: :any, arm64_tahoe:       "1b63900a41828bd4573a306ea94729905316f9e3a9e84237b4d2189a01c78a4e"
     sha256 cellar: :any, arm64_sequoia:     "9dd8a053bd1885ea76fbbb815e9a42664c3b3893b470f892bcd7c2e823a46187"

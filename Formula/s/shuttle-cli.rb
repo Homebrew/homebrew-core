@@ -7,6 +7,7 @@ class ShuttleCli < Formula
   head "https://github.com/lunarway/shuttle.git", branch: "master"
 
   bottle do
+    manifest_sha256 "029282bee69fe533618595cb1866e5ce084c18e50f87a5bb4dcd71d65dd35068"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b42db6a5913fdcbda428184902ed19bfe684dd978a04053d86ef52e8802cbc46"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b42db6a5913fdcbda428184902ed19bfe684dd978a04053d86ef52e8802cbc46"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b42db6a5913fdcbda428184902ed19bfe684dd978a04053d86ef52e8802cbc46"

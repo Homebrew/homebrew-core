@@ -12,6 +12,7 @@ class Kpcli < Formula
   end
 
   bottle do
+    manifest_sha256 "e5b4651a763c78738718f6dc598ecc40e8d27ebf3ae1b25d7fc819c9fb9eaadf"
     sha256 cellar: :any, arm64_golden_gate: "e1c9015e6bae196f284393624e2cbab15f1dde99bd052f290ab30042ed7e8954"
     sha256 cellar: :any, arm64_tahoe:       "ef1bdb8f3ce84f2ad240d1f35b01078f10335681bb997a29723cbbc62248a3f4"
     sha256 cellar: :any, arm64_sequoia:     "d97d19bdd97f231d2fe2843fab67760583fb97a39bfc8c3d4530ace29eecaf34"

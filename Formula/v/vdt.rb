@@ -8,6 +8,7 @@ class Vdt < Formula
   head "https://github.com/dpiparo/vdt.git", branch: "master"
 
   bottle do
+    manifest_sha256 "148a60a201a8489a9ea686c8f6beb2a119cf48467ec0b4b564bafda7758ebb15"
     sha256 cellar: :any, arm64_golden_gate: "422de9e77a714e3c8d4511ee9350c3a987621acc19cdaa4844efb9fcd8549803"
     sha256 cellar: :any, arm64_tahoe:       "dba33e62c7f2a02c6d0c12c9f6c6698f83217e6c3487daba6945e1a8f702fdff"
     sha256 cellar: :any, arm64_sequoia:     "5430c565dff0459c09b20a89b3148c5f9e9561d4531618fdcf8efe456e087889"

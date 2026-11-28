@@ -11,6 +11,7 @@ class Bootloadhid < Formula
   end
 
   bottle do
+    manifest_sha256 "c86024542139cd9a557463f38054a39450e12fc93ecf52d7518d437f480ec267"
     sha256 cellar: :any,                 arm64_golden_gate: "1de8471720a022e06a8a5056ab91b29ffdbfa948de784345a6a41ae0f9f6b5bf"
     sha256 cellar: :any,                 arm64_tahoe:       "5b761a6cb6b73fde389f5aee23438b696185418e0f9c77775b7f93b83ed686a6"
     sha256 cellar: :any,                 arm64_sequoia:     "0c8755c106cb46118e33efda3ce06c507bc13949530ee87f10b4807c8cbcc55a"

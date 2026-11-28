@@ -6,6 +6,7 @@ class Topiary < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ce823226a60a0f01bb5debaf754bc814d81128c6014384569275d511bb19275e"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "20ad8cd8c160af31d9bc68511cacf4987d942cfebc36aa16e5e7d9aba13bbe03"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "13ed87a3bb1782a6bf2d88efcc3a7f033dd4cb544a43798338fd64894d998b03"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "92956d7622b98e73ce45f8a2beaddf7c13c0b68d63746849adc5977b2b434fc0"

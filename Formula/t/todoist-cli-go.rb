@@ -7,6 +7,7 @@ class TodoistCliGo < Formula
   head "https://github.com/sachaos/todoist.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0d85db8628a76b3edb3975af70f4dbb7febf733fea66ac2c70304867ae8ef40f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90791bd8a47694f6988629bdf75f2787116c77476d2d0b37f1facb1edf95e7c1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "90791bd8a47694f6988629bdf75f2787116c77476d2d0b37f1facb1edf95e7c1"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "90791bd8a47694f6988629bdf75f2787116c77476d2d0b37f1facb1edf95e7c1"

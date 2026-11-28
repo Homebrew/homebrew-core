@@ -7,6 +7,7 @@ class Demumble < Formula
   head "https://github.com/nico/demumble.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fd73320aec7b8cf9b8b7a1cef97f6620e337e0443f70903b96ad7ff18f6d6716"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "50e270a91fb3b2624e37ea46bc9f87907af92c42df60b7863a4ed16dd5f0fd98"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "89efb9561af007453bc3c3ee5704c1958b917ad339ba809f9fc82ce6e664af19"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a9d309fe6c5f674b30ec35a6e96839df670025d244eeaa5858ec82ec344e0088"

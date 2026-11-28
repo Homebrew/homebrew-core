@@ -12,6 +12,7 @@ class Wxmaxima < Formula
   end
 
   bottle do
+    manifest_sha256 "168a24052b8223f73ee8a90ab0ed7d0321cb49baab7de31f70db28846bc1a44e"
     sha256 arm64_golden_gate: "2abd7a2e0ed1660cd92a2ad44b9aff1b7613fd6dbceeb41345a58e9022286cf8"
     sha256 arm64_tahoe:       "c45d6e4433850ed3378da18d8ebabc0db4c87fadd7d861afdb85224da2b6abe8"
     sha256 arm64_sequoia:     "39161c42d8015ad2bacf4fb342c37a0308b5c2222c67477f63b4090ae7713d83"

@@ -8,6 +8,7 @@ class Chisel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e3504614a0d182d3b0a2a464db4685220e178f537891a2b55845561a97223d51"
     sha256 cellar: :any, arm64_golden_gate: "e08544b4aeb29c969ff159278ada6409af23b3ae9539d507e2926e08cbe1cf5e"
     sha256 cellar: :any, arm64_tahoe:       "077677ceec6cb1ffb4894e5db11e46e3668ea3ac438c63662e0de6aa5aeea590"
     sha256 cellar: :any, arm64_sequoia:     "d4afda45323f2c83fd95744680fd3c925b3a1fa4a6dd003e70daf27610b17e1d"

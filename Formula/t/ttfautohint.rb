@@ -11,6 +11,7 @@ class Ttfautohint < Formula
   end
 
   bottle do
+    manifest_sha256 "c9f4f851da9680c46e391e3f351c0bf5e6a30708372f002414de8f2a34a0b35b"
     sha256 cellar: :any,                 arm64_golden_gate: "79adf3970e860c922b86b4716e5cc6b4bd1b2f38092fd2905f7c76770e789955"
     sha256 cellar: :any,                 arm64_tahoe:       "9efb3056dde7f1557a920fe397c958c996c0f34d2a03d8913255845f9661f2e2"
     sha256 cellar: :any,                 arm64_sequoia:     "707de245f1d8feaa830ef678f1d658c59a8a2ed6a8b1aba8aa65b9981e2d0758"

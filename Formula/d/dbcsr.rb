@@ -8,6 +8,7 @@ class Dbcsr < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "e113a9f79f9cfbe2f0aa7a009a80a2ae94997da58996c44ccb2b373d756c1566"
     sha256 cellar: :any, arm64_golden_gate: "24e1669b0c5787d34b3be316f0ce4225023dc5c2c0b99d05c738ff95fac9c99c"
     sha256 cellar: :any, arm64_tahoe:       "c4cb0c2df34a6a58232b42b9f8d3a45b41ffb2bdd64fa9a2d8c4dd4b5e3dd751"
     sha256 cellar: :any, arm64_sequoia:     "08dc2f7403b390e6075f787418dec44ee36715b8969800f0b67a5f1dba529e7e"

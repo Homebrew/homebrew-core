@@ -11,6 +11,7 @@ class Soci < Formula
   end
 
   bottle do
+    manifest_sha256 "cf26f70a494b2549b0475918517b960f2c6ff0f8610ae64336668b07d3e877f9"
     sha256 arm64_golden_gate: "e6e1ae37ee7b26b0040bc4147c039531987e0c0afe75d8e8048f3ecb40b77c32"
     sha256 arm64_tahoe:       "7b15200b32688aea452fd6808e3302f76ada2145ff7bc86f15f473ce58b5b6d1"
     sha256 arm64_sequoia:     "83e193d6a298caf352f0fed677a1f6cf39e3aa7960388bec1c9a10d2c15b7347"

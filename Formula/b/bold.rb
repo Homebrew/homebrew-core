@@ -11,6 +11,7 @@ class Bold < Formula
   end
 
   bottle do
+    manifest_sha256 "4d7c59545580554b02d0d16aad612db1a399358ef457e6fe6193176de3c127e8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:   "ed79f743395beae0a5c50b97e5915036fc150a64876e09f93a4c23ec22290e11"
     sha256 cellar: :any_skip_relocation, arm64_sequoia: "166e358558a1248b63764912648a742d9852058095fa8291e6ba5104f1f47145"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:  "153a08515b6fa639c3245055e773893ee95b9653c87bec5b822734090585afe2"

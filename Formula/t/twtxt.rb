@@ -10,6 +10,7 @@ class Twtxt < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "80f5d3888ffc14aca1d57c91372d140f807f1e973fca9fb704f61292c7b60599"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "83eee3ff9eb8b2bb2cde3ccee7d436f2a1a50a03624dc4f56b2f09d2b9f4aa0e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fae6b1b95360079fd88d10511b5bd24a8f028a516126fea48f08e5767bd8953c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3fcf2030f54cc6e42f26ce7f853fab573b64e8c4347d309383befb01c5e1f0ad"

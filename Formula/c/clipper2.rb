@@ -12,6 +12,7 @@ class Clipper2 < Formula
   end
 
   bottle do
+    manifest_sha256 "c0a91b96d2ee1b5b7ae5ba554d72f514eb4e6541493613c53d80f30c5d6b0de7"
     sha256 cellar: :any,                 arm64_golden_gate: "94f0f8adae6349c8779d815d658baa86aee088f4606343d193aa9396c2033c24"
     sha256 cellar: :any,                 arm64_tahoe:       "644de3fa5088f0f37d9d1d1530567896fef82371eaf7cb848e8114c3ae4974ca"
     sha256 cellar: :any,                 arm64_sequoia:     "fa455f826081f9afa0964f14d73f607d2fc9853404a15f26f2aa8c7b12650c34"

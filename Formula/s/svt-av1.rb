@@ -13,6 +13,7 @@ class SvtAv1 < Formula
   end
 
   bottle do
+    manifest_sha256 "8f3ae10c1eee282c2204a30b6f7fec09d376b17765d938c7261147399a3a4ba4"
     sha256 cellar: :any, arm64_golden_gate: "23723b4bd9030c4bf9145e18c88778cdbe54e07a64bb606200086bd6ffa1189b"
     sha256 cellar: :any, arm64_tahoe:       "8e980b08d0073e24fcd7ce255745020719396cc96f6ce83dee146722e210a5e2"
     sha256 cellar: :any, arm64_sequoia:     "99c39895e407e8a344ceb3d4139b102cab2c35e1b380051b19b3896ad82975bc"

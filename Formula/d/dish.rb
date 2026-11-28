@@ -8,6 +8,7 @@ class Dish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5cc69eeea1c603abe25774abea6424681bd0632a5f345553f311ec645ef29a67"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "22f042b71a36a5a2c9bbc60bef7d05c212860a2384d4ef2ef9ba0df1299ae7ac"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02c49400cdaa68fd9d904442a95e3e8cc14b12d1ff63c7e990be9d1b3f22a06a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "19198cee1c3db608abf9fd1ac9481db5a4468f620a4cf7e74bb5034dafd90cca"

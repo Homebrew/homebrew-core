@@ -13,6 +13,7 @@ class LldAT21 < Formula
   end
 
   bottle do
+    manifest_sha256 "14d1abc2a0d3f0baf2c021826533f87790312a68bb525c01f879b9ce40fd01eb"
     sha256 cellar: :any,                 arm64_golden_gate: "5dd16f6481f378cf6f69b965afe1a877f58744cb29c07c98da160f5f500cef91"
     sha256 cellar: :any,                 arm64_tahoe:       "ac2b17659f0a2434c6ed399b3a0fe31c8d052f7433568020a692dfe6a213a1f4"
     sha256 cellar: :any,                 arm64_sequoia:     "196025bea4256271e57d59adb230f8b99f2d153cfe027b2d3af863006f7fc08d"

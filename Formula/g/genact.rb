@@ -7,6 +7,7 @@ class Genact < Formula
   head "https://github.com/svenstaro/genact.git", branch: "master"
 
   bottle do
+    manifest_sha256 "51e928ec97b1ab6d6ee56b51ae24303c41a532196bceb9eb754fafbce5456894"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "4f07ad6bc63cdd75cb4d147c543203ccc213a0014267933ee39ba822b78b0868"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a60e80dcf99c77d411494da33296dc83366d5eb26b8b65f39dcc0d5393c961e6"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "75e17e2fff597f44f11b22f0abd4522b85c6c54b24facec8d5349655a602bf8f"

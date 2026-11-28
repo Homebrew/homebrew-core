@@ -11,6 +11,7 @@ class CloudformationCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f658037ebdf6e58b7955d4781760e97ed90fd57f2e6105f457e576179be4e449"
     sha256 cellar: :any, arm64_golden_gate: "bbcdff7d4155d4535ac1d543d4e82e487fba0ddee981dc2760e4898e8fd3675c"
     sha256 cellar: :any, arm64_tahoe:       "8a6e8981eff9af3332b6c7350e41e1042a193fd5cd50de79608bb0a653f02c3e"
     sha256 cellar: :any, arm64_sequoia:     "c0610c82d9712ab7868c8edbe3acc854c80e085a644ccf6582163a87cd27aebb"

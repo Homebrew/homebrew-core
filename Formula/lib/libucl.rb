@@ -6,6 +6,7 @@ class Libucl < Formula
   license "BSD-2-Clause"
 
   bottle do
+    manifest_sha256 "ea5233733449d07c85f34ed927ede73671b108ab8faea61c097ee470bd26423f"
     sha256 cellar: :any, arm64_golden_gate: "2c987363c2aa4194644eeaee384db8e018c6b550ecade0ee5c6236be4523640c"
     sha256 cellar: :any, arm64_tahoe:       "3967d61a155c8377a6f9f8b38fc42d49df09eaa4ac1b24d418948d68d25d22c9"
     sha256 cellar: :any, arm64_sequoia:     "d574d99deec33e5548162abd805e89a83310aa6e076724db43e9f1fcbea73767"

@@ -13,6 +13,7 @@ class Ifstat < Formula
   end
 
   bottle do
+    manifest_sha256 "a0dfa8c1f8fcdf893ddcb3dbf1e223ea716377ab36b2b1ef0cabc0c5fe6ad64f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "89b10888f8d78aa904cbf836939a7711895dc938e5b0bd3004e16af057fc131a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6b215d7076e20b7465ac37f21c3141a87bb5801d17bbc238a9cf35ad5ebebd29"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "7929e573cc9e8172c16c8a9d4a5c3ff51fb02ba824a70c4e749cea56e9d33ed2"

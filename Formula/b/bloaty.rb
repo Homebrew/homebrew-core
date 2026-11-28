@@ -17,6 +17,7 @@ class Bloaty < Formula
   end
 
   bottle do
+    manifest_sha256 "9a7d35a0a4ba03934beb7dc7c01ecba87eb17ae81abebb8bde32a1aeda20d471"
     sha256 cellar: :any, arm64_golden_gate: "889f02662af5b7d65d1858ccda1664d886694028c49e415417e1c42e411a4b08"
     sha256 cellar: :any, arm64_tahoe:       "5d6c3be39ae27ca58c93e990ef2afb1812ad38e5fdd0643e4fcf2f060187b2ca"
     sha256 cellar: :any, arm64_sequoia:     "271d5475c1081cc27937b47234c8013c0704ffda9cd164c73d23a87bba97d3a1"

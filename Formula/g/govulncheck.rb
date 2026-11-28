@@ -10,6 +10,7 @@ class Govulncheck < Formula
   head "https://github.com/golang/vuln.git", branch: "master"
 
   bottle do
+    manifest_sha256 "73040bf280dd2df6bdb6c7a80bb80401e15fb61564c88a245dd1a69daa785058"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ea4dcf1babbe15e699ca06ee9a7b34e91d21b1daa4e7d56b60e9c912d360eb7f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ea4dcf1babbe15e699ca06ee9a7b34e91d21b1daa4e7d56b60e9c912d360eb7f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ea4dcf1babbe15e699ca06ee9a7b34e91d21b1daa4e7d56b60e9c912d360eb7f"

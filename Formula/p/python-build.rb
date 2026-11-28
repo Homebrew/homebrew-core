@@ -10,6 +10,7 @@ class PythonBuild < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a3eb6fce2a774309cbd092c96cad12b697cb029061a391f5124182a60aee7450"
     sha256 cellar: :any_skip_relocation, all: "0ac645bc5be1f048b82a65949f134ef6f6af25d972fabcd51f0f487dbaeb7633"
   end
 

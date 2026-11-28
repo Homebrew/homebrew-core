@@ -11,6 +11,7 @@ class DitaOt < Formula
   end
 
   bottle do
+    manifest_sha256 "74a209d536a5ad78a83cc8ed8fd299b1b6d7223ea12472e3b6fe9b5b1663c8dd"
     sha256 cellar: :any_skip_relocation, all: "2076ab664f3e13559d159294c268578a5f08bc019f0c006d44e17da6b6953e22"
   end
 

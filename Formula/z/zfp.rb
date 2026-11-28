@@ -12,6 +12,7 @@ class Zfp < Formula
   end
 
   bottle do
+    manifest_sha256 "34cc9f3c88972106913e620639d372c1746ea2f34aa59fdb5377d575d0926cc4"
     sha256 cellar: :any,                 arm64_golden_gate: "7fdf4def606cbfbee06a1ceaafb9cfeb8b3c9dca075a23e460f0c4ac80c36fb7"
     sha256 cellar: :any,                 arm64_tahoe:       "dbdf86f2faa53f3b2ab4f9c66a298b1e24208f0a1a8231da5ee516f385d65d1d"
     sha256 cellar: :any,                 arm64_sequoia:     "264d7d638461625ada9fb5d1a78d0d0b61a398020025839b834caa27b6b0b00e"

@@ -9,6 +9,7 @@ class PythonYq < Formula
   head "https://github.com/kislyuk/yq.git", branch: "main"
 
   bottle do
+    manifest_sha256 "488cf8f2a61ae4e11e904bcdd0e6789a6eda4c13ab9a8c54e4927304efd13eca"
     sha256 cellar: :any, arm64_golden_gate: "4780fc41aadaa1c5dd4da39884e55cc310a5bd32f308421a0f0ca5e074a37b7e"
     sha256 cellar: :any, arm64_tahoe:       "3756af0595a98639e30508e07c8ce6032fee1312bba81d7161272748e5037095"
     sha256 cellar: :any, arm64_sequoia:     "016af85998d6ba273239f7d3a45fcbc875c817d9501fb513c3e9d5467d98fbf7"

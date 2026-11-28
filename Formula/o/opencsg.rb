@@ -11,6 +11,7 @@ class Opencsg < Formula
   end
 
   bottle do
+    manifest_sha256 "d40108556818568ce7c82ca8cd18e80ee126ebf9075dfda7a1d7dc8d5b9ce19b"
     sha256 cellar: :any,                 arm64_golden_gate: "8b734f84910ff4eb1cbb1a2ed2910e5fc656ac6c1785d1a2c08074eed00b873a"
     sha256 cellar: :any,                 arm64_tahoe:       "362dad05f66ac74163331f99199b56325be26a434092f7fa5b4ae3485a8d254f"
     sha256 cellar: :any,                 arm64_sequoia:     "cc49215e40e497c8ecf9e31963bcc1027f01265839bcc089c2a84a7d874e7364"

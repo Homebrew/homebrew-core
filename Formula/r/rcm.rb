@@ -14,6 +14,7 @@ class Rcm < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "2b15648a2fd27068ca65b69463fbee08cf6ad9adf6bfcf5d325fb1dac71a54fd"
     sha256 cellar: :any_skip_relocation, all: "bc964820b4e236614e4a76ea1a6913b25abbe68cfa00a106aae40944b3af8d3f"
   end
 

@@ -7,6 +7,7 @@ class Sequin < Formula
   head "https://github.com/charmbracelet/sequin.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d7c5d16d15618187bb7a2ff997690347b58a66b75cd1e8e69672a4a98aa5d1d3"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0c6292e01ffa23efd85d94a7734a9f3e39e6a7cc4e0bdadbb3bb6b23568e14b6"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0336aba7862907b4a7e88aaa601bd17d0231cf1eeb7eeec7e089668602a9eef0"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "32652611883fd7d3c9a2cab5202df945420db404bb0058c07faab677c9276086"

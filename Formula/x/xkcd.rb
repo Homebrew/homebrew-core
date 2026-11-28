@@ -7,6 +7,7 @@ class Xkcd < Formula
   license "AGPL-3.0-only"
 
   bottle do
+    manifest_sha256 "8763e9230cd793e60a31acc734d29823ebbea4bb67e172689fba9e0396886526"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c8283f3b5e387ca02be6ef350a10e460a861e82eda760e2cd6ee235daca3d6d7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "12b749bea35ff4bdf2e22379ecbaf6fe1932dbed2ad24593fec9991690eb1802"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "78fd0f7eb254f594cc5600317b385bcfa759d68b118d6be7ff71385ef1816bb2"

@@ -6,6 +6,7 @@ class SalesforceMcp < Formula
   license "Apache-2.0"
 
   bottle do
+    manifest_sha256 "daf785c8c8e71b3a70441460f3086a4928a2477e148445f5a699b053c0bf4f06"
     sha256 cellar: :any_skip_relocation, all: "2c4efba20a8ae240b9387c3f9f0c25cdf0fdd3a7702b9f46aeadab882671070d"
   end
 

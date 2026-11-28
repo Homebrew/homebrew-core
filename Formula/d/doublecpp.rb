@@ -6,6 +6,7 @@ class Doublecpp < Formula
   license "GPL-2.0-or-later"
 
   bottle do
+    manifest_sha256 "00b91928c53536f4173f65051d1dc7cdd199c6469345027943c85343eaeb1889"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "14b9920b6f6f4fd599e54c74ca3140b7be7c38f956d1717586f720d95d0b9aeb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d1c9462ef87c13b4a5c4affd18d0bc2ebf1f532bcde2a9eb44cf45ca2959f6ec"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e15c4d309ffb4ce79625a484249eabbcee9f337a7e79c7c36a332cd0e25ca06"

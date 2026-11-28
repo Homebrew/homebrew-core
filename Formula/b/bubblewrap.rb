@@ -8,6 +8,7 @@ class Bubblewrap < Formula
   head "https://github.com/containers/bubblewrap.git", branch: "main"
 
   bottle do
+    manifest_sha256 "710dc73e7cdf05ab5e099f3e12b08004a284bbfdd15d5234e4915a1b419d2725"
     sha256 cellar: :any, arm64_linux:  "b3965b5d1e69038737c0dac498ef81a9bc57ca79f95dc8d10c36d836df6e0379"
     sha256 cellar: :any, x86_64_linux: "da3a3a91ad64cb5b5cdd04155078beba042160ebe81b0381bfbb0fcb795b16c6"
   end

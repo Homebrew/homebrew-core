@@ -8,6 +8,7 @@ class DistillCli < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a33ca81d56f89f8c91037e86fc63e48b8b8a3b0c147da7ef2c1ebfd0a1cd943a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "271abd61ad4853ee6abe203e1831fe8e2539884b7ac7ba834c279b78d7935a83"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac672b591b503f34365dad97812bcc6a1a9e4d08bc588902869bc81bb9b7f3f8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "04f4b2d4fc79a2c3dd51985720064ed2d45fdeb0c8eebe82ebcb396546690d2f"

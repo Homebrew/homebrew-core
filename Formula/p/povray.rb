@@ -31,6 +31,7 @@ class Povray < Formula
   end
 
   bottle do
+    manifest_sha256 "818ccfc9f3142ab7cf6fdf95473005b3a7d9eafef67deeff04eab42ea18e4eea"
     sha256 arm64_golden_gate: "4c13b09ae94c57eea35c4701e14cfa20a13b32ef7166bf6802baeca3488ef3d7"
     sha256 arm64_tahoe:       "102f3c00d65ef6e00504bf3908a5e3b97b27115d81603604cca63cacffd5c378"
     sha256 arm64_sequoia:     "09518f6266b1e616c411f4bdee1955a5b9847a09a51ae11f8d0f41a1222030ff"

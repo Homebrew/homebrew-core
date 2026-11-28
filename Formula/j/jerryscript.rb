@@ -7,6 +7,7 @@ class Jerryscript < Formula
   head "https://github.com/jerryscript-project/jerryscript.git", branch: "master"
 
   bottle do
+    manifest_sha256 "cf429fa84027725f3c46f01e2d787574eec301cbd7a6af94969c75d9ae1f1726"
     sha256 cellar: :any,                 arm64_golden_gate: "8e525998b0bf6e347d58d1889a1e3060aff77df7cc4b7117ea4487376213dfec"
     sha256 cellar: :any,                 arm64_tahoe:       "04e3aa7517ef94bc29b49da6892f29a2034a1433091bec5da32b16cca77a2f0d"
     sha256 cellar: :any,                 arm64_sequoia:     "2c9278894af0e7dd27da2735af8ed66408de529fe2b896c9308ff2ffe10b695e"

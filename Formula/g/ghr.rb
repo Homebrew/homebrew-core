@@ -8,6 +8,7 @@ class Ghr < Formula
   head "https://github.com/tcnksm/ghr.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3077c7116d46b2cb8814af6d6c403b70be575870fd1568471913f227605f6bd4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3ebbbe8bb5422b10ed67e8953469c6dbe26746f48cae356c1a9fb983dd58f82d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3ebbbe8bb5422b10ed67e8953469c6dbe26746f48cae356c1a9fb983dd58f82d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ebbbe8bb5422b10ed67e8953469c6dbe26746f48cae356c1a9fb983dd58f82d"

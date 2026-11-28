@@ -7,6 +7,7 @@ class Gti < Formula
   head "https://github.com/rwos/gti.git", branch: "master"
 
   bottle do
+    manifest_sha256 "5cdf392e08c6a034f2f6a82274f902a20f71f5b407a9fa54ea86825acb3d6f4c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "baa5b82cf9b50c4d3a493db04c194e2d3cba70785f54f89fbc0519d6a57a7cba"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "92eaaa595256c1a44b2c7b239d5569a9f023dfde904a9ba74ce9a0da44395a9f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3f8050edc162e75b939fece0bc60b6aecfca2c5e38e0259085731a8a69e6ac13"

@@ -7,6 +7,7 @@ class Libkiwix < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "4f74aa4c5f5c3f6e3b6aa4cab716a73326ee743a49d1137dd9810ffdbbabcbae"
     sha256 cellar: :any, arm64_golden_gate: "3e1d04dffbd54f59317d6da825cd0d61f59c212fde33a53e8bae3576bfc78d1c"
     sha256 cellar: :any, arm64_tahoe:       "f32925d681d9b06efcc3294fc75589aecf814500c111f3fa734b7f05f6fc2934"
     sha256 cellar: :any, arm64_sequoia:     "930af927b39e421dca7198e4321af5c1ab046ccd2153b7149231f828d0033ffd"

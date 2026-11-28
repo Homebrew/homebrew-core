@@ -10,6 +10,7 @@ class Tach < Formula
   head "https://github.com/tach-org/tach.git", branch: "main"
 
   bottle do
+    manifest_sha256 "0fab62690c5120a20711745785087d0476608697f2d5507803629feb1bd3b16f"
     sha256 cellar: :any, arm64_golden_gate: "7d83a2b33f4be1e694480ef43e737777b46c390fb0dd4c6a4922b3281aea3b36"
     sha256 cellar: :any, arm64_tahoe:       "690898956e2ed61eb42967aae27542ecfc01ac01af3a8fd34150e43b3a51796b"
     sha256 cellar: :any, arm64_sequoia:     "508d1117d37732d986d30d1538a33e2ca57a0287de94dea8188cdb9c97b68094"

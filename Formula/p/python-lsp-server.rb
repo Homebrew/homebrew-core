@@ -10,6 +10,7 @@ class PythonLspServer < Formula
   head "https://github.com/python-lsp/python-lsp-server.git", branch: "develop"
 
   bottle do
+    manifest_sha256 "df16db1ba0c0c492dd3d64d974b8979273659e2e4d134b00695b4200fbbaa313"
     sha256 cellar: :any, arm64_golden_gate: "021832ecc2084aa30f50d9f5434dc3aa58cad2addc36e5f3a89075367de33990"
     sha256 cellar: :any, arm64_tahoe:       "ede3ad84a587edb6903b13ffc9e504d4c9e8bde329c1ef99e90e7e1a5368ca9f"
     sha256 cellar: :any, arm64_sequoia:     "91c4e89a5721f3741f17b8a30794dc4e8f2bb27aa0a07dcb40f5e0c37e8a56f7"

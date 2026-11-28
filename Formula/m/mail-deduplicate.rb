@@ -9,6 +9,7 @@ class MailDeduplicate < Formula
   head "https://github.com/kdeldycke/mail-deduplicate.git", branch: "main"
 
   bottle do
+    manifest_sha256 "28ea07f4f9e4a2716cc703594deba70a8c1a73aa574fb2ad10a8a39320f47704"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a49c1ad2c9aba0d3cdbb2a6c9f6a69106c011a8849ac073995994ac3b5a0ec1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "df4a19c4bc69566e9603fd12f4dafe3e051f239ad517849a93f6cd4c131fa732"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f30f3105a394f3692cf7d68dff5d5802899581a3d222990e91c572dccc2a4d11"

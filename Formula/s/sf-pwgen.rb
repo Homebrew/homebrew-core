@@ -7,6 +7,7 @@ class SfPwgen < Formula
   head "https://github.com/anders/pwgen.git", branch: "master"
 
   bottle do
+    manifest_sha256 "ab29ce9c672c8cffbbd61b847b78763a3163054c2318338cc19abcd1b1109b59"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9ea294bf66fcda3916343ae8e7e244f896b74db22143cf4f2556538f8e20aedd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "02488155f0876824620ee9745fb8bd4d6b89fae828bfc0926aebc7f422647a93"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b97cc880e036c31a7f53592df3eeecd8965645fafff19d1957bfdbfc2b35a45a"

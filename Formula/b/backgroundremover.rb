@@ -9,6 +9,7 @@ class Backgroundremover < Formula
   revision 3
 
   bottle do
+    manifest_sha256 "478884f7a6937ff0b96e971fa37bb1521707279aeae813f62e9caecd0409b31f"
     sha256 cellar: :any, arm64_golden_gate: "569b20528f93a651d066ad2e1ea2b40891bf9ef08ec1637b5ea52ee8de2392cd"
     sha256 cellar: :any, arm64_tahoe:       "8ddeb0fe7753974d2f594b939f831a77cdfbb231e7d28113533d1fad8dce5a1d"
     sha256 cellar: :any, arm64_sequoia:     "1d31c5ea586142985af2a5d5a6dbe23175141ce1f81af07e8888d36f3ab16878"

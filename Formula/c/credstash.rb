@@ -11,6 +11,7 @@ class Credstash < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "24ccbb6bb2d6c6abcd9cc72d39e5aef916d3fc3ca01a00858d067b89acb16f6d"
     sha256 cellar: :any_skip_relocation, all: "92634af6ebef01e2aaa55fb62a4b61e2a0c576a7ccc7ef32feffebfb8e134e6d"
   end
 

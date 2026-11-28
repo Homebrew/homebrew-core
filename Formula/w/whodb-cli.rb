@@ -24,6 +24,7 @@ class WhodbCli < Formula
   end
 
   bottle do
+    manifest_sha256 "a9a4adc13fba769264b9b29515ad644055c07996fea97d33f36e2c436fe871f6"
     sha256 cellar: :any, arm64_golden_gate: "4e8ffb6940e4967f97a4861fac7650fae1c1aad58faf6806ca60c205d99e8342"
     sha256 cellar: :any, arm64_tahoe:       "6318d3a3f41867b0c98631ac21c8193f70bc5c0167adf78e66e33a5c0412ee39"
     sha256 cellar: :any, arm64_sequoia:     "24168db3b776a5ea739185e86483fbfdc6f89dfcb25f8f27878586fb2f576544"

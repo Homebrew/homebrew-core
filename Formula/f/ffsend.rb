@@ -7,6 +7,7 @@ class Ffsend < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f169496bf46fe05c7d0c80732cde2c04ec0091356aab171d77677a5fcf1cb05a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "adb9b5aa54eca4c05a55b2684d87a19b8e763303a0e6b95717b611c716740178"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4210c58439c612769aea0fca9e997de722a81698a717c440da35d3ec5329b31f"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "31fe3f277c0867c897cf9b70c2fc447e1fc5358f99c600f2dc0a4345bcc0beab"

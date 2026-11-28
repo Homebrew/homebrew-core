@@ -7,6 +7,7 @@ class Perbase < Formula
   head "https://github.com/sstadick/perbase.git", branch: "master"
 
   bottle do
+    manifest_sha256 "33c66fd6ef86b17653e0051eb68d375bb96ddd384b0b46da6b0bcded2e94bca2"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "740472180a309e41e7783ea1a76acacaac2f251d637c5da7c2e1dc397c4efa64"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d3625d6f7852bf15c3621948bbcd77c5d7a32b3b7e0a43a11efacff3aedc67b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "399f25725f74e47913e2cd73d8bc37572c3739eff8e6f6cb9af579c123f0d4c5"

@@ -7,6 +7,7 @@ class Jsign < Formula
   head "https://github.com/ebourg/jsign.git", branch: "master"
 
   bottle do
+    manifest_sha256 "dd47569fd72bf3c5e03575cf3e90c47087fe45d8dad891d10195c5e584699a13"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0b00617c247f242e8dcc61c537b750d7f401205d350876f2afbfdb9050c25bd9"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "0b00617c247f242e8dcc61c537b750d7f401205d350876f2afbfdb9050c25bd9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0b00617c247f242e8dcc61c537b750d7f401205d350876f2afbfdb9050c25bd9"

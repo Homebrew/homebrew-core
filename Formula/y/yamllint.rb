@@ -11,6 +11,7 @@ class Yamllint < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d55eee36cc47b11ef33c042da6864185846d390b810e7bbefa73ba9f8b135763"
     sha256 cellar: :any, arm64_golden_gate: "ede13336416c7c79617fa6aad7136a8fe3c8888b6c878917a34d5efe9d1e6160"
     sha256 cellar: :any, arm64_tahoe:       "32b829bff17400cbfb651af60e2280241dbd4371122f264b3796fa7215a0ba00"
     sha256 cellar: :any, arm64_sequoia:     "f75d86b93af557ec7d779000e25dee33e4c61478adaa587f2be617ca7d520bc4"

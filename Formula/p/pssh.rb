@@ -10,6 +10,7 @@ class Pssh < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "155cbd37440836f7d64b4293ce5b4a0f5e73a249a8862f0afdffff50a9995101"
     sha256 cellar: :any_skip_relocation, all: "46343759f297d6df298ec1c82184386db8a59291de4d7331327ce8d3f60d6a1f"
   end
 

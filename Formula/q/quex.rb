@@ -16,6 +16,7 @@ class Quex < Formula
 
   bottle do
     rebuild 4
+    manifest_sha256 "b958c7789fd82bad433a483fa3d52ef7782966214e62175de3378b7c1a818f89"
     sha256 cellar: :any_skip_relocation, all: "f2d44465311851dc3bf25c68adc4d5041315e089d91ba9fce5d34a47f8a26782"
   end
 

@@ -9,6 +9,7 @@ class Sophus < Formula
   head "https://github.com/strasdat/Sophus.git", branch: "main"
 
   bottle do
+    manifest_sha256 "4e955936eef660d360f8cb953fa0e50bfd38d02700863bf40a815fa68677675c"
     sha256 cellar: :any_skip_relocation, all: "fece7681865de760678d27236420c150d92b2a4ffb0ae376228e7d793ec07d6a"
   end
 

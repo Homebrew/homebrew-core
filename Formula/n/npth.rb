@@ -13,6 +13,7 @@ class Npth < Formula
   end
 
   bottle do
+    manifest_sha256 "4a0dacacee2368ebcecc804d899a1e0068d158cfb98a2528ffccf3d94bebb1f2"
     sha256 cellar: :any,                 arm64_golden_gate: "d05077b20487633f09e465891ed781b32d251c95968c410354f921bcef875146"
     sha256 cellar: :any,                 arm64_tahoe:       "7dc8a83801469950381677b61404e103e5fd8fb22bc6b4e0f68db292d5801e3a"
     sha256 cellar: :any,                 arm64_sequoia:     "7836af0109be87ab2b8155b533cd33508eb3b738190031c8ca2e2b94df6f5c2b"

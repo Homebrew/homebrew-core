@@ -12,6 +12,7 @@ class Pkcs11Tools < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "6473d73362bee848d4efebf42d608bf560efe523bf7950b4227668eed4613ff4"
     sha256 cellar: :any, arm64_golden_gate: "5f1ddaac2436b52d4f53e142dad53244cc357c761d917aa9ac17309740b204e9"
     sha256 cellar: :any, arm64_tahoe:       "4e8af23b372d81d18520d03a18c24ee9359195a75930277f1241a40b6630cbad"
     sha256 cellar: :any, arm64_sequoia:     "3ad645671e964f43b7987c1c7f5f39bcd2d44a80e62a1f6a7a419e1e73d84e77"

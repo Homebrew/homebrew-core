@@ -13,6 +13,7 @@ class Unuran < Formula
   end
 
   bottle do
+    manifest_sha256 "e573c7f9e1cf891e20ef6781dd18c83a09d69bdf277aed9b8121131f8c51ec96"
     sha256 cellar: :any, arm64_golden_gate: "5b2c794b9849c4f66d74b8d475796c82e8ec21a3a42990ab30e4dc5e6f69c964"
     sha256 cellar: :any, arm64_tahoe:       "7b497736d70b7cede01b2808aeed41788d41dafc6e29267c71699cb5b0a90747"
     sha256 cellar: :any, arm64_sequoia:     "14873c242df0237baa5cff64d870d2793de3c2a76eb486680a364fed9aad7f9a"

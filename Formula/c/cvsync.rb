@@ -12,6 +12,7 @@ class Cvsync < Formula
   end
 
   bottle do
+    manifest_sha256 "a3f95c0dd9940937f478610d0e9ba6978de5b3717fe9f3645237673bc06fd06a"
     sha256 cellar: :any,                 arm64_golden_gate: "fd8e978c2a554474385ed1ef7acc558b8fffc038ed9b2757a83df911d57fa040"
     sha256 cellar: :any,                 arm64_tahoe:       "3c2601073ec5771e6ab2104ec21df0e1f5e8f4cd5a6a5cfcd28095b97dc76b01"
     sha256 cellar: :any,                 arm64_sequoia:     "97e69645f32fa5a2da98aacd8d6faf2097199f3286646a80ea8ff7d4a3a8e9c6"

@@ -11,6 +11,7 @@ class Proguard < Formula
   end
 
   bottle do
+    manifest_sha256 "55939ffb234fe8e532003096a58ccf3d6456b3e73a86ae984eb41f88d0bc8b20"
     sha256 cellar: :any_skip_relocation, all: "aa81c4810128067999e4c8c6b648002074354d6fc4f0935bb954c5f1f45d1829"
   end
 

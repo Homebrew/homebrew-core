@@ -11,6 +11,7 @@ class Ringojs < Formula
   end
 
   bottle do
+    manifest_sha256 "1c2b258d54bc18272141ede9a1ea4cc6a7cc1b7ed1fd978429c6ab2abc4f4ec6"
     sha256 cellar: :any_skip_relocation, all: "46e67f16d81dd4de7a9f6709434d27855ad8335556667b688e24ba565d9f90f1"
   end
 

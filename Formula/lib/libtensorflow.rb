@@ -9,6 +9,7 @@ class Libtensorflow < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "6e3d5c677d76d0bea4fbc2e669440eefd3f1e569cabff182c5baa68494bcb109"
     sha256 cellar: :any, arm64_golden_gate: "120736ceb03358fc1f6ca553a337b83588172627bf649504832806e1d3f9ac2f"
     sha256 cellar: :any, arm64_tahoe:       "34100fc36d361127dea8feffca407159ef40669d5b21f8e19825c505cdfafc0c"
     sha256 cellar: :any, arm64_sequoia:     "4f66d7fb898069c20d778c24ab6d107bf4ad922374a6af7d92b5a9c8c5a36bc2"

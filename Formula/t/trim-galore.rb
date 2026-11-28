@@ -12,6 +12,7 @@ class TrimGalore < Formula
   end
 
   bottle do
+    manifest_sha256 "4e5f339de70445e56cba7b861fe9bf2f8191ba6e642b5bd5080ba4ec7dc49040"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c76e3d0e4e28b7b01c0c45eff72423fe693fdcd30f9da965df40aa1c211e45c1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "745f09adb68fc85785fda1783b23807326e0f9b1828598727d748a021be950a7"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "dbfe987ec7e4173e4dd43e0ff79c7063beb51928949c86b5d64cadc29260ca71"

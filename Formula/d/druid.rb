@@ -12,6 +12,7 @@ class Druid < Formula
   end
 
   bottle do
+    manifest_sha256 "01ac8377aff08f5e8555bbdd244476dc5387cf3ff5d0cbf84746b083168d629f"
     sha256 cellar: :any_skip_relocation, all: "72ad52abb73c276b34fc9cbbfa78d3e7361eba572f60a4ddc6b5d17995ab3861"
   end
 

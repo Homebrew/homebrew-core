@@ -12,6 +12,7 @@ class Cheops < Formula
   end
 
   bottle do
+    manifest_sha256 "a55ab2059fbb253205e4866b00c0ce32f7152107dd760e27f15fa12dcef1462f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a105b7c1897674a5a7adbde2bdbd2e3a532ba94906ae7413b78ea4c55ee1291e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "e22eb2ee77f28f3738d572be8a83cee17e20ee6c0a23919defdcc601443f4e5b"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "a19ba4057d685a8f61ecc2d198d517ae6859cf4a0479a153f3959ef832d45e20"

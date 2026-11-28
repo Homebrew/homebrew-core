@@ -8,6 +8,7 @@ class OpenapiTui < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "5d112e05b31fc04e29efa886fa15a856802065725388a8439f7a2e860179c1ff"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "b5df572439ff88546c0fdb844b6ff0b8fb844d751f626977e2b3fcf4fafafd6d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "fc66816a224994b3047b9cfbbd64295c8830e2fc21d9a340db473fc5de761964"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "ce9e1a9b5e68e11c42e43949e8738b648dc91cd444ea84c1cba48e12b589b1f6"

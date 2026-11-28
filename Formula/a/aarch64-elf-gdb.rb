@@ -13,6 +13,7 @@ class Aarch64ElfGdb < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "fb0037ffcc8d4cf95d764f2886a7a8c41b8819e432a1949cc7ea68582a8166b6"
     sha256 arm64_golden_gate: "1d026536c1f3190ad2cbb2188a52e7f0a6e4c1fadccb8e55eb85b548908bc1a6"
     sha256 arm64_tahoe:       "18bc30f8ff350127812bb98aa069a2ee54de2b672666b3aa9571f90adc12ebb2"
     sha256 arm64_sequoia:     "cb23516529e9805cc4904dcf2de3dcb75217f04e544f3ee70f07866f547f36c1"

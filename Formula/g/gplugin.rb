@@ -14,6 +14,7 @@ class Gplugin < Formula
   end
 
   bottle do
+    manifest_sha256 "30db2ae79e92b4a17f2e9a4e26601124261c31f424d2b1393e778962c02dd796"
     sha256 arm64_golden_gate: "444084d0e2b25d9088641720198af1423a90cff379c38f909f5c8642be4cac5c"
     sha256 arm64_tahoe:       "6d1d80f0dc36842a0ef0da3a9fdb451262ba137a2329bbf6067d082632c0ce67"
     sha256 arm64_sequoia:     "8a27d17e42bdbc85ea211bba75a90d4e3476526c1cfd9b391fe0376f9694ca84"

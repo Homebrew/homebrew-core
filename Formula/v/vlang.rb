@@ -12,6 +12,7 @@ class Vlang < Formula
   end
 
   bottle do
+    manifest_sha256 "4189b67b1baa5beff08b42db4fc51cb92556d421524deccb26b39931c2437c51"
     sha256               arm64_golden_gate: "a783c8e4f719333b3c7f802612d12bcbda11cf7a7fbbe8e4c8416f30b769704f"
     sha256               arm64_tahoe:       "bfcca56799ff42156cbde905da0fb8ddfadd7613d0cd05e147cbb2201af13bc0"
     sha256               arm64_sequoia:     "bce1478d41c56d1977683a5155e1a1575b2b329c9cc8cc6827420f426209d1fd"

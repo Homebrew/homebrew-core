@@ -15,6 +15,7 @@ class Libunibreak < Formula
   end
 
   bottle do
+    manifest_sha256 "3091b78a4f146803ace395ad601f21b9f3604e81e772e23d7565a75c6bab9455"
     sha256 cellar: :any, arm64_golden_gate: "37e043da80de9d9cc918a656465cccae1fee285d44b493da83f0a98093b7a92a"
     sha256 cellar: :any, arm64_tahoe:       "d3886397eb0c32473b50792a788f54c8243ae68d05a96608875030b870c9b6b9"
     sha256 cellar: :any, arm64_sequoia:     "840390fa9037b1a870aa8c703a8040c137b2699eb80a59f207b1548b4e2d7a04"

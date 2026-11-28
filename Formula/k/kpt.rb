@@ -26,6 +26,7 @@ class Kpt < Formula
   end
 
   bottle do
+    manifest_sha256 "4903492dd0c336afe3ce6fd1e79bb83424c41ff554fa0341705d35c89cba1751"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "90bcbf92440da5a3d99e8c28dec9c9e3f83df9cbceac0ae0c358a92164e5c149"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "eb3dbb9b3bc622e40e9af0a82f42abb0486266833de06e815ea278227fb78340"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0cc8fa6ae26d697e411850b4b7a04ab3e4997b1dbf2e34eeb5dbf77e20b013e7"

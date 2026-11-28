@@ -18,6 +18,7 @@ class Psftools < Formula
   end
 
   bottle do
+    manifest_sha256 "744e52b36293bdc451392763b8921117e47dc4511f378004ace3bb1b18a543a8"
     sha256 cellar: :any,                 arm64_golden_gate: "51c2d2905c1a46e48872f972091d1e312afe755864c8d31256b86341a982e79b"
     sha256 cellar: :any,                 arm64_tahoe:       "06f275a8b9d1fe1537d8456c91ee2e58b90d514bfc721f2d89a4ef1f56f6f17d"
     sha256 cellar: :any,                 arm64_sequoia:     "12640a4b3994e97fca6c888cdd660d554598bf8bcbb308ceeb9b84215e7d8fb3"

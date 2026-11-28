@@ -7,6 +7,7 @@ class Weighttp < Formula
   head "https://git.lighttpd.net/lighttpd/weighttp.git", branch: "master"
 
   bottle do
+    manifest_sha256 "f1d57127e56d43a6e6fccfd782eba05e53aa75dd06fc50cba61aef7363485769"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "c9da14471cb809d43e9664348054344905a119f8c2417c03844e6dd8dc489867"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a9431eb7d71f87319baec3ba54e3d6e9bcb971d0356ed14928fb382593c1a9d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "747f42a474d5c96eb75aa6d3f26dd2871d4df6f4d81b183331fd884fa3494548"

@@ -16,6 +16,7 @@ class StellarCore < Formula
   end
 
   bottle do
+    manifest_sha256 "74f8f3133ef263c1342a90aef411a40bff80c56042dd09569baf1971c4633b47"
     sha256 cellar: :any, arm64_golden_gate: "41d48362f55480aa57590dd0f90938ed15a7cf096b5b43d39568d9e7df136d50"
     sha256 cellar: :any, arm64_tahoe:       "4f2963bae1af06b037e8ce6e397719ed3721e093d89f98d8358f69ec457aa25c"
     sha256 cellar: :any, arm64_sequoia:     "bee2b67e4625de8f1c63353e89cdf4acb348a62d9bc929d294562181c127b709"

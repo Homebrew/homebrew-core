@@ -9,6 +9,7 @@ class TrezorAgent < Formula
   revision 4
 
   bottle do
+    manifest_sha256 "b11e8272a299e6fc701726064ce70361922a0792ee38bd5a4ab628418e4b84cb"
     sha256 cellar: :any, arm64_golden_gate: "066756a0e16caa09cb541ef49af4fb3e0048c38895ff70ccf784b0a98aab48b3"
     sha256 cellar: :any, arm64_tahoe:       "4bec687a5769f9bccf58be325540fdac695a7cfa05996730b89492e23a82fc88"
     sha256 cellar: :any, arm64_sequoia:     "79d450620d9439f3fe16bf1e32767c03270a8d365aa18a56734bdef3ab14dd58"

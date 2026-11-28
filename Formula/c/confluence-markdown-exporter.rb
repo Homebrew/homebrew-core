@@ -8,6 +8,7 @@ class ConfluenceMarkdownExporter < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b53b1b3d9414f138214d00380d7ff0c09f8426a29d350536e92c37b8096b029a"
     sha256 cellar: :any, arm64_golden_gate: "9624d78d4e324ef01aa509c8434f9cb2b1d1cf55719485c96370ecd09dc31f97"
     sha256 cellar: :any, arm64_tahoe:       "23fbd4950792ff284fc26d2cf6b9b461c94d6fe4b58d7eaf8aec7418a444b80e"
     sha256 cellar: :any, arm64_sequoia:     "58f89c86c7bf6c8947b25e7c597609a3bce370fbc63a91545af75cb78a1443d1"

@@ -7,6 +7,7 @@ class Libdivsufsort < Formula
   head "https://github.com/y-256/libdivsufsort.git", branch: "master"
 
   bottle do
+    manifest_sha256 "0d0bd9743db4bfa37d5efb9ee6b345f84a36dd31e368a17c3cdb666e4679e6b4"
     sha256 cellar: :any,                 arm64_golden_gate: "9db625f0c397c1ee6c59e9090e08fa28e2e3b3bc11ec9cf441d247be9819461d"
     sha256 cellar: :any,                 arm64_tahoe:       "bbf20ce9184a5f8406898278ef84cc7b98fc891cbace4b6cc5a00254d7e7637b"
     sha256 cellar: :any,                 arm64_sequoia:     "e8710aed1b1bedf305651973aefa5b7b1323fb3e4fd636865974d06661c83977"

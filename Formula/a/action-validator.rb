@@ -8,6 +8,7 @@ class ActionValidator < Formula
   head "https://github.com/mpalmer/action-validator.git", branch: "main"
 
   bottle do
+    manifest_sha256 "e63638724cbab7cb3f9d57cc54a311bcecc22053a7f956eaadc5dd6f63a722c6"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a9825f10a41030a0905bd426195f5bce4ce8c3d4407134712c42b42a2e1ab691"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "12edda1e1aa6916ec8afaab4e068395e3ec81d2ff319ef572fe2c4187309470d"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6166f38a0e059a1a1d8c28ba7aee2656e9769182add2154703f636fee323a4cc"

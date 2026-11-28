@@ -13,6 +13,7 @@ class Coinutils < Formula
   end
 
   bottle do
+    manifest_sha256 "35fdf5baa32a256463876f874b6665a4cc4fb08a02fe4eebd05e652da45461ef"
     sha256 cellar: :any,                 arm64_golden_gate: "c7f6bda15134f8643b41f0210c4f4601914eaaec629fd3788672a7e4118dac8a"
     sha256 cellar: :any,                 arm64_tahoe:       "ad87df5a27c8e124b3260c1e983fa5da10ed53d7163b57c73019cb86149ed093"
     sha256 cellar: :any,                 arm64_sequoia:     "0e1eabc6d0990ce5351eee3e3449735467426875d78468024bc0f0f6f7e0da3a"

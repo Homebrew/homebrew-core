@@ -7,6 +7,7 @@ class Progress < Formula
   head "https://github.com/Xfennec/progress.git", branch: "master"
 
   bottle do
+    manifest_sha256 "bc0aad7a85a426f0faf0c4a9c8d92f437a20ca4fc440faf1c7cd5349b4cbca80"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f9c59d0de9db8cbb2b99f37ccf0c5f0010e2228799951681908cf4006f0b061f"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8c2f2b8662edb63080b92379916d9a3baf7e79147bdcaac1e5ce734d883eb20a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f661615f320a4ac93f492d247054c8e244b2a234f37b3a7d7852f2b4541ab927"

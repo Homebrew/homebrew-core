@@ -7,6 +7,7 @@ class Vortix < Formula
   head "https://github.com/Harry-kp/vortix.git", branch: "main"
 
   bottle do
+    manifest_sha256 "fc11740b0c181dbcab662ebe0bd9ed6acf9babcc44c2f857b2da93eecd665acb"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "8746c1c445b6d22d01fce78774d6cfb4de0aa10ed95882a3a52459ce9ec7daa4"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a1e0a77d175b22f861f77a6559c5b858b5d4d95fa8d946693008eb2a0a736509"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b28da956f6eae908df95c37d03cab92a938fa5d1fb7dbba691c7134f601ec1e1"

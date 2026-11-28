@@ -7,6 +7,7 @@ class ZshPatina < Formula
   head "https://github.com/michel-kraemer/zsh-patina.git", branch: "main"
 
   bottle do
+    manifest_sha256 "04c8e9552ca72ff78a0acda11f360af2c048b54e35c49d79f246c18833b8391c"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ddd1ab6eb70ddf8c4ac55a3a847538104bb8b9e1e9ee2afc7f40d2b3b2abbec0"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "510d187fdf47acb53715cb28435ecdae69effc5728a380428e8f9feeddb30b6c"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "af51432cda28da136ae201bb5f9eed7bb07cce11ed7c786d1bbd56c559b8c161"

@@ -13,6 +13,7 @@ class Chapel < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e1dd36779f81397bb717f3fe72b01aed7dc5f3577908519dcb695cc1f682eb44"
     sha256 arm64_golden_gate: "59549032631c26d35f8a64f205567cf464920d10d2d05ca2135dcc9deb12e58f"
     sha256 arm64_tahoe:       "6d7150b2167d782d5acb76bb5199635350b89214e1b3a18bee94d16a0c7c164b"
     sha256 arm64_sequoia:     "0ef4c68e02e3448cdb945a0232b564f1b69fd3cf9006283222d43e364c4570b3"

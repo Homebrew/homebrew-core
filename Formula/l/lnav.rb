@@ -11,6 +11,7 @@ class Lnav < Formula
   end
 
   bottle do
+    manifest_sha256 "7524e0713d815a14cbc1da96902ab90339ef324208fd295123c29c01466c4f9a"
     sha256 cellar: :any, arm64_golden_gate: "ef6f34d03e77becae352f1f75ec4721d1cac128e1f75e2a0bdde8747ca27a599"
     sha256 cellar: :any, arm64_tahoe:       "0230034ee926967b39d28585f40cd63418e5f2f32b5ce9936ab636978a1f69e9"
     sha256 cellar: :any, arm64_sequoia:     "b9ec6ca5e69e3478371a592bf335a99244f1b039f8b718dc6a87667e93ed7f23"

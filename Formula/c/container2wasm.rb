@@ -7,6 +7,7 @@ class Container2wasm < Formula
   head "https://github.com/container2wasm/container2wasm.git", branch: "main"
 
   bottle do
+    manifest_sha256 "12a13967af16325936df7b9e1060f56f4bb9a0f73c416b16117c7309b3d3f706"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9f04bbb7dd642539390da873a58e018235050314711e037a4481efbab7e08009"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "9f04bbb7dd642539390da873a58e018235050314711e037a4481efbab7e08009"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9f04bbb7dd642539390da873a58e018235050314711e037a4481efbab7e08009"

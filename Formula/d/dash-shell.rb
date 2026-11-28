@@ -13,6 +13,7 @@ class DashShell < Formula
   end
 
   bottle do
+    manifest_sha256 "b033b16dcfb1a67e5f12c4d414dc45609665e11da8ba86dc5057a2cd6c2261f8"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "60f067fd978346305a6b4e9de3c636cec7b1499e71df4d940d3ceff6339d5337"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b16ec78b4230ba8826c6991666acacb8489621c4faad001c775526f3709899e8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0e104457d0d188129596ee04e4f88ab6039baf9a03e183820caf0aa333d581d0"

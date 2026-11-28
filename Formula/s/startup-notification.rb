@@ -8,6 +8,7 @@ class StartupNotification < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "573d33922829940b125ef3b4d1a3a4bb9c24c15cb01af005e133a8d746f09423"
     sha256 cellar: :any,                 arm64_golden_gate: "ccb14ea7ecb1e13ea739f7a824f5936d0e5c340cfef521379162dfbc62a64db1"
     sha256 cellar: :any,                 arm64_tahoe:       "5b1edc25aff59c8a62cd1a6c9ffa21e63d6a0fd21fe6fdd108ae17d6207b357e"
     sha256 cellar: :any,                 arm64_sequoia:     "a8443bdbe68a6ad0d3cfb6e762cf01b88eb719d243691b8070b024ad5c8ab70e"

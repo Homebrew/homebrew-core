@@ -9,6 +9,7 @@ class PerlBuild < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "c7cd416cd612ffee691d7ccd989979b16a6128ceca2c7db19f7a7ad99a558520"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "d908f50e44c298783690216f4ceed8741d17aa07b507b1a435f9ca59c093a09d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "63b299c6c373e14016ed4230f61d1ce8a6120f72d3665505e6948dd4b34590ea"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3692d7e9799089d15e95e238a8a666883db875b08aefd182ffb49069bfeee070"

@@ -13,6 +13,7 @@ class Ephemeralpg < Formula
   end
 
   bottle do
+    manifest_sha256 "9e658c37650df20f565cf148660d90aa40aad7cae5aee83ecee12dc8a05fcdfa"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "222ee26e4b2d465c1946f0076c27c0515328b84554d5fbe21a23ecf77f40f78d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "05b1fb03e03f8f4dce4484d9ef866159c0b46ebacfaf93c25d542eee54281703"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "25ee1164b3312255ecfc046555f575f1ebf20371f7fe189c686142896d520115"

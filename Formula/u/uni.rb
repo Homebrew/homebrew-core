@@ -6,6 +6,7 @@ class Uni < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "ee7ee7b32795d0425e53ce68ccd4f9204ccb44c6c822e4bb446f4285d7d7b6da"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "5a9b47963c51754df65c9c0c9b2ea8839aac66acd891a7136707a31816caf649"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "5a9b47963c51754df65c9c0c9b2ea8839aac66acd891a7136707a31816caf649"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "5a9b47963c51754df65c9c0c9b2ea8839aac66acd891a7136707a31816caf649"

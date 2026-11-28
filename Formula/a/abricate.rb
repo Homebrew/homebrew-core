@@ -8,6 +8,7 @@ class Abricate < Formula
   head "https://github.com/tseemann/abricate.git", branch: "master"
 
   bottle do
+    manifest_sha256 "c6c3aec3da6eb50db0b85d304a3ae1746c2fbc63ecf81ddf6f65ed2dd4661c9f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1eef5c438e80be125abc851ee95f69ece83f458dc909453be814c2449858ae90"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "d8865efc326adeb8042031f617df6ad9ef1cb1b24dc878dd10e17f26be5a70ef"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d8865efc326adeb8042031f617df6ad9ef1cb1b24dc878dd10e17f26be5a70ef"

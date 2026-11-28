@@ -8,6 +8,7 @@ class Kustomizer < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4bfcf27aa62a51cc222d683c08ea835d52b761baf7bb27e505b3a84c1a4986dd"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "889a8cfcdf6948d2e4435cbdc3a4f0fceca6676a988e5e9865ca15a6b45a799a"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "adbdf2f47318e66addd680e6528bb80c8891bc65baa74cbc91223c16587a4339"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "18175918940bf8594cb3bcbcdc1517f32d70d57ef4900ba3ee282543f6f7344f"

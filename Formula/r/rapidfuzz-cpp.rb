@@ -7,6 +7,7 @@ class RapidfuzzCpp < Formula
   head "https://github.com/rapidfuzz/rapidfuzz-cpp.git", branch: "main"
 
   bottle do
+    manifest_sha256 "ca39f21a03a782172ef7e7f348407ca6a9fab151dd189a0a28a8c8f733317096"
     sha256 cellar: :any_skip_relocation, all: "6f1182f3b819bf5d41173fdc2c0f6dbbcaf2bef11913fc37f97e70b1a6d8f7a2"
   end
 

@@ -13,6 +13,7 @@ class Openvpn < Formula
   end
 
   bottle do
+    manifest_sha256 "d7498d0b12e9722c34c55021dbad205ff52c22d454ae445c225c639058bc79cd"
     sha256 arm64_golden_gate: "69cb949500b1d337023503f1896a6884e9a488a9d26d243c94713a7521c90746"
     sha256 arm64_tahoe:       "cc8f601e9236eff5f6dfbb1674a1a66960cca78b05984bf6c8da631b0edad613"
     sha256 arm64_sequoia:     "adfd5b55efcd38ad9874a933b782f561d5e499b3b34672372488888e01bbc90d"

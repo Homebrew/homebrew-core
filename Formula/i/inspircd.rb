@@ -11,6 +11,7 @@ class Inspircd < Formula
   end
 
   bottle do
+    manifest_sha256 "832e602d6562e2621b658135ac1e9eeaabe802cefad20a46099677b2494dee2b"
     sha256 arm64_golden_gate: "571a5b84e86976e9a0ab09b5efd3f32435526a44e1a2c20995cda7c311c32392"
     sha256 arm64_tahoe:       "ba6c86f25072d65436df028966ea2bfa8910f691f76a2efb6d546e9dab822ff5"
     sha256 arm64_sequoia:     "a28301bff1f58ae22e48c0d2d8ca2c0853a17a157acbb7bb24abf34a8c4dd5c2"

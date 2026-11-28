@@ -10,6 +10,7 @@ class Pydantic < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "1bdf3f3eab8b80a163f4c08efddb9309cad8b21468f84644003772a5c7e09a5d"
     sha256 cellar: :any, arm64_golden_gate: "22e917d6707d837d5f71ef9a1f731d182972c6be08f6572eff1c7934b427f1a1"
     sha256 cellar: :any, arm64_tahoe:       "e950a9a6de2e214d8527835d611e08cab79ea225ab0b26b68f5fcea8a2c8a56f"
     sha256 cellar: :any, arm64_sequoia:     "2f3e82870e07a93ba699cf72729b2def85debc1b0a123411591e1de6cdb9d579"

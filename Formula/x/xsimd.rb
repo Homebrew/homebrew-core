@@ -7,6 +7,7 @@ class Xsimd < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "c97fedc419e713a1a449c81cb8d4b2133f119012375c3d79fb8f3aca739e5aa6"
     sha256 cellar: :any_skip_relocation, all: "1db952e59aeed56f07062c92e757d480b0809dde1939d66fcea0abc33e4013e5"
   end
 

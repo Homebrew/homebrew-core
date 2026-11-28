@@ -9,6 +9,7 @@ class CfnLint < Formula
   head "https://github.com/aws-cloudformation/cfn-lint.git", branch: "main"
 
   bottle do
+    manifest_sha256 "5737220b94106378fe30021674e00bce394adb71a3d305de4d866bef6b3de93a"
     sha256 cellar: :any, arm64_golden_gate: "9955380793f715d119961a1857da94cb99512c5efc6d2f79c64d22566c2d877b"
     sha256 cellar: :any, arm64_tahoe:       "20aecca0d817538ac54ab963c5e276f0a738a88633d7b1723000284479c252f7"
     sha256 cellar: :any, arm64_sequoia:     "e57666afed6b4c1c827d6c4866262a81e2b8e214313387ba3276b327ed5d5b1f"

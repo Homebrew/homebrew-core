@@ -7,6 +7,7 @@ class Libgfshare < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "f2acb26d46f32b707d64d4f28956fea34b951e4befb7d4de09a673c6185bee0e"
     sha256 cellar: :any,                 arm64_golden_gate: "1d30f8307e1e86fb20dd2eb526abdecdc7b742af8ddd555b7bfc9ea9f813b1f8"
     sha256 cellar: :any,                 arm64_tahoe:       "9e5e82d21f97532066ac859f09e1bfe2dc1fa551109f538d1e4cdc09a80d5c4a"
     sha256 cellar: :any,                 arm64_sequoia:     "0fc98f80ef06554dcb6ce8b327e2deb830f59cd6d81a6e871204f3148a3c791b"

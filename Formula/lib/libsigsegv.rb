@@ -8,6 +8,7 @@ class Libsigsegv < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "2fd789b077d2b4963a8e1ce8b92c082966ed6e80b989c3ef7c77d1e675900c13"
     sha256 cellar: :any, arm64_golden_gate: "0396c86719dec7735598c913fbc3123f1dc7fd0a7cd29e1657e1707f7d84e0aa"
     sha256 cellar: :any, arm64_tahoe:       "c8c31bf94e9848ab41c559f87d2900e9d8cbb436748224b24328e80cae20f3d5"
     sha256 cellar: :any, arm64_sequoia:     "b6f6b65a6ac29eaf4858763caf5f6453a0c795380393ddc842343f5766351159"

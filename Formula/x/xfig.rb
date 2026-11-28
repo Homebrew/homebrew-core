@@ -12,6 +12,7 @@ class Xfig < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "d5461a6b7985ce9a2618f4ad9248a7f8952cb3f37b6c80150898660c997d76ed"
     sha256 arm64_golden_gate: "3c49566f4e36ea51bb25392df604be0409f71a20213f8d8bc1d84029cbefbbeb"
     sha256 arm64_tahoe:       "c847f3f5d301242e39854aaa5a240f927fe20f54ea5122933de39b7fc67ce5e0"
     sha256 arm64_sequoia:     "161b47e43d5412e6277eff6ba8f2884e0a345c238db8ed1601ece4501f05ee5c"

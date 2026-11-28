@@ -11,6 +11,7 @@ class Allure < Formula
   end
 
   bottle do
+    manifest_sha256 "dbf9bbec4d8c722857dd583be28621150bf6d3a305f8ab333b2d6ec726efde07"
     sha256 cellar: :any_skip_relocation, all: "9c8ffac0d1e774b6781b43510653f5bb3e3619bb7ded0cd178481a9fbd47e553"
   end
 

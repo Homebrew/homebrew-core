@@ -7,6 +7,7 @@ class Curlpp < Formula
   revision 2
 
   bottle do
+    manifest_sha256 "5f47a9663550a0cf44310959ec3a1f2ded5a53eb107eda181e84e3659ac846d1"
     sha256 cellar: :any,                 arm64_golden_gate: "26631ae0dcfa2e7d927a0dfc278ff258b818baacb4f8ce9b2e1c2005d7cf341e"
     sha256 cellar: :any,                 arm64_tahoe:       "9a08aba8e10cfb6a543680b097a11d64a4422b7123058bcf8736e71ce334440b"
     sha256 cellar: :any,                 arm64_sequoia:     "52b67581206f16051deeb149813b5353107b51044d7d43946426f5d299ef4343"

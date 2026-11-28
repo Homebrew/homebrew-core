@@ -8,6 +8,7 @@ class PerconaServerAT80 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "8cbc0db66f0c14f2ec3c15b8a54128da13a21d369cd945e684bf058b3e392a79"
     sha256 arm64_golden_gate: "de0f269c7f5f087d904eb8004f45df3e5bc343bdfcb5414adfd6ee2728c3fb0c"
     sha256 arm64_tahoe:       "d7cc84f9508091a3b226ef4cd40065314a9c6eca67dc8babf6fbd6aafe8f74f3"
     sha256 arm64_sequoia:     "82d22a628cdfa7737d883e4d5cbfe0f356af0194e005fe53057f02d4200e054f"

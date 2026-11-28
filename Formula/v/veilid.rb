@@ -7,6 +7,7 @@ class Veilid < Formula
   head "https://gitlab.com/veilid/veilid.git", branch: "main"
 
   bottle do
+    manifest_sha256 "913b0fb6092a87654b0d158037c7064c681fbcd0a5a924f6742f9cf4ee827048"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "113e3bbca2ae73f6fba902bb5c53f7393cd892f41ffa08730608bbd7f39134b5"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "67a24bfe2b1c6c702a96e698db236858b9e49228307318bb898970838d21ef30"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9224978a03f6657b1a5e02e75f10131a6393b4236ad0cb519254bb2c281ee829"

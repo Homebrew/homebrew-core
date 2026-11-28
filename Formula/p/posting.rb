@@ -22,6 +22,7 @@ class Posting < Formula
   end
 
   bottle do
+    manifest_sha256 "c4e4f4291a715fb56afa1534810c268747b6980bcdbd978920022d88ac0c6d8d"
     sha256 cellar: :any, arm64_golden_gate: "6c38c2876835e54b43bfc9a04afd9e0f1d5c2d88737d53dcc9244255db220e15"
     sha256 cellar: :any, arm64_tahoe:       "a15cd53648cfeccb72fbdab061b60865f6f3cad3bf10c89c37939af76813d578"
     sha256 cellar: :any, arm64_sequoia:     "3005489926ed6622294bdcbbfb7e6aafe1050bae6e6b10f63fafc7ca1adfe8d4"

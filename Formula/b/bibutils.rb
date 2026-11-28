@@ -11,6 +11,7 @@ class Bibutils < Formula
   end
 
   bottle do
+    manifest_sha256 "245c1d9e6d74ced62dded32c7066de803f6554912f5315907c278a24b2d1a83b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0985fbafcafe96212a019f69f7e65183e795b739d9a8d9952e48045c415bde39"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "ac24439c4f2cf3ea608eb7b411d8094183796f81a3dee10e3ee550672e9ffae9"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9cd55399d769cbc1cab21cfad48bb843a8c8a7c0a966445c6530c88ba8361b7d"

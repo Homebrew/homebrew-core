@@ -8,6 +8,7 @@ class Tfel < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "b4852cced8b3edac76dc7a5e96c11f85ebedd40deeab1b1ce401331e1c0c4520"
     sha256 arm64_golden_gate: "1bbf558e0fb67a25e66b5b3abca3a0ab704652698ffbe65fe525fa857ccf853c"
     sha256 arm64_tahoe:       "c8e07173e8aa8574e0662d090cb59833ef897e9d0f2a36c9ef3b9bbadbcef4b5"
     sha256 arm64_sequoia:     "d9e48aea97a38f5cb1c72214c3703f607ecf6b3a664a705065dd30260fbc7546"

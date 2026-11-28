@@ -7,6 +7,7 @@ class AmplAsl < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "3c73ee750eb6885acbe414565d5d55b1c03cf6e4eb6f49b3b87edb1ef825cef3"
     sha256 cellar: :any, arm64_golden_gate: "36b60c5a7858d4db9ddd2c23829e17f26c92edabc26024d8d2d869275fb2911c"
     sha256 cellar: :any, arm64_tahoe:       "60f58fc31ee59a4eca8185f57ab627b7df43606e7615dddd9c8b11e35634fac0"
     sha256 cellar: :any, arm64_sequoia:     "06d1fb1f8166958b8bf53b3b365befbe35273ae9ee2b2f1a308619decdee6e24"

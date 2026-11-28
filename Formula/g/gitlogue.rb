@@ -7,6 +7,7 @@ class Gitlogue < Formula
   head "https://github.com/unhappychoice/gitlogue.git", branch: "main"
 
   bottle do
+    manifest_sha256 "7fd27ff2566ad1d1d246b1b3a2e52f21e9a957d3c6a040758146344dcf76ca95"
     sha256 cellar: :any, arm64_golden_gate: "692a588d8605083d3cad577dcc6e83b89fb27ae196456c106bf99fbf24af2e85"
     sha256 cellar: :any, arm64_tahoe:       "1c9d94b648a8bd4984bd582a307acd341772a9e64d1ef826ff1c2d830068220e"
     sha256 cellar: :any, arm64_sequoia:     "03fc6f50e4e7374bec95db10e79f42b7e6131fd238899e2322ea45b3597d5c32"

@@ -18,6 +18,7 @@ class Mlx < Formula
   end
 
   bottle do
+    manifest_sha256 "756cd3f73198f6ebeb5639d34b77deb34fb68f50ba793f0b9acb1de37986f80d"
     sha256 cellar: :any, arm64_golden_gate: "33535dc013f285ef6fbea2e9ddd6be2a6f3f71b48ae642e9d6253da55daaa669"
     sha256 cellar: :any, arm64_tahoe:       "ffa4d6ec493da3452637f438860f42cbbf1fc689cea0c5f358a0d3053ba1d4fb"
     sha256 cellar: :any, arm64_sequoia:     "6539ae6fa0ca10467bf410c065083646d143584fd2f7ab750054488a7a6ff4e4"

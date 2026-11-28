@@ -9,6 +9,7 @@ class Shamrock < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "e86da08d4ba00056ff7c32759d01b42e02304bea4d224061518e9750dbf64f42"
     sha256 arm64_golden_gate: "20b3248e2d09c13d4226bae93eae26a932a3329bdd7c8db5fbe70abda103d23d"
     sha256 arm64_tahoe:       "f131a097feca0ac1423962079dff9fe825bb84a872696439d5489cda430033de"
     sha256 arm64_sequoia:     "bd6e2d36e0e696849829afb4e4d8b209db2d9b75adb4acd9c37d6e9fc2d7e83d"

@@ -11,6 +11,7 @@ class StressNg < Formula
   end
 
   bottle do
+    manifest_sha256 "45c73f9a7da62922bea6b3414aa924d9a6bef4512e74a3c02548512b582c85f9"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fc37e8ae7f27f0d18d026b4554dbac54c79b217b08a8d05515632065753866bd"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "8ecb465d8d5f161536b609312f772c7d2d45b87f1e109ba05a7f6bbc04dd176e"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "0a68e10e4bd7b54adc836d3e4b06ec13fdbdc78fd0f4b683817a4039524afc0a"

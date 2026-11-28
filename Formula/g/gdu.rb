@@ -12,6 +12,7 @@ class Gdu < Formula
   end
 
   bottle do
+    manifest_sha256 "8f4ab73e81ff88d7de2d20c26b14c24abf897020234a78595a336c60c7c543da"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "48e974ae1efdb197a2232ff9879859ca3ea1f73ec6736e0c9f523bea7b53d224"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a71f9a0640f01accaa779fa9242b633b02fd0e6a78a551db5f33f798cbff9113"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d124525e284fa7b4a2a989a8f468d19ca3b0625bd3b2daa58f661d937cf2c4aa"

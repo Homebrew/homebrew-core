@@ -7,6 +7,7 @@ class Jsongrep < Formula
   head "https://github.com/micahkepe/jsongrep.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d09dea64fe4b66bdd603eccb9b39205cde9613667bd2d38f7954144028390279"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "2270c46faa7bf96376c94c17fd1d082331aa13481a2e2cf990f662b90d4962e7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6a64b2104bc9e6a29df9e9ece2e68e3b19d10f93ed2deed7887d181f1c68a5d5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "aeebe70980bf32c52f3168cc8a59357964bcd54e2ff7f611082b5021d8bd7de0"

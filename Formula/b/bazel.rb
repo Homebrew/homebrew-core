@@ -13,6 +13,7 @@ class Bazel < Formula
   end
 
   bottle do
+    manifest_sha256 "a9466fbe270decc40c2ba844645981121de6c13edb02f920a318b95d37b1970b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "32fc5d7886b874989c22fceb574b0e914c3f0c8bfd3275732afd1a3bffe6815e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "dd7d0c51ed33f30ff9f080b1bf62fbcdfc9ab05bc973564ed8a3778fdfee2e38"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "42cbf946a321e241dcc1235f1ef5513aa9f8d858bffbe0812c14a7745e6a1a10"

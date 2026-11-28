@@ -7,6 +7,7 @@ class GruntCli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "dfb24edbdcb2f7e315f0e49dff4a5090824e0dcdb7c18094ff633ca3a7243bb6"
     sha256 cellar: :any_skip_relocation, all: "0c39a24d633b89cf96aa864478ab95418b1003408d92ecfa446719ff4751df24"
   end
 

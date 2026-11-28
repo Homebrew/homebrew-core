@@ -11,6 +11,7 @@ class RustWasm < Formula
   end
 
   bottle do
+    manifest_sha256 "28a70a54df6ed9c345266b4cc0f26ef732c86c5b65ea3021cb325a2fe2949442"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "1a50677159da179fa2019c8e82cae19ea68a247cea716319cfc684882f0fabeb"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1a50677159da179fa2019c8e82cae19ea68a247cea716319cfc684882f0fabeb"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "1a50677159da179fa2019c8e82cae19ea68a247cea716319cfc684882f0fabeb"

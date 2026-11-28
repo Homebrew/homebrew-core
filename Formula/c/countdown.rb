@@ -7,6 +7,7 @@ class Countdown < Formula
   head "https://github.com/antonmedv/countdown.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e688cdb4a024d643f82cb167a3eab76633ea0054e4b2841b2e92625fc1ec340f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "deedbc7b6fe745187c337cfc3ef9f98c95f194c8488e7f370b2acc9b7506662e"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "3783ce1aac69480284935fffe165cf53ff59b361d303ab22344d276bf1ee1d25"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "3ebc66b0ed891535e467c0061b52f350fae80fd2a3b77de1b1eb4eeb16580e39"

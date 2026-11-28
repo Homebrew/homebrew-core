@@ -6,6 +6,7 @@ class Deployer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "b07750b283220bdee6edf638068adc695182acbd6491351abcc09ae4efeab24d"
     sha256 cellar: :any_skip_relocation, all: "30faf6172ee6025effbbebc49d712af4fad206520d4337e7f8bbaa534c5c7fbc"
   end
 

@@ -12,6 +12,7 @@ class Timidity < Formula
   end
 
   bottle do
+    manifest_sha256 "1d5a871c800d3ac5705b6c7ce626b932ea15e242b012cda70e381893de43de89"
     sha256 arm64_golden_gate: "5b5aa1245821538c929e113efd43f602be43b1eb07e15b8bd2b0c1426cda9650"
     sha256 arm64_tahoe:       "d1870a696de648a1ed46e25d590b6f6a3bfa73091044c8623fbf77901e71c7a9"
     sha256 arm64_sequoia:     "8e504bb7f36e5feae11358a05aaa0b9651b84cc60664d4d8199c6c72c07d13c4"

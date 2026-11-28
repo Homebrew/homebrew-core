@@ -19,6 +19,7 @@ class Carla < Formula
   end
 
   bottle do
+    manifest_sha256 "1bf7b4a42cabaed6852a833d6592890593736d54d0d51efe63ab35532e5728d4"
     sha256 cellar: :any, arm64_golden_gate: "4a0fe53de856ed1a441aee00f23b4840ef3720f28c86b1abd94987af208fe433"
     sha256 cellar: :any, arm64_tahoe:       "7c6944ecc1096faf5c51f9bb9f41a31c3bcfb362e9edea0c1df4528f7996eb1a"
     sha256 cellar: :any, arm64_sequoia:     "01149e89a89f7070948b8dabba8e7fe4892546af144c1cef6dcbd35c3dc09372"

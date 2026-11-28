@@ -10,6 +10,7 @@ class Liboauth < Formula
   compatibility_version 1
 
   bottle do
+    manifest_sha256 "0ef68812aefb3d82a8d4b03dc2cea02d85122d8ea104db1a5a21b738b77ddc19"
     sha256 cellar: :any,                 arm64_golden_gate: "0a35185bf79a17c6bb4fd57bdaf67eacde9095bd393c7a9ebee80e0dc5969fac"
     sha256 cellar: :any,                 arm64_tahoe:       "6470f165d97ff5cf41531245eb4fdd67945698303e07a574974856045845abb0"
     sha256 cellar: :any,                 arm64_sequoia:     "b27df2abe1adb83de25315b4c816e960d1e1f97a9aed6a74f7d9809c069c1226"

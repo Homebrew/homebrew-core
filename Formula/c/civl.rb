@@ -16,6 +16,7 @@ class Civl < Formula
   end
 
   bottle do
+    manifest_sha256 "f98a43e29a55db3684603fe03be8ef87c290a62407b552e9a10c6239ffb6816b"
     sha256 cellar: :any_skip_relocation, all: "44e062dda01ba92cb637e50391eecc53acb2e70514186b9e56ec8dee853e3b24"
   end
 

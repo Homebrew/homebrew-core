@@ -13,6 +13,7 @@ class VulkanTools < Formula
   end
 
   bottle do
+    manifest_sha256 "0b197bf2237375558f1ffde9741978f258343c3660d933f4dc565fceebfca2ae"
     sha256               arm64_golden_gate: "a9efdfab183d5b6ff4bf8babcb71b856fdd0be5c8385ab8a82a676138d364db4"
     sha256               arm64_tahoe:       "475df8d2d3a13ee803dd7fbec882ba1979e4c3e62270df35e37159e3cc0e0bad"
     sha256               arm64_sequoia:     "ac3cd2a2a54842864a752a177b8b9c0e6da671e28bf4e66a1b0fa119bf09bc88"

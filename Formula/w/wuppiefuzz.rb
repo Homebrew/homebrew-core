@@ -7,6 +7,7 @@ class Wuppiefuzz < Formula
   revision 1
 
   bottle do
+    manifest_sha256 "9dcb5a03c45f0792f16bbb9a752a8b85f89a651ed6f9e2a4427d7f5823e29633"
     sha256 cellar: :any, arm64_golden_gate: "001d5857aec873a9f3cb372eceb02abf3d3b6f3813c13e9be7ef8919a88e0563"
     sha256 cellar: :any, arm64_tahoe:       "31219042a09597715868dbc9705eb7c36c5e42525b52ffdb40e9e47f6bb196b5"
     sha256 cellar: :any, arm64_sequoia:     "37d9c1d0b9ed3629e849e193a4aca603e2645ea69dd4fd4c90018079bdd56629"

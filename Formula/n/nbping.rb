@@ -7,6 +7,7 @@ class Nbping < Formula
   head "https://github.com/hanshuaikang/NBping.git", branch: "main"
 
   bottle do
+    manifest_sha256 "a9bf2c9ed84133e482fd5fdeac5973304e51dbe41253e3e1ff4a328b4a2ecaea"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "602d03c88715799b6ada3c5bb1ab629a53e90b6e18933e2b982df87a441f6eb8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6027aa61b2d10461ee2e064be0b233e8a9940cdbe9799093e8fee3f21861acf4"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "d5fd281acb289638ed17e4a1b5ecae853a42a0e341df00b90427c25004d068aa"

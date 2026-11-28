@@ -7,6 +7,7 @@ class Fdupes < Formula
   version_scheme 1
 
   bottle do
+    manifest_sha256 "239d50c3c6fbe127444ab15c368e813388df8f627a88213502b6fbe3d2dd26b3"
     sha256 cellar: :any,                 arm64_golden_gate: "d799242b3ef604f841a7cc7157882d61949d4790546d80168faef994d195b0b1"
     sha256 cellar: :any,                 arm64_tahoe:       "ddc93ce12edb258a3c40cf832cec446cb77483028cfb8c57f3d06c35f5069ce2"
     sha256 cellar: :any,                 arm64_sequoia:     "b54e8a104cb80b26e7f00a6dc9cf338184c1649f4f0b21184d80a14c929e4cd7"

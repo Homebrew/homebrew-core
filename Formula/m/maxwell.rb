@@ -11,6 +11,7 @@ class Maxwell < Formula
   end
 
   bottle do
+    manifest_sha256 "4e240a57fae1cd6e4454bd0303d21f46e282b7723208b55d60754cd0e38e1512"
     sha256 cellar: :any_skip_relocation, all: "ba3d29366acb4654c589d2d974389af9567c6097966d951502c095bdd5afcb1f"
   end
 

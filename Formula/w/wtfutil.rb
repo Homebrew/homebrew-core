@@ -7,6 +7,7 @@ class Wtfutil < Formula
   head "https://github.com/wtfutil/wtf.git", branch: "trunk"
 
   bottle do
+    manifest_sha256 "51bce32f99eba9b6a21f879cfb44e728f869043aaf0145eaa031b38ac9b50802"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e56470f59b6f176883a2d18ccd1e089a480637b82fdc3ce8c60977697c7d5a43"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "1424b2560d1c16aedec250f3fbf5de6b6c0b4b0eb969c75b44d6b8931c9b935a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "01dc0e8918d34779805aab6de96f2101cd3e21005ae3456c4372a8cb820b5ae6"

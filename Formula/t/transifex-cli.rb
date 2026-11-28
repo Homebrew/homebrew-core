@@ -7,6 +7,7 @@ class TransifexCli < Formula
   head "https://github.com/transifex/cli.git", branch: "devel"
 
   bottle do
+    manifest_sha256 "093c0016766ef28ef5b582a4589302b4aada542c248a4fa0bc81cbe29f4e7df4"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fb275bda52e79361d51e3c841dd7b71b58e02c15ef2b8843dafaa2213df88710"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "6ed869c364c5d0c78fc99f6d243968d9106496cdfe6f2988d8b5896d84ef7844"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6ed869c364c5d0c78fc99f6d243968d9106496cdfe6f2988d8b5896d84ef7844"

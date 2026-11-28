@@ -6,6 +6,7 @@ class DockerfileLanguageServer < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "4d0e031e2062e05c827f6fa5ed0e6899e0a47a73de327003d6d29db3c022c82a"
     sha256 cellar: :any_skip_relocation, all: "7e63595a7c55824a185f84aeef01ba0c0ad797c217fcbabd23a0990614ff7795"
   end
 

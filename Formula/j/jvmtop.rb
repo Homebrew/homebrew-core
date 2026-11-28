@@ -8,6 +8,7 @@ class Jvmtop < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "4ec74b655bb07b129c527bfc57c4b1f9c31080eb04faac3aba9d5a482c0feef9"
     sha256 cellar: :any_skip_relocation, all: "b9fabbeac0618290d38994f556f5de9288b33c2e23c7dd00e1892d111c23c4ce"
   end
 

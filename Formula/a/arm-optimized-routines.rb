@@ -15,6 +15,7 @@ class ArmOptimizedRoutines < Formula
   end
 
   bottle do
+    manifest_sha256 "43528a2d33de3ce9fb78cb4ef21628339220b06f62fd3ff4648268a3abf7fcb5"
     sha256 cellar: :any, arm64_golden_gate: "062827cb07403531361eefd5f29d9df800b58cff8ab9e437bf217339968ddd3d"
     sha256 cellar: :any, arm64_tahoe:       "be47a663a9c8951e7d4e54d643dc1eef0f0b20342820527a90d06b839aa52739"
     sha256 cellar: :any, arm64_sequoia:     "057c2a821a6bafa9706aa3654c81a6fe81fa1f17031f4e2d1c7cec5b29579ea2"

@@ -7,6 +7,7 @@ class Counts < Formula
   head "https://github.com/nnethercote/counts.git", branch: "master"
 
   bottle do
+    manifest_sha256 "404d75656b112a5a3dfd932f04783c84ed47bba13cb029a03dcdbddd5952dc5b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "170e86af20b3223be7b9930c78afe570155ee69793cc7790b13c8067137d0994"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b2f17f2b9f8199aa0177f07115e7880d933b06e2e5348acfd63284855d45fb64"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "68b6b379ab3d791ab5ebe45fa8173e2689a36d7b3ba12abd0c8aeb3eef4f5686"

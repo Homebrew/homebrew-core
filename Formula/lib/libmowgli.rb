@@ -9,6 +9,7 @@ class Libmowgli < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "b8cdcf3326bfd8b7a144b7fd61e3f49a3d13c2023621554b568f59bfc3f324d1"
     sha256 cellar: :any, arm64_golden_gate: "9f0a38e5b357eb81d5c8e17c8f6e00a2974b874764fe3b1fc74297c73ee43f21"
     sha256 cellar: :any, arm64_tahoe:       "e474d2310973130f4e8a7a027f7e0bbb6d09a6f302a8333fbf6f72957658976d"
     sha256 cellar: :any, arm64_sequoia:     "e9b11ec4c11869ec8d32a9bff60576e35bc8b3046f24222f150efc3bf21b65a2"

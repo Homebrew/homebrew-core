@@ -11,6 +11,7 @@ class Dpic < Formula
   end
 
   bottle do
+    manifest_sha256 "b6f0c1a752fa27300bf25b0e973c66b19933b54b0b69e8f2cee71e9bb9aa4dd1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "0a2109a1df66c36517bfa41d37fa59f6679c9d968f2bd4743dfa627b74217e7d"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "069e4b119b56fd45367c629fe3805950cc3b6cfeadee73e3cb7026dcb3de5406"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "e0bee67d515b1fc726a346a9fa48942b41c85c473ac759ca5d7aee0e850e889e"

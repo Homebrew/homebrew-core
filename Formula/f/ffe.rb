@@ -8,6 +8,7 @@ class Ffe < Formula
   head "https://github.com/igitur/ffe.git", branch: "master"
 
   bottle do
+    manifest_sha256 "3210f62ca5be9b142e8794df666f6fa751fdf87c62e2fad1cd5cc443d922cb15"
     sha256 cellar: :any, arm64_golden_gate: "886ec4521d356473de7d394b239edc09b36516e623538c2ce73edfd91e87f02d"
     sha256 cellar: :any, arm64_tahoe:       "80a23795b378c141a9850dbd8908a02d30321da235c6419758ffbd497f21fd46"
     sha256 cellar: :any, arm64_sequoia:     "e829feae034fdba3f88975d915cdafc8e2a54b847daf586ee5001bda05cbb16f"

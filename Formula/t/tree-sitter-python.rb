@@ -6,6 +6,7 @@ class TreeSitterPython < Formula
   license "MIT"
 
   bottle do
+    manifest_sha256 "364059405ea02d3730a8852d2441756296aa89a4f3dea3143c64cb4df9d5a3d4"
     sha256 cellar: :any,                 arm64_golden_gate: "57bd7acc9470b308ad1ecc599ef10c02b204920a62fc9a892affb3a7f025012e"
     sha256 cellar: :any,                 arm64_tahoe:       "3a60a36c4e9b2ed51a22ff5d9bbfb3e2a5f53494c21aad0770fef53c43adad02"
     sha256 cellar: :any,                 arm64_sequoia:     "6dc2beff65e9fc9defc633cdfbc430ea07fa6f2f5f7a156db1b5c2460ae653e2"

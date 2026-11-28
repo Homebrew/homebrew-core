@@ -8,6 +8,7 @@ class Tracy < Formula
   license "BSD-3-Clause"
 
   bottle do
+    manifest_sha256 "460a0cc3b8d2f7dbae01c968e2b15b7801e652dbc57aa0a513916547f473231f"
     sha256 cellar: :any, arm64_golden_gate: "6163cb10b3d30890fdfcb096ebe2a4994ffe936eecb4b0716365bf1331f13141"
     sha256 cellar: :any, arm64_tahoe:       "a5dde636b3875485e2f329105a90682420d68643979da705226661dfe9579895"
     sha256 cellar: :any, arm64_sequoia:     "ec2b049029e222e2518e17d00c1b53c8121aa2aed68adb32c88bf8b3cd45ff78"

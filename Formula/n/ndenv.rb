@@ -7,6 +7,7 @@ class Ndenv < Formula
   head "https://github.com/riywo/ndenv.git", branch: "master"
 
   bottle do
+    manifest_sha256 "e4079f391545e9df39a7f0879fa05b6e337d4d3087b8441d57bd6937a2198a1b"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:    "3aff8712af287caad53964e17c254d5470652fa61c22562579f82b726fc0e977"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:  "8650428e672ef45ea98634ed9e024064c9c23e4604fb7f423fe5d7e12cd13f96"
     sha256 cellar: :any_skip_relocation, arm64_sonoma:   "64537c94265589e52b05cd90de6998880d58960ee25ea3c2d207e92107b6b10d"

@@ -15,6 +15,7 @@ class Bottom < Formula
   end
 
   bottle do
+    manifest_sha256 "36e9af1deb7dd200668cabc3438542cb9940bbd83fd16375a05b9e2b20a1ffce"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "a1cb6e27476216833e1e8263d381f4b721125c838b3e1c6ca403fc3c515812b7"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "c9e84aeea6b89def7fd3d56d00de7e8d4060d8777ef6d5af0af9c7f14a6534f5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "23a62bc24a45b35fa1ece605c5f794a3c865feee54ec367cd329ac1653fc0d92"

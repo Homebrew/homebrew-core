@@ -12,6 +12,7 @@ class AnycableGo < Formula
   end
 
   bottle do
+    manifest_sha256 "73f4c4c325549476760a736ff9669e3b65cd685e49ac52b6e6d3cea0e5c39148"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "931bf9f1b9813bf6153ce88d18e7cf52385abd052176cea9ab5d7a90575cd4b8"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "931bf9f1b9813bf6153ce88d18e7cf52385abd052176cea9ab5d7a90575cd4b8"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "931bf9f1b9813bf6153ce88d18e7cf52385abd052176cea9ab5d7a90575cd4b8"

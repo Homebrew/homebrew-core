@@ -11,6 +11,7 @@ class Questdb < Formula
   end
 
   bottle do
+    manifest_sha256 "98a9ff62d51d5a8397fcf0e0148b8b9a59d9a26509dc5f4db381f8af0fc23e9c"
     sha256 cellar: :any_skip_relocation, all: "6fb347ae8fa643c24336719a5dd2ed5b36d3fc117f10d1d4328224babc8160e3"
   end
 

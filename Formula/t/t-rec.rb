@@ -7,6 +7,7 @@ class TRec < Formula
   head "https://github.com/sassman/t-rec-rs.git", branch: "main"
 
   bottle do
+    manifest_sha256 "8b3b19801116f92265e0cdf214439f3fef9a48fc0806d64034416b743cfdd157"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "9e5018f62254d59ee729dc8f755b8a468eae9f805283b317b568f22e6a2b4fc1"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "157385e3762d2e024b351cffb777869ce4e7ad9113047b8cae70abfd6e572254"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "df45c6c6354b2fb570c29e252d892b714fc3cef78b01ee9b2a77d099cacf3dc0"

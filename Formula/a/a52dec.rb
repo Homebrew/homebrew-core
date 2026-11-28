@@ -12,6 +12,7 @@ class A52dec < Formula
   end
 
   bottle do
+    manifest_sha256 "71d225e5de0245c2a47e9b7f3edc84bf9991beeba89c114c1a00e8e56210ae6c"
     sha256 cellar: :any,                 arm64_golden_gate: "0406fa7f97d542c7d218d0cdfbeac458b416019f2f8117fbdfae26673ae12cf8"
     sha256 cellar: :any,                 arm64_tahoe:       "ca731a1b2d531c0e169e56a7d02c72dc18e0fb163fac344f7476fe0e399bec7b"
     sha256 cellar: :any,                 arm64_sequoia:     "bb6e3408f39a404770529cfce548dc2666e861077acd173825cb3138c27c205a"

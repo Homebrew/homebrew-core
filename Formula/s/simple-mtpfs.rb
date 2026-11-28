@@ -7,6 +7,7 @@ class SimpleMtpfs < Formula
 
   bottle do
     rebuild 3
+    manifest_sha256 "8c00aad947814fcc49a223290d824e547aeaab8d97c594212bfdcb6cf2844685"
     sha256 cellar: :any_skip_relocation, arm64_linux:  "6af8a1b67540db583e256e6391410483d8480100ed0598e040bbaf59cda85de1"
     sha256 cellar: :any_skip_relocation, x86_64_linux: "c194161a8dbd1095e449cceb1b21e7e64f68d6541ab32c63ff78092260df8d49"
   end

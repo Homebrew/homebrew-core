@@ -8,6 +8,7 @@ class Luaver < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "9b94163b1d503c18a2c86b0e1fc45616209716ea5787a6717beca17c79b8ddc9"
     sha256 cellar: :any_skip_relocation, all: "9bf33058878e1a0fcbec847bf8b5ec06912eda98647f05ab96e08e4c1197f93a"
   end
 

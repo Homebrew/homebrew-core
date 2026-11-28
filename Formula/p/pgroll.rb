@@ -7,6 +7,7 @@ class Pgroll < Formula
   head "https://github.com/xataio/pgroll.git", branch: "main"
 
   bottle do
+    manifest_sha256 "6fa0e8ba2ee9bd2cc5238e8d36d33a66941a43b44f8a045b63a22657db5aa60a"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e416b3be5b7a6b97fe695570b6d368f8fb3f14a472d770e7d13bccefdd766366"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4119e292ff7bb8f544116391f3b4b56e974b2df840e52e790084afd98f417bc5"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "258f31882d431af6aacf8c34ca71a39972c2c1ad8943e7974d12ecdf6e0086ad"

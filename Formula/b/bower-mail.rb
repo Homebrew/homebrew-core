@@ -7,6 +7,7 @@ class BowerMail < Formula
   head "https://github.com/wangp/bower.git", branch: "master"
 
   bottle do
+    manifest_sha256 "47aaa4e3f975965594d033f35d9b7a8787410548f1110d7c3a9aa0401e747e8a"
     sha256 cellar: :any, arm64_golden_gate: "7818da3ae783b4d804e82c0582c55a378c9f42ee0fba3fc7124157f407dc381c"
     sha256 cellar: :any, arm64_tahoe:       "15688f2f89abe3e60b32195e335c95d97e73cbc9739876f899be65c91b96ac5d"
     sha256 cellar: :any, arm64_sequoia:     "fbdc86417de7facd93e10e042d97982c08100228b3078e49079ad791c8512f41"

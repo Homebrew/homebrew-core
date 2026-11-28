@@ -7,6 +7,7 @@ class Xcbeautify < Formula
   head "https://github.com/cpisciotta/xcbeautify.git", branch: "main"
 
   bottle do
+    manifest_sha256 "d34a205432c76b3c4c14083d77732571e3e038ecb66b7f2752501e41fd07c7c1"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "76234424efdc241aa2182956d6602ba8a77caf37e704101ac5df285992f42259"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "55d10b6b29942408802a3f7c141c8245b310054331c39be16f027f93867ad005"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "f1094ef28d3e6f734cc58b43201a7112218b2518ed5b47b0c4e3242071a90742"

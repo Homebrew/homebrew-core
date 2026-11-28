@@ -8,6 +8,7 @@ class Btpd < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "f2b7b148796b446bb563d0ed2ae4c8bec84920d8e125f150a1ed611f36a01ba9"
     sha256 cellar: :any,                 arm64_golden_gate: "7d7658b7da5a5f97e3a7bfca61b5bd997d1b1fb35591e72367aa8cef864118f4"
     sha256 cellar: :any,                 arm64_tahoe:       "443e5953a4dfc4ad62c70af0b005319addca1a381706b7f74ec364d64436d944"
     sha256 cellar: :any,                 arm64_sequoia:     "98ca814695b7f123be0d98c663acd5eb336ed86edfb24845956048681bcc6619"

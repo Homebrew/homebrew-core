@@ -7,6 +7,7 @@ class Partio < Formula
 
   bottle do
     rebuild 2
+    manifest_sha256 "3b7750d85242ac84a0dacc3d0f9391c22e7611c6299c74fe621dcc31524fe166"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "fa8064d24c572ed1cfb7721bb6cfb0552b4b565ce702c51e2040a8d53ccc7bcf"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "b8ebc2b35475e030e86b69e4ad7eab359ddc2fa24e5141982f10a199737aec41"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "510fbaf0a745d1bc5241d325deb63dada2369059703022654874eaaee2308a0f"

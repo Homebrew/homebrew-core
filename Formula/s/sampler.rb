@@ -6,6 +6,7 @@ class Sampler < Formula
   license "GPL-3.0-only"
 
   bottle do
+    manifest_sha256 "2830ebb6a81982f9ffc0c4b446656c7a99ec55f1e2d5352e9866a0665457157b"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "07071e9ee654e456ccc959332932f8e8b7813b88c682a0ac8864453564edb0c2"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "aca2f9375a5efc43bcd98549ac7d7ba6becd88a86ba41b5791b9d751260d0616"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "2e9165271f6debe06db6e23f46c13a13b603924e65597f85bb428a1b27780ee1"

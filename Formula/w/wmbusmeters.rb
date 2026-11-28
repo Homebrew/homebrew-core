@@ -7,6 +7,7 @@ class Wmbusmeters < Formula
   head "https://github.com/wmbusmeters/wmbusmeters.git", branch: "master"
 
   bottle do
+    manifest_sha256 "b6ac72dca80508b257edf31510f928136b0b1b3189a6d4e34538a94d8fd66969"
     sha256 cellar: :any, arm64_golden_gate: "e2fd559d09ce4b94e64365709bd53698458bc7311b72e018cd49d1c31638d789"
     sha256 cellar: :any, arm64_tahoe:       "165c7c7669b9723691e0b865a970bc87361181b8baaea3d235604f7b16c74451"
     sha256 cellar: :any, arm64_sequoia:     "3839673c5bfcee34e30287bd63423d54f4afbbadd489331c516d4c1e5a63969f"

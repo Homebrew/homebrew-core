@@ -17,6 +17,7 @@ class FairyStockfish < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "7adf02ada1fa42fbcf552946e4d2724eb40f5076979d2085bd870c475a92f115"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f2ffeab4f25bf666156096a8f476c480aef341f4095bd1e1982268dc0bc5c796"
     sha256 cellar: :any_skip_relocation, arm64_tahoe:       "f895429306b45cf7e3b48afc8e59acdf7a2e28ca8caf5cdf683cae285967109a"
     sha256 cellar: :any_skip_relocation, arm64_sequoia:     "9630cdfb4334c4eb98c7487cd9834ce5abf60f4a1d267820d9369e3d974846a8"

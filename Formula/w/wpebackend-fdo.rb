@@ -13,6 +13,7 @@ class WpebackendFdo < Formula
   end
 
   bottle do
+    manifest_sha256 "75dae7a0227882cf0be2708ddbc0cdae563dfa6986ead6c3dc185193e79439e4"
     sha256 arm64_linux:  "63c3c956e611654f413b1c23cabe4e64f8edbc474ae29349d35a387dd1a04b51"
     sha256 x86_64_linux: "c1c3f8381976eb45978e833e328d7842669846b98ebe7721f56ce2a7e46a29f7"
   end

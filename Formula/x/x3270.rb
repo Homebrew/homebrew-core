@@ -12,6 +12,7 @@ class X3270 < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "127671be488fb3bd21935a6e08c85bb3dc894f808d3d3073e3892190a8ea6102"
     sha256 arm64_golden_gate: "ea3453124778264fd8410b6a3be158e557daadab66c4197680851fc893623780"
     sha256 arm64_tahoe:       "449e02fc6cddf44e3790bc046985804b71c3fadb2e4fe0f7afa142eee75b8a1d"
     sha256 arm64_sequoia:     "e6d75144a80b4730a875a0960609af6961426646f92e21f8278eabf1252014bb"

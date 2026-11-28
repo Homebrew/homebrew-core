@@ -9,6 +9,7 @@ class Hpack < Formula
 
   bottle do
     rebuild 1
+    manifest_sha256 "a3d4f9cd914dabace9b83723bb94395da68fcbc9d33cd8a89a15e5c79472c184"
     sha256 cellar: :any, arm64_golden_gate: "d4b64d88d2af6c2ac198d4664bc1f63f099f826d0c6ed6bda9983bda1a7e30b7"
     sha256 cellar: :any, arm64_tahoe:       "26fd2b22f65fa3a736df0f9fcc7b936f7d609bcd558c510225b5ab6bff5d5022"
     sha256 cellar: :any, arm64_sequoia:     "827399fe456b21b25a93e367d4c06339d35ea01df2052f0fa145b12fe1524656"
