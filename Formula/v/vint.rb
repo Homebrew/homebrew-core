@@ -42,6 +42,8 @@ class Vint < Formula
   # https://github.com/Vimjas/vint/commit/997677ae688fbaf47da426500cc56aae7305d243
   patch :DATA
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
