@@ -4,6 +4,7 @@ class Newsraft < Formula
   url "https://codeberg.org/newsraft/newsraft/archive/newsraft-0.38.tar.gz"
   sha256 "60da202448e104687c429a6d7b227ec7d038f7b906001dda594c78847efcc378"
   license "ISC"
+  revision 1
 
   bottle do
     manifest_sha256 "f2c022b746159cec145947690afc998a42409f77592092554bb79d9eac174870"
@@ -22,11 +23,11 @@ class Newsraft < Formula
   uses_from_macos "sqlite"
 
   def install
-    # On macOS `_XOPEN_SOURCE` masks cfmakeraw() / SIGWINCH; override FEATURECFLAGS.
-    featureflags = "-D_DEFAULT_SOURCE -D_BSD_SOURCE"
-    featureflags << " -D_DARWIN_C_SOURCE" if OS.mac?
+    # tests/do_format.c needs a UTF-8 locale
+    ENV["LC_ALL"] = OS.mac? ? "en_US.UTF-8" : "C.UTF-8"
 
-    system "make", "FEATURECFLAGS=#{featureflags}"
+    system "make"
+    system "make", "check"
     system "make", "install", "PREFIX=#{prefix}"
   end
 
