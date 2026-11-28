@@ -60,13 +60,9 @@ class Grails < Formula
       port = free_port
       ENV["JAVA_HOME"] = Language::Java.java_home(java_version)
       system "./gradlew", "--no-daemon", "assemble"
-      pid = spawn "./gradlew", "--no-daemon", "bootRun", "-Dgrails.server.port=#{port}"
-      begin
+      with_test_process("./gradlew", "--no-daemon", "bootRun", "-Dgrails.server.port=#{port}") do
         sleep 20
         assert_equal "Hello Homebrew", shell_output("curl --silent http://localhost:#{port}/greeting/index")
-      ensure
-        Process.kill "TERM", pid
-        Process.wait pid
       end
     end
   end
