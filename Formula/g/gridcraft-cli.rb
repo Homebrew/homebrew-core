@@ -1,8 +1,9 @@
 class GridcraftCli < Formula
   desc "Headless GridCraft CLI and MCP server to inspect, convert and script workbooks"
   homepage "https://getartcraft.com/apps/gridcraft"
-  url "https://github.com/storytold/gridcraft/archive/refs/tags/v0.19.1.tar.gz"
-  sha256 "4adb7b981de97f31c61e5be67ac7b2bcd84e2559647b5c8c39561bbcce199c5e"
+  url "https://github.com/storytold/gridcraft/archive/refs/tags/v0.19.1-nightly.20261127.46047957334.1.g97f2754c1ddf.tar.gz"
+  version "0.19.1-nightly.20261127.46047957334.1.g97f2754c1ddf"
+  sha256 "f529dd448ac944cfd2511e9cd48eed1684159d6e8edf01493ccbfbf71b73bf76"
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/gridcraft.git", branch: "main"
 
