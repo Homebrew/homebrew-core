@@ -1,10 +1,9 @@
 class Librime < Formula
   desc "Rime Input Method Engine"
   homepage "https://rime.im"
-  url "https://github.com/rime/librime/archive/refs/tags/1.17.0.tar.gz"
-  sha256 "a60274da5d8b8a7187e6c7e9ba5023334ed7bdd182535e93c4e96de8cf188377"
+  url "https://github.com/rime/librime/archive/refs/tags/1.18.0.tar.gz"
+  sha256 "5768b3ac14b9b033891771d48d78fdb399860672cb864a937c5a1050068ab72c"
   license "BSD-3-Clause"
-  revision 2
 
   bottle do
     manifest_sha256 "dec30b99b6e868f2f9d541c573a34f091b9dc0ff49c7827b20a104656a663c42"
@@ -50,6 +49,16 @@ class Librime < Formula
     sha256 "69af91b1941781be6eeceb2dbdc6c0860e279c4cf8ab76509802abbc5c0eb7b3"
   end
 
+  # Fix build with `-DENABLE_LOGGING=OFF`
+  patch do
+    url "https://github.com/rime/librime/commit/5c1bd891c4830527a41c154cd5c08d5d8e4acbd3.patch?full_index=1"
+    sha256 "2ab4e2026e2c78b0b25c2ea22e0c0926b5593adfd53c42ceab8fcae47b1a34ed"
+    type :unofficial
+    resolves "https://github.com/rime/librime/pull/1291"
+  end
+
+  deny_network_access!
+
   def install
     resources.each do |r|
       r.stage buildpath/"plugins"/r.name
@@ -61,6 +70,7 @@ class Librime < Formula
       -DCMAKE_INSTALL_RPATH=#{rpath};#{plugins_rpath}
       -DENABLE_EXTERNAL_PLUGINS=ON
       -DBUILD_TEST=OFF
+      -DENABLE_LOGGING=OFF
     ]
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
