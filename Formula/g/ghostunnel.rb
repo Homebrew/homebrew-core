@@ -32,11 +32,16 @@ class Ghostunnel < Formula
 
   test do
     port = free_port
-    fork do
-      exec bin/"ghostunnel", "client", "--listen=localhost:#{port}", "--target=localhost:4",
-        "--disable-authentication", "--shutdown-timeout=1s", "--connect-timeout=1s"
+    args = %W[
+      --listen=localhost:#{port}
+      --target=localhost:4
+      --disable-authentication
+      --shutdown-timeout=1s
+      --connect-timeout=1s
+    ]
+    with_test_process(bin/"ghostunnel", "client", *args) do
+      sleep 1
+      shell_output("curl -o /dev/null http://localhost:#{port}/", 56)
     end
-    sleep 1
-    shell_output("curl -o /dev/null http://localhost:#{port}/", 56)
   end
 end
