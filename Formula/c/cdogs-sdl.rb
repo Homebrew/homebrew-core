@@ -50,14 +50,12 @@ class CdogsSdl < Formula
   end
 
   test do
-    pid = spawn bin/"cdogs-sdl"
+    with_test_process(bin/"cdogs-sdl") do
+      max_sleep_time = 90
+      time_slept = 0
+      time_slept += sleep(5) while !(testpath/".config/cdogs-sdl").exist? && time_slept < max_sleep_time
 
-    max_sleep_time = 90
-    time_slept = 0
-    time_slept += sleep(5) while !(testpath/".config/cdogs-sdl").exist? && time_slept < max_sleep_time
-
-    assert_path_exists testpath/".config/cdogs-sdl"
-  ensure
-    Process.kill("TERM", pid)
+      assert_path_exists testpath/".config/cdogs-sdl"
+    end
   end
 end
