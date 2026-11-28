@@ -45,14 +45,15 @@ class ClaudeCodeRouter < Formula
     JSON
 
     output_log = testpath/"output.log"
-    spawn bin/"ccr", "start", "--port", free_port.to_s, "--no-gateway", [:out, :err] => output_log.to_s
+    with_test_process(bin/"ccr", "start", "--port", free_port.to_s, "--no-gateway",
+                      [:out, :err] => output_log.to_s) do
+      30.times do
+        break if output_log.exist? && output_log.read.include?("CCR service started")
 
-    30.times do
-      break if output_log.exist? && output_log.read.include?("CCR service started")
+        sleep 1
+      end
 
-      sleep 1
+      assert_match "CCR service stopped", shell_output("#{bin}/ccr stop")
     end
-
-    assert_match "CCR service stopped", shell_output("#{bin}/ccr stop")
   end
 end
