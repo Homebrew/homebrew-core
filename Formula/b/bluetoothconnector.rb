@@ -33,13 +33,9 @@ class Bluetoothconnector < Formula
     if ENV["HOMEBREW_GITHUB_ACTIONS"]
       # OS privacy restrictions may block the process on the Bluetooth permission prompt,
       # so only check the usage exit code when it actually ran to completion.
-      pid = spawn bin/"BluetoothConnector"
-      sleep 5
-      if Process.wait(pid, Process::WNOHANG)
-        assert_equal 64, $CHILD_STATUS.exitstatus
-      else
-        Process.kill("TERM", pid)
-        Process.wait(pid)
+      with_test_process(bin/"BluetoothConnector") do |pid|
+        sleep 5
+        assert_equal 64, $CHILD_STATUS.exitstatus if Process.wait(pid, Process::WNOHANG)
       end
     else
       shell_output("#{bin}/BluetoothConnector", 64)
