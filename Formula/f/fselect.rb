@@ -1,8 +1,8 @@
 class Fselect < Formula
   desc "Find files with SQL-like queries"
   homepage "https://fselect.rocks"
-  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.4.tar.gz"
-  sha256 "cbcfba22855b92363fe39722559d649f803bf7acb9a433f54d92f290df006fec"
+  url "https://github.com/jhspetersson/fselect/archive/refs/tags/0.10.5.tar.gz"
+  sha256 "6bce95ce28acbba074c36911d176c0a38b6799010653afa1abc35084bad642b0"
   license any_of: ["Apache-2.0", "MIT"]
 
   bottle do
