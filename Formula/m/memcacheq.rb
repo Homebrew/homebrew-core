@@ -35,18 +35,16 @@ class Memcacheq < Formula
 
   test do
     port = free_port
-    pid = spawn(bin/"memcacheq", "-p", port.to_s, "-H", testpath)
-    sleep 5
-    TCPSocket.open("localhost", port) do |sock|
-      sock.puts("set brew 2 0 3\r\n100\r\n")
-      assert_equal "STORED\r\n", sock.gets
-      sock.puts("stats queue\r\n")
-      assert_equal "STAT brew 1/0\r\n", sock.gets
-    ensure
-      sock.close
+    with_test_process(bin/"memcacheq", "-p", port.to_s, "-H", testpath) do
+      sleep 5
+      TCPSocket.open("localhost", port) do |sock|
+        sock.puts("set brew 2 0 3\r\n100\r\n")
+        assert_equal "STORED\r\n", sock.gets
+        sock.puts("stats queue\r\n")
+        assert_equal "STAT brew 1/0\r\n", sock.gets
+      ensure
+        sock.close
+      end
     end
-  ensure
-    Process.kill "TERM", pid
-    Process.wait pid
   end
 end
