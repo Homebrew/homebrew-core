@@ -17,10 +17,6 @@ class Primecount < Formula
   depends_on "cmake" => :build
   depends_on "primesieve"
 
-  on_macos do
-    depends_on "libomp"
-  end
-
   deny_network_access!
 
   def install
