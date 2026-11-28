@@ -52,8 +52,7 @@ class TerraformLsp < Formula
 
   test do
     port = free_port
-    pid = spawn bin/"terraform-lsp", "serve", "-tcp", "-port", port.to_s
-    begin
+    with_test_process(bin/"terraform-lsp", "serve", "-tcp", "-port", port.to_s) do
       sleep 2
       tcp_socket = TCPSocket.new("localhost", port)
       tcp_socket.puts <<~EOF
@@ -62,9 +61,6 @@ class TerraformLsp < Formula
         {"jsonrpc":"2.0","method":"initialize","params":{},"id":1}
       EOF
       assert_match "Content-Length:", tcp_socket.gets("\n")
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
 
     assert_match version.to_s, shell_output("#{bin}/terraform-lsp serve -version")
