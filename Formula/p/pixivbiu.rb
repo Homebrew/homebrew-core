@@ -11,13 +11,12 @@ class Pixivbiu < Formula
   end
 
   bottle do
-    rebuild 1
-    manifest_sha256 "f8e306845ab0e858274584d2a885fc3a592290cabaff4c8ba70f8c890e10a8a0"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "f8687012e2a773c20c37fee1a7110205aed05d663b3d92f6988150d46fdfca9f"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "623caa67051af368fa0ca40160aaf9e183e3246e2b1cdbb0019536ffbf0ce95d"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "217334546aa4ebeed7510527492eb35547107cdc8d80bdaf630447a87f0f9d0e"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "7d6a6c07c16b76dd0c7c3abcf4080c3b20a1a859e1620dccbde7e8a1336238b9"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "4bdef2ac350d13ac7b24baa21fd8e93914113ba3eaac6249b50ba635ceca2056"
+    manifest_sha256 "89ea53bbeddb61eaa4ecbaaec027d5a463f8e3964a572d4fab6153eb45132cf0"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "ebce7f411901dcfb146d90c02a74d396cd649a3f008c6a0700801eb62518ef6e"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a201eb788ce445332735269627c1950a69dc7c28dea6adce25155d2ef2d86bf0"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "adb08806ce2016c6dccf3907d1cd75d58ede5d63767caaeea3439d79395fb1d9"
+    sha256 cellar: :any_skip_relocation, arm64_linux:       "4cce21c5c9b2502af29f7e1abe0619cc81a423c92233fa79c3e39d94fb8f3878"
+    sha256 cellar: :any_skip_relocation, x86_64_linux:      "b14a3b0881a4aebc5ac453a51288f53ebfcbbcda7916883adfa3346a9a2a0f23"
   end
 
   depends_on "bun" => :build
