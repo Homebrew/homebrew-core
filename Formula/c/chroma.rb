@@ -1,8 +1,8 @@
 class Chroma < Formula
   desc "General purpose syntax highlighter in pure Go"
   homepage "https://github.com/alecthomas/chroma"
-  url "https://github.com/alecthomas/chroma/archive/refs/tags/v2.27.0.tar.gz"
-  sha256 "45deb53e12a92cea43e797ed3d1edde0bf6ca7492d454126506e35e8822863a1"
+  url "https://github.com/alecthomas/chroma/archive/refs/tags/v3.0.0.tar.gz"
+  sha256 "60b3bb6d6bb4a8e825b070a699bb8bc1ee71afe09a1e68f99ba81c74a9c068c9"
   license "MIT"
   head "https://github.com/alecthomas/chroma.git", branch: "master"
 
