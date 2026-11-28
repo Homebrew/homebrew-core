@@ -41,15 +41,11 @@ class Conduit < Formula
   test do
     assert_match version.to_s, shell_output("#{bin}/conduit --version")
 
-    File.open("output.txt", "w") do |file|
-      # redirect stdout to the file
-      $stdout.reopen(file)
-      pid = spawn bin/"conduit", "run", "--api.enabled", "true",
-                                 "--api.grpc.address", "127.0.0.1:0",
-                                 "--api.http.address", "127.0.0.1:0"
+    with_test_process(bin/"conduit", "run", "--api.enabled", "true",
+                      "--api.grpc.address", "127.0.0.1:0",
+                      "--api.http.address", "127.0.0.1:0",
+                      signal: "KILL", out: "output.txt") do
       sleep(5)
-      # Kill process
-      Process.kill("SIGKILL", pid)
     end
     assert_match "grpc API started", (testpath/"output.txt").read
     assert_match "http API started", (testpath/"output.txt").read
