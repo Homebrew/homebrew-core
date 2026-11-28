@@ -1,8 +1,8 @@
 class Fastfetch < Formula
   desc "Like neofetch, but much faster because written mostly in C"
   homepage "https://github.com/fastfetch-cli/fastfetch"
-  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.71.0.tar.gz"
-  sha256 "e71d93de41e8e4b2554c36d2ae51758112a21ecf3a8c98605a2c689251e62987"
+  url "https://github.com/fastfetch-cli/fastfetch/archive/refs/tags/2.72.0.tar.gz"
+  sha256 "7d5964e7e91a2bc04725cf8fb7f4b0481d528e797dbf2ef60a095cc1b82123e7"
   license "MIT"
   head "https://github.com/fastfetch-cli/fastfetch.git", branch: "dev"
 
@@ -12,12 +12,12 @@ class Fastfetch < Formula
   end
 
   bottle do
-    manifest_sha256 "e7b89e06c7be76d0b772f1ee28e772e119aa8ec97beb095e78ac1efe38e9ead8"
-    sha256 arm64_golden_gate: "80331feb5ec6b087766dddb06490c935349f63aa19509e241ea26b21aab7c055"
-    sha256 arm64_tahoe:       "9dd61bf2f92e34e6e8f2436aa58c18c9e1fd17e7d65d9fea3757ceb113ebd89e"
-    sha256 arm64_sequoia:     "89ec06d5ea2808be008434fd8d0b6967c7ae7fd3c4721e475b445a79a941e872"
-    sha256 arm64_linux:       "c6ac3e4f26630a06dc6ae9da07f2e2187caaf886a6a79854936d534db0960a4e"
-    sha256 x86_64_linux:      "5ea6e25edde84e4f23a7480d7fc9c416f81bbce94cc6ac8cdd46662a67ac329a"
+    manifest_sha256 "454df5cfd12a50307607b0857dfa3903eb811259952dc288abcc8cc033494139"
+    sha256 arm64_golden_gate: "8253686488f6665c902c2968e21248cee775fe23c963e1512986d65129f89765"
+    sha256 arm64_tahoe:       "99c90b028b49f9b388c0097fc810331a04434637a02343d245dcc050df265cc5"
+    sha256 arm64_sequoia:     "8a247b08f1f1579e5a1c9b586fdda4476c01849ff79a4aaa0d24824b1dcef347"
+    sha256 arm64_linux:       "f2e20e91d93c7a48d6daf8450fe32b9a1aa19bec0f20b5214ff0bfcde400a7bb"
+    sha256 x86_64_linux:      "5937357587c5de3706da8c260c2963bcddf4df9111fdc1e6e36de4a7e0e033b7"
   end
 
   depends_on "chafa" => :build
@@ -45,6 +45,7 @@ class Fastfetch < Formula
     depends_on "libxcb" => :build
     depends_on "libxrandr" => :build
     depends_on "mesa" => :build
+    depends_on "opencl-headers" => :build
     depends_on "opencl-icd-loader" => :build
     depends_on "pulseaudio" => :build
     depends_on "rpm" => :build
