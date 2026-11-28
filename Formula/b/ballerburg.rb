@@ -39,10 +39,11 @@ class Ballerburg < Formula
 
   test do
     ENV["SDL_VIDEODRIVER"] = "dummy"
-    pid = spawn bin/"ballerburg"
-    sleep 3
-    Process.kill "TERM", pid
-    Process.wait pid
-    assert_equal 0, $CHILD_STATUS.exitstatus
+    with_test_process(bin/"ballerburg") do |pid|
+      sleep 3
+      Process.kill "TERM", pid
+      Process.wait pid
+      assert_equal 0, $CHILD_STATUS.exitstatus
+    end
   end
 end
