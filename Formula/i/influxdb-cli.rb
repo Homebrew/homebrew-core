@@ -45,27 +45,25 @@ class InfluxdbCli < Formula
       --http-bind-address=:#{influxd_port}
       --log-level=error
     ]
-    influxd = spawn dep("influxdb").opt_bin/"influxd", *influxd_args
-    sleep 30
+    with_test_process(dep("influxdb").opt_bin/"influxd", *influxd_args) do
+      sleep 30
 
-    # Configure the CLI for the test env.
-    influx_host = "http://localhost:#{influxd_port}"
-    cli_configs_path = "#{testpath}/influx-configs"
-    ENV["INFLUX_HOST"] = influx_host
-    ENV["INFLUX_CONFIGS_PATH"] = cli_configs_path
+      # Configure the CLI for the test env.
+      influx_host = "http://localhost:#{influxd_port}"
+      cli_configs_path = "#{testpath}/influx-configs"
+      ENV["INFLUX_HOST"] = influx_host
+      ENV["INFLUX_CONFIGS_PATH"] = cli_configs_path
 
-    # Check that the CLI can connect to the server.
-    assert_match "OK", shell_output("#{bin}/influx ping")
+      # Check that the CLI can connect to the server.
+      assert_match "OK", shell_output("#{bin}/influx ping")
 
-    # Perform initial DB setup.
-    system bin/"influx", "setup", "-u", "usr", "-p", "fakepassword", "-b", "bkt", "-o", "org", "-f"
+      # Perform initial DB setup.
+      system bin/"influx", "setup", "-u", "usr", "-p", "fakepassword", "-b", "bkt", "-o", "org", "-f"
 
-    # Assert that initial resources show in CLI output.
-    assert_match "usr", shell_output("#{bin}/influx user list")
-    assert_match "bkt", shell_output("#{bin}/influx bucket list")
-    assert_match "org", shell_output("#{bin}/influx org list")
-  ensure
-    Process.kill("TERM", influxd)
-    Process.wait influxd
+      # Assert that initial resources show in CLI output.
+      assert_match "usr", shell_output("#{bin}/influx user list")
+      assert_match "bkt", shell_output("#{bin}/influx bucket list")
+      assert_match "org", shell_output("#{bin}/influx org list")
+    end
   end
 end

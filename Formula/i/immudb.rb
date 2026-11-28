@@ -43,10 +43,11 @@ class Immudb < Formula
   test do
     port = free_port
 
-    spawn bin/"immudb", "--port=#{port}"
-    sleep 3
+    with_test_process(bin/"immudb", "--port=#{port}") do
+      sleep 3
 
-    assert_match "immuclient", shell_output("#{bin}/immuclient version")
-    assert_match "immuadmin", shell_output("#{bin}/immuadmin version")
+      assert_match "immuclient", shell_output("#{bin}/immuclient version")
+      assert_match "immuadmin", shell_output("#{bin}/immuadmin version")
+    end
   end
 end

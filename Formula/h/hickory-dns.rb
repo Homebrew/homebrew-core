@@ -39,15 +39,13 @@ class HickoryDns < Formula
     test_config_path = testpath/"test-data/test_configs"
     example_config = test_config_path/"example.toml"
 
-    pid = spawn bin/"hickory-dns", "-c", example_config, "-z", test_config_path, "-p", test_port.to_s
-    sleep 2
-    output = shell_output("dig @127.0.0.1 -p #{test_port} www.example.com")
-    expected = "www.example.com.	86400	IN	A	127.0.0.1"
-    assert_match expected, output
+    with_test_process(bin/"hickory-dns", "-c", example_config, "-z", test_config_path, "-p", test_port.to_s) do
+      sleep 2
+      output = shell_output("dig @127.0.0.1 -p #{test_port} www.example.com")
+      expected = "www.example.com.	86400	IN	A	127.0.0.1"
+      assert_match expected, output
+    end
 
     assert_match "Hickory DNS named server #{version}", shell_output("#{bin}/hickory-dns --version")
-  ensure
-    Process.kill "SIGTERM", pid
-    Process.wait pid
   end
 end

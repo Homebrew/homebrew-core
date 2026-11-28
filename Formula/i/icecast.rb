@@ -60,14 +60,10 @@ class Icecast < Formula
     cp etc/"icecast.xml", testpath/"icecast.xml"
     inreplace testpath/"icecast.xml", "<port>8000</port>", "<port>#{port}</port>"
 
-    pid = spawn "icecast", "-c", testpath/"icecast.xml", err: "/dev/null"
-    sleep 3
+    with_test_process("icecast", "-c", testpath/"icecast.xml", err: "/dev/null") do
+      sleep 3
 
-    begin
       assert_match "icestats", shell_output("curl localhost:#{port}/status-json.xsl")
-    ensure
-      Process.kill "TERM", pid
-      Process.wait pid
     end
   end
 end
