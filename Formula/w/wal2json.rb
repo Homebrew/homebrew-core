@@ -31,6 +31,8 @@ class Wal2json < Formula
     deps(/\Apostgresql@/).map(&:to_formula).sort_by(&:version)
   end
 
+  deny_network_access!
+
   def install
     odie "Too many postgresql dependencies!" if postgresqls.count > 2
 
