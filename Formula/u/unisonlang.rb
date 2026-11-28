@@ -55,6 +55,10 @@ class Unisonlang < Formula
     depends_on "zlib-ng-compat"
   end
 
+  # Trying to fetch packages with `stack build --dry-run --prefetch` fails
+  # Issue ref: https://github.com/commercialhaskell/stack/issues/5435
+  allow_network_access! [:build, :test]
+
   def install
     odie "local-ui resource needs to be updated" if build.stable? && version != resource("local-ui").version
 
