@@ -8,7 +8,7 @@ class OpencvAT4 < Formula
     "BSD-3-Clause", # modules/xfeatures2d/src/kaze/, 3rdparty/ittnotify/, ...
     "MIT",          # modules/gapi/src/3rdparty/vasot
   ]
-  revision 12
+  revision 13
   compatibility_version 2
 
   livecheck do
@@ -17,12 +17,12 @@ class OpencvAT4 < Formula
   end
 
   bottle do
-    manifest_sha256 "bcb4f434944eab53c389d7f11f086a61cb2d3890ba6a264defcbfb52dd4ab5b2"
-    sha256 arm64_golden_gate: "fa3cc579f9fba9339a5ccad0fd853138277f8a4d25b3edeb8196661181fb2437"
-    sha256 arm64_tahoe:       "b0408885e97472440ba355272b02c375386d807f0ae167096c933699198d9162"
-    sha256 arm64_sequoia:     "5bb8b3b20a22894425ac1835ad2f999c13ea5c0017f7685287da88bca3f78feb"
-    sha256 arm64_linux:       "2bb3b132b0b7e4817a1e94e379205c430cf7c12084722fe6d65ab2a230dbd358"
-    sha256 x86_64_linux:      "cc35a942304806c7b34c5ea5ac9f4636b237a645da0cdd6672191ac142179bd7"
+    manifest_sha256 "f4c15bbba69cbbe1493508a3296bf6c794c5a706e95ef5c8f34b01a0424dcae9"
+    sha256 arm64_golden_gate: "baa193c538b7836a05cfa5775f33f24aff914003090a00c4f821c4ef7ef6da79"
+    sha256 arm64_tahoe:       "9ef1972627e808268e31fb96c9691e7d822303b9d0baa94e1f81d20356b639ab"
+    sha256 arm64_sequoia:     "7212f1ebeefe0d4c021e740487d3d6851b585d2eb1d504934ab4f404d2105f14"
+    sha256 arm64_linux:       "f41771abf71f126d8d40add69d63ebe42c0051e060b1128a246eea929497926f"
+    sha256 x86_64_linux:      "72e670eea7016412e30304854807a0c1be112e7fde17f254f2aa34588c0ae0cc"
   end
 
   keg_only :versioned_formula
@@ -193,6 +193,7 @@ class OpencvAT4 < Formula
       -DOPENCV_GENERATE_PKGCONFIG=ON
       -DPROTOBUF_UPDATE_FILES=ON
       -DWITH_1394=OFF
+      -DWITH_AVIF=OFF
       -DWITH_CUDA=OFF
       -DWITH_EIGEN=ON
       -DWITH_FFMPEG=ON

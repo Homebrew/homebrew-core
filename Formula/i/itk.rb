@@ -4,6 +4,7 @@ class Itk < Formula
   url "https://github.com/InsightSoftwareConsortium/ITK/releases/download/v5.4.8/InsightToolkit-5.4.8.tar.gz"
   sha256 "f4f6900f5049c3dbdf5d717798615615b21efc20bab883daf4498905c6712824"
   license "Apache-2.0"
+  revision 1
   head "https://github.com/InsightSoftwareConsortium/ITK.git", branch: "main"
 
   livecheck do
@@ -12,17 +13,18 @@ class Itk < Formula
   end
 
   bottle do
-    manifest_sha256 "a43ed84f17f0a4051a29c3aac144ef2beaa1e2e1f7ba8fb9e5a7b9b373f0db70"
-    sha256 arm64_golden_gate: "dd4117590094c4739c1f25ef55d8ea9eed2317a865cdffb0a679c4a6b5724841"
-    sha256 arm64_tahoe:       "2aa68d7352f80d55d8d70f2fcd69b3eac77294c2ab75899c1fd2b881141b8b1b"
-    sha256 arm64_sequoia:     "44c9e01d197e1308b259814f61db4b8c0326d3c764921ddbaaef3afbe843d580"
-    sha256 arm64_linux:       "68d2dd6d3be6e6b349a967105eb2cde5d78cfb0742227ccc96e852af50959476"
-    sha256 x86_64_linux:      "95891abe4df79d25857c1413a11ebd798aff4e7aab46eeb23ee7c70f1f67919d"
+    manifest_sha256 "fbc18b4147d3d69e050a37e29069a1d6c3fcfa87faad85f9f753851f5b3cd799"
+    sha256 arm64_golden_gate: "f566d1f8c7a5c6917dcf927634c784eb202bb4619bd18d8b262b25284970dc37"
+    sha256 arm64_tahoe:       "989ef14816990b0066a236c0e0f1eccd168ed05b13cfb10dcb34270f0fa1b851"
+    sha256 arm64_sequoia:     "a8f2921d54d1a2da2dd7fd8e63589e95070993f476333e8d52d2899aedd4c5ca"
+    sha256 arm64_linux:       "42b3f78c6d11998a1103963adbb637088a5e894797085f1ee054e0e117ed3239"
+    sha256 x86_64_linux:      "e4bb905a95eb823a19c5545896682f5d2e58cd8564ab4e48433d9a51bcdca7b9"
   end
 
   depends_on "cmake" => :build
-
+  depends_on "utf8cpp" => :build
   depends_on "double-conversion"
+  depends_on "eigen" => :no_linkage
   depends_on "fftw"
   depends_on "gdcm"
   depends_on "hdf5"
@@ -33,14 +35,7 @@ class Itk < Formula
 
   uses_from_macos "expat", since: :sequoia
 
-  on_macos do
-    depends_on "freetype"
-    depends_on "glew"
-  end
-
   on_linux do
-    depends_on "alsa-lib"
-    depends_on "unixodbc"
     depends_on "zlib-ng-compat"
   end
 
@@ -98,6 +93,7 @@ class Itk < Formula
       -DModule_ITKVtkGlue=ON
       -DModule_SCIFIO=ON
     ]
+    args << "-DCMAKE_SHARED_LINKER_FLAGS=-Wl,-dead_strip_dylibs" if OS.mac?
     # Cannot compile on macOS with this arg
     # Upstream issue: https://github.com/InsightSoftwareConsortium/ITK/issues/3821
     # args << "-DITK_USE_GPU=ON" if OS.mac?

@@ -2,7 +2,7 @@ class Pcl < Formula
   desc "Library for 2D/3D image and point cloud processing"
   homepage "https://pointclouds.org/"
   license "BSD-3-Clause"
-  revision 8
+  revision 9
   compatibility_version 1
 
   stable do
@@ -47,14 +47,12 @@ class Pcl < Formula
   end
 
   bottle do
-    manifest_sha256 "18f2736fc612ae1ae16aa8a738383493a81ca36e4980e46bfead60c2eca4e368"
-    sha256 cellar: :any, arm64_golden_gate: "fb80ee80a2696ee30cf78f3a895db772db8e4e98cf3f595f3d031c8fb561398f"
-    sha256 cellar: :any, arm64_tahoe:       "96e7ff3c0b608fb8f47fcb84fcf91cc735f4abca956829f9394ce88dc194a78c"
-    sha256 cellar: :any, arm64_sequoia:     "bafd5a622108d37dd359b1c50c39d9a63c1416e797bbfbe5f7d9a8b2a58bf9f1"
-    sha256 cellar: :any, arm64_sonoma:      "292397594a7af0748192d22fbacaa58700ec145c871c7b369f851a58f935549e"
-    sha256 cellar: :any, sonoma:            "3a8e65473a20d68437902ce34ddd27de79219c08ae4ed03de674141450fea7f6"
-    sha256 cellar: :any, arm64_linux:       "ee362f427810c10491cd09d7bb6a7c082e2fd1185b2d1d78a1492e26b43b151a"
-    sha256 cellar: :any, x86_64_linux:      "2de32c8abdc01f93a0574e6f7e923ee166a96b789dc0b3397663638786d91b9b"
+    manifest_sha256 "b3343d144d0e16885cf1b84615e8c5e76c0c130f49dee28f66db60ae7a57722c"
+    sha256 cellar: :any, arm64_golden_gate: "f4b3b97dce4aef0957ef117f93235e26da2c8408b6fe55deb9d655614c3f7c19"
+    sha256 cellar: :any, arm64_tahoe:       "baffacea051a9e1bbda7e787bbcc6963a8573d48b85416eda951e941ebc9efe0"
+    sha256 cellar: :any, arm64_sequoia:     "82f943253cd648c34533bbc6397e89af5d5cbcb366a7a657da18a92ebd563e94"
+    sha256 cellar: :any, arm64_linux:       "9d14eb4b1bb1837705ace40bb914301956ac28318dd5df624d05a6c7c3d32e65"
+    sha256 cellar: :any, x86_64_linux:      "e6a6a7091e2f30420a06a77f695aa4797a728903b0f68e12d068dbd764a76786"
   end
 
   head do
@@ -78,7 +76,6 @@ class Pcl < Formula
   depends_on "vtk"
 
   on_macos do
-    depends_on "freetype"
     depends_on "libomp"
   end
 
@@ -121,6 +118,9 @@ class Pcl < Formula
     # relocation R_AARCH64_ADR_PREL_PG_HI21 against symbol `...' which may bind
     # externally can not be used when making a shared object; recompile with -fPIC
     args << "-DCMAKE_POSITION_INDEPENDENT_CODE=ON" if OS.linux? && Hardware::CPU.arm?
+
+    # Avoid linkage to indirect dependencies like fmt and scnlib
+    args += %w[EXE SHARED].map { |type| "-DCMAKE_#{type}_LINKER_FLAGS=-Wl,-dead_strip_dylibs" } if OS.mac?
 
     system "cmake", "-S", ".", "-B", "build", *args, *std_cmake_args
     system "cmake", "--build", "build"
