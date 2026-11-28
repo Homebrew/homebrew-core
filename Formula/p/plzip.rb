@@ -24,17 +24,16 @@ class Plzip < Formula
 
   depends_on "lzlib"
 
-  on_sequoia :or_newer do
-    depends_on "gcc"
-
-    # Binaries created by Apple Clang 1700+ are broken
-    fails_with :clang do
-      cause "'make check' fails with '(stdin): Not enough memory'"
+  # Apply FreeBSD patch to work around LLVM bug which impacts Apple Clang 1700+
+  # Can switch to fails_with DSL once LLVM fixes issue in stable release.
+  # Ref: https://github.com/llvm/llvm-project/issues/246281
+  # Ref: https://lists.gnu.org/archive/html/lzip-bug/2026-11/msg00011.html
+  patch do
+    on_sequoia :or_newer do
+      url "https://raw.githubusercontent.com/freebsd/freebsd-ports/37f646ddcfe62f48e5641429e8398369a592b211/archivers/plzip/files/patch-dec__stream.cc"
+      sha256 "d2738a5a9f221ac35e4eb1ad649b57576711cf1adb4f3c2d8b0d5b9cc054e508"
+      type :unofficial
     end
-  end
-
-  fails_with :llvm_clang do
-    cause "'make check' fails with '(stdin): Not enough memory'"
   end
 
   deny_network_access!
