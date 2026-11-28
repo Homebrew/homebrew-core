@@ -2,10 +2,10 @@ class Ntfs3g < Formula
   desc "Read-write NTFS driver for FUSE"
   homepage "https://www.tuxera.com/community/open-source-ntfs-3g/"
   # tuxera.com returns 403 to CI runners, so use the GitHub tag tarball instead
-  url "https://github.com/tuxera/ntfs-3g/archive/refs/tags/2026.9.28.tar.gz"
-  sha256 "8a75293f07bf40df5701d296de32a4cb0e46d6ae135abb4f41b438df9868a390"
+  url "https://github.com/tuxera/ntfs-3g/archive/refs/tags/2026.11.23.tar.gz"
+  sha256 "fa72b202a4ee509436e722172e7a94d12ab917fb4cacf2b4994fd45be2ea5cb8"
   license all_of: ["GPL-2.0-or-later", "LGPL-2.0-or-later"]
-  compatibility_version 2
+  compatibility_version 3
   head "https://github.com/tuxera/ntfs-3g.git", branch: "edge"
 
   livecheck do
@@ -14,9 +14,9 @@ class Ntfs3g < Formula
   end
 
   bottle do
-    manifest_sha256 "3accfcb074888de667968c458fdefdf3fba0e7ed6947ab1f30266901362e5aff"
-    sha256 cellar: :any, arm64_linux:  "0fe401877e6a03904563450a90dfdc6cc6b2706af0877672e9b3e365203c1a27"
-    sha256 cellar: :any, x86_64_linux: "60da469cb04ac47158f1ca829de37e3305a89ae441516091868aa7ddda216615"
+    manifest_sha256 "5c7f318801a9d85a5a7b89df3d2e2a1549c765c3eaa1145d1a5237419b2abe15"
+    sha256 cellar: :any, arm64_linux:  "541475276ab67431c77f311c08a0a0615d91e9d71f2a8c3cdae064cdce686b89"
+    sha256 cellar: :any, x86_64_linux: "160152ffd63b747ab4e9152e2192da0ab55fc6e8106be84cbe4e56a4d9486499"
   end
 
   depends_on "autoconf" => :build
