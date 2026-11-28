@@ -14,9 +14,11 @@ class Tailor < Formula
 
   depends_on "openjdk"
 
+  deny_network_access!
+
   def install
     libexec.install Dir["*"]
-    (bin/"tailor").write_env_script libexec/"bin/tailor", JAVA_HOME: formula_opt_prefix("openjdk")
+    (bin/"tailor").write_env_script libexec/"bin/tailor", JAVA_HOME: dep("openjdk").opt_prefix
     man1.install libexec/"tailor.1"
   end
 

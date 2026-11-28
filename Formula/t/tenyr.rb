@@ -31,6 +31,8 @@ class Tenyr < Formula
 
   uses_from_macos "flex" => :build
 
+  deny_network_access!
+
   def install
     inreplace "src/devices/sdlvga.c", "SDL_image.h", "SDL2/SDL_image.h"
     inreplace "src/devices/sdlled.c", "SDL_image.h", "SDL2/SDL_image.h"

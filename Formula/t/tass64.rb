@@ -19,6 +19,8 @@ class Tass64 < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "78bccbf88389de622f3d3aaee67eb4c065904c84aa87bc74b62a8ae17aa53012"
   end
 
+  deny_network_access!
+
   def install
     system "make", "install", "CPPFLAGS=-D_XOPEN_SOURCE", "prefix=#{prefix}"
 

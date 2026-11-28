@@ -11,6 +11,8 @@ class TCompletion < Formula
     sha256 cellar: :any_skip_relocation, all: "8f41fb3b6dcda43958db52bea7f259cddd0272735e4f09eafa61a01637ac9b9d"
   end
 
+  deny_network_access!
+
   def install
     bash_completion.install "legacy/etc/t-completion.sh" => "t"
     zsh_completion.install "legacy/etc/t-completion.zsh" => "_t"
