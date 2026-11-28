@@ -42,9 +42,10 @@ class DjlServing < Formula
     EOS
     ENV["MODEL_SERVER_HOME"] = testpath
     cp_r Dir["#{libexec}/*"], testpath
-    spawn bin/"djl-serving -f config.properties"
-    sleep 30
-    cmd = "http://127.0.0.1:#{port}/ping"
-    assert_match "{}\n", shell_output("curl --fail #{cmd}")
+    with_test_process(bin/"djl-serving", "-f", "config.properties") do
+      sleep 30
+      cmd = "http://127.0.0.1:#{port}/ping"
+      assert_match "{}\n", shell_output("curl --fail #{cmd}")
+    end
   end
 end
