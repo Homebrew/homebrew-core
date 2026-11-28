@@ -104,12 +104,11 @@ class Garnet < Formula
     ENV["DOTNET_USE_POLLING_FILE_WATCHER"] = "1" if OS.mac?
 
     port = free_port
-    fork do
-      exec bin/"GarnetServer", "--port", port.to_s
-    end
-    sleep 3
+    with_test_process(bin/"GarnetServer", "--port", port.to_s) do
+      sleep 3
 
-    output = shell_output("#{formula_opt_bin("valkey")}/valkey-cli -h 127.0.0.1 -p #{port} ping")
-    assert_equal "PONG", output.strip
+      output = shell_output("#{formula_opt_bin("valkey")}/valkey-cli -h 127.0.0.1 -p #{port} ping")
+      assert_equal "PONG", output.strip
+    end
   end
 end
