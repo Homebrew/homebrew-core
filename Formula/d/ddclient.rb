@@ -70,12 +70,8 @@ class Ddclient < Formula
   end
 
   test do
-    begin
-      pid = spawn bin/"ddclient", "-file", pkgetc/"ddclient.conf", "-debug", "-verbose", "-noquiet"
+    with_test_process(bin/"ddclient", "-file", pkgetc/"ddclient.conf", "-debug", "-verbose", "-noquiet") do
       sleep 1
-    ensure
-      Process.kill "TERM", pid
-      Process.wait
     end
     $CHILD_STATUS.success?
 
