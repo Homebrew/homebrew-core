@@ -51,9 +51,9 @@ class Jobber < Formula
           time: '*'
     YAML
 
-    spawn libexec/"jobberrunner", testpath/".jobber"
-    sleep 3
-
-    assert_match "Hi!", (testpath/"output").read
+    with_test_process(libexec/"jobberrunner", testpath/".jobber", signal: "-TERM", pgroup: true) do
+      sleep 3
+      assert_match "Hi!", (testpath/"output").read
+    end
   end
 end
