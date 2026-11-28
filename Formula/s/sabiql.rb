@@ -6,12 +6,12 @@ class Sabiql < Formula
   license "MIT"
 
   bottle do
-    manifest_sha256 "15b816c085bd543176139c9c7283f3f56b2e04a5c2bfe048d8bb42c91f103e7b"
-    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "e9b7a5f1f4b686c6556631f3d56809b48bdc4feda40704b037beb9ef6c40dd65"
-    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "a23c4c1d626806444ed389434a589dcd815ffc9625411c553cb41debdb404d48"
-    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "6029c9cf183785af7d7f6f9f0f4e18cc14d82c85083f9a781467897be2a5c472"
-    sha256 cellar: :any,                 arm64_linux:       "87c055b3652a1505f8df497c501fa7b59d8d563671aba55e860962122a203fec"
-    sha256 cellar: :any,                 x86_64_linux:      "4409c56b4a2f0be182bcaee6d603364a5e2fe585ad8f9db372b86af864079774"
+    manifest_sha256 "149e282d2852ac01cc946bb421cb37165abca4706fc25c0fb1ee1598d8e6f790"
+    sha256 cellar: :any_skip_relocation, arm64_golden_gate: "226588f5873e06c4f8129514212aada561de0363d20cb2690ccf02d04c03038f"
+    sha256 cellar: :any_skip_relocation, arm64_tahoe:       "4c9da68d15d6abf2f6eb024bd827249e3e7a3fbd662d92dc5aca1f4971bed3b3"
+    sha256 cellar: :any_skip_relocation, arm64_sequoia:     "b520d05217593613af3449a7d355dba62d1d86031bd140a7cabbef03afd25b06"
+    sha256 cellar: :any,                 arm64_linux:       "5bf0188917aa38ac0231c1fee2e9d503286ddabc9ff1a0e4b92cd995e74d935d"
+    sha256 cellar: :any,                 x86_64_linux:      "05bf3e7a458c47b9cc3d8166b479758515d9c4e0b90fee135b026c06f6500f52"
   end
 
   depends_on "rust" => :build
