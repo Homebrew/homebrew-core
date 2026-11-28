@@ -11,14 +11,13 @@ class Urh < Formula
   no_autobump! because: "`update-python-resources` cannot determine dependencies"
 
   bottle do
-    manifest_sha256 "4f68b60373599e32849a4f11c26144317860f576637da5a926a01573863da44f"
-    sha256 cellar: :any,                 arm64_golden_gate: "e7599c480afbe4006e47bbea703b34921045225c789ddb3dabd333634f8735bd"
-    sha256 cellar: :any,                 arm64_tahoe:       "d045c9c12bfa3c15c40058b62984619e91fc1e7883b39ff2693e140e806f71fc"
-    sha256 cellar: :any,                 arm64_sequoia:     "21043800855ce2da2456d600a7710040f1af40e620f6e7269890cd9ce16e0b0f"
-    sha256 cellar: :any,                 arm64_sonoma:      "ac8bf70afb6a48022aa28d9cdc411b6be8d1d7b1bc6e632b25ade589f495f568"
-    sha256 cellar: :any,                 sonoma:            "cb5dc00b8b7b0a563fc01e313b2a42aab04446fb17a02577d115a725ed336e12"
-    sha256 cellar: :any_skip_relocation, arm64_linux:       "519ef56378fa53f474781233ceb35cd6fc46b21c9be649aed61089846c3b1ee1"
-    sha256 cellar: :any_skip_relocation, x86_64_linux:      "07c1c8a80f51c56feeed46ceeb671839ef925ddafffefc669ce3a67fc0c5947f"
+    rebuild 1
+    manifest_sha256 "59510a5cc87cb5a048a88bb417ad7d76aa2742a4a9a520fa647872cd2a7aad02"
+    sha256 cellar: :any, arm64_golden_gate: "dbfd3fbe60bd6aacd07effc483a9aabd7f1adad4d4de543627d89d712a63af43"
+    sha256 cellar: :any, arm64_tahoe:       "b2282da7ccd9fe20b1f883b5631021159348fe4af13b08f282aaef448023eea5"
+    sha256 cellar: :any, arm64_sequoia:     "8134bbcbe25efb0c2af4229a798bfa4c506f983fdae041ab587da3f61f7688ce"
+    sha256 cellar: :any, arm64_linux:       "f0ef48399f027faa0bf98159ef19e47cb54ee68b355d6a56412d7787b69c4763"
+    sha256 cellar: :any, x86_64_linux:      "0424b559b793c7ee4d7c1cb94b99d9b4d1162f363a807022d87ec8d9c25a269b"
   end
 
   deprecate! date: "2026-07-17", because: :repo_archived
