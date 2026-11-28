@@ -9,14 +9,13 @@ class Scnlib < Formula
   head "https://github.com/eliaskosunen/scnlib.git", branch: "master"
 
   bottle do
-    manifest_sha256 "1445d6abf1d4ac34b74edf54d114552c0edc1046b18cc79c1117f49267550096"
-    sha256 cellar: :any, arm64_golden_gate: "e420c162d2c19c3e41d300ab0204af2c1d442290703b3e02e15f4f28b62ed343"
-    sha256 cellar: :any, arm64_tahoe:       "3e180e76dc48748f90b00b0105e87716992ca66c2ad920d0ab009a1691bedf2f"
-    sha256 cellar: :any, arm64_sequoia:     "1b438140c8a4e9d36ef5c2352e3d12074c142a8e3482e903494cea8a8cf2ccbe"
-    sha256 cellar: :any, arm64_sonoma:      "d36bbd09689058697115f4402fcecc172c5c3a0abcb96462fb0ea82a1899b020"
-    sha256 cellar: :any, sonoma:            "83372097af15d6f124231a11517b83af153aeaea7942e1f589178b83a2e97fe5"
-    sha256 cellar: :any, arm64_linux:       "937eb02bf741102204e46471e38bb13548515dd03ef7a87c06143deddfde264e"
-    sha256 cellar: :any, x86_64_linux:      "5da43a80dcb3555e86bbc1e5dac081ad275282a7395e9e3bd082f08dfedf4fbd"
+    rebuild 1
+    manifest_sha256 "b10e0c8887e57e5fe1d83a93bcfabbb03096609e72a39564162c611f429aab4f"
+    sha256 cellar: :any, arm64_golden_gate: "90259d8ab7c91c9ac4d9607319865c62d1f90b717bbbd48956120e2e885bfce3"
+    sha256 cellar: :any, arm64_tahoe:       "d65eaaf368f17b9a8f71ea12ea6cae05c03e7a43e8194e92f2581d6d2219d7ea"
+    sha256 cellar: :any, arm64_sequoia:     "e84eb4515aafdfa12f9fb5f0e841391da9078c5c8d2c7efb8b5ee95a75cd11fc"
+    sha256 cellar: :any, arm64_linux:       "3b46096c44c7b0c08bfa823e4b27f68fdf8ac26291afa2ade3b507d2175a4bc1"
+    sha256 cellar: :any, x86_64_linux:      "b21a59627528f203d6ed974ace5e6b57048302213767fabb1d6808a3daf0db83"
   end
 
   depends_on "cmake" => :build
