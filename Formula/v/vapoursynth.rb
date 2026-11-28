@@ -47,6 +47,8 @@ class Vapoursynth < Formula
     end
   end
 
+  allow_network_access! :build
+
   def install
     ENV.runtime_cpu_detection
     ENV.prepend "LDFLAGS", "-L#{formula_opt_lib("llvm")}/c++" if OS.mac? && MacOS.version <= :ventura
