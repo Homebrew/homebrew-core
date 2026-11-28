@@ -23,6 +23,8 @@ class Terminalimageviewer < Formula
 
   depends_on "imagemagick"
 
+  deny_network_access!
+
   def install
     cd "src" do
       system "make"

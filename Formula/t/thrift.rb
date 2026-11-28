@@ -36,6 +36,8 @@ class Thrift < Formula
 
   conflicts_with "fbthrift", because: "both install `thrift` binaries"
 
+  deny_network_access!
+
   def install
     system "./bootstrap.sh" unless build.stable?
 
@@ -89,7 +91,7 @@ class Thrift < Formula
 
     system bin/"thrift", "-r", "--gen", "cpp", "test.thrift"
 
-    system ENV.cxx, "-std=c++11", "gen-cpp/MultiplicationService.cpp",
+    system ENV.cxx, "gen-cpp/MultiplicationService.cpp",
       "gen-cpp/MultiplicationService_server.skeleton.cpp",
       "-I#{include}/include",
       "-L#{lib}", "-lthrift"

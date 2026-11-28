@@ -46,6 +46,8 @@ class Tiledb < Formula
     resolves "https://github.com/TileDB-Inc/TileDB/pull/5793"
   end
 
+  deny_network_access!
+
   def install
     args = %w[
       -DTILEDB_EXPERIMENTAL_FEATURES=OFF

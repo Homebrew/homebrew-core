@@ -22,6 +22,8 @@ class Timelimit < Formula
     sha256 cellar: :any,                 x86_64_linux:      "efb44a105ef0d77a5be31e5b4025de8c80b515b49ad31f07b05a24de6a7c0b5e"
   end
 
+  deny_network_access!
+
   def install
     # don't install for specific users
     inreplace "Makefile", "-o ${BINOWN} -g ${BINGRP}", ""
