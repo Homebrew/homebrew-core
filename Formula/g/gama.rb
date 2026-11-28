@@ -36,10 +36,8 @@ class Gama < Formula
     #
     # There's no any output to stdout (except for ncurses-like UI) or a file
     # `gama --version` or `gama --help` are not valid options either
-    pid = spawn bin/"gama"
-    sleep 2
-  ensure
-    Process.kill("TERM", pid)
-    Process.wait pid
+    with_test_process(bin/"gama") do
+      sleep 2
+    end
   end
 end
