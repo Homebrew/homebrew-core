@@ -4,6 +4,7 @@ class Gtk4LayerShell < Formula
   url "https://github.com/wmww/gtk4-layer-shell/archive/refs/tags/v1.3.0.tar.gz"
   sha256 "1ebb01ab14e98afd1727f68f64981c37bd23305b1f131f5667c02b94cf593192"
   license "MIT"
+  compatibility_version 1
   head "https://github.com/wmww/gtk4-layer-shell.git", branch: "main"
 
   bottle do
