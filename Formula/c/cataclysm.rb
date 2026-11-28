@@ -91,16 +91,12 @@ class Cataclysm < Formula
 
     # run cataclysm for 50 seconds
     tries = 0
-    pid = spawn bin/"cataclysm"
-    begin
+    with_test_process(bin/"cataclysm") do
       sleep 5
       assert_path_exists user_config_dir/"config", "User config directory should exist"
     rescue Minitest::Assertion
       retry if (tries += 1) < 10
       raise
-    ensure
-      Process.kill("TERM", pid)
-      Process.wait(pid)
     end
   end
 end
