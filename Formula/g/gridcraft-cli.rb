@@ -6,6 +6,11 @@ class GridcraftCli < Formula
   license any_of: ["MIT", "Apache-2.0"]
   head "https://github.com/storytold/gridcraft.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   bottle do
     manifest_sha256 "e705eafbacbb4bc474bd2c69c79906ab02d4710dbde4c04f8e8d49235030c59f"
     sha256 cellar: :any_skip_relocation, arm64_golden_gate: "3b21bf56f2327f7752a019e620eca3f90ed6e48bc32db4e237c532b2be392346"
