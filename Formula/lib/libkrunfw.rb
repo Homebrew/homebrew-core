@@ -3,10 +3,10 @@ class Libkrunfw < Formula
 
   desc "Dynamic library bundling the guest payload consumed by libkrun"
   homepage "https://github.com/libkrun/libkrunfw"
-  url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v5.6.4.tar.gz"
-  sha256 "5b92b6f2a5ee6a16583bd37014a37794451a00d120fceee104f84404118757d0"
+  url "https://github.com/libkrun/libkrunfw/archive/refs/tags/v6.0.0.tar.gz"
+  sha256 "1844142c8f79beac0dd47ae700b8a3d756d4d5d2338f9f53967c419d1e7ff4c7"
   license all_of: ["LGPL-2.1-only", "GPL-2.0-only"]
-  compatibility_version 1
+  compatibility_version 2
 
   bottle do
     manifest_sha256 "336e313d45797079b5bc5f9acf33b796539e9a58975048394bda3159ea9ed472"
@@ -40,20 +40,10 @@ class Libkrunfw < Formula
     depends_on "elfutils" => :build
   end
 
+  # See `https://raw.githubusercontent.com/libkrun/libkrunfw/refs/tags/v#{LATEST_VERSION}/Makefile`
   resource "kernel" do
-    url "https://github.com/libkrun/linux/archive/refs/tags/v5.6.4-6.12.115.tar.gz", using: :nounzip
-    sha256 "050fcea96b607e49f135f270472bc95346c172c9d6df5f9256aeb6f7972675d5"
-
-    livecheck do
-      url "https://raw.githubusercontent.com/libkrun/libkrunfw/refs/tags/v#{LATEST_VERSION}/Makefile"
-      regex(/^KERNEL_VERSION\s*=\s*(\d+(:?\.\d+)+)$/i)
-      strategy :page_match do |page, regex|
-        full_version = page.match(/^FULL_VERSION\s*=\s*(\d+(:?\.\d+)+)$/i)[1]
-        page.scan(regex).map do |match|
-          "#{full_version}-#{match.first}"
-        end
-      end
-    end
+    url "https://github.com/libkrun/linux/archive/refs/heads/libkrunfw-linux-7.3.x.tar.gz", using: :nounzip
+    sha256 "48c99c7297aedd18e1c5014a1a056b810c7d477acd3894cd8312dd0a6d7ac7f1"
   end
 
   resource "pyelftools" do
@@ -66,14 +56,14 @@ class Libkrunfw < Formula
 
   def install
     kernel_version = resource("kernel").version
-    kernel_sources = "linux-#{kernel_version}"
+    kernel_sources = "linux-libkrunfw-linux-#{kernel_version}"
     kernel_binary = if Hardware::CPU.arm64?
       "#{kernel_sources}/arch/arm64/boot/Image"
     else
       "#{kernel_sources}/vmlinux"
     end
     resource("kernel").stage buildpath/"tarballs"
-    mv buildpath/"tarballs/#{kernel_sources}.tar.gz", buildpath/"tarballs/v#{kernel_version}.tar.gz"
+    mv buildpath/"tarballs/#{kernel_sources}.tar.gz", buildpath/"tarballs/libkrunfw-linux-#{kernel_version}.tar.gz"
 
     make_args = []
     make_args << "MACOS_BUILDER=native" if OS.mac?
