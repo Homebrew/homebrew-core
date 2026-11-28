@@ -19,6 +19,7 @@ class Uhdm < Formula
   end
 
   depends_on "cmake" => :build
+  depends_on "python-setuptools" => :build
   depends_on "python@3.15" => :build
   depends_on "pkgconf" => :test
   depends_on "capnp"
@@ -36,9 +37,11 @@ class Uhdm < Formula
     sha256 "ff70335d468e7eb6ec65b95b99d3a2836546063f63acc5171de367e834932a81"
   end
 
+  deny_network_access!
+
   def install
     venv = virtualenv_create(buildpath/"venv", python3)
-    venv.pip_install resources
+    venv.pip_install resources, build_isolation: false
 
     args = %W[
       -DBUILD_SHARED_LIBS=ON
