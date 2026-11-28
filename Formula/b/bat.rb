@@ -1,8 +1,8 @@
 class Bat < Formula
   desc "Clone of cat(1) with syntax highlighting and Git integration"
   homepage "https://github.com/sharkdp/bat"
-  url "https://github.com/sharkdp/bat/archive/refs/tags/v0.26.1.tar.gz"
-  sha256 "4474de87e084953eefc1120cf905a79f72bbbf85091e30cf37c9214eafcaa9c9"
+  url "https://github.com/sharkdp/bat/archive/refs/tags/v0.27.0.tar.gz"
+  sha256 "e7da57c30a7bf3c731bbc95d0be29ef14bab9e26ef8f0871df8ccaee241678dc"
   license any_of: ["Apache-2.0", "MIT"]
   compatibility_version 1
   head "https://github.com/sharkdp/bat.git", branch: "master"
@@ -19,7 +19,6 @@ class Bat < Formula
 
   depends_on "pkgconf" => :build
   depends_on "rust" => :build
-  depends_on "libgit2"
   depends_on "oniguruma"
 
   deny_network_access!
@@ -29,7 +28,6 @@ class Bat < Formula
   end
 
   def install
-    ENV["LIBGIT2_NO_VENDOR"] = "1"
     ENV["RUSTONIG_DYNAMIC_LIBONIG"] = "1"
     ENV["RUSTONIG_SYSTEM_LIBONIG"] = "1"
     # Generate assets outside Cargo's version-dependent build directories.
@@ -48,12 +46,8 @@ class Bat < Formula
     output = shell_output("#{bin}/bat #{pdf} --color=never")
     assert_match "Homebrew test", output
 
-    [
-      formula_opt_lib("libgit2")/shared_library("libgit2"),
-      formula_opt_lib("oniguruma")/shared_library("libonig"),
-    ].each do |library|
-      assert Utils.binary_linked_to_library?(bin/"bat", library),
-             "No linkage with #{library.basename}! Cargo is likely using a vendored version."
-    end
+    library = formula_opt_lib("oniguruma")/shared_library("libonig")
+    assert Utils.binary_linked_to_library?(bin/"bat", library),
+           "No linkage with #{library.basename}! Cargo is likely using a vendored version."
   end
 end
