@@ -1,8 +1,8 @@
 class Libredwg < Formula
   desc "DWG utilities"
   homepage "https://www.gnu.org/software/libredwg/"
-  url "https://ftpmirror.gnu.org/libredwg/libredwg-0.14.tar.gz"
-  sha256 "cb6ee0b078c6d9e0f09d66f1feac33ba6342df88ae544e9f9335fab475218351"
+  url "https://ftpmirror.gnu.org/libredwg/libredwg-0.15.tar.gz"
+  sha256 "5e6ffef2d680079e25029a88058ca8a1ccae735924ce0bc576331107da740fe6"
   license "GPL-3.0-or-later"
 
   bottle do
