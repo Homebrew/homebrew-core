@@ -12,12 +12,12 @@ class Visp < Formula
   end
 
   bottle do
-    manifest_sha256 "25e1c9eb5c2504a0f56dc43b0fb25f302da43186631a7a6e9af999635105ec1b"
-    sha256 cellar: :any, arm64_golden_gate: "c74f019c376df94c4ddf5f8d78c678fbfc8534283a3b81c4e0359396e7ea9eca"
-    sha256 cellar: :any, arm64_tahoe:       "689c8caaa07945e2c155cba794915143941d65a1c2d2327af69c8264ae7ff602"
-    sha256 cellar: :any, arm64_sequoia:     "c1759f5cf0e780adb55ccef2dc4c8d7a6d34270824d99e8b367ac45e714baf05"
-    sha256 cellar: :any, arm64_linux:       "7e1009b7d0b90367a5304aadb2777da6c20652cf6bfabd03853f0eb744eec6fa"
-    sha256 cellar: :any, x86_64_linux:      "cf18583040641ff01d2015bd09b2c5a1d036038f565a40ca07866b1a9e8544df"
+    manifest_sha256 "9f4587798b0eb74b6e0c5f8afded50d6573adab03c5253133388609c418f3755"
+    sha256 cellar: :any, arm64_golden_gate: "2dfb5d4acb5a18002ce37035a1576ca45375edc4b72d45d3345cde0d1b91ed5d"
+    sha256 cellar: :any, arm64_tahoe:       "27b6593dad57393f1aca07fbde2b317e06b03c2fecaff784753c3c2ebf3e6731"
+    sha256 cellar: :any, arm64_sequoia:     "bbde8ffa7c1f0698f170601255e599eb228d53761e48fb1c1944f589cdd68e61"
+    sha256 cellar: :any, arm64_linux:       "9ea3429de393b1db40148c089e973e1abe4563d8da37a7eee357ca18e72663ca"
+    sha256 cellar: :any, x86_64_linux:      "e16d61712a9c375d900c2a99e967ce4c7d3a10c787c2a1a338106e134082431f"
   end
 
   depends_on "cmake" => [:build, :test]
