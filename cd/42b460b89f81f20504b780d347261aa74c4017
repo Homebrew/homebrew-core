@@ -1,0 +1,14 @@
+Formula/k/ku.rb
+  h_9df9c32c3f321d 1-28
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "cd42b460b89f81f20504b780d347261aa74c4017",
+  "prompts": {},
+  "humans": {
+    "h_9df9c32c3f321d": {
+      "author": "Rui Chen <rui@chenrui.dev>"
+    }
+  }
+}
