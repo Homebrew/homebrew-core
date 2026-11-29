@@ -41,6 +41,8 @@ class Watchman < Formula
     depends_on "openssl@4"
   end
 
+  deny_network_access!
+
   def install
     # Match the F14 ABI in bottled Folly instead of compiling for the host CPU.
     if OS.linux? && Tab.for_formula(Formula["folly"]).built_as_bottle
