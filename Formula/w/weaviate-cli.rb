@@ -171,6 +171,8 @@ class WeaviateCli < Formula
     sha256 "787df83277dd6afaf852770d07deb97eec603e900c670777e173a0474e1f4f40"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
 
