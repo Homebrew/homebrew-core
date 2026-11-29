@@ -27,6 +27,8 @@ class Wayland < Formula
   depends_on "libxml2"
   depends_on :linux
 
+  deny_network_access!
+
   def install
     system "meson", "setup", "build", "-Dtests=false", "-Ddocumentation=false", *std_meson_args
     system "meson", "compile", "-C", "build", "--verbose"
