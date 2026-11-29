@@ -30,6 +30,8 @@ class Webfs < Formula
     type :unofficial
   end
 
+  deny_network_access!
+
   def install
     ENV["prefix"]=prefix
     args = ["mimefile=#{etc}/httpd/mime.types"]
