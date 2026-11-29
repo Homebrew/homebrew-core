@@ -42,6 +42,8 @@ class Weechat < Formula
     depends_on "zlib-ng-compat"
   end
 
+  deny_network_access!
+
   def install
     tcltk = dep("tcl-tk").to_formula
     tcl_library = tcltk.opt_lib/shared_library("libtcl#{tcltk.version.major_minor}")

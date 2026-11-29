@@ -71,6 +71,8 @@ class Weasyprint < Formula
     sha256 "d3a50f91a13cea9bafe025de8fd87a005eb26de02a4f0c193127ddbf23ac8ebe"
   end
 
+  allow_network_access! :build
+
   def install
     virtualenv_install_with_resources
   end
