@@ -24,6 +24,8 @@ class WatchSim < Formula
   depends_on :macos
   depends_on xcode: "6.2"
 
+  deny_network_access!
+
   def install
     system "make"
     bin.install "watch-sim"
