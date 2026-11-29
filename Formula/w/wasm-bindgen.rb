@@ -23,6 +23,12 @@ class WasmBindgen < Formula
   depends_on "node" => :test
   depends_on "rustup" => :test
 
+  deny_network_access!
+
+  def fetch
+    system "cargo", "fetch", *std_cargo_fetch_args
+  end
+
   def install
     system "cargo", "install", *std_cargo_args(path: "crates/cli")
   end
