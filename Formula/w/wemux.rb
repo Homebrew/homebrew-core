@@ -14,6 +14,8 @@ class Wemux < Formula
 
   depends_on "tmux"
 
+  deny_network_access!
+
   def install
     inreplace "wemux", "/usr/local/etc", etc
     bin.install "wemux"
