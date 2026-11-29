@@ -13,6 +13,8 @@ class Webpod < Formula
 
   depends_on "node"
 
+  allow_network_access! :build
+
   def install
     system "npm", "install", *std_npm_args
     bin.install_symlink libexec.glob("bin/*")
