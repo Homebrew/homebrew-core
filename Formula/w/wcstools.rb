@@ -24,6 +24,8 @@ class Wcstools < Formula
     sha256 cellar: :any_skip_relocation, x86_64_linux:      "8cbcde8f555ee9b4399110632e784cadb293066619453e7519b8cd27aa547181"
   end
 
+  deny_network_access!
+
   def install
     inreplace "Makefile" do |s|
       cflags = s.get_make_var("CFLAGS").split
