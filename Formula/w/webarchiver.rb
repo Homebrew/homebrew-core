@@ -20,6 +20,8 @@ class Webarchiver < Formula
   depends_on xcode: ["6.0.1", :build]
   depends_on :macos
 
+  deny_network_access!
+
   def install
     # Force 64 bit-only build, otherwise it fails on Mojave
     xcodebuild "SYMROOT=build", "-arch", Hardware::CPU.arch
