@@ -18,6 +18,8 @@ class Webpack < Formula
     sha256 "833aab597a1f8748bd943a961763fe4a5640c7efa6c6e5c0e88a497db90c42dd"
   end
 
+  allow_network_access! :build
+
   def install
     (buildpath/"node_modules/webpack").install Dir["*"]
     buildpath.install resource("webpack-cli")
