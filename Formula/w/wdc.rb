@@ -27,6 +27,8 @@ class Wdc < Formula
     depends_on "openssl@4"
   end
 
+  deny_network_access!
+
   def install
     inreplace "CMakeLists.txt", "CURL CONFIG REQUIRED", "CURL REQUIRED"
 
